@@ -28,7 +28,7 @@ Este tutorial le guiará en el siguiente proceso:
 + [Actualización de la aplicación para que inicie sesión antes del registro]
 + [Prueba de la aplicación]
  
-Este tutorial es válido para aplicaciones de Windows Phone 8.0 y Windows Phone 8.1 ("Silverlight"). Para aplicaciones de la Tienda de Windows Phone 8.1, consulte la [versión para la Tienda Windows de este tema](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
+Este tutorial es válido para aplicaciones de Windows Phone 8.0 y Windows Phone 8.1 ("Silverlight"). Para aplicaciones de la Tienda de Windows Phone 8.1, consulte la [versión para la Tienda Windows de este tema](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
 
 ##Requisitos previos 
 

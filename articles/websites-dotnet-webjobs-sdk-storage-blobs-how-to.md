@@ -18,11 +18,11 @@
 
 # Cómo trabajar con almacenamiento de blob de Azure mediante el SDK de WebJobs
 
-En esta guía se proporcionan ejemplos de código de C# que muestran cómo desencadenar un proceso cuando se crea o se actualiza un blob de Azure. Los ejemplos de código usan la [SDK de WebJobs](websites-dotnet-webjobs-sdk.md)versión 1.x.
+En esta guía se proporcionan ejemplos de código de C# que muestran cómo desencadenar un proceso cuando se crea o se actualiza un blob de Azure. Los ejemplos de código usan la [SDK de WebJobs](../websites-dotnet-webjobs-sdk/)versión 1.x.
 
-Para obtener ejemplos de código que muestren cómo crear blobs, consulte [Cómo usar el almacenamiento de la cola de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obtener ejemplos de código que muestren cómo crear blobs, consulte [Cómo usar el almacenamiento de la cola de Azure con el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
 		
-En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md)..
+En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](../websites-dotnet-webjobs-sdk-get-started/)..
 
 ## Tabla de contenido
 
@@ -223,7 +223,7 @@ Si desea forzar el reprocesamiento de un blob, puede eliminar manualmente la not
 
 ## <a id="queues"></a>Temas relacionados que se tratan en el artículo de colas
 
-Para obtener información acerca de cómo controlar el procesamiento de blobs activados por un mensaje de cola, o escenarios del SDK de WebJobs que no sean específicos del procesamiento de blobs, consulte [Cómo usar el almacenamiento de la cola de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obtener información acerca de cómo controlar el procesamiento de blobs activados por un mensaje de cola, o escenarios del SDK de WebJobs que no sean específicos del procesamiento de blobs, consulte [Cómo usar el almacenamiento de la cola de Azure con el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
 
 Los temas que se tratan en este artículo incluyen:
 

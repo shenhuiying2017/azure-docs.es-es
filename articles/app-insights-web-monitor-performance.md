@@ -35,7 +35,7 @@ Si todavía no ha agregado Application Insights a un proyecto (es decir, si no d
 
 * [Agregar Application Insights a un proyecto de aplicación en Visual Studio][greenbrown]: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
 * [Supervisar el rendimiento de un sitio web activo ahora][redfield]: este procedimiento no precisa actualizar el proyecto de aplicación ni volver a implementar el sitio web.
-* [Para un sitio web de Microsoft Azure](insights-how-to-customize-monitoring.md)  ya puede ver las métricas en la supervisión del sitio web. 
+* [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring/)  ya puede ver las métricas en la supervisión del sitio web. 
 
 
 ## <a name="view"></a>Ver informes

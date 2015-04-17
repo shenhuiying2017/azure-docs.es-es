@@ -82,7 +82,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 		* Si usa SQL Server en una **máquina virtual de Azure**, se puede usar cualquier configuración de red virtual siempre que la máquina virtual que hospeda SQL Server sea miembro de la misma red virtual como HDInsight.
 
-	* Para **aprovisionar un clúster de HDInsight en una red virtual**, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](hdinsight-provision-clusters.md)
+	* Para **aprovisionar un clúster de HDInsight en una red virtual**, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](/es-es/documentation/articles/hdinsight-provision-clusters/)
 
 	> [AZURE.NOTE] SQL Server también debe permitir la autenticación SQL. Debe usar un inicio de sesión de SQL para realizar los pasos de este artículo.
 
@@ -363,7 +363,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 > [AZURE.NOTE] Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar en Base de datos de Azure o en SQL Server. Estos pasos se probaron con la siguiente configuración:
 > 
 > * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](http://msdn.microsoft.com/library/azure/dn133792.aspx).
-> * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](hdinsight-provision-clusters.md) para obtener información sobre la creación de un clúster en una red virtual.
+> * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](/es-es/documentation/articles/hdinsight-provision-clusters/) para obtener información sobre la creación de un clúster en una red virtual.
 > * **SQL Server 2014**: está configurado para permitir la autenticación de SQL y ejecuta el paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
 
 **Para exportar el archivo de registro log4j**

@@ -19,7 +19,7 @@
 
 # Indización de archivos multimedia con el Indizador multimedia de Azure
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote. También puede indizar archivos que están disponibles públicamente en Internet mediante la especificación de las direcciones URL de los archivos en el archivo de manifiesto.
 

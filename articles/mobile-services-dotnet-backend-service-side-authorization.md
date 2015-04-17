@@ -17,8 +17,8 @@
 # Autorización de usuarios del lado servidor en Servicios móviles
 
 > [AZURE.SELECTOR-LIST (Plataforma | Backend)]
-- [(Cualquiera | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Cualquiera | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+- [(Cualquiera | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
+- [(Cualquiera | Javascript)](/es-es/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
 
 En este tema se muestra cómo usar la lógica del lado servidor para autorizar a los usuarios.  En este tutorial, modificará los métodos de acceso a datos en .NET, filtrará consultas según los identificadores de usuario y proporcionará a los usuarios acceso solamente a sus propios datos.
 
@@ -30,7 +30,7 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE] Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](/es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
 
 2. En el Explorador de soluciones de Visual Studio, expanda la carpeta Controladores y abra **TodoItemController.cs**. Busque el método **PostTodoItem** y agregue el código siguiente al principio del método. Este código agrega el identificador de usuario del usuario autenticado al elemento antes de que este se inserte en la tabla TodoItem.
 

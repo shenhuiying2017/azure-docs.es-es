@@ -66,7 +66,7 @@ Para completar esta sección, asegúrese de realizar primero las siguientes tare
 3. Compruebe si tiene [.NET Framework 4.5](http://www.microsoft.com/download/details.aspx?id=30653) instalado en el equipo ya que los proyectos de ejemplo de la guía rápida de Azure lo necesitarán. Si no está seguro de qué versión de .NET Framework está instalada en su equipo, consulte [Cómo saber qué versiones de .NET Framework tengo instaladas](https://msdn.microsoft.com/vstudio/hh925568.aspx) o pulse el botón **Inicio** o la tecla de Windows y escriba **Panel de Control**. A continuación, haga clic en **Programas** > **Programas y características**. Compruebe si .NET Framework 4.5 aparece en la lista donde están todos los programas instalados.
 4.	Consiga una suscripción de Azure (si no la tiene ya) y cree una cuenta de **almacenamiento estándar**:
 	- Para obtener una suscripción de Azure, consulte [Prueba gratuita](, http://azure.microsoft.com/pricing/free-trial/)[Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/) y [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) (para miembros de MSDN, Microsoft Partner Network, BizSpark y otros programas de Microsoft).
-	- Para crear una cuenta de **almacenamiento estándar** en Azure, consulte [Cómo crear, administrar o eliminar una cuenta de almacenamiento](storage-create-storage-account.md). **Nota**: Existen dos tipos de cuentas de almacenamiento en Azure: La cuenta de almacenamiento estándar y la cuenta de almacenamiento premium. Una cuenta de almacenamiento estándar le proporcionará acceso al almacenamiento de blob, tabla y cola de Azure. Las cuentas de almacenamiento premium están solo disponibles para almacenar datos en discos que utilizan las máquinas virtuales de Azure. Para más información, consulte [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
+	- Para crear una cuenta de **almacenamiento estándar** en Azure, consulte [Cómo crear, administrar o eliminar una cuenta de almacenamiento](./storage-create-storage-account.md). **Nota**: Existen dos tipos de cuentas de almacenamiento en Azure: La cuenta de almacenamiento estándar y la cuenta de almacenamiento premium. Una cuenta de almacenamiento estándar le proporcionará acceso al almacenamiento de blob, tabla y cola de Azure. Las cuentas de almacenamiento premium están solo disponibles para almacenar datos en discos que utilizan las máquinas virtuales de Azure. Para más información, consulte [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](./storage-premium-storage-preview-portal.md).
 
 Ahora crearemos una sencilla aplicación de Almacenamiento de Azure con uno de los proyectos de ejemplo de la guía rápida de Azure en Visual Studio. Este tutorial se centra en los proyectos de ejemplo **Almacenamiento de blobs de Azure**, **Almacenamiento de tablas de Azure** y en **Almacenamiento de colas de Azure**. Por cada proyecto de ejemplo se aplicarán las siguientes instrucciones, a no ser que escoja una plantilla diferente en el paso 3.a:
 
@@ -88,7 +88,7 @@ Ejecute la aplicación de ejemplo:
 2.	Quite el comentario de la cadena de conexión del Servicio de almacenamiento de Azure y proporcione la clave de acceso y el nombre de la cuenta de almacenamiento en el archivo App.config:
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	Para buscar la clave de acceso y el nombre de la cuenta de almacenamiento, consulte [¿Qué es una cuenta de almacenamiento?](storage-whatis-account.md). 
+	Para buscar la clave de acceso y el nombre de la cuenta de almacenamiento, consulte [¿Qué es una cuenta de almacenamiento?](./storage-whatis-account.md). 
 
 3.	Una vez haya proporcionado el nombre de la cuenta de almacenamiento y la clave de acceso, en el menú **Archivo** haga clic en **Guardar todo** para guardar todos los archivos del proyecto. 
 4.	En el menú **Crear**, haga clic en **Crear solución**. 
@@ -100,10 +100,10 @@ En este tutorial ha aprendido a programar en Almacenamiento de blobs de Azure, A
 
 Si desea obtener más información acerca de ellas, consulte estos vínculos:
 
-* [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md)
-* [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md)
-* [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md)
-* [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md)
+* [Introducción a Almacenamiento de Microsoft Azure](./storage-introduction.md)
+* [Uso del almacenamiento de blobs en .NET](./storage-dotnet-how-to-use-blobs.md)
+* [Uso del almacenamiento de tablas en .NET](./storage-dotnet-how-to-use-tables.md)
+* [Uso del almacenamiento en cola en .NET](./storage-dotnet-how-to-use-queues.md)
 * [Documentación del almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 * [Referencia MSDN de Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 * [Biblioteca de cliente de almacenamiento de Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)

@@ -2,7 +2,7 @@
 	pageTitle="Inserción segura de los Centros de notificaciones de Azure" 
 	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET." 
 	documentationCenter="windows" 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
-	ms.author="glenga"/>
+	ms.date="02/24/2015" 
+	ms.author="wesmc"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/es-es/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
+    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
+
+##Información general
 
 La compatibilidad con las notificaciones de inserción en Microsoft Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. 
 
@@ -40,7 +42,7 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se 
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Tienda Windows)](http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
+> [AZURE.NOTE] En este tutorial se supone que ha creado y configurado el centro de notificaciones tal como se describe en[Introducción a los Centros de notificaciones (Tienda Windows)](notification-hubs-windows-store-dotnet-get-started.md).
 Asimismo, tenga en cuenta que Windows Phone 8.1 requiere credenciales de Windows (no de Windows Phone) y que las tareas en segundo plano no funcionan en Windows Phone 8.0 o Silverlight 8.1. Para aplicaciones de la Tienda Windows, puede recibir notificaciones a través de una tarea en segundo plano solamente si la aplicación tiene la pantalla de bloqueo habilitada (haga clic en la casilla en el manifiesto de la aplicación).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -67,7 +69,7 @@ Asimismo, tenga en cuenta que Windows Phone 8.1 requiere credenciales de Windows
             }
         }
 
-3. Agregue las siguientes instrucciones `using` en la parte superior del archivo App.xaml.cs:
+3. Agregue las siguientes instrucciones  `using` en la parte superior del archivo App.xaml.cs:
 
 		using Windows.Networking.PushNotifications;
 		using Windows.ApplicationModel.Background;
@@ -141,7 +143,7 @@ El paso siguiente es crear el componente de segundo plano de inserción.
 
 9. Nuevamente en el cuadro **Buscar** de NuGet, escriba **Json.net**. Instale el paquete **Json.NET** y cierre la ventana Administrador de paquetes de NuGet.
 
-10. Agregue las siguientes instrucciones `using` en la parte superior del archivo **PushBackgroundTask.cs**:
+10. Agregue las instrucciones `using` siguientes en la parte superior del archivo **PushBackgroundTask.cs**:
 
 		using Windows.ApplicationModel.Background;
 		using Windows.Networking.PushNotifications;
@@ -184,4 +186,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

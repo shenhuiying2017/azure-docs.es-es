@@ -110,11 +110,11 @@ Para obtener más información sobre la interfaz REST utilizada en este artícul
 
 Para obtener información general sobre Pig en HDInsight.
 
-* [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
+* [Uso de Pig con Hadoop en HDInsight](../hdinsight-use-pig/)
 
 Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
 
-* [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
+* [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
 
-* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
 <!--HONumber=45--> 

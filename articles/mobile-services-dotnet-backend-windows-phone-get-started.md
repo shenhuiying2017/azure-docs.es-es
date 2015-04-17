@@ -18,9 +18,9 @@
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-Ya no se admite este tema; un proyecto de inicio rápido de Windows Phone 8.0 ya no se encuentra disponible para descarga desde el portal. Para agregar Servicios móviles a una aplicación Silverlight de Windows Phone 8.0 o de Windows Phone 8.1, vea el tema [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md). 
+Ya no se admite este tema; un proyecto de inicio rápido de Windows Phone 8.0 ya no se encuentra disponible para descarga desde el portal. Para agregar Servicios móviles a una aplicación Silverlight de Windows Phone 8.0 o de Windows Phone 8.1, vea el tema [Incorporación de Servicios móviles a una aplicación existente](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/). 
 
-Hay disponible una descarga del proyecto de inicio rápido para aplicaciones de Windows Phone Store 8.1 como parte de un proyecto universal de Windows. Para obtener más información, vea [Introducción a los Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
+Hay disponible una descarga del proyecto de inicio rápido para aplicaciones de Windows Phone Store 8.1 como parte de un proyecto universal de Windows. Para obtener más información, vea [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/).
 
 
 

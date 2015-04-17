@@ -49,7 +49,7 @@ Si esas opciones no están disponibles, puede generar **certificados autofirmado
 
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
 
-* Obtenga el WDK desde [Windows 8.1: descarga de kits y herramientas](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obtenga el WDK desde [Windows 8.1: descarga de kits y herramientas](http://msdn.microsoft.com/en-US/windows/hardware/gg454513#drivers)
 
 ##    <a name="to-configure-ssl-cert"></a>Configuración del certificado SSL
 Se requiere un certificado SSL para cifrar la comunicación y autenticar el servidor. Elija el escenario más aplicable entre los tres que aparecen a continuación y ejecute todos sus pasos:

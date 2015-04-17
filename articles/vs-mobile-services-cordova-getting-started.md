@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-mobile-services-cordova-getting-started.md)
-> - [¿Qué ha ocurrido?](vs-mobile-services-cordova-what-happened.md)
+> - [Introducción](/documentation/articles/vs-mobile-services-cordova-getting-started/)
+> - [¿Qué ha ocurrido?](/documentation/articles/vs-mobile-services-cordova-what-happened/)
 
 ## Introducción a Servicios móviles (proyectos Cordova)
 

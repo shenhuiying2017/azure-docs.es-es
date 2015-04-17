@@ -19,7 +19,7 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
 
 1. En el Explorador de soluciones en Visual Studio, expanda la carpeta **Controladores** y, a continuación, abra el archivo RegisterController.cs. 
 
-2. Encuentre el bloque de código en el método **Post** que crea un nuevo registro y reemplace el contenido del `switch` por el código siguiente:
+2. Encuentre el bloque de código en el método **Post** que crea un nuevo registro y reemplace el contenido de  `switch` por el código siguiente:
 
 		switch (deviceUpdate.Platform)
         {
@@ -50,7 +50,7 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
 	
 	Este código llama al método específico de la plataforma para crear un registro de plantilla en lugar de un registro nativo. No se deben modificar los registros existentes, dado que los registros de plantilla derivan de los registros nativos.
 
-3. En el controlador **Notifications**, reemplace el método **sendNotification** por el siguiente código:
+3. En el controlador **Notifications**, reemplace el método **sendNotification** por el código siguiente:
 
         public async Task<HttpResponseMessage> Post()
         {
@@ -63,7 +63,7 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-	Este código envía una notificación a todas las plataformas al mismo tiempo y sin que sea necesario especificar una carga nativa. Los Centros de notificaciones crean y entregan la carga correcta a cada dispositivo con el valor _tag_ proporcionado, tal como se especifica en las plantillas registradas.
+	Este código envía una notificación a todas las plataformas al mismo tiempo y sin que sea necesario especificar una carga nativa. Los centros de notificaciones crean y entregan la carga correcta a cada dispositivo con el valor _tag_ proporcionado, tal como se especifica en las plantillas registradas.
 
 4. Publique de nuevo su proyecto de back-end de WebApi.
 
@@ -93,15 +93,15 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 
 
 <!-- URLs. -->
-[Inserción a usuarios de ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet
-[Inserción a usuarios de Servicios móviles]: /es-es/manage/services/notification-hubs/notify-users/
+[Inserción a usuarios de ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Inserción a usuarios de Servicios móviles]: /manage/services/notification-hubs/notify-users/
 [Visual Studio 2012 Express para Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Portal de administración]: https://manage.windowsazure.com/
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Centros de notificaciones de Azure]: http://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notificación a los usuarios con Centros de notificaciones]: /es-es/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
+[Notificación a los usuarios con Centros de notificaciones]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Plantillas]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procedimientos en los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

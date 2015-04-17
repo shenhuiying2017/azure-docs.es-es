@@ -28,11 +28,11 @@ Tenga en cuenta que puede integrar Servicios multimedia con los procesos y herra
 En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en el flujo de trabajo de vídeo bajo demanda.
 ![VoD workflow][vod-overview]
 
-Para obtener más información, consulte [Información general de Servicios multimedia](media-services-overview.md).
+Para obtener más información, consulte [Información general de Servicios multimedia](../media-services-overview).
 
 ## Creación de una cuenta de Servicios multimedia
 
-Use el **Portal de administración de Azure** para [crear una cuenta de Servicios multimedia de Azure](media-services-create-account.md). 
+Use el **Portal de administración de Azure** para [crear una cuenta de Servicios multimedia de Azure](../media-services-create-account/). 
 
 ## Configuración de extremos de streaming
 
@@ -82,7 +82,7 @@ Supervise el progreso del trabajo mediante el **Portal de administración de Azu
 
 ### Codificación 
 
-Vea [Codificación con Servicios multimedia de Azure](media-services-encode-asset.md).
+Vea [Codificación con Servicios multimedia de Azure](../media-services-encode-asset).
 
 ## Configuración de la directiva de autorización de claves de contenido 
 
@@ -108,12 +108,12 @@ Puede escalar **Servicios multimedia** mediante la especificación del número d
 
 También puede escalar la cuenta de Servicios multimedia agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia.
 
-[Este](media-services-how-to-scale.md) tema contiene vínculos a temas relevantes.
+[Este](../media-services-how-to-scale) tema contiene vínculos a temas relevantes.
 
 
 ## Reproducción del contenido
 
-Para obtener más información, consulte [Reproducción de contenido con reproductores existentes](media-services-playback-content.md).
+Para obtener más información, consulte [Reproducción de contenido con reproductores existentes](../media-services-playback-content).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png
 <!--HONumber=47-->

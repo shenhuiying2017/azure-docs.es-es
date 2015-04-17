@@ -1,6 +1,6 @@
 
 En esta sección se muestra cómo enviar notificaciones desde una aplicación de consola .NET y desde cualquier otra aplicación.
-Si está usando Servicios móviles, consulte los tutoriales de [Introducción a las notificaciones push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [interfaz de REST de Centros de notificaciones].
+Si está usando Servicios móviles, consulte los tutoriales de [Introducción a las notificaciones de inserción](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Si quiere utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [interfaz de REST de Centros de notificaciones].
 
 El código siguiente envía notificaciones a dispositivos de la Tienda Windows, Windows Phone, iOS y Android. 
 
@@ -8,7 +8,7 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
 
 1. En Visual Studio, cree una aplicación de consola en Visual C#: 
 
-   	![][13]
+   ![][13]
 
 2. En el menú principal de Visual Studio, haga clic sucesivamente en **Herramientas**, **Administrador de paquetes de la biblioteca** y **Consola del administrador de paquetes**, y luego, en la ventana de la consola, escriba lo siguiente y presione **Entrar**:
 
@@ -16,7 +16,7 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
  	
 	Se agrega una referencia al SDK de Bus de servicio de Azure mediante el paquete de NuGet <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus</a>. 
 
-3. Abra el archivo Program.cs y agregue la siguiente instrucción  `using`:
+3. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -71,7 +71,7 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
 
 	Este código envía notificaciones para cada una de las seis etiquetas de la matriz de cadenas a dispositivos de la Tienda Windows, Windows Phone y iOS. El uso de etiquetas ofrece la seguridad de que los dispositivos reciben notificaciones solo de las categorías registradas.
 	
-	> [AZURE.NOTE] Este código de back-end es compatible con clientes de la Tienda Windows, Windows Phone , iOS y Android. Los métodos de envío devuelven una respuesta de error cuando el Centro de notificaciones no se ha configurado aún para una plataforma cliente determinada. 
+	> [AZURE.NOTE] Este código de back-end es compatible con clientes de la Tienda Windows, Windows Phone, iOS y Android. Los métodos de envío devuelven una respuesta de error cuando el Centro de notificaciones no se ha configurado aún para una plataforma cliente determinada. 
 
 6. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with full access>` por el nombre del Centro de notificaciones y la cadena de conexión de *DefaultFullSharedAccessSignature* que obtuvo anteriormente.
 
@@ -92,13 +92,13 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Uso de los Centros de notificaciones para enviar notificaciones a los usuarios]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[Uso de los Centros de notificaciones para enviar notificaciones a los usuario]: ../articles/tutorial-notify-users-mobileservices.md
+[Introducción a los servicios móviles]: /develop/mobile/tutorials/get-started/#create-new-service
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
-[Interfaz de REST de Centros de notificaciones]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+[interfaz de REST de Centros de notificaciones]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

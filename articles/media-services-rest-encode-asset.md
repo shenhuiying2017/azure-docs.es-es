@@ -19,7 +19,7 @@
 
 # Codificación de un recurso mediante el Codificador multimedia de Azure
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 ## Información general
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia.
@@ -32,9 +32,9 @@ Se recomienda codificar siempre los archivos intermedios en un conjunto de archi
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
 
 
 En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con el Codificador multimedia de Azure, puede usar los valores preestablecidos de configuración de tarea especificados [aquí](https://msdn.microsoft.com/library/azure/dn619389.aspx).
@@ -110,7 +110,7 @@ En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie
 
 
 ## Pasos siguientes
-Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](media-services-rest-check-job-progress.md) .
+Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](../media-services-rest-check-job-progress/) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Valores preestablecidos del codificador]: http://msdn.microsoft.com/library/dn619392.aspx

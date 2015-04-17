@@ -21,7 +21,7 @@
 # Cargar archivos en una cuenta de Servicios multimedia mediante .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -37,7 +37,7 @@ Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta
 
 	Tenga en cuenta que los Servicios multimedia proporcionan cifrado de almacenamiento en disco para los recursos, no por cable como el Administrador de derechos digitales (DRM).
 
-Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncypted**, deberá asociar el recurso con una **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](media-services-dotnet-create-contentkey.md). 
+Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncypted**, deberá asociar el recurso con una **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](../media-services-dotnet-create-contentkey). 
 
 Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted****ContentKey** para el recurso.
 

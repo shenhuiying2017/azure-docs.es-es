@@ -523,7 +523,7 @@ Para instalar las herramientas de línea de comandos, use el siguiente comando:
 	
 	npm install azure-cli -g
 
-> [AZURE.NOTE] Para obtener más información, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](xplat-cli.md);
+> [AZURE.NOTE] Para obtener más información, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/);
 
 > [AZURE.NOTE] A pesar de que las herramientas de línea de comandos se crearon principalmente para los usuarios de Mac y Linux, están basadas en Node.js y deberían funcionar en cualquier sistema capaz de ejecutar Node.
 

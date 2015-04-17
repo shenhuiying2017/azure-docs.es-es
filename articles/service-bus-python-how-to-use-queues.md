@@ -25,7 +25,7 @@ Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos e
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Nota:** si necesita instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](python-how-to-install.md).
+**Nota:** si necesita instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](../python-how-to-install/).
 
 
 ## Creación de una cola

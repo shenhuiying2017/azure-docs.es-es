@@ -88,7 +88,7 @@ En primer lugar, asegúrese de que tiene contenido público almacenado en caché
 #Otras referencias
 
 
-[Habilitar la Red de entrega de contenido (CDN) para Azure](cdn-create-new-endpoint.md)  
+[Habilitar la Red de entrega de contenido (CDN) para Azure](./cdn-create-new-endpoint.md)  
 **Información general de la red CDN de Azure**
 
 

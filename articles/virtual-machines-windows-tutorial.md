@@ -25,7 +25,7 @@
 Este tutorial muestra lo fácil que resulta crear una máquina virtual (VM) de Azure. En este tutorial se usa una imagen de Windows Server, pero eso es solo una de las muchas imágenes disponibles con Azure. Incluye sistemas operativos Windows, sistemas operativos basados en Linux e imágenes con aplicaciones preinstaladas. Las imágenes que puede elegir dependen del tipo de suscripción que tiene. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
 
-También puede crear máquinas virtuales de Windows con [sus propias imágenes como plantillas](virtual-machines-create-upload-vhd-windows-server.md). Para obtener más información acerca de las máquinas virtuales de Azure, vea [Información general sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
+También puede crear máquinas virtuales de Windows con [sus propias imágenes como plantillas](../virtual-machines-create-upload-vhd-windows-server/). Para obtener más información acerca de las máquinas virtuales de Azure, vea [Información general sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 
 [AZURE.INCLUDE [free-trial-note](../includes/free-trial-note.md)]
 
@@ -106,11 +106,11 @@ En esta sección se muestra cómo asociar un disco de datos vacío a una máquin
 
 Para obtener más información acerca de la configuración de máquinas virtuales en Azure, consulte los artículos siguientes:
 
-[Cómo conectar máquinas virtuales con una red virtual o un servicio de nube](cloud-services-connect-virtual-machine.md)
+[Cómo conectar máquinas virtuales con una red virtual o un servicio de nube](../cloud-services-connect-virtual-machine/)
 
-[Creación y carga de un VHD de Windows Server en Azure](virtual-machines-create-upload-vhd-windows-server.md)
+[Creación y carga de un VHD de Windows Server en Azure](../virtual-machines-create-upload-vhd-windows-server/)
 
-[Administración de la disponibilidad de las máquinas virtuales](manage-availability-virtual-machines.md)
+[Administración de la disponibilidad de las máquinas virtuales](../manage-availability-virtual-machines/)
 
 [Acerca de los ajustes de configuración de máquinas virtuales en Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 

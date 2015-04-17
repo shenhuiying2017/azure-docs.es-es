@@ -21,7 +21,7 @@
 # Configuración de la directiva de autorización de claves de contenido 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) . 
 
 
 ## Información general
@@ -35,14 +35,14 @@ Cuando un reproductor solicita una secuencia que se establece para cifrarse de f
 
 Si planea tener varias claves de contenido o desea especificar una dirección URL del **servicio de entrega de claves/licencias** que no sea el servicio de entrega de claves de Servicios multimedia, use el SDK de Servicios multimedia para .NET o las API de REST.
 
-[Configuración de la directiva de autorización de claves mediante el SDK de Servicios multimedia para .NET](media-services-dotnet-configure-content-key-auth-policy.md)
+[Configuración de la directiva de autorización de claves mediante el SDK de Servicios multimedia para .NET](../media-services-dotnet-configure-content-key-auth-policy/)
 
-[Configuración de la directiva de autorización de claves mediante la API de REST de Servicios multimedia](media-services-rest-configure-content-key-auth-policy.md)
+[Configuración de la directiva de autorización de claves mediante la API de REST de Servicios multimedia](../media-services-rest-configure-content-key-auth-policy/)
 
 ### Se aplican algunas consideraciones:
 
-- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins#scale_streaming_endpoints.md). 
-- El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).  
+- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](../media-services-manage-origins#scale_streaming_endpoints). 
+- El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](../media-services-encode-asset/).  
 - El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones de directivas y restricciones) durante 15 minutos.  Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", pruébela y, a continuación, actualice la directiva a la restricción "Open"; la directiva tardará aproximadamente 15 minutos antes de cambiar a la versión "Open" de la misma.
 
 
@@ -87,7 +87,7 @@ Al proteger su contenido con **PlayReady**, una de las cosas que debe especifica
 Puede hacer clic en el botón **Importar directiva xml** y proporcionar un archivo XML diferente que se ajuste al esquema XML definido [aquí](https://msdn.microsoft.com/library/azure/dn783459.aspx).
 
 ## Pasos siguientes
-Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Procedimiento: uso del Portal de administración de Azure para habilitar el cifrado](media-services-manage-content#encrypt.md) .
+Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Procedimiento: uso del Portal de administración de Azure para habilitar el cifrado](../media-services-manage-content#encrypt/) .
 
 
 [open_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-open-restriction.png

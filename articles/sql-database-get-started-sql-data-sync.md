@@ -179,9 +179,9 @@ Si desea programar la sincronización de un grupo de sincronización, configúre
 ## Pasos siguientes
 Para obtener más información acerca de Base de datos SQL y SQL Data Sync, consulte:
 
-* [Registrarse para la oferta Premium de Base de datos SQL] (sign-up-for-sql-database-premium.md)
+* [Registrarse para la oferta Premium de Base de datos SQL] (../sign-up-for-sql-database-premium/)
 * [SQL Data Sync (Portal WA)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Introducción a Base de datos SQL de Azure](getting-started-w-sql-databases.md)
+* [Introducción a Base de datos SQL de Azure](../getting-started-w-sql-databases/)
 * [Ciclo de vida de Base de datos de SQL Server](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

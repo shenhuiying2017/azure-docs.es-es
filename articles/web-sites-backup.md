@@ -132,7 +132,7 @@ Para comenzar con Azure, consulte [Prueba gratuita de Microsoft Azure](/pricing/
 
 [¿Qué es una cuenta de almacenamiento?](storage-whatis-account.md
 
-[Cómo: Crear una cuenta de almacenamiento](storage-create-storage-account.md)
+[Cómo: Crear una cuenta de almacenamiento](../storage-create-storage-account/)
 
 [Cómo supervisar una cuenta de almacenamiento](storage-monitor-storage-account.md)
 

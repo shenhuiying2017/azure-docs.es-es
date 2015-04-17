@@ -20,7 +20,7 @@
 
 Esta guía proporciona ejemplos de código en C# que muestran cómo usar la versión 1.x del SDK de WebJobs de Azure con el servicio de almacenamiento de cola de Azure.
 
-En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md).
+En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](../websites-dotnet-webjobs-sdk-get-started/).
 
 La mayoría de fragmentos de código muestran solo las funciones, no el código que crea el objeto `JobHost`, como en este ejemplo:
 
@@ -294,7 +294,7 @@ La interfaz `IBinder` también puede usarse con los atributos `Table` y `Blob`.
 
 ## <a id="blobs"></a>Cómo leer y escribir los blobs y tablas al procesar un mensaje en cola
 
-Los atributos `Blob` y `Table` le permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Cómo trabajar con almacenamiento de blobs de Azure mediante el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), y para obtener ejemplos de código que leen y escriben las tablas, consulte[Cómo trabajar con almacenamiento de tablas de Azure mediante el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md).
+Los atributos `Blob` y `Table` le permiten leer y escribir los blobs y tablas. Los ejemplos en esta sección se aplican a los blobs. Para los ejemplos de código que muestran cómo desencadenar procesos cuando se crean o actualizan los blobs, consulte [Cómo trabajar con almacenamiento de blobs de Azure mediante el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), y para obtener ejemplos de código que leen y escriben las tablas, consulte[Cómo trabajar con almacenamiento de tablas de Azure mediante el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-tables-how-to/).
 
 ### Mensajes de la cola de cadena que desencadenan operaciones de blobs
 
@@ -310,7 +310,7 @@ En el siguiente ejemplo se usan objetos `Stream` para leer y escribir blobs. El 
 		    blobInput.CopyTo(blobOutput, 4096);
 		}
 
-El constructor del atributo `Blob` toma un parámetro `blobPath` que especifica el nombre del blob y el contenedor. Para obtener más información acerca de este marcador de posición, consulte [Cómo trabajar con almacenamiento de blobs de Azure mediante el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md), 
+El constructor del atributo `Blob` toma un parámetro `blobPath` que especifica el nombre del blob y el contenedor. Para obtener más información acerca de este marcador de posición, consulte [Cómo trabajar con almacenamiento de blobs de Azure mediante el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-blobs-how-to/), 
 
 Cuando el atributo decora un objeto `Stream`, otro parámetro de constructor especifica el modo de `FileAccess` como lectura, escritura o lectura/escritura. 
 

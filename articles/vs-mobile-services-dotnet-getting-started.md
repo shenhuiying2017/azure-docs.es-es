@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-mobile-services-dotnet-getting-started.md)
-> - [¿Qué ha ocurrido?](vs-mobile-services-dotnet-what-happened.md)
+> - [Introducción](/documentation/articles/vs-mobile-services-dotnet-getting-started/)
+> - [¿Qué ha ocurrido?](/documentation/articles/vs-mobile-services-dotnet-what-happened/)
 
 ## Introducción a Servicios móviles (proyectos .NET)
 

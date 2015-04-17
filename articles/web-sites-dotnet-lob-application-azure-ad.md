@@ -22,7 +22,7 @@ En este artículo, aprenderá a crear con facilidad una aplicación de línea de
 
 El inquilino de AAD que usa puede tener un directorio solo de Azure, o puede estar sincronizado con directorios con su Active Directory (AD) local para crear una experiencia de inicio de sesión único para los trabajadores que sean locales o remotos.
 
-Para obtener información general de las diferentes opciones de autenticación y autorización de empresa para sitios web de Azure, vea[Autenticar y autorizar a los usuarios en aplicaciones LOB en sitios web de Azure](web-sites-authentication-authorization.md).
+Para obtener información general de las diferentes opciones de autenticación y autorización de empresa para sitios web de Azure, vea[Autenticar y autorizar a los usuarios en aplicaciones LOB en sitios web de Azure](../web-sites-authentication-authorization).
 
 <a name="bkmk_build"></a>
 ## Lo que va a crear ##
@@ -339,8 +339,8 @@ Ahora que ha configurado las autorizaciones y funcionalidad LOB para las distint
 ## Recursos adicionales
 
 - [Protección de la aplicación con SSL y el atributo Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Autenticar y autorizar a los usuarios en aplicaciones LOB en sitios web de Azure](web-sites-authentication-authorization.md)
-- [Crear una aplicación de línea de negocio de ASP.NET MVC en sitios web de Azure que se autentique con AD FS](web-sites-dotnet-lob-application-adfs.md)
+- [Autenticar y autorizar a los usuarios en aplicaciones LOB en sitios web de Azure](../web-sites-authentication-authorization/)
+- [Crear una aplicación de línea de negocio de ASP.NET MVC en sitios web de Azure que se autentique con AD FS](../web-sites-dotnet-lob-application-adfs/)
 - [Documentación y muestras de Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 - [El blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migrar un proyecto web de VS2013 de WIF a Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

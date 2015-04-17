@@ -18,7 +18,7 @@
 
 #Uso de la API de Engagement en Android
 
-Este artículo es un complemento del documento [Integración de Engagement en Android](mobile-engagement-android-integrate-engagement.md)y proporciona información detallada sobre el uso de la API de Engagement para notificar estadísticas de la aplicación.
+Este artículo es un complemento del documento [Integración de Engagement en Android](../mobile-engagement-android-integrate-engagement/)y proporciona información detallada sobre el uso de la API de Engagement para notificar estadísticas de la aplicación.
 
 Tenga en cuenta que si solamente desea que Engagement notifique las sesiones, actividades, bloqueos e información técnica de la aplicación, la forma más sencilla es hacer que todas las subclases `Activity` hereden de la clase `EngagementActivity` correspondiente.
 
@@ -28,7 +28,7 @@ La API de Engagement la proporciona la clase `EngagementAgent`. Para recuperar u
 
 ##Conceptos de Engagement
 
-A continuación se definen en mayor detalle los [Conceptos de Mobile Engagement](mobile-engagement-concepts.md)para la plataforma Android.
+A continuación se definen en mayor detalle los [Conceptos de Mobile Engagement](../mobile-engagement-concepts/)para la plataforma Android.
 
 ### `Sesión` y `Actividad`
 

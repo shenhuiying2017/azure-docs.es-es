@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-storage-cloud-services-getting-started-blobs.md)
-> - [¿Qué ha ocurrido?](vs-storage-cloud-services-what-happened.md)
+> - [Introducción](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
+> - [¿Qué ha ocurrido?](/documentation/articles/vs-storage-cloud-services-what-happened/)
 
 ## Introducción a Almacenamiento de Azure (proyectos de servicio en la nube)
 
 > [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Colas](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tablas](vs-storage-cloud-services-getting-started-tables.md)
+> - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
+> - [Colas](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
+> - [Tablas](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
 

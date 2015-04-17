@@ -18,7 +18,7 @@
 
 # Administrar las máquinas virtuales con PowerShell de Azure
 
-Antes de comenzar, necesitará asegurarse de que tiene instalado PowerShell de Azure. Para ello, visite [Cómo instalar y configurar PowerShell de Azure](install-configure-powershell.md)
+Antes de comenzar, necesitará asegurarse de que tiene instalado PowerShell de Azure. Para ello, visite [Cómo instalar y configurar PowerShell de Azure](../install-configure-powershell/)
 
 ## Obtener una imagen
 

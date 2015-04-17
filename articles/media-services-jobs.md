@@ -59,6 +59,6 @@ Supervise el progreso del trabajo mediante el **Portal de administración de Azu
 
 ## Vínculos relacionados
 
-[Cuotas y limitaciones](media-services-quotas-and-limitations.md) - Explica las cuotas usadas y las limitaciones del Codificador de Servicios multimedia
+[Cuotas y limitaciones](../media-services-quotas-and-limitations) - Explica las cuotas usadas y las limitaciones del Codificador de Servicios multimedia
 
 <!--HONumber=47-->

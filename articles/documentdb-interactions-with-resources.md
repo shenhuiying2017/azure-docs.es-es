@@ -259,7 +259,7 @@ Consulte la [referencia de la API de REST de Base de datos de documentos de Azur
 -	Etiquetas de entidad[http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 -	[Base de datos de documentos de consulta](documentdb-sql-query.md)
 -	[Referencia SQL de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[Programación de Base de datos de documentos: Procedimientos almacenados, desencadenadores y UDF](documentdb-programming.md)
+-	[Programación de Base de datos de documentos: Procedimientos almacenados, desencadenadores y UDF](../documentdb-programming/)
 -	[Documentación de referencia de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 
 

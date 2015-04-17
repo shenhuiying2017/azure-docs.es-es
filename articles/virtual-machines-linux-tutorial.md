@@ -53,7 +53,7 @@ Este tutorial utiliza el método **De la galería** para crear una máquina virt
 
 [AZURE.INCLUDE [virtual-machines-Linux-tutorial-log-on-attach-disk](../includes/virtual-machines-Linux-tutorial-log-on-attach-disk.md)]
 
-> [AZURE.NOTE] También se puede conectar a la máquina virtual de Linux mediante una clave SSH para la identificación. Para obtener más información acerca de cómo configurar y conectar con una clave SSH, consulte [Uso de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key).
+> [AZURE.NOTE] También se puede conectar a la máquina virtual de Linux mediante una clave SSH para la identificación. Para obtener más información acerca de cómo configurar y conectar con una clave SSH, consulte [Uso de SSH con Linux en Azure](./virtual-machines-linux-use-ssh-key/).
 
 ##Pasos siguientes 
 
@@ -65,7 +65,7 @@ Para obtener más información sobre Linux en Azure, consulte los siguientes art
 
 - [Acerca de los ajustes de configuración de máquinas virtuales en Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 
-- [Extensión de máquina virtual Docker para Linux en Azure](virtual-machines-docker-vm-extension.md)
+- [Extensión de máquina virtual Docker para Linux en Azure](../virtual-machines-docker-vm-extension/)
 
 
 [Pasos siguientes]: #next

@@ -19,12 +19,12 @@
 
 # Entrega de contenido de streaming
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) .  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) .  
 
 ## Información general
 
 
-Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. En el tema [Codificación de un recurso](media-services-rest-encode-asset.md) se muestra cómo codificar en un conjunto de archivos MP4 de velocidad de bits adaptable. Antes de crear un localizador, debe configurar la directiva de entrega de recursos, tal como se describe en [este](media-services-rest-configure-asset-delivery-policy.md) . 
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. En el tema [Codificación de un recurso](../media-services-rest-encode-asset) se muestra cómo codificar en un conjunto de archivos MP4 de velocidad de bits adaptable. Antes de crear un localizador, debe configurar la directiva de entrega de recursos, tal como se describe en [este](../media-services-rest-configure-asset-delivery-policy) . 
 
 También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.  
 

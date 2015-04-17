@@ -26,7 +26,7 @@ proteger los datos enviados a través de internet. Esta tarea común analiza có
 especificar un extremo HTTPS para una aplicación Node.js hospedada como un servicio de nube de Azure en un rol web y cómo cargar un
 certificado SSL para proteger su aplicación.
 
-> [AZURE.NOTE] Los pasos descritos en este artículo solo se aplican a las aplicaciones de Node hospedadas como un servicio de nube de Azure en un rol web; para los sitios Web, consulte [Configurar un certificado SSL para un sitio Web de Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE] Los pasos descritos en este artículo solo se aplican a las aplicaciones de Node hospedadas como un servicio de nube de Azure en un rol web; para los sitios Web, consulte [Configurar un certificado SSL para un sitio Web de Azure](../web-sites-configure-ssl-certificate/).
 
 Esta tarea incluye los siguientes pasos:
 

@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-storage-cloud-services-getting-started-queues.md)
-> - [¿Qué ha ocurrido?](vs-storage-cloud-services-what-happened.md)
+> - [Introducción](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
+> - [¿Qué ha ocurrido?](/documentation/articles/vs-storage-cloud-services-what-happened/)
 
 ## Introducción a Almacenamiento de Azure (proyectos de servicio en la nube)
 
 > [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tablas](vs-storage-cloud-services-getting-started-tables.md)
+> - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs)
+> - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
+> - [Tablas](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
 
 El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Consulte [Uso del almacenamiento de cola en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET") para obtener más información.
 

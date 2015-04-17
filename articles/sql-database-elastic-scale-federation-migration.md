@@ -65,7 +65,7 @@ Con Federaciones, se establece una conexión a un miembro de federación en espe
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-Con las API de Escalado elástico, una conexión a una partición determinada se establece a través de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) Con el método **OpenConnectionForKey** en la clase **RangeShardMap**. 
+Con las API de Escalado elástico, una conexión a una partición determinada se establece a través de [enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md) Con el método **OpenConnectionForKey** en la clase **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ Con las API de Escalado elástico, una conexión a una partición determinada se
         } 
     }
 
-Los pasos de esta sección son necesarios, pero es probable que no aborden todos los escenarios de migración que surjan. Para obtener más información, consulte la [información general conceptual de Escalado elástico](sql-database-elastic-scale-introduction.md) y la [referencia de API](http://go.microsoft.com/?linkid=9862604).
+Los pasos de esta sección son necesarios, pero es probable que no aborden todos los escenarios de migración que surjan. Para obtener más información, consulte la [información general conceptual de Escalado elástico](./sql-database-elastic-scale-introduction.md) y la [referencia de API](http://go.microsoft.com/?linkid=9862604).
 
 ## Desactivación de los miembros de una federación existente 
 
@@ -102,7 +102,7 @@ La utilidad Migración de federaciones proporciona capacidades para:
 
 
 ##Comparación de características  
-Aunque el Escalado elástico ofrece muchas características adicionales (por ejemplo, [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md), [división y combinación de particiones](sql-database-elastic-scale-overview-split-and-merge.md), [elasticidad de partición](sql-database-elastic-scale-elasticity.md), [almacenamiento en caché del lado cliente](sql-database-elastic-scale-shard-map-management.md), etc.), existen algunas características interesantes de Federaciones que no se admiten en Escalado elástico.
+Aunque el Escalado elástico ofrece muchas características adicionales (por ejemplo, [consultas a través de particiones múltiples](./sql-database-elastic-scale-multishard-querying.md), [división y combinación de particiones](./sql-database-elastic-scale-overview-split-and-merge.md), [elasticidad de partición](./sql-database-elastic-scale-elasticity.md), [almacenamiento en caché del lado cliente](./sql-database-elastic-scale-shard-map-management.md), etc.), existen algunas características interesantes de Federaciones que no se admiten en Escalado elástico.
   
 
 - El uso de **FILTERING=ON**. El Escalado elástico no admite actualmente el filtrado en el nivel de fila. Una mitigación puede ser crear la lógica de filtrado en la consulta emitida contra la partición de la siguiente manera: 

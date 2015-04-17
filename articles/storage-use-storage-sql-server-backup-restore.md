@@ -1,28 +1,30 @@
 ﻿<properties 
 	pageTitle="Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Azure" 
-	description="" 
-	services="storage" 
+	description="Realizar una copia de seguridad de SQL Server y de la Base de datos SQL en el almacenamiento de Azure. Explica las ventajas de la copia de seguridad de las Bases de datos SQL en el almacenamiento de Azure y los componentes de SQL Server y almacenamiento de Azure que se necesitan" 
+	services="sql-database, virtual-machines" 
 	documentationCenter="" 
 	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2014" 
+	ms.date="03/06/2015" 
 	ms.author="jeffreyg"/>
 
 
 
-<h1 id="SQLServerBackupandRestoretostorage">  Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server</h1>
+# Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server
 
-La característica que ofrece la posibilidad de escribir copias de seguridad de SQL Server en el servicio de almacenamiento de bobs de Azure se lanzó en SQL Server 2012 SP1 CU2. Puede usar esta funcionalidad para realizar la copia de seguridad en el servicio BLOB de Azure y restaurar desde él a partir de una base de datos SQL Server local o una base de datos SQL Server de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella.   En esta versión puede emitir instrucciones BACKUP o RESTORE usando T-SQL o SMO. No es posible realizar copias de seguridad desde el servicio de almacenamiento de blobs de Azure ni restaurar desde él usando SQL Server Management Studio Backup o el asistente para restauración.
+## Información general
 
-<h2> Ventajas del uso del servicio BLOB de Azure para las copias de seguridad de SQL Server</h2>
+La característica que ofrece la posibilidad de escribir copias de seguridad de SQL Server en el servicio de almacenamiento de bobs de Azure se lanzó en SQL Server 2012 SP1 CU2. Puede usar esta funcionalidad para realizar la copia de seguridad en el servicio BLOB de Azure y restaurar desde él a partir de una base de datos SQL Server local o una base de datos SQL Server de una máquina virtual de Azure. Las copias de seguridad en la nube ofrecen ventajas de disponibilidad, almacenamiento externo ilimitado replicado geográficamente y facilidad de migración de datos en la nube y desde ella.   En esta versión puede emitir instrucciones BACKUP o RESTORE usando T-SQL o SMO.
+
+## Ventajas del uso del servicio BLOB de Azure para las copias de seguridad de SQL Server
 
 La administración del almacenamiento, el riesgo de errores en él, el acceso al almacenamiento externo y la configuración de los dispositivos son algunos de los desafíos generales de las copias de seguridad.  Para que SQL Server se ejecute en una máquina virtual de Azure, hay dificultades adicionales para configurar y realizar copias de seguridad de un VHD o para configurar las unidades adjuntas. A continuación se incluyen algunas de las ventajas principales de usar el servicio de almacenamiento BLOB de Azure para las copias de seguridad de SQL Server:
 
@@ -49,7 +51,7 @@ Para obtener más información acerca del servicio de almacenamiento de blobs de
 * Contenedor: Un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en un servicio BLOB de Azure, debe haber creado un contenedor raíz como mínimo. 
 
 * Blob: un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en el servicio de almacenamiento de blobs de Azure: blobs en páginas y en bloques.  La copia de seguridad de SQL Server usa blobs en páginas como tipo de blob. Es posible dirigir los blobs con el siguiente formato de dirección URL: `https://<storage account>.blob.core.windows.net/<container>/<blob>`
-Para obtener más información sobre los blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/windowsazure/ee691964.aspx)
+Para obtener más información sobre los blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx)
 
 ## Componentes de SQL Server
 
@@ -61,7 +63,7 @@ A continuación encontrará un ejemplo de la URL que debería especificar en el 
 <b>Importante</b>
 Si elige copiar y cargar un archivo de copia de seguridad en un servicio de almacenamiento de blobs de Azure, debe usar blob en páginas como opción de almacenamiento si tiene pensado usar este archivo para las operaciones de restauración. RESTORE desde un tipo de blob en bloques provocará un error. 
 
-* Credencial: La información necesaria para conectarse y autenticarse en un servicio de almacenamiento de blobs de Azure se almacena como credencial.  Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. La credencial almacena el nombre de la cuenta de almacenamiento y la clave de acceso de la misma.  Cuando se haya creado la credencial, hay que especificarla en la opción WITH CREDENTIAL al emitir las instrucciones BACKUP/RESTORE. Para obtener más información acerca de cómo ver, copiar o regenerar las claves de acceso de la cuenta de almacenamiento, consulte [Ver, copiar y regenerar las claves de acceso en una cuenta de almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/hh531566.aspx).
+* Credencial: La información necesaria para conectarse y autenticarse en un servicio de almacenamiento de blobs de Azure se almacena como credencial.  Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. La credencial almacena el nombre de la cuenta de almacenamiento y la clave de acceso de la misma.  Cuando se haya creado la credencial, hay que especificarla en la opción WITH CREDENTIAL al emitir las instrucciones BACKUP/RESTORE. 
 Para obtener instrucciones detalladas acerca de cómo crear una credencial de SQL Server, consulte [Introducción al servicio de almacenamiento de Azure para copia de seguridad y restauración de SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615).
 
 ## Copia de seguridad y restauración de bases de datos SQL Server con los blobs de Azure: conceptos y tareas.
@@ -86,4 +88,5 @@ Para obtener instrucciones detalladas acerca de cómo crear una credencial de SQ
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=49-->

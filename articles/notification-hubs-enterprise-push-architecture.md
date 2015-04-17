@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Centros de notificaciones: arquitectura de inserción empresarial" 
 	description="Instrucciones de uso de los Centros de notificaciones de Azure en un entorno de empresa" 
 	services="notification-hubs" 
@@ -43,20 +43,20 @@ La pieza clave en este diagrama arquitectónico es el Bus de servicio de Azure q
 3. Aplicación móvil
 	- Recibe y muestra notificaciones
 		
-### Ventajas:
+###Ventajas:
 
 1. La separación entre el receptor (aplicación/servicio móvil a través del Centro de notificaciones) y el emisor (sistemas back-end) permite la integración de sistemas back-end adicionales con cambios mínimos.
 2. Esto hace también que en el escenario de varias aplicaciones móviles, sea posible recibir eventos de uno o varios sistemas back-end.  
 
 ## Sample:
 
-### Requisitos previos
+###Requisitos previos
 Para familiarizarse con los conceptos, así como con los pasos comunes de creación y configuración, debe realizar los siguientes tutoriales:
 
-1. [Programación Pub/Sub del Bus de servicio]: en este tutorial se explican los detalles de trabajar con temas y suscripciones del Bus de servicio, cómo crear un espacio de nombres que contenga temas y suscripciones o cómo enviar y recibir mensajes de ellos. 
-2. [Tutorial sobre Centros de notificaciones: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar los Centros de notificaciones para registrar y luego recibir notificaciones. 
+1. [Programación Pub/Sub del Bus de servicio]: en este tutorial se explican los detalles de trabajar con temas y suscripciones del Bus de servicio, cómo crear un espacio de nombres que contenga temas y suscripciones o cómo enviar y recibir mensajes de ellos.
+2. [Tutorial sobre Centros de notificaciones: Windows Universal]: en este tutorial se explica cómo configurar una aplicación de la Tienda Windows y usar los Centros de notificaciones para registrar y, después, recibir notificaciones.
 
-### Código de ejemplo
+###Código de ejemplo
 
 El código de ejemplo completo está disponible en [Ejemplos de centro de notificaciones]. Se divide en tres componentes:
 
@@ -78,7 +78,7 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
             SendMessage(connectionString);
         }
 	
-	c. `CreateTopic` se usa para crear el tema del Bus de servicio al que enviaremos los mensajes. 
+	c. `CreateTopic` se usa para crear el tema del Bus de servicio al que se enviarán los mensajes.
 
         public static void CreateTopic(string connectionString)
         {
@@ -265,10 +265,10 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 
 <!-- Links -->
 [Ejemplos de centro de notificaciones]: https://github.com/Azure/azure-notificationhubs-samples
-[Servicios móviles de Azure]: http://azure.microsoft.com/ documentation/services/mobile-services/
-[Bus de servicio de Azure]: http://azure.microsoft.com/ documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Programación Pub/Sub del Bus de servicio]: http://azure.microsoft.com/ documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Trabajo web de Azure]: http://azure.microsoft.com/ documentation/articles/web-sites-create-web-jobs/
-[Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Servicios móviles de Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
+[Bus de servicio de Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Programación Pub/Sub del Bus de servicio]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Trabajo web de Azure]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
+[Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

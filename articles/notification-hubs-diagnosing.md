@@ -16,18 +16,18 @@
 	ms.date="01/27/2015" 
 	ms.author="piyushjo"/>
 
-# Centros de notificaciones de Azure: pautas de diagnóstico
+#Centros de notificaciones de Azure: pautas de diagnóstico
 
 Una de las preguntas más comunes que escucharemos de los clientes de los Centros de notificaciones de Azure es que no comprenden por qué las notificaciones enviadas desde el back-end de su aplicación no aparecen en el dispositivo cliente, dónde y por qué se han perdido las notificaciones y cómo solucionar este problema. En este artículo repasaremos los diversos motivos de por qué las notificaciones podrían haberse perdido o no terminar en los dispositivos. También examinaremos formas en que puede analizar y descubrir la causa raíz. 
 
 En primer lugar, es fundamental comprender cómo los Centros de notificaciones de Azure insertan las notificaciones en los dispositivos.
 ![][0]
 
-En un flujo típico de envío de notificaciones, el mensaje se envía desde el **back-end de la aplicación** al **Centro de notificaciones de Azure (NH)**, el cual, a su vez, lleva a cabo algún tipo de procesamiento en todos los registros teniendo en cuenta las etiquetas y expresiones de etiqueta para determinar los "destinos", es decir, todos los registros que deben recibir la notificación de inserción. Estos registros se pueden distribuir en cualquiera de nuestras plataformas compatibles o en todas ellas: iOS, Google, Windows, Windows Phone, Kindle y Baidu para Android de China. Una vez que se establecen los destinos, el centro de notificaciones inserta las notificaciones, divididas entre varios lotes de registros, en el **Servicio de notificaciones de inserción (PNS)** específico de la plataforma del dispositivo, por ejemplo, APNS para Apple, GCM para Google etc. El Centro de notificaciones se autentica con el PNS respectivo en función de las credenciales configuradas en el portal de Azure, en la página Configurar centro de notificaciones. A continuación, el PNS reenvía las notificaciones a los **dispositivos cliente** respectivos. Esta es la manera recomendada por la plataforma de entregar las notificaciones de inserción y, tenga en cuenta, que el tramo final de la entrega de notificaciones tiene lugar entre el PNS de la plataforma y el dispositivo. Por lo tanto, tenemos cuatro componentes principales:  *client*, *application backend*, *Azure Notification Hubs (NH)* y *Push Notification Services (PNS)* y cualquiera de ellos puede ocasionar que las notificaciones se pierdan. Se puede encontrar más información sobre esta arquitectura en [Información general acerca de los Centros de notificaciones].
+En un flujo típico de envío de notificaciones, el mensaje se envía desde el **back-end de la aplicación** al **Centro de notificaciones de Azure (NH)**, el cual, a su vez, lleva a cabo algún tipo de procesamiento en todos los registros teniendo en cuenta las etiquetas y expresiones de etiqueta para determinar los "destinos", es decir, todos los registros que deben recibir la notificación de inserción. Estos registros se pueden distribuir en cualquiera de nuestras plataformas compatibles o en todas ellas: iOS, Google, Windows, Windows Phone, Kindle y Baidu para Android de China. Una vez que se establecen los destinos, el centro de notificaciones inserta las notificaciones, divididas entre varios lotes de registros, en el **Servicio de notificaciones de inserción (PNS)** específico de la plataforma del dispositivo, por ejemplo, APNS para Apple, GCM para Google etc. El Centro de notificaciones se autentica con el PNS respectivo en función de las credenciales configuradas en el portal de Azure, en la página Configurar centro de notificaciones. A continuación, el PNS reenvía las notificaciones a los **dispositivos cliente** respectivos. Esta es la manera recomendada por la plataforma de entregar las notificaciones de inserción y, tenga en cuenta, que el tramo final de la entrega de notificaciones tiene lugar entre el PNS de la plataforma y el dispositivo. Por lo tanto, hay cuatro componentes principales - *cliente*, *back-end de la aplicación*, *centros de notificaciones de Azure (NH)* y *servicios de notificación de inserción (PNS)*, y cualquiera de ellas puede provocar que se quiten notificaciones. Se puede encontrar más información sobre esta arquitectura en [Información general acerca de los Centros de notificaciones].
 
 La no entrega de las notificaciones puede tener lugar durante la fase inicial de prueba/ensayo, lo que podría indicar un problema de configuración, o se puede producir en producción, cuando todas o algunas notificaciones se pierden, lo que puede indicar un problema más serio con la aplicación o con el patrón de mensajería. En la siguiente sección, examinaremos diversos escenarios de pérdida de notificaciones, desde el más común al más raro. Algunos los encontrará obvios y otros no tanto. 
 
-### Error de configuración del Centro de notificaciones de Azure 
+###Error de configuración del Centro de notificaciones de Azure 
 
 Los Centros de notificaciones de Azure deben autenticarse a sí mismos en el contexto de la aplicación del desarrollador para poder enviar notificaciones correctamente a los PNS respectivos. Esto es posible gracias al desarrollador, que crea una cuenta de desarrollador con la plataforma respectiva (Google, Apple, Windows, etc.) y luego registra su aplicación donde obtiene las credenciales que es necesario configurar en el portal de Azure en la sección de configuración de los Centros de notificaciones. Si no se logra entregar ninguna notificación, el primer paso debe ser asegurarse de que se han configurado las credenciales correctas en el Centro de notificaciones y que coinciden con las de la aplicación creada con su cuenta de desarrollador específica de la plataforma. Encontrará útiles nuestros [tutoriales introductorios] para recorrer este proceso paso a paso. A continuación se indican algunos errores de configuración comunes:
 
@@ -46,7 +46,7 @@ Los Centros de notificaciones de Azure deben autenticarse a sí mismos en el con
  
 	Debe mantener dos centros diferentes: uno para producción y otro para fines de prueba. Esto supone cargar el certificado que va a usar en el entorno de espacio aislado en un centro y el certificado que va a usar en producción en otro centro diferente. No intente cargar diferentes tipos de certificados en el mismo centro ya que se pueden producir errores de notificación después. Si se encuentra en una situación en la que ha cargado por accidente diferentes tipos de certificados en el mismo centro, se recomienda eliminar el centro y empezar de nuevo. Si, por algún motivo, no puede eliminar el centro, elimine al menos todos los registros existentes del centro. 
 
-3. **Configuración del servicio de mensajería en la nube de Google (GCM)** 
+3. **Configuración del Servicio de mensajería en la nube de Google (GCM)** 
 
 	a) Asegúrese de que ha habilitado "Google Cloud Messaging for Android" (Servicio de mensajería en la nube de Google para Android) en su proyecto de nube. 
 	
@@ -60,7 +60,7 @@ Los Centros de notificaciones de Azure deben autenticarse a sí mismos en el con
 	
 	![][1]
 
-### Problemas de la aplicación
+###Problemas de la aplicación
 
 1) **Etiquetas/expresiones de etiqueta**
 
@@ -78,7 +78,7 @@ Suponiendo que el Centro de notificaciones se configuró correctamente y que las
 
 Ahora el Centro de notificaciones de Azure está optimizado para un modelo de entrega de mensajes "una vez como máximo". Esto significa que intentamos una desduplicación para que ninguna notificación se entregue más de una vez a un dispositivo. Para comprobar esto, examinamos los registros y nos aseguramos de que solo se envía un mensaje por identificador de dispositivo antes de enviar realmente el mensaje al PNS. Como cada lote se envía al PNS, el cual, a su vez, acepta y valida los registros, puede que el PNS detecte un error con uno o varios de los registros de un lote, devuelva un error al Centro de notificaciones de Azure y detenga el procesamiento con la consiguiente pérdida de ese lote completamente. Esto ocurre así con APNS, que usa un protocolo de transmisión TCP. Como estamos optimizados para la entrega "una vez como máximo", no se advertirá que no hay ningún reintento con este lote erróneo puesto que no sabemos con seguridad si el PNS perdió todo el lote o solo una parte. Sin embargo, el PNS le dice al Centro de notificaciones de Azure cuál es el registro que ha ocasionado el error y, en función de esa información, quitamos ese registro de nuestra base de datos. Esto implica la posibilidad de que un lote de registros o un subconjunto de dicho lote no reciba una notificación; no obstante, dado que hemos limpiado el registro malo, la próxima vez que se intente un envío, la probabilidad de que se realice satisfactoriamente será más alta. A medida que crece la escala del número de dispositivos de destino (algunos de nuestros clientes envían notificaciones a millones de dispositivos), perder un lote desparejado aquí y allá no supone mucha diferencia en el porcentaje global de dispositivos que reciben notificaciones; sin embargo, si envía unas cuantas notificaciones y hay algunos errores de PNS, podría ver que todas o la mayoría de notificaciones no se reciben. Si observa este comportamiento de manera repetida, debe identificar los registros incorrectos y eliminarlos. Debe eliminar los registros con formato incorrecto definitivamente ya que son la causa más común de la pérdida de notificaciones. Si se trata de un entorno de prueba, también puede eliminar directamente todos los registros dado que las aplicaciones, cuando se abren en los dispositivos, reintentarán y se volverán a registrar con el Centro de notificaciones, lo que asegura que todos los registros creados de ahí en adelante serán válidos. 
 
-### Problemas del PNS
+###Problemas del PNS
 
 Una vez que el PNS respectivo ha recibido el mensaje de notificación, es responsabilidad suya entregar la notificación al dispositivo. Los Centros de notificaciones de Azure quedan aquí al margen y no tienen control sobre cuándo o si la notificación se va a entregar al dispositivo. Dado que los servicios de notificaciones de plataforma son bastante robustos, las notificaciones tienden a llegar a los dispositivos en unos segundos desde el PNS. Sin embargo, si el PNS limita las peticiones, los Centros de notificaciones de Azure aplican una estrategia de interrupción exponencial y, si sigue siendo imposible comunicarse con el PNS durante 30 m, contamos con una directiva que expira y elimina esos mensajes permanentemente. 
 
@@ -87,11 +87,11 @@ Origen: [instrucciones para APNS] e [instrucciones para GCM]
 
 Con los Centros de notificaciones de Azure, puede pasar una clave de fusión a través de un encabezado HTTP mediante el uso de la  `SendNotification` API genérica (por ejemplo, para el SDK de .NET - `SendNotificationAsync`) que también toma los encabezados HTTP que se pasan como están al PNS respectivo. 
 
-## Sugerencias de autodiagnóstico
+##Sugerencias de autodiagnóstico
 
 A continuación, examinaremos las diversas formas de diagnosticar y encontrar la causa raíz de los problemas con los Centros de notificaciones:
 
-### Comprobar las credenciales
+###Comprobar las credenciales
 
 1. **Portal para desarrolladores de PNS**
 
@@ -103,7 +103,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 
 	![][4]
 
-### Verificar los registros
+###Verificar los registros
 
 1. **Visual Studio**
 
@@ -121,7 +121,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 
 	Muchos clientes usan el explorador de Bus de servicio que se describe en [Explorador de Bus de servicio] para ver y administrar sus centros de notificaciones. Se trata de un proyecto de código abierto disponible en code.microsoft.com, [Código del explorador de Bus de servicio]
 
-### Comprobar las notificaciones de mensajes
+###Comprobar las notificaciones de mensajes
 
 1. **Portal de Azure**
 
@@ -141,7 +141,7 @@ A continuación, examinaremos las diversas formas de diagnosticar y encontrar la
 	- [Entrada del blog del Explorador de servidores de VS - 1]
 	- [Entrada del blog del Explorador de servidores de VS - 2]
 
-### Depurar las notificaciones incorrectas y revisar el resultado de la notificación
+###Depurar las notificaciones incorrectas y revisar el resultado de la notificación
 
 **Propiedad EnableTestSend**
 
@@ -158,8 +158,8 @@ Imagine que utiliza el SDK para .NET para enviar una notificación del sistema n
     var result = await hub.SendWindowsNativeNotificationAsync(toast);
     Console.WriteLine(result.State);
  
-`result.State` simplemente indicará `Enqueued` al final de la ejecución sin informar de lo que ha pasado con la inserción. 
-Ahora puede utilizar la propiedad booleana `EnableTestSend` mientras inicializa el `NotificationHubClient` y puede obtener un estado detallado sobre los errores del PNS encontrados mientras se enviaba la notificación. Aquí la llamada de envío tarda más tiempo de lo normal en devolverse porque solo lo hace después de que el Centro de notificaciones ha entregado la notificación al PNS para determinar el resultado. 
+`result.State` simplemente indicará `En cola` al final de la ejecución sin informar de lo que ha pasado con la inserción. 
+Ya se puede usar la propiedad booleana `EnableTestSend` al inicializar el `NotificationHubClient` y se puede obtener el estado detallado sobre los errores PNS que se hayan encontrado al enviar la notificación. Aquí la llamada de envío tarda más tiempo de lo normal en devolverse porque solo lo hace después de que el Centro de notificaciones ha entregado la notificación al PNS para determinar el resultado. 
  
 	bool enableTestSend = true;
 	NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
@@ -183,7 +183,7 @@ Este mensaje indica que se han configurado credenciales no válidas en el centro
  
 > [AZURE.NOTE] Tenga en cuenta que el uso de esta propiedad está muy limitado y, por tanto, solo se debe usar en entornos de desarrollo y prueba con un conjunto limitado de registros. Nosotros solo enviamos notificaciones de depuración a 10 dispositivos. También contamos con un límite en el procesamiento de envíos de depuración de 10 por minuto. 
 
-### Revisar la telemetría 
+###Revisar la telemetría 
 
 1. **Usar el portal de Azure**
 
@@ -224,9 +224,9 @@ Más detalles aquí:
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Información general acerca de los Centros de notificaciones]: http://azure.microsoft.com/ documentation/articles/notification-hubs-overview/
-[Tutoriales introductorios]: http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Instrucciones para plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx 
+[Información general acerca de los Centros de notificaciones]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
+[Tutoriales introductorios]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Instrucciones para plantillas]: https://msdn.microsoft.com/library/dn530748.aspx 
 [Instrucciones para APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Instrucciones para GCM]: http://developer.android.com/google/gcm/adv.html
 [Exportación e importación de registros]: http://msdn.microsoft.com/library/dn790624.aspx
@@ -240,4 +240,4 @@ Más detalles aquí:
 [Ejemplo de acceso de telemetría mediante API]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

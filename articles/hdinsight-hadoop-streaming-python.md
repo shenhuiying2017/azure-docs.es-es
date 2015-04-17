@@ -196,7 +196,7 @@ Esta acción debiera mostrar una lista de palabras y cuántas veces aparecieron.
 
 Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsight, use los vínculos que aparecen a continuación para explorar otras formas de trabajar con HDInsight de Azure.
 
-* [Uso de Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
-* [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Hive con HDInsight](../hdinsight-use-hive/)
+* [Uso de Pig con HDInsight](../hdinsight-use-pig/)
+* [Uso de trabajos de MapReduce con HDInsight](../hdinsight-use-mapreduce)
 <!--HONumber=47-->

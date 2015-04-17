@@ -533,7 +533,7 @@ Para ver los errores que se han producido en una topología en ejecución, utili
 
 ## Pasos siguientes
 
-Ahora que ha aprendido a desarrollar e implementar topologías de Storm desde las herramientas de HDInsight para Visual Studio, aprenda sobre el [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
+Ahora que ha aprendido a desarrollar e implementar topologías de Storm desde las herramientas de HDInsight para Visual Studio, aprenda sobre el [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
 
 Para obtener más información acerca de cómo crear topologías de C#, visite [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
@@ -541,26 +541,26 @@ Para conocer más formas de trabajar con HDInsight o para obtener más ejemplos 
 
 **Apache Storm en HDInsight**
 
-* [Implementación y supervisión de topologías con Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+* [Implementación y supervisión de topologías con Apache Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/)
 
-* [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
+* [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
 
-* [Desarrollo basado en topologías de Java para Apache Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Desarrollo basado en topologías de Java para Apache Storm en HDInsight](../hdinsight-storm-develop-java-topology/)
 
-* [Hashtags más destacados de Twitter con Apache Storm en HDInsight](hdinsight-storm-twitter-trending.md)
+* [Hashtags más destacados de Twitter con Apache Storm en HDInsight](../hdinsight-storm-twitter-trending/)
 
 * [Ejemplos de Storm en HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop en HDInsight**
 
-* [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
+* [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
 
-* [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
+* [Uso de Pig con Hadoop en HDInsight](../hdinsight-use-pig/)
 
-* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
 
 **Apache HBase en HDInsight**
 
-* [Introducción a HBase en HDInsight](hdinsight-hbase-get-started.md)
+* [Introducción a HBase en HDInsight](../hdinsight-hbase-get-started/)
 
 <!--HONumber=47-->

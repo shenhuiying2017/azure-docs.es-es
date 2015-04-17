@@ -19,7 +19,7 @@
 
 # Escalación de codificación
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) .
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) .
 
 ## Información general
 
@@ -51,7 +51,7 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 
 ## Cuotas y limitaciones
 
-Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
+Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](../media-services-quotas-and-limitations).
 
 
 

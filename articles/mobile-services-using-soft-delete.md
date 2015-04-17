@@ -104,7 +104,7 @@ El siguiente trabajo programado purga los registros eliminados temporalmente que
         }
     }
 
-Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de .NET, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
+Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de .NET, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
@@ -145,7 +145,7 @@ Este es un trabajo programado de ejemplo que elimina los registros que se actual
         }});
     }
 
-Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de JavaScript, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript](mobile-services-schedule-recurring-tasks.md).
+Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de JavaScript, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/).
 
 
 

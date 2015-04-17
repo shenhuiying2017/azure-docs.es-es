@@ -19,7 +19,7 @@
 
 # <a name="getting-started"></a>Introducción a los Servicios móviles
 
-Ya no se admite este tema; un proyecto independiente de la Tienda Windows ya no se encuentra disponible para descarga desde el portal. En su lugar, puede descargar un proyecto universal de Windows. Para obtener más información, vea [Introducción a los Servicios móviles](mobile-services-javascript-backend-windows-store-dotnet-get-started.md). 
+Ya no se admite este tema; un proyecto independiente de la Tienda Windows ya no se encuentra disponible para descarga desde el portal. En su lugar, puede descargar un proyecto universal de Windows. Para obtener más información, vea [Introducción a los Servicios móviles](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-Para obtener instrucciones sobre cómo agregar Servicios móviles a una aplicación de la Tienda Windows existente, consulte [Incorporación de Servicios móviles a una aplicación existente](mobile-services-windows-store-dotnet-get-started-data.md).
+Para obtener instrucciones sobre cómo agregar Servicios móviles a una aplicación de la Tienda Windows existente, consulte [Incorporación de Servicios móviles a una aplicación existente](/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
 <!--HONumber=47-->

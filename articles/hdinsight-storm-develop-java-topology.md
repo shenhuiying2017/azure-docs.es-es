@@ -454,16 +454,16 @@ Se pueden crear aplicaciones Trident utilizando proyectos de Maven con los mismo
 
 Para obtener más información sobre Trident, consulte <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Información general sobre la API de Trident</a>.
 
-Para obtener un ejemplo de una aplicación Trident, consulte [Temas más destacados de Twitter con Apache Storm en HDInsight](hdinsight-storm-twitter-trending.md)
+Para obtener un ejemplo de una aplicación Trident, consulte [Temas más destacados de Twitter con Apache Storm en HDInsight](../hdinsight-storm-twitter-trending/)
 
 ## Pasos siguientes
 
 Ha aprendido a crear una topología de Storm con Java, ahora, aprenda lo siguiente:
 
-* [Implementación y administración de topologías de Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md)
+* [Implementación y administración de topologías de Apache Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/)
 
-* [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+* [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
 
-* [Análisis de temas más destacados de Twitter con Apache Storm en HDInsight](hdinsight-storm-twitter-trending.md)
+* [Análisis de temas más destacados de Twitter con Apache Storm en HDInsight](../hdinsight-storm-twitter-trending)
 
 <!--HONumber=47-->

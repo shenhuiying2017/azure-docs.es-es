@@ -31,7 +31,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Introducción a los datos] para conectar su proyecto al servicio móvil. Si no se conecta un servicio móvil, el Asistente para agregar notificaciones de inserción se encarga de crear esta conexión. 
 
->[AZURE.NOTE]Para enviar notificaciones de inserción a una aplicación de la Tienda de Windows Phone 8.1, siga la versión [Aplicación de la Tienda Windows](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) de este tutorial.
+>[AZURE.NOTE]Para enviar notificaciones de inserción a una aplicación de la Tienda de Windows Phone 8.1, siga la versión [Aplicación de la Tienda Windows](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) de este tutorial.
 
 ##<a id="update-app"></a> Actualización de la aplicación para registrarse a fin de recibir notificaciones
 

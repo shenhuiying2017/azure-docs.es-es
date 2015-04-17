@@ -21,7 +21,7 @@
 # Cifrado dinámico: Configuración de la directiva de autorización de claves de contenido 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) . 
 
 ## Información general
 
@@ -29,7 +29,7 @@ Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado
 
 Actualmente, puede cifrar los siguientes formatos de streaming: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
 
-Si desea que Servicios multimedia cifren un recurso, deberá asociar una clave de cifrado (**CommonEncryption** o **EnvelopeEncryption**) con el recurso (como se describe [aquí](media-services-dotnet-create-contentkey.md)) y configurar directivas de autorización para la clave (como se describe en este artículo). 
+Si desea que Servicios multimedia cifren un recurso, deberá asociar una clave de cifrado (**CommonEncryption** o **EnvelopeEncryption**) con el recurso (como se describe [aquí](../media-services-dotnet-create-contentkey/)) y configurar directivas de autorización para la clave (como se describe en este artículo). 
 
 Cuando un reproductor solicita una secuencia, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido mediante AES o el cifrado de PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
@@ -47,8 +47,8 @@ Para obtener más información, consulte
 
 ### Se aplican algunas consideraciones:
 
-- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins#scale_streaming_endpoints.md). 
-- El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).  
+- Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](../media-services-manage-origins#scale_streaming_endpoints). 
+- El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](../media-services-encode-asset/).  
 - Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted**.
 - Si planea tener varias claves de contenido que requieran la misma configuración de directiva, se recomienda encarecidamente crear una sola directiva de autorización y volverla a utilizar con varias claves de contenido.
 - El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos.  Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", pruébela y, a continuación, actualice la directiva a la restricción "Open"; la directiva tardará aproximadamente 15 minutos antes de cambiar a la versión "Open" de la misma.
@@ -393,6 +393,6 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 
 ## Pasos siguientes
-Ahora que ha configurado la directiva de autorización de la clave de contenido, vaya al tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md) .
+Ahora que ha configurado la directiva de autorización de la clave de contenido, vaya al tema [Configuración de la directiva de entrega de recursos](../media-services-dotnet-configure-asset-delivery-policy/) .
 
 <!--HONumber=47-->

@@ -21,7 +21,7 @@
 
 
 <h1>  Obtención de una instancia de procesador multimedia</h1>
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Creación de un recurso cifrada y carga en el almacenamiento](media-services-create-encrypted-asset-upload-storage.md).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Creación de un recurso cifrada y carga en el almacenamiento](../media-services-create-encrypted-asset-upload-storage/).
 
 En los Servicios multimedia, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Normalmente crea un procesador multimedia cuando crea una tarea para codificar, cifrar o convertir el formato de contenido multimedia.
 

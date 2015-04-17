@@ -171,7 +171,7 @@ En los pasos que se indican a continuación se usa Microsoft Azure PowerShell. S
 
 	Este script recupera información del clúster de HDInsight, luego extrae la cuenta y la clave de la cuenta de almacenamiento predeterminada y seguidamente carga los archivos en la raíz del contenedor.
 
-	> [AZURE.NOTE] En el documento [Carga de datos para trabajos de Hadoop en HDInsigh](hdinsight-upload-data.md) se pueden encontrar otros métodos para cargar los scripts.
+	> [AZURE.NOTE] En el documento [Carga de datos para trabajos de Hadoop en HDInsigh](/es-es/documentation/articles/hdinsight-upload-data/) se pueden encontrar otros métodos para cargar los scripts.
 
 ###Uso del panel de Hive (solo ejemplo de Hive)
 

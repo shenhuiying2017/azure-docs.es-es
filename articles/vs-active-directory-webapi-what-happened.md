@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Describe los cambios que se han producido en el proyecto de Visual Studio después de ejecutar el asistente para Azure Active Directory." 
+	description="Describe lo que ha cambiado en su proyecto de Visual Studio después de ejecutar al Asistente de Azure Active Directory" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -15,6 +15,8 @@
 	ms.topic="article" 
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
+
+# ¿Qué le ha ocurrido a mi proyecto?
 
 > [AZURE.SELECTOR]
 > - [Introducción](vs-active-directory-webapi-getting-started.md)
@@ -54,7 +56,7 @@ Se ha agregado una clase de inicio de autenticación, **App_Start/Startup.Auth.c
 
 #####Se ha agregado código de inicio a su proyecto. 
 
-Si ya tenía una clase de inicio en su proyecto, el método **Configuration** se ha actualizado para incluir una llamada `ConfigureAuth(app)` que se agregó a ese método. Si no era así, se ha agregado una clase de inicio a su proyecto. 
+Si ya tenía una clase de inicio en su proyecto, el método **Configuration** se ha actualizado para incluir una llamada a  `ConfigureAuth(app)`, que se ha agregado a ese método. Si no era así, se ha agregado una clase de inicio a su proyecto. 
 
 
 #####Su archivo app.config o web.config tiene nuevos valores de configuración.
@@ -74,4 +76,4 @@ Se ha creado una aplicación de Azure AD en el directorio que seleccionó en el 
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

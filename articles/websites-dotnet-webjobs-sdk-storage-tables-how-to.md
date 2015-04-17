@@ -18,9 +18,9 @@
 
 # Cómo trabajar con almacenamiento de tablas de Azure mediante el SDK de WebJobs
 
-Esta guía proporciona ejemplos de código en C# que muestran cómo leer y escribir tablas de almacenamiento de Azure con la versión 1.x del [SDK de WebJobs](websites-dotnet-webjobs-sdk.md).
+Esta guía proporciona ejemplos de código en C# que muestran cómo leer y escribir tablas de almacenamiento de Azure con la versión 1.x del [SDK de WebJobs](../websites-dotnet-webjobs-sdk/).
 
-En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md)..
+En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](../websites-dotnet-webjobs-sdk-get-started/)..
 		
 Algunos de los fragmentos de código muestran el atributo `Table` usado en las funciones a las que [se llama manualmente](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), es decir, no mediante uno de los atributos del desencadenador. 
 
@@ -149,11 +149,11 @@ El siguiente ejemplo de código utiliza un objeto `CloudTable` para agregar una 
 		    tableBinding.Execute(insertOperation);
 		}
 
-Para obtener más información sobre cómo usar el objeto `CloudTable`, consulte [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md). 
+Para obtener más información sobre cómo usar el objeto `CloudTable`, consulte [Uso del almacenamiento de tablas en .NET](../storage-dotnet-how-to-use-tables/). 
 
 ## <a id="queues"></a>Temas relacionados que se tratan en el artículo acerca de las colas
 
-Para obtener información acerca de cómo controlar el procesamiento de tablas activado por un mensaje de cola, o escenarios del SDK de WebJobs que no sean específicos del procesamiento de tablas, consulte [Cómo trabajar con almacenamiento de cola de Azure mediante el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obtener información acerca de cómo controlar el procesamiento de tablas activado por un mensaje de cola, o escenarios del SDK de WebJobs que no sean específicos del procesamiento de tablas, consulte [Cómo trabajar con almacenamiento de cola de Azure mediante el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
 
 Los temas que se tratan en este artículo incluyen lo siguiente:
 

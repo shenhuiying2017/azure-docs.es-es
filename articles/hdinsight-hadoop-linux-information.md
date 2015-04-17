@@ -125,9 +125,9 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 
 ## Pasos siguientes
 
-* [Uso de Hive con HDInsight](hdinsight-use-hive.md)
-* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
-* [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Hive con HDInsight](../hdinsight-use-hive/)
+* [Uso de Pig con HDInsight](../hdinsight-use-pig/)
+* [Uso de trabajos de MapReduce con HDInsight](../hdinsight-use-mapreduce)
 
 
 <!--HONumber=47-->

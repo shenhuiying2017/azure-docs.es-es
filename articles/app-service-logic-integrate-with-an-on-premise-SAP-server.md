@@ -1,0 +1,131 @@
+<properties 
+	pageTitle="Integración con un servidor SAP local en el Servicio de aplicaciones de Microsoft Azure"
+	description="Aprenda a integrar con un servidor SAP local"
+	authors="rajeshramabathiran" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
+	documentationCenter=""/>
+
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/22/2015"
+	ms.author="harish"/>
+
+
+# Integración con un servidor SAP local
+Mediante el conector SAP, puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Puede invocar RFC, BAPI, tRFC y enviar IDOC al servidor SAP.
+	
+El servidor SAP puede estar incluso detrás de su firewall localmente. En el caso de un servidor local, la conectividad se establece a través de un agente de escucha híbrido, tal como se muestra:
+
+![Hybrid connectivity flow][1]
+
+Un conector SAP en la nube no se puede conectar directamente a un servidor SAP detrás de un firewall. El agente de escucha híbrido salva la distancia alojando un extremo de retransmisión que permite al conector establecer conectividad con el servidor SAP de manera segura.
+
+
+## Diferentes formas de integrar con SAP
+Se admiten las siguientes acciones:
+
+- Llamar a RFC
+- Llamar a TRFC
+- Llamar a BAPI
+- Enviar IDoc
+
+## Requisitos previos
+Las bibliotecas de cliente específicas de SAP son necesarias en el equipo cliente donde el agente de escucha híbrida está instalado y en ejecución. Los detalles precisos se capturan [aquí][9] en la sección titulada **Para el adaptador SAP**.
+
+
+## Creación de un nuevo adaptador SAP
+1. Inicie sesión en el Portal de administración de Microsoft Azure. 
+2. Seleccione **Nuevo**.
+3. En la hoja Crear, seleccione **Equipo** > **Azure Marketplace**.
+4. En la hoja marketplace, seleccione **Aplicaciones de API** y busque SAP en la barra de búsqueda:
+	
+	![SAP Connector API App][2]	
+5. Seleccione el **conector SAP** publicado por Microsoft.
+6. En la hoja del conector SAP, seleccione **Crear**.
+7. En la nueva hoja que se abre, escriba lo siguiente:
+	1. **Ubicación** - Elija la ubicación geográfica donde desea implementar el conector.
+	2. **Suscripción** - Elija una suscripción en la que desea que este conector se cree
+	3. **Grupo de recursos** - Seleccione o cree un grupo de recursos donde debe residir el conector
+	4. **Plan de hospedaje Web** - Seleccione o cree un plan de hospedaje web
+	5. **Nivel de precios** - Elija un nivel de precios para el conector
+	6. **Nombre** - Escriba un nombre para el conector SAP
+	7. **Configuración del paquete**
+		- **Nombre del servidor** - Especifique el nombre del servidor SAP. Ejemplo: "SAPserver" o "SAPserver.mydomain.com".
+		- **Nombre de usuario** - Especifique un nombre de usuario válido para conectarse al servidor SAP.
+		- **Contraseña** - Especifique una contraseña válida para conectarse al servidor SAP.
+		- **Número de sistema** - Especifique el número de sistema del servidor de aplicaciones SAP.
+		- **Idioma** - Especifique el idioma de inicio de sesión, como "ES". Si no escribe ningún valor, se considera "EN".
+		- **Local** - Especifique si el servidor SAP es local y se encuentra detrás de un firewall o no. Si se establece en TRUE, deberá instalar un agente de escucha en un servidor que puede tener acceso al servidor SAP. Puede ir a la página de resumen de la aplicación de API y seleccionar 'Hybrid Connection' para instalar el agente.
+		- **Cadena de conexión del Bus de servicio** - Especifique este parámetro si el servidor SAP es local. Debe ser una cadena de conexión de espacio de nombres de Bus de servicio válida.
+		- **RFC** - Escriba las RFC de SAP a las que el conector puede llamar.
+		- **TRFC** - Escriba las TRFC de SAP a las que el conector puede llamar.
+		- **BAPI** - Escriba las BAPI de SAP a las que el conector puede llamar.
+		- **IDOC** - Escriba las IDOC de SAP que el conector puede enviar.
+	8. Elija Seleccionar. Dentro de unos minutos, se crea el conector SAP.
+
+
+## Instalación del agente de escucha híbrido
+Busque el conector SAP creado a través de **Examinar** > **Aplicaciones de API** > *nombre del conector*
+
+En la hoja del conector, observe que el estado de la conexión híbrida es pendiente. Seleccione Conexión híbrida. Se abrirá la hoja Conexión híbrida.
+
+![Hybrid connection blade][3]
+
+Copie la cadena de configuración de puerta de enlace principal. Se utilizará posteriormente como parte de la configuración de instalación del agente de escucha híbrido.
+
+Seleccione el vínculo **Descargar y configurar** y haga clic una vez en el instalador:
+
+![Hybrid connection click once installer][4]
+
+Seleccione **Instalar** y, a continuación, escriba el valor de configuración de puerta de enlace que copió anteriormente:
+
+![Relay listen connection string][5]
+
+Seleccione **Instalar** para completar la configuración del Administrador de conexiones híbridas:
+
+![Hybrid connection manager installation in progress][6]
+
+![Hybrid connection manager installation completed][7]
+
+## Validación de una conexión híbrida
+Busque el conector SAP creado a través de **Examinar** > **Aplicaciones de API** > *nombre del conector*
+
+En la hoja del conector, observe que el estado de la conexión híbrida es *Connected*:
+
+![Hybrid connection status - connected][8]
+
+
+## Uso del conector SAP en aplicaciones lógicas
+Una vez creado el conector SAP, se puede usar dentro del flujo de trabajo de aplicaciones lógicas.
+
+Cree una nueva aplicación lógica a través de **Nuevo** > **Aplicaciones lógicas** > **Crear**. Escriba los metadatos para la aplicación lógica, incluido el grupo de recursos.
+
+Seleccione **Desencadenadores y acciones**. Se abrirá el diseñador de flujo de trabajo de aplicaciones lógicas.
+
+Seleccione el conector SAP en el panel de la derecha y seleccione una acción en la pestaña Acciones. 
+
+> [AZURE.NOTE] La lista de acciones se basa en la configuración que especificó cuando creó el conector SAP. 
+
+Para la acción seleccionada, consulte los parámetros de entrada y salida. Puede especificar las entradas de la acción y usar la salida de la acción actual en otras aplicaciones de API, posiblemente para tomar más decisiones en el flujo de trabajo.
+
+<!--Image references-->
+[1]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectivityFlow.PNG	
+[2]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.APIApp.PNG
+[3]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.PNG
+[4]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.PNG
+[5]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnection.ClickOnceInstaller.RelayInformation.PNG
+[6]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.InProgress.PNG
+[7]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/HybridConnectionManager.Install.Completed.PNG
+[8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
+[9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
+
+
+
+
+<!--HONumber=49-->

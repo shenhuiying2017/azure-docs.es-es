@@ -25,7 +25,7 @@ Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que s
 
 No puede distribuir de manera segura con la aplicación cliente las credenciales que se requieren para cargar con seguridad datos al servicio de almacenamiento de blobs. En lugar de eso, debe almacenar estas credenciales en su servicio móvil y usarlas para generar una firma de acceso compartido (SAS) que se utiliza para cargar una imagen nueva. Los Servicios móviles devuelven de manera segura a SAS una credencial de expiración&mdash;breve (en este caso de cinco minutos), a la aplicación cliente. Luego la aplicación utiliza esta credencial temporal para cargar la imagen. En este ejemplo, las descargas del servicio BLOB son públicas.
 
-En este tutorial, agregará funcionalidad al [proyecto de aplicación de ejemplo GetStartedWithData](mobile-services-dotnet-backend-windows-phone-get-started-data.md) para hacer fotografías y cargar las imágenes en Azure mediante una SAS generada por los Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar la aplicación TodoList sencilla para cargar imágenes en el servicio de almacenamiento de blobs:
+En este tutorial, agregará funcionalidad al [proyecto de aplicación de ejemplo GetStartedWithData](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) para hacer fotografías y cargar las imágenes en Azure mediante una SAS generada por los Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar la aplicación TodoList sencilla para cargar imágenes en el servicio de almacenamiento de blobs:
 
 1. [Instalación de la biblioteca de clientes de almacenamiento]
 2. [Actualización de la aplicación cliente para capturar imágenes]
@@ -40,7 +40,7 @@ Este tutorial requiere lo siguiente:
 + [SDK de Windows Phone 8.0] o superior
 + El Administrador de paquetes NuGet instalado para Microsoft Visual Studio.
 + [Cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento]
-+ Realice el tutorial [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md)  
++ Realice el tutorial [Incorporación de Servicios móviles a una aplicación existente](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)  
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 

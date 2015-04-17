@@ -31,10 +31,10 @@ La mensajería de Service Bus tiene dos características independientes: colas y
 
 Para obtener más información sobre la mensajería de Service Bus, consulte los siguientes temas:
 
-- [Información general sobre la arquitectura de Azure Service Bus](fundamentals-service-bus-hybrid-solutions.md)
+- [Información general sobre la arquitectura de Azure Service Bus](../fundamentals-service-bus-hybrid-solutions/)
 
-- [Cómo usar colas de Service Bus](service-bus-dotnet-how-to-use-queues.md)
+- [Cómo usar colas de Service Bus](../service-bus-dotnet-how-to-use-queues)
 
-- [Cómo usar temas de Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Cómo usar temas de Service Bus](../service-bus-dotnet-how-to-use-topics-subscriptions)
 
 <!--HONumber=47-->

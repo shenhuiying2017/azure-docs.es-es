@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Tutorial de noticias de última hora en los Centros de notificaciones: iOS" 
 	description="Obtenga información acerca del uso de Centros de notificaciones de Azure para enviar notificaciones de noticias de última hora en dispositivos iOS." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
-	authors="ysxu" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,29 +13,27 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="yuaxu"/>
+	ms.date="02/26/2015" 
+	ms.author="wesmc"/>
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/es-es/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
-	<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+	<a href="/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal" >Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS" class="current">iOS</a>
+	<a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
+
+##Información general
 
 Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación iOS. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más _etiquetas_ cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Orientación sobre los Centros de notificaciones].
+Los escenarios de difusión se habilitan mediante la inclusión de una o más _etiquetas_ cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Información general acerca de los Centros de notificaciones].
 
-Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
-1. [Adición de una selección de categorías a la aplicación]
-2. [Registro de notificaciones]
-3. [Envío de notificaciones desde el back-end]
-4. [Ejecución de la aplicación y generación de notificaciones]
+##Requisitos previos
 
 Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][get-started]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones][get-started].
 
-##<a name="adding-categories"></a>Adición de una selección de categorías a la aplicación
+##Incorporación de una selección de categorías a la aplicación
 
 El primer paso es agregar los elementos de la interfaz de usuario al guión gráfico existente que permiten al usuario seleccionar las categorías que se van a registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el Centro de notificaciones con las categorías seleccionadas como etiquetas.
 
@@ -92,7 +90,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
 	Esta clase usa el almacenamiento local para almacenar las categorías de noticias que este dispositivo ha de recibir. También contiene métodos para registrar estas categorías.
 
-4. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with listen access>` por el nombre del Centro de notificaciones y la cadena de conexión de *DefaultListenSharedAccessSignature* que obtuvo anteriormente.
+4. En el código anterior, reemplace los marcadores de posición  `<hub name>`  y  `<connection string with listen access>`  por el nombre de su centro de notificaciones y la cadena de conexión para  *DefaultListenSharedAccessSignature* que obtuvo anteriormente.
 
 	> [AZURE.NOTE] Puesto que las credenciales que se distribuyen con una aplicación de cliente no son normalmente seguras, solo debe distribuir la clave para el acceso de escucha con la aplicación cliente. El acceso de escucha permite a la aplicación el registro de notificaciones, pero los registros existentes no pueden modificarse y las notificaciones no se pueden enviar. La clave de acceso completo se usa en un servicio back-end protegido para el envío de notificaciones y el cambio de registros existentes.
 
@@ -106,7 +104,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
 		self.notifications = [[Notifications alloc] init];
 
-	Así se inicializa el singleton de Notification.
+	The initializes the Notification singleton.
 
 10. En el método **didRegisterForRemoteNotificationsWithDeviceToken** en BreakingNewsAppDelegate.m, quite la llamada a **registerNativeWithDeviceToken** y agregue el siguiente código:
 
@@ -154,7 +152,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
 La aplicación ahora puede almacenar un conjunto de categorías en el almacenamiento local en el dispositivo y registrarse en el Centro de notificaciones siempre que el usuario cambie la selección de categorías.
 
-##<a name="register"></a>Registro de notificaciones
+##Registro de notificaciones
 
 Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante las categorías que se han almacenado en el almacén local.
 
@@ -177,7 +175,7 @@ Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante
 		    return [[NSSet alloc] initWithArray:categories];
 		}
 
-2. Add the following code in the **didRegisterForRemoteNotificationsWithDeviceToken** method:
+2. Agregue el siguiente código al método **didRegisterForRemoteNotificationsWithDeviceToken**:
 
 		Notifications* notifications = [(BreakingNewsAppDelegate*)[[UIApplication sharedApplication]delegate] notifications];
 
@@ -207,11 +205,11 @@ Estos pasos permiten registrar el Centro de notificaciones en el inicio mediante
 
 La aplicación está ahora completa y puede almacenar un conjunto de categorías en el almacenamiento local del dispositivo usado para registrarse en el Centro de notificaciones cuando el usuario cambie la selección de categorías. A continuación, definiremos un back-end que pueda enviar notificaciones de categorías a esta aplicación.
 
-<h2><a name="send"></a>Envío de notificaciones desde el back-end</h2>
+##Envío de notificaciones desde su back-end
 
 [AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Ejecución de la aplicación y generación de notificaciones
+##Ejecución de la aplicación y generación de notificaciones
 
 1. Presione el botón Ejecutar para compilar el proyecto e iniciar la aplicación.
 
@@ -219,7 +217,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 	Tenga en cuenta que la interfaz de usuario de la aplicación ofrece un conjunto de elementos de alternancia que le permite seleccionar las categorías a las que suscribirse.
 
-2. Habilite uno o más elementos de alternancia de las categorías y, a continuación, haga clic en **Suscribirse**.
+2. Habilite uno o más elementos de alternancia de las categorías y, a continuación, haga clic en **Subscribe**.
 
 	Al elegir **Suscribirse**, la aplicación convierte las categorías seleccionadas en etiquetas y solicita un nuevo registro de dispositivo para las etiquetas seleccionadas desde el Centro de notificaciones.
 
@@ -227,11 +225,11 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 	+ **Aplicación de consola:** inicio de la aplicación de consola.
 
-	+ **Java/PHP:** ejecución de la aplicación/script.
+	+ **Java/PHP:** ejecute su aplicación o script.
 
 5. Las notificaciones para las categorías seleccionadas aparecen como notificaciones del sistema.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## Pasos siguientes
 
 En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de Centros de notificaciones avanzados:
 
@@ -243,12 +241,7 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 	Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 
-<!-- Anchors. -->
-[Adición de una selección de categorías a la aplicación]: #adding-categories
-[Registro de notificaciones]: #register
-[Envío de notificaciones desde el back-end]: #send
-[Ejecución de la aplicación y generación de notificaciones]: #test-app
-[Pasos siguientes]: #next-steps
+
 
 <!-- Images. -->
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
@@ -262,14 +255,14 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 
 <!-- URLs. -->
-[ Centros de notificaciones de Bus de servicio (aplicaciones iOS)].: http://msdn.microsoft.com/library/jj927168.aspx
-[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Servicio móvil]: /es-es/develop/mobile/tutorials/get-started
-[Notificación a los usuarios con los Centros de notificaciones]: /es-es/manage/services/notification-hubs/notify-users/
+[Trabajo Centros de notificaciones de Bus de servicio (aplicaciones iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
+[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Servicio móvil]: /develop/mobile/tutorials/get-started
+[Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users/
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

@@ -25,7 +25,7 @@ En esta guía se indica cómo usar los temas y las suscripciones de Bus de servi
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Nota:** si necesita instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](python-how-to-install.md).
+**Nota:** si necesita instalar Python o el [paquete de Azure para Python][], consulte la [Guía de instalación de Python](../python-how-to-install/).
 
 
 ## Creación de un tema

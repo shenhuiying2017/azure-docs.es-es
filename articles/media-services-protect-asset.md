@@ -22,7 +22,7 @@
 
 <h1><a name="playready"></a>  Protección de un recurso con PlayReady</h1>
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Comprobación del progreso del trabajo](media-services-check-job-progress.md).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Comprobación del progreso del trabajo](../media-services-check-job-progress/).
 
 En Servicios multimedia de Azure puede enviar un trabajo que integre la protección Microsoft PlayReady para cifrar un recurso. El código de esta sección utiliza varios archivos de transmisión de una carpeta de entrada, crea una tarea y los cifra con la protección PlayReady. 
 
@@ -128,6 +128,6 @@ Para obtener más información acerca de la protección PlayReady, consulte:
 </ul>
 
 <h2>Pasos siguientes</h2>
-Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos](media-services-manage-assets.md).
+Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos](../media-services-manage-assets/).
 
 <!--HONumber=42-->

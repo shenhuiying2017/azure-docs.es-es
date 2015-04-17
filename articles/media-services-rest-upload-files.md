@@ -21,7 +21,7 @@
 # Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Recurso](https://msdn.microsoft.com/library/azure/hh974277.aspx) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
 
@@ -39,9 +39,9 @@ El flujo de trabajo básico para la ingesta de recursos se divide en las seccion
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
  
 Un recurso es un contenedor para varios tipos o conjuntos de objetos en Servicios multimedia, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Servicios multimedia y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
@@ -56,7 +56,7 @@ Una de las propiedades que se pueden especificar al crear un recurso es **Option
 
 - **EnvelopeEncryptionProtected** = **4**: Especifique si va a cargar cifrado HLS con archivos AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 
->[AZURE.NOTE]Si el recurso usa cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente tema: [Creación de ContentKey](media-services-rest-create-contentkey.md). Tenga en cuenta que después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE**. 
+>[AZURE.NOTE]Si el recurso usa cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente tema: [Creación de ContentKey](../media-services-rest-create-contentkey). Tenga en cuenta que después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE**. 
 
 
 En el ejemplo siguiente se muestra cómo crear un recurso.

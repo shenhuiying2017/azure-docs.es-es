@@ -46,7 +46,7 @@ Los nodos principales se asignan como máquinas virtuales grandes de forma prede
 
 Las máquinas virtuales extragrandes se pueden configurar usando cmdlets de Azure PowerShell o el SDK de HDInsight.
 
-La creación y aprovisionamiento de un clúster mediante PowerShell se documenta en [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). La configuración de un nodo principal extragrande requiere la adición del parámetro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usado en este código.
+La creación y aprovisionamiento de un clúster mediante PowerShell se documenta en [Administración de HDInsight con PowerShell](../hdinsight-administer-use-powershell/). La configuración de un nodo principal extragrande requiere la adición del parámetro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usado en este código.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge Headnode VM

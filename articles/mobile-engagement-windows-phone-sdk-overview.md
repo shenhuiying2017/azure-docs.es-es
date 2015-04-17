@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 # SDK de Windows Phone para Azure Mobile Engagement v2.0.0
-Comience aquí para obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de Windows Phone. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](mobile-engagement-windows-phone-get-started.md).
+Comience aquí para obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de Windows Phone. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](../mobile-engagement-windows-phone-get-started/).
 
-Haga clic para ver el [contenido del SDK](mobile-engagement-windows-phone-sdk-content.md)
+Haga clic para ver el [contenido del SDK](../mobile-engagement-windows-phone-sdk-content/)
 
 ## Procedimientos de integración
 
-1. Comience aquí: [Cómo integrar Mobile Engagement en su aplicación de Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md)
+1. Comience aquí: [Cómo integrar Mobile Engagement en su aplicación de Windows Phone](../mobile-engagement-windows-phone-integrate-engagement/)
 
-2. Para notificaciones: [Cómo integrar Reach (notificaciones) en su aplicación de Windows Phone](mobile-engagement-windows-phone-integrate-engagement-reach.md)
+2. Para notificaciones: [Cómo integrar Reach (notificaciones) en su aplicación de Windows Phone](../mobile-engagement-windows-phone-integrate-engagement-reach/)
 
-3. Implementación del plan de etiquetas: [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su aplicación de Windows Phone](mobile-engagement-windows-phone-use-engagement-api.md)
+3. Implementación del plan de etiquetas: [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su aplicación de Windows Phone](../mobile-engagement-windows-phone-use-engagement-api/)
 
 ## Notas de la versión
 
@@ -36,7 +36,7 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-windows-phone-sdk-co
 -   La configuración de appId o sdkKey se sustituye por una configuración de la cadena de conexión.
 -   Mejoras de seguridad.
 
-Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-windows-phone-release-notes.md).
+Para la versión anterior, consulte las [notas de la versión completas](../mobile-engagement-windows-phone-release-notes/).
 
 ## Procedimientos de actualización
 

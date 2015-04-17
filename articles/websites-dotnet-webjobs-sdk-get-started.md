@@ -78,7 +78,7 @@ Si el tráfico varía en función de la hora o el día de la semana, y si el pro
 * Ejecute el programa como un WebJob en una aplicación web independiente destinado a ese fin. A continuación, puede escalar la aplicación web back-end con independencia de la aplicación web front-end.
 * Ejecute el programa en un rol de trabajo de Servicio en la nube de Azure. Si elige esta opción, puede ejecutar el front-end en un rol de trabajo de Servicio en una nube o en una aplicación web.
 
-En este tutorial se muestra cómo ejecutar el front-end en una aplicación web y el back-end como un WebJob en la misma aplicación web. Para obtener información sobre cómo elegir el mejor entorno para su escenario, consulte [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](choose-web-site-cloud-service-vm.md).
+En este tutorial se muestra cómo ejecutar el front-end en una aplicación web y el back-end como un WebJob en la misma aplicación web. Para obtener información sobre cómo elegir el mejor entorno para su escenario, consulte [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](../choose-web-site-cloud-service-vm/).
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 

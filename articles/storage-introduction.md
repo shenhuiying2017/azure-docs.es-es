@@ -68,7 +68,7 @@ La siguiente imagen muestra las relaciones entre los recursos de almacenamiento 
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Cuando esté listo para crear una cuenta de almacenamiento estándar, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](storage-create-storage-account.md) para obtener más detalles.
+Cuando esté listo para crear una cuenta de almacenamiento estándar, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account/) para obtener más detalles.
 
 ### Cuentas de almacenamiento premium (vista previa)
 
@@ -128,7 +128,7 @@ De forma predeterminada, solo el propietario de la cuenta de almacenamiento pued
 
 Al crear una cuenta de almacenamiento, se le asignan dos claves de acceso privado que se utilizan para la autenticación. Tener dos claves garantiza que la aplicación siga estando disponible durante el proceso habitual de regeneración de las claves, una práctica común de administración de las claves de seguridad.
 
-Si debe permitir el acceso controlado de los usuarios a los recursos de almacenamiento, puede crear una [firma de acceso compartido](storage-dotnet-shared-access-signature-part-1.md). Una firma de acceso compartido es un token que se puede asociar a una dirección URL que permite el acceso delegado a un contenedor, un blob, una tabla o una cola. Cualquier usuario que tenga el token puede obtener acceso al recurso que señala con los permisos que especifica durante el plazo válido correspondiente. Tenga en cuenta que, actualmente, Almacenamiento de archivos de Azure no admite firmas de acceso compartido.
+Si debe permitir el acceso controlado de los usuarios a los recursos de almacenamiento, puede crear una [firma de acceso compartido](../storage-dotnet-shared-access-signature-part-1/). Una firma de acceso compartido es un token que se puede asociar a una dirección URL que permite el acceso delegado a un contenedor, un blob, una tabla o una cola. Cualquier usuario que tenga el token puede obtener acceso al recurso que señala con los permisos que especifica durante el plazo válido correspondiente. Tenga en cuenta que, actualmente, Almacenamiento de archivos de Azure no admite firmas de acceso compartido.
 
 Por último, puede especificar que un contenedor y sus blobs, o un blob específico, estén disponibles para el acceso público. Cuando se indica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación.  Los contenedores y los blobs públicos son útiles para exponer recursos, como archivos multimedia y documentos hospedados en sitios web.  Si desea reducir la latencia de red para una audiencia global, puede almacenar en caché los datos de blobs usados por los sitios web con el servicio CDN de Azure.
 
@@ -183,40 +183,40 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 <h3>Para desarrolladores de .NET</h3>
 
 - [Referencia a la biblioteca de clientes de .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
-- [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md)
-- [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md)
-- [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md)
+- [Uso del almacenamiento de blobs en .NET](../storage-dotnet-how-to-use-blobs/)
+- [Uso del almacenamiento de tablas en .NET](../storage-dotnet-how-to-use-tables/)
+- [Uso del almacenamiento en cola en .NET](../storage-dotnet-how-to-use-queues/)
 
 <h3>Para desarrolladores de Java/Android</h3>
 
 - [Referencia a la biblioteca de clientes de Java]()
-- [Uso del almacenamiento de blobs de Java/Android](storage-java-how-to-use-blob-storage.md)
-- [Uso del almacenamiento de tablas de Java/Android](storage-java-how-to-use-table-storage.md)
-- [Uso del almacenamiento de colas de Java/Android](storage-java-how-to-use-queue-storage.md)
+- [Uso del almacenamiento de blobs de Java/Android](../storage-java-how-to-use-blob-storage/)
+- [Uso del almacenamiento de tablas de Java/Android](../storage-java-how-to-use-table-storage/)
+- [Uso del almacenamiento de colas de Java/Android](../storage-java-how-to-use-queue-storage/)
 
 <h3>Para desarrolladores de Node.js</h3>
 
-- [Uso del almacenamiento de blobs en Node.js](storage-nodejs-how-to-use-blob-storage.md)
-- [Uso del almacenamiento de tablas en Node.js](storage-nodejs-how-to-use-table-storage.md)
-- [Uso del almacenamiento de colas en Node.js](storage-nodejs-how-to-use-queues.md)
+- [Uso del almacenamiento de blobs en Node.js](../storage-nodejs-how-to-use-blob-storage/)
+- [Uso del almacenamiento de tablas en Node.js](../storage-nodejs-how-to-use-table-storage/)
+- [Uso del almacenamiento de colas en Node.js](../storage-nodejs-how-to-use-queues/)
 
 <h3>Para desarrolladores de PHP</h3>
 
-- [Uso del almacenamiento de blobs en PHP](storage-php-how-to-use-blobs.md)
-- [Uso del almacenamiento de tablas en PHP](storage-php-how-to-use-table-storage.md)
-- [Uso del almacenamiento de colas en PHP](storage-php-how-to-use-queues.md)
+- [Uso del almacenamiento de blobs en PHP](../storage-php-how-to-use-blobs/)
+- [Uso del almacenamiento de tablas en PHP](../storage-php-how-to-use-table-storage/)
+- [Uso del almacenamiento de colas en PHP](../storage-php-how-to-use-queues/)
 
 <h3>Para desarrolladores de Ruby</h3>
 
-- [Uso del almacenamiento de blobs en Ruby](storage-ruby-how-to-use-blob-storage.md)
-- [Uso del almacenamiento de tablas en Ruby](storage-ruby-how-to-use-table-storage.md)
-- [Uso del almacenamiento de colas en Ruby](storage-ruby-how-to-use-queue-storage.md)
+- [Uso del almacenamiento de blobs en Ruby](../storage-ruby-how-to-use-blob-storage/)
+- [Uso del almacenamiento de tablas en Ruby](../storage-ruby-how-to-use-table-storage/)
+- [Uso del almacenamiento de colas en Ruby](../storage-ruby-how-to-use-queue-storage/)
 
 <h3>Para desarrolladores de Python</h3>
 
-- [Uso del almacenamiento de blobs en Python](storage-python-how-to-use-blob-storage.md)
-- [Uso del almacenamiento de tablas en Python](storage-python-how-to-use-table-storage.md)
-- [Uso del almacenamiento de colas en Python](storage-python-how-to-use-queue-storage.md)
+- [Uso del almacenamiento de blobs en Python](../storage-python-how-to-use-blob-storage/)
+- [Uso del almacenamiento de tablas en Python](../storage-python-how-to-use-table-storage/)
+- [Uso del almacenamiento de colas en Python](../storage-python-how-to-use-queue-storage/)
 
 
 <!--HONumber=42-->

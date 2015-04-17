@@ -19,7 +19,7 @@
 
 # Obtención de una instancia de procesador multimedia
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 ## Información general
 
@@ -69,9 +69,9 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
 
 
 

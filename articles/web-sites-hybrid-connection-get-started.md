@@ -175,7 +175,7 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 
 [Sitio web de conexiones híbridas](http://azure.microsoft.com/services/biztalk-services/)
 
-[Servicios de BizTalk pestañas Panel, Supervisar, Escala, Configurar y Conexiones híbridas](biztalk-dashboard-monitor-scale-tabs.md)
+[Servicios de BizTalk pestañas Panel, Supervisar, Escala, Configurar y Conexiones híbridas](../biztalk-dashboard-monitor-scale-tabs/)
 
 [Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 

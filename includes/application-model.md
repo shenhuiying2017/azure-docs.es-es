@@ -269,7 +269,7 @@ de rol.
 Como se mencionó anteriormente, el archivo de definición de servicio (CSDEF) es un archivo XML
 que describe los distintos roles que componen su aplicación
 completa. Aquí se puede encontrar el esquema completo del archivo XML:
-[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/es-es/library/windowsazure/ee758711.aspx][].
 El archivo CSDEF contiene un elemento WebRole o WorkerRole para cada rol
 que desee en la aplicación. La implementación de un rol como un rol web (mediante
 el elemento WebRole) significa que el código se ejecutará en una instancia de rol
@@ -486,7 +486,7 @@ elementos más útiles disponibles:
 El archivo de configuración del servicio (CSCFG) es un archivo XML que describe
 opciones que se pueden cambiar sin volver a implementar la aplicación. Aquí
 se puede encontrar el esquema completo del archivo XML:
-[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx][].
 El archivo CSCFG contiene un elemento Role para cada rol de la
 aplicación. Estos son algunos de los elementos que se pueden especificar en el archivo CSCFG
 :
@@ -503,7 +503,7 @@ aplicación. Estos son algunos de los elementos que se pueden especificar en el 
     establecer el atributo osVersion en un valor de
     "WA-GUEST-OS-2.8\_201109-01" hace que todas las instancias de rol obtengan
     lo que se describe en esta página web:
-    [http://msdn.microsoft.com/library/hh560567.aspx][]. Para obtener más
+    [http://msdn.microsoft.com/es-es/library/hh560567.aspx][]. Para obtener más
     información acerca de las versiones del sistema operativo invitado, consulte [Administración de actualizaciones del
     sistema operativo invitado de Azure].
 
@@ -585,14 +585,14 @@ roles, consulte el artículo [Implementación y actualización de aplicaciones d
   [4]: ./media/application-model/application-model-7.jpg
   
   [Precios de Azure]: http://www.windowsazure.com/es-es/pricing/calculator/
-  [Administración de certificados en Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-  [Administración de actualizaciones del sistema operativo invitado de Azure]: http://msdn.microsoft.com/library/ee924680.aspx
+  [Administración de certificados en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/es-es/library/hh560567.aspx]: http://msdn.microsoft.com/es-es/library/hh560567.aspx
+  [Administración de actualizaciones del sistema operativo invitado de Azure]: http://msdn.microsoft.com/es-es/library/ee924680.aspx
   [Portal de administración de Azure]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
   [Implementación y actualización de aplicaciones de Azure]: http://www.windowsazure.com/es-es/develop/net/fundamentals/deploying-applications/
-  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/gg432967.aspx
-  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/library/gg433038.aspx
-  [Migrating Applications to Azure]: http://msdn.microsoft.com/library/gg186051.aspx
-  [Configurar un proyecto de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
+  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/es-es/library/gg432967.aspx
+  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/es-es/library/gg433038.aspx
+  [Migrating Applications to Azure]: http://msdn.microsoft.com/es-es/library/gg186051.aspx
+  [Configurar un proyecto de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee405486.aspx

@@ -21,7 +21,7 @@
 
 <h1>  Administración de recursos en el almacenamiento</h1>
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Protección de un recurso](media-services-protect-asset.md).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Protección de un recurso](../media-services-protect-asset/).
 
 Después de crear recursos multimedia y de cargarlos en Servicios multimedia, puede obtener acceso a los recursos y administrarlos en el servidor. También puede administrar otros objetos en el servidor que forman parte de Servicios multimedia, como trabajos, tareas, directivas de acceso, localizadores y otros objetos.
 
@@ -94,6 +94,6 @@ Para obtener más información acerca de la administración de recursos, consult
 
 
 <h2>Pasos siguientes</h2>
-Ahora que sabe cómo administrar recursos, consulte el tema [Entrega de un recurso mediante descarga](media-services-deliver-asset-download.md).
+Ahora que sabe cómo administrar recursos, consulte el tema [Entrega de un recurso mediante descarga](../media-services-deliver-asset-download/).
 
 <!--HONumber=42-->

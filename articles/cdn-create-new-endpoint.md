@@ -37,6 +37,6 @@ Una vez que haya habilitado un extremo de red CDN para su origen como cuenta de 
 > Nota: La configuración que ha establecido para el extremo no estará disponible de forma inmediata; el registro puede tardar hasta 60 minutos en propagarse a través de la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 400 (solicitud incorrecta) hasta que el contenido esté disponible a través de la red CDN.
 
 #Otras referencias
-[Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](cdn-map-content-to-custom-domain.md)
+[Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](./cdn-map-content-to-custom-domain.md)
 
 <!--HONumber=49-->

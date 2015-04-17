@@ -90,7 +90,7 @@ Haga que su sitio .COM sea más atractivo con medios enriquecidos, como:
 ## Más recursos
 
 - [Documentación de Sitios web Azure](/es-es/documentation/services/websites/)
-- [Mapa de aprendizaje de Sitios web Azure](websites-learning-map.md)
+- [Mapa de aprendizaje de Sitios web Azure](/es-es/documentation/articles/websites-learning-map/)
 - [Blog de web de Azure](/blog/topics/web/)
 
 

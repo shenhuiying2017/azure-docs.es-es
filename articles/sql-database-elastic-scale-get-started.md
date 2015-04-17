@@ -26,7 +26,7 @@ Este documento le presentaba la experiencia del desarrollador para Escalado elá
 
 Para obtener más información acerca de cómo funciona el Escalado elástico, consulte [Información general de Escalado elástico](http://go.microsoft.com/?linkid=9862592).
 
-Para obtener una lista de temas sobre Escalado elástico, consulte [Mapa de documentación de escalado elástico](sql-database-elastic-scale-documentation-map.md)
+Para obtener una lista de temas sobre Escalado elástico, consulte [Mapa de documentación de escalado elástico](./sql-database-elastic-scale-documentation-map.md)
 
 ## Aplicación de ejemplo de escalado elástico
 
@@ -92,7 +92,7 @@ Para obtener información sobre los precios, consulte [Detalles de precios de Ba
 ## Pasos siguientes
 Para obtener más información acerca de la característica Escalado elástico, consulte:
 
-* [Página de aprendizaje de Escalado elástico](sql-database-elastic-scale-documentation-map.md) 
+* [Página de aprendizaje de Escalado elástico](./sql-database-elastic-scale-documentation-map.md) 
 -    Ejemplos de código: 
     -    [Escalado elástico con Base de datos SQL de Azure: Introducción](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
     -    [Escalado elástico con Base de datos SQL de Azure - Integración con Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)

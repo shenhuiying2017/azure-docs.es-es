@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Azure Active Directory (proyectos .NET)" 
 	description="Cómo empezar a usar Azure Active Directory en Visual Studio" 
 	services="active-directory" 
@@ -6,7 +6,7 @@
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
-  
+ 
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
@@ -16,11 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# Introducción a Azure Active Directory (proyectos .NET)
+
 > [AZURE.SELECTOR]
 > - [Introducción](vs-active-directory-dotnet-getting-started.md)
 > - [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
-
-## Introducción a Azure Active Directory (proyectos .NET)
  
 #####Requerimiento de autenticación para obtener acceso a los controladores 
 
@@ -77,4 +77,4 @@ Para agregar controles SignIn/SignOut a su vista, puede utiliza la vista parcial
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

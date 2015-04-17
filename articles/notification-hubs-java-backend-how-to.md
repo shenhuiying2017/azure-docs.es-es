@@ -1,9 +1,9 @@
-<properties 
+﻿<properties 
 	pageTitle="Uso de los Centros de notificaciones con Java" 
-	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure desde un back-end de Java." 
+	description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure desde un back-end de Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="piyushjo" 
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,17 +14,17 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="01/12/2015" 
-	ms.author="piyushjo"/>
+	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde Java
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/es-es/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/es-es/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/es-es/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
 En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. 
 Se trata de un proyecto de código abierto y puede ver todo el código SDK en [SDK de Java]. 
 
-En general, puede tener acceso a todas las características de los Centros de notificaciones desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
+En general, puede tener acceso a todas las características de los Centros de notificaciones desde un servidor back-end deJava/PHP/Python/Ruby  mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
 
 El SDK admite actualmente:
 
@@ -45,7 +45,7 @@ Uso de [Maven]
 
 Para crear:
 
-	paquete mvn
+	mvn package
 
 ## Código
 
@@ -61,7 +61,7 @@ Para crear:
 	hub.setWindowsCredential(new WindowsCredential("sid","key"));
 	hub = namespaceManager.createNotificationHub(hub);
 	
- O BIEN
+ OR
 
 	hub = new NotificationHub("connection string", "hubname");
 
@@ -113,29 +113,29 @@ Quita los duplicados debido a las respuestas perdidas si se almacenan identifica
 	WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
 	hub.upsertRegistration(reg);
 
-**Actualizar registros:**
+**Actualización de registros:**
 	
 	hub.updateRegistration(reg);
 
-**Eliminar registros:**
+**Eliminación de registros:**
 	
 	hub.deleteRegistration(regid);
 
-**Consultar registros:**
+**Consulta de registros:**
 
-* 	**Obtener registro sencillo:**
+* 	**Obtención de un único registro:**
 	
 		hub.getRegistration(regid);
 	
-* 	**Obtener todos los registros de un centro:**
+* 	**Obtención de todos los registros en el centro:**
 	
 		hub.getRegistrations();
 	
-* 	**Obtener registros con etiqueta:**
+* 	**Obtención de registros con etiqueta:**
 	
 		hub.getRegistrationsByTag("myTag");
 	
-* 	**Obtener registros por canal:**
+* 	**Obtención de registros por canal:**
 	
 		hub.getRegistrationsByChannel("devicetoken");
 
@@ -274,7 +274,7 @@ El objeto de notificación es simplemente un cuerpo con encabezados, algunos mé
 		tags.add("foo");
 		hub.sendNotification(n, tags);
 
-* **Envío a la expresión de etiqueta**
+* **Envío a la expresión de etiqueta**       
 
 		hub.sendNotification(n, "foo && ! bar");
 
@@ -300,12 +300,12 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 	- [Envío de notificaciones entre plataformas a usuarios autenticados]
 
 [SDK de Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Tutorial introductorio]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
-[Introducción a los Centros de notificaciones]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Envío de noticias de última hora]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Envío de noticias de última hora localizadas]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Envío de notificaciones a usuarios autenticados]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
-[Envío de notificaciones entre plataformas a usuarios autenticados]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Introducción a los Centros de notificaciones]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Envío de noticias de última hora]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
+[Envío de noticias de última hora localizadas]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Envío de notificaciones a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
+[Envío de notificaciones entre plataformas a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

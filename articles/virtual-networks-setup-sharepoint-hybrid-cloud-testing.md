@@ -45,7 +45,7 @@ Si todavía no dispone de una suscripción a Azure, puede registrarse para una p
 
 ##Fase 1: Configuración del entorno de nube híbrida
 
-Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
+Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
 
 Esta es su configuración actual.
 
@@ -195,13 +195,13 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
+[Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
 
-[Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
+[Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
-[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
 
-[Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
+[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 <!--HONumber=47-->

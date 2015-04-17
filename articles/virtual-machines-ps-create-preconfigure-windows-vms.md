@@ -26,7 +26,7 @@ Para consultar el tema paralelo sobre máquinas virtuales basadas en Linux, vea 
 
 ##Paso 1: Azure PowerShell
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](install-configure-powershell.md) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
+Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
 
 ##Paso 2: Establecimiento de la cuenta de suscripción y almacenamiento
 
@@ -265,8 +265,8 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Información general sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
+[Instalación y configuración de Azure PowerShell](../install-configure-powershell/)
 
-[Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
+[Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
 <!--HONumber=47-->

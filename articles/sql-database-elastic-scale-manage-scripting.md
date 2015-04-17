@@ -73,7 +73,7 @@ Por último, dentro del ámbito de los ejemplos proporcionados, el uso de [Autom
 ## Carga de los runbooks 
 
 1. Descargue el archivo **ShardElasticity.zip** y extraiga su contenido.
-2. [Incorporación de referencias a los binarios de Escalado elástico mediante NuGet](sql-database-elastic-scale-add-references-visual-studio.md)
+2. [Incorporación de referencias a los binarios de Escalado elástico mediante NuGet](./sql-database-elastic-scale-add-references-visual-studio.md)
 3. Encuentre el binario de cliente de Escalado elástico (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**).
 4. Coloque el DLL en la carpeta ShardElasticityModule y comprima la carpeta. 
 3. En la cuenta de Automatización de Azure, cargue el archivo ShardElasticityModule.zip como un **recurso**. 

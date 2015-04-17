@@ -76,7 +76,7 @@ En esta sección, creará una aplicación de iOS que se conecta al servicio móv
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-Con esto se muestra cómo ejecutar la nueva aplicación cliente contra el servicio móvil que se ejecuta en Azure. Antes de que pueda probar la aplicación iOS con el servicio móvil en ejecución en un equipo local, debe configurar el firewall y el servidor web para permitir el acceso desde su equipo de desarrollo iOS. Para obtener más información, vea [Configuración del servidor web local para permitir conexiones a un servicio móvil local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
+Con esto se muestra cómo ejecutar la nueva aplicación cliente contra el servicio móvil que se ejecuta en Azure. Antes de que pueda probar la aplicación iOS con el servicio móvil en ejecución en un equipo local, debe configurar el firewall y el servidor web para permitir el acceso desde su equipo de desarrollo iOS. Para obtener más información, vea [Configuración del servidor web local para permitir conexiones a un servicio móvil local](/es-es/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
 
 ## <a name="next-steps"> </a>Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:

@@ -38,7 +38,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 	**Importante**: el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-	Para ver una lista de distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure](linux-endorsed-distributions.md). Como alternativa, vea la sección al final de este artículo para obtener [información para las distribuciones no aprobadas](virtual-machines-linux-create-upload-vhd-generic.md).
+	Para ver una lista de distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure](../linux-endorsed-distributions). Como alternativa, vea la sección al final de este artículo para obtener [información para las distribuciones no aprobadas](../virtual-machines-linux-create-upload-vhd-generic).
 
 - **Herramienta de línea de comandos de Azure para Linux**. Si usa el sistema operativo Linux para crear su imagen, utilizará las [Herramientas de línea de comando de Azure para Linux y Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409) para cargar el VHD.
 
@@ -54,13 +54,13 @@ Esta tarea incluye los siguientes pasos:
 
 ## <a id="prepimage"></a>Paso 1: Preparar la imagen que se va a cargar ##
 
-Microsoft Azure admite varias distribuciones de Linux (consulte [Distribuciones aprobadas](linux-endorsed-distributions.md)). Los artículos siguientes le guiarán a través del proceso de preparación de las distintas distribuciones de Linux admitidas en Azure:
+Microsoft Azure admite varias distribuciones de Linux (consulte [Distribuciones aprobadas](../linux-endorsed-distributions)). Los artículos siguientes le guiarán a través del proceso de preparación de las distintas distribuciones de Linux admitidas en Azure:
 
-- **[Distribuciones basadas en CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
-- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
-- **[SLES y openSUSE](virtual-machines-linux-create-upload-vhd-suse.md)**
-- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
-- **[Otros - Distribuciones no aprobadas](virtual-machines-linux-create-upload-vhd-generic.md)**
+- **[Distribuciones basadas en CentOS](../virtual-machines-linux-create-upload-vhd-centos)**
+- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
+- **[SLES y openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
+- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
+- **[Otros - Distribuciones no aprobadas](../virtual-machines-linux-create-upload-vhd-generic)**
 
 Consulte también las **[Notas de instalación de Linux](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)** para obtener sugerencias adicionales sobre la preparación de imágenes de Linux para Azure.
 

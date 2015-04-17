@@ -19,13 +19,13 @@
 
 # Creación de claves de contenido con .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) .  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) .  
 
 Los Servicios multimedia permiten crear nuevos recursos y entregar recursos cifrados. Una **clave de contenido** proporciona acceso seguro a los **recursos**s. 
 
-Cuando se crea un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-rest-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Cuando se crea un nuevo recurso (por ejemplo, antes de [cargar archivos](../media-services-rest-upload-files/)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
-Al entregar recursos a los clientes, puede [configurar que los recursos se cifren de manera dinámica](media-services-rest-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
+Al entregar recursos a los clientes, puede [configurar que los recursos se cifren de manera dinámica](../media-services-rest-configure-asset-delivery-policy) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Los recursos cifrados tienen que estar asociados con **clave**s de contenido. En este artículo se describe cómo crear una clave de contenido.
 
@@ -67,9 +67,9 @@ Tenga en cuenta que en este tema se han omitido los ejemplos que generan una cla
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
 
 ## Recuperación de ProtectionKeyId 
  

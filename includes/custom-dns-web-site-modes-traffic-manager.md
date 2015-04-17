@@ -1,5 +1,5 @@
 ﻿La configuración de un nombre de dominio personalizado en un sitio web con equilibrio de carga del Administrador de tráfico solo está disponible para los sitios web en modo estándar. Antes de cambiar un sitio web del modo Gratis al modo Compartido, Básico o Estándar, primero debe quitar los límites de gasto vigentes para la suscripción del sitio web. 
 
-Para obtener más información sobre los modos de sitio web, como la manera de cambiar el modo de su sitio, consulte [Escalación de sitios web](web-sites-scale.md).
+Para obtener más información sobre los modos de sitio web, como la manera de cambiar el modo de su sitio, consulte [Escalación de sitios web](/es-es/documentation/articles/web-sites-scale/).
 
 <!--HONumber=42-->

@@ -23,5 +23,5 @@
 
 P: ¿Cómo se escala la indización?
 
-R: Las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalación de unidades reservadas de codificación](media-services-how-to-scale.md). Tenga en cuenta que el rendimiento del indizador no se ve afectado por tipo de unidad reservada.
+R: Las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalación de unidades reservadas de codificación](../media-services-how-to-scale). Tenga en cuenta que el rendimiento del indizador no se ve afectado por tipo de unidad reservada.
 <!--HONumber=47-->

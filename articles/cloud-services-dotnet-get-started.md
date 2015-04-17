@@ -34,7 +34,7 @@ La aplicación usa el [patrón de trabajo centrado en colas](http://www.asp.net/
 
 ## Arquitectura alternativa: sitios web y WebJobs
 
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/es-es/services/web-sites/) y usar la característica [Trabajos web](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en vista previa) para el back-end. Para ver un tutorial en el que se utiliza Trabajos web, consulte [Introducción al SDK de Trabajos web de Azure](websites-dotnet-webjobs-sdk-get-started.md). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, vea [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/es-es/services/web-sites/) y usar la característica [Trabajos web](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en vista previa) para el back-end. Para ver un tutorial en el que se utiliza Trabajos web, consulte [Introducción al SDK de Trabajos web de Azure](/es-es/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, vea [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Temas que se abordarán
 
@@ -807,7 +807,7 @@ Para obtener más información, consulte los siguientes recursos:
 * [Servicios de nube de Azure, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Servicios en la nube de Azure](/es-es/documentation/services/cloud-services/)
 * [Almacenamiento de Azure](/es-es/documentation/services/storage/)
-* [Uso del almacenamiento de Blobs en .NET](storage-dotnet-how-to-use-blobs.md)
-* [Uso del almacenamiento de Cola en .NET](storage-dotnet-how-to-use-queues.md)
+* [Uso del almacenamiento de Blobs en .NET](/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/)
+* [Uso del almacenamiento de Cola en .NET](/es-es/documentation/articles/storage-dotnet-how-to-use-queues/)
 
 <!--HONumber=45--> 

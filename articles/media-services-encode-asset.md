@@ -18,7 +18,7 @@
 
 
 #   Codificación de un recurso
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Obtención de un procesador multimedia](media-services-get-media-processor.md).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Obtención de un procesador multimedia](../media-services-get-media-processor/).
 
 Puede codificar el contenido multimedia del servidor con una serie de codificaciones y formatos multimedia que usa Azure Media Encoder. También puede usar un codificador proporcionado por un socio de Servicios multimedia. Podrá encontrar codificadores de terceros en [Azure Marketplace][]. Puede especificar los detalles de las tareas de codificación mediante las cadenas de [valores preestablecidos de codificador][] o los archivos de configuración. 
 
@@ -170,7 +170,7 @@ Para obtener más información acerca de los recursos que se están procesando, 
 </ul>
 
 ## Pasos siguientes
-Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](media-services-check-job-progress.md).
+Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](../media-services-check-job-progress/).
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [valores preestablecidos de codificador]: http://msdn.microsoft.com/library/dn619392.aspx

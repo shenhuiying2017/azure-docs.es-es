@@ -45,6 +45,6 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 
 [Acerca del registro del análisis de almacenamiento](https://msdn.microsoft.com/library/azure/hh343262.aspx) 
 
-[Acerca de las métricas del análisis de almacenamiento](storage-about-analytics-metrics.md.md) 
+[Acerca de las métricas del análisis de almacenamiento](../storage-about-analytics-metrics.md) 
 
 <!--HONumber=47-->

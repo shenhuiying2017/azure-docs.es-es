@@ -81,7 +81,7 @@ Para los PC y Mac, puede dirigir una experiencia de transferencia mediante Micro
 
 -	[Cliente de Smooth Streaming para Silverlight](http://www.microsoft.com/es-es/download/details.aspx?id=29940)
 -	[Plataforma multimedia de Microsoft: Player Framework para Silverlight](http://smf.codeplex.com/documentation)
--	[Complemento Smooth Streaming para OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) Para obtener información sobre el uso de este complemento, consulte [Uso del complemento de transmisión suave para Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md).
+-	[Complemento Smooth Streaming para OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) Para obtener información sobre el uso de este complemento, consulte [Uso del complemento de transmisión suave para Adobe Open Source Media Framework](../media-services-use-osmf-smooth-streaming-client-plugin/).
 
 #### Aplicaciones de Windows 8
 Para Windows 8, puede generar aplicaciones de la Tienda Windows mediante una de las construcciones y lenguajes de desarrollo compatibles como HTML, Javascript, XAML, C# y C+.
@@ -115,7 +115,7 @@ Para los dispositivos iOS, incluidos iPhone, iPod, e iPad, Microsoft incorpora u
 Varios socios de Microsoft incluyen SDK para la plataforma Android que agrega la capacidad de reproducir la transmisión suave en un dispositivo Android. [Escriba un correo electrónico a Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) para obtener más información sobre los asociados.
 
 ## Pasos siguientes
-Ahora que dispone de una visión general de los Servicios multimedia, diríjase al tema [Configuración de su equipo para Servicios multimedia](media-services-set-up-computer.md).
+Ahora que dispone de una visión general de los Servicios multimedia, diríjase al tema [Configuración de su equipo para Servicios multimedia](../media-services-set-up-computer/).
 
 
   [¿Qué son los Servicios multimedia?]: #what-are

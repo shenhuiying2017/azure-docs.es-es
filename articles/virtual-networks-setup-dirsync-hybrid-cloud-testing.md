@@ -45,7 +45,7 @@ Si todavía no dispone de una suscripción a Azure, puede registrarse para una p
 
 ##Fase 1: Configuración del entorno de nube híbrida
 
-Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
+Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
 
 Esta es su configuración actual.
 
@@ -180,12 +180,12 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office 
 
 [Soluciones que usan los servidores de Office y la nube](http://technet.microsoft.com/library/dn262744.aspx)
 
-[Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
+[Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/)
 
-[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
-[Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
+[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
 <!--HONumber=47-->
