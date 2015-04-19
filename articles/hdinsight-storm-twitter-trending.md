@@ -127,17 +127,17 @@ Una vez iniciada la topología, debería ver la información de depuración que 
 
 ## Pasos siguientes
 
-Ahora que probó localmente la topología, descubra cómo [implementar esta topología en Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/).
+Ahora que probó localmente la topología, descubra cómo [implementar esta topología en Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
 También se puede interesar en los siguientes temas de Storm:
 
-* [Desarrollo de las topologías de Java para Storm en HDInsight con Maven](../hdinsight-storm-develop-java-topology/)
+* [Desarrollo de las topologías de Java para Storm en HDInsight con Maven](hdinsight-storm-develop-java-topology.md)
 
-* [Desarrollo de las topologías de C# para Storm en HDInsight con Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Desarrollo de las topologías de C# para Storm en HDInsight con Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Para obtener más ejemplos de Storm para HDInsight:
 
 * [Ejemplos de Storm en HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
 
-* [Análisis de los datos de sensor de Centro de eventos con Storm en HDInsight](../hdinsight-storm-sensor-data-analysis/)
+* [Análisis de los datos de sensor de Centro de eventos con Storm en HDInsight](hdinsight-storm-sensor-data-analysis.md)
 <!--HONumber=47-->

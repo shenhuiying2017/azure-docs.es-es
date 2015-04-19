@@ -18,8 +18,8 @@
 
 
 # Creación de un área de trabajo de Aprendizaje automático de Azure 
-Un área de trabajo de Aprendizaje automático de Azure (área de trabajo de ML) contiene las herramientas necesarias para administrar y publicar experimentos. Para obtener más información sobre las áreas de trabajo de aprendizaje automático, consulte el vínculo.
-## Para crear un área de trabajo ##
+Un área de trabajo de Aprendizaje automático de Microsoft Azure (área de trabajo de ML) contiene las herramientas necesarias para administrar y publicar experimentos. Para obtener más información acerca del área de trabajo de Aprendizaje automático, haga clic en el vínculo.
+## Para crear un área de trabajo, siga estos pasos: ##
 1. Inicie sesión en su cuenta de Microsoft Azure.
 2. En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
 
@@ -27,11 +27,11 @@ Un área de trabajo de Aprendizaje automático de Azure (área de trabajo de ML)
  
 
 1. Haga clic en **CREAR UN ÁREA DE TRABAJO DE ML**.
-2. En la página **CREACIÓN RÁPIDA**:
+2. En la página **CREACIÓN RÁPÌDA**:
 	1. Escriba la información de su área de trabajo.    
-	> [AZURE.NOTE] El **PROPIETARIO DEL ÁREA DE TRABAJO** es el nombre de su cuenta de Microsoft (name@outlook.com) o el nombre de la cuenta de su organización.
+	NOTA: el **PROPIETARIO DEL ÁREA DE TRABAJO** es su cuenta de Microsoft (name@outlook.com) o su cuenta de la organización.
 	2. Haga clic en **CREAR UN ÁREA DE TRABAJO DE ML**.
-3. Después de crear el área de trabajo del aprendizaje automático, verá que aparece en la página **aprendizaje automático**.
+3. Una vez creada el área de trabajo de Aprendizaje automático, verá que aparece en la página **aprendizaje automático**.
  
 ![][2]
 
@@ -46,4 +46,4 @@ Un área de trabajo de Aprendizaje automático de Azure (área de trabajo de ML)
 
 <!--Link references-->
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

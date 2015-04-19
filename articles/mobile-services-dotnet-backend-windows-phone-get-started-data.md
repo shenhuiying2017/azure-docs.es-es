@@ -344,7 +344,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [Introducción a la autenticación]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
 [Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 [JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[Versión de back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-wp8
+[versión back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-wp8
 
 [SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Portal de administración de Azure]: https://manage.windowsazure.com/

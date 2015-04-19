@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="" 
-	description="Información sobre cómo empezar con el Asistente de Active Directory (proyectos Web API) de Azure" 
+	description="Información sobre el asistente para la introducción a Azure Active Directory (proyectos Web API)." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="kempb" 
@@ -16,11 +16,12 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-# Introducción a Azure Active Directory (proyectos Web API)
-
 > [AZURE.SELECTOR]
 > - [Introducción](vs-active-directory-webapi-getting-started.md)
 > - [¿Qué ha ocurrido?](vs-active-directory-webapi-what-happened.md)
+
+
+##Introducción a Azure Active Directory (proyectos Web API)
 
 #####Requerimiento de autenticación para obtener acceso a los controladores
  
@@ -28,4 +29,4 @@ Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

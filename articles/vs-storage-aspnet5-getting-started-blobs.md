@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [¿Qué ha ocurrido?](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Introducción](vs-storage-aspnet5-getting-started-blobs.md)
+> - [¿Qué ha ocurrido?](vs-storage-aspnet5-what-happened.md)
 
 ## Introducción a Almacenamiento de Azure (proyectos ASP.NET 5)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Colas](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [Tablas](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Colas](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tablas](vs-storage-aspnet5-getting-started-tables.md)
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
 

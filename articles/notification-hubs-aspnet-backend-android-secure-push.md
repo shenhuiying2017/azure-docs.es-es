@@ -2,7 +2,7 @@
 	pageTitle="Inserción segura de los Centros de notificaciones de Azure" 
 	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en una aplicación Android desde Azure. Ejemplos de código escritos en Java y C#." 
 	documentationCenter="android" 
-	authors="wesmc7777" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor="" 
 	services="notification-hubs"/>
@@ -13,17 +13,15 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2014" 
+	ms.author="ricksal"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
+    	<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a>
+		<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
 </div>
-
-#Información general
 
 La compatibilidad con las notificaciones de inserción en Microsoft Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. 
 
@@ -42,16 +40,16 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se 
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
-> [AZURE.NOTE] En este tutorial se supone que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md).
+> [AZURE.NOTE] Este tutorial asume que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](http://azure.microsoft.com/documentation/articles/notification-hubs-android-get-started/).
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificación del proyecto Android
 
-Ahora que modificó el back-end de la aplicación para enviar solamente el  *identificador* de una notificación, tiene que cambiar la aplicación Android para administrar esa notificación y devolver la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
+Una vez modificado el back-end de la aplicación para enviar solamente el *id* de una notificación, deberá modificar la aplicación Android para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
 Para lograr este objetivo, tiene que asegurarse de que la aplicación Android sabe cómo autenticarse a sí misma con el back-end cuando recibe las notificaciones de inserción.
 
-Ahora modificaremos el flujo de  *inicio de sesión* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo tokens OAuth) que la aplicación tendrá que usar sin solicitar credenciales de usuario.
+A continuación, modificaremos el flujo de *login* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo tokens OAuth) que la aplicación tendrá que usar sin solicitar credenciales de usuario.
 
 1. En el proyecto de la aplicación Android, agregue las siguientes constantes en la parte superior de la clase **MainActivity**:
 
@@ -72,7 +70,7 @@ Ahora modificaremos el flujo de  *inicio de sesión* para guardar el valor de en
     		return basicAuthHeader;
 		}
 
-3. Agregue las siguientes instrucciones `import` en la parte superior del archivo **MainActivity**:
+3. Agregue la siguientes instrucciones `import` en la parte superior del archivo **MainActivity**:
 
 		import android.content.SharedPreferences;
 
@@ -132,4 +130,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4. En la interfaz de usuario de la aplicación Android, haga clic en **Log in**. A continuación, haga clic en **Send push**.
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

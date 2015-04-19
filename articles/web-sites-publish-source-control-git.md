@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Publicación con Git (PHP) | Azure" 
-	keywords="publishing Git Azure, publish web app Azure" 
-	description="Aprenda a usar Git para publicar una aplicación web de Azure y, a continuación, habilitar la implementación continua desde GitHub y CodePlex." 
-	services="app-service\web" 
+﻿<properties 
+	pageTitle="Publicación con Git (PHP) - Azure" 
+	keywords="publishing Git Azure, publish website Azure" 
+	description="Obtenga información acerca de cómo usar Git para publicar un sitio web de Azure y, a continuación, habilitar la implementación continua desde GitHub y CodePlex.." 
+	services="" 
 	documentationCenter="php" 
-	authors="cephalin" 
+	authors="blackmist" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="web-sites" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="cephalin"/>
+	ms.date="09/17/2014" 
+	ms.author="larryf"/>
 
 [AZURE.INCLUDE [publishing-with-git](../includes/publishing-with-git.md)]
 
-<!--HONumber=49-->
+
+
+
+<!--HONumber=42-->

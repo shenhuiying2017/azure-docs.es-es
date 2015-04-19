@@ -49,7 +49,7 @@ También necesitará una máquina local que se conectará a Azure mediante conex
 
 Para usar una base de datos de SQL Server o SQL Server Express local con una conexión híbrida, es necesario habilitar TCP/IP en un puerto estático. Las instancias predeterminadas de SQL Server usan el puerto estático 1433, mientras que las instancias con nombre no. 
 
-Para obtener instrucciones detalladas sobre cómo configurar SQL Server de forma que cumpla las condiciones descritas anteriormente, vea [Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local](/es-es/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). Si ya tiene instalado SQL Server en una configuración y en un entorno que cumple las condiciones anteriores, puede seguir adelante y comenzar con [Creación de una base de datos SQL Server local](/es-es/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
+Para obtener instrucciones detalladas sobre cómo configurar SQL Server de forma que cumpla las condiciones descritas anteriormente, vea [Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local](web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL.md). Si ya tiene instalado SQL Server en una configuración y en un entorno que cumple las condiciones anteriores, puede seguir adelante y comenzar con [Creación de una base de datos SQL Server local](web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB.md). 
 
 Para los fines de este tutorial, supondremos que el nombre de la base de datos es **OnPremisesDB**, que se ejecuta en el puerto **1433** y que el nombre de host de la máquina es **onPremisesServer**.
 
@@ -115,7 +115,7 @@ El Administrador de conexiones híbridas permite que su máquina local se conect
 ### Asociación de la conexión híbrida con un servicio
 1. En la pestaña **Servicios móviles** del portal, seleccione un servicio móvil existente o cree uno nuevo. 
 
-	>[AZURE.NOTE]Asegúrese de seleccionar un servicio que se haya creado con el back-end de .NET o cree un nuevo servicio móvil back-end de .NET. Para aprender a crear un nuevo servicio móvil back-end de .NET, vea [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Asegúrese de seleccionar un servicio que se haya creado con el back-end de .NET o cree un nuevo servicio móvil back-end de .NET. Para aprender a crear un nuevo servicio móvil back-end de .NET, vea [Introducción a los Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 
 
 2. En la pestaña **Configurar** del servicio móvil, busque la sección **Conexiones híbridas** y seleccione **Agregar conexión híbrida**.
 
@@ -140,7 +140,7 @@ Finalmente, debemos crear una configuración de aplicación para almacenar el va
 
 3. En Visual Studio 2013, abra el proyecto que define el servicio móvil basado en .NET. 
 
-	Para aprender a descargar el proyecto de back-end de .NET, vea [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) .
+	Para aprender a descargar el proyecto de back-end de .NET, vea [Introducción a los Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .
  
 4. En el Explorador de soluciones, expanda la carpeta **Modelos** y abra el archivo de modelo de datos que termina con *Context.cs*.
 

@@ -29,11 +29,11 @@ En el diagrama siguiente se muestran las partes principales de la plataforma de 
 ![Live workflow][live-overview]
 
 
-Para obtener más información, consulte [Información general de Servicios multimedia](../media-services-overview).
+Para obtener más información, consulte [Información general de Servicios multimedia](media-services-overview.md).
 
 ## Creación de una cuenta de Servicios multimedia
 
-Use el **Portal de administración de Azure** para [crear una cuenta de Servicios multimedia de Azure](../media-services-create-account/).
+Use el **Portal de administración de Azure** para [crear una cuenta de Servicios multimedia de Azure](media-services-create-account.md).
 
 ## Configuración de extremos de streaming
 
@@ -82,7 +82,7 @@ Publique recursos (creando localizadores) mediante el **Portal de administració
 
 Puede escalar **Servicios multimedia** especificando el número de **unidades reservadas** que desea aprovisionar con su cuenta. 
 
-Para obtener información sobre la escalación de unidades de streaming, vea: [Cómo escalar unidades de streaming](../media-services-manage-origins#scale_streaming_endpoints).
+Para obtener información sobre la escalación de unidades de streaming, vea: [Cómo escalar unidades de streaming](media-services-manage-origins#scale_streaming_endpoints.md).
 
 
 

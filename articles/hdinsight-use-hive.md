@@ -209,11 +209,11 @@ Aunque Hive facilita la realización de las consultas de datos usando un lenguaj
 * [Introducción al uso de HDInsight Hadoop Tools for Visual Studio][1]
 * [Uso de Oozie con HDInsight][hdinsight-use-oozie]
 * [Envío de trabajos de Hadoop mediante programación][hdinsight-submit-jobs]
-* [Uso de Pig con HDInsight](../hdinsight-use-pig/)
+* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]
 * [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
-* [Introducción a Azure HDInsight](../hdinsight-get-started/)
+* [Introducción a Azure HDInsight](hdinsight-get-started.md)
 
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/

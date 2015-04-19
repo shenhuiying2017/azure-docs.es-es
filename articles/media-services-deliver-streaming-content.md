@@ -19,7 +19,7 @@
 
 #   Entrega de contenido de streaming
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Entrega de un recurso mediante descarga](../media-services-deliver-asset-download/).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Entrega de un recurso mediante descarga](media-services-deliver-asset-download.md).
 
 Además de descargar el contenido multimedia de los Servicios multimedia, puede usar la transmisión de velocidad de bits adaptable para entregar contenido. Por ejemplo, puede crear una URL directa, lo que se conoce como localizador, al contenido por secuencias de un servidor de origen de los Servicios multimedia. Las aplicaciones cliente como Microsoft Silverlight pueden reproducir el contenido por secuencias directamente desde el localizador.
 
@@ -90,6 +90,6 @@ Para obtener más información acerca de la entrega de recursos, consulte:
 </ul>
 
 <h2>Pasos siguientes</h2>
-Hasta el momento, hemos tratado la entrega de contenido multimedia mediante descarga desde la plataforma Almacenamiento de Azure y con el uso de Smooth Streaming. En el siguiente tema [Entrega de contenido HLS](../media-services-deliver-http-live-streaming-content/) se habla acerca de la entrega de contenido por secuencias mediante HTTP Live Streaming (HLS) de Apple.
+Hasta el momento, hemos tratado la entrega de contenido multimedia mediante descarga desde la plataforma Almacenamiento de Azure y con el uso de Smooth Streaming. En el siguiente tema [Entrega de contenido HLS](media-services-deliver-http-live-streaming-content.md) se habla acerca de la entrega de contenido por secuencias mediante HTTP Live Streaming (HLS) de Apple.
 
 <!--HONumber=42-->

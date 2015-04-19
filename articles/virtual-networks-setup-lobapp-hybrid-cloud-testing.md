@@ -46,7 +46,7 @@ Si todavía no dispone de una suscripción a Azure, puede registrarse para una p
 
 ##Fase 1: Configuración del entorno de nube híbrida
 
-Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
+Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
 
 Esta es su configuración actual.
 
@@ -182,11 +182,11 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 
 [Plataforma de servidor web de hospedaje sencillo (IIS)](http://technet.microsoft.com/library/hh831818)
 
-[Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 <!--HONumber=47-->

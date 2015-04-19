@@ -21,7 +21,7 @@
 
 
 <h1>  Entrega de un recurso mediante descarga</h1>
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Administración de recursos](../media-services-manage-assets/).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Administración de recursos](media-services-manage-assets.md).
 
 En este tema se analizan las opciones para entregar recursos multimedia cargados en los Servicios multimedia. Puede entregar contenido de los Servicios multimedia en diversos escenarios de aplicaciones. Puede descargar recursos multimedia o tener acceso a ellos mediante un localizador. Puede enviar contenido multimedia a otra aplicación o a otro proveedor de contenido. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una Red de entrega de contenido (CDN), como el servicio CDN de Azure.
 
@@ -85,6 +85,6 @@ Para obtener más información acerca de la entrega de recursos, consulte:
 </ul>
 
 <h2>Pasos siguientes</h2>
-En este tema se explicó la descarga de un recurso desde el almacenamiento de Azure. Para obtener información sobre otras formas de entregar recursos, consulte el tema [Entrega de contenido de streaming](../media-services-deliver-streaming-content/).
+En este tema se explicó la descarga de un recurso desde el almacenamiento de Azure. Para obtener información sobre otras formas de entregar recursos, consulte el tema [Entrega de contenido de streaming](media-services-deliver-streaming-content.md).
 
 <!--HONumber=42-->

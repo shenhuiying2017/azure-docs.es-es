@@ -124,7 +124,7 @@ En primer lugar, inicie sesión en el [Portal de administración de Azure](https
 	- Haga clic en **Agregar subred de puerta de enlace**.
 11.	Haga clic en el icono Completar. Espere a que se haya creado la red virtual antes de continuar.
 
-A continuación, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en el equipo local.
+A continuación, siga las instrucciones de [Instalación y configuración de Azure PowerShell](install-configure-powershell.md) para instalar Azure PowerShell en el equipo local.
 
 A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre TestVNET-*UniqueSequence*, en el que*UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestVNET-Tailspin.
 
@@ -287,17 +287,17 @@ Su entorno de nube híbrida ya está listo para las pruebas.
 
 ##Recursos adicionales
 
-[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
+[Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
-[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+[Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+[Configuración de un entorno de nube híbrida simulado para pruebas](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 
 ##Minimización del coste de este entorno
 
-Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en la red virtual Test_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples/). 
+Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en la red virtual Test_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](automation-create-runbook-from-samples.md). 
 
 La puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener detalles, consulte [Precios: red virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de la puerta de enlace VPN, cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan pronto como sea posible, o elimine la puerta de enlace con estos pasos. 
 

@@ -349,9 +349,9 @@ Aprenda a crear y a compilar una aplicación de [Apache HBase](http://hbase.apac
 
 ##Carga del archivo JAR e inicio de un trabajo
 
-> [AZURE.NOTE] Existen muchas formas de cargar un archivo en el clúster de HDInsight, tal y como se describe en [Carga de datos para trabajos de Hadoop en HDInsight](/es-es/documentation/articles/hdinsight-upload-data/). En los pasos que se indican a continuación se usa [Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
+> [AZURE.NOTE] Existen muchas formas de cargar un archivo en el clúster de HDInsight, tal y como se describe en [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md). En los pasos que se indican a continuación se usa [Azure PowerShell](install-configure-powershell.md).
 
-1. Tras instalar y configurar [Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/), cree un nuevo archivo llamado __hbase-runner.psm1__. Use el siguiente contenido para este archivo.
+1. Tras instalar y configurar [Azure PowerShell](install-configure-powershell.md), cree un nuevo archivo llamado __hbase-runner.psm1__. Use el siguiente contenido para este archivo.
 
 		<#
 		.SYNOPSIS

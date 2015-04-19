@@ -82,7 +82,7 @@ En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de sup
 ## Más recursos
 
 - [Documentación de Sitios web Azure](/es-es/documentation/services/websites/)
-- [Mapa de aprendizaje de Sitios web Azure](/es-es/documentation/articles/websites-learning-map/)
+- [Mapa de aprendizaje de Sitios web Azure](websites-learning-map.md)
 - [Blog de web de Azure](/blog/topics/web/)
 
 

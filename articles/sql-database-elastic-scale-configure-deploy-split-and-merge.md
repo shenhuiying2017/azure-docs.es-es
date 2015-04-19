@@ -60,7 +60,7 @@ Para determinar la clave de acceso, vaya al [Portal de administración de Azure]
 6.    Escriba el nombre de la cuenta de almacenamiento y una de las claves de acceso proporcionadas en los marcadores de posición de la cadena de conexión de almacenamiento. Esta cadena de conexión se utiliza en las secciones de rol **SplitMergeWeb** y **SplitMergeWorker** en el valor de configuración **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Puede utilizar cuentas de almacenamiento potencialmente diferentes para roles diferentes. 
 
 ### Configuración de seguridad 
-Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuraciones de seguridad de Escalado elástico](./sql-database-elastic-scale-configure-security.md).
+Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuraciones de seguridad de Escalado elástico](sql-database-elastic-scale-configure-security.md).
 
 A los efectos de  una simple implementación de prueba adecuada para completar este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
 
@@ -120,7 +120,7 @@ Para el rol de trabajo:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, para cifrado, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas al respecto, consulte [Configuración de seguridad](./sql-database-elastic-scale-configure-security.md).
+Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, para cifrado, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas al respecto, consulte [Configuración de seguridad](sql-database-elastic-scale-configure-security.md).
 
 ### Implementación del servicio División y combinación
 1. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).

@@ -102,7 +102,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 * [Introducción a las notificaciones de inserción]
   <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
 
-Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil](/es-es/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs)..
+Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md)..
 
 <!-- Anchors. -->
 [Introducción a los Servicios móviles]:#getting-started

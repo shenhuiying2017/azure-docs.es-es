@@ -17,20 +17,15 @@
 	ms.author="coromt"/> 
 
 # Aplicación de ejemplo de aprendizaje automático: artículos que con frecuencia se compran juntos
-
-##Información general
  
-El [servicio web Frequently Bought Together]( https://datamarket.azure.com/dataset/amla/mba) del aprendizaje automático realiza análisis de carros de la compra en línea para generar recomendaciones de productos de artículos que se suelen comprar juntos a partir de las transacciones históricas. Las recomendaciones Frequently Bought Together ayudan a los compradores a identificar los productos de un catálogo que son más relevantes cuando se compra un artículo concreto. La exposición de estas recomendaciones de forma destacada ha demostrado ser eficaz para mejorar las ventas de los distribuidores en línea. 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
+Este [servicio web]( https://datamarket.azure.com/dataset/amla/mba) de aprendizaje automático realiza análisis en línea del carro de la compra para producir recomendaciones de artículos que con frecuencia se compran juntos a partir de las transacciones históricas proporcionadas por el usuario. Las recomendaciones de artículos que con frecuencia se compran juntos ayudan a los compradores a identificar los productos de un catálogo que son más relevantes cuando se compra un artículo concreto. La presentación de estas recomendaciones de forma visible ha demostrado ser efectiva para que los distribuidores en línea aumenten las ventas. 
   
 ##Primeros pasos 
+Después de haberse suscrito al [servicio web]( https://datamarket.azure.com/dataset/amla/mba) puede usar la [aplicación web de ejemplo de Artículos que con frecuencia se compran juntos](https://marketbasket.cloudapp.net/) para cargar fácilmente sus datos en un modelo y detectar los grupos de productos que con frecuencia se compran juntos.  Para usar la aplicación o la API, primero necesita su clave de API que puede obtener en la [página de la cuenta del mercado de datos de Azure](https://datamarket.azure.com/account)
 
-Una vez se ha suscrito al servicio web Frequently Bought Together, puede utilizar la [aplicación web de ejemplo Market Basket Analysis Service](https://marketbasket.cloudapp.net/) para cargar fácilmente sus datos en un modelo y detectar conjuntos de productos comprados frecuentemente. Para usar la aplicación o la API, primero necesita su clave de API, que puede obtener en la [página de la cuenta de Azure Data Market](https://datamarket.azure.com/account).
+##Uso del servicio web 
 
-##Consumo del servicio web 
-
-Este servicio contiene API para crear modelos de la aplicación Frequently Bought Together, cargar transacciones históricas y recuperar los conjuntos de productos mejor clasificados, que se suelen comprar juntos correspondientes a un producto determinado. En el repositorio [Azure-MachineLearning-DataScience](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether) de GitHub puede encontrar ejemplos que muestran cómo utilizar estas API.
+Este servicio contiene API para administrar y crear modelos para Artículos que con frecuencia se compran juntos, cargar las transacciones del historial y recuperar los conjuntos de artículos que con frecuencia se compran juntos mejor clasificados para un producto dado.  Se pueden encontrar ejemplos que demuestran cómo usar estas API en el [repositorio de Azure-MachineLearning-DataScience en GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
 
-<!--HONumber=49-->
+<!--HONumber=46--> 

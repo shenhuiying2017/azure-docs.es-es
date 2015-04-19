@@ -29,7 +29,7 @@
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de la Tienda Microsoft. En este tutorial descargará un proyecto de Visual Studio 2013 para una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil a la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
->[AZURE.NOTE]En este tema se muestra cómo puede usar Visual Studio 2013 para agregar Servicios móviles de Azure a un proyecto de la Tienda Windows. Puede agregar el mismo servicio móvil de back-end de JavaScript a un proyecto de aplicación universal de Windows. Para obtener más información, consulte la [versión de la aplicación universal de Windows](/es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data) de este tutorial.
+>[AZURE.NOTE]En este tema se muestra cómo puede usar Visual Studio 2013 para agregar Servicios móviles de Azure a un proyecto de la Tienda Windows. Puede agregar el mismo servicio móvil de back-end de JavaScript a un proyecto de aplicación universal de Windows. Para obtener más información, consulte la [versión de la aplicación universal de Windows](mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md) de este tutorial.
 
 Este tutorial le guiará a través de estos pasos básicos:
 

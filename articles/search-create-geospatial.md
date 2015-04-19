@@ -40,7 +40,7 @@ Este tutorial se basa en la [Búsqueda de Azure: demostración de Adventure Work
 <h2 id="sub-1">Requisitos previos</h2>
 
 +	Visual Studio 2012 o posterior con ASP.NET MVC 4 y SQL Server instalados. Puede descargar las ediciones Express gratuitas si aún no tiene instalado el software: [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) y [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Un servicio de Búsqueda de Azure. Necesitará el nombre del servicio de búsqueda y la clave de administrador. Consulte [Introducción a Búsqueda de Azure](../search-get-started/) para obtener información detallada.
++	Un servicio de Búsqueda de Azure. Necesitará el nombre del servicio de búsqueda y la clave de administrador. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener información detallada.
 +	Un servicio de mapa de Bing y una clave para obtener acceso. En la sección siguiente verá las instrucciones.
 +	[Muestra de búsqueda geográfica de Búsqueda de Azure en CodePlex](https://azuresearchgeospatial.codeplex.com/). En la pestaña Origen, haga clic en **Descargar** para obtener un archivo zip de la solución. 
 

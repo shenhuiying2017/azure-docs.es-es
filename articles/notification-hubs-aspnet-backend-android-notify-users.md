@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Notificación a los usuarios con los Centros de notificaciones de Azure" 
 	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET." 
 	documentationCenter="android" 
@@ -19,14 +19,14 @@
 #Notificación a los usuarios con los Centros de notificaciones de Azure
 
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
-		<a href="/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
+    	<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/" title="iOS">iOS</a>
+		<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
-La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un backend de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal como se muestra en el tema de referencia [Registro desde el backend de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
+La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md). 
-> Si usa Servicios móviles como su servicio backend, consulte la [versión de Servicios móviles](mobile-services-javascript-backend-android-push-notifications-app-users.md) de este tutorial.
+> [AZURE.NOTE] Este tutorial asume que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md). 
+> Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](mobile-services-javascript-backend-android-push-notifications-app-users.md) de este tutorial.
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -191,7 +191,7 @@ El paso siguiente es crear la aplicación Android.
 			}
 		}
 
-	Este componente implementa las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones de inserción. También almacena localmente los valores de *registrationId* creados por el Centro de notificaciones tal y como se detalla en [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrarse**.
+	Este componente implementa las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones de inserción. También almacena localmente los  *registrationIds* creados por el Centro de notificaciones tal como se detalla en [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx) Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrarse**.
 
 4. En la clase **MainActivity**, quite los campos privados para **NotificationHub** y agregue un campo para **RegisterClient**:
 
@@ -277,7 +277,7 @@ El paso siguiente es crear la aplicación Android.
 	    	return basicAuthHeader;
 		}
 
-	La devolución de llamada para **Iniciar sesión** genera un token de autenticación básico en el nombre de usuario y contraseña de entrada (tenga en cuenta que esto representa cualquier token que usa el esquema de autenticación) y después usa  `RegisterClient` para llamar al back-end. La devolución de llamada para **Enviar inserción** llama al back-end para activar una notificación segura en todos los dispositivos de este usuario. 
+	La devolución de llamada para **Log in** genera un token de autenticación básico en el nombre de usuario y contraseña de entrada (tenga en cuenta que esto representa cualquier token que usa el esquema de autenticación) y después usa  `RegisterClient` para llamar al back-end. La devolución de llamada para **Enviar inserción** llama al back-end para activar una notificación segura en todos los dispositivos de este usuario. 
 
 ## Ejecución de la aplicación
 
@@ -292,4 +292,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.PNG
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

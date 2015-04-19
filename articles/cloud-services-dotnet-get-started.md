@@ -34,7 +34,7 @@ La aplicación usa el [patrón de trabajo centrado en colas](http://www.asp.net/
 
 ## Arquitectura alternativa: sitios web y WebJobs
 
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/es-es/services/web-sites/) y usar la característica [Trabajos web](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en vista previa) para el back-end. Para ver un tutorial en el que se utiliza Trabajos web, consulte [Introducción al SDK de Trabajos web de Azure](/es-es/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, vea [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/es-es/services/web-sites/) y usar la característica [Trabajos web](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en vista previa) para el back-end. Para ver un tutorial en el que se utiliza Trabajos web, consulte [Introducción al SDK de Trabajos web de Azure](websites-dotnet-webjobs-sdk-get-started.md). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, vea [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Temas que se abordarán
 
@@ -47,7 +47,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 
 ## Requisitos previos
 
-En este tutorial se asume que comprende los [conceptos básicos sobre los servicios en la nube de Azure](http://azure.microsoft.com/ documentation/articles/fundamentals-application-models/#CloudServices), como por ejemplo la terminología *web role* y *worker role*.  También se asume que sabe cómo trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms. 
+En este tutorial se asume que comprende los [conceptos básicos sobre los servicios en la nube de Azure](http://azure.microsoft.com/documentation/articles/fundamentals-application-models/#CloudServices), como por ejemplo la terminología *web role* y *worker role*.  También se asume que sabe cómo trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms. 
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668), o bien [registrarse para obtener una evaluación gratuita](/es-es/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -795,7 +795,7 @@ La aplicación Contoso Ads se ha diseñado de forma que resulte sencilla intenci
 A continuación se muestran algunas aplicaciones de ejemplo de servicios en la nube que muestran más procedimientos de codificación reales, enumeradas desde la menos compleja a la más compleja:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Tiene un concepto similar a Contoso Ads, pero implementa más características y más procedimientos de codificación del mundo real.
-* [Aplicación de niveles múltiples de servicios en la nube de Azure con Tablas, Colas y Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Presenta Tablas de Almacenamiento de Azure así como blobs y colas e incluye una [serie de tutoriales paso a paso](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
+* [Aplicación de niveles múltiples de servicios en la nube de Azure con Tablas, Colas y Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Presenta Tablas de Almacenamiento de Azure así como blobs y colas e incluye una [serie de tutoriales paso a paso](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
 * [Fundamentos de servicios en la nube en Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Ejemplo global que muestra una amplia gama de procedimientos recomendados, creados por el grupo de modelos y procedimientos de Microsoft.
 
 Para obtener información general sobre el desarrollo para la nube, consulte [Creación de aplicaciones del mundo real para la nube con Microsoft Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -807,7 +807,7 @@ Para obtener más información, consulte los siguientes recursos:
 * [Servicios de nube de Azure, parte 1: Introducción](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Servicios en la nube de Azure](/es-es/documentation/services/cloud-services/)
 * [Almacenamiento de Azure](/es-es/documentation/services/storage/)
-* [Uso del almacenamiento de Blobs en .NET](/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [Uso del almacenamiento de Cola en .NET](/es-es/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Uso del almacenamiento de Blobs en .NET](storage-dotnet-how-to-use-blobs.md)
+* [Uso del almacenamiento de Cola en .NET](storage-dotnet-how-to-use-queues.md)
 
 <!--HONumber=45--> 

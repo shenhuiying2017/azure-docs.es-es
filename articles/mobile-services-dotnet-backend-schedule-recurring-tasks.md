@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" 
 	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
 	services="mobile-services" 
@@ -307,6 +307,6 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: mobile-services-how-to-register-twitter-authentication.md
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-[LINQ para el proyecto CodePlex de Twitter]: http://linqtotwitter.codeplex.com/
+[proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
 <!--HONumber=49-->

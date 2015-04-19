@@ -41,7 +41,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las 
 	
 	En la página **Configurar**, puede configurar la supervisión, actualizar la configuración de roles y seleccionar el sistema operativo invitado y la familia para las instancias de rol. 
 
-2. En **supervisión**, establezca el nivel de supervisión en Detallado o Mínimo y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada. Para obtener instrucciones, vea [Supervisión de servicios en la nube](../how-to-monitor-a-cloud-service/).
+2. En **supervisión**, establezca el nivel de supervisión en Detallado o Mínimo y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada. Para obtener instrucciones, vea [Supervisión de servicios en la nube](how-to-monitor-a-cloud-service.md).
 
 
 3. Para los roles de servicio (agrupados por rol), puede actualizar la siguiente configuración:

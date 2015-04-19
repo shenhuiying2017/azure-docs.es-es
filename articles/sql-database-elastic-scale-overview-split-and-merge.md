@@ -20,9 +20,9 @@ authors="torsteng"/>
 
 Las aplicaciones basadas en Base de datos SQL de Azure enfrenta desafíos cuando sus necesidades de datos o de procesamiento ya no se ajustan a una unidad de escalado único en Base de datos SQL de Azure. Algunos ejemplos incluyen aplicaciones que se vuelven virales o donde un conjunto determinado de inquilinos crecen más allá de los límites de una sola base de datos de Base de datos SQL de Azure. El **servicio División y combinación** de Escalado elástico alivia este problema. 
 
-Esta descripción del servicio División y combinación administra la reducción horizontal y el escalado horizontal al cambiar el número de bases de datos de Base de datos de Azure y equilibrar la distribución de **shardlets** entre ellas. (Para obtener definiciones de términos, consulte el [Glosario de Escalado elástico](./sql-database-elastic-scale-glossary.md)). 
+Esta descripción del servicio División y combinación administra la reducción horizontal y el escalado horizontal al cambiar el número de bases de datos de Base de datos de Azure y equilibrar la distribución de **shardlets** entre ellas. (Para obtener definiciones de términos, consulte el [Glosario de Escalado elástico](sql-database-elastic-scale-glossary.md)). 
 
-Con las opciones actuales entre ediciones de Base de datos SQL de Azure, la capacidad se puede administrar escalando o reduciendo verticalmente la capacidad de una sola base de datos de Base de datos SQL de Azure. El servicio División y combinación no trata la dimensión del escalado/reducción vertical de la administración de la capacidad elástica; en su lugar, consulte [Elasticidad de partición de Escalado elástico](./sql-database-elastic-scale-elasticity.md)). 
+Con las opciones actuales entre ediciones de Base de datos SQL de Azure, la capacidad se puede administrar escalando o reduciendo verticalmente la capacidad de una sola base de datos de Base de datos SQL de Azure. El servicio División y combinación no trata la dimensión del escalado/reducción vertical de la administración de la capacidad elástica; en su lugar, consulte [Elasticidad de partición de Escalado elástico](sql-database-elastic-scale-elasticity.md)). 
  
 ## Novedades de la División y combinación
 
@@ -65,7 +65,7 @@ Ilustración 1: Información general conceptual de División y combinación
 
 ## Conceptos y características clave
 
-**Servicios hospedados por el cliente**: División y combinación se brinda como un servicio hospedado en el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial sobre División y combinación](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más información. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar SSL, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Consideraciones de seguridad del Escalado elástico](./sql-database-elastic-scale-configure-security.md).
+**Servicios hospedados por el cliente**: División y combinación se brinda como un servicio hospedado en el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial sobre División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más información. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar SSL, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Consideraciones de seguridad del Escalado elástico](sql-database-elastic-scale-configure-security.md).
 
 El servicio implementado de manera predeterminada se ejecuta con un rol de trabajo y un rol web. Cada uno de ellos usa el tamaño A1 de máquina virtual en Servicios en la nube de Azure. A pesar de que no puede modificar esta configuración cuando implementa el paquete, sí puede cambiarla después de una implementación exitosa en el servicio en la nube que está en ejecución (a través del portal de Azure). Tenga en cuenta que el rol de trabajo, por razones técnicas, no se debe configurar para más de una instancia. 
 
@@ -109,7 +109,7 @@ Las tablas 'region' y 'nation' están definidas como tablas de referencia y se c
 
 ## Obtención de los archivos binarios del servicio
 
-Los archivos binarios del servicio División y combinación se proporcionan a través de [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consulte el [tutorial paso a paso de División y combinación](./sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más información sobre la descarga de los archivos binarios.
+Los archivos binarios del servicio División y combinación se proporcionan a través de [Nuget](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Consulte el [tutorial paso a paso de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más información sobre la descarga de los archivos binarios.
 
 ## La interfaz de usuario de División y combinación
 
@@ -204,9 +204,9 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 
 ## Referencias 
 
-* [Tutorial de División y combinación](./sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+* [Tutorial de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
-* [Consideraciones de seguridad de Escalado elástico](./sql-database-elastic-scale-configure-security.md)  
+* [Consideraciones de seguridad de Escalado elástico](sql-database-elastic-scale-configure-security.md)  
 
 
 <!--Anchors-->

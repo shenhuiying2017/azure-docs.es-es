@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Crear una aplicación web de Java mediante la Base de datos de documentos" 
 	description="En este tutorial aprenderá a usar el servicio de Base de datos de documentos de Azure para almacenar y acceder a datos desde una aplicación Java hospedada en sitios web de Azure." 
 	services="documentdb" 
@@ -740,7 +740,7 @@ Sitios web de Azure hace que la implementación de aplicaciones de Java sean tan
  - En el cuadro de destino, seleccione un destino para guardar el archivo WAR.
  - Haga clic en **Finish**.
 
-3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones acerca de cómo cargar el archivo, consulte [Adición de una aplicación al sitio web de Java en Azure(web-sites-java-add-app.md)
+3. Ahora que tiene a mano un archivo WAR, simplemente puede cargarlo en el directorio **webapps** del sitio web de Azure. Para obtener instrucciones acerca de cómo cargar el archivo, consulte [Adición de una aplicación al sitio web de Java en Azure](web-sites-java-add-app.md)
 
 	Una vez que se cargue el archivo WAR en el directorio webapps, el entorno de tiempo de ejecución detectará que lo ha agregado y lo cargará automáticamente.
 4. Para ver el producto terminado, vaya a http://SU\_NOMBRE\_SITIO.azurewebsites.net/azure-documentdb-java-sample/ y comience a agregar las tareas.

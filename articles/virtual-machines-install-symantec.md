@@ -30,7 +30,7 @@ El [Portal de administración de Azure](http://manage.windowsazure.com) permite 
 
 La opción **Desde la galería** abre un asistente que le ayuda configurar la máquina virtual. Utilice la última página del asistente para instalar el Agente de máquina virtual y la extensión de seguridad de Symantec. 
 
-Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines-windows-tutorial/). Cuando llegue a la última página del asistente:
+Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows Server](virtual-machines-windows-tutorial.md). Cuando llegue a la última página del asistente:
 
 1.	En el agente de VM, la opción **Instalar agente de VM** ya debe estar activada.
 
@@ -45,7 +45,7 @@ Para obtener instrucciones generales, consulte [Creación de una máquina virtua
 
 Antes de comenzar, necesitará lo siguiente:
 
-- El módulo de Azure PowerShell, versión 0.8.2 o posterior. Puede comprobar la versión de Azure PowerShell que ha instalado con el comando **Get-Module azure | format-table version**. Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell/).  
+- El módulo de Azure PowerShell, versión 0.8.2 o posterior. Puede comprobar la versión de Azure PowerShell que ha instalado con el comando **Get-Module azure | format-table version**. Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](install-configure-powershell.md).  
 
 - El Agente de máquina virtual. 
 
@@ -67,13 +67,13 @@ Si está instalado el agente de VM, ejecute estos comandos para instalar al agen
 
 Para comprobar que la extensión de seguridad de Symantec se ha instalado y está actualizada:
 
-1.	Iniciar sesión en la nueva máquina virtual. Para obtener más información, vea [Iniciar sesión en una máquina virtual que ejecuta Windows Server](../virtual-machines-log-on-windows-server/).
+1.	Iniciar sesión en la nueva máquina virtual. Para obtener más información, vea [Iniciar sesión en una máquina virtual que ejecuta Windows Server](virtual-machines-log-on-windows-server.md).
 2.	Para Windows Server 2008 R2, haga clic en **Inicio > Symantec Endpoint Protection**. Para Windows Server 2012 o Windows Server 2012 R2, en la pantalla de inicio, escriba **Symantec**y, a continuación, haga clic en **Symantec Endpoint Protection**.
 3.	En la pestaña **Estado** de la ventana **Status-Symantec Endpoint Protection**, aplique actualizaciones o reinicie en caso necesario.
 
 ## Recursos adicionales
 
-[Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server/)
+[Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md)
 
 [Administración de extensiones](https://msdn.microsoft.com/library/dn606311.aspx)
 

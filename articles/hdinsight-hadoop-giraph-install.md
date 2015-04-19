@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usar la acción de script en HDInsight para instalar Giraph en el clúster de Hadoop| Azure" 
 	description="Obtenga información acerca de cómo personalizar el clúster de HDInsight para instalar Giraph. Va a utilizar una opción de configuración de la acción de script para usar un script para instalar Giraph" 
 	services="hdinsight" 
@@ -38,7 +38,7 @@ Hay un script de ejemplo para instalar Giraph en un clúster de HDInsight dispon
 
 > [AZURE.NOTE] El script de ejemplo solo funciona con el clúster de HDInsight versión 3.1. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](hdinsight-component-versioning.md).
 
-1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas ]hdinsight-provision-clusters.md#portal). 
+1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](hdinsight-provision-clusters.md#portal). 
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Use Script Action to customize a cluster")

@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](/documentation/articles/vs-mobile-services-javascript-getting-started/)
-> - [¿Qué ha ocurrido?](/documentation/articles/vs-mobile-services-javascript-what-happened/)
+> - [Introducción](vs-mobile-services-javascript-getting-started.md)
+> - [¿Qué ha ocurrido?](vs-mobile-services-javascript-what-happened.md)
 
 ###<span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</id>
 

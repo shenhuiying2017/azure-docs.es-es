@@ -1,6 +1,6 @@
 ﻿> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
-- [(iOS | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-adal-sso-authentication/)
-- [(C# de Tienda Windows | .NET)](/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/)
-- [(Xamarin iOS | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/)
+- [(iOS | .NET)](mobile-services-dotnet-backend-ios-adal-sso-authentication.md)
+- [(C# de Tienda Windows | .NET)](mobile-services-windows-store-dotnet-adal-sso-authentication.md)
+- [(Xamarin iOS | .NET)](mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication.md)
 
 <!--HONumber=42-->

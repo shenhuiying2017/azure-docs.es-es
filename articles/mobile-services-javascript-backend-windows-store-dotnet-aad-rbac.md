@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Control de acceso basado en roles en Servicios móviles y Azure Active Directory (Tienda Windows) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo controlar el acceso basado en roles de Azure Active Directory en su aplicación de la Tienda Windows." 
 	documentationCenter="windows" 
@@ -281,7 +281,7 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 [Almacenamiento de scripts de servidor]: mobile-services-store-scripts-source-control.md
 [Registro para usar un inicio de sesión de Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[Documentación de referencia de errores de la API Graph]: http://msdn.microsoft.com/library/azure/hh974480.aspx
+[referencia de errores de la API Graph]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acceso a información de Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 

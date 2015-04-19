@@ -221,12 +221,12 @@ Como puede observar, el SDK de .NET para Hadoop le permite crear aplicaciones .N
 
 Para obtener información general sobre Pig en HDInsight.
 
-* [Uso de Pig con Hadoop en HDInsight](../hdinsight-use-pig/)
+* [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
 Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
 
-* [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
+* [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
-* [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
+* [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 <!--HONumber=47-->

@@ -1,48 +1,57 @@
-<properties 
-	pageTitle="Uso de los Centros de notificaciones con Node.js" 
-	description="Aprenda a usar los Centros de notificaciones para enviar notificaciones de inserción desde una aplicación Node.js." 
+﻿<properties 
+	pageTitle="Centros de notificaciones - Centro para desarrolladores de Node.js" 
+	description="Obtenga información acerca de cómo usar los centros de notificaciones para enviar notificaciones de inserción. Los ejemplos de código están escritos para aplicaciones Node.js." 
 	services="notification-hubs" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	authors="ggailey777" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
-	ms.author="mwasson"/>
+	ms.date="09/17/2014" 
+	ms.author="glenga"/>
 
-# Uso de los Centros de notificaciones desde Node.js
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
 
-##Información general
+
+
+
+
+# Cómo usar los centros de notificaciones
 
 En esta guía se indica cómo usar los Centros de notificaciones desde aplicaciones Node.js. Los escenarios abordados incluyen el **envío de notificaciones a aplicaciones de Android, iOS, Windows Phone y la Tienda Windows**. Para obtener más información acerca de los centros de notificaciones, consulte la sección [Pasos siguientes](#next) .
 
-##¿Qué son los Centros de notificaciones?
+## Tabla de contenido
 
-Los centros de notificaciones de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones de inserción a los dispositivos móviles. Para obtener más información, consulte [Centros de notificaciones de Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
+-   [¿Qué son los centros de notificaciones?](#hub)
+-   [Creación de una aplicación Node.js](#create)
+-   [Configuración de la aplicación para usar el Centro de notificaciones](#config)
+-   [  Envío de notificaciones](#send)
+-   [Pasos siguientes](#next)
 
-##Creación de una aplicación Node.js
+##<a id="hub"></a>¿Qué son los Centros de notificaciones?
+
+Los Centros de notificaciones de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones de inserción a los dispositivos móviles. Para obtener más información, consulte [Centros de notificaciones de Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
+
+##<a id="create"></a> Creación de una aplicación Node.js
 
 Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][nodejswebsite], [Servicio en la nube de Node.js][Servicio en la nube Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
 
-##Configuración de su aplicación para usar el Centro de notificaciones
+##<a id="config"></a>Configuración de su aplicación para usar el Centro de notificaciones
 
-Para utilizar el Centro de notificaciones de Azure, es necesario descargar y usar el paquete azure de Node.js. Esto incluye un conjunto de útiles bibliotecas que
-se comunican con los servicios REST.
+Para utilizar el Centro de notificaciones de Azure, necesitará descargar y usar el
+paquete Node.js de Azure. Este paquete incluye un conjunto de prácticas bibliotecas que se comunican con los servicios REST.
 
 ### Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 
 1.  Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
 
-2.  Escriba **npm install azure** en la ventana de comandos. Esto debería devolver la salida siguiente:
+2.  Escriba **npm install azure** en la ventana de comandos, cuyo resultado
+    es el siguiente:
 
         azure@0.7.0 node_modules\azure
 		|-- dateformat@1.0.2-1.2.3
@@ -56,7 +65,7 @@ se comunican con los servicios REST.
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  Puede ejecutar manualmente los comandos **ls** o **dir** para comprobar que se creó una carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure**, que contiene las bibliotecas necesarias para el acceso al Centro de notificaciones.
+3.  Puede ejecutar manualmente el comando **ls** o **dir** para comprobar si se ha creado la carpeta **node\_modules**. Dentro de dicha carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para el acceso al Centro de notificaciones.
 
 ### Importación del módulo
 
@@ -82,7 +91,7 @@ El valor de conexión **connectionstring** se puede obtener del Portal de admini
 
 </div>
 
-##Envío de notificaciones
+##<a id="send"></a> Envío de notificaciones
 
 El objeto **NotificationHubService** expone las siguientes instancias de objeto para enviar notificaciones a dispositivos y aplicaciones específicos:
 
@@ -141,8 +150,8 @@ El objeto **MpnsService** proporciona un método **send** que se puede usar para
 
 * Tags: identificador de etiqueta. Si no se proporciona ninguna, la notificación se enviará a todos los clientes.
 * Payload: carga XML del mensaje.
-* TargetName - 'toast' para notificaciones de sistema. 'token' para notificaciones de icono.
-* NotificationClass: prioridad de la notificación. Consulte la sección HTTP Header Elements del tema [Pushing notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx) para obtener los valores válidos.
+* TargetName: 'toast' para notificaciones del sistema. 'token' para notificaciones de icono.
+* NotificationClass: prioridad de la notificación. Consulte la sección Elementos de encabezado HTTP del tema [Notificaciones de inserción desde un servidor](http://msdn.microsoft.com/library/hh221551.aspx) para obtener los valores válidos.
 * Options: encabezados de solicitud opcionales.
 * Callback: función de devolución de llamada.
 
@@ -178,30 +187,30 @@ El código siguiente usa la instancia **WnsService** expuesta por **Notification
 	  }
 	});
 
-## Pasos siguientes
+##<a id="next"></a> Pasos siguientes
 
 Ahora que conoce los fundamentos de uso de los Centros de notificaciones, consulte estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Centros de notificaciones de Azure][].
+-   Consulte la referencia de MSDN: [Centros de notificaciones de Azure][]
 -   Visite el repositorio del [SDK de Azure para Node.js] (en inglés) en GitHub.
 
-  [SDK de Azure para Node.js]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Pasos siguientes]: #nextsteps
   [Qué son los temas y las suscripciones del Bus de servicio]: #what-are-service-bus-topics
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Creación de una aplicación Node.js]: #Create_a_Nodejs_Application
   [Configuración de la aplicación para usar el Bus de servicio]: #Configure_Your_Application_to_Use_Service_Bus
-  [Codificación de un tema]: #How_to_Create_a_Topic
-  [Codificación suscripciones]: #How_to_Create_Subscriptions
-  [Codificación mensajes a un tema]: #How_to_Send_Messages_to_a_Topic
-  [Codificación mensajes de una suscripción]: #How_to_Receive_Messages_from_a_Subscription
-  [Codificación ante errores de la aplicación y mensajes que no se pueden leer]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
-  [Codificación de temas y suscripciones]: #How_to_Delete_Topics_and_Subscriptions
+  [  Creación de un tema]: #How_to_Create_a_Topic
+  [ Creación de suscripciones]: #How_to_Create_Subscriptions
+  [ Envío de mensajes a un tema]: #How_to_Send_Messages_to_a_Topic
+  [ Recepción de mensajes de una suscripción]: #How_to_Receive_Messages_from_a_Subscription
+  [ Actuación ante errores de la aplicación y mensajes que no se pueden leer]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
+  [ Eliminación de temas y suscripciones]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Conceptos de tema]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  [imagen]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
+  [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
@@ -209,12 +218,11 @@ Ahora que conoce los fundamentos de uso de los Centros de notificaciones, consul
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Centros de notificaciones del Bus de servicio de Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Sitio web con WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Servicio en la nube Node.js]: cloud-services-nodejs-develop-deploy-app.md
+  [Sitio web con WebMatrix]: /es-es/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Servicio en la nube de Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
 [Portal de administración anterior]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-  [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
-  [Servicio en la nube de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-app-with-storage/
-  [Aplicación web Node.js con almacenamiento]: /develop/nodejs/tutorials/web-site-with-storage/
+  [nodejswebsite]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/
+  [Servicio en la nube de Node.js con almacenamiento]: /es-es/develop/nodejs/tutorials/web-app-with-storage/
+  [Aplicación web Node.js con almacenamiento]: /es-es/develop/nodejs/tutorials/web-site-with-storage/
 
-
-<!--HONumber=49-->
+<!--HONumber=45--> 

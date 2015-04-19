@@ -20,7 +20,7 @@
 
 En este artículo, aprenderá a crear una aplicación de línea de negocio (LOB) de ASP.NET MVC en [sitios web de Azure](http://azure.microsoft.com/services/websites/) con [Servicios de federación de Active Directory](http://technet.microsoft.com/ library/hh831502.aspx) locales como proveedor de identidades. Este escenario puede funcionar cuando desee crear aplicaciones LOB en Sitios web de Azure, pero su organización requiere que todos los datos se almacenen en el sitio.
 
-Para obtener información general de las diferentes opciones de autenticación y autorización de empresa para sitios web de Azure, vea[Autenticar y autorizar a los usuarios en las aplicaciones LOB en sitios web de Azure](./web-sites-authentication-authorization).
+Para obtener información general de las diferentes opciones de autenticación y autorización de empresa para sitios web de Azure, vea[Autenticar y autorizar a los usuarios en las aplicaciones LOB en sitios web de Azure](web-sites-authentication-authorization).
 
 <a name="bkmk_build"></a>
 ## Lo que va a crear ##
@@ -341,8 +341,8 @@ Sitios Web de Azure admite el acceso a bases de datos locales con dos enfoques: 
 ## Recursos adicionales
 
 - [Protección de la aplicación con SSL y el atributo Authorize](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Autenticar y autorizar a los usuarios en aplicaciones LOB en sitios web de Azure](../web-sites-authentication-authorization/)
-- [Crear una aplicación de línea de negocio de ASP.NET MVC en sitios web de Azure que se autentica con Azure Active Directory](../web-sites-dotnet-lob-application-azure-ad/)
+- [Autenticar y autorizar a los usuarios en aplicaciones LOB en sitios web de Azure](web-sites-authentication-authorization.md)
+- [Crear una aplicación de línea de negocio de ASP.NET MVC en sitios web de Azure que se autentica con Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 - [Usar la opción de organización profesional local (ADFS) con ASP.NET en Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [El blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migrar un proyecto web de VS2013 de WIF a Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

@@ -51,9 +51,9 @@ En caso de no tener Visual Studio en su equipo, el SDK instalará [Visual Studio
 
 Esto permite trabajar con Sitios web Azure:
 
-* [Publicar proyectos web en Sitios web Azure](../web-sites-dotnet-get-started/).
-* [Publicar proyectos de aplicaciones de consola en WebJobs de Azure](../websites-dotnet-deploy-webjobs/).
-* [Crear recursos de una Base de datos SQL y de un sitio web de Azure durante la creación de un nuevo proyecto web o la publicación de un proyecto web](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+* [Publicar proyectos web en Sitios web Azure](web-sites-dotnet-get-started.md).
+* [Publicar proyectos de aplicaciones de consola en WebJobs de Azure](websites-dotnet-deploy-webjobs.md).
+* [Crear recursos de una Base de datos SQL y de un sitio web de Azure durante la creación de un nuevo proyecto web o la publicación de un proyecto web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 * [Crear scripts de implementación de PowerShell durante la creación de nuevos sitios web](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Administrar y solucionar problemas de Sitios web Azure en el Explorador de servidores](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Ejecutar en modo de depuración de forma remota para sitios web y WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
@@ -64,9 +64,9 @@ Esto permite trabajar con Sitios web Azure:
 
 Esto permite trabajar con Servicios en la nube y Máquinas virtuales de Azure:
 
-* [Crear, abrir y publicar proyectos de servicio en la nube](../cloud-services-dotnet-get-started/).
+* [Crear, abrir y publicar proyectos de servicio en la nube](cloud-services-dotnet-get-started.md).
 * [Crear paquetes de implementación para proyectos de servicio en la nube](http://msdn.microsoft.com/library/ff683672.aspx).
-* [Crear Máquinas virtuales de Azure durante la creación de nuevos proyectos web](../virtual-machines-dotnet-create-visual-studio-powershell/).
+* [Crear Máquinas virtuales de Azure durante la creación de nuevos proyectos web](virtual-machines-dotnet-create-visual-studio-powershell.md).
 * [Crear scripts de PowerShell durante la creación de nuevas máquinas virtuales](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Ver y administrar la configuración del proyecto de servicio en la nube en las ventanas de propiedades del proyecto de Visual Studio](http://msdn.microsoft.com/library/ee405486.aspx).
 * Ver y administrar [servicios en la nube](http://msdn.microsoft.com/library/ff683675.aspx), [máquinas virtuales](http://msdn.microsoft.com/library/jj131259.aspx) y [Bus de servicio](http://msdn.microsoft.com/library/jj149828.aspx) en el Explorador de servidores. 
@@ -113,13 +113,13 @@ Hay algunas cosas que no se incluyen al instalar el SDK y que posiblemente desee
 
   	**Copias locales de bibliotecas de cliente.** El SDK de Azure para .NET copia en su equipo los paquetes NuGet para algunas bibliotecas de cliente de Azure como Almacenamiento, Bus de servicio y Almacenamiento en caché. Estas bibliotecas de cliente se incluyen automáticamente en nuevos proyectos de servicio en la nube, de modo que los paquetes NuGet permiten que Visual Studio cree proyectos incluso sin conexión a Internet. Las bibliotecas de cliente suelen actualizarse con mayor frecuencia que las nuevas versiones del SDK lanzadas, de modo que las bibliotecas de cliente de NuGet.org suelen ser más actuales que las que se obtienen con el SDK. 
 
-	**Plantillas de proyecto que incluyen bibliotecas de cliente.** Solo las plantillas de proyecto [Servicio en la nube de Azure](../cloud-services-dotnet-get-started/) y [Servicio móvil de Azure](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/) incluyen automáticamente algunas bibliotecas de cliente. Para otras bibliotecas o plantillas, instale los [paquetes NuGet de la biblioteca de cliente](http://go.microsoft.com/fwlink/?LinkId=510472) que necesite.
+	**Plantillas de proyecto que incluyen bibliotecas de cliente.** Solo las plantillas de proyecto [Servicio en la nube de Azure](cloud-services-dotnet-get-started.md) y [Servicio móvil de Azure](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md) incluyen automáticamente algunas bibliotecas de cliente. Para otras bibliotecas o plantillas, instale los [paquetes NuGet de la biblioteca de cliente](http://go.microsoft.com/fwlink/?LinkId=510472) que necesite.
 
-* [Azure PowerShell](../install-configure-powershell/). 
+* [Azure PowerShell](install-configure-powershell.md). 
 
 	Azure PowerShell permite [automatizar la creación e implementación del entorno de Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* [Plantillas de proyecto Servicio móvil de Azure](../mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/).
+* [Plantillas de proyecto Servicio móvil de Azure](mobile-services-dotnet-backend-windows-store-dotnet-leaderboard.md).
 
 	Las plantillas Servicio móvil solo están disponibles en Visual Studio 2013 Update 2 y posterior. No están disponibles en Visual Studio 2012 o versiones anteriores, ni tampoco en Visual Studio 2013 Update 1 o anterior, incluso si instala el SDK de Azure para .NET.
 

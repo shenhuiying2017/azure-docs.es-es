@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Uso de los Centros de notificaciones con PHP" 
-	description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure desde un back-end de PHP." 
+	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure desde un back-end de PHP." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,19 +14,19 @@
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="11/14/2014" 
-	ms.author="yuaxu"/>
+	ms.author="piyushjo"/>
 
 # Uso de los Centros de notificaciones desde PHP
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
+    	<a href="/es-es/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/es-es/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP" class="current">PHP</a><a href="/es-es/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a>
 </div>
 
-Puede acceder a todas las características de los Centros de notificaciones desde un back-end de Java, PHP o Ruby usando la interfaz REST de Centros de notificaciones tal como se describe en el tema de MSDN [API de REST de Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx).
+Puede acceder a todas las características de los Centros de notificaciones desde un back-end de Java, PHP o Ruby usando la interfaz REST de Centros de notificaciones tal como se describe en el tema de MSDN [API de REST de Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx)
 
 En este tema le mostraremos cómo:
 
 * Crear un cliente REST para las características de Centros de notificaciones en PHP;
-* Siga el [tutorial introductorio](notification-hubs-ios-get-started.md) para la plataforma móvil que elija, implementando la parte del back-end en PHP.
+* Siga el [tutorial introductorio](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/) para la plataforma móvil que elija, implementando la parte del back-end en PHP.
 
 ## Interfaz del cliente
 La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Centros de notificaciones .NET](http://msdn.microsoft.com/library/jj933431.aspx), que le permitirá trasladar todos los tutoriales y ejemplos actualmente disponibles en este sitio directamente y con el que contribuye la comunidad en Internet.
@@ -43,7 +43,7 @@ Para enviar una notificación nativa de iOS:
 	$hub->sendNotification($notification);
 
 ## Implementación
-Si todavía no lo ha hecho, siga nuestro [Tutorial de introducción] hasta la última sección en la que tiene que implementar el back-end.
+Si todavía no lo ha hecho, siga nuestro [Tutorial introductorio] hasta la última sección en la que tiene que implementar el back-end.
 Asimismo, si lo desea, puede usar el código del [ejemplo de contenedor REST para PHP] e ir directamente a la sección [Finalización del tutorial](#complete-tutorial) .
 
 Puede encontrar todos los detalles para implementar un contenedor REST completo en [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) En esta sección describiremos la implementación para PHP de los principales pasos requeridos para acceder a extremos REST de Centros de notificaciones:
@@ -90,7 +90,7 @@ Esta es la clase principal que implementa el cliente, cuyo constructor analiza l
 
 
 ### Creación del token de seguridad
-Los detalles de la creación del token de seguridad están disponibles [aquí](http://msdn.microsoft.com/library/dn495627.aspx).
+Los detalles de la creación del token de seguridad están disponibles [aquí](http://msdn.microsoft.com/library/dn495627.aspx)
 El siguiente método tiene que agregarse a la clase **NotificationHub** para crear el token basándose en el URI de la solicitud actual y en las credenciales extraídas de la cadena de conexión.
 
 	private function generateSasToken($uri) {
@@ -198,12 +198,12 @@ Con esta clase, ahora podemos escribir los métodos de envío de notificaciones 
 		}
 	} 
 
-Los métodos anteriores envían una solicitud POST HTTP al extremo /messages del centro de notificaciones, con el cuerpo y encabezados correctos para enviar la notificación.
+Los métodos anteriores envían una solicitud POST HTTP al extremo /messages del Centro de notificaciones, con el cuerpo y encabezados correctos para enviar la notificación.
 
 ##<a name="complete-tutorial"></a>Finalización del tutorial
 Ahora puede completar el tutorial introductorio enviando la notificación desde un back-end de PHP.
 
-Inicialice el cliente de Centros de notificaciones (sustituya la cadena de conexión y el nombre del centro tal y como se indica en el [Tutorial de introducción]):
+Inicialice el cliente de Centros de notificaciones (sustituya la cadena de conexión y el nombre del centro tal y como se indica en el [tutorial introductorio]):
 	$hub = new NotificationHub("connection string", "hubname");	
 
 Después, agregue el código de envío dependiendo de la plataforma móvil de destino.
@@ -257,6 +257,6 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 
 
 [ejemplo de contenedor REST para PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Tutorial de introducción]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=49-->
+<!--HONumber=45--> 

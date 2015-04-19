@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la autenticación (Tienda Windows) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de la Tienda Windows a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="mobile-services" 
@@ -85,7 +85,7 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: mobile-services-windows-store-dotnet-single-sign-on.md
+[Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect]: mobile-services-windows-store-dotnet-single-sign-on.md
 [Introducción a los Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 [Introducción a los datos]: mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
 [Introducción a la autenticación]: mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md

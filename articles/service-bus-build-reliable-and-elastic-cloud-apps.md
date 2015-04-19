@@ -20,7 +20,7 @@
  
 La demanda dinámica es una realidad para las aplicaciones de hoy en día.  Desde la demanda temporal y variable a las tendencias inesperadas de los medios sociales, las aplicaciones modernas deben hacer frente con dignidad a picos de carga que pueden ser tanto inciertos como inesperados. La naturaleza de Plataforma como servicio (PaaS) de Bus de servicio de Azure permite crear aplicaciones que se escalan fácilmente y que se pueden recuperar de picos o interrupciones momentáneas de componentes.  
  
-[Creación de una aplicación de niveles múltiples .NET usando colas de Bus de servicio](/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/)
+[Creación de una aplicación de niveles múltiples .NET usando colas de Bus de servicio](cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md)
  
 ## Exploración
 - [Elementos fundamentales del Bus de servicio de Microsoft Azure](http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/)
