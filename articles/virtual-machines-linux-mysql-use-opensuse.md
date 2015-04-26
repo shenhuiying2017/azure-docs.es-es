@@ -22,7 +22,7 @@
 
 - Uso del [Portal de administración de Azure][AzurePortal] para crear una imagen de máquina virtual de OpenSUSE Linux a partir de una imagen disponible en Azure.
 - Conectarse a la máquina virtual con SSH o PuTTY.
-- Instalar MySQL en la máquina virtual.
+- Instalar MySQL en la máquina virtual
 
 [AZURE.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 
@@ -41,7 +41,4 @@ En este tutorial ha obtenido información sobre cómo crear una máquina virtual
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

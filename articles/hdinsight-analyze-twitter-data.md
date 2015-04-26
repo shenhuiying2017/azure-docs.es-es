@@ -566,4 +566,5 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 [hdinsight-hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+
 <!--HONumber=42-->

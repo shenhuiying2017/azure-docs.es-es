@@ -191,4 +191,5 @@ El servicio móvil ha transferido los cambios generados en la aplicación a la b
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png
 
 
+
 <!--HONumber=42-->

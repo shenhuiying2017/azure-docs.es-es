@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Administración de contenido multimedia: Servicios multimedia de Azure" 
 	description="Aprenda a administrar su contenido multimedia en Servicios multimedia de Azure." 
 	services="media-services" 
@@ -22,6 +22,8 @@
 
 # Administración de contenido en Servicios multimedia #
 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow). 
+
 En este tema se muestra cómo usar el Portal de administración de Azure para administrar contenido multimedia en su cuenta de Servicios multimedia.
 
 Actualmente, puede realizar las siguientes operaciones de contenido directamente desde el portal:
@@ -31,10 +33,12 @@ Actualmente, puede realizar las siguientes operaciones de contenido directamente
 - Indizar contenido
 - Codificar contenido
 - Reproducir contenido
+- Cifrar
 - Publicar/cancelar la publicación de contenido
 
 
-##   Carga de contenido 
+
+##<a id="upload"></a>Procedimiento: Carga de contenido 
 
 
 1. En el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de cuenta de Servicios multimedia.
@@ -55,7 +59,7 @@ Una vez que la carga se haya completado, verá el nuevo recurso en la lista de c
 
 Si el valor del tamaño del archivo no se actualiza después de que se detenga el proceso de carga, presione el botón **Sincronizar metadatos**. De esta forma, se sincroniza el tamaño de archivo del recurso con el tamaño del archivo real en el almacenamiento y se actualiza el valor en la página de contenido.	
 
-##  Indizar contenido
+##<a id="index"></a>Procedimiento: Indizar contenido
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede indizar el contenido mediante el Portal de administración, para ello siga los pasos que se muestran a continuación. Sin embargo, si desea más control sobre qué archivos y cómo se va a realizar el trabajo de indización, puede utilizar el SDK de Servicios multimedia para las API .NET o REST. Para obtener más información, consulte [Indización de archivos multimedia con el Indizador multimedia de Azure](https://msdn.microsoft.com/es-es/library/azure/dn783455.aspx).
 
@@ -69,23 +73,22 @@ Los pasos siguientes muestran cómo usar el Portal de administración para indiz
 	
 	![Process][process]
 
-##  Codificar contenido
+##<a id="encode"></a>Procedimiento: Codificar contenido
 
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Servicios multimedia proporciona un codificador multimedia que le permite especificar cómo desea que su contenido se codifique (por ejemplo, los códecs que se van a utilizar, el formato de archivo, la resolución y la velocidad de bits). 
 
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es ofrecer streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite el streaming de velocidad de bits adaptable siguiente: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). 
+Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite el streaming de velocidad de bits adaptable siguiente: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). 
 
 Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming. 
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-- codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),  
-- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que piensa entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](http://azure.microsoft.com/documentation/articles/media-services-how-to-scale/).
+- Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).
+- Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, vea [Escalación de unidades reservadas de streaming a petición](../media-services-manage-origins#scale_streaming_endpoints/).
 
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente. 
 
 Tenga en cuenta que además de poder usar las capacidades de empaquetado dinámico, las unidades reservadas de streaming a petición con capacidad de salida dedicada pueden adquirirse en incrementos de 200 Mbps. De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición.
-
 
 En esta sección se describen los pasos que puede seguir para codificar el contenido con el codificador multimedia de Azure mediante el Portal de administración.
 
@@ -105,7 +108,7 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 	+ **Codificación con protección de contenido PlayReady**. Este valor preestablecido produce un activo codificado con protección de contenido PlayReady.  
 	
 	
-		De forma predeterminada, se usa el servicio de licencias PlayReady de Servicios multimedia. Para especificar algún otro servicio del que los clientes pueden obtener una licencia para reproducir el contenido cifrado de PlayReady, use las API de REST o del SDK de .NET de Servicios multimedia. Para obtener más información, consulte [Uso de cifrado estático para proteger su contenido]() y establezca la propiedad **licenseAcquisitionUrl** en el valor preestablecido de Media Encryptor. Como alternativa, puede usar el cifrado dinámico y establecer la propiedad **PlayReadyLicenseAcquisitionUrl** tal y como se describe en [Uso del cifrado dinámico de PlayReady y del servicio de entrega de licencias](http://go.microsoft.com/fwlink/?LinkId=507720 ). 
+		De forma predeterminada, se usa el servicio de licencias PlayReady de Servicios multimedia. Para especificar algún otro servicio del que los clientes pueden obtener una licencia para reproducir el contenido cifrado de PlayReady, use las API de REST o del SDK de Servicios multimedia para .NET. Para obtener más información, consulte [Uso de cifrado estático para proteger su contenido]() y establezca la propiedad **licenseAcquisitionUrl** en el valor preestablecido de Media Encryptor. Como alternativa, puede usar el cifrado dinámico y establecer la propiedad **PlayReadyLicenseAcquisitionUrl** tal y como se describe en [Uso del cifrado dinámico de PlayReady y del servicio de entrega de licencias](http://go.microsoft.com/fwlink/?LinkId=507720 ). 
 	+ **Reproducción en PC/Mac (a través de Flash/Silverlight)**. Este valor predefinido produce un recurso de transmisión suave con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con codificación a 96 kbps mediante AAC y CBR de vídeo de 720p con codificación con una velocidad de bits de 6 de 3400 kbps a 400 kbps mediante el perfil principal H.264 y GOP de dos segundos.
 	+ **Reproducción a través de HTML5 (IE/Chrome/Safari)**. Este valor predefinido produce un archivo MP4 único con las siguientes características: 44,1 kHz 16 bits/CBR de audio estéreo de ejemplo con una codificación a 128 kbps mediante AAC y CBR de vídeo de 720p con una codificación a 4500 kbps mediante el perfil principal H.264.
 	+ **Reproducción en dispositivos iOS y PC/Mac**. Este valor predefinido produce un recurso con las mismas características de recurso de transmisión suave (descrito anteriormente), pero en un formato que puede usarse para proporcionar transmisiones de HLS de Apple en dispositivos iOS. 
@@ -120,7 +123,22 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 
 	Si el valor del tamaño de archivo no se actualiza después de que la codificación se haya realizado, presione el botón **Sincronizar metadatos**. De esta forma, se sincroniza el tamaño de archivo de salida del recurso con el tamaño de archivo real en el almacenamiento y se actualiza el valor en la página de contenido.	
 
-##  Publicación de contenido
+##<a id="encrypt"></a>Procedimiento: Cifrar contenido
+
+Si desea que los Servicios multimedia cifren el recurso de forma dinámica con una clave AES o PlayReady DRM, haga lo siguiente:
+
+- Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o archivos  Smooth Streaming de velocidad de bits adaptable (los pasos de codificación se muestran en la sección [Codificación](#encode) ).
+- Obtenga al menos la unidad de streaming a petición para el extremo de streaming desde el que planea entregar el contenido. Para obtener más información, vea [Escalación de unidades reservadas de streaming a petición](../media-services-manage-origins#scale_streaming_endpoints/).
+- Configure "Directiva del servicio de claves sin cifrado de aes predeterminada" o "Directiva del servicio de licencias de Playready predeterminada". Para más información, vea [Configuración de la directiva de autorización de claves de contenido](../media-services-portal-configure-content-key-auth-policy).  
+
+
+	Cuando esté listo para habilitar el cifrado, presione el botón **CIFRADO** situado en la parte inferior de la página **CONTENIDO**.
+
+	![Encrypt][encrypt] 
+
+	Una vez habilitado el cifrado, siempre que un reproductor solicita una secuencia, los Servicios multimedia usan la clave especificada para cifrar de forma dinámica el contenido con cifrado AES o PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
+
+##<a id="publish"></a>Procedimiento: Publicación de contenido
 
 Al publicar el contenido, se le proporcionará una dirección URL de descarga progresiva o de streaming. El cliente sería ser capaz de reproducir los vídeos usando esta dirección URL.
 
@@ -131,7 +149,7 @@ Al publicar el contenido, se le proporcionará una dirección URL de descarga pr
 
  ![PublishedContent][publishedcontent]
 
-## Reproducción de contenido desde el portal
+## Procedimiento: contenido desde el portal
 
 El Portal de administración proporciona un reproductor de contenido de Servicios multimedia que puede utilizar para probar el vídeo.
 
@@ -150,5 +168,5 @@ Solo el contenido publicado puede reproducirse desde el portal. Además, la codi
 [contentpage]: ./media/media-services-manage-content/media-services-content-page.png
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
-
-<!--HONumber=42-->
+[encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
+<!--HONumber=45--> 

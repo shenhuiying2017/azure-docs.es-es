@@ -243,3 +243,5 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

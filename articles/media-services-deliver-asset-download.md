@@ -87,4 +87,5 @@ Para obtener más información acerca de la entrega de recursos, consulte:
 <h2>Pasos siguientes</h2>
 En este tema se explicó la descarga de un recurso desde el almacenamiento de Azure. Para obtener información sobre otras formas de entregar recursos, consulte el tema [Entrega de contenido de streaming](media-services-deliver-streaming-content.md).
 
+
 <!--HONumber=42-->

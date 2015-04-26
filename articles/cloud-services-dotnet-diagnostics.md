@@ -787,10 +787,10 @@ En la tabla siguiente se comparan las características compatibles con las versi
 [Depuración de una aplicación de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Recopilación de datos de registro mediante Diagnósticos de Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure]: http://msdn.microsoft.com/library/windowsazure/hh771389.aspx
-[Versión de prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Instalación y configuración de Azure PowerShell versión 0.8.7 o posterior]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-[instalar y configurar Azure PowerShell versión 0.8.7 o posterior]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Versión de prueba gratuita]: http://azure.microsoft.com/ pricing/free-trial/
+[prueba gratuita]: http://azure.microsoft.com/ pricing/free-trial/
+[Instalación y configuración de Azure PowerShell versión 0.8.7 o posterior]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
+[instalar y configurar Azure PowerShell versión 0.8.7 o posterior]: http://azure.microsoft.com/ documentation/articles/install-configure-powershell/
 [Esquema de configuración de Diagnósticos de Azure 1.2]: http://msdn.microsoft.com/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx

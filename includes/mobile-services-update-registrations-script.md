@@ -28,4 +28,5 @@
 
    De esta manera, se registra un nuevo script de inserción, que almacena la información de registro en la nueva tabla.
 
+
 <!--HONumber=42-->

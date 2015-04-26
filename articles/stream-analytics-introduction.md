@@ -137,3 +137,5 @@ Las expectativas sobre la ejecución rápida y ágil en las empresas continúan 
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

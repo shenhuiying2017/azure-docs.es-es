@@ -166,3 +166,5 @@ Estos ejemplos de código muestran cómo aprovechar la *clave de validación de 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

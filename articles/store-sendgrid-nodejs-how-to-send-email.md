@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Uso del servicio de correo electrónico SendGrid (Java) - Azure" 
 	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos con la API de Node.js." 
 	services="" 
@@ -186,8 +186,7 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
 Es posible sobrescribir algunas propiedades de correo electrónico con **set*Property*** o anexarlas con **add*Property***. Por ejemplo, puede agregar destinatarios adicionales mediante
 
     email.addTo('jeff@contoso.com');
-
-o configurar un filtro mediante
+    or set a filter by using
 
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');

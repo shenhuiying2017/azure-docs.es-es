@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Implementar trabajos web con Visual Studio" 
 	description="Obtenga información sobre cómo implementar trabajos web de Azure en aplicaciones web del servicio de aplicaciones de Azure con Visual Studio." 
 	services="app-service\web" 
@@ -127,7 +127,7 @@ El cuadro de diálogo **Agregar trabajo web de Azure** le permite especificar el
 
 ![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
 
-The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Management Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
+Los campos de este cuadro de dialogo se corresponden con los campos del cuadro de diálogo **Nuevo trabajo** del Portal de administración de Azure. Para obtener más información, consulte [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
 Para un trabajo web programado (no un trabajo web continuo), Visual Studio crea una colección de trabajos del [Programador de Azure](/services/scheduler/) si todavía no existe y, a su vez, crea un trabajo en la colección:
 

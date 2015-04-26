@@ -92,3 +92,5 @@ Una canalización extrae los mensajes desde un origen FTP externo. La instancia 
 - [Servicios de BizTalk: Nombre de emisor y clave de emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

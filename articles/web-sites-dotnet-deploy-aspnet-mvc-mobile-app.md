@@ -108,8 +108,8 @@ Para este tema hay disponibles proyectos de Visual Studio con código fuente en 
 	Una vez que Visual Studio termine de publicar el proyecto inicial en la aplicación web de Azure, se abrirá el explorador de escritorio para mostrar la aplicación web activa.
 
 14.	Inicie su emulador de explorador móvil, copie la dirección URL de la aplicación de conferencia (*<prefix>*.azurewebsites.net) en el emulador y luego haga clic en el botón superior derecho y seleccione **Explorar por etiqueta**. Si está usando Internet
-Explorer 11, como el explorador predeterminado, solo necesita pulsar `F12`, luego
-`Ctrl + 8` y, por último, cambiar el perfil del explorador a **Windows Phone**. La imagen siguiente muestra la vista  *AllTags* en modo vertical (de la elección de
+Explorer 11, como el explorador predeterminado, solo necesita pulsar "F12", luego
+"Ctrl + 8" y, por último, cambiar el perfil del explorador a **Windows Phone**. La imagen siguiente muestra la vista  *AllTags* en modo vertical (de la elección de
 **Examinar por etiqueta**).
 
 	![][AllTags]
@@ -137,7 +137,7 @@ Para ver qué aspecto tendrá la aplicación web sin Bootstrap, abra *App\_Start
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-Presione `Ctrl+F5` para ejecutar la aplicación.
+Presione "Ctrl+F5" para ejecutar la aplicación.
 
 Observe que la barra de navegación contraíble ahora es simplemente una lista no ordenada. Vuelva a hacer clic en **Explorar por etiqueta** y luego haga clic en **ASP.NET**.
 En la vista del emulador de dispositivos móviles, puede ver ahora que ya no se ajusta en zoom a la pantalla y que debe desplazarse lateralmente para ver el lado derecho de la tabla.
@@ -163,7 +163,7 @@ En esta sección, creará un archivo de diseño específico para móviles.
 Para empezar, copie  *Views\\Shared\\\_Layout.cshtml* a *Views\\Shared\\\_Layout.Mobile.cshtml*. Abra *_Layout.Mobile.cshtml* y cambie el título de **Aplicación MVC5** a **Aplicación MVC5 (móvil)**.
 
 En cada llamada de  `Html.ActionLink` de la barra de navegación, quite "Explorar por" de cada vínculo
-*ActionLink*. El código siguiente muestra la etiqueta terminada `<ul class="nav navbar-nav">` del archivo de diseño móvil.
+*ActionLink*. El código siguiente muestra la etiqueta terminada "<ul class="nav navbar-nav">" del archivo de diseño móvil.
 
     <ul class="nav navbar-nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -193,7 +193,7 @@ Por el contrario, la pantalla de escritorio no ha cambiado (con títulos en *\_L
 Además de vistas específicas de explorador móvil y de explorador de escritorio, puede crear vistas para un explorador individual. Por ejemplo, puede crear vistas específicas para el explorador de iPhone o Android. En esta sección, creará un diseño para el explorador de iPhone y una versión de iPhone de la vista  *AllTags*.
 
 Abra el archivo  *Global.asax* y agregue el código siguiente a la parte inferior del
-método `Application_Start`.
+método "Application_Start".
 
     DisplayModeProvider.Instance.Modes.Insert(0, new DefaultDisplayMode("iPhone")
     {
@@ -205,20 +205,20 @@ Este código define un nuevo modo de visualización llamado "iPhone" que se comp
 "iPhone"), ASP.NET MVC buscará vistas cuyo nombre contenga el
 sufijo "iPhone".
 
->[AZURE.NOTE] Al agregar modos de visualización específica de explorador móvil, tal como para iPhone y Android, asegúrese de establecer el primer argumento en `0` (insértelo al principio de la lista) para que el modo específico de explorador tenga prioridad sobre la plantilla móvil (*.Mobile.cshtml). Si la plantilla móvil está al principio de la lista, se seleccionará sobre el modo de visualización esperado (la primera coincidencia tiene prioridad y la plantilla móvil coincide con todos los exploradores móviles). 
+>[AZURE.NOTE] Al agregar modos de visualización específica de explorador móvil, tal como para iPhone y Android, asegúrese de establecer el primer argumento en "0" (insértelo al principio de la lista) para que el modo específico de explorador tenga prioridad sobre la plantilla móvil (*.Mobile.cshtml). Si la plantilla móvil está al principio de la lista, se seleccionará sobre el modo de visualización esperado (la primera coincidencia tiene prioridad y la plantilla móvil coincide con todos los exploradores móviles). 
 
 En el código, haga clic en  `DefaultDisplayMode`, seleccione **Resolver** y luego el espacio de nombres  `using System.Web.WebPages;`. De esta forma, se agrega una referencia a `System.Web.WebPages`, que es donde se definen los tipos "DisplayModeProvider" y  `DefaultDisplayMode`.
 
 ![][ResolveDefaultDisplayMode]
 
 Como alternativa, puede agregar manualmente la siguiente línea a la
-sección `using` del archivo.
+sección 'using' del archivo.
 
     using System.Web.WebPages;
 
-Guarde los cambios. Copie los archivos archivo *Views\\Shared\\\_Layout.Mobile.cshtml* a *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de  `MVC5 Application (Mobile)` a `Aplicación MVC5 (iPhone)`.
+Guarde los cambios. Copie los archivos archivo *Views\\Shared\\\_Layout.Mobile.cshtml* a *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra el nuevo archivo y cambie el título de  `MVC5 Application (Mobile)` a "Aplicación MVC5 (iPhone)".
 
-Copie el archivo  *Views\\Home\\AllTags.Mobile.cshtml* a *Views\\Home\\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` de "Tags (M)" a "Tags (iPhone)".
+Copie el archivo  *Views\\Home\\AllTags.Mobile.cshtml* a *Views\\Home\\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento "\<h2\>" de "Tags (M)" a "Tags (iPhone)".
 
 Ejecute la aplicación. Ejecute el emulador de explorador móvil, asegúrese de que su agente de usuario esté establecido en "iPhone" y vaya a la vista  *AllTags*. Si usa el emulador en las herramientas para desarrollador de Internet Explorer 11 F12,configure la emulación según se indica a continuación:
 
@@ -234,7 +234,7 @@ En el explorador móvil, seleccione el vínculo **Oradores**. Como no hay una vi
 
 ![][AllSpeakers_LayoutMobile]
 
-Puede deshabilitar globalmente una vista predeterminada (no móvil) de la representación dentro de un diseño móvil si establece  `RequireConsistentDisplayMode` en `true` en el archivo  *Views\\\_ViewStart.cshtml* similar al siguiente:
+Puede deshabilitar globalmente una vista predeterminada (no móvil) de la representación dentro de un diseño móvil si establece  `RequireConsistentDisplayMode` en "true" en el archivo  *Views\\\_ViewStart.cshtml* similar al siguiente:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -316,7 +316,7 @@ Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la
         }
     </div>
 
-Observe que las etiquetas `<form>` y `<input>` tienen aplicados los estilos de Bootstrap. El elemento `<span>` agrega un
+Observe que las etiquetas "<form>" y "<input>" tienen aplicados los estilos de Bootstrap. El elemento "<span>" agrega un
 [glyphicon][] de Bootstrap al cuadro de búsqueda.
 
 En la carpeta  *Scripts*, agregue un archivo JavaScript denominado  *filter.js*. Abra el archivo y pegue el siguiente código en él:
@@ -423,7 +423,7 @@ Puede mejorar aún más la vista  *Dates* si organiza por fecha los valores de f
         </div>
     }
 
-Este código crea una etiqueta `<div class="panel panel-primary">` independiente para cada fecha distinta de la lista y usa el [grupo de listas vinculadas][] para los respectivos vínculos, tal como se hizo anteriormente. A continuación se muestra el aspecto del explorador móvil cuando se ejecuta este código:
+Este código crea una etiqueta "<div class="panel panel-primary">" independiente para cada fecha distinta de la lista y usa el [grupo de listas vinculadas][] para los respectivos vínculos, tal como se hizo anteriormente. A continuación se muestra el aspecto del explorador móvil cuando se ejecuta este código:
 
 ![][AllDatesFixed2]
 
@@ -610,7 +610,7 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 [WebPIAzureSdk23NetVS13]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/WebPIAzureSdk23NetVS13.png
 [grupo de listas vinculadas]: http://getbootstrap.com/components/#list-group-linked
 [glyphicon]: http://getbootstrap.com/components/#glyphicons
-[paneles]: http://getbootstrap.com/components/#panels
+[panels]: http://getbootstrap.com/components/#panels
 [custom linked list group]: http://getbootstrap.com/components/#list-group-custom-content
 [sistema de cuadrículas]: http://getbootstrap.com/css/#grid
 [utilidades con respuesta]: http://getbootstrap.com/css/#responsive-utilities

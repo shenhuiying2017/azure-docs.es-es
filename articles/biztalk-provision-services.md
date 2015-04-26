@@ -320,3 +320,5 @@ Ahora que se crea un Servicio de BizTalk, familiarícese con las distintas pesta
   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]: http://go.microsoft.com/fwlink/p/?LinkID=302335
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -126,4 +126,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Versión para el back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started
 
 
+
 <!--HONumber=42-->

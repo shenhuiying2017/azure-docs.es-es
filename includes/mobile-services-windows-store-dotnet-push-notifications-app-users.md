@@ -1,4 +1,4 @@
-﻿
+
 A continuación, debe cambiar la manera en que se registran las notificaciones de inserción para asegurarse de que el usuario se autentique antes de que se intente el registro. Las actualizaciones de la aplicación cliente dependen de la forma en que haya implementado las notificaciones de inserción.
 
 ###Utilización del Asistente para agregar notificaciones de inserción en Visual Studio 2013 Update 2 o una versión posterior.
@@ -58,4 +58,6 @@ En este método, agregó un código de registro desde el tutorial directamente e
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
+
+
 <!--HONumber=42-->

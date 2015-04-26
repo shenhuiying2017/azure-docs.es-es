@@ -63,3 +63,5 @@ Una vez creada el área de trabajo, verá que aparece en la página **aprendizaj
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

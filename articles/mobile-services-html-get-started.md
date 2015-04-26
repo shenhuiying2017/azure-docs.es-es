@@ -163,4 +163,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
+
 <!--HONumber=42-->

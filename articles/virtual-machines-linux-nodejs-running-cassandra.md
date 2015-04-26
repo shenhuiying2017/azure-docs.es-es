@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Ejecución de Cassandra con Linux en Azure" 
 	description="Explica cómo ejecutar un clúster de Cassandra en Linux en máquinas virtuales de Azure." 
 	services="virtual-machines" 
@@ -26,11 +26,11 @@
 ## Tabla de contenido##
 
 - [Información general] []
-- [Implementación de una sola región]  []
-- [Probar el clúster de Cassandra de una sola región] []
-- [Implementación en varias regiones]  []
-- [Probar el clúster de Cassandra de varias regiones] []
-- [Probar el clúster de Cassandra desde Node.js]  []
+- [Implementación de una sola región] []
+- [Probar el clúster de Cassandra de una sola región][]
+- [Implementación en varias regiones] []
+- [Probar el clúster de Cassandra de varias regiones][]
+- [Probar el clúster de Cassandra desde Node.js] []
 - [Conclusión] []
 
 ##<a id="overview"> </a>Información general ##
@@ -40,7 +40,7 @@ El enfoque de este artículo es mostrar la implementación de Cassandra en Ubunt
 
 Este artículo se centra fundamentalmente en mostrar lo relacionado con la compilación del clúster de Cassandra en comparación con Docker, Chef o Puppet, por lo que la implementación de la infraestructura se vuelve mucho más sencilla.  
 
-##<a id="depmodels"></a>Los modelos de implementación ##
+##<a id="depmodels"> </a>Los modelos de implementación ##
 Las redes de Windows Azure permiten la implementación de clústeres privados aislados, el acceso de los cuales puede restringirse para lograr una mejor seguridad de la red.  Dado que este artículo trata de mostrar la implementación de Cassandra en un nivel fundamental, no nos centraremos en el nivel de coherencia y el diseño de almacenamiento óptimo para el rendimiento. Esta es la lista de los requisitos de red de nuestro clúster hipotético:
 
 - Los sistemas externos no tienen acceso a la base de datos Cassandra desde dentro o fuera de Azure
@@ -53,10 +53,10 @@ Las redes de Windows Azure permiten la implementación de clústeres privados ai
 Cassandra puede implementarse en una sola región de Azure o para varias regiones, según la naturaleza distribuida de la carga de trabajo. El modelo de implementación de varias regiones puede aprovecharse para dar servicio a los usuarios finales más cercanos a una geografía determinada a través de la misma infraestructura de Cassandra. La replicación de nodos integrada de Cassandra se encarga de la sincronización de escrituras de varios maestros procedentes de varios centros de datos y presenta una vista coherente de los datos a las aplicaciones. La implementación de varias regiones también puede ayudar a mitigar el riesgo de las interrupciones de servicio de Azure más amplias. La coherencia ajustable de Cassandra y la topología de la replicación le ayudará a satisfacer distintas necesidades RPO de aplicaciones. 
 
 
-###<a id="oneregion"></a>Implementación de una sola región ###
+###<a id="oneregion"> </a>Implementación de una sola región ###
 Se iniciará con una implementación de una sola región y recopilará lo aprendido en la creación de un modelo de varias regiones. La red virtual de Azure se utilizará para crear subredes aisladas, de modo que se pueden cumplir los requisitos de seguridad de red mencionados anteriormente.  El proceso descrito en la creación de la implementación de región única usa Ubuntu 14.04 LTS y Cassandra 2.08; sin embargo, el proceso puede adoptar fácilmente las otras variantes de Linux. Estas son algunas de las características sistémicas de la implementación de una sola región.  
 
-**Alta disponibilidad:** los nodos Cassandra que se muestran en la Figura 1 se implementan en dos conjuntos de disponibilidad para que los nodos se repartan entre varios dominios de error de alta disponibilidad. Las máquinas virtuales anotadas con cada conjunto de disponibilidad se asignan a 2 dominios de error. Microsoft Azure usa el concepto de dominio de error para administrar el tiempo de inactividad imprevisto (por ejemplo, los errores de hardware o software), aunque el concepto de dominio de actualización (por ejemplo, revisiones/actualizaciones de SO de host o invitado, actualizaciones de aplicaciones, etc.) se utiliza para administrar el tiempo de inactividad programado. Consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](http://msdn.microsoft.com/library/dn251004.aspx) para el rol de dominios de error y actualización para la consecución de la alta disponibilidad.
+**Alta disponibilidad:** los nodos Cassandra que se muestran en la Figura 1 se implementan en dos conjuntos de disponibilidad para que los nodos se repartan entre varios dominios de error de alta disponibilidad. Las máquinas virtuales anotadas con cada conjunto de disponibilidad se asignan a 2 dominios de error. Microsoft Azure usa el concepto de dominio de error para administrar el tiempo de inactividad imprevisto (por ejemplo, los errores de hardware o software), aunque el concepto de dominio de actualización (por ejemplo, revisiones/actualizaciones de SO de host o invitado, actualizaciones de aplicaciones, etc.) se utiliza para administrar el tiempo de inactividad programado. Consulte [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](http://msdn.microsoft.com/library/dn251004.aspx) para el rol de dominios de error y actualización para la consecución de la alta disponibilidad. 
 
 ![Single region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux1.png)
 
@@ -66,7 +66,7 @@ Tenga en cuenta que en el momento de redactar este artículo, Azure no permite l
 
 **Tráfico Thrift de equilibrio de carga:** las bibliotecas de cliente Thrift dentro del servidor web se conectan al clúster a través de un equilibrador de carga interno. Esto requiere el proceso de agregar el equilibrador de carga interno a la subred de "datos" (consulte la Figura 1) en el contexto del servicio de nube que hospeda el clúster de Cassandra. Una vez definido el equilibrador de carga interno, cada nodo requiere el extremo con equilibrio de carga para agregarse con las anotaciones de un conjunto con equilibrio de carga con el nombre del equilibrador de carga previamente definido. Consulte [Equilibrio de carga interno de Azure ](http://msdn.microsoft.com/library/azure/dn690121.aspx)para obtener más detalles.
 
-**Valor de inicialización de clúster:** es importante seleccionar los nodos más disponibles para la inicialización, ya que los nuevos nodos se comunicarán con los nodos de valor de inicialización para detectar la topología del clúster. Un nodo de cada conjunto de disponibilidad se designa como nodos de inicialización para evitar un punto único de error.
+**Valor de inicialización de clúster:** es importante seleccionar los nodos más disponibles para la inicialización, ya que los nuevos nodos se comunicarán con los nodos de valor de inicialización para detectar la topología del clúster. Un nodo de cada conjunto de disponibilidad se designa como nodos de inicialización para evitar un punto único de error. 
 
 **Factor de replicación y nivel de coherencia:** la durabilidad de los datos y la alta disponibilidad de la integración de Cassandra se caracterizan por el factor de replicación (FR: número de copias de cada fila almacenada en el clúster) y el nivel de coherencia (número de réplicas para leer/escribir antes de devolver el resultado al llamador). El factor de replicación se especifica durante la creación del espacio de claves (similar a una base de datos relacional), mientras que el nivel de coherencia se especifica al emitir la consulta CRUD. El factor de replicación se especifica durante la creación de KEYSPACE mientras se especifica el nivel de coherencia al emitir la consulta. Consulte la documentación de Cassandra en [Configuración de coherencia](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) para obtener detalles de la coherencia y la fórmula de cálculo de quórum.
 
@@ -95,11 +95,11 @@ Para los sistemas implementados en Azure que no requieren alta disponibilidad (p
 ## Implementación en varias regiones ##
 La replicación compatible del centro de datos de Cassandra y el modelo de coherencia descrito anteriormente ayudan con la implementación de varias regiones sin la necesidad de las herramientas externas. Esto es muy diferente de las bases de datos relacionales tradicionales, donde la escritura del programa de instalación para la creación de reflejo de base de datos de varios maestros puede ser bastante compleja. Cassandra en una configuración de varias regiones puede ayudar en los escenarios de uso, incluidos los siguientes: 
 
-**Implementación basada en proximidad:** las aplicaciones de varios inquilinos, con una asignación clara de los usuarios inquilino a la región, se puede beneficiar de las bajas latencias del clúster de varias regiones. Por ejemplo, los sistemas de administración de aprendizaje para instituciones educativas pueden implementar un clúster distribuido en regiones del Este de EE. UU y del Oeste de EE. UU para servir a los campus correspondientes de forma transaccional, así como analítica. Los datos pueden ser coherentes localmente en las lecturas y escrituras en el momento, y pueden ser coherentes con el tiempo entre ambas regiones. Hay otros ejemplos como la distribución de medios, el comercio electrónico y todo lo que sirva una base de usuario concentrada geográficamente es un buen caso de uso para este modelo de implementación.
+**Implementación basada en proximidad:** las aplicaciones de varios inquilinos, con una asignación clara de los usuarios inquilino a la región, se puede beneficiar de las bajas latencias del clúster de varias regiones. Por ejemplo, los sistemas de administración de aprendizaje para instituciones educativas pueden implementar un clúster distribuido en regiones del Este de EE. UU y del Oeste de EE. UU para servir a los campus correspondientes de forma transaccional, así como analítica. Los datos pueden ser coherentes localmente en las lecturas y escrituras en el momento, y pueden ser coherentes con el tiempo entre ambas regiones. Hay otros ejemplos como la distribución de medios, el comercio electrónico y todo lo que sirva una base de usuario concentrada geográficamente es un buen caso de uso para este modelo de implementación. 
 
-**Alta disponibilidad:** la redundancia es un factor clave para lograr alta disponibilidad de software y hardware; para obtener más información, vea Creación de sistemas de nube confiables en Microsoft Azure. En Microsoft Azure, es la única manera confiable de lograr verdadera redundancia mediante la implementación de un clúster de varias regiones. Se pueden implementar aplicaciones en modo activo-activo o activo-pasivo, y si una de las regiones está inactiva, Azure Traffic Manager puede redirigir el tráfico a la región activa. Con la implementación de una sola región, si la disponibilidad es de 99,9, una implementación de dos regiones puede alcanzar una disponibilidad de 99,9999 calculada mediante la fórmula: (1-(1-0.999) * (1-0.999)) * 100); consulte la nota anterior para obtener más información.
+**Alta disponibilidad:** la redundancia es un factor clave para lograr alta disponibilidad de software y hardware; para obtener más información, vea Creación de sistemas de nube confiables en Microsoft Azure. En Microsoft Azure, es la única manera confiable de lograr verdadera redundancia mediante la implementación de un clúster de varias regiones. Se pueden implementar aplicaciones en modo activo-activo o activo-pasivo, y si una de las regiones está inactiva, Azure Traffic Manager puede redirigir el tráfico a la región activa. Con la implementación de una sola región, si la disponibilidad es de 99,9, una implementación de dos regiones puede alcanzar una disponibilidad de 99,9999 calculada mediante la fórmula: (1-(1-0.999) * (1-0.999)) * 100); consulte la nota anterior para obtener más información. 
 
-**Recuperación ante desastres:** el clúster de Cassandra de varias regiones, si se ha diseñado correctamente, puede resistir a las interrupciones del centro de datos por catástrofes. Si una región está inactiva, la aplicación implementada en otras regiones puede empezar a servir a los usuarios finales. Al igual que cualquier otra implementación de continuidad empresarial, la aplicación tiene que ser tolerante a errores de pérdida de datos resultantes de los datos en la canalización asincrónica. Sin embargo, Cassandra hace que la recuperación sea mucho más rápida que el tiempo empleado por los procesos de recuperación de bases de datos tradicionales. La Figura 2 muestra el modelo de implementación típica de varias regiones de ocho nodos en cada región. Ambas regiones son imágenes reflejadas entre sí para la misma de simetría; los diseños reales dependen del tipo de carga de trabajo (por ejemplo, transaccional o analítico), el RPO, RTO, la coherencia de los datos y los requisitos de disponibilidad. 
+**Recuperación ante desastres:** el clúster de Cassandra de varias regiones, si se ha diseñado correctamente, puede resistir a las interrupciones del centro de datos por catástrofes. Si una región está inactiva, la aplicación implementada en otras regiones puede empezar a servir a los usuarios finales. Al igual que cualquier otra implementación de continuidad empresarial, la aplicación tiene que ser tolerante a errores de pérdida de datos resultantes de los datos en la canalización asincrónica. Sin embargo, Cassandra hace que la recuperación sea mucho más rápida que el tiempo empleado por los procesos de recuperación de bases de datos tradicionales. La Figura 2 muestra el modelo de implementación típica de varias regiones de ocho nodos en cada región. Ambas regiones son imágenes reflejadas entre sí para la misma de simetría; los diseños reales dependen del tipo de carga de trabajo (por ejemplo, transaccional o analítico), el RPO, RTO, la coherencia de los datos y los requisitos de disponibilidad.  
 
 ![Multi region deployment](./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux2.png)
 
@@ -157,7 +157,7 @@ En la pantalla "Configuración de la máquina virtual" #1, escriba la siguiente 
 <tr><td>TAMAÑO	                 </td><td> A1                              </td><td>Seleccione la máquina virtual en función de las necesidades de E/S; Para ello, deje el valor predeterminado </td><tr>
 <tr><td> NEW USER NAME	         </td><td> localadmin	                   </td><td> "admin" es un nombre de usuario reservado en Ubuntu 12.xx y versiones posteriores</td><tr>
 <tr><td> AUTENTICACIÓN	     </td><td> Haga clic en la casilla                 </td><td>Seleccione la casilla si desea protección con una clave SSH </td><tr>
-<tr><td> CERTIFICATE	         </td><td> nombre de archivo del certificado de clave pública </td><td> Use la clave pública generada previamente</td><tr>
+<tr><td> CERTIFICADO	         </td><td> nombre de archivo del certificado de clave pública </td><td> Use la clave pública generada previamente</td><tr>
 <tr><td> New Password	</td><td> contraseña segura </td><td> </td><tr>
 <tr><td> Confirm Password	</td><td> contraseña segura </td><td></td><tr>
 </table>
@@ -169,7 +169,7 @@ En la pantalla "Configuración de la máquina virtual" #2, escriba la siguiente 
 <tr><td> SERVICIO EN LA NUBE	</td><td> cree un nuevo servicio en la nube.	</td><td>El servicio de nube es un recurso de proceso de contenedor como máquinas virtuales</td></tr>
 <tr><td> NOMBRE DE DNS DEL SERVICIO EN LA NUBE	</td><td>ubuntu-template.cloudapp.net	</td><td>Defina un nombre de equilibrador de carga independiente de la máquina</td></tr>
 <tr><td> REGION/AFFINITY GROUP/VIRTUAL NETWORK </td><td>	Oeste de EE. UU.	</td><td> Seleccione una región desde donde las aplicaciones web tienen acceso al clúster de Cassandra</td></tr>
-<tr><td>STORAGE ACCOUNT </td><td>	Use el valor predeterminado	</td><td>Use la cuenta de almacenamiento predeterminada o una cuenta de almacenamiento creada previamente en una región determinada</td></tr>
+<tr><td>STORAGE ACCOUNT </td><td>	Use el valor predeterminado	</td><td>Use la cuenta de almacenamiento predeterminada  o una cuenta de almacenamiento creada previamente en una región determinada</td></tr>
 <tr><td>CONJUNTO DE DISPONIBILIDAD </td><td>	None </td><td>	Deje este parámetro en blanco</td></tr>
 <tr><td>EXTREMOS	</td><td>Use el valor predeterminado </td><td>	Use la configuración predeterminada de SSH </td></tr>
 </table>
@@ -286,7 +286,7 @@ Cree vínculos simbólicos en el directorio de $CASS_HOME/lib para que el script
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
-	ln -s /usr/share/java/jna-platrom-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
+	ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 ####Paso 5: Configurar cassandra.yaml####
 Edite cassandra.yaml en cada máquina virtual para reflejar la configuración necesaria para todas las máquinas virtuales. [Ajustaremos esto durante el aprovisionamiento real]: 
@@ -296,7 +296,7 @@ Edite cassandra.yaml en cada máquina virtual para reflejar la configuración ne
 <tr><td>cluster_name </td><td>	"CustomerService"	</td><td> Utilice el nombre que refleje la implementación</td></tr> 
 <tr><td>listen_address	</td><td>[Deje este parámetro en blanco]	</td><td> Elimine "localhost" </td></tr>
 <tr><td>rpc_addres   </td><td>[Deje este parámetro en blanco]	</td><td> Elimine "localhost" </td></tr>
-<tr><td>seeds	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>Lista de todas las direcciones IP que están designadas como valores de inicialización.</td></tr>
+<tr><td>seeds	</td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"	</td><td>Lista de  todas las direcciones IP que están designadas como valores de inicialización.</td></tr>
 <tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> NetworkTopologyStrateg lo utiliza para deducir el centro de datos y el bastidor de la máquina virtual</td></tr>
 </table>
 
@@ -444,14 +444,14 @@ Debería ver la pantalla similar a la siguiente para un clúster de 8 nodos:
 
 <table>
 <tr><th>Status</th></th>Dirección	</th><th>Carga	</th><th>Tokens	</th><th>Propiedad </th><th>Identificador de host	</th><th>Bastidor</th></tr>
-<tr><th>UN	</td><td>10.1.2.4 	</td><td>87.81 KB	</td><td>256	</td><td>38,0 %	</td><td>GUID (eliminado)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.5 	</td><td>41.08 KB	</td><td>256	</td><td>68,9%	</td><td>GUID (eliminado)</td><td>rack1</td></tr>
-<tr><th>UN	</td><td>10.1.2.6 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.7 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack2</td></tr>
-<tr><th>UN	</td><td>10.1.2.8 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.9 	</td><td>55.29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack3</td></tr>
-<tr><th>UN	</td><td>10.1.2.10 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>GUID (eliminado)</td><td>rack4</td></tr>
-<tr><th>UN	</td><td>10.1.2.11 	</td><td>55.29 KB	</td><td>256	</td><td>68.8%	</td><td>GUID (eliminado)</td><td>rack4</td></tr>
+<tr><th>UN	</td><td>10.1.2.4 	</td><td>87,81 KB	</td><td>256	</td><td>38,0 %	</td><td>GUID (eliminado)</td><td>rack1</td></tr>
+<tr><th>UN	</td><td>10.1.2.5 	</td><td>41,08 KB	</td><td>256	</td><td>68,9%	</td><td>GUID (eliminado)</td><td>rack1</td></tr>
+<tr><th>UN	</td><td>10.1.2.6 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack2</td></tr>
+<tr><th>UN	</td><td>10.1.2.7 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack2</td></tr>
+<tr><th>UN	</td><td>10.1.2.8 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack3</td></tr>
+<tr><th>UN	</td><td>10.1.2.9 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack3</td></tr>
+<tr><th>UN	</td><td>10.1.2.10 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack4</td></tr>
+<tr><th>UN	</td><td>10.1.2.11 	</td><td>55,29 KB	</td><td>256	</td><td>68,8%	</td><td>GUID (eliminado)</td><td>rack4</td></tr>
 </table>
 
 ##<a id="testone"> </a>Probar el clúster de una sola región##
@@ -539,7 +539,7 @@ Edite las redes locales para reemplazar la dirección IP de puerta de enlace de 
 </table>
 
 ###Paso 6: Actualizar la clave compartida###
-Use el siguiente script de Powershell para actualizar la clave IPSec de cada puerta de enlace VPN [Use la clave segura para ambas puertas de enlace]: 
+Use el siguiente script de Powershell para actualizar la clave IPSec de cada puerta de enlace VPN [use la clave segura para ambas puertas de enlace]: 
 Set-AzureVNetGatewayKey -VNetName hk-vnet-east-us -LocalNetworkSiteName hk-lnet-map-to-west-us -SharedKey D9E76BKK
 Set-AzureVNetGatewayKey -VNetName hk-vnet-west-us -LocalNetworkSiteName hk-lnet-map-to-east-us -SharedKey D9E76BKK 
 
@@ -567,8 +567,8 @@ Siga las mismas instrucciones de la región #1, pero use el espacio de direccion
 Inicie sesión en la máquina virtual y realice lo siguiente: 
 
 1. Edite $CASS_HOME/conf/cassandra-rackdc.properties para especificar las propiedades del bastidor y del centro de datos con el formato:
-    centro de datos =EASTUS
-    bastidor = rack1
+    dc =EASTUS
+    rack =rack1
 2. Edite cassandra.yaml para configurar los nodos de valor de inicialización: 
     Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 ###Paso 9: Iniciar Cassandra###
@@ -729,9 +729,8 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 
 ##Referencias##
 - [http://cassandra.apache.org](http://cassandra.apache.org)
-- [http://www.datastax.com](http://www.datastax.com)
-- [http://www.nodejs.org](http://www.nodejs.org)
+- [http://www.datastax.com](http://www.datastax.com) 
+- [http://www.nodejs.org](http://www.nodejs.org) 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

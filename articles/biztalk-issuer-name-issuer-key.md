@@ -114,3 +114,5 @@ Otros temas acerca de los servicios de BizTalk de Azure:
 - [Servicios de BizTalk: Limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

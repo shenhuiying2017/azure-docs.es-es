@@ -42,7 +42,7 @@ En Linux, el disco de recursos se administra generalmente mediante el Agente de 
 	
 	Aparece el cuadro de diálogo **Conectar disco vacío**.
 
-	![Definir detalles de disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
+	![Define disk details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. El **nombre de máquina virtual**, la **ubicación de almacenamiento** y el **nombre de archivo** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Size** (Tamaño).
 
@@ -75,7 +75,7 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 	`sudo fdisk /dev/sdc`
 
-	>[AZURE.NOTE] En este ejemplo es posible que tenga que utilizar  `sudo -i` en algunas distribuciones si /sbin o/usr/sbin no está en su '$PATH'.
+	>[AZURE.NOTE] En este ejemplo, es posible que tenga que usar `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no están en su `$PATH`.
 
 
 4. Escriba **n** para crear una nueva partición.
@@ -131,7 +131,7 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	>[AZURE.NOTE] Es posible que blkid no requiera acceso sudo en todos los casos. Sin embargo, puede que sea más sencillo ejecutar  `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
+	>[AZURE.NOTE] Es posible que blkid no requiera acceso sudo en todos los casos. Sin embargo, puede que sea más sencillo ejecutar con  `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
 
 	**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se crea una copia de seguridad del archivo/etc/fstab antes de la edición.
 
@@ -156,4 +156,5 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 	>[AZURE.NOTE] Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab  `nofail` o  `nobootwait` que permitirán que el sistema se inicie incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=45--> 

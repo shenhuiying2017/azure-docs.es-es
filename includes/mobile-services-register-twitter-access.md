@@ -1,4 +1,4 @@
-﻿Las nuevas API de Twitter v1.1 requieren que la aplicación se autentique para obtener acceso a los recursos. Primero, tendrá que obtener las credenciales necesarias para solicitar el acceso mediante OAuth 2.0. A continuación, las almacenará de forma segura en la configuración de aplicaciones para el servicio móvil.
+Las nuevas API de Twitter v1.1 requieren que la aplicación se autentique para obtener acceso a los recursos. Primero, tendrá que obtener las credenciales necesarias para solicitar el acceso mediante OAuth 2.0. A continuación, las almacenará de forma segura en la configuración de aplicaciones para el servicio móvil.
 
 1. Si aún no lo ha hecho, siga los pasos que se describen en el tema <a href="../articles/mobile-services-how-to-register-twitter-authentication.md/" target="_blank">Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles</a>. 
 
@@ -35,5 +35,6 @@
 [Registro de aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: ../articles/mobile-services-how-to-register-twitter-authentication.md
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Configuración de aplicación]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 <!--HONumber=49-->

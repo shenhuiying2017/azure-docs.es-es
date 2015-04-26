@@ -301,4 +301,5 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [Nuget del almacén de SQLite]: http://www.nuget.org/packages/MicrosoftAzure.MobileServices.SQLiteStore/1.0.0
 
 
+
 <!--HONumber=42-->

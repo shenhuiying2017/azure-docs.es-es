@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introducción a los datos (Android) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android.." 
 	services="mobile-services" 
@@ -187,7 +187,7 @@ Pruebe uno de estos otros tutoriales:
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
 [Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
 [JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[versión back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
+[Versión de back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/

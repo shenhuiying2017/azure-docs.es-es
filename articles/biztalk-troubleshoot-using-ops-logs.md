@@ -115,3 +115,5 @@ En la tabla siguiente se enumeran las operaciones cuyo seguimiento se realiza ut
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -154,3 +154,5 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
   [Referencia de directivas de Administración de API]: ../api-management-policy-reference
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

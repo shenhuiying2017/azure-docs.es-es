@@ -17,4 +17,5 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	>[AZURE.NOTE] Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, que se encuentra en el archivo TodoService.m.</p> 
  	</div>
+
 <!--HONumber=42-->

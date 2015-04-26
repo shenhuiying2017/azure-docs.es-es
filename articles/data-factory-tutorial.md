@@ -691,3 +691,5 @@ Artículo | descripción
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

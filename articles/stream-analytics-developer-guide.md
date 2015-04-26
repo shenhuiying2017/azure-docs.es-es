@@ -219,3 +219,5 @@ Si necesita más ayuda, consulte el [foro de Azure Stream Analytics][stream.anal
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

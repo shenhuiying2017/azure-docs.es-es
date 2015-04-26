@@ -31,7 +31,7 @@ Este tutorial contiene cuatro lecciones:
 3. Selección de secuencias de Smooth Streaming
 4. Selección de pistas de Smooth Streaming
 
-#Requisitos previos
+# Requisitos previos
 - Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) en MSDN.
 - Visual Studio 2012 o Visual Studio Express 2012 para Windows 8 instalado en Windows 8. Puede obtener la versión de prueba [aquí](http://www.microsoft.com/visualstudio/11/es-es/downloads)
 - [SDK de cliente Smooth Streaming para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
@@ -55,7 +55,7 @@ Esta lección contiene los procedimientos siguientes:
 
 1.	Ejecute Visual Studio 2012 o posterior.
 2.	En el menú **ARCHIVO**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
-3.	En el diálogo Nuevo proyecto, escriba o seleccione  los valores siguientes:
+3.	En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
 
 	<table border="1">
 	<tr>
@@ -492,7 +492,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
 		}
 		#endregion sliderMediaPlayer
 
-	**Nota:** CoreDispatcher se utiliza para realizar cambios en el subproceso de la interfaz de usuario desde un subproceso que no es de la interfaz de usuario. En caso de cuello de botella en el subproceso de distribuidor, el desarrollador puede usar el distribuidor proporcionado por el elemento de la interfaz de usuario que pretende actualizar.  Por ejemplo:
+	**Nota:** CoreDispatcher se utiliza para realizar cambios en el subproceso de la interfaz de usuario desde un subproceso que no es de la interfaz de usuario. En caso de cuello de botella en el subproceso de distribuidor, el desarrollador puede usar el distribuidor proporcionado por el elemento de la interfaz de usuario que pretende actualizar. Por ejemplo:
 	
 		await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 		  timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
@@ -577,8 +577,8 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 
 1. En el Explorador de soluciones, haga clic con el botón secundario en **MainPage.xaml** y, a continuación, en **Ver código**.
 2. Dentro del espacio de nombres SSPlayer, agregue la nueva clase:
+		
 		#region class Stream
-	
 	    public class Stream
 	    {
 	        private IManifestStream stream;
@@ -647,35 +647,29 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		
 		    try
 		    {
-		        for (int i = 0; i<manifestObject.AvailableStrea
-	ms.Count; i++)
+		        for (int i = 0; i<manifestObject.AvailableStreams.Count; i++)
 		        {
 		            Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
 		            newStream.isChecked = false;
 		
 		            //populate the stream lists based on the types
-		            availableStrea
-	ms.Add(newStream);
+		            availableStreams.Add(newStream);
 		
 		            switch (newStream.ManifestStream.Type)
 		            {
 		                case MediaStreamType.Video:
-		                    availableVideoStrea
-	ms.Add(newStream);
+		                    availableVideoStreams.Add(newStream);
 		                    break;
 		                case MediaStreamType.Audio:
-		                    availableAudioStrea
-	ms.Add(newStream);
+		                    availableAudioStreams.Add(newStream);
 		                    break;
 		                case MediaStreamType.Text:
-		                    availableTextStrea
-	ms.Add(newStream);
+		                    availableTextStreams.Add(newStream);
 		                    break;
 		            }
 		
 		            // Select the default selected streams from the manifest.
-		            for (int j = 0; j<manifestObject.SelectedStrea
-	ms.Count; j++)
+		            for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
 		            {
 		                string selectedStreamName = manifestObject.SelectedStreams[j].Name;
 		                if (selectedStreamName.Equals(newStream.Name))
@@ -699,8 +693,7 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    {
 		        //update the stream check box list on the UI
 		        await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
-		            => { lbAvailableStrea
-	ms.ItemsSource = availableStreams; });
+		            => { lbAvailableStreams.ItemsSource = availableStreams; });
 		    }
 		    catch (Exception e)
 		    {
@@ -715,13 +708,11 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    bool isOneAudioSelected = false;
 		
 		    // Only one video stream can be selected
-		    for (int j = 0; j<availableVideoStrea
-	ms.Count; j++)
+		    for (int j = 0; j<availableVideoStreams.Count; j++)
 		    {
 		        if (availableVideoStreams[j].isChecked && (!isOneVideoSelected))
 		        {
-		            selectedStrea
-	ms.Add(availableVideoStreams[j].ManifestStream);
+		            selectedStreams.Add(availableVideoStreams[j].ManifestStream);
 		            isOneVideoSelected = true;
 		        }
 		    }
@@ -730,18 +721,15 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    if (!isOneVideoSelected)
 		    {
 		        availableVideoStreams[0].isChecked = true;
-		        selectedStrea
-	ms.Add(availableVideoStreams[0].ManifestStream);
+		        selectedStreams.Add(availableVideoStreams[0].ManifestStream);
 		    }
 		
 		    // Only one audio stream can be selected
-		    for (int j = 0; j<availableAudioStrea
-	ms.Count; j++)
+		    for (int j = 0; j<availableAudioStreams.Count; j++)
 		    {
 		        if (availableAudioStreams[j].isChecked && (!isOneAudioSelected))
 		        {
-		            selectedStrea
-	ms.Add(availableAudioStreams[j].ManifestStream);
+		            selectedStreams.Add(availableAudioStreams[j].ManifestStream);
 		            isOneAudioSelected = true;
 		            txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
 		        }
@@ -751,24 +739,20 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    if (!isOneAudioSelected)
 		    {
 		        availableAudioStreams[0].isChecked = true;
-		        selectedStrea
-	ms.Add(availableAudioStreams[0].ManifestStream);
+		        selectedStreams.Add(availableAudioStreams[0].ManifestStream);
 		    }
 		
 		    // Multiple text streams are supported.
-		    for (int j = 0; j < availableTextStrea
-	ms.Count; j++)
+		    for (int j = 0; j < availableTextStreams.Count; j++)
 		    {
 		        if (availableTextStreams[j].isChecked)
 		        {
-		            selectedStrea
-	ms.Add(availableTextStreams[j].ManifestStream);
+		            selectedStreams.Add(availableTextStreams[j].ManifestStream);
 		        }
 		    }
 		}
 		
-		// Change streams on a smooth streaming presentation with multiple video strea
-	ms.
+		// Change streams on a smooth streaming presentation with multiple video streams.
 		private async void changeStreams(List<IManifestStream> selectStreams)
 		{
 		    try
@@ -934,8 +918,7 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
         private IManifestStream getVideoStream()
         {
             IManifestStream videoStream = null;
-            for (int i = 0; i < manifestObject.SelectedStrea
-	ms.Count; i++)
+            for (int i = 0; i < manifestObject.SelectedStreams.Count; i++)
             {
                 if (manifestObject.SelectedStreams[i].Type == MediaStreamType.Video)
                 {
@@ -1018,11 +1001,11 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
 Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para elegir pistas.
 
 
-#Otros recursos:
+# Otros recursos:
 - [Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Información técnica sobre Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

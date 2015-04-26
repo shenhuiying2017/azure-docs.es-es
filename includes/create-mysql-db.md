@@ -78,4 +78,5 @@ Para crear una base de datos MySQL como recurso vinculado cuando cree un [sitio 
 [Azure Store]: /es-es/gallery/store/
 [portal]: http://manage.windowsazure.com
 [configure]: ../web-sites-configure/
+
 <!--HONumber=42-->

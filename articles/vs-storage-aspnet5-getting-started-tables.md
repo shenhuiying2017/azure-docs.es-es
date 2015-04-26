@@ -193,4 +193,5 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 [Más información sobre Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte también [Explorar y administrar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
+
 <!--HONumber=42-->

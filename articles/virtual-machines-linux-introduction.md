@@ -151,4 +151,5 @@ En Linux el kernel debe poner al disco de datos el nombre  `/dev/sdc` y los usua
 
 
 
+
 <!--HONumber=42-->

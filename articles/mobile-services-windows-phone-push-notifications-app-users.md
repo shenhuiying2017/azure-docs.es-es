@@ -23,4 +23,5 @@ Este tema está en desuso. En su lugar, siga las instrucciones actualizadas en e
 + [Incorporación de notificaciones de inserción a su aplicación de Servicios móviles](mobile-services-javascript-backend-windows-phone-get-started-push.md)<br/>Actualice el servicio móvil de TodoList para usar los Centros de notificaciones de Azure para enviar notificaciones a los usuarios de la aplicación de ejemplo TodoList.
 + [Envío de notificaciones de inserción a usuarios autenticados](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)<br/>Amplía el tutorial anterior para permitir que solo los usuarios con sesión iniciada se registren para las notificaciones.
 
+
 <!--HONumber=42-->

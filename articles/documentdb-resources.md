@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Modelo de recursos y conceptos de la Base de datos de documentos | Azure" 
 	description="La Base de datos de documentos de Microsoft Azure es una base de datos de documentos NoSQL totalmente administrada que usa un modelo jerárquico de cuentas de base de datos, bases de datos, colecciones, procedimientos almacenados, desencadenadores, funciones definidas por el usuario, documentos, datos adjuntos, medios, usuarios y permisos para administrar los recursos."  
 	services="documentdb" 
@@ -351,7 +351,7 @@ La ejecución de un procedimiento almacenado se realiza emitiendo un POST HTTP e
 	    });
 
 ###Unregistering a stored procedure
-Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
+Anular el registro de un procedimiento almacenado es sencillo mediante la emisión de un DELETE HTTP en un recurso de procedimiento almacenado existente.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {

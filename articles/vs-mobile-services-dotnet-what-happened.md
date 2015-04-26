@@ -40,4 +40,5 @@ En el archivo App.xaml.cs, se ha creado un objeto **MobileServiceClient** con la
 
 
 
+
 <!--HONumber=42-->

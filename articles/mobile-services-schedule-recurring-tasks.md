@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" 
 	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
 	services="mobile-services" 
@@ -181,6 +181,6 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configuración de aplicación]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 <!--HONumber=49-->

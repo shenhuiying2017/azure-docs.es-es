@@ -321,4 +321,5 @@ En la aplicación de cliente, deberá desarrollar una pantalla de inicio de sesi
 [Introducción a los usuarios]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 
+
 <!--HONumber=42-->

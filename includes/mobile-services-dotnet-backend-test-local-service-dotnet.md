@@ -18,4 +18,6 @@ En esta sección, probará la nueva aplicación en el servicio móvil que se eje
 4. En la aplicación, escriba un texto significativo, como _Realice el tutorial_, en **Insertar una tarea pendiente** y, a continuación, haga clic en **Guardar**.
 
 	De este modo, se envía una solicitud POST al servicio móvil local. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

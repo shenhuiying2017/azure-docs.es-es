@@ -94,4 +94,5 @@ A continuación, actualizará la aplicación de inicio rápido para agregar la f
 <!-- URLs. -->
 [Creación de una cuenta de almacenamiento]: /es-es/manage/services/storage/how-to-create-a-storage-account
 [Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
 <!--HONumber=42-->

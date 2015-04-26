@@ -135,3 +135,5 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
   [foro de Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=MachineLearning
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

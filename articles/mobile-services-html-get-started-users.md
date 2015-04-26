@@ -143,6 +143,7 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Autorización de usuarios con scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /documentation/articles/mobile-services-html-how-to-use-client-library
 [Referencia conceptual de Servicios móviles HTML/JavaScript]: /documentation/articles/mobile-services-html-how-to-use-client-library
 
 <!--HONumber=49-->

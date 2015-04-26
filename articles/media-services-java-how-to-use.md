@@ -16,7 +16,7 @@
 	ms.date="10/30/2014" 
 	ms.author="robmcm"/>
 
-# Uso de Servicios multimedia
+#Uso de Servicios multimedia
 
 En esta guía se muestra cómo empezar a programar con Servicios multimedia de Azure usando Java. La guía incluye una introducción técnica de Servicios multimedia, pasos para configurar la cuenta de Azure para Servicios multimedia y código que muestra cómo llevar a cabo las tareas de programación típicas. 
 
@@ -25,11 +25,11 @@ En esta guía se muestra cómo empezar a programar con Servicios multimedia de A
 -   [¿Qué es Servicios multimedia?](#media_services)
 -   [Configuración de una cuenta de Azure para Servicios multimedia](#setup-account)
 -   [Configuración del desarrollo de Servicios multimedia](#setup-dev)
--   [ Uso de Servicios multimedia con Java](#connect)
+-   [Procedimiento: Uso de Servicios multimedia con Java](#connect)
 -   [Recursos adicionales](#additional-resources)
 
  
-## <a id="media_services"></a>¿Qué es Servicios multimedia?
+##<a id="media_services"></a>¿Qué es Servicios multimedia?
 
 Los Servicios multimedia de Azure forman una plataforma multimedia extensible que integra lo mejor de la plataforma multimedia de Microsoft y los componentes multimedia de terceros en Azure. Los Servicios multimedia proporcionan un proceso en la nube que permite a los socios del sector ampliar o reemplazar las tecnologías de componentes. Los vendedores independientes de software y los proveedores multimedia pueden usar Servicios multimedia para generar soluciones multimedia de un extremo a otro. Esta introducción describe la arquitectura general y los escenarios de desarrollo comunes para Servicios multimedia.
 
@@ -37,7 +37,7 @@ El siguiente diagrama muestra la arquitectura de Servicios multimedia.
 
 ![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
 
-### Compatibilidad de las características de Servicios multimedia
+###Compatibilidad de las características de Servicios multimedia
 La versión actual de Servicios multimedia ofrece el siguiente conjunto de características para el desarrollo de aplicaciones multimedia en la nube. 
 
 - **Introducción**. Las operaciones de introducción introducen los recursos en el sistema, por ejemplo mediante su carga y cifrado antes de que se coloquen en el servicio de almacenamiento de Azure. En la versión RTM, Servicios multimedia ofrecerá integración con los componentes de socios para proporcionar soluciones de carga de UDP (protocolo de datagramas de usuario).
@@ -47,9 +47,9 @@ La versión actual de Servicios multimedia ofrece el siguiente conjunto de carac
    - Un conjunto grande de tipos de archivo, formatos y códecs compatibles (consulte [Tipos de archivo compatibles para Servicios multimedia][]).
    - Conversiones de formato compatibles. Los Servicios multimedia le permiten convertir ISO MP4 (.mp4) al formato de archivo de Smooth Streaming (PIFF 1.3) (.ismv; .isma). También puede convertir el formato de archivo de Smooth Streaming (PIFF) a Apple HTTP Live Streaming (.msu8, .ts).
 - **Protección**. La protección de contenido implica el cifrado de la transmisión en directo o contenido bajo demanda de cara a la seguridad en la entrega, el almacenamiento y el transporte. Los Servicios multimedia ofrecen una solución independiente de la tecnología DRM para proteger el contenido.  Las tecnologías DRM compatibles actualmente son la protección Microsoft PlayReady y cifrado común de MPEG. También habrá compatibilidad con tecnologías DRM adicionales. 
-- **Transmisión**. La transmisión de contenido implica el envío de este en directo o bajo demanda a los clientes, o puede recuperar o descargar archivos multimedia específicos desde la nube. Los Servicios multimedia ofrecen una solución independiente del formato para el contenido por secuencias.  Los Servicios multimedia proporcionan  compatibilidad con el origen de streaming en formatos MP4, Smooth Streaming y Apple HTTP Live Streaming. Se ofrecerá compatibilidad con formatos adicionales. También puede entregar directamente contenido de streaming usando un CDN de Azure o un CDN de terceros, que permita la opción  de realizar una escalación a millones de usuarios.   
+- **Transmisión**. La transmisión de contenido implica el envío de este en directo o bajo demanda a los clientes, o puede recuperar o descargar archivos multimedia específicos desde la nube. Los Servicios multimedia ofrecen una solución independiente del formato para el contenido por secuencias.  Los Servicios multimedia proporcionan compatibilidad con el origen de streaming en formatos MP4, Smooth Streaming y Apple HTTP Live Streaming. Se ofrecerá compatibilidad con formatos adicionales. También puede entregar directamente contenido por secuencias usando CDN de Azure o de terceros, que permite la opción de realizar una escalación a millones de usuarios.   
 
-### Escenarios de desarrollo de Servicios multimedia
+###Escenarios de desarrollo de Servicios multimedia
 Los Servicios multimedia son compatibles con escenarios de desarrollo multimedia comunes como se describe en la siguiente tabla. 
 <table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
   <thead>
@@ -74,70 +74,70 @@ Los Servicios multimedia son compatibles con escenarios de desarrollo multimedia
   </tbody>
 </table>
 
-### Desarrollo de clientes de Servicios multimedia
+###Desarrollo de clientes de Servicios multimedia
 Amplíe el alcance de la solución de Servicios multimedia mediante los SDK y los marcos de reproductores para generar aplicaciones clientes multimedia. Estos clientes son para los desarrolladores que deseen generar aplicaciones de Servicios multimedia que ofrezcan experiencias de usuario convincentes en una gama de dispositivos y plataformas. Según los dispositivos para los que desea crear aplicaciones cliente, existen opciones para los SDK y marcos de reproductores disponibles en Microsoft y otros socios.  
 
 A continuación se muestra una lista de SDK de clientes y marcos de reproductores compatibles.  Para obtener más información sobre estos y otros marcos de reproductores y SDK planificados, y la funcionalidad que pueden admitir, consulte [Desarrollo de clientes de los Servicios multimedia]. 
 
-#### Compatibilidad con clientes de PC y Mac  
+####Compatibilidad con clientes de PC y Mac  
 Para los PC y Mac, puede dirigir una experiencia de transferencia mediante Microsoft Silverlight o Adobe Open Source Media Framework.
 
 -	[Cliente de Smooth Streaming para Silverlight](http://www.iis.net/download/smoothclient)
--	[Plataforma multimedia de Microsoft: Player Framework para Silverlight](http://smf.codeplex.com/documentation)
--	[Complemento Smooth Streaming para OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) Para obtener información sobre el uso de este complemento, consulte [Uso del complemento de transmisión suave para Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
+-	[Plataforma multimedia de Microsoft: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
+-	[Complemento Smooth Streaming para OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) Para obtener información sobre el uso de este complemento, consulte [Uso del complemento Smooth Streaming para Adobe Open Source Media Framework](http://go.microsoft.com/fwlink/?LinkId=275034).
 
-#### Aplicaciones de Windows 8
+####Aplicaciones de Windows 8
 Para Windows 8, puede generar aplicaciones de la Tienda Windows mediante una de las construcciones y lenguajes de desarrollo compatibles como HTML, Javascript, XAML, C# y C+.
 
--	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de transmisión suave de HTML5](http://msdn.microsoft.com/library/jj573656.aspx).
+-	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación Smooth Streaming de la Tienda Windows](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor Smooth Streaming de HTML5](http://msdn.microsoft.com/library/jj573656.aspx).
 
--	[Plataforma multimedia de Microsoft: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
+-	[Plataforma multimedia de Microsoft: Player Framework para aplicaciones de la Tienda Windows para Windows 8](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
-#### Xbox
+####Xbox
 Xbox es compatible con aplicaciones de Xbox LIVE que consumen contenido de transmisión suave. El kit de desarrollo de aplicaciones (ADK) para Xbox LIVE incluye:
 
 -	Cliente de transmisión suave para ADK de Xbox Live
 -	Plataforma multimedia de Microsoft: Player Framework para ADK de Xbox LIVE
 
-#### Dispositivos dedicados o insertados
+####Dispositivos dedicados o insertados
 Dispositivos como TV, decodificadores (set-top box), reproductores Blu-Ray, soluciones de TV OTT y dispositivos móviles conectados que tengan un marco de desarrollo de aplicaciones personalizado y un proceso multimedia personalizado. Microsoft proporciona los siguientes kits de migración que pueden ser objeto de licencia, y permite a los socios migrar la reproducción de transmisión suave para la plataforma.
 
--	[Kit de portabilidad de cliente de Smooth Streaming](http://www.microsoft.com/es-es/mediaplatform/sspk.aspx)
--	[Kit de portabilidad de dispositivos de Microsoft PlayReady](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
+-	[Kit de migración de cliente de Smooth Streaming](http://www.microsoft.com/es-es/mediaplatform/sspk.aspx)
+-	[Kit de migración de dispositivos PlayReady de Microsoft](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
 
-#### Windows Phone
+####Windows Phone
 Microsoft proporciona un SDK que puede usarse para crear aplicaciones de vídeo premium para Windows Phone. 
 
 -	[Cliente de Smooth Streaming para Silverlight](http://www.iis.net/download/smoothclient)
--	[Plataforma multimedia de Microsoft: Player Framework para Silverlight](http://smf.codeplex.com/documentation)
+-	[Plataforma multimedia de Microsoft: Player Framework for Silverlight](http://smf.codeplex.com/documentation)
 
-#### Dispositivos iOS
+####Dispositivos iOS
 Para los dispositivos iOS, incluidos iPhone, iPod, e iPad, Microsoft incorpora un SDK que puede usar para generar aplicaciones para estas plataformas y ofrecer contenido de vídeo premium: SDK de transmisión suave para dispositivos iOS con PlayReady.  El SDK está disponible solo para los licenciatarios. Para obtener más información, [escriba un correo electrónico a Microsoft](mailto:askdrm@microsoft.com). Para obtener información sobre el desarrollo de iOS, consulte [iOS Developer Center](https://developer.apple.com/devcenter/ios/index.action).
 
-#### Dispositivos Android
-Varios socios de Microsoft incluyen SDK para la plataforma Android que agrega la capacidad de reproducir la transmisión suave en un dispositivo Android. [Escriba un correo electrónico a Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) para obtener más información sobre los asociados.
+####Dispositivos Android
+Varios socios de Microsoft incluyen SDK para la plataforma Android que agrega la capacidad de reproducir la transmisión suave en un dispositivo Android. [Escriba un correo electrónico a Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) para obtener más información sobre los socios.
 
 
-## <a id="setup-account"></a>Configuración de una cuenta de Azure para Servicios multimedia
+##<a id="setup-account"></a>Configuración de una cuenta de Azure para Servicios multimedia
 
 Para configurar su cuenta de Servicios multimedia, use el Portal de administración de Azure. Consulte el tema [Creación de una cuenta de Servicios multimedia][]. Después de crear la cuenta en el Portal de administración, está listo para configurar el equipo para el desarrollo de Servicios multimedia. 
 
-## <a id="setup-dev"></a>Configuración del desarrollo de Servicios multimedia
+##<a id="setup-dev"></a>Configuración del desarrollo de Servicios multimedia
 
 Esta sección contiene los requisitos previos generales para el desarrollo de Servicios multimedia usando el SDK de Servicios multimedia para Java.
 
-### Requisitos previos
+###Requisitos previos
 
 -   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Creación de una cuenta de Servicios multimedia][].
--   Las bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java para Azure][].
+-   Las bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java de Azure][].
 
-## <a if="connect"></a>  Uso de Servicios multimedia con Java
+##<a if="connect"></a>Procedimiento: Uso de Servicios multimedia con Java
 
 El siguiente código muestra cómo crear un recurso, cargar un archivo en el recurso, ejecutar un trabajo con una tarea para transformar el recurso y descargar los archivos de salida del recurso transformado.
 
 Necesitará configurar una cuenta de servicios multimedia antes de usar este código. Para obtener información sobre cómo configurar una cuenta, consulte [Creación de una cuenta de Servicios multimedia](http://azure.microsoft.com/manage/services/media-services/how-to-create-a-media-services-account/).
 
-Sustituya los valores por las variables `clientId` y `clientSecret`. El código también se basa en un archivo almacenado localmente, `c:/media/MPEG4-H264.mp4`. Necesitará proporcionar su propio archivo para usar. El código también requiere una carpeta de salida, `c:/output`, que es dónde se descargarán los archivos de salida.
+Sustituya los valores por las variables `clientId` y `clientSecret`. El código también se basa en un archivo almacenado localmente, `c:/media/MPEG4-H264.mp4`. You'll need to provide your own file to use. The code also requires an output folder, `c:/output`, que es donde se descargarán los archivos de salida.
 
 	import java.io.*;
 	import java.net.URI;
@@ -421,7 +421,7 @@ Sustituya los valores por las variables `clientId` y `clientSecret`. El código 
 
 Los recursos que cree se guardan en el almacenamiento de Azure. Sin embargo, use solamente las API de servicios multimedia de Azure (no las API de almacenamiento de Azure) para agregar, actualizar o eliminar recursos.
 
-### Determinación de los procesadores multimedia disponibles
+###Determinación de los procesadores multimedia disponibles
 
 El código anterior usaba un procesador multimedia accediendo a él a través de un nombre de procesador multimedia específico (y si había más de una versión, utilizaba la más reciente). Para determinar qué procesadores multimedia están disponibles, podría usar el siguiente código.
 
@@ -445,23 +445,21 @@ Alternativamente, el siguiente código muestra cómo recuperar el identificador 
     System.out.println("Processor named " + mediaProcessorName + 
                        " has ID of " + processor.getId());
 
-### Cancelación de un trabajo
+###Cancelación de un trabajo
 Si necesita cancelar un trabajo que no ha acabado de procesarse, el siguiente código muestra cómo hacerlo mediante su identificador.
 
     mediaService.action(Job.cancel(jobId));
 
-## <a id="additional-resources"></a>Recursos adicionales
+##Recursos adicionales
 
 Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Documentación de las bibliotecas de Azure para Java][].
 
 <!-- URLs. -->
 
   [Creación de una cuenta de Servicios multimedia]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Centro para desarrolladores de Java para Azure]: http://azure.microsoft.com/develop/java/
+  [Centro para desarrolladores de Java de Azure]: http://azure.microsoft.com/develop/java/
   [Documentación de las bibliotecas de Azure para Java]: http://dl.windowsazure.com/javadoc/
   [Desarrollo de clientes de los Servicios multimedia]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-  [Tipos de archivo compatibles para Servicios multimedia]: http://msdn.microsoft.com/library/dn535852.aspx
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

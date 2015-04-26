@@ -623,4 +623,5 @@ Observe que ambas implementaciones de controlador hacen uso exclusivo de los DTO
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio. 
 
+
 <!--HONumber=42-->

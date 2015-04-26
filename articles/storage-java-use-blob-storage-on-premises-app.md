@@ -382,4 +382,5 @@ Para obtener información general sobre otras clases y métodos de almacenamient
   [Creación de una cuenta de almacenamiento]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
   [Administración de cuentas de almacenamiento]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
   [Uso del servicio de almacenamiento de blobs desde Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+
 <!--HONumber=42-->

@@ -244,3 +244,5 @@ Para aprovisionar los Servicios de BizTalk de Azure en el Portal de administraci
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

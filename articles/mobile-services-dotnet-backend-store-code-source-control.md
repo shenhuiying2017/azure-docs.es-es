@@ -122,4 +122,5 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
 
 
+
 <!--HONumber=42-->

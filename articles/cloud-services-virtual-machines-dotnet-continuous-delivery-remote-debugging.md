@@ -17,7 +17,7 @@
 	ms.author="kempb"/>
 # Habilitación de la depuración remota al usar la entrega continua para publicar en Azure
 
-Puede habilitar la depuración remota en Azure cuando usa la [entrega continua](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/) para publicar en Azure; para ello, siga estos pasos.
+Puede habilitar la depuración remota en Azure cuando usa la [entrega continua](http://azure.microsoft.com/ documentation/articles/cloud-services-dotnet-continuous-delivery/) para publicar en Azure; para ello, siga estos pasos.
 
 En este tema:
 
@@ -39,7 +39,7 @@ En este tema:
 
 <h2> <a name="virtualmachine"></a>Habilitación de la depuración remota para las máquinas virtuales</h2>
 
-1. Cree una máquina virtual de Azure. Consulte [Creación de una máquina virtual que ejecuta Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/) o [Creación de máquinas virtuales de Azure en Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
+1. Cree una máquina virtual de Azure. Consulte [Creación de una máquina virtual que ejecuta Windows Server](http://azure.microsoft.com/ documentation/articles/virtual-machines-windows-tutorial/) o [Creación de máquinas virtuales de Azure en Visual Studio](http://msdn.microsoft.com/library/azure/dn569263.aspx).
 2. En la [página del portal de Azure](http://go.microsoft.com/fwlink/p/?LinkID=269851), examine el panel de máquinas virtuales para ver la "Huella digital del certificado RDP" de la máquina virtual. Esta se usa como valor de ServerThumbprint en la configuración de extensiones.
 3. Cree un certificado de cliente como se describe en [Crear un certificado del servicio para Azure](http://msdn.microsoft.com/library/azure/gg432987.aspx) (mantenga la huella digital del certificado de .pfx y RDP).
 4. Instale [Azure Powershell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (versión 0.7.4 o posterior) desde el Centro de descarga de Microsoft.

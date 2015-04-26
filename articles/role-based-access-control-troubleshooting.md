@@ -91,3 +91,5 @@ Las máquinas virtuales tienen estos recursos relacionados:
 Si no puede acceder a ninguno de estos elementos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

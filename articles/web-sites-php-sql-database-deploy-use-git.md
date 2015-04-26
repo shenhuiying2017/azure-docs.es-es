@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Sitio web PHP con Base de datos SQL y Git - Tutorial de Azure" 
 	description="Un tutorial en el que se muestra cómo crear un sitio web de PHP que almacena datos en la base de datos SQL y usar la implementación de Git en Azure." 
 	services="web-sites, sql-database" 
@@ -18,7 +18,7 @@
 
 #Creación de un sitio web PHP con una Base de datos SQL e implementación con Git
 
-En este tutorial se muestra cómo crear un sitio web de Azure PHP con una Base de datos SQL de Azure y cómo implementarlo mediante Git. Este tutorial supone que tiene [PHP][, install-php][SQL Server Express][install-SQLExpress], los [controladores de Microsoft para SQL Server para PHP][install-drivers] (en inglés), un servidor web y [Git][install-git] instalado en su equipo. Una vez completada esta guía, tendrá un sitio web PHP-Base de datos SQL que se ejecutará en Azure.
+En este tutorial se muestra cómo crear un sitio web de Azure PHP con una Base de datos SQL de Azure y cómo implementarlo mediante Git. Este tutorial supone que tiene [PHP][install-php], [SQL Server Express][install-SQLExpress], los [controladores de Microsoft para SQL Server para PHP][install-drivers] (en inglés), un servidor web y [Git][install-git] instalado en su equipo. Una vez completada esta guía, tendrá un sitio web PHP-Base de datos SQL que se ejecutará en Azure.
 
 > [AZURE.NOTE]
 > Puede instalar y configurar PHP, SQL Server Express, los controladores de Microsoft para SQL Server para PHP e Internet Information Services (IIS) mediante el <a href="http://www.microsoft.com/web/downloads/platform.aspx">instalador de plataforma web de Microsoft</a>.
@@ -300,6 +300,7 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [management-portal]: https://manage.windowsazure.com/
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 [where-is-code]: ./media/web-sites-php-sql-database-deploy-use-git/setupgit.png
+
 
 
 

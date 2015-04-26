@@ -1,117 +1,63 @@
-﻿<properties 
-	pageTitle="Introducción a los Centros de notificaciones para aplicaciones Xamarin.Android" 
-	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin Android."
-	authors="yuaxu" 
-	manager="dwrede" 
-	editor="" 
-	services="notification-hubs" 
+﻿<properties
+	pageTitle="Introducción a los Centros de notificaciones para aplicaciones Xamarin.Android"
+	description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin Android."
+	authors="yuaxu"
+	manager="dwrede"
+	editor=""
+	services="notification-hubs"
 	documentationCenter="xamarin"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="11/11/2014" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="11/11/2014"
 	ms.author="donnam"/>
 
 # Introducción a los Centros de notificaciones
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/es-es/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/es-es/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/es-es/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/es-es/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
-Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin.Android. 
+##Información general
+
+Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin.Android.
 En este tutorial, creará una aplicación Xamarin.Android que recibirá notificaciones de inserción con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones. El código terminado está disponible en el ejemplo de la [aplicación NotificationHubs][GitHub].
 
-Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
+En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones. 
 
-1. [Habilitación del servicio de mensajería en la nube de Google]
-2. [Configuración del Centro de notificaciones]
-3. [Conexión de la aplicación al Centro de notificaciones]
-4. [Ejecución de la aplicación con el emulador]
-5. [Envío de notificaciones desde el back-end]
+##Requisitos previos
 
-En este tutorial se demuestra el escenario de difusión sencillo con los Centros de notificaciones. Este tutorial requiere lo siguiente:
+Este tutorial requiere lo siguiente:
 
 + [Xamarin.Android]
 + Cuenta de Google activa
 + [Componente de Servicios móviles de Azure]
-+ [Componente del Servicio de mensajería en la nube de Google]
++ [Componente de mensajería de Azure]
++ [Componente del Cliente de mensajería en la nube de Google]
 
-Completar este tutorial es un requisito previo para todos los demás tutoriales de Centros de notificaciones para aplicaciones Xamarin.Android. 
+Completar este tutorial es un requisito previo para todos los demás tutoriales de Centros de notificaciones para aplicaciones Xamarin.Android.
 
-> [AZURE.IMPORTANT] Para completar este tutorial, debe tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-android%2F"%20target="_blank).
+> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
 
-<h2><a name="register"></a>Habilitación del servicio de mensajería en la nube de Google</h2>
+##<a name="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
-<p></p>
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-> [AZURE.IMPORTANT] Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302"%20target="_blank). 
+##<a name="configure-hub"></a>Configuración del Centro de notificaciones
 
-1. Navegue al sitio web <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a>, inicie sesión con las credenciales de la cuenta de Google y, a continuación, haga clic en **Create project...** (Crear proyecto...).
+[AZURE.INCLUDE [notification-hubs-android-configure-push](../includes/notification-hubs-android-configure-push.md)]
 
-   	![][1]   
-	
-	> [AZURE.NOTE] Si ya tiene un proyecto, se le dirigirá a la página **Dashboard** (Panel) después de iniciar sesión. Para crear un nuevo proyecto desde el panel, expanda **API Project** (Proyecto de API), haga clic en **Create...** (Crear...) bajo **Other projects** (Otros proyectos), escriba un nombre de proyecto y haga clic en **Create project** (Crear proyecto).
-
-2. Haga clic en **Overview** (Información general) en la columna de la izquierda y anote el número de proyecto en la sección **Dashboard** (Panel). 
-
-	Más adelante en este tutorial, configurará este valor como la variable PROJECT_ID en el cliente.
-
-3. En la página <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a>, haga clic en **Services** (Servicios) y, a continuación, haga clic en el botón de alternancia para habilitar **Google Cloud Messaging for Android** (Servicio de mensajería en la nube de Google para Android) y acepte los términos del servicio. 
-
-4. Haga clic en **API Access** (Acceso de API) y, a continuación, en **Create new Server key...** (Crear nueva clave de servidor...). 
-
-   	![][2]
-
-5. En **Configure Server Key for API Project** (Configurar clave de servidor para proyecto de API), haga clic en **Create** (Crear).
-
-   	![][3]
-
-6. Anote el valor de **API key** (Clave de API).
-
-   	![][4] 
-
-A continuación, utilizará este valor de clave de API para permitir que su Centro de notificaciones se autentique con GCM y envíe notificaciones de inserción en nombre de su aplicación.
-
-<h2><a name="configure-hub"></a>Configuración del Centro de notificaciones</h2>
-
-1. Inicie sesión en el [Portal de administración de Azure] y, a continuación, haga clic en **+NUEVO** en la parte inferior de la pantalla.
-
-2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y, a continuación, en **Creación rápida**.
-
-   	![][7]
-
-3. Escriba un nombre para el Centro de notificaciones, seleccione la región deseada y, a continuación, haga clic en **Crear una nueva base de datos central de notificaciones**.
-
-   	![][8]
-
-4. Haga clic en el espacio de nombres que acaba de crear (por lo general ***nombre del Centro de notificaciones*-ns**) y, a continuación, haga clic en **Configurar** en la parte superior.
-
-   	![][9]
-
-5. Haga clic en la pestaña **Centros de notificaciones** en la parte superior y, a continuación, haga clic en el Centro de notificaciones que acaba de crear.
-
-   	![][10]
-
-6. Haga clic en la pestaña **Configurar** que aparece en la parte superior, escriba el valor **Clave de API** que obtuvo en la sección anterior y, a continuación, haga clic en **Guardar**.
-
-   	![][11]
-
-7. Seleccione la pestaña **Panel** en la parte superior y, a continuación, haga clic en **Información de conexión**. Anote las dos cadenas de conexión.
-
-   	![][12]
-
-Su Centro de notificaciones está ahora configurado para funcionar con GCM y tiene las cadenas de conexión para registrar su aplicación y enviar notificaciones de inserción.
-
-<h2><a name="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones</h2>
+##<a name="connecting-app"></a>Conectar la aplicación al Centro de notificaciones
 
 ### Crear un nuevo proyecto
 
-1. En Xamarin Studio (o Visual Studio), cree un nuevo proyecto Android (File, New, Solution, Android Application).
+1. En Xamarin Studio (o Visual Studio), haga clic en **Archivo** y **Nuevo** y, a continuación, haga clic en **Aplicación de Android ** en el cuadro de diálogo **Nueva solución** y finalmente haga clic en **Aceptar**.
 
-   	![][13]   
    	![][14]
+
+	Esto crea un nuevo proyecto de Android.
 
 2. Abra las propiedades del proyecto. Para ello, haga clic con el botón derecho en el nuevo proyecto en la vista Solution (Solución) y elija **Options** (Opciones). Seleccione el elemento **Android Application** (Aplicación Android) en la sección **Build** (Compilación).
 
@@ -125,29 +71,18 @@ Su Centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
 	> [AZURE.IMPORTANT] La primera letra del nombre del paquete debe ser minúscula. De lo contrario, recibirá errores del manifiesto de aplicación al registrar los elementos **BroadcastReceiver** e **IntentFilter** para las notificaciones de inserción que se muestran a continuación.
 
-### Agregue el Cliente de mensajería en la nube de Google a su proyecto.
+### Agregar los componentes necesarios para el proyecto
 
 El Cliente de mensajería en la nube de Google disponible en el Almacén de componentes Xamarin simplifica el proceso de compatibilidad con las notificaciones de inserción en Xamarin.Android.
 
 1. En la aplicación Xamarin.Android, haga clic con el botón derecho en la carpeta Components (Componentes) y elija **Get More Components...** (Obtener más componentes).
 
-2. Busque el componente **Google Cloud Messaging Client** (Cliente del Servicio de mensajería en la nube de Google).
+2. Busque el componente **Servicios móviles de Azure** y agréguelo al proyecto.
 
-3. Agregue el componente a la aplicación de Xamarin.Android. Las referencias de ensamblados se agregan de forma automática.
+3. Busque el componente **Mensajería de Azure** y agréguelo al proyecto.
 
-### Agregar Xamarin.NotificationHub a su proyecto
+4. Busque el componente **Cliente de mensajería en la nube de Google** y agréguelo al proyecto.
 
-Este ensamblado proporciona una forma sencilla de registrarse con Centros de notificaciones de Azure. Puede descargarse siguiendo las instrucciones de abajo y también se puede encontrar en la [descarga de ejemplo][GitHub].
-
-1. Visite la [página Github Xamarin.NotificationHub] y descargue y compile la carpeta de origen.
-
-2. Cree una carpeta **_external** en la carpeta del proyecto de Xamarin.Android y, a continuación, copie el archivo **ByteSmith.WindowsAzure.Messaging.Android.dll** compilado en esta.
-
-3. Abra su proyecto Xamarin.Android en Xamarin Studio (o Visual Studio).
-
-4. Haga clic con el botón derecho en la carpeta **References** (Referencias) del proyecto y elija **Edit References...** (Editar referencias).
-
-5. Vaya a la pestaña **.Net Assembly** (Ensamblado .Net), desplácese a la carpeta **_external** del proyecto, seleccione el elemento **ByteSmith.WindowsAzure.Messaging.Android.dll** que compilamos anteriormente y haga clic en **Add** (Agregar). Haga clic en OK para cerrar el cuadro de diálogo. 
 
 ### Configurar los Centros de notificaciones en su proyecto
 
@@ -161,7 +96,7 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
 
 2. Agregue las siguientes instrucciones using a **MainActivity.cs**:
 
-		using ByteSmith.WindowsAzure.Messaging;
+		using Microsoft.WindowsAzure.MobileServices;
 		using Gcm.Client;
 
 3. Cree el método siguiente en la clase **MainActivity**:
@@ -183,7 +118,7 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
 
 5. Agregue las siguientes instrucciones using a **MyBroadcastReceiver.cs** (en referencia al componente y al ensamblado agregados anteriormente):
 
-		using ByteSmith.WindowsAzure.Messaging;
+		using WindowsAzure.Messaging;
 		using Gcm.Client;
 
 5. Agregue las siguientes solicitudes de permisos entre las instrucciones **using** y la declaración **namespace**:
@@ -200,46 +135,49 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
 6. En **MyBroadcastReceiver.cs**, cambie la clase **MyBroadcastReceiver** para que coincida con lo siguiente:
 
     	[BroadcastReceiver(Permission=Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
+			Categories = new string[] { "@PACKAGE_NAME@" })]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, 
+			Categories = new string[] { "@PACKAGE_NAME@" })]
+        [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
+			Categories = new string[] { "@PACKAGE_NAME@" })]
+        public class MyBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
             public static string[] SENDER_IDS = new string[] { Constants.SenderID };
 
             public const string TAG = "MyBroadcastReceiver-GCM";
         }
-        
-7. Agregue otra clase en **MyBroadcastReceiver.cs** llamada **PushHandlerService** que se deriva de **PushHandlerServiceBase**. Asegúrese de usar la directiva **Service** en la clase:
 
-    	[Service] //Must use the service tag
-    	public class GcmService : GcmServiceBase
+7. Agregue otra clase en **MyBroadcastReceiver.cs** llamada **PushHandlerService** que deriva de **PushHandlerServiceBase**. Asegúrese de aplicar el atributo **Service** a la clase:
+
+    	[Service] // Must use the service tag
+    	public class PushHandlerService : GcmServiceBase
     	{
         	public static string RegistrationID { get; private set; }
         	private NotificationHub Hub { get; set; }
 
-        	public GcmService() : base(Constants.SenderID) 
+        	public PushHandlerService() : base(Constants.SenderID)
        		{
-            	Log.Info(MyBroadcastReceiver.TAG, "GcmService() constructor"); 
+            	Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
         	}
     	}
 
 
-8. **GcmServiceBase** implementa los métodos **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()** y **OnError()**. Nuestra clase de implementación **GcmService** debe reemplazar estos métodos, los cuales se activarán en respuesta a la interacción con el Centro de notificaciones.
+8. **GcmServiceBase** implementa los métodos **OnRegistered()**, **OnUnRegistered()**, **OnMessage()**, **OnRecoverableError()** y **OnError()**. Nuestra clase de implementación **PushHandlerService** debe reemplazar estos métodos, los cuáles se activarán en respuesta a la interacción con el centro de notificaciones.
 
 9. Reemplace el método **OnRegistered()** en **PushHandlerService** por el código siguiente:
 
-        protected override async void OnRegistered(Context context, string registrationId)
+        protected override void OnRegistered(Context context, string registrationId)
         {
             Log.Verbose(MyBroadcastReceiver.TAG, "GCM Registered: " + registrationId);
             RegistrationID = registrationId;
 
-            createNotification("GcmService-GCM Registered...", "The device has been Registered, Tap to View!");
+            createNotification("PushHandlerService-GCM Registered...", "The device has been Registered, Tap to View!");
 
-            Hub = new NotificationHub(Constants.NotificationHubPath, Constants.ConnectionString);
+            Hub = new NotificationHub (Constants.NotificationHubPath, Constants.ConnectionString);
             try
             {
-                await Hub.UnregisterAllAsync(registrationId);
+                Hub.UnregisterAll(registrationId);
             }
             catch (Exception ex)
             {
@@ -251,17 +189,17 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
 
             try
             {
-                var hubRegistration = await Hub.RegisterNativeAsync(registrationId, tags);
+                var hubRegistration = Hub.RegisterNative (registrationId, tags);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message); 
+                Debug.WriteLine(ex.Message);
                 Debugger.Break();
             }
         }
 
 	> [AZURE.NOTE] En el código **OnRegistered()** anterior, tenga en cuenta la posibilidad de especificar etiquetas para registrar canales de mensajería específicos.
-    
+
 10. Reemplace el método **OnMessage** en **PushHandlerService** por el código siguiente:
 
         protected override void OnMessage(Context context, Intent intent)
@@ -286,7 +224,7 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
             createNotification("Unknown message details", msg.ToString());
         }
 
-11. Add the following **createNotification** method to **PushHandlerService** for notifying users as used above:
+11. Agregue el siguiente método **createNotification** a **PushHandlerService** para enviar notificaciones a los usuarios como se ha indicado anteriormente:
 
         void createNotification(string title, string desc)
         {
@@ -310,7 +248,7 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
             //Show the notification
             notificationManager.Notify(1, notification);
         }
-        
+
 12. Reemplace los miembros abstractos **OnUnRegistered()**, **OnRecoverableError()** y **OnError()** para que el código se compile.
 
 
@@ -318,19 +256,19 @@ Este ensamblado proporciona una forma sencilla de registrarse con Centros de not
 
 Cuando ejecute esta aplicación en el emulador, asegúrese de utilizar un dispositivo virtual Android (AVD) compatible con las API de Google.
 
+	> [AZURE.IMPORTANT] Para recibir notificaciones de inserción, debe configurar la cuenta de Google en el dispositivo virtual de Android (en el emulador, diríjase a **Settings** (Configuración) y haga clic en **Add Account** [Agregar cuenta]). Además, asegúrese de que el emulador esté conectado a Internet.
+
 1. En **Tools** (Herramientas), haga clic en **Open Android Emulator Manager** (Abrir Administrador de emulador Android), seleccione su dispositivo y, a continuación, haga clic en **Edit** (Editar).
 
    	![][18]
 
-2. Seleccione **Google APIs** (APIs de Google) en **Target** (Destino) y, a continuación, haga clic en **OK** (Aceptar).
+2. Seleccione **Google APIs** en **Target** y, a continuación, haga clic en **OK**.
 
    	![][19]
 
-3. En la barra de herramientas de la parte superior, haga clic en **Run** (Ejecutar) y, a continuación, seleccione la aplicación. De este modo se arranca el emulador y se ejecuta la aplicación.
+3. En la barra de herramientas de la parte superior, haga clic en **Run** (Ejecutar) y, a continuación, seleccione la aplicación. Esto inicia el emulador y ejecuta la aplicación.
 
-4. La aplicación recupera el valor de *registrationId* de GCM y se registra en el Centro de notificaciones.
-
-	> [AZURE.IMPORTANT] Para recibir notificaciones de inserción, debe configurar una cuenta de Google en el dispositivo virtual de Android (en el emulador, navegue a **Settings** (Configuración) y haga clic en **Add Account** [Agregar cuenta]). Además, asegúrese de que el emulador esté conectado a Internet.
+  La aplicación recupera el valor de  *registrationId* de GCM y se registra con el Centro de notificaciones.
 
 <h2><a name="send"></a>Envío de notificaciones desde el back-end</h2>
 
@@ -338,7 +276,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
 Para enviar notificaciones mediante una aplicación .NET:
 
-1. Cree una aplicación de consola nueva de Visual C#: 
+1. Cree una aplicación de consola nueva de Visual C#:
 
    	![][20]
 
@@ -383,7 +321,7 @@ Para enviar una notificación mediante un servicio móvil, siga la [Introducció
 
 4. Cuando se cree el trabajo, haga clic en el nombre del trabajo. A continuación,haga clic en la pestaña **Script** en la barra superior.
 
-5. Inserte el siguiente script en su función de programador. Asegúrese de reemplazar los marcadores de posición por el nombre del Centro de notificaciones y la cadena de conexión para *DefaultFullSharedAccessSignature* que obtuvo anteriormente. Haga clic en **Save**.
+5. Inserte el siguiente script en su función de programador. Asegúrese de reemplazar los marcadores de posición por el nombre de su centro de notificaciones y la cadena de conexión para  *DefaultFullSharedAccessSignature* que obtuvo anteriormente. Haga clic en **Save**.
 
         var azure = require('azure');
 		var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string>');
@@ -404,7 +342,7 @@ Para enviar una notificación mediante un servicio móvil, siga la [Introducció
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora]. Para obtener más información acerca del uso de los Centros de notificaciones, consulte [Orientación sobre los Centros de notificaciones] y [Procedimientos de los Centros de notificaciones para Android].
+En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora]. Para obtener más información acerca del uso de los Centros de notificaciones, consulte [Orientación sobre los Centros de notificaciones] y [Procedimientos de los Centros de notificaciones para Android].
 
 <!-- Anchors. -->
 [Habilitación del servicio de mensajería en la nube de Google]: #register
@@ -443,21 +381,22 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-push-js
+[Introducción a los servicios móviles]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
+[JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para Android]: http://msdn.microsoft.com/library/dn282661.aspx
 
-[Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: /es-es/manage/services/notification-hubs/notify-users-aspnet
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
+[Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: /manage/services/notification-hubs/notify-users-aspnet
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: /manage/services/notification-hubs/breaking-news-dotnet
 [Página de componentes GCMClient]: http://components.xamarin.com/view/GCMClient
-[Página Github Xamarin.NotificationHub]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[Página de Github de Xamarin.NotificationHub]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.Android]: http://xamarin.com/download/
 [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
-[Componente del Servicio de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
+[Componente del Cliente de mensajería en la nube de Google]: http://components.xamarin.com/view/GCMClient/
+[Componente de mensajería de Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

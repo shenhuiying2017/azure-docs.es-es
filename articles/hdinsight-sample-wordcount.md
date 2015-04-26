@@ -226,4 +226,5 @@ Para ver tutoriales sobre la ejecución de otros ejemplos y que proporcionan ins
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 
 
+
 <!--HONumber=42-->

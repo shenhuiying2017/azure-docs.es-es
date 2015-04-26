@@ -34,4 +34,5 @@ El backend .NET de Servicios móviles proporciona una abstracción de "tabla" un
 
 En la raíz de este modelo de programación se encuentra la clase [**TableController<T>**](http://msdn.microsoft.com/library/dn643359.aspx), que es simplemente un [**ApiController**](http://msdn.microsoft.com/library/system.web.http.apicontroller.aspx) de API web que está personalizado para un modelo de acceso a datos basado en CRUD. El **TableController** puede usar una amplia variedad de almacenes de datos, como SQL (a través de [Entity Framework](http://msdn.microsoft.com/data/ef.aspx)), [almacenamiento de tablas de Azure](http://azure.microsoft.com/documentation/services/storage/), [MongoDB](http://www.mongodb.org) o su propio almacén personalizado.
 
+
 <!--HONumber=42-->

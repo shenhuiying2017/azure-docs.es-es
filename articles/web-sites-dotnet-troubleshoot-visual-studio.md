@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Solución de problemas de una aplicación web en el Servicio de aplicaciones de Azure con Visual Studio" 
 	description="Obtenga información acerca de cómo solucionar problemas de una aplicación web de Azure con herramientas de registro, seguimiento y depuración remota que están integradas en Visual Studio 2013." 
 	services="app-service\web" 
@@ -207,9 +207,9 @@ En esta sección se muestra cómo depurar de forma remota mediante el proyecto y
 
 	![Set breakpoint](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
-1. In **Solution Explorer**, right-click the web project (not the WebJob project), and click **Publish**.
+1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto web (no en el proyecto WebJob) y, a continuación, en **Publicar**.
 
-2. In the **Profile** drop-down list, select the same profile that you used in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+2. En la lista desplegable **Perfil** , seleccione el mismo perfil que utilizó en [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
 3. Haga clic en la pestaña **Configuración**, cambie la **Configuración** a **Depurar** y, a continuación, haga clic en **Publicar**.
 

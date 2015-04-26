@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Optimización del rendimiento de MySQL en máquinas virtuales de Azure con Linux" 
 	description="Aprenda a optimizar MySQL ejecutado en una máquina virtual (VM) de Azure con Linux." 
 	services="virtual-machines" 
@@ -23,11 +23,11 @@ Existen muchos factores que afectan al rendimiento de MySQL en Azure, tanto en l
 ##Uso de RAID en una máquina virtual de Azure 
 El almacenamiento es el factor clave que afecta al rendimiento de la base de datos en entornos de nube.  En comparación con un solo disco, RAID puede proporcionar un acceso más rápido gracias a la simultaneidad.  Consulte [Niveles RAID estándar](http://en.wikipedia.org/wiki/Standard_RAID_levels) para obtener más detalles.   
 
-El rendimiento de E/S de disco, así como el tiempo de respuesta de las E/S pueden mejorarse significativamente con RAID. Nuestras pruebas de laboratorio indican que es posible duplicar el rendimiento de E/S de disco. Asimismo, es posible reducir a la mitad el tiempo de respuesta de E/S de media cuando se duplica el número de discos RAID (de 2 a 4, de 4 a 8, etc.). Consulte el [Apéndice A](#AppendixA) para obtener más información.  
+El rendimiento de E/S de disco, así como el tiempo de respuesta de las E/S pueden mejorarse significativamente con RAID. Nuestras pruebas de laboratorio indican que es posible duplicar el rendimiento de E/S de disco. Asimismo, es posible reducir a la mitad el tiempo de respuesta de E/S de media cuando se duplica el número de discos RAID (de 2 a 4, de 4 a 8, etc.). Consulte el [Apéndice A](#AppendixA) para obtener información detallada.  
 
-Además de las E/S de disco, el rendimiento de MySQL mejora al aumentar el nivel de RAID.  Consulte el [Apéndice B](#AppendixB) para obtener más información.  
+Además de las E/S de disco, el rendimiento de MySQL mejora al aumentar el nivel de RAID.  Consulte el [Apéndice B](#AppendixB) para obtener información detallada.  
 
-También puede que desee considerar el tamaño del fragmento. En general, cuando el tamaño de fragmento es mayor, obtendrá una menor sobrecarga, especialmente para las operaciones de escritura de mayor envergadura. Sin embargo, si el tamaño del fragmento es demasiado grande, podría agregar una sobrecarga adicional, con lo que no se aprovecharían las ventajas de RAID. El tamaño predeterminado actual es de 512 KB. Este es el tamaño óptimo para los entornos de producción más generales. Consulte el [Apéndice C](#AppendixC) para obtener más información.   
+También puede que desee considerar el tamaño del fragmento. En general, cuando el tamaño de fragmento es mayor, obtendrá una menor sobrecarga, especialmente para las operaciones de escritura de mayor envergadura. Sin embargo, si el tamaño del fragmento es demasiado grande, podría agregar una sobrecarga adicional, con lo que no se aprovecharían las ventajas de RAID. El tamaño predeterminado actual es de 512 KB. Este es el tamaño óptimo para los entornos de producción más generales. Consulte el [Apéndice C](#AppendixC) para obtener información detallada.   
 
 Tenga en cuenta que existen límites en cuanto al número de discos que puede agregar para los distintos tipos de máquinas virtuales. Estos límites se detallan en [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Necesitará 4 discos de datos conectados para seguir el ejemplo de RAID que se describe en este artículo, aunque puede optar por configurar RAID con menos discos.  
 
@@ -154,7 +154,7 @@ Una práctica recomendada consiste en deshabilitar la característica de registr
  
 Para deshabilitar el registro de atime, deberá modificar el archivo /etc/ fstab de la configuración del sistema y agregar la opción **noatime**.  
 
-Por ejemplo, edite el archivo vim /etc/fstab agregando la opción noatime tal como se muestra a continuación.  
+Por ejemplo, modifique  el archivo /etc/fstab de vim y agregue noatime tal como se muestra a continuación.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -205,7 +205,7 @@ Puede usar la misma estrategia de optimización del rendimiento para configurar 
 Las principales reglas de optimización de E/S son las siguientes:   
 
 -	Aumentar el tamaño de la memoria caché.
--	Reducir el tiempo de respuesta de E/S.
+-	Reducir el tiempo de respuesta de E/S.  
 
 Para optimizar la configuración del servidor MySQL, puede actualizar el archivo my.cnf, que es el archivo de configuración predeterminado tanto para los equipos cliente como servidor.  
 
@@ -218,9 +218,9 @@ Los elementos de configuración siguientes son los principales factores que infl
 	Desde MySQL 5.6, el valor predeterminado es ON. Por lo tanto, no se requiere ninguna acción. Para otras versiones, anteriores a la 5.6, la configuración predeterminada es OFF. Es necesario establecer esta opción en ON. Debe establecerla antes de cargar los datos, ya que solo afecta a las tablas recién creadas.
 -	**innodb_flush_log_at_trx_commit**: El valor predeterminado es 1, con el ámbito establecido en 0~2. El valor predeterminado es la opción más adecuada para la base de datos MySQL independiente. El valor 2 permite una mayor integridad de datos y es adecuado para Master en clúster de MySQL. El valor 0 permite la pérdida de datos, lo que puede afectar a la confiabilidad, en algunos casos con un mejor rendimiento, y es adecuado para la opción de esclavo en clúster de MySQL.
 -	**Innodb_log_buffer_size**: El búfer de registro permite que las transacciones se ejecuten sin tener que vaciar el registro en el disco antes de confirmar las transacciones. Sin embargo, si hay un objeto binario de gran tamaño o un campo de texto, se consumirá la memoria caché muy rápidamente y se activará la E/S de discos frecuentes. Es mejor incrementar el tamaño del búfer si la variable de estado Innodb_log_waits no es 0.
--	**query_cache_size**: La mejor opción es deshabilitarla desde el principio. Establezca query_cache_size en 0 (ahora es el valor predeterminado en MySQL 5.6) y use otros métodos para agilizar las consultas.  
+-	**query_cache_size**:  La mejor opción es deshabilitarla desde el principio. Establezca query_cache_size en 0 (ahora es el valor predeterminado en MySQL 5.6) y use otros métodos para agilizar las consultas.  
   
-Consulte el [apéndice D](AppendixD) para comparar el rendimiento después de la optimización.
+Consulte el [Apéndice D](AppendixD) para comparar el rendimiento después de la optimización.
 
 
 ##Activar el registro de consultas lentas de MySQL para analizar el cuello de botella de rendimiento
@@ -253,7 +253,8 @@ En este ejemplo, puede ver que se ha activado la característica de consulta len
 
 A continuación se muestran los datos de las pruebas de rendimiento obtenidos en el entorno de laboratorio de destino. Estos datos proporcionan información general acerca de las tendencias de datos de rendimiento con distintos enfoques de optimización del rendimiento. Sin embargo, los resultados pueden variar con las distintas versiones de producto o entorno. 
 
-<a name="AppendixA"></a>Apéndice A: **Rendimiento del disco (IOPS) con los distintos niveles de RAID** 
+<a name="AppendixA"></a>Apéndice A:  
+**Rendimiento del disco (IOPS) con los distintos niveles de RAID** 
 
 
 ![][9]
@@ -283,8 +284,8 @@ A continuación se muestran los datos de las pruebas de rendimiento obtenidos en
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Apéndice C:    
-**Comparación de rendimiento (IOPS) de disco con distintos tamaños de fragmento**
+<a name="AppendixC"></a>Apéndice C:   
+**Comparación de rendimiento (IOPS) de disco con distintos tamaños de fragmento**  
 (Sistema de archivos XFS)
 
  
@@ -298,7 +299,7 @@ A continuación se muestran los datos de las pruebas de rendimiento obtenidos en
 Tenga en cuenta que el tamaño de archivo utilizado para esta prueba es de 30 GB y 1 GB respectivamente, con el sistema de archivos XFS RAID 0 (4 discos).
 
 
-<a name="AppendixD"></a>Apéndice D:
+<a name="AppendixD"></a>Apéndice D:  
 **Comparación de rendimiento de MySQL antes y después de la optimización**  
 (Sistema de archivos XFS)
 
@@ -313,13 +314,13 @@ Tenga en cuenta que el tamaño de archivo utilizado para esta prueba es de 30 GB
 
 |Parámetros de	|Valores predeterminados	|Optimización
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size**	|Ninguno	|7G
-|**innodb_log_file_size**	|5M	|512M
+|**innodb_buffer_pool_size**	|None	|7 G
+|**innodb_log_file_size**	|5 M	|512 M
 |**max_connections**	|100	|5000
 |**innodb_file_per_table**	|0	|1
 |**innodb_flush_log_at_trx_commit**	|1	|2
-|**innodb_log_buffer_size**	|8M	|128M
-|**query_cache_size**	|16M	|0
+|**innodb_log_buffer_size**	|8 M	|128 M
+|**query_cache_size**	|16 M	|0
 
 
 Consulte las instrucciones oficiales de mysql para obtener parámetros de configuración de optimización más detallados.  
@@ -330,10 +331,10 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 
 **Entorno de prueba**  
 
-|Detalles	|de hardware
+|Hardware	|Detalles
 |-----------|-------
 |CPU	|Procesador AMD Opteron(tm) 4171 HE/4 núcleos
-|Memoria	|14G
+|Memoria	|14 G
 |Disco	|10G/disco
 |Sistema operativo	|Ubuntu 14.04.1 LTS
 
@@ -354,7 +355,4 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

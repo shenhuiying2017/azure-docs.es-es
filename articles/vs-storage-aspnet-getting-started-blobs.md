@@ -46,4 +46,5 @@ Antes de realizar cualquier acción con un blob, debe obtener la cadena de conex
 [AZURE.INCLUDE [vs-storage-getting-started-blobs-include](../includes/vs-storage-getting-started-blobs-include.md)]
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
+
 <!--HONumber=42-->

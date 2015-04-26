@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción al uso de herramientas de HDInsight para Visual Studio | Azure" 
 	description="Aprenda a instalar y utilizar herramientas de HDInsight para Visual Studio para conectarse a HDInsight y ejecutar consultas de Hive." 
-	services="hdinsight" 
+	services="HDInsight" 
 	documentationCenter="" 
 	authors="mumian" 
 	manager="paulettm" 
-	editor=""/>
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,59 +13,68 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="big-data" 
-	ms.date="11/12/2014" 
-	ms.author="jgao" 
-	editor="cgronlun"/>
+	ms.date="2/17/2015" 
+	ms.author="jgao"/>
 
-# Introducción al uso de las herramientas de Hadoop de HDInsight para Visual Studio
+# Introducción al uso de herramientas de Hadoop de HDInsight para Visual Studio
 
-Aprenda a instalar y utilizar herramientas de HDInsight para Visual Studio para conectarse a HDInsight y ejecutar consultas de Hive. Para obtener más información sobre el uso de HDInsight, consulte [Introducción a HDInsight][hdinsight.introduction] y [Primeros pasos con HDInsight][hdinsight.get.started].
+Aprenda a usar las herramientas de HDInsight para Visual Studio para conectarse a clústeres de HDInsight y enviar consultas de Hive. Para obtener más información sobre el uso de HDInsight, consulte [Introducción a HDInsight][hdinsight.introduction] y [Primeros pasos con HDInsight][hdinsight.get.started]. Para obtener más información acerca de cómo conectarse al clúster Storm, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][hdinsight.storm.visual.studio.tools]. 
 
+>[WACOM.NOTE] Todas las características de las herramientas de HDInsight que están disponibles para los clústeres de Windows también funcionan en los clústeres de Linux, excepto algunas características que no se admiten en Humboldt hoy en día, como mostrar los registros YARN de un determinado trabajo de Hive. 
+
+>La versión más reciente ha introducido algunas nuevas características, como la compatibilidad de Intellisense del editor de Hive, validación local del script de Hive y el acceso a los registros Yarn.
+
+## En este artículo
 + [Instalación] 
-+ [Conexión a su suscripción de Azure]
++ [Conexión a la suscripción de Azure]
 + [Navegación por los recursos vinculados]
 + [Ejecución de consultas de Hive]
 + [Pasos siguientes]
 
 
-##Requisitos previos
+## Requisitos previos
 
 - Estación de trabajo con lo siguiente
 
-	- Windows 7 o Windows 8.
-	- Visual Studio 2012 con la [actualización 4](http://www.microsoft.com/es-es/download/details.aspx?id=39305) o Visual Studio 2013 con la [actualización 3](http://www.microsoft.com/es-es/download/details.aspx?id=43721), o bien [Visual Studio Express 2013](http://www.microsoft.com/es-es/download/details.aspx?id=43722).
+	- Windows 7, Windows 8 o Windows 8.1
+	- Visual Studio con las siguientes versiones:
+		- Visual Studio 2012 Professional/Premium/Ultimate con [actualización 4](http://www.microsoft.com/es-es/download/details.aspx?id=39305)
+		- Visual Studio 2013 Comunidad/Professional/Premium/Ultimate con [actualización 4](https://www.microsoft.com/es-es/download/details.aspx?id=44921)
+		- Visual Studio 2015 en versión de vista previa.
 
-	>[AZURE.NOTE] Actualmente las herramientas solo se suministran con la versión en inglés. 
+	>[WACOM.NOTE] Actualmente las herramientas solo se suministran con la versión en inglés. 
 
 
 ## Instalación
 
-Las herramientas de HDInsight para Visual Studio se suministran con el SDK de Microsoft Azure. Puede usar [Instalador de plataforma web](http://go.microsoft.com/fwlink/?LinkId=255386) para la instalación.
+Las herramientas de HDInsight para Visual Studio se pueden instalar mediante el [instalador de plataforma web](http://go.microsoft.com/fwlink/?LinkId=255386). Puede consultar las herramientas con la palabra clave "hdinsight". Hay un paquete para cada una de las versiones de Visual Studio. Debe elegir la que coincida con Visual Studio.  El paquete también instalará el controlador ODBC de Microsoft Hive de 32 bits y 64 bits.
 
 ![HDinsight Tools for Visual Studio Web Platform installer][1]
 
 
-## Conexión a su suscripción de Azure
+>[WACOM.NOTE] Si tiene visual studio 2012 o 2015 y tiene la versión anterior del SDK de Azure instalada, debe quitar manualmente la versión anterior antes de instalar la versión más reciente. Visual Studio 2013 admite la actualización directa.
+
+## Conexión a la suscripción de Azure
 Las herramientas de HDInsight para Visual Studio permiten conectarse a los clústeres de HDInsight, realizar algunas operaciones básicas de administración y ejecutar consultas de Hive.
 
 **Para conectarse a la suscripción de Azure**
 
 1.	Ejecute Visual Studio.
 2.	Desde el menú **Ver** menú, haga clic en **Explorador de servidores** para abrir la ventana del explorador de servidores.
-3.	Expanda **Azure** y, a continuación, haga clic en los clústeres de **HDInsight**. 
+3.	Expanda **Azure** y, a continuación, expanda **HDInsight**. 
 
-	>[AZURE.NOTE]Se abrirá la ventana **Lista de tareas de HDInsight**. Si no puede ver esta ventana, puede abrirla haciendo clic en **Otras ventanas** desde el menú **VER** y, a continuación, haga clic en la **Ventana de lista de tareas de HDInsight**.  
+	>[WACOM.NOTE]Se abrirá la ventana **Lista de tareas de HDInsight**. Si no puede ver esta ventana, puede abrirla haciendo clic en **Otras ventanas** desde el menú **VER** y, a continuación, haga clic en la **Ventana de lista de tareas de HDInsight**.  
 4.	Escriba sus credenciales de suscripción de Azure y, a continuación, haga clic en **Iniciar sesión**. Esto solo es necesario si nunca se ha conectado a la suscripción de Azure desde Visual Studio en esta estación de trabajo.
 5.	En el Explorador de servidores, se mostrará una lista de los clústeres de HDInsight existentes. Si no tiene ningún clúster, puede aprovisionar uno mediante el portal de administración, con el PowerShell de Azure o el SDK de HDInsight.  Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision].
 
 	![HDInsight Tools for visual studio server explorer cluster list][5]
-6.	Expanda un clúster de HDInsight. Se mostrarán las **bases de datos de Hive**, la cuenta de almacenamiento predeterminada y las cuentas de almacenamiento vinculadas. Puede expandir las entidades. 
+6.	Expanda un clúster de HDInsight. Verá las **bases de datos de Hive**, la cuenta de almacenamiento predeterminada, las cuentas de almacenamiento vinculadas y el **registro del servicio Hadoop**. Puede expandir las entidades. 
 
 Una vez conectado a su suscripción de Azure, podrá realizar lo siguiente:
 
 **Para conectarse al portal de administración desde Visual Studio**
 
-- Desde el Explorador de servidores, expanda **Azure**, **Clústeres de HDInsight**, haga clic en un clúster de HDInsight y, a continuación, haga clic en **Administrar clústeres en el Portal de Azure**.
+- En el Explorador de servidores, expanda **Azure**, **HDInsight**, haga clic en un clúster de HDInsight y, a continuación, haga clic en **Administrar el clúster en el Portal de Azure**.
 
 **Para hacer preguntas y proporcionar comentarios desde Visual Studio**
 
@@ -78,16 +87,20 @@ Desde el Explorador de servidores, podrá ver la cuenta de almacenamiento predet
 ![HDInsight Tools for visual studio server explorer cluster list][2]
 
 ## Ejecución de consultas de Hive
-[Apache Hive][hdinsight.hive] es una infraestructura de almacenamiento de datos basada en Hadoop que proporciona resumen, consultas y análisis de datos. Las herramientas de HDInsight para Visual Studio admiten la ejecución de consultas de Hive desde Visual Studio. Para obtener más información acerca de Hive, consulte [Uso de Hive con HDInsight][hdinsight.hive].
+[Apache Hive][apache.hive] es una infraestructura de almacenamiento de datos basada en Hadoop para proporcionar el resumen de los datos, consultas y análisis. Las herramientas de HDInsight para Visual Studio admiten la ejecución de consultas de Hive desde Visual Studio. Para obtener más información acerca de Hive, consulte [Uso de Hive con HDInsight][hdinsight.hive].
 
-###Ver la tabla hivesampletable Hive
+Se necesita mucho tiempo para probar el script de Hive en un clúster de HDInsight. Puede tardar varios minutos o más tiempo.  Las herramientas de HDInsight para Visual Studio es capaz de validar la gramática de script de Hive localmente sin conectarse a un clúster activo.
+
+Las herramientas de HDInsight para Visual Studio también permite a los usuarios ver el interior del trabajo de Hive al recopilar y exposición de los registros de Yarn de determinados trabajos de Hive.
+
+### Ver la tabla hivesampletable Hive
 Todos los clústeres de HDInsight incluyen una tabla Hive de ejemplo denominada *hivesampletable*. Utilizaremos esta tabla para mostrar cómo mostrar las tablas de Hive, ver los esquemas de tabla y mostrar las filas de la tabla de Hive.
 
 
 
 **Para mostrar las tablas de Hive y ver el esquema de la tabla de Hive**
 
-1.	Desde el **Explorador de servidores**, expanda **Azure**, **Clúster de HDInsight**, expanda el clúster, expanda **Bases de datos de Hive**, **Predeterminada** y, a continuación, expanda **hivesampletable** para ver el esquema de la tabla.
+1.	En **Explorador de servidores**, expanda sucesivamente **Azure**, **HDInsight**, un clúster, expanda **Bases de datos de Hive**, **Valor predeterminado** y, a continuación, **hivesampletable** para ver el esquema de tabla.
 4.	Haga clic con el botón secundario en **hivesampletable** y, a continuación, haga clic en **Ver las primeras 100 filas** para mostrar las filas. Esta operación equivale a ejecutar la siguiente consulta de Hive usando el controlador ODBC de Hive:
 
 		SELECT * FROM hivesampletable LIMIT 100
@@ -96,7 +109,7 @@ Todos los clústeres de HDInsight incluyen una tabla Hive de ejemplo denominada 
  
 	![HDinsight Hive Visual Studio schema query][6]
 
-###Crear tablas de Hive
+### Crear tablas de Hive
 
 Puede usar la interfaz gráfica de usuario para crear una tabla de Hive o usar las consultas de Hive. Para usar las consultas de Hive, consulte [Ejecutar consultas de Hive](#run.queries).
 
@@ -108,17 +121,21 @@ Puede usar la interfaz gráfica de usuario para crear una tabla de Hive o usar l
 
 	![hdinsight visual studio tools create hive table][7]
 
-###<a name="run.queries"></a>Ejecución de consultas de Hive
+### <a name="run.queries"></a>Validación y ejecución de consultas de Hive
 Existen dos formas de crear y ejecutar consultas de Hive:
 
-- Crear consultas Ad hoc
+- Crear consultas ad hoc
 - Crear una aplicación de Hive
 
-**Para crear y ejecutar consultas ad hoc**
+**Para crear, validar y ejecutar consultas ad hoc**
 
 1. Desde el **Explorador de servicios**, expanda **Azure** y, a continuación, expanda **Clústeres de HDInsight**.
 2. Haga clic en el clúster donde desea ejecutar la consulta y, a continuación, haga clic en **Escribir una consulta de Hive**. 
-3. Especificación de consultas de Hive.
+3. Especificación de consultas de Hive. Observe que el editor de Hive es compatible con Intellisense.
+4. (opcional) Haga clic en **Validar Script** para comprobar los errores de sintaxis del script.
+
+	![hdinsight tools for Visual Studio local validation][10]
+
 4. Haga clic en **Enviar** o en **Enviar (avanzado)**. Con el envío avanzado, configurará el **Nombre del trabajo**, los **Argumentos**, las **Configuraciones adicionales** y el **Estado de directorio** para la secuencia de comandos:
 
 	![hdinsight hadoop hive query][9]
@@ -127,7 +144,7 @@ Existen dos formas de crear y ejecutar consultas de Hive:
 
 	![hdinsight hadoop hive query][8]
 5. Utilice el botón **Actualizar** para actualizar el estado hasta que cambie a **Completado**.
-6. Haga clic en los vínculos de la parte inferior para ver la **Consulta de trabajo**, el **Resultado del trabajo** y el **Registro de trabajo**.
+6. Haga clic en los vínculos de la parte inferior para ver la **consulta del trabajo**, la **salida del trabajo**, **registro de trabajo** o el **registro Yarn**.
 
 
 
@@ -135,17 +152,20 @@ Existen dos formas de crear y ejecutar consultas de Hive:
 
 1. En el menú **ARCHIVO**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 2. Seleccione **HDInsight** en el panel izquierdo, seleccione **Aplicación Hive** en el panel central, especifique las propiedades y, a continuación, haga clic en **Aceptar**.
-3. Desde el **Explorador de soluciones**, haga doble clic en **Script.hql** para abrirlo.
+3. Desde el **Explorador de soluciones**, haga doble clic en **Script.hql** para abrirlo. 
+4. Para validar el script de Hive, puede hacer clic en el botón Validar script, o hacer clic con el botón derecho en el script del editor de Hive y, a continuación, haga clic en "Validar script" en el menú contextual.
 
  
-###Ver trabajos de Hive
-Puede ver la consulta de trabajo, el resultado del trabajo y el registro de trabajo de todos los trabajos de Hive.
+### Ver trabajos de Hive
+Puede ver la consulta del trabajo, la salida del trabajo, el registro del trabajo y el registro Yarn para trabajos de Hive.  Consulte la captura de pantalla anterior.
+
+La versión más reciente de la herramienta permite ver el contenido de los trabajos de Hive al recopilar y mostrar los registros Yarn. El registro Yarn puede ayudarle a investigar problemas de rendimiento. Para obtener más información acerca de cómo HDInsight recopila registros YARN, consulte [Acceso a registros de aplicación de HDInsight mediante programación][hdinsight.access.application.logs].
 
 **Para ver los trabajos de Hive**
 
 1. Desde el **Explorador de servidores**, expanda **Azure** y, a continuación, expanda **HDInsight**. 
 2. Haga clic con el botón secundario del mouse en un clúster de HDInsight y, a continuación, haga clic en **Ver trabajos de Hive**. Se mostrará una lista de los trabajos de Hive que se ejecutaron en el clúster. 
-3. Haga clic en un trabajo de la lista de trabajos para seleccionarlo y, a continuación, utilice la ventana **Resumen del trabajo de Hive** para abrir la **Consulta de trabajo**, el **Resultado del trabajo** o el **Registro de trabajo**.
+3. Haga clic en un trabajo de la lista de trabajos para seleccionarlo y después utilice la ventana **Resumen del trabajo de Hive** para abrir **Consulta del trabajo**, **Salida del trabajo**, **Registro de trabajo** o **Registro Yarn**.
 
 ## Pasos siguientes
 En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Visual Studio y a ejecutar consultas de Hive. Para obtener más información, consulte:
@@ -158,7 +178,7 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 
 <!--Anchors-->
 [Instalación]: #installation
-[Conexión a su suscripción de Azure]: #connect-to-your-azure-subscription
+[Conexión a la suscripción de Azure]: #connect-to-your-azure-subscription
 [Navegación por los recursos vinculados]: #navigate-the-linked-resources
 [Ejecución de consultas de Hive]: #run-hive-queries
 [Pasos siguientes]: #next-steps
@@ -171,6 +191,7 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 [7]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.create.hive.table.png
 [8]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.run.hive.job.summary.png
 [9]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png
+[10]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png
 
 
 <!--Link references-->
@@ -180,6 +201,8 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 [hdinsight.hive]: ../hdinsight-use-hive/
 [hdinsight.submit.jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight.analyze.twitter.data]: ../hdinsight-analyze-twitter-data/
+[hdinsight.storm.visual.studio.tools]: ../hdinsight-storm-develop-csharp-visual-studio-topology/
+[hdinsight.access.application.logs]: ../hdinsight-hadoop-access-yarn-app-logs/
 
-
-[apache.hive]: http://hive.apache.org<!--HONumber=42-->
+[apache.hive]: http://hive.apache.org
+<!--HONumber=45--> 

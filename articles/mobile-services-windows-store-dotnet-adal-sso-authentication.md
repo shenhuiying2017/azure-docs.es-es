@@ -227,4 +227,5 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 [Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
 [Panel del Centro de desarrollo de Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
+
 <!--HONumber=42-->

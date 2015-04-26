@@ -69,3 +69,5 @@ Nuestro objetivo es hacer de la experiencia del aprendizaje automático de Azure
 [screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

@@ -84,4 +84,5 @@ Ahora que ha configurado el equipo y creó una solución de Visual Studio para p
 [Creación de una cuenta de Servicios multimedia]: ../media-services-create-account/
 [Creación de un activo codificado y carga en el almacenamiento]: ../media-services-create-encrypted-asset-upload-storage/
 
+
 <!--HONumber=42-->

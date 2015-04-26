@@ -69,4 +69,5 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Referencia conceptual de Servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
 
 
+
 <!--HONumber=42-->

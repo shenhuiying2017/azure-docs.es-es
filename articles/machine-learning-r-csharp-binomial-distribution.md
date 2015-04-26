@@ -226,3 +226,5 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

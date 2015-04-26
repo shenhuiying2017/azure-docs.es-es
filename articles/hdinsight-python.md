@@ -278,4 +278,5 @@ La información de error (STDERR) y el resultado del trabajo (STDOUT) también s
 Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [Implementación de un módulo en HDInsight de Azure](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) para ver un ejemplo de cómo hacerlo.
 
 Si desea ejecutar trabajos en HDInsight de forma remota sin usar PowerShell, consulte [Uso de HDInsight de Azure desde Linux](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx) para ver un ejemplo del uso de Python para ejecutar trabajos a través de la API REST de WebHCat.
+
 <!--HONumber=42-->

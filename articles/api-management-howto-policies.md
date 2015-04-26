@@ -115,3 +115,5 @@ Nota: una directiva global que no tiene ninguna directiva superior al elemento *
   [Save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

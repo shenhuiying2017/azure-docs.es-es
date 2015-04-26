@@ -145,3 +145,5 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 - [Blog sobre Azure](http://blogs.msdn.com/windowsazure) (en inglés): obtenga información acerca de las nuevas características de Azure.
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

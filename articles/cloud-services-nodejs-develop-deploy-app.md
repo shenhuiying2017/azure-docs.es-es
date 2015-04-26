@@ -29,7 +29,7 @@ aplicaciones escalables en la nube en Azure. Permiten la separación y la admini
 y escalado horizontal independientes de los componentes de front-end y back-end de su aplicación.  Los Servicios en la nube 
 proporcionan una máquina virtual dedicada y robusta para hospedar cada rol de manera confiable.
 
-Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Máquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Máquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
 
 >[AZURE.SUGERENCIA] ¿Desea compilar un sitio web sencillo? Si su escenario implica solo un simple sitio web front-end, considere la posibilidad de <a href="/es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usar de un sitio web ligero de Azure.</a> Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien.
 

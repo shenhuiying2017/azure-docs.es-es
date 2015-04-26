@@ -123,3 +123,5 @@ Haga clic en **Guardar** para guardar el cambio de configuración de la API.
   [api-management-certificate-policy]: ./media/api-management-howto-mutual-certificates/api-management-certificate-policy.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

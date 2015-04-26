@@ -152,3 +152,5 @@ La operación LEFT OUTER JOIN está habilitada en el lenguaje de consulta de Str
 [Vínculo 3 a otro tema de documentación de azure.microsoft.com]: ../storage-whatis-account/
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

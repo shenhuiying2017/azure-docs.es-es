@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Uso de iOS Media Player Framework con Servicios multimedia de Azure" 
 	description="Aprenda a usar la biblioteca iOS Media Player Framework de Servicios multimedia para crear aplicaciones enriquecidas y dinámicas." 
 	services="media-services" 
@@ -18,7 +18,7 @@
 
 
 
-# Uso de iOS Media Player Framework de Servicios Multimedia de Azure
+#Uso de iOS Media Player Framework de Servicios Multimedia de Azure
 
 La biblioteca iOS Media Player Framework de Servicios Multimedia de Azure facilita a los desarrolladores de iPod, iPhone y iPad la creación de aplicaciones de cliente enriquecidas y dinámicas que crean y combinan transmisiones de vídeo y audio de manera instantánea. Por ejemplo, las aplicaciones que muestran contenido deportivo pueden insertar fácilmente anuncios en el lugar que elijan y controlar la frecuencia con que aparecen esos anuncios incluso cuando el contenido principal se rebobine. Las aplicaciones educativas pueden usar la misma funcionalidad, por ejemplo, para crear contenido en donde las conferencias principales tengan puntos aparte o barras laterales antes de volver al contenido principal.
 
@@ -73,7 +73,7 @@ Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo
 
 * El control **Tiempo de reproducción** muestra dos tiempos (`Label:playerTime`), como por ejemplo 00:23/02:10. En este caso, 00:23 sería el tiempo de reproducción actual y 02:10 la duración total del contenido multimedia. 
 
-* Los botones **Saltar hacia adelante y Saltar hacia atrás**  no funcionan actualmente según lo esperado; se publicará una versión actualizada pronto.
+* Los botones **SkipFroward y SkipBackward**  no funcionan actualmente según lo esperado; pronto se publicará una versión actualizada.
 
 * Si presiona el botón **Programar ahora** cuando el contenido principal se esté reproduciendo, se inserta un anuncio (puede definir la dirección URL del origen del anuncio en el código subyacente). Nota: en la versión actual, no puede programar un anuncio cuando el otro anuncio se esté reproduciendo. 
 
@@ -98,7 +98,7 @@ En el código de ejemplo anterior:
 * **clipBeginMediaTime** representa el tiempo de inicio para que un vídeo comience a reproducirse. Por ejemplo, si **clipBeginMediaTime** = 5, este clip de vídeo se inicia durante 5 segundos en el clip de vídeo.
 * **clipEndMediaTime** representa el tiempo final para que se reproduzca un vídeo. Si **clipEndMediaTime**=100, el reproductor de vídeo finaliza en el segundo 100 del clip de vídeo.
 *A continuación se programa **MediaTime** solicitando al marco que realice la operación de **appendContentClip**. En el ejemplo anterior, la dirección URL del contenido principal se proporciona en `[NSURL URLWithString:url]` y la programación para ese recurso multimedia se establece mediante **withMedia**:
- `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId]])`.
+ `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
 
 **Nota:** programe siempre el contenido principal antes de programar cualquier anuncio (incluido el anuncio de procesamiento previo). 
 
@@ -128,7 +128,7 @@ He aquí algunos puntos clave:
 </ul>
 ### Programación de sucesiones de anuncios y anuncios de procesamiento previo, intermedio y posterior
 
-#### Programación de anuncios de procesamiento previo
+####Programación de anuncios de procesamiento previo
 
     LinearTime *adLinearTime = [[[LinearTime alloc] init] autorelease];
     NSString *adURLString = @"http://smoothstreamingdemo.blob.core.windows.net/videoasset/WA-BumpShort_120530-1.mp4";
@@ -153,11 +153,11 @@ El objeto **AdInfo** representa toda la información sobre el clip del anuncio:
 * Debe establecer el valor **appendTo** en -1 si no es una sucesión de anuncios. 
 * El valor **type** puede ser una sucesión de anuncios o un procesamiento previo, intermedio o posterior. Especifique el tipo para el procesamiento previo o el posterior, ya que no existen intervalos asociados. 
 
-#### Programación de anuncios de procesamiento intermedio
+####Programación de anuncios de procesamiento intermedio
 
 Si agrega `adLinearTime.startTime = 23;` al ejemplo de código anterior, el anuncio empieza a reproducirse a los 23 segundos en la escala de tiempo del contenido principal.
 
-#### Programación de anuncios de procesamiento posterior
+####Programación de anuncios de procesamiento posterior
 
     //Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -219,4 +219,4 @@ Existen algunos aspectos que debe tener en cuenta aquí:
 Como se muestra en el ejemplo del código anterior, si establece **deleteAfterPlay** en **YES**, este anuncio se reproduce solo una vez. Si estableció **deleteAfterPlay** en **NO**, este anuncio sigue reproduciéndose. Es lo que llamamos "anuncio persistente".
 ### Consulte la página [wiki Azure Media Player Framework](https://github.com/WindowsAzure/azure-media-player-framework/wiki) para obtener más información.
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

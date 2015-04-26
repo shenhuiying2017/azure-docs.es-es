@@ -1,4 +1,4 @@
-﻿
+
 
 En su aplicación back-end, ahora tiene que cambiar para enviar notificaciones de plantilla en lugar de cargas nativas. De esta forma, se simplificará el código back-end dado que no es necesario enviar varias cargas para las diferentes plataformas.
 
@@ -52,4 +52,4 @@ En su programador de Servicios móviles, sobrescriba el script con:
 	
 Vea cómo en este caso no hay necesidad de enviar varias notificaciones para diferentes configuraciones regionales y plataformas.
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

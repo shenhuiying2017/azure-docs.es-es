@@ -23,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Prueba gratuita de Azure</a>.
+> para completar este tutorial, debe tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener información, vea <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Prueba gratuita de Azure</a>.
 
 Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con el SDK de Servicios multimedia (AMS) de Azure para .NET. 
 
@@ -39,7 +39,7 @@ Este tutorial utiliza el Portal de administración de Azure y SDK de Servicios m
 3.  [Creación y configuración de un proyecto de Visual Studio](#configure_VS)
 4.  [Uso de .NET para cargar, codificar y entregar contenido](#use_dotnet)
 	5.  [Conexión a la cuenta de Servicios multimedia](#connect).
-	1.  [Creación de un nuevo recurso y carga de un archivo de video](#upload).
+	1.  [Creación de un nuevo recurso y carga de un archivo de vídeo](#upload).
 	1.  [Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa](#encode).
 	1.  [Configuración de la directiva de entrega para el recurso codificado](#configure_delivery_method).
 	2.  [Opcionalmente, configure la protección de contenido dinámica](#configure_content_protection). 
@@ -56,9 +56,9 @@ Los siguientes requisitos previos son necesarios para iniciar el desarrollo con 
 
 ## <a id="create_ams"></a>Creación de una cuenta de Servicios multimedia con el Portal
 
-1. En el [Portal de administración][], haga clic en **Nuevo**, después en **Servicios multimedia** y, finalmente, en **Creación rápida**.
+1. En el [Portal de administración de][], haga clic en **Nuevo**, en **Servicio multimedia** y luego en **Creación rápida**.
    
-	![Creación rápida de Servicios multimedia](./media/media-services-create-account/wams-QuickCreate.png)
+	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. En **NOMBRE**, especifique el nombre de la cuenta nueva. El nombre de cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres. 
 
@@ -84,14 +84,14 @@ Los siguientes requisitos previos son necesarios para iniciar el desarrollo con 
 	 
 ## <a id="configure_streaming_units"></a>Configuración de unidades de streaming con el Portal
 
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es ofrecer streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite el streaming de velocidad de bits adaptable siguiente: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). 
+Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite el streaming de velocidad de bits adaptable siguiente: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). 
 
 Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming. 
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),  
-- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que piensa entregar el contenido.
+- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que planea entregar el contenido.
 
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente. 
 
@@ -123,9 +123,9 @@ Para cambiar el número de dichas unidades, haga lo siguiente:
 
 1. Cree una nueva Aplicación de consola de C# en Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Escriba el **nombre**, la **ubicación** y el **nombre de la solución** y, a continuación, haga clic en Aceptar. 
 
-2. Utilice el paquete de Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **Extensiones del SDK .NET de Servicios multimedia de Azure**.  Las extensiones del SDK .NET de Servicios multimedia son un conjunto de métodos de extensión y funciones auxiliares que simplificarán su código y facilitarán el desarrollo con Servicios multimedia. Al instalar este paquete, también se instala el **SDK de Servicios multimedia de .NET** y agrega todas las demás dependencias necesarias.
+2. Use el paquete de Nuget [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **Extensiones del SDK de Servicios multimedia de Azure para .NET**.  Las extensiones del SDK .NET de Servicios multimedia son un conjunto de métodos de extensión y funciones auxiliares que simplificarán su código y facilitarán el desarrollo con Servicios multimedia. Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
  
-3. Agregue una referencia al ensamblado System.Configuration. Este ensamblado contiene la clase System.Configuration.ConfigurationManager que se utiliza para tener acceso a los archivos de configuración (por ejemplo, App.config). 
+3. Agregue una referencia al ensamblado System.Configuration. Este ensamblado contiene la clase System.Configuration.ConfigurationManager que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config). 
 
 4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de cuenta y la información de la clave, abra el Portal de administración de Azure, seleccione su cuenta de Servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
@@ -160,7 +160,7 @@ Para cambiar el número de dichas unidades, haga lo siguiente:
 En el código de esta sección se muestra cómo realizar las tareas siguientes:
 
 1. Conexión a la cuenta de Servicios multimedia
-1. Creación de un nuevo recurso y carga de un archivo de video
+1. Creación de un nuevo recurso y carga de un archivo de vídeo
 1. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
 1. Configuración de la directiva de entrega para el recurso codificado
 2. Opcionalmente, configuración de la protección de contenido dinámica
@@ -171,7 +171,7 @@ En el código de esta sección se muestra cómo realizar las tareas siguientes:
 
 Cuando se utilizan Servicios multimedia con .NET, debe utilizar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, obtención de acceso y eliminación de los siguientes objetos: recursos, archivos de recursos, trabajos, directivas de acceso, localizadores, entre otras. 
  
-Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto CloudMediaContext para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto CloudMediaContext para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La función **Main** llama a métodos que se definirán más adelante en esta sección.
 	
@@ -224,7 +224,7 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
             }
         }
 
-### <a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de video
+### <a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo
 
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
 
@@ -269,7 +269,7 @@ Como se ha indicado antes, cuando se trabaja con los Servicios multimedia de Azu
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable,  
-- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que piensa entregar el contenido. 
+- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que planea entregar el contenido. 
 
 El código siguiente muestra cómo enviar un trabajo de codificación. El trabajo contiene una tarea que especifica la transcodificación del archivo intermedio en un conjunto de MP4 de velocidades de bits adaptables con el **Codificador de Servicios multimedia**. El código envía el trabajo y espera hasta que se complete. 
 
@@ -377,7 +377,7 @@ Una dirección URL de SAS utilizada para descargar archivos tiene el formato sig
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-Las extensiones de SDK de Servicios multimedia de .NET ofrecen útiles métodos auxiliares que devuelven direcciones URL con formato para el recurso publicado.
+Las extensiones de SDK de Servicios multimedia para .NET ofrecen útiles métodos auxiliares que devuelven direcciones URL con formato para el recurso publicado.
  
 El código siguiente usa extensiones del SDK de .NET para crear localizadores, obtener las direcciones URL de streaming y descarga progresiva. El código también muestra cómo descargar los archivos en una carpeta local.
 
@@ -485,11 +485,11 @@ Direcciones URL de descarga progresiva (audio y vídeo).
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Para probar la transmisión por secuencias suave, utilice [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) o [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+Para probar Smooth Streaming, use [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/) o [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
 
-Para probar MPEG DASH, utilice [http://dashif.org](http://dashif.org/reference/players/javascript/).
+Para probar MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
 
-Para probar HLS, utilice dispositivos iOS o Safari, o [3ivx-hls-player](http://apps.microsoft.com/windows/es-es/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
+Para probar HLS, use dispositivos iOS o Safari, o bien [3ivx-hls-player](http://apps.microsoft.com/windows/es-es/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
 
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
@@ -505,7 +505,7 @@ Para probar la descarga progresiva, pegue una dirección URL en un explorador (p
 
 <!-- URLs. -->
   [Instalador de plataforma web]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Portal de administración]: http://manage.windowsazure.com/
+  [Portal de administración de]: http://manage.windowsazure.com/
 
 
 
@@ -514,4 +514,4 @@ Para probar la descarga progresiva, pegue una dirección URL en un explorador (p
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Servicios multimedia de Azure 101 - ¡Obtenga el vídeo en línea ahora!</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Servicios multimedia de Azure 102 - Empaquetado dinámico y dispositivos móviles</a>
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

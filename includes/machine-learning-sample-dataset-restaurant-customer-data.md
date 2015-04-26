@@ -1,2 +1,4 @@
 ﻿Conjunto de metadatos sobre clientes que incluye información demográfica y preferencias.<p> </p><b>Uso:</b> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones. <p> </p><b>Información relacionada:</b> Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información.
-\<!--HONumber=42-->
+
+
+<!--HONumber=42-->

@@ -302,3 +302,5 @@ En este tutorial, ha aprendido a usar Stream Analytics para procesar los datos m
 
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

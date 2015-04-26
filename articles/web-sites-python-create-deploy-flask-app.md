@@ -23,7 +23,7 @@
 
 En este tutorial se describe cómo empezar a ejecutar Python en Sitios web Azure.  Sitios web Azure ofrece un hospedaje gratuito limitado y una implementación rápida. Además, también es posible usar Python.  A medida que su aplicación crece, puede cambiar a un tipo de hospedaje de pago e integrar el resto de los servicios de Azure.
 
-Creará una aplicación con el marco web de Flask (consulte versiones alternativas de este tutorial para [Django](../web-sites-python-create-deploy-django-app) y [Bottle](../web-sites-python-create-deploy-bottle-app)).  Creará el sitio web de la galería de Azure, configurará la implementación Git y clonará el repositorio de forma local.  A continuación, ejecutará la aplicación localmente, realizará cambios, los confirmará y los transmitirá a Azure.  En el tutorial se muestra cómo hacer esto desde Windows, Mac o Linux.
+Creará una aplicación con el marco web de Flask (consulte versiones alternativas de este tutorial para [Django](web-sites-python-create-deploy-django-app.md) y [Bottle](web-sites-python-create-deploy-bottle-app.md)).  Creará el sitio web de la galería de Azure, configurará la implementación Git y clonará el repositorio de forma local.  A continuación, ejecutará la aplicación localmente, realizará cambios, los confirmará y los transmitirá a Azure.  En el tutorial se muestra cómo hacer esto desde Windows, Mac o Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -424,6 +424,7 @@ Para obtener información sobre el uso de almacenamiento de tablas de Azure y Mo
 <!--External Link references-->
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentación de Flask]: http://flask.pocoo.org/ 
+
 
 
 

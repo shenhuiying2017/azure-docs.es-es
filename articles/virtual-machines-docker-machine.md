@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Cómo usar una máquina docker con Azure" 
    description="Aquí podrá ponerse al día rápidamente en cuanto al funcionamiento de Azure con una máquina virtual Docker en Ubuntu." 
    services="virtual-machines" 
@@ -53,7 +53,8 @@ Si tiene experiencia con las distribuciones de Linux, es posible que ya tenga es
 		openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 		openssl pkcs12 -export -out mycert.pfx -in mycert.pem -name "My Certificate"
 
-	Be ready here to enter the export password for your certificate and capture it for future usage. Then type:
+	Esté preparado para escribir la contraseña de exportación para su certificado y capturarla para uso futuro. Luego escriba:
+
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 

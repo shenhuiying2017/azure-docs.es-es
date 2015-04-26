@@ -1,4 +1,4 @@
-﻿
+
 1. Asegúrese de detener el servicio móvil si actualmente se está ejecutando en IIS Express. Haga clic con el botón secundario en el icono de bandeja de IIS Express y, a continuación, haga clic en la opción de **detener** el servicio móvil.
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
@@ -38,5 +38,6 @@
 
 <!-- URLs. -->
 [Incorporación de un regla de puerto de Firewall de Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
+[Incorporación de una regla de puerto en un equipo local]:  http://go.microsoft.com/fwlink/?LinkId=392240
 
 <!--HONumber=49-->

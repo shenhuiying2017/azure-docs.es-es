@@ -88,4 +88,5 @@ En este artículo y en los artículos sobre cada muestra ha obtenido informació
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
+
 <!--HONumber=42-->

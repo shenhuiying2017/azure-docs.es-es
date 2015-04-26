@@ -86,3 +86,5 @@ Con varias reglas de escalado, puede ser más agresivo acerca del escalado horiz
 Con esta regla adicional, si la carga excede del 85 % antes de una acción de escalado, obtendrá dos instancias adicionales en lugar de una. 
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

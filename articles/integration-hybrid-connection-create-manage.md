@@ -195,3 +195,5 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
 <!--HONumber=46--> 
+
+<!--HONumber=46--> 

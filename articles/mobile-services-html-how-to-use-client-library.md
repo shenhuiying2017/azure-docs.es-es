@@ -662,4 +662,5 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [Referencia de opciones de consultas del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 
+
 <!--HONumber=42-->
