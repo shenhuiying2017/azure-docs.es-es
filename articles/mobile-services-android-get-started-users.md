@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la autenticación (Android) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación Android a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="mobile-services" 
@@ -105,7 +105,7 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started-android
+[Introducción a Servicios móviles]: /develop/mobile/tutorials/get-started-android
 [Incorporación de Servicios móviles a una aplicación existente]: /develop/mobile/tutorials/get-started-with-data-android
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
 [Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android

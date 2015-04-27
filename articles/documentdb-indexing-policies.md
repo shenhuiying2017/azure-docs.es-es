@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Directivas de indexación de la Base de datos de documentos | Azure" 
 	description="Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar la directiva de indexación." 
 	services="documentdb" 
@@ -152,7 +152,7 @@ El tipo de índice de **intervalo** permite variar las consultas (mediante >, <,
 Si el caso de uso no requiere consultas de intervalos eficaces, el valor predeterminado de los índices hash es el que ofrece el mejor equilibrio entre almacenamiento y rendimiento. Tenga en cuenta que para admitir consultas por rango, debe especificar una directiva de índice personalizado.
 
 > [AZURE.NOTE] Los índices de intervalo solo admiten valores numéricos.
-  
+  
 En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices de intervalo en una recopilación mediante el SDK de .NET. Tenga en cuenta que esto usa una ruta de acceso especial "/", que se explica en la sección siguiente.
 
 
