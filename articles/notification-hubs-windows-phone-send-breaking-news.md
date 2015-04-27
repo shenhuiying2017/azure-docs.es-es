@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de los Centros de notificaciones para enviar noticias de última hora (Windows Phone)" 
 	description="Use Centros de notificaciones de Azure para usar la etiqueta en registros para enviar noticias de última hora a una aplicación de Windows Phone." 
 	services="notification-hubs" 
@@ -18,12 +18,12 @@
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/es-es/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+    	<a href="notification-hubs-windows-store-dotnet-send-breaking-news.md" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación Silverlight de Windows Phone 8.0/8.1. Si su objetivo es una aplicación de la Tienda Windows o de Windows Phone 8.1, consulte la versión [Windows Universal] (notification-hubs-windows-store-dotnet-send-breaking-news.md). Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc. 
+Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación Silverlight de Windows Phone 8.0/8.1. Si su objetivo es una aplicación de la Tienda Windows o de Windows Phone 8.1, consulte [Windows Universal](notification-hubs-windows-store-dotnet-send-breaking-news.md) . Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc. 
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más _etiquetas_ cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener más información sobre las etiquetas, consulte [Orientación sobre los Centros de notificaciones]. 
+Los escenarios de difusión se habilitan mediante la inclusión de una o más _etiquetas_ cuando se crea un registro en el Centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance]. 
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
@@ -113,7 +113,7 @@ El primer paso es agregar los elementos de la interfaz de usuario a la página p
 
     Esta clase usa el almacenamiento local para almacenar las categorías de noticias que este dispositivo ha de recibir. También contiene métodos para registrar estas categorías.
 
-4. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with listen access>` por el nombre de su Centro de notificaciones y la cadena de conexión para *DefaultListenSharedAccessSignature* que obtuvo anteriormente.
+4. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with listen access>` por el nombre de su centro de notificaciones y la cadena de conexión para  *DefaultListenSharedAccessSignature* que obtuvo anteriormente.
 
 	> [AZURE.NOTE] Puesto que las credenciales que se distribuyen con una aplicación de cliente no son normalmente seguras, solo debe distribuir la clave para el acceso de escucha con la aplicación cliente. El acceso de escucha permite a la aplicación el registro de notificaciones, pero los registros existentes no pueden modificarse y las notificaciones no se pueden enviar. La clave de acceso completo se usa en un servicio back-end protegido para el envío de notificaciones y el cambio de registros existentes.
 
@@ -144,7 +144,7 @@ El primer paso es agregar los elementos de la interfaz de usuario a la página p
 		    MessageBox.Show("Subscribed to: " + string.Join(",", categories));
 		}
 	
-	Este método crea una lista de categorías y usa la clase **Notifications** para almacenar la lista en el almacenamiento local y registrar las etiquetas correspondientes en el Centro de notificaciones. Cuando se modifican las categorías, el registro vuelve a crearse con las nuevas categorías.
+	Este método crea una lista de categorías y usa la clase **Notifications** para almacenar la lista en el almacenamiento local y registrar las etiquetas correspondientes en el centro de notificaciones. Cuando se modifican las categorías, el registro vuelve a crearse con las nuevas categorías.
 
 La aplicación ahora puede almacenar un conjunto de categorías en el almacenamiento local en el dispositivo y registrarse en el Centro de notificaciones siempre que el usuario cambie la selección de categorías. 
 
@@ -194,7 +194,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 [AZURE.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Ejecución de la aplicación y generación de notificaciones
+##<a name="test-app"></a>Ejecución de la aplicación y generación de notificacionesa
 
 1. En Visual Studio, presione F5 para compilar e iniciar la aplicación.
 
@@ -202,7 +202,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 	Tenga en cuenta que la interfaz de usuario de la aplicación ofrece un conjunto de elementos de alternancia que le permite seleccionar las categorías a las que suscribirse. 
 
-2. Habilite uno o más elementos de alternancia de las categorías y, a continuación, haga clic en **Suscribirse**.
+2. Habilite uno o más elementos de alternancia de las categorías y, a continuación, haga clic en **Subscribe**.
 
 	La aplicación convierte las categorías seleccionadas en etiquetas y solicita un nuevo registro de dispositivo para las etiquetas seleccionadas al Centro de notificaciones. Las categorías registradas se devuelven y se muestran en un cuadro de diálogo.
 
@@ -212,7 +212,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 	+ **Aplicación de consola:** inicio de la aplicación de consola.
 
-	+ **Java/PHP:** ejecución de la aplicación/script.
+	+ **Java/PHP:** ejecute su aplicación o script.
 
 	Las notificaciones para las categorías seleccionadas aparecen como notificaciones del sistema.
 
@@ -220,17 +220,17 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 Ha completado este tema.
 
-<!--## <a name="next-steps"> </a>Pasos siguientes
+<!--## <a name="next-steps"> </a>Next steps
 
-En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de Centros de notificaciones avanzados:
+In this tutorial we learned how to broadcast breaking news by category. Consider completing one of the following tutorials that highlight other advanced Notification Hubs scenarios:
+       
++ [Use Notification Hubs to broadcast localized breaking news]
 
-+ [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]
+	Learn how to expand the breaking news app to enable sending localized notifications. 
 
-	Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas. 
++ [Notify users with Notification Hubs]
 
-+ [Notificación a los usuarios con los Centros de notificaciones]
-
-	Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
+	Learn how to push notifications to specific authenticated users. This is a good solution for sending notifications only to specific users.
 -->
 
 <!-- Anchors. -->
@@ -248,11 +248,11 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 
 <!-- URLs.-->
-[Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: ./breakingnews-localized-wp8.md 
-[Notificación a los usuarios con los Centros de notificaciones]: /es-es/manage/services/notification-hubs/notify-users/
-[Servicio móvil]: /es-es/develop/mobile/tutorials/get-started
-[Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
+[Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: breakingnews-localized-wp8.md 
+[Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users/
+[Servicio móvil]: /develop/mobile/tutorials/get-started
+[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para Windows Phone]: ??
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
@@ -261,4 +261,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

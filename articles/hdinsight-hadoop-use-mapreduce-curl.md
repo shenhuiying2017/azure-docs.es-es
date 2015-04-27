@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Uso de MapReduce con Hadoop en HDinsight | Azure"
    description="Obtenga información acerca de cómo ejecutar de manera remota trabajos de MapReduce con Hadoop en HDInsight con Curl."
    services="hdinsight"
@@ -113,4 +113,5 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
-<!--HONumber=45--> 
+
+<!--HONumber=47-->

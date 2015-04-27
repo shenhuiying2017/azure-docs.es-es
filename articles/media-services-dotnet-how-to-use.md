@@ -1,6 +1,6 @@
-<properties 
-	pageTitle="Uso de Servicios multimedia" 
-	description="" 
+﻿<properties 
+	pageTitle="Configuración del equipo para el desarrollo de Servicios multimedia con .NET" 
+	description="Conozca los requisitos previos de Servicios multimedia usando el SDK de Servicios multimedia para .NET. Aprenda también a crear una aplicación de Visual Studio." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,148 +13,88 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.date="02/02/2015" 
 	ms.author="juliako"/>
 
+#Desarrollo de Servicios multimedia con .NET 
 
-# Uso de Servicios multimedia
+En este tema se explica cómo empezar a desarrollar aplicaciones de Servicios multimedia con .NET. 
 
-En esta guía se muestra cómo empezar a programar con Servicios multimedia de Azure. La guía consta de un conjunto de artículos e incluye una introducción técnica a Servicios multimedia, pasos para configurar la cuenta de Azure para Servicios multimedia, una guía de configuración para el desarrollo y temas que muestran cómo llevar a cabo tareas de programación típicas. Entre los escenarios demostrados se encuentran los siguientes: carga, cifrado, codificación y entrega de recursos. Los ejemplos se escriben en C# y usan el SDK de Servicios multimedia para .NET. Para obtener más información acerca de Servicios multimedia de Azure, consulte el tema [Pasos siguientes][].
+La biblioteca del **SDK de Servicios multimedia de Azure para .NET** le permite programar en los Servicios multimedia mediante. NET. Para que el desarrollo con .NET sea aún más fácil, se proporciona la biblioteca **Extensiones del SDK de Servicios multimedia de Azure para .NET**. Esta biblioteca contiene un conjunto de métodos de extensión y funciones auxiliares que simplifican el código de .NET. Las dos bibliotecas están disponibles a través de **NuGet** y **GitHub**.
+ 
 
-También puede programar Servicios multimedia con las API de REST basadas en OData. Puede generar una aplicación que haga llamadas de la API de REST a Servicios multimedia desde lenguajes .NET u otros lenguajes de programación. Para obtener una serie de documentación completa sobre la programación con la API de REST de Servicios multimedia, consulte [Creación de aplicaciones con la API REST de Servicios multimedia para .NET](http://go.microsoft.com/fwlink/?linkid=252967). 
+##Requisitos previos
 
-Para comenzar a programar con la API de REST de Servicios multimedia o el SDK de Servicios multimedia, primero habilite su cuenta de Azure para Servicios multimedia como se describe en la sección [Configuración de una cuenta de Azure para Servicios multimedia][].
+-   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Creación de una cuenta de Servicios multimedia](media-services-create-account.md).
+-   Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
+-   .NET Framework 4,5.
+-   Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
+  
 
-La documentación del SDK de Servicios multimedia más actualizada se encuentra [aquí](http://msdn.microsoft.com/library/hh973613.aspx). 
+##Creación y configuración de un proyecto de Visual Studio 
 
-## <a name="what-are"></a><span class="short header">¿Qué es Servicios multimedia?</span>
-Los Servicios multimedia de Azure forman una plataforma multimedia extensible que integra lo mejor de la plataforma multimedia de Microsoft y los componentes multimedia de terceros en Azure. Los Servicios multimedia proporcionan un proceso en la nube que permite a los socios del sector ampliar o reemplazar las tecnologías de componentes. Los vendedores independientes de software y los proveedores multimedia pueden usar Servicios multimedia para generar soluciones multimedia de un extremo a otro. Esta introducción describe la arquitectura general y los escenarios de desarrollo comunes para Servicios multimedia.
+En esta sección se muestra cómo crear un proyecto en Visual Studio y configurarlo para el desarrollo de Servicios multimedia.  En este caso, el proyecto es una aplicación de consola de C# Windows, pero los pasos de configuración que se muestran aquí se aplican a otros tipos de proyectos que puede crear para las aplicaciones de Servicios multimedia (por ejemplo, una aplicación de Windows Forms o una aplicación web de ASP.NET).
 
-El siguiente diagrama muestra la arquitectura de Servicios multimedia.
+En esta sección se muestra cómo usar **NuGet** para agregar el SDK de Servicios multimedia para .NET y otras bibliotecas dependientes. 
 
-![Media Services Architecture](./media/media-services-dotnet-how-to-use/wams-01.png)
+También puede obtener los bits más recientes del SDK de Servicios multimedia para .NET desde GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) y [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilar la solución y agregar las referencias al proyecto del cliente. Tenga en cuenta que todas las dependencias necesarias se descargan y extraen automáticamente.   
 
-### Compatibilidad de las características de Servicios multimedia
-La versión actual de Servicios multimedia ofrece el siguiente conjunto de características para el desarrollo de aplicaciones multimedia en la nube.
+1. Cree una nueva Aplicación de consola de C# en Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Escriba el **nombre**, la **ubicación** y el **nombre de la solución** y, a continuación, haga clic en Aceptar. 
 
-- **Introducción**. Las operaciones de introducción introducen los recursos en el sistema, por ejemplo mediante su carga y cifrado antes de que se coloquen en el servicio de almacenamiento de Azure. Servicios multimedia ofrece integración con los componentes de socios para proporcionar soluciones de carga de UDP (protocolo de datagramas de usuario).
-- **Codificación**. Las operaciones de codificación incluyen la codificación, transformación y conversión de recursos multimedia. Puede ejecutar tareas de codificación en la nube con el codificador multimedia de Azure. Las opciones de codificación incluyen las siguientes:
-   - Use el codificador multimedia de Azure y trabaje con una amplia variedad de códecs y formatos estándar, incluidos IIS Smooth Streaming líder del sector, MP4 y la conversión a Apple HTTP Live Streaming.
-   - Convierta bibliotecas enteras o archivos individuales con un control total sobre la entrada y la salida.
-   - Un conjunto grande de tipos de archivo, formatos y códecs compatibles (consulte [Tipos de archivo compatibles para Servicios multimedia][]).
-   - Conversiones de formato compatibles. Los Servicios multimedia le permiten convertir ISO MP4 (.mp4) al formato de archivo de Smooth Streaming (PIFF 1.3) (.ismv; .isma). También puede convertir el formato de archivo de Smooth Streaming (PIFF) a Apple HTTP Live Streaming (.msu8, .ts).
-- **Protección**. La protección de contenido implica el cifrado de la transmisión en directo o contenido bajo demanda de cara a la seguridad en la entrega, el almacenamiento y el transporte. Los Servicios multimedia ofrecen una solución independiente de la tecnología DRM para proteger el contenido.  Las tecnologías DRM compatibles actualmente son Microsoft PlayReady y cifrado común de MPEG. También habrá compatibilidad con tecnologías DRM adicionales. 
-- **Transmisión**. La transmisión de contenido implica el envío de este en directo o bajo demanda a los clientes, o puede descargar archivos multimedia específicos desde la nube. Los Servicios multimedia ofrecen una solución independiente del formato para el contenido por secuencias.  Los Servicios multimedia proporcionan compatibilidad con el origen de streaming en formatos MP4, Smooth Streaming y Apple HTTP Live Streaming. Se ofrecerá compatibilidad con formatos adicionales. También puede entregar directamente contenido de streaming usando un CDN de terceros, que permite la opción  de realizar una escalación a millones de usuarios.   
+2. Compile la solución.
 
-### Escenarios de desarrollo de Servicios multimedia
-Los Servicios multimedia son compatibles con escenarios de desarrollo multimedia comunes como se describe en la siguiente tabla. 
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-  <thead>
-    <tr>
-       <th>Escenario</th>
-       <th>Descripción</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-        <td>Creación de flujos de trabajo de un extremo a otro</td>
-        <td>Genere flujos de trabajo multimedia completos en toda la nube. Desde la carga de medios a la distribución de contenido, los Servicios multimedia ofrecen una serie de componentes que pueden combinarse para administrar flujos de trabajo específicos de aplicaciones. Entre las capacidades actuales se encuentran la carga, el almacenamiento, el cifrado, la conversión de formato, la protección de contenido y la entrega de transmisión bajo demanda.</td>
-    </tr>
-    <tr>
-        <td>Creación de flujos de trabajo híbridos</td>
-        <td>Puede integrar los Servicios multimedia con procesos y herramientas existentes. Por ejemplo, codifique el contenido in situ y, a continuación, cárguelo en los Servicios multimedia para realizar la transcodificación en varios formatos y entregue a través de CDN de Azure o un CDN de otro proveedor. Los Servicios multimedia pueden llamarse individualmente a través de las API de REST estándar para la integración con servicios y aplicaciones externas.</td>
-    </tr>
-    <tr>
-        <td>Ofrecimiento de compatibilidad en la nube para reproductores multimedia</td>
-        <td>Puede crear, administrar y entregar contenido multimedia en varios dispositivos multimedia (incluidos los dispositivos iOS, Android y Windows) y distintas plataformas.</td>
-    </tr>
-  </tbody>
-</table>
+2. Use **NuGet** para instalar y agregar **Extensiones del SDK de Servicios multimedia de Azure para .NET**. Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
+	1. Asegúrese de que tiene instalada la versión más reciente de NuGet. Para más información e instrucciones de instalación, consulte [NuGet](http://nuget.codeplex.com/).
+	
+	2. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto y elija Administrar paquetes de NuGet.
+	
+		The Manage NuGet Packages dialog box appears.
 
-<h3><a name="media-client"></a>Desarrollo de clientes de Servicios multimedia</h3>
-Amplíe el alcance de la solución de Servicios multimedia mediante los SDK y los marcos de reproductores para generar aplicaciones clientes multimedia. Estos clientes son para los desarrolladores que deseen generar aplicaciones de Servicios multimedia que ofrezcan experiencias de usuario convincentes en una gama de dispositivos y plataformas. Según los dispositivos de destino, existen opciones para los SDK y marcos de reproductores disponibles en Microsoft y otros socios.  
+	3. En la galería en línea, busque Extensiones de Servicios multimedia de Azure, elija Extensiones del SDK de Servicios multimedia de Azure para .NET y luego haga clic en el botón Instalar.
+ 
+		El proyecto se modifica y se agregan referencias a Extensiones del SDK de Servicios multimedia para .NET, al SDK de .NET de Servicios multimedia y a otros ensamblados dependientes.
 
-A continuación se muestra una lista de SDK de clientes y marcos de reproductores compatibles.  Para obtener más información sobre estos y otros marcos de reproductores y SDK planificados, y la funcionalidad que pueden admitir, consulte [Desarrollo de clientes de los Servicios multimedia][] en los foros de los Servicios multimedia. 
+	4. Para promover un entorno de desarrollo más limpio, considere la posibilidad de habilitar la restauración de paquetes de NuGet. Para obtener más información, consulte [Restauración de paquetes de NuGet](http://docs.nuget.org/consume/package-restore).
 
-#### Compatibilidad con clientes de PC y Mac  
-Para los PC y Mac, puede dirigir una experiencia de transferencia mediante Microsoft Silverlight o Adobe Open Source Media Framework.
+3. Agregue una referencia al ensamblado **System.Configuratio**n. Este ensamblado contiene la clase System.Configuration.**ConfigurationManager** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config). 
 
--	[Cliente de Smooth Streaming para Silverlight](http://www.microsoft.com/es-es/download/details.aspx?id=29940)
--	[Plataforma multimedia de Microsoft: Player Framework para Silverlight](http://smf.codeplex.com/documentation)
--	[Complemento Smooth Streaming para OSMF 2.0](http://go.microsoft.com/fwlink/?LinkId=275022) Para obtener información sobre el uso de este complemento, consulte [Uso del complemento de transmisión suave para Adobe Open Source Media Framework](media-services-use-osmf-smooth-streaming-client-plugin.md).
+	Para agregar referencias usando el cuadro de diálogo Administrar referencias, haga lo siguiente: 
 
-#### Aplicaciones de Windows 8
-Para Windows 8, puede generar aplicaciones de la Tienda Windows mediante una de las construcciones y lenguajes de desarrollo compatibles como HTML, Javascript, XAML, C# y C+.
+	1. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto. A continuación, seleccione Agregar y Referencias.
 
--	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de Smooth Streaming de HTML5](http://msdn.microsoft.com/library/jj573656(v=vs.90).aspx).
+		Aparecerá el cuadro de diálogo Administrar referencias.
 
--	[Plataforma multimedia de Microsoft: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
-
-#### Xbox
-Xbox es compatible con aplicaciones de Xbox LIVE que consumen contenido de transmisión suave. El kit de desarrollo de aplicaciones (ADK) para Xbox LIVE incluye:
-
--	Cliente de transmisión suave para ADK de Xbox Live
--	Plataforma multimedia de Microsoft: Player Framework para ADK de Xbox LIVE
-
-#### Dispositivos dedicados o insertados
-Dispositivos como TV, decodificadores (set-top box), reproductores Blu-Ray, soluciones de TV OTT y dispositivos móviles conectados que tengan un marco de desarrollo de aplicaciones personalizado y un proceso multimedia personalizado. Microsoft proporciona los siguientes kits de migración que pueden ser objeto de licencia, y permite a los socios migrar la reproducción de transmisión suave para la plataforma.
-
--	[Kit de portabilidad de cliente de Smooth Streaming](http://www.microsoft.com/es-es/mediaplatform/sspk.aspx)
--	[Kit de portabilidad de dispositivos de Microsoft PlayReady](http://www.microsoft.com/PlayReady/Licensing/device_technology.mspx)
-
-#### Windows Phone
-Microsoft proporciona un SDK que puede usarse para crear aplicaciones de vídeo premium para Windows Phone. 
-
--	[Cliente de Smooth Streaming para Silverlight](http://www.microsoft.com/es-es/download/details.aspx?id=29940)
--	[Plataforma multimedia de Microsoft: Player Framework para Silverlight](http://smf.codeplex.com/documentation)
-
-#### Dispositivos iOS
-Para los dispositivos iOS, incluidos iPhone, iPod, e iPad, Microsoft incorpora un SDK que puede usar para generar aplicaciones para estas plataformas y ofrecer contenido de vídeo premium: SDK de transmisión suave para dispositivos iOS con PlayReady.  El SDK está disponible solo para los licenciatarios. Para obtener más información, [escriba un correo electrónico a Microsoft](mailto:askdrm@microsoft.com). Para obtener información sobre el desarrollo de iOS, consulte [iOS Developer Center](https://developer.apple.com/devcenter/ios/index.action).
-
-#### Dispositivos Android
-Varios socios de Microsoft incluyen SDK para la plataforma Android que agrega la capacidad de reproducir la transmisión suave en un dispositivo Android. [Escriba un correo electrónico a Microsoft](mailto:sspkinfo@microsoft.com?subject=Partner%20SDKs%20for%20Android%20Devices) para obtener más información sobre los asociados.
-
-## Pasos siguientes
-Ahora que dispone de una visión general de los Servicios multimedia, diríjase al tema [Configuración de su equipo para Servicios multimedia](media-services-set-up-computer.md).
+	2. En los ensamblados de .NET Framework, busque y seleccione el ensamblado System.Configuration.
+	3. Presione Aceptar.
 
 
-  [¿Qué son los Servicios multimedia?]: #what-are
-  [Desarrollo de clientes de Servicios multimedia]: #media-client
-  [Configuración de una cuenta de Azure para Servicios multimedia]: #setup-account
-  [Configuración del desarrollo de Servicios multimedia]: #setup-dev
-  [ Conexión con los Servicios multimedia mediante programación]: #connect
-  [ Creación de un recurso cifrado y carga en el almacenamiento]: #create-asset
-  [ Obtención de una instancia de procesador multimedia]: #get-mediaproc
-  [ Comprobación del progreso del trabajo]: #check-job-progress
-  [ Codificación de un recurso]: #encode-asset
-  [ Protección de un recurso con PlayReady]: #playready
-  [ Administración de recursos en el almacenamiento]: #manage-asset
-  [ Entrega de un recurso mediante descarga]: #download-asset
-  [ Entrega de contenido de streaming]: #stream-asset
-  [ Entrega de streaming HLS de Apple]: #stream-HLS
-  [ Habilitación de CDN de Azure]: #enable-cdn
-  [Pasos siguientes]: #next-steps
-
-  [Creación de aplicaciones con la API REST de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Open Data Protocol]: http://odata.org/
-  [WCF Data Services 5.0 para OData v3]: http://www.microsoft.com/download/en/details.aspx?id=29306
-  [Azure Marketplace]: https://datamarket.azure.com/
-  [Desarrollo de clientes de los Servicios multimedia]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/thread/e9092ec6-2dfc-44cb-adce-1dc935309d2a
-  [Vista previa de Servicios multimedia:  Características admitidas]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/thread/eb946433-16f2-4eac-834d-4057335233e0
-  [Próximas versiones de Servicios multimedia:  Compatibilidad de características planeada]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/thread/431ef036-0939-4784-a939-0ecb31151ded
-  [Configuración de cuentas de vista previa de Servicios multimedia]: http://go.microsoft.com/fwlink/?linkid=247287
-  [SDK de Servicios multimedia de Azure para .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
-  [Instalador de plataforma web]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Instalación del SDK de Azure en Windows 8]: http://azure.microsoft.com/develop/net/other-resources/windows-azure-on-windows-8/
-  [Documentación de Servicios multimedia de Azure]: http://go.microsoft.com/fwlink/?linkid=245437
-  [Introducción a CDN de Azure]: http://msdn.microsoft.com/library/windowsazure/ff919705.aspx
-  [Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/threads
-  [Introducción al SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
-  [Creación de aplicaciones con el SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-  [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [Creación de una cuenta de Servicios multimedia]: ../media-services-create-account/
-  [Tipos de archivo compatibles para Servicios multimedia]: http://msdn.microsoft.com/library/dn535852.aspx
+4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. 
+	
+	Para obtener la información de **nombre de cuenta** y **clave de cuenta**, abra el **Portal de administración de Azure**, seleccione la cuenta de Servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
 
+	<pre><code>
+	&lt;configuration&gt;
+        &lt;appSettings&gt;
+    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+  	    &lt;/appSettings&gt;
+	&lt;/configuration&gt;
+	</code></pre>
 
-<!--HONumber=42-->
+
+5. Sobrescriba los valores existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
+
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Text;
+		using System.Threading.Tasks;
+		using System.Configuration;
+		using System.Threading;
+		using System.IO;
+		using Microsoft.WindowsAzure.MediaServices.Client;
+
+En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.    
+
+<!--HONumber=45--> 

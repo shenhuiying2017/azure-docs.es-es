@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Cómo proporcionar HTTP Live Streaming (HLS) de Apple para Azure" 
 	description="Aprenda a crear un localizador para el contenido de HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
@@ -20,9 +20,9 @@
 
 
 
-<h1>  Entrega de streaming HLS de Apple</h1>
+<h1> Entrega de streaming HLS de Apple</h1>
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Entrega de contenido de streaming](media-services-deliver-streaming-content.md).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Entrega de contenido de streaming](media-services-deliver-streaming-content.md)
 
 En este tema se explica cómo crear un localizador para el contenido por secuencias mediante HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Use este enfoque para crear una dirección URL para el contenido HLS de Apple y proporciónela a los dispositivos iOS de Apple para la reproducción. El enfoque básico para generar la dirección URL del localizador es el mismo. Genere un localizador para la ruta de acceso del recurso de transmisión de HLS de Apple en un servidor de origen y, a continuación, genere una dirección URL completa que se vincule al manifiesto para el contenido de transmisión.
 
@@ -99,7 +99,6 @@ Con este tema concluyen los temas acerca del uso de los Servicios multimedia de 
 [Introducción al SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Creación de aplicaciones con la API REST de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252967
 [Creación de aplicaciones con el SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/threads
+[Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

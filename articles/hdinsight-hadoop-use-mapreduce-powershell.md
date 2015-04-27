@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Uso de MapReduce con Hadoop en HDInsight | Azure"
    description="Obtenga información sobre cómo usar PowerShell para ejecutar trabajos de MapReduce de forma remota con Hadoop en HDInsight."
    services="hdinsight"
@@ -28,7 +28,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (Windows o Linux)
 
-* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 ## <a id="powershell"></a>Ejecución de un trabajo de MapReduce mediante PowerShell
 
@@ -172,4 +172,5 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
-<!--HONumber=45--> 
+
+<!--HONumber=47-->

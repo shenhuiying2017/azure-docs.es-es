@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación y carga de un VHD de Oracle Linux en Azure" 
 	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Oracle Linux." 
 	services="virtual-machines" 
@@ -43,7 +43,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="oracle6"></a> Oracle Linux 6.4+ ##
+## <a id="oracle6"> </a> Oracle Linux 6.4+ ##
 
 Debe completar los pasos de configuración específicos del sistema operativo para que la máquina virtual se ejecute en Azure.
 
@@ -92,7 +92,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Esto deshabilitará NUMA debido a un error en el kernel compatible Red Hat de Oracle.
 
-	Además de lo anterior, se recomienda  *quitar* los parámetros siguientes:
+	Además de lo anterior, se recomienda eliminar (*remove*) los parámetros siguientes:
 
 		rhgb quiet crashkernel=auto
 
@@ -111,7 +111,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 12.	No cree espacio de intercambio en el disco del SO.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -187,7 +187,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda  *quitar* los parámetros siguientes:
+	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda eliminar (*remove*) los parámetros siguientes:
 
 		rhgb quiet crashkernel=auto
 
@@ -208,7 +208,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 13.	No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -226,6 +226,4 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

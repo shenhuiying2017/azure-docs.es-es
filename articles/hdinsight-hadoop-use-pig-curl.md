@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
    description="Aprenda a usar Pig con Hadoop en HDInsight con SSH."
    services="hdinsight"
@@ -87,7 +87,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 ## <a id="results"></a>Ver resultados
 
-Una vez que se ha cambiado el estado del trabajo a **SUCCEEDED**, puede recuperar los resultados del trabajo de almacenamiento Blob de Azure. El `statusdir` parámetro pasado por la consulta contiene la ubicación del archivo de salida; en este caso, **wasb: / / / ejemplo/pigcurl**. Esta dirección almacena el resultado del trabajo en el directorio **example/pigcurl** en el contenedor de almacenamiento predeterminado utilizado por el clúster de HDInsight.
+Una vez que se ha cambiado el estado del trabajo a **SUCCEEDED**, puede recuperar los resultados del trabajo de almacenamiento Blob de Azure. El `statusdir` parámetro pasado por la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/pigcurl**. Esta dirección almacena el resultado del trabajo en el directorio **example/pigcurl** en el contenedor de almacenamiento predeterminado utilizado por el clúster de HDInsight.
 
 Puede enumerar y descargar estos archivos mediante la <a href="../xplat-cli/" target="_blank">Interfaz de línea de comandos entre plataformas de Azure (xplat-cli)</a>. Por ejemplo, para enumerar los archivos de **example/pigcurl**, utilice el siguiente comando.
 
@@ -117,4 +117,5 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
-<!--HONumber=45--> 
+
+<!--HONumber=47-->
