@@ -87,7 +87,7 @@
 
 9. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido. 
 
-   Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y podrá consultar su aplicación móvil y realizar actualizaciones de los datos.
+   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y podrá consultar su aplicación móvil y realizar actualizaciones de los datos.
 
 10. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.  
 

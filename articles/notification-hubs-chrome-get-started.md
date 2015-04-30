@@ -486,13 +486,16 @@ Para dirigirse a usuarios específicos, consulte el tutorial [Notificación a lo
 <!-- URLs. -->
 [ejemplo del Centro de notificaciones de la aplicación Chrome]: http://google.com
 [Consola de la nube de Google]: http://cloud.google.com/console
+[consola en la nube de Google]: http://cloud.google.com/console
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Información general de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Información general de aplicaciones de Chrome]: https://developer.chrome.com/apps/about_apps
 [Ejemplo de GCM de aplicación Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
+[muestra de GCM de la aplicación Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Aplicaciones Web instalables]: https://developers.google.com/chrome/apps/docs/
 [Aplicaciones Chrome en dispositivos móviles]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [Creación del registro de la API de NH REST]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Creación de una API de NH REST de registro]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [crypto-js library]: http://code.google.com/p/crypto-js/
 [GCM con aplicaciones Chrome]: https://developer.chrome.com/apps/cloudMessaging
 [Mensajería en la nube de Google para Chrome]: https://developer.chrome.com/apps/cloudMessagingV1

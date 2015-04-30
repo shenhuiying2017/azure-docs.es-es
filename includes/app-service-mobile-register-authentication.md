@@ -6,7 +6,7 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 2. Seleccione la puerta de enlace y tome nota del valor **URL** en **Propiedades**. Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
-   ![](./media/app-service-mobile-register-authentication/gateway-uri.png)
+   	![](./media/app-service-mobile-register-authentication/gateway-uri.png)
 
 3. Seleccione un proveedor de identidades compatible en la lista siguiente y siga los pasos para configurar la aplicación con ese proveedor:
 

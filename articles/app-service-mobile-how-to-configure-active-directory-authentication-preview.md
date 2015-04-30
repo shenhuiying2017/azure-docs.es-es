@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Configuración de la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones" 
 	description="Obtenga información acerca de cómo configurar la autenticación de Azure Active Directory para la aplicación de Servicios de aplicaciones" 
 	authors="mattchenderson,wesmc7777" 
@@ -71,5 +71,6 @@ Autenticación de usuarios de la aplicación móvil con un inicio de sesión ún
 [Vista previa del Portal de administración de Azure]: https://portal.azure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [adal de ios]: app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
+[ios-adal]: app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
 
 <!--HONumber=49-->

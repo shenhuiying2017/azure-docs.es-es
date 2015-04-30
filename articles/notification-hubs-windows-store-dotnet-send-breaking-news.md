@@ -230,6 +230,7 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users
 [Servicio móvil]: /develop/mobile/tutorials/get-started/
 [Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039

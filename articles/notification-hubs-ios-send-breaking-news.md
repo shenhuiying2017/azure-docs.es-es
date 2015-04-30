@@ -104,7 +104,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
 		self.notifications = [[Notifications alloc] init];
 
-	The initializes the Notification singleton.
+	Así se inicializa el singleton de Notification.
 
 10. En el método **didRegisterForRemoteNotificationsWithDeviceToken** en BreakingNewsAppDelegate.m, quite la llamada a **registerNativeWithDeviceToken** y agregue el siguiente código:
 

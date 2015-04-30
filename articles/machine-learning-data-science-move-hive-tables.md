@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure | Azure" 
 	description="Crear tablas de subárbol y cargar datos de blob en tablas de subárbol" 
 	metaKeywords="" 
@@ -19,7 +19,7 @@
 	ms.author="hangzh;bradsev" />
 
  
-#Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure
+# Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure
  
 En este documento, se presentan las consultas de subárbol genéricas que crean tablas de subárbol y cargan datos desde el almacenamiento de blobs de Azure. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
 
@@ -140,7 +140,7 @@ Los usuarios no pueden cargar datos directamente desde el almacenamiento de blob
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> SELECT * FROM <database name>.<external textfile table name>;
 
->[AZURE.NOTE] Si la tabla TEXTFILE `<nombre de base de datos>.<nombre de tabla de archivo de texto externo>` tiene particiones, en el PASO 3, `SELECT * FROM <database name>.<external textfile table name>` seleccionará la variable de partición como un campo en el conjunto de datos devuelto. Al insertarla en `<nombre de base de datos>.<nombre de tabla ORC>` se generará un error puesto que `<nombre de base de datos>.<nombre de tabla ORC>` no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deban seleccionar específicamente los campos que se van a insertar en `<nombre de base de datos>.<nombre de tabla ORC>` de la siguiente manera:
+[AZURE.NOTE] Si la tabla TEXTFILE `<nombre de base de datos>.<nombre de tabla de archivo de texto externo>` tiene particiones, en el PASO 3, `SELECT * FROM <database name>.<external textfile table name>` seleccionará la variable de partición como un campo en el conjunto de datos devuelto. Al insertarla en `<nombre de base de datos>.<nombre de tabla ORC>` se generará un error puesto que `<nombre de base de datos>.<nombre de tabla ORC>` no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deban seleccionar específicamente los campos que se van a insertar en `<nombre de base de datos>.<nombre de tabla ORC>` de la siguiente manera:
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		      SELECT field1, field2, ..., fieldN

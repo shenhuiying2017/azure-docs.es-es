@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a los Centros de notificaciones de Azure" 
 	description="Aprenda a usar los Centros de notificaciones de Azure para las notificaciones de inserción." 
 	services="notification-hubs" 
@@ -266,7 +266,7 @@ En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Wi
 
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
+[Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-store-dotnet-send-breaking-news.md

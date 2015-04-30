@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Adición de notificaciones push a la aplicación Xamarin iOS con Servicios de aplicaciones de Azure" 
 	description="Obtenga información acerca de cómo usar Servicios de aplicaciones de Azure para enviar notificaciones push a su aplicación Xamarin iOS." 
 	services="app-service\mobile" 
@@ -281,6 +281,7 @@ Ha completado correctamente este tutorial.
 
 [24]: ./media/mobile-services-ios-get-started-push/mobile-services-quickstart-push2-ios.png
 [Introducción a las aplicaciones de servicio de Aplicaciones móviles]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Introducción a las aplicaciones móviles de Servicios de aplicaciones]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [5]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
 [6]: ./media/partner-xamarin-mobile-services-ios-get-started-push/mobile-services-ios-push-step6.png
@@ -327,6 +328,7 @@ Ha completado correctamente este tutorial.
 [Portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Servicio de notificación push de Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Servicio de notificaciones push de Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios

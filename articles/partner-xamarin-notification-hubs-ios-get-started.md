@@ -466,15 +466,19 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [Introducción a los servicios móviles]: /develop/mobile/tutorials/get-started-xamarin-ios
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
+[información general acerca de los centros de notificaciones de Azure]: http://msdn.microsoft.com/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Instalación de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: /manage/services/notification-hubs/notify-users-aspnet
+[Uso de Centros de notificaciones para insertar notificaciones en los usuarios]: /manage/services/notification-hubs/notify-users-aspnet
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Guía de programación de notificaciones locales y de inserción]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Servicio de notificación de inserción de Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329

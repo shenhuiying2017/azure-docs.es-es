@@ -75,7 +75,7 @@ Una vez activada la cuenta de Baidu, inicie sesión en el [Portal de Baidu] con 
 
   	![][8]
 
-5. Escriba su nombre, la descripción y su número de teléfono móvil para la recepción de un mensaje de texto de comprobación y, a continuación, haga clic en **送验证码 (Enviar código de verificación)*.* Tenga en cuenta que para números de teléfono internacionales deberá incluir el código de país entre paréntesis. Por ejemplo, para un número de Estados Unidos, deberá especificar **(1) 1234567890**.
+5. Escriba su nombre, la descripción y su número de teléfono móvil para la recepción de un mensaje de texto de comprobación y, a continuación, haga clic en **送验证码 (Enviar código de verificación)**. Tenga en cuenta que para números de teléfono internacionales deberá incluir el código de país entre paréntesis. Por ejemplo, para un número de Estados Unidos, deberá especificar **(1) 1234567890**.
 
   	![][9]
 
@@ -478,6 +478,7 @@ Para realizar una prueba de esta aplicación con el emulador:
 <!-- URLs. -->
 [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [SDK de Android de inserción Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[SDK de Android de inserción de Baidu]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de Baidu]: http://www.baidu.com/
 

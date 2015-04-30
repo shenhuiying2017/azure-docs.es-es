@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Conectores empresariales del Servicio de aplicaciones de Microsoft Azure | Azure" 
 	description="Aprenda a crear y configurar un conector empresarial; arquitectura de microservicios" 
 	services="app-service-logic" 
@@ -134,7 +134,7 @@ Los siguientes pasos agregan un conector empresarial a aplicaciones lógicas, ap
 
 	Si está creando una nueva aplicación, busque las aplicaciones lógicas, las aplicaciones móviles o las aplicaciones web. Seleccione la aplicación y, en la nueva hoja, seleccione **Crear**. [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md) enumera los pasos. 
 
-2. Abra la aplicación y seleccione **Desencadenadores y acciones **. 
+2. Abra la aplicación y seleccione **Desencadenadores y acciones**. 
 
 3. En la **Galería**, agregue los conectores creados, lo que automáticamente los agrega a la aplicación. 
 4. Seleccione **Aceptar** para guardar los cambios. 
@@ -160,7 +160,7 @@ Algunos de los conectores empresariales tienen seguridad OAuth. Al agregar el co
 [Conectores de integración de BizTalk](app-service-logic-integration-connectors.md)<br/>
 [Conectores negocio a negocio](app-service-logic-b2b-connectors.md)<br/>
 [Conectores sociales](app-service-logic-social-connectors.md)<br/>
-[Conectores de protocolo]app-service-logic-protocol-connectors.md)<br/>
+[Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/>
 [Conectores de aplicación + servicios de datos](app-service-logic-data-connectors.md)<br/>
 [Lista de conectores y aplicaciones de API](app-service-logic-connectors-list.md)
 

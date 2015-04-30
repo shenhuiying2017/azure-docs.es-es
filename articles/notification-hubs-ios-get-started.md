@@ -278,9 +278,11 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [Portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Uso de los Centros de notificaciones para insertar notificaciones para los usuarios]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
+[Uso de Centros de notificaciones para insertar notificaciones en los usuarios]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-ios-send-breaking-news.md
 
 [Guía de programación de notificaciones locales y de inserción]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 
 <!--HONumber=49-->

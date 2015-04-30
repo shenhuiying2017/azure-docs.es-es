@@ -107,7 +107,7 @@ Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios ca
 ![Create workspace][23]
 
 
-##<a name="shutdown"></a>Apagado y desasignación de la máquina virtual cuando no esté en uso
+## <a name="shutdown"></a>Apagado y desasignación de la máquina virtual cuando no esté en uso
 
 Las máquinas virtuales de Azure tienen unas tarifas de tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)**.
 

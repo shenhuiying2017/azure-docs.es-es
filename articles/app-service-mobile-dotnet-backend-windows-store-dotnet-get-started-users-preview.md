@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la autenticación de aplicaciones móviles en Windows" 
 	description="Obtenga información acerca de cómo utilizar las aplicaciones móviles para autenticar usuarios de su aplicación de Windows en una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="app-service\mobile" 
@@ -24,11 +24,11 @@ En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del 
 
 Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Introducción a su aplicación móvil]. 
 
-##<a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
+## <a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../includes/app-service-mobile-register-authentication.md)] 
 
-##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
@@ -41,7 +41,7 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del Servicio de aplicaciones.
 
-##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-dotnet-authenticate-app](../includes/app-service-mobile-windows-universal-dotnet-authenticate-app.md)] 
 
@@ -49,7 +49,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [AZURE.NOTE] Cuando haya registrado la información del paquete de la aplicación de la Tienda Windows con Servicios de aplicaciones, debe llamar al método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> proporcionando un valor de <strong>true</strong> para el parámetro <em>useSingleSignOn</em>. Si no realiza este procedimiento, los usuarios seguirán visualizando una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión.
 
 
-##<a name="tokens"></a>Almacenamiento del token de autorización en el cliente
+## <a name="tokens"></a>Almacenamiento del token de autorización en el cliente
 
 [AZURE.INCLUDE [app-service-mobile-windows-store-dotnet-authenticate-app-with-token](../includes/app-service-mobile-windows-store-dotnet-authenticate-app-with-token.md)] 
 
@@ -66,7 +66,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a la aplicación móvil]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
+[Introducción a su aplicación móvil]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
 
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
