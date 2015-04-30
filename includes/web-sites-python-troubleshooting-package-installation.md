@@ -1,4 +1,4 @@
-﻿Algunos paquetes no pueden instalarse con pip cuando se ejecutan en Azure.  Puede ser que el paquete no está disponible en el índice de paquetes de Python.  Puede ser que sea necesario un compilador (un compilador no está disponible en el equipo que ejecuta el sitio web de Azure).
+Algunos paquetes no pueden instalarse con pip cuando se ejecutan en Azure.  Puede ser que el paquete no está disponible en el índice de paquetes de Python.  Puede ser que sea necesario un compilador (un compilador no está disponible en el equipo que ejecuta el sitio web de Azure).
 
 En esta sección, analizaremos algunas maneras de tratar este problema.
 
@@ -68,4 +68,4 @@ Se recomienda eliminar el entorno virtual existente en el sitio para evitar que 
 [Compilador de Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!--HONumber=49-->
+<!--HONumber=52--> 

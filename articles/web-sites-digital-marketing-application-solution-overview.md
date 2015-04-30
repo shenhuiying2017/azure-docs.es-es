@@ -1,147 +1,146 @@
-﻿<properties 
-	pageTitle="Creación de una campaña de marketing digital en Sitios web Azure" 
-	description="En esta guía se ofrece información general de carácter técnico acerca de cómo usar Sitios web Azure para crear campañas de marketing digital. Esto incluye la implementación, la integración de medios sociales, las estrategias de escalado y la supervisión." 
+<properties 
+	pageTitle="Creación de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure" 
+	description="En esta guía se ofrece información general de carácter técnico de cómo usar Aplicaciones web del Servicio de aplicaciones de Azure para crear campañas de marketing digital. Esto incluye la implementación, la integración de medios sociales, las estrategias de escalado y la supervisión." 
 	editor="jimbe" 
 	manager="wpickett" 
 	authors="cephalin" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2014" 
+	ms.date="04/08/2015" 
 	ms.author="cephalin"/>
 
-# Campañas de marketing digital en Sitios web Azure
-[Sitios web Azure] es una opción excelente para las campañas de marketing digital. Las campañas de marketing digital son normalmente de corta duración y están diseñadas para impulsar objetivos de marketing a corto plazo. Hay dos escenarios principales que se han de tener en cuenta. En el primer escenario, una empresa de marketing externa crea y administra la campaña para sus clientes mientras dura la promoción. En el segundo escenario, la empresa de marketing crea y, a continuación, transfiere la titularidad de los recursos de la campaña de marketing digital a sus clientes. A continuación, el cliente ejecuta y administra la campaña de marketing digital por sí mismo. Es una buena opción para ambos escenarios. 
+# Creación de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure
+Aplicaciones web del [Servicio de aplicaciones deAzure](http://go.microsoft.com/fwlink/?LinkId=529714) es una excelente opción para las campañas de marketing digital. Las campañas de marketing digital suelen tener corta duración y están pensadas para conseguir un objetivo de marketing a corto plazo. Hay dos escenarios principales que se han de tener en cuenta. En el primer escenario, una empresa de marketing externa crea y administra la campaña para sus clientes mientras dura la promoción. En el segundo escenario, la empresa de marketing crea y, a continuación, transfiere la titularidad de los recursos de la campaña de marketing digital a sus clientes. A continuación, el cliente ejecuta y administra la campaña de marketing digital por su cuenta. Es una excelente combinación para ambos escenarios. 
 
-> [AZURE.NOTE] Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] Si quiere empezar a trabajar con el servicio de aplicaciones de Azure antes de contratar una cuenta de Azure, vaya a [Probar el servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde puede crear inmediatamente una aplicación web inicial de corta duración en el servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-A continuación se muestra un ejemplo de una campaña de marketing digital global, multicanal con Sitios web Azure. Se muestra lo que puede hacer simplemente al componer los Sitios web Azure junto con otros servicios con inversiones técnicas mínimas. **Haga clic en un elemento de la topografía para obtener más información sobre él.** 
+A continuación, aparece un ejemplo de una campaña de marketing digital global multicanal que utiliza Aplicaciones web del Servicio de aplicaciones. Muestra lo que puede hacer al simplemente componer Aplicaciones web del Servicio de aplicaciones en conjunto con otros servicios con inversiones técnicas mínimas. **Haga clic en un elemento de la topografía para leer más información al respecto.** 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
-> [WACOM.NOTE]
-> En esta guía se muestran algunas de las áreas y las tareas más comunes que se alinean con la ejecución de una campaña de marketing digital en Sitios web Azure. Sin embargo, hay otras soluciones comunes que se pueden implementar en Sitios web Azure. Para revisar estas soluciones, consulte las otras guías sobre <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">presencia web global</a> y <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">aplicaciones empresariales</a>.
+> [AZURE.NOTE]
+> Esta guía presenta algunas de las áreas y tareas más comunes alineadas con la ejecución de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure. Sin embargo, existentes otras soluciones comunes que puede implementar en Aplicaciones web del Servicio de aplicaciones. Para revisar estas soluciones, consulte las otras guías sobre [presencia web global](web-sites-global-web-presence-solution-overview.md) y [aplicaciones empresariales](web-sites-business-application-solution-overview.md).
 
-### Aporte recursos existentes o créelos desde cero
+## Crear desde cero o aprovechar recursos existentes
 
-Cree rápidamente nuevos sitios desde un CMS popular en la galería o aporte sus recursos web existentes en Sitios web Azure desde una variedad de lenguajes y marcos.
+Cree rápidamente aplicaciones nuevas a partir de un CMS popular en la galería o aproveche recursos web existentes en Aplicaciones web del Servicio de aplicaciones de una variedad de lenguajes y marcos.
 
-La galería de Azure ofrece plantillas de los sistemas de administración de contenido (CMS) de sitios web más conocidos, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear un sitio web con un toque de su CMS favorito. Puede elegir entre varios back-ends de bases de datos para cubrir sus necesidades, entre las que se incluyen la [Base de datos SQL de Azure] y [MySQL].
+Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) web populares, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
-Sus recursos web existentes pueden ejecutarse en Sitios web de Azure, ya sean de .NET, PHP, Java, Node.js o Python. Puede moverlos a Sitios web Azure con las herramientas [FTP] que le resulten familiares. Si crea campañas de marketing digital con frecuencia, es posible que disponga de recursos web existentes en un sistema de administración de control de código fuente. Puede implementar en Sitios web Azure directamente desde las opciones de control de origen más conocidas, como [Visual Studio], [Visual Studio Online] y [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-### Conserve la agilidad
+## Mantener la agilidad
 
-Manténgase ágil mediante la publicación continua directamente desde su control de código fuente existente y ejecute pruebas A/B en Sitios web Azure. 
+Manténgase ágil publicando constantemente de manera directa desde el control de código fuente existente y ejecute pruebas A/B en Aplicaciones web del Servicio de aplicaciones. 
 
-Durante la planificación, la creación de prototipos y la implementación inicial de un sitio, usted y su cliente podrán ver las versiones funcionales reales del sitio de campaña antes de lanzarlo mediante la [implementación en un espacio de ensayo] de su Sitio web Azure. Al integrar el control de código fuente con Sitios web de Azure, puede [publicar continuamente] en un espacio de ensayo y cambiar a producción sin tiempo de inactividad cuando esté listo. 
+Durante la planificación, la creación de prototipos y la implementación inicial de una aplicación web, su cliente y usted pueden consultar versiones de trabajo reales de la aplicación de campaña antes de su lanzamiento mediante la [implementación en un espacio de ensayo] de la aplicación web. Al integrar el control de código fuente con las Aplicaciones web del Servicio de aplicaciones, puede [publicar de manera constante] en un espacio de ensayo y cambiarlo a producción sin tiempo de inactividad cuando esté preparado. 
 
-Asimismo, cuando planifique los cambios de un sitio web en vivo, puede [ejecutar pruebas A/B] con facilidad en las actualizaciones propuestas con la característica Prueba en producción y analizar el comportamiento real de los usuarios para ayudarle a tomar decisiones fundamentadas sobre el diseño del sitio.
+Además, cuando se planifican cambios en una aplicación web activa, puede [ejecutar pruebas A/B] en las actualizaciones propuestas usando la característica Probar en producción y analizar el comportamiento de usuario real para poder tomar decisiones informadas sobre el diseño de la aplicación.
 
 
-### Entre en las redes sociales
+## Entrar a las redes sociales
 
-La campaña de marketing digital en Sitios web Azure puede integrarse con los medios sociales mediante la autenticación de los proveedores más populares, como Facebook y Twitter. Para ver un ejemplo de este enfoque con una aplicación ASP.NET, consulte [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure]. 
+La campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones se puede integrar con los medios sociales si se autentica con proveedores conocidos, como Facebook y Twitter. Si desea obtener un ejemplo de este enfoque con una aplicación ASP.NET, consulte [Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure]. 
 
-Además, normalmente cada sitio de red social proporciona información acerca de otras formas para su integrarlo con .NET y muchos otros marcos.
+Además, cada sitio de medios sociales normalmente brinda información sobre otras formas de integración desde .NET y muchos otros marcos.
 
-### Use medios enriquecidos y llegue a todos los dispositivos
+## Usar medios enriquecidos y llegar a todos los dispositivos
 
 Enriquezca su campaña de marketing digital con otros servicios de Azure, como:
 
--  La carga y el streaming de vídeos de forma global con [Servicios multimedia de Azure]
--  El envío de correos electrónicos a los usuarios con el [servicio SendGrid en Azure Marketplace]
--  El establecimiento de la presencia en dispositivos Windows, iOS y Android con [Servicios móviles]
--  El envío de notificaciones de inserción a millones de dispositivos con el [Centro de notificaciones]
+-  Cargue y transmita vídeos de manera global con [Servicios multimedia de Azure]
+-  Envíe correos electrónicos a usuarios con [Servicio SendGrid en Azure Marketplace]
+-  Establezca presencia en dispositivos Windows, iOS y Android con [Servicios móviles]
+-  Envíe una notificación push a millones de dispositivos con el [Centro de notificaciones]
 
-### Sea global
+## Globalizarse
 
-Sea global al proporcionarle a las oficinas regionales el Administrador de tráfico de Azure y entregar contenido con una velocidad increíble con CDN de Azure.
+Globalícese al servir a sitios regionales con Administrador de tráfico de Azure y entregar contenido de manera muy rápida con CDN de Azure.
 
-Para servir a clientes internacionales en sus respectivas regiones, use el [Administrador de tráfico de Azure] para enrutar a los visitantes del sitio a un sitio regional que ofrezca el mejor rendimiento. Como alternativa, puede distribuir uniformemente la carga del sitio en varias copias de su sitio web alojadas en varias regiones.
+Para servir a clientes globales en sus respectivas regiones, use [Administrador de tráfico de Azure] para enrutar a los visitantes del sitio a un sitio regional que proporciona el mejor rendimiento. De manera alternativa, puede distribuir la carga el sitio de manera uniforme entre varias copias de la aplicación web hospedadas en varias regiones.
 
-Ofrezca el contenido estático a los usuarios de todo el mundo con una velocidad increíble al [integrar su sitio web con CDN de Azure]. CDN de Azure almacena en caché el contenido estático en el [nodo CDN] más cercano al usuario, lo que reduce la latencia y las conexiones a su sitio web.
+Entregue el contenido estático a los usuarios de manera muy rápida globalmente mediante la [integración de su aplicación web con CDN de Azure]. CDN de Azure almacena contenido estático en el [nodo de CDN] más cercano al usuario, lo que minimiza la latencia y las conexiones a su aplicación web.
 
-### Optimización
+## Optimizar
 
-Optimice su sitio mediante el escalado automático con Autoscale, el almacenamiento en caché con Azure Redis Cache, la ejecución de tareas en segundo plano con WebJobs y el mantenimiento de una alta disponibilidad con Azure Traffic Manager.
+Optimice su aplicación web al escalar de manera automática con Autoescala, almacenar en caché con Caché en Redis de Azure, ejecutar tareas en segundo plano con WebJobs y mantener la alta disponibilidad con Administrador de tráfico de Azure.
 
-La capacidad de sitios web Azure de [escalado vertical y horizontal] es perfecta para las cargas de trabajo impredecibles, que es el caso de campañas de marketing digital. Escale horizontalmente de forma manual su sitio web a través del [Portal de administración de Azure], mediante programación a través de la [API de administración de servicios] o de [scripting de PowerShell], o automáticamente con la función Autoscale. En el plan de hospedaje **Standard**, Autoscale permite escalar horizontalmente un sitio web de forma automática, basándose en el uso de CPU. Esta característica ayuda a maximizar la agilidad y minimizar los costes al mismo tiempo, mediante el escalado horizontal del sitio web solo cuando sea necesario, según la actividad de usuario. Para conocer los procedimientos recomendados, consulte la publicación de [Troy Hunt], [10 things I learned about rapidly scaling websites with Azure].
+La capacidad que tienen Aplicaciones web del Servicio de aplicaciones para [escalar vertical y horizontalmente] es perfecta para las cargas de trabajo imprevisibles, que es el caso de las campañas de marketing digital. Escale horizontalmente la aplicación web de manera manual mediante el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), programáticamente mediante la [API de administración de servicios] o [scripting de PowerShell] o de manera automáticamente mediante la característica Autoescala. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Esta característica le ayuda a maximizar la agilidad y, al mismo tiempo, a minimizar el coste al escalar horizontalmente la aplicación web solo en caso de ser necesario, según la actividad del usuario. Si desea conocer los procedimientos adecuados, consulte el artículo de [Troy Hunt]: "[10 things I learned about rapidly scaling web apps with Azure]" (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure) (en inglés).
 
-Consiga que su sitio web tenga más capacidad de respuesta con [Caché en Redis de Azure]. Úsela para almacenar en caché datos de bases de datos de back-end y otras cosas como el [estado de sesión e ASP.NET] y la [caché de resultados].
+Haga que su aplicación web tenga mayor capacidad de respuesta con [Caché en Redis de Azure]. Utilícelo para almacenar datos en caché desde bases de datos de backend y otros aspectos, como el [estado de sesiones de ASP.NET] y la [caché de resultados].
 
-Mantenga una alta disponibilidad de su sitio web con [Azure Traffic Manager]. Gracias al método **Failover**, Traffic Manager enruta automáticamente el tráfico a un sitio secundario si se produce un problema en el sitio primario.
+Mantenga la alta disponibilidad de la aplicación web con [Administrador de tráfico de Azure]. Mediante el método **Conmutación por error**, Administrador de tráfico enruta automáticamente el tráfico a un sitio secundario si se presenta un problema en el sitio principal.
 
-### Supervisión y análisis
+## Supervisar y analizar
 
-Manténgase informado sobre el rendimiento de su sitio web con herramientas de Azure o de terceros. Reciba alertas sobre eventos críticos del sitio web. Obtenga fácilmente información sobre los usuarios con Application Insight o con los análisis de registros web de HDInsight. 
+Manténgase al día con el rendimiento de su aplicación web con Azure o con herramientas de terceros. Reciba alertas sobre eventos críticos de aplicaciones web. Obtenga información de usuario fácilmente con Application Insight o con análisis de registros web desde HDInsight. 
 
-Obtenga una [vista rápida] de las métricas de rendimiento actuales del sitio web y de las cuotas de recursos en el panel de Sitios web Azure. Para obtener una vista completa de la aplicación en cuanto a disponibilidad, rendimiento y uso, utilice [Azure Application Insights] para ofrecer rápidamente información potente de uso, de diagnóstico y de solución de problemas. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzada de sus sitios web.
+Obtenga una [vista rápida] de las cuotas de recurso y métricas de rendimiento actuales de la aplicación web en la hoja del [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) correspondiente a la aplicación web. Para obtener una vista de 360° de la aplicación a través de la disponibilidad, el rendimiento y el uso, use [Azure Application Insights] para recibir información rápida y poderosa sobre la solución de problemas, el diagnóstico y el uso. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzados para sus aplicaciones web.
 
-En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de supervisión recibe notificaciones por correo electrónico cuando su sitio deja de responder. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure].
+En el nivel **estándar**, supervise las notificaciones de correo electrónico recibidas sobre la capacidad de respuesta de la aplicación cada vez que la aplicación web deje de responder. Para obtener más información, consulte [Instrucciones acerca de cómo: notificaciones de alerta y administración de reglas de alerta en Azure].
 
 ## Más recursos
 
-- [Documentación de Sitios web Azure](/es-es/documentation/services/websites/)
-- [Mapa de aprendizaje de Sitios web Azure](websites-learning-map.md)
-- [Blog de web de Azure](/blog/topics/web/)
+- [Documentación de Aplicaciones web del Servicio de aplicaciones](/services/app-service/web/)
+- [Mapa de aprendizaje para Aplicaciones web del Servicio de aplicaciones de Azure](websites-learning-map.md)
+- [Blog web de Azure](/blog/topics/web/)
 
+## Lo que ha cambiado
+* Para obtener una guía para cambiar de sitios web al servicio de aplicaciones, consulte: [El servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía para cambiar del portal antiguo al nuevo portal, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[Aplicaciones y Sitios web]:/es-es/services/websites/
+[Servicio de aplicaciones de Azure]: /services/app-service/web/
 
-[Orchard]:/es-es/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
-[Umbraco]:/es-es/documentation/articles/web-sites-gallery-umbraco/
-[Drupal]:/es-es/documentation/articles/web-sites-php-migrate-drupal/
-[WordPress]:/es-es/documentation/articles/web-sites-php-web-site-gallery/
+[Orchard]:web-sites-dotnet-orchard-cms-gallery.md
+[Umbraco]:web-sites-gallery-umbraco.md
+[Drupal]:web-sites-php-migrate-drupal.md
+[WordPress]:web-sites-php-web-site-gallery.md
   
-[MySQL]:/es-es/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Base de datos SQL de Azure]:/es-es/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[FTP]:/es-es/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/es-es/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/es-es/documentation/articles/web-sites-publish-source-control/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Base de datos SQL de Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[Implementación de ensayo en Sitios web Microsoft Azure]:/es-es/documentation/articles/web-sites-staged-publishing/ 
-[continuously publish]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
-[run A/B tests]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
+[implementación en un espacio de ensayo]:web-sites-staged-publishing.md 
+[publicación constante]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
+[ejecutar pruebas A/B]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-[Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure]:/es-es/develop/net/tutorials/web-site-with-sql-database/
+[Crear una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 
 [Servicios multimedia de Azure]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
-[Servicio SendGrid en Azure Marketplace]:/es-es/documentation/articles/sendgrid-dotnet-how-to-send-email/
-[Servicios móviles]:/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-[Centro de notificaciones]:/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+[Servicio SendGrid en Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
+[Servicios móviles]:mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
+[Centro de notificaciones]:mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
 [Administrador de tráfico de Azure]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
-[Integración de un sitio web de Azure con la red CDN de Azure]:/es-es/documentation/articles/cdn-websites-with-cdn/ 
-[Nodo de CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
+[integración de su aplicación web con CDN de Azure]:cdn-websites-with-cdn.md 
+[nodo de CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-[escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
+[escalar vertical y horizontalmente]:/manage/services/web-sites/how-to-scale-websites/
 [Portal de administración de Azure]:http://manage.windowsazure.com/
-[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[API de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [Scripting de PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
-[10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[10 things I learned about rapidly scaling web apps with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[Estado de la sesión de ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
-[caché de resultados]:https://msdn.microsoft.com/es-es/library/azure/dn798898.aspx
+[estado de sesiones de ASP.NET]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[caché de resultados]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[vista rápida]:/es-es/manage/services/web-sites/how-to-monitor-websites/
+[vista rápida]:/manage/services/web-sites/how-to-monitor-websites/
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:/es-es/develop/net/how-to-guides/new-relic/
-[Uso de notificaciones de alerta y administración de reglas de alerta en Azure].:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[New Relic]:/develop/net/how-to-guides/new-relic/
+[Instrucciones acerca de cómo: notificaciones de alerta y administración de reglas de alerta en Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
   
   [gitstaging]:http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites  
 
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

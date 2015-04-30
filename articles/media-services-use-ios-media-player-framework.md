@@ -22,7 +22,7 @@
 
 La biblioteca iOS Media Player Framework de Servicios Multimedia de Azure facilita a los desarrolladores de iPod, iPhone y iPad la creación de aplicaciones de cliente enriquecidas y dinámicas que crean y combinan transmisiones de vídeo y audio de manera instantánea. Por ejemplo, las aplicaciones que muestran contenido deportivo pueden insertar fácilmente anuncios en el lugar que elijan y controlar la frecuencia con que aparecen esos anuncios incluso cuando el contenido principal se rebobine. Las aplicaciones educativas pueden usar la misma funcionalidad, por ejemplo, para crear contenido en donde las conferencias principales tengan puntos aparte o barras laterales antes de volver al contenido principal.
 
-Suele ser relativamente complicado trabajar para generar una aplicación que pueda crear transmisiones de contenido que provoquen la interacción entre la aplicación y el usuario. Normalmente, debe crear la transmisión completa desde el principio y almacenarla, por adelantado, en el servidor. Use iOS Media Player Framework para generar aplicaciones de cliente que puedan hacer todo esto sin tener control de la transmisión de contenido principal ni modificarla. puede:
+Suele ser relativamente complicado trabajar para generar una aplicación que pueda crear transmisiones de contenido que provoquen la interacción entre la aplicación y el usuario. Normalmente, debe crear la transmisión completa desde el principio y almacenarla, por adelantado, en el servidor. Use iOS Media Player Framework para generar aplicaciones de cliente que puedan hacer todo esto sin tener control de la transmisión de contenido principal ni modificarla. Puede:
 
 - Programar transmisiones de contenido por adelantado en el dispositivo cliente.
 - Programar inserciones o anuncios de procesamiento previo.
@@ -51,7 +51,7 @@ Los siguientes pasos muestran cómo obtener la aplicación y proporcionan un rec
 
 4. En la carpeta iPad, hay dos archivos .xib: **SeekbarViewController** y **SamplePlayerViewController**. Se ocupan de crear el diseño de la interfaz de usuario de la aplicación para iPad. De la misma forma, existen dos archivos .xib en la carpeta iPhone que definen el controlador y la barra de búsqueda. 
 
-6. La lógica de la aplicación principal se encuentra en **SamplePlayerViewController.m** debajo de la carpeta  `Shared`. La mayoría de los fragmentos de código descritos a continuación se encuentran ubicados en ese archivo. 
+6. La lógica de la aplicación principal se encuentra en **SamplePlayerViewController.m** debajo de la carpeta `Shared`. La mayoría de los fragmentos de código descritos a continuación se encuentran ubicados en ese archivo. 
 
 ## Descripción del diseño de la interfaz de usuario
 Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo se usa el diseño de iPad como ejemplo, pero el diseño de iPhone es muy parecido y los principios son los mismos.
@@ -114,7 +114,7 @@ En el código de ejemplo anterior:
         [self logFrameworkError];
     }
 
-Si hace esto después del código anterior, se programan dos transmisiones de contenido en la escala de tiempo de contenido principal. La primera se programa basándose en  `URLWithString:url` y el segundo contenido se programa basándose en  `URLWithString:secondContent`. Para el segundo contenido, el contenido comienza desde un punto de 30 segundos de la transmisión del recurso multimedia y finaliza en los 80 segundos. 
+Si hace esto después del código anterior, se programan dos transmisiones de contenido en la escala de tiempo de contenido principal. La primera se programa basándose en on `URLWithString:url` y el segundo contenido se programa basándose en `URLWithString:secondContent`. Para el segundo contenido, el contenido comienza desde un punto de 30 segundos de la transmisión del recurso multimedia y finaliza en los 80 segundos. 
 
 ## Programación de anuncios 
 En la versión actual, solo es compatible un anuncio **pauseTimeline=false**, lo que significa que después de que finalice el anuncio, el reproductor comenzará desde donde se quedó el contenido principal. 
@@ -209,7 +209,7 @@ Las sucesiones de anuncios representan una interrupción de anuncios con varios 
     }
 
 Existen algunos aspectos que debe tener en cuenta aquí:
-* Para el primer clip, **appendTo** es -1. Cuando llamamos a `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`,  `adIndex` recibe un valor exclusivo que indica el final del primer clip en la sucesión de anuncios. A continuación, para el segundo clip de la sucesión, alinee el principio del segundo anuncio con el final del primero estableciendo **appendTo** as `adpodInfo2.appendTo = adIndex;`, que especifica la posición final del primero como la ubicación en la que iniciar el segundo clip. 
+* Para el primer clip, **appendTo** es -1. Y cuando llamamos a `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, `adIndex` recibe un valor único que indica el final de este primer clip en la sucesión de anuncios. A continuación, para el segundo clip de la sucesión, alinee el principio del segundo anuncio con el final del primero estableciendo **appendTo** as `adpodInfo2.appendTo = adIndex;`, que especifica la posición final del primero como la ubicación en la que iniciar el segundo clip. 
 * A continuación, debe establecer el tipo como  `AdType_Pod` para indicar que se trata de una sucesión de anuncios. 
 
 ### Programación de un anuncio persistente o que se reproduce una vez
@@ -219,4 +219,4 @@ Existen algunos aspectos que debe tener en cuenta aquí:
 Como se muestra en el ejemplo del código anterior, si establece **deleteAfterPlay** en **YES**, este anuncio se reproduce solo una vez. Si estableció **deleteAfterPlay** en **NO**, este anuncio sigue reproduciéndose. Es lo que llamamos "anuncio persistente".
 ### Consulte la página [wiki Azure Media Player Framework](https://github.com/WindowsAzure/azure-media-player-framework/wiki) para obtener más información.
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

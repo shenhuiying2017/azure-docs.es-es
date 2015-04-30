@@ -1,9 +1,9 @@
-<properties 
+﻿<properties 
 	pageTitle="Creación de una cuenta de Servicios multimedia - Azure" 
 	description="Describe cómo crear una cuenta de Servicios multimedia en Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -17,30 +17,24 @@
 	ms.author="juliako"/>
 
 
+#Creación de una cuenta de Servicios multimedia
 
-# Creación de una cuenta de Servicios multimedia
-
-Este artículo forma parte de las series [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo](../media-services-live-streaming-workflow).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) .  
 
 El Portal de administración de Azure proporciona una forma rápida de crear una cuenta de Servicios multimedia de Azure. Puede usar la cuenta para obtener acceso a Servicios multimedia que le permiten almacenar, cifrar, codificar, administrar y transmitir contenido multimedia en Azure. En el momento en el que crea una cuenta de Servicios multimedia, también crea una cuenta de almacenamiento asociada (o usa una ya existente) en la misma región geográfica que la cuenta de Servicios multimedia. 
 
 En este tema se explica cómo usar el método Quick Create para crear una nueva cuenta de Servicios multimedia y, a continuación, asociarla a una cuenta de almacenamiento. 
 
-## Tabla de contenido
-
--  [Conceptos][]
--  [Creación de una cuenta de Servicios multimedia mediante Quick Create][]
-
-
-<h2><a id="concepts"></a>Conceptos</h2>
+##<a id="concepts"></a>Conceptos
 El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 -   **Una cuenta de Servicios multimedia**. La cuenta le proporciona acceso a un conjunto de Servicios multimedia basados en la nube que están disponibles en Azure. Una cuenta de Servicios multimedia no almacena el contenido multimedia real, sino que almacena metadatos sobre el contenido multimedia y trabajos de procesamiento multimedia en su cuenta. En el momento en el que cree la cuenta, seleccione una región de Servicios multimedia disponible. La región que selecciona es un centro de datos que almacena los registros de metadatos para su cuenta. 
+
     > [AZURE.NOTE]
     > Entre las regiones de Servicios multimedia disponibles se encuentran las siguientes: **Europa del Norte**, **Europa occidental**, **Oeste de EE. UU.**, **Este de EE. UU.**, **Sudeste de Asia**, **Asia oriental**, **Oeste de Japón**, **Este de Japón**. Servicios multimedia no usa grupos de afinidad. 
 -   **Una cuenta de almacenamiento asociada**. La cuenta de almacenamiento es una cuenta de almacenamiento de Azure asociada a una cuenta de Servicios multimedia. La cuenta de almacenamiento proporciona almacenamiento de blobs para archivos multimedia y debe ubicarse en la misma región geográfica que la cuenta de Servicios multimedia. Cuando cree una cuenta de Servicios multimedia, podrá elegir una cuenta de almacenamiento existente en la misma región o crear una nueva cuenta de almacenamiento en la misma región. Si elimina una cuenta de Servicios multimedia, no se eliminarán los blobs de la cuenta de almacenamiento relacionada. 
 
-<h2><a id="quick"></a> Creación de una cuenta de Servicios multimedia mediante Creación rápida</h2>
+##<a id="quick"></a>Creación de una cuenta de Servicios multimedia mediante Creación rápida
 
 1. En el [Portal de administración][], haga clic en **Nuevo**, después en **Servicios multimedia** y, finalmente, en **Creación rápida**.
    
@@ -75,10 +69,10 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
   [Creación de una cuenta de Servicios multimedia mediante Quick Create]: #quick
 
 <!-- URLs. -->
-  [Instalador de plataforma Web]: http://go.microsoft.com/fwlink/?linkid=255386
+  [Instalador de plataforma web]: http://go.microsoft.com/fwlink/?linkid=255386
   
   [Portal de administración]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

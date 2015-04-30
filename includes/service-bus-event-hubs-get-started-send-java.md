@@ -1,5 +1,5 @@
-﻿## Envío de mensajes a Centros de eventos
-En esta sección se escribirá una aplicación de consola Java para enviar eventos al centro de eventos. Usaremos el proveedor de JMS AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de Java como se muestra [aquí](http://azure.microsoft.com/documentation/articles/service-bus-java-how-to-use-jms-api-amqp/). Para obtener más información consulte la [documentación de Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) y el [servicio de mensajería de Java](http://www.oracle.com/technetwork/java/jms/index.html).
+## Envío de mensajes a Centros de eventos
+En esta sección se escribirá una aplicación de consola Java para enviar eventos al centro de eventos. Usaremos el proveedor de JMS AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de Java, como se muestra [aquí](../articles/service-bus-java-how-to-use-jms-api-amqp.md). Para obtener más información, consulte la [documentación de Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) y el [servicio de mensajería de Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. En Eclipse, cree un nuevo proyecto de Java denominado **Remitente**.
 
@@ -11,15 +11,15 @@ En esta sección se escribirá una aplicación de consola Java para enviar event
 
 	![][8]
 
-5. Cree un archivo denominado **servicebus.properties** en la raíz del proyecto **Remitente**, con el siguiente contenido. No olvide sustituir el valor para el nombre del centro de eventos y el nombre del espacio de nombres (este último suele ser `{event hub name}-ns`). También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. Cree un archivo denominado **servicebus.properties** en la raíz del proyecto **Remitente**, con el siguiente contenido. No olvide sustituir el valor para el nombre del Centro de eventos y el espacio de nombres (este último suele ser `{event hub name}-ns`). También debe sustituir una versión con codificación URL de la clave para la regla **SendRule** creada anteriormente. Puede codificar con URL [aquí](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 		# servicebus.properties - sample JNDI configuration
 
-		# Register a ConnectionFactory in JNDI using the form:
+		# Registrar un ConnectionFactory en JNDI usando el formato:
 		# connectionfactory.[jndi_name] = [ConnectionURL]
 		connectionfactory.SBCF = amqps://SendRule:{Send Rule key}@{namespace name}.servicebus.windows.net/?sync-publish=false
 
-		# Register some queues in JNDI using the form
+		# Registrar algunas colas en JNDI usando el formato:
 		# queue.[jndi_name] = [physical_name]
 		# topic.[jndi_name] = [physical_name]
 		queue.EventHub = {event hub name}
@@ -93,4 +93,5 @@ En esta sección se escribirá una aplicación de consola Java para enviar event
 
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
-<!--HONumber=47-->
+
+<!--HONumber=52--> 

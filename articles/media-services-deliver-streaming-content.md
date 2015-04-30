@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Cómo proporcionar contenido de streaming desde Servicios multimedia en Azure" 
 	description="Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	authors="juliako" 
@@ -17,32 +17,32 @@
 	ms.author="juliako"/>
 
 
-# Entrega de contenido de streaming
+#Entrega de contenido de streaming
 
 
-Este artículo forma parte de las series [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo](media-services-live-streaming-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).  
 
-## Información general
+##Información general
 
-Puede transmitir a una velocidad de bits adaptable MP4 establecida mediante la creación de un localizador de streaming a petición y la generación de una dirección URL de streaming. El tema de [codificación de un recurso](media-services-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Antes de crear un localizador debe configurar la directiva de entrega de recursos, tal como se describe en [este](media-services-dotnet-configure-asset-delivery-policy.md) tema. 
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema de [codificación de un recurso](media-services-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Antes de crear un localizador, debe configurar la directiva de entrega de recursos, tal como se describe en [este](media-services-dotnet-configure-asset-delivery-policy.md) tema. 
 
 También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.  
 
-En este tema se muestra cómo crear un localizador de streaming a petición con el fin de publicar el recurso y crear direcciones URL de streaming Smooth, MPEG, DASH y HLS. También muestra como generar direcciones URL de descarga progresiva. 
+En este tema se muestra cómo crear un localizador de streaming a petición para publicar el recurso y crear direcciones URL de streaming Smooth, MPEG DASH y HLS. También se muestra cómo generar direcciones URL de descarga progresiva. 
   	 
-## Creación de un localizador de streaming a petición
+##Creación de un localizador de streaming a petición
 
 Para crear el localizador de streaming a petición y obtener las direcciones URL, deberá hacer lo siguiente:
 
    1. Defina una directiva de acceso.
    2. Cree un localizador de streaming a petición.
-   3. Si va a transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso. 
+   3. Si planea transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso. 
    		
-	Si va a realizar la descarga progresiva, obtenga los nombres de archivos MP4 del recurso.  
-   4. Cree direcciones URL para el archivo de manifiesto o archivos MP4. 
+	Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso.  
+   4. Genere direcciones URL para el archivo de manifiesto o archivos MP4. 
    
 
-### Uso del SDK de .NET de Servicios multimedia 
+###Uso del SDK de .NET de Servicios multimedia 
 
 Generación de direcciones URL de streaming 
 
@@ -92,7 +92,7 @@ El código produce la salida siguiente:
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
-Generación de direcciones URL de descarga progresiva 
+Creación de direcciones URL de descarga progresiva 
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
 	{
@@ -131,7 +131,7 @@ El código produce la salida siguiente:
 	
 	. . . 
 
-### Uso de Extensiones del SDK .NET de Servicios multimedia
+###Uso de Extensiones del SDK .NET de Servicios multimedia
 
 El código siguiente llama a los métodos de extensiones del SDK de .NET que crean un localizador y generan las direcciones URL de Smooth Streaming, HLS y MPEG-DASH para el streaming adaptable.
 
@@ -151,4 +151,4 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

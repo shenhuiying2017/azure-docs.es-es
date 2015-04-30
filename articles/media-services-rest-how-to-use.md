@@ -3,7 +3,7 @@
 	description="Información general de la API de REST de Servicios multimedia" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -30,9 +30,9 @@ Para cada llamada que realice en los Servicios multimedia, hay un conjunto de en
 <table border="1">
 <tr><th>Encabezado</th><th>Tipo</th><th>Valor</th></tr>
 <tr><td>Autorización</td><td>Portador</td><td>El portador es el único mecanismo de autorización aceptado. El valor también debe incluir el token de acceso proporcionado por ACS.</td></tr>
-<tr><td>x-ms-version</td><td>Decimal</td><td>2.9</td></tr>
-<tr><td>DataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
-<tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3.0</td></tr>
+<tr><td>x-ms-version</td><td>Decimal</td><td>2,9</td></tr>
+<tr><td>DataServiceVersion</td><td>Decimal</td><td>3,0</td></tr>
+<tr><td>MaxDataServiceVersion</td><td>Decimal</td><td>3,0</td></tr>
 </table><br/>
 
 
@@ -88,7 +88,7 @@ A continuación se muestra una lista completa de verbos HTTP que se pueden usar 
 
 ## Detección del modelo de Servicios multimedia
 
-Para que las entidades de los Servicios multimedia sean más reconocibles, se puede usar la operación de metadatos. Permite recuperar todos los tipos de entidad válidos, las propiedades de entidad, las asociaciones, las funciones, las acciones, etc. En el ejemplo siguiente se muestra cómo construir el URI: https://media.windows.net/API/$metadata.
+Para que las entidades de los Servicios multimedia sean más reconocibles, se puede usar la operación de metadatos. Permite recuperar todos los tipos de entidad válidos, las propiedades de entidad, las asociaciones, las funciones, las acciones, etc. En el ejemplo siguiente se muestra cómo construir el URI.: https://media.windows.net/API/$metadata.
 
 Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explorador o no incluya el encabezado x-ms-version en la solicitud.
 
@@ -103,4 +103,4 @@ Anexe "?api-version=2.x" al final del URI si desea ver los metadatos en un explo
 
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

@@ -1,54 +1,42 @@
-﻿<properties 
-	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de iOS" 
-	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de iOS." 
-	services="" 
-	documentationCenter="ios" 
-	authors="krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de iOS"
+	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de iOS."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="krisragh"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="10/10/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="objective-c"
+	ms.topic="hero-article"
+	ms.date="2/11/2015"
 	ms.author="krisragh"/>
 
-# <a name="getting-started"> </a>Introducción a los Servicios móviles
+# <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación iOS con los Servicios móviles de Azure. Con este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple de _To do list_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree utilizará los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Para crear un servicio móvil que permita escribir la lógica de negocios del lado servidor en JavaScript, vea la [versión back-end JavaScript] de este tema.
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación de iOS con los Servicios móviles de Azure. En este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple de _To do list_ que almacena datos de la aplicación en el nuevo servicio móvil. El servicio móvil usa .NET y Visual Studio para la lógica empresarial del lado de servidor. Para crear un servicio móvil con lógica empresarial del lado de servidor, consulte la [Versión de back-end de JavaScript] de este tema.
 
-La siguiente captura de pantalla muestra la aplicación final:
-
-![][0]
-
-Para completar este tutorial necesita XCode 4.5 y iOS 5.0 o versiones posteriores.
-
-> [AZURE.NOTE] para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank").
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y [acceder a servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](http://azure.microsoft.com/pricing/details/mobile-services/).  Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank").
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-## Descarga del servicio móvil en el equipo local
+## Descarga del servicio móvil y la aplicación en el equipo local
 
-Una vez creado el servicio móvil, descargue el proyecto de servicio móvil personalizado, que podrá ejecutar en el equipo local o la máquina virtual local.
+Ahora que ha creado el servicio móvil, descargue proyectos que puede ejecutar de manera local.
 
-1. Haga clic en el servicio móvil que acaba de crear, luego, en la pestaña de inicio rápido, haga clic en **iOS** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación iOS**.
+1. Haga clic en el servicio móvil que acaba de crear, luego en la pestaña Inicio rápido, haga clic en **iOS** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación iOS**.
 
-	![][1]
+2. En su equipo Windows, haga clic en **Descargar** en **Descargar y publicar su servicio en la nube**. De este modo, se descarga el proyecto de Visual Studio que implementa el servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
-2. Si todavía no lo ha hecho, descargue e instale Visual Studio Professional 2013 o una versión posterior.
-
-3. Haga clic en **Descargar** en **Descargar y publicar el servicio en la nube**.
-
-	De este modo, se descarga el proyecto de Visual Studio que implementa el servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
-
-4. Además, descargue el perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
+3. En su Mac, haga clic en **Descargar** en **Descargar y ejecutar la aplicación**. De este modo se descarga el proyecto para la aplicación _To do list_ de ejemplo que está conectado con su servicio móvil, junto con el SDK de Servicios móviles para iOS. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
 ## Prueba del servicio móvil
 
@@ -58,40 +46,29 @@ Una vez creado el servicio móvil, descargue el proyecto de servicio móvil pers
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-## Creación de una nueva aplicación iOS
-
-En esta sección, creará una aplicación de iOS que se conecta al servicio móvil.
-
-1. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
-
-2. En la pestaña de inicio rápido, haga clic en **iOS** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación iOS**.
-
-3. Si aún no lo ha hecho, descargue e instale [Xcode] v4.4 o una versión posterior.
-
-4. En **Descargar y ejecutar la aplicación**, haga clic en **Descargar**.
-
-  	De este modo se descarga el proyecto para la aplicación _To do list_ de ejemplo que está conectada al servicio móvil, además del SDK de iOS para Servicios móviles. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
 ## Ejecución de la nueva aplicación de iOS
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../includes/mobile-services-ios-run-app.md)]
 
-Con esto se muestra cómo ejecutar la nueva aplicación cliente contra el servicio móvil que se ejecuta en Azure. Antes de que pueda probar la aplicación iOS con el servicio móvil en ejecución en un equipo local, debe configurar el firewall y el servidor web para permitir el acceso desde su equipo de desarrollo iOS. Para obtener más información, vea [Configuración del servidor web local para permitir conexiones a un servicio móvil local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
 
 ## <a name="next-steps"> </a>Pasos siguientes
-Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* [Introducción a los datos]
+Con esto se muestra cómo ejecutar la nueva aplicación cliente contra el servicio móvil que se ejecuta en Azure. Antes de que pueda probar la aplicación iOS con el servicio móvil en ejecución en un equipo local, debe configurar el firewall y el servidor web para permitir el acceso desde su equipo de desarrollo iOS. Para obtener más información, consulte [Configuración del servidor web local para permitir conexiones a un servicio móvil local](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
+
+Aprenda a realizar tareas adicionales importantes en Servicios móviles:
+
+* [Incorporación de servicios móviles a una aplicación existente]
   <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
 * [Introducción a la sincronización de datos sin conexión]
   <br/>Aprenda a usar la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de su aplicación.
 
-* [Introducción a la autenticación]
+* [Incorporación de servicios móviles a una aplicación existente]
   <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Introducción a las notificaciones de inserción]
-  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
+* [Incorporación de notificaciones de inserción a una aplicación existente]
+  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 * [Solución de problemas en un back-end de .NET de Servicios móviles]
   <br/> Aprenda a diagnosticar y corregir problemas que pueden surgir con un back-end de .NET de Servicios móviles.
@@ -116,18 +93,16 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Introducción a la sincronización de datos sin conexión]: /es-es/documentation/articles/mobile-services-ios-get-started-offline-data
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
-[Solución de problemas en un back-end de .NET de Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Incorporación de servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Introducción a la sincronización de datos sin conexión]: mobile-services-ios-get-started-offline-data.md
+[Incorporación de servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Incorporación de notificaciones de inserción a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Solución de problemas en un back-end de .NET de Servicios móviles]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portal de administración]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[Versión de back-end de JavaScript]: /es-es/documentation/articles/mobile-services-ios-get-started
+[Versión de back-end de JavaScript]: mobile-services-ios-get-started.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

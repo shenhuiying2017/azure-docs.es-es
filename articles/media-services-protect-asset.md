@@ -17,20 +17,21 @@
 	ms.author="juliako"/>
 
 
-# Procedimiento: cifrado de un recurso de forma dinámica con PlayReady o AES-128
+#Cifrado de un recurso de forma dinámica con PlayReady o AES-128
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) and [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) .
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
   
-## Información general
+##Información general
 
-Los Servicios multimedia de Microsoft Azure le permiten entregar el contenido cifrado (de forma dinámica) con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady DRM. Los Servicios multimedia también proporcionan un servicio para entregar claves y licencias de PlayReady a los clientes autorizados. Para entregar contenido protegido, debe configurar la directiva de autorización de claves de contenido y configurar directivas de entrega de recursos.
+Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado (de forma dinámica) con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) y PlayReady DRM. Los Servicios multimedia también proporcionan un servicio para entregar claves y licencias de PlayReady a los clientes autorizados. Para entregar contenido protegido, debe configurar la directiva de autorización de claves de contenido y configurar directivas de entrega de recursos.
 
-## Configurar
+##Configuración
 
 Para obtener información sobre cómo configurar la directiva de autorización de claves de contenido 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)] 
 
-Configuración de directivas de entrega de recursos
+Directivas de entrega de recursos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Codificación de elementos multimedia con Dolby Digital Plus" 
 	description="En este tema se describe cómo codificar el contenido multimedia con Dolby Digital Plus." 
 	services="media-services" 
@@ -16,20 +16,20 @@
 	ms.date="03/01/2015" 
 	ms.author="juliako"/>
 
-# Codificación de elementos multimedia con Dolby Digital Plus
+#Codificación de elementos multimedia con Dolby Digital Plus
 
 El Codificador multimedia de Azure admite la codificación **Dolby (r) Digital Plus**. Dolby(r) Digital Plus, o Enhanced AC-3 (E-AC-3), es un códec de audio de sonido envolvente avanzado diseñado específicamente para contenido multimedia en constante evolución. Desde centros de entretenimiento y PC a teléfonos móviles y streaming en línea, Dolby Digital Plus define el audio de alta fidelidad. Conseguirá la distinguida experiencia de cine de Dolby con todo su entretenimiento. Dolby Digital Plus se basa en tecnologías básicas de Dolby Digital, el estándar establecido para cines, difusión y sonido envolvente de centro de entretenimiento. A medida que proliferan los dispositivos móviles, Dolby Digital Plus también emerge como el estándar del entretenimiento móvil. Sus nuevas tecnologías avanzadas para la mejora de audio proporcionan la mejor calidad de sonido y un ahorro de ancho de banda adicional. Como resultado, obtiene un contenido excelente con menos interrupciones, incluso cuando el ancho de banda es limitado.
 
 
-## Configuración del Codificador multimedia de Azure para codificar con Dolby Digital Plus
+##Configuración del Codificador multimedia de Azure para codificar con Dolby Digital Plus
 
-### Obtención del procesador del codificador multimedia de Azure 
+###Obtención del procesador del codificador multimedia de Azure 
 
-Dolby Digital Plus es compatible con el Codificador multimedia de Azure. Para obtener una referencia del **Codificador de Servicios multimedia**, consulte [Obtención de procesadores multimedia](../media-services-get-media-processor) .
+Dolby Digital Plus es compatible con el Codificador multimedia de Azure. Para obtener una referencia del **Codificador multimedia de Azure**, consulte el tema [Obtención de procesadores multimedia](media-services-get-media-processor.md).
 
-### <a id="configure_preset"></a>Configuración de opciones del Codificador multimedia de Azure
+###<a id="configure_preset"></a>Configuración de opciones del Codificador multimedia de Azure
 
-Al configurar las opciones de codificación para su uso con el Codificador multimedia de Azure, había varios valores predefinidos representados por cadenas fáciles de recordar. El codificador Dolby Digital Plus ofrece una amplia gama de controles, vea [< DolbyDigitalPlusAudioProfile >](https://msdn.microsoft.com/library/azure/dn296500.aspx) para obtener más información. Por consiguiente, no hay ningún valor preestablecidos de cadena pregenerado que use este códec. Debe especificar la configuración del codificador deseada en un archivo XML y enviar los datos. with your Task as shown in the following code example:
+Al configurar las opciones de codificación para su uso con el Codificador multimedia de Azure, había varios valores predefinidos representados por cadenas fáciles de recordar. El codificador Dolby Digital Plus ofrece una amplia gama de controles, vea [< DolbyDigitalPlusAudioProfile >](https://msdn.microsoft.com/library/azure/dn296500.aspx) para obtener más información. Por consiguiente, no hay ningún valor preestablecidos de cadena pregenerado que use este códec. Debe especificar la configuración deseada del codificador en un archivo XML y enviar estos datos con su tarea, tal como se muestra en el ejemplo de código siguiente:
 	
 	string configuration = File.ReadAllText(pathToXMLConfigFile));
 
@@ -40,13 +40,13 @@ Al configurar las opciones de codificación para su uso con el Codificador multi
 
 En este tema se describen varios valores preestablecidos XML de ejemplo que configuran las opciones del codificador. El elemento que se usa para configurar la codificación Dolby Digital Plus es [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx), que aparece como un nodo secundario del elemento <AudioProfile> en un valor preestablecido XML del Codificador multimedia de Azure. Este elemento XML contiene una serie de atributos que controlan distintos elementos de la codificación.
 
-## Codificación a Dolby Digital Plus 5.1 multicanal
+##Codificación a Dolby Digital Plus 5.1 multicanal
 
 Para codificar a Dolby Digital Plus 5.1 multicanal, establezca los atributos Codec y EncoderMode en "DolbyDigitalPlus". El número de canales codificados se especifica mediante el atributo AudioCodingMode del elemento <DolbyDigitalPlusAudioProfile>. Para una codificación multicanal 5.1, establezca AudioCodingMode en "Mode32". 
 
 El siguiente valor preestablecido XML contiene un valor preestablecido XML completo del Codificador multimedia de Azure que genera un archivo MP4 con vídeo H264 de banda ancha en 1.080 p y audio Dolby Digital Plus 5.1 multicanal. Este valor preestablecido también especifica la codificación de un canal de efectos de baja frecuencia (LFE), que se especifica estableciendo el atributo LFEOn en true. Cualquier atributo no especificado tendrá sus valores predeterminados.
 
-Este valor preestablecido XML se debe pasar al **Codificador de Servicios multimedia** para crear un trabajo de codificación, como se describe en [este](../media-services-dotnet-encode-asset) tema (solo que en lugar de una cadena preestablecida predefinida, pasará todo el valor preestablecido XML predefinido, como se describe [aquí](#configure_preset)).
+Este valor preestablecido XML se debe pasar al **Codificador multimedia de Azure** para crear un trabajo de codificación, como se describe en [este]tema (media-services-dotnet-codificar-asset.md) (solo pasará el valor predefinido XML al completo en lugar de una cadena preestablecida, como se describe [aquí](#configure_preset)).
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -125,11 +125,11 @@ Este valor preestablecido XML se debe pasar al **Codificador de Servicios multim
 	    </MediaFile>
 	  </Preset>
 
-## Codificación en Dolby Digital Plus Stereo
+##Codificación en Dolby Digital Plus Stereo
 
 Para codificar en Dolby Digital Plus Stereo, establezca los atributos Codec y EncoderMode en "DolbyDigitalPlus". El número de canales codificados se especifica con el atributo AudioCodingMode. Para una codificación estéreo, establezca AudioCodingMode en "Mode20". El siguiente ejemplo XML preestablecido muestra el elemento <DolbyDigitalPlusAudioProfile> usado para codificar a audio 5.1. Cualquier atributo no especificado tendrá sus valores predeterminados.
 
-Este valor preestablecido XML se debe pasar al **Codificador de Servicios multimedia** para crear un trabajo de codificación, como se describe en [este](../media-services-dotnet-encode-asset) tema (solo que en lugar de una cadena preestablecida predefinida, pasará todo el valor preestablecido XML predefinido, como se describe [aquí](#configure_preset)).
+Este valor preestablecido XML se debe pasar al **Codificador multimedia de Azure** para crear un trabajo de codificación, como se describe en [este](media-services-dotnet-codificar-asset.md) tema (solo pasará el valor predefinido XML al completo en lugar de una cadena preestablecida, como se describe [aquí](#configure_preset)).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<!--Created for Azure Media Encoder, May 26 2013 -->
@@ -206,32 +206,32 @@ Este valor preestablecido XML se debe pasar al **Codificador de Servicios multim
 	    </MediaFile>
 	  </Preset>
 
-## Codificación a varios archivos MP4 
+##Codificación a varios archivos MP4 
 
 Puede codificar a varios archivos MP4 dentro de un único valor preestablecido XML. Para cada archivo MP4 que desea generar, agregue un elemento <Valor preestablecido> en la configuración. Cada elemento <Valor preestablecido> puede contener información de configuración de vídeo, audio o ambos.
 
-### Configuración
+###Configuración
 
 La configuración siguiente generará los resultados siguientes:
 
-- 8 archivos MP4 de solo vídeo
-	- Vídeo de 1080p a 6.000 Kbps
-	- Vídeo de 1080p a 4.700 Kbps
-	- Vídeo de 720p a 3.400 Kbps
-	- Vídeo de 960 x 540 a 2.250 kbps
-	- Vídeo de 960 x 540 a 1.500 Kbps
-	- Vídeo de 640 x 380 a 1.000 Kbps
-	- Vídeo de 640 x 380 a 650 Kbps
-	- Vídeo de 320 x 180 a 400 Kbps
+- 8 Video-only MP4 files
+	- 1080p Video @ 6000 kbps
+	- 1080p Video @ 4700 kbps
+	- 720p Video @ 3400 kbps
+	- 960 x 540 Video @ 2250 kbps
+	- 960 x 540 Video @ 1500 kbps
+	- 640 x 380 Video @ 1000 kbps
+	- 640 x 380 Video @ 650 kbps
+	- 320 x 180 Video @ 400 kbps
 
-- 5 archivos MP4 de solo audio
-	- AAC Audio Stereo a 128 kbp
-	- AAC Audio 5.1 a 512 kbps
-	- Dolby Digital Plus Stereo a 128 kbps
-	- Dolby Digital Plus 5.1 multicanal a 512 kbps
-	- AAC Stereo a 56 kbps
-- Un manifiesto .ism
-- Un archivo XML que enumera las propiedades de los archivos MP4 generados.
+- 5 Audio-only MP4 files
+	- AAC Audio Stereo @ 128 kbp
+	- AAC Audio 5.1 @ 512 kbps
+	- Dolby Digital Plus Stereo @ 128 kbps
+	- Dolby Digital Plus 5.1 Multichannel @ 512 kbps
+	- AAC Stereo @ 56 kbps
+- A .ism manifest
+- An XML file listing the properties of the generated MP4 files.
 		
 		<?xml version="1.0" encoding="utf-16"?>
 		<!--Created for Azure Media Encoder, May 16 2013 -->
@@ -539,11 +539,11 @@ La configuración siguiente generará los resultados siguientes:
 		  </Preset>
 		</Presets>
 
-## Creación de servicios de codificación comercial
+##Creación de servicios de codificación comercial
 
 Es posible que algunos clientes quieran crear un servicio de codificación comercial encima de Servicios multimedia de Azure. Si está creando un servicio "compilado sobre otro", es importante que todos los parámetros de codificación Dolby Digital Plus estén disponibles. Asegúrese de que todos los parámetros dentro de la etiqueta <DolbyDigitalPlusAudioProfile> se muestren y el usuario final los pueda configurar. Póngase en contacto con prolicensingsupport@dolby.com para obtener instrucciones sobre la disponibilidad de estos parámetros.
 
-## Uso de Dolby Professional Loudness Metering (DPLM)
+##Uso de Dolby Professional Loudness Metering (DPLM)
 
 El Codificador multimedia de Azure puede usar el SDK de DPLM para medir la sonoridad del diálogo en el audio de entrada y establecer el valor correcto de DialogNormalization. Esta característica está habilitada solo si el audio se está codificando en Dolby Digital Plus. DPLM se configura en un archivo de configuración preestablecido mediante el elemento <LoudnessMetering>, que es un elemento secundario del elemento <DolbyDigitalPlusAudioProfile>. El valor preestablecido de ejemplo siguiente muestra cómo configurar DPLM:
 	
@@ -583,11 +583,11 @@ El Codificador multimedia de Azure puede usar el SDK de DPLM para medir la sonor
 	  </MediaFile>
 	</Preset>
 
-El elemento <LoudnessMetering> solo puede especificarse dentro de un elemento <DolbyDigitalPlusAudioProfile>. Si se usa el elemento <LoudnessMetering> no se debe usar el atributo DialogNormalization. El codificador genera un error si se usan el elemento <LoudnessMetering> y el atributo DialogNormalization. Todos los atributos de LoudnessMetering son opcionales y el codificador usará de manera predeterminada los valores recomendados por Dolby Laboratories, Inc.
+El elemento <LoudnessMetering> solo puede especificarse dentro de un elemento <DolbyDigitalPlusAudioProfile>. Si se usa el elemento <LoudnessMetering> no se debe usar el atributo DialogNormalization. El codificador genera un error si se usan el elemento <LoudnessMetering>  y el atributo DialogNormalization. Todos los atributos de LoudnessMetering son opcionales y el codificador usará de manera predeterminada los valores recomendados por Dolby Laboratories, Inc.
 
 Cada atributo se describe en las secciones siguientes.
 
-### Atributo mode
+###Atributo mode
 
 Este atributo determina el modo de medición de sonoridad. Los valores permitidos son:
 
@@ -608,20 +608,20 @@ El **Leq (A)** se incluye únicamente por motivos de herencia y solo se debe uti
 
 El **ITU** ha lanzado recientemente una actualización con título BS.1770-3, que es equivalente a BS.1770-2 con TruePeakDCBlock y TruePeakEmphasis establecidos en false.
 
-### Atributo SpeechThreshold
+###Atributo SpeechThreshold
 
 Especifica un umbral de voz utilizado por DPLM para producir un resultado de sonoridad integrado (por ejemplo, seleccionar entre acceso de voz, acceso de nivel y ningún acceso). El intervalo del valor de umbral de voz es de 0% a 100%, en incrementos de 1%. Este parámetro tiene un efecto solo cuando DPLM se configura en un modo que usa Dialogue Intelligence, lo que implica que solo se puede especificar si el modo se establece en ITU_R_BS_1770_2_DI o ITU_R_BS_1770_1_DI. El valor predeterminado, cuando el modo es ITU_R_BS_1770_2_DI o ITU_R_BS_1770_1_DI, es 20%. Los valores para este atributo deben establecerse en el intervalo de 0, 1 a 100.
 
-### Atributo TruePeakDCBlock
+###Atributo TruePeakDCBlock
 
 Este parámetro de entrada especifica si el bloque de controlador de dominio dentro de la medición de true‐peak está habilitado (true) o deshabilitado (false). Para obtener más detalles del bloque de controlador de dominio, consulte ITU‐R BS.1770‐2. El valor predeterminado es false.
 
-### Atributo TruePeakEmphasis
+###Atributo TruePeakEmphasis
 
 Especifica si el filtro de énfasis dentro de la medición de true‐peak está habilitado (true) o deshabilitado (false). Para obtener más detalles del filtro de énfasis, consulte ITU‐R BS.1770‐2. El valor predeterminado es false.
 
 
-### Resultados de DPLM
+###Resultados de DPLM
 
 Cuando una tarea de codificación especifica el uso de DPLM, los resultados de la medición de sonoridad se incluirán en los metadatos XML en el recurso de salida. El siguiente es un ejemplo.
 	
@@ -650,4 +650,4 @@ A continuación se describe cada atributo.
 
 **TruePeak**: este resultado contiene el valor absoluto true‐peak más grande en cualquier canal desde que se restableció la medición. Para obtener una descripción de pico verdadero, consulte ITU‐R BS.1770‐2. Los valores pueden oscilar entre -70 y 12,04 dBTP.
 
-<!--HONumber=47-->
+<!--HONumber=52-->

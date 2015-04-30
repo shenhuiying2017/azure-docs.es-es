@@ -1,4 +1,4 @@
-﻿Azure determinará que la aplicación use Python **si se cumplen estas condiciones**:
+Azure determinará que la aplicación use Python **si se cumplen estas condiciones**:
 
 - la carpeta raíz contiene el archivo requirements.txt
 - la carpeta raíz contiene cualquier archivo .py o hay un runtime.txt que especifique Python.
@@ -33,4 +33,4 @@ Cuando estos archivos no existen, Azure crea un script de implementación tempor
 
 [Interfaz de línea de comandos de Azure]: http://azure.microsoft.com/downloads/
 
-<!--HONumber=49-->
+<!--HONumber=52--> 

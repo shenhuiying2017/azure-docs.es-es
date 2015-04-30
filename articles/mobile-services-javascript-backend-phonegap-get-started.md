@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a los Servicios móviles con PhoneGap | Centro de desarrollo móvil" 
 	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de PhoneGap para iOS, Android y Windows Phone." 
 	services="mobile-services" 
@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-phonegap" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-# <a name="getting-started"> </a>Introducción a los Servicios móviles
+# <a name="getting-started"> </a>Introducción a Servicios móviles
 
-En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación con los Servicios móviles de Azure. En este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple _To do list_ que almacena datos de la aplicación en el servicio móvil nuevo. 
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación con los Servicios móviles de Azure. En este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple de _To do list_ que almacena datos de la aplicación en el nuevo servicio móvil. 
 
 La siguiente captura de pantalla muestra la aplicación final:
 
@@ -33,7 +33,7 @@ Completar este tutorial requiere las herramientas de PhoneGap (se requiere v3.2+
 PhoneGap admite el desarrollo para varias plataformas. Además de las propias herramientas de PhoneGap, debe instalar las herramientas para cada plataforma a la que se dirige:
 
 - Windows Phone: Instale [Visual Studio 2012 Express para Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374)
-- iOS: Instale [Xcode] (se requiere v4.4+)
+- iOS: Instale [Xcode](se requiere v4.4+)
 - Android: Instale las [herramientas para desarrolladores de Android][SDK de Android]
 	<br/>(el SDK de Servicios móviles para Android es compatible con aplicaciones para Android 2.2 o una versión posterior. Se requiere Android 4.2 o superior para ejecutar la aplicación de inicio rápido).
 
@@ -59,7 +59,7 @@ En esta sección, creará una aplicación de PhoneGap que se conecta al servicio
 
 3. Si aún no lo ha hecho, descargue e instale PhoneGap y al menos una de las herramientas de desarrollo de plataforma (Windows Phone, iOS o Android).
 
-4. Haga clic en **Crear tabla TodoItems** para crear una tabla donde almacenar los datos de la aplicación.
+4. Haga clic en **Crear tabla TodoItem** para crear una tabla para almacenar los datos de la aplicación.
 
 5. En **Descargar y ejecutar la aplicación**, haga clic en **Descargar**. 
 
@@ -91,11 +91,11 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	+ **Android**
 
-		1. En Eclipse, haga clic en **File** (Archivo), **Import** (Importar), expanda **Android**, haga clic en **Existing Android Code into Workspace** (Código de Android existente en espacio de trabajo) y, por último, en **Next** (Siguiente). 
+		1. En Eclipse, haga clic en **File** (Archivo), **Import** (Importar), expanda **Android**, haga clic en **Existing Android Code into Workspace** (Código de Android existente en el espacio de trabajo) y luego haga clic en **Next (Siguiente).** 
 		
-		2. Haga clic en **Browse** (Examinar), desplácese a la ubicación de los archivos de proyecto expandidos, haga clic en **OK** (Aceptar), asegúrese de que el proyecto TodoActivity esté marcado y, a continuación, haga clic en **Finish** (Finalizar). <p>De esta forma se importan los archivos del proyecto en el área de trabajo actual.</p>
+		2. Haga clic en **Browse**, desplácese a la ubicación de los archivos de proyecto expandidos, haga clic en **OK**, asegúrese de que el proyecto TodoActivity esté marcado y, a continuación, haga clic en **Finish**. <p>De esta forma se importan los archivos del proyecto en el área de trabajo actual.</p>
 		
-		3. Haga clic en la opción **Run** (Ejecutar) del menú **Run** (Ejecutar) para iniciar el proyecto en el emulador de Android.
+		3. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar) para iniciar el proyecto en el emulador de Android.
 		
 			![][4]
 	
@@ -108,7 +108,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	> [AZURE.IMPORTANTE] Los cambios en este proyecto de plataforma se sobrescribirán si el proyecto principal se recompila con las herramientas de PhoneGap. En su lugar, realice cambios en el directorio www raíz del proyecto tal como se describe en la sección siguiente.
 
-4. De vuelta en el Portal de administración, haga clic en la pestaña <strong>Datos</strong> y, a continuación, en la tabla <strong>TodoItems</strong>.
+4. De nuevo en el Portal de administración, haga clic en la pestaña <strong>Datos</strong> y luego haga clic en la tabla <strong>TodoItems</strong>.
 
 	![](./media/mobile-services-javascript-backend-phonegap-get-started/mobile-data-tab.png)
 
@@ -165,15 +165,13 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-html-get-started-data
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-html-get-started-users
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Introducción a los datos]: mobile-services-html-get-started-data.md
+[Introducción a la autenticación]: mobile-services-html-get-started-users.md
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/mobile-services-html-get-started-push
 [SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Portal de administración]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

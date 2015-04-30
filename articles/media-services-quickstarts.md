@@ -16,18 +16,18 @@
 	ms.date="02/18/2015" 
 	ms.author="juliako"/>
 
-# Tutoriales rápidos de Servicios multimedia
+#Tutoriales rápidos de Servicios multimedia
 
-## <a id="vod_quickstart"></a>Vídeo bajo demanda 
+##<a id="vod_quickstart"></a>Vídeo a petición 
 
 Elija esta opción para ver el tutorial rápido implementado con .NET o REST.
  
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
 
-## <a id="live_quickstart"></a>Streaming en vivo
+##<a id="live_quickstart"></a>Streaming en directo
  
 [Introducción a .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

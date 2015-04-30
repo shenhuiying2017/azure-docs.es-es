@@ -1,4 +1,4 @@
-﻿
+
 El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio móvil en el equipo o máquina virtual local. De este modo, resulta sencillo depurar el código del servicio antes de publicarlo en Azure.
 
 En esta sección, probará la nueva aplicación en el servicio móvil que se ejecuta de manera local.
@@ -19,5 +19,4 @@ En esta sección, probará la nueva aplicación en el servicio móvil que se eje
 
 	De este modo, se envía una solicitud POST al servicio móvil local. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
 
-
-<!--HONumber=42-->
+<!--HONumber=52--> 

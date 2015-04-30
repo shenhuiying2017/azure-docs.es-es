@@ -16,7 +16,7 @@
 	ms.date="02/27/2015" 
 	ms.author="juliako"/>
 
-# Formatos y códecs de Codificador multimedia de Azure
+#Formatos y códecs de Codificador multimedia de Azure
 
 Los codificadores comprimen los archivos multimedia digitales mediante códecs. Los codificadores normalmente tienen varias configuraciones que le permiten especificar propiedades de multimedia generadas, por ejemplo, los códecs que se utilizan, el formato de los archivos, la resolución y la velocidad de bits. Los formatos de archivo son contenedores que contienen el vídeo comprimido, así como información sobre los códecs que se utilizaron para comprimir el video. 
 
@@ -32,11 +32,11 @@ Este documento contiene una lista de los formatos de archivo de importación y e
 [Formatos de exportación del codificador multimedia ](#export_formats)
 
 
-## <a id="import_formats"></a>Formatos de importación del codificador multimedia 
+##<a id="import_formats"></a>Formatos de importación del codificador multimedia 
 
 En la siguiente sección se enumeran los códecs y el formato de archivo que se admiten para la importación.
 
-### Códecs de vídeo
+###Códecs de vídeo
 
 - H.264 (perfil de línea de base, perfil principal y perfil alto)
 - MPEG-1 (incluido MPEG-PS)
@@ -47,27 +47,27 @@ En la siguiente sección se enumeran los códecs y el formato de archivo que se 
 - DV (DVC, DVHD, DVSD, DVSL)
 - Grass Valley HQ/HQX
  
-### Códecs de audio
+###Códecs de audio
 
 - AC-3 (audio Dolby Digital)
 - AAC (AAC-LC, HE-AAC v1 con núcleo AAC-LC y HE-AAC v2 con núcleo AAC-LC)
 - MP3
 - Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional y Windows Media Audio Lossless)
 
-### Formatos de archivo de vídeo
+###Formatos de archivo de vídeo
  
 <table border="1">
 <tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
-<tr><td>3GPP, 3GPP2</td><td>.3gp, .3g2, .3gp2</td></tr>
+<tr><td>3GPP, 3GPP2</td><td>.3gp, .3g2 y .3gp2</td></tr>
 <tr><td>Formato Advanced Systems (ASF)</td><td>.asf</td></tr>
-<tr><td>Alta definición de codificación de vídeo avanzado (AVCHD) [Secuencia de transporte MPEG-2]</td><td>.mts, .m2ts</td></tr>
+<tr><td>Alta definición de codificación de vídeo avanzado (AVCHD) [Secuencia de transporte MPEG-2]</td><td>.mts y .m2ts</td></tr>
 <tr><td>Audio y vídeo intercalado (AVI)</td><td>.avi</td></tr>
 <tr><td>Videograbadora digital MPEG-2 (MOD)</td><td>.mod</td></tr>
 <tr><td>Archivo de secuencia de transporte de DVD (TS)</td><td>.ts</td></tr>
 <tr><td>Archivo de objeto de video de DVD (VOB)</td><td>.vob</td></tr>
 <tr><td>Archivo Expression Encoder Screen Capture Codec</td><td>.xesc</td></tr>
 <tr><td>MP4</td><td>.mp4</td></tr>
-<tr><td>Secuencia de sistema MPEG-1</td><td>.mpeg, .mpg</td></tr>
+<tr><td>Secuencia de sistema MPEG-1</td><td>.mpeg y .mpg</td></tr>
 <tr><td>Archivo de vídeo MPEG-2</td><td>.m2v</td></tr>
 <tr><td>Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3)</td><td>.ismv</td></tr>
 <tr><td>Windows Media Video (WMV)</td><td>.wmv</td></tr>
@@ -75,7 +75,7 @@ En la siguiente sección se enumeran los códecs y el formato de archivo que se 
 
 Se admiten algunos formatos no comprimidos. Para obtener más información, consulte [Formatos de vídeo no comprimido admitidos](#uncompressed)
 
-### Formatos de archivo de audio
+###Formatos de archivo de audio
 
 <table border="1">
 <tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
@@ -89,20 +89,20 @@ Se admiten algunos formatos no comprimidos. Para obtener más información, cons
 <tr><td>Windows Media Audio</td><td>.wma</td></tr>   
 </table>
 
-### Formatos de archivo de imagen
+###Formatos de archivo de imagen
 
 <table border="1">
 <tr><th>Formato de archivo</th><th>Extensiones de archivo</th></tr>
 <tr><td>Mapa de bits</td><td>.bmp</td></tr>
 <tr><td>GIF, GIF animado</td><td>.gif</td></tr>
-<tr><td>JPEG</td><td>.jpeg, .jpg</td></tr>
+<tr><td>JPEG</td><td>.jpeg y .jpg</td></tr>
 <tr><td>PNG</td><td>.png</td></tr>
 <tr><td>TIFF</td><td>.tif</td></tr>
 <tr><td>WPF Canvas XAML</td><td>.xaml</td></tr>
 </table>
 
 
-## <a id="export_formats"></a>Formatos de exportación del codificador multimedia
+##<a id="export_formats"></a>Formatos de exportación del codificador multimedia
 
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
 
@@ -118,7 +118,7 @@ AAC-LC, HE-AAC v1, HE-AAC v2</td></tr>
 
 Para conocer códecs y filtros adicionales admitidos en Servicios multimedia, consulte [Filtros de Windows DirectShow](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
-## <a id="uncompressed"></a>Formatos de vídeo no comprimido admitidos 
+##<a id="uncompressed"></a>Formatos de vídeo no comprimido admitidos 
 
 Servicios multimedia de Azure proporciona compatibilidad para importar datos de vídeo no comprimido.
 
@@ -137,4 +137,4 @@ La siguiente es una lista parcial de los formatos no comprimidos admitidos.
 <tr><td>Formato YVU9 generado por Indeo</td><td>Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.</td></tr>
 </table>
 
-<!--HONumber=47-->
+<!--HONumber=52-->

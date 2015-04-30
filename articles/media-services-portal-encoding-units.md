@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Escalación de unidades reservadas de codificación" 
 	description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta." 
 	services="media-services" 
@@ -17,11 +17,11 @@
 	ms.author="juliako"/>
 
 
-# Escalación de codificación
+#Escalación de codificación
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) .
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
-## Información general
+##Información general
 
 Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan los trabajos de codificación. Puede elegir uno de los siguientes tipos de unidad reservada: **Basic**, **Standard** o **Premium**. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada **Standard** en comparación con el tipo **Basic**. Para obtener más información, vea la [Codificación de tipos de unidad reservada](http://azure.microsoft.com/blog/author/milanga).
 
@@ -49,12 +49,12 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 
 	>[Azure.Note] Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste.
 
-## Cuotas y limitaciones
+##Cuotas y limitaciones
 
-Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](../media-services-quotas-and-limitations).
-
-
+Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 
 
 
-<!--HONumber=47-->
+
+
+<!--HONumber=52-->

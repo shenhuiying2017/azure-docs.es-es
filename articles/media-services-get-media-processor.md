@@ -17,9 +17,9 @@
 	ms.author="juliako"/>
 
 
-#Procedimiento: Obtención de una instancia de procesador multimedia
+#Obtención de una instancia de procesador multimedia
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
 
 ##Información general
 
@@ -38,23 +38,28 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
   <tbody>
     <tr>
        <td>Codificador multimedia de Azure</td>
-       <td>Le permite ejecutar tareas de codificación con el Codificador multimedia.</td>
+       <td>Le permite ejecutar tareas de codificación con el Codificador multimedia de Azure.</td>
        <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Cadenas preestablecidas de tarea para el Codificador multimedia de Azure</a></td>
+    </tr>
+    <tr>
+       <td>Flujo de trabajo del Codificador multimedia</td>
+       <td>Le permite ejecutar tareas de codificación con el flujo de trabajo Premium del Codificador multimedia.</td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codificación con el flujo de trabajo Premium del Codificador multimedia.</a></td>
+    </tr>    
+	<tr>
+        <td>Azure Media Indexer</td>
+        <td>Le permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas y palabras clave de subtítulos (CC).</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Indización de archivos multimedia con el Indizador multimedia de Azure</a>.</td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
         <td>Le permite convertir recursos multimedia de .mp4 a un formato de Smooth Streaming. Además, le permite convertir recursos multimedia de Smooth Streaming al formato Apple HTTP Live Streaming (HLS).</td>
-		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Valores predefinidos del sistema Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>Le permite cifrar recursos multimedia con la protección PlayReady.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Valores predefinidos del sistema Azure Media Packager</a></td>
-    </tr>
-    <tr>
-        <td>Azure Media Indexer</td>
-        <td>Le permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas y palabras clave de subtítulos (CC).</td>
-		<td>N/D</td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure</a></td>
     </tr>
     <tr>
         <td>Storage Decryption</td>
@@ -65,7 +70,7 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
 
 <br />
 
-##Obtener procesador multimedia
+##Obtener MediaProcessor
 
 El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamado **_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Conexión con los Servicios multimedia mediante programación].
 
@@ -81,9 +86,10 @@ El siguiente método muestra cómo obtener una instancia del procesador multimed
 	}
 
 ##Pasos siguientes
-Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema [Codificación de un recurso][], que le mostrará cómo usar el Codificador multimedia de Azure para codificar un recurso.
+Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema [Codificación de un recurso][], que le mostrará cómo utilizar el Codificador multimedia de Azure para codificar un recurso.
 
-[Codificación de un recurso]: ../media-services-encode-asset/
+[Codificación de un recurso]: media-services-encode-asset.md
 [Cadenas preestablecidas de tarea para el Codificador multimedia de Azure]: http://msdn.microsoft.com/library/jj129582.aspx
 [Conexión con los Servicios multimedia mediante programación]: ../media-services-set-up-computer/
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

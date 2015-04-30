@@ -10,19 +10,19 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="11/24/2014" 
 	ms.author="mahender"/>
 
-# <a name="getting-started">Introducción a los Servicios móviles</a>
+# <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Este tutorial le mostrará cómo aprovechar los Servicios móviles de Azure en las aplicaciones con Appcelerator integrado.
 
-Con este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará usa JavaScript para la lógica de negocios de servidor.
+En este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple de _To do list_ que almacena datos de la aplicación en el nuevo servicio móvil. El servicio móvil que se creará usa JavaScript para la lógica de negocios de servidor.
 
 Para completar este tutorial se necesita [Appcelerator Titanium].
 
@@ -30,7 +30,7 @@ Si compila para iOS, también necesitará Xcode 5.1 y el SDK de iOS 7.1, o versi
 
 Si compila para Android, también necesitará Android 4.3 o un SDK superior.
 
-## <a name="create-new-service"></a>Creación de un servicio móvil
+## <a name="create-new-service"> </a>Creación de un servicio móvil
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
@@ -44,19 +44,19 @@ Si compila para Android, también necesitará Android 4.3 o un SDK superior.
 
 4. Si todavía no lo ha hecho, descargue e instale [Appcelerator Titanium Studio][Appcelerator Titanium] y el SDK v3.2.1 o superior. También necesita Xcode (v 5.0 +) y/o el SDK de Android (v 4.3+) para ejecutar el proyecto.
 
-5. Vuelva al portal de Servicios móviles y, en el **Panel**, seleccione **Administrar claves** y copie la información de **Clave de aplicación**.
+5. Vuelva al portal de Servicios móviles y, bajo **Panel**, seleccione **Administrar claves** y copie la información de **Clave de aplicación**.
 
-5. En el archivo index.js de la aplicación, reemplace `<---App Name---->` y `<------------APP KEY------------>` por los valores del servicio móvil.
+5. En el archivo index.js de la aplicación, sustituya `<---App Name---->` y `<------------APP KEY------------>` por los valores de su servicio móvil.
 
 ## Ejecución de la nueva aplicación Appcelerator ##
 
 La etapa final de este tutorial consiste en crear y ejecutar la aplicación nueva.
 
-1. Abra Titanium Studio y vaya a **Archivo -> Importar** para importar el proyecto que descargó anteriormente.
+1. Abra Titanium Studio y vaya a **File (Archivo) -> Import (Importar)** para importar el proyecto que descargó anteriormente.
 
     ![][0]
 
-2.	En la siguiente pantalla, seleccione **Proyectos existentes en área de trabajo** y haga clic en **Siguiente**.
+2.	En la siguiente pantalla, seleccione **Existing Projects into Workspace** (Proyectos existentes en el área de trabajo) y haga clic en **Next** (Siguiente).
 
     ![][1]
 
@@ -64,7 +64,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
     ![][2]
 
-4.	Por último, se mostrará el proyecto que ha seleccionado en la sección de proyectos. Opcionalmente, puede activar la opción &quot;Copy projects into workspace&quot;, que copiará el proyecto descargado en el área de trabajo. Por último, haga clic en Finish para abrir el proyecto en Titanium Studio.
+4.	Por último, se mostrará el proyecto que ha seleccionado en la sección de proyectos. Opcionalmente, puede activar la opción &quot;Copy projects into workspace&quot; (Copiar proyectos en el área de trabajo), que copiará el proyecto descargado en el área de trabajo. Por último, haga clic en Finish para abrir el proyecto en Titanium Studio.
 
     ![][3]
 
@@ -78,7 +78,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
     ![][5]
 
-8.	En la pantalla siguiente, haga clic en el icono del signo más (+), escriba un texto significativo, como por ejemplo &quot;Finalizar este tutorial&quot;, y haga clic en el botón Save.<br />
+8.	En la pantalla siguiente, haga clic en el icono del signo más (+), escriba un texto significativo, como por ejemplo &quot;Finalizar este tutorial&quot; y haga clic en el botón Save (Guardar).<br />
 
     ![][6]
 
@@ -91,7 +91,7 @@ Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Mic
 
 >[AZURE.NOTE] Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, que se encuentra en el archivo TodoService.m.
 
-4. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItems**.
+4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
 
    	![][9]
 
@@ -100,7 +100,7 @@ Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Mic
    	![][10]
 
 
-## <a name="next-steps">Pasos siguientes</a>
+## <a name="next-steps"> </a>Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles: 
 
 * [Introducción a la autenticación]
@@ -127,13 +127,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- URLs. -->
 [Aplicación Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Introducción a la autenticación]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Introducción a la autenticación]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[Introducción a las notificaciones de inserción]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md
 
-
-
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

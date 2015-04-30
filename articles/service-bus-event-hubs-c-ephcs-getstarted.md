@@ -24,17 +24,17 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general sobre Centros de eventos][Información general de los Centros de eventos].
+Para obtener más información, consulte [Información general sobre Centros de eventos].
 
-En este tutorial, aprenderá a recopilar mensajes en un centro de eventos mediante una aplicación de consola en C y a recuperarlos en simultáneo con la biblioteca [EventProcessorHost][Host del procesador de eventos] de C#.
+En este tutorial, aprenderá a recopilar mensajes en un centro de eventos mediante una aplicación de consola en C y a recuperarlos en simultáneo con la biblioteca [Host del procesador de eventos] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
++ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Prueba gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ## Creación de un Centro de eventos
 
@@ -56,7 +56,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
    	![][4]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla denominada **SendRule** con derechos *Send*, agregue otra regla llamada **ReceiveRule** con derechos *Manage, Send, Listen* y, a continuación, haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla llamada **SendRule** con derechos para *enviar*, agregue otra regla llamada **ReceiveRule** con derechos para *administrar, enviar y escuchar* y luego haga clic en **Guardar**.
 
    	![][5]
 
@@ -103,5 +103,6 @@ Ahora está preparado para ejecutar las aplicaciones.
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-<!--HONumber=47-->
+[Información general sobre Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+
+<!--HONumber=52-->

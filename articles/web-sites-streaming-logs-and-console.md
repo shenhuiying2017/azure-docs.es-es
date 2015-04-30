@@ -1,14 +1,14 @@
-﻿<properties 
+<properties 
 	pageTitle="Consola y registros de streaming" 
 	description="Información general de la consola y los registros de transmisión" 
 	authors="adamabdelhamed" 
 	manager="wpickett" 
 	editor="" 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
@@ -20,13 +20,13 @@
 
 ### Registros de streaming ###
 
-El portal de vista previa de Microsoft Azure ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde los sitios web en tiempo real.  
+El Portal de Microsoft Azure ofrece un visor de registros de streaming integrado que le permite ver los eventos de seguimiento desde las aplicaciones web del Servicio de aplicaciones de Azure en tiempo real.  
 
 La configuración requiere algunos pasos sencillos:
 
 - Escritura de seguimientos en el código.
-- Habilitación de diagnóstico de aplicaciones desde el portal de vista previa de Azure.
-- Clic en los registros de transmisión que forman parte del cuadro del sitio web.
+- Habilitación de Diagnóstico de aplicaciones desde el Portal de Azure.
+- Clic en los registros de streaming en la hoja de la aplicación web
 
 ### Cómo escribir los seguimientos en el código ###
 
@@ -44,9 +44,9 @@ Trace.TraceWarning("My warning statement");
 Trace.TraceError("My error statement");
 `````````````````````````
 
-La clase de seguimientos se encuentra en el espacio de nombres System.Diagnostics.
+La clase Trace reside en el espacio de nombres System.Diagnostics.
 
-En una aplicación node.js, puede escribir este código para conseguir el mismo resultado:
+In a node.js app you can write this code to achieve the same result:
 
 `````````````````````````
 console.log("My trace statement").
@@ -54,23 +54,23 @@ console.log("My trace statement").
 
 ### Habilitación y visualización de registros de transmisión ###
 
-El diagnóstico se habilita según el sitio web.  En el [portal](https://portal.azure.com), haga clic en el botón **Browse** de la barra de menú izquierda y, a continuación, haga clic en **Websites** para obtener la lista de todos los sitios web.  
+El diagnóstico se habilita según la aplicación web.  Desde el [portal](https://portal.azure.com), haga clic en el botón **Examinar** situado en la barra de menú de la izquierda y, a continuación, haga clic en **Aplicaciones web** para obtener la lista de todas las aplicaciones web.  
 
 ![][BrowseSitesScreenshot]
 
-Haga clic en el nombre del sitio web que desea configurar.  A continuación, haga clic en la parte denominada **DIAGNOSTIC LOGS** y cambie **Application Logging (Filesystem)** a la configuración **ON**.  Aparecerá la opción **Level**, que le permitirá cambiar el nivel de gravedad de los seguimientos que desea capturar.  Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
+Haga clic en el nombre de la aplicación web que desea configurar.  A continuación, haga clic en la parte denominada **DIAGNOSTIC LOGS** y cambie **Application Logging (Filesystem)** a la configuración **ON**.  Aparecerá la opción **Level**, que le permitirá cambiar el nivel de gravedad de los seguimientos que desea capturar.  Debe configurar esto en **Detallado** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
 
-Haga clic en **GUARDAR** en la parte superior del cuadro y estará listo para ver los registros.
+Haga clic en **SAVE** en la parte superior del cuadro y estará listo para ver los registros.
 
-Para ver los registros de streaming desde dentro del portal, haga clic en la parte **REGISTROS DE STREAMING** del cuadro del sitio web.  Si el sitio escribe instrucciones de seguimiento activamente, debe verlas en la ventana resultante prácticamente en tiempo real.
+Para ver los registros de streaming desde dentro del portal, haga clic en la parte **STREAMING LOGS** de la hoja del sitio web.  Si la aplicación escribe instrucciones de seguimiento activamente, debe verlas en la ventana resultante prácticamente en tiempo real.
 
 ![][StreamingLogsScreenshot]
 
 ## Consola ##
 
-El portal de vista previa de Azure ofrece acceso a la consola para el entorno del sitio web. Puede explorar el sistema de archivos del sito web y ejecutar los scripts de cmd/powershell.  Se realizará la vinculación mediante los mismos permisos establecidos en el código del sitio web en ejecución cuando se ejecuten los comandos de consola. No podrá obtener acceso a los directorios protegidos o ejecutar scripts que requieran permisos elevados.  
+El Portal de Azure proporciona acceso a la consola para el entorno de la aplicación web. Puede explorar el sistema de archivos de la aplicación web y ejecutar los scripts de cmd/powershell.  Se realizará la vinculación mediante los mismos permisos establecidos en el código de la aplicación web en ejecución cuando se ejecuten los comandos de consola. No podrá obtener acceso a los directorios protegidos o ejecutar scripts que requieran permisos elevados.  
 
-Para ir a la consola, desplácese al sitio web como se describe en la sección anterior.  Haga clic en la parte **Consola** y se abrirá la consola.
+Para ir a la consola, desplácese a una aplicación web, como se describe en la sección anterior.  Haga clic en la parte **Consola** y se abrirá la consola.
 
 ![][ConsoleScreenshot]
 
@@ -93,6 +93,4 @@ cd
 [StreamingLogsScreenshot]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!--HONumber=52-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones HTML 5" 
 	description="Siga este tutorial para introducirse en el uso de Servicios móviles de Azure para el desarrollo de HTML." 
 	services="mobile-services" 
@@ -10,20 +10,20 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
 
-# <a name="getting-started"> </a>Introducción a los Servicios móviles
+# <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>En este tutorial se indica cómo agregar un servicio back-end basado en la nube a una aplicación HTML mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>To do list (Lista de pendientes)</em> que almacena datos de la aplicación en el servicio móvil nuevo. Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.</p>
+<p>En este tutorial se indica cómo agregar un servicio back-end basado en la nube a una aplicación HTML mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>Lista de pendientes</em> que almacena datos de la aplicación en el servicio móvil nuevo. Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.</p>
 </div>
 <div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo</span></a> <span class="time">3:51</span></div>
 </div>
@@ -34,15 +34,15 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones HTML. 
 
-> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com.%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)  
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).  
 
 ###Requisitos adicionales
 
 + Este tutorial requiere que uno de los siguientes servidores web se esté ejecutando en su equipo local:
 
 	+  **En Windows**: IIS Express. IIS Express lo instala el [instalador de plataforma web de Microsoft].   
-	+  **En Mac OS X**: Python, que ya debería estar instalado.
-	+  **En Linux**: Python. Debe instalar la [última versión de Python] (información en inglés). 
+	+  **En MacOS X**: Python, que ya debería estar instalado.
+	+  **En Linux**: Python. Debe instalar la [versión más reciente de Python](información en inglés). 
 	
 	Puede usar cualquier servidor web para hospedar la aplicación, aunque estos son los servidores web que admiten los scripts descargados.  
 
@@ -76,7 +76,7 @@ En esta sección, creará una aplicación de HTML que se conecta al servicio mó
 
   	De este modo se descargan los archivos del sitio web para la aplicación _to do list_ de ejemplo conectada al servicio móvil. Guarde el archivo comprimido en el equipo local y anote dónde lo guardó.
 
-5. En la pestaña **Configurar**, compruebe que  `localhost` ya aparece en la lista **Permitir solicitudes de nombres de host** en **Compartir recursos entre orígenes (CORS)**. Si no es así, escriba  `localhost` en el campo **Nombre de host** y, a continuación, haga clic en **Guardar**.
+5. En la pestaña **Configurar**, compruebe que `localhost` ya aparece en la lista **Permitir solicitudes de nombres de host** en **Compartir recursos entre orígenes (CORS)**. Si no es así, escriba `localhost` en el campo **Nombre de host** y luego haga clic en **Guardar**.
 
   	![][9]
 
@@ -88,9 +88,9 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
 1. Busque la ubicación donde guardó los archivos comprimidos del proyecto, expanda los archivos en su equipo e inicie uno de los archivos de comandos siguientes desde la subcarpeta **server**.
 
-	+ **launch-windows**  (equipos Windows)
-	+ **launch-mac.command** (equipos Mac OS X)
-	+ **launch-linux.sh** (equipos Linux)
+	+ **launch-windows** (equipos con Windows) 
+	+ **launch-mac.command** (equipos con Mac OS X)
+	+ **launch-linux.sh** (equipos con Linux)
 
 	> [AZURE.NOTE] En un equipo con Windows, escriba "R" cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
 
@@ -98,7 +98,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
 2. Abra la URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> en un explorador web para iniciar la aplicación.
 
-3. En la aplicación, escriba texto significativo, como _Complete the tutorial_, en **Introducir nueva tarea** y, a continuación, haga clic en **Agregar**.
+3. En la aplicación, escriba un texto significativo, como _Realice el tutorial_, en **Introducir nueva tarea** y, a continuación, haga clic en **Agregar**.
 
    	![][10]
 
@@ -106,7 +106,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
 	> [AZURE.NOTE] Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo app.js.
 
-4. De vuelta en el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItems**.
+4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
 
    	![][11]
 
@@ -127,10 +127,10 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
   <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
 * **[Referencia conceptual de Servicios móviles con HTML/JavaScript]**
-  <br/>Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML/JavaScript. 
+  <br/>Obtenga más información sobre el uso de Servicios móviles con HTML/JavaScript 
 
 <!-- Anchors. -->
-[Introducción a los Servicios móviles]:#getting-started
+[Introducción a Servicios móviles]:#getting-started
 [Creación de un servicio móvil]:#create-new-service
 [Definición de la instancia del servicio móvil]:#define-mobile-service-instance
 [Pasos siguientes]:#next-steps
@@ -152,16 +152,14 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-html
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-html
-[Llamada a una API personalizada desde una aplicación HTML]: /es-es/documentation/articles/mobile-services-html-call-custom-api 
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-html
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-html
+[Llamada a una API personalizada desde una aplicación HTML]: mobile-services-html-call-custom-api.md 
 
 [Portal de administración]: https://manage.windowsazure.com/
 [Instalador de plataforma web de Microsoft]:  http://go.microsoft.com/fwlink/p/?LinkId=286333
 [versión más reciente de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client
+[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
 [Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

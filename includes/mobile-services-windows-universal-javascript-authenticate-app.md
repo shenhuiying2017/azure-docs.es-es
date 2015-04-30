@@ -1,4 +1,6 @@
-1.  Abra el archivo de proyecto default.js y, en la sobrecarga del método **app.OnActivated**, sustituya la última llamada al método **refreshTodoItems** por el siguiente código:
+
+
+1. Abra el archivo de proyecto default.js y, en la sobrecarga del método **app.OnActivated**, sustituya la última llamada al método **refreshTodoItems** por el siguiente código: 
 
         // Define a member variable for storing the signed-in user.
         var userId = null;
@@ -30,16 +32,16 @@
             authenticate();
         });
 
-    Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: *microsoftaccount*, *twitter*, *google* o *windowsazureactivedirectory*.
+	Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método <strong>login</strong> anterior por uno de los siguientes: _microsoftaccount_, _twitter_, _google_, o _windowsazureactivedirectory_.
 
-    > [WACOM.NOTE]Si registró la información del paquete de la aplicación de la Tienda Windows en Servicios móviles, debe llamar al método [login][login] proporcionando un valor **true** para el parámetro *useSingleSignOn*. Si no realiza este procedimiento, los usuarios seguirán visualizando una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión.
+    >[AZURE.NOTE] Si ha registrado la información del paquete de la aplicación de la Tienda Windows en Servicios móviles, debe llamar al método <a href="http://go.microsoft.com/fwlink/p/?LinkId=322050" target="_blank">login</a> proporcionando un valor <strong>true</strong> para el parámetro <em>useSingleSignOn</em>. Si no realiza este procedimiento, los usuarios seguirán visualizando una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión.
 
-2.  En el proyecto de aplicación de la Tienda Windows, abra el archivo de proyecto default.html y agregue el siguiente elemento **botón** inmediatamente antes del elemento que define el botón **guardar**:
+2. En el proyecto de aplicación de la Tienda Windows, abra el archivo de proyecto default.html y agregue el siguiente elemento **button** justo antes del elemento que define el botón **save**:
 
-        <button id="buttonLogin" style="margin-left: 5px">Sign in</button>
+      	<button id="buttonLogin" style="margin-left: 5px">Sign in</button>
 
-3.  Presione la tecla F5 para ejecutar la aplicación e iniciar sesión en la aplicación con el proveedor de identidades seleccionado.
+3. Presione la tecla F5 para ejecutar la aplicación e iniciar sesión en la aplicación con el proveedor de identidades seleccionado. 
 
-    Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
+   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-  [login]: http://go.microsoft.com/fwlink/p/?LinkId=322050
+<!--HONumber=52-->

@@ -1,26 +1,26 @@
-﻿<properties 
-	pageTitle="Cómo utilizar el Bus de servicio de Azure con el SDK de WebJobs" 
+<properties 
+	pageTitle="Uso del Bus de servicio de Azure con el SDK de trabajos web" 
 	description="Aprenda a usar los temas y las colas del Bus de servicio de Azure con el SDK de WebJobs." 
-	services="web-sites, service-bus" 
+	services="app-service\web, service-bus" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
-# Cómo utilizar el Bus de servicio de Azure con el SDK de WebJobs
+# Uso del Bus de servicio de Azure con el SDK de trabajos web
 
 ## Información general
 
-Esta guía proporciona muestras de código de C# que muestran la manera de desencadenar un proceso cuando se crea o actualiza un blob de Azure. Las muestras de código usan el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
+Esta guía proporciona muestras de código de C# que muestran la manera de desencadenar un proceso cuando se crea o actualiza un blob de Azure. El código de ejemplo usa el [SDK de trabajos web](websites-dotnet-webjobs-sdk.md) , versión 1.x.
 
 En la guía se supone que sabe [cómo crear un proyecto de trabajos web en Visual Studio con cadenas de conexión que señalan a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md).
 
@@ -34,13 +34,21 @@ Los fragmentos de código solo muestran funciones, no el código que crea el obj
 		
 ## <a id="prerequisites"></a> Requisitos previos
 
-Para trabajar con el Bus de servicio debe instalar el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) además de los otros paquetes del SDK de WebJobs. 
+Para trabajar con el Bus de servicio debe instalar el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) además de los otros paquetes del SDK de trabajos web. 
 
-También debe establecer la cadena de conexión AzureWebJobsServiceBus además de las cadenas de conexión de almacenamiento.
+También debe establecer la cadena de conexión AzureWebJobsServiceBus además de las cadenas de conexión de almacenamiento.  Esto lo puede hacer en la sección `connectionStrings` del archivo Web.config, como se muestra en el ejemplo siguiente:
+
+		<connectionStrings>
+		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
+		    <add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
+		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
+		</connectionStrings>
+
+Para ver un proyecto de ejemplo, consulte [Ejemplo de Bus de servicio](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). Para obtener más información, consulte [Introducción al SDK de trabajos web](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## <a id="trigger"></a> Cómo desencadenar una función cuando se recibe un mensaje de la cola de Bus de servicio
 
-Para escribir una función a la que llama el SDK de WebJobs cuando se recibe un mensaje de la cola, use el atributo  `ServiceBusTrigger`. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola que se va a sondear.
+Para escribir una función a la que llama el SDK de trabajos web cuando se recibe un mensaje de la cola, use el atributo  `ServiceBusTrigger`. El constructor de atributo toma un parámetro de cadena que especifica el nombre de la cola que se va a sondear.
 
 ### Cómo funciona ServicebusTrigger
 
@@ -58,11 +66,11 @@ La siguiente muestra de código lee un mensaje en cola que contiene una cadena y
 		    logger.WriteLine(message);
 		}
 
-**Nota:** si va a crear los mensajes en cola en una aplicación que no usa el SDK de WebJobs, asegúrese de establecer [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) en "text/plain".
+**Nota:** si va a crear los mensajes en cola en una aplicación que no usa el SDK de trabajos web, asegúrese de establecer [BrokeredMessage.ContentType](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.brokeredmessage.contenttype.aspx) en "text/plain".
 
 ### Mensaje en cola de POCO
 
-El SDK deserializará automáticamente un mensaje de la cola que contenga JSON para un tipo POCO [(objeto CLR antiguo sin formato](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)). La siguiente muestra de código lee un mensaje de la cola que contiene un objeto `BlobInformation` que tiene una propiedad `BlobName`:
+El SDK deserializará automáticamente un mensaje en cola que contenga JSON para un tipo POCO ([objeto CLR antiguo sin formato](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)). La siguiente muestra de código lee un mensaje en cola que contiene un objeto a `BlobInformation` que tiene una propiedad `BlobName`:
 
 		public static void WriteLogPOCO([ServiceBusTrigger("inputqueue")] BlobInformation blobInfo,
 		    TextWriter logger)
@@ -70,15 +78,15 @@ El SDK deserializará automáticamente un mensaje de la cola que contenga JSON p
 		    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
 		}
 
-Para los ejemplos de código que muestran cómo utilizar las propiedades de POCO para que funcionen con blobs y tablas en la misma función, vea la [versión de colas de almacenamiento de este artículo](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#pocoblobs).
+Para ver los ejemplos de código que muestran cómo utilizar las propiedades de POCO para que funcionen con blobs y tablas en la misma función, consulte la [versión de colas de almacenamiento de este artículo](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs).
 
 ### Los tipos ServiceBusTrigger funcionan con
 
-Además de los tipos `string` y POCO  , puede utilizar el atributo `ServiceBusTrigger` con una matriz de bytes o un objeto `BrokeredMessage`.
+Además de los tipos `string` y POCO, puede usar el atributo `ServiceBusTrigger` con una matriz de bytes o un objeto `BrokeredMessage`.
 
-## <a id="create"></a> Cómo crear mensajes en cola del Bus de servicio
+## <a id="create"></a> Creación de mensajes en cola del Bus de servicio
 
-Para escribir una función que cree un nuevo mensaje de cola use el atributo `ServiceBus` y pase el nombre de la cola al constructor de atributos. 
+Para escribir una función que cree un nuevo mensaje en cola, use el atributo `ServiceBus` y pase el nombre de la cola al constructor de atributos. 
 
 
 ### Crear un mensaje en cola único en una función no asincrónica
@@ -97,13 +105,13 @@ El parámetro de salida para crear un mensaje en cola único puede ser cualquier
 * `string`
 * `byte[]`
 * `BrokeredMessage`
-* Un tipo POCO serializable que define Seriado automáticamente como JSON.
+* A serializable POCO type that you define. Automatically serialized as JSON.
 
 Para los parámetros de tipo POCO, siempre se crea un mensaje en cola cuando finaliza la función; si el parámetro es null, el SDK crea un mensaje en cola que devolverá null cuando se reciba y se deserialice el mensaje. Para los demás tipos, si el parámetro es null, no se creará ningún mensaje en cola.
 
 ### Crear varios mensajes en cola o en funciones asincrónicas
 
-Para crear varios mensajes, utilice el atributo `ServiceBus` con `ICollector<T>` o `IAsyncCollector<T>`, como se muestra en la muestra de código siguiente:
+Para crear varios mensajes, utilice el atributo `ServiceBus` con `ICollector<T>` o `IAsyncCollector<T>`, como se muestra en el ejemplo de código siguiente:
 
 		public static void CreateQueueMessages(
 		    [ServiceBusTrigger("inputqueue")] string queueMessage,
@@ -117,7 +125,7 @@ Para crear varios mensajes, utilice el atributo `ServiceBus` con `ICollector<T>`
 
 Cada mensaje en cola se crea inmediatamente cuando se llama al método `Add`.
 
-## <a id="topics"></a>Cómo trabajar con temas del Bus de servicio
+## <a id="topics"></a>Trabajo con temas del Bus de servicio
 
 Para escribir una función a la que llama el SDK cuando se recibe un mensaje en un tema del Bus de servicio, use el atributo `ServiceBusTrigger` con el constructor que toma el nombre del tema y el nombre de la suscripción, como se muestra en el siguiente código de ejemplo:
 
@@ -131,7 +139,7 @@ Para crear un mensaje sobre un tema, use el atributo `ServiceBus` con un nombre 
 
 ## <a id="queues"></a>Temas relacionados tratados en el artículo de procedimientos de las colas de almacenamiento
 
-Para obtener información acerca de los escenarios del SDK de WebJobs no específicos del Bus de servicio, vea [Cómo usar el almacenamiento en cola de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+Para obtener información acerca de los escenarios del SDK de trabajos web no específicos del Bus de servicio, vea [Uso del almacenamiento en cola de Azure con el SDK de trabajos web](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Entre los temas tratados en este artículo se incluyen los siguientes:
 
@@ -146,6 +154,6 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 
 ## <a id="nextsteps"></a> Pasos siguientes
 
-En esta guía se proporcionan ejemplos de código que muestran cómo controlar escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, vea [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+En esta guía se proporcionan ejemplos de código que muestran cómo controlar escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de trabajos web y el servicio de trabajos web de Azure, vea [Recursos recomendados de trabajos web de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

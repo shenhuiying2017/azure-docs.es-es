@@ -2,7 +2,7 @@
 
 <tags ms.service="media-services" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="media" ms.date="01/23/2015" ms.author="juliako" />
 
-# Cuotas y limitaciones
+#Cuotas y limitaciones
 
 En este tema se describen las cuotas y limitaciones relacionadas con los Servicios multimedia de Microsoft Azure.
 
@@ -20,14 +20,14 @@ En este tema se describen las cuotas y limitaciones relacionadas con los Servici
  
 - El número máximo de trabajos de su cuenta no debe superar los 50.000.
  
-- Puede eliminar los trabajos antiguos con **IJob.Delete** o con la solicitud HTTP **DELETE**. Para obtener más información, consulte [Límite de registro de trabajos del Codificador multimedia de Azure Media ](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) y [Administración de recursos](https://msdn.microsoft.com/es-es/library/azure/dn642436.aspx). 
+- Puede eliminar los trabajos antiguos con **IJob.Delete** o con la solicitud HTTP **DELETE**. Para obtener más información, consulte [Límite de registro de trabajos del Codificador multimedia de Azure Media ](http://blogs.msdn.com/b/randomnumber/archive/2014/05/05/job-record-limit-for-windows-azure-media-encoder.aspx) y [Administración de recursos](https://msdn.microsoft.com/library/azure/dn642436.aspx). 
  
 - Al realizar una solicitud para obtener una lista de las entidades Job, se devolverá un máximo de 1.000 por solicitud. Si necesita realizar un seguimiento de todos los trabajos enviados, puede usar top y skip, tal como se describe en [Opciones de consulta del sistema de OData](http://msdn.microsoft.com/library/gg309461.aspx).  
 
 
 - No puede tener más de cinco localizadores únicos asociados a un recurso determinado a la vez. 
 	
-	**Nota**
+	**Nota:**
 	Los localizadores no están diseñados para administrar el control de acceso por el usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
 
 - No puede tener más de 25 cuentas de Servicios multimedia en una sola suscripción.
@@ -54,9 +54,9 @@ En este tema se describen las cuotas y limitaciones relacionadas con los Servici
 	**Importante**
 	No cree más cuentas de Servicios multimedia para aumentar los límites; en su lugar, envíe una incidencia de soporte técnico.
 
-## Cómo solicitar un límite superior para las cuotas actualizables
+##Cómo solicitar un límite superior para las cuotas actualizables
 
-### Cuotas actualizables
+###Cuotas actualizables
 
 Puede solicitar la actualización de los límites de las cuotas siguientes abriendo una incidencia de soporte técnico.
 - Unidades de codificación
@@ -67,7 +67,7 @@ Puede solicitar la actualización de los límites de las cuotas siguientes abrie
  
 - Unidades de streaming
 
-### Abrir una incidencia de soporte técnico
+###Abrir una incidencia de soporte técnico
 
 Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
@@ -89,4 +89,5 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
  
 1. Haga clic en Submit para abrir la incidencia.
  
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

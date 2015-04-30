@@ -46,13 +46,13 @@
             completeAllTodoItems();
         });
 
-	Este método controla el evento **Click** del botón nuevo. El método **InvokeApiAsync** se llama en el cliente, el cual envía una solicitud POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores.
+	Este método controla el evento **Click** del botón nuevo. Se llama al método **InvokeApiAsync** en el cliente, el cual envía una solicitud POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores.
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
 1. En Visual Studio, presione la tecla **F5** para recompilar el proyecto e iniciar la aplicación.
 
-2. En la aplicación, escriba algo de texto en **Insert un TodoItem** y, a continuación, haga clic en **Guardar**.
+2. En la aplicación, escriba algo de texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
 
 3. Repita el paso anterior hasta que haya agregado varios elementos todo a la lista.
 
@@ -62,5 +62,4 @@
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
 
-
-<!--HONumber=42-->
+<!--HONumber=52-->

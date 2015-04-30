@@ -24,9 +24,9 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general sobre Centros de eventos][Información general de los Centros de eventos].
+Para obtener más información, consulte [Información general sobre Centros de eventos].
 
-En este tutorial, aprenderá a introducir mensajes en un centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo con la biblioteca [EventProcessorHost][Host del procesador de eventos] de C#.
+En este tutorial, aprenderá a introducir mensajes en un centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo con la biblioteca [Host del procesador de eventos] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Prueba gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ## Creación de un centro de eventos
 
@@ -103,6 +103,6 @@ Ahora está preparado para ejecutar las aplicaciones.
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Información general sobre Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!--HONumber=47-->
+<!--HONumber=52-->

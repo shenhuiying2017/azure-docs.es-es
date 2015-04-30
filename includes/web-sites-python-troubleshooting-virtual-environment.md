@@ -1,4 +1,4 @@
-﻿El script de implementación omitirá la creación del entorno virtual en Azure si detecta que ya existe un entorno virtual compatible.  Esto puede agilizar la implementación considerablemente.  Pip omitirá los paquetes que ya están instalados.
+El script de implementación omitirá la creación del entorno virtual en Azure si detecta que ya existe un entorno virtual compatible.  Esto puede agilizar la implementación considerablemente.  Pip omitirá los paquetes que ya están instalados.
 
 En algunas situaciones, puede que desee forzar la eliminación de dicho entorno virtual.  Deberá hacer esto si decide incluir un entorno virtual como parte del repositorio.  También puede que desee hacerlo si necesita eliminar ciertos paquetes o probar cambios en requirements.txt.
 
@@ -21,4 +21,4 @@ A continuación se ofrece una alternativa que aprovecha el hecho de que el scrip
 
 Si ha personalizado el script de implementación, puede cambiar el código en deploy.cmd para forzarlo a eliminar la carpeta env.
 
-<!--HONumber=49-->
+<!--HONumber=52--> 

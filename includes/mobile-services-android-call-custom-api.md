@@ -42,7 +42,7 @@
 
 
 
-5. En el Explorador de proyectos, haga clic con el botón secundario en el nombre del proyecto de la carpeta  *src* (`com.example.{your projects name}`), elija **Nueva** y, a continuación, en **Clase**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
+5. En el Explorador de proyectos, haga clic con el botón secundario en el nombre del proyecto de la carpeta  *src* (`com.example.{your projects name}`), elija **Nueva** y, a continuación, seleccione **Clase**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -111,4 +111,5 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
-<!--HONumber=47-->
+
+<!--HONumber=52-->

@@ -2,8 +2,6 @@
 
 **EventProcessorHost** es una clase de .NET que simplifica la recepción de eventos desde los Centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Centros de eventos. Con **EventProcessorHost**, puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar **EventProcessorHost** para un solo destinatario. El [ejemplo de procesamiento de eventos escalados horizontalmente] muestra cómo usar **EventProcessorHost** con varios destinatarios.
 
-Para obtener más información acerca de los patrones de recepción de los Centros de eventos , consulte la  [EGuía del desarrollador de los Centros de eventos].
-
 [EventProcessorHost] es una clase de .NET que simplifica la recepción de eventos desde los Centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Centros de eventos. Con [EventProcessorHost], puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar [EventProcessorHost] para un solo destinatario. El [ejemplo de procesamiento de eventos escalados horizontalmente] muestra cómo usar [EventProcessorHost] con varios destinatarios.
 
 Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento de Azure]:
@@ -18,43 +16,45 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 
    	![][12]
 
-	Copie la clave de acceso para su uso posterior.
+	Copie la clave de acceso para utilizarla más adelante en este tutorial.
 
 4. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Destinatario**.
 
    	![][14]
 
-5. En el Explorador de soluciones, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
+5. En el Explorador de soluciones, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
 	Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
 
-6. Busque  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, haga clic en **Instalar** y acepte los términos de uso. 
+6. Busque  `Microsoft Azure Service Bus Event Hub - EventProcessorHost`, haga clic en **Instalar** y acepte los términos de uso.
 
 	![][13]
 
 	Esto descarga, instala y agrega una referencia al <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Centro de eventos del Bus de servicio de Azure - Paquete de NuGet de EventProcessorHost</a>, con todas sus dependencias.
 
-7. Cree una clase nueva denominada **SimpleEventProcessor**y agregue las siguientes instrucciones en la parte superior del archivo:
+7. Haga clic con el botón secundario en el proyecto **Receptor**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Asigne a la nueva clase el nombre **SimpleEventProcessor** y después haga clic en **Aceptar** para crear la clase. 
+
+8. Agregue las siguientes instrucciones en la parte superior del archivo SimpleEventProcessor.cs:
 
 		using Microsoft.ServiceBus.Messaging;
 		using System.Diagnostics;
 		using System.Threading.Tasks;
 
-	A continuación, inserte el código siguiente como el cuerpo de la clase:
+	A continuación, sustituya el código siguiente por el cuerpo de la clase:
 
 		class SimpleEventProcessor : IEventProcessor
 	    {
 	        Stopwatch checkpointStopWatch;
-	        
+
 	        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	        {
-	            Console.WriteLine(string.Format("Processor Shuting Down.  Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason.ToString()));
+	            Console.WriteLine(string.Format("Processor Shuting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason.ToString()));
 	            if (reason == CloseReason.Shutdown)
 	            {
 	                await context.CheckpointAsync();
 	            }
 	        }
-	
+
 	        Task IEventProcessor.OpenAsync(PartitionContext context)
 	        {
 	            Console.WriteLine(string.Format("SimpleEventProcessor initialize.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset));
@@ -62,33 +62,33 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 	            this.checkpointStopWatch.Start();
 	            return Task.FromResult<object>(null);
 	        }
-	
+
 	        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
 	        {
 	            foreach (EventData eventData in messages)
 	            {
 	                string data = Encoding.UTF8.GetString(eventData.GetBytes());
-	                
+
 	                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
 	                    context.Lease.PartitionId, data));
 	            }
-	
+
 	            //Call checkpoint every 5 minutes, so that worker can resume processing from the 5 minutes back if it restarts.
-	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5)) 
-                { 
-                    await context.CheckpointAsync(); 
-                    this.checkpointStopWatch.Restart(); 
-                } 
+	            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+                {
+                    await context.CheckpointAsync();
+                    this.checkpointStopWatch.Restart();
+                }
 	        }
 	    }
 
 	**EventProcessorHost** llamará a esta clase para procesar los eventos recibidos del Centro de eventos. Tenga en cuenta que la clase  `SimpleEventProcessor` usa un cronómetro para llamar periódicamente al método de punto de control en el contexto **EventProcessorHost**. Esto garantiza que, si se reinicia el destinatario, no perderá más de cinco minutos de trabajo de procesamiento.
 
-8. En la clase **Program**, agregue las instrucciones  `using` siguientes en la parte superior:
+9. En la clase **Program**, agregue las instrucciones  `using` siguientes en la parte superior:
 
 		using Microsoft.ServiceBus.Messaging;
 		using System.Threading.Tasks;
-	
+
 	A continuación, agregue el código siguiente en el método **Main**; para ello, sustituya el nombre del Centro de eventos, la cadena de conexión, la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores:
 
 		string eventHubConnectionString = "{event hub connection string}";
@@ -101,17 +101,18 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
         string eventProcessorHostName = Guid.NewGuid().ToString();
         EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
         eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
-            
+
         Console.WriteLine("Receiving. Press enter key to stop worker.");
         Console.ReadLine();
 
-> [AZURE.NOTE] Este tutorial usa una sola instancia de [EventProcessorHost]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost], como se muestra en el [ejemplo de procesamiento de eventos escalados horizontalmente]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen  *all* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte  [Información general de los Centros de eventos] y [Guía de programación de Centros de eventos].
+> [AZURE.NOTE] Este tutorial usa una sola instancia de [EventProcessorHost]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost], como se muestra en el [ejemplo de procesamiento de eventos escalados horizontalmente]. En esos casos, las diversas instancias automáticamente se coordinan entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen  *all* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte [Información general de los Centros de eventos] y [Guía de programación de Centros de eventos].
 
 <!-- Links -->
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn821413.aspx
-[Ejemplo de procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Cuenta de almacenamiento de Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
+[Portal de administración de Azure]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -120,5 +121,6 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[EGuía del desarrollador de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-<!--HONumber=47-->
+[Guía de programación de Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+
+<!--HONumber=52--> 

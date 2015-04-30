@@ -48,7 +48,7 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 	
 	2. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto y elija Administrar paquetes de NuGet.
 	
-		The Manage NuGet Packages dialog box appears.
+		Aparecerá el cuadro de diálogo Administrar paquetes de NuGet.
 
 	3. En la galería en línea, busque Extensiones de Servicios multimedia de Azure, elija Extensiones del SDK de Servicios multimedia de Azure para .NET y luego haga clic en el botón Instalar.
  
@@ -97,4 +97,4 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 
 En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.    
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

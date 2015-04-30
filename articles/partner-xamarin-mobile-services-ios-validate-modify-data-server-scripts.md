@@ -1,19 +1,19 @@
-﻿<properties 
-	pageTitle="Uso de scripts de servidor para validar y modificar los datos (Xamarin iOS) | Centro de desarrollo móvil" 
-	description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación Xamarin iOS." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso de scripts de servidor para validar y modificar los datos (Xamarin iOS) | Centro de desarrollo móvil"
+	description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación Xamarin iOS."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/26/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/26/2014"
 	ms.author="donnam"/>
 
 # Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
@@ -35,11 +35,11 @@ Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial a
 
 Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En primer lugar, registre un script que valide la longitud de los datos de cadena enviados al servicio móvil y que rechace las cadenas demasiado largas, en este caso con más de 10 caracteres.
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación. 
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
 	![][0]
 
-2. Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
    	![][1]
 
@@ -47,38 +47,38 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
    	![][2]
 
-4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
+4. Sustituya el script existente por la siguiente función y luego haga clic en **Guardar**.
 
-    function insert(item, user, request) {
-        if (item.text.length > 10) {
-                request.respond(statusCodes.BAD_REQUEST, 'Text length must be 10 characters or less.');
-            } else {
-                request.execute();
-            }
+				function insert(item, user, request) {
+        	if (item.text.length > 10) {
+            request.respond(statusCodes.BAD_REQUEST, 'Text length must be 10 characters or less.');
+          } else {
+            request.execute();
+          }
         }
 
     Este script comprueba la longitud de la propiedad **text** y envía una respuesta de error cuando esta sobrepasa los 10 caracteres. En caso de no sobrepasarlos, se llama al método **execute** para completar la inserción.
 
-    > [AZURE.NOTE] Puede quitar un script registrado en la pestaña **Script** haciendo clic en**Borrar** y, a continuación, en**Guardar**.
+    > [AZURE.NOTE] Puede quitar un script registrado en la pestaña **Script** haciendo clic en **Borrar** y, a continuación, en **Guardar**.
 
 ## <a name="update-client-validation"></a>Actualización del cliente
 
 Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe actualizar la aplicación para que pueda identificar los errores de la validación.
 
-1. En Xamarin Studio, abra el proyecto que ha modificado cuando realizó el tutorial [Introducción a los datos].
+1. En Xamarin Studio, abra el proyecto que ha modificado al completar el tutorial [Introducción a los datos].
 
-2. Presione el botón **Run** (Ejecutar) para generar el proyecto e iniciar la aplicación y, a continuación, escriba el texto con más de 10 caracteres en el cuadro de texto y haga clic en el icono con el signo más (**+**).
+2. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación y, a continuación, escriba texto con más de 10 caracteres en el cuadro de texto y haga clic en el icono más (**+**).
 
-	Observe que la aplicación produce un error no controlado como resultado de la respuesta 400 (solicitud incorrecta) devuelta por el servicio móvil.	
+	Observe que la aplicación produce un error no controlado como resultado de la respuesta 400 (solicitud incorrecta) devuelta por el servicio móvil.
 
-3. En el archivo TodoService.cs, busque control de excepciones actual <code>try/catch</code> en el método **InsertTodoItemAsync** y reemplace el código <code>catch</code> por:
-    
+3. En el archivo TodoService.cs, busque el control actual de excepciones <code>try/catch</code> en el método **InsertTodoItemAsync** y sustituya <code>catch</code> por:
+
     catch (Exception ex) {
         var exDetail = (ex.InnerException.InnerException as MobileServiceInvalidOperationException);
         Console.WriteLine(exDetail.Message);
-                                
-        UIAlertView alert = new UIAlertView() { 
-            	Title = "Error", 
+
+        UIAlertView alert = new UIAlertView() {
+            	Title = "Error",
             	Message = exDetail.Message
         } ;
         alert.AddButton("Ok");
@@ -87,7 +87,7 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
         return -1;
 		}
 
-	De esta forma, aparece una ventana emergente que muestra el error al usuario. 
+	De esta forma, aparece una ventana emergente que muestra el error al usuario.
 
 4. Busque el método **OnAdd** en **TodoListViewController.cs**. Actualice el método para asegurarse de que el <code>index</code> devuelto no es <code>-1</code> como se devuelve en el control de excepciones en **InsertTodoItemAsync**. En este caso, no queremos agregar una nueva fila a <code>TableView</code>.
 
@@ -98,26 +98,26 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
     }
 
 
-5. Recompile e inicie la aplicación. 
+5. Recompile e inicie la aplicación.
 
 	![][4]
 
 	Observe que el error está controlado y que el mensaje de error se muestra al usuario.
 
 
-## <a name="next-steps">Pasos siguientes</a>
+## <a name="next-steps"> </a>Pasos siguientes
 
 Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación].
 
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales:
 
-* [Autorizar a los usuarios con scripts]
+* [Autorización de usuarios con scripts]
   <br/>Aprenda cómo filtrar los datos según el identificador de un usuario autenticado.
 
 * [Introducción a las notificaciones de inserción]
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia del script de servidor de Servicios móviles]
+* [Referencia del script del servidor de servicios móviles]
   <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
@@ -135,22 +135,16 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 [4]: ./media/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
 
 <!-- URLs. -->
-[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios
-[Autorizar a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Introducción a Servicios móviles]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Limitación de consultas con paginación]: /develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Portal de administración]: https://manage.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
 
-
-
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

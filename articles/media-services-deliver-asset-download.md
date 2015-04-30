@@ -16,13 +16,13 @@
 	ms.date="02/15/2015" 
 	ms.author="juliako"/>
 
-# un recurso mediante descarga
+#Entrega de un recurso mediante descarga
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) .  
 
-En este tema se analizan las opciones para entregar recursos multimedia cargados en los Servicios multimedia. Puede entregar contenido de los Servicios multimedia en diversos escenarios de aplicaciones. Puede descargar recursos multimedia o tener acceso a ellos mediante un localizador. Puede enviar contenido multimedia a otra aplicación o a otro proveedor de contenido. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una Red de entrega de contenido (CDN), como el servicio CDN de Azure.
+En este tema se analizan las opciones para entregar recursos multimedia cargados en los Servicios multimedia. Puede entregar contenido de los Servicios multimedia en diversos escenarios de aplicaciones. Puede descargar recursos multimedia o tener acceso a ellos mediante un localizador. Puede enviar contenido multimedia a otra aplicación o a otro proveedor de contenido. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una Red de entrega de contenido (CDN).
 
-En este ejemplo se muestra cómo descargar recursos multimedia desde los Servicios multimedia. El código consulta los trabajos asociados con la cuenta de Servicios multimedia por identificador de trabajo y tiene acceso a su colección **OutputMediaAssets** (que es el conjunto de uno o más recursos multimedia de salida que resultan de la ejecución de un trabajo). Este  ejemplo muestra cómo descargar recursos multimedia de salida desde un trabajo, pero puede aplicar el mismo enfoque para descargar otros recursos.
+En este ejemplo se muestra cómo descargar recursos multimedia desde los Servicios multimedia en el equipo local. El código consulta los trabajos asociados con la cuenta de Servicios multimedia por identificador de trabajo y tiene acceso a su colección **OutputMediaAssets** (que es el conjunto de uno o más recursos multimedia de salida que resultan de la ejecución de un trabajo). Este ejemplo muestra cómo descargar recursos multimedia de salida desde un trabajo, pero puede aplicar el mismo enfoque para descargar otros recursos.
 
 	
 	// Download the output asset of the specified job to a local folder.
@@ -41,7 +41,7 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 	
 		// Create a SAS locator to download the asset
 	    IAccessPolicy accessPolicy = _context.AccessPolicies.Create("File Download Policy", TimeSpan.FromDays(30), AccessPermissions.Read);
-	    ILocator locator = _context.Locators.CreateSasLocator(outputAsset, accessPolicy);
+	    ILocator locator = _context.Locators.CreateLocator(LocatorType.Sas, outputAsset, accessPolicy);
 	
 	    BlobTransferClient blobTransfer = new BlobTransferClient
 	    {
@@ -74,4 +74,5 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
   
-<!--HONumber=45--> 
+
+<!--HONumber=52-->

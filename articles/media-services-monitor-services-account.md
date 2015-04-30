@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Supervisión de una cuenta de Servicios multimedia en Azure" 
 	description="Describe cómo configurar la supervisión para la cuenta de Servicios multimedia en Azure." 
 	services="media-services" 
@@ -20,9 +20,9 @@
 
 
 
-# <a id="monitormediaservicesaccount"></a>Supervisión de una cuenta de Servicios multimedia
+#<a id="monitormediaservicesaccount"></a>Supervisión de una cuenta de Servicios multimedia
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md). 
 
 El panel Servicios multimedia de Azure presenta las métricas de uso y la información de la cuenta que se pueden utilizar para administrar la cuenta de Servicios multimedia.
 
@@ -30,15 +30,15 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
  
 >[AZURE.NOTE] Existen costes adicionales asociados a la supervisión de los datos de almacenamiento en el Portal de administración de Azure. Para obtener más información, consulte [Facturación y análisis de almacenamiento](http://go.microsoft.com/fwlink/?LinkId=256667).
 
-## <a id="configuremonitoring"></a>Procedimiento: Supervisión de una cuenta de Servicios multimedia
+##<a id="configuremonitoring"></a>Supervisión de una cuenta de Servicios multimedia
 
 1. En el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=256666), haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel. 
 
 	![MediaServices_Dashboard][dashboard]
 
-2. Para supervisar los datos o trabajos de codificación, comience a enviar los trabajos de codificación a Servicios multimedia, o comience a realizar streaming de contenido a los clientes a través de streaming a petición de Servicios multimedia de Azure. Debería empezar a ver los datos de supervisión en el panel al cabo de una hora aproximadamente.
+2. Para supervisar los datos o trabajos de codificación, comience a enviar los trabajos de codificación a Servicios multimedia, o comience a realizar streaming de contenido a los clientes a través de la transmisión por secuencias a petición de Servicios multimedia de Azure. Debería empezar a ver los datos de supervisión en el panel al cabo de una hora aproximadamente.
 
-## <a id="configuringstorage"></a>Procedimiento: uso de almacenamiento de blobs (opcional)
+##<a id="configuringstorage"></a>Supervisión del uso de almacenamiento de blobs (opcional)
 1. Haga clic en el nombre de la **CUENTA DE ALMACENAMIENTO** en la sección de **vista rápida**.
 2. En la página de la cuenta de almacenamiento, haga clic en el vínculo **página de configuración** y desplácese hacia abajo hasta la configuración de **supervisión** para los servicios Blob, Tabla y Cola, mostrados a continuación.
 
@@ -50,11 +50,11 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
 -  Para configurar el nivel de supervisión, seleccione una de las opciones siguientes:
 
-      **Mínimo**: recopila métricas como entrada/salida, disponibilidad, latencia y porcentajes de éxito, que se agregan a los servicios Blob, Tabla y Cola.
+      **Minimal**: recopila métricas como entrada/salida, disponibilidad, latencia y porcentajes de éxito, que se agregan a los servicios Blob, Tabla y Cola.
 
-      **Detallado**: además de las métricas mínimas, recopila el mismo conjunto de métricas para cada operación de almacenamiento en la API del Servicio de almacenamiento de Azure. Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones. 
+      **Verbose**: además de las métricas mínimas, recopila el mismo conjunto de métricas para cada operación de almacenamiento en la API del Servicio de almacenamiento de Azure. Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones. 
 
-      **Desactivado**: desactiva la supervisión. Los datos de supervisión existentes permanecen disponibles hasta el final del periodo de retención.
+      **Off**: desactiva la supervisión. Los datos de supervisión existentes permanecen disponibles hasta el final del periodo de retención.
 
 - Para configurar la directiva de retención de datos, en **Retención (en días)**, escriba el número de días que se deben retener los datos (entre 1 y 365). Si no desea configurar una directiva de retención, escriba un cero. Si no existe una directiva de retención, es posible eliminar los datos de supervisión. Recomendamos que configure una directiva de retención basada en el tiempo que desee retener los datos de análisis de almacenamiento de su cuenta, de modo que el sistema pueda eliminar sin coste los datos de análisis antiguos o no usados.
 
@@ -68,4 +68,4 @@ Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denom
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=45--> 
+<!--HONumber=52-->

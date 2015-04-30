@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Cómo agregar unidades de codificación" 
-	description="Información sobre cómo agregar unidades de codificación con .NET"  
+	description="Información sobre cómo agregar unidades de codificación con .NET" 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -19,11 +19,11 @@
 
 
 
-# Escalado de codificación con el SDK de .NET
+#Escalado de codificación con el SDK de .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) .
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
   
-## Información general
+##Información general
 
 Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan los trabajos de codificación. Puede elegir uno de los siguientes tipos de unidad reservada: Basic, Standard o Premium. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada Standard en comparación con el tipo Basic. Para obtener más información, consulte el blog acerca de los tipos de unidades reservadas de codificación escrito por [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
 
@@ -41,7 +41,7 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 	
 	Console.WriteLine("Number of reserved units: {0}", encodingBasicReservedUnit.CurrentReservedUnits);
 
-## Apertura de una incidencia de soporte técnico
+##Apertura de una incidencia de soporte técnico
 
 De manera predeterminada las cuentas de Servicios multimedia pueden escalar hasta 25 unidades reservadas de codificación y 5 de streaming a petición. Si desea solicitar un límite mayor, abra una incidencia de soporte técnico.
 
@@ -60,4 +60,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 11. Haga clic en Submit para abrir la incidencia.
 
 
-<!--HONumber=47-->
+<!--HONumber=52-->

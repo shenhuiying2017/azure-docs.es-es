@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="¿Qué es Azure Active Directory?" 
 	description="Use Azure Active Directory para ampliar sus identidades locales existentes en la nube para lograr una experiencia de usuario final y administración mejoradas, mientras que Microsoft mantiene Active Directory en ejecución en la nube con recuperación ante desastres integrada y alta escala y disponibilidad. O bien, desarrolle aplicaciones integradas de Azure AD para su organización o para otras organizaciones." 
 	services="active-directory" 
@@ -46,4 +46,4 @@ Azure AD tiene un número de niveles funcionales, que abarca desde un directorio
 * [Identidad de Azure](/manage/windows/fundamentals/identity/)
 * [Biblioteca de Azure AD en MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 
-<!--HONumber=47-->
+<!--HONumber=52-->

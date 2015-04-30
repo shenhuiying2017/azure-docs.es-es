@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a los Servicios móviles para aplicaciones de la Tienda Windows | Centro de desarrollo móvil" 
 	description="Siga este tutorial para aprender a usar Servicios móviles de Azure para el desarrollo de la Tienda Windows C# o JavaScript." 
 	services="mobile-services" 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="08/18/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
-# <a name="getting-started"> </a>Introducción a los Servicios móviles
+# <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación universal de Windows con Servicios móviles de Azure. 
 
-En este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple  *To do list* que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará utiliza JavaScript para la lógica de negocios de servidor. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en los lenguajes compatibles de .NET con Visual Studio, consulte la versión de back-end de .NET de este tema.
+Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará utiliza JavaScript para la lógica de negocios de servidor. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en los lenguajes compatibles de .NET con Visual Studio, consulte la versión de back-end de .NET de este tema.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure.](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F)
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Visual Studio 2013 Express para Windows]
 
 ## Creación de un servicio móvil
@@ -54,11 +54,11 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 3. Si todavía no lo ha hecho, descargue e instale [Visual Studio 2013][Visual Studio 2013 Express para Windows] en su equipo local o máquina virtual.
 
-4. Haga clic en **Crear tabla TodoItem** para crear una tabla donde almacenar los datos de la aplicación.
+4. Haga clic en **Crear tabla TodoItem** para crear una tabla para almacenar los datos de la aplicación.
 
 5. En **Descargar y ejecutar la aplicación**, seleccione un idioma para la aplicación y, a continuación, haga clic en **Descargar**. 
 
-  	De este modo se descarga el proyecto para la aplicación  *To do list* de ejemplo que está conectada al servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+  	De este modo se descarga el proyecto para la aplicación de *lista de pendientes* de muestra que está conectada al servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
 ## Ejecución de la aplicación de Windows
 
@@ -69,19 +69,16 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles: 
 
-* [Introducción a los datos]
-  <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
-
-* [Introducción a la autenticación]
+* [Incorporación de autenticación a la aplicación][Introducción a la autenticación]
   <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Introducción a las notificaciones de inserción]
+* [Incorporación de notificaciones de inserción a la aplicación][Introducción a las notificaciones de inserción] 
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-Para obtener más información acerca de las aplicaciones universales de Windows, vea [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil](mobile-services-how-to-use-multiple-clients-single-service#shared-vs.md).
+Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
-[Introducción a los Servicios móviles]:#getting-started
+[Introducción a Servicios móviles]:#getting-started
 [Creación de un servicio móvil]:#create-new-service
 [Definición de la instancia del servicio móvil]:#define-mobile-service-instance
 [Pasos siguientes]:#next-steps
@@ -89,13 +86,11 @@ Para obtener más información acerca de las aplicaciones universales de Windows
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Introducción a los datos]: mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
+[Introducción a la autenticación]: mobile-services-windows-store-javascript-get-started-users.md
+[Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-[SDK de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
+[SDK de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal de administración]: https://manage.windowsazure.com/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=52-->

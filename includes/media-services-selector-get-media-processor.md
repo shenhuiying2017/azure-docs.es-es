@@ -1,5 +1,5 @@
 > [AZURE.SELECTOR]
-- [.NET SDK](media-services-get-media-processor.md)
-- [REST API](media-services-rest-get-media-processor.md)
+- [.NET SDK](../articles/media-services-get-media-processor.md)
+- [REST API](../articles/media-services-rest-get-media-processor.md)
 
-<!--HONumber=47-->
+<!--HONumber=52--> 

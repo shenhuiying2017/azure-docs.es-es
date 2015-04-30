@@ -1,5 +1,5 @@
-﻿## Envío de mensajes a Centros de eventos
-En esta sección se escribirá una aplicación de consola Windows para enviar eventos al centro de eventos.
+## Envío de mensajes a Centros de eventos
+En esta sección se escribirá una aplicación de consola Windows que envía eventos al Centro de eventos.
 
 1. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Remitente**.
 
@@ -19,7 +19,7 @@ En esta sección se escribirá una aplicación de consola Windows para enviar ev
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Agregue los siguientes campos  `static` a la clase **Program**; para ello, sustituya los valores con el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión con derechos de **envío**:
+5. Agregue los siguientes campos a la clase **Program**; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión con derechos de **envío**:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -48,7 +48,7 @@ En esta sección se escribirá una aplicación de consola Windows para enviar ev
             }
         }
 
-	Este método enviará continuamente los eventos al Centro de eventos con un retraso de 200 ms.
+	Este método envía continuamente los eventos al Centro de eventos con un retraso de 200 ms.
 
 7. Por último, agregue las líneas siguientes al método **Main**:
 
@@ -61,4 +61,5 @@ En esta sección se escribirá una aplicación de consola Windows para enviar ev
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=47-->
+
+<!--HONumber=52--> 
