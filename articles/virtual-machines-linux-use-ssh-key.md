@@ -59,7 +59,7 @@ La utilidad  `openssl` puede leer directamente las claves privadas OpenSSH. El s
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
-El archivo **myCert.pem** es la clave pública que, a partir de entonces, se puede utilizar para aprovisionar Azure con una máquina virtual con Linux. Durante el aprovisionamiento, el archivo  `.pem` se convertirá en una clave pública compatible  `openssh` y se colocará en `~/.ssh/authorized_keys`..
+El archivo **myCert.pem** es la clave pública que, a partir de entonces, se puede utilizar para aprovisionar Azure con una máquina virtual con Linux. Durante el aprovisionamiento, el archivo  `.pem` se convertirá en una clave pública compatible  `openssh` y se colocará en `~/.ssh/authorized_keys`.
 
 
 ## Conexión a una Maquina virtual Azure desde Linux
@@ -70,7 +70,7 @@ El archivo **myCert.pem** es la clave pública que, a partir de entonces, se pue
 
 		# ssh -i  myPrivateKey.key -p <port> username@servicename.cloudapp.net
 
-3.	Opcionalmente, puede copiar  `myPrivateKey.key` a "~/.ssh/id_rs" para que su cliente OpenSSH pueda seleccionarla automáticamente sin usar la opción "-i".
+3.	De forma opcional, puede copiar  `myPrivateKey.key` a `~/.ssh/id_rsa` para que su cliente de OpenSSH pueda recuperarla automáticamente sin usar la opción `-i`.
 
 ## Obtención de OpenSSL para Windows ##
 ### Uso de msysgit ###
@@ -151,7 +151,4 @@ El archivo **myCert.pem** es la clave pública que, a partir de entonces, se pue
 
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
