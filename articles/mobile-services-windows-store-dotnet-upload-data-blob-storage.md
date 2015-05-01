@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de servicios móviles para cargar imágenes en el almacenamiento de blobs (Tienda Windows) | Servicios móviles" 
-	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure y acceder a las imágenes desde su aplicación de la Tienda Windows. 
+	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure y acceder a las imágenes desde su aplicación de la Tienda Windows." 
 	services="mobile-services, storage" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

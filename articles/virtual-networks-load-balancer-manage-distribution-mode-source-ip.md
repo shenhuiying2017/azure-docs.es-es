@@ -1,30 +1,26 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Administrar: Modo de distribución del equilibrador de carga (afinidad de IP de origen)" 
-   description="Características de administración para el modo de distribución del equilibrador de carga de Azure" 
-   services="virtual-network" 
+	authors="danielceckert" 
+	documentationCenter="dev-center-name" 
+	editor=""
+	manager="jefco" 
+	pageTitle="Administrar: Modo de distribución del equilibrador de carga (afinidad de IP de origen)" 
+	description="Características de administración para el modo de distribución del equilibrador de carga de Azure" 
+	services="virtual-network" 
    />
 
 <tags
-   ms.author="danecke"
-   ms.date="02/20/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
+	ms.author="danecke"
+	ms.date="02/20/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
    />
+<!-- HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md-->
    
 # Administrar la red virtual: Modo de distribución del equilibrador de carga (afinidad de IP de origen)
-=======
-   /> 
-   
-# Administrar la red virtual: Modo de distribución del equilibrador de carga (afinidad de IP de origen)
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+
 
 **Afinidad de IP de origen** (también conocida como **afinidad de la sesión** o **afinidad de IP del cliente**), un modo de distribución del equilibrador de carga de Azure, enlaza las conexiones de un solo cliente a un único servidor hospedado de Azure, en lugar de distribuir cada conexión de cliente de manera dinámica a distintos servidores hospedados de Azure (el comportamiento del equilibrador de carga predeterminado).
 

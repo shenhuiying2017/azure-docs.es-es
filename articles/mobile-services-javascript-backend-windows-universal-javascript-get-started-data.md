@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a los datos (JavaScript de la Tienda Windows) | Centro de desarrollo móvil" 
-	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación JavaScript de la Tienda Windows. 
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación JavaScript de la Tienda Windows." 
 	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 

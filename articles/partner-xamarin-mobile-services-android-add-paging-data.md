@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Incorporación de paginación a datos (Xamarin Android) | Centro de desarrollo móvil" 
-	description="Obtenga información acerca de cómo utilizar la paginación para administrar la cantidad de datos devueltos a la aplicación Xamarin Android desde Servicios móviles. 
+	description="Obtenga información acerca de cómo utilizar la paginación para administrar la cantidad de datos devueltos a la aplicación Xamarin Android desde Servicios móviles." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
