@@ -130,4 +130,5 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [archivo]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
 
+
 <!--HONumber=52-->

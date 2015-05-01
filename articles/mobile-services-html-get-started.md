@@ -162,4 +162,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Referencia conceptual de Servicios móviles con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
 [Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
+
 <!--HONumber=52-->

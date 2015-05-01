@@ -109,4 +109,5 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 [Análisis de los datos de sensor con Storm y HBase en HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 [Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
 
+
 <!--HONumber=52-->

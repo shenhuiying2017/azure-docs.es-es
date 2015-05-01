@@ -40,4 +40,5 @@ Para obtener más información acerca de cómo empezar a usar Visión operativa,
 
 - [Instalación y configuración del área de trabajo](operational-insights-setup-workspace.md)
 
+
 <!--HONumber=52-->

@@ -132,4 +132,5 @@ Puede resumir las evaluaciones de cumplimiento para su infraestructura y, a cont
 
 4. Adopte las medidas correctivas sugeridas en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registrarán las acciones recomendadas que se han realizado y aumentará su calificación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
+
 <!--HONumber=52-->

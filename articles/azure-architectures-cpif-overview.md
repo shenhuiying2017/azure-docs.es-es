@@ -59,4 +59,5 @@ Para admitir el desarrollo de arquitecturas de soluciones dentro de Azure, se pr
 
 [Búsqueda de Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
+
 <!--HONumber=52-->

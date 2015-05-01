@@ -274,4 +274,5 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Nuget del SDK de Aplicaciones móviles de Azure]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
 [Nuget del almacén de SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
 
+
 <!--HONumber=52-->

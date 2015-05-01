@@ -47,4 +47,5 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
 
 Ahora puede usar el nuevo inquilino de Azure AD para controlar el acceso a la suscripción de Azure y para configurar el acceso de usuario en RemoteApp.
 
+
 <!--HONumber=52-->

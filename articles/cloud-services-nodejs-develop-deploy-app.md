@@ -217,4 +217,5 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 [Cómo eliminar una cuenta de almacenamiento de una suscripción de Azure]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
+
 <!--HONumber=52-->

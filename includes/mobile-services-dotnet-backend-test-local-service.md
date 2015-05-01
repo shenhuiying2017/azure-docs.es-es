@@ -6,4 +6,5 @@ El proyecto de servicio móvil le permite ejecutar su nuevo servicio móvil loca
 
 2. Presione la tecla **F5** para recompilar el proyecto e iniciar el servicio móvil de manera local. Una vez que se inicia el servicio móvil correctamente, aparece una página web.
 
+
 <!--HONumber=52--> 

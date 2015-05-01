@@ -92,4 +92,5 @@ Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el
 [Cadenas preestablecidas de tarea para el Codificador multimedia de Azure]: http://msdn.microsoft.com/library/jj129582.aspx
 [Conexión con los Servicios multimedia mediante programación]: ../media-services-set-up-computer/
 
+
 <!--HONumber=52-->

@@ -101,4 +101,5 @@ Para obtener más información, consulte los temas y las publicaciones siguiente
   [Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure con archivos .user.ini]: http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx
   [Módulo de integración de Azure]: http://drupal.org/project/azure
 
+
 <!--HONumber=52-->

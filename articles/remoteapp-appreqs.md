@@ -56,4 +56,5 @@ Use las siguientes instrucciones para desarrollar aplicaciones para RemoteApp.
 - Debe ajustar y equilibrar el [uso de subprocesos](https://msdn.microsoft.com/library/aa383520.aspx) de la aplicación en un entorno de varios usuarios y procesadores.
 - Para optimizar el rendimiento, resulta adecuado [detectar](https://msdn.microsoft.com/library/aa380798.aspx) si las aplicaciones se están ejecutando en una sesión de cliente. 
 
+
 <!--HONumber=52-->

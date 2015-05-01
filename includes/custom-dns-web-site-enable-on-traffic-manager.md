@@ -6,4 +6,5 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
 
 > [AZURE.NOTE] Si su aplicación web no aparece en la lista al agregar un extremo, compruebe que está configurada para el modo de plan **estándar** del Servicio de aplicaciones. Si desea trabajar con el Administrador de tráfico, debe utilizar el modo **estándar** para su aplicación web.
 
+
 <!--HONumber=52--> 

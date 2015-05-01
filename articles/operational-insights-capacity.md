@@ -161,4 +161,5 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 4. En la herramienta **Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
 
 
+
 <!--HONumber=52-->

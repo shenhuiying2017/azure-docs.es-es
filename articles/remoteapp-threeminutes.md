@@ -37,4 +37,5 @@ Su opinión es importante. Al final de cada sesión, verá un cuadro de diálogo
 >[AZURE.NOTE] Debido a que este es un entorno controlado para uso de demostración, no tenemos habilitado el acceso externo a Internet desde las aplicaciones de demostración publicadas. Por lo tanto, servicios como OneDrive no se encuentran accesibles. Además, también está desactivado el uso compartido del portapapeles (copiar y pegar) y la redirección de impresora y USB.  
 
 
+
 <!--HONumber=52-->

@@ -50,4 +50,5 @@ Este documento describe un patrón para proporcionar acceso a servicios web o al
 [Nivel de procesamiento por lotes](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
 
+
 <!--HONumber=52-->

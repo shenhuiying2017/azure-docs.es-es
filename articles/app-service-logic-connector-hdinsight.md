@@ -123,4 +123,5 @@ Puede hacer clic en 'Ejecutar' para iniciar manualmente la aplicación lógica p
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 
+
 <!--HONumber=52-->

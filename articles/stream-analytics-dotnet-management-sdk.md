@@ -357,4 +357,5 @@ El método **Delete** eliminará el trabajo, además de los subrecursos subyacen
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
+
 <!--HONumber=52-->

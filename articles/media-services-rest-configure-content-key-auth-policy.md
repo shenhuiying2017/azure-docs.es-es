@@ -489,4 +489,5 @@ Agregue AuthorizationPolicy a ContentKey tal como se muestra [aquí](#AddAuthori
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
 
+
 <!--HONumber=52-->

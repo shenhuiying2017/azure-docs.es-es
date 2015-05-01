@@ -106,4 +106,5 @@ Para obtener más información acerca de las aplicaciones universales de Windows
 [Portal de administración]: https://manage.windowsazure.com/
 [Introducción a los datos en Servicios móviles con Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
 
+
 <!--HONumber=52-->

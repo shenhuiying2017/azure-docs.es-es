@@ -41,4 +41,5 @@ P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
 
 R: Si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Almacenamiento de blobs de Azure. No supone una ventaja si se colocan en la cuenta de Servicios multimedia a menos que desee mantenerlas asociadas a los recursos de vídeo o audio. O bien, si es posible que tenga que usar las imágenes como superposiciones en el codificador de vídeo. Codificador de Servicios multimedia es compatible con imágenes superpuestas en la parte superior de los vídeos, lo que hace que JPEG y PNG sean formatos de entrada compatibles. Para obtener más información, consulte [Creación de superposiciones](https://msdn.microsoft.com/library/azure/dn640496.aspx).
 
+
 <!--HONumber=52-->

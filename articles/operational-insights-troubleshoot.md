@@ -56,4 +56,5 @@ Si ambos problemas se dan, deberá instalar SQL Server 2008 R2 Service Pack 2. P
 Después de instalar el Service Pack, debería ver datos de Operational Insights para el servidor al cabo de 24 horas.
 
 
+
 <!--HONumber=52-->

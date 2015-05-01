@@ -30,4 +30,5 @@ Elija esta opción para ver el tutorial rápido implementado con .NET o REST.
 [Introducción a .NET](http://msdn.microsoft.com/library/azure/dn783465.aspx)
 
 
+
 <!--HONumber=52-->

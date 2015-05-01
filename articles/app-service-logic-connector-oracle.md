@@ -171,4 +171,5 @@ Puede probar la aplicación lógica mediante la adición de un nuevo registro en
 [Configuración del cliente de Oracle]: https://msdn.microsoft.com/es-es/library/dd787872.aspx
 
 
+
 <!--HONumber=52-->

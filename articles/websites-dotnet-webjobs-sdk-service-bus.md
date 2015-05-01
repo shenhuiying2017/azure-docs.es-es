@@ -156,4 +156,5 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 
 En esta guía se proporcionan ejemplos de código que muestran cómo controlar escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de trabajos web y el servicio de trabajos web de Azure, vea [Recursos recomendados de trabajos web de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
+
 <!--HONumber=52-->

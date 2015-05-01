@@ -56,4 +56,5 @@ Cada una de las áreas de servicio principales se describen con más detalle en 
 
 [Nivel de procesamiento por lotes](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
+
 <!--HONumber=52-->

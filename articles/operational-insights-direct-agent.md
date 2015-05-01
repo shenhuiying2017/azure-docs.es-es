@@ -82,4 +82,5 @@ Si dispone de servidores proxy o firewalls en el entorno que restrinjan el acces
 - [Publicación de blog: Habilitación de Vista operativa para Máquinas virtuales de Azure](http://azure.microsoft.com/updates/easily-enable-operational-insights-for-azure-virtual-machines/)
 
 
+
 <!--HONumber=52-->

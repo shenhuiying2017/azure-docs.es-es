@@ -39,4 +39,5 @@ Puede conectar Vista operativa a un entorno de System Center Operations Manager 
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](https://msdn.microsoft.com/library/azure/dn884643.aspx)
 
+
 <!--HONumber=52-->

@@ -51,4 +51,5 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 - Nunca modifique el script: las validaciones existen para su comodidad.
 - Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
 
+
 <!--HONumber=52-->

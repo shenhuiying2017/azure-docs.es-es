@@ -137,4 +137,5 @@ La siguiente es una lista parcial de los formatos no comprimidos admitidos.
 <tr><td>Formato YVU9 generado por Indeo</td><td>Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.</td></tr>
 </table>
 
+
 <!--HONumber=52-->

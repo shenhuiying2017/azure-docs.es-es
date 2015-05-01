@@ -87,4 +87,5 @@ Debe utilizar la última familia del SO invitado para diseñar los servicios en 
 
 Si la arquitectura de la aplicación web requiere una dependencia más profunda del sistema operativo subyacente, utilice capacidades admitidas por la plataforma, como las "[tareas de inicio](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" u otros mecanismos de extensibilidad que puedan existir en el futuro. Como alternativa, también puede usar [Máquinas virtuales de Azure](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS, Infraestructura como servicio), donde usted es responsable de mantener el sistema operativo subyacente.
 
+
 <!--HONumber=52-->

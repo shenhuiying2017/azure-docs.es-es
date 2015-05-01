@@ -140,4 +140,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
 
+
 <!--HONumber=52-->

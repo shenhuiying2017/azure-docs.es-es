@@ -65,4 +65,5 @@ Los anuncios se pueden colocar en cualquier punto de la línea de tiempo del ví
 
 Para obtener información acerca de la compatibilidad de anuncios y subtítulos en vídeos de streaming en vivo, vea [Estándares de inserción de anuncios y subtítulos compatibles](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad).
 
+
 <!--HONumber=52-->

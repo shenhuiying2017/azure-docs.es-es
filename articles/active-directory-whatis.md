@@ -46,4 +46,5 @@ Azure AD tiene un número de niveles funcionales, que abarca desde un directorio
 * [Identidad de Azure](/manage/windows/fundamentals/identity/)
 * [Biblioteca de Azure AD en MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 
+
 <!--HONumber=52-->

@@ -4,4 +4,5 @@
 >
 > **Con la aplicación web Gratis no se pueden usar nombres de dominio personalizados**. Debe configurar la aplicación para que use los modos **Compartido**, **Básico** o **Estándar**, ya que el uso de un modo u otro puede cambiar el precio de la suscripción. Para obtener más información, consulte <a href=/pricing/details/web-sites/">Detalles de precios de Aplicaciones web</a>.
 
+
 <!--HONumber=52--> 

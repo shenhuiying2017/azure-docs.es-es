@@ -93,4 +93,5 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de archivo
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Definición de la API del conector de archivos]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 
+
 <!--HONumber=52-->

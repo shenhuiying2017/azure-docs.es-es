@@ -713,4 +713,5 @@ Para obtener información sobre las tareas iniciales de Sencha Touch, consulte e
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
+
 <!--HONumber=52-->

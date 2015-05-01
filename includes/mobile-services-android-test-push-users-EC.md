@@ -9,4 +9,5 @@
 
 4. (Opcional) Repita los pasos 1 a 3 en otro dispositivo cliente y use otra cuenta para iniciar sesión. Compruebe que solo los dispositivos que autentican con la misma cuenta de usuario reciben la notificación. 
 
+
 <!--HONumber=52-->

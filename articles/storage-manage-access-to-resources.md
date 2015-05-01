@@ -208,4 +208,5 @@ Es preciso que la firma de acceso compartido y la directiva de acceso almacenada
 
 Para revocar el acceso a las firmas de acceso compartido que utilizan la misma directiva de acceso almacenada, quite la directiva almacenada de los recursos de almacenamiento; para ello, sobrescriba la lista de directivas almacenadas con una lista nueva que no contenga el nombre de la directiva. Para cambiar la configuración de acceso de una directiva de acceso almacenada, sobrescriba la lista de directivas almacenadas con una lista nueva que contenga una directiva con el mismo nombre, pero con nuevos datos para el control de acceso.
 
+
 <!--HONumber=52-->

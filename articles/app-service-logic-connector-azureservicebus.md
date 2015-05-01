@@ -79,4 +79,5 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Bus de 
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
+
 <!--HONumber=52-->

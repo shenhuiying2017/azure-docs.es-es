@@ -56,4 +56,5 @@ El panel **Uso** muestra la siguiente información:
 3. Si hay un grupo de administración que no está enviando datos, puede hacer clic en **Solucionar problemas** para obtener información detallada de solución de problemas. Si ya no desea mantener un grupo de administración y todos los agentes que se comunican con él, haga clic en **Quitar**.
 
 
+
 <!--HONumber=52-->

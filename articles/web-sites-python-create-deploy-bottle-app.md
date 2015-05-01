@@ -421,4 +421,5 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation 
 [Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
 
+
 <!--HONumber=52-->

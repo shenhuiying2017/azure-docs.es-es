@@ -495,4 +495,5 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
 
+
 <!--HONumber=52-->

@@ -56,4 +56,5 @@ Si ve alguno de los errores mencionados, revise lo siguiente:
 - Compruebe que las credenciales de unión a un dominio son correctas o que se cuenta con los permisos de unión a un dominio adecuados.
 - Compruebe que la unidad organizativa tenga el formato correcto y que exista en Active Directory.
 
+
 <!--HONumber=52-->

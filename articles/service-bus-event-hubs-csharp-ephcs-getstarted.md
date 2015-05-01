@@ -106,4 +106,5 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
 
+
 <!--HONumber=52-->

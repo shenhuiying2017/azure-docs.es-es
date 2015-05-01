@@ -123,4 +123,5 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 
 [Guía de programación de Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
+
 <!--HONumber=52--> 

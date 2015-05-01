@@ -78,4 +78,5 @@ Los resultados de búsqueda de *servidor* incluyen:
 
 4. Con la información que ha encontrado, puede crear un plan para aplicar las actualizaciones que faltan.
 
+
 <!--HONumber=52-->

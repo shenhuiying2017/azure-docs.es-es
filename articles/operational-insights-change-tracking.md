@@ -52,4 +52,5 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 
 4. En cualquier página de búsqueda, puede **exportar** los detalles de resultados en un archivo CSV que puede abrir con Excel u otra aplicación que permita las tareas de visualización o modificación.
 
+
 <!--HONumber=52-->

@@ -52,4 +52,5 @@ Puede usar controles de faceta y filtro para acotar sus resultados. La escritura
 - [Evento del Módulo de administración de IIS: equivalentes a las búsquedas de OpInsights de las reglas de alertas](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Recopilación de consultas de búsqueda útiles de Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
+
 <!--HONumber=52-->

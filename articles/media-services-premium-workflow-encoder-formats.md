@@ -126,4 +126,5 @@ Nota: no todos los formatos de salida anteriores se admiten para la entrega medi
 
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
 
+
 <!--HONumber=52-->

@@ -650,4 +650,5 @@ A continuación se describe cada atributo.
 
 **TruePeak**: este resultado contiene el valor absoluto true‐peak más grande en cualquier canal desde que se restableció la medición. Para obtener una descripción de pico verdadero, consulte ITU‐R BS.1770‐2. Los valores pueden oscilar entre -70 y 12,04 dBTP.
 
+
 <!--HONumber=52-->

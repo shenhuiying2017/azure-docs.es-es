@@ -245,4 +245,5 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 
 [Introducción al dispositivo físico](https://msdn.microsoft.com/library/azure/dn772410.aspx)
 
+
 <!--HONumber=52-->

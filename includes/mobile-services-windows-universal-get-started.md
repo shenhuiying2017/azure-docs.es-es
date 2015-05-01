@@ -9,4 +9,5 @@ A continuación se muestran las capturas de pantalla de la aplicación completad
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones de la Tienda Windows y de la Tienda Windows Phone.
 
+
 <!--HONumber=52--> 
