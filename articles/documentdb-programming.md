@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Programación de la Base de datos de documentos: Procedimientos almacenados, desencadenadores y UDF | Azure" 
-	description="Descubra cómo usar la Base de datos de documentos de Microsoft Azure para escribir procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) de forma nativa en JavaScript." 
+	pageTitle="Programación de la DocumentDB: Procedimientos almacenados, desencadenadores y UDF | Azure" 
+	description="Descubra cómo usar la DocumentDB de Microsoft Azure para escribir procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) de forma nativa en JavaScript." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,22 +16,22 @@
 	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
-# Programación de la Base de datos de documentos: procedimientos almacenados, desencadenadores y UDF
+# Programación de la DocumentDB: procedimientos almacenados, desencadenadores y UDF
 
-Conozca cómo la ejecución transaccional integrada del lenguaje de Base de datos de documentos de JavaScript permite a los desarrolladores escribir **procedimientos almacenados**, **desencadenadores** y **funciones definidas por el usuario (UDF)** de forma nativa en JavaScript. Esto permite escribir la lógica de la aplicación que se puede enviar y ejecutar directamente en las particiones de almacenamiento de la base de datos. 
+Conozca cómo la ejecución transaccional integrada del lenguaje de DocumentDB de JavaScript permite a los desarrolladores escribir **procedimientos almacenados**, **desencadenadores** y **funciones definidas por el usuario (UDF)** de forma nativa en JavaScript. Esto permite escribir la lógica de la aplicación que se puede enviar y ejecutar directamente en las particiones de almacenamiento de la base de datos. 
 
-Se recomienda comenzar con el vídeo siguiente, en el que Andrew Liu proporciona una breve introducción al modelo de programación del servidor de Base de datos de documentos. 
+Se recomienda comenzar con el vídeo siguiente, en el que Andrew Liu proporciona una breve introducción al modelo de programación del servidor de DocumentDB. 
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
 A continuación, vuelva a este artículo, donde conocerá las respuestas a las preguntas siguientes:  
 
 - ¿Cómo se escribe un procedimiento almacenado, un desencadenador o una UDF con JavaScript?
-- ¿Qué garantías ACID ofrece Base de datos de documentos?
-- ¿Cómo funcionan las transacciones en Base de datos de documentos?
+- ¿Qué garantías ACID ofrece DocumentDB?
+- ¿Cómo funcionan las transacciones en DocumentDB?
 - ¿Qué son los desencadenadores previos y posteriores y cómo se escriben?
 - ¿Cómo se registran y se ejecutan un procedimiento almacenado, un desencadenador o una UDF de forma compatible con REST mediante HTTP?
-- ¿Qué SDK de Base de datos de documentos está disponible para crear y ejecutar procedimientos almacenados, desencadenadores y UDF?
+- ¿Qué SDK de DocumentDB está disponible para crear y ejecutar procedimientos almacenados, desencadenadores y UDF?
 
 ##Introducción
 
@@ -39,11 +39,11 @@ Este enfoque de *"JavaScript como un T-SQL moderno"* libera a los desarrolladore
 
 -	**Lógica de procedimientos:** JavaScript, al ser un lenguaje de programación de alto nivel, proporciona una interfaz enriquecida y familiar para expresar la lógica de negocios. Puede realizar secuencias complejas de operaciones más cerca de los datos.
 
--	**Transacciones atómicas:** Base de datos de documentos garantiza que las operaciones de base de datos realizadas dentro de un único procedimiento almacenado o desencadenador sean atómicas. Esto posibilita que una aplicación combine operaciones relacionadas en un único lote, de forma que todas ellas se realicen correctamente o que ninguna lo haga. 
+-	**Transacciones atómicas:** DocumentDB garantiza que las operaciones de base de datos realizadas dentro de un único procedimiento almacenado o desencadenador sean atómicas. Esto posibilita que una aplicación combine operaciones relacionadas en un único lote, de forma que todas ellas se realicen correctamente o que ninguna lo haga. 
 
--	**Rendimiento:** el hecho de que JSON se asigne intrínsecamente al sistema de tipo de lenguaje de JavaScript y que también sea la unidad básica de almacenamiento en Base de datos de documentos permite realizar determinadas optimizaciones, como la materialización diferida de documentos JSON en el grupo de búferes y hacer que estén disponibles bajo demanda para el código de ejecución. Hay más ventajas de rendimiento asociadas con el envío de lógica de negocios a la base de datos:
+-	**Rendimiento:** el hecho de que JSON se asigne intrínsecamente al sistema de tipo de lenguaje de JavaScript y que también sea la unidad básica de almacenamiento en DocumentDB permite realizar determinadas optimizaciones, como la materialización diferida de documentos JSON en el grupo de búferes y hacer que estén disponibles bajo demanda para el código de ejecución. Hay más ventajas de rendimiento asociadas con el envío de lógica de negocios a la base de datos:
 	-	Procesamiento por lotes: los desarrolladores pueden agrupar operaciones como inserciones y enviarlas en masa. El coste de la latencia de tráfico de red y la sobrecarga de almacenamiento para crear transacciones independientes se reducen de forma significativa. 
-	-	Precompilación: la Base de datos de documentos precompila procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) para evitar el coste de compilación de JavaScript en cada invocación. La sobrecarga de generar el código de byte para la lógica de procedimiento se amortiza en un valor mínimo.
+	-	Precompilación: la DocumentDB precompila procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) para evitar el coste de compilación de JavaScript en cada invocación. La sobrecarga de generar el código de byte para la lógica de procedimiento se amortiza en un valor mínimo.
 	-	Secuenciación: muchas operaciones necesitan un efecto secundario ("desencadenador") que implica potencialmente realizar una o más operaciones de almacenamiento secundarias. Aparte de la atomicidad, tiene mayor rendimiento cuando se mueve al servidor. 
 -	**Encapsulación:** los procedimientos almacenados pueden utilizarse para agrupar la lógica de negocios en un solo lugar. Esto tiene dos ventajas:
 	-	Agrega una capa de abstracción en la parte superior de los datos sin procesar, lo cual permite a los arquitectos de datos desarrollar sus aplicaciones de forma independiente de los datos. Esto supone una especial ventaja cuando los datos no tienen esquema, debido a débiles suposiciones que se deben integrar en la aplicación si tienen que tratar directamente con los datos.  
@@ -89,12 +89,12 @@ Una vez que se registre el procedimiento almacenado, podemos ejecutarlo con la c
 		});
 
 
-El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de la Base de datos de documentos, así como acceso a los objetos de solicitud y respuesta. En este caso, hemos utilizado el objeto de respuesta para establecer el cuerpo de la respuesta que se ha devuelto al cliente. Para obtener más información, consulte la [documentación del SDK del lado del servidor JavaScript de Base de datos de documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/).  
+El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de la DocumentDB, así como acceso a los objetos de solicitud y respuesta. En este caso, hemos utilizado el objeto de respuesta para establecer el cuerpo de la respuesta que se ha devuelto al cliente. Para obtener más información, consulte la [documentación del SDK del lado del servidor JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).  
 
 Permítanos ampliar este ejemplo y agregar más funcionalidad relacionada con la base de datos al procedimiento almacenado. Los procedimientos almacenados pueden crear, actualizar, leer, consultar y eliminar documentos y datos adjuntos de la colección.    
 
 ##Ejemplo: Escritura de un procedimiento almacenado para crear un documento 
-En el siguiente fragmento, se muestra cómo utilizar el objeto de contexto para que interactúe con los recursos de Base de datos de documentos.
+En el siguiente fragmento, se muestra cómo utilizar el objeto de contexto para que interactúe con los recursos de DocumentDB.
 
 	var createDocumentStoredProc = {
 	    id: "createMyDocument",
@@ -113,7 +113,7 @@ En el siguiente fragmento, se muestra cómo utilizar el objeto de contexto para 
 	}
 
 
-Este procedimiento almacenado toma como entrada documentToCreate, el cuerpo de un documento que se va a crear en la colección actual. Todas estas operaciones son asíncronas y dependen de las devoluciones de llamadas de función de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que falle la operación y otro para el objeto creado. Dentro de la devolución de llamada, los usuarios pueden controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el tiempo de ejecución de Base de datos de documentos lanza un error.   
+Este procedimiento almacenado toma como entrada documentToCreate, el cuerpo de un documento que se va a crear en la colección actual. Todas estas operaciones son asíncronas y dependen de las devoluciones de llamadas de función de JavaScript. La función de devolución de llamada tiene dos parámetros, uno para el objeto de error en caso de que falle la operación y otro para el objeto creado. Dentro de la devolución de llamada, los usuarios pueden controlar la excepción o lanzar un error. En caso de que no se proporcione una devolución de llamada y haya un error, el tiempo de ejecución de DocumentDB lanza un error.   
 
 En el ejemplo anterior, la devolución de llamada lanza un error si falló la operación. De lo contrario, establece el identificador del documento creado como el cuerpo de la respuesta al cliente. A continuación se explica cómo se ejecuta este procedimiento almacenado con parámetros de entrada.
 
@@ -141,19 +141,19 @@ En el ejemplo anterior, la devolución de llamada lanza un error si falló la op
 	});
 
 	
-Tenga en cuenta que este procedimiento almacenado se puede modificar para tomar una matriz de cuerpos de documentos como la entrada y crearlos todos en la misma ejecución del procedimiento almacenado en lugar de en varias solicitudes de red para crear cada uno individualmente. Esto se puede utilizar para implementar un importador masivo eficiente para la Base de datos de documentos, algo que se tratará más adelante en este tutorial.   
+Tenga en cuenta que este procedimiento almacenado se puede modificar para tomar una matriz de cuerpos de documentos como la entrada y crearlos todos en la misma ejecución del procedimiento almacenado en lugar de en varias solicitudes de red para crear cada uno individualmente. Esto se puede utilizar para implementar un importador masivo eficiente para la DocumentDB, algo que se tratará más adelante en este tutorial.   
 
-El ejemplo descrito ha demostrado cómo utilizar procedimientos almacenados. Más tarde trataremos los desencadenadores y las funciones definidas por el usuario (UDF) en el tutorial. Primero, echemos un vistazo a las características generales de la compatibilidad de scripts en Base de datos de documentos.  
+El ejemplo descrito ha demostrado cómo utilizar procedimientos almacenados. Más tarde trataremos los desencadenadores y las funciones definidas por el usuario (UDF) en el tutorial. Primero, echemos un vistazo a las características generales de la compatibilidad de scripts en DocumentDB.  
 
 ##Compatibilidad con el tiempo de ejecución
-El [SDK del lado del servidor JavaScript de Base de datos de documentos](http://dl.windowsazure.com/documentDB/jsserverdocs/) proporciona compatibilidad para la mayoría de características del lenguaje JavaScript estándar como las estandarizadas por [ECMA-262](documentdb-interactions-with-resources.md).
+El [SDK del lado del servidor JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) proporciona compatibilidad para la mayoría de características del lenguaje JavaScript estándar como las estandarizadas por [ECMA-262](documentdb-interactions-with-resources.md).
  
 ##Transacciones
 Una transacción en una base de datos típica se puede definir como una secuencia de operaciones realizadas como una única unidad lógica de trabajo. Cada transacción proporciona **garantías ACID**. ACID es un acrónimo conocido que, por sus siglas en inglés, hace referencia a cuatro propiedades: Atomicidad, Coherencia, Aislamiento y Durabilidad.  
 
 Brevemente, la atomicidad garantiza que todo el trabajo realizado dentro de una transacción se lea como una única unidad donde se confirma todo o nada. La Coherencia asegura que los datos se encuentran siempre en buen estado interno en todas las transacciones. El Aislamiento garantiza que dos transacciones no pueden interferir entre ellas; generalmente, la mayoría de los sistemas comerciales proporcionan varios niveles de aislamiento que se pueden utilizar según las necesidades de aplicación. La Durabilidad asegura que cualquier cambio que esté confirmado en la base de datos estará siempre presente.   
 
-En la Base de datos de documentos, JavaScript está hospedado en el mismo espacio de memoria que la base de datos. Por lo tanto, las solicitudes realizadas dentro de los procedimientos almacenados y desencadenadores se ejecutan en el mismo ámbito de una sesión de base de datos. Esto permite a la Base de datos de documentos garantizar ACID para todas las operaciones que formen parte de un único procedimiento almacenado/desencadenador. Considere la siguiente definición de procedimiento almacenado:
+En la DocumentDB, JavaScript está hospedado en el mismo espacio de memoria que la base de datos. Por lo tanto, las solicitudes realizadas dentro de los procedimientos almacenados y desencadenadores se ejecutan en el mismo ámbito de una sesión de base de datos. Esto permite a la DocumentDB garantizar ACID para todas las operaciones que formen parte de un único procedimiento almacenado/desencadenador. Considere la siguiente definición de procedimiento almacenado:
 
 	// JavaScript source code
 	var exchangeItemsSproc = {
@@ -222,12 +222,12 @@ Este procedimiento almacenado utiliza transacciones con una aplicación de juego
 	
 
 ##Confirmación y reversión
-Las transacciones están integradas de forma profunda y nativa en el modelo de programación de JavaScript de la Base de datos de documentos. Dentro de una función de JavaScript, todas las operaciones se ajustan automáticamente en una única transacción. Si el JavaScript se completa sin excepciones, se confirman las operaciones en la base de datos. De hecho, las instrucciones "BEGIN TRANSACTION" y "COMMIT TRANSACTION" en la base de datos relacional están implícitas en Base de datos de documentos.  
+Las transacciones están integradas de forma profunda y nativa en el modelo de programación de JavaScript de la DocumentDB. Dentro de una función de JavaScript, todas las operaciones se ajustan automáticamente en una única transacción. Si el JavaScript se completa sin excepciones, se confirman las operaciones en la base de datos. De hecho, las instrucciones "BEGIN TRANSACTION" y "COMMIT TRANSACTION" en la base de datos relacional están implícitas en DocumentDB.  
  
-Si existe cualquier excepción que se propague desde el script, el tiempo de ejecución de JavaScript de la Base de datos de documentos revertirá toda la transacción. Como se muestra en el ejemplo anterior, iniciar una excepción es un equivalente efectivo de "ROLLBACK TRANSACTION" en Base de datos de documentos. 
+Si existe cualquier excepción que se propague desde el script, el tiempo de ejecución de JavaScript de la DocumentDB revertirá toda la transacción. Como se muestra en el ejemplo anterior, iniciar una excepción es un equivalente efectivo de "ROLLBACK TRANSACTION" en DocumentDB. 
 
 ###Coherencia de datos
-Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la réplica principal de la colección de la Base de datos de documentos. Esto garantiza que las lecturas desde dentro de los procedimientos almacenados ofrecen una fuerte coherencia. Las consultas que utilizan funciones definidas por el usuario se pueden ejecutar en la réplica principal o en cualquier réplica secundaria, pero nos aseguramos de cumplir con el nivel de coherencia solicitado seleccionando la réplica adecuada.
+Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la réplica principal de la colección de la DocumentDB. Esto garantiza que las lecturas desde dentro de los procedimientos almacenados ofrecen una fuerte coherencia. Las consultas que utilizan funciones definidas por el usuario se pueden ejecutar en la réplica principal o en cualquier réplica secundaria, pero nos aseguramos de cumplir con el nivel de coherencia solicitado seleccionando la réplica adecuada.
 
 ##Seguridad
 Los procedimientos almacenados y desencadenadores de JavaScript se encuentran en un espacio aislado para que los efectos de un script no se filtren al otro sin pasar por el aislamiento de la transacción de instantánea en el nivel de la base de datos. Los entornos de tiempo de ejecución se agrupan pero se borran del contexto tras cada ejecución. Por lo tanto se garantiza su seguridad de cualquier efecto secundario no intencionado entre ellos.
@@ -237,7 +237,7 @@ Los procedimientos almacenados, desencadenadores y UDF se precompilan implícita
 
 ##<a id="trigger"></a> Desencadenadores
 ###Desencadenadores previos
-La Base de datos de documentos proporciona desencadenadores que se ejecutan o desencadenan por una operación en un documento. Por ejemplo, puede especificar un desencadenador previo al crear un documento; este desencadenador previo se ejecutará antes de crear el documento. A continuación se muestra un ejemplo de cómo se pueden utilizar desencadenadores previos para validar las propiedades de un documento que se está creando:
+La DocumentDB proporciona desencadenadores que se ejecutan o desencadenan por una operación en un documento. Por ejemplo, puede especificar un desencadenador previo al crear un documento; este desencadenador previo se ejecutará antes de crear el documento. A continuación se muestra un ejemplo de cómo se pueden utilizar desencadenadores previos para validar las propiedades de un documento que se está creando:
 
 	var validateDocumentContentsTrigger = {
 	    name: "validateDocumentContents",
@@ -376,10 +376,10 @@ El desencadenador se puede registrar como se muestra en el siguiente ejemplo.
 
 Este desencadenador consulta el documento de metadatos y lo actualiza con detalles del documento recién creado.  
 
-Es importante tener en cuenta la ejecución **transaccional** de los desencadenadores en Base de datos de documentos. Este desencadenador posterior se ejecuta como parte de la misma transacción cuando se crea el documento original. Por lo tanto, si lanzamos una excepción desde el desencadenador posterior (en caso de que no podamos actualizar el documento de metadatos), fallará y se revertirá toda la transacción. No se creará ningún documento y se devolverá una excepción.  
+Es importante tener en cuenta la ejecución **transaccional** de los desencadenadores en DocumentDB. Este desencadenador posterior se ejecuta como parte de la misma transacción cuando se crea el documento original. Por lo tanto, si lanzamos una excepción desde el desencadenador posterior (en caso de que no podamos actualizar el documento de metadatos), fallará y se revertirá toda la transacción. No se creará ningún documento y se devolverá una excepción.  
 
 ##<a id="udf"></a>Funciones definidas por el usuario
-Las funciones definidas por el usuario (UDF) se utilizan para ampliar la gramática del lenguaje de consultas SQL de Base de datos de documentos e implementar la lógica empresarial personalizada. Solo se las puede llamar desde consultas internas. No tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, las UDF se pueden ejecutar en réplicas secundarias del servicio de la Base de datos de documentos.  
+Las funciones definidas por el usuario (UDF) se utilizan para ampliar la gramática del lenguaje de consultas SQL de DocumentDB e implementar la lógica empresarial personalizada. Solo se las puede llamar desde consultas internas. No tienen acceso al objeto de contexto y se supone que se deben utilizar como un JavaScript únicamente de cálculo. Por lo tanto, las UDF se pueden ejecutar en réplicas secundarias del servicio de la DocumentDB.  
  
 En el siguiente ejemplo, se crea una UDF para calcular la base imponible basada en tipos para varios niveles de renta y, a continuación, se usa dentro de una consulta para buscar a todas las personas que pagan más de 20.000 $ en impuestos.
 
@@ -421,11 +421,11 @@ La UDF se puede utilizar de forma consecuente en consultas como en el ejemplo si
 	});
 
 ##Ejecución vinculada
-Todas las operaciones de la Base de datos de documentos se deben completar dentro de la duración del tiempo de espera de la solicitud especificada. Esta restricción también se aplica a las funciones de JavaScript (procedimientos almacenados, desencadenadores y funciones definidas por el usuario). Si una operación no se completa dentro de ese límite de tiempo, la transacción se revierte. Las funciones de JavaScript deben finalizar dentro del límite de tiempo o implementar un modelo basado en la continuación en el lote o reanudar la ejecución.  
+Todas las operaciones de la DocumentDB se deben completar dentro de la duración del tiempo de espera de la solicitud especificada. Esta restricción también se aplica a las funciones de JavaScript (procedimientos almacenados, desencadenadores y funciones definidas por el usuario). Si una operación no se completa dentro de ese límite de tiempo, la transacción se revierte. Las funciones de JavaScript deben finalizar dentro del límite de tiempo o implementar un modelo basado en la continuación en el lote o reanudar la ejecución.  
 
 Con el fin de simplificar el desarrollo de los procedimientos almacenados y los desencadenadores para controlar los límites de tiempo, todas las funciones del objeto de colección (para crear, leer, reemplazar y eliminar documentos y datos adjuntos) devuelven un valor booleano que representa si se completará la operación. Si este valor es falso, es un indicador de que el límite de tiempo está a punto de cumplirse y de que el procedimiento debe concluir la ejecución.  Se garantiza la finalización de las operaciones en cola anteriores a la primera operación de almacenamiento no aceptada si el procedimiento almacenado se completa a tiempo y no pone en cola más solicitudes.  
 
-Las funciones de JavaScript también se vinculan al consumo de recursos. La Base de datos de documentos reserva la capacidad de proceso por colección en función del tamaño aprovisionado de una cuenta de base de datos. La capacidad de proceso se expresa en términos de una unidad de CPU normalizada, consumo de memoria y E/S llamadas unidades de solicitud o RU. Las funciones de JavaScript pueden utilizar potencialmente un gran número de RU en poco tiempo y podrían obtener una limitación de frecuencia si se alcanza el límite de la colección. Los procedimientos almacenados que utilizan muchos recursos también podrían ponerse en cuarentena para garantizar la disponibilidad de operaciones de base de datos primitivas.  
+Las funciones de JavaScript también se vinculan al consumo de recursos. La DocumentDB reserva la capacidad de proceso por colección en función del tamaño aprovisionado de una cuenta de base de datos. La capacidad de proceso se expresa en términos de una unidad de CPU normalizada, consumo de memoria y E/S llamadas unidades de solicitud o RU. Las funciones de JavaScript pueden utilizar potencialmente un gran número de RU en poco tiempo y podrían obtener una limitación de frecuencia si se alcanza el límite de la colección. Los procedimientos almacenados que utilizan muchos recursos también podrían ponerse en cuarentena para garantizar la disponibilidad de operaciones de base de datos primitivas.  
 
 ##Importación masiva de datos
 A continuación se muestra un ejemplo de un procedimiento almacenado que se escribe en documentos de importación masiva de una colección. Observe cómo controla el procedimiento almacenado la ejecución vinculada comprobando el valor de devolución booleano de createDocument y, a continuación, utiliza el recuento de documentos insertados en cada invocación del procedimiento almacenado para realizar un seguimiento y reanudar el progreso en todos los lotes.
@@ -481,7 +481,7 @@ A continuación se muestra un ejemplo de un procedimiento almacenado que se escr
 
 
 ##Realización de operaciones de forma compatible con REST
-Todas las operaciones de la Base de datos de documentos se realizan de forma RESTful. Los procedimientos almacenados, desencadenadores y funciones definidas por el usuario se pueden registrar en una colección mediante POST HTTP. El siguiente es un ejemplo de cómo registrar un procedimiento almacenado:
+Todas las operaciones de la DocumentDB se realizan de forma RESTful. Los procedimientos almacenados, desencadenadores y funciones definidas por el usuario se pueden registrar en una colección mediante POST HTTP. El siguiente es un ejemplo de cómo registrar un procedimiento almacenado:
 
 	POST https://<url>/sprocs/ HTTP/1.1
 	authorization: <<auth>>
@@ -551,7 +551,7 @@ Los desencadenadores, a diferencia de los procedimientos almacenados, no se pued
 Aquí el desencadenador previo que se debe ejecutar con la solicitud se especifica en el encabezado x-ms-documentdb-pre-trigger-include. Del mismo modo, cualquier desencadenador posterior se da en el encabezado x-ms-documentdb-post-trigger-include. Tenga en cuenta que tanto los desencadenadores previos como los posteriores se pueden especificar para una solicitud determinada.
 
 ##Compatibilidad con SDK
-Además del cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), Base de datos de documentos es compatible con [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) y los [SDK de Python](http://dl.windowsazure.com/documentDB/pythondocs/). Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
+Además del cliente [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/), DocumentDB es compatible con [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) y los [SDK de Python](http://dl.windowsazure.com/documentDB/pythondocs/). Los procedimientos almacenados, desencadenadores y UDF también se pueden crear y ejecutar mediante cualquiera de estos SDK. En el siguiente ejemplo se muestra cómo crear y ejecutar un procedimiento almacenado mediante el cliente.NET. Observe cómo los tipos de .NET se pasan al procedimiento almacenado como JSON y se vuelven a leer.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -605,7 +605,7 @@ Este ejemplo muestra cómo utilizar el [SDK de .NET](https://msdn.microsoft.com/
 	    });
 
 
-Y el siguiente ejemplo muestra cómo crear una función definida por el usuario (UDF) y utilizarla en una [consulta de SQL de Base de datos de documentos](documentdb-sql-query.md).
+Y el siguiente ejemplo muestra cómo crear una función definida por el usuario (UDF) y utilizarla en una [consulta de SQL de DocumentDB](documentdb-sql-query.md).
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -623,7 +623,7 @@ Y el siguiente ejemplo muestra cómo crear una función definida por el usuario 
 	}
 ##Pasos siguientes
 
-Explore el [SDK de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781482.aspx) para crear otros procedimientos almacenados, desencadenadores y UDF adicionales.
+Explore el [SDK de Microsoft Azure DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx) para crear otros procedimientos almacenados, desencadenadores y UDF adicionales.
 
 
 ##Referencias

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Modelado de datos en Base de datos de documentos de Azure" 
-	description="Aprenda a modelar datos para una base de datos de documentos NoSQL como Base de datos de documentos de Azure" 
+	pageTitle="Modelado de datos en Microsoft Azure DocumentDB" 
+	description="Aprenda a modelar datos para una DocumentDB NoSQL como Microsoft Azure DocumentDB" 
 	services="documentdb" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
@@ -16,21 +16,21 @@
 	ms.date="02/23/2015" 
 	ms.author="ryancraw"/>
 
-#Modelado de datos en Base de datos de documentos#
-Mientras que las bases de datos libres de esquemas, como Base de datos de documentos, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos. 
+#Modelado de datos en DocumentDB#
+Mientras que las bases de datos libres de esquemas, como DocumentDB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos. 
 
 ¿Cómo se van a almacenar los datos? ¿Cómo la aplicación va a recuperar y consultar los datos? ¿La aplicación realiza muchas operaciones de lectura o escritura?
 
 Después de leer este artículo, podrá responder a las siguientes preguntas:
 
-- ¿Cómo debo pensar en un documento en una base de datos de documentos?
+- ¿Cómo debo pensar en un documento en una DocumentDB?
 - ¿Qué es el modelado de datos y por qué tendría que importarme? 
-- ¿Cómo es el modelado de datos en una base de datos de documentos distinta de una base de datos relacional?
+- ¿Cómo es el modelado de datos en una DocumentDB distinta de una base de datos relacional?
 - ¿Cómo expreso relaciones de datos en una base de datos no relacional?
 - ¿Cuándo se incrustan datos y cuándo realizo vinculaciones a los datos?
 
 ##Incrustación de datos##
-Al comenzar a modelar datos en un almacén de documentos, como Base de datos de documentos, intente tratar las entidades como **documentos independientes** representados en JSON.
+Al comenzar a modelar datos en un almacén de documentos, como DocumentDB, intente tratar las entidades como **documentos independientes** representados en JSON.
 
 Antes de adentrarnos demasiado, nos gustaría volver a realizar algunos pasos y echar un vistazo a cómo podríamos modelar algo en una base de datos relacional, un asunto con el que muchos de nosotros ya estamos familiarizados. En el ejemplo siguiente se muestra puede almacenarse una persona en una base de datos relacional. 
 
@@ -50,7 +50,7 @@ La premisa principal cuando se normalizan datos es la de **evitar el almacenamie
 
 La actualización de una única persona con su información de contacto y direcciones requiere operaciones de escritura en muchas tablas individuales. 
 
-Ahora veamos cómo modelamos los mismos datos como una entidad independiente en una base de datos de documentos.
+Ahora veamos cómo modelamos los mismos datos como una entidad independiente en una DocumentDB.
 		
 	{
 	    "id": "1",
@@ -92,7 +92,7 @@ Por lo general, use los modelos de datos de incrustación cuando:
 
 ###Cuándo no se debe incrustar
 
-Puesto que la regla general en una base de datos de documentos es desnormalizarlo todo e incrustar todos los datos en un único documento, es posible que se produzcan situaciones que se deben evitar.
+Puesto que la regla general en una DocumentDB es desnormalizarlo todo e incrustar todos los datos en un único documento, es posible que se produzcan situaciones que se deben evitar.
 
 Seleccione este fragmento JSON.
 
@@ -114,7 +114,7 @@ Seleccione este fragmento JSON.
 
 Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto será un problema, ya que el tamaño del documento puede aumentar notablemente.
 
-> [AZURE.TIP] Los documentos de Base de datos de documentos tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de Base de datos de documentos](documentdb-limits.md)
+> [AZURE.TIP] Los documentos de DocumentDB tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de DocumentDB](documentdb-limits.md)
 
 Puesto que el tamaño del documento aumenta la capacidad de transmisión de los datos a través de la conexión, así como la lectura y actualización del documento, a escala, se producirá un impacto en ellos.
 
@@ -181,7 +181,7 @@ Es posible negociar con la acción  *zaza* cientos de veces en un solo día y mi
 
 Por lo tanto, la incrustación de datos funciona bien en muchos casos, pero está claro que hay escenarios en los que la desnormalización de los datos provocará más problemas que ventajas. ¿Qué hacemos ahora? 
 
-Las bases de datos relacionales no son el único lugar donde puede crear relaciones entre entidades. En una base de datos de documentos puede tener información en un documento que realmente se relacione con los datos en otros documentos. No soy partidario ahora de dedicar ni un solo minuto a crear sistemas que podrían ser más adecuados para una base de datos relacional en Base de datos de documentos o cualquier otra base de datos de documentos, ya que las relaciones simples son correctas y pueden ser muy útiles. 
+Las bases de datos relacionales no son el único lugar donde puede crear relaciones entre entidades. En una DocumentDB puede tener información en un documento que realmente se relacione con los datos en otros documentos. No soy partidario ahora de dedicar ni un solo minuto a crear sistemas que podrían ser más adecuados para una base de datos relacional en DocumentDB o cualquier otra DocumentDB, ya que las relaciones simples son correctas y pueden ser muy útiles. 
 
 En el siguiente JSON hemos optado por utilizar el ejemplo de una cartera de acciones anteriores, pero esta vez hacemos referencia al artículo comercial en la cartera en lugar de incrustarlo. De esa forma, cuando el artículo comercial cambia frecuentemente a lo largo del día, el único documento que tiene que actualizarse es el documento de acciones único. 
 
@@ -224,7 +224,7 @@ Sin embargo, una desventaja de este enfoque inmediato es si la aplicación es ne
 > [AZURE.NOTE] Los modelos de datos normalizados **pueden requerir varios viajes de ida y vuelta** al servidor.
 
 ### ¿Qué sucede con las claves externas?
-Puesto que actualmente no hay ningún concepto de restricción, clave externa o de otra índole, las relaciones entre documentos que tienen en los documentos son efectivamente "puntos débiles" y  la base de datos no los comprobará. Si desea asegurarse de que los datos a los que hace referencia un documento existen realmente, debe hacerlo en la aplicación o mediante el uso de desencadenadores de servidor o procedimientos almacenados en Base de datos de documentos.
+Puesto que actualmente no hay ningún concepto de restricción, clave externa o de otra índole, las relaciones entre documentos que tienen en los documentos son efectivamente "puntos débiles" y  la base de datos no los comprobará. Si desea asegurarse de que los datos a los que hace referencia un documento existen realmente, debe hacerlo en la aplicación o mediante el uso de desencadenadores de servidor o procedimientos almacenados en DocumentDB.
 
 ###Cuándo se debe establecer referencias
 Por lo general, se deben utilizar modelos de datos normalizados cuando:
@@ -377,7 +377,7 @@ Por supuesto, si cambia el nombre del autor o desean actualizar sus fotos, tendr
 
 En el ejemplo hay valores de **adiciones calculadas previamente** para ahorrar un procesamiento costoso en una operación de lectura. En el ejemplo, algunos de los datos incrustados en el documento del autor son datos que se calculan en tiempo de ejecución. Cada vez que se publica un nuevo libro, se crea un documento de libro **y** el campo countOfBooks se establece en un valor calculado en función del número de documentos de libro que existen para un autor concreto. Esta optimización sería adecuada en sistemas en los que se realizan muchas operaciones de lectura, donde podemos permitirnos hacer cálculos en las escrituras para optimizarlas.
 
-La capacidad de tener un modelo con campos calculados previamente es posible porque Base de datos de documentos admite **transacciones de varios documentos**. Muchos almacenes NoSQL no pueden realizar transacciones en documentos y, por lo tanto, recomiendan las decisiones de diseño, por ejemplo, "siempre incrustar todo", debido a esa limitación. Con Base de datos de documentos, puede utilizar los desencadenadores del servidor o los procedimientos almacenados que insertan los libros y actualizan los autores dentro de una transacción ACID. Ahora no **tiene** que incrustar todo en un documento para asegurarse de que los datos sigan siendo coherentes.
+La capacidad de tener un modelo con campos calculados previamente es posible porque DocumentDB admite **transacciones de varios documentos**. Muchos almacenes NoSQL no pueden realizar transacciones en documentos y, por lo tanto, recomiendan las decisiones de diseño, por ejemplo, "siempre incrustar todo", debido a esa limitación. Con DocumentDB, puede utilizar los desencadenadores del servidor o los procedimientos almacenados que insertan los libros y actualizan los autores dentro de una transacción ACID. Ahora no **tiene** que incrustar todo en un documento para asegurarse de que los datos sigan siendo coherentes.
 
 ##<a name="NextSteps"></a>Pasos siguientes
 
@@ -385,12 +385,12 @@ Lo más importante de este artículo es comprender que el modelado de datos en u
 
 Como no hay ninguna manera única de representar un elemento de datos en una pantalla, no hay una única forma de modelar los datos. Necesita comprender la aplicación y saber cómo producirá, consumirá y procesará los datos. A continuación, mediante la aplicación de algunas directrices presentadas aquí, puede crear un modelo que aborde las necesidades inmediatas de la aplicación. Cuando las aplicaciones necesitan cambiar, puede aprovechar la flexibilidad de una base de datos sin esquemas para adoptar ese cambio y que el modelo de datos evolucione con facilidad. 
 
-Para obtener más información acerca de Base de datos de documentos de Azure, la página de [documentación]( ../../services/documentdb/) 
+Para obtener más información acerca de Microsoft Azure DocumentDB, la página de [documentación]( ../../services/documentdb/) 
 
-Para obtener información sobre el ajuste de índices en Base de datos de documentos de Azure, consulte el artículo sobre [indización de directivas](documentdb-indexing-policies.md).
+Para obtener información sobre el ajuste de índices en Microsoft Azure DocumentDB, consulte el artículo sobre [indización de directivas](documentdb-indexing-policies.md).
 
-Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Base de datos de documentos](documentdb-partition-data.md). 
+Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en DocumentDB](documentdb-partition-data.md). 
 
-Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Base de datos de documentos de Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
+Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Microsoft Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
 
 <!--HONumber=49-->

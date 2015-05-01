@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Compilación de una aplicación web Node.js mediante la Base de datos de documentos | Azure" 
-	description="Obtenga información acerca de cómo usar Base de datos de documentos de Microsoft Azure para almacenar datos desde una aplicación web Node.js Express hospedada en sitios web de Azure y cómo obtener acceso a dichos datos." 
+	pageTitle="Compilación de una aplicación web Node.js mediante la DocumentDB | Azure" 
+	description="Obtenga información acerca de cómo usar DocumentDB de Microsoft Azure para almacenar datos desde una aplicación web Node.js Express hospedada en sitios web de Azure y cómo obtener acceso a dichos datos." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -16,23 +16,23 @@
 	ms.date="03/20/2015" 
 	ms.author="ryancraw"/>
 
-# <a name="_Toc395783175"></a>Compilación de una aplicación web Node.js mediante Base de datos de documentos
+# <a name="_Toc395783175"></a>Compilación de una aplicación web Node.js mediante DocumentDB
 
-En este tutorial, aprenderá a usar el servicio de Base de datos de documentos de Azure para almacenar datos desde una aplicación Node.js Express hospedada en sitios web de Azure y obtener acceso a ellos.
+En este tutorial, aprenderá a usar el servicio de Microsoft Azure DocumentDB para almacenar datos desde una aplicación Node.js Express hospedada en sitios web de Azure y obtener acceso a ellos.
 
-Se recomienda comenzar por ver el vídeo siguiente, donde Andrew Liu muestra cómo aprovisionar una cuenta de base de datos de Base de datos de documentos de Azure y almacenar documentos JSON en su aplicación Node.js. 
+Se recomienda comenzar por ver el vídeo siguiente, donde Andrew Liu muestra cómo aprovisionar una cuenta de base de datos de Microsoft Azure DocumentDB y almacenar documentos JSON en su aplicación Node.js. 
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
 A continuación, vuelva a este artículo, donde conocerá las respuestas a las preguntas siguientes:
 
-- ¿Cómo se trabaja con Base de datos de documentos usando el módulo npm de Base de datos de documentos?
+- ¿Cómo se trabaja con DocumentDB usando el módulo npm de DocumentDB?
 - ¿Cómo se implementa la aplicación web en los sitios web de Azure?
 
 Este tutorial le mostrará cómo compilar una sencilla aplicación de administración de tareas
 basada en web que permite crear, recuperar y
 completar tareas. Las tareas se almacenarán como documentos JSON en
-Base de datos de documentos de Azure.
+Microsoft Azure DocumentDB.
 
 ![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
 
@@ -50,9 +50,9 @@ que tiene lo siguiente:
 - [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
 - [Git][].
 
-## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de la Base de datos de documentos
+## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de la DocumentDB
 
-Comenzaremos por crear una cuenta de Base de datos de documentos. Si ya tiene una cuenta, puede ir al [paso 2: Creación de una nueva aplicación Node.js](#_Toc395783178).
+Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir al [paso 2: Creación de una nueva aplicación Node.js](#_Toc395783178).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
@@ -93,7 +93,7 @@ los módulos que deben instalarse en Azure para admitir la aplicación. Todavía
 
 		npm install async --save
 
-1. Instale el módulo **documentdb** mediante npm. En este módulo es donde ocurre toda la magia de Base de datos de documentos.
+1. Instale el módulo **documentdb** mediante npm. En este módulo es donde ocurre toda la magia de DocumentDB.
 
 		npm install documentdb --save
 
@@ -103,9 +103,9 @@ los módulos que deben instalarse en Azure para admitir la aplicación. Todavía
 
        Esto indica a Node (y a Azure más tarde) que la aplicación depende de estos módulos adicionales.
 
-## <a name="_Toc395783180"></a>Paso 4: Uso del servicio de Base de datos de documentos en una aplicación Node
+## <a name="_Toc395783180"></a>Paso 4: Uso del servicio de DocumentDB en una aplicación Node
 
-Se encarga de toda la configuración e instalación inicial; ahora volvamos a la razón por la que estamos aquí que es escribir código mediante la Base de datos de documentos de Azure.
+Se encarga de toda la configuración e instalación inicial; ahora volvamos a la razón por la que estamos aquí que es escribir código mediante la Microsoft Azure DocumentDB.
 
 ### Crear el modelo
 
@@ -200,7 +200,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = TaskDao;
 
-5. A continuación, agregue el siguiente código para definir métodos adicionales en el objeto Task, que permite las interacciones con los datos almacenados en la Base de datos de documentos.
+5. A continuación, agregue el siguiente código para definir métodos adicionales en el objeto Task, que permite las interacciones con los datos almacenados en la DocumentDB.
 
 		TaskDao.prototype = {
 		    init: function (callback) {
@@ -391,7 +391,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = config;
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY mediante los valores encontrados en la hoja de claves de la cuenta de Base de datos de documentos en el [Portal de vista previa de Azure](http://portal.azure.com):
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de vista previa de Azure](http://portal.azure.com):
 
 4. Guarde y cierre el archivo **config.js**.
  
@@ -425,7 +425,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a Base de datos de documentos (utilizando los valores de lectura de **config.js**). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**. 
+6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a DocumentDB (utilizando los valores de lectura de **config.js**). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**. 
 
 7. Por último, guarde y cierre el archivo **app.js**. Estamos a punto de terminar.
  
@@ -562,7 +562,7 @@ ejecutándose en Azure.
 ## <a name="_Toc395637775"></a>Pasos siguientes
 
 ¡Enhorabuena! Acaba de compilar su primera aplicación web Node.js Express.
-Aplicación que usa Base de datos de documentos de Azure y efectúa las publicaciones en los sitios web de Azure.
+Aplicación que usa Microsoft Azure DocumentDB y efectúa las publicaciones en los sitios web de Azure.
 
 El código fuente de la aplicación de referencia completa se puede descargar [aquí](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 

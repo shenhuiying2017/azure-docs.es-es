@@ -1,6 +1,6 @@
 ﻿<properties      
-    pageTitle="Creación de particiones en Base de datos de documentos | Azure"      
-    description="Obtenga información sobre crear particiones de datos en Base de datos de documentos y cuándo utilizar las particiones por búsqueda, rangos y hash."          services="documentdb"      
+    pageTitle="Creación de particiones en DocumentDB | Azure"      
+    description="Obtenga información sobre crear particiones de datos en DocumentDB y cuándo utilizar las particiones por búsqueda, rangos y hash."          services="documentdb"      
     authors="arramac"      
     manager="johnmac"      
     editor="monicar"      
@@ -14,25 +14,25 @@
     ms.date="02/20/2015"      
     ms.author="arramac"/> 
 
-# Creación de particiones en Base de datos de documentos
+# Creación de particiones en DocumentDB
 
-[Base de datos de documentos de Microsoft Azure](../../services/documentdb/) se ha diseñado para ayudar a lograr un rendimiento rápido y predecible. Además, permite *scale-out* sin problemas junto con su aplicación a medida que esta crece. Base de datos de documentos se ha utilizado para mejorar los servicios de producción a gran escala en Microsoft, por ejemplo, el almacén de datos de usuario que se utiliza con la suite MSN de aplicaciones móviles y web. 
+[DocumentDB de Microsoft Azure](../../services/documentdb/) se ha diseñado para ayudar a lograr un rendimiento rápido y predecible. Además, permite *scale-out* sin problemas junto con su aplicación a medida que esta crece. DocumentDB se ha utilizado para mejorar los servicios de producción a gran escala en Microsoft, por ejemplo, el almacén de datos de usuario que se utiliza con la suite MSN de aplicaciones móviles y web. 
 
-Puede lograr una escala casi infinita en términos de almacenamiento y capacidad de proceso para su aplicación de Base de datos de documentos efectuando una partición horizontal de los datos: un concepto conocido comúnmente como **particionamiento**.  Las cuentas de Base de datos de documentos se pueden escalar linealmente con el costo mediante unidades agrupables denominadas **colecciones**. La mejor forma de dividir los datos en colecciones dependerá del formato de los datos y de los patrones de acceso. 
+Puede lograr una escala casi infinita en términos de almacenamiento y capacidad de proceso para su aplicación de DocumentDB efectuando una partición horizontal de los datos: un concepto conocido comúnmente como **particionamiento**.  Las cuentas de DocumentDB se pueden escalar linealmente con el costo mediante unidades agrupables denominadas **colecciones**. La mejor forma de dividir los datos en colecciones dependerá del formato de los datos y de los patrones de acceso. 
 
 Después de leer este artículo, podrá responder a las preguntas siguientes:   
 
  - ¿Qué son las particiones por búsquedas, rangos y hash?
  - ¿Cuándo se usa cada técnica de partición y por qué?
- - ¿Sabe cómo compilar una aplicación particionada en Base de datos de documentos de Azure?
+ - ¿Sabe cómo compilar una aplicación particionada en Microsoft Azure DocumentDB?
 
 ## Colecciones = Particiones
 
-Antes de profundizar más en las técnicas de partición de datos, es importante entender qué es y qué no es una colección. Como ya sabrá, una colección es un contenedor para los documentos JSON. Las colecciones en Base de datos de documentos no son simplemente contenedores *logical*, sino también *physical*. Constituyen el límite de la transacción para los desencadenadores y procedimientos almacenados, además de ser el punto de entrada para las consultas y las operaciones CRUD. Cada colección tiene asignada una cantidad reservada de capacidad de proceso que no se comparte con otras colecciones de la misma cuenta. Por lo tanto, puede escalar horizontalmente la aplicación, tanto en términos de almacenamiento como de capacidad de proceso, mediante la adición de más colecciones y la posterior distribución de documentos en ellas.
+Antes de profundizar más en las técnicas de partición de datos, es importante entender qué es y qué no es una colección. Como ya sabrá, una colección es un contenedor para los documentos JSON. Las colecciones en DocumentDB no son simplemente contenedores *logical*, sino también *physical*. Constituyen el límite de la transacción para los desencadenadores y procedimientos almacenados, además de ser el punto de entrada para las consultas y las operaciones CRUD. Cada colección tiene asignada una cantidad reservada de capacidad de proceso que no se comparte con otras colecciones de la misma cuenta. Por lo tanto, puede escalar horizontalmente la aplicación, tanto en términos de almacenamiento como de capacidad de proceso, mediante la adición de más colecciones y la posterior distribución de documentos en ellas.
 
 Las colecciones son distintas de las tablas incluidas en las bases de datos relacionales. Las colecciones no aplican un esquema. Por lo tanto, se pueden almacenar distintos tipos de documentos con esquemas diferentes en la misma colección. Sin embargo, puede optar por utilizar las colecciones para almacenar objetos de un solo tipo, como se haría con las tablas. El mejor modelo depende solo de la forma en que aparezcan los datos juntos en las consultas y las transacciones.
 
-## Creación de particiones con Base de datos de documentos
+## Creación de particiones con DocumentDB
 
 Las técnicas de creación de particiones de datos que se usan de forma más habitual en Base de documentos de Azure son *range partitioning*, *lookup partitioning* y *hash partitioning*. Normalmente, se designa un único nombre de propiedad JSON dentro del documento como clave de partición, por ejemplo, "timestamp" o "userID". En algunos casos, en lugar de estos valores, podría usarse una propiedad interna de JSON o un nombre de propiedad diferente para cada tipo concreto de documento.
 
@@ -67,7 +67,7 @@ Entonces, ¿qué técnica de partición es la adecuada para usted? Todo depende 
 No tiene por qué elegir solo una técnica de partición. Una *composite* de estas técnicas también puede ser útil, según la situación. Por ejemplo, si almacena los datos de telemetría de un vehículo, un buen enfoque podría ser dividir los datos de telemetría del dispositivo por rangos según la marca de tiempo para facilitar la administración de las particiones y, a continuación, subdividir los datos según el número de identificación del vehículo con el fin de lograr un escalado horizontal para la capacidad de proceso (partición combinada por rango y hash).
 
 ## Desarrollo de una aplicación con particiones
-Hay que tener en cuenta tres áreas de diseño clave a la hora de desarrollar una aplicación particionada en Base de datos de documentos.
+Hay que tener en cuenta tres áreas de diseño clave a la hora de desarrollar una aplicación particionada en DocumentDB.
 
 - Forma de enrutar las creaciones y lecturas (incluidas las consultas) hacia las colecciones adecuadas.
 - Forma de almacenar y recuperar la configuración de la resolución de las particiones, también conocido como "mapa de particiones".
@@ -85,11 +85,11 @@ Normalmente, las consultas y las lecturas deberían tener un ámbito de una clav
 
 También hay que determinar cómo se va a almacenar el mapa de particiones, cómo van a cargar y recibir actualizaciones los clientes cuando haya cambios y cómo se comparten entre varios clientes. Si el mapa de particiones no cambia a menudo, puede guardarlo simplemente en el archivo de configuración de la aplicación. 
 
-De lo contrario, puede guardarlo en cualquier almacén persistente. Un patrón de diseño habitual que hemos visto en producción consiste en serializar los mapas de particiones como JSON y almacenarlos también en colecciones de Base de datos de documentos. Después, los clientes pueden almacenar en caché el mapa con el fin de evitar las idas y vueltas adicionales y, a continuación, efectuar sondeos periódicamente sobre los cambios. Si los clientes modifican el mapa de particiones, asegúrese de que utilicen un esquema de nomenclatura coherente y concurrencia optimista (eTags) para posibilitar actualizaciones coherentes en el mapa de particiones.
+De lo contrario, puede guardarlo en cualquier almacén persistente. Un patrón de diseño habitual que hemos visto en producción consiste en serializar los mapas de particiones como JSON y almacenarlos también en colecciones de DocumentDB. Después, los clientes pueden almacenar en caché el mapa con el fin de evitar las idas y vueltas adicionales y, a continuación, efectuar sondeos periódicamente sobre los cambios. Si los clientes modifican el mapa de particiones, asegúrese de que utilicen un esquema de nomenclatura coherente y concurrencia optimista (eTags) para posibilitar actualizaciones coherentes en el mapa de particiones.
 
 ## Adición y eliminación de particiones
 
-Con Base de datos de documentos, puede agregar y quitar colecciones en cualquier momento y utilizarlas para almacenar nuevos datos entrantes, así como reequilibrar los datos disponibles en las colecciones existentes. Consulte la página [Límites][documentdb-limits] para conocer el número de colecciones. También puede llamarnos siempre que desee aumentar dichos límites.
+Con DocumentDB, puede agregar y quitar colecciones en cualquier momento y utilizarlas para almacenar nuevos datos entrantes, así como reequilibrar los datos disponibles en las colecciones existentes. Consulte la página [Límites][documentdb-limits] para conocer el número de colecciones. También puede llamarnos siempre que desee aumentar dichos límites.
 
 Es muy fácil agregar y eliminar una nueva partición con los procesos de creación de particiones por búsquedas y rangos. Por ejemplo, para agregar una nueva región geográfica o un nuevo rango de tiempo para los datos recientes, basta con anexar las particiones nuevas al mapa de particiones. Para dividir una partición existente en varias particiones o mezclar dos particiones se requiere un poco más esfuerzo. Hay que hacer lo siguiente: 
 
@@ -101,7 +101,7 @@ El método hash es relativamente más complicado para agregar y eliminar partici
 Una manera relativamente fácil de agregar nuevas particiones sin necesidad de mover datos es "derramar" los datos a una nueva colección y, a continuación, dispersar las solicitudes entre la colección nueva y la antigua. Sin embargo, este enfoque, debe usarse en pocas ocasiones (por ejemplo, para repartir los datos en momentos de picos de trabajo y para almacenar los datos temporalmente hasta que se puedan mover).
 
 ### Pasos siguientes
-En este artículo, hemos presentado algunas técnicas habituales para efectuar particiones de datos con Base de datos de documentos y hemos señalado cuándo se debe usar cada técnica o combinación de técnicas. Comience a trabajar con uno de los [SDK admitidos](https://msdn.microsoft.com/library/azure/dn781482.aspx) y póngase en contacto con nosotros a través de los [foros de soporte técnico de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) si tiene alguna duda.
+En este artículo, hemos presentado algunas técnicas habituales para efectuar particiones de datos con DocumentDB y hemos señalado cuándo se debe usar cada técnica o combinación de técnicas. Comience a trabajar con uno de los [SDK admitidos](https://msdn.microsoft.com/library/azure/dn781482.aspx) y póngase en contacto con nosotros a través de los [foros de soporte técnico de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) si tiene alguna duda.
 
 
 <!--HONumber=49-->

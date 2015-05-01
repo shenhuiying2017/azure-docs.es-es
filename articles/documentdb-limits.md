@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Límites de la Base de datos de documentos para la versión preliminar | Azure" 
-	description="Obtenga información acerca de los límites y las aplicaciones de cuota de Base de datos de documentos para la versión preliminar." 
+	pageTitle="Límites de la DocumentDB para la versión preliminar | Azure" 
+	description="Obtenga información acerca de los límites y las aplicaciones de cuota de DocumentDB para la versión preliminar." 
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -17,8 +17,8 @@
 	ms.author="mimig"/>
 
 
-#Límites de la Base de datos de documentos para la versión preliminar
-La siguiente tabla describe los límites y aplicaciones de cuota de la Base de datos de documentos durante la versión preliminar. En la mayoría de los casos los límites se aplican con la intención de obtener sus comentarios o según las restricciones de capacidad actuales. Si tiene la necesidad empresarial de flexibilizar los límites, llámenos y haremos todo lo posible para adaptarnos a las restricciones de la oferta pública.    
+#Límites de la DocumentDB para la versión preliminar
+La siguiente tabla describe los límites y aplicaciones de cuota de la DocumentDB durante la versión preliminar. En la mayoría de los casos los límites se aplican con la intención de obtener sus comentarios o según las restricciones de capacidad actuales. Si tiene la necesidad empresarial de flexibilizar los límites, llámenos y haremos todo lo posible para adaptarnos a las restricciones de la oferta pública.    
 
 |Entidad |(Oferta estándar para la versión preliminar)|
 |-------|--------|

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de Base de datos de documentos | Azure" 
-	description="Obtenga información sobre el Explorador de documentos de Base de datos de documentos, una herramienta del Portal de vista previa de Azure para ver, editar, crear y cargar documentos JSON con Base de datos de documentos." 
+	pageTitle="Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de DocumentDB | Azure" 
+	description="Obtenga información sobre el Explorador de documentos de DocumentDB, una herramienta del Portal de vista previa de Azure para ver, editar, crear y cargar documentos JSON con DocumentDB." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
@@ -16,19 +16,19 @@
 	ms.date="2/13/2015" 
 	ms.author="stbaro"/>
 
-# Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de Base de datos de documentos #
+# Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de DocumentDB #
 
-Este artículo proporciona información general sobre el Explorador de documentos de [Base de datos de Microsoft Azure](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de vista previa de Azure que permite ver, editar, crear y cargar documentos JSON con Base de datos de documentos. 
+Este artículo proporciona información general sobre el Explorador de documentos de [Base de datos de Microsoft Azure](http://azure.microsoft.com/services/documentdb/), una herramienta del Portal de vista previa de Azure que permite ver, editar, crear y cargar documentos JSON con DocumentDB. 
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:  
 
--	¿Cómo puedo crear, ver, editar y eliminar fácilmente documentos individuales de Base de datos de documentos mediante un explorador web?
--	¿Cómo puedo ver fácilmente las propiedades del sistema de un documento de Base de datos de documentos mediante un explorador web?
--	¿Cómo puedo realizar fácilmente una ingesta en bloque de documentos de Base de datos de documentos mediante un explorador web?
+-	¿Cómo puedo crear, ver, editar y eliminar fácilmente documentos individuales de DocumentDB mediante un explorador web?
+-	¿Cómo puedo ver fácilmente las propiedades del sistema de un documento de DocumentDB mediante un explorador web?
+-	¿Cómo puedo realizar fácilmente una ingesta en bloque de documentos de DocumentDB mediante un explorador web?
 
 ##<a id="Launch"></a>Inicio del Explorador de documentos y navegación por este##
 
-El Explorador de documentos se puede iniciar desde cualquier cuenta, base de datos y hoja de colecciones de Base de datos de documentos.  
+El Explorador de documentos se puede iniciar desde cualquier cuenta, base de datos y hoja de colecciones de DocumentDB.  
 
 1. Cerca de la parte inferior de cada hoja aparece el modo **Herramientas de desarrollo** que contiene la parte del **Explorador de documentos**.
 
@@ -122,6 +122,6 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 
 ##<a name="NextSteps"></a>Pasos siguientes
 
-Para obtener más información acerca de Base de datos de documentos, haga clic [aquí](http://azure.com/docdb).
+Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
 
 <!--HONumber=49-->

@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Ejecución de un trabajo de Hadoop con Base de datos de documentos y HDInsight | Azure" 
-	description="Obtenga información acerca de cómo ejecutar un trabajo de Hive, Pig y MapReduce simple con Base de datos de documentos y Azure HDInsight."
+	pageTitle="Ejecución de un trabajo de Hadoop con DocumentDB y HDInsight | Azure" 
+	description="Obtenga información acerca de cómo ejecutar un trabajo de Hive, Pig y MapReduce simple con DocumentDB y Azure HDInsight."
 	services="documentdb" 
 	authors="andrewhoh" 
 	manager="jhubbard" 
@@ -17,32 +17,32 @@
 	ms.date="03/11/2015" 
 	ms.author="anhoh"/>
 
-#<a name="DocumentDB-HDInsight"></a>Ejecución de un trabajo de Hadoop con Base de datos de documentos y HDInsight
+#<a name="DocumentDB-HDInsight"></a>Ejecución de un trabajo de Hadoop con DocumentDB y HDInsight
 
-Este tutorial muestra cómo ejecutar trabajos de [Apache Hive][apache-hive], [Apache Pig][apache-pig] y [Apache Hadoop][apache-hadoop] MapReduce en HDInsight de Azure con el conector Hadoop de Base de datos de documentos. El conector de Hadoop de Base de datos de documentos permite a Base de datos de documentos actuar como punto de origen y recepción para trabajos de Hive, Pig y MapReduce. En este tutorial, se utilizará Base de datos de documentos como el origen de datos y el destino para trabajos de Hadoop. 
+Este tutorial muestra cómo ejecutar trabajos de [Apache Hive][apache-hive], [Apache Pig][apache-pig] y [Apache Hadoop][apache-hadoop] MapReduce en HDInsight de Azure con el conector Hadoop de DocumentDB. El conector de Hadoop de DocumentDB permite a DocumentDB actuar como punto de origen y recepción para trabajos de Hive, Pig y MapReduce. En este tutorial, se utilizará DocumentDB como el origen de datos y el destino para trabajos de Hadoop. 
 
 Después de completar este tutorial, podrá responder a las preguntas siguientes:
 
-- ¿Cómo se cargan datos desde Base de datos de documentos mediante un trabajo de MapReduce, Pig o Hive?
-- ¿Cómo se almacenan datos en Base de datos de documentos mediante un trabajo de MapReduce, Pig o Hive?
+- ¿Cómo se cargan datos desde DocumentDB mediante un trabajo de MapReduce, Pig o Hive?
+- ¿Cómo se almacenan datos en DocumentDB mediante un trabajo de MapReduce, Pig o Hive?
 
-Se recomienda comenzar con el vídeo siguiente, donde se realiza una ejecución a través de un trabajo de Hive usando Base de datos de documentos y HDInsight.
+Se recomienda comenzar con el vídeo siguiente, donde se realiza una ejecución a través de un trabajo de Hive usando DocumentDB y HDInsight.
 
 > [AZURE.VIDEO use-azure-documentdb-hadoop-connector-with-azure-hdinsight]
 
-A continuación, vuelva a este artículo, donde recibirá información detallada sobre cómo ejecutar trabajos de análisis en los datos de Base de datos de documentos.
+A continuación, vuelva a este artículo, donde recibirá información detallada sobre cómo ejecutar trabajos de análisis en los datos de DocumentDB.
 
-> [AZURE.TIP] Este tutorial presupone que se tiene experiencia previa con Apache Hadoop, Hive o Pig Si no está familiarizado con Apache Hadoop, Hive y Pig, se recomienda que visite la [documentación de Apache Hadoop][apache-hadoop-doc]. Asimismo, el tutorial también presupone que se tiene experiencia previa con Base de datos de documentos además de una cuenta en este servicio. Si no está familiarizado con Base de datos de documentos o no tiene una cuenta en este servicio, consulte nuestra página de [Introducción][getting-started].
+> [AZURE.TIP] Este tutorial presupone que se tiene experiencia previa con Apache Hadoop, Hive o Pig Si no está familiarizado con Apache Hadoop, Hive y Pig, se recomienda que visite la [documentación de Apache Hadoop][apache-hadoop-doc]. Asimismo, el tutorial también presupone que se tiene experiencia previa con DocumentDB además de una cuenta en este servicio. Si no está familiarizado con DocumentDB o no tiene una cuenta en este servicio, consulte nuestra página de [Introducción][getting-started].
 
 ¿No tiene tiempo para completar el tutorial y solo desea obtener todos los scripts de PowerShell de ejemplo de Hive, Pig y MapReduce? No hay ningún problema, obténgalos [aquí][documentdb-hdinsight-samples]. La descarga también contiene los archivos hpl, pig y java para estos ejemplos.
 
 ## <a name="Prerequisites"></a>Requisitos previos
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo siguiente:
 
-- Una cuenta de Base de datos de documentos, una base de datos y una colección con documentos dentro. Para obtener más información, consulte [Introducción a Base de datos de documentos][getting-started].
+- Una cuenta de DocumentDB, una base de datos y una colección con documentos dentro. Para obtener más información, consulte [Introducción a DocumentDB][getting-started].
 - Capacidad de proceso. Las lecturas y escrituras de HDInsight se tienen en cuenta a la hora de calcular las unidades de solicitud asignadas de las unidades de capacidad (CU). Para obtener más información, consulte [Operaciones de capacidad de proceso aprovisionada, unidades de solicitud y base de datos][documentdb-manage-throughput].
 - Capacidad para un procedimiento almacenado adicional dentro de cada colección de salida. Los procedimientos almacenados se utilizan para transferir los documentos resultantes. Para obtener más información, consulte [Colecciones y rendimiento aprovisionado][documentdb-manage-document-storage].
-- Capacidad para los documentos resultantes desde los trabajos de MapReduce, Pig o Hive. Para obtener más información, consulte [Gestión de la capacidad y rendimiento de la Base de datos de documentos][documentdb-manage-collections].
+- Capacidad para los documentos resultantes desde los trabajos de MapReduce, Pig o Hive. Para obtener más información, consulte [Gestión de la capacidad y rendimiento de la DocumentDB][documentdb-manage-collections].
 - [*Opcional*] Capacidad para una colección adicional. Para obtener más información, consulte [Almacenamiento de documentos aprovisionado y sobrecarga de índice][documentdb-manage-document-storage].
 	
 > [AZURE.WARNING] Para evitar que se cree una nueva colección mientras se está realizando cualquier trabajo, puede imprimir los resultados en stdout, guardar la salida en el contenedor WASB o especificar una colección existente. En el caso de que desee especificar una colección existente, se crearán nuevos documentos dentro de la colección y los documentos existentes solo se verán afectados si se produce un conflicto entre los *ids*. **El conector sobrescribirá automáticamente los documentos existentes con conflictos de identificador**. Puede desactivar esta característica estableciendo la opción upsert en false. Si upsert es false y se produce un conflicto, se producirá un error en el trabajo de Hadoop y se informará de un error a causa de conflicto de identificadores.
@@ -68,7 +68,7 @@ Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenami
 	
 	La nueva cuenta de almacenamiento aparecerá en la lista de almacenamiento.
 
-	> [AZURE.IMPORTANT] Para conseguir un rendimiento óptimo, asegúrese de que su cuenta de almacenamiento, el clúster de HDInsight y la cuenta de Base de datos de documentos se encuentren en la misma región de Azure. Regiones de Azure que admiten los tres servicios son:  **Asia Oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, y **Oeste de EE. UU.**
+	> [AZURE.IMPORTANT] Para conseguir un rendimiento óptimo, asegúrese de que su cuenta de almacenamiento, el clúster de HDInsight y la cuenta de DocumentDB se encuentren en la misma región de Azure. Regiones de Azure que admiten los tres servicios son:  **Asia Oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, y **Oeste de EE. UU.**
 
 4. Espere hasta que la característica **ESTADO** de la nueva cuenta de almacenamiento cambie a **En línea**.
 
@@ -105,7 +105,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 	<table border="1">
 	<tr><th>Nombre</th><th>Valor</th></tr>
 	<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. </br>Tenga en cuenta que los nodos de datos de HDInsight están asociados con el rendimiento y precio.</td></tr>
-	<tr><td>Región/Red virtual</td><td>Elija la misma región que la <strong>cuenta de almacenamiento</strong> que se acaba de crear y la <strong>cuenta de Base de datos de documentos</strong>. </br> HDInsight requiere que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</td></tr>
+	<tr><td>Región/Red virtual</td><td>Elija la misma región que la <strong>cuenta de almacenamiento</strong> que se acaba de crear y la <strong>cuenta de DocumentDB</strong>. </br> HDInsight requiere que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</td></tr>
 	</table>
 	
     Haga clic en la flecha derecha.
@@ -146,7 +146,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 
 	Haga clic en la flecha derecha.
 
-7. En la página **Acciones de scripts**, haga clic en **agregar acción de script** para proporcionar información detallada sobre el script de PowerShell que se ejecutará para personalizar un clúster durante su creación. El script de PowerShell instalará el conector de Hadoop de Base de datos de documentos en los clústeres de HDInsight durante la creación del clúster.
+7. En la página **Acciones de scripts**, haga clic en **agregar acción de script** para proporcionar información detallada sobre el script de PowerShell que se ejecutará para personalizar un clúster durante su creación. El script de PowerShell instalará el conector de Hadoop de DocumentDB en los clústeres de HDInsight durante la creación del clúster.
 	
 	![Configure Script Action to customize an HDInsight cluster][image-customprovision-page5]
 
@@ -187,7 +187,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 
 	![Diagram for Azure PowerShell][azure-powershell-diagram]
 
-## <a name="RunHive"></a>Paso 4: Ejecución de un trabajo de Hive con Base de datos de documentos y HDInsight
+## <a name="RunHive"></a>Paso 4: Ejecución de un trabajo de Hive con DocumentDB y HDInsight
 
 > [AZURE.IMPORTANT] Todas las variables indicadas con < > deben rellenarse con los valores de configuración adecuados.
 
@@ -202,12 +202,12 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 		$clusterName = "<HDInsightClusterName>"
 
 2. 
-	<p>Comencemos a construir la cadena de consulta. Escribiremos una consulta de Hive que adopta las marcas de tiempo (_ts) de todos los documentos generados por el sistema y los identificadores únicos (_rid) de una colección de Base de datos de documentos. Además, esta consulta registra todos los documentos por minuto y almacena de nuevo los resultados en una nueva colección de Base de datos de documentos. </p>
+	<p>Comencemos a construir la cadena de consulta. Escribiremos una consulta de Hive que adopta las marcas de tiempo (_ts) de todos los documentos generados por el sistema y los identificadores únicos (_rid) de una colección de DocumentDB. Además, esta consulta registra todos los documentos por minuto y almacena de nuevo los resultados en una nueva colección de DocumentDB. </p>
 
-    <p>En primer lugar, vamos a crear una tabla de Hive a partir de nuestra colección de Base de datos de documentos. Agregue el siguiente fragmento de código en el panel de scripts de PowerShell <strong>después</strong> del fragmento de código número 1. Asegúrese de incluir el parámetro DocumentDB.query opcional para recortar nuestros documentos solo a _ts y _rid. </p>
+    <p>En primer lugar, vamos a crear una tabla de Hive a partir de nuestra colección de DocumentDB. Agregue el siguiente fragmento de código en el panel de scripts de PowerShell <strong>después</strong> del fragmento de código número 1. Asegúrese de incluir el parámetro DocumentDB.query opcional para recortar nuestros documentos solo a _ts y _rid. </p>
 
     > [AZURE.NOTE] **El nombre DocumentDB.inputCollections no es incorrecto.** Se permite agregar varias colecciones como entrada: </br>
-    '*DocumentDB.inputCollections*' = '*\<Nombre colección entrada Base de datos de documentos 1\>*,*\<Nombre colección entrada Base de datos de documentos 2\>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma.
+    '*DocumentDB.inputCollections*' = '*\<Nombre colección entrada DocumentDB 1\>*,*\<Nombre colección entrada DocumentDB 2\>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma.
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -223,7 +223,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 3.  A continuación, vamos a crear una tabla de Hive para la colección de salida. Las propiedades del documento de salida serán el mes, el día, la hora, el minuto y el número total de apariciones.
 
 	> [AZURE.NOTE] **Una vez más, el nombre DocumentDB.outputCollections no es incorrecto.** Se permite agregar varias colecciones como salida: </br>
-    '*DocumentDB.outputCollections*' = '*\<Nombre colección salida Base de datos de documentos 1\>*,*\<Nombre colección salida Base de datos de documentos 2\>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </br></br>
+    '*DocumentDB.outputCollections*' = '*\<Nombre colección salida DocumentDB 1\>*,*\<Nombre colección salida DocumentDB 2\>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </br></br>
     Documentos se distribuirán en cadena en varias colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -279,15 +279,15 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 10. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-preview-portal]. 
 	1. Haga clic en <strong>Examinar</strong>, en el panel de la izquierda. </br>
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración. </br>
-	3. Busque y haga clic en <strong>Cuentas de Base de datos de documentos</strong>. </br>
-	4. A continuación, busque su <strong>cuenta de Base de datos de documentos</strong>, a continuación, la <strong>base de datos de Base de datos de documentos</strong> y su <strong>colección de Base de datos de documentos</strong> asociadas a la colección de salida especificada en la consulta de Hive.</br>
+	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>. </br>
+	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, a continuación, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en la consulta de Hive.</br>
 	5. Por último, haga clic en <strong>Explorador de documentos</strong>, debajo de <strong>Herramientas de desarrollo</strong>.</br></p>
 
 	Verá los resultados de la consulta de Hive.
 
 	![Hive query results][image-hive-query-results]
 
-## <a name="RunPig"></a>Paso 5: Ejecución de un trabajo de Pig con Base de datos de documentos y HDInsight
+## <a name="RunPig"></a>Paso 5: Ejecución de un trabajo de Pig con DocumentDB y HDInsight
 
 > [AZURE.IMPORTANT] Todas las variables indicadas con < > deben rellenarse con los valores de configuración adecuados.
 
@@ -299,11 +299,11 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
         # Provide HDInsight cluster name where you want to run the Pig job.
         $clusterName = "Azure HDInsight Cluster Name"
 
-2. <p>Comencemos a construir la cadena de consulta. Escribiremos una consulta de Pig que adopta las marcas de tiempo (_ts) de todos los documentos generados por el sistema y los identificadores únicos (_rid) de una colección de Base de datos de documentos. Además, esta consulta registra todos los documentos por minuto y almacena de nuevo los resultados en una nueva colección de Base de datos de documentos.</p>
-    <p>En primer lugar, cargue documentos de Base de datos de documentos en HDInsight. Agregue el siguiente fragmento de código en el panel de scripts de PowerShell <strong>después</strong> del fragmento de código número 1. Asegúrese de agregar una consulta de Base de datos de documentos para el parámetro de consulta de Base de datos de documentos opcional para recortar los documentos a solo _ts y _rid.</p>
+2. <p>Comencemos a construir la cadena de consulta. Escribiremos una consulta de Pig que adopta las marcas de tiempo (_ts) de todos los documentos generados por el sistema y los identificadores únicos (_rid) de una colección de DocumentDB. Además, esta consulta registra todos los documentos por minuto y almacena de nuevo los resultados en una nueva colección de DocumentDB.</p>
+    <p>En primer lugar, cargue documentos de DocumentDB en HDInsight. Agregue el siguiente fragmento de código en el panel de scripts de PowerShell <strong>después</strong> del fragmento de código número 1. Asegúrese de agregar una consulta de DocumentDB para el parámetro de consulta de DocumentDB opcional para recortar los documentos a solo _ts y _rid.</p>
 
     > [AZURE.NOTE] Sí, se pueden agregar varias colecciones como una entrada: </br>
-    '*\<Nombre colección entrada Base de datos de documentos 1\>*,*\<Nombre colección entrada Base de datos de documentos 2\>*'</br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </b>
+    '*\<Nombre colección entrada DocumentDB 1\>*,*\<Nombre colección entrada DocumentDB 2\>*'</br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </b>
 
 	Documentos se distribuirán en cadena en varias colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
 
@@ -366,27 +366,27 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 10. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-preview-portal]. 
 	1. Haga clic en <strong>Examinar</strong>, en el panel de la izquierda. </br>
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración. </br>
-	3. Busque y haga clic en <strong>Cuentas de Base de datos de documentos</strong>. </br>
-	4. A continuación, busque su <strong>cuenta de Base de datos de documentos</strong>, a continuación, la <strong>base de datos de Base de datos de documentos</strong> y su <strong>colección de Base de datos de documentos</strong> asociadas a la colección de salida especificada en la consulta de Pig.</br>
+	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>. </br>
+	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, a continuación, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en la consulta de Pig.</br>
 	5. Por último, haga clic en <strong>Explorador de documentos</strong>, debajo de <strong>Herramientas de desarrollo</strong>.</br></p>
 
 	Verá los resultados de la consulta de Pig.
 
 	![Pig query results][image-pig-query-results]
 
-## <a name="RunMapReduce"></a>Paso 6: Ejecución de un trabajo de MapReduce con Base de datos de documentos y HDInsight
+## <a name="RunMapReduce"></a>Paso 6: Ejecución de un trabajo de MapReduce con DocumentDB y HDInsight
 
 1. Configure las siguientes variables en el panel de scripts de PowerShell.
 		
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 		
-2. Ejecutaremos un trabajo de MapReduce que cuenta el número de repeticiones de cada propiedad de documento de su colección de Base de datos de documentos. Agregue este fragmento de script **después** el fragmento de código anterior.
+2. Ejecutaremos un trabajo de MapReduce que cuenta el número de repeticiones de cada propiedad de documento de su colección de DocumentDB. Agregue este fragmento de script **después** el fragmento de código anterior.
 
 		# Define the MapReduce job.
 		$TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
-	> [AZURE.NOTE] TallyProperties-v01.jar incluye la instalación personalizada del conector de Hadoop de Base de datos de documentos.
+	> [AZURE.NOTE] TallyProperties-v01.jar incluye la instalación personalizada del conector de Hadoop de DocumentDB.
 
 3. Agregue el siguiente comando para enviar el trabajo de MapReduce.
 
@@ -409,8 +409,8 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 6. Compruebe los resultados. Inicie sesión en el [Portal de vista previa de Azure][azure-preview-portal]. 
 	1. Haga clic en <strong>Examinar</strong>, en el panel de la izquierda.
 	2. Haga clic en <strong>Todo</strong>, en la parte superior derecha del panel de exploración.
-	3. Busque y haga clic en <strong>Cuentas de Base de datos de documentos</strong>.
-	4. A continuación, busque su <strong>cuenta de Base de datos de documentos</strong>, a continuación, la <strong>base de datos de Base de datos de documentos</strong> y su <strong>colección de Base de datos de documentos</strong> asociadas a la colección de salida especificada en el trabajo de MapReduce.
+	3. Busque y haga clic en <strong>Cuentas de DocumentDB</strong>.
+	4. A continuación, busque su <strong>cuenta de DocumentDB</strong>, a continuación, la <strong>base de datos de DocumentDB</strong> y su <strong>colección de DocumentDB</strong> asociadas a la colección de salida especificada en el trabajo de MapReduce.
 	5. Por último, haga clic en <strong>Explorador de documentos</strong>, debajo de <strong>Herramientas de desarrollo</strong>.
 
 	Verá los resultados de su trabajo de MapReduce.
@@ -419,13 +419,13 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 
 ## <a name="NextSteps"></a>Pasos siguientes
 
-¡Enhorabuena! Acaba de ejecutar sus primeros trabajos de Hive, Pig y MapReduce con Base de datos de documentos de Azure y HDInsight. 
+¡Enhorabuena! Acaba de ejecutar sus primeros trabajos de Hive, Pig y MapReduce con Microsoft Azure DocumentDB y HDInsight. 
 
 El conector de Hadoop tiene el código abierto. Si le interesa, puede contribuir en [GitHub][documentdb-github].
 
 Para obtener más información, consulte los artículos siguientes:
 
-- [Desarrollo de una aplicación Java con Base de datos de documentos][documentdb-java-application]
+- [Desarrollo de una aplicación Java con DocumentDB][documentdb-java-application]
 - [Desarrollo de programas MapReduce de Java para Hadoop en HDInsight][hdinsight-develop-deploy-java-mapreduce]
 - [Introducción al uso de Hadoop con Hive en HDInsight para analizar el uso de datos móviles][hdinsight-get-started]
 - [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce]

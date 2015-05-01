@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Crear una aplicación web de Java mediante la Base de datos de documentos" 
-	description="En este tutorial aprenderá a usar el servicio de Base de datos de documentos de Azure para almacenar y acceder a datos desde una aplicación Java hospedada en sitios web de Azure." 
+<properties 
+	pageTitle="Crear una aplicación web de Java mediante la DocumentDB" 
+	description="En este tutorial aprenderá a usar el servicio de Microsoft Azure DocumentDB para almacenar y acceder a datos desde una aplicación Java hospedada en sitios web de Azure." 
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
@@ -16,14 +16,14 @@
 	ms.date="03/23/2015" 
 	ms.author="andrl"/>
 
-# Crear una aplicación web de Java mediante la Base de datos de documentos #
+# Crear una aplicación web de Java mediante la DocumentDB #
 
-En este tutorial aprenderá a usar el servicio de [Base de datos de documentos de Microsoft Azure (Vista previa)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web Azure. En este tema, aprenderá:
+En este tutorial aprenderá a usar el servicio de [DocumentDB de Microsoft Azure (Vista previa)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) para almacenar datos y obtener acceso a ellos desde una aplicación Java hospedada en Sitios web Azure. En este tema, aprenderá:
 
 - Cómo crear una aplicación de JSP básica en Eclipse.
-- Cómo trabajar con el servicio de Base de datos de documentos de Azure mediante el [SDK de Java de Base de datos de documentos](https://github.com/Azure/azure-documentdb-java).
+- Cómo trabajar con el servicio de Microsoft Azure DocumentDB mediante el [SDK de Java de DocumentDB](https://github.com/Azure/azure-documentdb-java).
 
-Este tutorial muestra cómo crear una aplicación de administración de tareas basadas en web que permite crear, recuperar y marcar tareas como completadas, tal como se muestra en la siguiente imagen. Cada una de las tareas en la lista ToDo se almacena como documentos JSON en Base de datos de documentos de Azure.
+Este tutorial muestra cómo crear una aplicación de administración de tareas basadas en web que permite crear, recuperar y marcar tareas como completadas, tal como se muestra en la siguiente imagen. Cada una de las tareas en la lista ToDo se almacena como documentos JSON en Microsoft Azure DocumentDB.
 
 ![My ToDo List application](./media/documentdb-java-application/image1.png)
 
@@ -39,8 +39,8 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 Si va a instalar estas herramientas por primera vez, coreservlets.com proporciona un ejemplo paso a paso del proceso de instalación en la sección de inicio rápido de su artículo [Tutorial: Instalación de TomCat7 y uso con Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html). 
 
-##<a id="CreateDB"></a>Paso 1: Creación de una cuenta de base de datos de la Base de datos de documentos ##
-Para aprovisionar una cuenta de base de datos de la Base de datos de documentos en Azure:
+##<a id="CreateDB"></a>Paso 1: Creación de una cuenta de base de datos de la DocumentDB ##
+Para aprovisionar una cuenta de base de datos de la DocumentDB en Azure:
 
 1. Si ya no tiene una cuenta de base de datos, cree una siguiendo las instrucciones en [Creación de una cuenta de base de datos](documentdb-create-account.md). Si ya tiene una cuenta, vaya al paso 2.
 2. Con la hoja **Claves** que se muestra en la siguiente ilustración, copie el extremo **URI** y **PRIMARY KEY** en el portapapeles y mantenga los valores a mano, ya que se utilizarán en la aplicación web que crearemos a continuación.
@@ -75,9 +75,9 @@ Para crear la aplicación JSP:
 
 	![](./media/documentdb-java-application/image12.png)
 
-##<a id="InstallSDK"></a>Paso 3: Instalación del SDK de Java de Base de datos de documentos ##
+##<a id="InstallSDK"></a>Paso 3: Instalación del SDK de Java de DocumentDB ##
 
-La manera más sencilla de insertar el SDK de Java de Base de datos de documentos y sus dependencias es a través de [Apache Maven](http://maven.apache.org/).
+La manera más sencilla de insertar el SDK de Java de DocumentDB y sus dependencias es a través de [Apache Maven](http://maven.apache.org/).
 
 Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pasos siguientes: 
 
@@ -100,10 +100,10 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 		    <version>0.9.0</version>
 	    </dependency>
 
-5. Haga clic en **Aceptar** y Maven instalará el SDK de Java de Base de datos de documentos.
+5. Haga clic en **Aceptar** y Maven instalará el SDK de Java de DocumentDB.
 6. Guarde el archivo pom.xml.
 
-##<a id="UseService"></a>Paso 4: Uso del servicio de Base de datos de documentos en una aplicación Java ##
+##<a id="UseService"></a>Paso 4: Uso del servicio de DocumentDB en una aplicación Java ##
 
 1. En primer lugar, vamos a definir el objeto TodoItem:
 
@@ -118,7 +118,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 
 	En este proyecto, estamos usando [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
 
-2. Para invocar el servicio de Base de datos de documentos, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada  solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**: Aquí es también donde tienes que pegar el valor URI y PRIMARY KEY que guardó en el portapapeles en el [paso 1(#CreateDB) Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por PRIMARY KEY.
+2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada  solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**: Aquí es también donde tienes que pegar el valor URI y PRIMARY KEY que guardó en el portapapeles en el [paso 1(#CreateDB) Reemplace [YOUR\_ENDPOINT\_HERE] por el URI y reemplace [YOUR\_KEY\_HERE] por PRIMARY KEY.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -134,7 +134,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 	        return documentClient;
 	    }
 
-3. Ahora vamos a crear un objeto de acceso a datos (DAO) para abstraer la conservación de nuestros elementos ToDo en Base de datos de documentos.
+3. Ahora vamos a crear un objeto de acceso a datos (DAO) para abstraer la conservación de nuestros elementos ToDo en DocumentDB.
 
 	Para guardar los elementos ToDo en una colección, el cliente necesitará saber en qué base de datos y colección se conservarán (como se hace referencia por los self-links). En general, es mejor almacenar en memoria caché la base de datos y la colección cuando sea posible para evitar recorridos de ida y vuelta adicionales a la base de datos.
 
@@ -255,7 +255,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 
 
 
-5. Al igual que las colecciones y las bases de datos DocumentDB, a los documentos también se hace referencia mediante self-links. La siguiente función auxiliar nos permite recuperar documentos por otro atributo (por ejemplo, "id") en lugar del self-link:
+5. Al igual que las colecciones y las DocumentDB, a los documentos también se hace referencia mediante self-links. La siguiente función auxiliar nos permite recuperar documentos por otro atributo (por ejemplo, "id") en lugar del self-link:
 
 	    private Document getDocumentById(String id) {
 	        // Retrieve the document using the DocumentClient.
@@ -758,8 +758,8 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 7. En la pantalla **Selección de rama**, asegúrese de que está seleccionado **principal**  y, a continuación, haga clic en **Siguiente**.
 8. En la pantalla **Destino local**, haga clic en **Examinar** para seleccionar una carpeta donde se pueda copiar el repositorio y, a continuación, haga clic en **Siguiente**.
 9. En la pantalla **Seleccionar un asistente que utilizar para la importación de proyectos**, asegúrese de que está seleccionada la opción **Importar proyectos existentes** y, a continuación, haga clic en **Siguiente**.
-10. En la pantalla **Importar proyectos**, anule la selección del proyecto de **Base de datos de documentos** y, a continuación, haga clic en **Finalizar**. El proyecto Base de datos de documentos contiene el SDK de Java de Base de datos de documentos, que se agregará como una dependencia en su lugar.
-11. En **Explorador de proyectos**, vaya a azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java y reemplace los valores HOST y MASTER_KEY por los de URI y PRIMARY KEY de la cuenta de Base de datos de documentos y, a continuación, guarde el archivo. Para obtener más información, consulte el [paso 1. Creación de una cuenta de base de datos de la Base de datos de documentos](#CreateDB)
+10. En la pantalla **Importar proyectos**, anule la selección del proyecto de **DocumentDB** y, a continuación, haga clic en **Finalizar**. El proyecto DocumentDB contiene el SDK de Java de DocumentDB, que se agregará como una dependencia en su lugar.
+11. En **Explorador de proyectos**, vaya a azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java y reemplace los valores HOST y MASTER_KEY por los de URI y PRIMARY KEY de la cuenta de DocumentDB y, a continuación, guarde el archivo. Para obtener más información, consulte el [paso 1. Creación de una cuenta de base de datos de la DocumentDB](#CreateDB)
 12. En **Explorador de proyectos**, haga clic con el botón derecho en **azure-documentdb-java-sample**, haga clic en **Ruta de acceso de compilación** y, a continuación, haga clic en **Configurar ruta de acceso de compilación**.
 13. En la pantalla **Ruta de acceso de compilación de Java**, en el panel derecho, seleccione la ficha **Bibliotecas** y, a continuación, haga clic en **Agregar JAR externos**. Desplácese hasta la ubicación del archivo lombok.jar y haga clic en **Abrir** y, a continuación, en **Aceptar**.
 14. Use el paso 12 para abrir la ventana **Propiedades** de nuevo y, a continuación, en el panel izquierdo haga clic en **Tiempos de ejecución de destino**.

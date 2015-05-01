@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Compilación de una aplicación web con ASP.NET MVC usando Base de datos de documentos | Azure" 
-	description="Aprenda a usar Base de datos de documentos con .NET para crear una aplicación web de lista de tareas pendientes. Podrá almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Sitios web Azure." 
+	pageTitle="Compilación de una aplicación web con ASP.NET MVC usando DocumentDB | Azure" 
+	description="Aprenda a usar DocumentDB con .NET para crear una aplicación web de lista de tareas pendientes. Podrá almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Sitios web Azure." 
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -17,13 +17,13 @@
 	ms.date="03/23/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>Creación de una aplicación web con ASP.NET MVC mediante Base de datos de documentos
+#<a name="_Toc395809351"></a>Creación de una aplicación web con ASP.NET MVC mediante DocumentDB
 
-Para resaltar cómo pueden aprovechar eficazmente Base de datos de documentos de Azure para almacenar y consultar documentos JSON, este artículo proporciona un tutorial completo que muestra cómo crear una aplicación de web de lista todo mediante Base de datos de documentos de Azure. Las tareas se almacenarán como documentos JSON en la Base de datos de documentos de Azure.
+Para resaltar cómo pueden aprovechar eficazmente Microsoft Azure DocumentDB para almacenar y consultar documentos JSON, este artículo proporciona un tutorial completo que muestra cómo crear una aplicación de web de lista todo mediante Microsoft Azure DocumentDB. Las tareas se almacenarán como documentos JSON en la Microsoft Azure DocumentDB.
 
 ![Screen shot of the todo list web application created by this tutorial](./media/documentdb-dotnet-application/image1.png)
 
-Este tutorial muestra cómo utilizar el servicio de Base de datos de documentos proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
+Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
 
 > [AZURE.TIP] En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), se recomienda que descargue el proyecto del tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo de [GitHub](https://github.com/Azure/azure-documentdb-net) y lo cree mediante las [instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
 
@@ -37,9 +37,9 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
 Todas las capturas de pantalla en este artículo se han tomado con Visual Studio 2013 con Update 3 aplicado y el SDK de Azure para la versión 2.4 de .NET. Si el sistema está configurado con versiones diferentes, es probable que las pantallas y las opciones no coincidan completamente, pero si cumple los requisitos previos mencionados, esta solución debe funcionar.
 
-## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de la Base de datos de documentos
+## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de la DocumentDB
 
-Comenzaremos por crear una cuenta de Base de datos de documentos. Si ya tiene una cuenta, puede ir a [Creación de una nueva aplicación ASP.NET MVC](#_Toc395637762)
+Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir a [Creación de una nueva aplicación ASP.NET MVC](#_Toc395637762)
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
@@ -71,26 +71,26 @@ Ahora vamos a crear el nuevo proyecto ASP.NET.
 7. Haga clic en **Aceptar** y deje que Visual Studio realice la tarea de scaffolding de la plantilla ASP.NET MVC vacía. 
 8. Si decide alojarla en la nube, verá al menos una pantalla adicional que le solicitará que inicie sesión en su cuenta de Azure y proporcione valores para el nuevo sitio web. Proporcione todos los valores adicionales y continúe. 
 
-  	No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure  aquí, vamos a crear una nueva cuenta de Base de datos de documentos de Azure más adelante en el Portal de vista previa de Azure. 
+  	No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure  aquí, vamos a crear una nueva cuenta de Microsoft Azure DocumentDB más adelante en el Portal de vista previa de Azure. 
 
   	![Screen shot of the Configure Microsoft Azure Website dialog box](./media/documentdb-dotnet-application/image11_1.png)
 
 9. Después de que Visual Studio haya terminado de crear la aplicación MVC reutilizable, tiene una aplicación ASP.NET vacía que puede ejecutar de manera local.
 
-Omitiremos la ejecución del proyecto localmente, ya que estoy seguro de que todos hemos visto la aplicación "Hola a todos" de ASP.NET. Vayamos directo a agregar la Base de datos de documentos a este proyecto y compilar la aplicación.
+Omitiremos la ejecución del proyecto localmente, ya que estoy seguro de que todos hemos visto la aplicación "Hola a todos" de ASP.NET. Vayamos directo a agregar la DocumentDB a este proyecto y compilar la aplicación.
 
-## <a name="_Toc395637767"></a>Paso 3: Adición de Base de datos de documentos al proyecto
+## <a name="_Toc395637767"></a>Paso 3: Adición de DocumentDB al proyecto
 
 Se encarga de la mayoría de los mecanismos de ASP.NET MVC que necesitamos para
-esta solución. Vayamos ahora al objetivo real de este tutorial, la adición de Base de datos de documentos de Azure en nuestra aplicación web.
+esta solución. Vayamos ahora al objetivo real de este tutorial, la adición de Microsoft Azure DocumentDB en nuestra aplicación web.
 
-1. El SDK .NET de Base de datos de documentos se empaqueta y distribuye como un paquete de NuGet. Para obtener el paquete NuGet en Visual Studio, utilice el Administrador de paquetes de NuGet en Visual Studio haciendo clic con el botón secundario en el proyecto en el **Explorador de soluciones** y, a continuación, haciendo clic en **Administrar paquetes de NuGet**.
+1. El SDK .NET de DocumentDB se empaqueta y distribuye como un paquete de NuGet. Para obtener el paquete NuGet en Visual Studio, utilice el Administrador de paquetes de NuGet en Visual Studio haciendo clic con el botón secundario en el proyecto en el **Explorador de soluciones** y, a continuación, haciendo clic en **Administrar paquetes de NuGet**.
 
   	Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
 
   	![Sreen shot of the right-click options for the project in Solution Explorer, with Manage NuGet Packages highlighted.](./media/documentdb-dotnet-application/image21.png)
 
-2. En el cuadro **Buscar en línea**, escriba "Base de datos de documentos de Azure". En los resultados, instale el paquete **Bibliotecas de cliente de Base de datos de documentos de Microsoft Azure**. De esta manera se descarga e instala el paquete de Base de datos de documentos además de todas las dependencias, como Newtonsoft.Json.
+2. En el cuadro **Buscar en línea**, escriba "Microsoft Azure DocumentDB". En los resultados, instale el paquete **Bibliotecas de cliente de DocumentDB de Microsoft Azure**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json.
 
   	> [AZURE.NOTE] Mientras el servicio está en vista previa, el paquete NuGet se marca como "Preliminar", por lo que debe incluir la opción "Incluir versión preliminar"; de lo contrario, no encontrará el paquete. 
 
@@ -137,7 +137,7 @@ Comencemos creando la **M** en MVC, el modelo.
         	public bool Completed { get; set; }    
 		}
 
-	Todos los datos de Base de datos de documentos se transmiten mediante la conexión y se almacenan como JSON. Para controlar la forma en la que JSON.NET serializa y deserializa los objetos, puede usar el atributo **JsonProperty** como se mostró en la clase de **elemento** que acabamos de crear. No **tiene** que hacer esto pero quería asegurarme de que mis propiedades siguen las convenciones de nomenclatura de mezcla de mayúsculas y minúsculas de JSON. 
+	Todos los datos de DocumentDB se transmiten mediante la conexión y se almacenan como JSON. Para controlar la forma en la que JSON.NET serializa y deserializa los objetos, puede usar el atributo **JsonProperty** como se mostró en la clase de **elemento** que acabamos de crear. No **tiene** que hacer esto pero quería asegurarme de que mis propiedades siguen las convenciones de nomenclatura de mezcla de mayúsculas y minúsculas de JSON. 
 
 	No solo puede controlar el formato del nombre de propiedad cuando va en JSON, sino que puede cambiar el nombre por completo de las propiedades de .NET como hice con la propiedad **Description**. 
 
@@ -224,7 +224,7 @@ En el cuadro de diálogo **Agregar vista**, realice lo siguiente:
 
 Una vez hecho esto, cierre los documentos cshtml en Visual Studio, ya que volveremos a estas vistas más tarde.
 
-## <a name="_Toc395637769"></a>Paso 5: Conexión de la Base de datos de documentos
+## <a name="_Toc395637769"></a>Paso 5: Conexión de la DocumentDB
 
 En esta sección, agregaremos código para controlar lo siguiente:
 
@@ -234,7 +234,7 @@ En esta sección, agregaremos código para controlar lo siguiente:
 
 ### <a name="_Toc395637770"></a>Lista de elementos incompletos
 
-1. Abra **ItemController** y quite todo el código presente en la clase (pero deje la clase) que agregó Visual Studio. Lo volveremos a compilar poco a poco usando la Base de datos de documentos.
+1. Abra **ItemController** y quite todo el código presente en la clase (pero deje la clase) que agregó Visual Studio. Lo volveremos a compilar poco a poco usando la DocumentDB.
 
 2. Agregue el siguiente fragmento de código en la clase **ItemController** que ahora está vacía;
 
@@ -244,8 +244,8 @@ En esta sección, agregaremos código para controlar lo siguiente:
 			return View(items);
     	}
 
-	Este código también usa una clase de "pseudorrepositorio" llamada **DocumentDBRepository** que todavía tenemos que crear. Se trata realmente de la clase de aplicación auxiliar que contiene todo el código específico de Base de datos de documentos. Para los objetivos de este tutorial, no vamos a implementar una capa de acceso a datos completa con inserción de dependencias, y factorías y patrones de repositorio, como lo haría si fuera a crear una aplicación real. 
-	Para la finalidad de este tutorial vamos a poner toda la lógica del acceso a datos directamente en un proyecto para simplificar las cosas y centrarnos en las partes específicas de Base de datos de documentos.
+	Este código también usa una clase de "pseudorrepositorio" llamada **DocumentDBRepository** que todavía tenemos que crear. Se trata realmente de la clase de aplicación auxiliar que contiene todo el código específico de DocumentDB. Para los objetivos de este tutorial, no vamos a implementar una capa de acceso a datos completa con inserción de dependencias, y factorías y patrones de repositorio, como lo haría si fuera a crear una aplicación real. 
+	Para la finalidad de este tutorial vamos a poner toda la lógica del acceso a datos directamente en un proyecto para simplificar las cosas y centrarnos en las partes específicas de DocumentDB.
 
 3. Agregue una nueva clase al proyecto y póngale el nombre de **DocumentDBRepository.** 
 4. Reemplace el código de la clase **DocumentDBRepository** por el siguiente.
@@ -339,7 +339,7 @@ En esta sección, agregaremos código para controlar lo siguiente:
 
  	Es fácil resolver todos los espacios de nombres en Visual Studio, siempre que el paquete de NuGet se haya instalado correctamente. Las referencias a los métodos **ReadOrCreateDatabase** y **ReadOrCreateCollection** permanecerán sin resolverse hasta que las agreguemos, lo que haremos a continuación.
  
-6. Aquí se usan dos llamadas de método para leer o crear bases de datos de Base de datos de documentos y colecciones de documentos. Agregue los dos métodos siguientes para la clase **DocumentDBRepository**.
+6. Aquí se usan dos llamadas de método para leer o crear bases de datos de DocumentDB y colecciones de documentos. Agregue los dos métodos siguientes para la clase **DocumentDBRepository**.
 
     	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
    		{
@@ -371,7 +371,7 @@ En esta sección, agregaremos código para controlar lo siguiente:
         	return db;
     	}
 
-	Este código se encarga de configurar la base de datos y [**DocumentCollection**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx), y de crear algún código para conectarse a Base de datos de documentos a través de [**DocumentClient**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx). 
+	Este código se encarga de configurar la base de datos y [**DocumentCollection**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx), y de crear algún código para conectarse a DocumentDB a través de [**DocumentClient**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx). 
 
 7. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
@@ -412,7 +412,7 @@ En esta sección, agregaremos código para controlar lo siguiente:
 
 Pongamos algunos elementos en nuestra base de datos de modo que tengamos algo más que una cuadrícula vacía que ver.
 
-Ya tenemos una vista para **Crear** y un botón en la vista **Índice** que lleva al usuario a la vista **Crear**. Agreguemos algo de código al controlador y al repositorio para mantener el registro en Base de datos de documentos.
+Ya tenemos una vista para **Crear** y un botón en la vista **Índice** que lleva al usuario a la vista **Crear**. Agreguemos algo de código al controlador y al repositorio para mantener el registro en DocumentDB.
 
 1. Abra el archivo ItemController.cs y agregue el siguiente fragmento de código, que es cómo ASP.NET MVC sabe qué hacer para la acción **Crear**. En este caso basta con presentar la vista Create.cshtml asociada creada anteriormente.
 
@@ -448,7 +448,7 @@ Ya tenemos una vista para **Crear** y un botón en la vista **Índice** que llev
    	   		return await Client.CreateDocumentAsync(Collection.SelfLink, item);
    		}
 
-	Este método simplemente toma un objeto que se le haya pasado y lo mantiene en la base de datos de documentos.
+	Este método simplemente toma un objeto que se le haya pasado y lo mantiene en la DocumentDB.
 
 Esto finaliza el código necesario para agregar elementos nuevos en nuestra base de datos.
 
@@ -490,11 +490,11 @@ Hay una última cosa que tenemos que hacer, que es agregar la capacidad de edita
 		}
 		
 	
-	El primer método controla el Http GET que ocurrirá cuando el usuario haga clic en el vínculo de **edición** en la vista de **índice**. Este método captura un [**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) de Base de datos de documentos y lo pasa a la vista de **edición**.
+	El primer método controla el Http GET que ocurrirá cuando el usuario haga clic en el vínculo de **edición** en la vista de **índice**. Este método captura un [**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) de DocumentDB y lo pasa a la vista de **edición**.
 
 	A continuación, la vista de **edición** realizará un Http POST en **IndexController**. 
 	
-	El segundo método que agregamos controla el paso del objeto actualizado en Base de datos de documentos para que se conserve en la base de datos.
+	El segundo método que agregamos controla el paso del objeto actualizado en DocumentDB para que se conserve en la base de datos.
 
 2. Agregue la siguiente directiva using al archivo ItemController.cs.
 
@@ -526,9 +526,9 @@ Hay una última cosa que tenemos que hacer, que es agregar la capacidad de edita
         	return await Client.ReplaceDocumentAsync(doc.SelfLink, item);
     	}
 
-	El primero de estos métodos captura un **elemento** de  Base de datos de documentos que pasa de vuelta al **ItemController** y, a continuación, continúa hasta la vista de **edición**.
+	El primero de estos métodos captura un **elemento** de  DocumentDB que pasa de vuelta al **ItemController** y, a continuación, continúa hasta la vista de **edición**.
 	
-	El segundo de los dos métodos que acabamos de agregar reemplaza el **documento** en Base de datos de documentos con la versión del **documento** que se pasó desde el **ItemController**.
+	El segundo de los dos métodos que acabamos de agregar reemplaza el **documento** en DocumentDB con la versión del **documento** que se pasó desde el **ItemController**.
 
 4. Agregue la siguiente directiva using al archivo DocumentDBRepository.cs.
 
@@ -564,7 +564,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 ##<a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
 
-Ahora que tiene la aplicación completa funcionando correctamente con Base de datos de documentos, vamos a implementar esta aplicación web en Sitios web Azure. Si seleccionó **Hospedar en la nube** cuando creó el proyecto vacío ASP.NET MVC, Visual Studio realmente facilita la tarea y hace gran parte del trabajo por usted. 
+Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB, vamos a implementar esta aplicación web en Sitios web Azure. Si seleccionó **Hospedar en la nube** cuando creó el proyecto vacío ASP.NET MVC, Visual Studio realmente facilita la tarea y hace gran parte del trabajo por usted. 
 
 Para publicar esta aplicación, todo lo que necesita hacer es hacer clic con el botón secundario en el proyecto en el **Explorador de soluciones** y hacer clic en **Publicar**.
 
@@ -578,9 +578,9 @@ En pocos segundos, Visual Studio terminará de publicar su aplicación web y eje
 
 ##<a name="_Toc395637775"></a>Pasos siguientes
 
-¡Enhorabuena! Acaba de compilar su primera aplicación ASP.NET MVC usando Base de datos de documentos de Azure y la ha publicado en Sitios web Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
+¡Enhorabuena! Acaba de compilar su primera aplicación ASP.NET MVC usando Microsoft Azure DocumentDB y la ha publicado en Sitios web Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
 
-Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de Base de datos de documentos](http://msdn.microsoft.com/library/azure/dn783362.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de Base de datos de documentos en [GitHub][]. 
+Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](http://msdn.microsoft.com/library/azure/dn783362.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de DocumentDB en [GitHub][]. 
 
 ##<a id="GetProject"></a>Obtención de la solución de GitHub
 
@@ -592,9 +592,9 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 
 2. En Visual Studio, abra el archivo todo.sln desde el directorio azure-documentdb-net/tutorials/todo.
 
-3. Para restaurar las referencias al SDK de .NET de Base de datos de documentos de Visual Studio 2013, haga clic con el botón secundario en la solución todo en el **Explorador de soluciones** y, a continuación haga clic en **Habilitar la restauración del paquete NuGet**, que restaurará las referencias. 
+3. Para restaurar las referencias al SDK de .NET de DocumentDB de Visual Studio 2013, haga clic con el botón secundario en la solución todo en el **Explorador de soluciones** y, a continuación haga clic en **Habilitar la restauración del paquete NuGet**, que restaurará las referencias. 
 
-4. Recupere los valores **URI** y **PRIMARY KEY** o **SECONDARY KEY** de la hoja **Claves** de su cuenta de _Base de datos de documentos en el [Portal de vista previa de Azure](https://portal.azure.com/). 
+4. Recupere los valores **URI** y **PRIMARY KEY** o **SECONDARY KEY** de la hoja **Claves** de su cuenta de _DocumentDB en el [Portal de vista previa de Azure](https://portal.azure.com/). 
 
 	
 	Si no dispone de una cuenta, consulte [Creación de una cuenta de base de datos](documentdb-create-account.md) para configurar una.

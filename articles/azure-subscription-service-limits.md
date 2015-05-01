@@ -284,7 +284,7 @@ En este documento se especifican algunos de los límites más comunes de Microso
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-## Límites de Base de datos de documentos (vista previa)
+## Límites de DocumentDB (vista previa)
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 

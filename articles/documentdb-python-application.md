@@ -1,6 +1,6 @@
 ﻿<properties 
-    pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure" 
-    description="Obtenga información acerca de cómo usar la Base de datos de documentos para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure." 
+    pageTitle="Generación de una aplicación web con Python y Flask mediante la DocumentDB | Azure" 
+    description="Obtenga información acerca de cómo usar la DocumentDB para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure." 
     services="documentdb" 
     documentationCenter="python" 
     authors="crwilcox" 
@@ -16,18 +16,18 @@
     ms.date="03/23/2015" 
     ms.author="crwilcox"/>
 
-# Generación de una aplicación web con Python y Flask (MVC) mediante la Base de datos de documentos
+# Generación de una aplicación web con Python y Flask (MVC) mediante la DocumentDB
 ------------------------------------------------------------------------
 
-Para destacar la forma en que los clientes pueden aprovechar eficazmente Base de datos de documentos de Azure para almacenar y consultar documentos JSON, este documento proporciona un tutorial integral sobre la compilación de una aplicación web para votaciones mediante Base de datos de documentos de Azure.
+Para destacar la forma en que los clientes pueden aprovechar eficazmente Microsoft Azure DocumentDB para almacenar y consultar documentos JSON, este documento proporciona un tutorial integral sobre la compilación de una aplicación web para votaciones mediante Microsoft Azure DocumentDB.
 
-En este tutorial aprenderá a utilizar el servicio de Base de datos de documentos proporcionado por Azure para almacenar datos y obtener acceso a ellos desde cualquier aplicación web Phyton hospedada en Azure. En él se presupone que tiene experiencia previa en el uso de los sitios web de Phyton y Azure.
+En este tutorial aprenderá a utilizar el servicio de DocumentDB proporcionado por Azure para almacenar datos y obtener acceso a ellos desde cualquier aplicación web Phyton hospedada en Azure. En él se presupone que tiene experiencia previa en el uso de los sitios web de Phyton y Azure.
 
 Esta tutorial abarca lo siguiente:
 
-1. Crear y aprovisionar una cuenta de Base de datos de documentos.
+1. Crear y aprovisionar una cuenta de DocumentDB.
 2. Crear una aplicación Phyton MVC.
-3. Conectarse y utilizar Base de datos de documentos desde su aplicación web.
+3. Conectarse y utilizar DocumentDB desde su aplicación web.
 4. Implementar la aplicación web en Sitios web Azure.
 
 Siguiendo este tutorial, podrá compilar una aplicación de votación simple que le permita votar en un sondeo.
@@ -45,9 +45,9 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 - Python 2.7 desde [aquí][2].
 - Compilador de Microsoft Visual C++ para Python 2.7 desde [aquí][3].
 
-## Paso 1: Creación de una cuenta de base de datos de la Base de datos de documentos
+## Paso 1: Creación de una cuenta de base de datos de la DocumentDB
 
-Comenzaremos por crear una cuenta de Base de datos de documentos. Si ya tiene una cuenta, puede ir al [paso 2: Creación de una nueva aplicación web de Phyton Flask](#Step-2:-Create-a-new-Python-Flask-Web-Application).
+Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir al [paso 2: Creación de una nueva aplicación web de Phyton Flask](#Step-2:-Create-a-new-Python-Flask-Web-Application).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
@@ -73,7 +73,7 @@ Ahora veremos cómo crear una nueva aplicación web de Phyton Flask desde el pri
 
 ### Adición de paquetes flask a su proyecto
 
-Una vez que el proyecto esté configurado, deberá agregar ciertos paquetes Flask necesarios para nuestro proyecto, incluido pydocumentdb, el paquete de python para Base de datos de documentos. 
+Una vez que el proyecto esté configurado, deberá agregar ciertos paquetes Flask necesarios para nuestro proyecto, incluido pydocumentdb, el paquete de python para DocumentDB. 
 
 1. Abra el archivo denominado **requirements.txt** y reemplace el contenido por lo siguiente:
 
@@ -120,7 +120,7 @@ Ahora vamos a crear la aplicación de sondeo.
 
 ### Agregue las importaciones necesarias a views.py.
 
-- Agregue las siguientes instrucciones import a la parte superior de **views.py**. Esto importará los paquetes de PythonSDK y Flask de Base de datos de documentos.
+- Agregue las siguientes instrucciones import a la parte superior de **views.py**. Esto importará los paquetes de PythonSDK y Flask de DocumentDB.
 
     	from forms import VoteForm
     	import config
@@ -322,7 +322,7 @@ Esta configuración es necesaria para los formularios en flask. También puede u
 
 ## Paso 5: Implementación de la aplicación en Sitios web Azure
 
-Ahora que tiene la aplicación completa funcionando correctamente con Base de datos de documentos, vamos a implementar esto en sitios web Azure. 
+Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB, vamos a implementar esto en sitios web Azure. 
 
 1. Haga clic con el botón derecho en el Proyecto del Explorador de soluciones (asegúrese de que no se esté ejecutando de forma local) y elija Publicar.  A continuación, elija Sitios web Microsoft Azure.
 
@@ -336,9 +336,9 @@ Ahora que tiene la aplicación completa funcionando correctamente con Base de da
 
 ## Pasos siguientes
 
-¡Enhorabuena! Acaba de compilar su primera aplicación Phyton mediante Base de datos de documentos de Azure y la ha publicado en Sitios web Azure.
+¡Enhorabuena! Acaba de compilar su primera aplicación Phyton mediante Microsoft Azure DocumentDB y la ha publicado en Sitios web Azure.
 
-Para agregar funcionalidad adicional a la aplicación, revise las API disponibles en el [SDK de Python de Base de datos de documentos](https://pypi.python.org/pypi/pydocumentdb).
+Para agregar funcionalidad adicional a la aplicación, revise las API disponibles en el [SDK de Python de DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Haga clic aquí para tener acceso a tutoriales de Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

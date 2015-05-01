@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Supervisar una cuenta de Base de datos de documentos | Azure" 
-	description="Obtenga información acerca de cómo supervisar la cuenta de Base de datos de documentos para aplicar métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento)." 
+	pageTitle="Supervisar una cuenta de DocumentDB | Azure" 
+	description="Obtenga información acerca de cómo supervisar la cuenta de DocumentDB para aplicar métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento)." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,12 +16,12 @@
 	ms.date="01/13/2015" 
 	ms.author="mimig"/>
 
-#Supervisión de una cuenta de Base de datos de documentos  
+#Supervisión de una cuenta de DocumentDB  
 
-Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vista previa de Azure](https://portal.azure.com/). Para cada cuenta de Base de datos de documentos, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
+Puede supervisar sus cuentas de DocumentDB en el [Portal de vista previa de Azure](https://portal.azure.com/). Para cada cuenta de DocumentDB, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
 
-## <a id="metrics"></a>  Instrucciones acerca de cómo: métricas de rendimiento para una cuenta de Base de datos de documentos
-1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta de Base de datos de documentos cuyas métricas de rendimiento desee ver.
+## <a id="metrics"></a>  Instrucciones acerca de cómo: métricas de rendimiento para una cuenta de DocumentDB
+1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de DocumentDB** y, después, haga clic en el nombre de la cuenta de DocumentDB cuyas métricas de rendimiento desee ver.
 2.	En el modo **Supervisión** puede ver estos datos de forma predeterminada:
 	*	El total de solicitudes del día actual.
 	*	La media de solicitudes por segundo del día actual. 
@@ -35,7 +35,7 @@ Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vis
 	![](./media/documentdb-monitor-accounts/madocdb2.png)
 
 
-## <a id="custom"></a>Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos
+## <a id="custom"></a>Personalización de las vistas de métricas de rendimiento para una cuenta de DocumentDB
 
 1.	Para personalizar las métricas que se muestran en una determinada parte, haga clic con el botón derecho en el gráfico de métricas y, a continuación, elija **Editar gráfico**.  
 	![](./media/documentdb-monitor-accounts/madocdb3.png)
@@ -64,8 +64,8 @@ El Portal de vista previa de Azure le permite crear gráficos de métricas paral
 Ahora puede tratar esta parte como otra parte de métricas y personalizar las métricas y el intervalo de tiempo que se muestra en la parte.  De esta forma, puede ver dos gráficos de métricas diferentes en paralelo al mismo tiempo.  
 	![](./media/documentdb-monitor-accounts/madocdb8.png)  
 
-## <a id="view"></a>Visualización de métricas de uso para una cuenta de Base de datos de documentos
-1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de uso desee ver.
+## <a id="view"></a>Visualización de métricas de uso para una cuenta de DocumentDB
+1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de DocumentDB** y, después, haga clic en el nombre de la cuenta cuyas métricas de uso desee ver.
 2.	En el modo **Uso**, puede ver la siguiente información de forma predeterminada:
 	*	Coste estimado
 	*	Almacenamiento consumido en la cuenta
@@ -76,8 +76,8 @@ Ahora puede tratar esta parte como otra parte de métricas y personalizar las m�
 
 	![](./media/documentdb-monitor-accounts/madocdb9.png)
  
-## <a id="setup"></a>Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos
-1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta de Base de datos de documentos para la que desea configurar alertas de métricas de rendimiento.
+## <a id="setup"></a>Configuración de alertas de métricas de rendimiento para una cuenta de DocumentDB
+1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de DocumentDB** y, después, haga clic en el nombre de la cuenta de DocumentDB para la que desea configurar alertas de métricas de rendimiento.
 2.	En el modo **Operaciones**, haga clic en la parte **Reglas de alerta**.  
 	![](./media/documentdb-monitor-accounts/madocdb10.png)
 
@@ -95,14 +95,14 @@ Ahora puede tratar esta parte como otra parte de métricas y personalizar las m�
 
  
 ## <a id="next"></a>Pasos siguientes
-Para obtener más información acerca de la capacidad y el rendimiento de Base de datos de documentos, consulte [Administración del rendimiento y la capacidad de Base de datos de documentos](documentdb-manage.md). 
+Para obtener más información acerca de la capacidad y el rendimiento de DocumentDB, consulte [Administración del rendimiento y la capacidad de DocumentDB](documentdb-manage.md). 
 
 <!--Anchors-->
-[Visualización de las métricas de rendimiento para una cuenta de Base de datos de documentos]: #How-to-view-performance-metrics-for-a-DocumentDB-account
-[Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #Customize-performance-metric-views-for-a-DocumentDB-account
+[Visualización de las métricas de rendimiento para una cuenta de DocumentDB]: #How-to-view-performance-metrics-for-a-DocumentDB-account
+[Personalización de las vistas de métricas de rendimiento para una cuenta de DocumentDB]: #Customize-performance-metric-views-for-a-DocumentDB-account
 [Creación de gráficos de métricas de rendimiento paralelos]: #How-to-create-side-by-side-performance-metric-charts
-[Visualización de las métricas de uso para una cuenta de Base de datos de documentos]: #How-to-view-usage-metrics-for-a-DocumentDB-account
-[Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
+[Visualización de las métricas de uso para una cuenta de DocumentDB]: #How-to-view-usage-metrics-for-a-DocumentDB-account
+[Configuración de alertas de métricas de rendimiento para una cuenta de DocumentDB]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [Pasos siguientes]: #Next-steps
 
 <!--HONumber=49-->

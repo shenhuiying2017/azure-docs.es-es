@@ -1,6 +1,6 @@
 ﻿<properties 
-    pageTitle="Conexión de Base de datos de documentos con Búsqueda de Azure mediante indizadores | Azure" 
-    description="En este artículo se muestra cómo usar el indizador de Búsqueda de Azure con Base de datos de documentos como origen de datos."
+    pageTitle="Conexión de DocumentDB con Búsqueda de Azure mediante indizadores | Azure" 
+    description="En este artículo se muestra cómo usar el indizador de Búsqueda de Azure con DocumentDB como origen de datos."
     services="documentdb" 
     documentationCenter="" 
     authors="aliuy" 
@@ -16,15 +16,15 @@
     ms.date="03/19/2015" 
     ms.author="andrl"/>
 
-#Conexión de Base de datos de documentos con Búsqueda de Azure mediante indizadores
+#Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
 
-Si desea mejorar las experiencias de búsqueda en los datos de Base de datos de documentos, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Base de datos de documentos de Azure con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
+Si desea mejorar las experiencias de búsqueda en los datos de DocumentDB, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Microsoft Azure DocumentDB con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
 
-Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](search-get-started.md#start-with-the-free-service) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de Base de datos de documentos y un **indizador** para dicho origen de datos.
+Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](search-get-started.md#start-with-the-free-service) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
 
 ##<a id="Concepts"></a>Conceptos del indizador de Búsqueda de Azure
 
-Búsqueda de Azure admite la creación y administración de orígenes de datos (incluida Base de datos de documentos), así como de indizadores que se usan en dichos orígenes.
+Búsqueda de Azure admite la creación y administración de orígenes de datos (incluida DocumentDB), así como de indizadores que se usan en dichos orígenes.
 
 Un **origen de datos** especifica los datos que es necesario indizar, las credenciales para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (por ejemplo, los documentos modificados o eliminados dentro de una colección). El origen de datos se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
@@ -52,11 +52,11 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 
 - **credentials**:
 
-    - **connectionString**: Obligatorio. Especifique la información de conexión a Base de datos de documentos de Azure con el formato siguiente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: Obligatorio. Especifique la información de conexión a Microsoft Azure DocumentDB con el formato siguiente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
 - **container**:
 
-    - **name**: Obligatorio. Especifique la colección de Base de datos de documentos que se va a indizar. 
+    - **name**: Obligatorio. Especifique la colección de DocumentDB que se va a indizar. 
 
     - **query**: Opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Búsqueda de Azure pueda indizar.
 
@@ -287,9 +287,9 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
 ##<a name="NextSteps"></a>Pasos siguientes
 
-¡Enhorabuena! En este artículo ha aprendido a integrar Base de datos de documentos de Azure con Búsqueda de Azure usando el indizador para dicha base de datos.
+¡Enhorabuena! En este artículo ha aprendido a integrar Microsoft Azure DocumentDB con Búsqueda de Azure usando el indizador para dicha base de datos.
 
- - Para obtener más información sobre Base de datos de documentos de Azure, haga clic [aquí](/services/documentdb/).
+ - Para obtener más información sobre Microsoft Azure DocumentDB, haga clic [aquí](/services/documentdb/).
 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
 

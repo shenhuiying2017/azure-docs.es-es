@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Consulta con SQL de Base de datos de documentos | Azure" 
-	description="La Base de datos de documentos, un servicio de base de datos de documentos NoSQL, admite consultas con gramática de estilo SQL en documentos JSON jerárquicos, sin necesidad explícita de un esquema o de crear índices secundarios." 
+	pageTitle="Consulta con SQL de DocumentDB | Azure" 
+	description="La DocumentDB, un servicio de DocumentDB NoSQL, admite consultas con gramática de estilo SQL en documentos JSON jerárquicos, sin necesidad explícita de un esquema o de crear índices secundarios." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,24 +16,24 @@
 	ms.date="03/24/2015" 
 	ms.author="mimig"/>
 
-#Base de datos de documentos de consulta
+#DocumentDB de consulta
 Base de documentos de Azure admite la consulta de documentos con SQL (lenguaje de consulta estructurado) en documentos JSON jerárquicos. Base de documentos realmente no tiene esquemas. En virtud de su compromiso con el modelo de datos JSON que se encuentra directamente en el motor de base de datos, proporciona índices automáticos de documentos JSON sin necesidad de un esquema explícito o de la creación de índices secundarios. 
 
-Durante el diseño del lenguaje de consulta de Base de datos de documentos, teníamos dos objetivos en mente:
+Durante el diseño del lenguaje de consulta de DocumentDB, teníamos dos objetivos en mente:
 
--	<strong>Adoptar SQL:</strong> en lugar de inventar un nuevo lenguaje de consulta, queríamos adoptar el lenguaje SQL. Después de todo, SQL es uno de los lenguajes de consulta más familiares y populares. El lenguaje de consulta SQL de Base de datos de documentos de Azure proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
--	<strong>Ampliar SQL:</strong> - Igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta SQL. El lenguaje de consulta SQL DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
+-	<strong>Adoptar SQL:</strong> en lugar de inventar un nuevo lenguaje de consulta, queríamos adoptar el lenguaje SQL. Después de todo, SQL es uno de los lenguajes de consulta más familiares y populares. El lenguaje de consulta SQL de Microsoft Azure DocumentDB proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
+-	<strong>Ampliar SQL:</strong> - Igual que una DocumentDB JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta SQL. El lenguaje de consulta SQL DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
 
 Creemos que estas capacidades son clave para reducir la fricción entre la aplicación y la base de datos, y que son cruciales para la productividad de los desarrolladores.
 
-Se recomienda comenzar por ver el vídeo siguiente, donde Aravind Ramachandran muestra las capacidades de consulta de Base de datos de documentos y visitar [Query Playground](http://www.documentdb.com/sql/demo), donde puede probar Base de datos de documentos y ejecutar consultas SQL con nuestro conjunto de datos.
+Se recomienda comenzar por ver el vídeo siguiente, donde Aravind Ramachandran muestra las capacidades de consulta de DocumentDB y visitar [Query Playground](http://www.documentdb.com/sql/demo), donde puede probar DocumentDB y ejecutar consultas SQL con nuestro conjunto de datos.
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
 A continuación, vuelva a este artículo, donde comenzará por ver algunos documentos y consultas JSON sencillos.
 
 ## Introducción
-Para consultar SQL de Base de datos de documentos trabajando, empezaremos con unos documentos JSON sencillos y realizaremos algunas consultas fáciles con él. Tenga en cuenta estos dos documentos JSON sobre dos familias. No olvide que, con Base de datos de documentos, no es preciso que creemos ningún esquema ni índice secundario de forma explícita. Simplemente tenemos que insertar los documentos JSON en una colección DocumentDB y posteriormente realizar una consulta. 
+Para consultar SQL de DocumentDB trabajando, empezaremos con unos documentos JSON sencillos y realizaremos algunas consultas fáciles con él. Tenga en cuenta estos dos documentos JSON sobre dos familias. No olvide que, con DocumentDB, no es preciso que creemos ningún esquema ni índice secundario de forma explícita. Simplemente tenemos que insertar los documentos JSON en una colección DocumentDB y posteriormente realizar una consulta. 
 Aquí tenemos un documento JSON sencillo para la familia Andersen, los padres, los hijos (y sus mascotas), la dirección y la información de registro. El documento tiene cadenas, números, booleanos, matrices y propiedades anidadas. 
 
 **Documento**  
@@ -88,7 +88,7 @@ Aquí se muestra un segundo documento con una sutil diferencia: se usan  `givenN
 
 
 
-Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de Base de datos de documentos. Por ejemplo, la consulta siguiente devolverá los documentos en los que el campo del identificador coincida con  `AndersenFamily`. Puesto que es un `SELECT *`, el resultado de la consulta es el documento JSON completo:
+Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de DocumentDB. Por ejemplo, la consulta siguiente devolverá los documentos en los que el campo del identificador coincida con  `AndersenFamily`. Puesto que es un `SELECT *`, el resultado de la consulta es el documento JSON completo:
 
 **Consulta**
 
@@ -151,35 +151,35 @@ La consulta siguiente devuelve todos los nombres proporcionados de los niños de
 	]
 
 
-Nos gustaría llamar la atención sobre algunos aspectos destacados del lenguaje de consulta de Base de datos de documentos a través de los ejemplos que hemos visto hasta el momento:  
+Nos gustaría llamar la atención sobre algunos aspectos destacados del lenguaje de consulta de DocumentDB a través de los ejemplos que hemos visto hasta el momento:  
  
--	Como SQL de Base de datos de documentos trabaja en valores JSON, trata entidades en forma de árbol en lugar de filas y columnas. Por consiguiente, el lenguaje permite que se haga referencia a los nodos del árbol a cualquier profundidad arbitraria, como  `Node1.Node2.Node3.....Nodem`, de forma similar al lenguaje SQL relacional que hace alusión a la referencia de `<table>.<column>`.   
+-	Como SQL de DocumentDB trabaja en valores JSON, trata entidades en forma de árbol en lugar de filas y columnas. Por consiguiente, el lenguaje permite que se haga referencia a los nodos del árbol a cualquier profundidad arbitraria, como  `Node1.Node2.Node3.....Nodem`, de forma similar al lenguaje SQL relacional que hace alusión a la referencia de `<table>.<column>`.   
 -	El lenguaje trabaja con datos sin esquemas. Por lo tanto, es necesario que el sistema de tipo se enlace dinámicamente. La misma expresión podría producir diversos tipos en distintos documentos. El resultado de una consulta es un valor JSON válido, pero no se garantiza que sea de un esquema fijo.  
--	Base de datos de documentos solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Consulte la [especificación de JSON](http://www.json.org/) para obtener más detalles.  
--	Una recopilación de Base de datos de documentos es un contenedor sin esquemas de documentos JSON. Las relaciones en las entidades de datos dentro de los documentos de una colección y entre ellos se capturan de manera implícita por contención y no por relaciones entre clave principal y clave externa. Se trata de un aspecto importante que merece la pena señalar teniendo en cuenta las combinaciones internas descritas posteriormente en este artículo.
+-	DocumentDB solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Consulte la [especificación de JSON](http://www.json.org/) para obtener más detalles.  
+-	Una recopilación de DocumentDB es un contenedor sin esquemas de documentos JSON. Las relaciones en las entidades de datos dentro de los documentos de una colección y entre ellos se capturan de manera implícita por contención y no por relaciones entre clave principal y clave externa. Se trata de un aspecto importante que merece la pena señalar teniendo en cuenta las combinaciones internas descritas posteriormente en este artículo.
 
-##Índices de Base de datos de documentos
+##Índices de DocumentDB
 
-Antes de entrar en el lenguaje SQL de Base de datos de documentos, vale la pena explorar el diseño de indización en DocumentDB. 
+Antes de entrar en el lenguaje SQL de DocumentDB, vale la pena explorar el diseño de indización en DocumentDB. 
 
 El objetivo de los índices de base de datos es atender consultas en sus diversas formas con un consumo de los recursos mínimo (como CPU y entrada y salida) mientras se proporcionan un buen rendimiento y una latencia baja. A menudo, la elección del índice adecuado para consultar una base de datos requiere mucha planificación y experimentación. Este enfoque plantea un desafío para las bases de datos sin esquemas en las que los datos no cumplen un esquema estricto y evolucionan rápidamente. 
 
-Por lo tanto, al diseñar el subsistema de indización de Base de datos de documentos, establecemos los siguientes objetivos:
+Por lo tanto, al diseñar el subsistema de indización de DocumentDB, establecemos los siguientes objetivos:
 
 -	Indice documentos sin necesidad de esquema: el subsistema de indización no requiere información de esquema alguna ni la realización de ninguna suposición sobre el esquema de los documentos. 
 
--	Compatibilidad con consultas eficaces, jerárquicas enriquecidas y relacionales: el índice admite el lenguaje de consulta de Base de datos de documentos de manera eficaz, incluida la compatibilidad con proyecciones jerárquicas y relacionales.
+-	Compatibilidad con consultas eficaces, jerárquicas enriquecidas y relacionales: el índice admite el lenguaje de consulta de DocumentDB de manera eficaz, incluida la compatibilidad con proyecciones jerárquicas y relacionales.
 
 -	Compatibilidad con consultas coherentes frente a un volumen de escrituras sostenido: en el caso de las cargas de trabajo de alto rendimiento de escritura con consultas coherentes, el índice se actualiza paulatinamente, de forma eficaz y en línea frente a un volumen de escrituras sostenido. La actualización del índice coherente es crucial para atender las consultas en el nivel de coherencia en el que el usuario configura el servicio de documentos.
 
 -	Compatibilidad con la arquitectura multiempresa: una vez proporcionado el modelo basado en la reserva para la gobernanza de recursos de los inquilinos, se realizan actualizaciones de los índices sin sobrepasar el presupuesto de los recursos del sistema (CPU, memoria, IOPS) asignadas por réplica. 
 
--	Eficacia de almacenamiento: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque Base de datos de documentos permite que el desarrollador haga concesiones basadas en el coste entre la sobrecarga de índices y el rendimiento de las consultas.  
+-	Eficacia de almacenamiento: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque DocumentDB permite que el desarrollador haga concesiones basadas en el coste entre la sobrecarga de índices y el rendimiento de las consultas.  
 
-Consulte los [ejemplos de Base de datos de documentos](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) en MSDN para ver ejemplos en los que se muestra cómo configurar la directiva de indización para una colección. Adentrémonos ahora en los detalles del lenguaje SQL de Base de datos de documentos.
+Consulte los [ejemplos de DocumentDB](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) en MSDN para ver ejemplos en los que se muestra cómo configurar la directiva de indización para una colección. Adentrémonos ahora en los detalles del lenguaje SQL de DocumentDB.
 
 
-##Aspectos básicos de la consulta de Base de datos de documentos
+##Aspectos básicos de la consulta de DocumentDB
 Todas las consultas constan de una cláusula SELECT y cláusulas FROM y WHERE opcionales por estándares ANSI-SQL. Normalmente, para cada consulta, se enumera el origen de la cláusula FROM. A continuación, el filtro de la cláusula WHERE se aplica en el origen para recuperar un subconjunto de documentos JSON. Por último, la cláusula SELECT se usa para proyectar los valores JSON solicitados en la lista seleccionada.
     
     SELECT <select_list> 
@@ -275,7 +275,7 @@ En la consulta siguiente se solicitan documentos que contienen una propiedad de 
 	}]
 
 
-En el ejemplo anterior se mostraba una sencilla consulta de igualdad. SQL de Base de datos de documentos también admite diversas expresiones escalares. Las que más se suelen usar son binarias y unarias. Las referencias de propiedad del objeto JSON de origen también son expresiones válidas. 
+En el ejemplo anterior se mostraba una sencilla consulta de igualdad. SQL de DocumentDB también admite diversas expresiones escalares. Las que más se suelen usar son binarias y unarias. Las referencias de propiedad del objeto JSON de origen también son expresiones válidas. 
 
 Actualmente se admiten los siguientes operadores binarios y pueden usarse en consultas como se muestra en los ejemplos siguientes:  
 <table>
@@ -331,7 +331,7 @@ También se admiten los operadores unarios +,-, ~ y NOT, y se pueden usar dentro
 Además de los operadores unarios y binarios, también se permiten referencias de propiedad. Por ejemplo,  `SELECT * FROM Families f WHERE f.isRegistered` devuelve los documentos JSON que incluyen la propiedad  `isRegistered` en la que el valor de la propiedad es igual al valor  `true` JSON. Cualquier otro valor (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) hace que el documento de origen se excluya del resultado. 
 
 ###Operadores de igualdad y comparación
-En la siguiente tabla se muestra el resultado de las comparaciones de igualdad en el lenguaje SQL de Base de datos de documentos entre dos tipos JSON cualesquiera.
+En la siguiente tabla se muestra el resultado de las comparaciones de igualdad en el lenguaje SQL de DocumentDB entre dos tipos JSON cualesquiera.
 <table style = "width:300px">
    <tbody>
       <tr>
@@ -568,7 +568,7 @@ Al contrario que en ANSI SQL, también se puede usar la cláusula BETWEEN en la 
 
 Para que la consulta se ejecute de forma más rápida, no olvide crear una directiva de indización que use un tipo de índice de intervalo en cualquier ruta o propiedad numérica que se filtre en la cláusula BETWEEN. 
 
-La principal diferencia entre usar BETWEEN en Base de datos de documentos y ANSI SQL es que puede expresar consultas por rangos en propiedades de tipos mixtos. Por ejemplo, "grade" podría ser un número (5) en algunos documentos y una cadena ("grade4") en otros. En estos casos, al igual que en JavaScript, una comparación entre dos tipos distintos da como resultado "undefined" y el documento se omitirá.
+La principal diferencia entre usar BETWEEN en DocumentDB y ANSI SQL es que puede expresar consultas por rangos en propiedades de tipos mixtos. Por ejemplo, "grade" podría ser un número (5) en algunos documentos y una cadena ("grade4") en otros. En estos casos, al igual que en JavaScript, una comparación entre dos tipos distintos da como resultado "undefined" y el documento se omitirá.
 
 
 ###Operadores lógicos (Y, O y NO)
@@ -992,7 +992,7 @@ En el ejemplo siguiente, el resultado de la expresión escalar es un valor boole
 
 
 ###Creación de objetos y matrices
-Otra característica clave del lenguaje SQL de Base de datos de documentos es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. De manera similar, uno también puede construir matrices como se muestra en los siguientes ejemplos.
+Otra característica clave del lenguaje SQL de DocumentDB es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. De manera similar, uno también puede construir matrices como se muestra en los siguientes ejemplos.
 
 **Consulta**
 
@@ -1097,7 +1097,7 @@ Se admite el operador especial (*) para proyectar el documento tal cual. Al usar
 
 ##Conceptos avanzados
 ###Iteración
-Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL de Base de datos de documentos para proporcionar compatibilidad para recorrer en iteración las matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
+Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL de DocumentDB para proporcionar compatibilidad para recorrer en iteración las matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
 
 **Consulta**
 
@@ -1176,7 +1176,7 @@ Esto puede usarse más veces para filtrar por cada entrada individual de la matr
 	}]
 
 ###Combinaciones
-En una base de datos relacional, la necesidad de combinar en tablas es muy importante. Es la consecuencia lógica de diseñar esquemas normalizados. Al contrario que esto, Base de datos de documentos aborda el modelo de datos desnormalizado de documentos sin esquemas. Este es el equivalente lógico de una "autocombinación".
+En una base de datos relacional, la necesidad de combinar en tablas es muy importante. Es la consecuencia lógica de diseñar esquemas normalizados. Al contrario que esto, DocumentDB aborda el modelo de datos desnormalizado de documentos sin esquemas. Este es el equivalente lógico de una "autocombinación".
 
 La sintaxis que el lenguaje admite es <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Generalmente, esto devuelve un conjunto de tuplas **N** (tupla con **N** valores). Cada tupla tiene valores generados por sus respectivos conjuntos en iteración de todos los alias de colección. En otras palabras, se trata de un producto cruzado completo de los conjuntos que participan en la combinación.
 
@@ -1325,17 +1325,17 @@ En el ejemplo siguiente, hay un filtro adicional en  `pet`. Este excluye todas l
 
 
 ##Integración de JavaScript
-Base de datos de documentos proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones en términos de procedimientos y desencadenadores almacenados. Esto les proporciona:
+DocumentDB proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones en términos de procedimientos y desencadenadores almacenados. Esto les proporciona:
 
 -	La posibilidad de realizar operaciones CRUD transaccionales de alto rendimiento y consultas en los documentos de una recopilación en virtud de una mayor integración del tiempo de ejecución de JavaScript directamente en el motor de base de datos. 
--	Un modelo natural de flujo de control, ámbito variable, asignación e integración de primitivas de control de excepciones con transacciones de base de datos. Para obtener más detalles sobre la compatibilidad de Base de datos de documentos con la integración de JavaScript, consulta la documentación de programación del servidor de JavaScript.
+-	Un modelo natural de flujo de control, ámbito variable, asignación e integración de primitivas de control de excepciones con transacciones de base de datos. Para obtener más detalles sobre la compatibilidad de DocumentDB con la integración de JavaScript, consulta la documentación de programación del servidor de JavaScript.
 
 ###Funciones definidas por el usuario (UDF)
-Junto con los tipos ya definidos en este artículo, el lenguaje SQL de Base de datos de documentos ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON legales.  
+Junto con los tipos ya definidos en este artículo, el lenguaje SQL de DocumentDB ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON legales.  
 
-La gramática del lenguaje SQL de Base de datos de documentos se amplía para admitir una lógica de aplicación personalizada usando estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con Base de datos de documentos y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
+La gramática del lenguaje SQL de DocumentDB se amplía para admitir una lógica de aplicación personalizada usando estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con DocumentDB y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
 
-A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base de datos de Base de datos de documentos, concretamente en una recopilación de documentos.
+A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base de datos de DocumentDB, concretamente en una recopilación de documentos.
 
    
 	   UserDefinedFunction sqrtUdf = new UserDefinedFunction
@@ -1354,7 +1354,7 @@ El ejemplo anterior crea una UDF cuyo nombre es  `SQRT`. Acepta un solo valor JS
 
 Ahora podemos usar esta UDF en una consulta de una proyección. Las UDF deben estar calificadas con el prefijo, que distingue mayúsculas de minúsculas, "udf." cuando se las llama desde las consultas. 
 
->[AZURE.NOTE] Antes del 17/03/2015, Base de datos de documentos admitía las llamadas de UDF sin el prefijo "udf." al igual que SELECT SQRT(5). Este patrón de llamada está desusado.  
+>[AZURE.NOTE] Antes del 17/03/2015, DocumentDB admitía las llamadas de UDF sin el prefijo "udf." al igual que SELECT SQRT(5). Este patrón de llamada está desusado.  
 
 **Consulta**
 
@@ -1434,23 +1434,23 @@ A continuación se muestra un ejemplo que ejerce la UDF.
 	]
 
 
-Al igual que en los ejemplos anteriores se muestran casos, las UDF integran el poder del lenguaje de JavaScript con el lenguaje SQL de Base de datos de documentos para proporcionar una interfaz programable enriquecida a fin de hacer lógica condicional de procedimientos compleja con la ayuda de capacidades en tiempo real de JavaScript integradas.
+Al igual que en los ejemplos anteriores se muestran casos, las UDF integran el poder del lenguaje de JavaScript con el lenguaje SQL de DocumentDB para proporcionar una interfaz programable enriquecida a fin de hacer lógica condicional de procedimientos compleja con la ayuda de capacidades en tiempo real de JavaScript integradas.
 
-El lenguaje SQL de Base de datos de documentos proporciona los argumentos a las UDF para cada uno de los documentos del origen en la fase actual (cláusulas WHERE o SELECT) de procesamiento de la UDF. El resultado se incorpora en el proceso de ejecución general perfectamente. Si las propiedades a las que los parámetros UDF hacen referencia no están disponibles en el valor JSON, el parámetro se considera Undefined y así pues, la invocación de UDF se omite por completo. De forma similar, si el resultado de la UDF es Undefined, no se incluye en el resultado. 
+El lenguaje SQL de DocumentDB proporciona los argumentos a las UDF para cada uno de los documentos del origen en la fase actual (cláusulas WHERE o SELECT) de procesamiento de la UDF. El resultado se incorpora en el proceso de ejecución general perfectamente. Si las propiedades a las que los parámetros UDF hacen referencia no están disponibles en el valor JSON, el parámetro se considera Undefined y así pues, la invocación de UDF se omite por completo. De forma similar, si el resultado de la UDF es Undefined, no se incluye en el resultado. 
 
 En resumen, las UDF son excelentes herramientas para hacer lógica de negocios como parte de la consulta.
 
 ###Evaluación de operadores
-Base de datos de documentos, en virtud de ser una base de datos JSON, establece paralelismos con los operadores de JavaScript y su semántica de evaluación. Aunque Base de datos de documentos intenta conservar la semántica de JavaScript en términos de soporte para JSON, la evaluación de operaciones se desvía en algunas instancias.
+DocumentDB, en virtud de ser una base de datos JSON, establece paralelismos con los operadores de JavaScript y su semántica de evaluación. Aunque DocumentDB intenta conservar la semántica de JavaScript en términos de soporte para JSON, la evaluación de operaciones se desvía en algunas instancias.
 
-En el lenguaje de consulta SQL de Base de datos de documentos, a diferencia del lenguaje SQL tradicional, los tipos de valores no suelen conocerse hasta que los valores se recuperan realmente de la base de datos. Para ejecutar consultas de forma eficaz, la mayoría de los operadores tienen requisitos de tipo estrictos. 
+En el lenguaje de consulta SQL de DocumentDB, a diferencia del lenguaje SQL tradicional, los tipos de valores no suelen conocerse hasta que los valores se recuperan realmente de la base de datos. Para ejecutar consultas de forma eficaz, la mayoría de los operadores tienen requisitos de tipo estrictos. 
 
-El lenguaje SQL de Base de datos de documentos no realiza conversiones implícitas a diferencia de JavaScript. Por ejemplo, una consulta como `SELECT * FROM Person p WHERE p.Age = 21` coincide con los documentos que contienen una propiedad Age cuyo valor es 21. Cualquier otro documento cuya propiedad Age coincida con la cadena "21", u
+El lenguaje SQL de DocumentDB no realiza conversiones implícitas a diferencia de JavaScript. Por ejemplo, una consulta como `SELECT * FROM Person p WHERE p.Age = 21` coincide con los documentos que contienen una propiedad Age cuyo valor es 21. Cualquier otro documento cuya propiedad Age coincida con la cadena "21", u
 otras variaciones posiblemente infinitas, como "021", "21,0", "0021", "00021", etc. no producirán coincidencias. 
-Esto es en contraste al JavaScript donde los valores de cadena se convierten de manera implícita en números (en función del operador, por ejemplo, ==). Esta opción es fundamental para conseguir una coincidencia de índices eficaz en el lenguaje SQL de Base de datos de documentos. 
+Esto es en contraste al JavaScript donde los valores de cadena se convierten de manera implícita en números (en función del operador, por ejemplo, ==). Esta opción es fundamental para conseguir una coincidencia de índices eficaz en el lenguaje SQL de DocumentDB. 
 
 ##SQL con parámetros
-Base de datos de documentos admite las consultas con parámetros que se expresen con la notación @ ya conocida. El uso de SQL con parámetros permite controlar y evitar de forma sólida la entrada por parte de los usuarios, impidiendo así la exposición accidental de datos a través de la inyección de código SQL. 
+DocumentDB admite las consultas con parámetros que se expresen con la notación @ ya conocida. El uso de SQL con parámetros permite controlar y evitar de forma sólida la entrada por parte de los usuarios, impidiendo así la exposición accidental de datos a través de la inyección de código SQL. 
 
 Por ejemplo, puede escribir una consulta que acepte los apellidos y el estado de la dirección como parámetros y, a continuación, ejecutarla para distintos valores de los parámetros mencionados en función de la entrada del usuario.
 
@@ -1458,7 +1458,7 @@ Por ejemplo, puede escribir una consulta que acepte los apellidos y el estado de
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Después, esta solicitud puede enviarse a Base de datos de documentos como consulta JSON con parámetros, como se muestra a continuación.
+Después, esta solicitud puede enviarse a DocumentDB como consulta JSON con parámetros, como se muestra a continuación.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1468,10 +1468,10 @@ Después, esta solicitud puede enviarse a Base de datos de documentos como consu
         ] 
     }
 
-Los valores de los parámetros pueden ser cualquier tipo de JSON válido (cadenas, números, booleanos, null o incluso matrices o JSON anidado). Además, como Base de datos de documentos no tiene ningún esquema, los parámetros no se validan respecto a ningún tipo.
+Los valores de los parámetros pueden ser cualquier tipo de JSON válido (cadenas, números, booleanos, null o incluso matrices o JSON anidado). Además, como DocumentDB no tiene ningún esquema, los parámetros no se validan respecto a ningún tipo.
 
 ##Funciones integradas
-Base de datos de documentos también admite un número de funciones integradas para operaciones comunes, que se pueden usar dentro de las consultas como funciones definidas por el usuario (UDF).
+DocumentDB también admite un número de funciones integradas para operaciones comunes, que se pueden usar dentro de las consultas como funciones definidas por el usuario (UDF).
 
 <table>
 <tr>
@@ -1554,7 +1554,7 @@ Por ejemplo, ya puede ejecutar consultas similares a las siguientes:
 
     [4]
 
-La principal diferencia entre funciones de Base de datos de documentos y ANSI SQL es que están diseñadas para funcionar bien con datos sin esquemas y datos de esquemas mixtos. Por ejemplo, si tiene un documento donde falta la propiedad de tamaño o tiene un valor no numérico, como "desconocido", se omite el documento, en lugar de devolver un error.
+La principal diferencia entre funciones de DocumentDB y ANSI SQL es que están diseñadas para funcionar bien con datos sin esquemas y datos de esquemas mixtos. Por ejemplo, si tiene un documento donde falta la propiedad de tamaño o tiene un valor no numérico, como "desconocido", se omite el documento, en lugar de devolver un error.
 
 ###Funciones de comprobación de tipos
 Las funciones de comprobación de tipos permiten comprobar el tipo de una expresión dentro de consultas SQL. Las funciones de comprobación de tipos pueden utilizarse para determinar el tipo de propiedades dentro de los documentos sobre la marcha cuando es variable o desconocido Esta es una tabla de las funciones de comprobación de tipos integradas admitidas.
@@ -1601,10 +1601,10 @@ Con estas funciones, ya puede ejecutar consultas similares a las siguientes:
     [true]
 
 
-##LINQ para lenguaje SQL de Base de datos de documentos
-LINQ es un modelo de programación de .NET que expresa cálculos como consultas de secuencias de objetos. Base de datos de documentos proporciona una biblioteca del cliente para interactuar con LINQ facilitando una conversión entre objetos JSON y .NET y una asignación a partir de un subconjunto de consultas de LINQ a consultas de Base de datos de documentos. 
+##LINQ para lenguaje SQL de DocumentDB
+LINQ es un modelo de programación de .NET que expresa cálculos como consultas de secuencias de objetos. DocumentDB proporciona una biblioteca del cliente para interactuar con LINQ facilitando una conversión entre objetos JSON y .NET y una asignación a partir de un subconjunto de consultas de LINQ a consultas de DocumentDB. 
 
-En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa Base de datos de documentos.  Al usar el cliente de Base de datos de documentos, los desarrolladores pueden crear un objeto **IQueryable** que consulta directamente al proveedor de consulta de Base de datos de documentos que, a continuación, traduce la consulta de LINQ como una consulta de Base de datos de documentos. La consulta pasa entonces al servidor de Base de datos de documentos para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
+En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa DocumentDB.  Al usar el cliente de DocumentDB, los desarrolladores pueden crear un objeto **IQueryable** que consulta directamente al proveedor de consulta de DocumentDB que, a continuación, traduce la consulta de LINQ como una consulta de DocumentDB. La consulta pasa entonces al servidor de DocumentDB para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
 
 ![][1]
  
@@ -1693,7 +1693,7 @@ La asignación entre objetos .NET y documentos JSON es natural (cada campo del m
 
 
 ###LINQ para traducción de lenguaje SQL
-El proveedor de consulta de Base de datos de documentos realiza una mejor opción de asignación desde una consulta de LINQ a una consulta de Base de datos de documentos. En la siguiente descripción, asumimos la familiaridad básica del lector con LINQ.
+El proveedor de consulta de DocumentDB realiza una mejor opción de asignación desde una consulta de LINQ a una consulta de DocumentDB. En la siguiente descripción, asumimos la familiaridad básica del lector con LINQ.
 
 En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos JSON (tipos numéricos, booleanos, de cadena y null). Solo se admiten estos tipos JSON. Se admiten las siguientes expresiones escalares.
 
@@ -1723,7 +1723,7 @@ En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos 
 		new int[] { 3, child.grade, 5 };
 
 ###Operadores de consulta
-A continuación, vemos algunos ejemplos que ilustran la traducción de algunos de los operadores de consulta de LINQ estándar a consultas de Base de datos de documentos.
+A continuación, vemos algunos ejemplos que ilustran la traducción de algunos de los operadores de consulta de LINQ estándar a consultas de DocumentDB.
 
 ####Operador Select
 La sintaxis es  `input.Select(x => f(x))`, donde `f` es una expresión escalar.
@@ -1812,7 +1812,7 @@ La sintaxis es  `input.Where(x => f(x))`, donde `f` es una expresión escalar qu
 
 
 ###Consultas compuestas
-Los operadores anteriores pueden ser compuestos para formar consultas más eficaces. Como Base de datos de documentos admite recopilaciones anidadas, la composición puede concatenarse o anidarse.
+Los operadores anteriores pueden ser compuestos para formar consultas más eficaces. Como DocumentDB admite recopilaciones anidadas, la composición puede concatenarse o anidarse.
 
 ####Concatenación 
 
@@ -1917,15 +1917,15 @@ En una consulta anidada, la consulta interna se aplica a cada uno de los element
 
 
 ##Ejecución de consultas
-Base de datos de documentos expone recursos mediante la API de REST, que puede invocar cualquier lenguaje capaz de realizar solicitudes de HTTP/HTTPS. Además, Base de datos de documentos ofrece bibliotecas de programación para varios lenguajes populares como .NET, Node.js, JavaScript y Python. La API de REST y las diversas bibliotecas admiten la realización de consultas a través de SQL. El SDK de .NET admite la realización de consultas de LINQ, además del lenguaje SQL.
+DocumentDB expone recursos mediante la API de REST, que puede invocar cualquier lenguaje capaz de realizar solicitudes de HTTP/HTTPS. Además, DocumentDB ofrece bibliotecas de programación para varios lenguajes populares como .NET, Node.js, JavaScript y Python. La API de REST y las diversas bibliotecas admiten la realización de consultas a través de SQL. El SDK de .NET admite la realización de consultas de LINQ, además del lenguaje SQL.
 
-En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de Base de datos de documentos.
+En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de DocumentDB.
 ###API de REST
-Base de datos de documentos ofrece un modelo de programación RESTful sobre HTTP. Las cuentas de la base de datos pueden aprovisionarse usando una suscripción de Azure. El modelo de recursos de Base de datos de documentos consta de un conjunto de recursos en una cuenta de la base de datos, cada uno de los cuales se puede dirigir mediante un URI lógico y estable. En este documento, se hace referencia a un conjunto de recursos como fuente. Una cuenta de la base de datos consta de un conjunto de bases de datos, cada una incluyendo varias recopilaciones que, a su vez, contienen documentos, UDF y otros tipos de recursos.
+DocumentDB ofrece un modelo de programación RESTful sobre HTTP. Las cuentas de la base de datos pueden aprovisionarse usando una suscripción de Azure. El modelo de recursos de DocumentDB consta de un conjunto de recursos en una cuenta de la base de datos, cada uno de los cuales se puede dirigir mediante un URI lógico y estable. En este documento, se hace referencia a un conjunto de recursos como fuente. Una cuenta de la base de datos consta de un conjunto de bases de datos, cada una incluyendo varias recopilaciones que, a su vez, contienen documentos, UDF y otros tipos de recursos.
 
-El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos de HTTP GET, PUT, POST y DELETE con su interpretación estándar. El verbo POST se usa para la creación de un nuevo recurso, para ejecutar un procedimiento almacenado o para emitir una consulta de Base de datos de documentos. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
+El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos de HTTP GET, PUT, POST y DELETE con su interpretación estándar. El verbo POST se usa para la creación de un nuevo recurso, para ejecutar un procedimiento almacenado o para emitir una consulta de DocumentDB. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
 
-En los ejemplos siguientes se muestra POST para una consulta de Base de datos de documentos realizada a una recopilación que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Tenga en cuenta el uso de los encabezados  `x-ms-documentdb-isquery` y Content-Type:  `application/query+json` que denotan que la operación es una consulta.
+En los ejemplos siguientes se muestra POST para una consulta de DocumentDB realizada a una recopilación que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Tenga en cuenta el uso de los encabezados  `x-ms-documentdb-isquery` y Content-Type:  `application/query+json` que denotan que la operación es una consulta.
 
 
 **Solicitud**
@@ -2050,9 +2050,9 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 
 Si los resultados de una consulta no se ajustan a una sola página de resultados, la API de REST devuelve un token de continuación a través del encabezado de respuesta  `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado de número `x-ms-max-item-count`.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado  `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie  `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados desusados. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos][consistency-levels].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado  `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie  `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados desusados. Para obtener más información, consulte [Niveles de coherencia de DocumentDB][consistency-levels].
 
-Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Base de datos de documentos devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. El encabezado  `x-ms-documentdb-query-enable-scan` puede especificarse para permitir que la consulta realice un análisis si no hay un índice disponible.
+Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de DocumentDB devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. El encabezado  `x-ms-documentdb-query-enable-scan` puede especificarse para permitir que la consulta realice un análisis si no hay un índice disponible.
 
 ###SDK de C# (.NET)
 El SDK de .NET admite la realización de consultas de LINQ y SQL. En el ejemplo siguiente se muestra cómo realizar la consulta de filtro simple incluida anteriormente en este documento.
@@ -2146,10 +2146,10 @@ El cliente de .NET se itera automáticamente a través de todas las páginas de 
 
 Los desarrolladores también pueden controlar explícitamente la paginación creando  `IDocumentQueryable` con el objeto  `IQueryable` y, a continuación, leyendo los valores ` ResponseContinuationToken` y devolviéndolos como  `RequestContinuationToken` en  `FeedOptions`. Se puede establecer  `EnableScanInQuery` para habilitar los análisis si la directiva de indización configurada no admite la consulta.
 
-Consulte los [ejemplos de .NET de Base de datos de documentos](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) para obtener más ejemplos que contienen consultas. 
+Consulte los [ejemplos de .NET de DocumentDB](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) para obtener más ejemplos que contienen consultas. 
 
 ###API del servidor de JavaScript 
-Base de datos de documentos proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones usando procedimientos y desencadenadores almacenados. La lógica de JavaScript registrada en un nivel de recopilación puede emitir operaciones de base de datos en las operaciones de los documentos de la recopilación especificada. Estas operaciones se incluyen en transacciones ACID ambientales.
+DocumentDB proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones usando procedimientos y desencadenadores almacenados. La lógica de JavaScript registrada en un nivel de recopilación puede emitir operaciones de base de datos en las operaciones de los documentos de la recopilación especificada. Estas operaciones se incluyen en transacciones ACID ambientales.
 
 En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servidor de JavaScript para realizar consultas a partir de procedimientos y desencadenadores almacenados dentro.
 
@@ -2186,10 +2186,10 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 
 
 ##Referencias
-1.	[Introducción a Base de datos de documentos de Azure][introduction]
-2.	[Especificación del lenguaje de SQL de Base de datos de documentos](http://go.microsoft.com/fwlink/p/?LinkID=510612)
-3.	[Ejemplos de .NET de Base de datos de documentos](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
-4.	[Niveles de coherencia de Base de datos de documentos][consistency-levels]
+1.	[Introducción a Microsoft Azure DocumentDB][introduction]
+2.	[Especificación del lenguaje de SQL de DocumentDB](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.	[Ejemplos de .NET de DocumentDB](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
+4.	[Niveles de coherencia de DocumentDB][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Especificación de Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 

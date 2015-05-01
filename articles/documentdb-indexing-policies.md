@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Directivas de indexación de la Base de datos de documentos | Azure" 
+	pageTitle="Directivas de indexación de la DocumentDB | Azure" 
 	description="Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar la directiva de indexación." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -17,14 +17,14 @@
 	ms.author="mimig"/>
 
 
-Directivas de indexación de la Base de datos de documentos
+Directivas de indexación de la DocumentDB
 ============================
 
-La Base de datos de documentos es un sistema de bases de datos libre de esquemas. No asume ni requiere ningún esquema para los documentos JSON que indexa. Esto permite definir y establecer iteraciones en los modelos de datos de aplicación rápidamente. A medida que se agregan documentos a una colección, la Base de datos de documentos indexará automáticamente las propiedades de los documentos para que estén disponibles para su consulta. La indexación automática también permite almacenar los tipos de documentos heterogéneos.
+La DocumentDB es un sistema de bases de datos libre de esquemas. No asume ni requiere ningún esquema para los documentos JSON que indexa. Esto permite definir y establecer iteraciones en los modelos de datos de aplicación rápidamente. A medida que se agregan documentos a una colección, la DocumentDB indexará automáticamente las propiedades de los documentos para que estén disponibles para su consulta. La indexación automática también permite almacenar los tipos de documentos heterogéneos.
 
-La indexación automática de documentos es posible gracias a las técnicas de escritura optimizada y mantenimiento del índice estructurado de registros y libre de bloqueos. Base de datos de documentos admite un volumen sostenido de escrituras rápidas mientras se sigue atendiendo consultas coherentes.
+La indexación automática de documentos es posible gracias a las técnicas de escritura optimizada y mantenimiento del índice estructurado de registros y libre de bloqueos. DocumentDB admite un volumen sostenido de escrituras rápidas mientras se sigue atendiendo consultas coherentes.
 
-El subsistema de indexación de la Base de datos de documentos está diseñado para ofrecer lo siguiente:
+El subsistema de indexación de la DocumentDB está diseñado para ofrecer lo siguiente:
 
 ·         Consultas jerárquicas y relacionales eficaces y enriquecidas sin necesidad de definición de esquema o índice.
 
@@ -32,30 +32,30 @@ El subsistema de indexación de la Base de datos de documentos está diseñado p
 
 ·         Eficacia de almacenamiento. para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible.
 
-·         Multiempresa. Las actualizaciones del índice se realizan según la asignación de recursos de sistema asignados por la recopilación de la Base de datos de documentos.
+·         Multiempresa. Las actualizaciones del índice se realizan según la asignación de recursos de sistema asignados por la recopilación de la DocumentDB.
 
 Es posible utilizar la directiva de indexación automática predeterminada para la mayoría de las aplicaciones, ya que ofrece la máxima flexibilidad y proporciona un justo equilibrio entre rendimiento y eficacia en el almacenamiento. Por otro lado, especificar una directiva de indexación personalizada permite lograr un equilibrio granular entre el rendimiento de las consultas, el rendimiento en la escritura y la sobrecarga de almacenamiento del índice.
 
-Por ejemplo, si se excluye determinados documentos o rutas de acceso de los documentos de la indexación, es posible reducir el espacio de almacenamiento utilizado para la indexación, así como el tiempo de inserción para el mantenimiento del índice. Es posible cambiar el tipo de índice para adaptarlo a las consultas, o bien incrementar la precisión del índice en bytes para mejorar el rendimiento de las consultas. Este artículo describe las distintas opciones de indexación disponibles en la Base de datos de documentos, así como la personalización de las directivas de indexación a sus cargas de trabajo.
+Por ejemplo, si se excluye determinados documentos o rutas de acceso de los documentos de la indexación, es posible reducir el espacio de almacenamiento utilizado para la indexación, así como el tiempo de inserción para el mantenimiento del índice. Es posible cambiar el tipo de índice para adaptarlo a las consultas, o bien incrementar la precisión del índice en bytes para mejorar el rendimiento de las consultas. Este artículo describe las distintas opciones de indexación disponibles en la DocumentDB, así como la personalización de las directivas de indexación a sus cargas de trabajo.
 
-<a id="HowWorks"></a>Funcionamiento de la indización de la Base de datos de documentos
+<a id="HowWorks"></a>Funcionamiento de la indización de la DocumentDB
 -----------------------------
 
-La indexación en Base de datos de documentos aprovecha el hecho de que la gramática de JSON permite que los documentos se **representen como árboles**. Para representar un documento JSON como un árbol, es necesario crear un nodo raíz ficticio que actúe como elemento principal para el resto de nodos reales del documento que dependen de dicho nodo ficticio. Cada etiqueta, que incluye los índices de la matriz en un documento JSON, se convierte en un nodo del árbol. La ilustración siguiente muestra un ejemplo de documento JSON y de su representación de árbol correspondiente.
+La indexación en DocumentDB aprovecha el hecho de que la gramática de JSON permite que los documentos se **representen como árboles**. Para representar un documento JSON como un árbol, es necesario crear un nodo raíz ficticio que actúe como elemento principal para el resto de nodos reales del documento que dependen de dicho nodo ficticio. Cada etiqueta, que incluye los índices de la matriz en un documento JSON, se convierte en un nodo del árbol. La ilustración siguiente muestra un ejemplo de documento JSON y de su representación de árbol correspondiente.
 
 ![Indexing Policies](media/documentdb-indexing-policies/image001.png)
 
 
 Por ejemplo, la propiedad JSON {"headquarters": "Belgium"} en el ejemplo anterior corresponde con la ruta de acceso /"headquarters"/"Belgium". La matriz JSON {"exports": [{"city": "Moscow"}, {"city": Athens"}]} corresponden a las rutas de acceso /"exports"/0/"city"/"Moscow" y /"exports"/1/"city"/"Athens".
 
-**Nota** La representación de la ruta de acceso difumina el límite entre el esquema/la estructura y los valores de instancia de los documentos, lo que permite a la Base de datos de documentos utilizar un modelo libre de esquemas.
+**Nota** La representación de la ruta de acceso difumina el límite entre el esquema/la estructura y los valores de instancia de los documentos, lo que permite a la DocumentDB utilizar un modelo libre de esquemas.
 
-En la Base de datos de documentos, los documentos se organizan en recopilaciones que se pueden consultar mediante SQL o que procesan en el ámbito de una sola transacción. Cada recopilación puede configurarse con su propia directiva de indexación expresada en términos de rutas de acceso. En la siguiente sección, analizaremos cómo configurar el comportamiento de la indexación de una recopilación de la Base de datos de documentos.
+En la DocumentDB, los documentos se organizan en recopilaciones que se pueden consultar mediante SQL o que procesan en el ámbito de una sola transacción. Cada recopilación puede configurarse con su propia directiva de indexación expresada en términos de rutas de acceso. En la siguiente sección, analizaremos cómo configurar el comportamiento de la indexación de una recopilación de la DocumentDB.
 
 <a id="ConfigPolicy"></a>Configuración de la directiva de indexación de una colección
 -------------------------------------------
 
-En el ejemplo siguiente se muestra cómo establecer una directiva de indización personalizada durante la creación de una colección, mediante la API de REST de Base de datos de documentos. El ejemplo muestra la directiva de indización expresada en rutas de acceso, tipos de índices y precisiones.
+En el ejemplo siguiente se muestra cómo establecer una directiva de indización personalizada durante la creación de una colección, mediante la API de REST de DocumentDB. El ejemplo muestra la directiva de indización expresada en rutas de acceso, tipos de índices y precisiones.
 
 
 	POST https://<REST URI>/colls HTTP/1.1                                                  
@@ -84,9 +84,9 @@ En el ejemplo siguiente se muestra cómo establecer una directiva de indización
 	 HTTP/1.1 201 Created                                                     
 
 
-**Nota:** la directiva de indización de una colección debe especificarse en el momento de la creación. No se permite la modificación de la directiva de indización después de la creación de la colección, pero se admitirá en una versión futura de Base de datos de documentos.
+**Nota:** la directiva de indización de una colección debe especificarse en el momento de la creación. No se permite la modificación de la directiva de indización después de la creación de la colección, pero se admitirá en una versión futura de DocumentDB.
 
-**Nota:** de forma predeterminada, la Base de datos de documentos indiza todas las rutas de los documentos de forma homogénea con un índice hash. La ruta de acceso interna de marca de tiempo (\_ts) se almacena con un índice de intervalo.
+**Nota:** de forma predeterminada, la DocumentDB indiza todas las rutas de los documentos de forma homogénea con un índice hash. La ruta de acceso interna de marca de tiempo (\_ts) se almacena con un índice de intervalo.
 
 ### Indexación automática
 
@@ -115,9 +115,9 @@ Por ejemplo, en el ejemplo siguiente muestra cómo incluir un documento de forma
 
 Puede elegir entre las actualizaciones de índices sincrónicas (**Homogéneas**) y asincrónicas (**Diferida**). De forma predeterminada, el índice se actualiza de forma sincrónica en cada acción de inserción, sustitución o eliminación realizada en un documento de la colección. Esto permite que las consultas tengan el mismo nivel de homogeneidad que el de las lecturas de los documentos sin demoras en la actualización de los índices.
 
-Aunque la Base de datos de documentos es de escritura optimizada y admite volúmenes constantes de escrituras de documentos junto con capacidades sincrónicas de mantenimiento del índice, es posible configurar determinadas recopilaciones para que su índice se actualice de forma diferida. La indexación diferida es perfecta para escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo prolongado. Esto permite utilizar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima. Con la indexación diferida activada, los resultados de la consulta serán coherentes con el tiempo independientemente del nivel de coherencia configurado para la cuenta de base de datos.
+Aunque la DocumentDB es de escritura optimizada y admite volúmenes constantes de escrituras de documentos junto con capacidades sincrónicas de mantenimiento del índice, es posible configurar determinadas recopilaciones para que su índice se actualice de forma diferida. La indexación diferida es perfecta para escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo prolongado. Esto permite utilizar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima. Con la indexación diferida activada, los resultados de la consulta serán coherentes con el tiempo independientemente del nivel de coherencia configurado para la cuenta de base de datos.
 
-El siguiente programa de ejemplo muestra cómo crear una colección de Base de datos de documentos mediante el SDK de .NET con la indización automática coherente en todas las inserciones de documentos.
+El siguiente programa de ejemplo muestra cómo crear una colección de DocumentDB mediante el SDK de .NET con la indización automática coherente en todas las inserciones de documentos.
 
 
 	 // Default collection creates a hash index for all string and numeric    
@@ -298,7 +298,7 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 	 pathRange = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);      
 
 
-La Base de datos de documentos devuelve un error cuando una consulta usa un operador de intervalo pero no tiene ningún índice de intervalo en la ruta de acceso consultada y no dispone de todos los filtros que pueden obtenerse desde el índice. Sin embargo, estas consultas se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API REST o con la opción AllowScanInQueryrequest mediante el SDK de .NET.
+La DocumentDB devuelve un error cuando una consulta usa un operador de intervalo pero no tiene ningún índice de intervalo en la ruta de acceso consultada y no dispone de todos los filtros que pueden obtenerse desde el índice. Sin embargo, estas consultas se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API REST o con la opción AllowScanInQueryrequest mediante el SDK de .NET.
 
 En el ejemplo siguiente se excluye un árbol secundario de rutas de acceso de la indexación mediante el comodín
 "*".
@@ -314,7 +314,7 @@ En el ejemplo siguiente se excluye un árbol secundario de rutas de acceso de la
 Optimización del rendimiento
 ------------------
 
-A medida que evalúe distintas configuraciones de directiva de indexación, debe medir las implicaciones de rendimiento y almacenamiento de la directiva a través de las API de Base de datos de documentos.
+A medida que evalúe distintas configuraciones de directiva de indexación, debe medir las implicaciones de rendimiento y almacenamiento de la directiva a través de las API de DocumentDB.
 
 Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud HEAD o GET en el recurso de colección e inspeccione la cuota x-ms-request y los encabezados x-ms-request-usage. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
 
