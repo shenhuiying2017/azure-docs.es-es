@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Configuración de la protección entre las máquinas virtuales de VMWare locales o servidores físicos y Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales ubicadas en servidores VMWare locales a Azure y entre servidores físicos locales y Azure." 
 	services="site-recovery" 
@@ -66,7 +66,7 @@ En este diagrama se muestran los componentes de implementación.
 
 - **Canal de comunicación y replicación de datos**: hay un par de opciones. Tenga en cuenta que ninguna opción requiere que se abra ningún puerto de red entrante en los equipos protegidos. Todas las comunicaciones de red se inician en el sitio local.
 	- **A través de Internet**: se comunica y replica datos de servidores protegidos locales y Azure a través de una conexión a Internet pública segura. Esta es la opción predeterminada.
-	- **VPN/ExpressRoute**: se comunica y replica datos entre servidores locales y Azure a través de una conexión VPN. Deberá configurar una VPN de sitio a sitio o una conexión [ExpressRoute]expressroute) entre el sitio local y la red Azure. 
+	- **VPN/ExpressRoute**: se comunica y replica datos entre servidores locales y Azure a través de una conexión VPN. Deberá configurar una VPN de sitio a sitio o una conexión [ExpressRoute](expressroute) entre el sitio local y la red Azure. 
 
  
 ## Planificación de capacidad
@@ -148,7 +148,7 @@ Algunos componentes de implementación de este escenario dependen de software de
 
 ## Paso 1: Creación de un almacén
 
-1. Inicie sesión en el [Portal de administraciónhttps://portal.azure.com).
+1. Inicie sesión en el [Portal de administración](https://portal.azure.com).
 
 
 2. Expanda **Servicios de datos** > **Servicios de recuperación** y haga clic en **Almacén de recuperación del sitio**.

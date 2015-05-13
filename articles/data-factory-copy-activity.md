@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
 	pageTitle="Copia de datos con la Factoría de datos de Azure" 
-	description="Obtenga información acerca de cómo usar la actividad de copia en la factoría de datos de Azure para copiar datos desde un origen de datos a otro origen de datos." 
+	description="Obtenga información acerca de cómo usar la actividad de copia en la Factoría de datos de Azure para copiar datos desde un origen de datos a otro origen de datos." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,249 +13,44 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/08/2015" 
+	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
-# Copia de datos con la Factoría de datos de Azure (actividad de copia)
-Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. La actividad de copia puede utilizarse en los escenarios siguientes:
+# Copia de datos con la Factoría de datos de Azure \(actividad de copia\)
+## Información general
+Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor \(destino\) en un lote. La actividad de copia se puede usar en los escenarios siguientes:
 
-- **Entrada en Azure**. En este escenario, los datos se copian de un origen de datos local (por ejemplo: SQL Server) a un almacén de datos de Azure (por ejemplo: blob de Azure, tabla de Azure o base de datos de SQL Azure) para los subescenarios siguientes:
+- **Entrada en Azure**. En este escenario, los datos se copian desde un origen de datos local \(p. ej., SQL Server\) a un almacén de datos de Azure \(p. ej., blob de Azure, tabla de Azure o Base de datos SQL de Azure\) para los subescenarios siguientes:
 	- Recopilar datos en una ubicación centralizada en Azure para su posterior procesamiento.
 	- Migrar a Azure datos de plataformas locales o en la nube que no sean Azure.
 	- Archivar o crear copias de seguridad en Azure para un almacenamiento en capas rentable.
-- **Salida de Azure**. En este escenario, los datos se copian de Azure (por ejemplo: blob de Azure, tabla de Azure o Base de datos SQL de Azure) a un almacén de datos y data marts locales (por ejemplo: SQL Server) para los subescenarios siguientes:
+- **Salida de Azure**. En este escenario, los datos se copian desde Azure \(p. ej., blob de Azure, tabla de Azure o Base de datos SQL de Azure\) a un almacén de datos o data marts locales \(p. ej., SQL Server\) para los subescenarios siguientes:
 	- Transferir datos a la infraestructura local debido a la falta de espacio para almacenamiento de datos en la nube.
 	- Transferir datos a la infraestructura local para aprovechar una solución o una infraestructura de informes locales.
 	- Archivar o realizar copias de seguridad de datos en la infraestructura local para almacenamiento en capas.
-- **Copia de Azure a Azure.**. En este escenario, se agregan los datos distribuidos en orígenes de datos de Azure a un almacén de datos centralizado de Azure. Ejemplos: de tabla de Azure a blob de Azure, de blob de Azure a tabla de Azure, de tabla de Azure a SQL Azure, de blob de Azure a SQL Azure.
+- **Copia de Azure a Azure**. En este escenario, se agregan los datos distribuidos en orígenes de datos de Azure a un almacén de datos centralizado de Azure. Ejemplos: de tabla de Azure a blob de Azure, de blob de Azure a tabla de Azure, de tabla de Azure a SQL Azure, de blob de Azure a SQL Azure.
 
-Vea [Introducción a la Factoría de datos de Azure][adfgetstarted] para consultar un tutorial en el que se muestra cómo copiar datos de un almacenamiento de blobs de Azure a una base de datos de SQL de Azure mediante la actividad de copia. Vea [Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] para consultar un tutorial en el que se muestra cómo copiar datos de una base de datos de SQL Server local en un almacenamiento de blobs de Azure mediante la actividad de copia.
+Para obtener más información:
+
+- Vea el vídeo [Presentación de la actividad de copia de la Factoría de datos de Azure][copy-activity-video].
+- Vea [Introducción a la Factoría de datos de Azure][adfgetstarted] para consultar un tutorial en el que se muestra cómo copiar datos de un almacenamiento de blobs de Azure a una base de datos SQL de Azure mediante la actividad de copia. 
+- Vea [Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] para consultar un tutorial en el que se muestra cómo copiar datos de una base de datos de SQL Server local a un almacenamiento de blobs de Azure mediante la actividad de copia.
 
 
-## Componentes de la actividad de copia
-La actividad de copia contiene los siguientes componentes: 
+## Orígenes y receptores compatibles
+La actividad de copia admite los siguientes escenarios de movimiento de datos:
 
-- **Tabla de entrada**. Una tabla es un conjunto de datos que tiene un esquema y es rectangular. El componente de tabla de entrada 
-- describe los datos de entrada para la actividad entre los que se incluyen los siguientes: el nombre de la tabla, el tipo de tabla y el servicio vinculado que hace referencia a un origen de datos que contiene los datos de entrada.
-- **Tabla de salida**. La tabla de salida describe los datos de salida para la actividad entre los que se incluyen los siguientes: el nombre de la tabla, el tipo de la tabla y el servicio vinculado que hace referencia a un origen de datos que contiene los datos de salida.
-- **Reglas de transformación**. Las reglas de transformación especifican el modo en que se extraen los datos de entrada del origen y cómo se cargan los datos de salida en el receptor, etc.
+- Copiar datos de un blob de Azure a un blob de Azure, una tabla de Azure, una base de datos SQL de Azure, SQL Server local o SQL Server en IaaS.
+- Copiar datos de una base de datos SQL de Azure a un blob de Azure, una tabla de Azure, una base de datos SQL de Azure, un SQL Server local o un SQL Server en IaaS.
+- Copiar datos de una tabla de Azure a un blob de Azure, una tabla de Azure o una base de datos SQL de Azure.
+- Copiar datos de un local SQL Server local o de un SQL Server en IaaS a un blob de Azure o una base de datos SQL de Azure.
+- Copiar datos de una base de datos de Oracle local a un blob de Azure
+- Copiar datos de un sistema de archivos local a un blob de Azure
  
-Una actividad de copia puede tener una **tabla de entrada** y otra **tabla de salida**.
-
-## JSON para la actividad de copia
-Una canalización consta de una o varias actividades. Las actividades de las canalizaciones se definen en la sección de **actividades[]**. El código JSON de una canalización es el siguiente:
-         
-	{
-		"name": "PipelineName",
-		"properties": 
-    	{
-        	"description" : "pipeline description",
-        	"activities":
-        	[
-	
-    		]
-		}
-	}
-
-Cada actividad de la sección de **actividades** tiene la siguiente estructura de nivel superior. La propiedad **type** se debe establecer en **CopyActivity**. La actividad de copia puede tener solo una tabla de entrada y una tabla de salida.
-         
-
-	{
-		"name": "ActivityName",
-		"description": "description", 
-		"type": "CopyActivity",
-		"inputs":  [],
-		"outputs":  [],
-		"transformation":
-		{
-
-		},
-		"policy":
-		{
-		
-		}
-	}
-
-La tabla siguiente describe las etiquetas utilizadas con una sección de actividades. 
 
 <table border="1">	
 	<tr>
-		<th align="left">Etiqueta</th>
-		<th align="left">Descripción</th>
-		<th align="left">Requerido</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Nombre de la actividad.</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>Texto que describe para qué se usa la actividad.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Especifica el tipo de actividad. <br/><br/>Muestra <b>type</b> se debe establecer en <b>CopyActivity</b>.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Tablas de entrada utilizadas por la actividad.  Especifique solo una tabla de entrada para la actividad de copia.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Tablas de salida usadas por la actividad.  Especifique solo una tabla de resultados para la actividad de copia.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Las propiedades de la transformación dependen del tipo.  Muestra <b>actividad de copia</b> requiere que especifique un <b>origen</b> y una sección de <b>receptor</b> dentro de la sección de <b>transformation</b> . Más adelante en este artículo se proporcionan más detalles. </td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se utilizan los valores predeterminados.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
-
-Vea la [documentación de referencia del scripting JSON][json-script-reference] para obtener información detallada acerca de las etiquetas o propiedades JSON.
-
-## Ejemplo de actividad de copia
-En este ejemplo, se definen una tabla de entrada y una tabla de salida, y se utilizan en una actividad de copia dentro de una canalización que copia datos de una base de datos de SQL Server local a un blob de Azure.
-
-**Supuestos**
-En estos sripts JSON de ejemplo se hace referencia a los siguientes artefactos de la Factoría de datos de Azure:
-
-* Grupo de recursos denominado **ADF**.
-* Una factoría de datos de Azure denominada **CopyFactory**.
-* Un servicio vinculado denominado **MyOnPremisesSQLDB** que apunta a una base de datos de SQL Server local.
-* Un servicio vinculado denominado **MyAzureStorage** que apunta a un almacenamiento de blobs de Azure.
-
-### Tabla de entrada JSON
-El siguiente script JSON define una tabla de entrada que hace referencia a una tabla SQL: **MyTable** en una base de datos de SQL Server local que el servicio vinculado **MyOnPremisesSQLDB** define. Tenga en cuenta que **name** es el nombre de la tabla de Factoría de datos de Azure y **tableName** es el nombre de la tabla de SQL en la base de datos de SQL Server.
-
-         
-	{
-		"name": "MyOnPremTable",
-    	"properties":
-   		{
-			"location":
-    		{
-    			"type": "OnPremisesSqlServerTableLocation",
-    			"tableName": "MyTable",
-    			"linkedServiceName": "MyOnPremisesSQLDB"
-    		},
-    		"availability":
-   			{
-    			"frequency": "Hour",
-    			"interval": 1
-   			}
- 		}
-	}
-
-El siguiente comando de ejemplo de PowerShell de Azure utiliza el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla (**MyOnPremTable**) en una factoría de datos de Azure: **CopyFactory**.
-         
-	New-AzureDataFactoryTable -ResourceGroupName ADF -Name MyOnPremTable -DataFactoryName CopyFactory -File <Filepath>\MyOnPremTable.json.
-
-Vea [Referencia de Cmdlet][cmdlet-reference] para obtener detalles acerca de los cmdlets de la factoría de datos. 
-
-### Tabla de salida JSON
-El siguiente script JSON define una tabla de salida: **MyDemoBlob**, que hace referencia a un blob de Azure: **MyBlob** en la carpeta de blobs: **MySubFolder** en el contenedor de blobs: **MyContainer**.
-         
-	{
-   		"name": "MyDemoBlob",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "MyAzureStorage",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
-	}
-
-El siguiente comando de ejemplo de PowerShell de Azure utiliza el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla (**MyDemoBlob**) en una factoría de datos de Azure: **CopyFactory**.
-         
-	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory -File <Filepath>
-
-
-### Canalización (con la actividad de copia) JSON
-En este ejemplo, se define la canalización **CopyActivityPipeline** con las siguientes propiedades: 
-
-- La propiedad **type** se establece en **CopyActivity**.
-- **MyOnPremTable** se especifica como la entrada (etiqueta **entradas**).
-- **MyAzureBlob** se especifica como la salida (etiqueta **salidas**)
-- La sección **Transformation** contiene dos subsecciones: **source** (origen) y **sink** (receptor). El tipo de origen se establece en **SqlSource** y el tipo de receptor se establece en **BlobSink**. **sqlReaderQuery** define la transformación (proyección) que se debe realizar en el origen. Para obtener información detallada de todas las propiedades, consulte la [documentación de referencia del scripting JSON][json-script-reference].
-
-         
-		{
-		    "name": "CopyActivityPipeline",
-    		"properties":
-    		{
-				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
-        		"activities":
-        		[
-      				{
-						"name": "CopyActivity",
-						"description": "description", 
-						"type": "CopyActivity",
-						"inputs":  [ { "name": "MyOnPremTable"  } ],
-						"outputs":  [ { "name": "MyAzureBlob" } ],
-						"transformation":
-	    				{
-							"source":
-							{
-								"type": "SqlSource",
-                    			"sqlReaderQuery": "select * from MyTable"
-							},
-							"sink":
-							{
-                        		"type": "BlobSink"
-							}
-	    				}
-      				}
-        		]
-    		}
-		}
-
-
- El siguiente comando de ejemplo de PowerShell de Azure utiliza el cmdlet **New-AzureDataFactoryPipeline** que usa un archivo JSON que contiene el script anterior para crear una canalización (**CopyActivityPipeline**) en una factoría de datos de Azure: **CopyFactory**.
-         
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName CopyFactory -File <Filepath>
-
-## Entradas y salidas admitidas
-El ejemplo anterior usa SqlSource como origen y BlobSink como receptor en la sección de transformación. En la tabla siguiente se enumeran los orígenes y receptores que admite la actividad de copia. 
-
-<table border="1">	
-	<tr>
-		<th><i>Receptor/origen<i></th>
+		<th><i>Origen/receptor<i></th>
 		<th>Blob de Azure</th>
 		<th>Tabla de Azure</th>
 		<th>Base de datos SQL de Azure</th>
@@ -286,8 +81,8 @@ El ejemplo anterior usa SqlSource como origen y BlobSink como receptor en la sec
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 
@@ -295,7 +90,7 @@ El ejemplo anterior usa SqlSource como origen y BlobSink como receptor en la sec
 		<td><b>SQL Server local</b></td>
 		<td>X</td>
 		<td></td>
-		<td></td>
+		<td>X</td>
 		<td></td>
 		<td></td>
 	</tr>
@@ -304,432 +99,244 @@ El ejemplo anterior usa SqlSource como origen y BlobSink como receptor en la sec
 		<td><b>SQL Server en IaaS</b></td>
 		<td>X</td>
 		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Sistema de archivos local</b></td>
+		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>Base de datos de Oracle local</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+
 </table>
 
+### SQL en infraestructura como servicio \(IaaS\)
+Para SQL en IaaS, se admite Azure como proveedor de IaaS. Se admiten las siguientes topologías VPN y de red. Tenga en cuenta que Data Management Gateway es necesaria para el caso n.º 2 y n.º 3, aunque no es necesario para el caso n.º 1. Para obtener detalles acerca de Data Management Gateway, vea [Habilitación de las canalizaciones para tener acceso a datos locales][use-onpremises-datasources].
 
-En la tabla siguiente se enumeran los tipos de origen y receptor que pueden utilizarse en un archivo JSON de una canalización que contiene una actividad de copia.
+1.	Máquina virtual con nombre DNS público y puerto público estático: asignación de puerto privado
+2.	Máquina virtual con el nombre DNS público sin exponer el extremo SQL
+3.	Red virtual <ol type='a'> <li>VPN de nube de Azure con la topología siguiente al final de la lista. </li> <li>Máquina virtual con VPN de entorno local a nube y de sitio a sitio usando Red Virtual de Azure.</li> </ol> ![Factoría de datos con actividad de copia][image-data-factory-copy-actvity]
 
+## Componentes de la actividad de copia
+La actividad de copia contiene los siguientes componentes:
+
+- **Tabla de entrada**. Una tabla es un conjunto de datos que tiene un esquema y es rectangular. El componente de tabla de entrada describe los datos de entrada para la actividad entre los que se incluyen los siguientes: el nombre de la tabla, el tipo de tabla y el servicio vinculado que hace referencia a un origen de datos que contiene los datos de entrada.
+- **Tabla de salida**. La tabla de salida describe los datos de salida para la actividad entre los que se incluyen los siguientes: el nombre de la tabla, el tipo de la tabla y el servicio vinculado que hace referencia a un origen de datos que contiene los datos de salida.
+- **Reglas de transformación**. Las reglas de transformación especifican el modo en que se extraen los datos de entrada del origen y cómo se cargan los datos de salida en el receptor, etc.
+ 
+Una actividad de copia puede tener una **tabla de entrada** y otra **tabla de salida**.
+
+## <a name="CopyActivityJSONSchema"></a>JSON para la actividad de copia
+Una canalización consta de una o varias actividades. Las actividades de las canalizaciones se definen en la sección **actividades[]**. El código JSON de una canalización es el siguiente:
+         
+	{
+		"name": "PipelineName",
+		"properties": 
+    	{
+        	"description" : "pipeline description",
+        	"activities":
+        	[
+	
+    		]
+		}
+	}
+
+Cada actividad de la sección **actividades** tiene la siguiente estructura de nivel superior. La propiedad **type** se debe establecer en **CopyActivity**. La actividad de copia solo puede tener una tabla de entrada y una tabla de salida.
+         
+
+	{
+		"name": "ActivityName",
+		"description": "description", 
+		"type": "CopyActivity",
+		"inputs":  [],
+		"outputs":  [],
+		"transformation":
+		{
+
+		},
+		"policy":
+		{
+		
+		}
+	}
+
+La tabla siguiente describe las etiquetas utilizadas con una sección de actividades.
 
 <table border="1">	
 	<tr>
-		<th></th>
-		<th align="left">Tipo de origen</th>
-		<th align="left">Tipo de receptor</th>
+		<th align="left">Etiqueta</th>
+		<th align="left">Descripción</th>
+		<th align="left">Obligatorio</th>
 	</tr>	
 
 	<tr>
-		<td><b>Blob de Azure</b></td>
-		<td>BlobSource</td>
-		<td>BlobSink</td>
+		<td>name</td>
+		<td>Nombre de la actividad.</td>
+		<td>Y</td>
+	</tr>	
+
+	<tr>
+		<td>descripción</td>
+		<td>Texto que describe para qué se usa la actividad.</td>
+		<td>Y</td>
 	</tr>
 
 	<tr>
-		<td><b>Tabla de Azure</b></td>
-		<td>AzureTableSource</td>
-		<td>AzureTableSink</td>
+		<td>type</td>
+		<td>Especifica el tipo de actividad. <br/><br/><b>type</b> debe establecerse en <b>CopyActivity</b>.</td>
+		<td>Y</td>
 	</tr>
 
 	<tr>
-		<td><b>Base de datos SQL de Azure</b></td>
-		<td>SqlSource</td>
-		<td>SqlSink</td>
+		<td>inputs</td>
+		<td>Tablas de entrada utilizadas por la actividad. Especifique solo una tabla de entrada para la actividad de copia.</td>
+		<td>Y</td>
 	</tr>
 
 	<tr>
-		<td><b>SQL Server local</b></td>
-		<td>SqlSource</td>
-		<td>SqlSink</td>
+		<td>outputs</td>
+		<td>Tablas de salida usadas por la actividad. Especifique solamente una tabla de salida para la actividad de copia.</td>
+		<td>Y</td>
 	</tr>
 
 	<tr>
-		<td><b>SQL en IaaS</b></td>
-		<td>SqlSource</td>
-		<td>SqlSink</td>
+		<td>transformation</td>
+		<td>Las propiedades de la transformación dependen del tipo. La <b>actividad de copia</b> requiere que se especifique una sección <b>origen</b> y una sección <b>receptor</b> dentro de la sección <b>transformación</b>. Más adelante en este artículo se proporcionan más detalles. </td>
+		<td>Y</td>
 	</tr>
+
+	<tr>
+		<td>policy</td>
+		<td>Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se utilizan los valores predeterminados.</td>
+		<td>N</td>
+	</tr>
+
+
 </table>
 
-En la siguiente tabla se enumeran las propiedades que admiten estos orígenes y receptores.
+Vea la [Referencia del scripting JSON][json-script-reference] para obtener información detallada acerca de las etiquetas o propiedades JSON.
 
-<table border="1">
+### tipos de origen y receptor
+Para obtener una lista de tipos de origen y de receptor, así como de las propiedades que admiten estos tipos, vea el tema [Orígenes y receptores compatibles][msdn-supported-sources-sinks] en la Biblioteca de MSDN.
 
-	<tr>
-	<th align="left">Origen/receptor</th>
-	<th align="left">Propiedad admitida</th>
-	<th align="left">Descripción</th>
-	<th align="left">Valores permitidos</th>
-	<th align="left">Requerido</th>
-	</tr>
+## Ejemplo de actividad de copia
+En este ejemplo, se definen una tabla de entrada y una tabla de salida, y se utilizan en una actividad de copia dentro de una canalización que copia datos de una base de datos de SQL Server local a un blob de Azure.
 
-	<tr>
-		<tr>
-		<td><b>BlobSource</b></td>
-		<td>BlobSourceTreatEmptyAsNull</td>
-		<td>Especifica si se debe tratar una cadena nula o vacía como un valor nulo.</td>
-		<td>TRUE<br/>FALSE</td>
-		<td>N</td>
-		</tr>
-	</tr>
+**Asunciones** En estos scripts JSON de ejemplo se hace referencia a los siguientes artefactos de la Factoría de datos de Azure:
 
-	<tr>
-		<td></td>
-		<td>BlobSourceSkipHeaderLineCount</td>
-		<td>Indica cuántas líneas deben omitirse.</td>
-		<td>Entero de 0 a Máx.</td>
-		<td>N</td>
-	</tr>
+* Grupo de recursos denominado **ADF**.
+* Una factoría de datos de Azure denominada **CopyFactory**.
+* Un servicio vinculado denominado **MyOnPremisesSQLDB** que apunta a una base de datos de SQL Server local.
+* Un servicio vinculado denominado **MyAzureStorage** que apunta a un almacenamiento de blobs de Azure.
 
-	<tr>
-		<td><b>AzureTableSource</b></td>
-		<td>AzureTableSourceQuery</td>
-		<td>Utilice la consulta personalizada para leer los datos.</td>
-		<td>Cadena de consulta de tabla de Azure.<br/>Muestra: "ColumnA eq ValueA"</td>
-		<td>N</td>
-	</tr>
+### Tabla de entrada JSON
+El siguiente script JSON define una tabla de entrada que hace referencia a una tabla SQL: **MyTable** en una base de datos local de SQL Server que define el servicio vinculado **MyOnPremisesSQLDB**. Tenga en cuenta que **name** es el nombre de la tabla de Factoría de datos de Azure y **tableName** es el nombre de la tabla de SQL en una base de datos de SQL Server.
 
-	<tr>
-		<td></td>
-		<td>AzureTableSourceIgnoreTableNotFound</td>
-		<td>Indica si debe omitirse la excepción: "la tabla no existe".</td>
-		<td>TRUE<br/>FALSE</td>
-		<td>N</td>
-	</tr>
+         
+	{
+		"name": "MyOnPremTable",
+    	"properties":
+		{ "location": { "type": "OnPremisesSqlServerTableLocation", "tableName": "MyTable", "linkedServiceName": "MyOnPremisesSQLDB" }, "availability": { "frequency": "Hour", "interval": 1 } } }
+
+El siguiente comando de ejemplo de PowerShell de Azure usa el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla \(\*\*MyOnPremTable\*\*\) en una factoría de datos de Azure: **CopyFactory**.
+         
+	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
+
+Vea [Referencia de cmdlet][cmdlet-reference] para obtener detalles acerca de los cmdlets de la Factoría de datos.
+
+### Tabla de salida JSON
+El siguiente script JSON define una tabla de salida: **MyDemoBlob**, que hace referencia a un blob de Azure: **MyBlob** en la carpeta de blobs: **MySubFolder** del contenedor de blobs: **MyContainer**.
+         
+	{
+	"name": "MyDemoBlob", "properties": { "location": { "type": "AzureBlobLocation", "folderPath": "MyContainer/MySubFolder", "fileName": "MyBlob", "linkedServiceName": "MyAzureStorage", "format": { "type": "TextFormat", "columnDelimiter": ",", "rowDelimiter": ";", "EscapeChar": "$", "NullValue": "NaN" } }, "availability": { "frequency": "Hour", "interval": 1 } } }
+
+El siguiente comando de ejemplo de PowerShell de Azure utiliza el cmdlet **New-AzureDataFactoryTable** que usa un archivo JSON que contiene el script anterior para crear una tabla \(\*\*MyDemoBlob\*\*\) en una factoría de datos de Azure: **CopyFactory**.
+         
+	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
 
-	<tr>
-		<td><b>SqlSource</b></td>
-		<td>sqlReaderQuery</td>
-		<td>Utilice la consulta personalizada para leer los datos.</td>
-		<td>Cadena de consulta SQL.<br/><br/> Por ejemplo: "Select * from MyTable".<br/><br/> Si no se especifica, seleccione <columnas definidas en la estructura> en la consulta MyTable.</td>
-		<td>N</td>
-	</tr>
+### Canalización \(con la actividad de copia\) JSON
+En este ejemplo, se define una canalización **CopyActivityPipeline** con las propiedades siguientes:
 
+- La propiedad **type** se establece en **CopyActivity**.
+- **MyOnPremTable** se especifica como la entrada \(etiqueta \*\*inputs\*\*\).
+- **MyAzureBlob** se especifica como la salida \(etiqueta \*\*outputs\*\*\)
+- La sección **transformación** contiene dos subsecciones: **origen** y **receptor**. El tipo de origen se establece en **SqlSource** y el tipo de receptor se establece en **BlobSink**. **sqlReaderQuery** define la transformación \(proyección\) que se debe realizar en el origen. Para obtener información detallada de todas las propiedades, consulte [Referencia del scripting JSON][json-script-reference].
 
-	<tr>
-		<td><b>AzureTableSink</b></td>
-		<td>azureTableDefaultPartitionKeyValue</td>
-		<td>Valor predeterminado de la clave de la partición que puede usar el receptor.</td>
-		<td>Valor de cadena.</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td>azureTablePartitionKeyName</td>
-		<td>Nombre de columna especificado por el usuario, cuyos valores de columna se utilizan como clave de la partición.<br/><br/> Si no se especifica, se utiliza AzureTableDefaultPartitionKeyValue como clave de la partición.</td>
-		<td>Un nombre de columna.</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td>azureTableRowKeyName</td>
-		<td>Los valores de columna del nombre de columna especificado que se va a usar como clave de fila.<br/><br/>Si no se especifica, se usa un GUID para cada fila.</td>
-		<td>Un nombre de columna.</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td>azureTableInsertType</td>
-		<td>Modo de insertar datos en la tabla de Azure.</td>
-		<td>"merge"<br/><br/>"replace"</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td>writeBatchSize</td>
-		<td>Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.</td>
-		<td>Entero de 1 a 100 (unidad = recuento de filas)</td>
-		<td>N<br/><br/>(Default = 100)</td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td>writeBatchTimeout</td>
-		<td>Inserta datos en la tabla de Azure cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.</td>
-		<td>(Unit = timespan)<br/><br/>Muestra: "00:20:00" (20 minutos)</td>
-		<td>N<br/><br/>(Toma como predeterminado el valor de tiempo de espera predeterminado de cliente de almacenamiento de 90 segundos)</td>
-	</tr>
-
-	<tr>
-		<td><b>SqlSink</b></td>
-		<td>SqlWriterStoredProcedureName</td>
-		<td>Especifica el nombre del procedimiento almacenado para actualizar o insertar datos en la tabla de destino.</td>
-		<td>Un nombre de procedimiento almacenado.</td>
-		<td>N</td>
-	</tr>
-
-	<tr>
-		<td></td>
-		<td>SqlWriterTableType</td>
-		<td>Especifica el tipo de tabla que se usará en el procedimiento anterior.</td>
-		<td>Un nombre de tipo de tabla.</td>
-		<td>N</td>
-	</tr>
-</table>
-
-### SQL en infraestructura como servicio (IaaS)
-Para SQL en IaaS, se admite Azure como proveedor de IaaS. Se admiten las siguientes topologías VPN y de red. Tenga en cuenta que Data Management Gateway es necesaria para el caso n.º 2 y n.º 3, aunque no es necesario para el caso n.º 1. Para obtener detalles acerca de Data Management Gateway, vea [Habilitar las canalizaciones para acceder a los datos locales][use-onpremises-datasources].
-
-1.	Máquina virtual con nombre DNS público y puerto público estático: asignación de puerto privado
-2.	Máquina virtual con el nombre DNS público sin exponer el extremo SQL.
-3.	Red virtual
-	<ol type='a'>
-	<li>Azure Cloud VPN with following topology at the end of the list. </li>	
-	<li>VM with onpremises-to-cloud site-to-site VPN using Azure Virtual Network.</li>	
-	</ol>  
-	![Data Factory with Copy Activity][image-data-factory-copy-actvity]
-
-## Column filtering using structure definition
-Depending on the type of Table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source. The following table provides information about column filtering logic for different types of table. 
-
-<table>
-
-	<tr>
-		<th align="left">Tipo de tabla</th>
-		<th align="left">Lógica de filtrado de columnas</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>Muestra <b>Estructura</b> definición de la tabla JSON debe coincidir con la estructura del blob.  Para seleccionar un subconjunto de las columnas, utilice la característica de asignación de columna descrita en la siguiente sección: Reglas de transformación: asignación de columnas.</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation y OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			<p>Si se especifica la propiedad <b>SqlReaderQuery</b> como parte de la definición de actividad de copia, <b>la definición de Estructura</b> de la tabla debe alinearse con las columnas seleccionadas en la consulta.</p>
-			<p>Si no se especifica la propiedad <b>SqlReaderQuery,</b> la actividad de copia construirá automáticamente una consulta SELECT basada en las columnas especificadas en la <b>definición de Estructura</b> de la definición de tabla.</p>
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			Muestra <b>sección de Estructura</b> de la definición de la tabla puede contener el conjunto completo o un subconjunto de las columnas de la tabla de Azure subyacente.
-		</td>
-	<tr>
-
-</table> 
-
-## Reglas de transformación: asignación de columnas
-La asignación de columnas puede utilizarse para especificar cómo se asignan las columnas de la tabla de origen a columnas de la tabla receptora. Admite los siguientes escenarios:
-
-- Asignación de todas las columnas de la tabla de origen "structure" a la tabla de destino "structure".
-- Asignación de un subconjunto de las columnas de la tabla de origen "structure" a toda la tabla de destino "structure".
-
-No se admite lo siguiente y se produce una excepción: 
-
-- Menos columnas o más columnas en el destino.
-- Asignación duplicada.
-- Resultado de la consulta SQL sin un nombre de columna.
-
-#### Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
-En este ejemplo, la **tabla de entrada** se define del siguiente modo. La tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de SQL Server.
          
 		{
-		    "name": "MyOnPremTable",
+		    "name": "CopyActivityPipeline",
     		"properties":
     		{
-				"structure": 
-				[
-            		{ "name": "userid", "type": "String"},
-            		{ "name": "name", "type": "String"},
-            		{ "name": "group", "type": "Decimal"}
-				],
-				"location":
-				{
-					"type": "OnPremisesSqlServerTableLocation",
-					"tableName": "MyTable",
-					"linkedServiceName": "MyOnPremisesSQLDB"
-				},
-				"availability":	
-				{
-    				"frequency": "Hour",
-    				"interval": 1
-				}
-     		}
-		}
+				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
+        		"activities":
+        		[
+      { "name": "CopyActivity", "description": "description", "type": "CopyActivity", "inputs": [ { "name": "MyOnPremTable" } ], "outputs": [ { "name": "MyAzureBlob" } ], "transformation": { "source": { "type": "SqlSource", "sqlReaderQuery": "select \* from MyTable" }, "sink": { "type": "BlobSink" } } } \] } }
 
-En este ejemplo, la **tabla de salida** se define del siguiente modo. La tabla de salida tiene una estructura y apunta a un blob en un almacenamiento de blobs de Azure.
+
+ El siguiente comando de ejemplo de PowerShell de Azure **utiliza el cmdlet New-AzureDataFactoryPipeline** que usa un archivo JSON que contiene el script anterior para crear una canalización \(\*\*CopyActivityPipeline\*\*\) en una factoría de datos de Azure: **CopyFactory**.
          
-		
-	{
-		"name": "MyDemoBlob",
-		"properties":
-		{
-    		"structure":
-			[
-        	    { "name": "myuserid", "type": "String"},
-        	    { "name": "mygroup", "type": "String"},
-        	    { "name": "myname", "type": "Decimal"}
-			],
-			"location":
-    		{
-    	    	"type": "AzureBlobLocation",
-		        "folderPath": "MyContainer/MySubFolder",
-				"fileName": "MyBlobName",
-    	    	"linkedServiceName": "MyLinkedService",
-    	    	"format":
-    	    	{
-    	        	"type": "TextFormat",
-		            "columnDelimiter": ",",
-    		        "rowDelimiter": ";",
-    		        "EscapeChar": "$",
-    		        "NullValue": "NaN"
-    		    }
-			},
-			"availability":
-			{
-    			"frequency": "Hour",
-    			"interval": 1
-			}
-		}
-	}	
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-Si no especifica un **nombre de archivo** para una **tabla de entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
+> [AZURE.NOTE]Consulte [Ejemplos de uso de la actividad de copia en la Factoría de datos de Azure][copy-activity-examples] para obtener más ejemplos de uso de la actividad de copia.
 
-Si no especifica un **nombre de archivo** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt (por ejemplo: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+## Seguridad
+Esta sección incluye instrucciones generales de seguridad y prácticas recomendadas para establecer el acceso seguro a almacenes de datos para la actividad de copia.
 
-Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, **folderPath** usa Year, Month y Day de SliceStart (hora de inicio del segmento que se va a procesar) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv. 
+Para los almacenes de datos que ofrecen conexión HTTPS, elija la conexión HTTPS para la actividad de copia a fin de establecer una comunicación segura a través de la red. Por ejemplo, para **Almacenamiento de Azure**, use **DefaultEndpointsProtocol=https** en la cadena de conexión.
 
-  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy": 
-    [
-    	{ "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-    ],
+Para **Base de datos SQL de Azure**, solicite explícitamente una conexión cifrada y no confíe en los certificados de servidor para evitar el ataque de tipo "Man in the middle". Para ello, use **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, vea [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-En este ejemplo, una actividad en una canalización se define como se indica a continuación. Las columnas del origen se asignan a columnas del receptor (**columnMappings**) usando la propiedad **Translator**.
+Para bases de datos tradicionales como **SQL Server**, especialmente cuando las instancias están en una Máquina Virtual de Azure, habilite la opción de conexión cifrada mediante la configuración de un certificado firmado, con **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, consulte [Habilitar conexiones cifradas en el motor de base de datos]\(https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx\) y [sintaxis de la cadena de conexión.](https://msdn.microsoft.com/library/ms254500.aspx).
 
-##### Ejemplo: definición de asignación de columnas
+## Escenarios avanzados
+- **Filtrado de columnas mediante la definición de estructuras**. Según el tipo de tabla, es posible especificar un subconjunto de las columnas del origen especificando menos columnas en la definición de **estructura** de la definición de la tabla que las que hay en el origen de datos subyacente.
+- **Reglas de transformación: asignación de columnas**. La asignación de columnas puede utilizarse para especificar cómo se asignan las columnas de la tabla de origen a columnas de la tabla receptora.
+- **Control del tipo de datos con la actividad de copia**. Explica en qué caso los tipos de datos especificados en la sección Estructura de la definición de la tabla se admiten/ignoran.
+- **Invocar el procedimiento almacenado para el receptor de SQL**. Al copiar datos en SQL Server o en Base de datos SQL de Azure, se puede configurar e invocar un procedimiento almacenado especificado por el usuario.
 
-	{
-		"name": "CopyActivity",
-		"description": "description", 
-		"type": "CopyActivity",
-		"inputs":  [ { "name": "MyOnPremTable"  } ],
-		"outputs":  [ { "name": "MyDemoBlob" } ],
-		"transformation":
-		{
-			"source":
-			{
-				"type": "SqlSource"
-    		},
-			"sink":
-			{
-            	"type": "BlobSink"
-			},
-			"Translator": 
-			{
-      			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
-    		}
-		}
-	}
-
-![Column Mapping][image-data-factory-column-mapping-1]
-
-##### Ejemplo 2: asignación de columnas con una consulta SQL de SQL Server a un blob de Azure
-En este ejemplo, se utiliza una consulta SQL (en lugar de una tabla como en el ejemplo anterior) para extraer datos de un servidor SQL Server local, y se asignan las columnas de los resultados de la consulta al artefacto de origen y después al artefacto de destino. Para este ejemplo, la consulta devuelve 5 columnas.
-
-	{
-		"name": "CopyActivity",
-		"description": "description", 
-		"type": "CopyActivity",
-		"inputs":  [ { "name": "InputSqlDA"  } ],
-		"outputs":  [ { "name": "OutputBlobDA" } ],
-		"transformation":
-		{
-			"source":
-			{
-				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', Time.AddHours(SliceStart, 0))"
-			},
-			"sink":
-			{
-            	"type": "BlobSink"
-			},
-			"Translator": 
-			{
-      			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
-    		}
-		}
-	}
-
-![Column Mapping 2][image-data-factory-column-mapping-2]
-
-#### Control del tipo de datos con la actividad de copia
-
-Los tipos de datos especificados en la sección Structure de la definición de la tabla solo se admiten para **BlobSource**.  La siguiente tabla describe cómo se controlan los tipos de datos para otros tipos de origen y receptor.
-
-<table>	
-	<tr>
-		<th align="left">Origen/receptor</th>
-		<th align="left">Lógica de control de tipos de datos</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>Se omiten los tipos de datos definidos en la sección <b>Estructura</b> de la definición de tabla.  Los tipos de datos definidos en la base de datos SQL subyacente se usarán para la extracción de datos durante la actividad de copia.</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>Se omiten los tipos de datos definidos en la sección <b>Estructura</b> de la definición de tabla.  Se compararán los tipos de datos del origen y destino subyacentes y se realizará la conversión de tipo implícito si hay coincidencias de tipo.</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td><p>Al transferir desde <b>BlobSource</b> to <b>BlobSink</b>, no hay ninguna transformación de tipo. Se omiten los tipos definidos en la <b>Estructura</b> de la definición de tabla.  Para los destinos distintos de <b>BlobSink</b>, se admitirán los tipos de datos definidos en la <b>Estructura</b> de la definición de tabla.</p>
-		<p>
-		Si no se especifica la <b>Estructura</b> en la definición de tabla, el control de tipos depende de la propiedad de <b>formato</b> de <b>BlobSink</b>:
-		</p>
-		<ul>
-			<li> <b>TextFormat:</b> todos los tipos de columna se tratan como cadena y todos los nombres de columna se establecen como "Prop_<0-N>"</li> 
-			<li><b>AvroFormat:</b> utilice los nombres y tipos de columna integrados en el archivo Avro.</li> 
-			<li><b>JsonFormat:</b> todos los tipos de columna se tratan como cadena y se usan los nombres de columna integrados en el archivo Json.</li>
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>Se omiten los tipos de datos definidos en la sección <b>Estructura</b> de la definición de la tabla de entrada.  Se usarán los tipos de datos definidos en el almacén de datos de entrada subyacente.  Las columnas se especificarám como que aceptan valores NULL para la serialización de Avro.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>Se omiten los tipos de datos definidos en la sección <b>Estructura</b> de la definición de tabla.  Se usarán los tipos de datos definidos en la tabla de Azure subyacente.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>Se omiten los tipos de datos definidos en la sección <b>Estructura</b> de la definición de tabla.  Se usarán los tipos de datos definidos en el almacén de datos de entrada subyacente.</td>
-	</tr>
-
-</table>
-
+Para obtener más información sobre estos escenarios, consulte el artículo [Escenarios avanzados para usar la actividad de copia con la Factoría de datos de Azure][copy-activity-advanced].
 
 ## Tutoriales
-Vea [Introducción a la Factoría de datos de Azure][adfgetstarted] para consultar un tutorial en el que se muestra cómo copiar datos de un almacenamiento de blobs de Azure a una base de datos de SQL de Azure mediante la actividad de copia.
+Vea [Introducción a la Factoría de datos de Azure][adfgetstarted] para consultar un tutorial en el que se muestra cómo copiar datos de un almacenamiento de blobs de Azure a una base de datos SQL de Azure mediante la actividad de copia.
  
-Vea [Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] para consultar un tutorial en el que se muestra cómo copiar datos de una base de datos de SQL Server local en un almacenamiento de blobs de Azure mediante la actividad de copia.
+Vea [Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] para consultar un tutorial en el que se muestra cómo copiar datos de una base de datos local de SQL Server a un almacenamiento de blobs de Azure mediante la actividad de copia.
 
+## Otras referencias
+- [Ejemplo de actividad de copia][copy-activity-examples]
+- [Vídeo: Presentación de la actividad de copia de la Factoría de datos de Azure][copy-activity-video]
+- [Tema Actividad de copia en la Biblioteca de MSDN][msdn-copy-activity]
+- [Escenarios avanzados para usar la actividad de copia con la Factoría de datos de Azure][copy-activity-advanced]
 
+[msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
+[msdn-tables-topic]: https://msdn.microsoft.com/library/dn835002.aspx
+[msdn-supported-sources-sinks]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
+[table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
-[adfgetstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
+[copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
+
+[adfgetstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-examples]: data-factory-copy-activity-examples.md
+
+[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -737,8 +344,4 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!--HONumber=52-->

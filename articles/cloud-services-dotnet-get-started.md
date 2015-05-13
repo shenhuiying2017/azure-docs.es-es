@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Servicios en la nube de Azure y ASP.NET" 
 	description="Aprenda a crear una aplicación de varios niveles utilizando ASP.NET MVC y Azure. La aplicación se ejecuta en un servicio en la nube, con un rol web y un rol de trabajo. Utiliza Entity Framework, Base de datos SQL y blobs y colas de almacenamiento de Azure." 
 	services="cloud-services, storage" 
@@ -51,7 +51,7 @@ En este tutorial se muestra cómo ejecutar un front-end y un back-end en un serv
 
 ## Requisitos previos
 
-En este tutorial se asume que comprende los [conceptos básicos sobre los servicios en la nube de Azure], como por ejemplo(fundamentals-application-models.md#CloudServices) la terminología de  *web role* y *worker role*.  También se asume que sabe cómo trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms. 
+En este tutorial se asume que comprende los [conceptos básicos sobre los servicios en la nube de Azure](fundamentals-application-models.md#CloudServices), como por ejemplo la terminología de  *web role* y *worker role*.  También se asume que sabe cómo trabajar con proyectos [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) o [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) en Visual Studio. La aplicación de ejemplo usa MVC, pero la mayoría del tutorial también se aplica a Web Forms. 
 
 Puede ejecutar la aplicación localmente sin una suscripción de Azure, pero necesitará una para implementar la aplicación en la nube. Si aún no tiene una cuenta, puede [activar los beneficios de suscripción a MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) o [suscribirse a una prueba gratuita](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -219,7 +219,7 @@ Usará una [transformación Web.config](http://www.asp.net/mvc/tutorials/deploym
 
 >[AZURE.NOTE] En esta sección y en la siguiente almacenará credenciales en archivos de proyecto. [No almacene información confidencial en repositorios de código fuente público](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 
-1. En el proyecto ContosoAdsWeb, abra el archivo de transformación *Web.Release.config* del archivo *Web.config* de la aplicación, elimine el bloque de comentario que contiene un elemento <connectionStrings> y pegue el siguiente código en su lugar. 
+1. En el proyecto ContosoAdsWeb, abra el archivo de transformación *Web.Release.config* del archivo *Web.config* de la aplicación, elimine el bloque de comentario que contiene un elemento `<connectionStrings>` y pegue el siguiente código en su lugar. 
 
 		<connectionStrings>
 	        <add name="ContosoAdsContext" connectionString="{connectionstring}"
@@ -438,7 +438,7 @@ En esta sección configurará Almacenamiento de Azure y cadenas de conexión de 
 
 	![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)	
 
-3. En la ventana de propiedades del **[Rol]*ContosAdsWeb*, haga clic en la pestaña **Configuración** y, a continuación, haga clic en **Agregar configuración**.
+3. En la ventana de propiedades del **[Rol] ContosAdsWeb**, haga clic en la pestaña **Configuración** y, a continuación, haga clic en **Agregar configuración**.
 
 	Deje **Configuración del servicio** establecido en **Todas las configuraciones**.
 
@@ -813,6 +813,5 @@ Para obtener más información, consulte los siguientes recursos:
 * [Almacenamiento de Azure](/documentation/services/storage/)
 * [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md)
 * [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md)
-
 
 <!--HONumber=52-->

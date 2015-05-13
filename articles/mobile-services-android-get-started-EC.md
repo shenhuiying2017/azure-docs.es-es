@@ -54,7 +54,7 @@ En esta sección se creará una nueva aplicación Android que se conecta al serv
 
 2. En la pestaña de inicio rápido, haga clic en **Android** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Android**.
 
-   ![][6]
+   	![][6]
 
    	Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación Android conectada al servicio móvil.
 
@@ -159,6 +159,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Portal de administración]: https://manage.windowsazure.com/
-
 
 <!--HONumber=52-->

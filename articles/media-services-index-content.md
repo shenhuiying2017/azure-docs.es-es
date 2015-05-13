@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Indización de archivos multimedia con el Indizador multimedia de Azure" 
 	description="El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar el Indizador multimedia." 
 	services="media-services" 
@@ -35,14 +35,14 @@ Un trabajo de indización genera cuatro salidas en cada archivo de indización:
 - Archivo de palabras clave (XML).
 - Archivo blob de indización de audio (AIB) para usar con SQL Server.
 	
-	Para obtener más información, consulte [Uso de archivos AIB con el Indizador multimedia de Azure y SQL Serverhttp://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Para obtener más información, consulte [Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Este tema muestra cómo crear trabajos de indización para **Indización de un recurso** e **Indización de varios archivos**.
 
 Para ver las actualizaciones más recientes del Indizador multimedia de Azure, consulte [Blogs de los Servicios multimedia](http://azure.microsoft.com/blog/topics/media-services/).
 
-##Uso de archivos de manifiesto y de manifiesto para tareas de indización
+## Uso de archivos de manifiesto y de manifiesto para tareas de indización
 
 Puede especificar más detalles de las tareas de indización mediante la configuración de tarea. Por ejemplo, puede especificar los metadatos que se usarán para el archivo multimedia. Estos metadatos los usa el motor de lenguaje para ampliar su vocabulario y mejora considerablemente la precisión del reconocimiento de voz.
 
@@ -50,7 +50,7 @@ También puede procesar varios archivos multimedia a la vez mediante un archivo 
 
 Para obtener más información, consulte [Valores preestablecidos de tarea para el Indizador multimedia de Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-##Indización de un recurso
+## Indización de un recurso
 
 El método siguiente carga un archivo multimedia como un recurso y crea un trabajo para indizarlo.
 
@@ -143,7 +143,7 @@ Tenga en cuenta que si no se especifica ningún archivo de configuración, el ar
 	    return processor;
 	} 
 	
-###<a id="output_files"></a>Archivos de salida
+### <a id="output_files"></a>Archivos de salida
 
 El trabajo de indización genera los siguientes archivos de salida. Los archivos se almacenarán en el primer recurso de salida.
 
@@ -176,7 +176,7 @@ El archivo se puede usar para varios propósitos, por ejemplo, para realizar an�
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
-##Indización de varios archivos
+## Indización de varios archivos
 
 El método siguiente carga varios archivos multimedia como un recurso y crea un trabajo para indizar todos esos archivos en un lote.
 
@@ -256,7 +256,7 @@ Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso
 	}
 
 
-###Archivos de salida
+### Archivos de salida
 
 Cuando haya más de un archivo multimedia de entrada, WAMI generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabraas clave AIB, SAMI y TTML resultantes se numeran secuencialmente, como se muestra a continuación.
 
@@ -298,7 +298,7 @@ Error: indica si el archivo multimedia se ha indizado correctamente. 0 si se rea
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
-###Trabajo parcialmente correcto
+### Trabajo parcialmente correcto
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
@@ -329,11 +329,11 @@ No hay ninguna secuencia de audio en el archivo multimedia de entrada.</td></tr>
 </table>
 
 
-##<a id="supported_languages"></a>Idiomas admitidos
+## <a id="supported_languages"></a>Idiomas admitidos
 
 Actualmente, solo se admite el inglés.
 
-##Vínculos relacionados
+## Vínculos relacionados
 
 [Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
@@ -342,6 +342,5 @@ Actualmente, solo se admite el inglés.
 <!-- Images. -->
 
 <!-- URLs. -->
-
 
 <!--HONumber=52-->

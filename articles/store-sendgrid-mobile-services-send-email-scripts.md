@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Envío de correo electrónico mediante SendGrid - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo usar el servicio de SendGrid para enviar correo electrónico desde su aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
@@ -108,7 +108,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 	Enhorabuena, ha configurado correctamente el servicio móvil para enviar correo electrónico con SendGrid.
 
-## <a name="nextstepsPasos siguientes"></a>
+## <a name="nextsteps"> </a>Pasos siguientes
 
 Ahora que ha visto lo fácil que es usar el servicio de correo electrónico SendGrid con Servicios móviles, consulte
 estos vínculos para obtener más información acerca de SendGrid.
@@ -136,7 +136,6 @@ estos vínculos para obtener más información acerca de SendGrid.
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
 [entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
-
 
 
 

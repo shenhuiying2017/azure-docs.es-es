@@ -488,12 +488,12 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Unión de segmentos de vídeo]: http://msdn.microsoft.com/library/azure/dn640504.aspx
 [SDK .NET de Servicios multimedia de Azure 3.0.0.1 y 3.0.0.2]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
 [Servicio de control de acceso de Azure Active Directory (ACS)]: http://msdn.microsoft.com/library/hh147631.aspx
+[Servicio de control de acceso de Active Directory (ACS) de Azure]: http://msdn.microsoft.com/library/hh147631.aspx
 [Conexión con Servicios multimedia con el SDK de Servicios multimedia para .NET.]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Extensiones del SDK de Servicios multimedia de Azure para .NET]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
-
 
 <!--HONumber=52-->

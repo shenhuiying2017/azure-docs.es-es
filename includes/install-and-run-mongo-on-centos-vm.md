@@ -1,11 +1,8 @@
-﻿Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con CentOS Linux.
+Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con CentOS Linux.
 
-<div class="dev-callout">
-<b>Advertencia</b>
-<p>Las características de seguridad de MongoDB, como la vinculación de direcciones IP y la autenticación, no se encuentran habilitadas de forma predeterminada. Las características de seguridad deben habilitarse antes de implementar MongoDB en un entorno de producción.  Consulte <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Seguridad y autenticación</a> para obtener más información</p>
-</div>
+> [AZURE.WARNING]Las características de seguridad de MongoDB, como la vinculación de direcciones IP y la autenticación, no se encuentran habilitadas de forma predeterminada. Las características de seguridad deben habilitarse antes de implementar MongoDB en un entorno de producción. Consulte [Seguridad y autenticación](http://www.mongodb.org/display/DOCS/Security+and+Authentication) para obtener más información.
 
-1. Configure el sistema de administración de paquetes (YUM) para poder instalar MongoDB. Cree un archivo */etc/yum.repos.d/10gen.repo* para almacenar información sobre el repositorio y agregue lo siguiente:
+1. Configure el sistema de administración de paquetes \(YUM\) para poder instalar MongoDB. Cree un archivo */etc/yum.repos.d/10gen.repo* para almacenar información sobre el repositorio y agregue lo siguiente:
 
 		[10gen]
 		name=10gen Repository
@@ -52,11 +49,11 @@
 
 7. Cuando MongoDB esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MongoDB de manera remota. En el Portal de administración, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y, a continuación, en **Extremos**.
 	
-	![Endpoints][Image7]
+	![Extremos][Image7]
 
 8. Haga clic en **Agregar extremo** en la parte inferior de la página.
 	
-	![Endpoints][Image8]
+	![Extremos][Image8]
 
 9. Agregue un extremo a la siguiente configuración:
 
@@ -75,4 +72,4 @@
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
 
-<!--HONumber=35.1-->
+<!--HONumber=52-->

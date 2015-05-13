@@ -46,7 +46,7 @@ En esta sección va a descargar una nueva aplicación Xamarin Android y un proye
    
 2. En la pestaña de inicio rápido, haga clic en **Xamarin** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación Xamarin**.
 
-   ![][6]
+   	![][6]
 
    	Con esto se muestran los tres sencillos pasos necesarios para crear una aplicación Xamarin Android conectada al servicio móvil.
 
@@ -139,6 +139,5 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin para Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
-
 
 <!--HONumber=52-->

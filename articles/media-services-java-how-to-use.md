@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de Servicios multimedia (Java): guía de características de Azure" 
 	description="Describe cómo usar Servicios multimedia de Azure para realizar tareas comunes como codificación, cifrado y recursos de streaming." 
 	services="media-services" 
@@ -451,7 +451,7 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
   [Centro para desarrolladores de Java para Azure]: http://www.windowsazure.com/develop/java/
   [Documentación de las bibliotecas de Azure para Java]: http://dl.windowsazure.com/javadoc/
   [Desarrollo de clientes de Servicios multimedia]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
-
+  [Desarrollo de clientes de los Servicios multimedia]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 <!--HONumber=52-->

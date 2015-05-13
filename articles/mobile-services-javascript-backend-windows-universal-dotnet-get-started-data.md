@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Empezar a trabajar con datos (Windows Universal) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación universal de Windows." 
 	services="mobile-services" 
@@ -118,6 +118,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 <!-- Anchors. -->
 
 [Obtener la aplicación de la Tienda Windows]: #download-app
+[Obtención de una aplicación de la Tienda Windows]: #download-app
 [Crear el servicio móvil desde Visual Studio]: #create-service
 [Agregar una tabla de datos para almacenamiento]: #add-table
 [Actualización de la aplicación para usar el servicio móvil]: #update-app
@@ -142,7 +143,6 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [Clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-
 
 
 <!--HONumber=42-->

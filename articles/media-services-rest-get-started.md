@@ -49,8 +49,8 @@ Las siguientes tareas se muestran en este inicio rápido.
 ## <a id="create_ams"></a>Creación de una cuenta de Servicios multimedia con el Portal
 
 1. En el [Portal de administración][], haga clic en **Nuevo**, después en **Servicios multimedia** y, finalmente, en **Creación rápida**.
-
-![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
+   
+	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
 
 2. En **NOMBRE**, especifique el nombre de la cuenta nueva. El nombre de cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres. 
 
@@ -839,7 +839,7 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 - InputMediaAssets se asigna a uno o más recursos que ha creado en los Servicios multimedia. El sistema crea OutputMediaAssets. Estos no hacen referencia a ningún recurso existente.
 - Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) _NewJob". 
 
-	The following example shows how to set the assetName attribute:
+	En el ejemplo siguiente se muestra cómo establecer el atributo assetName:
 	
 		"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
 
@@ -1289,7 +1289,6 @@ Para probar HLS, utilice dispositivos iOS o Safari, o [3ivx-hls-player](http://a
 <!-- URLs. -->
   [Instalador de plataforma web]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal de administración]: http://manage.windowsazure.com/
-
 
 
 

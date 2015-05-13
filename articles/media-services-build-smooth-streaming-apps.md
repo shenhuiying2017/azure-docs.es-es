@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Aplicación de la Tienda Windows de Smooth Streaming - Tutoriales de .NET de Azure" 
 	description="Aprenda a usar los Servicios multimedia de Azure para crear una aplicación de la Tienda Windows de C# con un control MediaElement de XML para reproducir contenido de Smooth Streaming." 
 	services="media-services" 
@@ -354,7 +354,7 @@ Esta lección contiene los procedimientos siguientes:
 		}
 		#endregion Adaptive Source Level Events
 
-4.	At the end of the <strong>mediaElement AdaptiveSourceOpened</strong> method, add the following code to subscribe to the events:
+4.	Al final del método <strong>mediaElement AdaptiveSourceOpened</strong> agregue el código siguiente para suscribirse a los eventos:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -1007,6 +1007,5 @@ Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
 
 <!--HONumber=52-->

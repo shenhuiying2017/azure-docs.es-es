@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Working with the Mobile Services .NET Client Library" 
 	description="Obtenga información acerca de cómo usar un cliente de .NET para Servicios móviles de Azure." 
 	services="" 
@@ -259,7 +259,7 @@ Si una aplicación proporciona un valor para un identificador, Servicios móvile
 
 El valor  `id` debe ser exclusivo y no debe incluir caracteres de los siguientes conjuntos:
 
-+ Caracteres de control: [0x0000-0x001F] y [0x007F-0x009F]. Para obtener más información, consulte ASCIICódigos de control ASCII C0 y C1].
++ Caracteres de control: [0x0000-0x001F] y [0x007F-0x009F]. Para obtener más información, consulte [Códigos de control ASCII C0 y C1].
 +  Caracteres imprimibles: **"**(0x0022), **\+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
 +  Los identificadores "." y ".."
 
@@ -332,9 +332,9 @@ Tenga en cuenta que se trata de una llamada de método con tipo, lo que requiere
 
 En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El control de simultaneidad optimista asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha.
 
-Servicios móviles es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema __version que se definió en cada tabla creada por Servicios móviles. Cada vez que se actualiza un registro, Servicios móviles establece la propiedad __version para ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad __version del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el servidor, entonces la biblioteca de cliente .NET de Servicios móviles inicia un  `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del servidor que contiene la versión del servidor del registro. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor __version correcto del servidor para confirmar los cambios.  
+Servicios móviles es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento mediante la columna de propiedades del sistema `__version` que se definió en cada tabla creada por Servicios móviles. Cada vez que se actualiza un registro, Servicios móviles establece la propiedad `__version` para ese registro en un nuevo valor. Durante cada solicitud de actualización, la propiedad `__version` del registro incluido con la solicitud se compara con la misma propiedad del registro en el servidor. Si la versión que pasa con la solicitud no coincide con el servidor, entonces la biblioteca de cliente .NET de Servicios móviles inicia un  `MobileServicePreconditionFailedException<T>`. El tipo incluido con la excepción es el registro del servidor que contiene la versión del servidor del registro. A continuación, la aplicación puede usar esta información para decidir si ejecutar la solicitud de actualización de nuevo con el valor `__version` correcto del servidor para confirmar los cambios.  
 
-Para habilitar la simultaneidad optimista, la aplicación define una columna en la clase de tabla para la propiedad del sistema __version. La siguiente definición proporciona un ejemplo.
+Para habilitar la simultaneidad optimista, la aplicación define una columna en la clase de tabla para la propiedad del sistema `__version`. La siguiente definición proporciona un ejemplo.
 
     public class TodoItem
     {
@@ -707,8 +707,10 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [Autenticación de usuarios]: #authentication
 [Control de errores]: #errors
 [Diseño de pruebas unitarias]: #unit-testing
+[Uso de pruebas unitarias]: #unit-testing
 [Uso de datos desde un servicio móvil]: #querying
 [Uso de cliente]: #customizing
+[Personalización de cliente]: #customizing
 [Uso de datos sin tipo]: #untyped
 [Personalización de encabezados de solicitud]: #headers
 [Personalización de serialización]: #serialization
@@ -724,8 +726,11 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
 [SDK de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Tutorial rápido de Tienda Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
+[Tutorial de inicio rápido de Servicios móviles]: http://azure.microsoft.com/develop/mobile/tutorials/get-started/
 [Tutorial rápido de Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
+[Tutorial de inicio rápido de Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-wp8/
 [Tutorial de datos de Tienda Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-dotnet/
+[Tutorial de datos de la Tienda Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Tutorial de datos de Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-data-wp8/
 [Autenticación de Tienda Windows]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Autenticación de Windows Phone]: http://azure.microsoft.com/develop/mobile/tutorials/get-started-with-users-wp8/
@@ -752,9 +757,10 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [API personalizada en SDK de cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
+[API personalizada en los SDK del cliente de Servicios móviles de Azure]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [Llamada a una API personalizada desde el cliente]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Llamar a una API personalizada desde el cliente]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-
 
 
 <!--HONumber=42-->

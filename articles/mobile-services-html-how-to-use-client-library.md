@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de un cliente HTML: Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo usar un cliente HTML para Servicios móviles de Azure." 
 	services="mobile-services" 
@@ -639,6 +639,7 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
 [Más información acerca de las diferencias entre then y done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[Obtenga más información acerca de las diferencias entre then y done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
 [Control de errores en promesas]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
 [sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
@@ -660,7 +661,7 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI para administrar tablas de Servicios móviles]: http://azure.microsoft.com/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Referencia de opciones de consultas del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-
+[referencia de opciones de consulta del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
 
 <!--HONumber=42-->

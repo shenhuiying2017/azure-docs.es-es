@@ -213,6 +213,7 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
+[herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -227,6 +228,5 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-
 
 <!--HONumber=52-->

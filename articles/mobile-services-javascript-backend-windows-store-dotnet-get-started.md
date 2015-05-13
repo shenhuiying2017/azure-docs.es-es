@@ -52,7 +52,7 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
    	Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación de la Tienda Windows conectada al servicio móvil.
 
-  	[Pasos de inicio rápido para Servicios móviles](./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
+  	![Pasos de inicio rápido para Servicios móviles](./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png)
 
 3. Si todavía no lo ha hecho, descargue e instale [Visual Studio 2013 Express para Windows] en el equipo local o máquina virtual.
 
@@ -105,6 +105,5 @@ Para obtener más información acerca de las aplicaciones universales de Windows
 [SDK de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Portal de administración]: https://manage.windowsazure.com/
 [Introducción a los datos en Servicios móviles con Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md
-
 
 <!--HONumber=52-->

@@ -202,6 +202,7 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
 [Python Tools para Visual Studio]: http://aka.ms/ptvs
+[herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -215,6 +216,5 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Almacenamiento de Azure]: http://azure.microsoft.com/documentation/services/storage/
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
-
 
 <!--HONumber=52-->

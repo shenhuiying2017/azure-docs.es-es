@@ -29,7 +29,7 @@ Dolby Digital Plus es compatible con el Codificador multimedia de Azure. Para ob
 
 ###<a id="configure_preset"></a>Configuración de opciones del Codificador multimedia de Azure
 
-Al configurar las opciones de codificación para su uso con el Codificador multimedia de Azure, había varios valores predefinidos representados por cadenas fáciles de recordar. El codificador Dolby Digital Plus ofrece una amplia gama de controles, vea [< DolbyDigitalPlusAudioProfile >](https://msdn.microsoft.com/library/azure/dn296500.aspx) para obtener más información. Por consiguiente, no hay ningún valor preestablecidos de cadena pregenerado que use este códec. Debe especificar la configuración deseada del codificador en un archivo XML y enviar estos datos con su tarea, tal como se muestra en el ejemplo de código siguiente:
+Al configurar las opciones de codificación para su uso con el Codificador multimedia de Azure, había varios valores predefinidos representados por cadenas fáciles de recordar. El codificador Dolby Digital Plus ofrece una amplia gama de controles, vea [<DolbyDigitalPlusAudioProfile>](https://msdn.microsoft.com/library/azure/dn296500.aspx) para obtener más información. Por consiguiente, no hay ningún valor preestablecidos de cadena pregenerado que use este códec. Debe especificar la configuración deseada del codificador en un archivo XML y enviar estos datos con su tarea, tal como se muestra en el ejemplo de código siguiente:
 	
 	string configuration = File.ReadAllText(pathToXMLConfigFile));
 
@@ -46,7 +46,7 @@ Para codificar a Dolby Digital Plus 5.1 multicanal, establezca los atributos Cod
 
 El siguiente valor preestablecido XML contiene un valor preestablecido XML completo del Codificador multimedia de Azure que genera un archivo MP4 con vídeo H264 de banda ancha en 1.080 p y audio Dolby Digital Plus 5.1 multicanal. Este valor preestablecido también especifica la codificación de un canal de efectos de baja frecuencia (LFE), que se especifica estableciendo el atributo LFEOn en true. Cualquier atributo no especificado tendrá sus valores predeterminados.
 
-Este valor preestablecido XML se debe pasar al **Codificador multimedia de Azure** para crear un trabajo de codificación, como se describe en [este]tema (media-services-dotnet-codificar-asset.md) (solo pasará el valor predefinido XML al completo en lugar de una cadena preestablecida, como se describe [aquí](#configure_preset)).
+Este valor preestablecido XML se debe pasar al **Codificador multimedia de Azure** para crear un trabajo de codificación, como se describe en [este](media-services-dotnet-codificar-asset.md) tema (solo pasará el valor predefinido XML al completo en lugar de una cadena preestablecida, como se describe [aquí](#configure_preset)).
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -649,6 +649,5 @@ A continuación se describe cada atributo.
 **SamplePeak**: este resultado contiene el valor de muestra absoluto más grande en cualquier canal desde que se restableció la medición, y los intervalos varían de -70 a + 10 dBFS.
 
 **TruePeak**: este resultado contiene el valor absoluto true‐peak más grande en cualquier canal desde que se restableció la medición. Para obtener una descripción de pico verdadero, consulte ITU‐R BS.1770‐2. Los valores pueden oscilar entre -70 y 12,04 dBTP.
-
 
 <!--HONumber=52-->

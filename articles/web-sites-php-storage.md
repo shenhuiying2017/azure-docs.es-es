@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de una aplicación web PHP en el Servicio de aplicaciones de Azure mediante el almacenamiento de Azure" 
 	description="En este tutorial se explica cómo crear una aplicación web PHP en el Servicio de aplicaciones de Azure y usar el servicio de almacenamiento de tablas de Azure en el back-end." 
 	services="app-service\web, storage" 
@@ -205,7 +205,7 @@ En la página principal de la aplicación Tasklist deben aparecer todas las tare
 			echo "<h3>No items on list.</h3>";
 		?>
 
-* Last, you must insert the form that feeds data into the task insertion script and complete the HTML:
+* Por último, debe insertar la forma de introducir datos en el script de inserción de la tarea y completar el HTML:
 
 			<hr/>
 			<form action="additem.php" method="post">
@@ -427,6 +427,5 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [credentials]: ./media/web-sites-php-storage/git-deployment-credentials.png
 
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
-
 
 <!--HONumber=52-->

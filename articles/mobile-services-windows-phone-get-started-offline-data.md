@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure con datos sin conexión sincronizados en su aplicación de Windows Phone" 
 	documentationCenter="windows" 
@@ -243,9 +243,9 @@ En esta sección probará las operaciones de inserción y extracción para sincr
     ![][10] 
   
 
-##Resumen
+## Resumen
 
-##Resumen
+## Resumen
 
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../includes/mobile-services-offline-summary-csharp.md)]
 
@@ -281,6 +281,7 @@ En esta sección probará las operaciones de inserción y extracción para sincr
 [Control de conflictos con compatibilidad sin conexión para servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
 [Introducción a ejemplos sin conexión para Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
 [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started/
+[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started/
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data/
 [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
@@ -288,7 +289,6 @@ En esta sección probará las operaciones de inserción y extracción para sincr
 
 [Nuget del SDK de servicios móviles]: http://www.nuget.org/packages/MicrosoftAzure.MobileServices/1.3.0
 [Nuget del almacén de SQLite]: http://www.nuget.org/packages/MicrosoftAzure.MobileServices.SQLiteStore/1.0.0
-
 
 
 <!--HONumber=42-->
