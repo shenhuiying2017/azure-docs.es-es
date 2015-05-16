@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Establecer y recuperar propiedades y metadatos para el almacenamiento de blobs | Microsoft Azure" 
 	description="Obtener información sobre cómo establecer y recuperar propiedades y metadatos para los contenedores y blobs de Almacenamiento de Azure." 
 	services="storage" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
-	ms.tgt\_pltfrm="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 

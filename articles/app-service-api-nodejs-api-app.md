@@ -1,4 +1,11 @@
-\<properties pageTitle="Build and deploy a Node.js API app in Azure App Service" description="Learn how to create a Node.js API app package and deploy it to Azure App Service." services="app-service\\api" documentationCenter="nodejs" authors="pkefal" manager="", editor=""/\>
+﻿<properties 
+	pageTitle="Build and deploy a Node.js API app in Azure App Service" 
+	description="Learn how to create a Node.js API app package and deploy it to Azure App Service." 
+	services="app-service\api" 
+	documentationCenter="nodejs" 
+	authors="pkefal" 
+	manager="", 
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
