@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Introducción a los Centros de eventos"
 	description="Siga este tutorial para empezar a usar los centros de eventos de Azure con C# mediante EventProcessorHost"
 	services="service-bus"
@@ -102,9 +102,8 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[aplicación de ejemplo que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [solución de mensajería en cola]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
-
 
 <!--HONumber=52-->
