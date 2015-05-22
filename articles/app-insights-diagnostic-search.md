@@ -103,7 +103,7 @@ Encuentre todos los elementos con el mismo valor de propiedad:
 
 Obtenga todas las solicitudes con un tiempo de respuesta \> 5 seg. Las horas se representan en tics: 10 000 tics = 1 ms.
 
-!\["Tiempo de respuesta":\(umbral TO *\)\](./media/app-insights-diagnostic-search/11-responsetime.png\)
+!["Tiempo de respuesta":(umbral TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
 
 
