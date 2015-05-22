@@ -20,19 +20,19 @@
 
 Redireccionamiento de dispositivos permite a los usuarios interactuar con aplicaciones remotas mediante los dispositivos conectados a su equipo local, un teléfono o una tableta. Por ejemplo, si ha proporcionado Skype a través de RemoteApp, el usuario necesitará disponer de la cámara instalada en su equipo para que funcione con Skype. Esto también se aplica a las impresoras, altavoces, monitores y a una amplia gama de periféricos conectados mediante USB.
 
-RemoteApp aprovecha el Protocolo de escritorio remoto \(RDP\) y RemoteFX para proporcionar la redireccionamiento.
+RemoteApp aprovecha el Protocolo de escritorio remoto (RDP) y RemoteFX para proporcionar la redireccionamiento.
 
 ## ¿Qué redireccionamiento está habilitado de manera predeterminada?
 Al usar RemoteApp, los redireccionamientos siguientes se habilitan de forma predeterminada. La información entre paréntesis muestra la configuración de RDP.
 
-- Reproducir sonidos en el equipo local \(\*\*reproducir en este equipo\*\*\). \(audiomode:i:0\)
-- Capturar audio desde el equipo local y enviar al equipo remoto \(\*\*Registro desde este equipo\*\*\). \(audiocapturemode:i:1\)
+- Reproducir sonidos en el equipo local (**reproducir en este equipo**). (audiomode:i:0)
+- Capturar audio desde el equipo local y enviar al equipo remoto \(**Registro desde este equipo**). \(audiocapturemode:i:1\)
 - Imprimir en impresoras locales \(redirectprinters:i:1\)
 - Puertos COM \(redirectcomports:i:1\)
 - Dispositivo de tarjeta inteligente \(redirectsmartcards:i:1\)
 - Portapapeles \(capacidad de copiar y pegar\) \(redirectclipboard:i:1\)
 - Desactivar el suavizado de fuentes \(permitir suavizado de fuentes: i:1\)
-- Redirigir todos los dispositivos Plug and Play compatibles. \(devicestoredirect:s: \*\)
+- Redirigir todos los dispositivos Plug and Play compatibles. \(devicestoredirect:s:)
 
 ## ¿Qué otro redireccionamiento está disponible?
 Existen dos opciones de redireccionamiento deshabilitadas de forma predeterminada:
@@ -47,7 +47,7 @@ A continuación, utilice un comando similar al siguiente para establecer las pro
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
     
-\(Tenga en cuenta que *' n* se utiliza como delimitador entre las propiedades individuales\).
+\(Tenga en cuenta que *`n* se utiliza como delimitador entre las propiedades individuales\).
 
 Para obtener una lista de las propiedades personalizadas de RDP que se configuran, ejecute el siguiente cmdlet. Tenga en cuenta que solo se muestran las propiedades personalizadas como resultados de salida y no las propiedades predeterminadas:
 
@@ -74,16 +74,17 @@ Asegúrese de cerrar completamente la sesión de todos los usuarios de la colecc
 
 Si desea usar el redireccionamiento de USB en un equipo que se conecta a RemoteApp, hay 2 acciones que se deben realizar. 1.- El administrador debe habilitar el redireccionamiento USB en el nivel de colección mediante Azure PowerShell. 2 - En cada dispositivo en el que desee usar el redireccionamiento USB, deberá habilitar una directiva de grupo que lo permita. Este paso debe realizarse para cada usuario que desee usar el redireccionamiento USB.
    
-> [AZURE.NOTE]El redireccionamiento USB con RemoteApp de Azure solo se admite en equipos Windows.
+> [AZURE.NOTE] El redireccionamiento USB con RemoteApp de Azure solo se admite en equipos Windows.
 
 ### Habilitar el redireccionamiento USB para la colección RemoteApp
-Utilice el siguiente cmdlet para habilitar el redireccionamiento USB en el nivel de colección: Establezca-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s: \*"
+Utilice el siguiente cmdlet para habilitar el redireccionamiento USB en el nivel de colección:
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Habilitar el redireccionamiento USB para el equipo cliente
 
 Para configurar el redireccionamiento USB en su equipo:
 
-1. Abra el Editor de directivas de grupo local \(GPEDIT. MSC\). \(Ejecute gpedit.msc desde un símbolo del sistema de comando\).
+1. Abra el Editor de directivas de grupo local (GPEDIT. MSC). (Ejecute gpedit.msc desde un símbolo del sistema de comando).
 2. Abra **Configuración del equipo\\Directivas\\Plantillas administrativas\\Componentes Windows\\Servicios de escritorio remoto\\Cliente de conexión de escritorio remoto\\Redireccionamiento de dispositivo USB RemoteFX**.
 3. Haga doble clic en **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX desde este equipo**.
 4. Seleccione **Habilitado**, y, a continuación, seleccione **Administradores y usuarios en los derechos de acceso de redireccionamiento de RemoteFX USB**.
@@ -102,4 +103,5 @@ También puede utilizar la herramienta de administración de directivas de grupo
 6. Haga doble clic en **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo**.
 7. Seleccione **Habilitado** y, a continuación, seleccione **Administradores y usuarios en los derechos de acceso de redireccionamiento USB RemoteFX**.
 8. Haga clic en **Aceptar**. 
+
 <!--HONumber=54-->
