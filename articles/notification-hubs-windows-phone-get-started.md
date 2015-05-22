@@ -75,7 +75,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
    ![][13]
 
-	In Visual Studio 2013 Update 2 or later, you instead create a Windows Phone Silverlight application.
+	En Visual Studio 2013 Update 2 o versiones posteriores, cree en su lugar una aplicación Silverlight de Windows Phone.
 	
 	![][11]	
 
@@ -110,7 +110,8 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
             await hub.RegisterNativeAsync(args.ChannelUri.ToString());
         });
 
-    Asegúrese de insertar el nombre del centro y la cadena de conexión llamada **DefaultListenSharedAccessSignature** que obtuvo en la sección anterior. Este código recupera el valor de ChannelURI de la aplicación desde los MPNS y, a continuación, lo registra con su Centro de notificaciones. Garantiza también que el valor de ChannelURI se registre en su Centro de notificaciones cada vez que se inicia la aplicación.
+    Asegúrese de insertar el nombre del centro y la cadena de conexión llamada **DefaultListenSharedAccessSignature** que obtuvo en la sección anterior.
+   Este código recupera el valor de ChannelURI de la aplicación desde los MPNS y, a continuación, lo registra con su Centro de notificaciones. Garantiza también que el valor de ChannelURI se registre en su Centro de notificaciones cada vez que se inicia la aplicación.
 
 	>[AZURE.NOTE]Este tutorial envía una notificación del sistema al dispositivo. Cuando envía una notificación de icono, debe llamar al método **BindToShellTile** en el canal. Para admitir notificaciones del sistema y notificaciones de icono, llame a ambos métodos, **BindToShellTile** y **BindToShellToast**.
     
@@ -132,7 +133,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
    ![][6]
 
-	This adds a new Visual C# console application to the solution. You can also do this in a separate solution. 
+	Esta acción agrega una aplicación de consola nueva de Visual C# a la solución. También puede hacer esto en una solución separada. 
 
 4. Haga clic con el menú secundario en **Herramientas**, luego en **Administrador de paquetes de bibliotecas** y finalmente en **Consola del Administrador de paquetes**. 
 
