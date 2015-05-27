@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Creación de un proceso B2B en el Servicio de aplicaciones de Microsoft Azure" 
    description="Información general para crear un proceso negocio a negocio" 
    services="app-service\logic" 
@@ -27,7 +27,7 @@ El objetivo de este tutorial consiste en determinar cómo Northwind puede establ
 
 
 ## Funcionalidades mostradas 
-Este tutorial le ayuda a mostrar las siguientes funcionalidades: 
+Este tutorial le ayuda a mostrar las siguientes funcionalidades:
 
 - **Transporte de mensajes**: el minorista y el proveedor pueden estar en distintas plataformas, lo que no les impide comunicarse entre sí. En este tutorial se comunican a través de AS2 (Applicability Statement 2). AS2 es una conocida forma de transportar datos entre socios comerciales en comunicaciones negocio a negocio.
 - **Persistencia de datos**: una vez que el mensaje se ha recibido a través de AS2, Northwind desea conservarlo antes de continuar con el procesamiento. Puede usar un conector para conservar mensajes en su almacenamiento en la nube. En este tutorial, se aprovechan los blobs de Azure como el almacenamiento en la nube para Northwind.
@@ -46,9 +46,9 @@ En este tutorial se supone que tiene conocimientos básicos de Servicios de apli
 3. Cree una instancia del **conector AS2**. Para que esto funcione, también se necesita una base de datos SQL en blanco. Asegúrese de que está listo antes de comenzar la creación. Además, si desea archivar mensajes como parte del procesamiento de AS2, puede proporcionar credenciales a un blob de Azure durante su creación.
 4. Configure el servicio TPM (Administración de socios comerciales) que se crea:
 	1. Vaya a la instancia del servicio TPM creada como parte de los pasos anteriores.
-	2. Use la opción **Socios** bajo *Components* para **agregar** un nuevo sociado denominado **Contoso** y, en su perfil, agregue la identidad AS2 necesaria.
-	3. Use la opción **Socios** bajo *Components* para **agregar** un nuevo socio denominado **Northwind** y, en su perfil, agregue la identidad AS2 necesaria.
-	4. Use la opción **Acuerdos** bajo *Components* para **agregar** un nuevo acuerdo de AS2 entre Contoso y Northwind. Aquí, Northwind será el socio hospedado y Contoso el socio invitado. Según sea necesario, configure la firma, el cifrado, la compresión y las confirmaciones durante la creación de este acuerdo. En caso de que sea necesario usar certificados, se pueden cargar a través de la opción **Certificados** cuando se examine el servicio TPM que se crea.
+	2. Use la opción **Socios** en *Componentes* para **agregar** un nuevo asociado denominado **Contoso** y, en su perfil, agregue la identidad AS2 necesaria.
+	3. Use la opción **Socios** en *Componentes* para **agregar** un nuevo asociado denominado **Northwind** y, en su perfil, agregue la identidad AS2 necesaria.
+	4. Use la opción **Acuerdos** en *Componentes* para **agregar** un nuevo acuerdo de AS2 entre Contoso y Northwind. Aquí, Northwind será el socio hospedado y Contoso el socio invitado. Según sea necesario, configure la firma, el cifrado, la compresión y las confirmaciones durante la creación de este acuerdo. En caso de que sea necesario usar certificados, se pueden cargar a través de la opción **Certificados** cuando se examine el servicio TPM que se crea.
 
 
 ## Creación de un flujo o proceso empresarial
@@ -72,4 +72,4 @@ En este tutorial se supone que tiene conocimientos básicos de Servicios de apli
 [1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
 
-<!--HONumber=49-->
+<!--HONumber=54-->

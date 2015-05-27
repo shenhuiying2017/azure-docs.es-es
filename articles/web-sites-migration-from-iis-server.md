@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Migración de una aplicación web de empresa al Servicio de aplicaciones de Azure" 
 	description="Muestra cómo utilizar el Asistente para migración de Aplicaciones web para migrar rápidamente sitios web de IIS existentes a Aplicaciones web del Servicio de aplicaciones de Azure" 
 	services="app-service\web" 
@@ -19,9 +19,9 @@
 
 # Migración de una aplicación web de empresa al Servicio de aplicaciones de Azure
 
-Puede migrar fácilmente sus sitios web existentes que se ejecutan en Internet Information Service (IIS) 6 o posterior a [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). [El Asistente para migración de Aplicaciones web](https://www.movemetothecloud.net/) puede analizar la instalación del servidor IIS, identificar los sitios que se pueden migrar al Servicio de aplicaciones, resaltar cualquier elemento que no se pueda migrar o no se admita en la plataforma y, a continuación, migrar los sitios web y bases de datos asociadas a Azure.
+Puede migrar fácilmente sus sitios web existentes que se ejecutan en Internet Information Service (IIS) 6 o posterior a [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). El [Asistente para migración de Aplicaciones web](https://www.movemetothecloud.net/) puede analizar la instalación del servidor IIS, identificar los sitios que se pueden migrar al Servicio de aplicaciones, resaltar cualquier elemento que no se pueda migrar o no se admita en la plataforma y, a continuación, migrar los sitios web y bases de datos asociadas a Azure.
 
->[AZURE.NOTE] El soporte de Windows Server 2003 finalizará el 14 de julio de 2015. Si sus sitios web están alojados actualmente en un servidor IIS que es Windows Server 2003, Aplicaciones web es una forma con bajo riesgo, bajo costo y baja fricción de mantener sus sitios web en línea; el Asistente para migración de Aplicaciones web puede ayudar a automatizar el proceso de migración. 
+>[AZURE.NOTE]El soporte de Windows Server 2003 finalizará el 14 de julio de 2015. Si sus sitios web están alojados actualmente en un servidor IIS que es Windows Server 2003, Aplicaciones web es una forma con bajo riesgo, bajo costo y baja fricción de mantener sus sitios web en línea; el Asistente para migración de Aplicaciones web puede ayudar a automatizar el proceso de migración.
 
 ## Elementos comprobados durante el análisis de compatibilidad ##
 El Asistente para migración crea un informe de preparación para identificar las posibles causas de problemas de preocupación o bloqueo que pueden evitar una migración correcta de un IIS local a Aplicaciones web del Servicio de aplicaciones de Azure. Algunos de los elementos claves que se deben tener en cuenta son:
@@ -57,26 +57,26 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
-2.	Instale el Asistente para migración de Aplicaciones web haciendo clic en el botón **IIS Server dedicado**. Próximamente se pondrán más opciones a disposición de los usuarios. 
-4.	Haga clic en el botón **Herramienta de instalación** para instalar el Asistente para migración de Aplicaciones web en su equipo.
+2.	Instale el Asistente para migración de Aplicaciones web mediante un clic en el botón **Servidor IIS dedicado**. Próximamente se pondrán más opciones a disposición de los usuarios.
+4.	Haga clic en el botón **Herramienta de instalación** para instalar el Asistente de migración de Aplicaciones web en la máquina.
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE] También puede hacer clic en **Descargar para instalación sin conexión** para descargar un archivo ZIP que se instala en servidores no conectados a Internet. O bien, puede hacer clic en **Cargar un informe existente sobre el estado de preparación de la migración**, que es una opción avanzada para trabajar con un informe sobre el estado de preparación de la migración existente que ha generado previamente (se explica más adelante).
+	>[AZURE.NOTE]También puede hacer clic en **Descargar para instalación sin conexión** para descargar un archivo ZIP que se instala en servidores no conectados a Internet. O bien, puede hacer clic en **Cargar un informe existente sobre el estado de preparación de la migración**, que es una opción avanzada para trabajar con un informe sobre el estado de preparación de la migración existente que ha generado previamente (se explica más adelante).
 
-5.	En la pantalla **Instalación de la aplicación**, haga clic en **Instalar** para instalar en el equipo. También instalará las dependencias correspondientes como Web Deploy, DacFX e IIS, si es necesario. 
+5.	En la pantalla**Instalación de la aplicación**, haga clic en **Instalar** para instalar en el equipo. También instalará las dependencias correspondientes como Web Deploy, DacFX e IIS, si es necesario.
 
 	![](./media/web-sites-migration-from-iis-server/install-progress.png)
 
 	Una vez instalado, el Asistente para migración de Aplicaciones web se inicia automáticamente.
   
-6.	Seleccione **Migración de sitios y bases de datos desde un servidor remoto a Azure**. Escriba las credenciales administrativas para el servidor remoto y haga clic en **Continuar**. 
+6.	Seleccione **Migración de sitios y bases de datos desde un servidor remoto a Azure**. Escriba las credenciales administrativas para el servidor remoto y haga clic en **Continuar**.
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
 	Por supuesto, puede optar por migrar desde el servidor local. La opción remota resulta útil cuando desea migrar sitios web desde un servidor IIS de producción.
  
-	En este punto, la herramienta de migración inspeccionará la configuración del servidor IIS, como sitios, aplicaciones, grupos de aplicaciones y dependencias para identificar sitios web candidatos para la migración. 
+	En este punto, la herramienta de migración inspeccionará la configuración del servidor IIS, como sitios, aplicaciones, grupos de aplicaciones y dependencias para identificar sitios web candidatos para la migración.
 
 8.	La captura de pantalla siguiente muestra tres sitios web: **sitio web predeterminado**, **TimeTracker** y **CommerceNet4**. Todos ellos tienen una base de datos asociada que deseamos migrar. Seleccione todos los sitios que desea evaluar y, a continuación, haga clic en **Siguiente**.
 
@@ -86,13 +86,13 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/upload-readiness-report.png)
  
-	Una vez que cargue el informe sobre el estado de preparación, Azure realiza análisis de preparación y muestra los resultados. Lea los detalles de evaluación para cada sitio web y asegúrese de que los entiende y de que ha solucionado todos los problemas antes de continuar. 
+	Una vez que cargue el informe sobre el estado de preparación, Azure realiza análisis de preparación y muestra los resultados. Lea los detalles de evaluación para cada sitio web y asegúrese de que los entiende y de que ha solucionado todos los problemas antes de continuar.
  
 	![](./media/web-sites-migration-from-iis-server/readiness-assessment.png)
 
-12.	Haga clic en **Iniciar migración** para iniciar la migración. Se le redirigirá ahora a Azure para iniciar sesión en su cuenta. Es importante que inicie una sesión con una cuenta que tenga una suscripción activa de Azure. Si no tiene una cuenta de Azure, puede registrarse aquí para obtener una evaluación gratuita. 
+12.	Haga clic en **Iniciar migración** para comenzar la migración. Se le redirigirá ahora a Azure para iniciar sesión en su cuenta. Es importante que inicie una sesión con una cuenta que tenga una suscripción activa de Azure. Si no tiene una cuenta de Azure, puede registrarse aquí para obtener una evaluación gratuita.
 
-13.	Seleccione la cuenta del inquilino, la suscripción de Azure y la región que se van a utilizar para las aplicaciones web de Azure y las bases de datos migradas y, a continuación, haga clic en **Iniciar migración**. Puede seleccionar los sitios web que se migrarán más tarde.
+13.	Seleccione la cuenta de inquilino, la suscripción de Azure y la región que se van a utilizar para las bases de datos y las aplicaciones web de Azure migradas y, a continuación, haga clic en **Iniciar migración**. Puede seleccionar los sitios web que se migrarán más tarde.
 
 	![](./media/web-sites-migration-from-iis-server/choose-tenant-account.png)
 
@@ -107,15 +107,15 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] La casilla **Habilitar Azure Active Directory** en la configuración personalizada integra la aplicación web de Azure con [Azure Active Directory](active-directory-whatis.md) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, consulte [Integración de Directory](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE]La casilla **Habilitar Azure Active Directory** en la configuración personalizada integra la aplicación web con [Azure Active Directory](active-directory-whatis.md) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, consulte [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
 
-16.	 Una vez realizados todos los cambios deseados, haga clic en **Crear** para iniciar el proceso de migración. La herramienta de migración creará la Base de datos SQL Azure y la aplicación web de Azure y, a continuación, publicará el contenido del sitio web y las bases de datos. El proceso de migración se muestra claramente en la herramienta de migración y verá una pantalla de resumen al final que detalla los sitios migrados, si se realizaron correctamente, así como los vínculos a las aplicaciones web de Azure recién creadas. 
+16.	 Una vez realizados todos los cambios deseados, haga clic en **Crear** para iniciar el proceso de migración. La herramienta de migración creará la Base de datos SQL Azure y la aplicación web de Azure y, a continuación, publicará el contenido del sitio web y las bases de datos. El proceso de migración se muestra claramente en la herramienta de migración y verá una pantalla de resumen al final que detalla los sitios migrados, si se realizaron correctamente, así como los vínculos a las aplicaciones web de Azure recién creadas.
 
-	Si se produce un error durante la migración, la herramienta de migración indicará claramente el error y revertirá los cambios. También podrá enviar el informe de errores directamente al equipo de ingeniería haciendo clic en el botón **Enviar informe de errores**, con la captura de la pila de llamadas de error y el cuerpo del mensaje de la compilación. 
+	Si se produce un error durante la migración, la herramienta de migración indicará claramente el error y revertirá los cambios. También podrá enviar el informe de errores directamente al equipo de ingeniería haciendo clic en el botón **Enviar informe de errores**, con la captura de la pila de llamadas de error y el cuerpo del mensaje de la compilación.
 
 	![](./media/web-sites-migration-from-iis-server/migration-error-report.png)
 
-	Si migra correctamente sin errores, también puede hacer clic en el botón **Enviar comentarios** para hacer llegar sus comentarios directamente. 
+	Si migra correctamente sin errores, también puede hacer clic en el botón **Enviar comentarios** para hacer llegar sus comentarios directamente.
  
 20.	Haga clic en los vínculos a las aplicaciones web de Azure y compruebe que la migración se ha realizado correctamente.
 
@@ -125,10 +125,10 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/TimeTrackerMigrated.png)
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-## ¿Qué ha cambiado?
-* Para obtener una guía del cambio de Sitios web al Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal antiguo al nuevo, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+## Lo que ha cambiado
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=49-->
+<!--HONumber=54-->

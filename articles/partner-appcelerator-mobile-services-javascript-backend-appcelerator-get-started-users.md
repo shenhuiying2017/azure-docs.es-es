@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la autenticación (Appcelerator) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="mobile-services" 
@@ -25,7 +25,7 @@ En este tema se muestra cómo autenticar usuarios en Servicios móviles de Micro
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
 1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles]
-2.  [Restricción de los permisos de tabla a usuarios autenticados]
+2.  [Restricción de los permisos de tabla para los usuarios autenticados]
 3.  [Incorporación de autenticación a la aplicación]
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles].
@@ -42,7 +42,7 @@ Para finalizar este tutorial se necesita Appcelerator Titanium Studio 3.2.1 o po
 
 3.	En Appcelerator Titanium Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles].
 
-4.	Presione el botón Run para compilar el proyecto e iniciar la aplicación en el emulador de iPhone. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.
+4.	Presione el botón Ejecutar para compilar el proyecto e iniciar la aplicación en el emulador de iPhone. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.
     
     Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla TodoItem requiere ahora autenticación.
 
@@ -94,7 +94,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
             }
         });
 
->[AZURE.NOTE] Si utiliza un proveedor de identidades que no sea Google, cambie el valor pasado a **authorizeClient** a uno de los siguientes: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
+>[AZURE.NOTE]Si usa un proveedor de identidades que no sea Google, cambie el valor pasado a **authorizeClient** a uno de los siguientes: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
 
 4.	Presione el botón Run para compilar el proyecto, inicie la aplicación en el simulador de iPhone o en el emulador de Android y después haga clic en la opción With Login para iniciar sesión con el proveedor de identidades.
 
@@ -104,13 +104,11 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 <!-- Anchors. -->
 
 [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
-[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
+[Restricción de los permisos de tabla para los usuarios autenticados]: #permissions
 [Incorporación de autenticación a la aplicación]: #add-authentication
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [Introducción a los Servicios móviles]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
-<!--HONumber=49--> 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

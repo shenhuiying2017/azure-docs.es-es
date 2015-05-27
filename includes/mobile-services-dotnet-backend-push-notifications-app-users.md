@@ -1,4 +1,4 @@
-﻿
+
 1. En el Explorador de soluciones de Visual Studio, expanda la carpeta App_Start y abra el archivo de proyecto WebApiConfig.cs.
 
 2. Agregue el siguiente código al método Register después de la definición **ConfigOptions**:
@@ -6,11 +6,11 @@
         options.PushAuthorization = 
             Microsoft.WindowsAzure.Mobile.Service.Security.AuthorizationLevel.User;
  
-	Esto aplica la autenticación del usuario antes de registrarse para notificaciones de inserción. 
+	Esto aplica la autenticación del usuario antes de registrarse para notificaciones de inserción.
 
 2. Haga clic con el botón secundario en el proyecto, haga clic en **Agregar** y, a continuación, haga clic en **Clase...**.
 
-3. Asigne un nombre a la nueva clase vacía  `PushRegistrationHandler` y haga clic en **Agregar**.
+3. Asigne un nombre a la nueva clase `PushRegistrationHandler` vacía y haga clic en **Agregar**.
 
 4. En la parte superior de la página de código, agregue las siguientes instrucciones **using**:
 
@@ -77,7 +77,7 @@
 	        }
 	    }
 
-	El método **Register** se invoca durante el registro. Esto permite agregar una etiqueta al registro que es el identificador del usuario que inició sesión. Se validan las etiquetas suministradas para evitar que un usuario se registre con el identificador de otro usuario Cuando se envía una notificación a este usuario, se recibe en este y otros dispositivos registrados que el usuario haya registrado. 
+	El método **Register** se invoca durante el registro. Esto permite agregar una etiqueta al registro que es el identificador del usuario que inició sesión. Se validan las etiquetas suministradas para evitar que un usuario se registre con el identificador de otro usuario Cuando se envía una notificación a este usuario, se recibe en este y otros dispositivos registrados que el usuario haya registrado.
 
 6. Expanda la carpeta Controladores, abra el archivo de proyecto TodoItemController.cs, localice el método **PostTodoItem** y reemplace la línea de código que llama a **SendAsync** con el código siguiente:
 
@@ -91,4 +91,4 @@
 
 Ahora, el servicio usa la etiqueta de identificador de usuario para enviar una notificación de inserción (con el texto del elemento insertado) a todos los registros que ha creado el usuario que inició sesión.
  
-<!--HONumber=47-->
+<!--HONumber=54-->

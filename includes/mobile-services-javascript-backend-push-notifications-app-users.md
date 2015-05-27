@@ -1,13 +1,9 @@
-﻿
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego en su servicio móvil.
 
-   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
 2. Haga clic en la pestaña **Insertar**, seleccione **Solo usuarios autenticados** para **Permisos** y, a continuación, haga clic en **Editar script**.
-
-   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
 	
-	Esto permite personalizar la función de devolución de llamada de registro de la notificación de inserción. Si usa Git para editar el código de origen, esta misma función de registro se encuentra en  `.\service\extensions\push.js`.
+	Esto permite personalizar la función de devolución de llamada de registro de la notificación de inserción. Si usa Git para editar el código de origen, esta misma función de registro se encuentra en `.\service\extensions\push.js`.
 
 3. Reemplace la función **register** existente por el siguiente código:
 
@@ -42,7 +38,7 @@
 			}
 		}
 
-	Esto agrega una etiqueta al registro que es el identificador del usuario que inició sesión. Se validan las etiquetas suministradas para evitar que un usuario se registre con el identificador de otro usuario. Cuando se envía una notificación a este usuario, se recibe en este y otros dispositivos registrados que el usuario haya registrado.
+	Esto agrega una etiqueta al registro que es el identificador del usuario que inició sesión. Se validan las etiquetas suministradas para evitar que un usuario se registre con el identificador de otro usuario Cuando se envía una notificación a este usuario, se recibe en este y otros dispositivos registrados que el usuario haya registrado.
 
-4. Haga clic en la flecha atrás, en la pestaña **Datos**, haga clic en **TodoItem**, haga clic en **Script** y seleccione **Insertar**. 
-<!--HONumber=42-->
+4. Haga clic en la flecha atrás, en la pestaña **Datos**, haga clic en **TodoItem**, haga clic en **Script** y seleccione **Insertar**.
+<!--HONumber=54-->

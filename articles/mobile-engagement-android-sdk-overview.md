@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -13,51 +13,52 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="05/04/2015" 
 	ms.author="kapiteir" />
 
 
-#SDK de Android para Azure Mobile Engagement v3.0.0
-Comience aquí para obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación Android. Si desea probar primero, asegúrese de realizar nuestro [tutorial de 15 minutos](mobile-engagement-android-get-started.md).
+#SDK de Android para Azure Mobile Engagement
 
-Haga clic para ver el [contenido del SDK](mobile-engagement-android-sdk-content.md)
+Comience aquí para obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación Android. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](mobile-engagement-android-get-started.md).
+
+Haga clic para ver el [contenido del SDK](mobile-engagement-android-sdk-content.md).
 
 ##Procedimientos de integración
 1. Comience aquí: [Integración de Mobile Engagement en su aplicación Android](mobile-engagement-android-integrate-engagement.md)
 
 2. Para las notificaciones: [Integración de cobertura (notificaciones) en su aplicación Android](mobile-engagement-android-integrate-engagement-reach.md)
-	1. Servicio de mensajería en la nube de Google (GCM): [Integración de GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
+	1. Google Cloud Messaging (GCM): [Integración de GCM con Mobile Engagement](mobile-engagement-android-gcm-integrate.md)
 	2. Amazon Device Messaging (ADM): [Integración de ADM con Mobile Engagement](mobile-engagement-android-adm-integrate.md)
 
-3. Implementación del plan de etiqueta: [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación Android](mobile-engagement-android-use-engagement-api.md)
+3. Implementación del plan de etiquetas: [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación Android](mobile-engagement-android-use-engagement-api.md)
 
 
 ##Notas de la versión
 
-###3.0.0 (17/02/2015)
+###3.0.0 (02/17/2015)
 
 -   Versión inicial de Azure Mobile Engagement
--   La configuración de appID se reemplaza por una configuración de cadena de conexión.
--   API eliminada para enviar y recibir mensajes XMPP arbitrarios desde entidades XMPP arbitrarias.
--   API eliminada para enviar y recibir mensajes entre dispositivos.
--   Mejoras de seguridad.
--   Seguimiento de SmartAd y Google Play eliminados.
+-   La configuración de appID se reemplaza por una configuración de cadena de conexión
+-   Se ha eliminado la API para enviar y recibir mensajes XMPP arbitrarios de entidades XMPP arbitrarias
+-   Se ha eliminado la API para enviar y recibir mensajes entre dispositivos
+-   Mejoras de seguridad
+-   Seguimiento de SmartAd y Google Play eliminados
 
-En caso de necesitar información sobre una versión anterior, consulte las [notas de versión completas](mobile-engagement-android-release-notes.md)
+Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-android-release-notes.md).
 
 ##Procedimientos de actualización
 
-Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, deberá tener en cuenta los siguientes puntos al actualizar el SDK.
+Si ya integró una versión anterior de nuestro SDK en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
-Es posible que tenga que seguir varios procedimientos si se omitieron varias versiones del SDK. Consulte [Procedimientos de actualización] completos(mobile-engagement-android-upgrade-procedure.md). Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
+Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK, consulte la sección completa [Procedimientos de actualización](mobile-engagement-android-upgrade-procedure.md). Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
 
 Sea cual sea la versión desde la que actualice, debe sustituir todos los `mobile-engagement-VERSION.jar` por los nuevos.
 
-###De la versión 2.4.0 a la versión 3.0.0
+###De 2.4.0 a 3.0.0
 
-A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con tecnología de Azure Mobile Engagement. 
+A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement. Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 2.4.0 en primer lugar y luego aplique el siguiente procedimiento.
 
->[AZURE.IMPORTANT] Capptain y Mobile Engagement no son los mismos servicios y el procedimiento dado a continuación solo resalta cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores de Capptain a los servidores de Mobile Engagement.
+>[AZURE.IMPORTANT]Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
 
 #### Archivo JAR
 
@@ -79,7 +80,7 @@ Debe usar el método `EngagementAgent.init` en la actividad del iniciador, de la
 			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 			EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-La cadena de conexión de la aplicación aparece en el Portal de Azure.
+La cadena de conexión de la aplicación se muestra en el portal de Azure.
 
 Quite toda llamada a `CapptainAgent.configure`, puesto que `EngagementAgent.init` reemplaza ese método.
 
@@ -105,7 +106,7 @@ La declaración de servicio ahora es más simple: quite el filtro de intento y t
 
 Además, todo cambia de nombre para usar Engagement.
 
-Ahora se debe parecer a esto:
+Ahora se parece a esto:
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -327,4 +328,4 @@ La configuración de Proguard se puede ver afectada por la renovación de la mar
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

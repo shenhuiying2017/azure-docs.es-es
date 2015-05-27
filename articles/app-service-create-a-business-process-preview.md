@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de un proceso de negocio" 
 	description="Creación de un proceso de negocio" 
 	authors="stepsic-microsoft-com" 
@@ -47,7 +47,7 @@ Al igual que ocurre con el flujo básico, esto da como resultado una lista de tw
 
 ### Condicional
 
-Ahora, este flujo puede seguir siendo molesto porque dará como resultado muchos correos electrónicos. Puede agregar más lógica para que solo pueda recibir un correo electrónico cuando la persona que realiza el tweet tiene un cierto número de seguidores. Para ello, haga clic en el icono de diamante que hay en la parte superior de la acción. 
+Ahora, este flujo puede seguir siendo molesto porque dará como resultado muchos correos electrónicos. Puede agregar más lógica para que solo pueda recibir un correo electrónico cuando la persona que realiza el tweet tiene un cierto número de seguidores. Para ello, haga clic en el icono de diamante que hay en la parte superior de la acción.
 
 Escriba lo siguiente en el cuadro de texto:
 
@@ -63,11 +63,11 @@ Haga clic en el servicio XXXXXX que se encuentra en el panel de la derecha. Esto
 
 ### Paso de datos entre acciones
 
-Para usar más de una acción en un flujo, debe pasar datos entre las acciones. Para ello, se usa la función actions(). 
+Para usar más de una acción en un flujo, debe pasar datos entre las acciones. Para ello, se usa la función actions().
 
 Una vez agregada la acción XXXXXX, escriba:
 
-    @actions('SendMail').outputs.YYYYYY
+    @actions(‘SendMail’).outputs.YYYYYY
 
 Esto obtendrá la propiedad YYYYYY de los resultados de la acción SendMail. Siempre puede ver el nombre de una acción justo debajo del icono de esa acción. Del mismo modo, puede ver todos los resultados de esa acción en la parte inferior del cuadro.
 
@@ -81,15 +81,11 @@ Un editor de texto puede facilitar ciertas operaciones; por ejemplo, puede copia
 
 También hay algunas capacidades que solo se muestran en la vista de código, por ejemplo, los parámetros. Los parámetros facilitan la reutilización de valores a través de un flujo. Por ejemplo, si tiene una dirección de correo electrónico que quiera incluir en varias acciones, puede crear un parámetro.
 
-Para definir parámetros, vaya al objeto parameters {} y agregue lo siguiente en su interior:
-    "emailAddress" : {
-	    "type" : "string",
-	    "defaultValue" : "me@example.com"
-    }
+Para definir parámetros, vaya al objeto parameters {} y agregue lo siguiente en su interior: “emailAddress” : { “type” : “string”, “defaultValue” : “me@example.com” }
 
 Ahora, desplácese a la acción de envío por correo electrónico. Verá la entrada para el correo electrónico. Reemplace el correo electrónico por lo siguiente:
 
-    @parameters('emailAddress')
+    @parameters(‘emailAddress’)
 
 Los parámetros son una buena forma de extraer valores que probablemente cambie mucho.
 
@@ -105,10 +101,10 @@ Algunos desencadenadores comprueban una aplicación de API en función de un int
 
 ### Desencadenadores de devolución de llamada
 
-Otros desencadenadores devuelven el flujo cuando tienen una nueva solicitud. En este caso, debe proporcionar al desencadenador el URI de devolución de llamada del flujo. Para obtenerlo, copie el extremo de acceso de la hoja Propiedades de la pantalla Configuración cuando vaya a un flujo. 
+Otros desencadenadores devuelven el flujo cuando tienen una nueva solicitud. En este caso, debe proporcionar al desencadenador el URI de devolución de llamada del flujo. Para obtenerlo, copie el extremo de acceso de la hoja Propiedades de la pantalla Configuración cuando vaya a un flujo.
 
 ### Invocación manual
 
-En tercer lugar, puede tener un flujo que simplemente ejecuta de forma manual. En el portal, hay un botón Ejecutar en el que puede hacer clic para iniciar un flujo. 
+En tercer lugar, puede tener un flujo que simplemente ejecuta de forma manual. En el portal, hay un botón Ejecutar en el que puede hacer clic para iniciar un flujo.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

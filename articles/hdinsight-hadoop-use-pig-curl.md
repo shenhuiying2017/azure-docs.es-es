@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
-   description="Aprenda a usar Pig con Hadoop en HDInsight con SSH."
+   pageTitle="Uso de Pig con Hadoop con Curl en HDInsight | Microsoft Azure"
+   description="En este documento aprenderá a utilizar Curl para ejecutar trabajos de Pig Latin en un clúster de Hadoop en HDInsight de Azure."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,113 +9,113 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
- 
-# Ejecución de trabajos de Pig con Hadoop en HDInsight con Curl
+
+#Ejecución de trabajos de Pig con Hadoop en HDInsight con Curl
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-En este documento, aprenderá a utilizar Curl para ejecutar trabajos de Pig Latin en un clúster de HDInsight. El lenguaje de programación de Pig Latin le permite describir las transformaciones que se aplican a los datos de entrada para generar el resultado deseado.
+En este documento, aprenderá a utilizar Curl para ejecutar trabajos de Pig Latin en un clúster de HDInsight de Azure. El lenguaje de programación de Pig Latin le permite describir las transformaciones que se aplican a los datos de entrada para generar el resultado deseado.
 
-CURL sirve para demostrar cómo se puede interactuar con HDInsight mediante solicitudes HTTP sin formato para ejecutar, supervisar y recuperar los resultados de los trabajos de Pig. Esto funciona mediante la API de REST de WebHCat (anteriormente conocida como Templeton), proporcionada por el clúster de HDInsight.
+CURL sirve para demostrar cómo se puede interactuar con HDInsight mediante solicitudes HTTP sin procesar para ejecutar, supervisar y recuperar los resultados de los trabajos de Pig. Esto funciona mediante la API de REST de WebHCat (antes conocida como Templeton) que proporciona el clúster de HDInsight.
 
-> [AZURE.NOTE] Si ya está familiarizado con el uso de servidores Hadoop basados en Linux, pero no tiene experiencia con HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux</a>.
+> [AZURE.NOTE]Si ya está familiarizado con el uso de servidores de Hadoop basados en Linux, pero no conoce HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux</a>.
 
-## <a id="prereq"></a>Requisitos previos
+##<a id="prereq"></a>Requisitos previos
 
-Necesitará lo siguiente para completar los pasos de este artículo.
+Para completar los pasos de este artículo, necesitará lo siguiente:
 
-* Un clúster de HDInsight (Hadoop en HDInsight) de Azure (Linux o basado en Windows)
+* Un clúster de HDInsight de Azure (Hadoop en HDInsight) (basado en Windows o en Linux)
 
 * <a href="http://curl.haxx.se/" target="_blank">Curl</a>
 
 * <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
 
-## <a id="curl"></a>Ejecución de trabajos de Pig con Curl
+##<a id="curl"></a>Ejecución de trabajos de Pig con Curl
 
-> [AZURE.NOTE] Al usar Curl o cualquier otra comunicación REST con WebHCat, debe autenticar las solicitudes proporcionando el nombre de usuario o la contraseña de administrador del clúster de HDInsight. También debe utilizar el nombre de clúster como parte del URI utilizado para enviar las solicitudes al servidor.
-> 
-> Para los comandos de esta sección, reemplace **USERNAME** por el usuario que se autenticará en el clúster y **PASSWORD** por la contraseña de la cuenta de usuario. Reemplace **CLUSTERNAME** por el nombre del clúster.
-> 
-> La API de REST se protege utilizando <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">la autenticación básica</a>. Siempre debe realizar las solicitudes mediante HTTPS para asegurarse de que sus credenciales se envían de forma segura al servidor.
+> [AZURE.NOTE]Al usar Curl o cualquier otra comunicación REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes. También debe usar el nombre del clúster como parte del identificador uniforme de recursos (URI) que se usa para enviar las solicitudes al servidor.
+>
+> En el caso de los comandos que aparecen en esta sección, reemplace **USERNAME** por el usuario para autenticación en el clúster y **PASSWORD** por la contraseña de la cuenta de usuario. Reemplace **CLUSTERNAME** por el nombre del clúster.
+>
+> La API de REST se protege con la <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticación de acceso básico</a>. Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
 
-1. Desde una línea de comandos, utilice el siguiente comando para comprobar que puede conectarse al clúster de HDInsight. 
+1. Desde una línea de comandos, utilice el siguiente comando para comprobar que puede conectarse al clúster de HDInsight.
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
-    Debería recibir una respuesta similar a la siguiente.
+    Debería recibir una respuesta similar a la siguiente:
 
         {"status":"ok","version":"v1"}
 
-    Los parámetros utilizados en este comando son los siguientes.
+    Los parámetros que se utilizan en este comando son los siguientes:
 
-    * **-u**: el nombre de usuario y la contraseña utilizados para autenticar la solicitud
-    * **-G**: indica que se trata de una solicitud GET
+    * **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
+    * **-G**: indica que esta es una solicitud GET.
 
-    El principio de la dirección url, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes. La ruta de acceso **/status** indica que la solicitud debe devolver el estado de WebHCat (también conocido como Templeton) al servidor.
+    El comienzo de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver el estado de WebHCat (también conocido como Templeton) al servidor.
 
-2. Utilice lo siguiente para enviar un trabajo de Pig Latin al clúster.
+2. Utilice el siguiente código para enviar un trabajo de Pig Latin al clúster:
 
         curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="LOGS=LOAD+'wasb:///example/data/sample.log';LEVELS=foreach+LOGS+generate+REGEX_EXTRACT($0,'(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)',1)+as+LOGLEVEL;FILTEREDLEVELS=FILTER+LEVELS+by+LOGLEVEL+is+not+null;GROUPEDLEVELS=GROUP+FILTEREDLEVELS+by+LOGLEVEL;FREQUENCIES=foreach+GROUPEDLEVELS+generate+group+as+LOGLEVEL,COUNT(FILTEREDLEVELS.LOGLEVEL)+as+count;RESULT=order+FREQUENCIES+by+COUNT+desc;DUMP+RESULT;" -d statusdir="wasb:///example/pigcurl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/pig
 
-    Los parámetros utilizados en este comando son los siguientes.
+    Los parámetros que se utilizan en este comando son los siguientes:
 
-    * **-d**: como `-G` no se utiliza, la solicitud tiene como valor predeterminado el método POST. `-d`: especifica los valores de datos que se envían con la solicitud
+    * **-d**: dado que `-G` no se usa, la solicitud tiene como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
 
-        * **user.name**: el usuario que ejecuta el comando
-        * **execute**: las instrucciones de Pig Latin que se van a ejecutar
-        * **statusdir**: el directorio donde se escribirá el estado de este trabajo
+        * **user.name**: el usuario que ejecuta el comando.
+        * **execute**: las instrucciones de Pig Latin que se ejecutarán.
+        * **statusdir**: el directorio donde se escribirá el estado de este trabajo.
 
-    > [AZURE.NOTE] Observe que los espacios en instrucciones de Pig Latin se reemplazan por los `+` de caracteres cuando se utiliza con Curl.
+    > [AZURE.NOTE]Observe que los espacios en las instrucciones de Pig Latin se reemplazan por el carácter `+` cuando se utilizan con Curl.
 
-    Este comando debe devolver un identificador de trabajo que pueda utilizarse para comprobar el estado del trabajo.
+    Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo, por ejemplo:
 
         {"id":"job_1415651640909_0026"}
 
-3. Para comprobar el estado del trabajo, utilice el siguiente comando. Reemplace el valor de **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto es `{"id":"job_1415651640909_0026"}`, JOBID sería `job_1415651640909_0026`.
+3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
-	Si el trabajo se ha completado, el estado será "SUCCEEDED".
+	Si se completó el trabajo, el estado será **SUCCEEDED**.
 
-    > [AZURE.NOTE] Esta solicitud curl devuelve un documento JSON con información sobre el trabajo; jq se utiliza para recuperar solo el valor de estado. 
+    > [AZURE.NOTE]Esta solicitud de Curl devuelve un documento de notación de objetos JavaScript (JSON) con información acerca del trabajo; jq se usa para recuperar solo el valor de estado.
 
-## <a id="results"></a>Ver resultados
+##<a id="results"></a>Visualización de resultados
 
-Una vez que se ha cambiado el estado del trabajo a **SUCCEEDED**, puede recuperar los resultados del trabajo de almacenamiento Blob de Azure. El `statusdir` parámetro pasado por la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/pigcurl**. Esta dirección almacena el resultado del trabajo en el directorio **example/pigcurl** en el contenedor de almacenamiento predeterminado utilizado por el clúster de HDInsight.
+Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/pigcurl**. Esta dirección almacena el resultado del trabajo en el directorio **example/pigcurl** en el contenedor de almacenamiento predeterminado utilizado por el clúster de HDInsight.
 
-Puede enumerar y descargar estos archivos mediante la <a href="../xplat-cli/" target="_blank">Interfaz de línea de comandos entre plataformas de Azure (xplat-cli)</a>. Por ejemplo, para enumerar los archivos de **example/pigcurl**, utilice el siguiente comando.
+Puede enumerar y descargar estos archivos mediante el [CLI de Azure para Mac, Linux y Windows](xplat-cli.md). Por ejemplo, para enumerar los archivos en **example/pigcurl**, use el siguiente comando:
 
 	azure storage blob list <container-name> example/pigcurl
 
-Para descargar un archivo, utilice lo siguiente.
+Para descargar un archivo, use lo siguiente:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE] Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob mediante los parámetros `-a` y `-k`, o establecer las variable de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte <a href="../hdinsight-upload-data/" target="_blank" for more information.
+> [AZURE.NOTE]Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k` o bien, definir las variables de entorno **AZURE_STORAGE_ACCOUNT** y **AZURE_STORAGE_ACCESS_KEY**. Consulte <a href="../hdinsight-upload-data/" target="_blank" para obtener más información.
 
 
-## <a id="summary"></a>Resumen
+##<a id="summary"></a>Resumen
 
-Como se muestra en este documento, puede utilizar la solicitud HTTP sin formato para ejecutar, supervisar y ver los resultados de los trabajos de Hive en el clúster de HDInsight.
+Como se muestra en este documento, puede utilizar la solicitud HTTP sin procesar para ejecutar, supervisar y ver los resultados de los trabajos de Hive en el clúster de HDInsight.
 
 Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la [referencia de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
 
-## <a id="nextsteps"></a>Pasos siguientes
+##<a id="nextsteps"></a>Pasos siguientes
 
-Para obtener información general sobre Pig en HDInsight.
+Para obtener información general sobre Pig en HDInsight:
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
+Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsight:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

@@ -52,7 +52,7 @@
 
             // Hide the login button and load items from the mobile service.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            RefreshTodoItems();
+            await RefreshTodoItems();
         }
 		
 5. En el proyecto de aplicación de la Tienda Windows, abra el archivo de proyecto MainPage.xaml y agregue el siguiente elemento **Botón** inmediatamente antes del elemento que define el botón **Guardar**:
@@ -60,7 +60,7 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Repita el paso anterior para el proyecto de aplicación de la Tienda de Windows Phone, pero esta vez agregue el **Botón** en el **TitlePanel**, después del elemento **TextBlock**.
+6. Repita el paso anterior para el proyecto de aplicación de la Tienda de Windows Phone, pero esta vez agregue el **Botón** en el  **TitlePanel**, después del elemento **TextBlock**.
 
 5. Abra el archivo de proyecto compartido App.xaml.cs y agregue la siguiente instrucción using si no existe ya:
 
@@ -85,10 +85,9 @@
 
 	Si el método **OnActivated** ya existe, agregue el bloque de código `#if...#endif`.
 
-8. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido. 
+8. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido.
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-9. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.  
-
-<!--HONumber=49-->
+9. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
+<!--HONumber=54-->

@@ -1,4 +1,5 @@
-﻿El ejemplo anterior muestra un inicio de sesión estándar, que requiere que el cliente se ponga en contacto tanto con el proveedor de identidades como con el servicio móvil cada vez que se inicia la aplicación. Este método no escala y es ineficaz.
+
+El ejemplo anterior muestra un inicio de sesión estándar, que requiere que el cliente se ponga en contacto tanto con el proveedor de identidades como con el servicio móvil cada vez que se inicia la aplicación. Este método no escala y es ineficaz.
 
 Un método mejor es almacenar en caché el token de autorización devuelto por los Servicios móviles de Azure e intentar usarlo antes de utilizar un inicio de sesión basado en el proveedor.
 
@@ -22,12 +23,11 @@ Un método mejor es almacenar en caché el token de autorización devuelto por l
 		    }
 		}
 
-3. Al final del método **viewDidAppear** de **QSTodoListViewController.m** agregue una llamada a **saveAuthInfo** inmediatamente antes de la línea `[self refresh]`. Con esta llamada, simplemente se almacenan el Id. de usuario y las propiedades del token:
+3. En el método `loginAndGetData`, modifique el bloque de finalización de la llamada `loginWithProvider:controller:animated:completion:` mediante la adición de una llamada a `saveAuthInfo` justo antes de la línea `[self refresh]`. Con esta llamada, simplemente se almacenan el Id. de usuario y las propiedades del token:
 
 				[self saveAuthInfo];
 
-4. También se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En el método **viewDidLoad** en **QSTodoListViewController.m**, agregue una llamada a loadAuthInfo inmediatamente después de que se haya inicializado **self.todoService**.
+4. También se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En el método `viewDidLoad` en **QSTodoListViewController.m**, agregue una llamada a loadAuthInfo inmediatamente después de que se haya inicializado `self.todoService`.
 
 				[self loadAuthInfo];
-
-<!--HONumber=49-->
+<!--HONumber=54-->

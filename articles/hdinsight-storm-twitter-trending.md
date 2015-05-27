@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Temas más destacados de Twitter con Apache Storm en HDInsight | Azure"
-   description="Aprenda a usar Trident para crear una topología de Storm que determine los temas más destacados basados en hashtags."
+<properties
+   pageTitle="Tendencias de Twitter con Apache Storm en HDInsight | Microsoft Azure"
+   description="Aprenda a usar Trident para crear una topología de Apache Storm que determine las tendencias en Twitter, según los hash tags."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,22 +9,22 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-# Los temas más destacados de Twitter con Apache Storm en HDInsight
+#Determinación de las tendencias de Twitter con Apache Storm en HDInsight
 
-Aprenda a usar Trident para crear una topología de Storm que determine los temas más destacados (hashtags) en Twitter. 
+Aprenda a usar Trident para crear una topología de Storm que determine las tendencias (hash tags) en Twitter.
 
-Trident es una abstracción de alto nivel que proporciona herramientas como uniones, agregaciones, agrupaciones, funciones y filtros. Además, Trident agrega primitivas para realizar el procesamiento incremental, con estado. En este ejemplo se muestra cómo crear una topología con un spout, función y varias funciones integradas personalizadas proporcionadas por Trident.
+Trident es una abstracción de alto nivel que ofrece herramientas como uniones, agregaciones, agrupaciones, funciones y filtros. Además, Trident agrega primitivas para realizar el procesamiento incremental, con estado. En este ejemplo se muestra cómo crear una topología con un spout, una función y varias funciones integradas personalizadas que ofrece Trident.
 
-> [AZURE.NOTE] Esto se basa principalmente en el ejemplo [storm-trident](https://github.com/jalonsoramos/trident-storm) de Juan Alonso.
+> [AZURE.NOTE]Este ejemplo se basa principalmente en el ejemplo [Trident Storm](https://github.com/jalonsoramos/trident-storm) de Juan Alonso.
 
-## Requisitos
+##Requisitos
 
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java y el JDK 1.7</a>
 
@@ -34,19 +34,19 @@ Trident es una abstracción de alto nivel que proporciona herramientas como unio
 
 * Una cuenta de desarrollador de Twitter
 
-## Descarga del proyecto
+##Descarga del proyecto
 
-Utilice lo siguiente para clonar el proyecto de forma local.
+Use el código siguiente para clonar el proyecto de forma local.
 
 	git clone https://github.com/Blackmist/TwitterTrending
 
-## Topología
+##Topología
 
 La topología de este ejemplo es la siguiente:
 
-![topology](./media/hdinsight-storm-twitter-trending/trident.png)
+![topología](./media/hdinsight-storm-twitter-trending/trident.png)
 
-> [AZURE.NOTE] Se trata de una vista simplificada de la topología, varias instancias de los componentes se distribuirán entre los nodos del clúster.
+> [AZURE.NOTE]Se trata de una vista muy simplificada de la topología. Se distribuirán varias instancias de los componentes entre los nodos del clúster.
 
 El código de Trident que implementa la topología es como sigue:
 
@@ -58,62 +58,62 @@ El código de Trident que implementa la topología es como sigue:
 	    .applyAssembly(new FirstN(10, "count"))
 		.each(new Fields("hashtag", "count"), new Debug());
 
-Hace lo siguiente:
+Este código hace lo siguiente:
 
-1. Cree una nueva secuencia desde el spout. El spout recupera los tweets de Twitter, filtrados por palabras clave específicas: love, music y coffee en este ejemplo.
+1. Crea un flujo nuevo desde el spout. El spout recupera los tweets de Twitter y los filtra por palabras clave específicas (love, music y coffee en este ejemplo).
 
-2. Se utiliza HashtagExtractor, una función personalizada, para extraer hashtags de cada tweet. Estos se envían a la secuencia.
+2. Se utiliza HashtagExtractor, una función personalizada, para extraer hash tags de cada tweet. Estos se envían a la secuencia.
 
-3. La secuencia se agrupa por hashtag y se pasa a un agregador. Este agregador crea un recuento de cuántas veces ha ocurrido cada hashtag, que se mantiene en memoria. Por último, se genera una nueva secuencia que contiene el hashtag y el recuento.
+3. El flujo se agrupa por hash tag y se pasa a un agregador. Este agregador crea un recuento de cuántas veces se ha repetido cada hashtag. Estos datos se conservan en memoria. Por último, se emite un nuevo flujo que contiene el hash tag y el recuento.
 
-4. Puesto que solo estamos interesados en los hashtags más populares para un lote determinado de tweets, se aplica el ensamblado FirstN para devolver solo los 10 valores superiores basados en el campo de recuento.
+4. Dado que solo estamos interesados en los hash tags más populares de un lote determinado de tweets, se aplica el ensamblado **FirstN** para que solo se devuelvan los 10 valores superiores, según el campo de recuento.
 
-> [AZURE.NOTE] Además del spout y HashtagExtractor, estamos utilizando la funcionalidad integrada de Trident.
-> 
-> Para obtener información sobre las operaciones integradas, consulte <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">storm.trident.operation.builtin</a>.
-> 
+> [AZURE.NOTE]Además del spout y HashtagExtractor, estamos utilizando la funcionalidad integrada de Trident.
+>
+> Para obtener información sobre las operaciones integradas, consulte el <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Paquete storm.trident.operation.builtin</a>.
+>
 > Para las implementaciones de Trident-state que no sea MemoryMapState, consulte lo siguiente:
-> 
-> * <a href="https://github.com/fhussonnois/storm-trident-elasticsearch" target="_blank">https://github.com/fhussonnois/storm-trident-elasticsearch</a>
-> 
-> * <a href="https://github.com/kstyrc/trident-redis" target="_blank">https://github.com/kstyrc/trident-redis</a>
+>
+> * <a href="https://github.com/fhussonnois/storm-trident-elasticsearch" target="_blank">Búsqueda elástica de Storm Trident</a>
+>
+> * <a href="https://github.com/kstyrc/trident-redis" target="_blank">trident-redis</a>
 
-### El spout
+###El spout
 
-El spout, **TwitterSpout**, utiliza <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar tweets desde Twitter. Se crea un filtro (amor, música y café) y los tweets entrantes (estado) que coinciden con el filtro se almacenan en una <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Por último, los elementos se sacan de la cola y se envían a la topología.
+El spout, **TwitterSpout**, usa <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar tweets desde Twitter. Se crea un filtro (en este ejemplo, love, music y coffee) y los tweets entrantes (estados) que coinciden con el filtro se almacenan en una cola de bloqueo vinculada. (Para obtener más información, consulte <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">Clase LinkedBlockingQueue</a>). Por último, los elementos se sacan de la cola y se emiten a la topología.
 
-### El HashtagExtractor
+###El HashtagExtractor
 
-Para extraer hashtags, se usa <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> para recuperar todos los hashtags contenidos en el tweet. Después se envían a la secuencia.
+Para extraer hash tags, se usa <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> para recuperar todos los hash tags contenidos en el tweet. Después se envían a la secuencia.
 
-## Habilitación de Twitter
+##Habilitación de Twitter
 
-Utilice los pasos siguientes para registrar una nueva aplicación de Twitter y obtener la información del token de acceso y de consumidor necesario para leer desde Twitter.
+Siga estos pasos para registrar una nueva aplicación de Twitter y obtener la información del token de acceso y de consumidor necesaria para leer desde Twitter:
 
-1. Vaya a <a href="" target="_blank">https://apps.twitter.com/</a> y use el botón **Crear nueva aplicación**. Al rellenar el formulario, deje el valor de **URL de devolución de llamada** vacío.
+1. Vaya a <a href="https://apps.twitter.com" target="_blank">Aplicaciones de Twitter</a> y haga clic en el botón **Crear nueva aplicación**. Al rellenar el formulario, deje el campo **URL de devolución de llamada** vacío.
 
-2. Una vez creada la aplicación, seleccione la pestaña **Claves y tokens de acceso**.
+2. Cuando se cree la aplicación, haga clic en la pestaña **Claves y tokens de acceso**.
 
 3. Copie la información de **Clave de consumidor** y **Secreto de consumidor**.
 
-4. En la parte inferior de la página, seleccione **Crear mi token de acceso** si no existen tokens. Una vez creados los tokens, copie la información del **token de acceso** y del **secreto del token de acceso**.
+4. En la parte inferior de la página, seleccione **Crear mi token de acceso**, si no existen tokens. Cuando se hayan creado los tokens, copie la información del **Token de acceso** y del **Secreto del token de acceso**.
 
-5. En el proyecto **TwitterSpoutTopology** anteriormente clonado, abra el archivo **resources/twitter4j.properties** y agregue la información recopilada en los pasos anteriores y, a continuación, guarde el archivo.
+5. En el proyecto **TwitterSpoutTopology** anteriormente clonado, abra el archivo **resources/twitter4j.properties**, agregue la información recopilada en los pasos anteriores y, por último, guarde el archivo.
 
-## Generación de la topología
+##Generación de la topología
 
-Utilice lo siguiente para generar el proyecto.
+Use el código siguiente para crear el proyecto:
 
 		cd [directoryname]
 		mvn compile
 
-## Prueba de la topología
+##Prueba de la topología
 
-Use el comando siguiente para probar localmente la topología.
+Use el comando siguiente para probar localmente la topología:
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
 
-Una vez iniciada la topología, debería ver la información de depuración que contiene los hashtags y recuentos enviados por la topología. La salida debe ser similar a la siguiente:
+Después de que se inicie la topología, debería ver la información de depuración que contiene los hash tags y recuentos que ha emitido la topología. La salida debe ser similar a la siguiente:
 
 	DEBUG: [Quicktellervalentine, 7]
 	DEBUG: [GRAMMYs, 7]
@@ -125,9 +125,9 @@ Una vez iniciada la topología, debería ver la información de depuración que 
 	DEBUG: [punk, 1]
 	DEBUG: [indonesiapunkrock, 1]
 
-## Pasos siguientes
+##Pasos siguientes
 
-Ahora que probó localmente la topología, descubra cómo [implementar esta topología en Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md).
+Ahora que ha probado localmente la topología, descubra cómo implementar la topología: [Implementación y administración de topologías de Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
 También se puede interesar en los siguientes temas de Storm:
 
@@ -137,7 +137,6 @@ También se puede interesar en los siguientes temas de Storm:
 
 Para obtener más ejemplos de Storm para HDInsight:
 
-* [Ejemplos de Storm en HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
+* [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
-* [Análisis de los datos de sensor de Centro de eventos con Storm en HDInsight](hdinsight-storm-sensor-data-analysis.md)
-<!--HONumber=47-->
+<!--HONumber=54-->

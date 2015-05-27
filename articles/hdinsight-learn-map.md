@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Mapa de aprendizaje para HDInsight | Azure" 
 	description="Obtenga un flujo de recursos sugerido que le enseñarán todo lo que debe saber acerca de HDInsight." 
 	services="hdinsight" 
@@ -18,13 +18,12 @@
 
 
 # Mapa de aprendizaje para HDInsight
-En HDInsight puede trabajar con grandes volúmenes de datos en la nube en Hadoop, HBase y clústeres personalizados. Consulte las instrucciones de esta página para seguir una ruta de acceso de aprendizaje eficaz a través de la documentación de HDInsight.
+En HDInsight, puede trabajar con Big Data en la nube mediante clústeres de Hadoop, HBase y personalizados. Consulte las instrucciones de esta página para conocer una ruta de acceso de aprendizaje eficaz a través de la documentación de HDInsight.
 
-<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%">
-</object>
-
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
 
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=54-->

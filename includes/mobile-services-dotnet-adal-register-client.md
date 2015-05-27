@@ -1,16 +1,16 @@
-﻿## <a name="register-app-aad"></a>Registro de la aplicación cliente con Azure Active Directory
+## <a name="register-app-aad"></a>Registro de la aplicación cliente con Azure Active Directory
 
-1. Vaya a **Active Directory** en el [Portal de administración de Azure] y, a continuación, haga clic en el directorio.
+1. Diríjase a **Active Directory** en el [Portal de administración de Azure] y haga clic en el directorio.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
-2. Haga clic en la pestaña **Aplicaciones** que aparece en la parte superior y, a continuación, haga clic en **AGREGAR** una aplicación. 
+2. Haga clic en la pestaña **Aplicaciones** que aparece en la parte superior y, a continuación, haga clic en **AGREGAR** para agregar una aplicación. 
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-aad-applications-tab.png)
 
 3. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
 
-4. En el asistente para agregar aplicaciones, escriba un **nombre** para la aplicación y haga clic en el tipo **Aplicación de cliente nativo**. A continuación, haga clic para continuar.
+4. En el Asistente para agregar aplicaciones, escriba el **nombre** de la aplicación y haga clic en el tipo **Aplicación de cliente nativo**. A continuación, haga clic para continuar.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-native-selection.png)
 
@@ -30,6 +30,4 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

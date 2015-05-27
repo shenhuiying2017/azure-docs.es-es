@@ -1,6 +1,6 @@
-﻿##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
+##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. En Visual Studio, abra el archivo MainPage.xaml en el proyecto de inicio rápido, busque el elemento **Button** llamado  `ButtonRefresh` y reemplácelo por el siguiente código XAML: 
+1. En Visual Studio, abra el archivo MainPage.xaml en el proyecto de inicio rápido, busque el elemento **Button** llamado `ButtonRefresh` y reemplácelo por el siguiente código XAML: 
 
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Button Width="225" Name="ButtonRefresh" 
@@ -9,7 +9,7 @@
                 Click="ButtonCompleteAll_Click">Complete All</Button>
         </StackPanel>
 
-	Esta acción agrega un nuevo botón a la página. 
+	Esta acción agrega un nuevo botón a la página.
 
 2. Abra el archivo de código MainPage.xaml.cs y agregue el siguiente código de definición de clase:
 
@@ -18,9 +18,9 @@
 	        public int Count { get; set; }
 	    }
 
-	Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada. 
+	Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada.
 
-3. Busque el método **RefreshTodoItems** en la clase **MainPage** y asegúrese de que  `query` se defina usando el siguiente método **Where**:
+3. Busque el método **RefreshTodoItems** en la clase **MainPage** y asegúrese de que `query` se defina usando el siguiente método **Where**:
 
         .Where(todoItem => todoItem.Complete == false)
 
@@ -52,7 +52,7 @@
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
-1. En Visual Studio, presione la tecla **F5** para recompilar el proyecto e iniciar la aplicación.
+1. En Visual Studio, presione la tecla **F5** para recopilar el proyecto e iniciar la aplicación.
 
 2. En la aplicación, escriba algún texto en **Insert a TodoItem** y, a continuación, seleccione **Save**.
 
@@ -63,6 +63,4 @@
   	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
 
 	Se mostrará un cuadro de mensaje que indica el número de elementos marcados como completados y la consulta filtrada se vuelve a ejecutar, por lo que se borran todos los elementos de la lista.
-
-
-<!--HONumber=52-->
+<!--HONumber=54-->

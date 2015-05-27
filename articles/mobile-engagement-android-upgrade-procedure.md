@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -19,19 +19,19 @@
 
 #Procedimientos de actualización
 
-Si ya ha integrado una versión anterior de nuestro SDK en su aplicación, deberá tener en cuenta los siguientes puntos al actualizar el SDK.
+Si ya integró una versión anterior de nuestro SDK en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
-Si le faltan varias versiones del SDK, puede que tenga que seguir varios procedimientos. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
+Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra de la versión 1.4.0 a la versión 1.6.0, primero tiene que seguir el procedimiento "de la versión 1.4.0 a la versión 1.5.0" y, a continuación, el procedimiento "de la versión 1.5.0 a la versión 1.6.0".
 
 Sea cual sea la versión desde la que actualice, debe sustituir todos los `mobile-engagement-VERSION.jar` por los nuevos.
 
-###De la versión 2.4.0 a la versión 3.0.0
+###De 2.4.0 a 3.0.0
 
-A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con tecnología de Azure Mobile Engagement. 
+A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement.
 
->[AZURE.IMPORTANT] Capptain y Mobile Engagement no son los mismos servicios y el procedimiento dado a continuación solo resalta cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores de Capptain a los servidores de Mobile Engagement.
+>[AZURE.IMPORTANT]Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
 
-Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar primero a la versión 2.4 y luego aplique el siguiente procedimiento.
+Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 2.4 en primer lugar luego aplique el siguiente procedimiento.
 
 #### Archivo JAR
 
@@ -41,7 +41,7 @@ Sustituya `capptain.jar` por `mobile-engagement-VERSION.jar` en su carpeta `libs
 
 Cada archivo de recursos que hemos proporcionado (con el prefijo `capptain_`) se debe reemplazar por los nuevos (con el prefijo `engagement_`).
 
-Si ha personalizado esos archivos, debe volver a aplicar la personalización en los archivos nuevos y también se cambió el nombre de **todos los identificadores en los archivos de recursos**.
+Si ha personalizado esos archivos, debe volver a aplicar la personalización en los archivos nuevos y **también se cambió el nombre de todos los identificadores en los archivos de recursos**.
 
 #### Identificador de aplicación
 
@@ -53,7 +53,7 @@ Debe usar el método `EngagementAgent.init` en la actividad del iniciador, de la
 			engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
 			EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-La cadena de conexión de la aplicación aparece en el Portal de Azure.
+La cadena de conexión de la aplicación se muestra en el portal de Azure.
 
 Quite toda llamada a `CapptainAgent.configure`, puesto que `EngagementAgent.init` reemplaza ese método.
 
@@ -301,4 +301,4 @@ La configuración de Proguard se puede ver afectada por la renovación de la mar
 			  <methods>;
 			}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

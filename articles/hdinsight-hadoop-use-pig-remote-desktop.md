@@ -1,6 +1,6 @@
-﻿<properties
-   pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
-   description="Aprenda a usar Pig con Hadoop en HDInsight a través de Escritorio remoto."
+<properties
+   pageTitle="Uso de Pig con Hadoop con Escritorio remoto en HDInsight | Microsoft Azure"
+   description="Aprenda a utilizar el comando Pig para ejecutar instrucciones de Pig Latin desde una conexión de Escritorio remoto a un clúster de HDInsight basado en Windows."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -9,50 +9,52 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
-# Ejecución de trabajos de Pig con el comando de Pig (Escritorio remoto)
+#Ejecución de trabajos de Pig desde una conexión de Escritorio remoto
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-Este documento ofrece un tutorial del uso del comando de Pig para ejecutar de forma interactiva instrucciones Pig Latin, o como un trabajo por lotes, en un clúster de Hadoop en HDInsight basado en Linux. Pig Latin le permite crear aplicaciones de MapReduce que describen las transformaciones de datos, en lugar de asignar y reducir las funciones.
+Este documento ofrece un tutorial para que usar el comando Pig para ejecutar instrucciones de Pig Latin desde una conexión de Escritorio remoto a un clúster de HDInsight basados en Windows. Pig Latin le permite crear aplicaciones de MapReduce que describen las transformaciones de datos, en lugar de asignar y reducir las funciones.
 
-## <a id="prereq"></a>Requisitos previos
+En este documento, aprenda cómo
+
+##<a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight basado en Windows (Hadoop en HDInsight)
 
-* Un cliente de Windows 7, 8 o 10
+* Un equipo cliente con Windows 10, Windows 8 o Windows 7
 
-## <a id="connect"></a>Conexión con el Escritorio remoto
+##<a id="connect"></a>Conexión con el Escritorio remoto
 
 Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
-## <a id="pig"></a>Uso del comando Pig
+##<a id="pig"></a>Uso del comando Pig
 
-2. Una vez conectado, inicie la **línea de comandos de Hadoop** mediante el icono del escritorio.
+2. Desde la sesión de Escritorio remoto, use el icono de **línea de comandos de Hadoop** del escritorio para iniciar la línea de comandos de Hadoop.
 
-2. Utilice lo siguiente para iniciar la línea de comandos de Pig.
+2. Use lo siguiente para iniciar el comando Pig:
 
 		%pig_home%\bin\pig
 
-	Aparecerá un símbolo del sistema de  `grunt>`. 
+	Aparecerá un símbolo del sistema de `grunt>`.
 
-3. Introduzca la siguiente instrucción.
+3. Introduzca la siguiente instrucción:
 
 		LOGS = LOAD 'wasb:///example/data/sample.log';
 
-	Este comando carga el contenido del archivo sample.log en LOGS. Puede ver el contenido del archivo mediante el siguiente código.
+	Este comando carga el contenido del archivo sample.log en LOGS. Puede ver el contenido del archivo mediante el siguiente comando:
 
 		DUMP LOGS;
 
-4. A continuación, transforme los datos aplicando una expresión regular para extraer solo el nivel de registro en cada registro mediante lo siguiente.
+4. Transforme los datos aplicando una expresión regular para extraer solo el nivel de registro en cada registro mediante lo siguiente.
 
 		LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
@@ -61,34 +63,34 @@ Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él s
 5. Continúe aplicando transformaciones mediante las instrucciones siguientes. Utilice `DUMP` para ver el resultado de la transformación después de cada paso.
 
 	<table>
-	<tr>
-	<th>Instrucción</th><th>Qué hace</th>
-	</tr>
-	<tr>
-	<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Quita las filas que contienen un valor nulo para el nivel de registro y almacena los resultados en FILTEREDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Agrupa las filas por nivel de registro y almacena los resultados en GROUPEDLEVELS.</td>
-	</tr>
-	<tr>
-	<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuevo conjunto de datos que contiene cada valor de registro único y cuántas veces se produce. Esto se almacena en FRECUENCIAS</td>
-	</tr>
-	<tr>
-	<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena los niveles de registro por número (descendente) y los almacena en el resultado (RESULT)</td>
-	</tr>
-	</table>
+<tr>
+<th>Instrucción</th><th>Qué hace</th>
+</tr>
+<tr>
+<td>FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;</td><td>Quita las filas que contienen un valor nulo para el nivel de registro y almacena los resultados en FILTEREDLEVELS.</td>
+</tr>
+<tr>
+<td>GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;</td><td>Agrupa las filas por nivel de registro y almacena los resultados en GROUPEDLEVELS.</td>
+</tr>
+<tr>
+<td>FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;</td><td>Crea un nuevo conjunto de datos que contiene cada valor de registro único y cuántas veces se produce. Esto se almacena en FRECUENCIAS</td>
+</tr>
+<tr>
+<td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordena los niveles de registro por número (descendente) y los almacena en el resultado (RESULT)</td>
+</tr>
+</table>
 
-6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, lo siguiente guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster.
+6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, el siguiente comando guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster:
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
-	> [AZURE.NOTE] Los datos se almacenan en el directorio especificado en los archivos denominados **part-nnnnn**. Si el directorio ya existe, recibirá un error.
+	> [AZURE.NOTE]Los datos se almacenan en el directorio especificado en los archivos denominados **part-nnnnn**. Si el directorio ya existe, recibirá un mensaje de error.
 
 7. Para salir del aviso de grunt, introduzca la siguiente instrucción.
 
 		QUIT;
 
-### Archivos por lotes de Pig Latin
+###Archivos por lotes de Pig Latin
 
 También puede usar el comando de Pig para ejecutar Pig Latin contenido en un archivo.
 
@@ -108,7 +110,7 @@ También puede usar el comando de Pig para ejecutar Pig Latin contenido en un ar
 
 		pig %PIG_HOME%\pigbatch.pig
 
-	Una vez completado el trabajo por lotes, debiera ver el siguiente resultado, que debe ser el mismo que cuando ha utilizado `DUMP RESULT;` en los pasos anteriores.
+	Una vez completado el trabajo por lotes, debería ver el siguiente resultado, que debe ser el mismo que cuando ha utilizado `DUMP RESULT;` en los pasos anteriores.
 
 		(TRACE,816)
 		(DEBUG,434)
@@ -117,19 +119,20 @@ También puede usar el comando de Pig para ejecutar Pig Latin contenido en un ar
 		(ERROR,6)
 		(FATAL,2)
 
-## <a id="summary"></a>Resumen
+##<a id="summary"></a>Resumen
 
-Como puede ver, el comando de Pig permite ejecutar interactivamente operaciones de MapReduce mediante Pig Latin, así como ejecutar instrucciones almacenadas en un archivo por lotes.
+Como puede ver, el comando de Pig permite ejecutar interactivamente operaciones de MapReduce mediante Pig Latin, así como ejecutar trabajos de Pig Latin almacenados en un archivo por lotes.
 
-## <a id="nextsteps"></a>Pasos siguientes
+##<a id="nextsteps"></a>Pasos siguientes
 
-Para obtener información general sobre Pig en HDInsight.
+Para obtener información general sobre Pig en HDInsight, siga estos pasos:
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
+Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsight:
 
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
-<!--HONumber=47-->
+
+<!--HONumber=54-->

@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Conector de FTP"
 	description="Inicio del conector de FTP"
-	authors="rajeshramabathiran" 
+	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -16,9 +16,9 @@
 	ms.date="03/05/2015"
 	ms.author="rajeshramabathiran"/>
 
-# Conector de FTP
+#Conector de FTP
 
-## Información general
+##Información general
 El conector de FTP permite mover datos a un servidor FTP o a partir de él. Las características clave del conector de FTP son las siguientes:
 
 - Extracción de archivos del servidor FTP a petición
@@ -28,20 +28,14 @@ El conector de FTP permite mover datos a un servidor FTP o a partir de él. Las 
 - Capacidad para ejecutar envíos a petición
 - Capacidad de eliminar archivos en el servidor FTP a petición
 
-## Creación de un nuevo conector de FTP
-Para crear un nuevo conector de FTP, siga los pasos que se mencionan a continuación.
-- Inicio de Portal de Azure
-- Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace.
+##Creación de un nuevo conector de FTP
+Para crear un nuevo conector de FTP, siga los pasos que se mencionan a continuación. -Inicie el portal de Azure - Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace.
 
-![Launch Azure Marketplace][1]
-- Haga clic en Aplicaciones de la API.
-- Busque FTP y seleccione el conector de FTP.
+![Inicio de Azure Marketplace][1]- Haga clic en Aplicaciones de API - Busque FTP y seleccione Conector de FTP.
 
-![Select FTP Connector][2]
-- Haga clic en Crear.
-- En la hoja del conector de FTP que se abre, proporcione los siguientes datos.
+![Selección del Conector de FTP][2]- Haga clic en Crear - En la hoja del conector de FTP que se abre, proporcione los siguientes datos.
 
-![Create FTP Connector][3]
+![Creación del Conector de FTP][3]
 
 - **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
 - **Suscripción**: elija una suscripción en la que desee crear este conector.
@@ -53,65 +47,56 @@ Para crear un nuevo conector de FTP, siga los pasos que se mencionan a continuac
 	- **Dirección del servidor**: especifique el nombre del servidor FTP o la dirección IP.
 	- **Nombre de usuario**: especifique el nombre de usuario para conectarse al servidor FTP.
 	- **Contraseña**: especifique la contraseña para conectarse al servidor FTP.
-	- **Carpeta raíz**: especifique una ruta de acceso de la carpeta raíz.
+	- **Carpeta raíz**: especifique una ruta de acceso a la carpeta raíz.
 	- **Usar archivo binario**: especifique true para usar el modo de transferencia de archivos binarios y false para ASCII.
 	- **Usar SSL**: especifique true para usar FTP a través del canal SSL/TLS seguro
 	- **Puerto del servidor**: especifique el nombre de puerto del servidor FTP.
 - Haga clic en Crear. Se creará un nuevo conector de FTP.
 
-## Uso del conector de FTP en la aplicación lógica
+##Uso del conector de FTP en la aplicación lógica
 Una vez que se haya creado el conector de FTP, se puede consumir desde el flujo.
 
 Cree un nuevo flujo a través de +Nuevo -> Web+Móvil -> LogicApp. Proporcione los metadatos para el flujo incluyendo el grupo de recursos.
 
-![Create Logic App][4]
+![Creación de la aplicación lógica][4]
 
-Haga clic en *triggers and actions*. Se abrirá el diseñador de flujos.
+Haga clic en *Desencadenadores y acciones*. Se abrirá el diseñador de flujos.
 
-![Logic App empty flow designer][5]
+![Diseñador de flujo vacío de la aplicación lógica][5]
 
-El conector de FTP puede usarse como desencadenador y como acción. 
+El conector de FTP puede usarse como desencadenador y como acción.
 
-### Desencadenador
+###Desencadenador
 En el diseñador de flujo vacío, haga clic en el conector de FTP desde el panel de la galería de la derecha.
 
-![Choose FTP Trigger][6]
+![Elección del desencadenador de FTP][6]
 
-El conector de FTP tiene un desencadenador: TriggerOnFileAvailable. Efectuará el desencadenamiento siempre que se cargue un nuevo archivo en una carpeta específica en el servidor FTP.
-
-Haga clic en el desencadenador 'TriggerOnFileAvailable'.
-
-![Basic inputs FTP Trigger][7]
-
-Las entradas le ayudarán a configurar una ruta de acceso a una carpeta concreta que se sondeará en una frecuencia programada. Las entradas básicas son las siguientes:
-- Frecuencia: especifica la frecuencia del sondeo de FTP.
-- Intervalo: especifica el intervalo de la frecuencia programada.
-- Ruta de carpeta: especifica la ruta de la carpeta en el servidor FTP.
-- Tipo de archivo: especifica si el tipo de archivo es de texto o binario.
-
-Al hacer clic en ..., se mostrarán las entradas avanzadas. 
-
-![Basic inputs FTP Trigger][8]
-
-Las entradas avanzadas son las siguientes:
-- Máscara de archivo: especifica la máscara de archivo mientras realiza el sondeo.
-- Excluir la máscara de archivo: especifica las máscaras de archivo que excluir mientras realiza el sondeo.
-
-Proporcione las entradas y haga clic en la marca de graduación para completar la configuración de la entrada.
-
-![Basic inputs FTP Trigger][9]
-
-Tenga en cuenta que el desencadenador FTP configurado muestra tanto los parámetros configurados de entrada como la salida del desencadenador de FTP. 
-
-Una vez creada la aplicación lógica, el desencadenador de FTP: 
-
+El conector de FTP tiene un desencadenador: TriggerOnFileAvailable. Este desencadenador
 
 - Realiza un sondeo de la ruta de acceso de la carpeta para los archivos nuevos.
 - Crea una instancia del flujo de lógica para cada archivo nuevo.
 - Elimina el archivo de la ruta de acceso de la carpeta después de que se ha creado una instancia del flujo de lógica.
 
-#### Uso de la salida del desencadenador FTP en acciones posteriores
-La salida del conector de FTP puede utilizarse como entrada de algunas otras acciones en el flujo. 
+Haga clic en el desencadenador 'TriggerOnFileAvailable'.
+
+![Desencadenador de FTP de entradas básicas][7]
+
+Las entradas le ayudarán a configurar una ruta de acceso a una carpeta concreta que se sondeará en una frecuencia programada. Las entradas básicas son: Frecuencia: especifica la frecuencia del sondeo de FTP - Intervalo: especifica el intervalo de la frecuencia programada - Ruta de carpeta: especifica la ruta de la carpeta en el servidor FTP - Tipo de archivo: especifica si el tipo de archivo es de texto o binario
+
+Al hacer clic en ..., se mostrarán las entradas avanzadas.
+
+![Desencadenador de FTP de entradas básicas][8]
+
+Las entradas avanzadas son: Máscara de archivo: especifica la máscara de archivo mientras realiza el sondeo - Excluir máscara de archivo: especifica las máscaras de archivo que excluir mientras realiza el sondeo.
+
+Proporcione las entradas y haga clic en la marca de graduación para completar la configuración de la entrada.
+
+![Desencadenador de FTP de entradas básicas][9]
+
+Tenga en cuenta que el desencadenador FTP configurado muestra tanto los parámetros configurados de entrada como la salida del desencadenador de FTP.
+
+####Uso de la salida del desencadenador FTP en acciones posteriores
+La salida del conector de FTP puede utilizarse como entrada de algunas otras acciones en el flujo.
 
 Puede hacer clic en + en el cuadro de diálogo de entrada de la acción y seleccionar la salida de FTP directamente en el cuadro desplegable.
 
@@ -119,10 +104,10 @@ También puede escribir una expresión directamente en el cuadro de entrada de l
 
 	@triggers('ftpconnector').outputs.body.Content
 
-### Acciones
+###Acciones
 Haga clic en el conector de FTP en el panel derecho. El conector de FTP enumera las acciones admitidas.
 
-![List of FTP Actions][10]
+![Lista de acciones de FTP][10]
 
 El conector de FTP admite las cuatro acciones siguientes:
 
@@ -135,28 +120,28 @@ Utilicemos el ejemplo Cargar archivo. Haga clic en Cargar archivo.
 
 Las entradas básicas aparecen primero.
 
-![Basic inputs of Upload File action][11]
+![Entradas básicas de la acción Cargar archivo][11]
 
 
-- **Contenido**: especifica el contenido del archivo que se va a cargar.
+- **Contenido**: especifique el contenido del archivo que se va a cargar.
 - **Codificación de la transferencia de contenido**: especifique ninguna o Base64.
 - **Ruta de archivo**: especifica la ruta de acceso del archivo que se va a cargar.
 
 Haga clic en ... para las entradas avanzadas.
 
-![Basic inputs of Upload File action][12]
+![Entradas básicas de la acción Cargar archivo][12]
 
 
-- **Anexar si existe**: habilita o deshabilita 'Append If Exist'. Cuando está habilitado, los datos se anexan al archivo (si existe). Cuando está deshabilitado, se sobrescribe el archivo (si existe).
-- **Carpeta temporal**: opcional. Si se proporciona, el adaptador cargará el archivo en la 'Temporary Folder Path' y una vez que se realice la carga, el archivo se moverá a 'Folder Path'. La 'Temporary Folder Path' debe estar en el mismo disco físico que la 'Folder Path' para asegurarse de que la operación de movimiento es atómica. La carpeta temporal solo puede usarse cuando la propiedad 'Append If Exist' está deshabilitada.
+- **Anexar si existe**: habilita o deshabilita. Cuando está habilitado, los datos se anexan al archivo (si existe). Cuando está deshabilitado, se sobrescribe el archivo (si existe).
+- **Carpeta temporal**: opcional. Si se proporciona, el adaptador cargará el archivo a la «Ruta a la carpeta temporal» y una vez que se realiza la carga, el archivo se moverá a la «Ruta de la carpeta». La «Ruta a la carpeta temporal» debe estar en el mismo disco físico que la «Ruta de la carpeta» para asegurarse de que la operación de mover es atómica. La carpeta temporal solo puede usarse cuando la propiedad «Anexar si existe» está deshabilitada.
 
 Proporcione las entradas y haga clic en la marca de graduación para completar la configuración de la entrada.
 
-![Configured Upload File action][13]
+![Acción Cargar archivo configurada][13]
 
 Tenga en cuenta que la acción Cargar archivo de FTP configurada muestra ambos parámetros de entrada, así como parámetros de salida.
 
-#### Uso de los resultados de las acciones anteriores como entrada para la acción de FTP
+####Uso de los resultados de las acciones anteriores como entrada para la acción de FTP
 Tenga en cuenta que en la captura de pantalla configurada, el valor de Contenido se establece en una expresión.
 
 	@triggers().outputs.body.Content
@@ -182,4 +167,4 @@ Puede establecerlo en cualquier valor que desee. Esto es solo un ejemplo. La exp
 [12]: ./media/app-service-logic-connector-FTP/AdvancedInputsUploadFile.PNG
 [13]: ./media/app-service-logic-connector-FTP/ConfiguredUploadFile.PNG
 
-<!--HONumber=49-->
+<!--HONumber=54-->

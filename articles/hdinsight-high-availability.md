@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Disponibilidad de clústeres de Hadoop en HDInsight | Azure" 
-	description="HDInsight implementa clústeres confiables y de alta disponibilidad." 
+<properties 
+	pageTitle="Disponibilidad de clústeres de Hadoop en HDInsight | Microsoft Azure" 
+	description="HDInsight implementa clústeres confiables y de alta disponibilidad con un nodo principal adicional." 
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -20,16 +20,15 @@
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
 ## Introducción ##
-Se ha agregado un segundo nodo principal a los clústeres de Hadoop desarrollados por HDInsight para aumentar la disponibilidad y fiabilidad del servicio necesario para administrar cargas de trabajo. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. Estos clústeres están diseñados para administrar los errores de los nodos de trabajo sin problemas, pero cualquier interrupción de los servicios maestros que se ejecutan en el nodo principal haría que el clúster dejara de funcionar. 
+Se ha agregado un segundo nodo principal a los clústeres de Hadoop implementados por HDInsight de Azure con el fin de aumentar la disponibilidad y confiabilidad del servicio necesario para administrar las cargas de trabajo. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. Estos clústeres están diseñados para administrar los errores de los nodos de trabajo sin problemas, pero cualquier interrupción de los servicios maestros que se ejecutan en el nodo principal haría que el clúster dejara de funcionar.
 
-![](http://i.imgur.com/jrUmrH4.png)
+![Diagrama de los nodos principales de gran confiabilidad en la implementación de Hadoop en HDInsight.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight quita este único punto de error con la incorporación de un nodo principal secundario (Nodo principal1). [Se han agregado nodos de ZooKeeper][zookeeper] (ZK) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
+HDInsight quita este único punto de error con la incorporación de un nodo principal secundario (Nodo principal1). Se han agregado nodos de [ZooKeeper][zookeeper] (ZK) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
 
 
 ## Comprobación del estado de los servicios en el nodo principal activo ##
-Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). La capacidad de interactuar remotamente en el clúster está deshabilitada de forma predeterminada en Azure, por lo que primero se debe habilitar. Para obtener instrucciones sobre cómo llevar a cabo esta acción en el portal, consulte [Conexión a los clústeres de HDInsight con RDP](../hdinsight-administer-use-management-portal/#rdp)
-Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop**, situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
+Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). La capacidad de interactuar remotamente en el clúster está deshabilitada de forma predeterminada en Azure, por lo que primero se debe habilitarla. Para obtener instrucciones sobre cómo llevar a cabo esta acción en el portal, consulte [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp). Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop,** situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
 
 ![](http://i.imgur.com/MYTkCHW.png)
 
@@ -42,20 +41,20 @@ Para acceder a registros de trabajo en el nodo principal secundario en el caso d
 
 
 ## Configuración del tamaño del nodo principal ##
-Los nodos principales se asignan como máquinas virtuales grandes de forma predeterminada. El tamaño es adecuado para la administración de la mayoría de trabajos de Hadoop que se ejecutan en el clúster. Pero hay escenarios que pueden requerir máquinas virtuales extragrandes para los nodos principales. Un ejemplo es cuando el clúster tiene que administrar un gran número de pequeños trabajos de Oozie. 
+Los nodos principales se asignan como máquinas virtuales (VM) grandes de forma predeterminada. El tamaño es adecuado para la administración de la mayoría de trabajos de Hadoop que se ejecutan en el clúster. Pero hay escenarios que pueden requerir máquinas virtuales extragrandes para los nodos principales. Un ejemplo es cuando el clúster tiene que administrar un gran número de pequeños trabajos de Oozie.
 
 Las máquinas virtuales extragrandes se pueden configurar usando cmdlets de Azure PowerShell o el SDK de HDInsight.
 
-La creación y aprovisionamiento de un clúster mediante PowerShell se documenta en [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). La configuración de un nodo principal extragrande requiere la adición del parámetro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usado en este código.
+La creación y aprovisionamiento de un clúster mediante Azure PowerShell se documenta en [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). La configuración de un nodo principal extragrande requiere la adición del parámetro `-HeadNodeVMSize ExtraLarge` al cmdlet de `New-AzureHDInsightcluster` usado en este código.
 
     # Create a new HDInsight cluster in Azure PowerShell
-	# Configured with an ExtraLarge Headnode VM
+	# Configured with an ExtraLarge head-node VM
     New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
-Para la SDK, la historia es similar. La creación y aprovisionamiento de un clúster mediante el SDK se documenta en [Uso del SDK .NET de HDInsight](../hdinsight-provision-clusters/#sdk). La configuración de un nodo principal extragrande requiere la adición del parámetro `HeadNodeSize = NodeVMSize.ExtraLarge` al método `ClusterCreateParameters()` usado en este código.
+Para el SDK, la historia es similar. La creación y aprovisionamiento de un clúster mediante el SDK se documenta en [Uso del SDK .NET de HDInsight](hdinsight-provision-clusters.md#sdk). La configuración de un nodo principal extragrande requiere la adición del parámetro `HeadNodeSize = NodeVMSize.ExtraLarge` al método de `ClusterCreateParameters()` usado en este código.
 
     # Create a new HDInsight cluster with the HDInsight SDK
-	# Configured with an ExtraLarge Headnode VM
+	# Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
     Name = clustername,
@@ -70,19 +69,19 @@ Para la SDK, la historia es similar. La creación y aprovisionamiento de un clú
     };
 
 
-**Referencias**	
+**Referencias**
 
 - [ZooKeeper][zookeeper]
-- [Conexión a los clústeres de HDInsight con RDP](../hdinsight-administer-use-management-portal/#rdp)
-- [Uso del SDK .NET de HDInsight](../hdinsight-provision-clusters/#sdk) 
+- [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp)
+- [Uso del SDK .NET de HDInsight](hdinsight-provision-clusters.md#sdk) 
 
 
-[zookeeper]: http://zookeeper.apache.org/ 
-
-
-
+[zookeeper]: http://zookeeper.apache.org/
 
 
 
 
-<!--HONumber=42-->
+
+
+
+<!--HONumber=54-->

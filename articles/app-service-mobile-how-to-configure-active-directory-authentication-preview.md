@@ -18,7 +18,7 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory
 
-En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Azure Active Directory como proveedor de autenticación. 
+En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Azure Active Directory como proveedor de autenticación.
 
 ## <a name="register"> </a>Registro de la aplicación con Azure Active Directory
 
@@ -30,29 +30,29 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 3. Inicie sesión en el [Portal de administración de Azure] y vaya a **Active Directory**.
 
-    ![][2] 
+    ![][2]
 
-4. Seleccione el directorio y, a continuación, seleccione la pestaña **Aplicaciones** en la parte superior. Haga clic en **Agregar** en la parte inferior para crear un nuevo registro de aplicación. 
+4. Seleccione el directorio y, a continuación, seleccione la pestaña **Aplicaciones** en la parte superior. Haga clic en **AGREGAR** en la parte inferior para crear un nuevo registro de aplicación.
 
 5. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
 
 6. En el asistente para agregar aplicaciones, escriba un **nombre** para la aplicación y haga clic en el tipo **Aplicación web o API web**. A continuación, haga clic para continuar.
 
-7. En el cuadro **Dirección URL de inicio de sesión**, pegue el identificador de la aplicación que copió de la configuración del proveedor de identidades de Active Directory de la puerta de enlace. Especifique un identificador de recurso único en el cuadro **URI de id. de aplicación**. A continuación, haga clic para continuar.
+7. En el cuadro **DIRECCIÓN URL DE INICIO DE SESIÓN**, pegue el identificador de la aplicación que copió de la configuración del proveedor de identidades de Active Directory de la puerta de enlace. Especifique un identificador de recurso único en el cuadro **URI de id. de aplicación**. A continuación, haga clic para continuar.
 
-8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite la **URL de respuesta** en **Inicio de sesión único** para que sea la dirección URL de la puerta de enlace anexada a la ruta de acceso, _/signin-aad_. Por ejemplo, `https://contosogateway.azurewebsites.net/signin-aad`. Asegúrese de que está utilizando el esquema HTTPS.
+8. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. Edite la **URL de respuesta** en **Inicio de sesión único** para que sea la dirección URL de la puerta de enlace anexada a la ruta de acceso, _/signin-aad_. Por ejemplo: `https://contosogateway.azurewebsites.net/signin-aad`. Asegúrese de que está utilizando el esquema HTTPS.
 
     ![][3]
 
-9. Haga clic en **Save**. A continuación, copie **Id. de cliente** de la aplicación.
+9. Haga clic en **Guardar**. A continuación, copie **Id. de cliente** de la aplicación.
 
 ## <a name="secrets"> </a>Adición de información de Azure Active Directory para su aplicación móvil
 
 10. Vuelva a la vista previa del Portal de administración y a la hoja **Autenticación del usuario** para la puerta de enlace. Pegue en la configuración **Id. de cliente** para el proveedor de identidades de Azure Active Directory.
   
-11. En la lista **Inquilinos permitidos** debe agregar el dominio del directorio en el que registró la aplicación (por ejemplo, contoso.onmicrosoft.com). Para buscar el nombre de dominio predeterminado, haga clic en la pestaña **Dominios** en el inquilino de Azure Active Directory. Agregue el nombre de dominio a la lista **Inquilinos permitidos** y haga clic en **Guardar**.  
+11. En la lista **Inquilinos permitidos** debe agregar el dominio del directorio en el que registró la aplicación (por ejemplo, contoso.onmicrosoft.com). Para buscar el nombre de dominio predeterminado, haga clic en la pestaña **Dominios** en el inquilino de Azure Active Directory. Agregue el nombre de dominio a la lista **Inquilinos permitidos** y haga clic en **Guardar**.
 
-Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación. 
+Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación.
 
 ## <a name="related-content"> </a>Contenido relacionado
 
@@ -70,7 +70,6 @@ Autenticación de usuarios de la aplicación móvil con un inicio de sesión ún
 
 [Vista previa del Portal de administración de Azure]: https://portal.azure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[adal de ios]: app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
 [ios-adal]: app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

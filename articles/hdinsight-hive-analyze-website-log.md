@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Uso de Hive en Hadoop de HDInsight para el análisis de registros de sitios web | Azure" 
+<properties 
+	pageTitle="Uso de Hive con Hadoop para el análisis de registros de sitios web | Microsoft Azure" 
 	description="Aprenda a usar Hive con HDInsight para analizar registros de sitios web. Usará un archivo de registro como entrada en una tabla de HDInsight y HiveQL para consultar los datos." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -18,37 +18,38 @@
 
 # Uso de Hive con HDInsight para analizar registros de sitios web
 
-Aprenda a usar HiveQL con HDInsight para analizar registros de un sitio web. El análisis de registros de sitios web se puede usar para segmentar su audiencia en función de actividades similares, categorizar a los visitantes de un sitio por datos demográficos, descubrir el contenido que ven, los sitios web de los que proceden, etc.
+Aprenda a usar HiveQL con HDInsight para analizar registros de un sitio web. El análisis de registros de sitios web se puede usar para segmentar su público en función de actividades parecidas, clasificar los visitantes a los sitios por datos demográficos, descubrir el contenido que ven, los sitios web de los que proceden, etc.
 
-En este ejemplo, usará un clúster de HDInsight para analizar archivos de registro de sitios web para saber la frecuencia de las visitas al sitio web en un día desde sitios web externos y un resumen de los errores del sitio web que encuentran los usuarios. Aprenderá a:
+En este ejemplo, usará un clúster de HDInsight para analizar archivos de registro de sitios web a fin de conocer la frecuencia de las visitas al sitio web en un día desde sitios web externos en un día. También generará un resumen de errores de sitios web que experimentan los usuarios. Aprenderá a:
 
-- Conectarse a un blob de almacenamiento de Azure que contiene archivos de registro de sitios web.
+- Conectarse a un almacenamiento de blobs de Azure, que contiene archivos de registro de sitios web.
 - Crear tablas de HIVE para consultar esos registros.
 - Crear consultas de HIVE para analizar los datos.
-- Usar Microsoft Excel para conectarse a HDInsight (usando una conexión ODBC) para recuperar los datos analizados.
+- Usar Microsoft Excel para conectarse a HDInsight (usando conectividad abierta de base de datos, ODBC) para recuperar los datos analizados.
 
 ![HDI.Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
 ##Requisitos previos
 
-- Debe haber aprovisionado un **clúster de HDInsight**. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. 
-- Debe tener Microsoft Excel 2010 o Microsoft Excel 2013 instalado.
-- Debe tener [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) para importar datos de Hive en Excel.
+- Debe haber aprovisionado un clúster de **HDInsight**. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. 
+- Debe tener instalado Microsoft Excel 2013 o Excel 2010.
+- Debe tener [Microsoft Hive ODBC Driver para](http://www.microsoft.com/download/details.aspx?id=40886) importar datos de Hive en Excel.
 
 
 ##Para ejecutar el ejemplo
 
-1. En el Portal de administración de Azure, haga clic en el clúster donde desea ejecutar el ejemplo y, a continuación, en **Consola de consultas** en la parte inferior. También puede abrir directamente la Consola de consultas con la siguiente dirección URL:
+1. En el Portal de Azure, haga clic en el clúster donde desea ejecutar el ejemplo y, a continuación, en **Consola de consultas** en la parte inferior. También puede abrir directamente la consola de consultas con la siguiente dirección URL:
 
 	 	https://<clustername>.azurehdinsight.net
 	
-	Cuando se le pida, autentíquese con el nombre de usuario y la contraseña de administrador que usó cuando aprovisionó este clúster.
+	Cuando se le pida, autentíquese con el nombre de usuario y la contraseña de administrador que usó cuando aprovisionó el clúster.
   
 2. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, en la categoría **Ejemplos**, haga clic en el ejemplo **Análisis de registros de sitios web**.
+
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
 ##Pasos siguientes
-Pruebe el ejemplo de análisis de datos de sensor usando HDInsight de Azure. Consulte [Análisis de datos de sensor usando Hive con HDInsight][hdinsight-sensor-data-sample].
+Pruebe el siguiente ejemplo: [Análisis de datos de sensor usando Hive con HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -56,4 +57,4 @@ Pruebe el ejemplo de análisis de datos de sensor usando HDInsight de Azure. Con
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

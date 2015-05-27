@@ -28,8 +28,8 @@
 <p>En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.</p>
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo</span></a><span class="time">10:42</span></div>
-</div> 
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial (en inglés)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo (en inglés)</span></a><span class="time">10:42</span></div>
+</div>
 
 Este tutorial le guiará a través de los pasos básicos para habilitar la autenticación en su aplicación.
 
@@ -48,9 +48,9 @@ Este tutorial le guiará a través de los pasos básicos para habilitar la auten
 
 3. En Android Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles]. 
 
-4. En el menú **Run** (Ejecutar), haga clic en **Run app** (Ejecutar aplicación). A continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. 
+4. En el menú **Run** (Ejecutar), haga clic en **Run app** (Ejecutar aplicación). A continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
 
-	 Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_  requiere ahora autenticación.
+	 Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_ requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
@@ -70,15 +70,15 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En el siguiente tutorial, [Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
+En el siguiente tutorial, [Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
 <!-- Anchors. -->
-[Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
-[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
-[Incorporación de autenticación a la aplicación]: #add-authentication
-[Almacenamiento de tokens de autenticación en el cliente]: #cache-tokens
-[Actualización de los tokens expirados]: #refresh-tokens
-[Pasos siguientes]:#next-steps
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Store authentication tokens on the client]: #cache-tokens
+[Refresh expired tokens]: #refresh-tokens
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
@@ -101,16 +101,16 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 
 <!-- URLs. -->
 
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Introducción a Servicios móviles]: /develop/mobile/tutorials/get-started-android
-[Incorporación de Servicios móviles a una aplicación existente]: /develop/mobile/tutorials/get-started-with-data-android
-[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
-[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
+[Add Mobile Services to an existing app]: /develop/mobile/tutorials/get-started-with-data-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 [Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-android
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

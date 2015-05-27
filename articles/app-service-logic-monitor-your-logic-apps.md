@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Supervisión de las aplicaciones lógicas" 
 	description="Visualización de lo que han hecho las aplicaciones lógicas." 
 	authors="stepsic-microsoft-com" 
@@ -18,9 +18,9 @@
 
 #Supervisión de las aplicaciones lógicas
 
-Después de crear una aplicación lógica siguiendo los pasos descritos en  [Creación de aplicaciones lógicas](app-service-logic-create-a-logic-app.md), podrá ver el historial completo de su ejecución en el Portal de Azure. Para ver el historial, haga clic en **Examinar** en el lado izquierdo de la pantalla del portal y elija **Aplicaciones lógicas**. Aparecerá una lista con las aplicaciones lógicas incluidas en la suscripción. Las aplicaciones lógicas se pueden **habilitar** o **deshabilitar**. **Habilitado:** si una aplicación lógica está habilitada, significa que los desencadenadores ejecutarán la aplicación lógica como respuesta a los eventos del desencadenador. **Deshabilitado**: la aplicación lógica no se ejecutará como respuesta a los eventos.
+Después de crear una aplicación lógica siguiendo los pasos descritos en [Creación de aplicaciones lógicas](app-service-logic-create-a-logic-app.md), puede ver el historial completo de su ejecución en el Portal de Azure. Para ver el historial, haga clic en **Examinar** en el lado izquierdo de la pantalla del portal y elija **Aplicaciones lógicas**. Aparecerá una lista con las aplicaciones lógicas incluidas en la suscripción. Las aplicaciones lógicas se pueden **habilitar** o **deshabilitar**. **Habilitado**: si una aplicación lógica está habilitada, significa que los desencadenadores ejecutarán la aplicación lógica como respuesta a los eventos del desencadenador. **Deshabilitado**: la aplicación lógica no se ejecutará como respuesta a los eventos.
 
-![Overview](./media/app-service-logic-monitor-your-logic-apps/overview.png)
+![Información general](./media/app-service-logic-monitor-your-logic-apps/overview.png)
 
 En la hoja de la aplicación lógica, hay dos secciones importantes:
 
@@ -29,13 +29,13 @@ En la hoja de la aplicación lógica, hay dos secciones importantes:
 
 ##Ejecuciones
 
-![All Runs](./media/app-service-logic-monitor-your-logic-apps/allruns.png)
+![Todas las ejecuciones](./media/app-service-logic-monitor-your-logic-apps/allruns.png)
 
 Esta lista de ejecuciones muestra los campos **Hora de inicio**, **Identificador de ejecuciones** (puede utilizar este valor para hacer llamadas a la API de REST) y **Duración** de las ejecuciones concretas. Haga clic en cualquier fila para ver detalles sobre esa ejecución.
 
 La hoja de detalles muestra un gráfico con la hora de la ejecución y la secuencia de todas las acciones de la ejecución. A continuación, aparece la lista completa de todas las acciones ejecutadas.
 
-![Run and Actions](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
+![Ejecuciones y acciones](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
 Por último, sobre una acción concreta, puede obtener todos los datos que se pasaron a la acción y que se recibieron de esta en las secciones **Entradas** y **Salidas**.
 
@@ -49,4 +49,4 @@ Hay dos funciones adicionales que no se pueden usar actualmente en la interfaz d
 
 2. **Versiones anteriores**: al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hará referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
 
-<!--HONumber=49-->
+<!--HONumber=54-->

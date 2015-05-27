@@ -1,5 +1,5 @@
-﻿<properties
-	pageTitle="Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente (iOS)  |  Centro de desarrollo móvil"
+<properties
+	pageTitle="Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente (iOS) | Centro de desarrollo móvil"
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="04/13/2015"
 	ms.author="krisragh"/>
 
 # Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente
@@ -47,22 +47,22 @@ En Xcode, abra el proyecto. Presione el botón **Ejecutar** para iniciar la apli
 En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios móviles], podrá usar el valor de identificador de usuario para filtrar los datos devueltos.
 
 <!-- Anchors. -->
-[Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
-[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
-[Incorporación de autenticación a la aplicación]: #add-authentication
-[Pasos siguientes]:#next-steps
-[Almacenamiento de tokens de autenticación en la aplicación]:#store-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
+[Storing authentication tokens in your app]: #store-authentication
 
 <!-- URLs. -->
 [Autorización en el servicio de usuarios de Servicios móviles]: mobile-services-dotnet-backend-service-side-authorization.md
 [Tutorial de inicio rápido de Servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
-[Introducción a los datos]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Introducción a la autenticación]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Autorización de usuarios con scripts]: mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
-[Referencia conceptual de Servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿## <a name="register-mobile-service-aad"></a>Registro del servicio móvil en Azure Active Directory
+## <a name="register-mobile-service-aad"></a>Registro del servicio móvil con Azure Active Directory
 
 
 En esta sección registrará su servicio móvil en Azure Active Directory y configurará permisos para permitir una suplantación de inicio de sesión único.
@@ -33,11 +33,9 @@ En esta sección registrará su servicio móvil en Azure Active Directory y conf
             }
         ],
 
-6. En el Portal de administración de Azure, haga clic en **Administrar manifiesto** de nuevo para la aplicación y haga clic en **Cargar manifiesto**.  Vaya a la ubicación del manifiesto de la aplicación que acaba de actualizar y cárguelo.
+6. En el Portal de administración de Azure, haga clic en **Administrar manifiesto** de nuevo para la aplicación y haga clic en **Cargar manifiesto**. Vaya a la ubicación del manifiesto de la aplicación que acaba de actualizar y cárguelo.
 
 <!-- URLs. -->
-[Registro en Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Registro en Azure Active Directory]: ../articles/mobile-services-how-to-register-active-directory-authentication.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

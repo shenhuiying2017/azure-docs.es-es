@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Creación de una aplicación lógica" 
+<properties 
+	pageTitle="Crear una aplicación lógica" 
 	description="Introducción a la creación de una aplicación lógica básica" 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -29,9 +29,9 @@ Para usar este escenario necesitará:
 
 ##Obtención de conectores
 
-En primer lugar, deberá crear los dos conectores que se van a usar: **conector Dropbox** y **conector Twitter**. Para crearlos:
+En primer lugar, deberá crear los dos conectores que se van a usar: el **conector de Dropbox** y el **conector de Twitter**. Para crearlos:
 
-1. Haga clic en **Marketplace** en la pantalla principal y busque **Twitter**. 
+1. Haga clic en  **Marketplace** en la pantalla principal y busque **Twitter**. 
 
 2. Seleccione el conector Twitter y haga clic en el botón Crear. Conseguirá una hoja para todas las configuraciones. Puede dejar el nombre como **Conector Twitter**.
 
@@ -43,7 +43,7 @@ En primer lugar, deberá crear los dos conectores que se van a usar: **conector 
  
 	>[AZURE.NOTE]De forma predeterminada, se muestran únicamente los planes recomendados para aplicaciones lógicas. Haga clic en **Ver todos** para ver todos los planes disponibles. Al ejecutar una aplicación lógica en el nivel Gratis, solo puede realizar ejecuciones cada hora y usar hasta 1.000 acciones por mes.
 
-5. Cree un **grupo de recursos** para el flujo. 
+5. Cree un **grupo de recursos** para el flujo.
 
 	Los grupos de recursos actúan como contenedores para las aplicaciones. Todos los recursos de la aplicación residirán en el mismo grupo de recursos.
 
@@ -51,9 +51,9 @@ En primer lugar, deberá crear los dos conectores que se van a usar: **conector 
 
 7. Elija la **ubicación** para ejecutar la aplicación lógica.
 
-	![Create API app blade](./media/app-service-logic-create-a-logic-app/gallery.png)
+	![Creación de hoja de aplicación de API](./media/app-service-logic-create-a-logic-app/gallery.png)
 
-8. Haga clic en **Crear**. El paso de aprovisionamiento puede tardar un minuto o dos. 
+8. Haga clic en **Crear**. El paso de aprovisionamiento puede tardar un minuto o dos.
 
 9. Ahora repita el proceso con Dropbox.
 
@@ -65,7 +65,7 @@ Ahora debe crear una nueva aplicación lógica:
 
  	Esto muestra la hoja Crear aplicación lógica, donde se proporciona alguna configuración básica para empezar.
 
-	![Create logic app blade](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
+	![Creación de hoja de aplicación lógica](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
 	
 2. En **Nombre** escriba un nombre significativo para la aplicación lógica.
 
@@ -79,13 +79,13 @@ Los desencadenadores son los que permiten que la aplicación lógica se ejecute.
 
 1. Todavía en la hoja **Crear aplicación lógica**, haga clic en **Desencadenadores y acciones**. 
 
-	Esto muestra un diseñador de pantalla completa que muestra el flujo. En el lado derecho hay una lista de todos los servicios que podrían tener desencadenadores. 
+	Esto muestra un diseñador de pantalla completa que muestra el flujo. En el lado derecho hay una lista de todos los servicios que podrían tener desencadenadores.
 
 2. En la sección **Integrado**, haga clic en **Periodicidad**.
 	
 	Esto agrega un cuadro donde puede especificar la configuración de periodicidad.
 
-	![Recurrence](./media/app-service-logic-create-a-logic-app/recurrence.png)
+	![Periodicidad](./media/app-service-logic-create-a-logic-app/recurrence.png)
 
 
 4.  Elija una opción de periodicidad en **Frecuencia** e **Intervalo** (por ejemplo, una vez cada hora) y, a continuación, haga clic en la marca de verificación verde.
@@ -99,31 +99,31 @@ Las acciones son lo que hace el flujo de trabajo. Puede tener cualquier número 
 1. En el panel de la derecha, busque **Conector Twitter** y haga clic en él. 
 
 
-2. Una vez cargado, haga clic en el botón **Autorizar**, inicie sesión en su cuenta de Twitter y haga clic en **Autorizar aplicación**. 
+2. Una vez cargado, haga clic en el botón **Autorizar**, inicie sesión en su cuenta de Twitter y haga clic en **Autorizar aplicación**.
 
-	Esto concede acceso al conector a su cuenta de Twitter. Se muestra una lista de las posibles operaciones proporcionadas por el conector Twitter. 
+	Esto concede acceso al conector a su cuenta de Twitter. Se muestra una lista de las posibles operaciones proporcionadas por el conector Twitter.
 
-	![Actions](./media/app-service-logic-create-a-logic-app/actions.png)
+	![Acciones](./media/app-service-logic-create-a-logic-app/actions.png)
 
 3. Haga clic en **Buscar tweets**, a continuación en **Especificar una consulta**, escriba algo como `#MicrosoftAzure` y haga clic en la marca de verificación verde.
 
-	![Twitter search](./media/app-service-logic-create-a-logic-app/twittersearch.png)
+	![Búsqueda de Twitter](./media/app-service-logic-create-a-logic-app/twittersearch.png)
 
 El conector Twitter ahora forma parte del flujo de trabajo.
 
 ## Adición de una acción de Dropbox y creación de la aplicación
 
-El último paso es agregar una acción que cargue unos tweets  a un archivo de Dropbox. 
+El último paso es agregar una acción que cargue unos tweets a un archivo de Dropbox.
 
 1. En el panel de la derecha, haga clic en **Conector Dropbox**. 
   
 2. Tras completar el aprovisionamiento, haga clic en el botón **Autorizar**, inicie sesión en su cuenta de Dropbox y haga clic en **Permitir**.
 
-	![Authorize Dropbox connector](./media/app-service-logic-create-a-logic-app/authorize.png)
+	![Autorización del conector de Dropbox.](./media/app-service-logic-create-a-logic-app/authorize.png)
 	
-	Esto concede acceso al conector a su cuenta de Dropbox. Se muestra una lista de las posibles operaciones proporcionadas por el conector Dropbox. 
+	Esto concede acceso al conector a su cuenta de Dropbox. Se muestra una lista de las posibles operaciones proporcionadas por el conector Dropbox.
  
-4. Haga clic en **Cargar archivo**.  
+4. Haga clic en **Cargar archivo**.
 
 	Esto muestra la configuración del conector Dropbox, que se debe establecer para pasar los datos de la búsqueda de Twitter a Dropbox.
 
@@ -131,41 +131,42 @@ El último paso es agregar una acción que cargue unos tweets  a un archivo de D
 
 3. En el campo **Ruta de acceso al archivo**, escriba `/tweet.txt`.
   
-4. En el campo **Contenido**, haga clic en el botón `...` y haga clic en la opción **Texto del tweet**. 
+4. En el campo **Contenido**, haga clic en el botón `...` y haga clic en la opción **Texto del tweet**.
  
 	Esto introduce el valor `@first(body('twitterconnector')).TweetText` en el cuadro de texto. Este valor generado contiene las siguientes partes:
 
-	Parte de contenido                               | Descripción
+	Parte de contenido | Descripción
 	------------------------------------------ | ------------
-	 `@`                                       | Indica que ha introducido una función, en lugar de un valor real.
+	 `@` | Indica que ha introducido una función, en lugar de un valor real.
 	`actions('twitterconnector').outputs.body` | Obtiene los tweets devueltos por la consulta del conector Twitter.
-	`first()`                                  | La acción de búsqueda de tweets devuelve una lista, pero el usuario solo desea cargar un archivo
-	`.TweetText`                               | Selecciona la propiedad de mensaje del tweet.
+	`first()` | La acción de búsqueda de tweets devuelve una lista, pero el usuario solo desea cargar un archivo
+	`.TweetText` | Selecciona la propiedad de mensaje del tweet.
 	
 5. Haga clic en la marca de verificación verde para guardar la configuración del conector.
 
-5. Ahora que el diseño se ha completado, haga clic en **Vista Código** en la parte superior izquierda del diseñador y tenga en cuenta que este es el código JSON que define el flujo de trabajo que acaba de crear en el diseñador. Trataremos este código más en el [siguiente tema][Uso de las características de aplicaciones lógicas].
+5. Ahora que el diseño se ha completado, haga clic en **Vista Código** en la parte superior izquierda del diseñador y tenga en cuenta que este es el código JSON que define el flujo de trabajo que acaba de crear en el diseñador. Trataremos este código más en el [siguiente tema][Use logic app features].
 
-6. Haga clic en el botón **Aceptar** en la parte inferior de la pantalla y, a continuación, haga clic en el botón **Crear**. 
+6. Haga clic en el botón **Aceptar** en la parte inferior de la pantalla y, a continuación, haga clic en el botón **Crear**.
 
 	Esto crea la nueva aplicación lógica.
 
 ## Administración de la aplicación lógica tras la creación
 
-Ahora la aplicación lógica está en funcionamiento. Cada vez que se ejecuta el flujo de trabajo programado, dicho flujo busca tweets con el  hashtag específico. Cuando encuentra un tweet coincidente, lo coloca en Dropbox. Por último, verá cómo deshabilitar la aplicación o ver cómo marcha. 
+Ahora la aplicación lógica está en funcionamiento. Cada vez que se ejecuta el flujo de trabajo programado, dicho flujo busca tweets con el hashtag específico. Cuando encuentra un tweet coincidente, lo coloca en Dropbox. Por último, verá cómo deshabilitar la aplicación o ver cómo marcha.
 
 1. Haga clic en **Examinar** en el lado izquierdo de la pantalla y seleccione **Aplicaciones lógicas**. 
  
-2. Haga clic en la nueva aplicación lógica que acaba de crear para ver información general y el estado actual. 
+2. Haga clic en la nueva aplicación lógica que acaba de crear para ver información general y el estado actual.
 
-3. Para editar la nueva aplicación lógica, haga clic en **Desencadenadores y acciones**. 
+3. Para editar la nueva aplicación lógica, haga clic en **Desencadenadores y acciones**.
  
 5. Para desactivar la aplicación, haga clic en **Deshabilitar** en la barra de comandos.
 
 En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencilla que se ejecuta en la nube. Para obtener más información acerca del uso de las características de las aplicaciones lógicas, consulte [Uso de las características de aplicaciones lógicas].
 
 <!-- Shared links -->
-[Portal de Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
+[Use logic app features]: app-service-logic-use-logic-app-features.md
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

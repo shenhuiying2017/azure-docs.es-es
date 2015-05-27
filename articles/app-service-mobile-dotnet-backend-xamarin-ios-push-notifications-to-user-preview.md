@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Envío de notificaciones push a un usuario específico con cliente Xamarin iOS" 
-	description="Obtenga información acerca del envío de notificaciones push para todos los dispositivos de un usuario." 
+	description="Obtenga información acerca del envío de notificaciones push para todos los dispositivos de un usuario" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
 	authors="yuaxu" 
@@ -16,23 +16,23 @@
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
 
-# Envío de notificaciones multiplataforma a un usuario específico
+# Envío de notificaciones entre plataformas a un usuario específico
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
-En este tema se muestra cómo enviar notificaciones a todos los dispositivos registrados de un usuario concreto desde el back-end móvil. Incorpora el concepto de [plantillas], que proporciona a las aplicaciones cliente la libertad de especificar formatos de carga y marcadores de posición variables en el registro. Envíe coincidencias a todas las plataformas con estos marcadores de posición mediante la activación de las notificaciones multiplataforma.
+En este tema se muestra cómo enviar notificaciones a todos los dispositivos registrados de un usuario concreto desde su back-end móvil. Introdujo el concepto de [plantillas], que proporciona a las aplicaciones cliente la libertad de especificar formatos de carga y marcadores de posición de variables en el registro. A continuación, envíe aciertos a todas las plataformas con estos marcadores de posición, y habilite las notificaciones multiplataforma.
 
-> [AZURE.NOTE] Para que la inserción funcione con clientes multiplataforma, tendrá que completar este tutorial para cada plataforma que desea habilitar. Solo tendrá que realizar la [actualización de back-end de móvil](#backend) una vez para los clientes que comparten el mismo back-end móvil.
+> [AZURE.NOTE]Para obtener la inserción (push) cuando trabaja con clientes multiplataforma, es necesario completar este tutorial para cada plataforma que desea habilitar. Solo tendrá que hacer la [actualización de back-end móvil](#backend) una vez para los clientes que comparten el mismo back-end móvil.
  
 ##Requisitos previos 
 
-Antes de comenzar con este tutorial, debe haber completado estos tutoriales de Servicios de aplicaciones para cada plataforma cliente con la que desee trabajar:
+Antes de iniciar este tutorial, debe haber completado estos tutoriales del Servicio de aplicaciones para cada plataforma cliente que desee que esté en funcionamiento:
 
 + [Introducción a la autenticación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
-+ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para la notificación de inserción.
++ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para notificaciones push.
 
-##<a name="client"></a>Actualización del cliente para registrar plantillas para administrar las inserciones multiplataforma
+##<a name="client"></a>Actualización del cliente para registrarlo para plantillas con el fin de controlar las inserciones multiplataforma
 
 1. Mueva los fragmentos de registro de APN de **FinishedLaunching** en **AppDelegate.cs** a la definición de la tarea **RefreshAsync** en **QSTodoListViewController.cs**. Los registros deben realizarse una vez completada la autenticación.
 
@@ -44,7 +44,7 @@ Antes de comenzar con este tutorial, debe haber completado estos tutoriales de S
                 return;
             }
 
-            // registro de la inserción para iOS8
+            // registers for push for iOS8
             var settings = UIUserNotificationSettings.GetSettingsForTypes (
                 UIUserNotificationType.Alert
                 | UIUserNotificationType.Badge
@@ -56,11 +56,11 @@ Antes de comenzar con este tutorial, debe haber completado estos tutoriales de S
         }
         ...
 
-2. En **AppDelegate.cs**, reemplace la llamada de **RegisterAsync** en **RegisteredForRemoteNotifications** por lo siguiente para trabajar con las plantillas:
+2. En **AppDelegate.cs**, reemplace la llamada de**RegisterAsync** en **RegisteredForRemoteNotifications** por lo siguiente para trabajar con las plantillas:
 
-        // eliminar await push.RegisterAsync (deviceToken);
+        // delete await push.RegisterAsync (deviceToken);
         
-        var notificationTemplate = "{\"aps\": {\"alert\":\"$(message)\"}}";
+        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
 
         JObject templateBody = new JObject();
         templateBody["body"] = notificationTemplate;
@@ -68,25 +68,25 @@ Antes de comenzar con este tutorial, debe haber completado estos tutoriales de S
         JObject templates = new JObject();
         templates["testApnsTemplate"] = templateBody;
 
-        // registrar con plantillas
+        // register with templates
         await push.RegisterAsync (deviceToken, templates);
 
-##<a name="backend"></a>Actualización del back-end de servicio para enviar notificaciones a un usuario específico
+##<a name="backend"></a>Actualización del servidor back-end de servicio para enviar notificaciones a un usuario específico
 
-1. En Visual Studio, actualice la definición del método  `PostTodoItem` con el siguiente código:  
+1. En Visual Studio, actualice la definición del método `PostTodoItem` por el código siguiente:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
 
-            // obtener credenciales de los Centros de notificaciones asociadas a esta aplicación móvil
+            // get notification hubs credentials associated with this mobile app
             string notificationHubName = this.Services.Settings.NotificationHubName;
             string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-            // conectar a Centro de notificaciones
+            // connect to notification hub
             NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
 
-            // obtener el identificador de usuario actual y crear la etiqueta de usuario determinada
+            // get the current user id and create given user tag
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
@@ -105,12 +105,10 @@ Antes de comenzar con este tutorial, debe haber completado estos tutoriales de S
 
 ##<a name="test"></a>Prueba de la aplicación
 
-Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las aplicaciones cliente que ha configurado. En el proceso de inserción del elemento, el back-end enviará notificaciones a todas las aplicaciones cliente en las que el usuario haya iniciado sesión.
+Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las aplicaciones cliente que ha configurado. En el elemento de inserción, el back-end enviará notificaciones a todas las aplicaciones cliente en las que el usuario ha iniciado sesión.
 
 <!-- URLs. -->
 [Introducción a la autenticación]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[Introducción a las notificaciones push]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [Introducción a las notificaciones de inserción]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
-
-<!--HONumber=49-->
+<!--HONumber=54-->

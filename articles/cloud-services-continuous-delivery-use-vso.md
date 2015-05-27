@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Entrega continua con Visual Studio Online en Azure" 
 	description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en los sitios web de Azure o en los servicios en la nube." 
 	services="app-service\web" 
@@ -19,168 +19,116 @@
 
 # Entrega continua a Azure con Visual Studio Online
 
-  Puede configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en las aplicaciones web de Azure o en los servicios en la nube.  (Para obtener información acerca de cómo configurar un sistema de compilación e implementación continuas con Team Foundation Server *on-premises*, consulte [Entrega continua para Servicios en la nube de Azure](cloud-services-dotnet-continuous-delivery.md).)
+  Puede configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en las aplicaciones web de Azure o en los servicios en la nube. Para obtener información sobre cómo configurar un sistema de compilación e implementación continuas con Team Foundation Server *local*, consulte [Entrega continua para Servicios en la nube de Azure](cloud-services-dotnet-continuous-delivery.md).
 
 En este tutorial se supone que tiene instalados Visual Studio 2013 y el SDK de Azure. Si aún no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empezar de forma gratuita** en [www.visualstudio.com](http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
 
-> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Visual Studio Online:
-> Puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Necesita una cuenta en línea de Visual Studio para completar este tutorial: puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Online, siga los pasos que aparecen a continuación:
 
--   [Paso 1: Cree un proyecto de equipo.][]
+-   [Paso 1: crear un proyecto de equipo.][]
 
--   [Paso 2: Registre un proyecto para el control de código fuente][]
+-   [Paso 2: proteger un proyecto para el control de código fuente.][]
 
--   [Paso 3: Conecte el proyecto a Azure][]
+-   [Paso 3: conectar el proyecto a Azure.][]
 
--   [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar][]
+-   [Paso 4: realizar cambios, desencadenar una recompilación y volver a implementar.][]
 
--   [Paso 5: Vuelva a implementar una compilación anterior (opcional)][]
+-   [Paso 5: volver a implementar una compilación anterior (opcional)][]
 
--   [Paso 6: Cambie la implementación de producción (solo servicios en la nube)][]
+-   [ Paso 6: cambiar la implementación de producción (solo servicios en la nube)][]
 
--	[Paso 7: Ejecute pruebas unitarias (opcional)][]
+-	[Paso 7: ejecutar pruebas unitarias (opcional)][]
 
-<h2> <a name="step1"></a>Paso 1: Cree un proyecto de equipo</h2>
+<h2> <a name="step1"></a>Paso 1: crear un proyecto de equipo</h2>
 
-Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?LinkId=512980) para crear el proyecto de equipo y vincularlo a Visual Studio. En este tutorial se supone que usa Team Foundation Version Control (TFVC) como solución de control de código fuente. Si desea usar Git para el control de versiones, consulte la [versión Git de este tutorial](http://go.microsoft.com/fwlink/p/?LinkId=397358).
+Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?LinkId=512980) para crear el proyecto de equipo y vincularlo a Visual Studio. En este tutorial se supone que usa Team Foundation Version Control (TFVC) como solución de control de código fuente. Si desea usar Git para el control de versiones, consulte [la versión Git de este tutorial](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-<h2><a name="step2"> </a>Paso 2: Registre un proyecto para el control de código fuente</h2>
+<h2><a name="step2"> </a>Paso 2: proteger un proyecto para el control de código fuente</h2>
 
-1. En Visual Studio, abra la solución que desee implementar o cree una nueva.
-Puede implementar un sitio web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial.
-Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure
-o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**.
-Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure y ASP.NET](web-sites-dotnet-get-started.md).
+1. En Visual Studio, abra la solución que desee implementar o cree una nueva. Puede implementar un sitio web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial. Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**. Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Sitios web de Azure y ASP.NET](web-sites-dotnet-get-started.md).
 
-2. Abra el menú contextual de la solución y seleccione **Agregar solución al control de código fuente**.<br/>
-![][5]
+> [AZURE.NOTE]Actualmente, Visual Studio Online solo admite las implementaciones de integración continua de las aplicaciones web de Visual Studio. Los proyectos de sitio web están fuera del alcance.
 
-3. Acepte o cambie los valores predeterminados y elija el botón **Aceptar**. Una vez terminado el proceso, aparecerán los iconos de control de código fuente en el Explorador de soluciones.<br/>
-![][6]
 
-4. Abra el menú contextual de la solución y elija **Proteger**.<br/>
-![][7]
+2. Abra el menú contextual de la solución y seleccione **Agregar solución al control de código fuente**.<br/> ![][5]
 
-5. En el área Cambios pendientes de Team Explorer, escriba un comentario para la protección y elija el botón **Proteger**.<br/>
-![][8]
+3. Acepte o cambie los valores predeterminados y elija el botón **Aceptar**. Una vez terminado el proceso, aparecerán los iconos de control de código fuente en el Explorador de soluciones.<br/> ![][6]
 
-<br/>
-Observe las opciones para incluir o excluir cambios específicos al proteger. Si los cambios deseados se excluyen, haga clic en el vínculo **Incluir todo**.<br/>
-![][9]
+4. Abra el menú contextual de la solución y elija **Proteger**.<br/> ![][7]
 
-<h2> <a name="step3"> </a>Paso 3: Conecte el proyecto a Azure</h2>
+5. En el área Cambios pendientes de Team Explorer, escriba un comentario para la protección y elija el botón **Proteger**.<br/> ![][8]
 
-1. Ahora que tiene un proyecto de equipo de VSO con código fuente en él, está en disposición de conectar el proyecto de equipo a Azure.  En el [Portal de Azure](http://manage.windowsazure.com), seleccione su servicio en la nube o sitio web, o bien cree uno nuevo. Para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y, a continuación, **Creación rápida**. Haga clic en el vínculo **Configurar publicación con Visual Studio Online**.<br/>
-![][10]
+<br/> Tenga en cuenta las opciones para incluir o excluir cambios concretos al realizar la protección. Si los cambios deseados se excluyen, elija el vínculo **Incluir todo**.<br/> ![][9]
 
-2. En el asistente, escriba el nombre de la cuenta de Visual Studio Online en el cuadro de texto y haga clic en el vínculo **Autorizar ahora**. Puede que se le solicite que inicie sesión.<br/>
-![][11]
+<h2> <a name="step3"> </a>Paso 3: conectar el proyecto a Azure</h2>
 
-3. En el cuadro de diálogo emergente de OAuth, elija **Aceptar** para autorizar a Azure a que configure el proyecto de equipo en VSO.<br/>
-![][12]
+1. Ahora que tiene un proyecto de equipo de VSO con código fuente en él, está en disposición de conectar el proyecto de equipo a Azure. En el [Portal de Azure](http://manage.windowsazure.com), seleccione su servicio en la nube o sitio web, o bien cree uno nuevo. Para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y, a continuación, **Creación rápida**. Haga clic en el vínculo **Configurar publicación con Visual Studio Online**.<br/> ![][10]
 
-4. Si la autorización se realiza correctamente, verá una lista desplegable que contiene los proyectos de equipo de Visual Studio Online.  Seleccione el nombre del proyecto de equipo que ha creado en los pasos anteriores y presione el botón de la marca de verificación del asistente.<br/>
-![][13]
+2. En el asistente, escriba el nombre de la cuenta de Visual Studio Online en el cuadro de texto y haga clic en el vínculo **Autorizar ahora**. Puede que se le solicite que inicie sesión.<br/> ![][11]
 
-5. Una vez que el proyecto se haya vinculado, verá instrucciones para registrar los cambios en el proyecto de equipo de Visual Studio Online.  La próxima vez que se registre, Visual Studio Online compilará e implementará el proyecto en Azure.  Para probarlo ahora, haga clic en el vínculo **Proteger desde Visual Studio** y, a continuación, en **Iniciar Visual Studio** (o el botón equivalente de **Visual Studio** situado en la parte inferior de la pantalla del portal).<br/>
-![][14]
+3. En el cuadro de diálogo emergente de OAuth, elija **Aceptar** para autorizar a Azure a que configure el proyecto de equipo en VSO.<br/> ![][12]
 
-<h2><a name="step4"> </a>Paso 4: Desencadene una recompilación y vuelva a implementar su proyecto</h2>
+4. Si la autorización se realiza correctamente, verá una lista desplegable que contiene los proyectos de equipo de Visual Studio Online. Seleccione el nombre del proyecto de equipo que ha creado en los pasos anteriores y presione el botón de la marca de verificación del asistente.<br/> ![][13]
 
-1. En Team Explorer de Visual Studio, haga clic en el vínculo **Explorador de control de código fuente**.<br/>
-![][15]
+5. Una vez que el proyecto se haya vinculado, verá instrucciones para registrar los cambios en el proyecto de equipo de Visual Studio Online. La próxima vez que se registre, Visual Studio Online compilará e implementará el proyecto en Azure. Para probarlo ahora, haga clic en el vínculo **Proteger desde Visual Studio** y, a continuación, en **Iniciar Visual Studio** (o el botón equivalente de **Visual Studio** situado en la parte inferior de la pantalla del portal).<br/> ![][14]
 
-2. Vaya hasta su archivo de solución y ábralo.<br/>
-![][16]
+<h2><a name="step4"> </a>Paso 4: desencadenar una recompilación y volver a implementar el proyecto</h2>
 
-3. En el Explorador de soluciones, abra un archivo y cámbielo. Por ejemplo, cambie el archivo _Layout.cshtml de la carpeta Views\Shared de un rol web de MVC.<br/>
-![][17]
+1. En Team Explorer de Visual Studio, haga clic en el vínculo **Explorador de control de código fuente**.<br/> ![][15]
 
-4. Modifique el logotipo del sitio y presione Ctrl+S para guardar el archivo.<br/>
-![][18]
+2. Vaya hasta su archivo de solución y ábralo.<br/> ![][16]
 
-5. En Team Explorer, haga clic en el vínculo **Cambios pendientes**.<br/>
-![][19]
+3. En el Explorador de soluciones, abra un archivo y cámbielo. Por ejemplo, cambie el archivo _Layout.cshtml de la carpeta Views\\Shared de un rol web de MVC.<br/> ![][17]
 
-6. Escriba un comentario y elija el botón **Proteger**.<br/>
-![][20]
+4. Modifique el logotipo del sitio y presione Ctrl+S para guardar el archivo.<br/> ![][18]
 
-7. Presione el botón Inicio para volver a la página principal de Team Explorer.<br/>
-![][21]
+5. En Team Explorer, haga clic en el vínculo **Cambios pendientes**.<br/> ![][19]
 
-8. Haga clic en el vínculo **Compilaciones** para ver las compilaciones en curso.<br/>
-![][22]
-<br/>
-Team Explorer indica que se ha desencadenado una compilación para su registro.<br/>
-![][23]
+6. Escriba un comentario y elija el botón **Proteger**.<br/> ![][20]
 
-9. Haga doble clic en el nombre de la compilación en curso para ver un registro detallado a medida que avanza la compilación.<br/>
-![][24]
+7. Presione el botón Inicio para volver a la página principal de Team Explorer.<br/> ![][21]
 
-10. Mientras la compilación está en curso, eche un vistazo a la definición de compilación que se creó al vincular TFS a Azure con el asistente.  Abra el menú contextual de la definición de compilación y elija **Editar definición de compilación**.<br/>
-![][25]
-<br/>
-En la pestaña **Desencadenador**, verá que la definición de compilación se ha configurado en cada protección de forma predeterminada.<br/>
-![][26]
-<br/>
-En la pestaña **Proceso**, puede ver que el entorno de implementación se ha configurado con el nombre del servicio en la nube o el sitio web. Si trabaja con sitios web, verá propiedades diferentes a las que se muestran aquí.<br/>
-![][27]
-<br/>
-Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades para la publicación de Azure se encuentran en la sección Implementación.
-En la tabla siguiente se muestran las propiedades disponibles en la sección Implementación:
-	<table>
-<tr><td><b>Propiedad</b></td><td><b>Valor predeterminado</b></td></tr>
+8. Haga clic en el vínculo **Compilaciones** para ver las compilaciones en curso.<br/> ![][22] <br/> Team Explorer indica que se ha desencadenado una compilación para su protección.<br/> ![][23]
+
+9. Haga doble clic en el nombre de la compilación en curso para ver un registro detallado a medida que avanza la compilación.<br/> ![][24]
+
+10. Mientras la compilación está en curso, eche un vistazo a la definición de compilación que se creó al vincular TFS a Azure con el asistente. Abra el menú contextual de la definición de compilación y elija **Editar definición de compilación**.<br/> ![][25] <br/> En la pestaña **Desencadenador**, verá que la definición de compilación se ha configurado en cada protección de forma predeterminada.<br/> ![][26] <br/> En la pestaña **Proceso**, puede ver que el entorno de implementación se ha configurado con el nombre del servicio en la nube o el sitio web. Si trabaja con sitios web, verá propiedades diferentes a las que se muestran aquí.<br/> ![][27] <br/> Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades para la publicación de Azure se encuentran en la sección Implementación. En la tabla siguiente se muestran las propiedades disponibles en la sección Implementación: <table> <tr><td><b>Propiedad</b></td><td><b>Valor predeterminado</b></td></tr>
 ><tr><td>Permitir certificados que no son de confianza</td><td>Si el valor es false, los certificados SSL deben estar firmados por una entidad de certificación raíz.</td></tr>
-<tr><td>Permitir actualización</td><td>Permite actualizar una implementación existente en lugar de crear una nueva. Conserva la dirección IP.</td></tr>
-><tr><td>No eliminar</td><td>Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).</td></tr>
+<tr><td>Permitir actualización</td><td>Permite actualizar una implementación existente en lugar de crear una nueva. Conserva la dirección IP.</td></tr><tr><td>No eliminar</td><td>Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).</td></tr>
 <tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de un sitio web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
 <tr><td>Entorno de implementación de SharePoint</td><td>La misma que el nombre de servicio</td></tr>
 <tr><td>Entorno de implementación de Azure</td><td>Nombre del sitio web del servicio en la nube</td></tr>
-</table>
-<br/>
+</table> <br/>
 
-Si usa varias configuraciones de servicio (archivos .cscfg), puede especificar la configuración de servicio que desee en el valor **Compilación, Avanzada, Argumentos de MSBuild**. Por ejemplo, para usar ServiceConfiguration.Test.cscfg, establezca la opción /p:TargetProfile=Test de la línea de argumentos de MSBuild.<br/>
-![][38]
+Si usa varias configuraciones de servicio (archivos .cscfg), puede especificar la configuración de servicio que desee en el valor **Compilación, Avanzada, Argumentos de MSBuild**. Por ejemplo, para usar ServiceConfiguration.Test.cscfg, establezca la opción /p:TargetProfile=Test de la línea de argumentos de MSBuild.<br/> ![][38]
 
-11. Llegados a este punto, la compilación debería haber finalizado correctamente.<br/>
-![][28]
+11. Llegados a este punto, la compilación debería haber finalizado correctamente.<br/> ![][28]
 
-12. Si se hace doble clic en el nombre de la compilación, Visual Studio muestra un **Resumen de la compilación** en el que se incluyen los resultados de las pruebas de los proyectos de pruebas unitarias asociados.<br/>
-![][29]
+12. Si se hace doble clic en el nombre de la compilación, Visual Studio muestra un **Resumen de la compilación** en el que se incluyen los resultados de las pruebas de los proyectos de pruebas unitarias asociados.<br/> ![][29]
 
-13. En el [Portal de Azure](http://manage.windowsazure.com) puede ver la implementación asociada en la pestaña Implementaciones cuando se selecciona el entorno de ensayo.<br/>
-![][30]
+13. En el [Portal de Azure](http://manage.windowsazure.com) puede ver la implementación asociada en la pestaña Implementaciones cuando se selecciona el entorno de ensayo.<br/> ![][30]
 
-14.	Vaya a la dirección URL del sitio. Para un sitio web, simplemente haga clic en el botón Examinar de la barra de comandos. Para un servicio en la nube, elija la dirección URL de la sección **Vista rápida** de la página **Panel** que muestra el entorno de ensayo de un servicio en la nube. Las implementaciones de la integración continua para los servicios en la nube se publican de forma predeterminada en el entorno de ensayo. Puede cambiarlo configurando la propiedad Entorno del servicio de nube alternativo en Producción. Esta captura de pantalla indica en qué parte del sitio en la página del panel del servicio en la nube está la dirección URL: <br/>
-![][31]
-<br/>
-Se abrirá una nueva pestaña del explorador para mostrar el sitio que se está ejecutando.<br/>
-![][32]
+14.	Vaya a la dirección URL del sitio. Para un sitio web, simplemente haga clic en el botón Examinar de la barra de comandos. Para un servicio en la nube, elija la dirección URL de la sección **Vista rápida** de la página **Panel** que muestra el entorno de ensayo de un servicio en la nube. Las implementaciones de la integración continua para los servicios en la nube se publican de forma predeterminada en el entorno de ensayo. Puede cambiarlo configurando la propiedad Entorno del servicio de nube alternativo en Producción. Aquí es donde está la dirección URL del sitio en la página del panel del servicio en la nube: <br/> ![][31] <br/> se abrirá una nueva pestaña del explorador para mostrar el sitio en ejecución.<br/> ![][32]
 
-15.	Para los servicios en la nube, si realiza otros cambios en el proyecto, debe desencadenar más compilaciones y acumular varias implementaciones. La última de ellas marcada como Activa.<br/>
-![][33]
+15.	Para los servicios en la nube, si realiza otros cambios en el proyecto, debe desencadenar más compilaciones y acumular varias implementaciones. La última de ellas marcada como Activa.<br/> ![][33]
 
-<h2> <a name="step5"> </a>Paso 5: Vuelva a implementar una compilación anterior</h2>
+<h2> <a name="step5"> </a>Paso 5: volver a implementar una compilación anterior</h2>
 
-Este paso se aplica a los servicios en la nube y es opcional. En el Portal de administración, seleccione una implementación anterior y haga clic en el botón **Implementar de nuevo** para que el sitio vuelva a una protección anterior. Tenga en cuenta que esta acción desencadenará una nueva compilación en TFS y creará una nueva entrada en el historial de implementación.<br/>
-![][34]
+Este paso se aplica a los servicios en la nube y es opcional. En el Portal de administración, seleccione una implementación anterior y haga clic en **Volver a implementar** para devolver el sitio a una protección anterior. Tenga en cuenta que esto desencadenará una nueva compilación en TFS y creará una nueva entrada en el historial de implementación.<br/> ![][34]
 
-<h2> <a name="step6"> </a>Paso 6: Cambie la implementación de producción</h2>
+<h2> <a name="step6"> </a>Paso 6: cambiar la implementación de producción</h2>
 
-Este paso solo se aplica a los servicios en la nube, no a los sitios web. Cuando esté preparado, puede promover el entorno de ensayo al de producción haciendo clic en el botón Intercambiar del Portal de administración. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.<br/>
-![][35]
+Este paso solo se aplica a los servicios en la nube, no a los sitios web. Cuando esté preparado, puede promover el entorno de ensayo al de producción haciendo clic en el botón Intercambiar del Portal de administración. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y de ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.<br/> ![][35]
 
-<h2> <a name="step7"> </a>Paso 7: Ejecute pruebas unitarias</h2>
+<h2> <a name="step7"> </a>Paso 7: ejecutar pruebas unitarias</h2>
 
 Este paso se aplica únicamente a los sitios web, no a los servicios en la nube. Para establecer una prueba de calidad en su implementación, puede ejecutar pruebas unitarias y, en caso de error, puede detener la implementación.
 
-1.  En Visual Studio, agregue un proyecto de prueba unitaria.<br/>
-![][39]
+1.  En Visual Studio, agregue un proyecto de prueba unitaria.<br/> ![][39]
 
-2.  Agregue referencias de proyecto al proyecto que desee probar.<br/>
-![][40]
+2.  Agregue referencias de proyecto al proyecto que desee probar.<br/> ![][40]
 
 3.  Agregue algunas pruebas unitarias. Para empezar, haga una prueba ficticia que siempre se supere.
 
@@ -204,25 +152,15 @@ Este paso se aplica únicamente a los sitios web, no a los servicios en la nube.
 4.  Edite la definición de la compilación, elija la pestaña Proceso y expanda el nodo Prueba.
 
 
-5.  Establezca **Suspender compilación tras error de pruebas** en True. Esto significa que la implementación no se producirá a menos que se superen las pruebas.<br/>
-![][41]
+5.  Establezca **Suspender compilación tras error de pruebas** en True. Esto significa que la implementación no se producirá a menos que se superen las pruebas.<br/> ![][41]
 
-6.  Ponga en cola una nueva compilación.<br/>
-![][42]
-<br/>
-![][43]
+6.  Ponga en cola una nueva compilación.<br/> ![][42] <br/> ![][43]
 
-7. Mientras se desarrolla la compilación, compruebe su progreso.<br/>
-![][44]
-<br/>
-![][45]
+7. Mientras se desarrolla la compilación, compruebe su progreso.<br/> ![][44] <br/> ![][45]
 
-7. Una vez terminada la compilación, compruebe los resultados de la prueba.<br/>
-![][46]
-<br/>
-![][47]
+7. Una vez terminada la compilación, compruebe los resultados de la prueba.<br/> ![][46] <br/> ![][47]
 
-8.  Pruebe a crear una prueba que provoque un error. Agregue una nueva prueba copiando la primera, cámbiele el nombre y comente que la línea de código que indica NotImplementedException es una excepción esperada. 
+8.  Pruebe a crear una prueba que provoque un error. Agregue una nueva prueba copiando la primera, cámbiele el nombre y comente que la línea de código que indica NotImplementedException es una excepción esperada.
 
 		[TestMethod]
 		//[ExpectedException(typeof(NotImplementedException))]
@@ -231,25 +169,21 @@ Este paso se aplica únicamente a los sitios web, no a los servicios en la nube.
 		    throw new NotImplementedException();
 		}
 
-9. Registre el cambio para poner en cola una nueva compilación.<br/>
-![][48]
+9. Proteja el cambio para poner en cola una nueva compilación.<br/> ![][48]
 
-10. Consulte los resultados de la prueba para ver los detalles del error.<br/>
-![][49]
-<br/>
-![][50]
+10. Consulte los resultados de la prueba para ver los detalles del error.<br/> ![][49] <br/> ![][50]
 
-Para obtener más información sobre las pruebas unitarias en Visual Studio Online, consulte [Ejecutar pruebas unitarias en una compilación](http://go.microsoft.com/fwlink/p/?LinkId=510474).
+Para obtener más información sobre las pruebas unitarias en Visual Studio Online, consulte [Ejecución de pruebas unitarias en una compilación](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-Para obtener más información, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Si usa Git, vea [Compartir su código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y [Publicación en sitios web de Azure con Git](web-sites-publish-source-control.md).
+Para obtener más información, consulte Visual [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Si usa Git, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y [Publicación en Sitios web Azure con Git](web-sites-publish-source-control.md).
 
-[Paso 1: Cree un proyecto de equipo.]: #step1
-[Paso 2: Registre un proyecto para el control de código fuente]: #step2
-[Paso 3: Conecte el proyecto a Azure]: #step3
-[Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar]: #step4
-[Paso 5: Vuelva a implementar una compilación anterior (opcional)]: #step5
-[Paso 6: Cambie la implementación de producción (solo servicios en la nube)]: #step6
-[Paso 7: Ejecute pruebas unitarias (opcional)]: #step7
+[Paso 1: crear un proyecto de equipo.]: #step1
+[Paso 2: proteger un proyecto para el control de código fuente.]: #step2
+[Paso 3: conectar el proyecto a Azure.]: #step3
+[Paso 4: realizar cambios, desencadenar una recompilación y volver a implementar.]: #step4
+[Paso 5: volver a implementar una compilación anterior (opcional)]: #step5
+[ Paso 6: cambiar la implementación de producción (solo servicios en la nube)]: #step6
+[Paso 7: ejecutar pruebas unitarias (opcional)]: #step7
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
 [1]: ./media/cloud-services-continuous-delivery-use-vso/tfs1.png
 [2]: ./media/cloud-services-continuous-delivery-use-vso/tfs2.png
@@ -302,4 +236,4 @@ Para obtener más información, consulte [Visual Studio Online](http://go.micros
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,60 +1,55 @@
-﻿<properties 
+<properties 
 	pageTitle="Acceso a la información de gráficos de Azure Active Directory (Tienda Windows) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo acceder a la información de Active Directory de Azure con la API Graph en su aplicación de la Tienda Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 # Acceso a información de Azure Active Directory Graph
 
+
 [AZURE.INCLUDE [mobile-services-selector-aad-graph](../includes/mobile-services-selector-aad-graph.md)]
+##Información general
+
+Al igual que los demás proveedores de identidades que ofrece Servicios móviles, El proveedor Azure Active Directory (AAD) admite también una completa biblioteca denominada API Graph que se puede usar para obtener acceso mediante programación al directorio. En este tutorial, va a actualizar la aplicación ToDoList para personalizar la experiencia de aplicación del usuario autenticado devolviendo información de usuario adicional que recuperará del directorio usando la [API de REST Graph].
+
+Para obtener más información acerca de la API de Azure AD Graph, consulte el [Blog del equipo de Azure Active Directory Graph].
+
+>[AZURE.NOTE]La finalidad de este tutorial es ampliar sus conocimientos sobre autenticación con Azure Active Directory. Debe haber realizado antes el tutorial [Incorporación de autenticación a la aplicación] usando el proveedor de autenticación de Azure Active Directory. Este tutorial continúa la actualización de la aplicación TodoItem que se usa en el tutorial [Incorporación de autenticación a la aplicación].
 
 
-Al igual que los demás proveedores de identidades que ofrece Servicios móviles, El proveedor Azure Active Directory (AAD) admite también una completa biblioteca denominada [API Graph] que se puede usar para obtener acceso mediante programación al directorio. En este tutorial, va a actualizar la aplicación ToDoList para personalizar la experiencia de aplicación del usuario autenticado de acuerdo con información de usuario adicional que recuperará del directorio usando la biblioteca [API Graph].
-
->[AZURE.NOTE] La finalidad de este tutorial es ampliar sus conocimientos sobre autenticación con Azure Active Directory. Debe haber realizado antes el tutorial [Introducción a la autenticación] usando el proveedor de autenticación de Azure Active Directory. Este tutorial continua para actualizar la aplicación TodoItem usada en el tutorial [Introducción a la autenticación].
-
-
-
-Este tutorial le guiará para llevar a cabo los siguientes pasos:
-
-
-1. [Generación de una clave de acceso para el registro de la aplicación en AAD]
-2. [Creación de una API GetUserInfo personalizada] 
-3. [Actualización de la aplicación para usar la API personalizada]
-4. [Prueba de la aplicación]
 
 ##Requisitos previos 
 
 Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
-+ [Introducción a la autenticación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
++ [Agregar autenticación a su aplicación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
-+ [Tutorial sobre API personalizadas]<br/>Muestra cómo llamar a una API personalizada. 
-
-
-
-## <a name="generate-key"></a>Generación de una clave de acceso para el registro de la aplicación en AAD
++ [Tutorial sobre API personalizadas]<br/>Muestra cómo llamar a una API personalizada.
 
 
-Durante el tutorial [Introducción a la autenticación], creó un registro para la aplicación integrada cuando completó el paso [Registro para usar un inicio de sesión de Azure Active Directory]. En esta sección, generará una clave que se usará cuando se lea información de directorios con el identificador de cliente de esa aplicación integrada. 
+
+##Generación de una clave de acceso para el registro de la aplicación en AAD
+
+
+Durante el tutorial [Incorporación de autenticación a la aplicación], creó un registro para la aplicación integrada cuando realizó el paso [Registro para usar un inicio de sesión de Azure Active Directory]. En esta sección, generará una clave que se usará cuando se lea información de directorios con el identificador de cliente de esa aplicación integrada.
 
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
 
-## <a name="create-api"></a>Creación de una API GetUserInfo personalizada
+##Creación de una API GetUserInfo personalizada
 
 En esta sección, creará la API personalizada GetUserInfo que usará la [API REST Graph] para recuperar de AAD más información sobre el usuario.
 
@@ -73,7 +68,7 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
 
 
 
-3. Agregue la siguiente definición para la función  `getAADToken`.
+3. Agregue la siguiente definición para la función `getAADToken`.
 
         function getAADToken(callback) {
             var req = require("request");
@@ -93,9 +88,9 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
             });
         }
 
-    Dado el  *tenant_domain*, el  *client id* de la aplicación integrada y la  *key* de la aplicación, esta función proporciona un token de acceso Graph usado para leer información de directorio.
+    Dados los valores de *tenant_domain*, *client id* de la aplicación integrada y *key* de la aplicación, esta función proporciona un token de acceso a Graph que se usa para leer información de directorios.
 
-4. Agregue la siguiente función  `getUser`, que usa la API Graph para devolver la información del usuario.
+4. Agregue la siguiente función `getUser`, que usa la API Graph para devolver la información del usuario.
 
         function getUser(access_token, objectId, callback) {
             var req = require("request");
@@ -114,7 +109,7 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
 
     Esta función es un contenedor ligero en torno al extremo [Get User] de la API REST Graph. Utiliza el token de acceso de Graph para obtener la información del usuario usando el identificador de objeto del usuario.
 
-5. Actualice el método  `get` exportado como se indica a continuación para devolver la información del usuario usando otras funciones.
+5. Actualice el método `get` exportado como se indica a continuación para devolver la información del usuario usando otras funciones.
 
         exports.get = function (request, response) {
             if (request.user.level == 'anonymous') {
@@ -144,10 +139,10 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
         };
 
 
-## <a name="update-app"></a>Actualización de la aplicación para que use GetUserInfo
+##Actualización de la aplicación para que use GetUserInfo
 
 
-En esta sección, va a actualizar el método  `AuthenticateAsync` que implementó en el tutorial [Introducción a la autenticación] para que llame a la API personalizada y devuelva más información sobre el usuario de AAD. 
+En esta sección, va a actualizar el método `AuthenticateAsync` que implementó en el tutorial [Introducción a la autenticación] para que llame a la API personalizada y devuelva más información sobre el usuario de AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
 
@@ -155,41 +150,35 @@ En esta sección, va a actualizar el método  `AuthenticateAsync` que implement�
  
 
 
-## <a name="test-app"></a>Prueba de la aplicación
+##Prueba de la aplicación
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 
 
-##<a name="next-steps"></a>Pasos siguientes
+##Pasos siguientes
 
-En el próximo tutorial, [Control de acceso basado en roles con Azure Active Directory en Servicios móviles], usará control de acceso basado en roles con Azure Active Directory (AAD) para comprobar la pertenencia a grupos antes de permitir el acceso. 
+En el próximo tutorial, [Control de acceso basado en roles con Azure Active Directory en Servicios móviles], usará control de acceso basado en roles con Azure Active Directory (AAD) para comprobar la pertenencia a grupos antes de permitir el acceso.
 
 
-<!-- Anchors. -->
-[Generación de una clave de acceso para el registro de la aplicación en AAD]: #generate-key
-[Creación de una API GetUserInfo personalizada]: #create-api
-[Actualización de la aplicación para usar la API personalizada]: #update-app
-[Prueba de la aplicación]: #test-app
-[Pasos siguientes]:#next-steps
 
 <!-- Images -->
 [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
 
 
 <!-- URLs. -->
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Registro en Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Agregar autenticación a su aplicación]: mobile-services-windows-store-dotnet-get-started-users.md
+[Incorporación de autenticación a la aplicación]: mobile-services-windows-store-dotnet-get-started-users.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Tutorial sobre API personalizadas]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
-[Almacenamiento de scripts de servidor]: /es-es/documentation/articles/mobile-services-store-scripts-source-control/
-[Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-[API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Tutorial sobre API personalizadas]: mobile-services-windows-store-dotnet-call-custom-api.md
+[Store Server Scripts]: mobile-services-store-scripts-source-control.md
+[Registro para usar un inicio de sesión de Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
+[Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [API REST Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[API de REST Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
-[Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
-
-
-
-<!--HONumber=42-->
+[Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
+[Blog del equipo de Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
+<!--HONumber=54-->

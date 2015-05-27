@@ -3,43 +3,43 @@
 	description="Obtenga información acerca de cómo usar el servicio de SendGrid para enviar correo electrónico desde su aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="thinkingserious" 
+	authors="Erikre" 
 	manager="sendgrid" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/27/2014" 
-	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
+	ms.date="04/24/2015" 
+	ms.author="Erikre"/>
 
 
-# Envío de correo electrónico desde Servicios móviles con SendGrid
+# Envío de correo electrónico desde servicios móviles con SendGrid
 
 En este tema se describe cómo agregar la funcionalidad de correo electrónico al servicio móvil. En este tutorial se demuestra cómo agregar scripts del lado servidor para enviar correo electrónico mediante SendGrid. Cuando haya finalizado, el servicio móvil le enviará un correo electrónico cada vez que se inserte un registro.
 
-SendGrid es un [servicio de correo electrónico basado en la nube] (en inglés) que proporciona un sistema fiable de [entrega de correos electrónicos transaccional] (en inglés), escalabilidad y análisis en tiempo real, además de API flexibles que facilitan la integración personalizada. Para obtener más información, consulte <http://sendgrid.com>.
+SendGrid es un [servicio de correo electrónico basado en la nube] que proporciona un sistema fiable de [entrega de correos electrónicos transaccional], escalabilidad y análisis en tiempo real junto con API flexibles que facilitan la integración personalizada. Para obtener más información, consulte <http://sendgrid.com>.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar la funcionalidad de correo electrónico:
 
 1. [Creación de una cuenta de SendGrid]
 2. [Incorporación de un script para enviar correo electrónico]
-3. [Inserción de datos para recibir correos electrónicos]
+3. [Inserción de datos para recibir correo electrónico]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles]. 
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, debe leer [Introducción a los Servicios móviles].
 
-<h2><a name="sign-up"></a>Creación de una cuenta de SendGrid</h2>
+## <a name="sign-up"></a>Creación de una cuenta de SendGrid
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-<h2><a name="add-script"></a>Registro de un nuevo script que envía mensajes de correo electrónico</h2>
+## <a name="add-script"></a>Registro de un nuevo script que envía mensajes de correo
 
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego en su servicio móvil.
 
-2. En el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**. 
+2. En el Portal de administración, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
 	![][1]
 
@@ -86,23 +86,23 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 	- **_email-address_**: la dirección a la que se envía el correo electrónico. En una aplicación en tiempo real, puede usar tablas para almacenar y recuperar direcciones de correo electrónico. Al probar la aplicación, use su propia dirección de correo electrónico.
 
-	- **_from-address_**: la dirección de la que procede el correo electrónico. Considere usar una dirección de dominio registrada que pertenezca a su organización. 
+	- **_from-address_**: la dirección de la que procede el correo electrónico. Considere usar una dirección de dominio registrada que pertenezca a su organización.
 
-     > [AZURE.NOTE] Si no tiene un dominio registrado, puede usar en su lugar el dominio de su servicio móvil, con el formato  *notifications@_your-mobile-service_.azure-mobile.net*. No obstante, se ignoran los mensajes enviados al dominio del servicio móvil.
+     >[AZURE.NOTE]Si no tiene un dominio registrado, puede utilizar en su lugar el dominio del servicio móvil, en el formato *notifications@_your-mobile-service_.azure-mobile.net*. No obstante, se ignoran los mensajes enviados al dominio del servicio móvil.
 
 6. Haga clic en el botón **Save** (Guardar). Ahora ha configurado un script para enviar un correo electrónico cada vez que se inserta un registro en la tabla **TodoItem**.
 
-<h2><a name="insert-data"></a>Inserción de datos de prueba para recibir correos electrónicos</h2>
+## <a name="insert-data"></a>Inserción de datos de prueba para recibir correo electrónico
 
 1. En el proyecto de la aplicación cliente, ejecute la aplicación de inicio rápido. 
 
 	En este tema se muestra la versión de inicio rápido de la Tienda Windows.
 
-2. En la aplicación, escriba un texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
+2. En la aplicación, escriba un texto en **Insertar in TodoItem** y haga clic en **Guardar**.
 
 	![][3]
 
-3. Tenga en cuenta que recibirá un correo electrónico, como el que se muestra en la notificación siguiente. 
+3. Tenga en cuenta que recibirá un correo electrónico, como el que se muestra en la notificación siguiente.
 
 	![][4]
 
@@ -110,18 +110,15 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 ## <a name="nextsteps"> </a>Pasos siguientes
 
-Ahora que ha visto lo fácil que es usar el servicio de correo electrónico SendGrid con Servicios móviles, consulte
-estos vínculos para obtener más información acerca de SendGrid.
+Ahora que ya sabe lo fácil que resulta usar el servicio de correo electrónico SendGrid con Servicios móviles, siga estos vínculos para obtener más información acerca de SendGrid.
 
--   Documentación sobre la API de SendGrid:
-    <https://sendgrid.com/docs>
--   Oferta especial de SendGrid para clientes de Azure:
-    <https://sendgrid.com/windowsazure.html>
+-   Documentación sobre la API de SendGrid: <https://sendgrid.com/docs>
+-   Oferta especial de SendGrid para clientes de Azure: <https://sendgrid.com/windowsazure.html>
 
 <!-- Anchors. -->
 [Creación de una cuenta de SendGrid]: #sign-up
 [Incorporación de un script para enviar correo electrónico]: #add-script
-[Inserción de datos para recibir correos electrónicos]: #insert-data
+[Inserción de datos para recibir correo electrónico]: #insert-data
 
 <!-- Images. -->
 [1]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-portal-data-tables.png
@@ -130,17 +127,12 @@ estos vínculos para obtener más información acerca de SendGrid.
 [4]: ./media/store-sendgird-mobile-services-send-email-scripts/mobile-receive-email.png
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
-[página de suscripción]: https://sendgrid.com/windowsazure.html
-[Página de varias credenciales de usuario]: https://sendgrid.com/credentials
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started
+[sign up page]: https://sendgrid.com/windowsazure.html
+[Multiple User Credentials page]: https://sendgrid.com/credentials
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
-[entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
+[entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
 
-
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

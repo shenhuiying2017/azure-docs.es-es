@@ -1,6 +1,6 @@
-﻿1. En el proyecto de su **aplicación**, abra el archivo `AndroidManifest.xml`. En el código que aparece en los próximos dos pasos, reemplace _`**my_app_package**`_ por el nombre del paquete de la aplicación del proyecto, que es el valor del atributo  `package` de la etiqueta  `manifest`. 
+1. En el proyecto de su **aplicación**, abra el archivo `AndroidManifest.xml`. En el código que aparece en los próximos dos pasos, reemplace _`**my_app_package**`_ por el nombre del paquete de la aplicación del proyecto, que es el valor del atributo `package` de la etiqueta `manifest`. 
 
-2. Agregue los siguientes permisos nuevos después del elemento  `uses-permission` existente:
+2. Agregue los siguientes permisos nuevos después del elemento `uses-permission` existente:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -9,7 +9,7 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Agregue el siguiente código después de la etiqueta de apertura  `application`: 
+3. Agregue el siguiente código después de la etiqueta de apertura `application`:
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             						 	android:permission="com.google.android.c2dm.permission.SEND">
@@ -20,7 +20,7 @@
         </receiver>
 
 
-4. Agregue estas líneas en *dependencies* en el archivo **build.gradle** del directorio de aplicación: 
+4. Agregue estas líneas en *dependencies* en el archivo **build.gradle** del directorio de aplicación:
 
 	    compile 'com.google.guava:guava:18.0'
 	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0-beta'
@@ -28,7 +28,7 @@
    		compile 'com.google.android.gms:play-services-base:6.5.87'
 
 
-5. Abra el archivo *ToDoItemActivity.java* y agregue la siguiente instrucción import:
+5. Abra el archivo *ToDoItemActivity.java* y agregue la siguiente instrucción de importación:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
@@ -37,7 +37,7 @@
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. Cambie la definición de *MobileServiceClient* de **private** a **public static**, para que presente el siguiente aspecto:
+7. Cambie la definición de *MobileServiceClient* de **privado** a **público estático**, por lo que ahora presenta el siguiente aspecto:
 
 		public static MobileServiceClient mClient;
 
@@ -45,18 +45,18 @@
 
 8. A continuación, necesitamos agregar una nueva clase para controlar las notificaciones. En el Explorador de proyectos, busque el nodo `src`, ábralo y haga clic con el botón secundario en el nodo del nombre de paquete: haga clic en **Nuevo** y, a continuación, en **Clase Java**.
 
-9. En **Nombre** escriba `MyHandler` y, a continuación, haga clic en **Aceptar**. 
+9. En **Nombre** escriba `MyHandler` y, a continuación, haga clic en **Aceptar**.
 
 
 	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
 
 
-10. En el archivo MyHandler, reemplace la declaración de clase con 
+10. En el archivo MyHandler, reemplace la declaración de clase con
 
 		public class MyHandler extends NotificationsHandler {
 
 
-11. Agregue las siguientes instrucciones para la clase  `MyHandler`:
+11. Agregue las siguientes instrucciones para la clase `MyHandler`:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -67,7 +67,7 @@
 		import android.support.v4.app.NotificationCompat;
 
 	
-12. A continuación, agregue los miembros siguientes para la clase  `MyHandler`:
+12. A continuación, agregue los miembros siguientes para la clase `MyHandler`:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -98,7 +98,7 @@
 
 
 
-14. En la clase  `MyHandler`, agregue el siguiente código para invalidar el método **onReceive**, que ocasiona que se visualice la notificación al recibirla.
+14. En la clase `MyHandler`, agregue el siguiente código para invalidar el método **onReceive**, que ocasiona que se visualice la notificación al recibirla.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -128,14 +128,14 @@
 		}
 
 
-15. En el archivo TodoActivity.java, actualice el método **onCreate** de la clase *ToDoActivity* para registrar la clase de controlador de notificaciones. Asegúrese de agregar este código después de que se cree una instancia de *MobileServiceClient*.
+15. En el archivo TodoActivity.java, actualice el método **onCreate** de la clase *ToDoActivity* para registrar la clase de controlador de notificación. Asegúrese de agregar este código después de crear una instancia de *MobileServiceClient*.
 
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-    Ahora su aplicación está actualizada para que sea compatible con las notificaciones de inserción.
+    Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
 
 <!-- URLs. -->
-[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
 
-<!--HONumber=47-->
+<!--HONumber=54-->

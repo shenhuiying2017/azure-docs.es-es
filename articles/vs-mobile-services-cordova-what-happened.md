@@ -1,24 +1,26 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Describe qué ha ocurrido con el proyecto de Servicio móvil de Azure en Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# ¿Qué le ha ocurrido a mi proyecto?
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-mobile-services-cordova-getting-started.md)
-> - [¿Qué ha ocurrido?](vs-mobile-services-cordova-what-happened.md)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</span>
 
@@ -28,7 +30,7 @@ Se ha habilitado el complemento de cliente de servicio móvil de Azure con todas
   
 #####Conexión de valores de cadena para Servicios móviles
 
-En  `services\mobileServices\settings`, se ha generado un nuevo archivo JavaScript (.js) con **MobileServiceClient** que contiene la dirección URL y la clave de aplicación del servicio móvil seleccionado. El archivo contiene la inicialización de un objeto de cliente de servicio móvil, similar al código siguiente.
+En `services\mobileServices\settings`, se ha generado un nuevo archivo JavaScript (.js) con **MobileServiceClient** que contiene la dirección URL y la clave de aplicación del servicio móvil seleccionado. El archivo contiene la inicialización de un objeto de cliente de servicio móvil, similar al código siguiente.
 
 	var mobileServiceClient;
 	document.addEventListener("deviceready", function() {
@@ -38,8 +40,4 @@ En  `services\mobileServices\settings`, se ha generado un nuevo archivo JavaScri
 	    );
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

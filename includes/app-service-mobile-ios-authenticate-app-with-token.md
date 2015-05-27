@@ -1,7 +1,7 @@
-﻿
+
 El ejemplo anterior muestra un inicio de sesión estándar, que requiere que el cliente se ponga en contacto tanto con el proveedor de identidades como con el Servicio de aplicaciones cada vez que se inicia la aplicación. Este método es ineficaz, por lo que sería aconsejable almacenar en la caché el token de autorización devuelto por el Servicio de aplicaciones e intentar usarlo antes de utilizar un inicio de sesión basado en proveedor.
 
-1. Para cifrar y almacenar tokens de autenticación en un cliente iOS, se recomienda usar iOS Keychain. En este tutorial se usa [SSKeychain](https://github.com/soffes/sskeychain) (un contenedor simple de iOS Keychain). Siga las instrucciones de la página de SSKeychain para agregarlo al proyecto. Compruebe que el valor **Habilitar módulos** está habilitado en la opción **Configuración de compilación** del proyecto (sección **Apple LLVM - Idiomas - Módulos**)-
+1. Para cifrar y almacenar tokens de autenticación en un cliente iOS, se recomienda usar iOS Keychain. En este tutorial se usa [SSKeychain](https://github.com/soffes/sskeychain) (un contenedor simple de iOS Keychain). Siga las instrucciones de la página de SSKeychain para agregarlo al proyecto. Compruebe que el valor **Habilitar módulos** está habilitado en la opción **Configuración de compilación** (sección **Apple LLVM - Idiomas - Módulos**) del proyecto.
 
 2. Abra **QSTodoListViewController.m** y agregue el siguiente código:
 
@@ -21,12 +21,12 @@ El ejemplo anterior muestra un inicio de sesión estándar, que requiere que el 
 		    }
 		}
 
-3. Al final del método **viewDidAppear** de **QSTodoListViewController.m** agregue una llamada a **saveAuthInfo** inmediatamente antes de la línea `[self refresh]`. Con esta llamada, simplemente se almacenan el Id. de usuario y las propiedades del token:
+3. En el método `loginAndGetData`, modifique el bloque de finalización de la llamada `loginWithProvider:controller:animated:completion:` mediante la adición de una llamada a `saveAuthInfo` justo antes de la línea `[self refresh]`. Con esta llamada, simplemente se almacenan el Id. de usuario y las propiedades del token:
 
 				[self saveAuthInfo];
 
-4. También se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En el método **viewDidLoad** en **QSTodoListViewController.m**, agregue una llamada a loadAuthInfo inmediatamente después de que se haya inicializado **self.todoService**.
+4. También se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En el método `viewDidLoad` en **QSTodoListViewController.m**, agregue una llamada a loadAuthInfo inmediatamente después de que se haya inicializado `self.todoService`.
 
 				[self loadAuthInfo];
 
-<!--HONumber=49-->
+<!--HONumber=54-->

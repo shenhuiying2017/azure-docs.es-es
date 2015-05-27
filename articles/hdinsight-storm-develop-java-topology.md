@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Desarrollo de las topologías basadas en Java para Apache Storm en HDInsight | Azure"
    description="Aprenda a crear topologías de Storm en Java mediante la creación de una topología de recuento de palabras sencilla."
    services="hdinsight"
@@ -13,42 +13,42 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-# Desarrollo basado en Java topologías para Apache Storm en HDInsight
+#Desarrollo basado en Java topologías para Apache Storm en HDInsight
 
-Aprenda el proceso básico para crear una topología basada en Java para Apache Storm en HDInsight mediante Maven. Le guiará a través del proceso de creación de una aplicación de recuento de palabras básica mediante el uso de Maven y Java. Aunque en las instrucciones se indica el uso de Eclipse, también puede usar el editor de texto de su elección.
+Aprenda un proceso básico de creación de una topología basada en Java para Apache Storm en HDInsight mediante Maven. Le guiará a través del proceso de creación de una aplicación básica de recuento de palabras mediante el uso de Maven y Java. Aunque en las instrucciones se indica el uso de Eclipse, también puede usar el editor de texto de que prefiera.
 
 Después de completar los pasos descritos en este documento, tendrá una topología básica que puede implementar en Apache Storm en HDInsight.
 
-## Requisitos previos
+##Requisitos previos
 
 * <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html" target="_blank">Kit de desarrolladores de Java (JDK) versión 7</a>
 
-* <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a>: Maven es un sistema de compilación de proyectos para proyectos Java.
+* <a href="https://maven.apache.org/download.cgi" target="_blank">Maven</a>: Maven es un sistema de compilación de proyectos para proyectos de Java.
 
-* Un editor de texto como <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a> o Bloc de notas. O un entorno de desarrollo integrado (IDE), como <a href="https://eclipse.org/" target="_blank">Eclipse</a> (versión Luna o posterior).
+* Un editor de texto como Bloc de notas, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>. O puede usar un entorno de desarrollo integrado (IDE), como <a href="https://eclipse.org/" target="_blank">Eclipse</a> (versión Luna o posterior).
 
-	> [AZURE.NOTE] El editor o IDE puede tener una funcionalidad específica para trabajar con Eclipse que no se trata en este documento. Para obtener información sobre las capacidades de su entorno de edición, consulte la documentación del producto que esté utilizando.
+	> [AZURE.NOTE]El editor o IDE puede tener una funcionalidad específica para trabajar con Eclipse que no se trata en este documento. Para obtener información sobre las capacidades de su entorno de edición, consulte la documentación del producto que esté utilizando.
 
-## Configuración de las variables de entorno
+##Configuración de las variables de entorno
 
-Se pueden establecer las siguientes variables de entorno en la instalación de Java y el SDK; sin embargo, debe comprobar que existen y que contienen los valores correctos para su sistema
+Pueden establecer las siguientes variables de entorno al instalar Java y el JDK. Sin embargo, debe comprobar que existen y que contienen los valores correctos para su sistema.
 
-* **JAVA_HOME**: debe apuntar al directorio donde está instalado Java Runtime Environment (JRE). Por ejemplo, en una distribución de Unix o Linux, debe tener un valor similar a `/usr/lib/jvm/java-7-oracle`. En Windows, tendría un valor similar a "c:\Program Files (x86)\Java\jre1.7".
+* **JAVA_HOME**: debe apuntar al directorio donde está instalado Java Runtime Environment (JRE). Por ejemplo, en una distribución de Unix o Linux, debe tener un valor similar a `/usr/lib/jvm/java-7-oracle`. En Windows, tendría un valor similar a `c:\Program Files (x86)\Java\jre1.7`.
 
 * **PATH**: debe contener las rutas de acceso siguientes:
 
-	* **JAVA_HOME** o la ruta de acceso equivalente
+	* **JAVA_HOME** (o la ruta de acceso equivalente).
 
-	* **JAVA_HOME\bin** o la ruta de acceso equivalente
+	* **JAVA_HOME\\bin** (o la ruta de acceso equivalente).
 
 	* El directorio donde está instalado Maven
 
-## Creación de un nuevo proyecto de Maven
+##Creación de un nuevo proyecto de Maven
 
-Desde la línea de comandos, utilice lo siguiente para crear un nuevo proyecto de Maven denominado **WordCount**.
+Desde la línea de comandos, use el siguiente código para crear un nuevo proyecto de Maven denominado **WordCount**:
 
 	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
@@ -58,21 +58,21 @@ El directorio **WordCount** contendrá los siguientes elementos:
 
 * **pom.xml**: contiene la configuración del proyecto de Maven
 
-* **src\main\java\com\microsoft\example**: contiene el código de aplicación
+* **src\\main\\java\\com\\microsoft\\example**: contiene el código de la aplicación
 
-* **src\test\java\com\microsoft\example**: contiene pruebas para la aplicación. En este ejemplo, no crearemos pruebas
+* **src\\test\\java\\com\\microsoft\\example**: contiene pruebas para la aplicación. En este ejemplo, no se crearán pruebas.
 
-### Supresión del código de ejemplo
+###Supresión del código de ejemplo
 
-Puesto que se va a crear la aplicación desde el principio, elimine los archivos de aplicación y de prueba generados:
+Dado que se creará una aplicación propia, elimine los archivos de la aplicación y las pruebas generadas:
 
-*  **src\test\java\com\microsoft\example\AppTest.java**
+*  **src\\test\\java\\com\\microsoft\\example\\AppTest.java**
 
-*  **src\main\java\com\microsoft\example\App.java**
+*  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
-## Adición de dependencias
+##Adición de dependencias
 
-Puesto que se trata de una topología de Storm, debe agregar una dependencia para los componentes de Storm. Abra **pom.xml** y agregue lo siguiente en la sección de **&lt;dependencias>**.
+Dado que se trata de una topología de Storm, debe agregar una dependencia para los componentes de Storm. Abra el archivo **pom.xml** y agregue el código siguiente en la sección **&lt;dependencias>**.
 
 	<dependency>
 	  <groupId>org.apache.storm</groupId>
@@ -82,13 +82,13 @@ Puesto que se trata de una topología de Storm, debe agregar una dependencia par
 	  <scope>provided</scope>
 	</dependency>
 
-En tiempo de compilación, Maven utiliza esta información para buscar **storm-core** en el repositorio de Maven. Busca primero en el repositorio del equipo local. Si los archivos no están allí, se descargan desde el repositorio de Maven público y se almacenan en el repositorio local.
+En tiempo de compilación, Maven usa esta información para buscar **storm-core** en el repositorio de Maven. Busca primero en el repositorio del equipo local. Si los archivos no están allí, se descargan desde el repositorio de Maven público y se almacenan en el repositorio local.
 
-> [AZURE.NOTE] Observe la `<scope>línea</scope>` proporcionada en la sección que agregamos. Indica a Maven que excluya storm-core de los archivos Jar que creemos, ya que se proporcionará por el sistema. Esto permite que los paquetes creados que sean un poco más pequeño y se garantiza que utilizarán los bits de storm-core incluidos en el clúster de Storm en HDInsight.
+> [AZURE.NOTE]Observe la línea `<scope>provided</scope>` en la sección que se agregó. Indica a Maven que excluya **storm-core** de los archivos JAR que creemos, ya que el sistema lo proporcionará. Esto permite que los paquetes creados sean un poco más pequeños y se garantiza que usarán los bits de **storm-core** incluidos en el clúster de Storm en HDInsight.
 
-## Configuración de compilación
+##Configuración de compilación
 
-Los complementos de Maven le permiten personalizar las fases de la compilación del proyecto, por ejemplo, cómo se compila el proyecto y cómo se empaqueta en un archivo jar. Abra **pom.xml** y agregue lo siguiente directamente encima de la línea `</project>`.
+Los complementos de Maven le permiten personalizar las fases de la compilación del proyecto, por ejemplo, cómo se compila el proyecto y cómo se empaqueta en un archivo JAR. Abra el archivo **pom.xml** y agregue el código siguiente directamente encima de la línea `</project>`.
 
 	<build>
 	  <plugins>
@@ -97,9 +97,9 @@ Los complementos de Maven le permiten personalizar las fases de la compilación 
 
 Esta sección se utilizará para agregar complementos y otras opciones de configuración de compilación.
 
-### Adición de complementos
+###Agregar complementos
 
-En el caso de las topologías de Storm, el <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">complemento Exec</a> es útil, porque le permite ejecutar fácilmente la topología de manera local en su entorno de desarrollo. Agregue lo siguiente a la sección `<plugins>` de **pom.xml** para incluir el complemento exec.
+En el caso de las topologías de Storm, el <a href="http://mojo.codehaus.org/exec-maven-plugin/" target="_blank">Complemento Exec Maven</a> es útil porque le permite ejecutar fácilmente la topología de manera local en su entorno de desarrollo. Agregue lo siguiente a la sección `<plugins>` del archivo **pom.xml** para incluir el complemento Exec Maven:
 
 	<plugin>
       <groupId>org.codehaus.mojo</groupId>
@@ -120,9 +120,9 @@ En el caso de las topologías de Storm, el <a href="http://mojo.codehaus.org/exe
       </configuration>
     </plugin>
 
-Otro complemento útil es el <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">complemento Compiler</a>, que se usa para cambiar las opciones de compilación. Lo necesitamos fundamentalmente para cambiar la versión de Java que utiliza Maven para la versión de origen y destino de la aplicación; en este caso, queremos la versión 1.7.
+Otro complemento útil es el <a href="http://maven.apache.org/plugins/maven-compiler-plugin/" target="_blank">Complemento Apache Maven Compiler</a>, que se usa para cambiar las opciones de compilación. Es necesario principalmente para cambiar la versión de Java que usa Maven para el origen y destino de la aplicación. Queremos la versión 1.7.
 
-Agregue lo siguiente en la sección `<plugins>` de **pom.xml** para incluir el complemento Compiler y defina la versión de origen y de destino en 1.7.
+Agregue lo siguiente en la sección `<plugins>` del archivo **pom.xml** para incluir el complemento Apache Maven Compiler y establezca las versiones de origen y de destino en 1.7.
 
 	<plugin>
       <groupId>org.apache.maven.plugins</groupId>
@@ -133,27 +133,27 @@ Agregue lo siguiente en la sección `<plugins>` de **pom.xml** para incluir el c
       </configuration>
     </plugin>
 
-## Creación de la topología
+##Creación de la topología
 
-Una topología de Storm basada en Java consta de tres componentes que debe crear, o una referencia como dependencia.
+Una topología de Storm basada en Java consta de tres componentes que debe crear (o hacer referencia) como una dependencia.
 
-* **Spouts**: leer datos de orígenes externos y emitir secuencias de datos a la topología
+* **Spouts**: lee datos de orígenes externos y emite flujos de datos a la topología.
 
-* **Bolts**: realizar el procesamiento en secuencias emitidas por spouts u otros bolts y emitir una o varias secuencias
+* **Bolts**: realiza el procesamiento en flujos que emite spouts u otros bolts, y emite uno o varios flujos.
 
-* **Topology**: define cómo se organizan los spouts y bolts y proporciona el punto de entrada de la topología.
+* **Topology**: define cómo se organizan los spouts y bolts, y proporciona el punto de entrada de la topología.
 
-### Creación del spout
+###Creación del spout
 
-Para reducir los requisitos de la configuración de los orígenes de datos externos, el spout siguiente simplemente emite frases aleatorias. Se trata de una versión modificada de spout proporcionada con los ejemplos de Storm-Starter (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">https://github.com/apache/storm/blob/master/examples/storm-starter/</a>).
+Para reducir los requisitos de la configuración de los orígenes de datos externos, el spout siguiente simplemente emite frases aleatorias. Se trata de una versión modificada de spout que se ofrece con los (<a href="https://github.com/apache/storm/blob/master/examples/storm-starter/" target="_blank">ejemplos de Storm-Starter</a>).
 
-> [AZURE.NOTE] Para obtener un ejemplo de un spout que lee desde un origen de datos externos, consulte uno de los siguientes ejemplos.
+> [AZURE.NOTE]Para ver un ejemplo de un spout que lee desde un origen de datos externos, consulte uno de los siguientes ejemplos:
 >
 > * <a href="https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java" target="_blank">TwitterSampleSpout</a>: un spout de ejemplo que lee desde Twitter.
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a>: un spout que lee desde Kafka.
 
-Para el spout, cree un nuevo archivo denominado **RandomSentenceSpout.java** en el directorio **src\main\java\com\microsoft\example** y utilice lo siguiente como contenido.
+Para el spout, cree un nuevo archivo denominado **RandomSentenceSpout.java** en el directorio **src\\main\\java\\com\\microsoft\\example** y use lo siguiente como contenido:
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -239,19 +239,19 @@ Para el spout, cree un nuevo archivo denominado **RandomSentenceSpout.java** en 
 
 Dedique un momento para leer los comentarios del código y entender cómo funciona este spout.
 
-> [AZURE.NOTE] Aunque esta topología solo utiliza un spout, otros usuarios pueden tener varios que alimenten datos de orígenes diferentes en la topología.
+> [AZURE.NOTE]Aunque esta topología solo usa un spout, otras pueden tener varios que alimenten datos desde orígenes distintos en la topología.
 
-### Creación de los bolts
+###Creación de los bolts
 
-Los bolts controlan el procesamiento de datos. Para esta topología, tenemos dos:
+Los bolts controlan el procesamiento de datos. Para esta topología, hay dos bolts:
 
-* **SplitSentence**: divide las frases emitidas por RandomSentenceSpout en palabras individuales
+* **SplitSentence**: divide las frases que emite **RandomSentenceSpout** en palabras individuales.
 
-* **WordCount**: cuenta cuántas veces se ha producido cada palabra
+* **WordCount**: cuenta cuántas veces se ha repetido cada palabra.
 
-> [AZURE.NOTE] Los bolts pueden hacer prácticamente todo: cálculo, persistencia, hablar con componentes externos, etc.
+> [AZURE.NOTE]Los bolts pueden hacer prácticamente todo; por ejemplo, cálculo, persistencia o hablar con componentes externos.
 
-Cree dos archivos, **SplitSentence.java** y **WordCount.Java** en el directorio **src\main\java\com\microsoft\example**. Utilice lo siguiente como contenido para los archivos.
+Cree dos archivos nuevos, **SplitSentence.java** y **WordCount.Java** en el directorio **src\\main\\java\\com\\microsoft\\example**. Use lo siguiente como contenido para los archivos:
 
 **SplitSentence**
 
@@ -344,15 +344,15 @@ Cree dos archivos, **SplitSentence.java** y **WordCount.Java** en el directorio 
 
 Dedique un momento a leer los comentarios del código para comprender cómo funciona cada bolt.
 
-### Creación de la topología
+###Creación de la topología
 
 La topología vincula los spouts y los bolts juntos en un gráfico, que define cómo fluyen los datos entre los componentes. También proporciona sugerencias de paralelismos que utiliza Storm al crear instancias de los componentes dentro del clúster.
 
-Lo siguiente es un diagrama básico del gráfico de componentes para esta topología
+Lo siguiente es un diagrama básico del gráfico de componentes para esta topología.
 
-![diagram showing the spouts and bolts arrangement](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
+![diagrama que muestra la disposición de los spouts y bolts](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-Para implementar la topología, cree un nuevo archivo denominado **WordCountTopology.java** en el directorio **src\main\java\com\microsoft\example**. Utilice lo siguiente como contenido del archivo.
+Para implementar la topología, cree un nuevo archivo denominado **WordCountTopology.java** en el directorio **src\\main\\java\\com\\microsoft\\example**. Use lo siguiente como contenido del archivo:
 
 	package com.microsoft.example;
 
@@ -412,15 +412,15 @@ Para implementar la topología, cree un nuevo archivo denominado **WordCountTopo
       }
     }
 
-Dedique un momento a leer los comentarios del código para saber cómo se define la topología y después cómo se envía al clúster.
+Dedique un momento a leer los comentarios del código para saber cómo se define la topología y cómo se envía después al clúster.
 
-## Prueba de la topología de manera local
+##Prueba de la topología de manera local
 
 Después de guardar los archivos, use el comando siguiente para probar localmente la topología.
 
 	mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
-Mientras se ejecuta, la topología mostrará la información de inicio, después mostrará líneas similares a lo siguiente como frases que se emiten desde el spout y, finalmente se procesan en los bolts.
+Mientras se ejecuta, la topología mostrará información de inicio. A continuación, comenzará a mostrar líneas similares a las siguientes, a medida que se emiten frases desde el spout y los bolts las procesan.
 
     15398 [Thread-16-split] INFO  backtype.storm.daemon.executor - Processing received message source: spout:10, stream: default, id: {}, [an apple a day keeps thedoctor away]]
     15398 [Thread-16-split] INFO  backtype.storm.daemon.task - Emitting: split default [an]
@@ -438,32 +438,32 @@ Mientras se ejecuta, la topología mostrará la información de inicio, después
 
 Como puede ver en esta salida, se produjo lo siguiente:
 
-1. Spout emite "an apple a day keeps the doctor away"
+1. Spout emite "an apple a day keeps the doctor away".
 
 2. El bolt de división comienza a emitir palabras individuales de la frase.
 
 3. El bolt de recuento comienza a emitir cada palabra y cuántas veces se ha emitido.
 
-Si se consultan los datos emitidos por el bolt de recuento, 'apple' se emitió 53 veces. El recuento seguirá subiendo mientras se ejecuta la topología, como la mismas frases emitidas aleatoriamente una y otra vez y con el recuento que nunca se restablece.
+Si se consultan los datos emitidos por el bolt de recuento, podemos comprobar que "apple" se emitió 53 veces. El recuento seguirá subiendo mientras se ejecute la topología, ya que se emiten las mismas frases de forma aleatoria una y otra vez, y el recuento nunca se restablece.
 
-## Trident
+##Trident
 
-Trident es una abstracción de alto nivel proporcionada por Storm, que admite el procesamiento con estado. La principal ventaja de Trident es que puede garantizar que todos los mensajes introducidos en la topología se procesan una sola vez; esto es difícil de lograr en una topología de Java sin procesar, que garantiza que los mensajes se procesarán al menos una vez. Hay otras diferencias también, tales como componentes integrados que pueden utilizarse en lugar de crear bolts. De hecho, los bolts se reemplazarán por componentes menos genéricos como filtros, proyecciones y funciones.
+Trident es una abstracción de alto nivel que ofrece Storm. Admite el procesamiento con estado. La principal ventaja de Trident es que puede garantizar que todos los mensajes que entran en la topología se procesan una sola vez. Esto es difícil de lograr en una topología de Java, cuya garantía es que los mensajes se procesarán al menos una vez. También hay otras diferencias, como los componentes integrados que se pueden usar en lugar de crear bolts. De hecho, los bolts se reemplazan completamente por componentes menos genéricos, como filtros, proyecciones y funciones.
 
-Se pueden crear aplicaciones Trident utilizando proyectos de Maven con los mismos pasos básicos indicados más arriba, solo que el código es diferente.
+Las aplicaciones de Trident se pueden crear mediante proyectos de Maven. Siga los mismos pasos básicos que se mostraron anteriormente en este artículo; lo único diferente es el código.
 
 Para obtener más información sobre Trident, consulte <a href="http://storm.apache.org/documentation/Trident-API-Overview.html" target="_blank">Información general sobre la API de Trident</a>.
 
-Para obtener un ejemplo de una aplicación Trident, consulte [Temas más destacados de Twitter con Apache Storm en HDInsight](hdinsight-storm-twitter-trending.md)
+Para ver un ejemplo de una aplicación de Trident, consulte [Tendencias de Twitter con Apache Storm en HDInsight](hdinsight-storm-twitter-trending.md).
 
-## Pasos siguientes
+##Pasos siguientes
 
-Ha aprendido a crear una topología de Storm con Java, ahora, aprenda lo siguiente:
+Ha aprendido a crear una topología de Storm con Java. Ahora obtenga información sobre:
 
 * [Implementación y administración de topologías de Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
 * [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [Análisis de temas más destacados de Twitter con Apache Storm en HDInsight](hdinsight-storm-twitter-trending.md)
+Puede encontrar más topologías de ejemplo de Storm en [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
 
-<!--HONumber=47-->
+<!--HONumber=54-->

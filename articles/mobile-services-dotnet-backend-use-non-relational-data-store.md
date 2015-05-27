@@ -1,8 +1,8 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de un servicio mediante un almacén de datos no relacionales - Servicios móviles de Azure" 
 	description="Obtener información acerca de cómo usar un almacén de datos no relacionales como MongoDB o almacenamiento de tablas de Azure con su servicio móvil basado en .NET" 
-	services="" 
-	documentationCenter="windows" 
+	services="mobile-services" 
+	documentationCenter="" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="mollybos"/>
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/24/2015" 
 	ms.author="mahender"/>
 
 # Creación de un servicio usando MongoDB como almacén de datos con el backend .NET
@@ -68,7 +68,7 @@ Para realizar este tutorial, es necesario realizar antes el tutorial [Introducci
 
 ## <a name="modify-service"></a>Modificación de datos y controladores
 
-1. Instale el paquete de NuGet de **MicrosoftAzure.MobileServices.Backend.Mongo**.
+1. Instale el paquete **WindowsAzure.MobileServices.Backend.Mongo** NuGet.
 
 2. Modifique `TodoItem` para que se derive de `DocumentData` en lugar de `EntityData`.
 
@@ -91,16 +91,16 @@ Para realizar este tutorial, es necesario realizar antes el tutorial [Introducci
             DomainManager = new MongoDomainManager<TodoItem>(connectionStringName, databaseName, collectionName, Request, Services);
         }
 
-4. En el código del método anterior `Initialize`, sustituya **YOUR-DATABASE-NAME** por el nombre que eligió cuando se aprovisione el complemento MongoLab.
+4. En el código del método `Initialize` anterior, reemplace **YOUR-DATABASE-NAME** por el nombre que eligió cuando aprovisionó el complemento MongoLab.
 
 
-## <a name="test-application"></a>Prueba de la aplicación
+## <a name="test-application"></a>Pruebe de la aplicación
 
 1. Vuelva a publicar el proyecto de backend de servicio móvil.
 
 2. Ejecute la aplicación cliente. Tenga en cuenta que no verá ninguno de los elementos que antes se almacenaban en la base de datos SQL del tutorial de inicio rápido.
 
-3. Cree un nuevo elemento. La aplicación debe comportarse como antes, excepto que ahora los datos irán al almacén no relacional.
+3. Cree un elemento. La aplicación debe comportarse como antes, excepto que ahora los datos irán al almacén no relacional.
 
 
 <!-- Anchors. -->
@@ -115,11 +115,10 @@ Para realizar este tutorial, es necesario realizar antes el tutorial [Introducci
 
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
+[Introducción a los Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+[Introducción a los datos]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Qué es el servicio Tabla]: /es-es/documentation/articles/storage-dotnet-how-to-use-tables/#what-is
-[Página del complemento de MongoLab]: /es-es/gallery/store/mongolab/mongolab
+[What is the Table Service]: storage-dotnet-how-to-use-tables.md#what-is
+[Página del complemento MongoLab]: /gallery/store/mongolab/mongolab
 
-
-<!--HONumber=42-->
+<!--HONumber=54-->

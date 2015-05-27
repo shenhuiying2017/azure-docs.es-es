@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Integración del SDK de Windows Phone para Azure Mobile Engagement" 
-	description="Cómo usar la API de Engagement en Windows Phone" 					
+	pageTitle="Cómo usar la API de Engagement en Windows Phone Silverlight" 
+	description="Cómo usar la API de Engagement en Windows Phone Silverlight"	
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
-	editor="" /> 
+	editor="" />
 
 <tags 
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-# Cómo usar la API de Engagement en Windows Phone
+#Cómo usar la API de Engagement en Windows Phone Silverlight
 
-Este documento es un complemento al documento [Cómo integrar Mobile Engagement en su aplicación de Windows Phone](mobile-engagement-windows-phone-integrate-engagement.md). En él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
+Este documento es un complemento al documento [Cómo integrar Mobile Engagement en su aplicación de Windows Phone Silverlight](../mobile-engagement-windows-phone-integrate-engagement/). En él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Si solo desea que Engagement informe sobre las sesiones, las actividades, los bloqueos y la información técnica de la aplicación, la manera más sencilla consiste en hacer que las subclases `PhoneApplicationPage` hereden de la clase `EngagementPage`.
 
@@ -28,7 +28,7 @@ La API de Engagement la proporciona la clase `EngagementAgent`. Puede acceder a 
 
 Incluso si no se ha inicializado el módulo de agente, las llamadas a la API se aplazan y se ejecutará de nuevo cuando el agente está disponible.
 
-## Conceptos de Engagement
+##Conceptos de Engagement
 
 En las siguientes secciones se detallan los conceptos de Mobile Engagement para la plataforma Windows Phone.
 
@@ -36,19 +36,19 @@ En las siguientes secciones se detallan los conceptos de Mobile Engagement para 
 
 Una *actividad* suele estar asociada con una página de la aplicación. Es decir, la *actividad* se inicia cuando la página se muestra y se detiene cuando se cierra la página. Este es el caso cuando la integración del SDK de Engagement se realiza mediante la clase `EngagementPage`.
 
-Sin embargo, las  *actividades* también se pueden controlar manualmente mediante la API de Engagement. Esto permite dividir una página determinada en varias subpartes para obtener más detalles sobre el uso de esta página (por ejemplo, la frecuencia y la duración con las que se usan los cuadros de diálogo en esta página).
+Sin embargo, las *actividades* también se pueden controlar manualmente mediante la API de Engagement. Esto permite dividir una página determinada en varias subpartes para obtener más detalles sobre el uso de esta página (por ejemplo, la frecuencia y la duración con las que se usan los cuadros de diálogo en esta página).
 
-## Informes sobre actividades
+##Informes sobre actividades
 
 ### El usuario inicia una nueva actividad
 
-#### de referencia
+#### Referencia
 
 			void StartActivity(string name, Dictionary<object, object> extras = null)
 
 Debe llamar a `StartActivity()` cada vez que cambie la actividad de usuario. La primera llamada a esta función inicia una nueva sesión de usuario.
 
-> [AZURE.IMPORTANT] El SDK de Windows Phone llaman automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
+> [AZURE.IMPORTANT]El SDK llaman automáticamente al método EndActivity cuando se cierra la aplicación. Por lo tanto, es MUY recomendable llamar al método StartActivity cada vez que cambie la actividad del usuario y NUNCA llamar al método EndActivity, ya que esto obliga la finalización de la sesión actual.
 
 #### Ejemplo
 
@@ -56,21 +56,21 @@ Debe llamar a `StartActivity()` cada vez que cambie la actividad de usuario. La 
 
 ### El usuario finaliza su actividad actual
 
-#### de referencia
+#### Referencia
 
 			void EndActivity()
 
-Esto finaliza la actividad y la sesión. No debe llamar a este método, a menos que realmente sepa lo que está haciendo.
+Cuando el usuario finaliza su última actividad, se debe llamar a `EndActivity()` al menos una vez. De esta manera se informa al SDK de Engagement de que el usuario está inactivo y que la sesión del usuario se debe cerrar cuando expire el tiempo de espera de la misma (si se llama a `StartActivity()` antes de que expire dicho tiempo de espera, la sesión simplemente continúa).
 
 #### Ejemplo
 
 			EngagementAgent.Instance.EndActivity();
 
-## Informes de trabajos
+##Informes de trabajos
 
 ### Iniciar un trabajo
 
-#### de referencia
+#### Referencia
 
 			void StartJob(string name, Dictionary<object, object> extras = null)
 
@@ -89,7 +89,7 @@ Puede usar el trabajo para hace un seguimiento de tareas determinadas durante un
 
 ### Finalizar un trabajo
 
-#### de referencia
+#### Referencia
 
 			void EndJob(string name)
 
@@ -102,7 +102,7 @@ Cuando haya finalizado una tarea de la que un trabajo realiza el seguimiento, se
 			
 			EngagementAgent.Instance.EndJob("uploadData");
 
-## Informes de eventos
+##Informes de eventos
 
 Hay tres tipos de eventos:
 
@@ -112,7 +112,7 @@ Hay tres tipos de eventos:
 
 ### Eventos independientes
 
-#### de referencia
+#### Referencia
 
 			void SendEvent(string name, Dictionary<object, object> extras = null)
 
@@ -124,7 +124,7 @@ Los eventos independientes se pueden producir fuera del contexto de una sesión.
 
 ### Eventos de sesión
 
-#### de referencia
+#### Referencia
 
 			void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
@@ -148,7 +148,7 @@ Los eventos de sesión se suelen usar para notificar las acciones que realiza el
 
 ### Eventos de trabajo
 
-#### de referencia
+#### Referencia
 
 			void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
@@ -158,7 +158,7 @@ Los eventos de trabajo se suelen usar para notificar las acciones que realiza un
 
 			EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
 
-## Informes de errores
+##Informes de errores
 
 Hay tres tipos de errores:
 
@@ -168,7 +168,7 @@ Hay tres tipos de errores:
 
 ### Errores independientes
 
-#### de referencia
+#### Referencia
 
 			void SendError(string name, Dictionary<object, object> extras = null)
 
@@ -180,7 +180,7 @@ Al contrario de los errores de sesión, los errores independientes se pueden pro
 
 ### Errores de sesión
 
-#### de referencia
+#### Referencia
 
 			void SendSessionError(string name, Dictionary<object, object> extras = null)
 
@@ -192,7 +192,7 @@ Los errores de sesión suelen usarse para notificar los errores que afectan al u
 
 ### Errores de trabajo
 
-#### de referencia
+#### Referencia
 
 			void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
@@ -202,13 +202,13 @@ Los errores pueden estar relacionados con un trabajo en ejecución en lugar de l
 
 			EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
-## Informes de bloqueos
+##Informes de bloqueos
 
 El agente proporciona dos métodos para tratar los bloqueos.
 
 ### Enviar una excepción
 
-#### de referencia
+#### Referencia
 
 			void SendCrash(Exception e, bool terminateSession = false)
 
@@ -226,7 +226,7 @@ Si lo hace, la sesión y los trabajos se cerrarán después de enviar el bloqueo
 
 ### Enviar una excepción no controlada
 
-#### de referencia
+#### Referencia
 
 			void SendCrash(ApplicationUnhandledExceptionEventArgs e)
 
@@ -248,9 +248,9 @@ Puede usarlo para implementar su propio controlador UnhandledException (especial
 			  EngagementAgent.Instance.SendCrash(e);
 			}
 
-## OnActivated
+##OnActivated
 
-### de referencia
+### Referencia
 
 			void OnActivated(ActivatedEventArgs e)
 
@@ -269,13 +269,13 @@ Tiene que insertar `EngagementAgent.Instance.OnActivated(e)` en el método `Appl
 			  EngagementAgent.Instance.OnActivated(e);
 			}
 
-## Identificador de dispositivo
+##Identificador de dispositivo
 
 			String GetDeviceId()
 
 Puede obtener el identificador del dispositivo de Engagement mediante una llamada a este método.
 
-## Parámetros adicionales
+##Parámetros adicionales
 
 Es posible adjuntar datos arbitrarios a un evento, un error, una actividad o un trabajo. Estos datos se pueden estructurar mediante un diccionario. Las claves y los valores pueden ser de cualquier tipo.
 
@@ -316,7 +316,7 @@ Creamos una nueva clase "Person".
 			  }
 			}
 
-A continuación, agregaremos una instancia de  `Person` a un dato adicional.
+A continuación, agregaremos una instancia de `Person` a un dato adicional.
 
 			Person person = new Person("Engagement Haddock", 51);
 			var extras = new Dictionary<object, object>();
@@ -324,7 +324,7 @@ A continuación, agregaremos una instancia de  `Person` a un dato adicional.
 			
 			EngagementAgent.Instance.SendEvent("Event", extras);
 
-> [AZURE.WARNING] Si coloca otros tipos de objetos, asegúrese de que el método ToString() se implementa para devolver una cadena legible.
+> [AZURE.WARNING]Si coloca otros tipos de objetos, asegúrese de que el método ToString() se implementa para devolver una cadena legible.
 
 ### Límites
 
@@ -334,21 +334,21 @@ Cada clave del objeto debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
+Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (_).
 
 #### Tamaño
 
 Los datos adicionales están limitados a **1024** caracteres por llamada.
 
-## Información de la aplicación de informes
+##Información de la aplicación de informes
 
-### de referencia
+### Referencia
 
 			void SendAppInfo(Dictionary<object, object> appInfos)
 
 Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función SendAppInfo().
 
-Tenga en cuenta que esta información se puede enviar de forma incremental: para un dispositivo dado solo se conservará el último valor de una clave determinada. Al igual que los datos adicionales de evento, use un elemento Dictionary\<objeto, objeto\> para adjuntar información.
+Tenga en cuenta que esta información se puede enviar de forma incremental: para un dispositivo dado solo se conservará el último valor de una clave determinada. Al igual que los datos adicionales de evento, use un elemento Dictionary<object, object> para adjuntar información.
 
 ### Ejemplo
 
@@ -368,7 +368,7 @@ Cada clave del objeto debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
-Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
+Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (_).
 
 #### Tamaño
 
@@ -378,4 +378,4 @@ En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 
 
 			{"subscription":"2013-12-07","premium":"true"}
 
-<!--HONumber=47-->
+<!--HONumber=54-->

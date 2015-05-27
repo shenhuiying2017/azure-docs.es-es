@@ -1,4 +1,4 @@
-﻿Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local. 
+Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local.
 
 1. Compruebe que dispone de las siguientes líneas en la etiqueta **dependencies** del archivo *build.gradle (Module app)* y, de no ser así, agréguelas. Esto agrega referencias al SDK de cliente de Android de Servicios móviles.
 
@@ -19,7 +19,7 @@
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. En el Explorador de proyectos, abra el archivo TodoActivity.java, que se encuentra en la carpeta **GetStartedWithData => app => src => java**, y elimine los comentarios de las siguientes líneas de código: 
+5. En el Explorador de proyectos, abra el archivo TodoActivity.java, que se encuentra en la carpeta **GetStartedWithData => app => src => java**, y elimine los comentarios de las siguientes líneas de código:
 
 
 
@@ -46,19 +46,19 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-7. Guarde el archivo y el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable  `toDoItemList` y convierta en comentarios las secciones indicadas. De este modo se elimina por completo la lista de la memoria. 
+7. Guarde el archivo y el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable `toDoItemList` y convierta en comentarios las secciones indicadas. De este modo se elimina por completo la lista de la memoria.
 
 8. Ahora agregamos nuestros servicios móviles. Quite la marca de comentario de las líneas de código siguientes:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-9. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite los comentarios. Esta clase muestra un indicador 'loading' mientras *MobileServiceClient* ejecuta las operaciones de red.
+9. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite la marca de comentario. Esta clase muestra un indicador 'loading' mientras *MobileServiceClient* está ejecutando operaciones de red.
 
 
 10. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-11. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+11. Haga clic en la pestaña **Panel** y anote la dirección **URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
@@ -80,9 +80,9 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Esto crea una nueva instancia de *MobileServiceClient* que se usa para acceder a su servicio móvil. Además, se crea la instancia *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
+  	De esta forma, se crea una nueva instancia de *MobileServiceClient* que se usa para obtener acceso al servicio móvil. Además, se crea la instancia de *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
 
-13. En el código de arriba, reemplace  `MobileServiceUrl` y  `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
+13. En el código de arriba, reemplace `MobileServiceUrl` y `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
 
 
 
@@ -164,6 +164,5 @@
 		
 
 <!-- URLs. -->
-[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
-
-<!--HONumber=49-->
+[Mobile Services Android SDK]: http://aka.ms/Iajk6q
+<!--HONumber=54-->

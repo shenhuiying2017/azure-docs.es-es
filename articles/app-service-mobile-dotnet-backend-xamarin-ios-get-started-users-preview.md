@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la autenticación de Aplicaciones móviles en Xamarin iOS" 
 	description="Obtenga información acerca de cómo utilizar Aplicaciones móviles para autenticar usuarios de su aplicación Xamarin iOS a través de una variedad de proveedores de identidad, incluidos AAD, Google, Facebook, Twitter y Microsoft." 
 	services="app-service\mobile" 
@@ -20,9 +20,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../includes/app-service-mobile-selector-get-started-users.md)]
 
-En este tema se muestra cómo autenticar usuarios de una aplicación móvil de Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios de aplicaciones. Una vez que Aplicaciones móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
+En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
-Este tutorial está basado en el inicio rápido de Aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación Xamarin.iOS]. 
+Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación Xamarin.iOS].
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 
@@ -35,10 +35,10 @@ Este tutorial está basado en el inicio rápido de Aplicaciones móviles. Primer
 <ol start="7">
 <li><p>En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o simulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.</p>
    
-   	<p>Esto sucede porque la aplicación intenta obtener acceso al código de Aplicaciones móviles como usuario autenticado, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
+   	<p>Esto se produce porque la aplicación intenta obtener acceso a su Código de aplicación móvil como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
 </ol>
 
-A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del Servicios de aplicaciones.
+A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del Servicio de aplicaciones.
 
 ##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
@@ -50,7 +50,7 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Agregue un método **Authenticate** a **QSTodoService** con la siguiente definición:
+2. Agregue un método  **Authenticate** a **QSTodoService** con la siguiente definición:
 
         public async Task Authenticate(UIViewController view)
         {
@@ -64,9 +64,9 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
             }
         }
 
-> [AZURE.NOTE] Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método **LoginAsync**anterior por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE]Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes:  _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs**. Modifique la definición del método de **ViewDidLoad** para quitar la llamada a **RefreshAsync()** cerca del final:
+3. Abra **QSTodoListViewController.cs**. Modifique la definición del método de  **ViewDidLoad** para quitar la llamada a **RefreshAsync()** cerca del final:
 
 		public override async void ViewDidLoad ()
 		{
@@ -96,16 +96,16 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 		}
 		// rest of RefreshAsync method
 	
-5. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iPhone. Compruebe que la aplicación no muestra ningún dato. 
+5. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el simulador de iPhone. Compruebe que la aplicación no muestra ningún dato.
 
 	Despliegue la lista de tareas para actualizar la pantalla, lo que dará lugar a que aparezca la pantalla de inicio de sesión. Una vez que haya proporcionado credenciales válidas, la aplicación mostrará la lista de tareas pendientes y podrá actualizar los datos.
 
  
 <!-- URLs. -->
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Creación de una aplicación Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-[Portal de administración de Azure]: https://portal.azure.com
+[Azure Management Portal]: https://portal.azure.com
 
-<!--HONumber=49-->
+<!--HONumber=54-->

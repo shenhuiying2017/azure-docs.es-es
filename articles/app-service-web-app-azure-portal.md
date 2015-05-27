@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Referencia para navegar en el portal de Azure"
 	description="Conozca las distintas experiencias de usuario web del Servicio de aplicaciones entre el portal de administración y el Portal de Azure."
 	services="app-service\web"
@@ -26,25 +26,25 @@ Si bien puede observar los cambios de personalización de marca en el portal ant
 
 ## Diferencias de diseño entre el portal antiguo y el portal de Azure
 
-En el portal antiguo, todos los servicios de Azure se indican a la izquierda. La navegación en este sigue una estructura de árbol, donde se empieza a partir del servicio y se navega a cada elemento. Esta estructura funciona bien para administrar componentes independientes. Si embargo, las aplicaciones integradas en Azure constituyen una colección de servicios interconectados y la estructura de árbol no es la ideal para trabajar con este tipo de colecciones. 
+En el portal antiguo, todos los servicios de Azure se indican a la izquierda. La navegación en este sigue una estructura de árbol, donde se empieza a partir del servicio y se navega a cada elemento. Esta estructura funciona bien para administrar componentes independientes. Si embargo, las aplicaciones integradas en Azure constituyen una colección de servicios interconectados y la estructura de árbol no es la ideal para trabajar con este tipo de colecciones.
 
-El nuevo portal facilita la compilación de aplicaciones completas con componentes de varios servicios. El nuevo portal de Azure se organiza en elementos *journeys*. Un elemento *journey* es una serie de *blades* que funcionan como contenedores de los distintos componentes. Por ejemplo, configurar el ajuste de escala automático para una aplicación web es un *journey* que requiere varias hojas, como se muestra en el ejemplo siguiente: la hoja **sitio-web** (dicho título aún no se ha actualizado para usar la nueva terminología), la hoja **Configuración** y la hoja **Escala**. En el ejemplo, el ajuste de escala automático se configura para que dependa del uso de la CPU, por lo que también hay una hoja llamada **Porcentaje de CPU**. Los componentes incluidos en las *blades* se llaman *parts* y parecen iconos. 
+El nuevo portal facilita la compilación de aplicaciones completas con componentes de varios servicios. El nuevo portal de Azure se organiza en *viajes*. Un  *viaje* es una serie de  *hojas*, que funcionan como contenedores de los distintos componentes. Por ejemplo, configurar el ajuste de escala automático para una aplicación web es un *viaje* que requiere varias hojas, como se muestra en el ejemplo siguiente: la hoja **sitio-web** (dicho título aún no se ha actualizado para usar la nueva terminología), la hoja **Configuración** y la hoja **Escala**. En el ejemplo, el ajuste de escala automático se configura para que dependa del uso de la CPU, por lo que también hay una hoja llamada **Porcentaje de CPU**. Los componentes incluidos en las *hojas* se llaman *partes* y parecen iconos.
 
 ![](./media/app-service-web-app-preview-portal/AutoScaling.png)
 
 ## Ejemplo de navegación: crear una aplicación web
 
-La creación de aplicaciones web sigue siendo muy fácil. En la imagen siguiente se muestran el portal antiguo y el nuevo en paralelo para demostrar que el número de pasos necesarios para poner una aplicación web en marcha no ha cambiado significativamente. 
+La creación de aplicaciones web sigue siendo muy fácil. En la imagen siguiente se muestran el portal antiguo y el nuevo en paralelo para demostrar que el número de pasos necesarios para poner una aplicación web en marcha no ha cambiado significativamente.
 
 ![](./media/app-service-web-app-preview-portal/CreateWebApp.png)
 
 En el nuevo portal puede elegir entre los tipos más comunes de aplicaciones web, incluidas conocidas aplicaciones de la galería como WordPress. Para obtener una lista completa de las aplicaciones disponibles, visite [Azure Marketplace].
 
-Al crear una aplicación web, se especifica la dirección URL, el plan del Servicio de aplicaciones y la ubicación en el nuevo portal de la misma forma que se hacía en el antiguo. 
+Al crear una aplicación web, se especifica la dirección URL, el plan del Servicio de aplicaciones y la ubicación en el nuevo portal de la misma forma que se hacía en el antiguo.
 
 ![](./media/app-service-web-app-preview-portal/CreateWebAppSettings.png)
 
-Además, el portal nuevo permite definir otros valores comunes. Por ejemplo, los [grupos de recursos](azure-preview-portal-using-resource-groups.md) simplifican la forma de ver y administrar recursos relacionados de Azure. 
+Además, el portal nuevo permite definir otros valores comunes. Por ejemplo, los [grupos de recursos](resource-group-overview.md) simplifican la forma de ver y administrar recursos relacionados de Azure.
 
 ## Ejemplo de navegación: configuración y características
 
@@ -64,7 +64,7 @@ Para habilitar los diagnósticos, haga clic en **Registros de diagnóstico** en 
 
 ![](./media/app-service-web-app-preview-portal/Diagnostics.png)
  
-Para establecer la configuración de una aplicación, haga clic en **Configuración de la aplicación** en la hoja **Configuración**. 
+Para establecer la configuración de una aplicación, haga clic en **Configuración de la aplicación** en la hoja **Configuración**.
 
 ![](./media/app-service-web-app-preview-portal/AppSettingsPreview.png)
 
@@ -76,13 +76,13 @@ Aparte de la marca, algunos elementos más del portal se han cambiado de nombre 
 
 [Plataforma de aplicaciones en la nube de Azure](app-service-cloud-app-platform.md)
 
-[Nuevo portal]: https://portal.azure.com
+[New portal]: https://portal.azure.com
 [Azure Marketplace]: /marketplace/
 
->[AZURE.NOTE] Si desea obtener una introducción al Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde puede crear inmediatamente una aplicación web básica de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-## Qué ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+## Lo que ha cambiado
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el nuevo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=49-->
+<!--HONumber=54-->

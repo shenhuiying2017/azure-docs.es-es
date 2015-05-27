@@ -1,9 +1,9 @@
 
 ##<a name="add-select-images"></a>Actualización de la aplicación cliente de inicio rápido para capturar y cargar imágenes
 
-En esta sección se actualizará el proyecto a partir del tutorial [Introducción a los Servicios móviles] para tomar fotografías y cargarlas en el almacenamiento de blobs de Azure. Para capturar la imagen, este tutorial utiliza [CameraCaptureTask] del espacio de nombres  `Microsoft.Phone.Tasks`. Esta clase inicia la interfaz de usuario de la cámara en el dispositivo Windows Phone para capturar la foto y guarda la imagen automáticamente en el álbum de cámara del dispositivo Windows Phone. Si no desea que las imágenes se guarden en el álbum de cámara, utilice en su lugar la clase [PhotoCamera] en el espacio de nombres  `Microsoft.Devices`.
+En esta sección se actualizará el proyecto a partir del tutorial [Introducción a Servicios móviles] para tomar fotografías y cargarlas en el almacenamiento de blobs de Azure. Para capturar la imagen, este tutorial utiliza [CameraCaptureTask] del espacio de nombres `Microsoft.Phone.Tasks`. Esta clase inicia la interfaz de usuario de la cámara en el dispositivo Windows Phone para capturar la foto y guarda la imagen automáticamente en el álbum de cámara del dispositivo Windows Phone. Si no desea que las imágenes se guarden en el álbum de cámara, utilice en su lugar la clase [PhotoCamera] en el espacio de nombres `Microsoft.Devices`.
 
-1. En el Explorador de soluciones de Visual Studio, en el proyecto, expanda **Propiedades**. A continuación, abra el archivo WMAppManifest.xml y, en la pestaña **Capacidades**, habilite la cámara haciendo clic en **ID\_CAP\_ISV\_CAMERA**. Cierre el archivo para guardar el cambio.
+1. En el Explorador de soluciones de Visual Studio, en el proyecto, expanda **Propiedades**. A continuación, abra el archivo WMAppManifest.xml y, en la pestaña **Capacidades**, habilite la cámara haciendo clic en **ID\\_CAP\\_ISV\\_CAMERA**. Cierre el archivo para guardar el cambio.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -99,7 +99,7 @@ En esta sección se actualizará el proyecto a partir del tutorial [Introducció
         }
 
 
-8. En el archivo de proyecto MainPage.xaml.cs, actualice la clase MainPage. Reemplace el método  `InsertTodoItem` existente por el código siguiente:
+8. En el archivo de proyecto MainPage.xaml.cs, actualice la clase MainPage. Reemplace el método `InsertTodoItem` existente por el código siguiente:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -158,7 +158,7 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-wp8.png)
 
-  	Se muestra la interfaz de usuario de captura de la cámara. 
+  	Se muestra la interfaz de usuario de captura de la cámara.
 
 3. Haga clic en la imagen o en el botón de instantánea del teléfono para tomar una fotografía.
   
@@ -176,11 +176,11 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
-   >[AZURE.NOTE] La imagen se descarga automáticamente desde el servicio de almacenamiento de blobs cuando la propiedad <code>imageUri</code> del elemento nuevo está ligada al control <strong>Image</strong>.
+   >[AZURE.NOTE]La imagen se descarga automáticamente desde el servicio de almacenamiento de blobs cuando la propiedad <code>imageUri</code> del elemento nuevo está ligada al control <strong>Image</strong>.
 
 
-[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started
+[Introducción a Servicios móviles]: ../articles/mobile-services-windows-phone-get-started.md
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!--HONumber=42-->
+<!--HONumber=54-->

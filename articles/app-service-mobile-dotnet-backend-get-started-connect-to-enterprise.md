@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Conexión de una aplicación móvil a un SaaS empresarial | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo realizar llamadas a recursos empresariales como SharePoint Online" 
 	documentationCenter="" 
@@ -24,10 +24,10 @@ Este tutorial requiere lo siguiente:
 
 * Visual Studio 2013 en Windows 8.1
 * Una suscripción activa a [SharePoint Online]
-* Realización del tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]. Debería utilizar el inquilino que le suministra su suscripción a SharePoint.
+* Realización del tutorial  [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]. Debería utilizar el inquilino que le suministra su suscripción a SharePoint.
 
 ## <a name="configure-permissions"></a>Configuración de la aplicación para acceso delegado a SharePoint
-De manera predeterminada, el token que recibe de AAD tiene permisos limitados. A fin de tener acceso a una aplicación SaaS o recurso de terceros, como SharePoint Online, debe permitirlo explícitamente.
+De manera predeterminada, el token que recibe de AAD tiene permisos limitados. Para acceder a una aplicación SaaS o a un recurso de terceros, como SharePoint Online, debe permitirlo explícitamente.
 
 1. En la sección **Active Directory** del [Portal de administración de Azure], seleccione su inquilino. Vaya a la aplicación web que creó para el Servicio de aplicaciones.
 
@@ -43,9 +43,9 @@ Para realizar una llamada a SharePoint, tiene que especificar los extremos con l
 
 1. Vuelva a la pestaña Aplicaciones de AAD para su inquilino y seleccione la aplicación web para su servicio de aplicaciones.
 
-2. En Configurar, desplácese hasta abajo hasta llegar a Claves. Obtendrá un Secreto de cliente generando una clave nueva. Tenga en cuenta que una vez que cree una clave y abandone la página, no hay manera de volver a sacarla del portal. En el momento de la creación debe copiar y guardar este valor en una ubicación segura. Seleccione una duración para la clave y, a continuación, haga clic en guardar y copie el valor resultante.
+2. En Configurar, desplácese hacia abajo hasta llegar a Claves. Obtendrá un Secreto de cliente generando una clave nueva. Tenga en cuenta que una vez que cree una clave y abandone la página, no hay manera de volver a sacarla del portal. En el momento de la creación debe copiar y guardar este valor en una ubicación segura. Seleccione una duración para la clave y, a continuación, haga clic en guardar y copie el valor resultante.
 
-3. En la sección Código de aplicación móvil del Portal de administración, vaya a la pestaña Configurar y desplácese hacia abajo hasta Configuración de aplicaciones. Aquí puede suministrar un par clave-valor que le ayudará a enumerar las credenciales necesarias.
+3. En la sección Código de aplicación móvil del Portal de administración, vaya a la pestaña Configurar y desplácese hacia abajo hasta Configuración de aplicaciones. Aquí puede suministrar un par clave-valor que le ayudará a hacer referencia a las credenciales necesarias.
 
 * Configure SP_Authority para que sea el extremo de autoridad de su inquilino de AAD. Debería ser igual que el valor de autoridad utilizado para su aplicación cliente. Tendrá el formato `https://login.windows.net/contoso.onmicrosoft.com`
 
@@ -63,7 +63,9 @@ A fin de tener acceso a SharePoint, necesita un token de acceso especial con Sha
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-adal-install-nuget](../includes/app-service-mobile-dotnet-adal-install-nuget.md)]
 
-2. En el proyecto de Código de aplicación móvil, cree una clase nueva llamada SharePointUploadContext. En ella, agregue lo siguiente:
+2. En el Administrador de paquetes NuGet, haga clic en **En línea**. Escriba **Microsoft.Azure.Mobile.Server.AppService** como un término de búsqueda. A continuación, haga clic en **Instalar** para instalar el paquete [Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]. Este paquete le proporciona métodos de extensión para trabajar con información sobre el usuario que ha iniciado sesión actualmente.
+
+2. En el proyecto de Código de aplicación móvil, cree una clase nueva llamada SharePointUploadContext. Añada una instrucción `using Microsoft.Azure.Mobile.Server.AppService;` al archivo. A continuación, agregue lo siguiente a la clase:
 
         private String accessToken;
         private String mySiteApiPath;
@@ -178,9 +180,10 @@ Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale
 
 <!-- URLs. -->
 
-[Vista previa del Portal de administración de Azure]: https://portal.azure.com/
+[Preview Azure Management Portal]: https://portal.azure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/es-es/sharepoint/
 [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Extensión de servicio de aplicación de back-end de .NET de Aplicaciones móviles]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

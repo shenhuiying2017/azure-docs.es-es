@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Escalado de un servicio en la nube - Azure" 
+	pageTitle="Escalado de un servicio en la nube | Azure" 
 	description="Vea cómo escalar un servicio en la nube y recursos vinculados en Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="03/02/2015" 
 	ms.author="adegeo"/>
 
 
@@ -22,171 +22,171 @@
 
 # Escalado de una aplicación
 
-
 En la página Scale del Portal de administración de Azure, puede escalar su aplicación manualmente o puede establecer parámetros para escalarla automáticamente. Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
 
 Al escalar o reducir verticalmente una aplicación que ejecuta máquinas virtuales, no se crean nuevas máquinas ni se eliminan, sino que se activan o desactivan desde un conjunto de disponibilidad de máquinas que se crearon anteriormente. Puede especificar el escalado según el porcentaje promedio de uso de CPU o según la cantidad de mensajes en una cola.
 
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:
 
-- Las máquinas virtuales que crea debe agregarlas a un conjunto de disponibilidad para escalar una aplicación que las utiliza. Las máquinas virtuales que agrega pueden inicialmente activarse o desactivarse, pero se activarán en una acción de escalado vertical y se desactivarán en una acción de reducción vertical. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](http://azure.microsoft.com/ documentation/articles/virtual-machines-manage-availability/).
+- Las máquinas virtuales que crea debe agregarlas a un conjunto de disponibilidad para escalar una aplicación que las utiliza. Las máquinas virtuales que agrega pueden inicialmente activarse o desactivarse, pero se activarán en una acción de escalado vertical y se desactivarán en una acción de reducción vertical. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
+
 - El uso de núcleos afecta el escalado. Las instancias de rol o las máquinas virtuales más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos máquinas virtuales de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones de servicio en la nube en su suscripción con dieciséis núcleos. Todas las máquinas virtuales de un conjunto de disponibilidad que se usan al escalar una aplicación deben tener el mismo tamaño. Para obtener más información acerca del uso de núcleos y los tamaños de las máquinas, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/dn197896.aspx).
-- Debe crear una cola y asociarla con un rol o conjunto de disponibilidad para poder escalar una aplicación según el umbral de un mensaje. Para obtener más información, consulte [Uso del servicio de almacenamiento en cola](http://azure.microsoft.com/develop/net/how-to-guides/queue-service).
-- Puede escalar los recursos que están vinculados con su servicio en la nube. Para obtener más información acerca de los recursos de vinculación, consulte[Vinculación de un recurso a un servicio en la nube](http://azure.microsoft.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources)
-- Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol o máquinas virtuales. Para obtener más información, consulte [Contratos de nivel de servicio](https://www.windowsazure.com/es-es/support/legal/sla/).
 
-Puede realizar las siguientes acciones de escalado para un servicio en la nube:
+- Debe crear una cola y asociarla con un rol o conjunto de disponibilidad para poder escalar una aplicación según el umbral de un mensaje. Para obtener más información, consulte [Uso del servicio de almacenamiento de colas](http://www.windowsazure.com/develop/net/how-to-guides/queue-service).
 
-- [Escalado manual de una aplicación que ejecuta roles web o roles de trabajo](#manualscale)
-- [Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales](#autoscale)
-- [Escalado de recursos vinculados](#scalelink)
-- [Programación del escalado de su aplicación](#schedule)
+- Puede escalar los recursos que están vinculados con su servicio en la nube. Para obtener más información acerca de los recursos de vinculación, consulte [Vinculación de un recurso a un servicio en la nube](http://www.windowsazure.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
+
+- Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol o máquinas virtuales. Para obtener más información, consulte [Contratos de nivel de servicio](https://www.windowsazure.com/support/legal/sla/).
 
 
-<h2><a id="manualscale"></a>Escalado manual de una aplicación que ejecuta roles web o roles de trabajo</h2>
+## Escalado manual de una aplicación que ejecuta roles web o roles de trabajo
 
 En la página Scale, puede aumentar o disminuir manualmente la cantidad de instancias en ejecución en un servicio en la nube.
 
 1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
-2. Haga clic en **Escala**. El escalado automático está deshabitado de manera predeterminada para todos los roles, lo que significa que puede cambiar manualmente la cantidad de instancias que usa su aplicación.
+2. Haga clic en **Escalar**. El escalado automático está deshabitado de manera predeterminada para todos los roles, lo que significa que puede cambiar manualmente la cantidad de instancias que usa su aplicación.
 
-	![Scale page][manual_scale]
+  ![Página de escala][manual_scale]
 
 3. Cada rol en el servicio en la nube tiene un control deslizante para cambiar la cantidad de instancias que se van a usar. Para agregar una instancia de rol, arrastre la barra hacia la derecha. Para quitar una instancia, arrastre la barra hacia la izquierda.
 
-	![Scale role][slider_role] 
+  ![Rol de escalado][slider_role]
 
 
-	Solo puede aumentar la cantidad de instancias que se usan si la cantidad adecuada de núcleos está disponible para admitir las instancias. Los colores del control deslizante representan los núcleos usados y disponibles en su suscripción:
+  Solo puede aumentar la cantidad de instancias que se usan si la cantidad adecuada de núcleos está disponible para admitir las instancias. Los colores del control deslizante representan los núcleos usados y disponibles en su suscripción:
 
-	- Azul representa los núcleos usados por el rol seleccionado
-	- Gris representa los núcleos usados por todos los roles y las máquinas virtuales de la suscripción
-	- Gris claro representa los núcleos que están disponibles para usarlos en el escalado
-	- Rosado representa un cambio hecho que no se ha guardado
+  - Azul representa los núcleos usados por el rol seleccionado
 
-4. Haga clic en **Save**. Las instancias de rol se agregaran o quitarán según las selecciones realizadas.
+  - Gris representa los núcleos usados por todos los roles y las máquinas virtuales de la suscripción
 
-<h2><a id="autoscale"></a>Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales</h2>
+  - Gris claro representa los núcleos que están disponibles para usarlos en el escalado
+
+  - Rosado representa un cambio hecho que no se ha guardado
+
+4. Haga clic en **Guardar**. Las instancias de rol se agregaran o quitarán según las selecciones realizadas.
+
+## Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales
 
 En la página Scale, puede configurar su servicio en la nube para aumentar o disminuir automáticamente la cantidad de instancias o máquinas virtuales que usa su aplicación. Puede configurar el escalado según los siguientes parámetros:
 
-- [Uso promedio de CPU](#averagecpu) - Si el porcentaje promedio de uso de CPU está por encima o por debajo de los umbrales especificados, se crean o eliminan instancias de rol, o bien, las máquinas virtuales se activan o desactivan desde un conjunto de disponibilidad.
-- [Mensajes en cola](#queuemessages) - Si la cantidad de mensajes en una cola está por encima o por debajo de un umbral específico, se crean o eliminan instancias de rol, o bien, las máquinas virtuales se activan o desactivan desde un conjunto de disponibilidad.
+- [Uso promedio de CPU](#averagecpu): si el porcentaje promedio de uso de CPU está por encima o por debajo de los umbrales especificados, se crean o eliminan instancias de rol, o bien, las máquinas virtuales se activan o desactivan desde un conjunto de disponibilidad.
+- [Mensajes en cola](#queuemessages): si la cantidad de mensajes en una cola está por encima o por debajo de un umbral específico, se crean o eliminan instancias de rol, o bien, las máquinas virtuales se activan o desactivan desde un conjunto de disponibilidad.
 
-<h3><a id="averagecpu"></a>Uso promedio de CPU</h3>
+## Uso promedio de CPU
 
 1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
-2. Haga clic en **Escala**.
+
+2. Haga clic en **Escalar**.
+
 3. Desplácese hasta la sección correspondiente al rol o el conjunto de disponibilidad y, a continuación, haga clic en **CPU**. Esto permite el escalado automático de su aplicación, según el porcentaje promedio de recursos de CPU que utiliza.
 
-	![Autoscale on][autoscale_on]
+  ![Escalado automático activado][autoscale_on]
 
 4. Cada rol o conjunto de disponibilidad tiene un control deslizante para cambiar la cantidad de instancias que se pueden usar. Para establecer la cantidad máxima de instancias que se pueden usar, arrastre la barra de la derecha hacia la derecha. Para establecer la cantidad máxima de instancias que se pueden usar, arrastre la barra de la izquierda hacia la izquierda.
 
-	**Nota:** En la página Escala, **Instancia** representa una instancia de rol o una instancia de una máquina virtual.
+  **Nota**: en la página Escalar, **Instancia** representa una instancia de rol o una instancia de una máquina virtual.
 
-	![Instance range][instance_range]
+  ![Rango de instancias][instance_range]
 
-	La cantidad máxima de instancias está limitada por los núcleos que están disponibles en la suscripción. Los colores del control deslizante representan los núcleos usados y disponibles en su suscripción:
+  La cantidad máxima de instancias está limitada por los núcleos que están disponibles en la suscripción. Los colores del control deslizante representan los núcleos usados y disponibles en su suscripción:
 
-	- Azul representa la cantidad máxima de núcleos que puede usar el rol.
-	- Gris oscuro representa los núcleos que usan todos los roles y las máquinas virtuales de la suscripción Cuando este valor coincide parcialmente con los núcleos usados por el rol, el color cambia a azul oscuro.
-	- Gris claro representa los núcleos que están disponibles para usarlos en el escalado.
-	- Rosado representa un cambio hecho que no se ha guardado.
+  - Azul representa la cantidad máxima de núcleos que puede usar el rol.
+
+  - Gris oscuro representa los núcleos que usan todos los roles y las máquinas virtuales de la suscripción Cuando este valor coincide parcialmente con los núcleos usados por el rol, el color cambia a azul oscuro.
+
+  - Gris claro representa los núcleos que están disponibles para usarlos en el escalado.
+
+  - Rosado representa un cambio hecho que no se ha guardado.
 
 5. Se usa un control deslizante para especificar el rango de porcentaje promedio de uso de CPU. Cuando el porcentaje promedio de uso de CPU está por encima de la configuración máxima, se crean más instancias de rol o se activan más máquinas virtuales. Cuando el porcentaje promedio de uso de CPU está por debajo de la configuración mínima, se eliminan instancias de rol o se desactivan máquinas virtuales. Para establecer el porcentaje promedio máximo de CPU, arrastre la barra de la derecha hacia la derecha. Para establecer el porcentaje promedio mínimo de CPU, arrastre la barra de la izquierda hacia la izquierda.
 
-	![Target cpu][target_cpu]
+  ![CPU objetivo][target_cpu]
 
 6. Puede especificar la cantidad de instancias para agregar o activar cada vez que su aplicación se escala verticalmente. Para aumentar la cantidad de instancias que se crean o activan cuando su aplicación se escala verticalmente, arrastre la barra hacia la derecha. Para disminuir la cantidad, arrastre la barra hacia la izquierda.
 
-	![Scale cpu up][scale_cpuup]
+  ![Escalado vertical de CPU][scale_cpuup]
 
 7. Ajuste la cantidad de minutos para esperar entre la última acción de escalado y la próxima acción de escalado vertical. La última acción de escalado puede ser escalado o reducción vertical.
 
-	![Up time][scale_uptime]
+  ![Tiempo de escalado][scale_uptime]
 
-	Al calcular el porcentaje promedio de uso de CPU se incluyen todas las instancias; el promedio está basado en el uso durante la hora anterior. Según la cantidad de instancias que use su aplicación, la acción de escalado puede tardar más que el tiempo de espera especificado si el tiempo de espera se establece muy bajo. El tiempo mínimo entre las acciones de escalado es de cinco minutos. Las acciones de escalado no se pueden producir si alguna de las instancias se encuentra en estado de transición.
+  Al calcular el porcentaje promedio de uso de CPU se incluyen todas las instancias; el promedio está basado en el uso durante la hora anterior. Según la cantidad de instancias que use su aplicación, la acción de escalado puede tardar más que el tiempo de espera especificado si el tiempo de espera se establece muy bajo. El tiempo mínimo entre las acciones de escalado es de cinco minutos. Las acciones de escalado no se pueden producir si alguna de las instancias se encuentra en estado de transición.
 
-8. Puede también especificar la cantidad de instancias que desea eliminar o desactivar cuando la aplicación se reduzca verticalmente.  Para aumentar la cantidad de instancias que se eliminan o desactivan cuando su aplicación se reduce verticalmente, arrastre la barra hacia la derecha. Para disminuir la cantidad, arrastre la barra hacia la izquierda.
+8. Puede también especificar la cantidad de instancias que desea eliminar o desactivar cuando la aplicación se reduzca verticalmente. Para aumentar la cantidad de instancias que se eliminan o desactivan cuando su aplicación se reduce verticalmente, arrastre la barra hacia la derecha. Para disminuir la cantidad, arrastre la barra hacia la izquierda.
 
-	![Scale cpu down][scale_cpudown]
+	![Reducción vertical de CPU][scale_cpudown]
 
 	Si su aplicación puede tener aumentos repentinos en el uso de CPU, debe asegurarse de que tenga una cantidad de instancias mínima suficiente para administrarlas.
 
 9. Ajuste la cantidad de minutos para esperar entre la última acción de escalado y la próxima acción de reducción vertical. La última acción de escalado puede ser escalado o reducción vertical.
 
-	![Down time][scale_downtime]
+	![Tiempo de reducción][scale_downtime]
 
-10. Haga clic en **Save**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
+10. Haga clic en **Guardar**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
 
-<h3><a id="queuemessages"></a>Mensajes en cola</h3>
+## Mensajes en cola
 
 1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
-2. Haga clic en **Escala**.
+2. Haga clic en **Escalar**.
 3. Desplácese hasta la sección correspondiente al rol o el conjunto de disponibilidad y, a continuación, haga clic en **Cola**. Esto permite el escalado automático de su aplicación según una cantidad objetivo de mensajes en cola.
 
-	![Scale queue][scale_queue]
+	![Cola de escalado][scale_queue]
 
 4. Cada rol o conjunto de disponibilidad en el servicio en la nube tiene un control deslizante para cambiar la cantidad de instancias que se pueden usar. Para establecer la cantidad máxima de instancias que se pueden usar, arrastre la barra de la derecha hacia la derecha. Para establecer la cantidad máxima de instancias que se pueden usar, arrastre la barra de la izquierda hacia la izquierda.
 
-	![Queue range][queue_range]
+	![Rango de cola][queue_range]
 
-	**Nota:** En la página Escala, **Instancia** representa una instancia de rol o una instancia de una máquina virtual.
+	**Nota**: en la página Escalar, **Instancia** representa una instancia de rol o una instancia de una máquina virtual.
 	
-	La cantidad máxima de instancias está limitada por los núcleos que están disponibles en la suscripción. Los colores del control deslizante representan los núcleos usados y disponibles en su suscripción:
-	- Azul representa la cantidad máxima de núcleos que puede usar el rol.
-	- Gris oscuro representa los núcleos que usan todos los roles y las máquinas virtuales de la suscripción Cuando este valor coincide parcialmente con los núcleos usados por el rol, el color cambia a azul oscuro.
-	- Gris claro representa los núcleos que están disponibles para usarlos en el escalado.
-	- Rosado representa un cambio hecho que no se ha guardado.
+	La cantidad máxima de instancias está limitada por los núcleos que están disponibles en la suscripción. Los colores del control deslizante representan los núcleos usados y disponibles en la suscripción: - El azul representa el número máximo de núcleos que puede usar el rol. - El gris oscuro representa los núcleos que usan todos los roles y las máquinas virtuales de la suscripción. Cuando este valor se superpone a los núcleos que usa el rol, el color cambia a azul oscuro. - El gris claro representa los núcleos que están disponibles para usarlos en el escalado. - El rosa representa un cambio que se ha hecho y que no se ha guardado.
 
 5. Seleccione la cuenta de almacenamiento que se asocia con la cola que desea usar.
 
-	![Storage name][storage_name]	
+	![Nombre de almacenamiento][storage_name]
 
 6. Seleccione la cola.
 
-	![Queue name][queue_name]
+	![Nombre de cola][queue_name]
 
 7. Especifique la cantidad de mensajes que espera que admita cada instancia. Las instancias escalan según la cantidad total de mensajes dividida por la cantidad objetivo de mensajes por máquina.
 
-	![Message number][message_number]
+	![Número de mensajes][message_number]
 
 8. Puede especificar la cantidad de instancias para agregar o activar cada vez que su aplicación se escala verticalmente. Para aumentar la cantidad de instancias que se agregan o activan cuando su aplicación se escala verticalmente, arrastre la barra hacia la derecha. Para disminuir la cantidad, arrastre la barra hacia la izquierda.
 
-	![Scale cpu up][scale_cpuup]
+	![Escalado vertical de CPU][scale_cpuup]
 
 9. Ajuste la cantidad de minutos para esperar entre la última acción de escalado y la próxima acción de escalado vertical. La última acción de escalado puede ser escalado o reducción vertical.
 
-	![Up time][scale_uptime]
+	![Tiempo de escalado][scale_uptime]
 
 	El tiempo mínimo entre las acciones de escalado es de cinco minutos. Las acciones de escalado no se pueden producir si alguna de las instancias se encuentra en estado de transición.
 
-10. Puede también especificar la cantidad de instancias que desea eliminar o no utilizar cuando la aplicación se reduzca verticalmente.  Se usa un control deslizante para especificar el incremento del escalado. Para aumentar la cantidad de instancias que se eliminan o no se usan cuando su aplicación se reduce verticalmente, arrastre la barra hacia la derecha. Para disminuir la cantidad, arrastre la barra hacia la izquierda.
+10. Puede también especificar la cantidad de instancias que desea eliminar o no utilizar cuando la aplicación se reduzca verticalmente. Se usa un control deslizante para especificar el incremento del escalado. Para aumentar la cantidad de instancias que se eliminan o no se usan cuando su aplicación se reduce verticalmente, arrastre la barra hacia la derecha. Para disminuir la cantidad, arrastre la barra hacia la izquierda.
 
-	![Scale cpu down][scale_cpudown]
+	![Reducción vertical de CPU][scale_cpudown]
 
 11.	Ajuste la cantidad de minutos para esperar entre la última acción de escalado y la próxima acción de reducción vertical. La última acción de escalado puede ser escalado o reducción vertical.
 
-	![Down time][scale_downtime]
+	![Tiempo de reducción][scale_downtime]
 
-12. Haga clic en **Save**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
+12. Haga clic en **Guardar**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
 
-<h2><a id="scalelink"></a>Escalado de recursos vinculados</h2>
+## Escalado de recursos vinculados
 
 A menudo, cuando se escala un rol, es beneficioso también escalar la base de datos que la aplicación está usando. Si vincula la base de datos con el servicio en la nube, puede cambiar la edición de Base de datos SQL y cambiar el tamaño de la base de datos en la página Scale.
 
 1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
-2. Haga clic en **Escala**.
+2. Haga clic en **Escalar**.
 3. En la sección Linked Resources, seleccione la edición que desea usar para la base de datos.
 
-	![Linked resources][linked_resources]
+	![Linked Resources][linked_resources]
 
 4. Seleccione el tamaño de la base de datos.
 5. Haga clic en **Guardar** para actualizar los recursos vinculados.
 
-<h2><a id="schedule"></a>Programación del escalado de su aplicación</h2>
+## Programación del escalado de su aplicación
 
 Puede programar el escalado automático de su aplicación al configurar programas para diferentes horas. Las siguientes opciones están disponibles para el escalado automático:
 
@@ -194,13 +194,13 @@ Puede programar el escalado automático de su aplicación al configurar programa
 
 - **Día y noche**: esta opción le permite especificar el escalado para horas específicas del día y noche.
 
-**Nota:** las programaciones no están actualmente disponibles para aplicaciones que usan máquinas virtuales.
+**Nota**: las programaciones no están actualmente disponibles para aplicaciones que usan máquinas virtuales.
 
 1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
-2. Haga clic en **Escala**.
-3. En la página Escala, haga clic en **Configurar horas de programación**.
+2. Haga clic en **Escalar**.
+3. En la página Escalar, haga clic en **Configurar horas de programación**.
 
-	![Schedule scaling][scale_schedule]
+	![Programar escalado][scale_schedule]
 
 4. Seleccione el tipo de programación de escalado que desea configurar.
 
@@ -227,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

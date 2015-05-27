@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Creación de un acuerdo entre socios comerciales en el Servicio de aplicaciones de Microsoft Azure" 
    description="Creación de acuerdos entre socios comerciales" 
    services="app-service\logic" 
@@ -19,7 +19,7 @@
 
 # Creación de un acuerdo entre socios comerciales   
 
-Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos socios establecen una relación, esto se conoce como un *Agreement*. El acuerdo definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte. Los distintos protocolos y transportes B2B que el  Servicio de aplicaciones de Azure admite son:
+Los socios comerciales son las entidades implicadas en comunicaciones B2B (negocio a negocio). Cuando dos asociados establecen una relación, esto se conoce como un *acuerdo*. El acuerdo definido se basa en la comunicación que los dos socios desean lograr y es específico del protocolo o el transporte. Los distintos protocolos y transportes B2B compatibles con el Servicio de aplicaciones de Azure incluyen:
 
 - AS2 (Applicability Statement 2)
 - EDIFACT (United Nations/Electronic Data Interchange For Administration, Commerce and Transport (UN/EDIFACT))
@@ -77,5 +77,4 @@ Para crear acuerdos entre socios comerciales:
 [2]: ./media/app-service-logic-create-a-trading-partner-agreement/ProtocolSelection.jpg
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
 
-
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Contenido del SDK de la Tienda Windows para Azure Mobile Engagement" 
-	description="Actualizaciones y procedimientos más recientes del SDK de la Tienda Windows para Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Contenido del SDK de Windows Universal Apps" 
+	description="Obtenga información sobre el contenido del SDK de Windows Universal Apps para Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,67 +11,47 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/06/2015" 
+	ms.author="piyushjo" />
 
-# Contenido del SDK
+#Contenido del SDK de Windows Universal Apps
 
-En este documento se indica y describe el contenido del archivo SDK.
+En este documento se enumera y describe el contenido implementado por el SDK de la aplicación.
 
-## Carpeta `Root`
+##La carpeta `/Resources`
 
-En esta carpeta se incluyen copias de las licencias de software y un vínculo a la documentación en línea.
+En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. Además, puede personalizarlas para adaptarlas a su aplicación.
 
-`documentation.html` : se incluye un vínculo a la documentación en línea del SDK de Engagement para la aplicación Windows 8 C\# Metro.
-
-En esta carpeta también se incluyen los archivos de licencia.
-
-## Carpeta `/lib`
-
-En esta carpeta se incluye información sobre dónde obtener el SDK de Engagement.
-
-`azuresdk-mobileengagement-windows-X.X.X.nupkg` : paquete de NuGet para la integración de SDK.
-
-## Carpeta `/Resources`
-
-En esta carpeta se incluyen todos los recursos que necesita Engagement. Además, puede personalizarlas para adaptarlas a su aplicación.
-
-`EngagementConfiguration.xml` : el archivo de configuración de Engagement, donde puede personalizar la configuración de Engagement (cadena de conexión, bloqueo de informes, etc.).
+- `EngagementConfiguration.xml`: el archivo de configuración de Mobile Engagement, donde puede personalizar la configuración de Mobile Engagement (cadena de conexión de Mobile Engagement, bloqueo de informes, etc.).
 
 ### Carpeta /html
 
-`EngagementNotification.html` :  el diseño html de la vista web  `Notificación`.
+- `EngagementNotification.html` : el diseño html de vista web `Notification`.
 
-`EngagementAnnouncement.html` :  el diseño html de la vista web  `Anuncio`.
+- `EngagementAnnouncement.html` : el diseño html de vista web `Announcement`.
 
 ### Carpeta /images
 
-`EngagementIconNotification.png` : el icono de marca que se muestra a la izquierda de una notificación.
+- `EngagementIconNotification.png`: el icono de marca que se muestra a la izquierda de una notificación, sustituya este por el icono de la marca.
 
-`EngagementIconOk.png` :  el icono `Correcto` de las páginas de contenido de Reach para el botón de acción o validación.
+- `EngagementIconOk.png`: el icono `Ok` de las páginas de contenido de Cobertura para el botón de acción o validación.
 
-`EngagementIconNOK.png` :  el icono `Incorrecto` que se usa cuando se deshabilita el botón de validación de las páginas de contenido de Reach.
-
-`EngagementIconClose.png` :  el icono `Cerrar` de las notificaciones y el contenido de Reach para el botón Descartar.
+- `EngagementIconNOK.png`: el icono `NOK` que se usa cuando se deshabilita el botón de validación de las páginas de contenido de Cobertura.
+ 
+- `EngagementIconClose.png`: el icono `Close` de las notificaciones y el contenido de Cobertura para el botón Descartar.
 
 ### Carpeta /overlay
 
-`EngagementOverlayAnnouncement.xaml` :  el diseño xaml de  `Anuncio`.
+- `EngagementOverlayAnnouncement.xaml` : el diseño xaml `Announcement`.
 
-`EngagementOverlayAnnouncement.xaml.cs` : el código vinculado `EngagementOverlayAnnouncement.xaml`.
-
-`EngagementOverlayNotification.xaml` :  el diseño xaml de `Notificación`.
-
-`EngagementOverlayNotification.xaml.cs` : el código vinculado `EngagementOverlayNotification.xaml`.
-
-`EngagementPageOverlay.cs` :  el código de visualización de anuncios y notificaciones de `superposición`.
-
-## Carpeta `/src/agent`
-
-En esta carpeta se incluye el objeto EngagementPage.
-
-`EngagementPage.cs` : la clase base para las páginas que informan automáticamente una actividad a Engagement.
-
-<!--HONumber=47-->
+- `EngagementOverlayAnnouncement.xaml.cs`: el código vinculado `EngagementOverlayAnnouncement.xaml`.
+ 
+- `EngagementOverlayNotification.xaml` : el diseño xaml `Notification`.
+ 
+- `EngagementOverlayNotification.xaml.cs`: el código vinculado `EngagementOverlayNotification.xaml`.
+ 
+- `EngagementPageOverlay.cs`: el código de visualización de anuncios y notificaciones de `Overlay`.
+ 
+<!--HONumber=54-->

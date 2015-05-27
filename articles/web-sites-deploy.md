@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Implementar una aplicación web en el servicio de aplicaciones de Azure"
 	description="Obtenga información sobre los métodos disponibles para la implementación de contenido en aplicaciones web."
 	services="app-service\web"
@@ -20,7 +20,7 @@
 
 ## Información general
 
-Existen varias opciones para implementar su propio contenido en [Aplicaciones web del servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este tema se proporciona información general abreviada de cada opción y vínculos para obtener más información.
+Existen varias opciones para implementar su propio contenido en  [Aplicaciones web del servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este tema se proporciona información general abreviada de cada opción y vínculos para obtener más información.
 
 
 ###<a name="cloud"></a>Implementación desde un sistema de control de código fuente hospedado en la nube
@@ -36,16 +36,16 @@ Si aún no tiene configurado el control de código fuente, la mejor manera de co
 
 ###<a name="ide"></a>Implementación desde un IDE
 
-[Visual Studio](http://www.visualstudio.com/) y [WebMatrix](http://www.microsoft.com/web/webmatrix/) son entornos de desarrollo integrado (IDE) de Microsoft que puede utilizar para el desarrollo web. Ambos proporcionan características integradas que facilitan la implementación de una aplicación web.  Ambos pueden utilizar [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) para automatizar tareas adicionales relacionadas con la implementación, como implementación de base de datos y cambios en las cadenas de conexión. Ambos también pueden implementarse con el uso de [FTP o FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)).
+[Visual Studio](http://www.visualstudio.com/) y [WebMatrix](http://www.microsoft.com/web/webmatrix/) son entornos de desarrollo integrado (IDE) de Microsoft que puede utilizar para el desarrollo web. Ambos proporcionan características integradas que facilitan la implementación de una aplicación web. Ambos pueden utilizar [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) para automatizar tareas adicionales relacionadas con la implementación, como implementación de base de datos y cambios en las cadenas de conexión. Ambos también pueden implementarse con el uso de [FTP o FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)).
 
 WebMatrix es rápido de instalar y fácil de entender, pero Visual Studio ofrece muchas más características para trabajar con aplicaciones web. Desde el IDE de Visual Studio puede crear, detener, iniciar y eliminar aplicaciones web, puede ver registros en tiempo real a medida que se crean, puede realizar una depuración remota, etc. Visual Studio también se integra con sistemas de control de código fuente como [Visual Studio Online](#vso), [Team Foundation Server](#tfs) y [repositorios Git](#git).
 
 * [Visual Studio](#vs)
 * [WebMatrix](#webmatrix)
 
-###<a name="ftp"></a>Implementación con una utilidad de FTP
+###<a name="ftp"></a>Implementación mediante una utilidad FTP
 
-Independientemente del IDE que utilice, también puede implementar contenido en su aplicación si usa [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla y puede usarlas en cualquier aplicación que funcione con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/).  Las aplicaciones web también admiten el protocolo FTPS más seguro.
+Independientemente del IDE que utilice, también puede implementar contenido en su aplicación si usa [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) para copiar archivos. Crear credenciales de FTP para una aplicación web es una tarea sencilla y puede usarlas en cualquier aplicación que funcione con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla](https://filezilla-project.org/). Las aplicaciones web también admiten el protocolo FTPS más seguro.
 
 A pesar de que es fácil copiar los archivos de la aplicación web a Azure con utilidades de FTP, no se ocupan automáticamente de tareas de implementación relacionadas, ni tampoco las coordinan, como la implementación de una base de datos o el cambio de las cadenas de conexión. Además, muchas herramientas de FTP no comparan archivos de origen y archivos de destino para omitir copiar archivos que no se han modificado. En el caso de aplicaciones de gran tamaño, si siempre se copian todos los archivos, la implementación lleva demasiado tiempo incluso para actualizaciones pequeñas, debido a que siempre se copian todos los archivos.
 
@@ -54,7 +54,7 @@ A pesar de que es fácil copiar los archivos de la aplicación web a Azure con u
 Si utiliza TFS, Git o Mercurial en un repositorio local (no hospedado en la nube), puede implementar directamente desde el repositorio a una aplicación web.
 
 * [Team Foundation Server (TFS)](#tfs)
-* [Repositorios locales Git o Mercurial](#onpremises)
+* [Repositorios locales Git o Mercurial locales](#onpremises)
 
 ###<a name="commandline"></a>Implementación con herramientas de línea de comandos y la API de administración REST de Azure
 
@@ -103,7 +103,7 @@ Para obtener información acerca de la implementación con Mercurial, consulte l
 
 [Dropbox](https://www.dropbox.com/) no es un sistema de control de código fuente, pero si almacena el código fuente en Dropbox podrá automatizar la implementación desde su cuenta de Dropbox.
 
-* [Implementación en aplicaciones web desde Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). Cómo usar el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para configurar una implementación de Dropbox.
+* [Implementación en aplicaciones web desde Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). Uso del [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para configurar una implementación de Dropbox.
 * [Implementación de Dropbox en aplicaciones web](http://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Dropbox-Deployment-to-Windows-Azure-Web-Sites). Este vídeo le guiará en el proceso de conectar una carpeta de Dropbox a una aplicación web y muestra la rapidez con que puede configurar y ejecutar una aplicación web o mantenerla con una sencilla implementación de arrastrar y soltar.
 * [Foro de Azure para Git, Mercurial y Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -111,8 +111,8 @@ Para obtener información acerca de la implementación con Mercurial, consulte l
 
 Para obtener información sobre la implementación en aplicaciones web desde Visual Studio, consulte los siguientes recursos:
 
-* [Introducción a Azure y ASP.NET](web-sites-dotnet-get-started.md) Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
-* [Cómo implementar trabajos web de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md). Configuración de proyectos de aplicación de consola para que se implementen como trabajos web.  
+* [Introducción a Azure y ASP.NET](web-sites-dotnet-get-started.md). Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
+* [Implementación de WebJobs de Azure con Visual Studio](websites-dotnet-deploy-webjobs.md). Configuración de proyectos de aplicación de consola para que se implementen como trabajos web.  
 * [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y base de datos SQL en aplicaciones web](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First .
 * [Información general sobre la implementación web para Visual Studio y ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Una introducción básica a la implementación web con Visual Studio. Artículo antiguo, pero que incluye información que sigue siendo pertinente, incluida información general de las opciones para implementar una base de datos junto con la aplicación web, además de una lista de tareas adicionales de implementación que podría tener que hacer o configurar manualmente Visual Studio para que las haga. Este tema trata sobre implementación en general, no solo sobre implementación en aplicaciones web.
 * [Implementación web de ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista. Desde que se escribió el tutorial se han agregado algunas características de implementación de Azure, pero las notas agregadas posteriormente explican lo que falta.
@@ -125,12 +125,12 @@ Para obtener información sobre la implementación en aplicaciones web desde Web
 * [Desarrollo e implementación de una aplicación web con Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md). Cómo crear un sitio web ASP.NET simple con una plantilla WebMatrix e implementarlo en aplicaciones web con WebMatrix y Web Deploy.
 * [Creación e implementación de un sitio web Node.js en Azure con WebMatrix](web-sites-nodejs-use-webmatrix.md).
 * [Creación e implementación de una aplicación web PHP-MySQL con WebMatrix](web-sites-php-mysql-use-webmatrix.md).
-* [WebMatrix 3: Git integrado e implementación en Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
+* [WebMatrix 3: Git integrado e implementación en Azure.](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
 
 Para obtener más información, consulte los siguientes recursos:
 
-* [Creación de un sitio web PHP-MySQL e implementación con FTP](web-sites-php-mysql-deploy-use-ftp.md).
-* [Cómo administrar aplicaciones web](web-sites-manage.md#ftp-credentials). Incluye información adicional que no se encuentra en el tutorial de PHP sobre cómo definir credenciales de FTP.
+* [Creación de un sitio web PHP-MySQL e implementación con FTP.](web-sites-php-mysql-deploy-use-ftp.md).
+* [Administración de Web Apps](web-sites-manage.md#ftp-credentials). Incluye información adicional que no se encuentra en el tutorial de PHP sobre cómo definir credenciales de FTP.
 
 ##<a name="tfs"></a>Team Foundation Server (TFS)
 
@@ -175,7 +175,7 @@ Desde [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx) pued
 
 Para obtener más información, consulte el siguiente recurso:
 
-* [Creación de aplicaciones reales en la nube con Azure: automatizar todo](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para ver vínculos a documentación adicional de Azure PowerShell.
+* [Creación de aplicaciones reales en la nube con Azure: automatizar todo.](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Recursos](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para ver vínculos a documentación adicional de Azure PowerShell.
 * [Uso de scripts de Windows PowerShell para publicar en entornos de prueba y desarrollo](http://msdn.microsoft.com/library/dn642480.aspx). Cómo usar scripts de implementación de Windows PowerShell que genera Visual Studio.
 
 ##<a name="api"></a>API de administración de .NET
@@ -200,7 +200,7 @@ Para obtener más información, consulte el siguiente recurso:
 
 Para obtener más información, consulte el siguiente recurso:
 
-* [Aplicaciones Web simples: implementación](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre una herramienta que escribió para facilitar el uso de Web Deploy.
+* [Aplicaciones web simples: implementación](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo sobre una herramienta que escribió para facilitar el uso de Web Deploy.
 * [Herramienta de implementación web](http://technet.microsoft.com/library/dd568996). Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
 * [Uso de Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentación oficial sobre el sitio de Microsoft IIS.NET. También es información antigua, pero es un buen lugar para comenzar.
 * [StackOverflow](http://www.stackoverflow.com). El mejor sitio para visitar y obtener información más actualizada sobre el uso de Web Deploy desde la línea de comandos.
@@ -210,14 +210,14 @@ Para obtener más información, consulte el siguiente recurso:
 
 En algunos escenarios, es posible que desee poder cambiar fácilmente entre una versión de ensayo y versión una de producción de su aplicación web. Para obtener más información, consulte [Implementación de ensayo en Web Apps](web-sites-staged-publishing.md).
 
-Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración de Web Apps, consulte [Copias de seguridad de Web Apps](web-sites-backup.md).  
+Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración de Web Apps, consulte [Copias de seguridad de Web Apps](web-sites-backup.md).
 
 Para obtener información sobre cómo usar el Control de acceso basado en roles de Azure para administrar el acceso a la implementación de Web Apps, consulte [RBAC y la publicación de aplicaciones web](http://azure.microsoft.com/blog/2015/01/05/rbac-and-azure-websites-publishing).
 
 Para obtener información sobre otros temas de implementación, consulte la sección Implementación en la [Documentación de aplicaciones web](/documentation/services/web-sites/).
 
 ## Lo que ha cambiado
-* Para obtener instrucciones sobre el cambio de sitios web al servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener instrucciones sobre el cambio del portal antiguo al nuevo portal, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-<!--HONumber=49-->
+<!--HONumber=54-->

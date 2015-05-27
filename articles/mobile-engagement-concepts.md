@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Conceptos de Mobile Engagement" 
 	description="Conceptos de Mobile Engagement"
 	services="mobile-engagement" 
@@ -23,7 +23,7 @@ Mobile Engagement define algunos conceptos comunes para todas las plataformas co
 La página es un punto de partida ideal si no está familiarizado con Mobile Engagement. No obstante, asegúrese de leer también la documentación específica de la plataforma que usa porque en esta se definirán los conceptos descritos en esta página en mayor detalle y con ejemplos, así como las posibles limitaciones.
 
 ##Dispositivos y usuarios
-Mobile Engagement identifica a los usuarios mediante la generación de un identificador único para cada dispositivo, que se denomina identificador de dispositivo (o `deviceid`). Se genera de tal forma que todas las aplicaciones que se ejecutan en el mismo dispositivo comparten el mismo identificador de este tipo.
+Mobile Engagement identifica a los usuarios mediante la generación de un identificador único para cada dispositivo, Este identificador se denomina identificador de dispositivo (o `deviceid`). Se genera de tal forma que todas las aplicaciones que se ejecutan en el mismo dispositivo comparten el mismo identificador de este tipo.
 
 Esto significa, implícitamente, que Mobile Engagement considera que un dispositivo pertenece exactamente a un usuario y, por lo tanto, usuarios y dispositivos son conceptos equivalentes.
 
@@ -76,5 +76,5 @@ Los datos adicionales (o extras) son datos arbitrarios que pueden asociarse a lo
 
 Su estructura es similar a la de los objetos JSON: se componen de un árbol de pares clave-valor. Las claves tienen un límite de 64 letras [a-zA-Z], números [0-9] y caracteres de subrayado [_] ASCII y el tamaño total de los extras se limita a 1024 caracteres (una vez codificados en JSON por el SDK de Mobile Engagement).
 
-El árbol completo de pares clave-valor se almacena como objeto JSON. Sin embargo, solo se descompone el primer nivel de claves-valores para que puedan tener acceso directamente determinadas funciones avanzadas, como Segmentos (por ejemplo, puede definir sin problemas un segmento "fans ciencia ficción" compuesto por todos los usuarios que hayan enviado al menos 10 veces el evento denominado "contenido_visualizado" con la clave extra "tipo_contenido" establecida en el valor "ciencia ficción" durante el último mes). Por tanto, se recomienda enviar solamente extras formados por listas sencillas de pares clave-valor con valores escalares (por ejemplo, cadenas, fechas, enteros o valores booleanos).
-<!--HONumber=47-->
+El árbol completo de pares clave-valor se almacena como objeto JSON. Sin embargo, solo se descompone el primer nivel de claves-valores para que puedan tener acceso directamente determinadas funciones avanzadas, como Segmentos (por ejemplo, puede definir sin problemas un segmento “fans ciencia ficción” compuesto por todos los usuarios que hayan enviado al menos 10 veces el evento denominado “contenido_visualizado” con la clave extra “tipo_contenido” establecida en el valor “ciencia ficción” durante el último mes). Por tanto, se recomienda enviar solamente extras formados por listas sencillas de pares clave-valor con valores escalares (por ejemplo, cadenas, fechas, enteros o valores booleanos).
+<!--HONumber=54-->

@@ -1,3 +1,5 @@
 
-> [AZURE.IMPORTANT] The storage account must be located in the same datacenter as the HDInsight cluster. For available datacenters, see the **Regions** menu on the [HDInsight Pricing page](/pricing/details/hdinsight/).
+> [AZURE.IMPORTANT]La cuenta de almacenamiento debe ubicarse en el mismo centro de datos que el clúster de HDInsight. Para centros de datos disponibles, vea el menú **Regiones** en la [página de precios HDInsight](/pricing/details/hdinsight/).
 
+
+<!--HONumber=54-->

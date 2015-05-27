@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
 	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -18,7 +18,7 @@
 
 #Integración de cobertura para Engagement en Android
 
-> [AZURE.IMPORTANT] Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
+> [AZURE.IMPORTANT]Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 
 ##Integración estándar
 
@@ -78,9 +78,9 @@ Edite su archivo `AndroidManifest.xml`:
 
 			<meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
-> [AZURE.IMPORTANT] Esta sección es **obligatoria** si planifica utilizar notificaciones del sistema al crear campañas de cobertura. Android impide que se muestren las notificaciones del sistema sin iconos. Por tanto, si omite esta sección, los usuarios finales no podrán recibirlas.
+> [AZURE.IMPORTANT]Esta sección es **obligatoria** si planifica utilizar notificaciones del sistema al crear campañas de cobertura. Android impide que se muestren las notificaciones del sistema sin iconos. Por tanto, si omite esta sección, los usuarios finales no podrán recibirlas.
 
--   Si crea campañas con notificaciones del sistema con imagen global, deberá agregar los siguientes permisos (después de la etiqueta`</application>`) si no se encuentran presentes:
+-   Si crea campañas con notificaciones del sistema con imagen global, deberá agregar los siguientes permisos (después de la etiqueta `</application>`) si no se encuentran presentes:
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
@@ -133,13 +133,13 @@ Luego puede invalidar las devoluciones de llamada `onDataPushStringReceived` y `
 
 ### Categoría
 
-El parámetro de categoría es opcional cuando crea una campaña de inserción de datos y le permite filtrar las inserciones de datos. Esto es útil si tiene varios receptores de difusión que controlan distintos tipos de inserciones de datos, o bien, si desea insertar distintos tipos de datos "Base64" y desea identificar su tipo antes de analizarlos.
+El parámetro de categoría es opcional cuando se crea una campaña de inserción de datos y permite filtrar los datos que inserta. Esto es útil si tiene varios receptores de difusión que controlan distintos tipos de inserciones de datos, o bien, si desea insertar distintos tipos de datos `Base64` y desea identificar su tipo antes de analizarlos.
 
 ### Parámetro de devolución de devoluciones de llamada
 
 Estas son algunas directrices para manejar correctamente el parámetro de devolución de `onDataPushStringReceived` y `onDataPushBase64Received`:
 
--   Un recepto de difusión debiera devolver `null` en la devolución de llamada si no sabe cómo controlar una inserción de datos. Debe usar la categoría para determina si el receptor de difusión debe controlar o no la inserción de datos.
+-   Un receptor de difusión debiera devolver `null` en la devolución de llamada si no sabe cómo controlar una inserción de datos. Debe usar la categoría para determina si el receptor de difusión debe controlar o no la inserción de datos.
 -   Uno de los receptores de difusión debe devolver `true` en la devolución de llamada si acepta la inserción de datos.
 -   Uno de los receptores de difusión debe devolver `false` en la devolución de llamada si reconoce la inserción de datos, pero la descarta por cualquier motivo. Por ejemplo, devuelve `false` cuando los datos recibidos no son válidos.
 -   Si un receptor de difusión devuelve `true` mientras que otro devuelve `false` para la misma inserción de datos, el comportamiento es indefinido; nunca debe hacerlo.
@@ -155,14 +155,14 @@ Cuando se sigue el procedimiento de integración que aquí se describe, el servi
 
 Para beneficiarse de la inserción "en cualquier momento", debe usar uno o más servicios de inserción nativa, dependiendo de los dispositivos a los que se oriente:
 
-  - Dispositivos de Google Play: Use [Servicio de mensajería en la nube de Google] siguiendo la guía [Integración de GCM con Engagement](mobile-engagement-android-gcm-integrate.md) .
-  - Dispositivos de Amazon: Use [Amazon Device Messaging] siguiendo la guía [Integración de ADM con Engagement](mobile-engagement-android-adm-integrate.md) .
+  - Dispositivos de Google Play: Use [Servicio de mensajería en la nube de Google] siguiendo la guía [Integración de GCM con Engagement](mobile-engagement-android-gcm-integrate.md).
+  - Dispositivos Amazon: Use [Amazon Device Messaging] siguiendo la guía [Integración de ADM con Engagement](mobile-engagement-android-adm-integrate.md).
 
 Si desea orientarse a dispositivos de Amazon y de Google Play, es posible que todo esté dentro de un AndroidManifest.xml/APK para desarrollo. Pero al enviar a Amazon, es posible que se rechace la aplicación si se encuentra código de GCM.
 
 En ese caso, debe usar varios APK.
 
-##Personalización de campañas
+##Personalización de las campañas
 
 Para personalizar campañas, puede modificar los diseños proporcionados en el SDK de cobertura.
 
@@ -178,17 +178,17 @@ Para personalizar las notificaciones del sistema, debe usar las **categorías**.
 
 #### Notificación en aplicación
 
-De manera predeterminada, una notificación en aplicación es una vista que se agrega de manera dinámica a la interfaz de usuario de actividad actual gracias al método Android `addContentView()`. Esto se denomina una superposición de notificación. Las superposiciones de notificación son ideales para una integración rápida, debido a que no requieren que modifique ningún diseño en la aplicación.
+De manera predeterminada, una notificación en aplicación es una vista que se agrega de manera dinámica a la interfaz de usuario de actividad actual gracias al método Android `addContentView()`. Esto se denomina superposición de notificaciones. Las superposiciones de notificación son ideales para una integración rápida, debido a que no requieren que modifique ningún diseño en la aplicación.
 
 Para modificar el aspecto de las superposiciones de notificación, puede simplemente modificar el archivo `engagement_notification_area.xml` según sus necesidades.
 
-> [AZURE.NOTE] El archivo `engagement_notification_overlay.xml` es el que se usa para crear una superposición de notificación; incluye el archivo `engagement_notification_area.xml`. También puede personalizarla para ajustarse a sus necesidades (como para posicionar el área de notificación dentro de la superposición).
+> [AZURE.NOTE]El archivo `engagement_notification_overlay.xml` es el que se usa para crear una superposición de notificación; incluye el archivo `engagement_notification_area.xml`. También puede personalizarla para ajustarse a sus necesidades (como para posicionar el área de notificación dentro de la superposición).
 
 ##### Incluya el diseño de la notificación como parte de un diseño de actividad
 
 Las superposiciones son ideales para lograr una integración rápida, pero puede ser poco conveniente o tener efectos secundarios en casos especiales. El sistema de superposición se puede personalizar en el nivel de una actividad, para que sea fácil impedir los efectos secundarios para actividades especiales.
 
-Puede decidir incluir nuestro diseño de notificación en su diseño existente gracias a la instrucción **include** de Android. El siguiente es un ejemplo de un diseño  `ListActivity` modificar que contiene solo una `ListView`.
+Puede decidir incluir nuestro diseño de notificación en su diseño existente gracias a la instrucción **include** de Android. El siguiente es un ejemplo de un diseño `ListActivity` modificado que contiene solo una `ListView`.
 
 **Antes de la integración de Engagement :**
 
@@ -222,7 +222,7 @@ En este ejemplo agregamos un contenedor principal, debido a que el diseño origi
 
 El SDK de cobertura para Engagement detecta automáticamente que el diseño de notificación está incluido en esta actividad y no agregará una superposición para esta actividad.
 
-> [AZURE.TIP] Si usa una ListActivity en su aplicación, una superposición de cobertura visible impedirá que vuelva a reaccionar ante los elementos en los que se ha hecho clic en la vista de lista. Este es un problema conocido. Para solucionar este problema, le recomendamos que incruste el diseño de notificación en su propio diseño de actividad de lista, como en el ejemplo anterior.
+> [AZURE.TIP]Si usa una ListActivity en su aplicación, una superposición de cobertura visible impedirá que vuelva a reaccionar ante los elementos en los que se ha hecho clic en la vista de lista. Este es un problema conocido. Para solucionar este problema, le recomendamos que incruste el diseño de notificación en su propio diseño de actividad de lista, como en el ejemplo anterior.
 
 ##### Deshabilitación de notificación de aplicación por actividad
 
@@ -234,11 +234,11 @@ Si no desea agregar la superposición a su actividad y no desea incluir el dise�
 
 #### <a name="categories"></a> Categorías
 
-Cuando modifica los diseños proporcionados, modifica el aspecto de todas las notificaciones. Las categorías le permiten definir varios aspectos deseados (posiblemente comportamientos) para las notificaciones. Es posible especificar una categoría cuando crea una campaña de cobertura. Tenga en cuenta que las categorías también le permiten personalizar anuncios y sondeos, lo que se describe más adelante en este documento.
+Cuando modifica los diseños proporcionados, modifica el aspecto de todas las notificaciones. Las categorías permiten definir varios destinos objetivo (posiblemente comportamientos) para las notificaciones. Las categorías pueden especificarse cuando se crea una campaña de cobertura. Tenga en cuenta que las categorías también permiten personalizar anuncios y sondeos, aspectos que se describen más adelante en este documento.
 
 Para registrar un controlador de categorías para las notificaciones, debe agregar una llamada cuando se inicializa la aplicación.
 
-> [AZURE.IMPORTANT] Lea la advertencia acerca del atributo android:process \<android-sdk-engagement-process\> en el tema Integración de Engagement en Android antes de continuar.
+> [AZURE.IMPORTANT]Lea la advertencia acerca del atributo android:process <android-sdk-engagement-process> en el tema Integración de Engagement en Android antes de continuar.
 
 El siguiente ejemplo supone que reconoció la advertencia anterior y que usa una subclase de `EngagementApplication`:
 
@@ -274,7 +274,7 @@ Para reemplazar la implementación de categoría predeterminada, puede registrar
 
 La categoría actual usada en un controlador se transmite como un parámetro en la mayoría de los métodos que puede invalidar en `EngagementDefaultNotifier`.
 
-Se transmite como un parámetro `String` o de manera indirecta en un objeto `EngagementReachContent` que tiene un método  `getCategory()`.
+Se transmite como un parámetro `String` o de manera indirecta en un objeto `EngagementReachContent` que tiene un método `getCategory()`.
 
 Puede cambiar la mayor parte del proceso de creación de notificaciones si redefine los métodos en `EngagementDefaultNotifier`; si desea obtener una apariencia de personalización más avanzada, revise la documentación técnica y el código fuente.
 
@@ -309,7 +309,7 @@ Si solo desea usar diseños alternativos para una categoría específica, puede 
 			  }
 			}
 
-**Ejemplo de `my_notification_overlay.xml`:**
+**Ejemplo de `my_notification_overlay.xml`: **
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<RelativeLayout
@@ -324,7 +324,7 @@ Si solo desea usar diseños alternativos para una categoría específica, puede 
 
 Como puede ver, el identificador de vista de superposición es distinto al estándar. Es importante que cada diseño utilice un identificador único para las superposiciones.
 
-**Ejemplo de `my_notification_area.xml`:**
+**Ejemplo de `my_notification_area.xml`: **
 
 			<?xml version="1.0" encoding="utf-8"?>
 			<merge
@@ -427,7 +427,7 @@ Por ejemplo:
 
 Este ejemplo crea una notificación del sistema para un contenido que se muestra como un evento en curso cuando se utiliza la categoría "en curso".
 
-Si desea crear el objeto `Notification` desde cero, puede devolver `false` al método y llamar a `notify` usted mismo en `NotificationManager`. En ese caso, es importante que conserve un a `contentIntent`, un `deleteIntent` y el identificador de notificación que `EngagementReachReceiver` utiliza.
+Si desea crear el objeto `Notification` desde cero, puede devolver `false` al método y llamar a `notify` usted mismo en `NotificationManager`. En ese caso, es importante que conserve un `contentIntent`, un `deleteIntent` y el identificador de notificación que utiliza `EngagementReachReceiver`.
 
 El siguiente es un ejemplo de una implementación de ese tipo correcta:
 
@@ -476,19 +476,19 @@ También puede implementar `EngagementNotifier.executeNotifAnnouncementAction` d
 
 ##### Ciclo de vida de notificación
 
-Cuando se usa la categoría predeterminada, algunos métodos de ciclo de vida se llaman en el objeto `EngagementReachInteractiveContent` para informar las estadísticas y actualizar el estado de la campaña:
+Al utilizar la categoría predeterminada, se llama a algunos métodos de ciclo de vida en el objeto `EngagementReachInteractiveContent` para mostrar estadísticas y actualizar el estado de la campaña:
 
--   Cuando la notificación se muestra en la aplicación o se pone en la barra de estado, se llama al método `displayNotification` (que informa las estadísticas) mediante `EngagementReachAgent` si se `handleNotification` devuelve `true`.
--   Si se descarta la notificación, se llama al método `exitNotification`, se informa la estadística y ahora se pueden procesar las siguientes campañas.
+-   Cuando la notificación se muestra en la aplicación o se pone en la barra de estado, se llama al método `displayNotification` (que informa las estadísticas) mediante `EngagementReachAgent` si `handleNotification` devuelve `true`.
+-   Si se descarta la notificación, se llama al método `exitNotification`, se notifica la estadística y ahora se pueden procesar las campañas siguientes.
 -   Si se hace clic en la notificación, se llama a `actionNotification`, se informa la estadística y se inicie el intento asociado.
 
-Si la implementación de `EngagementNotifier` omite el comportamiento predeterminado, debe llamar a estos métodos del ciclo de vida por sí mismo. Los siguientes ejemplos muestran algunos casos donde se omite el comportamiento predeterminado:
+Si su implementación de pasa por alto `EngagementNotifier` el comportamiento predeterminado, tiene que llamar a estos métodos de ciclo de vida por sí mismo. Los ejemplos siguientes muestran algunos casos donde se omite el comportamiento predeterminado:
 
--   No se extiende `EngagementDefaultNotifier`, es decir, implementó el control de categorías desde cero.
+-   No se extienden `EngagementDefaultNotifier`, por ejemplo, se implementa el control de categoría desde cero.
 -   En el caso de las notificaciones del sistema, anuló la `onNotificationPrepared` y modificó el `contentIntent` o el `deleteIntent` en el objeto `Notification`.
--   En el caso de las notificaciones en aplicación, anuló `prepareInAppArea`; asegúrese de asignar, al menos,  `actionNotification` a uno de sus controles de la interfaz de usuario.
+-   En el caso de las notificaciones en aplicación, anuló `prepareInAppArea`; asegúrese de asignar, al menos `actionNotification`, a uno de sus controles de la interfaz de usuario.
 
-> [AZURE.NOTE] Si `handleNotification` arroja una excepción, se elimina el contenido y se llama a `dropContent`. Esto se informa en las estadísticas y ahora es posible procesar las siguientes campañas.
+> [AZURE.NOTE]Si `handleNotification` arroja una excepción, se elimina el contenido y se llama a `dropContent`. Esto se informa en las estadísticas y ahora es posible procesar las siguientes campañas.
 
 ### Anuncios y sondeos
 
@@ -504,7 +504,7 @@ En un sondeo, el diseño de la pregunta y sus opciones se inflan de manera diná
 
 ##### Diseños alternativos
 
-Al igual que las notificaciones, la categoría de la campaña se puede usar para tener diseños alternativos para sus anuncios y sondeos.
+Como con las notificaciones, la categoría de la campaña puede utilizarse para tener diseños alternativos para los anuncios y sondeos.
 
 Por ejemplo, para crear una categoría para un anuncio de texto, puede extender `EngagementTextAnnouncementActivity` y hacer referencia a él en el archivo `AndroidManifest.xml`:
 
@@ -558,9 +558,9 @@ En el caso de los sondeos, puede extender `EngagementPollActivity` y declarar su
 
 Puede implementar categorías para sus actividades de anuncio (y sondeo) sin extender una de las clases `Engagement*Activity` proporcionadas por el SDK de cobertura. Esto resulta útil, por ejemplo, si desea definir un diseño que no utiliza las mismas vistas que los diseños estándar.
 
-Al igual que para la personalización de notificación avanzada, se recomienda consultar el código fuente de la implementación estándar.
+Al igual que para la personalización de notificación avanzada, se recomienda mirar el código fuente de la implementación estándar.
 
-Algunos aspectos que debe tener en cuenta: Cobertura iniciará la actividad con un intento específico (correspondiente al filtro de intento), más un parámetro adicional, que es el identificador de contenido.
+A continuación se indican algunas cosas que es necesario tener en cuenta: Cobertura iniciará la actividad con un intento específico (correspondiente al filtro de intento), más un parámetro adicional, que es el identificador de contenido.
 
 Para recuperar el objeto de contenido que contiene los campos que especificó al crear la campaña en el sitio web, puede hacer lo siguiente:
 
@@ -627,14 +627,14 @@ Esta es la parte interesante de la implementación:
 			  super.onPause();
 			}
 
-Como puede ver, si llamó a `actionContent(this)` y luego finalizó la actividad, `exitContent(this)` se puede llamar de manera segura sin que tenga ningún efecto.
+Como puede ver, si llamó a `actionContent(this)` y luego finalizó la actividad, se puede llamar a `exitContent(this)` de manera segura sin que tenga ningún efecto.
 
 ##Prueba
 
 Ahora, para comprobar su integración, lea Prueba de integración de Engagement en Android.
 
-[aquí]:http://developer.android.com/tools/extras/support-library.html#Downloading
-[Servicio de mensajería en la nube de Google]:http://developer.android.com/guide/google/gcm/index.html
-[Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
+[aquí]: http://developer.android.com/tools/extras/support-library.html#Downloading
+[Servicio de mensajería en la nube de Google]: http://developer.android.com/guide/google/gcm/index.html
+[Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
 
-<!--HONumber=47-->
+<!--HONumber=54-->

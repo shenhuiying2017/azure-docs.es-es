@@ -1,34 +1,34 @@
-﻿<properties 
+<properties 
 	pageTitle="" 
-	description="" 
+	description="Describe los primeros pasos que puede seguir para comenzar con Servicios móviles de Azure en un proyecto Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
-	ms.workload="web" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/8/2014" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
+
+# Introducción a Servicios móviles (proyectos Cordova)
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-mobile-services-cordova-getting-started.md)
-> - [¿Qué ha ocurrido?](vs-mobile-services-cordova-what-happened.md)
-
-## Introducción a Servicios móviles (proyectos Cordova)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 El primer paso que debe realizar para seguir el código de estos ejemplos depende del tipo de servicio móvil al que se conecte.
 
-Para usar un servicio móvil del backend de JavaScript, cree una tabla con el nombre TodoItem.  Para crear la tabla, busque el servicio móvil en el nodo Azure en el Explorador de servidores, haga clic con el botón secundario en el nodo del servicio móvil para abrir el menú contextual y elija **Crear tabla**. Escriba "TodoItem" como nombre de la tabla.
+Para usar un servicio móvil del backend de JavaScript, cree una tabla con el nombre TodoItem. Para crear la tabla, busque el servicio móvil en el nodo Azure en el Explorador de servidores, haga clic con el botón secundario en el nodo del servicio móvil para abrir el menú contextual y elija **Crear tabla**. Escriba "TodoItem" como nombre de la tabla.
 
 Si, por el contrario, utiliza un servicio móvil del backend .NET, hay ya una tabla TodoItem en la plantilla de proyecto predeterminada que Visual Studio ha creado para usted, pero tiene que publicarla en Azure. Para publicarla, abra el menú contextual del proyecto de servicio móvil en el Explorador de soluciones y elija **Publicación web**. Acepte los valores predeterminados y elija el botón **Publicar**.
   
->[AZURE.NOTE]**En los proyectos de Cordova creados con Visual Studio 2015 Preview, use esta [solución alternativa](http://go.microsoft.com/fwlink/?LinkId=518765) para trabajar con Servicios móviles de Azure. La solución no es necesaria para los proyectos con las versiones posteriores de Visual Studio 2015.**
+>[AZURE.NOTE]**En proyectos de Cordova creados mediante Visual Studio 2015 Preview, utilice esta [solución alternativa](http://go.microsoft.com/fwlink/?LinkId=518765) para trabajar con Servicios móviles de Azure. La solución alternativa no es necesaria para proyectos con versiones posteriores de Visual Studio 2015.**
 
 #####Obtención de referencia a una tabla
 
@@ -36,7 +36,7 @@ El código siguiente obtiene una referencia a una tabla que contiene datos para 
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Para que funcionen estos ejemplos, los permisos de la tabla deben estar configurados en **Cualquier persona con la clave de aplicación**. Más adelante podrá configurar la autenticación. Consulte [Introducción a la autenticación](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
+Para que funcionen estos ejemplos, los permisos de la tabla deben estar configurados en **Cualquier persona con la clave de aplicación**. Más adelante podrá configurar la autenticación. Consulte [Introducción a la autenticación](mobile-services-html-get-started-users.md).
 
 #####Incorporación de entrada 
 
@@ -72,7 +72,7 @@ Puede usar el método where para modificar la consulta. Aquí mostramos un ejemp
                 items = results.slice();
              });
 
-Para obtener más información acerca de las consultas que puede utilizar, consulte el objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx)().
+Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Actualización de entrada
 
@@ -92,10 +92,4 @@ Elimine una fila en la tabla de datos utilizando el método **del**. Llame al m�
 	});
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
-
-
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

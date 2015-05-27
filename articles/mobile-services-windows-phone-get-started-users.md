@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="05/01/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -25,26 +25,26 @@
 
 <p>En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="label">ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo</span></a> <span class="time">10:50</span></div>
-</div>  
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="dev-onpage-video"><span class="icon"> (en inglés) Reproducir vídeo</span></a> <span class="time"> (en inglés) 10:50</span></div>
+</div>
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
 1. [Registro de la aplicación para la autenticación y configuración de Servicios móviles]
-2. [Restricción de los permisos de tabla a usuarios autenticados]
+2. [Restricción de los permisos de tabla para los usuarios autenticados]
 3. [Incorporación de autenticación a la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles]. 
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Incorporación de Servicios móviles a una aplicación existente].
 
 >[AZURE.NOTE]Este tutorial muestra el flujo de autenticación que administra Servicios móviles mediante varios proveedores de identidades. Este método es fácil de configurar y es compatible con varios proveedores. Para usar Live Connect con la autenticación administrada por el cliente e incluir el inicio de sesión único en la aplicación de Windows Phone, consulte el tema [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect]. Con la autenticación administrada por el cliente, la aplicación puede acceder a los datos de usuario adicionales que mantiene el proveedor de identidades. Para obtener los mismos datos de usuario en el servicio móvil, llame a la función **user.getIdentities()** en los scripts del servidor. Para obtener más información, consulte [este artículo](http://go.microsoft.com/fwlink/p/?LinkId=506605).
 
-## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
+##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 
-## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -57,23 +57,23 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
-## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app](../includes/mobile-services-windows-phone-authenticate-app.md)]
 
-## <a name="tokens"></a>Almacenamiento de tokens de autorización en el cliente
+##<a name="tokens"></a>Almacenamiento de tokens de autorización en el cliente
 
 [AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios móviles](mobile-services-javascript-backend-service-side-authorization.md), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
+En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles](mobile-services-javascript-backend-service-side-authorization.md), usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles.
 
 <!-- Anchors. -->
 [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
-[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
+[Restricción de los permisos de tabla para los usuarios autenticados]: #permissions
 [Incorporación de autenticación a la aplicación]: #add-authentication
-[Pasos siguientes]:#next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/mobile-services-wp8-get-started-users/mobile-services-selection.png
@@ -83,10 +83,10 @@ En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios
 [5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Introducción a los Servicios móviles]: mobile-services-windows-phone-get-started.md
-[Autorización de usuarios con scripts]: mobile-services-windows-phone-authorize-users-in-scripts.md
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-windows-phone-get-started-data.md
+[Authorize users with scripts]: mobile-services-windows-phone-authorize-users-in-scripts.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect]: mobile-services-windows-phone-single-sign-on.md
 
-<!--HONumber=49-->
+<!--HONumber=54-->

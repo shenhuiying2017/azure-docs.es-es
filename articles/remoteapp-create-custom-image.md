@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de una imagen de plantilla personalizada para RemoteApp" 
 	description="Obtenga información acerca de cómo crear una imagen de plantilla personalizada para RemoteApp. Puede usar esta plantilla con una implementación híbrida o en la nube." 
 	services="remoteapp" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="remoteapp" 
-	ms.workload="tbd" 
+	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/17/2015" 
+	ms.date="2/27/2015" 
 	ms.author="elizapo"/>
 
 # Creación de una imagen de plantilla personalizada para RemoteApp
@@ -28,28 +28,29 @@ RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para ho
 - El disco se debe inicializar usando el estilo de particiones Registro de arranque maestro (MBR, Master Boot Record). El estilo de particiones de tabla de particiones GUID (GPT) no se admite. 
 - El archivo VHD debe contener una sola instalación de Windows Server 2012 R2. Puede contener varios volúmenes, pero uno de ellos con una instalación de Windows. 
 - El rol Host de sesión de Escritorio remoto (RDSH, Remote Desktop Session Host) y la característica Experiencia de escritorio deben estar instalados.
-- El rol del Agente de conexión a Escritorio remoto *no* debe instalarse.
+- El rol Agente de conexión a Escritorio remoto *no* debe instalarse.
 - El Sistema de cifrado de archivos (EFS, Encrypting File System) debe estar instalado.
-- Se debe aplicar la herramienta SYSPREP a la imagen usando los parámetros **/oobe /generalize /shutdown** (NO USE el parámetro **/mode:vm**).
+- La imagen debe estar preparada con sysprep con los parámetros **/oobe /generalize /shutdown** (No USE el parámetro **/mode:vm**).
+- No se admite la carga de su VHD desde una cadena de instantáneas.
 
 
 **Antes de empezar**
 
 Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
-- Suscríbase a RemoteApp. Puede hacerlo en la dirección [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
-- Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio. Consulte [Configurar Azure Active Directory para RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/) para obtener más información.
-- Recopile información sobre la red local: información de direcciones IP y detalles de dispositivos VPN.
-- Instale el módulo [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- [Suscríbase](http://azure.microsoft.com/services/remoteapp/) a RemoteApp. 
+- Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio. Consulte [Configuración de Azure Active Directory para RemoteApp](remoteapp-ad.md) para obtener más información.
+- Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
+- Instale el módulo de [Azure PowerShell](install-configure-powershell.md).
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 
 
 
-## **Creación de una imagen de plantilla**##
+## Creación de una imagen de plantilla ##
 
 Para crear una nueva imagen de plantilla desde cero:
 
-1.	Busque un DVD o una imagen ISO de Windows Server 2012 R2.
+1.	Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2.
 2.	Cree un archivo VHD.
 4.	Instale Windows Server 2012 R2.
 5.	Instale el rol Host de sesión de Escritorio remoto (RDSH, Remote Desktop Session Host) y la característica Experiencia de escritorio.
@@ -57,11 +58,12 @@ Para crear una nueva imagen de plantilla desde cero:
 7.	Instale y configure sus aplicaciones.
 8.	Realice cualquier configuración adicional de Windows que requieran sus aplicaciones.
 9.	Deshabilite el Sistema de cifrado de archivos (EFS).
+10.	**REQERIDO:** vaya a Windows Update e instale todas las actualizaciones importantes.
 9.	Aplique la herramienta SYSPREP a la imagen.
 
 A continuación se indican los pasos detallados para crear una nueva imagen:
 
-1.	Busque un DVD o una imagen ISO de Windows Server 2012 R2. 
+1.	Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2. 
 2.	Cree un archivo VHD usando Administración de discos. 
 	1.	Inicie Administración de discos (diskmgmt.msc). 
 	2.	Cree un archivo VHD que se expanda dinámicamente con un tamaño mínimo de 40 GB. (Calcule la cantidad de espacio necesario para Windows, sus aplicaciones y personalizaciones. Windows Server con el rol RDSH y la característica Experiencia de escritorio instalados requerirán 10 GB de espacio aproximadamente).
@@ -70,9 +72,9 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 
 			Esto se ejecutará durante varios segundos. Cuando la creación del archivo VHD se complete, debe ver un nuevo disco sin ninguna letra de unidad y en el estado "No inicializado" en la consola Administración de discos.
 
-		- Haga clic con el botón secundario en el disco (no en el espacio sin asignar) y después haga clic en **Inicializar disco**. Seleccione **MBR** (registro de arranque maestro) como el estilo de partición y después haga clic en **Aceptar**.
-		- Crear un nuevo volumen: haga clic con el botón secundario en el espacio sin asignar y, luego, haga clic en **Nuevo volumen simple**. Puede aceptar los valores predeterminados del asistente pero asegúrese de asignar una letra de unidad para evitar problemas potenciales cuando cargue la imagen de plantilla.
-		- Haga clic con el botón secundario en el disco y después en **Ocultar VHD**.
+		- Haga clic con el botón secundario en el disco (no en el espacio sin asignar) y haga clic en **Inicializar disco**. Seleccione **MBR** (registro de arranque maestro) como estilo de partición y haga clic en **Aceptar**.
+		- Cree un nuevo volumen: haga clic con el botón secundario en el espacio sin asignar y, luego, haga clic en **Nuevo volumen simple**. Puede aceptar los valores predeterminados del asistente pero asegúrese de asignar una letra de unidad para evitar problemas potenciales cuando cargue la imagen de plantilla.
+		- Haga clic con el botón secundario en el disco y después en **Ocultar VHD**.
 
 			
 
@@ -80,11 +82,11 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 
 1. Instale Windows Server 2012 R2:
 	1. Cree una nueva máquina virtual. Use el Asistente para nueva máquina virtual de Administrador de Hyper-V o Cliente Hyper-V. 
-		1. En la página Especificar generación, elija **Generación 1**.
+		1. En la página Especificar generación, elija **Generación 1**.
 		2. En la página Conectar disco duro virtual, seleccione **Usar un disco duro virtual existente** y busque el VHD que creó en el paso anterior.
-		2. En la página Opciones de instalación, seleccione **Instalar un sistema operativo desde un CD/DVD-ROM de arranque** y después seleccione la ubicación del disco de instalación de Windows Server 2012 R2.
+		2. En la página Opciones de instalación, seleccione **Instalar un sistema operativo desde un CD/DVD-ROM de arranque** y después seleccione la ubicación del disco de instalación de Windows Server 2012 R2.
 		3. Elija otras opciones del asistente necesarias para instalar Windows y sus aplicaciones. Finalice el asistente.
-	2.  Después de finalizar el asistente, edite la configuración de la máquina virtual y realice cualquier otro cambio necesario para instalar Windows y sus programas -por ejemplo, el número de procesadores virtuales- y, por último, haga clic en **Aceptar**.
+	2.  Después de finalizar el asistente, edite la configuración de la máquina virtual y realice cualquier cambio necesario para instalar Windows y sus programas —por ejemplo, el número de procesadores virtuales— y, por último, haga clic en **Aceptar**.
 	4.  Conéctese a la máquina virtual e instale Windows Server 2012 R2.
 1. Instale el rol Host de sesión de Escritorio remoto (RDSH, Remote Desktop Session Host) y la característica Experiencia de escritorio:
 	1. Inicie Administrador de servidores.
@@ -103,7 +105,7 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 1.	Instale las características adicionales que necesiten sus aplicaciones, como por ejemplo .NET Framework 3.5. Para instalar las características, ejecute el Asistente para agregar roles y características.
 7.	Instale y configure los programas y aplicaciones que desee publicar a través de RemoteApp.
 
- 	**Importante:** 
+ 	**Importante:**
 
 
 	- Microsoft recomienda instalar el rol RDSH antes de instalar aplicaciones para garantizar que se detecta cualquier problema con la compatibilidad de aplicaciones antes de que la imagen se cargue en RemoteApp.
@@ -114,27 +116,24 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 
 		Fsutil behavior set disableencryption 1
 
-	Alternativamente, puede establecer o agregar el siguiente valor DWORD en el Registro: 
+	Alternativamente, puede establecer o agregar el siguiente valor DWORD en el Registro:
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	Si está creando la imagen dentro de una máquina virtual de Azure, cambie el nombre del archivo **\%windir%\Panther\Unattend.xml**, ya que bloqueará el script de carga usado posteriormente desde el trabajo. Cambie el nombre de este archivo por Unattend.old; de este modo, seguirá teniendo el archivo en caso de que necesite revertir la implementación.
+9.	Si crea la imagen dentro de una máquina virtual de Azure, cambie el nombre del archivo **\%windir%\\Panther\\Unattend.xml**, ya que bloqueará el script de carga usado posteriormente desde el trabajo. Cambie el nombre de este archivo por Unattend.old; de este modo, seguirá teniendo el archivo en caso de que necesite revertir la implementación.
+10.	Vaya a Windows Update e instale todas las actualizaciones importantes. Puede que tenga que ejecutar varias veces Windows Update para obtener todas las actualizaciones. (A veces se instala una actualización, y esa misma actualización requiere una actualización).
 10.	Aplique la herramienta SYSPREP a la imagen. En un símbolo del sistema con privilegios elevados, ejecute el siguiente comando: 
 
-	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
+	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
 	
-	**Note:** Do not use the **/mode:vm** switch of the SYSPREP command even though this is a virtual machine. 
+	**Nota:** no use el modificador **/mode:vm** del comando SYSPREP aunque se trate de una máquina virtual.
 
 
 ## Pasos siguientes ##
-Ahora que ya tiene su imagen de plantilla personalizada, cárguela en su implementación de RemoteApp. Para obtener información sobre cómo crear la colección, lea los artículos siguientes:
+Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la cargue en su colección de RemoteApp. Para obtener información sobre cómo crear la colección, lea los artículos siguientes:
 
 
-- [Cómo crear una colección híbrida de RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/)
-- [Cómo crear una colección en la nube de RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
+- [Creación de una colección híbrida de RemoteApp](remoteapp-create-hybrid-deployment.md) 
+- [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
 
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!--HONumber=54-->

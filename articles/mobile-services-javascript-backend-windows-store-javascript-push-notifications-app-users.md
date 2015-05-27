@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
 	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,23 +10,23 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial anterior sobre [notificaciones de inserción][Introducción a las notificaciones de inserción], en este tutorial se cambia su servicio móvil para que requiera que un usuario se autentique para que el cliente pueda registrarse en el centro de notificaciones para el uso de notificaciones de inserción. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
+En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial de [notificaciones de inserción][Get started with push notifications] anterior, este tutorial cambia el dispositivo móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el centro de notificaciones para notificaciones de inserción. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
 
 Este tutorial le guiará en el siguiente proceso:
 
-+ [Actualización del servicio para que requiera autenticación para el registro]
-+ [Actualización de la aplicación para que inicie sesión antes del registro]
-+ [Prueba de la aplicación]
+1. [Actualización del servicio para que requiera autenticación para el registro]
+2. [Actualización de la aplicación para que inicie sesión antes del registro]
+3. [Prueba de la aplicación]
  
 Este tutorial es válido para aplicaciones de la Tienda Windows y la Tienda de Windows Phone.
 
@@ -36,28 +36,28 @@ Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales 
 
 + [Introducción a la autenticación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
-+ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para notificaciones de inserción mediante el uso de los Centros de notificaciones. 
++ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para notificaciones de inserción usando Centros de notificaciones.
 
 Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autorizados se registren para notificaciones de inserción desde su servicio móvil.
 
-##<a name="register"></a>Actualización del servicio para que requiera autenticación para el registro
+##<a name="register"></a>Actualización del servicio para solicitar autenticación para registro
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)] 
 
 <ol start="5"><li><p>Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en <strong>Guardar</strong>:</p>
 <pre><code>function insert(item, user, request) {
-    // Define a payload for the Windows Store toast notification.
-    var payload = '&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;toast&gt;&lt;visual&gt;' +    
-    '&lt;binding template="ToastText01"&gt;&lt;text id="1"&gt;' +
-    item.text + '&lt;/text&gt;&lt;/binding&gt;&lt;/visual&gt;&lt;/toast&gt;';
+    // Definir una carga para la notificación del sistema de la Tienda Windows.
+    var payload = '&lt;?xml version="1.0" encoding="utf-8"?>&lt;toast>&lt;visual>' +    
+    '&lt;binding template="ToastText01">&lt;text id="1">' +
+    item.text + '&lt;/text>&lt;/binding>&lt;/visual>&lt;/toast>';
 
-    // Get the ID of the logged-in user.
+    // Obtener el ID del usuario que ha iniciado sesión.
     var userId = user.userId;		
 
     request.execute({
         success: function() {
-            // If the insert succeeds, send a notification to all devices 
-	    	// registered to the logged-in user as a tag.
+            // Si la inserción se realiza correctamente, enviar una notificación a todos los dispositivos 
+	    	// registrados en el usuario que ha iniciado sesión como una etiqueta.
             	push.wns.send(userId, payload, 'wns/toast', {
                 success: function(pushResponse) {
                     console.log("Sent push:", pushResponse);
@@ -74,7 +74,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 <p>Este script de inserción usa la etiqueta del identificador de usuario para enviar una notificación de inserción (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows creados por el usuario que ha iniciado sesión.</p></li></ol>
 
-##<a name="update-app"></a>Actualización de la aplicación para que inicie sesión antes del registro
+##<a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
 
 [AZURE.INCLUDE [mobile-services-windows-store-javascript-push-notifications-app-users](../includes/mobile-services-windows-store-javascript-push-notifications-app-users.md)] 
 
@@ -82,24 +82,23 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 [AZURE.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)] 
 
-<!---## <a name="next-steps"> </a>Pasos siguientes
+<!---## <a name="next-steps"> </a>Next steps
 
-En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET].-->
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
 
 <!-- Anchors. -->
 [Actualización del servicio para que requiera autenticación para el registro]: #register
 [Actualización de la aplicación para que inicie sesión antes del registro]: #update-app
 [Prueba de la aplicación]: #test
-[Pasos siguientes]:#next-steps
+[Next Steps]: #next-steps
 
 
 <!-- URLs. -->
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
+[Introducción a la autenticación]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
+[Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
-[Referencia conceptual de servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="Aplicación de API del conector de Facebook" 
    description="Uso del conector de Facebook" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -19,7 +19,7 @@
 
 # Uso del conector de Facebook en la aplicación lógica #
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. 
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
 
 El conector de Facebook permite recuperar "Nuevo comentario en el muro del usuario", "Nuevo comentario en la página", "Publicar comentario", "Publicar foto" y así sucesivamente de su cuenta de Facebook.
 
@@ -27,7 +27,7 @@ El conector de Facebook permite recuperar "Nuevo comentario en el muro del usuar
 - Las acciones del conector de Facebook le permite realizar acciones como "Publicar comentario", "Publicar foto" y así sucesivamente. Estas acciones devuelven una respuesta y hacen que estén disponibles las acciones en el flujo para su consumo.
 
 ## Creación de un conector de Facebook para la aplicación lógica ##
-Para usar el conector de Facebook, deberá crear primero crear una instancia de la aplicación de API del conector de Facebook. Esto puede hacerse de la siguiente forma:
+Para usar el conector de Facebook, deberá crear primero crear una instancia de la aplicación de API del conector de Facebook. Se puede hacer de la forma siguiente:
 
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior izquierda del Portal de Azure.
 2.	Diríjase a "Internet y móvil > Aplicaciones API" y busque "Conector de Facebook".
@@ -42,7 +42,7 @@ Para usar el conector de Facebook, deberá crear primero crear una instancia de 
 
 
 ## Uso del conector de Facebook en la aplicación lógica ##
-Una vez creada la aplicación de la API, ahora puede usar el conector de Facebook como desencadenador/acción para la aplicación lógica. Para ello, necesitamos lo siguiente:
+Una vez creada la aplicación de la API, ahora puede usar el conector de Facebook como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
 1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tenga el conector de Facebook.
  
@@ -58,9 +58,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Faceboo
 	![][5]
 5.	Permiso de "Aplicaciones lógicas de Servicios de aplicaciones de Azure" 
 
-	![][6]
-	![][7]
-	![][8]     
+	![][6] ![][7] ![][8]     
 6.	Seleccione un desencadenador.
  
 	![][9]
@@ -71,8 +69,9 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Faceboo
  
 	![][11]
 
+**Sugerencia** : para obtener el identificador de página de Facebook o el de grupo de Yammer busque los códigos numéricos en la dirección URL.
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
 [2]: ./media/app-service-logic-connector-facebook/img2.png
 [3]: ./media/app-service-logic-connector-facebook/img3.png
@@ -85,4 +84,4 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Faceboo
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!--HONumber=49-->
+<!--HONumber=54-->

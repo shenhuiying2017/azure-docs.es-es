@@ -1,29 +1,29 @@
-﻿<properties 
+<properties 
 	pageTitle="Gestión de conflictos con datos sin conexión en Servicios móviles (iOS) | Centro de desarrollo móvil" 
-	description="Aprenda a usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación iOS." 
+	description="Aprenda a usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación iOS" 
 	documentationCenter="ios" 
 	authors="krisragh" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="dotnet" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
-	ms.author="krisragh,donnam"/>
+	ms.date="04/16/2015" 
+	ms.author="krisragh;donnam"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos sin conexión]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos sin conexión].
 
->[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure.</a>
+>[AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -149,7 +149,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 2. Agregue un nuevo controlador de vista para el elemento de tareas al guión gráfico, a la derecha del **Controlador de vista de lista de tareas** existente. Establezca la clase personalizada de este nuevo controlador de vista en **QSItemViewController**. Para obtener más información, consulte [Incorporación de una escena a un guión gráfico].
 
-3. Agregue un objeto segue para **mostrar** desde el **controlador de vista de lista de tareas** hasta el **controlador de vista de elementos de tareas**. A continuación, en el inspector de atributos, establezca el identificador del objeto segue en **detailSegue**. 
+3. Agregue un objeto segue para **mostrar** desde el **controlador de vista de lista de tareas** hasta el **controlador de vista de elementos de tareas**. A continuación, en el inspector de atributos, establezca el identificador del objeto segue en **detailSegue**.
 
     No cree este objeto segue desde cualquier celda o botón del controlador de vista de origen. En su lugar, presione CTRL y arrastre desde el icono del controlador de vista que se muestra debajo del **controlador de vista de lista de tareas** en la interfaz del guión gráfico hasta el **controlador de vista de elementos de tareas**.
 
@@ -159,9 +159,9 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
         Nested push animation can result in corrupted navigation bar
 
-    Para obtener más información sobre los objetos segue, consulte [Incorporación de un objeto segue entre escenas en un guión gráfico]. 
+    Para obtener más información sobre los objetos segue, consulte [Incorporación de un objeto segue entre escenas en un guión gráfico].
 
-4. Agregue un campo de texto para el texto del elemento y un control segmentado para el estado de finalización al nuevo **Controlador de vista de elementos de tareas**, también con etiquetas. En el control segmentado, establezca el título del **Segmento 0** a **Sí** y el título del **Segmento 1** a **No**. Conecte estos nuevos campos a las salidas en el código. Para obtener más información, consulte [Creación de una interfaz de usuario] y [Controles segmentados].
+4. Agregue un campo de texto para el texto del elemento y un control segmentado para el estado de finalización al nuevo **Controlador de vista de elementos de tareas**, también con etiquetas. En el control segmentado, establezca el título del **segmento 0** en **Sí** y el de **segmento 1** en **No**. Conecte estos nuevos campos a salidas en el código. Para obtener más información, consulte [Creación de una interfaz de usuario] y [Controles segmentados].
 
       ![][add-todo-item-view-controller-3]
 
@@ -171,7 +171,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 7. Compruebe que la aplicación funciona con todos los cambios realizados hasta el momento. Ejecute ahora la aplicación en el simulador. Agregue elementos a la lista Todo y haga clic en ellos. Verá el controlador de vista de elementos (actualmente vacío).
 
-      ![][add-todo-item-view-controller-4]          ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Incorporación de detalles de elementos al controlador de vista de elementos Todo
 
@@ -192,7 +192,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
             [self performSegueWithIdentifier:@"detailSegue" sender:self];
         }
 
-4. Implemente **prepareForSegue:sender:** en **QSTodoListViewController.m** para pasar el elemento al ** controlador de vista de elementos Todo** y especifique la devolución de llamada cuando el usuario sale de la vista de detalles:
+4. Implemente **prepareForSegue:sender:** en **QSTodoListViewController.m** para pasar el elemento al **controlador de vista de elementos Todo** y especifique la devolución de llamada cuando el usuario sale de la vista de detalles:
 
         - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
             if ([[segue identifier] isEqualToString:@"detailSegue"]) {
@@ -255,7 +255,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 3. Ahora, actualice los elementos en las dos instancias de la aplicación. Verá un error impreso en el registro de salida en Xcode:
 
-        TodoList[1575:4a2f] ERROR Error Domain=com.Microsoft.MicrosoftAzureMobileServices.ErrorDomain Code=-1170 "Not all operations completed successfully" UserInfo=0x8dd6310 {com.Microsoft.MicrosoftAzureMobileServices.ErrorPushResultKey=(
+        TodoList[1575:4a2f] ERROR Error Domain=com.Microsoft.WindowsAzureMobileServices.ErrorDomain Code=-1170 "Not all operations completed successfully" UserInfo=0x8dd6310 {com.Microsoft.WindowsAzureMobileServices.ErrorPushResultKey=(
             "The server's version did not match the passed version"
         ), NSLocalizedDescription=Not all operations completed successfully}
 
@@ -269,7 +269,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 2. En **QSTodoService.m**, cambie la línea **init** como se muestra a continuación, para recibir de nuevo el delegado del contexto de sincronización como parámetro:
 
-€
+        -(QSTodoService *)initWithDelegate:(id)syncDelegate
 
 3. En **QSTodoService.m**, cambie la llamada **init** en **defaultServiceWithDelegate** por **initWithDelegate**:
 
@@ -415,7 +415,7 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 ### <a name="test-app"></a>Prueba de la aplicación
 
-Vamos a probar la aplicación con conflictos. Edite el mismo elemento en dos instancias distintas de la aplicación que se ejecuten al mismo tiempo, o con la aplicación y un cliente REST. 
+Vamos a probar la aplicación con conflictos. Edite el mismo elemento en dos instancias distintas de la aplicación que se ejecuten al mismo tiempo, o con la aplicación y un cliente REST.
 
 Realice el gesto de actualizar en las instancias de la aplicación arrastrando desde la parte superior. Ahora verá un símbolo del sistema para resolver el conflicto:
 
@@ -458,19 +458,17 @@ Por el camino, agregó una clase auxiliar **QSUIAlertViewWithBlock** para mostra
 
 
 [Controles segmentados]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/UIKitUICatalog/UISegmentedControl.html
-[Ayuda del editor de modelos de Core Data]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
+[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
 [Creación de una conexión de salida]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
 [Creación de una interfaz de usuario]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Incorporación de un elemento Segue entre escenas de un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
+[Incorporación de un objeto segue entre escenas en un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
 [Incorporación de una escena a un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-[Datos principales]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Descargue el SDK de versión preliminar aquí]: http://aka.ms/Gc6fex
-[Cómo usar la biblioteca de cliente de servicios móviles para iOS]: /es-es/documentation/articles/mobile-services-ios-how-to-use-client-library/
-[Ejemplo de tareas iniciales sin conexión con iOS]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[Introducción a los datos sin conexión]: /es-es/documentation/articles/mobile-services-ios-get-started-offline-data/
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
+[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
+[Download the preview SDK here]: http://aka.ms/Gc6fex
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
+[Getting Started Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[Introducción a los datos sin conexión]: mobile-services-ios-get-started-offline-data.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

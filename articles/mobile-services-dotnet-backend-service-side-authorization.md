@@ -16,21 +16,21 @@
 
 # Autorización de usuarios del lado servidor en Servicios móviles
 
-> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
-- [(Cualquiera | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
-- [(Cualquiera | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-En este tema se muestra cómo usar la lógica del lado servidor para autorizar a los usuarios.  En este tutorial, modificará los métodos de acceso a datos en .NET, filtrará consultas según los identificadores de usuario y proporcionará a los usuarios acceso solamente a sus propios datos.
+En este tema se muestra cómo usar la lógica del lado servidor para autorizar a los usuarios. En este tutorial, modificará los métodos de acceso a datos en .NET, filtrará consultas según los identificadores de usuario y proporcionará a los usuarios acceso solamente a sus propios datos.
 
 Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutorial [Agregar autenticación a la aplicación de Servicios móviles existente]. Complete primero [Agregar autenticación a la aplicación de Servicios móviles existente].
 
 ## <a name="register-scripts"></a>Modificación de los métodos de acceso a datos
 
-1. En Visual Studio, abra el proyecto móvil, expanda la carpeta DataObjects y abra **TodoItem.cs**. La clase **TodoItem** define el objeto de datos y tiene que agregar una propiedad **UserId** que usar para el filtrado. Agregue la nueva propiedad UserId siguiente a la clase**TodoItem**:
+1. En Visual Studio, abra el proyecto móvil, expanda la carpeta DataObjects y abra **TodoItem.cs**. La clase **TodoItem** define el objeto de datos y tiene que agregar una propiedad **UserId** que usar para el filtrado. Agregue la nueva propiedad UserId siguiente a la clase **TodoItem**:
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+	>[AZURE.NOTE]Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar [Migraciones de Code First](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. En el Explorador de soluciones de Visual Studio, expanda la carpeta Controladores y abra **TodoItemController.cs**. Busque el método **PostTodoItem** y agregue el código siguiente al principio del método. Este código agrega el identificador de usuario del usuario autenticado al elemento antes de que este se inserte en la tabla TodoItem.
 
@@ -59,19 +59,19 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 
 <!-- Anchors. -->
-[Registro de scripts de servidor]: #register-scripts
-[Pasos siguientes]:#next-steps
+[Register server scripts]: #register-scripts
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Agregar autenticación a la aplicación de Servicios móviles existente]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Agregar autenticación a la aplicación de Servicios móviles existente]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 
-[Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!--HONumber=45--> 
+<!--HONumber=54-->

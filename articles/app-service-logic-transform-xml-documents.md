@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Transformación de documentos XML" 
 	description="Aprenda a transformar documentos XML de un esquema a otro." 
 	authors="anuragdalmia" 
@@ -20,9 +20,9 @@
 
 
 ## Introducción a la aplicación de API de transformación de BizTalk
-En pocas palabras, la aplicación de API de transformación de BizTalk convierte los datos de un formato a otro. Por ejemplo, puede tomar las direcciones de envío y facturación de un pedido de compra e insertarlas en un documento de factura. También puede darse el caso de que tenga un mensaje entrante en el que la fecha actual tenga el formato *YearMonthDay*. Si lo desea, puede cambiar el formato de la fecha a *MonthDayYear*. 
+En pocas palabras, la aplicación de API de transformación de BizTalk convierte los datos de un formato a otro. Por ejemplo, puede tomar las direcciones de envío y facturación de un pedido de compra e insertarlas en un documento de factura. También puede darse el caso de que tenga un mensaje entrante en el que la fecha actual tenga el formato *YearMonthDay*. Si lo desea, puede cambiar el formato de la fecha a  *MonthDayYear*.
 
-Puede hacerlo mediante la aplicación de API de transformación incluida en el servicio de aplicaciones de Microsoft Azure. Una transformación o una asignación están formadas por un esquema XML de origen (la entrada) y un esquema XML de destino (la salida). Puede utilizar las diferentes funciones integradas para administrar o controlar los datos, incluidos aspectos como las manipulaciones de cadenas, las asignaciones condicionales, las expresiones aritméticas, los formateadores de tiempo y fecha e, incluso, las construcciones en bucle. 
+Puede hacerlo mediante la aplicación de API de transformación incluida en el servicio de aplicaciones de Microsoft Azure. Una transformación o una asignación están formadas por un esquema XML de origen (la entrada) y un esquema XML de destino (la salida). Puede utilizar las diferentes funciones integradas para administrar o controlar los datos, incluidos aspectos como las manipulaciones de cadenas, las asignaciones condicionales, las expresiones aritméticas, los formateadores de tiempo y fecha e, incluso, las construcciones en bucle.
 
 Las asignaciones se crean en Visual Studio mediante el [SDK de los servicios de BizTalk de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087). Cuando haya terminado de crear y probar la asignación, cárguela (.trfm) en la aplicación de API de transformación de BizTalk.
 
@@ -51,7 +51,7 @@ Otras características:
  
 3.	Para buscar la transformación de BizTalk, escriba **Transformar** y elija **Servicio de transformación de BizTalk**:
 
-	   ![][4] 
+	   ![][4]
  
 4.	En la hoja **Servicio de transformación de BizTalk**, elija **Crear**:
 
@@ -61,13 +61,13 @@ Otras características:
 
 	- Nombre: asigne un nombre a la aplicación de API de transformación. 
 	- Plan de servicio de la aplicación: elija o cree un nuevo plan de servicio de aplicaciones. 
-	- Nivel de precios: elija el nivel de precios en el que desea ubicar esta aplicación. 
+	- Nivel de precios: elija el nivel de precios en el que desea que resida esta aplicación 
 	- Grupo de recursos: elija o cree el grupo de recursos en el que desea ubicar la aplicación. 
 	- Ubicación: elija la ubicación geográfica en la que desea implementar la aplicación.
 	
 	   ![][6]
 
-6.	Elija **Crear**. La aplicación de API de transformación de BizTalk se creará en unos minutos. 
+6.	Seleccione **Crear**. La aplicación de API de transformación de BizTalk se creará en unos minutos.
 
 
 ## Descarga de esquemas desde aplicaciones de API de conectores
@@ -77,9 +77,9 @@ Puede descargar los esquemas XML para conectores como SQL, SAP y SharePoint desd
 
 
 ## Creación e incorporación de la asignación
-Las transformaciones o asignaciones se crean en Visual Studio mediante el [SDK de servicios de BizTalk de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087), que se descarga de forma gratuita. 
+Las transformaciones o asignaciones se crean en Visual Studio mediante el [SDK de servicios de BizTalk de Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=39087), que se descarga de forma gratuita.
 
-Para obtener ayuda acerca de la creación de una asignación, consulte [Cómo crear una asignación en Visual Studio](http://aka.ms/createamapinvs). Una vez que se ha creado la asignación y está lista para usarla, puede agregar la asignación (archivo .trfm) a la aplicación de API de transformación de BizTalk que creó en el Portal de administración de Azure. 
+Para obtener ayuda acerca de la creación de una asignación, consulte [Creación de una asignación en Visual Studio](http://aka.ms/createamapinvs). Una vez que se ha creado la asignación y está lista para usarla, puede agregar la asignación (archivo .trfm) a la aplicación de API de transformación de BizTalk que creó en el Portal de administración de Azure.
 
 Si el mapa cambia o se ha modificado después de cargarlo, puede cargar la asignación actualizada y reemplazar la existente en la aplicación de API de transformación.
 
@@ -122,7 +122,7 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso. 
 3. Especifique los siguientes parámetros para completar la configuración de la acción **Transformar**:
 		 
 	- XML de entrada
-		- Escriba el contenido XML válido que se ajuste al esquema de origen de una asignación en la aplicación de API de transformación. Esto puede ser un resultado de una acción anterior en la aplicación lógica, por ejemplo, 'Llamada RFC - SAP' o 'Insertar en tabla - SQL'.
+		- Escriba el contenido XML válido que se ajuste al esquema de origen de una asignación en la aplicación de API de transformación. Esto puede ser un resultado de una acción anterior en la aplicación lógica, por ejemplo, ‘Llamada RFC – SAP’ o ‘Insertar en tabla – SQL’.
 		
 	- Asignar nombre (opcional)
 		- Escriba un nombre válido para la asignación que ya está cargada en la aplicación de API de transformación. Si no se especifica ninguna asignación, se elige una automáticamente basada en el esquema de origen adecuado para el XML de entrada.
@@ -149,4 +149,4 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso. 
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

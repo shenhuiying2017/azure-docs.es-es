@@ -1,6 +1,6 @@
-﻿<properties 
-   pageTitle="Aprender Hadoop en HDInsight mediante la Galería de muestras" 
-   description="Aprender Hadoop en HDInsight mediante la Galería de muestras de HDInsight" 
+<properties 
+   pageTitle="Información sobre Hadoop en HDInsight mediante la Galería de ejemplos | Microsoft Azure" 
+   description="La Galería de introducción de HDInsight proporciona una manera rápida de conocer Hadoop ejecutando aplicaciones de ejemplo en HDInsight. Algunos ejemplos tienen datos de ejemplo o puede proporcionar los suyos propios." 
    services="hdinsight" 
    documentationCenter="" 
    authors="mumian" 
@@ -13,12 +13,12 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="1/29/2015" 
+   ms.date="03/31/2015" 
    ms.author="jgao"/>
 
-# Aprender Hadoop con la Galería de introducción de HDInsight
+# Información sobre Hadoop con la Galería de introducción de HDInsight
 
-La Galería de introducción de HDInsight proporciona una manera fácil y rápida para ejecutar aplicaciones de ejemplo de Hadoop en HDInsight. Algunos ejemplos incluyen datos de muestra. Puede proporcionar sus propios datos para el resto de las muestras. Actualmente, hay 6 muestras, y próximamente habrá más:
+La Galería de introducción de HDInsight proporciona una manera fácil y rápida de conocer Hadoop ejecutando aplicaciones de ejemplo en HDInsight. Algunos ejemplos incluyen datos de muestra. Puede proporcionar sus propios datos para el resto de los ejemplos. Actualmente, existen los siguientes seis ejemplos  (pero pronto habrá más):
 
 - Soluciones con los datos de Azure
 	- Análisis de registro del sitio web de Microsoft Azure
@@ -29,29 +29,29 @@ La Galería de introducción de HDInsight proporciona una manera fácil y rápid
 	- Análisis del registro del sitio web
 	- Recomendación de película de Mahout
 
-![HDInsight Hadoop/Storm/HBase Getting Started Gallery][hdinsight.sample.gallery]
+![Soluciones de la Galería de introducción de HBase, Storm y Hadoop en HDInsight.][hdinsight.sample.gallery]
 
 El clip de vídeo siguiente muestra cómo ejecutar la muestra de análisis de tendencias de Twitter:
 
-<center><iframe width="650" height="388" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
+<center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
 
-**Para ejecutar una muestra de la Galería de introducción**
+**Para ejecutar un ejemplo de la Galería de introducción, siga estos pasos:**
 
-1.	Inicie sesión en el [Portal de administración de Azure][azure.management.portal].
-2.	Haga clic en **HDInsight** en el menú izquierdo. Verá una lista de los clústeres de HDInsight existentes, incluidos los clústeres de Hadoop, Storm y HBase. 
+1.	Inicie sesión en el [Portal de Azure][azure.portal].
+2.	Haga clic en **HDInsight** en el panel izquierdo. Verá una lista de los clústeres de HDInsight existentes, incluidos los clústeres de Hadoop, Storm y HBase. 
 3.	Haga clic en el clúster en el que desea ejecutar la muestra.
-4.	Haga clic en **CONSOLA DE CONSULTA** en la parte inferior.
+4.	En la parte inferior de la página, haga clic en **CONSOLA DE CONSULTAS**.
 5.	Escriba el nombre de usuario y la contraseña de Hadoop para el clúster.
-6.	Haga clic en **Galería de introducción** en la parte superior.
+6.	Haga clic en **Galería de introducción** en la parte superior de la página.
 7.	Haga clic en una de las muestras. Cada muestra proporciona los pasos detallados para ejecutarla. La imagen siguiente presenta la muestra del análisis de tendencias de Twitter:
 
-	![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
+	![Ejemplo de análisis de tendencias de Twitter en HDInsight][hdinsight.twitter.sample]
 
 ## Pasos siguientes
-Entre otras formas de aprender HDInsight se incluyen:
+Otras formas de aprender HDInsight son:
 
-- [Mapa de aprendizaje de HDInsight][hdinsight.learning.map]
+- [Mapa de aprendizaje de HDInsight][hdinsight.learn.map]
 - [Infografía de HDInsight][hdinsight.infographic]
 
 <!--Image references-->
@@ -59,7 +59,7 @@ Entre otras formas de aprender HDInsight se incluyen:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: ../hdinsight-learning-map/
+[hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-
-<!--HONumber=47-->
+[azure.portal]: https://manage.windowsazure.com
+<!--HONumber=54-->

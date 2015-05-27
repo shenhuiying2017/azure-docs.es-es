@@ -1,118 +1,112 @@
-﻿<properties 
-	pageTitle="Sitio web .NET con MongoDB en una máquina virtual - Azure" 
-	description="Un tutorial que le enseña a usar Git para implementar una aplicación ASP.NET en un sitio web de Azure conectado a MongoDB en una máquina virtual." 
-	services="web-sites, virtual-machines" 
+<properties 
+	pageTitle="Creación de una aplicación web de Azure que se conecta a MongoDB en una máquina virtual" 
+	description="Un tutorial que le enseña a usar Git para implementar una aplicación ASP.NET en un Servicio de aplicaciones de Azure conectado a MongoDB en una máquina virtual de Azure."
+	tags="azure-portal" 
+	services="app-service\web, virtual-machines" 
 	documentationCenter=".net" 
 	authors="cephalin" 
-	manager="wpickett" 	
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="04/21/2015" 
 	ms.author="cephalin"/>
 
 
-# Creación de un sitio web de Azure que se conecta a MongoDB en una máquina virtual en Azure
+# Creación de una aplicación web de Azure que se conecta a MongoDB en una máquina virtual
 
-Puede utilizar Git para implementar una aplicación ASP.NET para un sitio web de Azure. En este tutorial, generará una aplicación de lista de tareas ASP.NET MVC front-end simple que se conecta a una base de datos MongoDB en una máquina virtual en Azure.  [MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto. Después de ejecutar y realizar la prueba de la aplicación ASP.NET en el equipo de desarrollo, cargará la aplicación en un sitio web de Azure mediante Git.
+Puede utilizar Git para implementar una aplicación ASP.NET en Aplicaciones web de Servicio de aplicaciones de Azure. En este tutorial, generará una aplicación de lista de tareas ASP.NET MVC front-end simple que se conecta a una base de datos MongoDB en una máquina virtual en Azure. [MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto. Después de ejecutar y realizar la prueba de la aplicación ASP.NET en el equipo de desarrollo, cargará la aplicación en Aplicaciones web de Servicio de aplicaciones con Git.
 
-[AZURE.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
-
-
-
-##Información general##
-
-En este tutorial, aprenderá lo siguiente:
-
-- [Creación de una máquina virtual e instalación de MongoDB](#virtualmachine)
-- [Creación y ejecución de la aplicación My Task List ASP.NET en el equipo de desarrollo](#createapp)
-- [Creación de un sitio web de Azure](#createwebsite)
-- [Implementación de la aplicación ASP.NET en el sitio web con Git](#deployapp)
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 
-##Conocimientos previos##
+## Conocimientos previos ##
 
 El conocimiento de los siguientes aspectos es útil para este tutorial, aunque no es obligatorio:
 
-* El controlador C# para MongoDB. Para obtener más información sobre el desarrollo de aplicaciones de C# con MongoDB, consulte el [Centro de lenguaje CSharp][MongoC#LangCenter] de MongoDB. 
+* El controlador C# para MongoDB. Para obtener más información sobre el desarrollo de aplicaciones C# en relación con MongoDB, consulte el [Centro de lenguaje CSharp de MongoDB][MongoC#LangCenter]. 
 * El marco de la aplicación web ASP.NET. Puede obtener toda la información en el [sitio web de ASP.net][ASP.NET].
-* El marco de la aplicación web ASP .NET MVC. Puede obtener toda la información al respecto en el [sitio web de ASP.NET MVC][MVCWebSite].
-* Azure. Puede comenzar leyendo en [Azure][WindowsAzure].
+* El marco de la aplicación web ASP .NET MVC. Puede obtener toda la información en el [sitio web de ASP.NET MVC][MVCWebSite].
+* Azure. Puede comenzar leyendo [Azure][WindowsAzure].
 
+## Requisitos previos ##
 
-##Preparación##
+- [Visual Studio Express 2013 para Web][VSEWeb] o [Visual Studio 2013][VSUlt]
+- [SDK de Azure para .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+- Una suscripción de Microsoft Azure activa
 
-En esta sección aprenderá cómo crear una máquina virtual en Azure e instalar MongoDB y configurar el entorno de desarrollo.
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-<a id="virtualmachine"></a> 
-###Creación de una máquina virtual e instalación de MongoDB###
+<a id="virtualmachine"></a>
+## Creación de una máquina virtual e instalación de MongoDB ##
 
 En este tutorial se presupone que ha creado una máquina virtual en Azure. Después de crear la máquina virtual, tiene que instalar MongoDB en la misma:
 
 * Para crear una máquina virtual de Windows e instalar MongoDB, consulte [Instalación de MongoDB en una máquina virtual con Windows Server en Azure][InstallMongoOnWindowsVM].
 * También puede crear una máquina virtual de Linux e instalar MongoDB, consulte [Instalación de MongoDB en una máquina virtual con CentOS Linux en Azure][InstallMongoOnCentOSLinuxVM].
 
-Después de haber creado la máquina virtual en Azure e instalado MongoDB, asegúrese de recordar el nombre de DNS de la máquina virtual ("testlinuxvm.cloudapp.net", por ejemplo) y el puerto externo de MongoDB que especificó en el extremo.  Necesitará esta información posteriormente en el tutorial.
-
-### Instalación de Visual Studio###
-
-Para empezar, instale y ejecute [Visual Studio Express 2013 para Web][VSEWeb] o [Visual Studio 2013][VSUlt].
-
-Visual Studio es un IDE (siglas en inglés de "entorno de desarrollo integrado"). Usará el IDE para crear aplicaciones de la misma forma que usa Microsoft Word para escribir documentos. Este tutorial usa Microsoft Visual Studio 2013, pero puede usar Microsoft Visual Studio Express 2013, que es una versión gratuita de Microsoft Visual Studio.
+Después de haber creado la máquina virtual en Azure e instalado MongoDB, asegúrese de recordar el nombre de DNS de la máquina virtual ("testlinuxvm.cloudapp.net", por ejemplo) y el puerto externo de MongoDB que especificó en el extremo. Necesitará esta información posteriormente en el tutorial.
 
 <a id="createapp"></a>
-##Creación y ejecución de la aplicación My Task List ASP.NET en el equipo de desarrollo##
+## Creación de la aplicación ##
 
-En esta sección creará una aplicación ASP.NET denominada "My Task List" mediante Visual Studio.  Ejecutará la aplicación localmente, pero se conectará con la máquina virtual en Azure y usará la instancia de MongoDB creada ahí.
+En esta sección creará una aplicación ASP.NET denominada "My Task List" mediante Visual Studio y realizará una implementación inicial en las Aplicaciones web del Servicio de aplicaciones de Azure. Ejecutará la aplicación localmente, pero se conectará con la máquina virtual en Azure y usará la instancia de MongoDB creada ahí.
 
-###Creación de la aplicación###
-En Visual Studio, haga clic en **Nuevo proyecto**.
+1. En Visual Studio, haga clic en **Nuevo proyecto**.
 
-![Start Page New Project][StartPageNewProject]
+	![Página de inicio de nuevo proyecto][StartPageNewProject]
 
-En la ventana **Nuevo proyecto**, en el panel izquierdo, seleccione **Visual C#** y, a continuación, seleccione **Web**. En el panel intermedio, seleccione**Aplicación web ASP.NET**. En la parte inferior, utilice el nombre "MyTaskListApp" para el proyecto y, a continuación, haga clic en **Aceptar**.
+1. En la ventana **Nuevo proyecto**, en el panel izquierdo, seleccione **Visual C#** y, a continuación, seleccione **Web**. En el panel intermedio, seleccione **Aplicación web ASP.NET**. En la parte inferior, utilice el nombre "MyTaskListApp" para el proyecto y, a continuación, haga clic en **Aceptar**
 
-![New Project Dialog][NewProjectMyTaskListApp]
+	![Cuadro de diálogo Nuevo proyecto][NewProjectMyTaskListApp]
 
-En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione **MVC** y, a continuación, haga clic en **Aceptar**.
+1. En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione **MVC** y, a continuación, haga clic en **Aceptar**.
 
-![Select MVC Template][VS2013SelectMVCTemplate]
+	![Seleccione la plantilla MVC][VS2013SelectMVCTemplate]
 
-Una vez que se complete el proyecto, aparece la página predeterminada creada por la plantilla.
+1. Si ya no está registrado en Microsoft Azure, se le solicitará que inicie sesión. Siga las indicaciones para iniciar sesión en Azure.
+2. Una vez que ha iniciado sesión, puede comenzar a configurar la aplicación web de Servicio de aplicaciones. Especifique el **nombre de aplicación web**, el **plan de Servicio de aplicaciones**, **Grupo de recursos** y **Región** y, a continuación, haga clic en **Aceptar**.
 
-![Default ASP.NET MVC Application][VS2013DefaultMVCApplication]
+	![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 
-###Instalación del controlador C# de MongoDB
+1. Una vez completada la creación del proyecto, se espera para que la aplicación web que se creará en el servicio de aplicación de Azure como se indica en la ventana **Actividad de Servicio de aplicaciones de Azure**. A continuación, haga clic en **Publicar MyTaskListApp en esta aplicación web ahora**.
+
+1. Haga clic en **Publicar**.
+
+	![](./media/web-sites-dotnet-store-data-mongodb-vm/VSPublishWeb.png)
+
+	Una vez publicada la aplicación ASP.NET de forma predeterminada en las aplicaciones web de Servicio de aplicaciones de Azure, se iniciará en el explorador.
+
+## Instalación del controlador C# de MongoDB
 
 MongoDB ofrece soporte de cliente para aplicaciones C# a través de un controlador, que tiene que instalar en el equipo de desarrollo local. El controlador C# se encuentra disponible a través de NuGet.
 
 Para instalar el controlador C# de MongoDB:
 
-1. En el **Explorador de soluciones**, en el proyecto **MyTaskListApp**, haga clic con el botón secundario en **Referencias** y seleccione **Administrar paquetes de NuGet**.
+1. En el **Explorador de soluciones**, en el proyecto **MyTaskListApp**, haga clic con el botón secundario en Referencias y seleccione **Administrar paquetes de NuGet**.
 
-	![Manage NuGet Packages][VS2013ManageNuGetPackages]
+	![Administración de paquetes de NuGet][VS2013ManageNuGetPackages]
 
-2. En la ventana **Administrar paquetes de NuGet**, en el panel izquierdo, haga clic en **En línea**. En el cuadro **Buscar en línea** de la derecha, escriba "mongocsharpdriver".  Haga clic en **Instalar** para instalar el controlador.
+2. En la ventana **Administrar paquetes de NuGet**, en el panel izquierdo, haga clic en **En línea**. En el cuadro **Buscar en línea** de la derecha, escriba "mongocsharpdriver". Haga clic en **Instalar** para instalar el controlador.
 
-	![Search for MongoDB C# Driver][SearchforMongoDBCSharpDriver]
+	![Búsqueda del controlador C# de MongoDB][SearchforMongoDBCSharpDriver]
 
 3. Haga clic en **Acepto** para aceptar los términos de licencia de 10gen, Inc.
 
-4. Haga clic en **Cerrar** una vez que se haya instalado el controlador.
-	![MongoDB C# Driver Installed][MongoDBCsharpDriverInstalled]
+4. Haga clic en **Cerrar** una vez que se haya instalado el controlador. ![Se ha instalado el controlador C# de MongoDB][MongoDBCsharpDriverInstalled]
 
 
-El controlador C# de MongoDB está ahora instalado.  Las referencias a las bibliotecas **MongoDB.Driver.dll** y **MongoDB.Bson.dll** se han agregado al proyecto.
+El controlador C# de MongoDB está ahora instalado. Las referencias a las bibliotecas  **MongoDB.Driver.dll** y **MongoDB.Bson.dll** se han agregado al proyecto.
 
-![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
+![Referencias del controlador C# de MongoDB][MongoDBCSharpDriverReferences]
 
-###Incorporación de un modelo###
-En el **Explorador de soluciones**, haga clic en la carpeta *Models*, **Agregue** una nueva **Clase** y asígnele el nombre *TaskModel.cs*.  En *TaskModel.cs*, reemplace el código existente por el código siguiente:
+## Adición de un modelo ##
+En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta *Models* y seleccione **Agregar** una nueva **Clase** y asígnele el nombre *TaskModel.cs*. En *TaskModel.cs*, reemplace el código existente por el siguiente código:
 
 	using System;
 	using System.Collections.Generic;
@@ -144,8 +138,8 @@ En el **Explorador de soluciones**, haga clic en la carpeta *Models*, **Agregue*
 	    }
 	}
 
-###Incorporación de un nivel de acceso de datos###
-En el **Explorador de soluciones**, haga clic en el proyecto *MyTaskListApp* y **Agregue** una **Nueva carpeta** llamada *DAL*.  Haga clic con el botón derecho en la carpeta *DAL* y **Agregue** una nueva **Clase**. Asigne como nombre del archivo de clase *Dal.cs*.  En *Dal.cs*, reemplace el código existente por el código siguiente:
+## Incorporación de un nivel de acceso de datos ##
+En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto *MyTaskListApp* y seleccione **Agregar** una **Carpeta nueva** llamada *DAL*. Haga clic con el botón secundario en la carpeta *DAL* y utilice la opción **Agregar** una nueva **Clase**. Utilice el nombre de archivo de clase *Dal.cs*. En *Dal.cs*, reemplace el código existente por el siguiente código:
 
 	using System;
 	using System.Collections.Generic;
@@ -250,8 +244,8 @@ En el **Explorador de soluciones**, haga clic en el proyecto *MyTaskListApp* y *
 	    }
 	}
 
-###Incorporación de un controlador###
-Abra el archivo  *Controllers\HomeController.cs* en el **Explorador de soluciones** y reemplace el código existente por el siguiente:
+## Adición de un controlador ##
+Abra el archivo *Controllers\\HomeController.cs* en el **Explorador de soluciones** y reemplace el código existente por lo siguiente:
 
 	using System;
 	using System.Collections.Generic;
@@ -331,12 +325,12 @@ Abra el archivo  *Controllers\HomeController.cs* en el **Explorador de solucione
 	    }
 	}
 
-###Configuración del estilo del sitio###
-Para cambiar el título en la parte superior de la página, abra el archivo *Views\Shared\\_Layout.cshtml* en el **Explorador de soluciones** y reemplace "Application name" en el encabezado de la barra de exploración por "My Task List Application" de manera que tenga la siguiente apariencia:
+## Configuración de estilos ##
+Para cambiar el título en la parte superior de la página, abra el archivo *Views\\Shared\\_Layout.cshtml** en el **Explorador de soluciones** y reemplace "Application name" en el encabezado de la barra de exploración por "My Task List Application" de manera que tenga la siguiente apariencia:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Para configurar el menú Task List, abra el archivo *\Views\Home\Index.cshtml* y reemplace el código existente por el siguiente código:
+Para configurar el menú Task List, abra el archivo *\\Views\\Home\\Index.cshtml* y reemplace el código existente por el siguiente código:
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -373,7 +367,7 @@ Para configurar el menú Task List, abra el archivo *\Views\Home\Index.cshtml* y
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\Home\\*Views\Home\ y **Agregue** una **Vista**.  Asígnele a la vista el nombre *Create*. Reemplace el código por lo siguiente:
+Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\\Home\* y utilice la opción **Agregar** para agregar una vista en **Vista**. Póngale a la vista el nombre  *Create*. Reemplace el código por lo siguiente:
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -418,14 +412,14 @@ Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secu
 
 El **Explorador de soluciones** debe tener la siguiente apariencia:
 
-![Solution Explorer][SolutionExplorerMyTaskListApp]
+![Explorador de soluciones][SolutionExplorerMyTaskListApp]
 
-###Establecimiento de la cadena de conexión de MongoDB###
+## Establecimiento de la cadena de conexión de MongoDB ##
 En el **Explorador de soluciones**, abra el archivo *DAL/Dal.cs*. Busque la siguiente línea de código:
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Reemplace `<vm-dns-name>` por el nombre de DNS de la máquina virtual que ejecuta el MongoDB que creó en el paso [Creación de una máquina virtual e instalación de MongoDB][] de este tutorial.  Para buscar el nombre de DNS de la máquina virtual, diríjase al Portal de administración de Azure, seleccione **Máquinas virtuales** y busque **Nombre DNS**.
+Reemplace "`<vm-dns-name>`" por el nombre de DNS de la máquina virtual que ejecuta el MongoDB que creó en el paso [Creación de una máquina virtual e instalación de MongoDB de este tutorial][]. Para buscar el nombre de DNS de la máquina virtual, diríjase al Portal de administración de Azure, seleccione **Máquinas virtuales** y busque **Nombre DNS**.
 
 Si el nombre de DNS de la máquina virtual es "testlinuxvm.cloudapp.net" y MongoDB está escuchando en el puerto predeterminado 27017, la línea de la cadena de conexión del código tendrá la siguiente apariencia:
 
@@ -435,61 +429,35 @@ Si el extremo de la máquina virtual especifica un puerto externo distinto para 
 
  	private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-Para obtener más información sobre las cadenas de conexión de MongoDB, consulte [Conexiones][MongoConnectionStrings].
+Para obtener más información sobre las cadenas de conexión de MongoDB, consulte  [Conexiones][MongoConnectionStrings].
 
-###Prueba de la implementación local###
+## Prueba de la implementación local ##
 
-Para ejecutar la aplicación en el equipo de desarrollo, seleccione **Iniciar depuración** en el menú **Depurar** o presione **F5**. IIS Express se iniciará y se abrirá un explorador y se iniciará la página principal de la aplicación.  Puede agregar una nueva tarea, que se agregará a la base de datos de MongoDB que se ejecuta en la máquina virtual en Azure.
+Para ejecutar la aplicación en el equipo de desarrollo, seleccione **Iniciar depuración** en el menú **Depurar** o presione **F5**. IIS Express se iniciará y se abrirá un explorador y se iniciará la página principal de la aplicación. Puede agregar una nueva tarea, que se agregará a la base de datos de MongoDB que se ejecuta en la máquina virtual en Azure.
 
-![My Task List Application][TaskListAppBlank]
+![Aplicación My Task List][TaskListAppBlank]
 
-<h2>Implementación de una aplicación web ASP.NET en un sitio web de Azure</h2>
+## Publicación de aplicaciones web del Servicio de aplicaciones de Azure
 
-En esta sección creará un sitio web e implementará la aplicación My Task List ASP.NET mediante Git.
+En esta sección publicará los cambios en las aplicaciones web del Servicio de aplicaciones de Azure.
 
-<a id="createwebsite"></a> 
-###Creación de un sitio web de Azure###
-En esta sección creará un sitio web de Azure.
+1. En el Explorador de soluciones, haga clic con el botón secundario de nuevo en **MyTaskListApp** y, a continuación, haga clic en **Publicar**.
+2. Haga clic en **Publicar**.
 
-1. Abra su explorador web y diríjase al [Portal de administración de Azure][AzurePortal]. Inicie sesión con su cuenta de Azure. 
-2. En la parte inferior de la página, haga clic en **+Nuevo**, **Sitio web** y **Creación rápida**.
-3. Especifique un prefijo único para la dirección URL de la aplicación.
-4. Seleccione una región.
-5. Haga clic en **Crear sitio web**.
+	Ahora debe ver la aplicación web ejecutándose en Servicio de aplicaciones de Azure y accediendo a la base de datos MongoDB en máquinas virtuales de Azure.
 
-![Create a new web site][WAWSCreateWebSite]
+## Resumen ##
 
-6. En sitio web se creará rápidamente y aparecerá en **Sitios web**.
+Ha implementado correctamente la aplicación ASP.NET en aplicaciones web de Servicio de aplicaciones de Azure. Para ver la aplicación web:
 
-![WAWSDashboardMyTaskListApp][WAWSDashboardMyTaskListApp]
+1. Inicie sesión en el Portal de Azure.
+2. Haga clic en **Aplicaciones web**. 
+3. Seleccione la aplicación web en la lista **Aplicaciones web**.
 
-<a id="deployapp"></a> 
-###Implementación de la aplicación ASP.NET en el sitio web con Git
-En esta sección implementará la aplicación My Task List mediante Git.
+Para obtener más información sobre el desarrollo de aplicaciones C# en relación con MongoDB, consulte el [Centro de lenguaje CSharp][MongoC#LangCenter].
 
-1. Haga clic en el nombre del sitio web en **Sitios web** y, a continuación, haga clic en **Panel**.  A la derecha, en Vista rápida, haga clic en **Configurar implementación desde control de código fuente**.
-2. En la página **¿Dónde está el código fuente?**, seleccione **Repositorio de Git local** y haga clic en la flecha **Siguiente**. 
-3. El repositorio Git debe crearse rápidamente. Anote las instrucciones en la página resultante cuando se usen en la siguiente sección.
-
-	![Git Repository is Ready][Image9]
-
-4. En **Insertar archivos locales en Azure** hay instrucciones para la inserción de código en Azure. Las instrucciones tendrán un aspecto similar al siguiente:
-
-	![Push local files to Azure][Image10]
-	
-5. Si no tiene Git instalado, hágalo mediante el vínculo **Get it here** (Obténgalo aquí) en el paso 1.
-6. Siga las instrucciones del paso 2 para confirmar los archivos locales.  
-7. Agregue el repositorio remoto de Azure e inserte los archivos en el sitio web de Azure mediante las instrucciones del paso 3.
-8. Cuando se haya completado la implementación, verá la siguiente confirmación:
-
-	![Deployment Complete][Image11]
-
-9. El sitio web de Azure está ahora disponible.  Compruebe la página **Panel** del sitio y el campo **Dirección URL del sitio** para buscar la dirección URL del sitio. Siga los procedimientos de este tutorial. El sitio estaría disponible en esta dirección URL:: http://mytasklistapp.azurewebsites.net.
-
-##Resumen##
-
-Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure.  Para ver el sitio, haga clic en el vínculo del campo **Dirección URL del sitio** de la página **Panel**. Para obtener más información sobre el desarrollo de aplicaciones C# en relación con MongoDB, consulte el [Centro de lenguaje CSharp][MongoC#LangCenter]. 
-
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+ 
 
 <!-- HYPERLINKS -->
 
@@ -500,8 +468,8 @@ Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure.  
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnCentOSLinuxVM]: /es-es/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[InstallMongoOnWindowsVM]: /es-es/manage/windows/common-tasks/install-mongodb/
+[InstallMongoOnCentOSLinuxVM]: /manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[InstallMongoOnWindowsVM]: /manage/windows/common-tasks/install-mongodb/
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
@@ -525,13 +493,9 @@ Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure.  
 [Image11]: ./media/web-sites-dotnet-store-data-mongodb-vm/GitDeploymentComplete.png
 
 <!-- TOC BOOKMARKS -->
-[Creación de una máquina virtual e instalación de MongoDB]: #virtualmachine
-[Creación y ejecución de la aplicación My Task List ASP.NET en el equipo de desarrollo]: #createapp
-[Creación de un sitio web de Azure]: #createwebsite
-[Implementación de la aplicación ASP.NET en el sitio web con Git]: #deployapp
+[Creación de una máquina virtual e instalación de MongoDB de este tutorial]: #virtualmachine
+[Create and run the My Task List ASP.NET application on your development computer]: #createapp
+[Create an Azure web site]: #createwebsite
+[Deploy the ASP.NET application to the web site using Git]: #deployapp
 
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

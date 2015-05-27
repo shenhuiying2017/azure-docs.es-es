@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Envío de notificaciones entre plataformas a un usuario específico de iOS" 
 	description="Obtenga información acerca de cómo enviar notificaciones push a todos los dispositivos de un usuario específico."
 	services="app-service\mobile" 
@@ -22,7 +22,7 @@
 
 En este tema se muestra cómo enviar notificaciones a todos los dispositivos registrados de un usuario concreto desde su back-end móvil. Introdujo el concepto de [plantillas], que proporciona a las aplicaciones cliente la libertad de especificar formatos de carga y marcadores de posición de variables en el registro. A continuación, envíe aciertos a todas las plataformas con estos marcadores de posición, y habilite las notificaciones multiplataforma.
 
-> [AZURE.NOTE] Para obtener la inserción (push) cuando trabaja con clientes multiplataforma, es necesario completar este tutorial para cada plataforma que desea habilitar. Solo tendrá que hacer la [actualización de back-end móvil](#backend) una vez para los clientes que comparten el mismo back-end móvil.
+> [AZURE.NOTE]Para obtener la inserción (push) cuando trabaja con clientes multiplataforma, es necesario completar este tutorial para cada plataforma que desea habilitar. Solo tendrá que hacer la [actualización de back-end móvil](#backend) una vez para los clientes que comparten el mismo back-end móvil.
  
 ##Requisitos previos 
 
@@ -30,11 +30,11 @@ Antes de iniciar este tutorial, debe haber completado estos tutoriales del Servi
 
 + [Introducción a la autenticación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
-+ [Introducción a las notificaciones push]<br/>Configura la aplicación de ejemplo TodoList para notificaciones push.
++ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para notificaciones push.
 
 ##<a name="client"></a>Actualización del cliente para registrarlo para plantillas con el fin de controlar las inserciones multiplataforma
 
-1. Mueva los fragmentos de registro de APN en **QSAppDelegate.m**de **application: didFinishLaunchingWithOptions** a la llamada a **loginWithProvider** en **QSTodoListViewController.m** para que tenga lugar una vez completada la autenticación:
+1. Mueva los fragmentos de registro de APN en  **QSAppDelegate.m** **application:didFinishLaunchingWithOptions** a la llamada a **loginWithProvider** en **QSTodoListViewController.m** para que tenga lugar una vez completada la autenticación:
 
         [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
             [self refresh];
@@ -102,7 +102,7 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 
 <!-- URLs. -->
 [Introducción a la autenticación]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
-[Introducción a las notificaciones push]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
+[Introducción a las notificaciones de inserción]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
 
-<!--HONumber=49-->
+<!--HONumber=54-->

@@ -1,9 +1,9 @@
-﻿<properties 
-   pageTitle="Notas de la versión de SDK de Azure par .NET" 
-   description="Notas de la versión de SDK de Azure par .NET" 
+<properties 
+   pageTitle="Notas de la versión de SDK de Azure para .NET 2.5.1." 
+   description="Notas de la versión de SDK de Azure para .NET 2.5.1." 
    services="app-service" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="Juliako" 
    manager="dwrede" 
    editor=""/>
 
@@ -17,15 +17,15 @@
    ms.author="juliako"/>
 
 
-# Notas de la versión de SDK de Azure par .NET
+# Notas de la versión de SDK de Azure para .NET 2.5.1.
 
-Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.5.1. 
+Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.5.1.
 
 ##Notas de la versión de SDK de Azure para .NET 2.5.1
 
 A continuación se muestran características nuevas y actualizaciones en el SDK de Azure para .NET 2.5.1.
 
-- Nuevas características o escenarios relacionados con **las extensiones de herramientas web**. 
+- Nuevas características o escenarios relacionados con las **extensiones de herramientas web**. 
 
 	- Sitios Web Azure ha cambiado el nombre a Servicios de aplicaciones de Azure. Para obtener más información, vea [Servicios de aplicaciones de Azure y servicios de Azure existentes](app-service-changes-existing-services.md).
 	- Se ha agregado compatibilidad de aplicaciones de la API de Azure (vista previa) para que los clientes puedan publicar proyectos ASP.NET como aplicaciones de la API y, a continuación, usar el gesto Agregar > Cliente de aplicaciones de la API de Azure en C# para generar código basado en la estructura de la aplicación de la API implementada. 
@@ -35,10 +35,10 @@ A continuación se muestran características nuevas y actualizaciones en el SDK 
 	- Los cuadros de diálogo de publicación de la aplicación de la API y la aplicación web se han mejorado para admitir el concepto de Portal de Azure de agrupación de recursos y la selección/creación de grupos de recursos de Azure y los planes de servicio de aplicación se representan en el nuevo cuadro de diálogo de aprovisionamiento de la aplicación de la API o de la aplicación web. 
 	- Los nodos del explorador de servidores de la aplicación de la API de Azure proporcionan vínculos al vínculo profundo de aplicaciones de la API en el Portal de Azure, así como otras características como el streaming de registros y la depuración remota.
 
-	Para saber los problemas conocidos y las limitaciones actuales del SDK de Azure para .NET 2.5.1 [consulte esta sección](app-service-release-notes.md#known_issues_2_5_1) más adelante.
+	Para saber los problemas conocidos y las limitaciones actuales del SDK de Azure para .NET 2.5.1 consulte [esta](app-service-release-notes.md#known_issues_2_5_1) sección más adelante.
 
 
-- Las características o escenarios relacionados con las **herramientas de HDInsight** en Visual Studio se encuentran habilitadas en esta versión. 
+- Las características o escenarios relacionados con las **herramientas de HDInsight** en Visual Studio se encuentran habilitadas en esta versión.
 	- Validación local de los scripts de hive. Haga clic en el botón Validar script en la barra de herramientas para ver si hay errores en el script. 
 	- Mejora de la depuración de los trabajos de Hive. Ahora puede depurar los trabajos de Hive mediante el acceso a los registros de hilo en Visual Studio. Si la aplicación tiene problemas de rendimiento, la investigación los registros de hilo proporcionará información útil.
 	- (Vista previa pública) Finalización automática de palabra clave y compatibilidad con IntelliSense para Hive. Para ayudar a crear scripts de Hive, las herramientas de HDInsight para Visual Studio agregan la palabra clave de finalización automática y compatibilidad con IntelliSense para Hive.
@@ -67,4 +67,4 @@ A continuación se muestran características nuevas y actualizaciones en el SDK 
 - El consumo de la aplicación de la API a través del menú contextual "Agregar cliente de aplicación de la API de Azure" solo es compatible en C#.
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

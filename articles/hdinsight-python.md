@@ -1,39 +1,31 @@
-<properties 
-	pageTitle="Uso de Python con Hive y Pig en HDInsight de Azure" 
-	description="Vea cómo utilizar funciones definidas por el usuario (UDF) de Python desde Hive y Pig en HDInsight de Azure." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Uso de Python con Hive y Pig en HDInsight de Azure"
+	description="Vea cómo utilizar funciones definidas por el usuario (UDF) de Python desde Hive y Pig en HDInsight de Azure."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="09/17/2014" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="04/23/2015" 
 	ms.author="larryfr"/>
 
 #Uso de Python con Hive y Pig en HDInsight
 
 Hive y Pig resultan excelentes para trabajar con datos en HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Tanto Hive como Pig le permiten crear funciones definidas por el usuario (UDF) mediante diversos lenguajes de programación. En este artículo, aprenderá a usar una UDF de Python desde Hive y Pig.
 
-> [AZURE.NOTE] Los pasos de este artículo se aplican a las versiones de clúster de HDInsight 2.1, 3.0 y 3.1.
+> [AZURE.NOTE]Los pasos de este artículo se aplican a las versiones de clúster de HDInsight 2.1, 3.0, 3.1 y 3.2.
 
-##Tabla de contenido
-
-* [Python en HDInsight](#python)
-*   [Hive y Python](#hivepython)
-*   [Pig y Python](#pigpython)
-* [Ejecución de los ejemplos](#running)
-* [Solución de problemas](#troubleshooting)
-* [Pasos siguientes](#next)
 
 ##<a name="python"></a>Python en HDInsight
 
-Python2.7 se instala de forma predeterminada en los clústeres de HDInsight 3.0. La instalación se puede encontrar en la carpeta D:\Python. Hive se puede usar con esta versión de Python para el procesamiento por secuencias (los datos se pasan entre Hive y Python mediante STDOUT/STDIN).
+Python2.7 se instala de forma predeterminada en los clústeres de HDInsight 3.0 y posteriores. Hive se puede usar con esta versión de Python para el procesamiento por secuencias (los datos se pasan entre Hive y Python mediante STDOUT/STDIN).
 
 HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Pig comprende cómo hablar con Jython sin tener que recurrir a la transmisión por secuencias, de modo que es preferible cuando se usa Pig.
 
@@ -41,37 +33,49 @@ HDInsight incluye también Jython, que es una implementación de Python escrita 
 
 Python se puede usar como UDF desde Hive a través de la instrucción **TRANSFORM** de HiveQL. Por ejemplo, el siguiente HiveQL invoca un script de Python almacenado en el archivo **streaming.py**.
 
+**HDInsight basado en Linux**
+
 	add file wasb:///streaming.py;
-	
+
+	SELECT TRANSFORM (clientid, devicemake, devicemodel)
+	  USING 'streaming.py' AS
+	  (clientid string, phoneLable string, phoneHash string)
+	FROM hivesampletable
+	ORDER BY clientid LIMIT 50;
+
+**HDInsight basado en Windows**
+
+	add file wasb:///streaming.py;
+
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'D:\Python27\python.exe streaming.py' AS
 	  (clientid string, phoneLable string, phoneHash string)
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
 
+> [AZURE.NOTE]En los clústeres de HDInsight basados en Windows, la cláusula **USING** debe especificar la ruta completa a python.exe. Esta es siempre `D:\Python27\python.exe`.
+
 A continuación se muestra lo que hace este ejemplo:
 
 1. La instrucción **add file** al comienzo del archivo agrega el archivo **streaming.py** a la caché distribuida, de modo que todos los nodos del clúster pueden acceder a él.
 
-2. La instrucción  **SELECT TRANSFORM ... USING 'D:\Python27\python.exe streaming.py'** selecciona datos de **hivesampletable** y pasa clientid, devicemake y devicemodel al script **streaming.py**.
-
-	> [AZURE.NOTE] La cláusula **USING** especifica la ruta de acceso completa a python.exe, dado que no está en la ruta.
+2. La instrucción **SELECT TRANSFORM ... USING** selecciona datos de **hivesampletable** y pasa clientid, devicemake y devicemodel al script **streaming.py**.
 
 3. La cláusula **AS** describe los campos devueltos por **streaming.py**.
 
+<a name="streamingpy"></a> Este es el archivo **streaming.py** usado en el ejemplo de HiveQL.
 
-<a name="streamingpy"></a>
-Este es el archivo **streaming.py** usado en el ejemplo de HiveQL.
+	#!/usr/bin/env python
 
 	import sys
 	import string
 	import hashlib
-	
+
 	while True:
 	  line = sys.stdin.readline()
 	  if not line:
 	    break
-	
+
 	  line = string.strip(line, "\n ")
 	  clientid, devicemake, devicemodel = string.split(line, "\t")
 	  phone_label = devicemake + ' ' + devicemodel
@@ -83,15 +87,15 @@ Dado que usamos la transmisión por secuencias, este script debe hacer lo siguie
 
 2. El carácter de nueva línea final se elimina con `string.strip(line, "\n ")`, dado que solo queremos los datos de texto y no el final del indicador de línea.
 
-2. Al realizar el procesamiento por secuencias, una sola línea contiene todos los valores con un carácter de tabulación entre cada uno. Por tanto `string.split(line, "\t")` se puede usar para dividir la entrada en cada tabulación y que solo se devuelvan los campos.
+2. Al realizar el procesamiento por secuencias, una sola línea contiene todos los valores con un carácter de tabulación entre cada uno. Por tanto se puede usar `string.split(line, "\t")` para dividir la entrada en cada tabulación y que solo se devuelvan los campos.
 
 3. Cuando el procesamiento haya finalizado, la salida se debe escribir en STDOUT como una sola línea, con una tabulación entre cada campo. Para ello se usa `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 
 4. Todo esto tiene lugar dentro de un bucle `while`, que se repetirá hasta que no se lea ninguna `line`, momento en el cual `break` sale del bucle y termina el script.
 
-Aparte de eso, el script simplemente concatena los valores de entrada de `devicemake` y `devicemodel` y calcula un hash del valor concatenado. Aunque simple, describe los aspectos básicos de cómo se invoca cualquier script de Python desde la función should de Hive: repetir, leer entradas hasta que no haya más, separar cada línea de entrada en las tabulaciones, procesar, escribir una sola línea de salida delimitada por tabuladores.
+Aparte de eso, el script simplemente concatena los valores de entrada de `devicemake`y `devicemodel`, y calcula un hash del valor concatenado. Es bastante sencillo, pero describe los aspectos básicos del funcionamiento de cualquier script de Python que se invoca desde la función should de Hive: bucle, entrada de lectura hasta que no hay nada más, introducción de salto de cada línea de entrada aparte en las tabulaciones, proceso, escritura de una línea única de salida delimitada por tabulaciones.
 
-Consulte [Ejecución de los ejemplos](#running) para obtener información sobre cómo ejecutar este ejemplo en el clúster de HDInsight.
+Consulte [Ejecución de los ejemplos](#running) para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
 
 ###<a name="pigpython"></a>Pig y Python
 
@@ -111,12 +115,11 @@ A continuación se muestra cómo funciona este ejemplo:
 
 3. La tercera línea filtra los valores nulos y almacena el resultado de la operación en **LOG**.
 
-4. A continuación, recorre en iteración los registros de **LOG** y usa **GENERATE** para invocar el método **create_structure** contenido en el script **jython.py** cargado como **myfuncs**.  **LINE** se usa para pasar el registro actual a la función.
+4. A continuación, recorre en iteración los registros de **LOG** y usa **GENERATE** para invocar el método **create_structure** contenido en el script **jython.py** cargado como **myfuncs**. **LINE** se usa para pasar el registro actual a la función.
 
-5. Por último, los resultados se vuelcan en STDOUT con el comando **DUMP**. Esta acción se realiza para mostrar inmediatamente los resultados una vez que la operación ha finalizado; en un script real los datos se almacenarían (**STORE**) en un nuevo archivo.
+5. Por último, los resultados se vuelcan en STDOUT con el comando **DUMP**. Esta acción se realiza para mostrar inmediatamente los resultados una vez que la operación ha finalizado; en un script real los datos se almacenarían (**STORE**) normalmente en un nuevo archivo.
 
-<a name="jythonpy"></a>
-Este es el archivo **jython.py** usado en el ejemplo de Pig:
+<a name="jythonpy"></a> Este es el archivo **jython.py** usado en el ejemplo de Pig:
 
 	@outputSchema("log: {(date:chararray, time:chararray, classname:chararray, level:chararray, detail:chararray)}")
 	def create_structure(input):
@@ -137,7 +140,7 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como chararray por
 
 2. A continuación, **def create_structure(input)** define la función a la que Pig pasará elementos de línea.
 
-3. Los datos de ejemplo, **sample.log**, se ajustan principalmente al esquema de date, time, classname, level y detail que queremos devolver. Pero también contiene unas cuantas líneas que comienzan por la cadena '*java.lang.Exception*' y que han de modificarse para que coincidan con el esquema. La instrucción **if** las busca, y luego modifica los datos de entrada para mover la cadena '*java.lang.Exception*' al final, de forma que pone los datos en línea con nuestro esquema de salida esperado.
+3. Los datos de ejemplo, **sample.log**, se ajustan principalmente al esquema de date, time, classname, level y detail que queremos devolver. Pero también contiene unas cuantas líneas que comienzan por la cadena '*java.lang.Exception*' y que han de modificarse para que coincidan con el esquema. La instrucción if las busca, y luego modifica los datos de entrada para mover la cadena '*java.lang.Exception*' al final, de forma que pone los datos en línea con nuestro esquema de salida esperado.
 
 4. A continuación, se usa el comando **split** para dividir los datos en los primeros cuatro caracteres de espacio. El resultado son cinco valores, que se asignan a **date**, **time**, **classname**, **level** y **detail**.
 
@@ -145,16 +148,79 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como chararray por
 
 Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción **@outputSchema**.
 
-Consulte [Ejecución de los ejemplos](#running) para obtener información sobre cómo ejecutar este ejemplo en el clúster de HDInsight.
-
 ##<a name="running"></a>Ejecución de los ejemplos
 
-En los pasos que se indican a continuación se usa Microsoft Azure PowerShell. Si aún no está instalado y configurado en su máquina de desarrollo, consulte [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) antes de realizar los siguientes pasos.
+Si está usando un clúster de HDInsight basado en Linux, siga los pasos de **SSH** siguientes. Si usa un clúster de HDInsight basado en Windows y un cliente de Windows, siga los pasos de **PowerShell**.
 
+###SSH
+
+Para obtener más información sobre el uso de SSH, vea <a href="../hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">Usar SSH con Hadoop basado en Linux desde Linux, Unix u OS X</a> o <a href="../hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">Usar SSH con Hadoop basado en Linux desde Windows</a>.
 
 1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [jython.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
 
-2. Use  el siguiente script de PowerShell para cargar los archivos **streaming.py** y **jython.py** en el servidor. Sustituya el nombre del clúster de HDInsight de Azure y la ruta de acceso a los archivos **streaming.py** y **jython.py** en las tres primeras líneas del script.
+2. Use `scp` para copiar los archivos en el clúster de HDInsight. Por ejemplo, lo siguiente copiaría los archivos a un clúster denominado **mycluster**.
+
+		scp streaming.py jython.py myuser@mycluster-ssh.azurehdinsight.net:
+
+3. Use SSH para conectarse al clúster. Por ejemplo, lo siguiente debería conectarse a un clúster denominado **mycluster** como usuario **myuser**.
+
+		ssh myuser@mycluster-ssh.azurehdinsight.net
+
+4. En la sesión de SSH, agregue los archivos de python cargados anteriormente en el almacenamiento de WASB para el clúster.
+
+		hadoop fs -copyFromLocal streaming.py /streaming.py
+		hadoop fs -copyFromLocal jython.py /jython.py
+
+Después de cargar los archivos, siga los pasos siguientes para ejecutar los trabajos de Hive y Pig.
+
+####Hive
+
+1. Use el comando `hive` para iniciar el shell de Hive. Debería ver un símbolo del sistema `hive>` cuando se haya cargado el shell.
+
+2. En el símbolo del sistema `hive>`, escriba lo siguiente:
+
+		add file wasb:///streaming.py;
+		SELECT TRANSFORM (clientid, devicemake, devicemodel)
+		  USING 'streaming.py' AS
+		  (clientid string, phoneLabel string, phoneHash string)
+		FROM hivesampletable
+		ORDER BY clientid LIMIT 50;
+
+3. Después de escribir la última línea, debe iniciarse el trabajo. Finalmente, se devolverán unos resultados similares a los siguientes:
+
+		100041	RIM 9650	d476f3687700442549a83fac4560c51c
+		100041	RIM 9650	d476f3687700442549a83fac4560c51c
+		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+
+####Pig
+
+1. Use el comando `pig` para iniciar el shell. Debería ver un símbolo del sistema `grunt>` cuando se haya cargado el shell.
+
+2. En el símbolo del sistema `grunt>`, escriba las siguientes instrucciones:
+
+		Register wasb:///jython.py using jython as myfuncs;
+	    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+	    LOG = FILTER LOGS by LINE is not null;
+	    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+	    DUMP DETAILS;
+
+3. Después de escribir la siguiente línea, debe iniciarse el trabajo. Finalmente, se devolverán unos resultados similares a los siguientes:
+
+		((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+		((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+		((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+		((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+		((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+
+###PowerShell
+
+En estos pasos que se usa Azure PowerShell. Si aún no está instalado y configurado en su máquina de desarrollo, consulte [Instalación y configuración de Azure PowerShell](install-configure-powershell.md) antes de realizar los siguientes pasos.
+
+1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [jython.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
+
+2. Utilice el siguiente script de PowerShell para cargar los archivos **streaming.py** y **jython.py** en el servidor. Sustituya el nombre del clúster de HDInsight de Azure y la ruta de acceso a los archivos **streaming.py** y **jython.py** en las tres primeras líneas del script.
 
 		$clusterName = YourHDIClusterName
 		$pathToStreamingFile = "C:\path\to\streaming.py"
@@ -164,52 +230,31 @@ En los pasos que se indican a continuación se usa Microsoft Azure PowerShell. S
 		$storageAccountName = $hdiStore.DefaultStorageAccount.StorageAccountName.Split(".",2)[0]
 		$storageAccountKey = $hdiStore.defaultstorageaccount.storageaccountkey
 		$defaultContainer = $hdiStore.DefaultStorageAccount.StorageContainerName
-		
+
 		$destContext = new-azurestoragecontext -storageaccountname $storageAccountName -storageaccountkey $storageAccountKey
 		set-azurestorageblobcontent -file $pathToStreamingFile -Container $defaultContainer -Blob "streaming.py" -context $destContext
 		set-azurestorageblobcontent -file $pathToJythonFile -Container $defaultContainer -Blob "jython.py" -context $destContext
 
 	Este script recupera información del clúster de HDInsight, luego extrae la cuenta y la clave de la cuenta de almacenamiento predeterminada y seguidamente carga los archivos en la raíz del contenedor.
 
-	> [AZURE.NOTE] En el documento [Carga de datos para trabajos de Hadoop en HDInsigh](hdinsight-upload-data.md) se pueden encontrar otros métodos para cargar los scripts.
-
-###Uso del panel de Hive (solo ejemplo de Hive)
-
-1. Después de cargar el archivo, abra un explorador y vaya a https://YourClusterName.azurehdinsight.net/. Cuando se le pidan las credenciales, escriba el nombre de usuario y la contraseña de administración del clúster.
-
-	> [AZURE.NOTE] También puede usar el vínculo **Administrar clúster** de la parte inferior del **Panel** de HDInsight en el Portal de administración de Azure para iniciar el panel de Hive.
-
-2. Mediante el **Editor de Hive**, sustituya la línea `select * from hivesampletable` por el siguiente HiveQL.
-
-		add file wasb:///streaming.py;
-		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING 'D:\Python27\python.exe streaming.py' AS
-		  (clientid string, phoneLable string, phoneHash string)
-		FROM hivesampletable
-		ORDER BY clientid LIMIT 50;
-
-3. Haga clic en el botón **Enviar** para enviar el trabajo. En función de la versión del clúster de HDInsight, puede ser redirigido a la página Detalles del trabajo. En caso contrario, seleccione **Ver detalles** en el área **Sesión de trabajo** en la parte inferior de la página.
-
-4. La página **Detalles del trabajo** se actualizará hasta que se complete el trabajo. A continuación se mostrará información sobre el trabajo, así como la salida.
-
-###Uso de PowerShell (ejemplos de Hive y Pig)
+	> [AZURE.NOTE]En el documento [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md)se pueden encontrar otros métodos para cargar los scripts.
 
 Después de cargar los archivos, use los siguientes scripts de PowerShell para iniciar los trabajos. Cuando finalice el trabajo, la salida se debe escribir en la consola de PowerShell.
 
-**Para ejecutar el trabajo de Hive,siga estos pasos:**
-    
+####Hive
+
     # Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
 
 	$HiveQuery = "add file wasb:///streaming.py;" +
 	             "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
 	               "USING 'D:\Python27\python.exe streaming.py' AS " +
-	               "(clientid string, phoneLable string, phoneHash string) " +
+	               "(clientid string, phoneLabel string, phoneHash string) " +
 	             "FROM hivesampletable " +
 	             "ORDER BY clientid LIMIT 50;"
-	
+
 	$jobDefinition = New-AzureHDInsightHiveJobDefinition -Query $HiveQuery -StatusFolder '/hivepython'
-	
+
 	$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 	Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
 	Wait-AzureHDInsightJob -Job $job
@@ -226,7 +271,7 @@ La salida del trabajo de **Hive** debe parecerse a la siguiente:
 	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 
-**Para ejecutar el trabajo de Pig, siga estos pasos:**
+####Pig
 
 	# Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
@@ -236,9 +281,9 @@ La salida del trabajo de **Hive** debe parecerse a la siguiente:
 	            "LOG = FILTER LOGS by LINE is not null;" +
 	            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
 	            "DUMP DETAILS;"
-	
+
 	$jobDefinition = New-AzureHDInsightPigJobDefinition -Query $PigQuery -StatusFolder '/pigpython'
-	
+
 	$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 	Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
 	Wait-AzureHDInsightJob -Job $job
@@ -277,6 +322,12 @@ La información de error (STDERR) y el resultado del trabajo (STDOUT) también s
 
 Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [Implementación de un módulo en HDInsight de Azure](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) para ver un ejemplo de cómo hacerlo.
 
-Si desea ejecutar trabajos en HDInsight de forma remota sin usar PowerShell, consulte [Uso de HDInsight de Azure desde Linux](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx) para ver un ejemplo del uso de Python para ejecutar trabajos a través de la API REST de WebHCat.
+Para conocer otras formas de usar Pig y Hive, y para obtener información sobre el uso de MapReduce, consulte lo siguiente:
 
-<!--HONumber=42-->
+* [Uso de Hive con HDInsight](hdinsight-use-hive.md)
+
+* [Uso de Pig con HDInsight](hdinsight-use-pig.md)
+
+* [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+
+<!--HONumber=54-->

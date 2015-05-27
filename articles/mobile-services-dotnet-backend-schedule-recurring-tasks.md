@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" 
 	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
 	services="mobile-services" 
@@ -19,9 +19,9 @@
 
 # Programación de trabajos periódicos en Servicios móviles 
 
-> [AZURE.SELECTOR-LIST (Plataforma  | Back-end)]
-- [(Cualquiera  | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Cualquiera  | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -49,8 +49,8 @@ Este tutorial le guiará por los siguientes pasos relativos al uso del programad
 
 <li><p>En la misma sección, agregue los siguientes nuevos valores de configuración, reemplazando los marcadores de posición por los valores de secreto de token de acceso y token de acceso de Twitter que ha establecido como valores de la aplicación en el portal:</p>
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**token_acceso**" /&gt;
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**secreto_token_acceso**" /&gt;</code></pre>
+<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
 
 <p>El servicio móvil usa estos valores de configuración almacenados cuando se ejecuta en el equipo local, lo que le permite probar el trabajo programado antes de publicarlo. Sin embargo, al ejecutarse en Azure, el servicio móvil usa los valores establecidos en el portal e ignora esta configuración del proyecto.  </p></li>
 </ol>
@@ -59,7 +59,7 @@ Este tutorial le guiará por los siguientes pasos relativos al uso del programad
 
 1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el nombre del proyecto y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
-2. En el panel izquierdo, seleccione la categoría **En línea**, busque `linq2twitter`, haga clic en **Instalar** en el paquete **linqtotwitter** y lea y acepte los contratos de licencia. 
+2. En el panel izquierdo, seleccione la categoría **En línea**, busque `linq2twitter`, haga clic en **Instalar** en el paquete **linqtotwitter** y lea y acepte los contratos de licencia.
 
   	![][1]
 
@@ -69,7 +69,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 ##<a name="create-table"></a>Creación de la nueva tabla de actualizaciones
 
-1. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en la carpeta DataObjects, expanda **Agregar**, haga clic en **Clase**,   escriba  `Updates` en **Nombre** y, a continuación, haga clic en **Agregar**.
+1. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la carpeta DataObjects, expanda **Agregar**, haga clic en **Clase**, escriba `Updates` en **Nombre** y luego haga clic en **Agregar**.
 
 	De esta forma se crea un nuevo archivo de proyecto para la clase Updates.
 
@@ -100,9 +100,9 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 		public DbSet<Updates> Updates { get; set; }
 
-	La tabla de actualizaciones (Updates), que se crea en la base de datos al obtener acceso a DbSet por primera vez, se usa en el servicio para almacenar los datos de tweets.  
+	La tabla de actualizaciones (Updates), que se crea en la base de datos al obtener acceso a DbSet por primera vez, se usa en el servicio para almacenar los datos de tweets.
 
-	>[AZURE.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, vea [Uso de Migraciones de Code First para actualizar el modelo de datos](mobile-services-dotnet-backend-use-code-first-migrations.md).  
+	>[AZURE.NOTE]Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, vea [Uso de Migraciones de Code First para actualizar el modelo de datos](mobile-services-dotnet-backend-use-code-first-migrations.md).
 
 A continuación, cree el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
@@ -222,13 +222,13 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		    }
 		}
 
-	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio <em>mobile&#95;service&#95;name</em>y el contexto <em>mobile&#95;service&#95;name</em>, respectivamente.  
+	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio <em>mobile&#95;service&#95;name</em> y el contexto <em>mobile&#95;service&#95;name</em>, respectivamente.
    	
 	En el código anterior, el método de invalidación **ExecuteAsync** llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
 ##<a name="run-job-locally"></a>Prueba local del trabajo programado
 
-Los trabajos programados se pueden probar de forma local antes de publicarlos en Azure y registrarlos en el portal. 
+Los trabajos programados se pueden probar de forma local antes de publicarlos en Azure y registrarlos en el portal.
 
 1. En Visual Studio, con el proyecto de servicio móvil establecido como proyecto de inicio, presione F5.
 
@@ -238,7 +238,7 @@ Los trabajos programados se pueden probar de forma local antes de publicarlos en
 
 	![][8]
  
-4. Haga clic en **probar esto**, escriba  `Sample`  como valor del parámetro **{jobName}** y haga clic en **Enviar**.
+4. Haga clic en **probar esto**, escriba `Sample` como valor del parámetro **{jobName}** y haga clic en **Enviar**.
 
 	![][9]
 
@@ -256,17 +256,17 @@ El trabajo debe registrarse en la pestaña **Programador** para que los Servicio
 
 4. En el [Portal de administración de Azure], haga clic en Servicios móviles y, a continuación, en la aplicación.
 
-2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**. 
+2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**.
 
-    >[AZURE.NOTE]Cuando se ejecuta el servicio móvil en el nivel <em>Gratuito</em> ,solo son capaces de ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
+    >[AZURE.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
-3. En el cuadro de diálogo del programador, especifique _Sample_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de comprobación. 
+3. En el cuadro de diálogo del programador, especifique _Sample_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de comprobación.
    
    	![][4]
 
-   	Se crea un nuevo trabajo llamado **Sample**. 
+   	Se crea un nuevo trabajo llamado **Sample**.
 
-4. Haga clic en el nuevo trabajo que acaba de crear y, después, haga clic en **Ejecutar una vez** para probar el script. 
+4. Haga clic en el nuevo trabajo que acaba de crear y, después, haga clic en **Ejecutar una vez** para probar el script.
 
    	De esta forma, se ejecuta el trabajo mientras se mantiene deshabilitado en el programador. Desde esta página, puede habilitar el trabajo y cambiar su programación en cualquier momento.
 
@@ -289,7 +289,7 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Creación de un nuevo trabajo programado]: #add-job
 [Prueba local del trabajo programado]: #run-job-locally
 [Publicación del servicio y registro del trabajo]: #register-job
-[Pasos siguientes]: #next-steps
+[Next steps]: #next-steps
 
 <!-- Images. -->
 [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
@@ -304,9 +304,8 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: mobile-services-how-to-register-twitter-authentication.md
-[Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-[LINQ para el proyecto CodePlex de Twitter]: http://linqtotwitter.codeplex.com/
-
-<!--HONumber=49-->
+[Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
+[Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
+<!--HONumber=54-->

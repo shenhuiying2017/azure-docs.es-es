@@ -5,8 +5,6 @@ A continuación, debe cambiar la manera en que se registran las notificaciones d
 
 En este método, el asistente generó un nuevo archivo push.register.cs en su proyecto.
 
->[AZURE.NOTE] El asistente para agregar notificaciones de inserción actualmente solo se admite en un servicio móvil de backend de .NET.
-
 1. En el Explorador de soluciones de Visual Studio, abra el archivo de proyecto app.xaml.cs y en el controlador de eventos **OnLaunched**, convierta en comentario o elimine la llamada al método **UploadChannel**. 
 
 2. Abra el nuevo archivo de proyecto push.register.cs y reemplace el método **UploadChannel** por el código siguiente:
@@ -48,7 +46,7 @@ En este método, agregó un código de registro desde el tutorial directamente e
 
 1. En el Explorador de soluciones de Visual Studio, abra el archivo de proyecto app.xaml.cs y en el controlador de eventos **OnLaunched**, convierta en comentario o elimine la llamada a **InitNotificationsAsync**. 
  
-2. Cambie la accesibilidad del método **InitNotificationsAsync** de  `private` a  `public` y agregue el modificador  `static`. 
+2. Cambie la accesibilidad del método **InitNotificationsAsync** de `private` a `public` y agregue el modificador `static`.
 
 3. Abra el archivo de proyecto MainPage.xaml.cs y reemplace el método **OnNavigatedTo** por lo siguiente:
 
@@ -58,6 +56,4 @@ En este método, agregó un código de registro desde el tutorial directamente e
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

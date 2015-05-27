@@ -1,7 +1,7 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de aplicaciones en tiempo real con Pusher (iOS) - Servicios móviles" 
 	description="Obtenga información acerca de cómo usar Pusher para enviar notificaciones a su aplicación de Servicios multimedia de Azure en iOS." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="10/10/2014" 
@@ -30,7 +30,7 @@ Pusher es un servicio basado en la nube, al igual que Servicios móviles, que fa
 
 En este tutorial se realiza un recorrido por estos pasos básicos para agregar colaboración en tiempo real a la aplicación de la lista Todo:
 
-1. [Creación de una cuenta Pusher ][]
+1. [Creación de una cuenta Pusher][]
 2. [Actualización de la aplicación][]
 3. [Instalación de los scripts de servidor][]
 4. [Prueba de la aplicación][]
@@ -47,14 +47,14 @@ Ahora que tiene configurada una cuenta Pusher, el próximo paso es modificar el 
 
 ###Instalar la biblioteca libPusher
 
-La biblioteca [libPusher][] le permite obtener acceso a Pusher desde iOS.
+La biblioteca [libPusher][] permite obtener acceso a Pusher desde iOS.
 
 1. Descargue la biblioteca libPusher [desde aquí][libPusherDownload].
 
 2. Cree un grupo llamado _libPusher_ en su proyecto.
 
-3. En Finder, descomprima el archivo ZIP descargado, seleccione las carpetas **libPusher-combined.a** y **/headers** y arrastre esos elementos al grupo **libPusher** en el proyecto.
-	
+3. En el Finder, descomprima el archivo descargado, seleccione las carpetas **libPusher-combined.a** y **/headers** y arrastre esos elementos al grupo **libPusher** del proyecto.
+
 4. Active la opción **Copy items in destination group's folder** (Copiar elementos en la carpeta del grupo de destino) y, a continuación, haga clic en **Finish** (Finalizar).
 
 	![][add-files-to-group]
@@ -80,7 +80,7 @@ La biblioteca [libPusher][] le permite obtener acceso a Pusher desde iOS.
 
 	![][add-linker-flag]
 
-	De esta forma, se muestra la marca **-all_load** establecida para el destino de compilación de depuración.
+	Esto muestra la marca **-all_load** establecida para el destino de compilación de depuración.
 
 La biblioteca está ahora instalada y lista para usar.
 
@@ -97,7 +97,7 @@ La biblioteca está ahora instalada y lista para usar.
         // To be called when items are completed by other users
         - (NSUInteger) itemCompleted:(NSDictionary *)item;
 
-2. Reemplace las declaraciones existentes de **addItem** y **completeItem** por lo siguiente:
+2. Reemplace las declaraciones actuales de **addItem** y **completeItem** por lo siguiente:
 
 		- (void) addItem:(NSDictionary *) item;
 		- (void) completeItem: (NSDictionary *) item;
@@ -145,9 +145,9 @@ La biblioteca está ahora instalada y lista para usar.
 		    return index;
 		}
 
-	QSTodoService ahora le permite buscar elementos por **identificador** y agregar y completar elementos localmente sin enviar solicitudes explícitas al servicio remoto.
+	QSTodoService ahora permite buscar elementos por **id** y agregar y completar elementos localmente sin enviar solicitudes explícitas al servicio remoto.
 
-4. Sustituya los métodos **addItem** y **completeItem** por el código siguiente:
+4. Reemplace los métodos actuales **addItem** y **completeItem** por el siguiente código:
 
 		-(void) addItem:(NSDictionary *)item
 		{
@@ -179,7 +179,7 @@ La biblioteca está ahora instalada y lista para usar.
 		#import "PTPusherEvent.h"
 		#import "PTPusherChannel.h"
 
-6. Modifique la declaración de la interfaz para agregar **PTPusherDelegate** de forma que tenga el aspecto siguiente:
+6. Modifique la declaración de la interfaz para agregar **PTPusherDelegate** para que tenga el siguiente aspecto:
 
 		@interface QSTodoListViewController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
 
@@ -240,7 +240,7 @@ La biblioteca está ahora instalada y lista para usar.
 		    }];
 		}
 
-11. Reemplace el marcador de posición `**your_app_key**` por el valor de app_key que copió del cuadro de diálogo de información de la conexión anteriormente.
+11. Reemplace el marcador de posición `**your_app_key**` por el valor de la clave de aplicación que copió del cuadro de diálogo de información de la conexión anteriormente.
 
 12. Reemplace el método **onAdd** por el código siguiente:
 
@@ -263,7 +263,7 @@ La biblioteca está ahora instalada y lista para usar.
 		    [super viewDidLoad];
 		    [self setupPusher];
 
-14. Al final del método **tableView:commitEditingStyle:forRowAtIndexPath**, reemplace la llamada a **completeItem** por el código siguiente:
+14. Al final del método **tableView:commitEditingStyle:forRowAtIndexPath**, reemplace la llamada a **completeItem** por el siguiente código:
 
 		// Ask the todoService to set the item's complete value to YES
 	    [self.todoService completeItem:item];
@@ -280,10 +280,10 @@ Lo único que queda es la configuración de los scripts de servidor. Insertaremo
 
 
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
 
-2. En el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**.
+2. En el Portal de administración, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
 	![][1]
 
@@ -334,15 +334,15 @@ Lo único que queda es la configuración de los scripts de servidor. Insertaremo
 
 5. Reemplace los marcadores de posición en el script anterior por los valores que copió del cuadro de diálogo de información de la conexión anterior:
 
-	- **`**your_app_id**`**: el app&#95;id value
-	- **`**your_app_key**`**: el app&#95;key value
-	- **`**your_app_key_secret**`**: el app&#95;key&#95;secret
+	- **`**your_app_id**`**: el valor de app&#95;id
+	- **`**your_app_key**`**: el valor de app&#95;key
+	- **`**your_app_key_secret**`**: el valor de app&#95;key&#95;secret
 
 
 6. Haga clic en el botón **Save** (Guardar). Ahora ha configurado un script para publicar un evento en Pusher cada vez que se inserta un nuevo elemento en la tabla **TodoItem**.
 
 
-7. Seleccione **Update** (Actualizar)  en el cuadro desplegable **Operation** (Operación).
+7. Seleccione **Update** (Actualizar) en el cuadro desplegable **Operation** (Operación).
 
 
 8. Reemplace la función de actualización por el código siguiente:
@@ -409,7 +409,7 @@ Para realizar una prueba de la aplicación, tendrá que ejecutar dos instancias.
 
 Enhorabuena, ha configurado correctamente la aplicación de servicios móviles para sincronizarla en todos los clientes en tiempo real.
 
-## <a name="nextsteps"> </a>Pasos siguientes
+## <a name="nextsteps"> </a>[Pasos siguientes]
 
 Ahora que ha visto lo fácil que es usar el servicio Pusher con Servicios móviles, siga estos vínculos para obtener más información sobre Pusher.
 
@@ -433,8 +433,8 @@ Para obtener más información sobre el registro y uso de scripts de servidor, c
 [add-linker-flag]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
 
 <!-- URLs. -->
-[Envío de notificaciones de inserción a usuarios]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
+[Notificaciones de inserción para usuarios]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started
 [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
 [libPusherDownload]: http://go.microsoft.com/fwlink/p/?LinkId=276998
 
@@ -443,6 +443,4 @@ Para obtener más información sobre el registro y uso de scripts de servidor, c
 
 [Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Integración de la cobertura del SDK de iOS de Azure Mobile Engagement" 
 	description="Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
 	services="mobile-engagement" 
@@ -16,15 +16,15 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-# Cómo integrar la cobertura de Engagement en iOS
+#Cómo integrar la cobertura de Engagement en iOS
 
-> [AZURE.IMPORTANT] Debe seguir el procedimiento de integración que se describe en el documento Cómo integrar Engagement en iOS antes de seguir esta guía.
+> [AZURE.IMPORTANT]Debe seguir el procedimiento de integración que se describe en el documento Cómo integrar Engagement en iOS antes de seguir esta guía.
 
-## Pasos de integración
+##Pasos de integración
 
 ### Inserte el SDK de cobertura de Engagement en su proyecto de iOS
 
--   Agregue el sdk de cobertura en su proyecto de Xcode. En Xcode, vaya a **Proyecto \ > Agregar a un proyecto** y elija la `EngagementReach` carpeta.
+-   Agregue el sdk de cobertura en su proyecto de Xcode. En Xcode, vaya a **Proyecto > Agregar a un proyecto** y elija la carpeta `EngagementReach`.
 
 ### Modifique su delegado de la aplicación
 
@@ -44,11 +44,11 @@
 			}
 
 -   Modifique la cadena **'icon.png'** con el nombre de la imagen que desee como icono de la notificación.
--   Si desea utilizar la opción *Actualizar valor de distintivo* en las campañas de cobertura o si desea usar campañas de inserción nativa \</SaaS/Reach API/Campaign format/Native Push\>, deberá permitir que el módulo de cobertura administre el propio icono del distintivo (borrará automáticamente el distintivo de la aplicación y también restablecerá el valor almacenado por Engagement cada vez que se inicie o establezca la aplicación en primer plano). Para ello, agregue la línea siguiente después de la inicialización del módulo de cobertura:
+-   Si desea utilizar la opción *Actualizar valor de distintivo* en las campañas de cobertura o si desea usar campañas de inserción nativa </SaaS/Reach API/Campaign format/Native Push>, deberá permitir que el módulo de cobertura administre el propio icono del distintivo (borrará automáticamente el distintivo de la aplicación y también restablecerá el valor almacenado por Engagement cada vez que se inicie o establezca la aplicación en primer plano). Para ello, agregue la línea siguiente después de la inicialización del módulo de cobertura:
 
 			[reach setAutoBadgeEnabled:YES];
 
--   Si desea controlar la inserción de datos de cobertura, debe permitir que el delegado de la aplicación se ajuste al `AEReachDataPushDelegate` protocolo. Agregue la siguiente línea después de la inicialización del módulo de alcance:
+-   Si desea controlar la inserción de datos de cobertura, debe permitir que el delegado de la aplicación se ajuste al protocolo `AEReachDataPushDelegate`. Agregue la siguiente línea después de la inicialización del módulo de alcance:
 
 			[reach setDataPushDelegate:self];
 
@@ -73,7 +73,7 @@ El parámetro de categoría es opcional cuando se crea una campaña de inserció
 
 **La aplicación ya está lista para recibir y mostrar el contenido de la cobertura.**
 
-## Cómo recibir anuncios y sondeos en cualquier momento
+##Cómo recibir anuncios y sondeos en cualquier momento
 
 Engagement puede enviar notificaciones de cobertura a los usuarios finales en cualquier momento utilizando el servicio de notificación de inserción de Apple.
 
@@ -81,7 +81,7 @@ Para habilitar esta funcionalidad, tendrá que preparar su aplicación para noti
 
 ### Preparar la aplicación para notificaciones de inserción de Apple
 
-Siga la guía siguiente: Cómo preparar la aplicación para notificaciones de inserción de Apple.
+Siga la guía indicada a continuación: Cómo preparar la aplicación para las notificaciones de inserción de Apple.
 
 ### Agregue el código de cliente necesario
 
@@ -116,7 +116,7 @@ Por último, debe informar al SDK de Engagement cuando la aplicación reciba una
 
 Una vez que se han completado todos estos pasos, la aplicación estará lista para recibir mensajes de inserción de Engagement en cualquier momento.
 
-Pero puede mostrar algo al usuario final cuando se inicie la aplicación en respuesta a la llegada de un mensaje de inserción de Engagement. Se ofrecen tres métodos de delegado más en el `AEPushDelegate` protocolo para esto:
+Pero puede mostrar algo al usuario final cuando se inicie la aplicación en respuesta a la llegada de un mensaje de inserción de Engagement. Se ofrecen tres métodos de delegado más en el protocolo `AEPushDelegate` para esto:
 
 			-(void)willRetrieveLaunchMessage;
 			-(void)didFailToRetrieveLaunchMessage;
@@ -203,7 +203,7 @@ Este es un ejemplo completo de integración:
 			  [alert release];
 			}
 
-## Personalización de las campañas
+##Personalización de las campañas
 
 ### Notificaciones
 
@@ -217,7 +217,7 @@ Las notificaciones de las aplicaciones se realizan con una vista que se agrega d
 
 Para modificar la apariencia de las notificaciones de la aplicación, simplemente puede modificar el archivo `AENotificationView.xib` de acuerdo con sus necesidades, siempre y cuando mantenga los valores de las etiquetas y los tipos de las subvistas existentes.
 
-De forma predeterminada, las notificaciones de aplicaciones se presentan en la parte inferior de la pantalla. Si prefiere mostrarlas en la parte superior de la pantalla, edite las proporcionadas `AENotificationView.xib` y cambie la `AutoSizing` propiedad de la vista principal para mantenerla en la parte superior de la supervista.
+De forma predeterminada, las notificaciones de aplicaciones se presentan en la parte inferior de la pantalla. Si prefiere mostrarlas en la parte superior de la pantalla, edite las `AENotificationView.xib` proporcionadas y cambie la propiedad `AutoSizing` de la vista principal para mantenerla en la parte superior de la supervista.
 
 #### Categorías
 
@@ -257,7 +257,7 @@ El archivo nib proporcionado debe respetar las siguientes reglas:
 -   Las subvistas deben ser de los mismos tipos que las de dentro del archivo nib proporcionado denominado `AENotificationView.xib`
 -   Las subvistas deben tener las mismas etiquetas que las de dentro del archivo nib proporcionado denominado `AENotificationView.xib`
 
-> [AZURE.TIP] Simplemente copie el archivo nib proporcionado, denominado `AENotificationView.xib`, y empiece a trabajar desde allí. Pero tenga cuidado, la vista dentro del archivo nib está asociada a la clase `AENotificationView`. Esta clase redefinió el método `layoutSubViews` para mover y cambiar el tamaño de sus subvistas según el contexto. Puede reemplazarla por una `UIView` o su clase de vista personalizada.
+> [AZURE.TIP]Simplemente copie el archivo nib proporcionado, denominado `AENotificationView.xib`, y empiece a trabajar desde allí. Pero tenga cuidado, la vista dentro del archivo nib está asociada a la clase `AENotificationView`. Esta clase redefinió el método `layoutSubViews` para mover y cambiar el tamaño de sus subvistas según el contexto. Puede reemplazarla por una `UIView` o su clase de vista personalizada.
 
 Si necesita una personalización más profunda de las notificaciones (si desea, por ejemplo, cargar la vista directamente desde el código), se recomienda echar un vistazo al código fuente y a la documentación de la clase de `Protocol ReferencesDefaultNotifier` y `AENotifier`.
 
@@ -270,18 +270,18 @@ También puede volver a definir el notificador predeterminado de este modo:
 
 ##### Manejo de notificaciones
 
-Al utilizar la categoría predeterminada, se llama a algunos métodos de ciclo de vida en el `AEReachContent` objeto para mostrar estadísticas y actualizar el estado de la campaña:
+Al utilizar la categoría predeterminada, se llama a algunos métodos de ciclo de vida en el objeto `AEReachContent` para mostrar estadísticas y actualizar el estado de la campaña:
 
--   Cuando la notificación se muestra en la aplicación, se llama al método `displayNotification` (que notifica estadísticas) por parte de `AEReachModule` si `handleNotification:` devuelve `SÍ`.
+-   Cuando la notificación se muestra en la aplicación, se llama al método `displayNotification` (que notifica estadísticas) por parte de `AEReachModule` si `handleNotification:` devuelve `YES`.
 -   Si se descarta la notificación, se llama al método `exitNotification`, se notifica la estadística y ahora se pueden procesar las campañas siguientes.
--   Si se hace clic en la notificación, se llama a  `actionNotification`, se notifica la estadística y se lleva a cabo la acción asociada.
+-   Si se hace clic en la notificación, se llama a `actionNotification`, se notifica la estadística y se lleva a cabo la acción asociada.
 
 Si su implementación de `AENotifier` pasa por alto el comportamiento predeterminado, tiene que llamar a estos métodos de ciclo de vida por sí mismo. Los ejemplos siguientes muestran algunos casos donde se omite el comportamiento predeterminado:
 
 -   No se extienden `AEDefaultNotifier`, por ejemplo, se implementa el control de categoría desde cero.
 -   Anuló `prepareNotificationView:forContent:`, asegúrese de asignar al menos `onNotificationActioned` o `onNotificationExited` a uno de sus controles de I.U.
 
-> [AZURE.WARNING] Si `handleNotification:` produce una excepción, el contenido se elimina y se llama a `drop`, esto se indica en las estadísticas y ahora se pueden procesar las campañas siguientes.
+> [AZURE.WARNING]Si `handleNotification:` produce una excepción, el contenido se elimina y se llama a `drop`, esto se indica en las estadísticas y ahora se pueden procesar las campañas siguientes.
 
 #### Incluir notificaciones como parte de una vista existente
 
@@ -293,7 +293,7 @@ Puede decidir incluir nuestro diseño de notificación en las vistas existentes.
 
 1.  Agregar la vista de notificación mediante el generador de interfaz
 
-	-   Abrir *el generador de la interfaz*
+	-   Abrir el *generador de la interfaz*
 	-   Coloque un 320 x 60 (o si se encuentra en un iPad, un 768 x 60) `UIView` en el lugar en el que desee que aparezca la notificación
 	-   Establezca el valor de etiqueta para esta vista en: **36822491**
 
@@ -303,9 +303,9 @@ Puede decidir incluir nuestro diseño de notificación en las vistas existentes.
 			notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
 			[self.view addSubview:notificationView];
 
-`NOTIFICATION_AREA_VIEW_TAG`macro puede encontrarse en `AEDefaultNotifier.h`.
+La macro `NOTIFICATION_AREA_VIEW_TAG` puede encontrarse en `AEDefaultNotifier.h`.
 
-> [AZURE.NOTE] El notificador predeterminado detecta automáticamente que el diseño de notificación está incluido en esta vista y no se agregará una superposición para él.
+> [AZURE.NOTE]El notificador predeterminado detecta automáticamente que el diseño de notificación está incluido en esta vista y no se agregará una superposición para él.
 
 ### Anuncios y sondeos
 
@@ -324,7 +324,7 @@ Para crear una categoría para un anuncio, debe extender **AEAnnouncementViewCon
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
-> [AZURE.NOTE] Cada vez que un usuario haga clic en una notificación para un anuncio con la categoría "my\_category", el controlador de vista registrado (en ese caso `MyCustomAnnouncementViewController`) se inicializará llamando al método `initWithAnnouncement:` y la vista se agregará a la ventana de la aplicación actual.
+> [AZURE.NOTE]Cada vez que un usuario haga clic en una notificación para un anuncio con la categoría "my_category", el controlador de vista registrado (en ese caso `MyCustomAnnouncementViewController`) se inicializará llamando al método `initWithAnnouncement:` vy la vista se agregará a la ventana de la aplicación actual.
 
 En la implementación de la clase `AEAnnouncementViewController` tendrá que leer la propiedad `announcement` para inicializar sus subvistas. Considere el ejemplo siguiente, donde dos etiquetas se inicializan mediante las propiedades `title` y `body` de la clase `AEReachAnnouncement`:
 
@@ -344,7 +344,7 @@ En la implementación de la clase `AEAnnouncementViewController` tendrá que lee
 			    [self.view addSubview:bodyLabel];
 			}
 
-Si no desea cargar las vistas usted mismo pero simplemente desea reutilizar el diseño predeterminado de la vista del anuncio, puede provocar que el controlador de vista personalizada amplíe la clase suministrada `AEDefaultAnnouncementViewController`. En ese caso, duplique el archivo nib `AEDefaultAnnouncementView.xib` y cámbiele el nombre para que lo pueda cargar el controlador de vista personalizada (para un controlador denominado `CustomAnnouncementViewController`, debe llamar a su archivo nib `CustomAnnouncementView.xib`).
+Si no desea cargar las vistas usted mismo pero simplemente desea reutilizar el diseño predeterminado de la vista del anuncio, puede provocar que el controlador de vista personalizada amplíe la clase `AEDefaultAnnouncementViewController` suministrada. En tal caso, duplique el archivo nib `AEDefaultAnnouncementView.xib` y cámbiele el nombre para que pueda ser cargado por el controlador de vista personalizado (para un controlador denominado `CustomAnnouncementViewController`, deberá llamar a su archivo nib `CustomAnnouncementView.xib`).
 
 Para reemplazar la categoría predeterminada de anuncios, simplemente hay que registrar el controlador de vista personalizada para la categoría definida en `kAEReachDefaultCategory`:
 
@@ -355,9 +355,9 @@ Los sondeos pueden personalizarse de la misma manera:
 			AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
 			[reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
 
-Esta vez, la `MyCustomPollViewController` proporcionado debe ampliar `AEPollViewController`. O puede ampliar desde el controlador predeterminado: `AEDefaultPollViewController`.
+Esta vez, el `MyCustomPollViewController` proporcionado debe extender `AEPollViewController`. O bien puede ampliar desde el controlador predeterminado: `AEDefaultPollViewController`.
 
-> [AZURE.IMPORTANT] No se olvide de llamar al método `acción` (`submitAnswers:` para los controladores de vista de sondeo personalizado) o `salir` antes de descartar el controlador de vistas. De lo contrario, las estadísticas no se enviará (es decir, ningún análisis de la campaña) y, lo que es más importante, no se notificará a las campañas siguientes hasta que se reinicie el proceso de aplicación.
+> [AZURE.IMPORTANT]No se olvide de llamar a `action` (`submitAnswers:` para los controladores de vista de sondeo personalizado) o al método `exit` antes de que se descarte el controlador de vista. De lo contrario, las estadísticas no se enviará (es decir, ningún análisis de la campaña) y, lo que es más importante, no se notificará a las campañas siguientes hasta que se reinicie el proceso de aplicación.
 
 ##### Ejemplo de implementación
 
@@ -457,4 +457,4 @@ Al igual que para la personalización de notificación avanzada, se recomienda m
 			
 			@end
 
-<!--HONumber=47-->
+<!--HONumber=54-->

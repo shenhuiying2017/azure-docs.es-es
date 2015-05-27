@@ -60,7 +60,7 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Repita el paso anterior para el proyecto de aplicación de la Tienda de Windows Phone, pero esta vez agregue el **Botón** en el **TitlePanel**, después del elemento **TextBlock**.
+6. Repita el paso anterior para el proyecto de aplicación de la Tienda de Windows Phone, pero esta vez agregue el **Botón** en el  **TitlePanel**, después del elemento **TextBlock**.
 
 7. Abra el archivo de proyecto compartido App.xaml.cs y agregue la siguiente instrucción using si no existe ya:
 
@@ -83,12 +83,11 @@
             base.OnActivated(args);
         }
 
-	Si el método **OnActivated** ya existe, solo tiene que agregar el bloque de código `#if...#endif`.
+	Si el método **OnActivated** ya existe, agregue el bloque de código `#if...#endif`.
 
-9. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido. 
+9. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión e inicie sesión** en la aplicación con el proveedor de identidad que haya elegido.
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y podrá consultar su aplicación móvil y realizar actualizaciones de los datos.
 
-10. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.  
-
-<!--HONumber=49-->
+10. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
+<!--HONumber=54-->

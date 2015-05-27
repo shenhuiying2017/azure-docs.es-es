@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Conector de Salesforce" 
    description="Uso del conector de Salesforce" 
    services="app-service\logic" 
@@ -17,9 +17,9 @@
    ms.author="sutalasi"/>
 
 
-# Uso del conector de Salesforce en la aplicación lógica#
+#Uso del conector de Salesforce en la aplicación lógica#
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de Salesforce le permite crear y modificar las distintas entidades como cuentas, clientes potenciales, etc. A continuación se muestran los escenarios de integración típicos relacionados con Salesforce.
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Conector de Salesforce le permite crear y modificar las distintas entidades como cuentas o clientes potenciales, entre otras. A continuación se muestran los escenarios de integración típicos que implican a Salesforce.
 
 - Sincronización de cuentas entre sistemas ERP y de Salesforce como SAP y QuickBooks	
 
@@ -39,8 +39,19 @@ Como parte de la configuración del paquete del conector, el usuario puede espec
 - Ejecutar consulta: use esta acción para ejecutar una consulta SELECT escrita en el lenguaje de consulta de objetos de Salesforce (SOQL).
 
 
-## Creación de una aplicación lógica##
-Para utilizar un conector de Salesforce en su aplicación  lógica, debe haberse creado ya la aplicación de la API del conector o puede crear uno al vuelo en la aplicación lógica. Vamos a crear una aplicación lógica simple que cree una cuenta en Salesforces y actualice la información de la dirección de facturación de la misma cuenta.
+##Creación de una aplicación de API del conector de SalesForce##
+1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior derecha del Portal de Azure.
+2.	Vaya a “Web y móvil > Aplicaciones de API” y busque “SalesForce”.
+3.	Para configurar el conector de SalesForce, proporcione los detalles del plan de hospedaje, el grupo de recursos y seleccione el nombre de la aplicación de API.
+
+	![][15]
+4. Configure las entidades de SalesForce que desea leer o escribir en ’Configuración del paquete’.
+
+Con esto, ahora puede crear una aplicación de API del conector de SalesForce.
+
+
+##Crear una aplicación lógica##
+Vamos a crear una aplicación lógica simple que cree una cuenta en Salesforces y actualice la información de la dirección de facturación de la misma cuenta.
 
 1.	Inicie sesión en el Portal de Azure y haga clic en "Nuevo -> Web+móvil -> Aplicación lógica"
 
@@ -58,16 +69,12 @@ Para utilizar un conector de Salesforce en su aplicación  lógica, debe haberse
 
     ![][4]
 
-5.	Expanda "Crear nuevo" en Galería para ver todas las aplicaciones de API disponibles. Seleccione "Salesforce" en la galería y "Conector de Salesforce" se agregará al flujo.
+5.	Expanda ’Aplicaciones de API’ en este grupo de recursos en la Galería para ver todas las Aplicaciones de API disponibles. Seleccione "Salesforce" en la galería y "Conector de Salesforce" se agregará al flujo.
 
-
-6.	El valor predeterminado de "Entidades de Salesforce" es "Cuenta, Cliente potencial, Oportunidad, Caso, Contacto". Puede agregar otras entidades, incluidas entidades personalizadas disponibles en la cuenta de Salesforce y hacer clic en ✓.
 
 	![][5]
 
-7.	Esto crea una nueva aplicación de la API de "Conector de Salesforce" en el mismo grupo de recursos que la aplicación lógica. Se tardará aproximadamente 30 segundos en crear la aplicación de la API.
-
-8.	Una vez creada la aplicación, haga clic en "Autorizar" para proporcionar las credenciales de inicio de sesión de Salesforce.
+8.	Para autorizar la aplicación lógica para tener acceso a su cuenta de SalesForce, haga clic en 'Autorizar' para proporcionar las credenciales de inicio de sesión de SalesForce.
 
 	![][6]
 
@@ -85,7 +92,7 @@ Para utilizar un conector de Salesforce en su aplicación  lógica, debe haberse
 
 	![][10]
 
-12.	Proporcione el nombre de cuenta y haga clic en ✓. 
+12.	Proporcione el nombre de cuenta y haga clic en ✓.
 
 	![][11]
 
@@ -95,7 +102,7 @@ Para utilizar un conector de Salesforce en su aplicación  lógica, debe haberse
 
 	![][12]
 
-15.	Haga clic en "+" junto a "Id. de registro" para elegir el valor del identificador de la salida de la acción "Crear cuenta". 
+15.	Haga clic en "+" junto a "Id. de registro" para elegir el valor del identificador de la salida de la acción "Crear cuenta".
 
 	![][13]
 
@@ -103,11 +110,11 @@ Para utilizar un conector de Salesforce en su aplicación  lógica, debe haberse
 
 	![][14]
 
-17. Haga clic en Aceptar en la pantalla del editor de aplicación lógica y, a continuación, haga clic en 'Create'. Se tardará aproximadamente 30 segundos en completar la creación.
+17. Haga clic en Aceptar en la pantalla del editor de Aplicación lógica y, a continuación, haga clic en ’Crear’. Se tardará aproximadamente 30 segundos en completar la creación.
 
-18. Busque la aplicación lógica creada recientemente y haga clic en 'Run' para iniciar una ejecución.
+18. Busque la aplicación lógica creada recientemente y haga clic en ’Ejecutar’ para iniciar una ejecución.
 
-19. Puede comprobar que se crea una cuenta nueva con el nombre 'Contoso' en la cuenta de Salesforce.
+19. Puede comprobar que se crea una cuenta nueva con el nombre ’Contoso’ en la cuenta de Salesforce.
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-salesforce/1_New_Logic_App.png
@@ -124,7 +131,8 @@ Para utilizar un conector de Salesforce en su aplicación  lógica, debe haberse
 [12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
 
-<!--HONumber=49-->
+<!--HONumber=54-->

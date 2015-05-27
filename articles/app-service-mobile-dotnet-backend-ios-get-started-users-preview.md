@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la autenticación de las aplicaciones móviles en iOS" 
 	description="Obtenga información acerca de cómo utilizar las aplicaciones móviles para autenticar usuarios de su aplicación iOS en una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
 	services="app-service\mobile" 
@@ -22,7 +22,7 @@
 
 En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
-Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación iOS]. 
+Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación iOS].
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 
@@ -53,6 +53,5 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 [Creación de una aplicación iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
-[Portal de administración de Azure]: https://portal.azure.com
-
-<!--HONumber=49-->
+[Azure Management Portal]: https://portal.azure.com
+<!--HONumber=54-->

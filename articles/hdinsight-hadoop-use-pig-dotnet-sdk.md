@@ -1,22 +1,22 @@
-﻿<properties
-   pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
+<properties
+   pageTitle="Uso de Pig con Hadoop con .NET en HDInsight | Microsoft Azure"
    description="Aprenda a usar el SDK de .NET de Hadoop para enviar trabajos de Pig a Hadoop en HDInsight."
    services="hdinsight"
-   documentationCenter=""
+   documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Ejecución de trabajos de Pig con el SDK de .NET de Hadoop
+#Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
@@ -24,7 +24,7 @@ Este documento proporciona un ejemplo de uso del SDK de .NET para Hadoop para en
 
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight en .NET. Pig le permite crear operaciones de MapReduce al modelar una serie de transformaciones de datos. Aprenderá a utilizar una aplicación básica de C# para enviar un trabajo de Pig para un clúster de HDInsight.
 
-## <a id="prereq"></a>Requisitos previos
+##<a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
@@ -32,15 +32,15 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Visual Studio 2012 o 2013
 
-## <a id="certificate"></a>Creación de un certificado de administración
+##<a id="certificate"></a>Creación de un certificado de administración
 
 Para autenticar la aplicación a HDInsight de Azure, debe crear un certificado autofirmado, instalarlo en su estación de trabajo de desarrollo y también cargarlo en su suscripción de Azure.
 
 Para obtener instrucciones sobre cómo hacerlo, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Creación de un certificado autofirmado</a>.
 
-> [AZURE.NOTE] Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
+> [AZURE.NOTE]Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
 
-## <a id="subscriptionid"></a>Búsqueda del identificador de suscripción
+##<a id="subscriptionid"></a>Búsqueda del identificador de suscripción
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
@@ -52,7 +52,7 @@ Cada suscripción de Azure se identifica por un valor GUID, conocido como el ide
 
 Guarde el identificador de suscripción, pues se utilizará más adelante.
 
-## <a id="create"></a>Creación de la aplicación
+##<a id="create"></a>Creación de la aplicación
 
 1. Apertura de Visual Studio 2012 o 2013
 
@@ -61,23 +61,23 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 3. Para el nuevo proyecto, escriba o seleccione los valores siguientes.
 
 	<table>
-	<tr>
-	<th>Propiedad</th>
-	<th>Valor</th>
-	</tr>
-	<tr>
-	<th>Categoría</th>
-	<th>Plantillas/Visual C#/Windows</th>
-	</tr>
-	<tr>
-	<th>Plantilla</th>
-	<th>Aplicación de consola</th>
-	</tr>
-	<tr>
-	<th>Nombre</th>
-	<th>SubmitPigJob</th>
-	</tr>
-	</table>
+<tr>
+<th>Propiedad</th>
+<th>Valor</th>
+</tr>
+<tr>
+<th>Categoría</th>
+<th>Plantillas/Visual C#/Windows</th>
+</tr>
+<tr>
+<th>Plantilla</th>
+<th>Aplicación de consola</th>
+</tr>
+<tr>
+<th>Nombre</th>
+<th>SubmitPigJob</th>
+</tr>
+</table>
 
 4. Haga clic en **Aceptar** para crear el proyecto.
 
@@ -193,9 +193,9 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		}
 
 
-7. Guarde el archivo.
+7. Guarde el archivo .
 
-## <a id="run"></a>Ejecución de la aplicación
+##<a id="run"></a>Ejecución de la aplicación.
 
 Utilice **F5** para iniciar la aplicación. Cuando se le indique, introduzca el **identificador de suscripción**, el **nombre descriptivo del certificado** y el **nombre del clúster de HDInsight**. La aplicación generará varias líneas de información mientras se ejecuta, terminando con algo parecido a lo siguiente.
 
@@ -213,11 +213,11 @@ Utilice **F5** para iniciar la aplicación. Cuando se le indique, introduzca el 
 
 Presione **ENTRAR** para salir de la aplicación.
 
-## <a id="summary"></a>Resumen
+##<a id="summary"></a>Resumen
 
 Como puede observar, el SDK de .NET para Hadoop le permite crear aplicaciones .NET que envíen trabajos de Pig a un clúster de HDInsight, supervisar el estado del trabajo y recuperar el resultado.
 
-## <a id="nextsteps"></a>Pasos siguientes
+##<a id="nextsteps"></a>Pasos siguientes
 
 Para obtener información general sobre Pig en HDInsight.
 
@@ -229,4 +229,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=47-->
+<!--HONumber=54-->

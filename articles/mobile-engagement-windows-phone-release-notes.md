@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Integración del SDK de Windows Phone para Azure Mobile Engagement" 
-	description="Notas de la versión del SDK de Windows Phone" 					
+<properties 
+	pageTitle="Notas de la versión del SDK de Windows Phone Silverlight" 
+	description="Azure Mobile Engagement - Notas de la versión del SDK de Windows Phone Silverlight" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,18 +11,23 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-# Notas de la versión
+#Notas de la versión del SDK de Windows Phone Silverlight
 
-## 2.0.0 (por anunciar)
+##3.0.0 (03/04/2015)
 
--   Versión inicial de Azure Mobile Engagement
+-   Icono de notificación predeterminado actualizado.
+-   Envíe comentarios de acción de notificación del sistema al hacer clic en una notificación.
+-   Se ha fijado una condición de carrera en la notificación del sistema.
+
+##2.0.0 (02/17/2015)
+
+-   Versión inicial de Azure Mobile Engagement.
 -   La configuración de appId o sdkKey se sustituye por una configuración de la cadena de conexión.
 -   Mejoras de seguridad.
 
-
-<!--HONumber=47-->
+<!--HONumber=54-->

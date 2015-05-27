@@ -1,9 +1,9 @@
-﻿<properties 
-	pageTitle="Procedimiento de actualización del SDK de la Tienda Windows para Azure Mobile Engagement" 
-	description="Actualizaciones y procedimientos más recientes del SDK de la Tienda Windows para Azure Mobile Engagement" 					
+<properties 
+	pageTitle="Procedimientos de actualización del SDK de aplicaciones Windows Universal" 
+	description="Procedimientos de actualización del SDK de Windows Universal Apps para Azure Mobile Engagement" 					
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,28 +11,33 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/02/2015" 
+	ms.author="piyushjo" />
 
-# Procedimientos de actualización
+#Procedimientos de actualización del SDK de aplicaciones Windows Universal
 
 Si ya integró una versión anterior de Engagement en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".
 
-## De 1.1.1 a 2.0.0
+##De 2.0.0 a 3.0.0
 
-A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement. 
+### Recursos
+Este paso se refiere solo a los recursos personalizados. Si ha personalizado los recursos proporcionados por el SDK (html, imágenes, superposición), tendrá que hacer una copia de seguridad de estos antes de actualizar y volver a aplicar la personalización en los recursos actualizados.
 
->[Azure.IMPORTANT] Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
+##De 1.1.1 a 2.0.0
+
+A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement.
+
+> [Azure.IMPORTANT]Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
 
 Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 1.1.1 en primer lugar luego aplique el siguiente procedimiento.
 
 ### Paquete de NuGet
 
-Reemplace Capptain.WindowsPhone.nupkg por azuresdk-mobileengagement-windows-VERSION.nupkg en la carpeta lib de paquetes de archivo.
+Reemplace **Capptain.WindowsPhone** por el paquete Nuget **MicrosoftAzure.MobileEngagement**.
 
 ### Aplicar Mobile Engagement
 
@@ -48,83 +53,84 @@ Si tiene recursos Capptain personalizados, copie el contenido de los archivos an
 
 Una vez completados estos pasos, solo tendrá que reemplazar las referencias de Capptain antiguas por las nuevas referencias de Engagement.
 
-Se deben actualizar todos los espacios de nombres de Capptain.
+1. Se deben actualizar todos los espacios de nombres de Capptain.
 
-Antes de la migración:
+	Antes de la migración:
+	
+		using Capptain.Agent;
+		using Capptain.Reach;
+	
+	Después de la migración:
+	
+		using Microsoft.Azure.Engagement;
 
-			using Capptain.Agent;
-			using Capptain.Reach;
+2. Todas las clases de Capptain que contengan "Capptain" deberían contener "Engagement".
 
-Después de la migración:
+	Antes de la migración:
+	
+		public sealed partial class MainPage : CapptainPage
+		{
+		  protected override string GetCapptainPageName()
+		  {
+		    return "Capptain Demo";
+		  }
+		  ...
+		}
+	
+	Después de la migración:
+	
+		public sealed partial class MainPage : EngagementPage
+		{
+		  protected override string GetEngagementPageName()
+		  {
+		    return "Engagement Demo";
+		  }
+		  ...
+		}
 
-			using Microsoft.Azure.Engagement;
+3. En el caso de los archivos xaml, también cambian el espacio de nombres y los atributos de Capptain.
 
-Todas las clases de Capptain que contengan "Capptain" deberían contener "Engagement".
+	Antes de la migración:
+	
+		<capptain:CapptainPage
+		...
+		xmlns:capptain="clr-namespace:Capptain.Agent;assembly=Capptain.Agent.WP"
+		...
+		</capptain:CapptainPage>
+	
+	Después de la migración:
+	
+		<engagement:EngagementPage
+		...
+		xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+		...
+		</engagement:EngagementPage>
 
-Antes de la migración:
+4. Cambios de la página de superposición
+	> [AZURE.IMPORTANT]También cambia la superposición Su espacio de nombres nuevo es `Microsoft.Azure.Engagement.Overlay`. Se debe usar tanto en los archivos xaml como los archivos cs. Además `CapptainGrid` se debe denominar `EngagementGrid`, `capptain_notification_content` y `capptain_announcement_content` se denominan `engagement_notification_content` y `engagement_announcement_content`.
+	
+	Para la superposición:
+	
+		<capptain:CapptainPageOverlay
+		  xmlns:capptain="using:Capptain.Overlay"
+		  ...
+		</capptain:CapptainPageOverlay>
+	
+	Se convierte en:
+	
+		<EngagementPageOverlay
+		  engagement="using:Microsoft.Azure.Engagement.Overlay"
+		  ...
+		</engagement:EngagementPageOverlay>
 
-			public sealed partial class MainPage : CapptainPage
-			{
-			  protected override string GetCapptainPageName()
-			  {
-			    return "Capptain Demo";
-			  }
-			  ...
-			}
-
-Después de la migración:
-
-			public sealed partial class MainPage : EngagementPage
-			{
-			  protected override string GetEngagementPageName()
-			  {
-			    return "Engagement Demo";
-			  }
-			  ...
-			}
-
-En el caso de los archivos xaml, también cambian el espacio de nombres y los atributos de Capptain.
-
-Antes de la migración:
-
-			<capptain:CapptainPage
-			...
-			xmlns:capptain="using:Capptain.Agent"
-			...
-			</capptain:CapptainPage>
-
-Después de la migración:
-
-			<engagement:EngagementPage
-			...
-			xmlns:engagement="using:Microsoft.Azure.Engagement"
-			...
-			</engagement:EngagementPage>
-
-> [AZURE.IMPORTANT] También cambia la superposición Su espacio de nombres nuevo es `Microsoft.Azure.Engagement.Overlay`. Se debe usar tanto en los archivos xaml como los archivos cs. Además `CapptainGrid` se debe denominar `EngagementGrid`, `capptain_notification_content` y `capptain_announcement_content` se denominan `engagement_notification_content` y `engagement_announcement_content`.
-
-Para la superposición:
-
-			<capptain:CapptainPageOverlay
-			  xmlns:capptain="using:Capptain.Overlay"
-			  ...
-			</capptain:CapptainPageOverlay>
-
-Se convierte en:
-
-			<EngagementPageOverlay
-			  engagement="using:Microsoft.Azure.Engagement.Overlay"
-			  ...
-			</engagement:EngagementPageOverlay>
-
-En el caso de otros recursos, como imágenes Capptain y archivos HTML, tenga en cuenta que su nombre también habrá cambiado para usar "Engagement".
+5. En el caso de otros recursos, como imágenes Capptain y archivos HTML, tenga en cuenta que su nombre también habrá cambiado para usar "Engagement".
 
 ### Declaración del proyecto
 
 En Package.appxmanifest `File Type Associations` se ha actualizado de:
 
-> -   capptain\_reach\_content to engagement\_reach\_content
-> -   capptain\_log\_file to engagement\_log\_file
+ -   capptain_reach_content a engagement_reach_content
+ -   capptain_log_file a engagement_log_file
 
 ### Identificador de aplicación o clave SDK
 
@@ -134,34 +140,32 @@ La configuración de Engagement se puede establecer en el archivo `Resources\Eng
 
 Edite este archivo para especificar lo siguiente:
 
--   La cadena de conexión de la aplicación entre las etiquetas `<connectionString>`y `<\connectionString>`.
+-   La cadena de conexión de la aplicación entre las etiquetas `<connectionString>` y `<\connectionString>`.
 
 Si desea especificarla en tiempo de ejecución, puede llamar al método siguiente antes de la inicialización del agente de Engagement:
 
-			/* Engagement configuration. */
-			EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-			engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-			
-			/* Initialize Engagement agent with above configuration. */
-			EngagementAgent.Instance.Init(args, engagementConfiguration);
+	/* Engagement configuration. */
+	EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+	engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
+	
+	/* Initialize Engagement agent with above configuration. */
+	EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-La cadena de conexión de la aplicación se muestra en el portal de Azure.
+La cadena de conexión de la aplicación se muestra en el portal de administración de Azure.
 
 ### Cambio de nombre de elementos
 
-Todos los elementos con el nombre ...capptain... han cambiado a ...engagement... Es lo mismo en el caso de Capptain y Engagement.
+Todos los elementos con el nombre *capptain* han cambiado a *engagement*. De forma similar, *Capptain* cambió a *Engagement*.
 
 Ejemplos de elementos Capptain que se usan habitualmente:
 
-> -   CapptainConfiguration ahora se llama EngagementConfiguration
-> -   CapptainAgent ahora se llama EngagementAgent
-> -   CapptainReach ahora se llama EngagementReach
-> -   CapptainHttpConfig ahora se llama EngagementHttpConfig
-> -   GetCapptainPageName ahora se llama GetEngagementPageName
+-   CapptainConfiguration ahora se llama EngagementConfiguration
+-   CapptainAgent ahora se llama EngagementAgent
+-   CapptainReach ahora se llama EngagementReach
+-   CapptainHttpConfig ahora se llama EngagementHttpConfig
+-   GetCapptainPageName ahora se llama GetEngagementPageName
 
 Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidados.
 
-[Sitio web de NuGet]:http://www.nuget.org/packages/Capptain.WindowsCS
 
-
-<!--HONumber=47-->
+<!--HONumber=54-->

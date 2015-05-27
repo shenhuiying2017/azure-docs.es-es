@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Definición de una API personalizada que admita notificaciones periódicas: Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo definir una API personalizada que admita notificaciones periódicas en las aplicaciones de la Tienda Windows que usan Servicios móviles de Azure." 
 	services="mobile-services" 
@@ -10,19 +10,19 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 
 # Definición de una API personalizada que admita notificaciones periódicas
 
 <div class="dev-center-tutorial-selector"> 
-	<a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows Store C#" class="current">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows Store JavaScript">JavaScript para Tienda Windows</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="C# para Tienda Windows" class="current">C# para Tienda Windows</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a>
 </div>
 
-En este tema se muestra cómo utilizar una API personalizada para admitir notificaciones periódicas en una aplicación de la Tienda Windows. Con las notificaciones periódicas habilitadas, Windows tendrá acceso de manera periódica a su extremo de API personalizada y usará el XML devuelto, en un formato específico de icono, para actualizar el icono de la aplicación en el menú Inicio. Para obtener más información, consulte [Notificaciones periódicas]. 
+En este tema se muestra cómo utilizar una API personalizada para admitir notificaciones periódicas en una aplicación de la Tienda Windows. Con las notificaciones periódicas habilitadas, Windows tendrá acceso de manera periódica a su extremo de API personalizada y usará el XML devuelto, en un formato específico de icono, para actualizar el icono de la aplicación en el menú Inicio. Para obtener más información, consulte [Notificaciones periódicas].
 
 Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial [Introducción a los Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente]. Para hacer esto, debe completar los siguientes pasos:
 
@@ -30,7 +30,7 @@ Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el
 2. [Actualización de la aplicación para activar las notificaciones periódicas]
 3. [Prueba de la aplicación] 
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente].  
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente].
 
 ## <a name="define-custom-api"></a>Definición de la API personalizada
 
@@ -42,9 +42,9 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
    	![][1]
 
-	Esto muestra el cuadro de diálogo **Crear una nueva API personalizada**.
+	Esto muestra el cuadro de diálogo **Crear una API personalizada**.
 
-3. Cambie **Obtener permiso** a **Todos**, escriba _tiles_ en el **Nombre de la API** y, a continuación, haga clic en el botón de comprobación.
+3. Cambie **Obtener permiso** a **Todos**, escriba _tiles_ en el **nombre de la API** y, a continuación, haga clic en el botón de comprobación.
 
    	![][2]
 
@@ -59,8 +59,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoIte
-	ms.where({
+		    todoItems.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -97,11 +96,11 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 	La función **exports.get** se utiliza porque el cliente enviará una solicitud GET para tener acceso a la plantilla de icono.
 
-   	> [AZURE.NOTE] Este script de API personalizado utiliza el [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) de Node.js, al que se hace referencia con la función **require**. Este módulo es diferente del [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) devuelto por el [objeto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), que se usa para enviar notificaciones de inserción desde scripts de servidor.
+   	> [AZURE.NOTE]Este script de API personalizado utiliza el [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) de Node.js, al que se hace referencia con la función **require**. Este módulo es diferente del [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) devuelto por el [objeto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), que se usa para enviar notificaciones de inserción desde scripts de servidor.
 
 A continuación, deberá modificar la aplicación de inicio rápido para iniciar las notificaciones periódicas que actualizan el icono dinámico solicitando la nueva API personalizada.
 
-<h2><a name="update-app"></a>Actualización de la aplicación para activar las notificaciones periódicas</h2>
+##<a name="update-app"></a>Actualización de la aplicación para activar las notificaciones periódicas
 
 1. En Visual Studio, presione la tecla F5 para ejecutar la aplicación de inicio rápido del tutorial anterior.
 
@@ -134,20 +133,17 @@ A continuación, deberá modificar la aplicación de inicio rápido para iniciar
 
 Ahora que ha creado una notificación periódica, podría averiguar más información acerca de los siguientes temas de Servicios móviles:
 
-* [Introducción a las notificaciones de inserción]
-	<br/>Las notificaciones periódicas se administran en Windows y solo se producen conforme a una programación predefinida. Las notificaciones de inserción se pueden enviar mediante el servicio móvil previa petición y pueden ser notificaciones del sistema, notificaciones de icono y notificaciones sin procesar.
+* [Introducción a las notificaciones de inserción] <br/>Las notificaciones periódicas se administran en Windows y solo se producen conforme a una programación predefinida. Las notificaciones de inserción se pueden enviar mediante el servicio móvil previa petición y pueden ser notificaciones del sistema, notificaciones de icono y notificaciones sin procesar.
 
-* [Referencia del script de servidor de Servicios móviles]
-  <br/>Más información acerca de la creación de API personalizadas.
+* [Referencia del script del servidor de Servicios móviles] <br/>Obtenga más información sobre la creación de API personalizadas.
 
-* [Referencia conceptual de Servicios móviles con .NET]
-  <br/>Obtenga más información sobre el uso de Servicios móviles con .NET.
+* [Referencia conceptual de Servicios móviles con .NET] <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 <!-- Anchors. -->
 [Definición de la API personalizada]: #define-custom-api
 [Actualización de la aplicación para activar las notificaciones periódicas]: #update-app
 [Prueba de la aplicación]: #test-app
-[Pasos siguientes]: #next-steps
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-services-selection.png
@@ -157,19 +153,17 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 [4]: ./media/mobile-services-windows-store-dotnet-create-pull-notifications/mobile-custom-api-live-tile.png
 
 <!-- URLs. -->
-[Notificaciones de inserción de Windows y de Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
-[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[Incorporación de Servicios móviles a una aplicación existente]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Introducción a los Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
+[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-windows-store-dotnet-get-started.md
+[Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Notificaciones periódicas]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
-[Referencia conceptual de servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

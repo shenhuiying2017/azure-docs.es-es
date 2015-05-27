@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Integración del SDK de Android para Azure Mobile Engagement" 
-	description="Actualizaciones más recientes y procedimientos para el SDK de Android para Azure Mobile Engagement"
+	description="Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="kpiteira" 
@@ -17,21 +17,21 @@
 	ms.author="kapiteir" />
 
 
-# Integración de ADM con Engagement
+#Integración de ADM con Engagement
 
-> [AZURE.IMPORTANT] Debe seguir el procedimiento de integración que se describe en el documento Integración de Engagement en Android antes de seguir esta guía.
+> [AZURE.IMPORTANT]Debe seguir el procedimiento de integración descrito en el documento Integración de Engagement en Android antes de seguir con esta guía.
 >
 > Este documento solo es útil si integró el módulo Reach para admitir cualquier campaña. Para integrar campañas de Reach en la aplicación, lea primero Integración de Engagement Reach en Android.
 
-## Introducción
+##Introducción
 
 La integración de ADM permite realizar inserciones en su aplicación incluso cuando no se está ejecutando.
 
 En realidad no se envía ningún dato de campaña a través de ADM, es simplemente una señal de fondo que indica a la aplicación que capture la inserción de Engagement. Si la aplicación no se está ejecutando mientras recibe una inserción de ADM, desencadena una conexión a los servidores de Engagement para capturar la inserción que permanece activa durante aproximadamente un minuto en caso de que el usuario inicie la aplicación en la respuesta a la inserción.
 
-> [AZURE.IMPORTANT] Solo los dispositivos Kindle de Amazon que ejecutan Android 4.0.3 o versiones posteriores son compatibles con la mensajería de dispositivos de Amazon; Sin embargo, puede integrar este código de forma segura en otros dispositivos. Si ADM no puede reactivar la aplicación, la notificación de Engagement se recibirá la próxima vez que se inicie la aplicación.
+> [AZURE.IMPORTANT]Solo los dispositivos Kindle de Amazon que ejecutan Android 4.0.3 o versiones posteriores son compatibles con la mensajería de dispositivos de Amazon; Sin embargo, puede integrar este código de forma segura en otros dispositivos. Si ADM no puede reactivar la aplicación, la notificación de Engagement se recibirá la próxima vez que se inicie la aplicación.
 
-## Suscribirse a ADM
+##Suscribirse a ADM
 
 Si aún no lo ha hecho, debe habilitar ADM en su cuenta de Amazon.
 
@@ -42,7 +42,7 @@ Una vez finalizado el procedimiento, obtiene:
 -   Credenciales de OAuth (un identificador de cliente y un secreto de cliente) para que Engagement puede realizar inserciones en sus dispositivos.
 -   Una clave de API que se debe integrar en la aplicación.
 
-## Integración de SDKdeveloper.amazon.com/sdk/adm/integrating-app.html
+##Integración de SDK
 
 ### Administración de registros de dispositivos
 
@@ -52,7 +52,7 @@ Si ya usa la [biblioteca de cliente ADM] y ya ha [integrado ADM], puede ir direc
 
 Si aún no ha integrado ADM, Engagement tiene una forma más sencilla de habilitarlo en la aplicación:
 
-Editar el archivo de `AndroidManifest.xml`:
+Edite su archivo `AndroidManifest.xml`:
 
 -   Agregue el espacio para nombres de Amazon; el archivo debería empezar así:
 
@@ -68,14 +68,14 @@ Editar el archivo de `AndroidManifest.xml`:
 		
 		<meta-data android:name="engagement:adm:register" android:value="true" />
 
--   Después de agregar la etiqueta de Amazon, puede tener un error de compilación si su destino de compilación del proyecto es inferior a Android 2.1. Debe usar un destino de compilación **Android 2.1+** (no se preocupe, aún puede disponer de  `minSdkVersion` establecido en 4).
+-   Después de agregar la etiqueta de Amazon, puede tener un error de compilación si su destino de compilación del proyecto es inferior a Android 2.1. Debe usar un destino de compilación **Android 2.1+** (no se preocupe, aún puede disponer de `minSdkVersion` establecido en 4).
 -   Integre la clave de API de ADM como un recurso siguiendo [este procedimiento].
 
 A continuación, siga las instrucciones de las secciones siguientes.
 
 ### Comunicar el identificador de registro al servicio de inserción de Engagement y recibir notificaciones
 
-Para comunicar el identificador de registro del dispositivo al servicio de inserción de Engagement y recibir sus notificaciones, agregue lo siguiente al archivo de  `AndroidManifest.xml`, dentro de la etiqueta `<application/>` (incluso si usa ADM sin Engagement):
+Para comunicar el identificador de registro del dispositivo al servicio de inserción de Engagement y recibir sus notificaciones, agregue lo siguiente al archivo de `AndroidManifest.xml`, dentro de la etiqueta `<application/>` (incluso si usa ADM sin Engagement):
 
 		<receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMEnabler"
 		  android:exported="false">
@@ -93,23 +93,23 @@ Para comunicar el identificador de registro del dispositivo al servicio de inser
 		  </intent-filter>
 		</receiver>   
 
-Asegúrese de tener los permisos siguientes en el  `AndroidManifest.xml` (antes de la etiqueta `</application>`).
+Asegúrese de tener los permisos siguientes en el `AndroidManifest.xml` (antes de la etiqueta `</application>`).
 
 		<uses-permission android:name="android.permission.WAKE_LOCK"/>
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE"/>
 		<uses-permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE"/>
 		<permission android:name="<your_package_name>.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature"/>
 
-## Conceder credenciales de OAuth de Engagement
+##Conceder credenciales de OAuth de Engagement
 
-Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en $/\#application/YOUR\_APPID/native-push.
+Envíe sus credenciales de OAuth (Id. de cliente y secreto de cliente) en $/\\#application/YOUR\\_APPID/native-push.
 
 Ahora puede seleccionar "En cualquier momento" al crear sondeos y anuncios de Reach.
 
 
-[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
-[Biblioteca de cliente ADM]:https://developer.amazon.com/sdk/adm/setup.html
-[integrado ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
-[este procedimiento]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
+[<https://developer.amazon.com/sdk/adm/credentials.html>]: https://developer.amazon.com/sdk/adm/credentials.html
+[biblioteca de cliente ADM]: https://developer.amazon.com/sdk/adm/setup.html
+[integrado ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
+[este procedimiento]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
 
-<!--HONumber=47-->
+<!--HONumber=54-->

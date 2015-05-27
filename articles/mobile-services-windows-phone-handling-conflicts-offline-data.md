@@ -1,19 +1,19 @@
-﻿<properties 
+<properties 
 	pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación de Windows Phone" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 
@@ -21,30 +21,23 @@
 
 [WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
-<p>En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. En este tutorial, descargará una aplicación que admite datos sin conexión y con conexión, integrará el servicio móvil con la aplicación y, a continuación, iniciará sesión en el Portal de administración de Azure para ver y actualizar la base de datos cuando ejecute la aplicación.
-</p>
+##Información general
+
+En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. En este tutorial, descargará una aplicación que admite datos sin conexión y en línea, integrará el servicio móvil con la aplicación y, a continuación, iniciará sesión en el Portal de administración de Azure para ver y actualizar la base de datos cuando ejecute la aplicación.
 
 Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos sin conexión]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos sin conexión].
 
 
-Este tutorial le guiará a través de estos pasos básicos:
-
-1. [Descarga del proyecto de Windows Phone] 
-2. [Incorporación de una columna de fecha de vencimiento para la base de datos]
-  * [Actualización de la base de datos para servicios móviles back-end de .NET]  
-  * [Actualización de la base de datos para servicios móviles con JavaScript]  
-3. [Prueba de la aplicación en un servicio móvil]
-4. [Actualización manual de los datos en el back-end para crear un conflicto]
+##Requisitos previos
 
 Este tutorial requiere Visual Studio 2012 y el [SDK de Windows Phone 8].
 
 
-## <a name="download-app"></a>Descarga del proyecto de ejemplo
+##Descarga del proyecto de ejemplo
 
 
 
-Este tutorial se basa en el [código de ejemplo de control de conflictos], que es un proyecto de Windows Phone 8 para Visual Studio 2012.  
-La interfaz de usuario de esta aplicación es similar a la aplicación en el tutorial [Introducción a los datos sin conexión], excepto en que hay una nueva columna de fecha para cada TodoItem.
+Este tutorial se basa en el [código de ejemplo de control de conflictos], que es un proyecto de Windows Phone 8 para Visual Studio 2012. La interfaz de usuario de esta aplicación es similar a la aplicación en el tutorial [Introducción a los datos sin conexión], excepto en que hay una nueva columna de fecha para cada TodoItem.
 
 ![][0]
 
@@ -57,28 +50,28 @@ La interfaz de usuario de esta aplicación es similar a la aplicación en el tut
 
 4. En Visual Studio 2012, presione la tecla **F5** para compilar y ejecutar la aplicación en el depurador.
  
-5. En la aplicación, escriba texto para algunos nuevos elementos todo y luego haga clic **Guardar** para guardarlos. También puede modificar la fecha de vencimiento de las tareas pendientes incorporadas.
+5. En la aplicación, escriba texto para algunos nuevos elementos todo y luego haga clic **Guardar** para guardarlos. También puede modificar la fecha de vencimiento de los elementos todo que agrega.
 
 
 Tenga en cuenta que la aplicación aún no está conectada a ningún servicio móvil, por lo que los botones de **inserción** y **extracción** lanzarán excepciones.
 
 
-## <a name="add-column"></a>Incorporación de una columna al modelo de datos
+##Incorporación de una columna al modelo de datos
 
-En esta sección, va a actualizar la base de datos para incluir una tabla TodoItem con una columna de fecha de vencimiento. La aplicación le permite cambiar la fecha de vencimiento de un elemento en tiempo de ejecución para que pueda generar conflictos de sincronización más adelante en este tutorial. 
+En esta sección, va a actualizar la base de datos para incluir una tabla TodoItem con una columna de fecha de vencimiento. La aplicación le permite cambiar la fecha de vencimiento de un elemento en tiempo de ejecución para que pueda generar conflictos de sincronización más adelante en este tutorial.
 
-La clase  `TodoItem` en el ejemplo se define en MainPage.xaml.cs. Observe que la clase tiene el siguiente atributo que dirigirá las operaciones de sincronización a dicha tabla.
+La clase `TodoItem` en el ejemplo se define en MainPage.xaml.cs. Observe que la clase tiene el siguiente atributo que dirigirá las operaciones de sincronización a dicha tabla.
 
         [DataTable("TodoWithDate")]
 
 Actualice la base de datos para incluir esta tabla.
 
-### <a name="dotnet-backend"></a>Actualización de la base de datos para servicios móviles back-end de .NET 
+###<a name="dotnet-backend"></a>Actualización de la base de datos para servicios móviles back-end de .NET 
 
 Si usa el back-end de .NET para el servicio móvil, siga estos pasos para actualizar el esquema de la base de datos.
 
 1. Abra el proyecto del servicio móvil de back-end de .NET en Visual Studio.
-2. En el Explorador de soluciones de Visual Studio, en el proyecto del servicio, expanda la carpeta **Modelos** y abra ToDoItem.cs. Agregue la propiedad  `DueDate` como sigue.
+2. En el Explorador de soluciones de Visual Studio, en el proyecto del servicio, expanda la carpeta **Modelos** y abra ToDoItem.cs. Agregue la propiedad `DueDate` como sigue.
 
           public class TodoItem : EntityData
           {
@@ -88,11 +81,11 @@ Si usa el back-end de .NET para el servicio móvil, siga estos pasos para actual
           }
 
 
-3. En el Explorador de soluciones de Visual Studio, expanda la carpeta **App_Start** y abra el archivo WebApiConfig.cs. 
+3. En el Explorador de soluciones de Visual Studio, expanda la carpeta **App_Start** y abra el archivo WebApiConfig.cs.
 
-    En el archivo WebApiConfig.cs, observe que la clase del inicializador de base de datos predeterminado procede de la clase  `DropCreateDatabaseIfModelChanges`. Esto significa que cualquier cambio en el modelo tendrá como resultado la anulación y la recreación de la tabla para adaptarse al modelo nuevo. De esta manera, los datos de la tabla se pierden y la tabla se reinicializa. Modifique el método Seed del inicializador de base de datos para que la inicialización de  `Seed()` funcione como sigue para inicializar la nueva columna DueDate. Guarde el archivo WebApiConfig.cs.
+    En el archivo WebApiConfig.cs, observe que la clase del inicializador de base de datos predeterminado procede de la clase `DropCreateDatabaseIfModelChanges`. Esto significa que cualquier cambio en el modelo tendrá como resultado la anulación y la recreación de la tabla para adaptarse al modelo nuevo. De esta manera, los datos de la tabla se pierden y la tabla se reinicializa. Modifique el método Seed del inicializador de base de datos para que la inicialización de `Seed()` funcione como sigue para inicializar la nueva columna DueDate. Guarde el archivo WebApiConfig.cs.
 
-    >[AZURE.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
+    >[AZURE.NOTE]Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe usar Migraciones de Code First. Para obtener más información, vea [Uso de Migraciones de Code First para actualizar el modelo de datos](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
@@ -100,7 +93,7 @@ Si usa el back-end de .NET para el servicio móvil, siga estos pasos para actual
 
           
 
-4. En el Explorador de soluciones de Visual Studio, expanda la carpeta **Controladores** y abra ToDoItemController.cs. Cambie el nombre de la clase  `TodoItemController` a  `TodoWithDateController`. Esto cambiará el extremo de REST para las operaciones de tabla. 
+4. En el Explorador de soluciones de Visual Studio, expanda la carpeta **Controladores** y abra ToDoItemController.cs. Cambie el nombre de la clase `TodoItemController` a `TodoWithDateController`. Esto cambiará el extremo de REST para las operaciones de tabla.
 
         public class TodoWithDateController : TableController<TodoItem>
     
@@ -114,12 +107,12 @@ Para los servicios móviles back-end de JavaScript, agregará una nueva tabla ll
 
   1. Inicie sesión en el [Portal de administración de Azure]. 
 
-  2. Vaya a la pestaña **Datos** del servicio móvil. 
+  2. Vaya a la pestaña **Datos** del servicio móvil.
 
-  3. Haga clic en **Crear** en la parte inferior de la página y cree una nueva tabla llamada **TodoWithDate**. 
+  3. Haga clic en **Crear** en la parte inferior de la página y cree una nueva tabla llamada **TodoWithDate**.
 
 
-## <a name="test-app"></a>Prueba de la aplicación en un servicio móvil
+##Prueba de la aplicación en un servicio móvil
 
 Ahora es el momento de probar la aplicación en los servicios móviles.
 
@@ -134,7 +127,7 @@ Ahora es el momento de probar la aplicación en los servicios móviles.
 
 3. En Visual Studio, presione la tecla **F5** para compilar y ejecutar la aplicación.
 
-4. Como hiciera anteriormente, escriba texto en el cuadro de texto y luego haga clic en **Guardar** para guardar algunos de los nuevos elementos todo. De esta forma, los datos se guardan en la tabla de sincronización local, pero no en el servidor.
+4. Como hiciera anteriormente, escriba texto en el cuadro de texto y luego haga clic en **Guardar** para guardar algunos de los nuevos elementos todo. De esta forma, los datos se guardan en la tabla de sincronización loca, pero no en el servidor.
 
     ![][0]
 
@@ -160,11 +153,11 @@ Ahora es el momento de probar la aplicación en los servicios móviles.
 
 9. Deje la opción **Emulator WVGA 512MB** activada para la siguiente sección donde ejecutará la aplicación en dos emuladores para generar un conflicto.
 
-## <a name="handle-conflict"></a>Actualización de los datos en el back-end para crear un conflicto
+##Actualización de los datos en el back-end para crear un conflicto
 
-En un escenario real, se produciría un conflicto de sincronización cuando una aplicación inserta actualizaciones en un registro de la base de datos y, a continuación, otra aplicación trata de insertar un cambio en el mismo registro usando un campo de versión obsoleta de dicho registro. Si una instancia de la aplicación trata de actualizar el mismo registro, sin extraer el registro actualizado, se produciría un conflicto y se detectaría como una excepción  `MobileServicePreconditionFailedException` en la aplicación.  
+En un escenario real, se produciría un conflicto de sincronización cuando una aplicación inserta actualizaciones en un registro de la base de datos y, a continuación, otra aplicación trata de insertar un cambio en el mismo registro usando un campo de versión obsoleta de dicho registro. Si una instancia de la aplicación trata de actualizar el mismo registro, sin extraer el registro actualizado, se produciría un conflicto y se detectaría como una excepción `MobileServicePreconditionFailedException` en la aplicación.
 
-En esta sección, ejecutará dos instancias de la aplicación al mismo tiempo para generar un conflicto. 
+En esta sección, ejecutará dos instancias de la aplicación al mismo tiempo para generar un conflicto.
 
 
 1. Si la opción **Emulator WVGA 512MB** no está aún activada, presione **Ctrl+F5** para reiniciarla.
@@ -182,55 +175,47 @@ En esta sección, ejecutará dos instancias de la aplicación al mismo tiempo pa
 
     ![][9]
 
-5. En la primera instancia de la aplicación, intente cambiar la fecha del registro obsoleto y luego haga clic en el botón de **inserción** para intentar actualizar la base de datos remota con el registro obsoleto. En la siguiente captura de pantalla, vamos a intentar programar la recogida de James el **10/05/2014**.
+5. En la primera instancia de la aplicación, intente cambiar la fecha del registro obsoleto y luego haga clic en el botón de **inserción** para intentar actualizar la base de datos remota con el registro obsoleto. En la siguiente captura de pantalla, vamos a intentar programar la recogida de James el **10/5/2014**.
 
     ![][7]
 
 6. Cuando hace clic en el botón de **inserción** para efectuar el cambio de fecha, verá un cuadro de diálogo que indica que se ha detectado el conflicto. Se le preguntará cómo va a resolver el conflicto. Elija una de las opciones para resolver el conflicto.
 
-    En la situación que se muestra a continuación, James ya ha sido recogido. Así que no es necesario programar su recogida el **10/05/2014**. Se seleccionaría la opción **Usar versión de servidor** así que la primera instancia de la aplicación tendría actualizado ese registro con el registro del servidor. 
+    En la situación que se muestra a continuación, James ya ha sido recogido. Así que no es necesario programar su recogida el **10/5/2014**. Se seleccionaría la opción **Usar versión de servidor** así que la primera instancia de la aplicación tendría actualizado ese registro con el registro del servidor.
 
     ![][8]
 
-## Revisión del código para controlar los conflictos de sincronización
+##Revisión del código para controlar los conflictos de sincronización
 
-Para configurar la característica sin conexión para detectar conflictos, debe incluir una columna de versión en la base de datos local y en el objeto de transferencia de datos. La clase  `TodoItem` tiene el siguiente miembro:
+Para configurar la característica sin conexión para detectar conflictos, debe incluir una columna de versión en la base de datos local y en el objeto de transferencia de datos. La clase `TodoItem` tiene el siguiente miembro:
 
         [Version]
         public string Version { get; set; }
 
-La columna `__version` también se especifica en la base de datos local configurada en el método  `OnNavigatedTo()`.
+La columna `__version` también se especifica en la base de datos local configurada en el método `OnNavigatedTo()`.
 
-Para controlar los conflictos de sincronización sin conexión en el código, se crea una clase que implemente  `IMobileServiceSyncHandler`. Transfiera un objeto de este tipo en la llamada a  `InitializeAsync`:
+Para controlar los conflictos de sincronización sin conexión en el código, se crea una clase que implemente `IMobileServiceSyncHandler`. Transfiera un objeto de este tipo en la llamada a `InitializeAsync`.
 
      await App.MobileService.SyncContext.InitializeAsync(store, new SyncHandler(App.MobileService));
 
-La clase  `SyncHandler` de **MainPage.xaml.cs** implementa  `IMobileServiceSyncHandler`. Se llama al método  `ExecuteTableOperationAsync` cuando se envía cada operación de inserción al servidor. Si se lanza una excepción del tipo  `MobileServicePreconditionFailedException`, significa que hay un conflicto entre las versiones local y remota de un elemento.
+La clase `SyncHandler` de **MainPage.xaml.cs** implementa `IMobileServiceSyncHandler`. Se llama al método `ExecuteTableOperationAsync` cuando se envía cada operación de inserción al servidor. Si se lanza una excepción del tipo `MobileServicePreconditionFailedException`, significa que hay un conflicto entre las versiones local y remota de un elemento.
 
 Para resolver conflictos a favor del elemento local, simplemente debe reintentar la operación. Cuando se ha producido un conflicto, la versión del elemento local se actualizará para coincidir con la versión del servidor, por lo que la ejecución de la operación de nuevo sobrescribirá los cambios del servidor con los cambios locales:
 
     await operation.ExecuteAsync(); 
 
-Para resolver los conflictos a favor del elemento del servidor, simplemente vuelva de  `ExecuteTableOperationAsync`. La versión local del objeto se descartará y se reemplazará por el valor del servidor.
+Para resolver los conflictos a favor del elemento del servidor, simplemente vuelva de `ExecuteTableOperationAsync`. La versión local del objeto se descartará y se reemplazará por el valor del servidor.
 
-Para detener la operación de inserción (pero mantener los cambios en cola), use el método  `AbortPush()`:
+Para detener la operación de inserción (pero mantener los cambios en cola), use el método `AbortPush()`:
 
     operation.AbortPush();
 
-Esto detendrá la operación de inserción actual, pero mantendrá todos los cambios pendientes, incluida la operación actual, si se llama a  `AbortPush` desde  `ExecuteTableOperationAsync`. La próxima vez que se llame a  `PushAsync()`, estos cambios se enviarán al servidor. 
+Esto detendrá la operación de inserción actual, pero mantendrá todos los cambios pendientes, incluida la operación actual, si se llama a `AbortPush` desde `ExecuteTableOperationAsync`. La próxima vez que se llame a `PushAsync()`, estos cambios se enviarán al servidor.
 
-Cuando se cancela una inserción,  `PushAsync` producirá un  `MobileServicePushFailedException` y la propiedad de excepción  `PushResult.Status` tendrá el valor  `MobileServicePushStatus.CancelledByOperation`. 
+Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFailedException` y la propiedad de excepción `PushResult.Status` tendrá el valor `MobileServicePushStatus.CancelledByOperation`.
 
 
-<!-- Anchors. -->
-[Descarga del proyecto de Windows Phone]: #download-app
-[Crear el servicio móvil]: #create-service
-[Incorporación de una columna de fecha de vencimiento para la base de datos]: #add-column
-[Actualización de la base de datos para servicios móviles back-end de .NET]: #dotnet-backend  
-[Actualización de la base de datos para servicios móviles con JavaScript]: #javascript-backend
-[Prueba de la aplicación en un servicio móvil]: #test-app
-[Actualización manual de los datos en el back-end para crear un conflicto]: #handle-conflict
-[Pasos siguientes]:#next-steps
+
 
 <!-- Images -->
 [0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
@@ -246,15 +231,12 @@ Cuando se cancela una inserción,  `PushAsync` producirá un  `MobileServicePush
 
 
 <!-- URLs -->
-[Código de ejemplo de control de conflictos]: http://go.microsoft.com/fwlink/?LinkId=398257
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started/
-[Introducción a los datos sin conexión]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+[código de ejemplo de control de conflictos]: http://go.microsoft.com/fwlink/?LinkId=398257
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Introducción a los datos sin conexión]: mobile-services-windows-phone-get-started-offline-data.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Control de conflictos de base de datos]: /es-es/documentation/articles/mobile-services-windows-phone-handle-database-conflicts/#test-app
 [SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Get started with data]: mobile-services-windows-phone-get-started-data.md
 
-
-
-<!--HONumber=42-->
+<!--HONumber=54-->

@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Incorporación de autenticación a una aplicación de Servicios móviles de Azure existente (iOS) | Centro de desarrollo móvil"
 	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft."
 	services="mobile-services"
@@ -47,11 +47,11 @@ En Xcode, abra el proyecto. Presione el botón **Ejecutar** para iniciar la apli
 En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios móviles], podrá usar el valor de identificador de usuario para filtrar los datos devueltos.
 
 <!-- Anchors. -->
-[Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
-[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
-[Incorporación de autenticación a la aplicación]: #add-authentication
-[Pasos siguientes]:#next-steps
-[Almacenamiento de tokens de autenticación en la aplicación]:#store-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
+[Next Steps]: #next-steps
+[Storing authentication tokens in your app]: #store-authentication
 
 <!-- Images. -->
 
@@ -74,16 +74,16 @@ En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios
 
 <!-- URLs. -->
 [Autorización en el servicio de usuarios de Servicios móviles]: mobile-services-javascript-backend-service-side-authorization.md
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
 [Tutorial de inicio rápido de Servicios móviles]: /develop/mobile/tutorials/get-started-ios
-[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-ios
-[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-ios
-[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-ios
-[Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=49-->
+<!--HONumber=54-->

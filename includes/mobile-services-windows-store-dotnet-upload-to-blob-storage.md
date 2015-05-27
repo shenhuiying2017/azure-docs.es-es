@@ -1,6 +1,6 @@
 ##<a name="add-select-images"></a>Actualización de la aplicación cliente de inicio rápido para capturar y cargar imágenes
 
-1. En Visual Studio 2012, abra el archivo Package.appxmanifest y, en la pestaña **Capacidades**, habilite las capacidades **Webcam** y **Microphone**.
+1. En Visual Studio, abra el archivo Package.appxmanifest y, en la pestaña **Capacidades**, habilite las capacidades **Webcam** y **Microphone**.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-app-manifest-camera.png)
  
@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE] Para agregar propiedades nuevas al objeto TodoItem, debe tener habilitado el esquema dinámico en el servicio móvil. Cuando el esquema dinámico está habilitado, automáticamente se agregan columnas nuevas a la tabla TodoItem que se asignan a estas nuevas propiedades.
+   	>[AZURE.NOTE]Para agregar propiedades nuevas al objeto TodoItem, debe tener habilitado el esquema dinámico en el servicio móvil. Cuando el esquema dinámico está habilitado, automáticamente se agregan columnas nuevas a la tabla TodoItem que se asignan a estas nuevas propiedades.
 
 5. En la clase MainPage, agregue el siguiente código:
 
@@ -67,7 +67,7 @@
 
   	Este código muestra la interfaz de usuario de la cámara para capturar una imagen y guarda la imagen en un archivo de almacenamiento.
 
-6. Reemplace el método  `InsertTodoItem` existente por el código siguiente:
+6. Reemplace el método `InsertTodoItem` existente por el código siguiente:
  
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -126,7 +126,7 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 
    	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-appbar.png)
 
-  	Se muestra la interfaz de usuario de captura de la cámara. 
+  	Se muestra la interfaz de usuario de captura de la cámara.
 
 3. Haga clic en la imagen para tomar una foto y, a continuación, haga clic en **OK**.
   
@@ -140,7 +140,7 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 
 	![](./media/mobile-services-windows-store-dotnet-upload-to-blob-storage/mobile-quickstart-blob-ie.png)
 
-   	>[AZURE.NOTE] La imagen se descarga automáticamente desde el servicio de almacenamiento de blobs cuando la propiedad <code>imageUri</code> del elemento nuevo está ligada al control <strong>Image</strong>.
+   	>[AZURE.NOTE]La imagen se descarga automáticamente desde el servicio de almacenamiento de blobs cuando la propiedad <code>imageUri</code> del elemento nuevo está ligada al control <strong>Image</strong>.
 
 
-<!--HONumber=42-->
+<!--HONumber=54-->

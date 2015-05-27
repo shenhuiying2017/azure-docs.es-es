@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Integración de Reach del SDK de la Tienda Windows para Mobile Azure Engagement" 
-	description="Actualizaciones y procedimientos más recientes del SDK de la Tienda Windows para Azure Mobile Engagement" 					
+	pageTitle="Integración del SDK de Cobertura de Windows Universal Apps" 
+	description="Cómo integrar Cobertura de Azure Mobile Engagement con aplicaciones Windows Universal"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,107 +13,101 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/06/2015" 
+	ms.author="piyushjo" />
 
-# Cómo integrar Engagement Reach en Windows
+#Integración del SDK de Cobertura de Windows Universal Apps
 
-Debe seguir el procedimiento de integración que se describe en el documento sobre [cómo Engagement Reach en Windows](mobile-engagement-windows-store-integrate-engagement.md) antes de seguir a esta guía.
+Debe seguir el procedimiento de integración descrito en el documento [Integración del SDK de Windows Universal Engagement](mobile-engagement-windows-store-integrate-engagement.md) antes de seguir con esta guía.
 
-## Integrar el SDK de Engagement Reach en el proyecto de Windows
+##Integre el SDK de Cobertura de Engagement en el proyecto de Windows Universal
 
-No hace falta agregar nada. Las referencias y los recursos de`EngagementReach`  ya están en el proyecto.
+No hace falta agregar nada. Las referencias y los recursos de `EngagementReach` ya están en el proyecto.
 
-> [AZURE.TIP] Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement).
+> [AZURE.TIP]Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement). En las aplicaciones universales también puede mover la carpeta `Resources` del proyecto compartido para compartir su contenido entre aplicaciones, pero tendrá que mantener el archivo `Resources\EngagementConfiguration.xml` en su ubicación predeterminada debido a que depende de la plataforma.
 
-## Agregar las capacidades
+##Habilitar el Servicio de notificaciones de Windows
 
-El SDK de Engagement Reach necesita algunas capacidades adicionales.
+Para poder usar el **Servicio de notificaciones de Windows** (conocido como WNS) en el archivo `Package.appxmanifest` en `Application UI`, haga clic en `All Image Assets` en el cuadro inferior izquierdo. A la derecha del cuadro de `Notifications`, cambie `toast capable` de `(not set)` a `Yes`.
 
-Abra el archivo `Package.appxmanifest` y vaya al panel `Declaraciones`. Seleccione  `Asociaciones de tipo de archivo` en el cuadro de desplazamiento `declaraciones disponibles` y agréguelo. Establezca el nombre en `engagement_reach_content`y el tipo de archivo en `.txt`.
+Además, deberá sincronizar la aplicación con su cuenta de Microsoft y la plataforma de Engagement. En el servidor front-end de Engagement, vaya a la opción de configuración de la aplicación en `native push` y pegue sus credenciales. Luego, haga clic con el botón secundario del ratón en el proyecto, seleccione `store` y `Associate App with the Store...`.
 
-## Habilitar el Servicio de notificaciones de Windows
-
-Para poder usar el **Servicio de notificaciones de Windows**  (conocido como WNS) en el archivo `Package.appxmanifest` en `Application UI`, haga clic en `Todos los activos de imagen` en el cuadro inferior izquierdo. A la derecha del cuadro, en `Notificaciones`, cambie `Capacidad de aviso` de `(sin establecer)` a `Sí`.
-
-Además, deberá sincronizar la aplicación con su cuenta de Microsoft y la plataforma de Engagement. En el servidor front-end de Engagement, vaya a la opción de configuración de la aplicación en `inserción nativa` y pegue sus credenciales. Luego, haga clic con el botón secundario del mouse en el proyecto, seleccione `store` y `Associate App with the Store...`..
-
-## Inicializar el SDK de Engagement Reach
+##Inicializar el SDK de Engagement Reach
 
 Modifique `App.xaml.cs`:
 
 -   Agregue las instrucciones `using`:
 
-			using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement;
 
--   Inserte `EngagementReach.Instance.Init` justo después de `EngagementAgent.Instance.Init` en`OnLaunched`:
+-   Inserte `EngagementReach.Instance.Init` justo después de `EngagementAgent.Instance.Init` en `OnLaunched`:
 
-			protected override void OnLaunched(LaunchActivatedEventArgs args)
-			{
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			}
-
-> [AZURE.NOTE] `EngagementReach.Instance.Init` se ejecuta en un subproceso dedicado. No es necesario que lo haga usted.
+		protected override void OnLaunched(LaunchActivatedEventArgs args)
+		{
+		  EngagementAgent.Instance.Init(args);
+		  EngagementReach.Instance.Init(args);
+		}
 
 -   Si desea iniciar Engagement Reach cuando se activa la aplicación, invalide el método `OnActivated`:
 
-			protected override void OnActivated(IActivatedEventArgs args)
-			{
-			  EngagementAgent.Instance.Init(args);
-			  EngagementReach.Instance.Init(args);
-			}
+		protected override void OnActivated(IActivatedEventArgs args)
+		{
+		  EngagementAgent.Instance.Init(args);
+		  EngagementReach.Instance.Init(args);
+		}
 
-> [AZURE.TIP] Puede especificar el nombre del canal de inserción de WNS de la aplicación en el archivo `Resources\EngagementConfiguration.xml` del proyecto en `<channelName></channelName>`. De forma predeterminada, Engagement crea un nombre basado en el appId. No hace falta que especifique el nombre usted mismo, excepto si tiene previsto usar el canal de inserción fuera de Engagement.
+	`EngagementReach.Instance.Init` se ejecuta en un subproceso específico. No es necesario que lo haga usted.
 
-## Integración
+> [AZURE.TIP]Puede especificar el nombre del canal de inserción de WNS de la aplicación en el archivo `Resources\EngagementConfiguration.xml` del proyecto en `<channelName></channelName>`. De forma predeterminada, Engagement crea un nombre basado en el appId. No hace falta que especifique el nombre usted mismo, excepto si tiene previsto usar el canal de inserción fuera de Engagement.
 
-Engagement proporciona dos maneras de implementar el anuncio y la notificación de Reach: La integración de superposición y la integración de la vista web.
+##Integración
 
-La [integración de superposición](#overlay-integration) no requiere la escritura de mucho código en la aplicación. Simplemente tendrá que etiquetar las páginas y los archivos xaml y cs con EngagementPageOverlay. Además, si personaliza la vista predeterminada de Engagement, la personalización se compartirá con todas las páginas etiquetadas y se definirá una sola vez. Sin embargo, si las páginas tienen que heredar de un objeto que no sea EngagementPageOverlay, estará obligado a usar la integración de la vista web.
+Engagement proporciona dos maneras de implementar la notificación y el anuncio de Cobertura: la integración de superposición y la integración de la vista web.
 
-La implementación de [integración de vista web](#web-view-integration) es más complicada. Sin embargo, si las páginas de la aplicación deben heredar de un objeto distinto de "Page", tendrá que integrar la vista web y su comportamiento.
+windows-sdk-engagement-overlay-integration no requiere mucho código para escribir en la aplicación. Simplemente tendrá que etiquetar las páginas y los archivos xaml y cs con EngagementPageOverlay. Además, si personaliza la vista predeterminada de Engagement, la personalización se compartirá con todas las páginas etiquetadas y se definirá una sola vez. Sin embargo, si las páginas tienen que heredar de un objeto que no sea EngagementPageOverlay, estará obligado a usar la integración de la vista web.
 
-Una práctica recomendada en las aplicaciones de la Tienda Windows 8.1 es aplicar un elemento `<Grid></Grid>`de primer nivel para rodear todo el contenido de la página. Para la integración de la vista web, simplemente agregue Webview como elemento secundario de esta cuadrícula. Si necesita establecer el componente de Engagement en otra parte, recuerde que debe administrar el tamaño de presentación usted mismo.
+windows-sdk-engagement-webview-integration resulta más complicado de implementar. Sin embargo, si las páginas de la aplicación deben heredar de un objeto distinto de "Page", tendrá que integrar la vista web y su comportamiento.
+
+> [AZURE.TIP]Deberá considerar la posibilidad de agregar un elemento `<Grid></Grid>` de primer nivel para rodear todo el contenido de la página. Para la integración de la vista web, simplemente agregue Webview como elemento secundario de esta cuadrícula. Si necesita establecer el componente de Engagement en otra parte, recuerde que debe administrar el tamaño de presentación usted mismo.
 
 ### Integración de superposición
 
 Engagement proporciona una superposición para la visualización de notificaciones y anuncios.
 
-Si desea usarlo, no use la [integración de vista web](#web-view-integration).
+Si desea usarlo, no use windows-sdk-engagement-webview-integration.
 
 En el archivo .xaml, cambie la referencia EngagementPage a EngagementPageOverlay.
 
 -   Agregue a las declaraciones de espacios de nombres:
 
-			xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay"
+			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
--   Reemplace `engagement por :EngagementPage``engagement:EngagementPageOverlay`:
+-   Reemplace `engagement:EngagementPage` por `engagement:EngagementPageOverlay`:
 
 **Con EngagementPage:**
 
-			<engagement:EngagementPage 
-			    xmlns:engagement="using:Microsoft.Azure.Engagement">
-			
-			    <!-- layout -->
-			</engagement:EngagementPage>
+		<engagement:EngagementPage 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement">
+		
+		    <!-- layout -->
+		</engagement:EngagementPage>
 
 **Con EngagementPageOverlay:**
 
-			<engagement:EngagementPageOverlay 
-			    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
-			
-			    <!-- layout -->
-			</engagement:EngagementPageOverlay>
+		<engagement:EngagementPageOverlay 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+		
+		    <!-- layout -->
+		</engagement:EngagementPageOverlay>
 
 > **Con EngagementPageOverlay para 8.1:**
 
-			<engagement:EngagementPageOverlay 
-			    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
-			    <Grid>
-			      <!-- layout -->
-			    </Grid>
-			</engagement:EngagementPageOverlay>
+		<engagement:EngagementPageOverlay 
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
+		    <Grid>
+		      <!-- layout -->
+		    </Grid>
+		</engagement:EngagementPageOverlay>
 
 Luego, en el archivo .cs, etiquete la página en "EngagementPageOverlay" en lugar de "EngagementPage" e importe "Microsoft.Azure.Engagement.Overlay".
 
@@ -153,19 +147,19 @@ La superposición de Engagement usa el primer elemento "Grid" que encuentra en e
 
 Puede personalizar la notificación y el anuncio de superposición directamente en sus archivos xaml y cs:
 
--   `EngagementAnnouncement.html` : el diseño html de la vista web `Anuncio`.
--   `EngagementOverlayAnnouncement.xaml` : el diseño xaml de `Anuncio` .
--   `EngagementOverlayAnnouncement.xaml.cs` : el código vinculado`EngagementOverlayAnnouncement.xaml` .
--   `EngagementNotification.html` : el diseño html de la vista web `Notificación`.
--   `EngagementOverlayNotification.xaml` : El diseño xaml de`Notificación` .
--   `EngagementOverlayNotification.xaml.cs` : el código vinculado`EngagementOverlayNotification.xaml`.
--   `EngagementPageOverlay.cs` : el código de visualización de anuncios y notificaciones de `superposición`.
+-   `EngagementAnnouncement.html` : el diseño html de vista web `Announcement`.
+-   `EngagementOverlayAnnouncement.xaml` : el diseño xaml `Announcement`.
+-   `EngagementOverlayAnnouncement.xaml.cs` : el código vinculado `EngagementOverlayAnnouncement.xaml`.
+-   `EngagementNotification.html` : el diseño html de vista web `Notification`.
+-   `EngagementOverlayNotification.xaml` : el diseño xaml `Notification`.
+-   `EngagementOverlayNotification.xaml.cs` : el código vinculado `EngagementOverlayNotification.xaml`.
+-   `EngagementPageOverlay.cs`: el código de visualización de anuncios y notificaciones de `Overlay`.
 
 ### Integración de vista web
 
-Si desea usarla, no use [Overlay integration](#overlay-integration).
+Si desea usarlo, no use windows-sdk-engagement-overlay-integration.
 
-Para mostrar el contenido de Engagement, deberá integrar las dos vistas web xaml en cada página en la que se debe mostrar la notificación y el anuncio. Por lo tanto, agregue este código al archivo xaml:
+Para mostrar el contenido de Engagement, deberá integrar las dos vistas web xaml en cada página y debe mostrar la notificación y el anuncio. Por lo tanto, agregue este código al archivo xaml:
 
 			<WebView x:Name="engagement_notification_content" Visibility="Collapsed" ScriptNotify="scriptEvent" Height="64" HorizontalAlignment="Right" VerticalAlignment="Top"/>
 			<WebView x:Name="engagement_announcement_content" Visibility="Collapsed" ScriptNotify="scriptEvent" HorizontalAlignment="Right" VerticalAlignment="Top"/> 
@@ -252,7 +246,7 @@ El archivo .cs asociado deberá tener el siguiente aspecto:
 
 > Esta implementación integró el cambio de tamaño de vista web al activarse la pantalla del dispositivo.
 
-## Controlar la inserción de datos (opcional)
+##Controlar la inserción de datos (opcional)
 
 Si desea que la aplicación pueda recibir inserciones de datos Reach, debe implementar dos eventos de la clase EngagementReach:
 
@@ -271,11 +265,11 @@ En App.xaml.cs, en "Public App(){}", agregue lo siguiente:
 			  return true;
 			};
 
-Puede ver que la devolución de llamada de cada método devuelve un valor booleano. Engagement envía un comentario a su back-end después de enviar la inserción de datos. Si la devolución de llamada devuelve un valor falso, se enviará el comentario `exit`.  De lo contrario, será `action`.  Si no se establece ninguna devolución de llamada para los eventos, el comentario `drop` se devolverá a Engagement.
+Puede ver que la devolución de llamada de cada método devuelve un valor booleano. Engagement envía un comentario a su back-end después de enviar la inserción de datos. Si la devolución de llamada devuelve un valor falso, se enviará el comentario `exit`. De lo contrario, será `action`. Si no se establece ninguna devolución de llamada para los eventos, el comentario `drop` se devolverá a Engagement.
 
-> [AZURE.WARNING] Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
+> [AZURE.WARNING]Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
 
-## Personalizar la interfaz de usuario (opcional)
+##Personalizar la interfaz de usuario (opcional)
 
 ### Primer paso
 
@@ -306,8 +300,7 @@ A continuación, establezca el contenido del campo `EngagementReach.Instance.Han
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE] De forma predeterminada, Engagement usa su propia implementación de `EngagementReachHandler`.
-> No hace falta crear elementos propios. Si lo hace, tiene que invalidar todos los métodos. El comportamiento predeterminado consiste en seleccionar el objeto base de Engagement.
+> [AZURE.NOTE]De forma predeterminada, Engagement usa su propia implementación de `EngagementReachHandler`. No hace falta crear elementos propios. Si lo hace, tiene que invalidar todos los métodos. El comportamiento predeterminado consiste en seleccionar el objeto base de Engagement.
 
 ### Vista web
 
@@ -347,7 +340,7 @@ NotfificationHTML es `ms-appx-web:///Resources/EngagementNotification.html`. Rep
 
 ### Personalización
 
-Puede personalizar la vista web de notificación y anuncio como desee si quiere conservar el objeto de Engagement. Tenga en cuenta que el objeto webview se describe tres veces. La primera, en el archivo xaml, la segunda en el archivo .cs del método "setwebview()" y la tercera en el archivo html.
+Puede personalizar la vista web de notificación y anuncio como desee si quiere conservar el objeto de Engagement. Asegúrese de que el objeto de vista web se describa tres veces: la primera, en el archivo xaml, la segunda en el archivo .cs del método "setwebview()" y la tercera en el archivo html.
 
 -   En el código xaml, describa el componente webview de diseño gráfico actual.
 -   En el archivo .cs, puede definir "setwebview()" en el que establecer la dimensión de las dos vistas web de dos (notificación, anuncio). Es muy eficaz al cambiar el tamaño de la aplicación.
@@ -382,15 +375,15 @@ Para implementar la devolución de llamada, en App.xaml.cs, en "Public App(){}",
 
 Puede establecer la devolución de llamada en el método "Public App(){}" del archivo `App.xaml.cs`, preferentemente antes de la llamada `EngagementReach.Instance.Init()`.
 
-> [AZURE.TIP] A cada controlador lo llama el subproceso de interfaz de usuario. No tiene que preocuparse cuando se usa un objeto MessageBox u otro elemento relacionado con la interfaz de usuario.
+> [AZURE.TIP]A cada controlador lo llama el subproceso de interfaz de usuario. No tiene que preocuparse cuando se usa un objeto MessageBox u otro elemento relacionado con la interfaz de usuario.
 
-## Sugerencia de esquema personalizado
+##Sugerencia de esquema personalizado
 
-Se incluye el uso de esquemas personalizados. Puede enviar otro tipo de URI desde el front-end de Engagement para usarse en la aplicación de Engagement. Los esquemas predeterminados, como `http, ftp, ...`, los administra Windows. Una ventana pedirá información si no hay ninguna aplicación predeterminada instalada en el dispositivo. Se pueden usar otros esquemas, como esquemas de aplicación. Además, puede usar el esquema personalizado para su aplicación.
+Se incluye el uso de esquemas personalizados. Puede enviar otro tipo de URI desde el front-end de Engagement para usarse en la aplicación de Engagement. Los esquemas predeterminados, como `http, ftp, ...`, los administra Windows. Una ventana pedirá información si no hay ninguna aplicación predeterminada instalada en el dispositivo. Se pueden usar otros esquemas, como esquemas de aplicación. Además, puede usar un esquema personalizado para su aplicación.
 
-Es una manera sencilla de establecer un esquema personalizado en la aplicación es abrir  `Package.appxmanifest` en el panel `Declaraciones`.  Seleccione `Protocolo` del cuadro desplegable Declaraciones disponibles y agréguelo.  Edite el campo `Nombre` con el nombre deseado del nuevo protocolo.
+Es una manera sencilla de establecer un esquema personalizado en la aplicación es abrir `Package.appxmanifest` en el panel `Declarations`. Seleccione `Protocol` del cuadro desplegable Declaraciones disponibles y agréguelo. Edite el campo `Name` con el nombre deseado del nuevo protocolo.
 
-Ahora, para usar estos protocolos, edite  `App.xaml.cs` mediante el método `OnActivated` y no se olvide de inicializar Engagement aquí también:
+Ahora, para usar este protocolo, edite `App.xaml.cs` mediante el método `OnActivated` y no se olvide de inicializar Engagement aquí también:
 
 			/// <summary>
 			/// Enter point when app his called by another way than user click
@@ -416,4 +409,4 @@ Ahora, para usar estos protocolos, edite  `App.xaml.cs` mediante el método `OnA
 			  }
 			  #endregion
 
-<!--HONumber=47-->
+<!--HONumber=54-->
