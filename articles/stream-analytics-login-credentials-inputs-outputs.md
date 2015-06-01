@@ -70,7 +70,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 10. Haga clic en el comando Administrar: ![graphic22][graphic22]
 11. escriba su nombre de usuario y contraseña y haga clic en Iniciar sesión: ![graphic23][graphic23]
 12. Haga clic en Nueva consulta: ![graphic24][graphic24]
-13. Escriba la siguiente consulta reemplazando <user_name> por un nombre por el que desee identificar este inicio de sesión en el contexto de esta base de datos \(puede proporcionar el mismo valor que asignó para <login_name>, por ejemplo\) y reemplazar <login_name> por su nuevo nombre de usuario: `CREATE USER <user_name> FROM LOGIN <login_name>`
+13. Escriba la siguiente consulta reemplazando <user_name> por un nombre por el que desee identificar este inicio de sesión en el contexto de esta base de datos (puede proporcionar el mismo valor que asignó para <login_name>, por ejemplo) y reemplazar <login_name> por su nuevo nombre de usuario: `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Haga clic en Ejecutar: ![graphic25][graphic25]
 15. Ahora debe proporcionar el nuevo usuario con los mismos roles y privilegios que tenía el usuario original.
 16. Vaya a la parte 2.
@@ -119,7 +119,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 4.	Vaya a la parte 5.  
 
 ##Parte 5: Eliminación del antiguo conjunto de credenciales
-Este elemento es aplicable a las siguientes entradas/salidas: \* Almacenamiento de blobs \* Centros de eventos \* Base de datos SQL \* Almacenamiento de tablas
+Este elemento es aplicable a las siguientes entradas/salidas: * Almacenamiento de blobs * Centros de eventos * Base de datos SQL * Almacenamiento de tablas
 
 ###Almacenamiento de blobs/almacenamiento de tablas
 Repita la Parte 1 para la clave de acceso usada previamente por su trabajo para renovar la clave de acceso ahora no utilizada.

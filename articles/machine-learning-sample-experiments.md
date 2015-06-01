@@ -29,7 +29,7 @@ Cuando desee crear un experimento, busque ejemplos de experimentos del equipo de
 5.  Inicie sesión con las credenciales de su cuenta de Microsoft. Si aún no tiene un área de trabajo de Aprendizaje automático, se creará un área de trabajo de prueba gratuita. [Información sobre qué incluye la prueba gratuita de Aprendizaje automático de Azure](http://azure.microsoft.com/pricing/details/machine-learning/) ![](./media/machine-learning-sample-experiments/image3.png) 
 
 ## Usar como plantilla en el Estudio
-1. Inicie sesión con las credenciales de su cuenta de Microsoft en el [Estudio](https://studio.azureml.net) y, a continuación, haga clic en **Nuevo**\* para crear un nuevo experimento. 
+1. Inicie sesión con las credenciales de su cuenta de Microsoft en el [Estudio](https://studio.azureml.net) y, a continuación, haga clic en **Nuevo*** para crear un nuevo experimento. 
 2. Examine el contenido de ejemplo y seleccione uno para utilizarlo como una plantilla.
 
 ## Pasos siguientes

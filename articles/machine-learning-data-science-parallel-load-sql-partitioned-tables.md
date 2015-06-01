@@ -59,7 +59,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 
 **Para crear una tabla de partición, debe:**
 
-- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes (un\_campo\_datetime) en el año 2013:
+- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes (un_campo_datetime) en el año 2013:
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -135,13 +135,13 @@ El siguiente script de PowerShell es un ejemplo de carga paralela de datos media
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
     }
     
     # BCP example using SQL authentication
     $ScriptBlock2 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num, $sqlusr, $server, $pass)
-       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
     }
     
     # Background processing of all partitions

@@ -90,13 +90,13 @@ La navegación de búsqueda es habitual en una página de resultados; a menudo s
 
 ## Filtros en el nivel de página ##
 
-Si el diseño de la solución incluye páginas de búsqueda dedicadas para determinados tipos de contenido \(por ejemplo, una aplicación comercial en línea que enumera los departamentos en la parte superior de la página\), puede insertar una expresión de filtro junto con un evento **onClick** para abrir una página en un estado prefiltrado.
+Si el diseño de la solución incluye páginas de búsqueda dedicadas para determinados tipos de contenido (por ejemplo, una aplicación comercial en línea que enumera los departamentos en la parte superior de la página), puede insertar una expresión de filtro junto con un evento **onClick** para abrir una página en un estado prefiltrado.
 
 Puede enviar un filtro con o sin expresión de búsqueda. Por ejemplo, la siguiente solicitud filtrará por el nombre de la marca y devolverá solamente los documentos que coincidan con él.
 
     	GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Consulte [Buscar documentos \(API de Búsqueda de Azure\)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información acerca de las expresiones `$filter`.
+Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información acerca de las expresiones `$filter`.
 
 ## Otras referencias ##
 

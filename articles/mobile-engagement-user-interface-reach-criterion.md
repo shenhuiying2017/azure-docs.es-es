@@ -26,7 +26,7 @@ Orientar su audiencia según criterios específicos mediante el botón "Nuevos c
 - [Documentación de la interfaz de usuario - Alcance - Nueva campaña de inserción][Link 27]
 
 ## Dentro de los criterios de audiencia se pueden incluir:
-- **Aspectos técnicos: \*\* puede orientar en función de la misma información técnica que puede ver en las secciones de análisis y supervisión. **Consulte también:** [Documentación de la interfaz de usuario - Análisis][Link 15], [Documentación de la interfaz de usuario - Supervisión][Link 16] - **Ubicación:** las aplicaciones que usan "informes de ubicación en tiempo real" con Geofencing pueden usar la geolocalización como criterio para orientarse a una audiencia desde la ubicación de GPS. La llamada "Informes de ubicación de área diferida" también se puede usar para orientarse a una audiencia desde la ubicación del teléfono móvil \("Informes de ubicación en tiempo real" e " Informes de ubicación de área diferida" deben activarse desde el SDK\) **Consulte también:** [Documentación del SDK - iOS -][Link 5], [Documentación del SDK - Android - Integración][Link 5]
+- **Aspectos técnicos: ** puede orientar en función de la misma información técnica que puede ver en las secciones de análisis y supervisión. **Consulte también:** [Documentación de la interfaz de usuario - Análisis][Link 15], [Documentación de la interfaz de usuario - Supervisión][Link 16] - **Ubicación:** las aplicaciones que usan "informes de ubicación en tiempo real" con Geofencing pueden usar la geolocalización como criterio para orientarse a una audiencia desde la ubicación de GPS. La llamada "Informes de ubicación de área diferida" también se puede usar para orientarse a una audiencia desde la ubicación del teléfono móvil ("Informes de ubicación en tiempo real" e " Informes de ubicación de área diferida" deben activarse desde el SDK) **Consulte también:** [Documentación del SDK - iOS -][Link 5], [Documentación del SDK - Android - Integración][Link 5]
 - **Comentarios sobre la cobertura:** puede tener como destino su audiencia según sus comentarios de notificaciones de cobertura anteriores a través de comentarios sobre la cobertura de Anuncios, Sondeos e Inserciones de datos. Esto le permite orientarse mejor a la audiencia después de dos o tres campañas de cobertura que la primera vez. También puede usarse para filtrar los usuarios que ya han recibido una notificación con contenido similar, al establecer una campaña para NO enviarse a los usuarios que ya han recibido una determinada campaña anterior. Incluso puede excluir a los usuarios incluidos en una campaña específica que está todavía activa para recibir inserciones nuevas. **Vea también:** [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Link 29]
 - **Seguimiento de la instalación:** puede realizar un seguimiento de información basada en dónde instalaron los usuarios su aplicación. **Consulte también:** [Documentación de interfaz de usuario - Configuración][Link 20]
 - **Perfil de usuario:** puede orientarse según la información de usuario estándar y basándose en la información de la aplicación personalizada que ha creado. Aquí se incluye a los usuarios que han iniciado sesión y a los que han respondido preguntas específicas que les ha solicitado definir en la propia aplicación en lugar de tan solo cómo han respondido a campañas anteriores. Toda la información de la aplicación definida para la aplicación aparece en esta lista.
@@ -38,11 +38,11 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 
 1. Vaya a la página de configuración de la aplicación, seleccione el menú "Información de la aplicación" y seleccione "Nueva información de la aplicación"
 2. Registre una nueva información de aplicación de booleano denominada "inAppPurchase"
-3. Haga que la aplicación establezca esta información de aplicación en "true" cuando el usuario realice correctamente una compra en la aplicación \(mediante el uso de la función sendAppInfo \("inAppPurchase",...\)\)
-4. Si no desea hacerlo desde la aplicación, puede hacerlo desde el backend mediante el uso de la API del dispositivo\)
-5. A continuación, solo necesita crear el anuncio con un criterio que limite la audiencia a los usuarios que tienen "inAppPurchase" establecido en "true"\)
+3. Haga que la aplicación establezca esta información de aplicación en "true" cuando el usuario realice correctamente una compra en la aplicación (mediante el uso de la función sendAppInfo ("inAppPurchase",...))
+4. Si no desea hacerlo desde la aplicación, puede hacerlo desde el backend mediante el uso de la API del dispositivo)
+5. A continuación, solo necesita crear el anuncio con un criterio que limite la audiencia a los usuarios que tienen "inAppPurchase" establecido en "true")
  
-> Nota: la orientación basada en criterios que no sean etiquetas de información de aplicación requiere que Azure Mobile Engagement recopile información de los dispositivos de los usuarios antes de enviar la inserción para poder provocar un retraso. Las opciones de configuración de inserción complejas \(como la actualización de insignias\) también pueden retrasar las inserciones. El uso de una campaña de "Monoestable" de la API de inserción es el método de inserción de más rápido absoluto en Azure Mobile Engagement. Utilizar solo etiquetas de información de aplicación como criterios de inserción para una campaña de cobertura \(ya sea desde la API de cobertura o la interfaz de usuario\) es el siguiente método más rápido, dado que las etiquetas de información de la aplicación se almacenan en el servidor. Usar otros criterios de orientación para una campaña de inserción es el método de inserción más flexible pero más lento, ya que Azure Mobile Engagement tiene que consultar los dispositivos para enviar la campaña.
+> Nota: la orientación basada en criterios que no sean etiquetas de información de aplicación requiere que Azure Mobile Engagement recopile información de los dispositivos de los usuarios antes de enviar la inserción para poder provocar un retraso. Las opciones de configuración de inserción complejas (como la actualización de insignias) también pueden retrasar las inserciones. El uso de una campaña de "Monoestable" de la API de inserción es el método de inserción de más rápido absoluto en Azure Mobile Engagement. Utilizar solo etiquetas de información de aplicación como criterios de inserción para una campaña de cobertura (ya sea desde la API de cobertura o la interfaz de usuario) es el siguiente método más rápido, dado que las etiquetas de información de la aplicación se almacenan en el servidor. Usar otros criterios de orientación para una campaña de inserción es el método de inserción más flexible pero más lento, ya que Azure Mobile Engagement tiene que consultar los dispositivos para enviar la campaña.
  
 ![Reach-Criterion1][29]
 
@@ -60,7 +60,7 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 - Tamaño de pantalla: tamaño de pantalla
 - **Ubicación**      
 - Última área conocida: país, región, localidad
-- Geofencing en tiempo real: lista de puntos de interés \(nombre, acciones\), punto de interés circular \(nombre, latitud, longitud, radio en metros\)
+- Geofencing en tiempo real: lista de puntos de interés (nombre, acciones), punto de interés circular (nombre, latitud, longitud, radio en metros)
 - **Comentarios sobre la cobertura**     
 - Comentarios de anuncio: anuncio, comentarios
 - Comentarios de sondeo: sondeo, comentarios
@@ -79,7 +79,7 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 - Entero: operador, número, sin definir
 - Booleano: verdadero o falso, sin definir
 - **Segmento**    
-- Nombre de segmentos \(de la lista desplegable\), exclusión \(usuarios de destino que no forman parte de este segmento\).
+- Nombre de segmentos (de la lista desplegable), exclusión (usuarios de destino que no forman parte de este segmento).
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

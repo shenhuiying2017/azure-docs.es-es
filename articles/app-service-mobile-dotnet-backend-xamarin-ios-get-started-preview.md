@@ -78,13 +78,13 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
 
-3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma \(\*\*+\*\*\).
+3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma (**+**).
 
 	![][10]
 
 	Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de aplicación móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
->[AZURE.NOTE]Puede revisar el código que obtiene acceso al back-end de aplicación móvil para consultar e insertar datos en el archivo de C\# QSTodoService.cs.
+>[AZURE.NOTE]Puede revisar el código que obtiene acceso al back-end de aplicación móvil para consultar e insertar datos en el archivo de C# QSTodoService.cs.
 
 
 <!-- Anchors. -->

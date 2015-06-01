@@ -314,7 +314,7 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	La variable **$subscripionName** está asociada a la suscripción de Azure. Debe nombrar los valores **$storageAccountName\\_Data** y **$containerName\\_Data**. Para las restricciones de nomenclatura, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
+	La variable **$subscripionName** está asociada a la suscripción de Azure. Debe nombrar los valores **$storageAccountName_Data** y **$containerName_Data**. Para las restricciones de nomenclatura, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx).
 
 3. Ejecute los comandos siguientes para crear una cuenta de almacenamiento y un contenedor de almacenamiento de blobs en la cuenta:
 
@@ -346,7 +346,7 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Las variables **$storageAccountName\\_Data** y **$containerName\\_Data** son iguales a las definidas en el último procedimiento.
+	Las variables **$storageAccountName_Data** y **$containerName_Data** son iguales a las definidas en el último procedimiento.
 
 	Tenga en cuenta que la carpeta de los archivos de origen es **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT** y la carpeta de destino es **WordCount/Input**.
 
@@ -396,7 +396,7 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
 		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	Las variables **$storageAccountName\\_Data** y **$containerName\\_Data** son las mismas que ha definido en el último procedimiento, lo que significa que cargará tanto el archivo de datos como la aplicación en el mismo contenedor y en la misma cuenta de almacenamiento.
+	Las variables **$storageAccountName_Data** y **$containerName_Data** son las mismas que ha definido en el último procedimiento, lo que significa que cargará tanto el archivo de datos como la aplicación en el mismo contenedor y en la misma cuenta de almacenamiento.
 
 	Tenga en cuenta que la carpeta de destino es **WordCount/jars**.
 
@@ -524,7 +524,7 @@ En esta sección, creará un script de Azure PowerShell que realiza las siguient
 
 3. Establezca las seis primeras variables en el script. La variable **$stringPrefix** se usa para agregar la cadena especificada como prefijo al nombre del clúster de HDInsight, el nombre de la cuenta de almacenamiento y el nombre del contenedor de almacenamiento de blobs. Puesto que estos nombres deben tener entre 3 y 24 caracteres, asegúrese de que la cadena que especifique y los nombres que use el script no superen el límite de caracteres del nombre. Solo debe utilizar minúsculas en **$stringPrefix**.
  
-	Las variables **$storageAccountName\\_Data** y **$containerName\\_Data** constituyen la cuenta de almacenamiento y el contenedor que se utilizan para almacenar los archivos de datos y la aplicación. La variable **$location** debe coincidir con la ubicación de la cuenta de almacenamiento de datos.
+	Las variables **$storageAccountName_Data** y **$containerName_Data** constituyen la cuenta de almacenamiento y el contenedor que se utilizan para almacenar los archivos de datos y la aplicación. La variable **$location** debe coincidir con la ubicación de la cuenta de almacenamiento de datos.
 
 4. Revise el resto de las variables.
 5. Guarde el archivo de script.

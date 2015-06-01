@@ -21,7 +21,7 @@
 El Portal de vista previa de Microsoft Azure es una ubicación central desde donde pueden aprovisionar y administrar los recursos de Azure. Este tutorial le permitirá familiarizarse con el portal y le mostrará cómo usar algunas de estas funcionalidades clave: 
 - Un **marketplace completo** que le permite examinar miles de elementos de Microsoft y otros proveedores que se pueden comprar y/o aprovisionar. 
 - Una **experiencia de exploración unificada y escalable** que facilita encontrar los recursos que le interesan y realizar diversas operaciones de administración. 
-- **Páginas de administración coherente** \(u hojas\) que le permiten administrar la amplia variedad de servicios de Azure a través de una forma coherente de exponer configuraciones, acciones, información de facturación, seguimiento de estado y datos de uso, etc. 
+- **Páginas de administración coherente** (u hojas) que le permiten administrar la amplia variedad de servicios de Azure a través de una forma coherente de exponer configuraciones, acciones, información de facturación, seguimiento de estado y datos de uso, etc. 
 - Una **experiencia personal** que le permite crear una pantalla de inicio personalizada que muestra la información que desea ver cada vez que inicia sesión. También puede personalizar cualquiera de las hojas de administración que contienen mosaicos.
 
  ![Orientación sobre la interfaz de usuario del Portal de Azure][UIOrientation]
@@ -38,7 +38,7 @@ Azure tiene un marketplace con miles de elementos que se pueden crear desde un s
 2.	Rellene algunas entradas básicas de un formulario.
 3.	Haga clic en "Crear" y la máquina virtual comenzará a aprovisionarse de inmediato. 
 
-El centro de notificaciones le enviará una alerta cuando se cree el recurso y se abrirá una hoja de administración \(siempre puede navegar más adelante a los recursos\).
+El centro de notificaciones le enviará una alerta cuando se cree el recurso y se abrirá una hoja de administración (siempre puede navegar más adelante a los recursos).
 
 ![Categorías del portal][PortalCategories]
 
@@ -51,7 +51,7 @@ Siempre tiene la posibilidad de anclar los recursos de acceso más frecuente en 
 
 ## Cómo administrar y delegar acceso a un recurso
 
-Desde esta hoja puede conectarse a la máquina virtual a través de Escritorio remoto, supervisar las métricas de rendimiento clave, controlar el acceso a esta máquina virtual mediante el uso de control de acceso basado en rol \(RBAC\), configurar la máquina virtual y realizar otras importantes tareas de administración. Delegar el acceso basado en rol resulta fundamental para la administración a escala. Haga clic [aquí](role-based-access-control-configure.md) para obtener más información al respecto. Para delegar el acceso a un recurso, realice las siguientes acciones:
+Desde esta hoja puede conectarse a la máquina virtual a través de Escritorio remoto, supervisar las métricas de rendimiento clave, controlar el acceso a esta máquina virtual mediante el uso de control de acceso basado en rol (RBAC), configurar la máquina virtual y realizar otras importantes tareas de administración. Delegar el acceso basado en rol resulta fundamental para la administración a escala. Haga clic [aquí](role-based-access-control-configure.md) para obtener más información al respecto. Para delegar el acceso a un recurso, realice las siguientes acciones:
 
 1.	Vaya a su sitio.
 2.	En la sección Essentials, haga clic en "Toda la configuración".
@@ -74,7 +74,7 @@ Azure configura previamente las hojas correspondientes a los recursos, pero los 
 
 ## Cómo obtener ayuda
 
-Estamos aquí para ayudarle en caso de tener problemas. El portal cuenta con una página de ayuda y soporte técnico que puede señalarle la dirección correcta. Dependiendo del [plan de soporte técnico](http://azure.microsoft.com/support/plans/) que tenga, también puede crear incidencias de soporte técnico directamente en el portal. Después de crear una incidencia de soporte técnico, puede administrar el ciclo de vida de la incidencia desde el portal. Para tener acceso a la página de ayuda y soporte técnico, navegue a Examinar \> Ayuda y soporte técnico
+Estamos aquí para ayudarle en caso de tener problemas. El portal cuenta con una página de ayuda y soporte técnico que puede señalarle la dirección correcta. Dependiendo del [plan de soporte técnico](http://azure.microsoft.com/support/plans/) que tenga, también puede crear incidencias de soporte técnico directamente en el portal. Después de crear una incidencia de soporte técnico, puede administrar el ciclo de vida de la incidencia desde el portal. Para tener acceso a la página de ayuda y soporte técnico, navegue a Examinar > Ayuda y soporte técnico
 
 ![Ayuda y soporte técnico][HelpSupport]
 
@@ -85,7 +85,7 @@ Revisemos lo aprendido en este tutorial:
 - Se le orientó respecto de la interfaz de usuario del portal y aprendió a crear y explorar recursos. 
 - Aprendió a crear y explorar recursos. 
 - Aprendió sobre la estructura o las hojas de administración y cómo administrar de manera coherente distintos tipos de recursos. 
-- Aprendió a personalizar el portal para poner la información que le interesa al frente y al centro del mismo. - Aprendió a controlar el acceso a los recursos mediante el uso del acceso basado en rol \(RBAC\). 
+- Aprendió a personalizar el portal para poner la información que le interesa al frente y al centro del mismo. - Aprendió a controlar el acceso a los recursos mediante el uso del acceso basado en rol (RBAC). 
 - Aprendió a obtener ayuda y soporte técnico.
 
 El Portal de vista previa de Microsoft Azure simplifica radicalmente la creación y administración de las aplicaciones en la nube. Eche un vistazo al [blog de administración](http://azure.microsoft.com/blog/topics/management/) para mantenerse al día, dado que constantemente [prestamos atención a los comentarios](http://feedback.azure.com/forums/223579-azure-preview-portal) y realizamos mejoras. El [blog de ScottGu](http://weblogs.asp.net/scottgu) es otro excelente lugar para buscar todas las actualizaciones de Azure.

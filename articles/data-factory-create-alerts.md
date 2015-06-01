@@ -17,16 +17,16 @@
 	ms.author="spelluru"/>
 
 # Creación de alertas sobre eventos de Azure
-Los eventos de Azure proporcionan información útil sobre lo que sucede en los recursos de Azure. Azure registra eventos del usuario cuando se crea, actualiza o elimina un recurso de Azure \(por ejemplo, la Factoría de datos\). Al usar la Factoría de datos de Azure, se generan eventos cuando:
+Los eventos de Azure proporcionan información útil sobre lo que sucede en los recursos de Azure. Azure registra eventos del usuario cuando se crea, actualiza o elimina un recurso de Azure (por ejemplo, la Factoría de datos). Al usar la Factoría de datos de Azure, se generan eventos cuando:
  
 1.	La Factoría de datos de Azure se crea/actualiza/elimina.
-2.	Se inicia o finaliza el procesamiento de datos \(denominado ejecución\).
+2.	Se inicia o finaliza el procesamiento de datos (denominado ejecución).
 3.	Cuando se crea o se elimina un clúster de HDInsight a petición.
 
 Puede crear alertas sobre estos eventos del usuario y configurarlas para enviar notificaciones por correo electrónico al administrador y a los coadministradores de la suscripción. Además, puede especificar direcciones de correo electrónico adicionales de los usuarios que necesiten recibir notificaciones por correo electrónico cuando se cumplan las condiciones.
 
 ## Especificación de una definición de alerta
-Para especificar una definición de alerta, cree un archivo JSON que describa las operaciones sobre las que desea recibir alertas. En el ejemplo siguiente, la alerta enviará una notificación por correo electrónico para la operación **RunFinished**. Para ser más específicos, se envía una notificación por correo electrónico cuando se ha completado una ejecución en la Factoría de datos y se ha producido un error \(estado = FailedExecution\).
+Para especificar una definición de alerta, cree un archivo JSON que describa las operaciones sobre las que desea recibir alertas. En el ejemplo siguiente, la alerta enviará una notificación por correo electrónico para la operación **RunFinished**. Para ser más específicos, se envía una notificación por correo electrónico cuando se ha completado una ejecución en la Factoría de datos y se ha producido un error (estado = FailedExecution).
 
 	{
     	"contentVersion": "1.0.0.0",
@@ -67,7 +67,7 @@ Para especificar una definición de alerta, cree un archivo JSON que describa la
 
 En la definición anterior de JSON, **subStatus** se puede quitar si no desea recibir alertas sobre un error específico.
 
-Consulte [Operaciones y estados disponibles](#AvailableOperationsStatuses) para obtener la lista de operaciones y estados \(y subestados\).
+Consulte [Operaciones y estados disponibles](#AvailableOperationsStatuses) para obtener la lista de operaciones y estados (y subestados).
 
 ## Implementación de alertas
 Para implementar una alerta, use el cmdlet de PowerShell de Azure: **New-AzureResourceGroupDeployment**, como se muestra en el ejemplo siguiente:

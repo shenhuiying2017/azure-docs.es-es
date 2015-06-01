@@ -5,11 +5,11 @@
 
 Puede proteger la comunicación entre la aplicación web y el explorador con HTTPS, que utiliza el cifrado de capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su aplicación. En este artículo se describe cómo configurar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure. 
 
-##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \*.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio *.azurewebsites.net
 
-Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio \*.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Para acceder a la aplicación, puede usar **https://mywebsite.azurewebsites.net**. Sin embargo, \*.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como utilizar un dominio personalizado con su propio certificado. 
+Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio *.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Para acceder a la aplicación, puede usar **https://mywebsite.azurewebsites.net**. Sin embargo, *.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como utilizar un dominio personalizado con su propio certificado. 
 
-En el resto del documento se proporcionan detalles acerca de cómo habilitar HTTPS para dominios personalizados, como **contoso.com**, **www.contoso.com** o **\*.contoso.com**
+En el resto del documento se proporcionan detalles acerca de cómo habilitar HTTPS para dominios personalizados, como **contoso.com**, **www.contoso.com** o ***.contoso.com**
 
 ##<a name="bkmk_domainname"></a>Habilitación de SSL en un dominio personalizado
 
@@ -39,7 +39,7 @@ Para obtener un certificado SSL para utilizarlo con el Servicio de aplicaciones 
 - [Obtención de un certificado SubjectAltName con OpenSSL](#bkmk_subjectaltname)
 - [Generación de certificados autofirmados (solo para pruebas)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE] Al seguir los pasos, se le solicitará que escriba un **nombre común**, como `www.contoso.com`. Para los certificados comodín, este valor debe ser \*.domainname (por ejemplo, \*.contoso.com). Si necesita compatibilidad con un nombre comodín, como \*.contoso.com, y con un nombre de dominio raíz, como contoso.com, puede usar un certificado comodín subjectAltName.
+> [AZURE.NOTE] Al seguir los pasos, se le solicitará que escriba un **nombre común**, como `www.contoso.com`. Para los certificados comodín, este valor debe ser *.domainname (por ejemplo, *.contoso.com). Si necesita compatibilidad con un nombre comodín, como *.contoso.com, y con un nombre de dominio raíz, como contoso.com, puede usar un certificado comodín subjectAltName.
 >
 > Los certificados ECC (criptografía de curva elíptica) son compatibles con el Servicio de aplicaciones de Azure; sin embargo, son relativamente nuevos, por lo que es preciso preguntar a la entidad de certificación los pasos exactos para crear el CSR.
 

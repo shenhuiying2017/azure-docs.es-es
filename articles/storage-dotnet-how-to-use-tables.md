@@ -39,7 +39,7 @@ servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en c
 ### Obtención del ensamblado
 Puede utilizar NuGet para obtener el ensamblado  `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto en el**Explorador de soluciones** y seleccione **Administrar paquetes de NuGet**.  Busque "WindowsAzure.Storage" en línea y haga clic en **Instalar** para instalar el paquete y las dependencias de Almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el <a href="http://azure.microsoft.com/develop/net/#">Centro de desarrolladores de .NET</a>. El ensamblado se instala en el directorio  `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el <a href="http://azure.microsoft.com/develop/net/#">Centro de desarrolladores de .NET</a>. El ensamblado se instala en el directorio  `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Declaraciones de espacio de nombres
 Agregue las siguientes declaraciones de espacios de nombres de código en la parte superior de cualquier archivo C# en el que desee obtener acceso al Almacenamiento de Azure mediante programación:
@@ -85,7 +85,7 @@ Los objetos **CloudTableClient** le permiten obtener objetos de referencia para 
 
 ## Adición de una entidad a una tabla
 
-Las entidades se asignan a objetos C\# utilizando una clase personalizada derivada de
+Las entidades se asignan a objetos C# utilizando una clase personalizada derivada de
 **TableEntity**. Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Las entidades con la misma clave de partición pueden consultarse más rápidamente que aquellas con diferentes claves de partición, pero el uso de claves de partición diversas permite una mayor escalabilidad de las operaciones paralelas.  Toda propiedad que deba almacenarse en el servicio de tablas debe ser una propiedad pública de un tipo compatible que exponga tanto `get` como `set`.
 Además, su tipo de entidad *must* expone un constructor sin parámetros.
 

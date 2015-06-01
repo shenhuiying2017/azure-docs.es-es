@@ -56,7 +56,7 @@ se comunican con los servicios REST.
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  Puede ejecutar manualmente los comandos **ls** o **dir** para comprobar que se creó una carpeta **node\_modules**. Dentro de dicha carpeta, encontrará el paquete **azure**, que contiene las bibliotecas necesarias para el acceso al Centro de notificaciones.
+3.  Puede ejecutar manualmente los comandos **ls** o **dir** para comprobar que se creó una carpeta **node_modules**. Dentro de dicha carpeta, encontrará el paquete **azure**, que contiene las bibliotecas necesarias para el acceso al Centro de notificaciones.
 
 ### Importación del módulo
 

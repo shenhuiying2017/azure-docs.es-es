@@ -53,7 +53,7 @@ Para utilizar el bus de servicio de Azure, es necesario descargar y usar el paqu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Puede ejecutar manualmente el comando **ls** para verificar que se ha creado la carpeta **node\_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a colas de Bus de servicio.
+3.  Puede ejecutar manualmente el comando **ls** para verificar que se ha creado la carpeta **node_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a colas de Bus de servicio.
 
 ### Importación del módulo
 
@@ -63,7 +63,7 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 
 ### Configuración de una conexión del Bus de servicio de Azure
 
-El módulo azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al Bus de servicio de Azure. Si estas variables de entorno no están configuradas, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
+El módulo azure leerá las variables de entorno AZURE_SERVICEBUS_NAMESPACE y AZURE_SERVICEBUS_ACCESS_KEY para obtener la información necesaria para conectarse al Bus de servicio de Azure. Si estas variables de entorno no están configuradas, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][Servicio en la nube de Node.js].
 

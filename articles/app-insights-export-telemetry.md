@@ -35,7 +35,7 @@ Elija los tipos de evento que desea exportar:
 ![Haga clic en Elegir tipos de evento.](./media/app-insights-export-telemetry/03-types.png)
 
 
-Una vez que ha creado la exportación, comienza el proceso. \(Solo obtendrá los datos que lleguen después de crear la exportación.\)
+Una vez que ha creado la exportación, comienza el proceso. (Solo obtendrá los datos que lleguen después de crear la exportación.)
 
 
 Si desea cambiar los tipos de evento más tarde, simplemente edite la exportación:
@@ -70,7 +70,7 @@ Para descargar estos datos mediante programación, use la [API de REST de almac�
 
 O bien, considere la posibilidad de [DataFactory](http://azure.microsoft.com/services/data-factory/), donde puede configurar canalizaciones para administrar los datos a escala.
 
-Comenzamos a escribir un nuevo blob cada hora \(si se reciben eventos\). Por lo que siempre debe procesar hasta la hora anterior, pero espere a que finalice la hora actual.
+Comenzamos a escribir un nuevo blob cada hora (si se reciben eventos). Por lo que siempre debe procesar hasta la hora anterior, pero espere a que finalice la hora actual.
 
 [Código de ejemplo][exportcode]
 

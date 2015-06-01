@@ -18,13 +18,13 @@
 
 # Cómo administrar el contenido exclusivo de los diferentes tipos de campañas de notificaciones de inserción
  
-Puede utilizar la sección de contenido de una nueva campaña de cobertura para modificar el contenido de los anuncios, sondeos, inserción de datos y mosaicos \(solo en Windows Phone\). La configuración del contenido de las campañas de inserción es específica del tipo de campaña.
+Puede utilizar la sección de contenido de una nueva campaña de cobertura para modificar el contenido de los anuncios, sondeos, inserción de datos y mosaicos (solo en Windows Phone). La configuración del contenido de las campañas de inserción es específica del tipo de campaña.
  
 ### Tipos de contenido:
 - Anuncios
 - Sondeos
 - Inserciones de datos
-- Mosaicos \(solo en Windows Phone\)
+- Mosaicos (solo en Windows Phone)
  
 ## Contenido de anuncios
  ![Reach-Content1][30]
@@ -38,64 +38,64 @@ Puede utilizar la sección de contenido de una nueva campaña de cobertura para 
 - [Cobertura - Guía práctica - Anuncios][Link 3] 
 
 ### Acerca de los anuncios de visualización web:
-Las apariciones del patrón "{deviceid}" en el código HTML o JavaScript que proporcione aquí se reemplazarán automáticamente por el identificador del dispositivo que muestra el anuncio. Se trata de una manera fácil de recuperar identificadores de dispositivo de Azure Mobile Engagement en un servicio web externo hospedado en su oficina. Si desea crear una vista web de pantalla completa \(sin los botones predeterminados de Acción y Salir proporcionados\) puede utilizar las siguientes funciones desde código de JavaScript del anuncio de la vista web:
+Las apariciones del patrón "{deviceid}" en el código HTML o JavaScript que proporcione aquí se reemplazarán automáticamente por el identificador del dispositivo que muestra el anuncio. Se trata de una manera fácil de recuperar identificadores de dispositivo de Azure Mobile Engagement en un servicio web externo hospedado en su oficina. Si desea crear una vista web de pantalla completa (sin los botones predeterminados de Acción y Salir proporcionados) puede utilizar las siguientes funciones desde código de JavaScript del anuncio de la vista web:
 
--    realizar la acción del anuncio: ReachContent.actionContent\(\)
--    salir del anuncio: ReachContent.exitContent\(\)
+-    realizar la acción del anuncio: ReachContent.actionContent()
+-    salir del anuncio: ReachContent.exitContent()
  
 ### Elija la acción:
 
 ### Acerca de las direcciones URL de la acción:
-Cualquier dirección URL que puede ser interpretada por el sistema operativo de destino de un dispositivo puede utilizarse como una dirección URL de la acción. Cualquier dirección URL específica que pueda admitir su aplicación \(por ejemplo, para hacer saltar a los usuarios a una pantalla concreta\) también puede utilizarse como una dirección URL de acción. Cada repetición del patrón {deviceid} se reemplaza automáticamente por el identificador del dispositivo que realiza la acción. Esto puede utilizarse para recuperar fácilmente los identificadores de dispositivo Azure Mobile Engagement a través de un servicio web externo hospedado en su área de operaciones.
+Cualquier dirección URL que puede ser interpretada por el sistema operativo de destino de un dispositivo puede utilizarse como una dirección URL de la acción. Cualquier dirección URL específica que pueda admitir su aplicación (por ejemplo, para hacer saltar a los usuarios a una pantalla concreta) también puede utilizarse como una dirección URL de acción. Cada repetición del patrón {deviceid} se reemplaza automáticamente por el identificador del dispositivo que realiza la acción. Esto puede utilizarse para recuperar fácilmente los identificadores de dispositivo Azure Mobile Engagement a través de un servicio web externo hospedado en su área de operaciones.
 
 - **Acciones de Android + iOS**
     - Abrir una página web
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - Ejemplo:http://www.azure.com
     - Enviar un correo electrónico
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+    - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
     - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Enviar un SMS
-    - sms:\[phone-number\] 
+    - sms:[phone-number] 
     - Ejemplo:sms:2125551212
     - Marcar un número de teléfono
-    - tel:\[phone-number\] 
+    - tel:[phone-number] 
     - Ejemplo:tel:2125551212
 - **Acciones solo para Android**
     - Descargar una aplicación de Play Store
-    - market://details?id=\[app package\] 
+    - market://details?id=[app package] 
     - Ejemplo:market://details?id=com.microsoft.office.word
     - Iniciar una búsqueda localizada geográficamente
-    - geo:0,0?q=\[search query\] 
+    - geo:0,0?q=[search query] 
     - Ejemplo:geo:0,0?q=starbucks,paris
 - **Acciones solo para iOS**
     - Descargar una aplicación de la App Store
-    - http://itunes.apple.com/[country]/app/[app name\]/id[app id]?mt=8 
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
     - Ejemplo:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Acciones de Windows
     - Abrir una página web
-    - http://\[web-site-domain\\] 
+    - http://[web-site-domain] 
     - Ejemplo:http://www.azure.com
     - Enviar un correo electrónico
-    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+    - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
     - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
-    - Enviar un SMS \(requiere la aplicación Skype\)
-    - sms:\[phone-number\] 
+    - Enviar un SMS (requiere la aplicación Skype)
+    - sms:[phone-number] 
     - Ejemplo:sms:2125551212
-    - Marcar un número de teléfono \(requiere la aplicación Skype\)
-    - tel:\[phone-number\] 
+    - Marcar un número de teléfono (requiere la aplicación Skype)
+    - tel:[phone-number] 
     - Ejemplo:tel:2125551212
     - Descargar una aplicación de Play Store
-    - ms-windows-store:PDP?PFN=\[app package ID\] 
+    - ms-windows-store:PDP?PFN=[app package ID] 
     - Ejemplo:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Iniciar una búsqueda en Mapas de Bing
-    - bingmaps:?q=\[search query\] 
+    - bingmaps:?q=[search query] 
     - Ejemplo:bingmaps:?q=starbucks,paris
     - Utilice un esquema personalizado
-    - \[custom scheme\]://\[custom scheme params\] 
+    - [custom scheme]://[custom scheme params] 
     - Ejemplo:myCustomProtocol://myCustomParams
-    - Utilizar datos de paquete \(se necesita una aplicación de la tienda para leer la extensión\)
-    - \[folder\]\[data\].\[extension\] 
+    - Utilizar datos de paquete (se necesita una aplicación de la tienda para leer la extensión)
+    - [folder][data].[extension] 
     - Ejemplo:myfolderdata.txt
  
 ### Crear una dirección URL de seguimiento:
@@ -129,11 +129,11 @@ Rellene el título, el contenido y los textos del anuncio. Puede dirigirse a una
 ### Consulte también
 - [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
 
-## Contenido de los mosaicos \(solo en Windows Phone\)
+## Contenido de los mosaicos (solo en Windows Phone)
 ![Reach-Content4][33]
 
 ### Defina el contenido de su mosaico
-La carga de mosaicos es el texto que se mostrará en el mosaico de la aplicación en los dispositivos Windows Phone. La inserción de un mosaico es la versión del servicio de notificaciones de inserción de Microsoft \(MPNS\) de una inserción nativa para Windows Phone. El tipo de inserción de mosaico es el único tipo de inserción que no tiene una respuesta y, por tanto, la audiencia de las campañas futuras no se puede integrar en los resultados de una campaña de inserción de mosaico.
+La carga de mosaicos es el texto que se mostrará en el mosaico de la aplicación en los dispositivos Windows Phone. La inserción de un mosaico es la versión del servicio de notificaciones de inserción de Microsoft (MPNS) de una inserción nativa para Windows Phone. El tipo de inserción de mosaico es el único tipo de inserción que no tiene una respuesta y, por tanto, la audiencia de las campañas futuras no se puede integrar en los resultados de una campaña de inserción de mosaico.
 
 ### Consulte también
 - [Documentación de la API - API de cobertura - Inserción nativa][Link 4]

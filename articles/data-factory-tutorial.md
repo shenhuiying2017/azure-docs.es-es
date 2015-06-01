@@ -284,7 +284,7 @@ El Portal de Azure no admite crear conjuntos de datos y tablas, por lo que deber
 
 #### Para crear las tablas
 
-1.	En Azure PowerShell, vaya a la carpeta **Tablas** (**C:\ADFWalkthrough\Tables\**) desde la ubicación donde extrajo los ejemplos. 
+1.	En Azure PowerShell, vaya a la carpeta **Tablas** (**C:\ADFWalkthrough\Tables**) desde la ubicación donde extrajo los ejemplos. 
 2.	Use el cmdlet **New-AzureDataFactoryTable** para crear las tablas como sigue para **RawGameEventsTable**.json	
 
 

@@ -140,7 +140,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
     La primera vez que abra Management Studio se debe crear el entorno de Management Studio para los usuarios. Esta operación puede tardar unos minutos.
 
-2.  Cuando se abre, Management Studio presenta el cuadro de diálogo **Conectar al servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje ***nombre\_de\_su\_MV*\\su\_administrador\_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
+2.  Cuando se abre, Management Studio presenta el cuadro de diálogo **Conectar al servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje ***nombre_de_su_MV*\\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
 
     ![Connect to Server][6]
 
@@ -177,7 +177,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
 Para conectarse al motor de base de datos desde otro equipo, debe crear al menos un inicio de sesión para la autenticación de SQL Server.  
 
-> [AZURE.TIP] Puede crear nuevos inicios de sesión de SQL Server mediante programación o con SQL Server Management Studio. Para crear un nuevo usuario sysadmin con autenticación de SQL mediante programación, inicie una **Nueva consulta** y ejecute el script siguiente. Reemplace <new user name\> y <new password\> por el nombre de usuario y la contraseña que prefiera. Ajuste la directiva de contraseñas según sea necesario (el código de ejemplo desactiva la expiración de la contraseña y la comprobación de la directiva). Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).  
+> [AZURE.TIP] Puede crear nuevos inicios de sesión de SQL Server mediante programación o con SQL Server Management Studio. Para crear un nuevo usuario sysadmin con autenticación de SQL mediante programación, inicie una **Nueva consulta** y ejecute el script siguiente. Reemplace <new user name> y <new password> por el nombre de usuario y la contraseña que prefiera. Ajuste la directiva de contraseñas según sea necesario (el código de ejemplo desactiva la expiración de la contraseña y la comprobación de la directiva). Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión](http://msdn.microsoft.com/library/aa337562.aspx).  
 	
     USE master
     go

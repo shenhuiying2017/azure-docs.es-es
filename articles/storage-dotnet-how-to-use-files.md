@@ -146,11 +146,11 @@ Windows se reconectará al recurso compartido de archivos cuando la máquina vir
 
 Una vez tenga una conexión remota con la máquina virtual, puede ejecutar el comando  `net use` para montar el recurso compartido de archivos usando la siguiente sintaxis. Reemplace `<storage-account>` por el nombre de su cuenta de almacenamiento y `<share-name>` por el nombre del recurso compartido de Almacenamiento de archivos.
 
-	net use z: \\<storage-account>.file.core.windows.net\<share-name>
+	net use z: <storage-account>.file.core.windows.net<share-name>
 
 > [AZURE.NOTE] Dado que hizo persistir las credenciales de la cuenta de almacenamiento en el paso anterior, no necesita proporcionarlas con el comando  `net use`. Si todavía no tiene credenciales de persistencia, inclúyalas como un parámetro pasado al comando  `net use`. Reemplace `<storage-account>` por el nombre de su cuenta de almacenamiento, `<share-name>` por el nombre del recurso compartido de Almacenamiento de archivos y `<account-key>` por la clave de la cuenta de almacenamiento:
 	   
-	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
+	net use z: <storage-account>.file.core.windows.net<share-name> /u:<storage-account> <account-key>
 
 Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como las proporcionadas por los [espacios de nombres System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) en .NET Framework. 
 

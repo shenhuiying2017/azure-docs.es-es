@@ -29,7 +29,7 @@ El servicio de Administrador de StorSimple es una extensión del Portal de admin
 
 ## La página Volúmenes
 
-La página **Volúmenes** permite administrar los volúmenes de almacenamiento que se aprovisionaron en el dispositivo de Microsoft Azure StorSimple para los iniciadores \(servidores\). Muestra la lista de volúmenes del dispositivo StorSimple.
+La página **Volúmenes** permite administrar los volúmenes de almacenamiento que se aprovisionaron en el dispositivo de Microsoft Azure StorSimple para los iniciadores (servidores). Muestra la lista de volúmenes del dispositivo StorSimple.
 
  ![página de volúmenes](./media/storsimple-manage-volumes/HCS_VolumesPage.png)
 
@@ -37,11 +37,11 @@ Un volumen se compone de una serie de atributos:
 
 - **Nombre**: nombre descriptivo que debe ser único y que ayuda a identificar el volumen. Este nombre también se usa en los informes de supervisión cuando se filtra por un volumen específico.
 
-- **Estado**: puede estar conectado o desconectado. Si un volumen está desconectado, no es visible para los iniciadores \(servidores\) que tienen acceso para usar el volumen.
+- **Estado**: puede estar conectado o desconectado. Si un volumen está desconectado, no es visible para los iniciadores (servidores) que tienen acceso para usar el volumen.
 
-- **Capacidad**: especifica el tamaño del volumen, tal como lo percibe el iniciador \(servidor\). La capacidad especifica la cantidad total de datos que puede almacenar el iniciador \(servidor\). Los volúmenes tienen aprovisionamiento fino y los datos están desduplicados. Esto implica que el dispositivo ya no asigna previamente la capacidad de almacenamiento físico de forma interna o en la nube en función de la capacidad configurada del volumen. La capacidad del volumen se asigna y se consume a petición.
+- **Capacidad**: especifica el tamaño del volumen, tal como lo percibe el iniciador (servidor). La capacidad especifica la cantidad total de datos que puede almacenar el iniciador (servidor). Los volúmenes tienen aprovisionamiento fino y los datos están desduplicados. Esto implica que el dispositivo ya no asigna previamente la capacidad de almacenamiento físico de forma interna o en la nube en función de la capacidad configurada del volumen. La capacidad del volumen se asigna y se consume a petición.
 
-- **Acceso**: especifica los iniciadores \(servidores\) que pueden tener acceso a este volumen. Los iniciadores que no son miembros del registro de control de acceso \(ACR\) asociado al volumen no podrán ver el volumen.
+- **Acceso**: especifica los iniciadores (servidores) que pueden tener acceso a este volumen. Los iniciadores que no son miembros del registro de control de acceso (ACR) asociado al volumen no podrán ver el volumen.
 
 - **Supervisión**: especifica si se está supervisando un volumen. Un volumen tendrá la supervisión habilitada de forma predeterminada cuando se crea. Sin embargo, la supervisión estará deshabilitada para un clon del volumen. Para habilitar la supervisión de un volumen, siga las instrucciones indicadas en Supervisar un volumen.
 
@@ -76,9 +76,9 @@ Ya [creó un volumen](storsimple-deployment-walkthrough.md#step-6:-create-a-volu
 
      ![agregar volumen](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
-5. En **Configuración adicional**, agregue un nuevo registro de control de acceso \(ACR\):
+5. En **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
   
-  1. Seleccione un registro de control de acceso \(ACR\) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
+  1. Seleccione un registro de control de acceso (ACR) de la lista desplegable. También puede agregar un nuevo ACR. Los ACR determinan qué hosts pueden acceder a los volúmenes haciendo coincidir el IQN del host con el que aparece en el registro.
   2. En **Copia de seguridad predeterminada para este volumen**, recomendamos que habilite una copia de seguridad predeterminada seleccionando la casilla **Habilitar** .
    3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-volumes/HCS_CheckIcon.png) para crear el volumen con la configuración especificada.
 

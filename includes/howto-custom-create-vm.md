@@ -4,7 +4,7 @@
 
 Una máquina virtual *personalizada* se refiere a una máquina virtual creada con el método **Desde la galería** porque le permite configurar más opciones que el método **Creación rápida**. Entre estas opciones se incluyen:
 
-- Numerosas opciones para la imagen utilizada para crear una máquina virtual \(VM\)
+- Numerosas opciones para la imagen utilizada para crear una máquina virtual (VM)
 - Conexión de la VM a una red virtual 
 - Adición de la VM a un servicio en la nube existente 
 - Adición de la VM a un conjunto de disponibilidad
@@ -46,7 +46,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 
 	**Nota**: las máquinas virtuales que sean miembro de un conjunto de disponibilidad se implementan en dominios de errores distintos. La colocación de varias máquinas virtuales en un conjunto de disponibilidad ayuda a garantizar que la aplicación esté disponible durante los errores de red, los errores de hardware de disco local y cualquier tiempo de inactividad planificado.
 
-15.  En **Extremos**, revise los nuevos extremos que se crearán para permitir las conexiones con la máquina virtual, como el cliente Shell seguro \(SSH\) o Escritorio remoto. Puede también agregar extremos ahora, o crearlos más tarde. Para obtener instrucciones sobre la creación de extremos más adelante, consulte [Configuración de extremos en una máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
+15.  En **Extremos**, revise los nuevos extremos que se crearán para permitir las conexiones con la máquina virtual, como el cliente Shell seguro (SSH) o Escritorio remoto. Puede también agregar extremos ahora, o crearlos más tarde. Para obtener instrucciones sobre la creación de extremos más adelante, consulte [Configuración de extremos en una máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
 
 16.  En **Agente de máquina virtual**, decida si va a instalar el Agente de VM. Este agente proporciona el entorno para que pueda instalar las extensiones que pueden ayudarlo a interactuar con la máquina virtual. Para conocer los detalles, consulte [Administrar extensiones](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

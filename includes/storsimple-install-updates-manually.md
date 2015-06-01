@@ -19,7 +19,7 @@
 
 1. En la página **Dispositivos**, seleccione el dispositivo en el que desea instalar las actualizaciones.
 
-2. Vaya a **Dispositivos** \> **Mantenimiento** y desplácese hacia abajo hasta **Actualizaciones de Software**.
+2. Vaya a **Dispositivos** > **Mantenimiento** y desplácese hacia abajo hasta **Actualizaciones de Software**.
 
 3. Para buscar actualizaciones, haga clic en **Buscar actualizaciones** en la parte inferior de la página.
 

@@ -50,7 +50,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
 1.  Si Visual Studio está instalado en el servidor de compilación, haga clic en **Iniciar**, **Todos los programas** y, a continuación, busque y haga clic en **Símbolo del sistema de Visual Studio** en la carpeta **Visual Studio Tools**.
 
-    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta %WINDIR%\\Microsoft.NET\\Framework\\*Versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
+    Si Visual Studio no está instalado en el servidor de compilación, abra un símbolo del sistema y asegúrese de que se pueda tener acceso a MSBuild.exe en la ruta. MSBuild se instala con .NET Framework en la ruta %WINDIR%\\Microsoft.NET\\Framework*Versión*. Por ejemplo, para agregar MSBuild.exe a la variable de entorno PATH cuando tiene instalado .NET Framework 4, escriba el siguiente comando en el símbolo del sistema:
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -64,7 +64,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
     De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte [Referencia de la línea de comandos de MSBuild1][1].
 
-4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz para el proyecto, como por ejemplo *ProjectDir*\\\\bin\\\\*Configuration*\\\\app.publish\\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
+4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz para el proyecto, como por ejemplo *ProjectDir*\\\\bin*Configuration*\\\\app.publish\ Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -99,7 +99,7 @@ Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes 
 
 5.  Haga clic en la pestaña **Proceso**. En la pestaña Proceso, elija la plantilla predeterminada, en **Compilación**, seleccione el proyecto si no está ya seleccionado y expanda la sección **Avanzado** en la sección **Compilación** de la cuadrícula.
 
-6.  Seleccione **Argumentos de MSBuild** y establezca los argumentos adecuados de la línea de comandos de MSBuild como se describe en el paso 2 anterior. Por ejemplo, escriba **/t:Publish /p:PublishDir=\\\\myserver\\drops\** para compilar un paquete y copiar los archivos del paquete en la ubicación \\\\myserver\\drops\\:
+6.  Seleccione **Argumentos de MSBuild** y establezca los argumentos adecuados de la línea de comandos de MSBuild como se describe en el paso 2 anterior. Por ejemplo, escriba **/t:Publish /p:PublishDir=\\\\myserver\\drops** para compilar un paquete y copiar los archivos del paquete en la ubicación \\\\myserver\\drops:
 
     ![][2]
 
@@ -129,7 +129,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
     De esta manera, podrá ver la información sobre su suscripción. Verifique que todo esté correcto.
 
-4.  Guarde la plantilla de script que se proporciona al [final de este artículo][] en la carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Guarde la plantilla de script que se proporciona al [final de este artículo][] en la carpeta de scripts como c:\\scripts\\WindowsAzure**PublishCloudService.ps1**.
 
 5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 

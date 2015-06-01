@@ -50,10 +50,10 @@ No puede ver las rutas predeterminadas especificadas anteriormente en el entorno
 - 
 En los escenarios anteriores, tendrá que crear una tabla de enrutamiento y agregarle las rutas definidas por el usuario. Puede tener varias tablas de enrutamiento y la misma tabla de enrutamiento puede asociarse a una o varias subredes. Y cada subred solo puede estar asociada a una tabla de enrutamiento única. Todas las máquinas virtuales y servicios de nube de una subred utilizan la tabla de enrutamiento asociada a esa subred.
 
-Las subredes dependen de rutas predeterminadas hasta que una tabla de enrutamiento está asociada a la subred. Una vez creada una asociación, el enrutamiento se realiza basándose en más larga del prefijo coincidencia \(LPM\) entre las rutas definidas por el usuario y las rutas predeterminadas. Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
+Las subredes dependen de rutas predeterminadas hasta que una tabla de enrutamiento está asociada a la subred. Una vez creada una asociación, el enrutamiento se realiza basándose en más larga del prefijo coincidencia (LPM) entre las rutas definidas por el usuario y las rutas predeterminadas. Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
 
 1. Ruta definida por el usuario
-1. Ruta BGP \(cuando se utiliza ExpressRoute\)
+1. Ruta BGP (cuando se utiliza ExpressRoute)
 1. Ruta predeterminada
 
 [AZURE.IMPORTANT] Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si desea agregar un dispositivo virtual de firewall entre la red local y Azure, debe crear una ruta definida por el usuario para las tablas de enrutamiento de Azure que reenvían todo el tráfico del espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
@@ -67,7 +67,7 @@ La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tr�
 
 [Creación de rutas y habilitación del reenvío de IP en Azure](../virtual-networks-udr-how-to)
 
-[Dirección IP pública de nivel de instancia \(ILIP\)](../virtual-networks-instance-level-public-ip)
+[Dirección IP pública de nivel de instancia (ILIP)](../virtual-networks-instance-level-public-ip)
 
 [Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 

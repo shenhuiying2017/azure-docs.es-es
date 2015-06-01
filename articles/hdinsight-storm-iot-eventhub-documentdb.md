@@ -18,19 +18,19 @@ ms.author="larryfr"/>
 
 #Procesar datos de sensor de los Centros de eventos de Azure con Apache Storm en HDInsight
 
-Aprenda a procesar datos del sensor de vehículo de Centros de eventos de Azure con Apache Storm en HDInsight. Este ejemplo lee datos de sensor de los Centros de eventos de Azure, enriquece los datos haciendo referencia a datos almacenados en Azure DocumentDB y, finalmente, almacena los datos en Almacenamiento de Azure mediante el sistema de archivos de Hadoop \(HDFS\).
+Aprenda a procesar datos del sensor de vehículo de Centros de eventos de Azure con Apache Storm en HDInsight. Este ejemplo lee datos de sensor de los Centros de eventos de Azure, enriquece los datos haciendo referencia a datos almacenados en Azure DocumentDB y, finalmente, almacena los datos en Almacenamiento de Azure mediante el sistema de archivos de Hadoop (HDFS).
 
 ![diagrama de arquitectura](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##Información general
 
-Agregar sensores a vehículos permite predecir problemas de equipos basándose en tendencias de datos históricos, así como realizar mejoras en versiones futuras según el análisis de patrones de uso. Aunque el procesamiento por lotes de MapReduce tradicional se puede usar para este análisis, debe ser capaz de cargar los datos de todos los vehículos en Hadoop de forma rápida y eficaz antes de que se lleve a cabo dicho procesamiento. Además, puede que desee realizar análisis para rutas de error crítico \(temperatura del motor, frenos, etc.\) en tiempo real.
+Agregar sensores a vehículos permite predecir problemas de equipos basándose en tendencias de datos históricos, así como realizar mejoras en versiones futuras según el análisis de patrones de uso. Aunque el procesamiento por lotes de MapReduce tradicional se puede usar para este análisis, debe ser capaz de cargar los datos de todos los vehículos en Hadoop de forma rápida y eficaz antes de que se lleve a cabo dicho procesamiento. Además, puede que desee realizar análisis para rutas de error crítico (temperatura del motor, frenos, etc.) en tiempo real.
 
-Los Centros de eventos de Azure están diseñados para manejar el gran volumen de datos generado por los sensores y Apache Storm en HDInsight se puede usar para cargar y procesar los datos antes de almacenarlos en HDFS \(respaldado por Almacenamiento de Azure\) para procesamiento adicional de MapReduce.
+Los Centros de eventos de Azure están diseñados para manejar el gran volumen de datos generado por los sensores y Apache Storm en HDInsight se puede usar para cargar y procesar los datos antes de almacenarlos en HDFS (respaldado por Almacenamiento de Azure) para procesamiento adicional de MapReduce.
 
 ##Solución
 
-Los datos de telemetría de temperatura del motor, temperatura ambiente y velocidad del vehículo se graban mediante sensores, a continuación se envían a los Centros de eventos junto con el número de identificación del vehículo \(VIN\) y una marca de tiempo. Desde allí, una topología de Storm ejecutándose en un clúster de Apache Storm en HDInsight lee los datos, los procesa y los almacena en HDFS.
+Los datos de telemetría de temperatura del motor, temperatura ambiente y velocidad del vehículo se graban mediante sensores, a continuación se envían a los Centros de eventos junto con el número de identificación del vehículo (VIN) y una marca de tiempo. Desde allí, una topología de Storm ejecutándose en un clúster de Apache Storm en HDInsight lee los datos, los procesa y los almacena en HDFS.
 
 Durante el procesamiento, el VIN se usa para recuperar información sobre el modelo desde Azure DocumentDB. Esto se agrega a la secuencia de datos antes de almacenarse.
 
@@ -42,7 +42,7 @@ Los componentes usados en la topología de Storm son:
 
 * **DataReferencBolt**: busca el modelo del vehículo desde DocumentDB mediante el VIN.
 
-* **WasbStoreBolt**: almacena los datos en HDFS \(Almacenamiento de Azure\).
+* **WasbStoreBolt**: almacena los datos en HDFS (Almacenamiento de Azure).
 
 A continuación se muestra un diagrama de esta solución:
 

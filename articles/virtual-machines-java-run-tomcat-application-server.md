@@ -128,7 +128,7 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 
  ![New inbound rule name][NewRuleName]
 
-En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **http://*your\_DNS\_name*.cloudapp.net**, donde ***your\_DNS\_name*** es el nombre DNS que especificó cuando creó la máquina virtual.
+En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **http://*your_DNS_name*.cloudapp.net**, donde ***your_DNS_name*** es el nombre DNS que especificó cuando creó la máquina virtual.
 
 ## Consideraciones acerca del ciclo de vida de las aplicaciones
 * Puede crear su propio archivo web de aplicación (WAR) y agregarlo a la carpeta **webapps**. Por ejemplo, cree un proyecto web dinámico JSP (Java Service Page) básico y expórtelo como un archivo WAR; copie el archivo WAR en la carpeta **webapps** de Apache Tomcat en la máquina virtual y, a continuación, ejecútelo en un explorador.

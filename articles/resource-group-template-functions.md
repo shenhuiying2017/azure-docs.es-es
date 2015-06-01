@@ -22,7 +22,7 @@ Este tema describe todas las funciones que puede utilizar en una plantilla del A
 
 ## base64
 
-**base64 \(inputString\)**
+**base64 (inputString)**
 
 Devuelve la representación de base64 de la cadena de entrada.
 
@@ -39,7 +39,7 @@ En el ejemplo siguiente se muestra cómo utilizar la función de base64.
 
 ## concat
 
-**concat \(arg1, arg2, arg3, ...\)**
+**concat (arg1, arg2, arg3, ...)**
 
 Combina varios valores de cadena y devuelve el valor de cadena resultante. Esta función puede tomar cualquier número de argumentos.
 
@@ -54,7 +54,7 @@ En el ejemplo siguiente se muestra cómo combinar varios valores para devolver u
 
 ## listKeys
 
-**listKeys \(resourceName o resourceIdentifier, [apiVersion]\)**
+**listKeys (resourceName o resourceIdentifier, [apiVersion])**
 
 Devuelve las claves de una cuenta de almacenamiento. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
   
@@ -74,7 +74,7 @@ En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta d
 
 ## parameters
 
-**parámetros \(parameterName\)**
+**parámetros (parameterName)**
 
 Devuelve un valor de parámetro. El nombre del parámetro especificado debe definirse en la sección de parámetros de la plantilla.
 
@@ -100,7 +100,7 @@ En el ejemplo siguiente se muestra un uso simplificado de la función de los par
 
 ## provider
 
-**proveedor \(providerNamespace, [resourceType]\)**
+**proveedor (providerNamespace, [resourceType])**
 
 Se devuelve información acerca de un proveedor de recursos y sus tipos de recursos admitidos. Si no se proporciona el tipo, se devuelven todos los tipos admitidos.
 
@@ -128,7 +128,7 @@ En el ejemplo siguiente se muestra cómo utilizar la función de proveedor:
 
 ## reference
 
-**referencia \(resourceName o resourceIdentifier, [apiVersion]\)**
+**referencia (resourceName o resourceIdentifier, [apiVersion])**
 
 Permite que una expresión derive su valor del estado de tiempo de ejecución de otro recurso.
 
@@ -150,7 +150,7 @@ Mediante el uso de la expresión de referencia, se declara que un recurso depend
 
 ## resourceGroup
 
-**resourceGroup\(\)**
+**resourceGroup()**
 
 Devuelve un objeto estructurado que representa el grupo de recursos actual. El objeto tendrá el siguiente formato:
 
@@ -174,7 +174,7 @@ En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para asig
 
 ## resourceId
 
-**resourceId \([resourceGroupName], resourceType, resourceName1, [resourceName2]...\)**
+**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Devuelve el identificador único de un recurso. Utilice esta función cuando el nombre del recurso sea ambiguo o no esté aprovisionado dentro de la misma plantilla. El identificador se devuelve con el formato siguiente:
 
@@ -238,7 +238,7 @@ A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacen
 
 ## subscription
 
-**subscription\(\)**
+**subscription()**
 
 Devuelve detalles acerca de la suscripción en el formato siguiente.
 
@@ -258,7 +258,7 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
 
 ## variables
 
-**variables \(variableName\)**
+**variables (variableName)**
 
 Devuelve el valor de variable. El nombre de la variable especificada debe definirse en la sección de variables de la plantilla.
 

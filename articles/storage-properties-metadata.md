@@ -10,7 +10,7 @@
 <tags 
 	ms.service="storage" 
 	ms.workload="storage" 
-	ms.tgt\_pltfrm="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
@@ -116,7 +116,7 @@ En el ejemplo de código siguiente se crea un contenedor y un blob y se escriben
 
 Puede especificar metadatos como uno o más pares nombre-valor en un recurso de blob o contenedor. Para establecer los metadatos, agregue pares nombre-valor a la colección **Metadata** del recurso y, a continuación, llame al método **SetMetadata** para guardar los valores en el servicio.
 
-> [AZURE.NOTE]: El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C\#.
+> [AZURE.NOTE]: El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C#.
  
 Para recuperar metadatos, llame al método **FetchAttributes** en el blob o contenedor para rellenar la colección **Metadata** y, a continuación, lea los valores.
 

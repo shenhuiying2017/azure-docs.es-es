@@ -44,7 +44,7 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 1. En el Portal de Azure, haga clic en **Aplicación móvil** y, a continuación, haga clic en la aplicación móvil que acaba de crear.
 
-2. En la parte superior de la hoja, haga clic en **Agregar cliente** y expanda **Windows \(C\#\)**.
+2. En la parte superior de la hoja, haga clic en **Agregar cliente** y expanda **Windows (C#)**.
 
    ![Pasos de inicio rápido para aplicaciones móviles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 

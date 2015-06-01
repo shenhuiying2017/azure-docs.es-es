@@ -23,7 +23,7 @@ Este documento proporciona información sobre la capacidad de registro de los se
 -	Cómo habilitar el registro en los servicios web:   
 	-	Para habilitar el registro, deberá tener acceso al panel de servicio de web desde el Portal de Azure; a continuación, haga clic en el botón Sí y luego en Guardar.  
 -	Efecto de habilitar el registro:  
-	-	Cuando el registro está habilitado, todos los diagnósticos/errores del extremo predeterminado se registran en la cuenta de almacenamiento de Azure vinculada al área de trabajo del usuario. Puede ver esta cuenta de almacenamiento en la vista de panel del Portal de Azure \(parte inferior de la sección Vista rápida\) de su área de trabajo.  
+	-	Cuando el registro está habilitado, todos los diagnósticos/errores del extremo predeterminado se registran en la cuenta de almacenamiento de Azure vinculada al área de trabajo del usuario. Puede ver esta cuenta de almacenamiento en la vista de panel del Portal de Azure (parte inferior de la sección Vista rápida) de su área de trabajo.  
 -	Dónde está disponible:  
 	-	Ya hemos habilitado el registro para el extremo predeterminado del servicio web. Pronto se ofrecerá esta característica para los extremos adicionales que el usuario puede crear en el Portal de Azure.  
 -	Cómo ver los registros:  

@@ -18,21 +18,21 @@
 
 # Topologías de ejemplo de Storm para Apache Storm en HDInsight
 
-La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su uso con Apache Storm en HDInsight. Estos ejemplos tratan diversos temas, desde la creación de topologías básicas en C\# y Java para trabajar con servicios de Azure como Centros de eventos, DocumentDB, Power BI, Base de datos SQL, HBase en HDInsight y Almacenamiento de Azure. Algunos ejemplos también muestran cómo trabajar con tecnologías que no son de Azure, o incluso que no son de Microsoft, como SignalR y Socket.IO
+La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su uso con Apache Storm en HDInsight. Estos ejemplos tratan diversos temas, desde la creación de topologías básicas en C# y Java para trabajar con servicios de Azure como Centros de eventos, DocumentDB, Power BI, Base de datos SQL, HBase en HDInsight y Almacenamiento de Azure. Algunos ejemplos también muestran cómo trabajar con tecnologías que no son de Azure, o incluso que no son de Microsoft, como SignalR y Socket.IO
 
 | Descripción | Muestra | Lenguaje/Marco de trabajo |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
 | [Desarrollo de topologías basadas en Java para Apache Storm en HDInsight][5797064f] | Maven | Java |
-| [Desarrollo de topologías de C\# para Apache Storm en HDInsight con Visual Studio][16fce2d1] | Herramientas de HDInsight para Visual Studio | C\#, Java |
-| [Creación de varios flujos de datos en una topología de Storm en C\#][ec5a4064] | Varios flujos | C\# |
+| [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][16fce2d1] | Herramientas de HDInsight para Visual Studio | C#, Java |
+| [Creación de varios flujos de datos en una topología de Storm en C#][ec5a4064] | Varios flujos | C# |
 | [Determinación de los temas más destacados de Twitter con Storm en HDInsight][3c86c7c8] | Trident | Java, Trident |
-| [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight][844d1d81] | Centros de eventos | C\# y Java |
-| [Uso de Power BI \(vista previa\) para visualizar datos de una topología de Storm][94d15238] | Power BI | C\# |
-| [Análisis de los datos de sensor con Storm y HBase en HDInsight][ab894747] | Centros de eventos, HBase, Socket.IO, panel Web | C\#, Java, JavaScript, HTML |
-| [Procesamiento de los datos de sensor del vehículo desde Centros de eventos usando Storm en HDInsight][246ee964] | Centros de eventos, DocumentDb, blob de almacenamiento de Azure \(WASB\) | C\#, Java |
-| [Extracción, transformación y carga \(ETL\) desde Centros de eventos de Azure en HBase usando Storm en HDInsight][b4b68194] | Centros de eventos, HBase | C\# |
-| [Proyecto de topología de Storm en C\# para plantillas para trabajar con servicios de Azure desde Storm en HDInsight][ce0c02a2] | Centros de eventos, DocumentDb, Base de datos SQL, HBase, SignalR | C\#, Java |
-| [Pruebas comparativas de escalabilidad para leer desde Centros de eventos de Azure usando Storm en HDInsight][d6c540e3] | Rendimiento de mensajes, Centros de eventos, Base de datos SQL | C\#, Java |
+| [Procesamiento de eventos desde Centros de eventos de Azure con Storm en HDInsight][844d1d81] | Centros de eventos | C# y Java |
+| [Uso de Power BI (vista previa) para visualizar datos de una topología de Storm][94d15238] | Power BI | C# |
+| [Análisis de los datos de sensor con Storm y HBase en HDInsight][ab894747] | Centros de eventos, HBase, Socket.IO, panel Web | C#, Java, JavaScript, HTML |
+| [Procesamiento de los datos de sensor del vehículo desde Centros de eventos usando Storm en HDInsight][246ee964] | Centros de eventos, DocumentDb, blob de almacenamiento de Azure (WASB) | C#, Java |
+| [Extracción, transformación y carga (ETL) desde Centros de eventos de Azure en HBase usando Storm en HDInsight][b4b68194] | Centros de eventos, HBase | C# |
+| [Proyecto de topología de Storm en C# para plantillas para trabajar con servicios de Azure desde Storm en HDInsight][ce0c02a2] | Centros de eventos, DocumentDb, Base de datos SQL, HBase, SignalR | C#, Java |
+| [Pruebas comparativas de escalabilidad para leer desde Centros de eventos de Azure usando Storm en HDInsight][d6c540e3] | Rendimiento de mensajes, Centros de eventos, Base de datos SQL | C#, Java |
 
 ## Pasos siguientes
 

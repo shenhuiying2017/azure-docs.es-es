@@ -138,7 +138,7 @@ Modifique **index.jsp** para que use el código siguiente.
 					                 for (i=0; i < nChild; i++)
 				                     {
 					                    Node temp = list.item(i);
-					                    displaySAMLInfo(temp, parent + nodeName + "\\", out);
+					                    displaySAMLInfo(temp, parent + nodeName + "", out);
 				                     }
 				               }
 			              }

@@ -20,7 +20,7 @@
 
 En esta guía se muestra cómo empezar a usar [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) y el [SDK de .NET de DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). Va a crear una aplicación de consola que crea y consulta recursos de DocumentDB y escribe el resultado en la ventana de la consola.
 
-DocumentDB es un servicio de base de datos de documento NoSQL, que tiene [varias API y varios SDK disponibles](https://msdn.microsoft.com/library/dn781482.aspx). El código de este artículo está escrito en C\# y usa el SDK de .NET de DocumentDB, que se empaqueta y distribuye como paquete de NuGet.
+DocumentDB es un servicio de base de datos de documento NoSQL, que tiene [varias API y varios SDK disponibles](https://msdn.microsoft.com/library/dn781482.aspx). El código de este artículo está escrito en C# y usa el SDK de .NET de DocumentDB, que se empaqueta y distribuye como paquete de NuGet.
 
 En este artículo se tratan los siguientes escenarios:
 
@@ -51,7 +51,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 1. Abra **Visual Studio** en el equipo.
 2. Seleccione **Nuevo** desde el menú **Archivo** y elija **Proyecto**.
-3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas**/**Visual C\#**/ **Aplicación de consola**, ponga un nombre al proyecto y, a continuación, haga clic en **Agregar**.
+3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas**/**Visual C#**/ **Aplicación de consola**, ponga un nombre al proyecto y, a continuación, haga clic en **Agregar**.
 4. En el **Explorador de soluciones**, haga clic con el botón secundario en la nueva aplicación de la consola, que se encuentra en la solución de Visual Studio.
 5. A continuación, sin dejar el menú, haga clic en **Administrar paquetes de NuGet...**
 6. En el panel de la izquierda de la ventana **Administrar paquetes de NuGet**, haga clic en **En línea** / **nuget.org**.
@@ -62,7 +62,7 @@ Estupendo. Ahora está listo para empezar a trabajar con DocumentDB.
 
 ##<a id="Connect"></a> Paso 3: Conexión a una cuenta de DocumentDB
 
-Comenzaremos por crear una nueva instancia de la clase [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) para establecer una conexión a nuestra cuenta de DocumentDB. Necesitaremos las siguientes referencias al principio de nuestra aplicación de C\#:
+Comenzaremos por crear una nueva instancia de la clase [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) para establecer una conexión a nuestra cuenta de DocumentDB. Necesitaremos las siguientes referencias al principio de nuestra aplicación de C#:
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -123,10 +123,10 @@ Puede crearse una [base de datos](documentdb-resources.md#databases) mediante el
 
 Una [colección](documentdb-resources.md#collections) puede crearse mediante el método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript. La colección recién creada se asignará a un [nivel de rendimiento S1](documentdb-performance-levels.md). La base de datos creada en el paso anterior tiene una serie de propiedades, una de las cuales es [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx). Con esa información, ahora podemos crear una colección después de crear nuestra base de datos.
 
-	// Creación de una cuenta de Base de datos de documentos DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync\(database.CollectionsLink, new DocumentCollection { Id = "FamilyCollection" }\);
+	// Creación de una cuenta de Base de datos de documentos DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink, new DocumentCollection { Id = "FamilyCollection" });
     
 ##<a id="CreateDoc"></a>Paso 6: Creación de documentos
-Un [documento](documentdb-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario \(arbitrario\). La colección creada en el paso anterior tiene una serie de propiedades, una de las cuales es [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Con esa información, puede insertar ahora uno o varios documentos.
+Un [documento](documentdb-resources.md#documents) puede crearse mediante el método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la clase **DocumentClient**. Los documentos son contenido JSON definido por el usuario (arbitrario). La colección creada en el paso anterior tiene una serie de propiedades, una de las cuales es [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx). Con esa información, puede insertar ahora uno o varios documentos.
 
 En primer lugar, debemos crear una clase **principal**, **secundaria**, **mascota**, **dirección** y **familia**. Cree estas clases mediante la adición de las siguientes subclases internas.
 
@@ -233,13 +233,13 @@ Ahora ha creado la siguiente colección, documentos y bases de datos en la cuent
 
 ##<a id="Query"></a>Paso 7: Consulta de recursos de DocumentDB
 
-DocumentDB admite [consultas](documentdb-sql-query.md) enriquecidas contra los documentos JSON almacenados en cada colección. En el siguiente ejemplo se muestran diversas consultas \(usando tanto la sintaxis SQL de Base de datos de documentos como LINQ\) que podemos ejecutar con los documentos que hemos insertado en el paso anterior. Agregue estas consultas para su método asincrónico **GetStartedDemo**.
+DocumentDB admite [consultas](documentdb-sql-query.md) enriquecidas contra los documentos JSON almacenados en cada colección. En el siguiente ejemplo se muestran diversas consultas (usando tanto la sintaxis SQL de Base de datos de documentos como LINQ) que podemos ejecutar con los documentos que hemos insertado en el paso anterior. Agregue estas consultas para su método asincrónico **GetStartedDemo**.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
         "SELECT * " +
         "FROM Families f " +
-        "WHERE f.id = \"AndersenFamily\"");
+        "WHERE f.id = "AndersenFamily"");
 
     foreach (var family in families)
     {
@@ -300,7 +300,7 @@ La palabra clave [FROM](documentdb-sql-query.md/#from-clause) es opcional en la 
 
 ##<a id="DeleteDatabase"></a>Paso 8: Eliminación de la base de datos
 
-La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios \(colecciones, documentos, etc.\). Puede eliminar la base de datos y el cliente de documento agregando el siguiente fragmento de código al final del método asincrónico **GetStartedDemo**.
+La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios (colecciones, documentos, etc.). Puede eliminar la base de datos y el cliente de documento agregando el siguiente fragmento de código al final del método asincrónico **GetStartedDemo**.
 
     // Clean up/delete the database
     await client.DeleteDatabaseAsync(database.SelfLink);
@@ -351,7 +351,7 @@ Ahora debe ver el resultado de la aplicación iniciada get. La salida mostrará 
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from SQL
 	Read {
@@ -389,7 +389,7 @@ Ahora debe ver el resultado de la aplicación iniciada get. La salida mostrará 
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ
 	Read {
@@ -427,7 +427,7 @@ Ahora debe ver el resultado de la aplicación iniciada get. La salida mostrará 
 	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
 	  "_ts": 1428372205,
 	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
-	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_etag": ""0000400c-0000-0000-0000-55233aed0000"",
 	  "_attachments": "attachments/"
 	} from LINQ query
 	{

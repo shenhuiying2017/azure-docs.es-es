@@ -31,11 +31,11 @@ Un sitio web multimedia de noticias está interesado en obtener una ventaja sobr
 
 ## Cree una entrada del centro de eventos y un grupo de consumidores
 
-La aplicación de ejemplo genera eventos y los inserta en una instancia de los centros de eventos \(un centro de eventos, para abreviar\). Los centros de eventos de Bus de servicio son el método preferido de recopilación de eventos para Análisis de transmisiones. Consulte la documentación de los centros de eventos en la [documentación del bus de servicio](/documentation/services/service-bus/)
+La aplicación de ejemplo genera eventos y los inserta en una instancia de los centros de eventos (un centro de eventos, para abreviar). Los centros de eventos de Bus de servicio son el método preferido de recopilación de eventos para Análisis de transmisiones. Consulte la documentación de los centros de eventos en la [documentación del bus de servicio](/documentation/services/service-bus/)
 
 Siga estos pasos para crear un centro de eventos.
 
-1.	En el portal de Azure, haga clic en **NUEVO** \> **SERVICIOS DE APLICACIONES** \> **BUS DE SERVICIO** \> **CENTRO DE EVENTOS** \> **CREACIÓN RÁPIDA** y proporcione un nombre, una región y un espacio de nombres nuevo o existente para crear un nuevo centro de eventos.  
+1.	En el portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y proporcione un nombre, una región y un espacio de nombres nuevo o existente para crear un nuevo centro de eventos.  
 2.	Como práctica recomendada, debe leer cada trabajo de Análisis de transmisiones de un solo grupo de consumidores del centro de eventos. Le guiaremos a través del proceso de creación de un grupo de consumidores y podrá obtener más información aquí. Para crear un grupo de consumidores, vaya al centro de eventos recién creado y haga clic en la pestaña **GRUPOS DE CONSUMIDORES** y, después, haga clic en **CREAR** en la parte inferior de la página y proporcione un nombre para el grupo de consumidores.
 3.	Para otorgar acceso al centro de eventos, necesitamos crear una directiva de acceso compartido. Haga clic en la pestaña **CONFIGURAR** de su centro de eventos.
 4.	En **DIRECTIVAS DE ACCESO COMPARTIDO**, cree una nueva directiva con permisos para **ADMINISTRAR**.
@@ -45,22 +45,22 @@ Siga estos pasos para crear un centro de eventos.
   ![Directivas de acceso compartido en las que puede crear una nueva directiva con permisos para Administrar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Haga clic en **GUARDAR** en la parte inferior de la página.
-6.	Vaya a **PANEL** y haga clic en **INFORMACIÓN DE CONEXIÓN** en la parte inferior de la página y copie y guarde la información de conexión. \(Utilice el icono de copia que aparece bajo el icono de búsqueda\).
+6.	Vaya a **PANEL** y haga clic en **INFORMACIÓN DE CONEXIÓN** en la parte inferior de la página y copie y guarde la información de conexión. (Utilice el icono de copia que aparece bajo el icono de búsqueda).
 
 ## Configuración e inicio de la aplicación del generador de eventos
 
-Hemos proporcionado una aplicación cliente que derivará datos de Twitter mediante las [API de REST de Twitter](https://dev.twitter.com/rest/public) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet \(0: negativo, 2: neutro, 4: positivo\) y, a continuación, se insertan eventos Tweet en el centro de eventos.
+Hemos proporcionado una aplicación cliente que derivará datos de Twitter mediante las [API de REST de Twitter](https://dev.twitter.com/rest/public) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
 
 Siga estos pasos para configurar la aplicación:
 
 1.	[Descargue la solución TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Abra App.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.  
+2.	Abra App.config y reemplace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret con tokens de Twitter con sus valores.  
 
 	[Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.
 3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo App.config con la cadena de conexión del centro de eventos y el nombre.
-4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter\_keywords en el archivo App.config, si lo desea.
+4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter_keywords en el archivo App.config, si lo desea.
 5.	Compile la solución
 6.	Inicie la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
 
@@ -72,14 +72,15 @@ Ahora que tenemos una secuencia de eventos Tweet, podemos configurar un trabajo 
 
 ### Aprovisionamiento de un trabajo de Stream Analytics
 
-1.	En el [Portal de Azure](https://manage.windowsazure.com/), haga clic en **NUEVO** \> **SERVICIOS DE DATOS** \> **ANÁLISIS DE TRANSMISIONES** \> **CREACIÓN RÁPIDA**.
+1.	En el [Portal de Azure](https://manage.windowsazure.com/), haga clic en **NUEVO** > **SERVICIOS DE DATOS** > **ANÁLISIS DE TRANSMISIONES** > **CREACIÓN RÁPIDA**.
 2.	Especifique los valores siguientes y, a continuación, haga clic en **CREAR TRABAJO DE ANÁLISIS DE TRANSMISIONES**:
 
 	* **NOMBRE DEL TRABAJO**: escriba un nombre del trabajo.
 	* **REGIÓN**: seleccione la región donde desea ejecutar el trabajo. Considere la posibilidad de colocar el trabajo y el centro de eventos en la misma región para garantizar un mejor rendimiento y asegurarse de no pagar la transferencia de datos entre regiones.
 	* **CUENTA DE ALMACENAMIENTO**: elija la cuenta de almacenamiento que desea usar para almacenar los datos de supervisión de todos los trabajos de Análisis de transmisiones que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear uno nuevo.
 
-3.	Haga clic en **ANÁLISIS DE TRANSMISIONES** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones. ![Icono de servicio de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+3.	Haga clic en **ANÁLISIS DE TRANSMISIONES** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones.
+	![Icono de servicio de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	Se mostrará el nuevo trabajo con el estado **CREADO**. Tenga en cuenta que el botón **INICIO** en la parte inferior de la página está deshabilitado. Debe configurar la entrada, la salida y la consulta del trabajo antes de iniciar el trabajo.
 
@@ -90,9 +91,10 @@ Ahora que tenemos una secuencia de eventos Tweet, podemos configurar un trabajo 
 3.	Seleccione **CENTRO DE EVENTOS** y, a continuación, haga clic con el botón secundario.
 4.	Escriba o seleccione los valores siguientes en la tercera página:
 
-	* **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como TwitterStream. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante. **CENTRO DE EVENTOS**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
+	* **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como TwitterStream. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante.
+	**CENTRO DE EVENTOS**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
 
-			Si el centro de eventos está en una suscripción diferente, seleccione **"Usar eventos concentrador de otra suscripción**, y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
+		Si el centro de eventos está en una suscripción diferente, seleccione **"Usar eventos concentrador de otra suscripción**, y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
 
 	* **NOMBRE DE CENTRO DE EVENTOS**: seleccione el nombre del centro de eventos
 	* **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**: seleccione la directiva del centro de eventos que creó anteriormente en este tutorial.
@@ -185,7 +187,7 @@ Ahora que hemos definido una secuencia de eventos, una entrada de centro de even
 
 Siga estos pasos para crear un contenedor para el almacenamiento de blobs, si aún no tiene ninguno:
 
-1.	Utilice una cuenta de almacenamiento existente o cree una nueva cuenta de almacenamiento; para ello, haga clic en **NUEVO** \> **SERVICIOS DE DATOS** \> **ALMACENAMIENTO** \> **CREACIÓN RÁPIDA** \> y siga las instrucciones que aparecen en pantalla.
+1.	Utilice una cuenta de almacenamiento existente o cree una nueva cuenta de almacenamiento; para ello, haga clic en **NUEVO** > **SERVICIOS DE DATOS** > **ALMACENAMIENTO** > **CREACIÓN RÁPIDA** > y siga las instrucciones que aparecen en pantalla.
 2.	Seleccione la cuenta de almacenamiento y, a continuación, haga clic en **CONTENEDORES** en la parte superior de la página y, a continuación, haga clic en **AGREGAR**.
 3.	Especifique un **NOMBRE** para el contenedor y establezca su **ACCESO** al blob público.
 

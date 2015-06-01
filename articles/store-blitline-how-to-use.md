@@ -52,7 +52,7 @@ Para aclarar para qué sirve Blitline, normalmente es más sencillo identificar 
 
 - Blitline NO acepta cargas de imágenes y no puede insertar imágenes en Blitline directamente. Debe insertarlas en Almacenamiento de Azure o en otros lugares compatibles con Blitline y luego indicar a Blitline el lugar donde conseguirlas.
 
-- Blitline funciona de una forma totalmente paralela y NO realiza ningún procesamiento sincrónico. Esto significa que debe proporcionarnos una dirección URL postback\_url para que podamos indicarle cuándo acabamos el procedimiento.
+- Blitline funciona de una forma totalmente paralela y NO realiza ningún procesamiento sincrónico. Esto significa que debe proporcionarnos una dirección URL postback_url para que podamos indicarle cuándo acabamos el procedimiento.
 
 ## <a id="createaccount"></a>Creación de una cuenta Blitline
 
@@ -78,7 +78,7 @@ Aquí tenemos el elemento JSON que tomará una imagen "src" "...boys.jpeg" y, a 
 
 Puede encontrar el identificador de la aplicación en la pestaña **INFORMACIÓN DE CONEXIÓN** o **ADMINISTRAR** en Azure. Se trata del identificador secreto que le permite ejecutar trabajos en Blitline.
 
-El parámetro "save" identifica información sobre dónde desea colocar la imagen una vez que se haya procesado. En este caso específico, no definimos ninguno. Si no se define ninguna ubicación, Blitline la almacenará localmente \(o temporalmente\) en una ubicación exclusiva de la nube. Podrá obtener esa ubicación desde el JSON devuelto por Blitline cuando realice el trabajo Blitline. El identificador "image" es obligatorio y se devuelve cuando se identifica esta imagen guardada en concreto.
+El parámetro "save" identifica información sobre dónde desea colocar la imagen una vez que se haya procesado. En este caso específico, no definimos ninguno. Si no se define ninguna ubicación, Blitline la almacenará localmente (o temporalmente) en una ubicación exclusiva de la nube. Podrá obtener esa ubicación desde el JSON devuelto por Blitline cuando realice el trabajo Blitline. El identificador "image" es obligatorio y se devuelve cuando se identifica esta imagen guardada en concreto.
 
 Puede obtener más información acerca de las *funciones* que proporcionamos aquí: <http://www.blitline.com/docs/functions>.
 
@@ -100,11 +100,11 @@ Obtendrá un resultado JSON con una apariencia similar a la siguiente:
     }
 
 
-Esto indica que Blitline recibió la solicitud, la puso en la cola de procesamiento y, cuando se haya completado, la imagen estará disponible en: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**.
+Esto indica que Blitline recibió la solicitud, la puso en la cola de procesamiento y, cuando se haya completado, la imagen estará disponible en: **https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**.
 
 ## <a id="saveazure"></a>Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure
 
-Si dispone de una cuenta de Almacenamiento de Azure, puede hacer que Blitline inserte las imágenes procesadas en el contenedor de Azure. Si agrega "azure\_destination", defina la ubicación y los permisos de inserción de Blitline.
+Si dispone de una cuenta de Almacenamiento de Azure, puede hacer que Blitline inserte las imágenes procesadas en el contenedor de Azure. Si agrega "azure_destination", defina la ubicación y los permisos de inserción de Blitline.
 
 Aquí tiene un ejemplo:
 

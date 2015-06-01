@@ -20,7 +20,7 @@
 
 ## Información general ##
 
-Los entornos del Servicio de aplicaciones son una nueva funcionalidad de nivel Premium que se ofrece en vista previa. Ofrece nuevas funcionalidades de acceso de red y de escalado. Esta nueva funcionalidad de escalado permite colocar una instancia del Servicio de aplicaciones de Azure en la red virtual. Si está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones \(ASE\), lea el documento [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE]. Para obtener información sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones][HowtoCreateASE].
+Los entornos del Servicio de aplicaciones son una nueva funcionalidad de nivel Premium que se ofrece en vista previa. Ofrece nuevas funcionalidades de acceso de red y de escalado. Esta nueva funcionalidad de escalado permite colocar una instancia del Servicio de aplicaciones de Azure en la red virtual. Si está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones (ASE), lea el documento [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE]. Para obtener información sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones][HowtoCreateASE].
 
 A un alto nivel, un entorno del Servicio de aplicaciones consta de varios componentes principales:
 
@@ -30,7 +30,7 @@ A un alto nivel, un entorno del Servicio de aplicaciones consta de varios compon
 - Red virtual con al menos una subred
 - Subred con el servicio hospedado del entorno del Servicio de aplicaciones de Azure que se ejecuta en él
 
-Para ayudar a administrar y supervisar sus entornos del Servicio de aplicaciones puede obtener acceso a la IU para ese fin seleccionando Examinar -\> Entornos del Servicio de aplicaciones en el Portal de Azure. La versión inicial tiene lo necesario para administrar el sistema y seguirá mejorando con funcionalidades adicionales en las próximas semanas.
+Para ayudar a administrar y supervisar sus entornos del Servicio de aplicaciones puede obtener acceso a la IU para ese fin seleccionando Examinar -> Entornos del Servicio de aplicaciones en el Portal de Azure. La versión inicial tiene lo necesario para administrar el sistema y seguirá mejorando con funcionalidades adicionales en las próximas semanas.
 
 ![][1]
 
@@ -61,7 +61,7 @@ Dentro de cualquier grupo de trabajo los requisitos de tolerancia a errores son 
 - Si el valor de X está comprendido entre 21 y 40, la cantidad de recursos de proceso utilizables que puede usar para cargas de trabajo es X-2
 - Si el valor de X está comprendido entre 41 y 53, la cantidad de recursos de proceso utilizables que puede usar para cargas de trabajo es X-3
 
-Además de ser capaz de administrar la cantidad de recursos de proceso que se pueden asignar a un grupo determinado, también tiene control sobre el tamaño. Con entornos del Servicio de aplicaciones puede elegir 4 tamaños diferentes \(etiqueta P1 a P4\). Para obtener detalles sobre los tamaños y sus precios, consulte [Precios del Servicio de aplicaciones][AppServicePricing]. Los tamaños de recurso de proceso P1 a P3 son los mismos que los que normalmente están disponibles. El recurso de proceso P4 proporciona 8 núcleos con 14 GB de RAM y solamente está disponible en un entorno del Servicio de aplicaciones.
+Además de ser capaz de administrar la cantidad de recursos de proceso que se pueden asignar a un grupo determinado, también tiene control sobre el tamaño. Con entornos del Servicio de aplicaciones puede elegir 4 tamaños diferentes (etiqueta P1 a P4). Para obtener detalles sobre los tamaños y sus precios, consulte [Precios del Servicio de aplicaciones][AppServicePricing]. Los tamaños de recurso de proceso P1 a P3 son los mismos que los que normalmente están disponibles. El recurso de proceso P4 proporciona 8 núcleos con 14 GB de RAM y solamente está disponible en un entorno del Servicio de aplicaciones.
 
 Como se indicó anteriormente, la característica Entorno del Servicio de aplicaciones está actualmente en vista previa y, por tanto, tiene margen para crecer. Aparte de las funcionalidades de supervisión adicionales, se implementarán más características de administración a medida que los entornos del Servicio de aplicaciones se muevan a GA. Por ahora, solamente hay algunas cosas que se pueden administrar en esta interfaz:
 

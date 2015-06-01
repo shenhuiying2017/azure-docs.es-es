@@ -36,7 +36,7 @@ Es posible que su aplicación necesite almacenar datos. Para hacerlo posible, ad
 
 Cada máquina virtual que se crea tiene también adjunto un *disco de recursos* local temporal. Debido a que los datos de un disco de recursos podrían no resistir los diversos reinicios, muchas veces los usan aplicaciones y procesos que se ejecutan en la máquina virtual para un almacenamiento de datos transitorio ytemporal. También se usan para almacenar archivos de intercambio y de paginación para el sistema operativo.
 
-En Linux, el disco de recursos se administra generalmente mediante el agente de Linux de Azure y se monta automáticamente en **/mnt/resource** \(o **/mnt** en las imágenes de Ubuntu\). Tenga en cuenta que el disco de recursos es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Por otro lado, en Linux el kernel podría denominar al disco de datos como `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [guía de usuario del Agente de Linux de Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
+En Linux, el disco de recursos se administra generalmente mediante el agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Tenga en cuenta que el disco de recursos es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Por otro lado, en Linux el kernel podría denominar al disco de datos como `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [guía de usuario del Agente de Linux de Azure](http://www.windowsazure.com/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
 
 
 
@@ -127,7 +127,7 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 11. Agregue la nueva unidad a /etc/fstab:
 
-	Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID \(identificador único global\) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo \(es decir, /dev/sdc1\). Para buscar el UUID de la unidad nueva, puede usar la utilidad **blkid**:
+	Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (es decir, /dev/sdc1). Para buscar el UUID de la unidad nueva, puede usar la utilidad **blkid**:
 	
 		`sudo -i blkid`
 

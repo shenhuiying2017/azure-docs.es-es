@@ -16,14 +16,14 @@
 	ms.date="04/29/2015" 
 	ms.author="juliako"/>
 
-#Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure \(vista previa\)
+#Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure (vista previa)
 
 ##Información general
 
 En Servicios multimedia de Azure, un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
 
-- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** \(MP4 fragmentado\) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
-- Una secuencia de una sola velocidad de bits \(con uno de los siguientes formatos: **RTP** \(MPEG-TS\), **RTMP** o **Smooth Streaming** \(MP4 fragmentado\)\) se envía al **canal** habilitado para realizar la codificación en directo con Servicios multimedia. A continuación, el **canal** codifica en directo la secuencia entrante de una sola velocidad de bits como secuencia de vídeo de varias velocidades de bits \(adaptable\). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes. 
+- Un codificador local en directo envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
+- Una secuencia de una sola velocidad de bits (con uno de los siguientes formatos: **RTP** (MPEG-TS), **RTMP** o **Smooth Streaming** (MP4 fragmentado)) se envía al **canal** habilitado para realizar la codificación en directo con Servicios multimedia. A continuación, el **canal** codifica en directo la secuencia entrante de una sola velocidad de bits como secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes. 
 
 	La codificación de secuencias en directo con Servicios multimedia está actualmente en versión de **vista previa**.
 
@@ -31,13 +31,13 @@ A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede e
 
 - **Ninguna**: especifique este valor si piensa usar un codificador en directo local que genere una secuencia de varias velocidades de bits. En este caso, el flujo entrante pasa hasta la salida sin codificación alguna. Este es el comportamiento de un canal antes de la versión 2.10. Para obtener información más detallada sobre cómo trabajar con los canales de este tipo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
-- **Estándar** \(vista previa\): elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo de una sola velocidad de bits como secuencias de varias velocidades de bits.
+- **Estándar** (vista previa): elija este valor si piensa usar Servicios multimedia para codificar secuencias en directo de una sola velocidad de bits como secuencias de varias velocidades de bits.
 
 	La codificación de una secuencia en directo con Servicios multimedia está actualmente en versión de vista previa.
 
->[AZURE.NOTE]En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo \(tipo de codificación \*\*Estándar\*\*\). Para obtener información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
+>[AZURE.NOTE]En este tema se describen los atributos de los canales habilitados para realizar la codificación en directo (tipo de codificación **Estándar**). Para obtener información sobre cómo trabajar con los canales no habilitados para realizar la codificación en directo, consulte [Trabajo con canales que reciben streams en vivo de varias velocidades de bits de codificadores locales](media-services-manage-channels-overview.md).
 
-El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP \(MPEG-TS\). A continuación, la codifica como secuencia de varias velocidades de bits.
+El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). A continuación, la codifica como secuencia de varias velocidades de bits.
 
 ![Flujo de trabajo activo][live-overview]
 
@@ -52,7 +52,7 @@ El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde 
 
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP \(MPEG-TS\). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una **sola** velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Este paso también puede realizarse después de crear el canal.
 
@@ -76,32 +76,32 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa \(y, opcionalmente, elimine el recurso\).   
+1. Elimine el programa (y, opcionalmente, elimine el recurso).   
 
 La sección de [tareas de streaming en vivo](media-services-manage-channels-overview.md#tasks) incluye vínculos a temas que demuestran cómo realizar las tareas descritas anteriormente.
 
 
-##<a id="channel"></a>Configuraciones de entrada de canal \(ingesta\)
+##<a id="channel"></a>Configuraciones de entrada de canal (ingesta)
 
 ###<a id="Ingest_Protocols"></a>Protocolo de streaming de ingesta
 
 Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
 
-- **RTP** \(MPEG-TS\): secuencia de transporte MPEG-2 a través de RTP.  
+- **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
 - **RTMP** de una sola velocidad de bits
-- **MP4 fragmentado** de una sola velocidad de bits \(Smooth Streaming\)
+- **MP4 fragmentado** de una sola velocidad de bits (Smooth Streaming)
 
 Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-####RTP \(MPEG-TS\): secuencia de transporte MPEG-2 a través de RTP.  
+####RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
 
 Caso de uso típico:
 
-Los emisores profesionales suelen trabajar con codificadores locales en directo de tecnología avanzada \(de proveedores como Elemental Technologies, Ericsson, Ateme, Imagine o Envivio\) para enviar secuencias. Estos suelen usarse conjuntamente con un departamento de TI y redes privadas.
+Los emisores profesionales suelen trabajar con codificadores locales en directo de tecnología avanzada (de proveedores como Elemental Technologies, Ericsson, Ateme, Imagine o Envivio) para enviar secuencias. Estos suelen usarse conjuntamente con un departamento de TI y redes privadas.
 
 Consideraciones:
 
-- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa \(SPTS\). Sin embargo, se admite el uso de varias pistas de audio de idioma.
+- Se recomienda encarecidamente el uso de una entrada de secuencias de transporte de un solo programa (SPTS). Sin embargo, se admite el uso de varias pistas de audio de idioma.
 - La secuencia de vídeo debe tener una velocidad de bits media inferior a 15 Mbps.
 - La suma de la velocidad de bits media de las secuencias de audio debe ser inferior a 1 Mbps.
 - A continuación, se indican los códecs admitidos:
@@ -174,7 +174,7 @@ Consideraciones:
 	- Flash Media Live Encoder
 	- Tricaster
 
-####MP4 fragmentado de una sola velocidad de bits \(Smooth Streaming\)
+####MP4 fragmentado de una sola velocidad de bits (Smooth Streaming)
 
 Caso de uso típico:
 
@@ -190,17 +190,17 @@ Las mismas aplicables al apartado [RTMP de una sola velocidad de bits](media-ser
 - La resolución máxima de la secuencia de vídeo entrante es de 1920 x 1080, con un máximo de 60 campos por segundo, cuando es entrelazada, o 30 fotogramas por segundo, si es progresiva.
 
 
-###Direcciones URL de ingesta \(extremos\) 
+###Direcciones URL de ingesta (extremos) 
 
-Un canal proporciona un extremo de entrada \(dirección URL de ingesta\) que usted especifica en el codificador en directo, de modo que el codificador puede insertar secuencias en sus canales.
+Un canal proporciona un extremo de entrada (dirección URL de ingesta) que usted especifica en el codificador en directo, de modo que el codificador puede insertar secuencias en sus canales.
 
 Puede obtener las direcciones URL de ingesta al crear un canal. Para obtener estas direcciones URL, el canal no puede encontrarse en el estado **En ejecución**. Cuando esté listo para comenzar a insertar datos en el canal, este debe estar **En ejecución**. Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia a través de la dirección URL de vista previa.
 
-Tiene la opción de consumir una secuencia en directo de MP4 fragmentado \(Smooth Streaming\) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS.
+Tiene la opción de consumir una secuencia en directo de MP4 fragmentado (Smooth Streaming) a través de una conexión SSL. Para introducir en SSL, asegúrese de actualizar la dirección URL de introducción a HTTPS.
 
 ###Direcciones IP permitidas
 
-Puede definir las direcciones IP permitidas para publicar vídeo en el canal. Dichas direcciones se pueden especificar como dirección IP individual \(por ejemplo, ‘10.0.0.1’\), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR \(por ejemplo, ‘10.0.0.1/22’\) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos \(por ejemplo, ‘10.0.0.1\(255.255.252.0\)’\).
+Puede definir las direcciones IP permitidas para publicar vídeo en el canal. Dichas direcciones se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
 
 Si no se especifican direcciones IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.
 
@@ -209,17 +209,17 @@ Si no se especifican direcciones IP y no hay ninguna definición de regla, no se
 
 ###Direcciones URL de vista previa
 
-Los canales proporcionan un extremo de vista previa \(dirección URL de vista previa\) que se puede utilizar para obtener una vista previa y validar la secuencia antes de mayor procesamiento y entrega.
+Los canales proporcionan un extremo de vista previa (dirección URL de vista previa) que se puede utilizar para obtener una vista previa y validar la secuencia antes de mayor procesamiento y entrega.
 
 Puede obtener la dirección URL de vista previa al crear el canal. Para obtenerla, el canal no puede encontrarse en el estado **En ejecución**.
 
 Una vez que el canal empieza a consumir datos, puede obtener una vista previa de la secuencia.
 
-**Nota** Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado \(Smooth Streaming\), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de administración de Azure para ver la secuencia.
+**Nota** Actualmente la secuencia de vista previa solo se puede entregar en formato MP4 fragmentado (Smooth Streaming), independientemente del tipo de entrada especificado. Puede usar el reproductor [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) para probar el formato Smooth Stream. También puede usar un reproductor hospedado en el Portal de administración de Azure para ver la secuencia.
 
 ###Direcciones IP permitidas
 
-Puede definir las direcciones IP permitidas para conectarse al extremo de vista previa. Si no se especifica ninguna dirección IP, se permitirá cualquier dirección IP. Dichas direcciones se pueden especificar como dirección IP individual \(por ejemplo, ‘10.0.0.1’\), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR \(por ejemplo, ‘10.0.0.1/22’\) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos \(por ejemplo, ‘10.0.0.1\(255.255.252.0\)’\).
+Puede definir las direcciones IP permitidas para conectarse al extremo de vista previa. Si no se especifica ninguna dirección IP, se permitirá cualquier dirección IP. Dichas direcciones se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
 
 ##Configuración de la codificación en directo
 
@@ -229,39 +229,39 @@ En esta sección se describe cómo configurar los valores del codificador en dir
 
 Puede especificar el origen de las señales de los marcadores de anuncio. El valor predeterminado es **Api**, que indica que el codificador en directo del canal debe escuchar una **API de marcadores de anuncio** asincrónica.
 
-La otra opción válida es **Scte35** \(solo permitida si el protocolo de streaming de ingesta está establecido en RTP \(MPEG-TS\). Cuando se especifica Scte35, el codificador en directo analizará las señales de SCTE-35 del flujo de entrada RTP \(MPEG-TS\).
+La otra opción válida es **Scte35** (solo permitida si el protocolo de streaming de ingesta está establecido en RTP (MPEG-TS). Cuando se especifica Scte35, el codificador en directo analizará las señales de SCTE-35 del flujo de entrada RTP (MPEG-TS).
 
 ###Subtítulos CEA 708
 
-Marca opcional que indica al codificador en directo que omita cualquier dato de los subtítulos CEA 708 insertado en el vídeo entrante. Si la marca está establecida en false \(valor predeterminado\), el codificador detectará y volverá a insertar los datos de CEA 708 en las secuencias de vídeo salientes.
+Marca opcional que indica al codificador en directo que omita cualquier dato de los subtítulos CEA 708 insertado en el vídeo entrante. Si la marca está establecida en false (valor predeterminado), el codificador detectará y volverá a insertar los datos de CEA 708 en las secuencias de vídeo salientes.
 
 ###Secuencia de vídeo
 
-Opcional. Describe la secuencia de vídeo de entrada. Si este campo no se especifica, se usa el valor predeterminado. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP \(MPEG-TS\).
+Opcional. Describe la secuencia de vídeo de entrada. Si este campo no se especifica, se usa el valor predeterminado. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP (MPEG-TS).
 
 ####Índice
 
-Índice basado en cero que especifica qué secuencia de vídeo de entrada debe procesar el codificador en directo dentro del canal. Esta configuración solo se aplica si el protocolo de streaming de ingesta es RTP \(MPEG-TS\).
+Índice basado en cero que especifica qué secuencia de vídeo de entrada debe procesar el codificador en directo dentro del canal. Esta configuración solo se aplica si el protocolo de streaming de ingesta es RTP (MPEG-TS).
 
-El valor predeterminado es cero. Se recomienda enviar una secuencia de transporte de un solo programa \(SPTS\). Si la secuencia de entrada contiene varios programas, el codificador en directo analiza la tabla de asignación de programas \(PMT\) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 Video o H.264 y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
+El valor predeterminado es cero. Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si la secuencia de entrada contiene varios programas, el codificador en directo analiza la tabla de asignación de programas (PMT) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 Video o H.264 y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
 
 ###Secuencia de audio
 
-Opcional. Describe las secuencias de audio de entrada. Si este campo no se especifica, se aplican los valores predeterminados. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP \(MPEG-TS\).
+Opcional. Describe las secuencias de audio de entrada. Si este campo no se especifica, se aplican los valores predeterminados. Este valor solo se permite si el protocolo de streaming de entrada está establecido en RTP (MPEG-TS).
 
 ####Índice
 
-Se recomienda enviar una secuencia de transporte de un solo programa \(SPTS\). Si la secuencia de entrada contiene varios programas, el codificador en directo del canal analiza la tabla de asignación de programas \(PMT\) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
+Se recomienda enviar una secuencia de transporte de un solo programa (SPTS). Si la secuencia de entrada contiene varios programas, el codificador en directo del canal analiza la tabla de asignación de programas (PMT) en la entrada, identifica las entradas con un nombre de tipo de secuencia MPEG-2 AAC ADTS, AC-3 System-A, AC-3 System-B, MPEG-2 Private PES, MPEG-1 Audio o MPEG-2 Audio y las organiza en el orden especificado en la tabla PMT. A continuación, se usa el índice basado en cero para seleccionar la entrada concreta en esa disposición.
 
 ####Idioma
 
-El identificador de idioma de la secuencia de audio, conforme a ISO 639-2, por ejemplo, ENG. Si no aparece, el valor predeterminado es UND \(sin definir\).
+El identificador de idioma de la secuencia de audio, conforme a ISO 639-2, por ejemplo, ENG. Si no aparece, el valor predeterminado es UND (sin definir).
 
 Pueden especificarse hasta 8 conjuntos de secuencias de audio si la entrada al canal es MPEG-2 TS a través de RTP. Sin embargo, no puede haber dos entradas con el mismo valor para Índice.
 
 ###<a id="preset"></a>Valor preestablecido del sistema
 
-Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** \(valor predeterminado\).
+Especifica el valor preestablecido que usará el codificador en directo dentro de este canal. Actualmente, el único valor permitido es **Default720p** (valor predeterminado).
 
 **Default720p** codificará el vídeo en las 7 capas siguientes.
 
@@ -285,11 +285,11 @@ El audio se codifica como estéreo AAC-LC a 64 kbps, con una frecuencia de mues
 
 ##Señalización de anuncios
 
-Si el canal tiene habilitada la codificación en directo, dispone de un componente en la canalización de procesamiento de vídeo y puede manipularlo. Puede señalar que el canal inserte pizarras o anuncios en la secuencia de velocidad de bits adaptable saliente. Las pizarras son imágenes estáticas que puede usar para cubrir la fuente de entrada directa en determinados casos \(por ejemplo, durante una pausa comercial\). Las señales de anuncio son señales sincronizadas temporalmente que se insertan en la secuencia saliente para indicar al reproductor de vídeo que realice una acción determinada, por ejemplo, cambiar a un anuncio en el momento adecuado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obtener información general sobre el mecanismo de señalización SCTE-35 usado para este fin. A continuación se muestra un escenario típico que puede implementar en el evento en directo.
+Si el canal tiene habilitada la codificación en directo, dispone de un componente en la canalización de procesamiento de vídeo y puede manipularlo. Puede señalar que el canal inserte pizarras o anuncios en la secuencia de velocidad de bits adaptable saliente. Las pizarras son imágenes estáticas que puede usar para cubrir la fuente de entrada directa en determinados casos (por ejemplo, durante una pausa comercial). Las señales de anuncio son señales sincronizadas temporalmente que se insertan en la secuencia saliente para indicar al reproductor de vídeo que realice una acción determinada, por ejemplo, cambiar a un anuncio en el momento adecuado. Consulte este [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) para obtener información general sobre el mecanismo de señalización SCTE-35 usado para este fin. A continuación se muestra un escenario típico que puede implementar en el evento en directo.
 
 1. Haga que los visores obtengan una imagen ANTERIOR AL EVENTO antes de que este empiece.
 1. Haga que los visores obtengan una imagen POSTERIOR AL EVENTO una vez que este finalice.
-1. Haga que los visores obtengan una imagen de ERROR DEL EVENTO si hay algún problema durante el mismo \(por ejemplo, un corte de luz en el estadio\).
+1. Haga que los visores obtengan una imagen de ERROR DEL EVENTO si hay algún problema durante el mismo (por ejemplo, un corte de luz en el estadio).
 1. Envíe una imagen de PAUSA COMERCIAL para ocultar la fuente del evento en directo durante una pausa publicitaria.
 
 A continuación se indican las propiedades que puede establecer al señalar anuncios.
@@ -326,7 +326,7 @@ Cuando está establecido en true, este valor configura el codificador en directo
 
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null.
 
-**Nota**: antes de crear el canal, la imagen de pizarra \(con una resolución máxima de 1920 x 1080, formato JPEG y un tamaño máximo de 3 MB\) debe cargarse como recurso dedicado \(no debe haber ningún otro archivo en este recurso\). El nombre de archivo debe tener la extensión *.jpg y el archivo AssetFile debe marcarse como archivo principal de ese recurso. Este recurso no se puede almacenar cifrado.
+**Nota**: antes de crear el canal, la imagen de pizarra (con una resolución máxima de 1920 x 1080, formato JPEG y un tamaño máximo de 3 MB) debe cargarse como recurso dedicado (no debe haber ningún otro archivo en este recurso). El nombre de archivo debe tener la extensión *.jpg y el archivo AssetFile debe marcarse como archivo principal de ese recurso. Este recurso no se puede almacenar cifrado.
 
 Si no se especifica el **Id. del recurso de pizarra predeterminado** y el valor **Insertar pizarra en marcador de anuncio** está establecido en **true**, se usará una imagen de Servicios multimedia de Azure predeterminada para ocultar la secuencia de vídeo de entrada. El audio también está desactivado durante el uso de la pizarra.
 
@@ -425,7 +425,7 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 ###Protección de recursos
 
-Si desea cifrar un recurso asociado a un programa con Estándar de cifrado avanzado \(AES\) \(mediante claves de cifrado de 128 bits\) o DRM de PlayReady, debe crear una clave de contenido.
+Si desea cifrar un recurso asociado a un programa con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) o DRM de PlayReady, debe crear una clave de contenido.
 
 Use **.NET** o **API de REST** para crear claves.
 
@@ -446,7 +446,7 @@ Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publique recursos \(creando localizadores\) mediante el **Portal de administración de Azure** o **.NET**.
+Publique recursos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 

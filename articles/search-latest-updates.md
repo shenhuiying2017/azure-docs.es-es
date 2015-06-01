@@ -18,7 +18,7 @@
 
 #Novedades en la actualización más reciente de Búsqueda de Azure#
 
-Búsqueda de Azure ya está disponible con carácter general y ofrece un acuerdo de nivel de servicio \(SLA\) con el 99,9% de disponibilidad para las configuraciones admitidas de la [versión 2015-02-28 de la API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Búsqueda de Azure ya está disponible con carácter general y ofrece un acuerdo de nivel de servicio (SLA) con el 99,9% de disponibilidad para las configuraciones admitidas de la [versión 2015-02-28 de la API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ##Cómo se actualizan e implementan las características
 
@@ -44,9 +44,9 @@ Se trata de la primera versión pública del SDK para .NET de Búsqueda de Azure
 
 Excluye:
 
-- [Indizadores](http://go.microsoft.com/fwlink/p/?LinkId=528173) \(esta característica ya no se excluye en la versión 0.10.0-preview\)
+- [Indizadores](http://go.microsoft.com/fwlink/p/?LinkId=528173) (esta característica ya no se excluye en la versión 0.10.0-preview)
 - [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- Características de [2015-02-28-Preview](search-api-2015-02-28-Preview.md) \(actualmente, las características de solo vista previa consisten en procesadores de lenguaje natural de Microsoft y `moreLikeThis`\).
+- Características de [2015-02-28-Preview](search-api-2015-02-28-Preview.md) (actualmente, las características de solo vista previa consisten en procesadores de lenguaje natural de Microsoft y `moreLikeThis`).
 
 Visite [Cómo usar Búsqueda de Azure en .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) para obtener instrucciones sobre la instalación y el uso del SDK.
 
@@ -68,9 +68,9 @@ Visite [Cómo usar Búsqueda de Azure en .NET](http://go.microsoft.com/fwlink/p/
 
 - Los [indizadores](http://go.microsoft.com/fwlink/p/?LinkID=528210) son una nueva característica que simplifica en gran medida la indización de orígenes de datos de la base de datos SQL de Azure, DocumentDB de Azure y SQL Server en máquinas virtuales de Azure.
 
-- Los [proveedores de sugerencias](https://msdn.microsoft.com/library/azure/dn798936.aspx) reemplaza la compatibilidad de consulta con escritura anticipada, más limitada, de la implementación anterior \(sólo coincide con los prefijos\) agregando compatibilidad para la coincidencia con infijos. Esta implementación puede buscar coincidencias en cualquier parte de un término y también admite la coincidencia aproximada.
+- Los [proveedores de sugerencias](https://msdn.microsoft.com/library/azure/dn798936.aspx) reemplaza la compatibilidad de consulta con escritura anticipada, más limitada, de la implementación anterior (sólo coincide con los prefijos) agregando compatibilidad para la coincidencia con infijos. Esta implementación puede buscar coincidencias en cualquier parte de un término y también admite la coincidencia aproximada.
 
-- El [aprovechamiento de etiquetas](http://go.microsoft.com/fwlink/p/?LinkId=528212) permite un nuevo escenario de perfiles de puntuación. En concreto, aprovecha los datos almacenados \(por ejemplo, las preferencias de compra\), por lo que puede mejorar los resultados de búsqueda para usuarios individuales en función de su información personalizada.
+- El [aprovechamiento de etiquetas](http://go.microsoft.com/fwlink/p/?LinkId=528212) permite un nuevo escenario de perfiles de puntuación. En concreto, aprovecha los datos almacenados (por ejemplo, las preferencias de compra), por lo que puede mejorar los resultados de búsqueda para usuarios individuales en función de su información personalizada.
 
 Visite [Búsqueda de Azure ya está disponible con carácter general](http://go.microsoft.com/fwlink/p/?LinkId=528211) para ver en el blog de Azure el anuncio de servicio que describe todas estas características.
 

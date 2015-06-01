@@ -73,7 +73,7 @@ Para completar estos pasos, necesitará un servicio Búsqueda de Azure y `api-ke
 
 En unos segundos verá una respuesta HTTP 201 en la lista de sesiones, que indica que el índice se creó correctamente.
 
-Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el error HTTP 400 o 404, compruebe el cuerpo de la solicitud para verificar que no haya errores al copiar/pegar. Un HTTP 403 indica normalmente que hay un problema con la clave de API \(es una clave no válida o un problema de sintaxis sobre cómo se específica la clave de API\).
+Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el error HTTP 400 o 404, compruebe el cuerpo de la solicitud para verificar que no haya errores al copiar/pegar. Un HTTP 403 indica normalmente que hay un problema con la clave de API (es una clave no válida o un problema de sintaxis sobre cómo se específica la clave de API).
 
 ## Carga de documentos
 
@@ -83,7 +83,7 @@ En la pestaña Compositor, se verá su solicitud para enviar documentos como a c
 
 1. Seleccione **POST**.
 
-2.	Escriba una URL que comience con HTTPS, seguida de la URL del servicio y, después, "/indexes/\<'indexname'\>/docs/index?api-version=2015-02-28". La URL completa debe ser similar al siguiente ejemplo:
+2.	Escriba una URL que comience con HTTPS, seguida de la URL del servicio y, después, "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". La URL completa debe ser similar al siguiente ejemplo:
 
         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
@@ -169,7 +169,7 @@ Ahora que se han cargado el índice y los documentos, puede emitir consultas con
 
 1.	Seleccione **GET**.
 
-2.	Escriba una URL que comience por HTTPS, seguida de la URL del servicio, después "/indexes/\<'indexname'\>/docs?" y, después, los parámetros de la consulta. A modo de ejemplo, use la siguiente URL, que reemplaza el nombre del host de ejemplo por uno que es válido para su servicio.
+2.	Escriba una URL que comience por HTTPS, seguida de la URL del servicio, después "/indexes/<'indexname'>/docs?" y, después, los parámetros de la consulta. A modo de ejemplo, use la siguiente URL, que reemplaza el nombre del host de ejemplo por uno que es válido para su servicio.
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
@@ -186,7 +186,7 @@ El código de respuesta debe ser 200 y el resultado de la respuesta debe ser sim
  
    ![][4]
 
-La siguiente consulta de ejemplo proviene del tema [Operación de índice de búsqueda \(API de Búsqueda de Azure\)](http://msdn.microsoft.com/library/dn798927.aspx) en MSDN. Muchas de las consultas de ejemplo en este tema incluyen espacios, que no están permitidos en Fiddler. Reemplace cada espacio por un carácter + antes de pegar la cadena de la consulta e intentar la consulta en Fiddler:
+La siguiente consulta de ejemplo proviene del tema [Operación de índice de búsqueda (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/dn798927.aspx) en MSDN. Muchas de las consultas de ejemplo en este tema incluyen espacios, que no están permitidos en Fiddler. Reemplace cada espacio por un carácter + antes de pegar la cadena de la consulta e intentar la consulta en Fiddler:
 
 **Los espacios anteriores se reemplazan:**
 
@@ -219,7 +219,7 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 
 5.	Haga clic en **Ejecutar**. Debe ver un código de estado HTTP 200 en la lista de sesiones. Seleccione la entrada enviada para su comando.
 
-6.	Haga clic en la pestaña **Inspectores** \| **Encabezados** y seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento \(en KB\).
+6.	Haga clic en la pestaña **Inspectores** | **Encabezados** y seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento (en KB).
 
 ## Pasos siguientes
 

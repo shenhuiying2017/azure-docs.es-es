@@ -32,7 +32,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 2. Haga clic en **NUEVO**, en la parte inferior izquierda del portal.
 
-3. Haga clic en **Web + móvil \> Aplicación de API**.
+3. Haga clic en **Web + móvil > Aplicación de API**.
 
 	![][portal-quick-create]
 
@@ -48,9 +48,9 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 	Si ha dejado activada la casilla de verificación **Agregar al Panel de inicio**, el portal abrirá automáticamente la hoja de la aplicación de API a partir del momento en que se crea. Si ha desactivado la casilla de verificación, haga clic en **Notificaciones** en la página principal del portal para ver el estado de creación de la aplicación de API y en la notificación para ir a la hoja de la nueva aplicación de API.
 
-7. Haga clic en **Configuración \> Configuración de la aplicación**.
+7. Haga clic en **Configuración > Configuración de la aplicación**.
 
-9. Establezca el nivel de acceso en **Público \(anónimo\)**.
+9. Establezca el nivel de acceso en **Público (anónimo)**.
 
 11. Haga clic en **Guardar**.
 
@@ -70,7 +70,7 @@ En el portal, administra las características específicas de las aplicaciones d
 
 	![][deployment-part]
 
-3. Haga clic en **Elegir origen \> Repositorio de Git local**.
+3. Haga clic en **Elegir origen > Repositorio de Git local**.
 
 5. Haga clic en **Aceptar**.
 
@@ -86,7 +86,7 @@ En el portal, administra las características específicas de las aplicaciones d
 
 	![][deployment-credentials]
 
-1. En la hoja **Host de aplicación API** , haga clic en **Configuración \> Propiedades**. La URL del repositorio Git remoto en el que implementará se muestra en "DIRECCIÓN URL DE GIT".
+1. En la hoja **Host de aplicación API** , haga clic en **Configuración > Propiedades**. La URL del repositorio Git remoto en el que implementará se muestra en "DIRECCIÓN URL DE GIT".
 
 2. Copie la URL para utilizarla más tarde en el tutorial.
 
@@ -113,7 +113,7 @@ En esta sección, podrá descargar y echar un vistazo al código proporcionado c
 
 	Observe la propiedad **apiDefinition**. La ruta de acceso de esta URL es relativa a la URL de su API y apunta al extremo Swagger 2.0. El Servicio de aplicaciones de Azure usa esta propiedad para detectar la definición de su API y habilitar muchas de las capacidades de la aplicación de API del Servicio de aplicaciones.
 
-	> [AZURE.NOTE]El extremo debe ser de la especificación Swagger 2.0, ya que las versiones anteriores \(p. ej., 1.2\) no son compatibles con la plataforma. La aplicación de ejemplo usa swaggerize-express para crear un extremo de la especificación Swagger 2.0.
+	> [AZURE.NOTE]El extremo debe ser de la especificación Swagger 2.0, ya que las versiones anteriores (p. ej., 1.2) no son compatibles con la plataforma. La aplicación de ejemplo usa swaggerize-express para crear un extremo de la especificación Swagger 2.0.
 
 4. Abra el archivo **server.js** e inspeccione el código.
 
@@ -127,7 +127,7 @@ En esta sección, podrá descargar y echar un vistazo al código proporcionado c
 		    handlers: './handlers/'
 		}));
 
-	La propiedad `api` apunta al archivo api.json que contiene la definición de la especificación Swagger 2.0 de nuestra API. Puede crear el archivo en un editor de texto manualmente o usar el [editor de Swagger](http://editor.swagger.io) en línea y descargar el archivo JSON desde allí. \(El archivo *api.json* especifica una propiedad `host`, pero el valor de esta se determina y reemplaza dinámicamente en tiempo de ejecución\).
+	La propiedad `api` apunta al archivo api.json que contiene la definición de la especificación Swagger 2.0 de nuestra API. Puede crear el archivo en un editor de texto manualmente o usar el [editor de Swagger](http://editor.swagger.io) en línea y descargar el archivo JSON desde allí. (El archivo *api.json* especifica una propiedad `host`, pero el valor de esta se determina y reemplaza dinámicamente en tiempo de ejecución).
 
 	La propiedad `docspath` apunta al extremo Swagger 2.0. Esta URL es relativa a la ruta de acceso base de su API. La ruta de acceso base se declara en el archivo api.json. En nuestro ejemplo, la ruta de acceso base es */api/datos*, por lo que la ruta de acceso relativa al extremo Swagger es */api/data/swagger*.
 
@@ -175,7 +175,7 @@ En esta sección, se crea un repositorio Git local e inserta desde ese repositor
 		git add .
 		git commit -m "Initial commit of the API App"
 
-3. Cree una referencia remota para enviar actualizaciones a la aplicación web \(host de aplicación API\) que creó anteriormente, con la dirección URL de Git que copió de forma previa:
+3. Cree una referencia remota para enviar actualizaciones a la aplicación web (host de aplicación API) que creó anteriormente, con la dirección URL de Git que copió de forma previa:
 
 		git remote add azure [URL for remote repository]
 
@@ -189,7 +189,7 @@ En esta sección, se crea un repositorio Git local e inserta desde ese repositor
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-		\* [new branch master] -\> master
+		* [new branch master] -> master
 
 ## Visualización de la definición de la API en el portal de vista previa de Azure
 

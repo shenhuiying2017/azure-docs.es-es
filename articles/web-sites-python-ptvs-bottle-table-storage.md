@@ -164,7 +164,7 @@ En esta sección, vamos a configurar las variables del entorno para el sitio.
 
   	![Menú superior](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png)
 
-1.  Desplácese hacia abajo hasta la sección **configuración de la aplicación** y defina los valores para **REPOSITORY\_NAME**, **STORAGE\_NAME** y **STORAGE\_KEY**, como se describe en la sección anterior.
+1.  Desplácese hacia abajo hasta la sección **configuración de la aplicación** y defina los valores para **REPOSITORY_NAME**, **STORAGE_NAME** y **STORAGE_KEY**, como se describe en la sección anterior.
 
   	![Configuración de aplicaciones](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
 

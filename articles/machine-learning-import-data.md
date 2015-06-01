@@ -19,11 +19,11 @@
 
 #Importar datos de entrenamiento a Estudio de aprendizaje automático de Azure
 
-Cuando desarrolla una solución de análisis predictivo en Estudio de aprendizaje automático de Azure, entrena su modelo con datos representativos de su espacio de problemas. Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Estudio de aprendizaje automático que puede usar con este fin \(consulte [Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](machine-learning-use-sample-datasets.md)\). Pero también es posible importar sus propios datos a Estudio de aprendizaje automático para usarlos en sus experimentos.
+Cuando desarrolla una solución de análisis predictivo en Estudio de aprendizaje automático de Azure, entrena su modelo con datos representativos de su espacio de problemas. Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Estudio de aprendizaje automático que puede usar con este fin (consulte [Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](machine-learning-use-sample-datasets.md)). Pero también es posible importar sus propios datos a Estudio de aprendizaje automático para usarlos en sus experimentos.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-Para usar sus propios datos en Estudio de aprendizaje automático, puede cargar un archivo de datos por adelantado desde su disco duro local para crear un módulo de conjunto de datos en su área de trabajo. Puede tener acceso a los datos desde una de varias fuentes en línea mientras su experimento se ejecuta con el módulo [Lector][reader]\:
+Para usar sus propios datos en Estudio de aprendizaje automático, puede cargar un archivo de datos por adelantado desde su disco duro local para crear un módulo de conjunto de datos en su área de trabajo. Puede tener acceso a los datos desde una de varias fuentes en línea mientras su experimento se ejecuta con el módulo [Lector][reader]:
 
 - Base de datos SQL, tabla o almacenamiento de blobs de Azure
 - Hadoop con HiveQL
@@ -41,16 +41,16 @@ En cualquier momento del experimento puede ver o descargar los datos que genera 
 
 Puede importar diversos tipos de datos al experimento, dependiendo del mecanismo que usa para importar los datos y de dónde provienen estos:
 
-- Texto sin formato \(.txt\)
-- Valores separados por coma \(CSV\) con un encabezado \(.csv\) o sin encabezado \(.nh.csv\)
-- Valores separados con tabulaciones \(TSV\) con un encabezado \(.tsv\) o sin encabezado \(.nh.tsv\)
+- Texto sin formato (.txt)
+- Valores separados por coma (CSV) con un encabezado (.csv) o sin encabezado (.nh.csv)
+- Valores separados con tabulaciones (TSV) con un encabezado (.tsv) o sin encabezado (.nh.tsv)
 - Tabla de Hive
 - Tabla de Base de datos SQL
 - Valores de OData
-- Datos SVMLight \(.svmlight\) \(consulte la [definición de SVMLight](http://svmlight.joachims.org/) para obtener más información sobre el formato\)
-- Datos de formato de archivo con relación de atributo \(ARFF\) \(.arff\) \(consulte la [definición de ARFF](http://weka.wikispaces.com/ARFF) si desea ver información sobre el formato\)
-- Archivo ZIP \(.zip\)
-- Archivo de área de trabajo u objeto de R \(.RData\)
+- Datos SVMLight (.svmlight) (consulte la [definición de SVMLight](http://svmlight.joachims.org/) para obtener más información sobre el formato)
+- Datos de formato de archivo con relación de atributo (ARFF) (.arff) (consulte la [definición de ARFF](http://weka.wikispaces.com/ARFF) si desea ver información sobre el formato)
+- Archivo ZIP (.zip)
+- Archivo de área de trabajo u objeto de R (.RData)
 
 Si importa datos en un formato distinto de ARFF que incluyen metadatos, Estudio de aprendizaje automático usa estos metadatos para definir el tipo de datos y encabezado de cada columna. Si importa datos como formato TSV o CSV que no incluya estos metadatos, Estudio de aprendizaje automático infiere el tipo de datos de cada columna tomando una muestra de los datos. Si los datos no tienen encabezados de columna, Estudio de aprendizaje automático proporciona nombres predeterminados. Puede especificar o cambiar explícitamente los encabezados y los tipos de datos de las columnas usando el [editor de metadatos][metadata-editor].
  
@@ -83,9 +83,9 @@ Una vez que los datos estén cargados, se almacenan en un módulo de conjunto de
 
 ## Acceso a datos en línea con el módulo Lector
 
-Mediante el uso del módulo [Lector][reader] en el experimento, puede tener acceso a datos provenientes de varias fuentes en línea mientras se ejecuta su experimento. Debido a que se obtiene acceso a estos datos mientras el experimento está en ejecución, los datos solo están disponibles en un experimento \(en contraposición a los módulos de conjuntos de datos, los que se encuentran disponibles para todos los experimentos de su área de trabajo\).
+Mediante el uso del módulo [Lector][reader] en el experimento, puede tener acceso a datos provenientes de varias fuentes en línea mientras se ejecuta su experimento. Debido a que se obtiene acceso a estos datos mientras el experimento está en ejecución, los datos solo están disponibles en un experimento (en contraposición a los módulos de conjuntos de datos, los que se encuentran disponibles para todos los experimentos de su área de trabajo).
 
-Después de agregar el módulo [Lector][reader] al experimento, selecciona el **origen de los datos** y, a continuación, proporciona información de acceso con parámetros de módulo. Por ejemplo, si selecciona **Dirección URL web vía HTTP**, proporciona la dirección URL de origen y el formato de los datos. Si tiene acceso a los datos desde almacenamiento de Azure o desde HDInsight \(mediante una consulta de Hive\), proporciona la información de cuenta adecuada y la ubicación de los datos.
+Después de agregar el módulo [Lector][reader] al experimento, selecciona el **origen de los datos** y, a continuación, proporciona información de acceso con parámetros de módulo. Por ejemplo, si selecciona **Dirección URL web vía HTTP**, proporciona la dirección URL de origen y el formato de los datos. Si tiene acceso a los datos desde almacenamiento de Azure o desde HDInsight (mediante una consulta de Hive), proporciona la información de cuenta adecuada y la ubicación de los datos.
 
 > [AZURE.NOTE]Este artículo proporciona información general acerca del módulo [Lector][reader]. Para obtener información más detallada acerca de los tipos de datos a los que puede tener acceso, formatos, parámetros y respuestas a las preguntas más comunes, consulte el tema de referencia de módulo correspondiente al módulo [Lector][reader].
 
@@ -98,19 +98,19 @@ Puede importar datos desde tres orígenes de Azure:
 - **Almacenamiento de tablas de Azure**: el módulo [Lector][reader] examina sus datos para identificar tipos de datos de columna. Si los datos son lo suficientemente homogéneos y predecibles, es posible limitar la cantidad de filas que se examinan.
 - **Base de datos SQL de Azure**: el módulo [Lector][reader] usa la API de cliente de SQL Azure Transact para importar datos mediante una consulta de base de datos que usted proporciona.
 
-Para el almacenamiento de tablas y el almacenamiento de blobs, se suministra un URI de firma de acceso compartido \(URI de SAS\) o información de cuenta de almacenamiento de Azure para proporcionar acceso a los datos. En el caso de una Base de datos SQL de Azure, se suministra su información de cuenta y base de datos, más una consulta de base de datos que identifica los datos que desea importar.
+Para el almacenamiento de tablas y el almacenamiento de blobs, se suministra un URI de firma de acceso compartido (URI de SAS) o información de cuenta de almacenamiento de Azure para proporcionar acceso a los datos. En el caso de una Base de datos SQL de Azure, se suministra su información de cuenta y base de datos, más una consulta de base de datos que identifica los datos que desea importar.
 
 ### Obtención de datos desde la Web
 
 Puede usar el módulo [Lector][reader] para leer datos desde un sitio web o un sitio FTP. Deberá proporcionar:
 
 - Una dirección URL HTTP completa de un archivo.
-- El formato de datos del archivo \(CSV, TSV, ARFF o SvmLight\).
+- El formato de datos del archivo (CSV, TSV, ARFF o SvmLight).
 - En el caso de los archivos CSV o TSV, indique si la primera línea del archivo es un encabezado.
 
 ### Obtención de datos desde Hadoop
 
-Puede usar el módulo [Lector][reader] para leer datos desde el almacenamiento distribuido mediante el lenguaje de consulta de HiveQL. Deberá especificar la consulta de base de datos de Hive y proporcionar información de acceso del usuario en el servidor HCatalog. También deberá especificar si los datos se almacenan en un sistema de archivos distribuido de Hadoop \(HDFS\) o en Azure y, en caso de tratarse de Azure, la información de cuenta de Azure.
+Puede usar el módulo [Lector][reader] para leer datos desde el almacenamiento distribuido mediante el lenguaje de consulta de HiveQL. Deberá especificar la consulta de base de datos de Hive y proporcionar información de acceso del usuario en el servidor HCatalog. También deberá especificar si los datos se almacenan en un sistema de archivos distribuido de Hadoop (HDFS) o en Azure y, en caso de tratarse de Azure, la información de cuenta de Azure.
 
 ### Obtención de datos desde un proveedor de fuente de distribución de datos
 

@@ -145,7 +145,7 @@ En el producto **Prueba gratuita**, la cuota es de 200 llamadas por semana. Espe
     <quota calls="200" bandwidth="kilobytes" renewal-period="604800">
     </quota>
 
-> Los intervalos de directiva se especifican en segundos. Para calcular el intervalo para una semana, puede multiplicar el número de días (7) por el número de horas de un día (24) por el número de minutos de una hora (60) por el número de segundos de un minuto (60): 7 \* 24 \* 60 \* 60 = 604800.
+> Los intervalos de directiva se especifican en segundos. Para calcular el intervalo para una semana, puede multiplicar el número de días (7) por el número de horas de un día (24) por el número de minutos de una hora (60) por el número de segundos de un minuto (60): 7 * 24 * 60 * 60 = 604800.
 
 Cuando haya terminado de configurar la directiva, debe coincidir con el siguiente ejemplo.
 

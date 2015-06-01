@@ -21,7 +21,7 @@
 
 Si los usuarios experimentan bloqueos en la aplicación, le gustaría saberlo rápidamente y conocer detalles sobre qué ha ocurrido. Con Application Insights, puede supervisar con qué frecuencia se producen los bloqueos, recibir avisos cuando se produzcan e investigar los informes de incidentes individuales.
 
-"Bloqueo" significa que la aplicación finaliza debido a una excepción no detectada. Si la aplicación detecta una excepción, puede notificarla con la API TrackException\(\) pero continuará ejecutándose. En ese caso, no se registrará como un bloqueo.
+"Bloqueo" significa que la aplicación finaliza debido a una excepción no detectada. Si la aplicación detecta una excepción, puede notificarla con la API TrackException() pero continuará ejecutándose. En ese caso, no se registrará como un bloqueo.
 
 
 ## Supervisión de la frecuencia de bloqueo

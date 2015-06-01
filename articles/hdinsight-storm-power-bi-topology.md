@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# Uso de Power BI \(vista previa\) para visualizar datos de una topología de Storm
+# Uso de Power BI (vista previa) para visualizar datos de una topología de Storm
 
 La vista previa de Power BI permite mostrar visualmente los datos como informes o paneles. Con la API de REST de Power BI puede usar fácilmente datos de una topología que se ejecuta en clúster de Apache Storm en HDInsight en Power BI.
 
@@ -28,7 +28,7 @@ En este documento, aprenderá a usar Power BI para crear un informe y un panel a
 
 * Un usuario de Azure Active Directory con acceso a [Power BI](https://powerbi.com)
 
-* Visual Studio \(una de las siguientes versiones\)
+* Visual Studio (una de las siguientes versiones)
 
     * Visual Studio 2012 con [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -40,7 +40,7 @@ En este documento, aprenderá a usar Power BI para crear un informe y un panel a
 
 ## Cómo funciona
 
-Este ejemplo contiene una topología de Storm en C\# que genera una oración aleatoriamente, divide la oración en palabras, cuenta las palabras y envía el recuento de palabras a la API de REST de Power BI. El paquete de Nuget [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) se usa para comunicación con Power BI.
+Este ejemplo contiene una topología de Storm en C# que genera una oración aleatoriamente, divide la oración en palabras, cuenta las palabras y envía el recuento de palabras a la API de REST de Power BI. El paquete de Nuget [PowerBi.Api.Client](https://github.com/Vtek/PowerBI.Api.Client) se usa para comunicación con Power BI.
 
 Los siguientes archivos de este proyecto implementan la funcionalidad específica de Power BI:
 
@@ -48,7 +48,7 @@ Los siguientes archivos de este proyecto implementan la funcionalidad específic
 
 * **Data.cs**: describe el objeto o fila de datos que se enviará a Power BI.
 
-> [AZURE.WARNING]Parece que Power BI permite la creación de varios conjuntos de datos con el mismo nombre. Esto puede ocurrir si el conjunto de datos no existe y la topología crea varias instancias del bolt de Power BI. Para evitar esto, establezca la sugerencia de paralelismo del bolt en 1 \(como ocurre en este ejemplo\) o cree el conjunto de datos antes de implementar la topología.
+> [AZURE.WARNING]Parece que Power BI permite la creación de varios conjuntos de datos con el mismo nombre. Esto puede ocurrir si el conjunto de datos no existe y la topología crea varias instancias del bolt de Power BI. Para evitar esto, establezca la sugerencia de paralelismo del bolt en 1 (como ocurre en este ejemplo) o cree el conjunto de datos antes de implementar la topología.
 >
 > La aplicación de consola **CreateDataset** que se incluye en esta solución se proporciona como un ejemplo de cómo crear el conjunto de datos fuera de la topología.
 
@@ -62,7 +62,7 @@ Los siguientes archivos de este proyecto implementan la funcionalidad específic
 
 ## Descarga del ejemplo
 
-Descargue el [ejemplo de Power BI de Storm en C\# de HDInsight ]\] \(https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para descargarlo, bifúrquelo o clónelo mediante [git](http://git-scm.com/), o use el vínculo **Descargar** para descargar un archivo .zip del archivo.
+Descargue el [ejemplo de Power BI de Storm en C# de HDInsight ]] (https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para descargarlo, bifúrquelo o clónelo mediante [git](http://git-scm.com/), o use el vínculo **Descargar** para descargar un archivo .zip del archivo.
 
 ## Configuración del ejemplo
 
@@ -74,7 +74,7 @@ Descargue el [ejemplo de Power BI de Storm en C\# de HDInsight ]\] \(https://git
 
     * **Contraseña**: contraseña de la cuenta de Azure Active Directory.
 
-2. \(Opcional\). El nombre del conjunto de datos predeterminado usado por este proyecto es **Words**. Para cambiarlo, haga clic con el botón secundario en el proyecto **WordCount** en el **Explorador de soluciones**, seleccione **Propiedades** y, a continuación, seleccione **Configuración**. Cambie la entrada **DatasetName** al valor que desee.
+2. (Opcional). El nombre del conjunto de datos predeterminado usado por este proyecto es **Words**. Para cambiarlo, haga clic con el botón secundario en el proyecto **WordCount** en el **Explorador de soluciones**, seleccione **Propiedades** y, a continuación, seleccione **Configuración**. Cambie la entrada **DatasetName** al valor que desee.
 
 2. Guarde y cierre los archivos.
 

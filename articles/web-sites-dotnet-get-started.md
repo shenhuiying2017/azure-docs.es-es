@@ -38,9 +38,9 @@ La siguiente ilustración muestra la aplicación completada:
 
 ![Página principal de la aplicación web](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-##<a name="video"></a>Suscribirse a Microsoft Azure \(vídeo\)
+##<a name="video"></a>Suscribirse a Microsoft Azure (vídeo)
 
-En este vídeo, Scott Hanselman presenta lo sencillo que resulta suscribirse para una prueba gratuita de Microsoft Azure. \(Duración: 1:58\)
+En este vídeo, Scott Hanselman presenta lo sencillo que resulta suscribirse para una prueba gratuita de Microsoft Azure. (Duración: 1:58)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
@@ -54,7 +54,7 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 
-3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C\#** \> **Web** \> **Aplicación Web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
+3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C#** > **Web** > **Aplicación Web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
 
 3. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.
 
@@ -94,7 +94,7 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
  
 	Si lo prefiere, puede especificar otro **nombre de aplicación web**, pero el nombre debe ser único en el dominio *azurewebsites.net*. El nombre predeterminado que proporciona Visual Studio es único.
 
-	Azure usará este nombre como prefijo de la dirección URL de la aplicación. La dirección URL completa se compondrá de lo que escriba aquí más *. azurewebsites.net* \(como se muestra junto al cuadro de texto **Nombre de aplicación Web**\). Por ejemplo, si el nombre es `MyExample6442`, la dirección URL será `MyExample6442.azurewebsites.net`. La dirección URL debe ser única. Si elige una dirección URL que ya haya usado otro usuario, aparecerá un signo de exclamación rojo a la derecha, en lugar de una marca de verificación verde, y tendrá que especificar otro nombre.
+	Azure usará este nombre como prefijo de la dirección URL de la aplicación. La dirección URL completa se compondrá de lo que escriba aquí más *. azurewebsites.net* (como se muestra junto al cuadro de texto **Nombre de aplicación Web**). Por ejemplo, si el nombre es `MyExample6442`, la dirección URL será `MyExample6442.azurewebsites.net`. La dirección URL debe ser única. Si elige una dirección URL que ya haya usado otro usuario, aparecerá un signo de exclamación rojo a la derecha, en lugar de una marca de verificación verde, y tendrá que especificar otro nombre.
 
 4. En la lista desplegable **Plan del Servicio de aplicaciones**, seleccione **Crear nuevo plan del Servicio de aplicaciones**.
 
@@ -172,7 +172,7 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 	 
 		Can reduce first-request warm up times for large applications.
 
-	* Excluir archivos de la carpeta App\_Data. 
+	* Excluir archivos de la carpeta App_Data. 
 	 
 		For testing you sometimes have a SQL Server database file in App_Data which you don't want to deploy to production.
 	
@@ -230,7 +230,7 @@ En esta sección del tutorial, cambiará el título **h1** de la página princip
 
 	![Aplicación web modificada implementada](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
 
-**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para que la implementación sea aún más rápida. Haga clic en **Vista** \> **Barras de herramientas** y, a continuación, seleccione **Publicación en Web con un solo clic**. La barra de herramientas permite seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**.
+**Sugerencia:** puede habilitar la barra de herramientas **Publicación en Web con un solo clic** para que la implementación sea aún más rápida. Haga clic en **Vista** > **Barras de herramientas** y, a continuación, seleccione **Publicación en Web con un solo clic**. La barra de herramientas permite seleccionar un perfil, hacer clic en un botón para publicar o hacer clic en un botón para abrir el Asistente para **publicación web**.
 
 ![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
 
@@ -240,11 +240,11 @@ El [Portal de administración de Azure](/services/management-portal/) es una int
   
 1. En el explorador, vaya a [http://portal.azure.com]() e inicie sesión con sus credenciales de Azure.
 
-2. Haga clic en **Examinar \> Aplicaciones Web** y, a continuación, haga clic en el nombre de la aplicación web.
+2. Haga clic en **Examinar > Aplicaciones Web** y, a continuación, haga clic en el nombre de la aplicación web.
 
 	La hoja **Aplicación web** de la aplicación web muestra información general de las estadísticas de uso y vínculos de las funciones de administración de aplicaciones web que más se usan.
   
-	![Hoja de aplicación Web](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)--\>
+	![Hoja de aplicación Web](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
 
 	Por ahora, la aplicación web no ha tenido mucho tráfico y puede que no se muestre nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página la página del portal, verá que aparecen algunas estadísticas.
 
@@ -252,7 +252,7 @@ El [Portal de administración de Azure](/services/management-portal/) es una int
 
 	Verá una lista de los tipos de configuración.
   
-	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)--\>
+	![](./media/web-sites-dotnet-get-started-vs2013/portalconfigure1.png)-->
 
 4. Haga clic en **Configuración de la aplicación** para ver un ejemplo de los tipos de configuración que se pueden establecer en el portal.
 
@@ -272,7 +272,7 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 	En este tutorial ha visto el método más rápido para crear una aplicación web sencilla e implementarlo en una aplicación web de Azure. Para obtener información general sobre otras formas de implementación, ya sea con Visual Studio o con [automatización de la implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Implementación de una aplicación web de Azure](web-sites-deploy.md).
 
-	Visual Studio también puede generar scripts de Windows PowerShell que permiten automatizar la implementación. Para obtener más información, consulte [Automatizar todo \(creación de aplicaciones en la nube para el mundo real con Azure\)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	Visual Studio también puede generar scripts de Windows PowerShell que permiten automatizar la implementación. Para obtener más información, consulte [Automatizar todo (creación de aplicaciones en la nube para el mundo real con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
 * Administración de aplicaciones web en Visual Studio
 
@@ -288,7 +288,7 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 * Incorporación de un nombre de dominio personalizado y SSL
 
-	Para obtener información acerca de cómo utilizar SSL y su propio dominio \(por ejemplo, www.contoso.com, en lugar de contoso.azurewebsites.net\), consulte los siguientes recursos:
+	Para obtener información acerca de cómo utilizar SSL y su propio dominio (por ejemplo, www.contoso.com, en lugar de contoso.azurewebsites.net), consulte los siguientes recursos:
 
 	* [Configuración de un nombre de dominio personalizado para un sitio web de Azure](web-sites-custom-domain-name.md). 
 	* [Habilitación de HTTPS en un sitio web de Azure](web-sites-configure-ssl-certificate.md)
@@ -297,9 +297,9 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 	De forma predeterminada, las aplicaciones web se descargan si han estado inactivas durante algún tiempo. La primera solicitud después de este tiempo de inactividad tiene que esperar a que la aplicación web se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, consulte las opciones de configuración de [Configuración de aplicaciones web](web-sites-configure.md).
 
-* Cómo agregar características en tiempo real \(por ejemplo, chat\)
+* Cómo agregar características en tiempo real (por ejemplo, chat)
 
-	Si la aplicación web va a incluir características en tiempo real \(como un servicio de chat, un juego, un tablero de cotizaciones, etc.\), se puede optimizar el rendimiento usando [ASP.NET SignalR](http://www.asp.net/signalr) con el método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obtener más información, consulte [Uso de SignalR con aplicaciones web de Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
+	Si la aplicación web va a incluir características en tiempo real (como un servicio de chat, un juego, un tablero de cotizaciones, etc.), se puede optimizar el rendimiento usando [ASP.NET SignalR](http://www.asp.net/signalr) con el método de transporte [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/). Para obtener más información, consulte [Uso de SignalR con aplicaciones web de Azure](http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/using-signalr-with-windows-azure-web-sites).
 
 * Selección entre Servicio de aplicaciones, Servicios en la nube y Máquinas virtuales de Azure para aplicaciones web
 

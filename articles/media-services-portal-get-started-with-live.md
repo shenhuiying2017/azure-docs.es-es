@@ -28,8 +28,8 @@ En este tutorial, se utiliza el Portal de administración de Azure para realizar
 
 2.  Configurar extremos de streaming
 3.  Crear un canal
-1.  Configurar un codificador en vivo e introducir la secuencia en vivo en el canal \(se utiliza Wirecast en este paso\)
-1.  Crear un programa \(y un recurso\)
+1.  Configurar un codificador en vivo e introducir la secuencia en vivo en el canal (se utiliza Wirecast en este paso)
+1.  Crear un programa (y un recurso)
 1.  Publicar el recurso y obtener las direcciones URL de streaming  
 1.  Reproducir el contenido 
 2.  Limpiar
@@ -44,9 +44,9 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 	 
 ##Configuración de extremos de streaming con el Portal
 
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming \(HLS\), Smooth Streaming, MPEG DASH y HDS \(únicamente para licenciatarios de Adobe PrimeTime/Access\).
+Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
-Cuando se trabaja con streaming en vivo, un codificador en directo local \(en nuestro caso Wirecast\) introduce una secuencia en vivo de velocidad de bits múltiple en el canal. Cuando un usuario solicita el stream, Servicios multimedia usa paquetes dinámicos para volver a empaquetar la secuencia de origen en la secuencia de velocidad de bits adaptativa solicitado \(HLS, DASH o Smooth\).
+Cuando se trabaja con streaming en vivo, un codificador en directo local (en nuestro caso Wirecast) introduce una secuencia en vivo de velocidad de bits múltiple en el canal. Cuando un usuario solicita el stream, Servicios multimedia usa paquetes dinámicos para volver a empaquetar la secuencia de origen en la secuencia de velocidad de bits adaptativa solicitado (HLS, DASH o Smooth).
 
 Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el **extremo de streaming** desde el que va a entregar el contenido.
 
@@ -161,7 +161,7 @@ Si cambia a la página **CONTENIDO**, verá los recursos que se crearon para los
 
 ##Reproducción de contenido
 
-Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso \(tal como se describió en la sección anterior\) mediante la creación de un localizador \(cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente\). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
+Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
 
 Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\\programa.
 
@@ -171,11 +171,11 @@ De manera predeterminada, una dirección URL de streaming tiene el siguiente for
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Para generar una dirección URL de streaming de HLS, anexe \(format=m3u8-aapl\) a la dirección URL.
+Para generar una dirección URL de streaming de HLS, anexe (format=m3u8-aapl) a la dirección URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Para generar una dirección URL de streaming de MPEG DASH, anexe \(format=mpd-time-csf\) a la dirección URL.
+Para generar una dirección URL de streaming de MPEG DASH, anexe (format=mpd-time-csf) a la dirección URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

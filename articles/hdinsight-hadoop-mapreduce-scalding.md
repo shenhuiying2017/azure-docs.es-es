@@ -140,15 +140,15 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
     * **repositories**: los repositorios que contienen los archivos de dependencia utilizados por este proyecto.
 
-    * **scalding-core\_2.11** y **hadoop-core**: este proyecto depende de los paquetes principales de Scalding y Hadoop.
+    * **scalding-core_2.11** y **hadoop-core**: este proyecto depende de los paquetes principales de Scalding y Hadoop.
 
     * **maven-scala-plugin**: complemento para compilar aplicaciones de Scala
 
-    * **maven-shade-plugin**: complemento para crear productos sombreados \(fat\). Este complemento aplica filtros y transformaciones; específicamente:
+    * **maven-shade-plugin**: complemento para crear productos sombreados (fat). Este complemento aplica filtros y transformaciones; específicamente:
 
-        * **filters**: The filters applied modify the meta information included with in the jar file. To prevent signing exceptions at runtime, this excludes various signature files that may be included with dependencies.
+        * **filtros**: los filtros aplicados modifican la metainformación con el archivo jar. Para evitar excepciones de firma en tiempo de ejecución, lo que excluye varios archivos de firma que se pueden incluir con dependencias.
 
-        * **executions**: The package phase execution configuration specifies the **com.twitter.scalding.Tool** class as the main class for the package. Without this, you would need to specify com.twitter.scalding.Tool, as well as the class that contains the application logic, when running the job with the hadoop command.
+        * **ejecuciones**: la configuración de ejecución de fase del paquete especifica la clase **com.twitter.scalding.Tool** como la clase principal para dicho paquete. Sin ella, necesitaría especificar com.twitter.scalding.Tool, así como la clase que contiene la aplicación lógica, cuando se ejecuta el trabajo con el comando de Haddop.
 
 3. Elimine el directorio **src/test**, ya que no creará pruebas en este ejemplo.
 

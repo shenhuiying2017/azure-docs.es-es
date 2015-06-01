@@ -183,11 +183,11 @@ en todo el servidor. Para obtener más información, consulte [Administrar bases
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use el procedimiento almacenado **sp\_addrolemember** para dar a la cuenta de usuario
+-   Use el procedimiento almacenado **sp_addrolemember** para dar a la cuenta de usuario
     el nivel apropiado de permisos sobre la base de datos. Para
     obtener más información, consulte [sp_addrolemember (Transact-SQL)][]. La instrucción siguiente otorga permisos de solo lectura **login1User**
     para la base de datos al agregar **login1User** al
-    rol **db\_datareader**.
+    rol **db_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -213,7 +213,7 @@ en todo el servidor. Para obtener más información, consulte [Administrar bases
 
         DROP LOGIN login1;
 
--   La base de datos maestra tiene la vista **sys.sql\_logins** que puede usar
+-   La base de datos maestra tiene la vista **sys.sql_logins** que puede usar
     para ver inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la instrucción
     siguiente:
 
@@ -234,8 +234,8 @@ todos los detalles y más ejemplos de uso, consulte [Supervisar Base de datos SQ
 
         GRANT VIEW DATABASE STATE TO login1User;
 
--   Calcule el tamaño de la base de datos con la vista **sys.dm\_db\_partition\_stats**
-    . La vista **sys.dm\_db\_partition\_stats** devuelve información de página y
+-   Calcule el tamaño de la base de datos con la vista **sys.dm_db_partition_stats**
+    . La vista **sys.dm_db_partition_stats** devuelve información de página y
     recuento de filas para cada partición de la base de datos, que se puede
     usar para calcular el tamaño de la base de datos. La consulta siguiente devuelve
     el tamaño de la base de datos en megabytes:
@@ -243,7 +243,7 @@ todos los detalles y más ejemplos de uso, consulte [Supervisar Base de datos SQ
         SELECT SUM(reserved_page_count)*8.0/1024
         FROM sys.dm_db_partition_stats;   
 
--   Use las vistas **sys.dm\_exec\_connections** y **sys.dm\_exec\_sessions**
+-   Use las vistas **sys.dm_exec_connections** y **sys.dm_exec_sessions**
     para recuperar información acerca de las conexiones de usuario actuales y
     de las tareas internas asociadas con la base de datos. La siguiente consulta
     devuelve información acerca de la conexión actual:
@@ -259,7 +259,7 @@ todos los detalles y más ejemplos de uso, consulte [Supervisar Base de datos SQ
             INNER JOIN sys.dm_exec_connections e
               ON s.session_id = e.session_id;
 
--   Use la vista **sys.dm\_exec\_query\_stats** para recuperar estadísticas de rendimiento agregadas
+-   Use la vista **sys.dm_exec_query_stats** para recuperar estadísticas de rendimiento agregadas
     para planes de consulta en caché. La siguiente consulta
     devuelve información acerca de las cinco primeras consultas clasificadas por promedio
     de tiempo de CPU.

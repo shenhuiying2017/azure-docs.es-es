@@ -24,36 +24,36 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 ## Problemas SDK descubiertos por un error en otra área de la aplicación
 
 ### Problema
-- Error de colección de datos de interfaz de usuario \(en el análisis, supervisión, segmentación o paneles\).
-- Errores de inserción \(las inserciones no funcionan en la aplicación, fuera de la aplicación o en ambos\).
-- Fallos de función avanzados \(no funcionan el seguimiento, la geolocalización o las inserciones específicas de plataforma\).
-- Errores de la API \(las API fallan a menudo de manera silenciosa sin que se muestren mensajes de error\).
-- Errores del servicio \(ninguno de los Azure Mobile Engagement funciona para su aplicación\).
+- Error de colección de datos de interfaz de usuario (en el análisis, supervisión, segmentación o paneles).
+- Errores de inserción (las inserciones no funcionan en la aplicación, fuera de la aplicación o en ambos).
+- Fallos de función avanzados (no funcionan el seguimiento, la geolocalización o las inserciones específicas de plataforma).
+- Errores de la API (las API fallan a menudo de manera silenciosa sin que se muestren mensajes de error).
+- Errores del servicio (ninguno de los Azure Mobile Engagement funciona para su aplicación).
 
 ### Causas
 
-- La mayoría de errores que necesitan resolverse con el SDK de Azure Mobile Engagement se descubrirán mediante un fallo en su aplicación \(por ejemplo, un error de recopilación de datos de interfaz de usuario, un error de inserción, un error de función avanzada, un error de API, bloqueos de aplicación o una interrupción del servicio aparente\).  
+- La mayoría de errores que necesitan resolverse con el SDK de Azure Mobile Engagement se descubrirán mediante un fallo en su aplicación (por ejemplo, un error de recopilación de datos de interfaz de usuario, un error de inserción, un error de función avanzada, un error de API, bloqueos de aplicación o una interrupción del servicio aparente).  
 - Si una función determinada de Azure Mobile Engagement nunca ha funcionado en la aplicación antes, deberá completar la integración. 
-- Si una función determinada de Azure Mobile Engagement funcionaba y se detuvo, puede que necesite actualizar a la última versión con el SDK de Azure Mobile Engagement. Recuerde que hay una versión diferente del SDK de Azure Mobile Engagement para cada plataforma compatible con Azure Mobile Engagement \(Android, iOS, Web, Windows y Windows Phone\).
+- Si una función determinada de Azure Mobile Engagement funcionaba y se detuvo, puede que necesite actualizar a la última versión con el SDK de Azure Mobile Engagement. Recuerde que hay una versión diferente del SDK de Azure Mobile Engagement para cada plataforma compatible con Azure Mobile Engagement (Android, iOS, Web, Windows y Windows Phone).
 
 #### Integración de SDK
 
-- Azure Mobile Engagement no integrado correctamente en el SDK \(análisis\).
-- Cobertura no integrada correctamente en SDK \(inserciones dentro y fuera de la aplicación\).
-- Certificado caducado o PROD frente a DEV incorrecto \(únicamente iOS\).
-- GCM o ADM incorrectamente integrado en el SDK \(solo en Android - Inserciones específicas del servicio\).
-- Seguimiento incorrectamente integrado en el SDK \(instalar el seguimiento de la tienda\).
-- Ubicación diferida o ubicación de GPS incorrectamente integrada en el SDK \(orientación mediante ubicación geográfica\). [Documentación del SDK - Guías de integración][Link 5], [Guía de solución de problemas - Inserción][Link 23]
+- Azure Mobile Engagement no integrado correctamente en el SDK (análisis).
+- Cobertura no integrada correctamente en SDK (inserciones dentro y fuera de la aplicación).
+- Certificado caducado o PROD frente a DEV incorrecto (únicamente iOS).
+- GCM o ADM incorrectamente integrado en el SDK (solo en Android - Inserciones específicas del servicio).
+- Seguimiento incorrectamente integrado en el SDK (instalar el seguimiento de la tienda).
+- Ubicación diferida o ubicación de GPS incorrectamente integrada en el SDK (orientación mediante ubicación geográfica). [Documentación del SDK - Guías de integración][Link 5], [Guía de solución de problemas - Inserción][Link 23]
 
 #### Actualización del SDK
 
-- Debe actualizar el SDK para resolver problemas con versiones anteriores del SDK \(a menudo relacionados con las versiones más recientes del sistema operativo del dispositivo\).
-- Desinstale todas las versiones anteriores de la aplicación del dispositivo y vuelva a instalar la versión más reciente de la aplicación, vuelva a registrar el identificador de dispositivo desde la interfaz de usuario de Azure Mobile Engagement para confirmar que el dispositivo está utilizando la versión más reciente de la aplicación. [Documentación del SDK - Notas de la versión](http://go.microsoft.com/fwlink/?LinkId= 525554\), [Documentación del SDK - Guías de actualización](http://go.microsoft.com/fwlink/?LinkId= 525554\), [Documentación de la interfaz de usuario - Configuración][Link 20]
+- Debe actualizar el SDK para resolver problemas con versiones anteriores del SDK (a menudo relacionados con las versiones más recientes del sistema operativo del dispositivo).
+- Desinstale todas las versiones anteriores de la aplicación del dispositivo y vuelva a instalar la versión más reciente de la aplicación, vuelva a registrar el identificador de dispositivo desde la interfaz de usuario de Azure Mobile Engagement para confirmar que el dispositivo está utilizando la versión más reciente de la aplicación. [Documentación del SDK - Notas de la versión](http://go.microsoft.com/fwlink/?LinkId= 525554), [Documentación del SDK - Guías de actualización](http://go.microsoft.com/fwlink/?LinkId= 525554), [Documentación de la interfaz de usuario - Configuración][Link 20]
 
 #### Otros errores del SDK
 
 - Los errores en las secciones de código relacionados con Azure Mobile Engagement pueden provocar que este no funcione.
-- Los errores en el manifiesto de la aplicación "AndroidManifest.xml" pueden provocar que Azure Mobile Engagement no funcione \(solo en Android\).
+- Los errores en el manifiesto de la aplicación "AndroidManifest.xml" pueden provocar que Azure Mobile Engagement no funcione (solo en Android).
 - Un problema común con la integración de SDK y 
 - el uso de la API es confundir la clave de SDK y la clave de la API. [Conceptos - Glosario][Link 6]
 
@@ -64,18 +64,18 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 ### Causas
 
-- Muchos problemas de codificación avanzada con Azure Mobile Engagement están provocados por códigos específicos de plataforma escritos incorrectamente no relacionados directamente con Azure Mobile Engagement. Deberá consultar la documentación específica de la plataforma para la que está desarrollando además de la documentación de Azure Mobile Engagement \(Android, iOS, Web, Windows y Windows Phone\).
-- No configurar correctamente las "categorías" impide la vinculación desde una notificación a otra ubicación dentro o fuera de la aplicación \(solo Android\). 
-- No establecer "UIKit.framework" en "opcional" en el código de iOS provoca que se muestre un "Error de símbolo no encontrado" o bloqueos en los dispositivos iOS antiguos \(únicamente en iOS\).
-- Los certificados caducados o que no usan la versión de DEV o PROD correctamente causan errores de inserción \(únicamente iOS\).
-- Existen algunas limitaciones inherentes a una plataforma que Azure Mobile Engagement no puede controlar \(por ejemplo, cómo funciona el centro del sistema para las inserciones fuera de la aplicación en iOS y Android\).
-- Azure Mobile Engagement publica una lista completa de los paquetes internos utilizados por Azure Mobile Engagement para iOS y Android a modo de referencia. Tenga en cuenta que algunas funciones de Azure Mobile Engagement son específicas de la plataforma \(Android, iOS, Web, Windows y Windows Phone\).
+- Muchos problemas de codificación avanzada con Azure Mobile Engagement están provocados por códigos específicos de plataforma escritos incorrectamente no relacionados directamente con Azure Mobile Engagement. Deberá consultar la documentación específica de la plataforma para la que está desarrollando además de la documentación de Azure Mobile Engagement (Android, iOS, Web, Windows y Windows Phone).
+- No configurar correctamente las "categorías" impide la vinculación desde una notificación a otra ubicación dentro o fuera de la aplicación (solo Android). 
+- No establecer "UIKit.framework" en "opcional" en el código de iOS provoca que se muestre un "Error de símbolo no encontrado" o bloqueos en los dispositivos iOS antiguos (únicamente en iOS).
+- Los certificados caducados o que no usan la versión de DEV o PROD correctamente causan errores de inserción (únicamente iOS).
+- Existen algunas limitaciones inherentes a una plataforma que Azure Mobile Engagement no puede controlar (por ejemplo, cómo funciona el centro del sistema para las inserciones fuera de la aplicación en iOS y Android).
+- Azure Mobile Engagement publica una lista completa de los paquetes internos utilizados por Azure Mobile Engagement para iOS y Android a modo de referencia. Tenga en cuenta que algunas funciones de Azure Mobile Engagement son específicas de la plataforma (Android, iOS, Web, Windows y Windows Phone).
 - Los SDK de cada plataforma se escribe en los lenguajes de programación siguientes:
     -     SDK de Android escrito en Java
     -     SDK de iOS escrito en C objetivo
     -     SDK web escrito en JavaScript
-    -     SDK de Windows escrito en C\# y JavaScript
-    -     SDK de Windows Phone escrito en C\# y JavaScript
+    -     SDK de Windows escrito en C# y JavaScript
+    -     SDK de Windows Phone escrito en C# y JavaScript
 
 ### Consulte también
 
@@ -104,7 +104,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 ### Causas
 
-- Las tiendas de aplicaciones a veces bloquean aplicaciones con ciertas funciones habilitadas \(la tienda iTunes impide el uso de IDFV en las aplicaciones de la tienda y la tienda GooglePlay impide el uso compartido de información de la aplicación entre las aplicaciones\). 
+- Las tiendas de aplicaciones a veces bloquean aplicaciones con ciertas funciones habilitadas (la tienda iTunes impide el uso de IDFV en las aplicaciones de la tienda y la tienda GooglePlay impide el uso compartido de información de la aplicación entre las aplicaciones). 
 - Asegúrese de comprobar las notas de la versión acerca de la plataforma y la versión actual del SDK si tiene dificultades para cargar una aplicación en la tienda.
 
 ### Consulte también

@@ -34,7 +34,7 @@ El uso de Visión operativa como un servicio adjunto tiene los siguientes requis
 
 - System Center 2012 R2: paquete acumulativo de actualizaciones 2 de Operations Manager, aunque es preferible el paquete acumulativo de actualizaciones 3. Esta actualización debe aplicarse al servidor de administración, a los agentes y a la consola de Operations para Visión operativa como un escenario de servicio adjunto.
 
-- Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con Virtual Machine Manager \(VMM\). Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](https://technet.microsoft.com/es-es/library/hh882396.aspx).
+- Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](https://technet.microsoft.com/es-es/library/hh882396.aspx).
 
 Consulte [Visualización de alertas de Visión operativa](http://go.microsoft.com/fwlink/?LinkID=293793) para obtener instrucciones de instalación y configuración.
 
@@ -45,7 +45,7 @@ Si quiere ver las alertas de Visión operativa acerca de SharePoint Server 2010,
 
 - [Definición de la cuenta de ejecución para Lync Server](operational-insights-run-as.md)
 
-- [Definición de la cuenta de ejecución para Virtual Machine Manager \(VMM\)](operational-insights-run-as.md)
+- [Definición de la cuenta de ejecución para Virtual Machine Manager (VMM)](operational-insights-run-as.md)
 
 ### Sistemas operativos de Operations Manager
 

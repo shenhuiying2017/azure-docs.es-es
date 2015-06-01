@@ -123,7 +123,7 @@ Los servidores físicos protegidos o las máquinas virtuales VMWare con Windows 
 
 - Un sistema operativo de 64 bits compatible: Windows Server 2012 R2, Windows Server 2012 o Windows Server 2008 R2 con SP1 al menos.
 - El nombre de host, los puntos de montaje, los nombres de dispositivo, la ruta de acceso de sistema de Windows (p. ej.: C:\Windows) deben estar en inglés únicamente.
-- El sistema operativo debe instalarse en la unidad C:\.
+- El sistema operativo debe instalarse en la unidad C:.
 - Se admiten las opciones de almacenamiento normales para servidores Windows.
 - Las reglas de firewall en los equipos protegidos deben permitirles llegar a la configuración y a los servidores de destino principales de Azure. 
 - Después de la conmutación por error, si desea conectarse a máquinas virtuales de Microsoft Azure con Escritorio remoto, asegúrese de que Escritorio remoto está habilitado en el equipo local. Si no se conecta a través de las reglas de firewall de VPN, debe permitir las conexiones de escritorio remoto a través de Internet.

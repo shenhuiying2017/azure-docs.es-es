@@ -97,7 +97,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
 1.  En el [Portal de administración de Azure][], haga clic en **COMPLEMENTOS** y, a continuación, haga clic en el servicio de MongoLab que ha creado anteriormente.
 
-1.  Haga clic en **INFORMACIÓN DE CONEXIÓN**.  Puede usar el botón Copiar para colocar el valor de **MONGOLAB\_URI** en el Portapapeles.
+1.  Haga clic en **INFORMACIÓN DE CONEXIÓN**.  Puede usar el botón Copiar para colocar el valor de **MONGOLAB_URI** en el Portapapeles.
 
   	![Cuadro de diálogo Información de conexión](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -127,17 +127,17 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
 Puede usar una aplicación como [RoboMongo][] para consultar una base de datos MongoDB y realizar modificaciones en ella.  En esta sección, vamos a utilizar RoboMongo para ver el contenido de la base de datos de la aplicación de sondeos.
 
-1.  Cree una conexión nueva.  Necesitará el valor de **MONGOLAB\_URI** que hemos recuperado en la sección anterior.
+1.  Cree una conexión nueva.  Necesitará el valor de **MONGOLAB_URI** que hemos recuperado en la sección anterior.
 
     Tenga en cuenta el formato del URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     El nombre coincide con el nombre indicado al crear el servicio con Azure.  Se usa para el nombre de la base de datos y para el nombre de usuario.
 
-1.  En la página de conexión, establezca el valor **Nombre** con el nombre que desee para la conexión.  Establezca también los campos **Dirección** y **Puerto** para la  *address* y el  *port* de **MONGOLAB\_URI**.
+1.  En la página de conexión, establezca el valor **Nombre** con el nombre que desee para la conexión.  Establezca también los campos **Dirección** y **Puerto** para la  *address* y el  *port* de **MONGOLAB_URI**.
 
   	![Cuadro de diálogo Configuración de conexión](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  En la página de autenticación, establezca **Base de datos** y **Nombre de usuario** con el  *name* de **MONGOLAB\_URI**.  Establezca también el valor **Contraseña** para la  *password* de **MONGOLAB\_URI**.
+1.  En la página de autenticación, establezca **Base de datos** y **Nombre de usuario** con el  *name* de **MONGOLAB_URI**.  Establezca también el valor **Contraseña** para la  *password* de **MONGOLAB_URI**.
 
   	![Cuadro de diálogo Configuración de conexión](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -177,7 +177,7 @@ En esta sección, vamos a configurar las variables del entorno para el sitio.
 
   	![Menú superior](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png)
 
-1.  Desplácese hacia abajo hasta la sección **Configuración de la aplicación** y establezca los valores para **REPOSITORY\_NAME**, **MONGODB\_HOST** y **MONGODB\_DATABASE**, como se describe en la sección anterior.
+1.  Desplácese hacia abajo hasta la sección **Configuración de la aplicación** y establezca los valores para **REPOSITORY_NAME**, **MONGODB_HOST** y **MONGODB_DATABASE**, como se describe en la sección anterior.
 
   	![Configuración de aplicaciones](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png)
 

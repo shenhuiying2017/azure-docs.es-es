@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Uso del Portal de administración para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits \(vista previa\)
+#Uso del Portal de administración para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)
 
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
@@ -28,7 +28,7 @@ Este tutorial le guía por los pasos para crear un **canal** que reciba una secu
 
 A continuación se indican los pasos generales para crear aplicaciones comunes de streaming en vivo.
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP \(MPEG-TS\). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Este paso también puede realizarse después de crear el canal.
 
@@ -41,14 +41,14 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
 
-3. Cree un programa \(que también creará un recurso\).
-1. Publique el programa \(que creará un localizador a petición para el recurso asociado\).  
+3. Cree un programa (que también creará un recurso).
+1. Publique el programa (que creará un localizador a petición para el recurso asociado).  
 
 	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa \(y, opcionalmente, elimine el recurso\).   
+1. Elimine el programa (y, opcionalmente, elimine el recurso).   
 
 ##Apartados de este tutorial
 
@@ -57,7 +57,7 @@ En este tutorial, se utiliza el Portal de administración de Azure para realizar
 2.  Configure de extremos de streaming.
 3.  Cree un canal que está habilitado para realizar la codificación en directo.
 1.  Obtenga la URL de introducción para proporcionarla al codificador en directo. El codificador en directo utilizará esta dirección URL para introducir la secuencia en el canal.
-1.  Crear un programa \(y un recurso\)
+1.  Crear un programa (y un recurso)
 1.  Publicar el recurso y obtener las direcciones URL de streaming  
 1.  Reproducir el contenido 
 2.  Limpiar
@@ -71,9 +71,9 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 
 ##Configuración de extremos de streaming con el Portal
 
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming \(HLS\), Smooth Streaming, MPEG DASH y HDS \(únicamente para licenciatarios de Adobe PrimeTime/Access\).
+Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
-Cuando se trabaja con streaming en vivo, un codificador en directo local \(en nuestro caso Wirecast\) introduce una secuencia en vivo de velocidad de bits múltiple en el canal. Cuando un usuario solicita el stream, Servicios multimedia usa paquetes dinámicos para volver a empaquetar la secuencia de origen en la secuencia de velocidad de bits adaptativa solicitado \(HLS, DASH o Smooth\).
+Cuando se trabaja con streaming en vivo, un codificador en directo local (en nuestro caso Wirecast) introduce una secuencia en vivo de velocidad de bits múltiple en el canal. Cuando un usuario solicita el stream, Servicios multimedia usa paquetes dinámicos para volver a empaquetar la secuencia de origen en la secuencia de velocidad de bits adaptativa solicitado (HLS, DASH o Smooth).
 
 Para aprovechar al máximo el empaquetado dinámico, debe obtener al menos una unidad de streaming para el **extremo de streaming** desde el que va a entregar el contenido.
 
@@ -109,9 +109,9 @@ Elija los tipos de codificación **Estándar**. Este tipo especifica que desea c
 
 Para el tipo de codificación **Estándar**, las opciones del protocolo de introducción válidas son las siguientes:
 
-- MP4 fragmentado de velocidad de bits única \(Smooth Streaming\)
+- MP4 fragmentado de velocidad de bits única (Smooth Streaming)
 - RTMP de velocidad de bits única
-- RTP \(MPEG-TS\): secuencia de transporte MPEG-2 a través de RTP.
+- RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
 
 Para obtener una explicación detallada sobre cada protocolo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md) 
 
@@ -129,7 +129,7 @@ En la página **Valores preestablecidos de codificación**, puede seleccionar lo
 
 ![standard3][standard3]
 
-En la página **Creación de canal** puede definir las direcciones IP permitidas para publicar vídeo en el canal. Las direcciones IP permitidas se pueden especificar como dirección IP individual \(por ejemplo, ‘10.0.0.1’\), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR \(por ejemplo, ‘10.0.0.1/22’\) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos \(por ejemplo, ‘10.0.0.1\(255.255.252.0\)’\).
+En la página **Creación de canal** puede definir las direcciones IP permitidas para publicar vídeo en el canal. Las direcciones IP permitidas se pueden especificar como dirección IP individual (por ejemplo, ‘10.0.0.1’), un intervalo de direcciones IP mediante una dirección IP y una máscara de subred CIDR (por ejemplo, ‘10.0.0.1/22’) o un intervalo de direcciones IP mediante una dirección IP y una máscara de subred decimal con puntos (por ejemplo, ‘10.0.0.1(255.255.252.0)’).
 
 Si no se especifican direcciones IP y no hay ninguna definición de regla, no se permitirá ninguna dirección IP. Para permitir las direcciones IP, cree una regla y establezca 0.0.0.0/0.
 
@@ -216,7 +216,7 @@ Si cambia a la página **CONTENIDO**, verá los recursos que se crearon para los
 
 ##Reproducción de contenido
 
-Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso \(tal como se describió en la sección anterior\) mediante la creación de un localizador \(cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente\). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
+Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
 
 Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\\programa.
 
@@ -226,11 +226,11 @@ De manera predeterminada, una dirección URL de streaming tiene el siguiente for
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-Para generar una dirección URL de streaming de HLS, anexe \(format=m3u8-aapl\) a la dirección URL.
+Para generar una dirección URL de streaming de HLS, anexe (format=m3u8-aapl) a la dirección URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
-Para generar una dirección URL de streaming de MPEG DASH, anexe \(format=mpd-time-csf\) a la dirección URL.
+Para generar una dirección URL de streaming de MPEG DASH, anexe (format=mpd-time-csf) a la dirección URL.
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 

@@ -23,61 +23,61 @@ Este documento describe las API de recomendaciones de Aprendizaje automático de
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-##1\. Información general
+##1. Información general
 Este documento es una referencia de API. Debe empezar con el documento "Recomendación de Aprendizaje automático de Azure: Inicio rápido".
 
 La API de recomendaciones de Aprendizaje automático de Azure se puede dividir en 8 grupos:
 
-1.	<ins>Modelo básico</ins>: las API que le permiten realizar las operaciones básicas en el modelo \(por ejemplo, crear, actualizar y eliminar un modelo\).
+1.	<ins>Modelo básico</ins>: las API que le permiten realizar las operaciones básicas en el modelo (por ejemplo, crear, actualizar y eliminar un modelo).
 2.	<ins>Modelo avanzado</ins>: las API que le permiten obtener información avanzada de datos en el modelo
 3.	<ins>Reglas de negocio de modelo</ins>: las API que le permiten administrar reglas de negocio en los resultados de recomendación de modelo.
 4.	<ins>Catálogo</ins>: las API que le permiten realizar operaciones básicas en un catálogo de modelo. Un catálogo contiene información de metadatos sobre los elementos de los datos de uso.
-5.	<ins>Datos de uso</ins>: las API que le permiten realizar operaciones básicas en los datos de uso del modelo. Los datos de uso de la forma básica constan de filas que incluyen pares de &\#60;userId&\#62;,&\#60;itemId&\#62;.
+5.	<ins>Datos de uso</ins>: las API que le permiten realizar operaciones básicas en los datos de uso del modelo. Los datos de uso de la forma básica constan de filas que incluyen pares de &#60;userId&#62;,&#60;itemId&#62;.
 6.	<ins>Compilación</ins>: las API que le permiten desencadenar una compilación de modelo y realizar operaciones básicas relacionadas con esta compilación. Puede desencadenar una compilación de modelo una vez que tenga datos de uso valiosos.
 7.	<ins>Recomendación</ins>: las API que le permiten usar recomendaciones  una vez que la compilación de un modelo finaliza.
-8.	<ins>Notificaciones</ins>: las API que le permiten recibir notificaciones acerca de los problemas relacionados con las operaciones de API. \(Por ejemplo, notifica el uso de los datos a través de la adquisición de datos y la mayor parte del procesamiento de eventos está dando errores. Se generará una notificación de error\).
+8.	<ins>Notificaciones</ins>: las API que le permiten recibir notificaciones acerca de los problemas relacionados con las operaciones de API. (Por ejemplo, notifica el uso de los datos a través de la adquisición de datos y la mayor parte del procesamiento de eventos está dando errores. Se generará una notificación de error).
 
-##2\. Temas avanzados
+##2. Temas avanzados
 
-###2\.1. Calidad de recomendación
+###2.1. Calidad de recomendación
 
-La creación de un modelo de recomendación suele ser suficiente para permitir que el sistema proporcione recomendaciones. No obstante, la calidad de recomendación varía según el uso procesado y la cobertura del catálogo. Por ejemplo si tiene muchos elementos fríos \(sin uso significativo\), el sistema tendrá dificultades para proporcionar una recomendación para un elemento de este tipo o para usar un elemento de este tipo como recomendado. Para solucionar el problema con los elementos fríos, el sistema permite el uso de metadatos de los elementos para mejorar las recomendaciones. Estos metadatos se conocen como características. Características típicas son el autor de un libro o el actor de una película. Las características se proporcionan mediante el catálogo en forma de cadenas de clave y valor. Para obtener el formato completo del archivo de catálogo, consulte la [sección sobre la importación del catálogo](#81-import-catalog-data). En la siguiente sección se explica el uso de características para mejorar el modelo de recomendación.
+La creación de un modelo de recomendación suele ser suficiente para permitir que el sistema proporcione recomendaciones. No obstante, la calidad de recomendación varía según el uso procesado y la cobertura del catálogo. Por ejemplo si tiene muchos elementos fríos (sin uso significativo), el sistema tendrá dificultades para proporcionar una recomendación para un elemento de este tipo o para usar un elemento de este tipo como recomendado. Para solucionar el problema con los elementos fríos, el sistema permite el uso de metadatos de los elementos para mejorar las recomendaciones. Estos metadatos se conocen como características. Características típicas son el autor de un libro o el actor de una película. Las características se proporcionan mediante el catálogo en forma de cadenas de clave y valor. Para obtener el formato completo del archivo de catálogo, consulte la [sección sobre la importación del catálogo](#81-import-catalog-data). En la siguiente sección se explica el uso de características para mejorar el modelo de recomendación.
 
-###2\.2. Compilación de rango
+###2.2. Compilación de rango
 
-Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba. Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista \(o sublista\) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`. Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
+Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba. Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`. Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
 
-###2\.3. Razonamiento de recomendación
+###2.3. Razonamiento de recomendación
 
-El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones \(también conocido como razonamiento\), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación. Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
+El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones (también conocido como razonamiento), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación. Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
 
-##3\. Limitaciones
+##3. Limitaciones
 
 - El número máximo de modelos por suscripción es 10.
 - El número máximo de elementos que puede contener un catálogo es 100 000.
-- El número máximo de puntos de uso que se mantienen es \~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
-- El tamaño máximo de datos que puede enviarse en POST \(por ejemplo, importar datos de catálogo, importar datos de uso\) es de 200 MB
-- El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es \~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
+- El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
+- El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB
+- El número de transacciones por segundo para una compilación de modelo de recomendación que no está activa es ~ 2TPS. Una compilación de modelo de recomendación que está activa puede contener hasta 20TPS.
 
-##4\. API: información general
+##4. API: información general
 
-###4\.1. Autenticación
+###4.1. Autenticación
 Siga las directrices de Microsoft Azure Marketplace con respecto a la autenticación. Marketplace admite métodos de autenticación Básica o OAuth.
 
-###4\.2. URI de servicio
+###4.2. URI de servicio
 El URI raíz de servicio para cada una de las API de recomendaciones de Aprendizaje automático de Azure se encuentra [aquí](https://api.datamarket.azure.com/amla/recommendations/v2/).
 
 El URI de servicio completo se expresa mediante elementos de la especificación de OData.
 
-###4\.3. Versión de API
+###4.3. Versión de API
 Cada llamada a la API tendrá al final el parámetro de consulta denominado apiVersion que debe estar establecido en 1.0
 
-###4\.4. Los Id. distinguen mayúsculas de minúsculas
+###4.4. Los Id. distinguen mayúsculas de minúsculas
 Los Id., devueltos por cualquiera de las API, distinguen mayúsculas de minúsculas y deben usarse como tales cuando se pasan como parámetros en las sucesivas llamadas a API. Por ejemplo, los Id. de modelo y de catálogo distinguen mayúsculas de minúsculas.
 
-##5\. Modelo básico
+##5. Modelo básico
 
-###5\.1. Crear modelo
+###5.1. Crear modelo
 Crea una solicitud "crear modelo".
 
 | Método HTTP | URI |
@@ -86,8 +86,8 @@ Crea una solicitud "crear modelo".
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	modelName |	Solo se permiten letras \(A-Z, a-z\), números \(0-9\), guiones \(-\) y caracteres de subrayado \(\_\).<br>Longitud máxima: 20 |
-|	apiVersion | 1\.0 |
+|	modelName |	Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (_).<br>Longitud máxima: 20 |
+|	apiVersion | 1.0 |
 | Cuerpo de la solicitud | NONE |
 
 
@@ -127,7 +127,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###5\.2. Obtener modelo
+###5.2. Obtener modelo
 Crea una solicitud "obtener modelo".
 
 | Método HTTP | URI |
@@ -136,9 +136,9 @@ Crea una solicitud "obtener modelo".
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	id |	El identificador único del modelo  \(distingue mayúsculas de minúsculas\) |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	id |	El identificador único del modelo  (distingue mayúsculas de minúsculas) |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -154,7 +154,7 @@ Los datos del modelo pueden encontrarse en los siguientes elementos:
 	- ReadyForBuild: el modelo se crea y contiene Catálogo y Uso.
 - `feed/entry/content/properties/HasActiveBuild`: indica si el modelo se creó correctamente.
 - `feed/entry/content/properties/BuildId` : id. de compilación activa del modelo.
-- `feed/entry/content/properties/Mpr`: clasificación percentil de promedio del modelo \(MPR, consulte ModelInsight para obtener más información\).
+- `feed/entry/content/properties/Mpr`: clasificación percentil de promedio del modelo (MPR, consulte ModelInsight para obtener más información).
 - `feed/entry/content/properties/UserName`: nombre de usuario interno del modelo.
 
 OData XML
@@ -190,7 +190,7 @@ OData XML
 	  </entry>
 	</feed>
 
-###5\.3. Obtener todos los modelos
+###5.3. Obtener todos los modelos
 Recupera todos los modelos del usuario actual.
 
 | Método HTTP | URI |
@@ -199,8 +199,8 @@ Recupera todos los modelos del usuario actual.
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| NONE \|
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -214,7 +214,7 @@ código de estado HTTP: 200
   - ReadyForBuild: el modelo se crea y contiene Catálogo y Uso.
 - `feed/entry/content/properties/HasActiveBuild`: indica si el modelo se creó correctamente.
 - `feed/entry/content/properties/BuildId` : id. de compilación activa del modelo.
-- `feed/entry/content/properties/Mpr`: MPR del modelo \(consulte ModelInsight para obtener más información\).
+- `feed/entry/content/properties/Mpr`: MPR del modelo (consulte ModelInsight para obtener más información).
 - `feed/entry/content/properties/UserName`: nombre de usuario interno del modelo.
 - `feed/entry/content/properties/UsageFileNames`: lista de archivos de uso del modelo separados por coma.
 - `feed/entry/content/properties/CatalogId`: id. de catálogo del modelo.
@@ -255,7 +255,7 @@ OData XML
 		</entry>
 	</feed>
 
-###5\.4. Actualizar modelo
+###5.4. Actualizar modelo
 
 Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un Id. de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
@@ -266,15 +266,15 @@ Puede actualizar la descripción del modelo o el Id. de compilación activa.<br>
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	id | El identificador único del modelo  \(distingue mayúsculas de minúsculas\) |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera.\|
+|	id | El identificador único del modelo  (distingue mayúsculas de minúsculas) |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera.|
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-###5\.5. Eliminar modelo
+###5.5. Eliminar modelo
 Elimina un modelo existente por el Id.
 
 | Método HTTP | URI |
@@ -283,9 +283,9 @@ Elimina un modelo existente por el Id.
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	id |	El identificador único del modelo  \(distingue mayúsculas de minúsculas\) |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	id |	El identificador único del modelo  (distingue mayúsculas de minúsculas) |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -313,9 +313,9 @@ OData XML
 	  </entry>
 	</feed>
 
-##6\. Modelo avanzado
+##6. Modelo avanzado
 
-###6\.1. Modelo de detalles de datos
+###6.1. Modelo de detalles de datos
 Devuelve datos estadísticos sobre los datos de uso con los que se compiló este modelo.
 
 Disponible solo para la compilación de recomendación.
@@ -327,8 +327,8 @@ Disponible solo para la compilación de recomendación.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| NONE \|
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -550,8 +550,8 @@ OData XML
     </entry>
     </feed>
 
-###6\.2. Perspectiva de modelo
-Devuelve información del modelo sobre la compilación activa o \(si se indica\) sobre una compilación concreta.
+###6.2. Perspectiva de modelo
+Devuelve información del modelo sobre la compilación activa o (si se indica) sobre una compilación concreta.
 
 Disponible solo para la compilación de recomendación.
 
@@ -563,8 +563,8 @@ Disponible solo para la compilación de recomendación.
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	buildId |	Opcional: número que identifica una compilación correcta. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -632,7 +632,7 @@ OData XML
 	</entry>
 	</feed>
 
-###6\.3. Obtener el ejemplo de modelo
+###6.3. Obtener el ejemplo de modelo
 Obtiene un ejemplo del modelo de recomendación.
 
 | Método HTTP | URI |
@@ -642,8 +642,8 @@ Obtiene un ejemplo del modelo de recomendación.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -782,11 +782,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-##7\. Reglas de negocio de modelo
-Hay 4 tipos de reglas: <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación. <strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación. <strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación \(lo contrario a BlockList\). <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
+##7. Reglas de negocio de modelo
+Hay 4 tipos de reglas: <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no desea devolver en los resultados de la recomendación. <strong>Upsale</strong>: le permite exigir los elementos que se devolverán en los resultados de la recomendación. <strong>WhiteList</strong>: le permite proporcionar la lista de elementos que solo se pueden devolver como resultados de recomendación (lo contrario a BlockList). <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
 
-###7\.1. Obtener reglas de modelo
+###7.1. Obtener reglas de modelo
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -795,8 +795,8 @@ Hay 4 tipos de reglas: <strong>BlockList</strong>: le permite proporcionar una l
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -843,7 +843,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7\.2. Agregar regla
+###7.2. Agregar regla
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -851,8 +851,8 @@ OData XML
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| <ins>Para agregar la regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`\|
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | <ins>Para agregar la regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Para agregar la regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Respuesta**:
 
@@ -888,7 +888,7 @@ OData XML
 	</entry>
 	</feed>
 
-###7\.3. Eliminar regla
+###7.3. Eliminar regla
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -898,14 +898,14 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	filterId |	Identificador único del filtro |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-###7\.4. Eliminar todas las reglas
+###7.4. Eliminar todas las reglas
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -914,16 +914,16 @@ código de estado HTTP: 200
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| NONE \|
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-##8\. Catálogo
+##8. Catálogo
 
-###8\.1. Importar datos de catálogo
+###8.1. Importar datos de catálogo
 
 Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, solo insertaremos los nuevos elementos de catálogo. Los elementos existentes permanecerán con los valores originales. Los datos del catálogo no se pueden actualizar con este método.
 
@@ -935,14 +935,14 @@ Los datos del catálogo deben seguir el siguiente formato:
 
 Nota: el tamaño máximo de archivo es de 200 MB.
 
-\*\* Detalles de formato \*\*
+** Detalles de formato **
 
 | Nombre | Obligatorio | Tipo | Descripción |
 |:---|:---|:---|:---|
-| Id. de elemento |Sí | [A-z], [a-z], [0-9], \[\_\] &\#40;Underscore&\#41;, [\-] &\#40;Dash&\#41;<br> Longitud máxima: 50 | Identificador único de un elemento. |
+| Id. de elemento |Sí | [A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [\-] &#40;Dash&#41;<br> Longitud máxima: 50 | Identificador único de un elemento. |
 | Nombre del elemento | Sí | Cualquier carácter alfanumérico<br> Longitud máxima: 255 | Nombre del elemento. | 
-| Categoría del elemento | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | La categoría a la que pertenece este elemento \(por ejemplo, Libros de cocina, Drama...\); puede estar vacía. |
-| Descripción | No, a menos que haya características \(pero puede estar vacía\) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este elemento. |
+| Categoría del elemento | Sí | Cualquier carácter alfanumérico <br> Longitud máxima: 255 | La categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Drama...); puede estar vacía. |
+| Descripción | No, a menos que haya características (pero puede estar vacía) | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Descripción de este elemento. |
 | Lista de características | No | Cualquier carácter alfanumérico <br> Longitud máxima: 4000 | Lista separada de nombre de característica = valor de característica separados por coma que puede utilizarse para mejorar la recomendación del modelo; consulte la sección [Temas avanzados](#2-advanced-topics). |
 
 
@@ -953,9 +953,9 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras \(A-Z, a-z\), números \(0-9\), guiones \(-\) y carácter de subrayado \(\_\).<br>Longitud máxima: 50 |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| Ejemplo \(con características\):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction \(Byzantium Book\),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> \|
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (_).<br>Longitud máxima: 50 |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | Ejemplo (con características):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Respuesta**:
@@ -987,7 +987,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8\.2. Obtener catálogo
+###8.2. Obtener catálogo
 Recupera todos los elementos del catálogo.
 
 | Método HTTP | URI |
@@ -997,8 +997,8 @@ Recupera todos los elementos del catálogo.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1089,7 +1089,7 @@ OData XML
 	</entry>
 	</feed>
 
-###8\.3. Obtener elementos de catálogo por token
+###8.3. Obtener elementos de catálogo por token
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -1099,8 +1099,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	token |	Token del nombre de elemento de catálogo. Debe contener al menos 3 caracteres. |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1142,9 +1142,9 @@ OData XML
 		</entry>
 	</feed>
 
-##9\. Datos de uso
-###9\.1. Importar datos de uso
-####9\.1.1. Carga de archivos
+##9. Datos de uso
+###9.1. Importar datos de uso
+####9.1.1. Carga de archivos
 En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede llamar a esta API varias veces con datos de uso. Todos los datos de uso se guardarán para todas las llamadas.
 
 | Método HTTP | URI |
@@ -1154,9 +1154,9 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
-| filename | Identificador textual del catálogo.<br>Solo se permiten letras \(A-Z, a-z\), números \(0-9\), guiones \(-\) y carácter de subrayado \(\_\).<br>Longitud máxima: 50 |
-|	apiVersion | 1\.0 |
-\| Cuerpo de la solicitud \| Datos de uso. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], \[\_\] &\#40;Underscore&\#41;, [\-] &\#40;Dash&\#41;<br> Max length: 255 </td><td>Unique identifier of a user.</td></tr><tr><td>Item Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [&\#95;] &\#40;Underscore&\#41;, [\-] &\#40;Dash&\#41;<br> Max length: 50</td><td>Unique identifier of an item.</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS \(e.g. 2013/06/20T10:00:00\)</td><td>Time of data.</td></tr><tr><td>Event</td><td>No; if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size: 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> \|
+| filename | Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (_).<br>Longitud máxima: 50 |
+|	apiVersion | 1.0 |
+| Cuerpo de la solicitud | Datos de uso. Format:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>User Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;Underscore&#41;, [\-] &#40;Dash&#41;<br> Max length: 255 </td><td>Unique identifier of a user.</td></tr><tr><td>Item Id</td><td>Yes</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Underscore&#41;, [\-] &#40;Dash&#41;<br> Max length: 50</td><td>Unique identifier of an item.</td></tr><tr><td>Time</td><td>No</td><td>Date in format: YYYY/MM/DDTHH:MM:SS (e.g. 2013/06/20T10:00:00)</td><td>Time of data.</td></tr><tr><td>Event</td><td>No; if supplied then must also put date</td><td>One of the following:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Maximum file size: 200MB<br><br>Example:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Respuesta**:
 
@@ -1191,7 +1191,7 @@ OData XML
 	</feed>
 
 
-####9\.1.2. Uso de la adquisición de datos
+####9.1.2. Uso de la adquisición de datos
 En esta sección se muestra cómo enviar eventos en tiempo real a las recomendaciones de Aprendizaje automático de Azure, normalmente desde su sitio web.
 
 | Método HTTP | URI |
@@ -1200,8 +1200,8 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-|	apiVersion | 1\.0 |
-|Cuerpo de la solicitud| Entrada de datos de eventos para cada evento que va a enviar. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. \(Vea el ejemplo del cuerpo de evento aparece a continuación\).|
+|	apiVersion | 1.0 |
+|Cuerpo de la solicitud| Entrada de datos de eventos para cada evento que va a enviar. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. (Vea el ejemplo del cuerpo de evento aparece a continuación).|
 
 
 - Ejemplo para evento 'Click':
@@ -1296,7 +1296,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 **Respuesta**: código de estado HTTP: 200
 
-###9\.2. Mostrar archivos de uso de modelo
+###9.2. Mostrar archivos de uso de modelo
 Recupera los metadatos de todos los archivos de uso de modelo.
 
 | Método HTTP | URI |
@@ -1306,8 +1306,8 @@ Recupera los metadatos de todos los archivos de uso de modelo.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	forModelId |	Identificador único del modelo |
-|	apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+|	apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1359,7 +1359,7 @@ OData XML
 	</entry>
 </feed>
 
-###9\.3. Obtener estadísticas de uso
+###9.3. Obtener estadísticas de uso
 Obtiene estadísticas de uso.
 
 | Método HTTP | URI |
@@ -1372,8 +1372,8 @@ Obtiene estadísticas de uso.
 | startDate |	Fecha de inicio. Formato: aaaa/MM/ddTHH:mm:ss |
 | endDate |	Fecha de fin. Formato: aaaa/MM/ddTHH:mm:ss |
 | eventTypes |	Cadena de tipos de eventos separados por coma o null para obtener todos los eventos. |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1381,7 +1381,7 @@ código de estado HTTP: 200
 
 Una colección de elementos de clave y valor. Cada uno contiene la suma de eventos para un tipo de evento concreto agrupados por hora.
 
-- `feed\entry[i]\content\properties\Key`: contiene el tiempo \(agrupado por hora\) y el tipo de evento.
+- `feed\entry[i]\content\properties\Key`: contiene el tiempo (agrupado por hora) y el tipo de evento.
 - `feed\entry[i]\content\properties\Value`: recuento total de eventos.
 
 OData XML
@@ -1443,7 +1443,7 @@ OData XML
 	</entry>
 	</feed>
 
-###9\.4. Obtener ejemplo de archivo de uso
+###9.4. Obtener ejemplo de archivo de uso
 Recupera los primeros 2 KB de contenido de archivos de uso.
 
 | Método HTTP | URI |
@@ -1454,8 +1454,8 @@ Recupera los primeros 2 KB de contenido de archivos de uso.
 |:--------			|:--------								|
 | modelId |	Identificador único del modelo |
 | fileId |	Identificador único del archivo de uso de modelo |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1464,7 +1464,7 @@ código de estado HTTP: 200
 La respuesta se devuelve en formato de texto sin procesar: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 
-###9\.5. Obtener el archivo de uso de modelo
+###9.5. Obtener el archivo de uso de modelo
 Recupera el contenido completo del archivo de uso.
 
 | Método HTTP | URI |
@@ -1476,8 +1476,8 @@ Recupera el contenido completo del archivo de uso.
 | mId |	Identificador único del modelo |
 | fid |	Identificador único del archivo de uso de modelo |
 | descargar | 1 |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
@@ -1485,7 +1485,7 @@ código de estado HTTP: 200
 
 La respuesta se devuelve en formato de texto sin procesar: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
-###9\.6. Eliminar archivo de uso
+###9.6. Eliminar archivo de uso
 Elimina el archivo de uso del modelo especificado.
 
 | Método HTTP | URI |
@@ -1496,15 +1496,15 @@ Elimina el archivo de uso del modelo especificado.
 |:--------			|:--------								|
 | modelId |	Identificador único del modelo |
 | fileId | Identificador único del archivo que se va a eliminar |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
 
-###9\.7. Eliminar todos los archivos de uso
+###9.7. Eliminar todos los archivos de uso
 Elimina todos los archivos de uso del modelo.
 
 | Método HTTP | URI |
@@ -1514,17 +1514,17 @@ Elimina todos los archivos de uso del modelo.
 | Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | modelId |	Identificador único del modelo |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-##10\. Características
-En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada \(sucede si se invoca esta API antes de completar la primera compilación de rango\). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
+##10. Características
+En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
 
-###10\.1. Obtener información de características \(para la última compilación de rango\)
+###10.1. Obtener información de características (para la última compilación de rango)
 Recupera la información de características, incluida la clasificación de la última compilación correcta de rango.
 
 | Método HTTP | URI |
@@ -1535,8 +1535,8 @@ Recupera la información de características, incluida la clasificación de la �
 |:--------			|:--------								|
 | modelId |	Identificador único del modelo |
 |samplingSize| Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo. <br/>Los valores posibles son:<br> -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica.|
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -1546,8 +1546,8 @@ código de estado HTTP: 200
 La respuesta contiene una lista de entradas de información de características. Cada entrada contiene:
 
 - `feed/entry/content/m:properties/d:Name`: nombre de la característica.
-- `feed/entry/content/m:properties/d:RankUpdateDate`:-fecha en la que se asignó el rango a esta característica, también conocida como característica de actualización de puntuación. Una fecha histórica \('0001-01-01T00:00:00'\) significa que no se ha realizado ninguna compilación de rango.
-- `feed/entry/content/m:properties/d:Rank`: rango de característica \(flotante\). Un rango de 2.0 para arriba se considera una buena característica.
+- `feed/entry/content/m:properties/d:RankUpdateDate`:-fecha en la que se asignó el rango a esta característica, también conocida como característica de actualización de puntuación. Una fecha histórica ('0001-01-01T00:00:00') significa que no se ha realizado ninguna compilación de rango.
+- `feed/entry/content/m:properties/d:Rank`: rango de característica (flotante). Un rango de 2.0 para arriba se considera una buena característica.
 - `feed/entry/content/m:properties/d:SampleValues`: lista de valores separados por coma hasta el tamaño de muestreo solicitado.
 
 OData XML
@@ -1604,7 +1604,7 @@ OData XML
 </feed>
 
 
-###10\.2. Obtener información de características \(para una compilación de rango específica\)
+###10.2. Obtener información de características (para una compilación de rango específica)
 
 Recupera la información de características, incluida la clasificación de una compilación de rango específica.
 
@@ -1617,8 +1617,8 @@ Recupera la información de características, incluida la clasificación de una 
 | modelId |	Identificador único del modelo |
 |samplingSize| Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo.<br/> Los valores posibles son:<br> -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica.|
 |rankBuildId| Identificador único de la compilación de rango o -1 para la última compilación de rango|
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 
 **Respuesta**:
@@ -1628,8 +1628,8 @@ código de estado HTTP: 200
 La respuesta contiene una lista de entradas de información de características. Cada entrada contiene:
 
 - `feed/entry/content/m:properties/d:Name`: nombre de la característica.
-- `feed/entry/content/m:properties/d:RankUpdateDate`:-fecha en la que se asignó el rango a esta característica, también conocida como característica de actualización de puntuación. Una fecha histórica \('0001-01-01T00:00:00'\) significa que no se ha realizado ninguna compilación de rango.
-- `feed/entry/content/m:properties/d:Rank`: rango de característica \(flotante\). Un rango de 2.0 para arriba se considera una buena característica.
+- `feed/entry/content/m:properties/d:RankUpdateDate`:-fecha en la que se asignó el rango a esta característica, también conocida como característica de actualización de puntuación. Una fecha histórica ('0001-01-01T00:00:00') significa que no se ha realizado ninguna compilación de rango.
+- `feed/entry/content/m:properties/d:Rank`: rango de característica (flotante). Un rango de 2.0 para arriba se considera una buena característica.
 - `feed/entry/content/m:properties/d:SampleValues`: lista de valores separados por coma hasta el tamaño de muestreo solicitado.
 
 OData
@@ -1686,31 +1686,31 @@ OData
 	</feed>
 
 
-##11\. Compilación
+##11. Compilación
 
   En esta sección se explican las diferentes API relacionadas con compilaciones. Hay tres tipos de compilación: una compilación de recomendación, una compilación de rango y una compilación FBT.
 
 La compilación de recomendación se usa para generar un modelo de recomendación que se usa en las predicciones.
 
-Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado en un modelo de recomendación relacionado con características, debe realizar los siguientes pasos: - Desencadene una compilación de rango \(a no ser que la puntuación de sus características sea estable\) y espere a obtener la puntuación de las características. - Recupere el rango de sus características mediante la llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build). - Configure una compilación de recomendación con los siguientes parámetros: - `useFeatureInModel` - Establecer en True. - `ModelingFeatureList` - Establecer en una lista de características separadas por coma con una puntuación de 2,0 o más \(según los rangos recuperados en el paso anterior\). - `AllowColdItemPlacement` - Establecer en True. - De manera opcional puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea usar para las explicaciones \(normalmente la misma lista de características usada en el modelado o una sublista\). - Desencadene la compilación de recomendación con los parámetros configurados.
+Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado en un modelo de recomendación relacionado con características, debe realizar los siguientes pasos: - Desencadene una compilación de rango (a no ser que la puntuación de sus características sea estable) y espere a obtener la puntuación de las características. - Recupere el rango de sus características mediante la llamada a la API [Obtener información de características](#101-get-features-info-for-last-rank-build). - Configure una compilación de recomendación con los siguientes parámetros: - `useFeatureInModel` - Establecer en True. - `ModelingFeatureList` - Establecer en una lista de características separadas por coma con una puntuación de 2,0 o más (según los rangos recuperados en el paso anterior). - `AllowColdItemPlacement` - Establecer en True. - De manera opcional puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que desea usar para las explicaciones (normalmente la misma lista de características usada en el modelado o una sublista). - Desencadene la compilación de recomendación con los parámetros configurados.
 
-Nota: si no configura ningún parámetro \(por ejemplo, invoca la compilación de recomendación sin parámetros\) o no deshabilita explícitamente el uso de características \(por ejemplo, `UseFeatureInModel` se establece en False\), el sistema configurará los parámetros relacionados con características para los valores explicados anteriormente en caso de que exista una compilación de rango.
+Nota: si no configura ningún parámetro (por ejemplo, invoca la compilación de recomendación sin parámetros) o no deshabilita explícitamente el uso de características (por ejemplo, `UseFeatureInModel` se establece en False), el sistema configurará los parámetros relacionados con características para los valores explicados anteriormente en caso de que exista una compilación de rango.
 
 No hay ninguna restricción sobre la ejecución de una compilación de rango y una compilación de recomendación al mismo tiempo para el mismo modelo. No obstante, no puede ejecutar dos compilaciones del mismo tipo en el mismo modelo en paralelo.
 
-Una compilación FBT \(con frecuencia se compra junto\) es otro algoritmo de recomendación denominado a veces recomendador "conservador", que resulta conveniente para catálogos que no sean de naturaleza homogénea \(homogéneo: libros, películas, algunos alimentos, moda; no homogéneo: equipos y dispositivos, entre dominios, gran diversidad\).
+Una compilación FBT (con frecuencia se compra junto) es otro algoritmo de recomendación denominado a veces recomendador "conservador", que resulta conveniente para catálogos que no sean de naturaleza homogénea (homogéneo: libros, películas, algunos alimentos, moda; no homogéneo: equipos y dispositivos, entre dominios, gran diversidad).
 
 Nota: si los archivos de uso que ha cargado contienen el campo opcional "tipo de evento", para el modelado FBT solo se usarán eventos de "Compra". Si no se proporciona ningún tipo de evento, se tomarán todos los eventos para el modelado.
 
 
-####11\.1 Parámetros de compilación
+####11.1 Parámetros de compilación
 
-Cada tipo de compilación puede configurarse a través de un conjunto de parámetros \(se muestra a continuación\). Si no configura los parámetros, el sistema atribuirá automáticamente valores a los parámetros según la información presente en el momento de desencadenar una compilación.
+Cada tipo de compilación puede configurarse a través de un conjunto de parámetros (se muestra a continuación). Si no configura los parámetros, el sistema atribuirá automáticamente valores a los parámetros según la información presente en el momento de desencadenar una compilación.
 
-#####11\.1.1. Condensador de uso
+#####11.1.1. Condensador de uso
 Los usuarios o elementos con pocos puntos de uso podrían contener más ruido de información. El sistema intenta predecir el número mínimo de puntos de uso por usuario o elemento que se usarán en un modelo. Este número estará dentro del intervalo definido por los parámetros ItemCutoffLowerBound y ItemCutoffUpperBound para elementos, y el intervalo definido por los parámetros UserCutOffLowerBound y UserCutoffUpperBound para usuarios. El efecto del condensador sobre los elementos o usuarios se puede reducir mediante el establecimiento de al menos uno de los límites correspondientes en cero.
 
-#####11\.1.2. Parámetros de compilación de rango
+#####11.1.2. Parámetros de compilación de rango
 
 En la tabla siguiente se describen los parámetros de compilación para una compilación de rango.
 
@@ -1718,42 +1718,42 @@ En la tabla siguiente se describen los parámetros de compilación para una comp
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
-|ItemCutOffLowerBound| Define el límite inferior de elemento del condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
+|ItemCutOffLowerBound| Define el límite inferior de elemento del condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 
-#####11\.1.3. Parámetros de compilación de recomendación
+#####11.1.3. Parámetros de compilación de recomendación
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
 |Clave|Descripción|Tipo|Valor válido|
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
-|ItemCutOffLowerBound| Define el límite inferior de elemento del condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
+|ItemCutOffLowerBound| Define el límite inferior de elemento del condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 | Descripción | Descripción de la compilación. | Cadena | Cualquier texto, máximo 512 caracteres |
 | EnableModelingInsights | Permite calcular métricas en el modelo de recomendación. | Booleano | True/False |
 | UseFeaturesInModel | Indica si se pueden utilizar características para mejorar el modelo de recomendación. | Booleano | True/False |
 | ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | Cadena | Nombres de características, hasta 512 caracteres |
 | AllowColdItemPlacement | Indica si la recomendación también debería insertar elementos fríos a través de la similitud de características. | Booleano | True/False |
 | EnableFeatureCorrelation | Indica si se pueden utilizar características en el razonamiento. | Booleano | True/False |
-| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones \(por ejemplo, explicaciones de recomendación\). | Cadena | Nombres de características, hasta 512 caracteres |
+| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). | Cadena | Nombres de características, hasta 512 caracteres |
 
-#####11\.1.4. Parámetros de compilación FBT
+#####11.1.4. Parámetros de compilación FBT
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
-|Clave|Descripción|Tipo|Valor válido \(predeterminado\)|
+|Clave|Descripción|Tipo|Valor válido (predeterminado)|
 |:-----|:----|:----|:---|
-|FbtSupportThreshold | Cómo es el modelo conservador. Número de concurrencias de elementos que deben tenerse en cuenta para el modelado.| Entero | 3-50 \(6\) |
-|FbtMaxItemSetSize | Limita el número de elementos en un conjunto frecuente.| Entero | 2-3 \(2\) |
-|FbtMinimalScore | Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. Cuanto mayor sea mejor.| Doble | 0 y superior \(0\) |
+|FbtSupportThreshold | Cómo es el modelo conservador. Número de concurrencias de elementos que deben tenerse en cuenta para el modelado.| Entero | 3-50 (6) |
+|FbtMaxItemSetSize | Limita el número de elementos en un conjunto frecuente.| Entero | 2-3 (2) |
+|FbtMinimalScore | Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. Cuanto mayor sea mejor.| Doble | 0 y superior (0) |
 
-###11\.2. Desencadenar una compilación de recomendación
+###11.2. Desencadenar una compilación de recomendación
 
-  De forma predeterminada, esta API desencadenará una compilación de modelo de recomendación. Para desencadenar una compilación de rango \(a fin de puntuar características\), debe usarse la variante de API de compilación con el parámetro de tipo de compilación.
+  De forma predeterminada, esta API desencadenará una compilación de modelo de recomendación. Para desencadenar una compilación de rango (a fin de puntuar características), debe usarse la variante de API de compilación con el parámetro de tipo de compilación.
 
 
 | Método HTTP | URI |
@@ -1764,8 +1764,8 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 |:--------			|:--------								|
 | modelId |	Identificador único del modelo |
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. \(Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros\).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` \|
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -1827,7 +1827,7 @@ OData XML
   	</entry>
 	</feed>
 
-###11\.3. Desencadenar compilación \(recomendación, rango o FBT\)
+###11.3. Desencadenar compilación (recomendación, rango o FBT)
 
 | Método HTTP | URI |
 |:--------|:--------|
@@ -1838,8 +1838,8 @@ OData XML
 | modelId |	Identificador único del modelo |
 | userDescription | Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
 | buildType | Tipo de la compilación que se invocará: <br/> - 'Recomendación' para compilación de recomendación <br> - 'Rango' para compilación de rango <br/> - 'Fbt' para compilación FBT
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud \| Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. \(Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros\).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` \|
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | Si se deja vacío, la compilación se ejecutará con los parámetros de compilación predeterminados.<br><br>Si desea establecer los parámetros de compilación, envíe los parámetros como XML en el cuerpo como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Respuesta**:
 
@@ -1903,7 +1903,7 @@ OData XML
 
 
 
-###11\.4. Obtener el estado de compilación de un modelo
+###11.4. Obtener el estado de compilación de un modelo
 Recupera las compilaciones y su estado para un modelo especificado.
 
 | Método HTTP | URI |
@@ -1915,7 +1915,7 @@ Recupera las compilaciones y su estado para un modelo especificado.
 |:--------			|:--------								|
 |	modelId |	Identificador único del modelo |
 |	onlyLastBuild |	Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **Respuesta**:
@@ -1927,12 +1927,12 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/UserName`: nombre del usuario.
 - `feed/entry/content/properties/ModelName`: nombre del modelo.
 - `feed/entry/content/properties/ModelId`: identificador único de modelo.
-- `feed/entry/content/properties/IsDeployed` : si se implementa la compilación \(también conocido como compilación activa\).
+- `feed/entry/content/properties/IsDeployed` : si se implementa la compilación (también conocido como compilación activa).
 - `feed/entry/content/properties/BuildId`: identificador único de compilación.
 - `feed/entry/content/properties/BuildType`: tipo de la compilación.
 - `feed/entry/content/properties/Status`: estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelling, Cancelled o Success.
-- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado \(se aplica sólo a estados concretos\).
-- `feed/entry/content/properties/Progress`: progreso de la compilación \(%\).
+- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica sólo a estados concretos).
+- `feed/entry/content/properties/Progress`: progreso de la compilación (%).
 - `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
 - `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
@@ -1987,7 +1987,7 @@ OData XML
 	</feed>
 
 
-###11\.5. Obtener estado de compilación
+###11.5. Obtener estado de compilación
 Recupera los estados de compilación de todos los modelos de un usuario
 
 | Método HTTP | URI |
@@ -1998,7 +1998,7 @@ Recupera los estados de compilación de todos los modelos de un usuario
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 |	onlyLastBuild |	Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente. |
-|	apiVersion |	1\.0 |
+|	apiVersion |	1.0 |
 
 
 **Respuesta**:
@@ -2014,8 +2014,8 @@ La respuesta incluye una entrada por compilación. Cada entrada tiene los siguie
 - `feed/entry/content/properties/BuildId`: identificador único de compilación.
 - `feed/entry/content/properties/BuildType`: tipo de la compilación.
 - `feed/entry/content/properties/Status`: estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelled, Cancelling o Success.
-- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado \(se aplica sólo a estados concretos\).
-- `feed/entry/content/properties/Progress`: progreso de la compilación \(%\).
+- `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica sólo a estados concretos).
+- `feed/entry/content/properties/Progress`: progreso de la compilación (%).
 - `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
 - `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
 - `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
@@ -2063,7 +2063,7 @@ OData XML
 	</feed>
 
 
-###11\.6. Eliminar compilación
+###11.6. Eliminar compilación
 Elimina una compilación.
 
 NOTA: <br>no se puede eliminar una compilación activa. El modelo se debe actualizar a una compilación activa diferente antes de eliminarlo.<br>No puede eliminar una compilación en curso. La compilación se debe cancelar primero llamando <strong>Cancelar compilación</strong>.
@@ -2075,13 +2075,13 @@ NOTA: <br>no se puede eliminar una compilación activa. El modelo se debe actual
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | buildId | Identificador único de la compilación. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Respuesta:**
 
 código de estado HTTP: 200
 
-###11\.7. Cancelar compilación
+###11.7. Cancelar compilación
 Cancela una compilación que se encuentra en estado Building.
 
 | Método HTTP | URI |
@@ -2091,13 +2091,13 @@ Cancela una compilación que se encuentra en estado Building.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | buildId | Identificador único de la compilación. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Respuesta:**
 
 código de estado HTTP: 200
 
-###11\.8. Obtener parámetros de compilación
+###11.8. Obtener parámetros de compilación
 Recupera parámetros de compilación.
 
 | Método HTTP | URI |
@@ -2107,7 +2107,7 @@ Recupera parámetros de compilación.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | buildId | Identificador único de la compilación. |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Respuesta:**
 
@@ -2121,17 +2121,17 @@ En la tabla siguiente se muestra el valor que representa cada clave.
 |:-----|:----|:----|:---|
 |NumberOfModelIterations | El número de iteraciones que realiza el modelo se refleja en el tiempo de proceso total y la precisión del modelo. Cuanto mayor sea el número, más precisión se obtendrá, pero el tiempo de proceso tardará más.| Entero | 10-50 |
 | NumberOfModelDimensions | El número de dimensiones se relaciona con el número de 'características' que el modelo intentará buscar dentro de los datos. Aumentar el número de dimensiones le permitirá ajustar mejor los resultados en clústeres más pequeños. Sin embargo, demasiadas dimensiones impiden que el modelo encuentre correlaciones entre los elementos. | Entero | 10-40 |
-|ItemCutOffLowerBound| Define el límite inferior de elemento del condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
-|UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más \(0 deshabilita el condensador\) |
+|ItemCutOffLowerBound| Define el límite inferior de elemento del condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|ItemCutOffUpperBound| Define el límite superior de elemento para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|UserCutOffLowerBound| Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
+|UserCutOffUpperBound| Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. | Entero | 2 o más (0 deshabilita el condensador) |
 | Descripción | Descripción de la compilación. | Cadena | Cualquier texto, máximo 512 caracteres |
 | EnableModelingInsights | Permite calcular métricas en el modelo de recomendación. | Booleano | True/False |
 | UseFeaturesInModel | Indica si se pueden utilizar características para mejorar el modelo de recomendación. | Booleano | True/False |
 | ModelingFeatureList | Lista de nombres de características separados por coma que se usará en la compilación de recomendación para mejorar la recomendación. | Cadena | Nombres de características, hasta 512 caracteres |
 | AllowColdItemPlacement | Indica si la recomendación también debería insertar elementos fríos a través de la similitud de características. | Booleano | True/False |
 | EnableFeatureCorrelation | Indica si se pueden utilizar características en el razonamiento. | Booleano | True/False |
-| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones \(por ejemplo, explicaciones de recomendación\). | Cadena | Nombres de características, hasta 512 caracteres |
+| ReasoningFeatureList | Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). | Cadena | Nombres de características, hasta 512 caracteres |
 
 
 OData XML
@@ -2301,8 +2301,8 @@ OData XML
 		</entry>
 	</feed>
 
-##12\. Recomendación
-###12\.1. Obtener recomendaciones
+##12. Recomendación
+###12.1. Obtener recomendaciones
 
 Obtiene recomendaciones de la compilación activa de tipo "Recommendation" o "Fbt".
 
@@ -2316,14 +2316,14 @@ Obtiene recomendaciones de la compilación activa de tipo "Recommendation" o "Fb
 | itemIds | Lista de elementos para recomendar separados por coma. <br>Si la compilación activa es de tipo FBT, entonces solo puede enviar un elemento. <br>Longitud máxima: 1024 |
 | numberOfResults | Número de resultados requeridos |
 | includeMetatadata | Uso futuro, siempre es false |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Respuesta:**
 
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación \(por ejemplo, explicaciones de recomendación\).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo a continuación se incluyen 10 elementos recomendados.
 
@@ -2478,7 +2478,7 @@ OData XML
  	 </entry>
 	</feed>
 
-###12\.2. Obtener recomendaciones \(de una compilación concreta\)
+###12.2. Obtener recomendaciones (de una compilación concreta)
 
 Obtiene recomendaciones de una compilación concreta de tipo "Recomendación" o "Fbt".
 
@@ -2493,22 +2493,22 @@ Obtiene recomendaciones de una compilación concreta de tipo "Recomendación" o 
 | numberOfResults | Número de resultados requeridos |
 | includeMetatadata | Uso futuro, siempre es false
 | buildId | el id. de compilación que se utilizará en esta solicitud de recomendación |
-| apiVersion | 1\.0 |
+| apiVersion | 1.0 |
 
 **Respuesta:**
 
 código de estado HTTP: 200
 
 
-La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación \(por ejemplo, explicaciones de recomendación\).
+La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tiene los datos siguientes:- `Feed\entry\content\properties\Id`: id. de elemento recomendado - `Feed\entry\content\properties\Name`: nombre del elemento. - `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza. - `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
-##13\. Notificaciones
+##13. Notificaciones
 Las recomendaciones de Aprendizaje automático de Azure crean notificaciones cuando se producen errores persistentes en el sistema. Hay 3 tipos de notificaciones: 1. Error de compilación: esta notificación se desencadena con cada error de compilación. 2. Error de procesamiento de adquisición de datos: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de eventos de uso por modelo. 3. Error de consumo de recomendación: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de solicitudes de recomendación por modelo.
 
 
-###13\.1. Obtener notificaciones
+###13.1. Obtener notificaciones
 Recupera todas las notificaciones para todos los modelos o para un solo modelo.
 
 | Método HTTP | URI |
@@ -2519,8 +2519,8 @@ Recupera todas las notificaciones para todos los modelos o para un solo modelo.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | modelId | Parámetro opcional. Cuando se omite, obtendrá todas las notificaciones para todos los modelos. <br>Valor válido: identificador único del modelo.|
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta:**
 
@@ -2559,7 +2559,7 @@ OData XML
 		</entry>
 	</feed>
 
-###13\.2. Eliminar notificaciones de modelo
+###13.2. Eliminar notificaciones de modelo
 Elimina todas las notificaciones de lectura para un modelo.
 
 | Método HTTP | URI |
@@ -2570,14 +2570,14 @@ Elimina todas las notificaciones de lectura para un modelo.
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
 | modelId | Identificador único del modelo |
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-###13\.3. Eliminar notificaciones de usuario
+###13.3. Eliminar notificaciones de usuario
 Elimina todas las notificaciones para todos los modelos.
 
 | Método HTTP | URI |
@@ -2587,14 +2587,14 @@ Elimina todas las notificaciones para todos los modelos.
 
 |	Nombre de parámetro |	Valores válidos |
 |:--------			|:--------								|
-| apiVersion | 1\.0 |
-\|\|\| \| Cuerpo de la solicitud | NONE |
+| apiVersion | 1.0 |
+||| | Cuerpo de la solicitud | NONE |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-##14\. Información legal
+##14. Información legal
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
 
 <!--HONumber=52-->

@@ -22,7 +22,7 @@ La Galería de Aprendizaje automático de Azure es un sitio impulsado por la com
 
 La galería también permite que los usuarios examinen y copien experimentos contribuidos por el equipo de Aprendizaje automático de Microsoft Azure.
 
-**[IR A LA GALERÍA \>\>](http://gallery.azureml.net)**
+**[IR A LA GALERÍA >>](http://gallery.azureml.net)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
@@ -56,7 +56,7 @@ La Galería de Aprendizaje automático de Azure le permite copiar fácilmente ex
 
 Siga estos pasos:
 
-- Inicie sesión en Estudio con su cuenta de Microsoft \(asegúrese de que su imagen de perfil y el nombre que aparece en la configuración del perfil de la cuenta de Microsoft sean los que desea que aparezcan\).
+- Inicie sesión en Estudio con su cuenta de Microsoft (asegúrese de que su imagen de perfil y el nombre que aparece en la configuración del perfil de la cuenta de Microsoft sean los que desea que aparezcan).
 - Cree el experimento y ejecútelo.
 - Cuando esté listo para publicar su experimento en la galería, haga clic en "Publicar en la galería" en la barra inferior negra de Estudio. ![Publicar](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) ¡Disfrute!
 
@@ -78,7 +78,7 @@ En estos momentos no admitimos actualizaciones en el flujo de trabajo de experim
 - Etiquetas
 - Imágenes
 
-Para editar estos campos, haga clic en el experimento específico que desea editar \(asegúrese de haber iniciado sesión con su cuenta de Microsoft\). Esto le llevará a la página de detalles del experimento, donde podrá ver las opciones para editar o eliminar. Haga clic en "Editar" para editar cualquiera de los campos anteriores.
+Para editar estos campos, haga clic en el experimento específico que desea editar (asegúrese de haber iniciado sesión con su cuenta de Microsoft). Esto le llevará a la página de detalles del experimento, donde podrá ver las opciones para editar o eliminar. Haga clic en "Editar" para editar cualquiera de los campos anteriores.
 
 **Acabo de publicar mi experimento en la Galería de Aprendizaje automático de Azure. No veo mi imagen de perfil junto a mi nombre**
 
@@ -86,7 +86,7 @@ Es posible que use una cuenta que no sea @outlook, @msn, @live o @hotmail. Si es
 
 **Actualice mi imagen de perfil en las opciones de configuración de mi cuenta de Microsoft. ¿Por qué mis contribuciones de experimentos existentes no reflejan esta nueva imagen de perfil?**
 
-Si desea reflejar el cambio más reciente en el perfil \(la imagen de perfil, el nombre o el apellido\) en todos los experimentos, deberá volver a enviar a la galería los experimentos anteriores. Al hacerlo, deberá eliminar las copias antiguas que reflejan la configuración del perfil anterior.
+Si desea reflejar el cambio más reciente en el perfil (la imagen de perfil, el nombre o el apellido) en todos los experimentos, deberá volver a enviar a la galería los experimentos anteriores. Al hacerlo, deberá eliminar las copias antiguas que reflejan la configuración del perfil anterior.
 
 **¿Cuáles son los requisitos de imagen en el momento de enviar o editar una imagen para mi experimento?**
 
@@ -108,6 +108,6 @@ Puede usar la tecla TAB para delimitar las etiquetas.
 
 La representación de la descripción enriquecida no está disponible para todos los usuarios de la galería. Estamos trabajando activamente para que esta funcionalidad esté disponible mediante la compatibilidad de representación de reducciones.
 
-**[IR A LA GALERÍA \>\>](http://gallery.azureml.net)**
+**[IR A LA GALERÍA >>](http://gallery.azureml.net)**
 
 <!--HONumber=54-->

@@ -27,7 +27,7 @@ Este artículo muestra cómo crear un paquete de aplicaciones de API para public
 
 ## Estructura de carpetas
 
-Un paquete de Nuget \(archivo \*.nupkg\*\) para una aplicación de API dispone de los siguientes archivos y carpetas dentro de la carpeta *Contenido*:
+Un paquete de Nuget (archivo *.nupkg*) para una aplicación de API dispone de los siguientes archivos y carpetas dentro de la carpeta *Contenido*:
 
     apiapp.json
     Metadata
@@ -51,19 +51,19 @@ En las siguientes secciones, se describen los archivos y carpetas que se incluye
 
 Este es el archivo de manifiesto de la aplicación de API.
 
-|Nombre \(negrita=obligatorio\)|Tipo|Formato|Descripción|
+|Nombre (negrita=obligatorio)|Tipo|Formato|Descripción|
 |:---------------------|:-----|:-------|:------------|
-|**id**|cadena|[a-zA-Z0-9\_.]|ID. de este paquete. Debe ser único dentro de un espacio de nombres y solo puede contener caracteres alfanuméricos, "\_" y ".". Debe comenzar con un carácter alfanumérico.|
+|**id**|cadena|[a-zA-Z0-9_.]|ID. de este paquete. Debe ser único dentro de un espacio de nombres y solo puede contener caracteres alfanuméricos, "_" y ".". Debe comenzar con un carácter alfanumérico.|
 |**namespace**|cadena|nombre de dominio|El espacio de nombres que, junto con la propiedad **id**, identifica de forma única la aplicación de API. Debe ser uno de los nombres de dominio del inquilino de AAD del anunciante.|
 |**version**|cadena|[semver](http://docs.nuget.org/Create/Versioning)|La versión de este paquete. Cuando los usuarios habilitan la actualización automática de este paquete, solo se aplicará a las nuevas versiones dentro de la misma versión principal.|
 |**gateway**|cadena|2015-01-14|La versión de la API de puerta de enlace que está utilizando este paquete. Una puerta de enlace es una aplicación web especial a través de la cual se enrutan todas las solicitudes a aplicaciones de API de un grupo de recursos. Una de sus funciones principales es controlar la autenticación. En la actualidad, la única versión de puerta de enlace es 14-01-2015. En el futuro, cuando se publiquen nuevas versiones de puerta de enlace, esta propiedad le dará la oportunidad de evitar cambios bruscos y seguir usando la API de puerta de enlace anterior.| 
 |**title**|cadena||Nombre de la aplicación de API que se muestra.|
 |**summary**|cadena|100 caracteres como máx.|Un resumen breve de la aplicación de API
-|description|cadena|1500 caracteres como máx.|Descripción completa de la aplicación de API. Puede contener código HTML. Los atributos y elementos permitidos son "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target\|href]", "br", "strong", "em", "b" e "i".|
+|description|cadena|1500 caracteres como máx.|Descripción completa de la aplicación de API. Puede contener código HTML. Los atributos y elementos permitidos son "h1", "h2", "h3", "h4", "h5", "p", "ol", "ul", "li", "a[target|href]", "br", "strong", "em", "b" e "i".|
 |**author**|cadena|256 caracteres como máx.|Los autores de la aplicación de API.|
 |homepage|cadena|URL|Página principal de la aplicación de API.|
 |endpoints|objeto||Una lista de extremos que puede consultar la plataforma de aplicación de API para obtener información sobre los métodos y el estado de la aplicación de API.|
-|endpoints.apiDefinition|cadena|Ruta de acceso URL|Dirección URL relativa de una API expuesta por la aplicación de API que devuelve una definición de API Swagger 2.0 en una solicitud GET \(por ejemplo, "/swagger/docs/v1"\). Si se configura, se utilizará en lugar del archivo estático apiDefinition.swagger.json en el paquete, si lo hay.|
+|endpoints.apiDefinition|cadena|Ruta de acceso URL|Dirección URL relativa de una API expuesta por la aplicación de API que devuelve una definición de API Swagger 2.0 en una solicitud GET (por ejemplo, "/swagger/docs/v1"). Si se configura, se utilizará en lugar del archivo estático apiDefinition.swagger.json en el paquete, si lo hay.|
 |endpoints.status|cadena|Ruta de acceso URL|Dirección URL relativa de una API expuesta por la aplicación de API que devuelve información de estado de tiempo de ejecución sobre la aplicación API en una solicitud GET.|
 |categories|cadena[]|comunidad, social, empresa, integración, protocolo, app-datasvc, otros|La categoría de Azure Marketplace de este paquete de la aplicación de API aparecerá aquí. De forma predeterminada, la aplicación de API siempre aparecerá en la categoría "comunidad". Una vez aprobada la aplicación de API, aparecerá en la categoría especificada.|
 |license|objeto||Licencia de la aplicación de API.|
@@ -85,7 +85,7 @@ Si lo desea, puede proporcionar un archivo estático de JSON Swagger 2.0 aquí p
 
 - Para obtener información acerca del estándar Swagger 2.0, consulte [http://swagger.io/](http://swagger.io/). <!--pendiente de proporcionar direcciones URL
 - Para obtener información sobre cómo personalizar la definición de la API para optimizarla para las aplicaciones lógicas, consulte [título del documento]().
-- Para obtener información acerca de cómo exponer una definición de API dinámica, consulte [título del documento]().--\>
+- Para obtener información acerca de cómo exponer una definición de API dinámica, consulte [título del documento]().-->
 
 ## metadatos/iconos
 
@@ -107,13 +107,13 @@ Si lo desea, puede proporcionar hasta 5 capturas de pantalla para el paquete de 
 
 |Archivo|Ancho|Alto|Descripción|
 |:--------------------|:----|:-----|:----------|
-|metadata/screenshots/\*.png|533px|324px|Capturas de pantalla del paquete de aplicaciones de API.|
+|metadata/screenshots/*.png|533px|324px|Capturas de pantalla del paquete de aplicaciones de API.|
 
 ## metadata/deploymentTemplates
 
 A veces, un paquete de aplicación de API requiere cierta configuración personalizada durante la implementación. Por ejemplo, el [conector de blobs de almacenamiento de Azure](http://azure.microsoft.com/marketplace/partners/microsoft_com/azurestorageblobconnector/) requiere el URI del contenedor de blobs de almacenamiento de Azure. Si lo desea, también puede configurar una clave de acceso.
 
-Para usar este escenario, puede agregar una lista de los archivos de plantilla JSON del Administrador de recursos de Azure \(ARM\) en esta carpeta para personalizar la implementación de las aplicaciones de API. La plataforma de la aplicación de API combinará las plantillas personalizadas de ARM con nuestra plantilla del sistema para producir una plantilla final para la implementación. Todos los parámetros definidos en las plantillas personalizadas de ARM \(esperados para **$system**\) también se solicitarán automáticamente en la hoja de **creación** del portal de vista previa de Azure para que los usuarios de la aplicación de API puedan especificar los valores.
+Para usar este escenario, puede agregar una lista de los archivos de plantilla JSON del Administrador de recursos de Azure (ARM) en esta carpeta para personalizar la implementación de las aplicaciones de API. La plataforma de la aplicación de API combinará las plantillas personalizadas de ARM con nuestra plantilla del sistema para producir una plantilla final para la implementación. Todos los parámetros definidos en las plantillas personalizadas de ARM (esperados para **$system**) también se solicitarán automáticamente en la hoja de **creación** del portal de vista previa de Azure para que los usuarios de la aplicación de API puedan especificar los valores.
 
 A continuación, aparece una plantilla de ARM de ejemplo que muestra cómo pedir un URI de contenedor de blob y una clave de acceso durante la implementación de la aplicación de API.
 
@@ -155,7 +155,7 @@ A continuación, aparece una plantilla de ARM de ejemplo que muestra cómo pedir
       ]
     }
 
-En la siguiente captura de pantalla, se muestra la hoja de creación del portal de vista previa de Azure correspondiente. \(La captura de pantalla muestra un paquete de aplicaciones de API que usa UIDefinition.json para mejorar la hoja de creación. Para obtener más información, consulte [metadata/UIDefinition.json](#metadata-uidefinition-json).
+En la siguiente captura de pantalla, se muestra la hoja de creación del portal de vista previa de Azure correspondiente. (La captura de pantalla muestra un paquete de aplicaciones de API que usa UIDefinition.json para mejorar la hoja de creación. Para obtener más información, consulte [metadata/UIDefinition.json](#metadata-uidefinition-json).
 
 ![Ejemplo de hoja de creación con plantilla personalizada de ARM](./media/app-service-api-create-package/custom-arm-template-create-blade-example.png)
 
@@ -258,7 +258,7 @@ Para crear un paquete de aplicaciones de API
 Esto validará el contenido del paquete para asegurarse de que se cumplan los siguientes aspectos:
 
 - Se sigue el formato descrito anteriormente.
-- Metadata\\apiDefinition.swagger.json \(si se proporciona\) contiene una definición válida de la API de Swagger 2.0
+- Metadata\\apiDefinition.swagger.json (si se proporciona) contiene una definición válida de la API de Swagger 2.0
 
 Si hay algún problema, se mostrarán los detalles para que pueda solucionar el problema y crear un paquete de aplicaciones de API válido.
 

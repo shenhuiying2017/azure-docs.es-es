@@ -32,11 +32,11 @@ Los siguientes son posibles problemas que pueden producirse con cómo reúne Azu
 
 - Puede utilizar la API de análisis, API de supervisión y la API de segmentos para ver si los datos que faltan en la interfaz de usuario están visibles a través de las API.
 - Si el SDK de Azure Mobile Engagement no está integrado correctamente en la aplicación no podrá ver la información de análisis, segmentación, supervisión o paneles.
-- Los segmentos no se pueden cambiar una vez creados, solo se pueden "clonar" \(copiar\) o "destruir" \(eliminar\). Los segmentos solo pueden contener 10 criterios.
-- La mejor manera de probar la información que falta en la supervisión \(configurar un dispositivo de prueba, desinstalar y/o volver a instalar la aplicación en el dispositivo de prueba\).
+- Los segmentos no se pueden cambiar una vez creados, solo se pueden "clonar" (copiar) o "destruir" (eliminar). Los segmentos solo pueden contener 10 criterios.
+- La mejor manera de probar la información que falta en la supervisión (configurar un dispositivo de prueba, desinstalar y/o volver a instalar la aplicación en el dispositivo de prueba).
 - La información se actualiza cada 24 horas para analizarla, segmentarla o para los paneles.
-- Es posible que la información de los segmentos nuevos no se muestre hasta 24 horas después de que se creen \(incluso si el segmento se basa en información anterior\).
-- Filtrar los datos de análisis de la interfaz de usuario mostrará todos los ejemplos de este tipo, independientemente de la versión de la aplicación \(p. ej., "se bloquea" filtrado por nombre mostrará desde las versiones 1 y 2 de la aplicación\).
+- Es posible que la información de los segmentos nuevos no se muestre hasta 24 horas después de que se creen (incluso si el segmento se basa en información anterior).
+- Filtrar los datos de análisis de la interfaz de usuario mostrará todos los ejemplos de este tipo, independientemente de la versión de la aplicación (p. ej., "se bloquea" filtrado por nombre mostrará desde las versiones 1 y 2 de la aplicación).
 - El período de tiempo de análisis se basa en la fecha de la configuración de dispositivo de los usuarios, por lo que un usuario cuyo teléfono tiene la fecha establecida incorrectamente podría aparecer en el período de tiempo incorrecto.
 - No se registra ningún dato del servidor cuando utiliza el botón para "probar" inserciones, los datos solo se registran para campañas de inserción real.
 

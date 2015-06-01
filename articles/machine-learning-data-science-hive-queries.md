@@ -257,7 +257,7 @@ Supongamos que la tabla de subárbol tiene un campo de texto, que es una cadena 
 
 La consulta que se proporciona en esta sección se puede aplicar directamente en los datos de viajes en taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar las funciones matemáticas incrustadas en el subárbol para generar funciones. 
 
-Los campos que se utilizan en esta consulta son coordenadas GPS de ubicaciones de recogida y entrega, denominadas pickup\_longitude, pickup\_latitude, dropoff\_longitude y dropoff\_latitude. Las consultas para calcular la distancia directa entre las coordenadas de recogida y entrega son:
+Los campos que se utilizan en esta consulta son coordenadas GPS de ubicaciones de recogida y entrega, denominadas pickup_longitude, pickup_latitude, dropoff_longitude y dropoff_latitude. Las consultas para calcular la distancia directa entre las coordenadas de recogida y entrega son:
 
 		set R=3959;
 		set pi=radians(180);

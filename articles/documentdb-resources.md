@@ -104,7 +104,7 @@ Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, la
 La DocumentDB no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.  
  
 ###Direccionamiento de un recurso
-Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **_self** de un recurso representa la URI relativa del recurso. El formato de la URI consta de los segmentos de ruta /\<feed\>/{_rid}:  
+Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **_self** de un recurso representa la URI relativa del recurso. El formato de la URI consta de los segmentos de ruta /<feed>/{_rid}:  
 
 |Valor de _self	|Descripción
 |-------------------|-----------

@@ -21,9 +21,9 @@
 
 ##Información general
 
-En este tema se muestra cómo puede usar los Centros de notificaciones de Azure para enviar notificaciones de inserción a aplicaciones Silverlight de Windows Phone 8 o Windows Phone 8.1. Si va a desarrollar para Windows Phone 8.1 \(no Silverlight\), consulte entonces la versión [Windows Universal](notification-hubs-windows-store-dotnet-get-started.md). En este tutorial puede crear una aplicación de Windows Phone 8 vacía que recibe notificaciones de inserción mediante el servicios de notificaciones de inserción de Microsoft \(MPNS\). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
+En este tema se muestra cómo puede usar los Centros de notificaciones de Azure para enviar notificaciones de inserción a aplicaciones Silverlight de Windows Phone 8 o Windows Phone 8.1. Si va a desarrollar para Windows Phone 8.1 (no Silverlight), consulte entonces la versión [Windows Universal](notification-hubs-windows-store-dotnet-get-started.md). En este tutorial puede crear una aplicación de Windows Phone 8 vacía que recibe notificaciones de inserción mediante el servicios de notificaciones de inserción de Microsoft (MPNS). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
 
-> [AZURE.NOTE]El SDK de Windows Phone para Centros de notificaciones no admite el uso de WNS con aplicaciones Silverlight de Windows Phone 8.1. Para usar WNS \(en lugar de MPNS\) con las aplicaciones de Silverlight para Windows Phone 8.1, siga este ejemplo [Centro de notificaciones: tutorial de WP Silverlight] que usa las API de REST
+> [AZURE.NOTE]El SDK de Windows Phone para Centros de notificaciones no admite el uso de WNS con aplicaciones Silverlight de Windows Phone 8.1. Para usar WNS (en lugar de MPNS) con las aplicaciones de Silverlight para Windows Phone 8.1, siga este ejemplo [Centro de notificaciones: tutorial de WP Silverlight] que usa las API de REST
 
 En este tutorial se demuestra el escenario de difusión sencillo con Centros de notificaciones.
 
@@ -49,7 +49,7 @@ Completar este tutorial es un requisito previo para todos los demás tutoriales 
 
    ![][8]
 
-4. Haga clic en el espacio de nombres que acaba de crear \(por lo general ***nombre del centro de notificaciones*-ns**\) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
+4. Haga clic en el espacio de nombres que acaba de crear (por lo general ***nombre del centro de notificaciones*-ns**) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
 
    ![][9]
 
@@ -94,7 +94,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. En el siguiente código en la parte superior del método **Application\_Launching** en App.xaml.cs:
+5. En el siguiente código en la parte superior del método **Application_Launching** en App.xaml.cs:
 	
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -115,7 +115,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 	>[AZURE.NOTE]Este tutorial envía una notificación del sistema al dispositivo. Cuando envía una notificación de icono, debe llamar al método **BindToShellTile** en el canal. Para admitir notificaciones del sistema y notificaciones de icono, llame a ambos métodos, **BindToShellTile** y **BindToShellToast**.
     
-6. En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** esté marcada.
+6. En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID___CAP___PUSH_NOTIFICATION** esté marcada.
 
    ![][14]
 
@@ -127,9 +127,9 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 ##Envío de notificaciones desde su backend
 
-Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** \([back-end .NET](mobile-services-javascript-backend-windows-phone-get-started-push.md) \| [back-end JavaScript](mobile-services-javascript-backend-windows-phone-get-started-push.md)\). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\).
+Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** ([back-end .NET](mobile-services-javascript-backend-windows-phone-get-started-push.md) | [back-end JavaScript](mobile-services-javascript-backend-windows-phone-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Haga clic con el botón secundario en la solución, seleccione **Agregar** y **Nuevo proyecto...**, a continuación en **Visual C\#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**. 
+1. Haga clic con el botón secundario en la solución, seleccione **Agregar** y **Nuevo proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**. 
 
    ![][6]
 
@@ -155,8 +155,8 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
         {
             NotificationHubClient hub = NotificationHubClient
 				.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            string toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+            string toast = "<?xml version="1.0" encoding="utf-8"?>" +
+                "<wp:Notification xmlns:wp="WPNotification">" +
                    "<wp:Toast>" +
                         "<wp:Text1>Hello from a .NET App!</wp:Text1>" +
                    "</wp:Toast> " +

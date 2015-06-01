@@ -45,7 +45,7 @@
    
     > [AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
-8. \(Opcional\) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).
  
 9. Por motivos de seguridad, la contraseña del administrador del dispositivo expira después de la primera sesión y deberá cambiarla para sesiones posteriores. Cuando se le solicite, proporcione una contraseña de administrador del dispositivo. Una contraseña de administrador del dispositivo válida debe tener entre 8 y 15 caracteres. La contraseña debe contener una combinación de caracteres en minúsculas, caracteres en mayúsculas, números y caracteres especiales.
 

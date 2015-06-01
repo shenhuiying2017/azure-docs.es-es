@@ -5,7 +5,7 @@ En esta sección se escribirá una aplicación de consola Java para enviar event
 
 2. Descargue la versión más reciente de la biblioteca de **Qpid JMS AMQP 1.0** [aquí](http://qpid.apache.org/components/qpid-jms/index.html).
 
-3. Extraiga los archivos del archivo y copie los JAR siguientes desde el directorio  `qpid-amqp-1-0-client-jms\<version>\lib` en el proyecto **Remitente** de Eclipse.
+3. Extraiga los archivos del archivo y copie los JAR siguientes desde el directorio  `qpid-amqp-1-0-client-jms<version>\lib` en el proyecto **Remitente** de Eclipse.
 
 4. En el Explorador de paquetes de Eclipse, haga clic en el proyecto **Remitente** y seleccione **Properties** (Propiedades). En el panel izquierdo del cuadro de diálogo, haga clic en **Java Build Path** (Ruta de compilación Java), elija la pestaña **Libraries** (Bibliotecas) y luego seleccione el botón **Add JARs** (Agregar JAR). Seleccione todos los JAR copiados anteriormente y, a continuación, haga clic en **OK** (Aceptar).
 

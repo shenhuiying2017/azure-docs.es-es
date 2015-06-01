@@ -91,7 +91,7 @@ En esta sección se muestra cómo asociar un disco de datos vacío a una máquin
 
 	![Expanda Servicios de archivos y almacenamiento en el Administrador del servidor](./media/CreateVirtualMachineWindowsTutorial/selectdisks.png)
 	
-10. En la sección **Discos**, hay tres discos en la lista: disco 0, disco 1 y disco 2. El disco 0 es el disco del sistema operativo, el disco 1 es un disco de recursos temporales \(que no debe usarse para almacenamiento de datos\) y el disco 2 es el disco de datos que ha conectado a la máquina virtual. Tenga en cuenta que el disco de datos tiene una capacidad de 5 GB como se especificó anteriormente. Haga clic con el botón secundario en el disco 2 y seleccione **Inicializar**.
+10. En la sección **Discos**, hay tres discos en la lista: disco 0, disco 1 y disco 2. El disco 0 es el disco del sistema operativo, el disco 1 es un disco de recursos temporales (que no debe usarse para almacenamiento de datos) y el disco 2 es el disco de datos que ha conectado a la máquina virtual. Tenga en cuenta que el disco de datos tiene una capacidad de 5 GB como se especificó anteriormente. Haga clic con el botón secundario en el disco 2 y seleccione **Inicializar**.
 
 	![Comenzar la inicialización](./media/CreateVirtualMachineWindowsTutorial/initializedisk.png)
 

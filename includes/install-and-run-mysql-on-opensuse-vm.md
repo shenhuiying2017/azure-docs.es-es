@@ -25,7 +25,7 @@
 
 		# rcmysql stop
 
-5. Advertencia: después de la instalación, la contraseña raíz de MySQL se encuentra vacía de forma predeterminada.  Es recomendable que ejecute **mysql\_secure\_installation**, un script que ayuda a proteger MySQL. Cuando ejecute **mysql\_secure\_installation**, se le solicitará que cambie la contraseña raíz de MySQL, quite las cuentas de usuario anónimas, deshabilite los datos de inicio de sesión raíz remotos, quite las bases de datos de prueba y vuelva a cargar la tabla de privilegios. Es recomendable que diga que sí a todas las opciones y cambie la contraseña raíz. Ejecute el siguiente comando para ejecutar el script:
+5. Advertencia: después de la instalación, la contraseña raíz de MySQL se encuentra vacía de forma predeterminada.  Es recomendable que ejecute **mysql_secure_installation**, un script que ayuda a proteger MySQL. Cuando ejecute **mysql_secure_installation**, se le solicitará que cambie la contraseña raíz de MySQL, quite las cuentas de usuario anónimas, deshabilite los datos de inicio de sesión raíz remotos, quite las bases de datos de prueba y vuelva a cargar la tabla de privilegios. Es recomendable que diga que sí a todas las opciones y cambie la contraseña raíz. Ejecute el siguiente comando para ejecutar el script:
 
 		$ mysql_secure_installation
 

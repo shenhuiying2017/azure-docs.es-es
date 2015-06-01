@@ -44,7 +44,7 @@ Para obtener información acerca de dónde descargar la versión más reciente d
 
 Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con el Bus de servicio:
 
-*    geronimo-jms\_1.1\_spec-1.0.jar
+*    geronimo-jms_1.1_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -139,7 +139,7 @@ o
 
 	topic.[jndi_name] = [physical_name]
 
-Donde [jndi\_name] y [physical\_name] tienen los significados siguientes:
+Donde [jndi_name] y [physical_name] tienen los significados siguientes:
 
 <table>
   <tr>

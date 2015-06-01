@@ -47,7 +47,7 @@ Sus recursos web existentes pueden ejecutarse en Sitios web de Azure, ya sean de
 
 Proteja los recursos mediante el cifrado, autentique usuarios corporativos locales o remotos, y autorice el uso de recursos. 
 
-Proteja los recursos internos contra interceptores con [HTTPS]. El nombre de dominio **\*.azurewebsites.net** ya viene con un certificado SSL y, si usa su dominio personalizado, puede aportar su certificado SSL para Sitios web Azure. Hay un cargo mensual (prorrateado por horas) asociado a cada certificado SSL. Para obtener más información, consulte [Detalles de precios de Sitios web].
+Proteja los recursos internos contra interceptores con [HTTPS]. El nombre de dominio ***.azurewebsites.net** ya viene con un certificado SSL y, si usa su dominio personalizado, puede aportar su certificado SSL para Sitios web Azure. Hay un cargo mensual (prorrateado por horas) asociado a cada certificado SSL. Para obtener más información, consulte [Detalles de precios de Sitios web].
 
 [Autenticar a los usuarios] en el directorio corporativo. Sitios web Azure puede autenticar a los usuarios con proveedores de identidades locales, como los Servicios de federación de Active Directory (AD FS), o con un inquilino de Azure Active Directory que se haya sincronizado con su implementación de Active Directory corporativo. Los usuarios pueden acceder a sus propiedades web en Sitios web de Azure a través de un inicio de sesión único, tanto cuando se encuentran de forma local como de forma remota. Los servicios existentes, como Office 365 o Windows Intune, ya usan Azure Active Directory. Mediante [Easy Auth], la activación de la autenticación con el mismo inquilino de Azure Active Directory para su sitio web es muy fácil. 
 

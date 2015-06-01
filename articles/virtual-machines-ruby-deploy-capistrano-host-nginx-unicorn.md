@@ -421,7 +421,7 @@ La aplicación debe estar ya lista para implementarla.
 
 	Capistrano se conectará a la máquina virtual usando SSH y después creará el directorio (~/apps) en el que se implementará la aplicación. Si esta es la primera implementación, la gema capistrano-postgresql creará también un rol y una base de datos en PostgreSQL en el servidor. También creará un archivo de configuración database.yml que Rails usará para conectarse a la base de datos.
 
-	> [AZURE.NOTE] Si obtiene un error de tipo **Error al leer la longitud de respuesta del socket de autenticación** durante la implementación, puede ser necesario iniciar el agente SSH en el entorno de desarrollo usando el comando `ssh-agent`.  Por ejemplo, agregue `eval $(ssh-agent)` al archivo ~/.bash\_profile.
+	> [AZURE.NOTE] Si obtiene un error de tipo **Error al leer la longitud de respuesta del socket de autenticación** durante la implementación, puede ser necesario iniciar el agente SSH en el entorno de desarrollo usando el comando `ssh-agent`.  Por ejemplo, agregue `eval $(ssh-agent)` al archivo ~/.bash_profile.
 	> 
 	> También puede ser necesario agregar la clave SSH a la memoria caché del agente usando el comando  `ssh-add`.
 

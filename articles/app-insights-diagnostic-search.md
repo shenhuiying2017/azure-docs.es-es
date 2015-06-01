@@ -42,11 +42,11 @@ Seleccione cualquier elemento de telemetría para ver los campos clave y los ele
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
-Para encontrar el conjunto completo de campos, utilice cadenas sin formato \(sin caracteres comodín\). Los campos disponibles dependen del tipo de telemetría.
+Para encontrar el conjunto completo de campos, utilice cadenas sin formato (sin caracteres comodín). Los campos disponibles dependen del tipo de telemetría.
 
 ## Filtro de los tipos de evento
 
-Abra la hoja Filtro y elija los tipos de evento que desea ver. \(Si, posteriormente, desea restaurar los filtros con los que abrió la hoja, haga clic en Restablecer\).
+Abra la hoja Filtro y elija los tipos de evento que desea ver. (Si, posteriormente, desea restaurar los filtros con los que abrió la hoja, haga clic en Restablecer).
 
 
 ![Elija Filtrar y seleccione los tipos de telemetría](./media/app-insights-diagnostic-search/02-filter-req.png)
@@ -57,8 +57,8 @@ Los tipos de evento son:
 * **Seguimiento**: registros de diagnóstico, como llamadas a TrackTrace, log4Net, NLog y System.Diagnostic.Trace.
 * **Solicitud**: solicitudes HTTP recibidas por la aplicación de servidor, como páginas, scripts, imágenes, archivos de estilo y datos. Estos eventos se utilizan para crear los gráficos de información general de solicitudes y respuestas.
 * **Vista de página**: estos eventos se envían a través del cliente web y se utilizan para crear informes de vistas de página. 
-* **Evento personalizado**: si ha insertado llamadas a TrackEvent\(\) para [supervisar el uso][track], puede buscarlas aquí.
-* **Excepción**: excepciones no detectadas en el servidor y las que se registran mediante TrackException\(\).
+* **Evento personalizado**: si ha insertado llamadas a TrackEvent() para [supervisar el uso][track], puede buscarlas aquí.
+* **Excepción**: excepciones no detectadas en el servidor y las que se registran mediante TrackException().
 
 ## Filtro de los valores de propiedad
 
@@ -101,7 +101,7 @@ Encuentre todos los elementos con el mismo valor de propiedad:
 
 ## Búsqueda por valor de métrica
 
-Obtenga todas las solicitudes con un tiempo de respuesta \> 5 seg. Las horas se representan en tics: 10 000 tics = 1 ms.
+Obtenga todas las solicitudes con un tiempo de respuesta > 5 seg. Las horas se representan en tics: 10 000 tics = 1 ms.
 
 !["Tiempo de respuesta":(umbral TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
 
@@ -115,13 +115,13 @@ Quizás desee establecer un intervalo de tiempo, dado que las búsquedas en un i
 
 ![Open diagnostic search](./media/appinsights/appinsights-311search.png)
 
-Busque términos, no subcadenas. Los términos son cadenas alfanuméricas incluyendo algunos signos de puntuación, como '.' y '\_'. Por ejemplo:
+Busque términos, no subcadenas. Los términos son cadenas alfanuméricas incluyendo algunos signos de puntuación, como '.' y '_'. Por ejemplo:
 
 término|*no* coincide con|pero coincide
 ---|---|---
-HomeController.About|about<br/>home|h\*about<br/>home\*
-IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
-New Delay|w d|new<br/>delay<br/>n\* AND d\*
+HomeController.About|about<br/>home|h*about<br/>home*
+IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
+New Delay|w d|new<br/>delay<br/>n* AND d*
 
 
 A continuación se muestran las expresiones de búsqueda que puede utilizar:
@@ -130,12 +130,12 @@ Consulta de ejemplo | Efecto
 ---|---
 lento|Busca todos los eventos del intervalo de datos cuyos campos incluyen el término "lento"
 base de datos??|Las coincidencias con base de datos01, base de datosAB...<br/>? no se permiten al comienzo de un término de búsqueda.
-base de datos\*|Las coincidencias con base de datos, base de datos01, base de datosNNNN<br/>\* no se permiten al comienzo de un término de búsqueda.
+base de datos*|Las coincidencias con base de datos, base de datos01, base de datosNNNN<br/>* no se permiten al comienzo de un término de búsqueda.
 manzana AND plátano|Buscar eventos que contienen ambos términos. Utilizar "AND" en mayúsculas, no "and".
 Manzana, plátano OR<br/>manzana plátano|Buscar eventos que contienen cualquiera de los dos términos. Utilice "OR" no "or".</br/>Forma abreviada.
 manzana NOT plátano<br/>manzana -plátano|Encuentre eventos que contengan un término pero no el otro.<br/>Forma abreviada.
-manz\* AND plátano -\(uvas pera\)|Operadores lógicos y corchetes.
-"Métrica": 0 TO 500<br/>"Métrica" : 500 TO \* | Encuentra eventos que contienen la medida designada dentro del intervalo de valores.
+manz* AND plátano -(uvas pera)|Operadores lógicos y corchetes.
+"Métrica": 0 TO 500<br/>"Métrica" : 500 TO * | Encuentra eventos que contienen la medida designada dentro del intervalo de valores.
 
 
 ## Guardado de la búsqueda

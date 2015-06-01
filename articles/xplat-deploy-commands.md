@@ -21,7 +21,7 @@
 ## Instalar curl, wget u otra herramienta de descarga
 Este tema usa **curl**. Utilice el Administrador de paquetes del sistema operativo o descárguelo [aquí](http://curl.haxx.se/download.html).
 
-## Descargar el archivo de parámetros de plantilla \(o la plantilla si es necesario\)
+## Descargar el archivo de parámetros de plantilla (o la plantilla si es necesario)
 
 Los pasos siguientes le permitirán implementar una plantilla de Azure, incluso si es una plantilla compleja. En este tema se utiliza la plantilla que crea un servidor de Ubuntu básico con la extensión de la máquina virtual de customscript instalada como ejemplo. Los archivos se incluyen también al final del tema como referencia.
 
@@ -33,7 +33,7 @@ Descargue el archivo de azuredeploy-parameters.json si existe uno para la planti
     
 ## Escriba la información de implementación del grupo de recursos.
     
-Abra este archivo con su editor favorito. Verá que necesita especificar un valor para varias de las claves, especialmente **adminUsername**, **adminPassword** \(recuerde las reglas de complejidad\) y el nombre de la cuenta de almacenamiento y los nombres DNS que desee.
+Abra este archivo con su editor favorito. Verá que necesita especificar un valor para varias de las claves, especialmente **adminUsername**, **adminPassword** (recuerde las reglas de complejidad) y el nombre de la cuenta de almacenamiento y los nombres DNS que desee.
     
     {
       "newStorageAccountName": {
@@ -71,7 +71,7 @@ Abra este archivo con su editor favorito. Verá que necesita especificar un valo
       }
     }
     
-Agregue nuevos valores \(Azure creará un nuevo almacenamiento y recursos de DNS si puede\) o utilice los recursos que ya ha creado. El archivo siguiente azuredeploy-parameters.json muestra un ejemplo:
+Agregue nuevos valores (Azure creará un nuevo almacenamiento y recursos de DNS si puede) o utilice los recursos que ya ha creado. El archivo siguiente azuredeploy-parameters.json muestra un ejemplo:
 
 
 
@@ -89,7 +89,7 @@ Parámetros para establecer, o bien pueden formar ya una parte de la plantilla, 
 Si la plantilla contiene sus parámetros directamente o desea extraer los datos de parámetros usted mismo. Para obtener más información acerca de la estructura de plantillas, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
-https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json \(o simplemente el archivo azuredeploy-parameters.json\) O bien puede extraer la sección de parámetros de la plantilla, en cuyo caso deberá guardarla dentro de la propia plantilla o como un archivo independiente azuredeploy-parameters.json. Deberá obtener los valores que se van a colocar en los parámetros.
+https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (o simplemente el archivo azuredeploy-parameters.json) O bien puede extraer la sección de parámetros de la plantilla, en cuyo caso deberá guardarla dentro de la propia plantilla o como un archivo independiente azuredeploy-parameters.json. Deberá obtener los valores que se van a colocar en los parámetros.
 
 ## Modificación del archivo azuredeploy templates.json
 

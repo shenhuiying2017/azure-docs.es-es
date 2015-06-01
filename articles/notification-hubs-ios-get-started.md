@@ -22,7 +22,7 @@
 
 ##Información general
 
-Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación iOS. En este tutorial puede crear una aplicación iOS vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Apple \(APN\). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
+Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación iOS. En este tutorial puede crear una aplicación iOS vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Apple (APN). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
 
 En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones.
 
@@ -32,10 +32,10 @@ Este tutorial cuenta con los siguientes requisitos previos:
 
 + [SDK de iOS para Servicios móviles]
 + [XCode 4.5][Install Xcode]
-+ Dispositivo compatible con iOS 5.0 \(o una versión posterior\)
++ Dispositivo compatible con iOS 5.0 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
 
-   >[AZURE.NOTE]Debido a los requisitos de la configuración de las notificaciones push, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS \(iPhone o iPad) en lugar de hacerlo en un emulador.
+   >[AZURE.NOTE]Debido a los requisitos de la configuración de las notificaciones push, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Centros de notificaciones para aplicaciones iOS.
 
@@ -45,7 +45,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 ##Configuración de su Centro de notificaciones
 
-1. En Acceso a llaves, haga clic con el botón secundario en el nuevo certificado de la aplicación de inicio rápido **My Certificates** \(Mis certificados\). Haga clic en **Export** \(Exportar\), dé un nombre al archivo, seleccione el formato **.p12** y, a continuación, haga clic en **Save** \(Guardar\).
+1. En Acceso a llaves, haga clic con el botón secundario en el nuevo certificado de la aplicación de inicio rápido **My Certificates** (Mis certificados). Haga clic en **Export** (Exportar), dé un nombre al archivo, seleccione el formato **.p12** y, a continuación, haga clic en **Save** (Guardar).
 
     ![][26]
 
@@ -63,7 +63,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
    ![][28]
 
-5. Haga clic en el espacio de nombres que acaba de crear \(por lo general ***nombre del centro de notificaciones*-ns**\) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
+5. Haga clic en el espacio de nombres que acaba de crear (por lo general ***nombre del centro de notificaciones*-ns**) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
 
    ![][29]
 
@@ -71,7 +71,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
    ![][210]
 
-7. Seleccione la pestaña **Configurar** en la parte superior y, a continuación, haga clic en **Cargar** para la configuración de notificaciones de Apple. A continuación, seleccione el certificado **.p12** que exportó anteriormente y la contraseña para el certificado. Asegúrese de seleccionar si desea usar el servicio de inserción **Production** \(si desea enviar notificaciones de inserción a usuarios que adquirieron la aplicación desde la tienda\) o **Sandbox** \(durante el desarrollo\).
+7. Seleccione la pestaña **Configurar** en la parte superior y, a continuación, haga clic en **Cargar** para la configuración de notificaciones de Apple. A continuación, seleccione el certificado **.p12** que exportó anteriormente y la contraseña para el certificado. Asegúrese de seleccionar si desea usar el servicio de inserción **Production** (si desea enviar notificaciones de inserción a usuarios que adquirieron la aplicación desde la tienda) o **Sandbox** (durante el desarrollo).
 
    ![][211]
 
@@ -83,15 +83,15 @@ Su Centro de notificaciones está ahora configurado para funcionar con APN y tie
 
 ##Conexión de su aplicación al centro de notificaciones
 
-1. En XCode, cree un nuevo proyecto iOS y seleccione la plantilla **Single View Application** \(Aplicación de vista sencilla\).
+1. En XCode, cree un nuevo proyecto iOS y seleccione la plantilla **Single View Application** (Aplicación de vista sencilla).
 
    ![][31]
 
-2. En **Targets** \(Destinos\), haga clic en el nombre de proyecto y, a continuación, expanda **Code Signing Identity** \(Identidad de firma de código\), luego en **Debug** \(Depurar\), seleccione el perfil de identidad de firma de código. Además, si usa una versión más reciente de XCode, cambie **Levels** \(Niveles\) de **Basic** \(Básico\) a **All** \(Todos\) y establezca la línea **Provisioning Profile** \(Perfil de aprovisionamiento\) en el perfil de aprovisionamiento.
+2. En **Targets** (Destinos), haga clic en el nombre de proyecto y, a continuación, expanda **Code Signing Identity** (Identidad de firma de código), luego en **Debug** (Depurar), seleccione el perfil de identidad de firma de código. Además, si usa una versión más reciente de XCode, cambie **Levels** (Niveles) de **Basic** (Básico) a **All** (Todos) y establezca la línea **Provisioning Profile** (Perfil de aprovisionamiento) en el perfil de aprovisionamiento.
 
    ![][32]
 
-3. Descargue Azure Mobile SDK para iOS. Abra el archivo .zip y arrastre la carpeta WindowsAzureMessaging.framework a la carpeta Framework en el proyecto XCode. Seleccione **Copy items in destination group's folder** \(Copiar elementos en la carpeta del grupo de destino\) y, a continuación, haga clic en **OK** \(Aceptar\).
+3. Descargue Azure Mobile SDK para iOS. Abra el archivo .zip y arrastre la carpeta WindowsAzureMessaging.framework a la carpeta Framework en el proyecto XCode. Seleccione **Copy items in destination group's folder** (Copiar elementos en la carpeta del grupo de destino) y, a continuación, haga clic en **OK** (Aceptar).
 
    ![][33]
 
@@ -123,7 +123,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con APN y tie
 	    	}];
 		}
 
-7. *\(opcional\)* De nuevo, en el mismo archivo, agregue el siguiente método para ver **UIAlert** si la notificación se recibió cuando la aplicación estaba activa:
+7. *(opcional)* De nuevo, en el mismo archivo, agregue el siguiente método para ver **UIAlert** si la notificación se recibió cuando la aplicación estaba activa:
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -138,9 +138,9 @@ Su Centro de notificaciones está ahora configurado para funcionar con APN y tie
 
 ##Envío de notificaciones desde su backend
 
-Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la [interfaz REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** \([back-end .NET](mobile-services-javascript-backend-ios-get-started-push.md) \| [back-end JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)\). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\).
+Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la [interfaz REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** ([back-end .NET](mobile-services-javascript-backend-ios-get-started-push.md) | [back-end JavaScript](mobile-services-javascript-backend-ios-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego **Proyecto...**, a continuación en **Visual C\#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**.  
+1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego **Proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**.  
 
    ![][20]
 
@@ -165,7 +165,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
         private static async void SendNotificationAsync()
         {
             NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString("<connection string with full access>", "<hub name>");
-            var alert = "{\"aps\":{\"alert\":\"Hello from .NET!\"}}";
+            var alert = "{"aps":{"alert":"Hello from .NET!"}}";
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 

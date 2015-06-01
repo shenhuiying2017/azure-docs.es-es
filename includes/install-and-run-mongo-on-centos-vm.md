@@ -2,7 +2,7 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Ce
 
 > [AZURE.WARNING]Las características de seguridad de MongoDB, como la vinculación de direcciones IP y la autenticación, no se encuentran habilitadas de forma predeterminada. Las características de seguridad deben habilitarse antes de implementar MongoDB en un entorno de producción. Consulte [Seguridad y autenticación](http://www.mongodb.org/display/DOCS/Security+and+Authentication) para obtener más información.
 
-1. Configure el sistema de administración de paquetes \(YUM\) para poder instalar MongoDB. Cree un archivo */etc/yum.repos.d/10gen.repo* para almacenar información sobre el repositorio y agregue lo siguiente:
+1. Configure el sistema de administración de paquetes (YUM) para poder instalar MongoDB. Cree un archivo */etc/yum.repos.d/10gen.repo* para almacenar información sobre el repositorio y agregue lo siguiente:
 
 		[10gen]
 		name=10gen Repository

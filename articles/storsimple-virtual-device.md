@@ -75,7 +75,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 
 >[AZURE.IMPORTANT]**Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
 
-- Cree [máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) \(servidores host\) en la red virtual. Estos servidores deben cumplir los siguientes requisitos: 							
+- Cree [máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores host) en la red virtual. Estos servidores deben cumplir los siguientes requisitos: 							
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado
 	- Ejecutarse en la misma red virtual como el dispositivo virtual
 	- Ser capaz de conectarse al destino iSCSI del dispositivo virtual a través de la dirección IP interna del dispositivo virtual
@@ -156,7 +156,7 @@ La siguiente sección describe las opciones de configuración del dispositivo qu
 
 #### Configuración del iniciador CHAP
 
-Este parámetro contiene las credenciales que espera el dispositivo virtual \(destino\) de los iniciadores \(servidores\) que intentan obtener acceso a los volúmenes. Los iniciadores proporcionarán un nombre de usuario y una contraseña CHAP para identificarse en el dispositivo durante la autenticación.
+Este parámetro contiene las credenciales que espera el dispositivo virtual (destino) de los iniciadores (servidores) que intentan obtener acceso a los volúmenes. Los iniciadores proporcionarán un nombre de usuario y una contraseña CHAP para identificarse en el dispositivo durante la autenticación.
 
 #### Configuración del destino CHAP
 
@@ -172,7 +172,7 @@ Al configurar un dispositivo en StorSimple Snapshot Manager, se le pedirá que p
 
 Realice los pasos siguientes para configurar StorSimple Snapshot Manager cuando se usa con el dispositivo virtual de StorSimple.
 
-1. En el dispositivo virtual, vaya a **Dispositivos \> Configurar**.
+1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
 
 - Desplácese hacia abajo a la sección **Administrador de instantáneas**. Escriba una contraseña que tenga 14 o 15 caracteres. Asegúrese de que la contraseña contiene una combinación de caracteres en mayúsculas, minúsculas, números y caracteres especiales.
 
@@ -188,7 +188,7 @@ Cuando se utiliza la interfaz de Windows PowerShell para tener acceso al disposi
 
 Realice los pasos siguientes para configurar la contraseña de administrador del dispositivo para el dispositivo virtual de StorSimple.
 
-1. En el dispositivo virtual, vaya a **Dispositivos \> Configurar**.
+1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
  
 1. Desplácese hacia abajo a la sección **Contraseña de administrador de dispositivos**. Proporcione una contraseña de administrador que tenga entre 8 y 15 caracteres. La contraseña debe ser una combinación de caracteres en mayúsculas, minúsculas, números y caracteres especiales.
 
@@ -207,7 +207,7 @@ Puede conectarse a través de HTTP o HTTPS. Por motivos de seguridad, se recomie
 Realice los pasos siguientes para configurar la administración remota para el dispositivo virtual de StorSimple.
 
 
-1. En el dispositivo virtual, vaya a **Dispositivos \> Configurar**.
+1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
 
 2. Desplácese hacia abajo a la sección **Administración remota**.
 
@@ -237,7 +237,7 @@ Las secciones siguientes describen algunas de las diferencias que surgen al trab
 
 Dado que es un dispositivo solo de software, el mantenimiento del dispositivo virtual es mínimo en comparación con el mantenimiento del dispositivo físico. Tiene las siguientes opciones:
 
-- **Actualizaciones automáticas**: puede activar o desactivar las actualizaciones automáticas. Cuando las actualizaciones automáticas están activadas, el dispositivo virtual se apaga automáticamente y se reinicia \(si es necesario\) para aplicar las actualizaciones que se han publicado. Puesto que solo hay una única interfaz en el dispositivo virtual, significa que habrá una pequeña interrupción del servicio cuando se apliquen las actualizaciones.
+- **Actualizaciones automáticas**: puede activar o desactivar las actualizaciones automáticas. Cuando las actualizaciones automáticas están activadas, el dispositivo virtual se apaga automáticamente y se reinicia (si es necesario) para aplicar las actualizaciones que se han publicado. Puesto que solo hay una única interfaz en el dispositivo virtual, significa que habrá una pequeña interrupción del servicio cuando se apliquen las actualizaciones.
 - **Actualizaciones de software**: puede ver la fecha en que se actualizó por última vez el software, junto con cualquier actualización de los mensajes de estado. Puede utilizar el botón Buscar actualizaciones en la parte inferior de la página para realizar una búsqueda manual si desea comprobar si hay nuevas actualizaciones.
 - **Paquete de soporte**: puede crear y cargar un paquete de soporte para ayudar al Soporte de Microsoft a solucionar problemas con el dispositivo virtual.
 
@@ -291,7 +291,7 @@ Realice los pasos siguientes para crear un extremo público en el dispositivo vi
 
 - Haga clic en la marca de verificación para crear el extremo.
 
-Una vez creado el extremo, puede ver sus detalles para determinar la dirección IP virtual \(VIP\) pública. Anote esta dirección.
+Una vez creado el extremo, puede ver sus detalles para determinar la dirección IP virtual (VIP) pública. Anote esta dirección.
 
 Se recomienda conectarse desde otra máquina virtual dentro de la misma red virtual, ya que esta práctica minimiza el número de extremos públicos de la red virtual. Cuando utiliza este método, simplemente conéctese a la máquina virtual mediante una sesión de escritorio remoto y, a continuación, configure esa máquina virtual para su uso como haría con cualquier otro cliente de Windows en una red local. No es necesario anexar el número de puerto público porque ya se conocerá el puerto.
 
@@ -321,7 +321,7 @@ Si decide que desea empezar de nuevo con su dispositivo virtual, simplemente des
 
 ## Conmutación por error en el dispositivo virtual
 
-La recuperación ante desastres \(DR\) es uno de los escenarios clave para los que se diseñó el dispositivo virtual de StorSimple. En este escenario, es posible que el dispositivo físico de StorSimple o todo el centro de datos no esté disponible. Afortunadamente, puede usar un dispositivo virtual para restaurar las operaciones en una ubicación alternativa. Durante la recuperación ante desastres, los contenedores de volúmenes del dispositivo de origen cambia la propiedad y se transfieren al dispositivo virtual. Los requisitos previos para la recuperación ante desastres son que haya creado y configurado el dispositivo virtual, todos los volúmenes en el contenedor de volúmenes se hayan desconectado y el contenedor de volúmenes tenga asociada una instantánea en la nube.
+La recuperación ante desastres (DR) es uno de los escenarios clave para los que se diseñó el dispositivo virtual de StorSimple. En este escenario, es posible que el dispositivo físico de StorSimple o todo el centro de datos no esté disponible. Afortunadamente, puede usar un dispositivo virtual para restaurar las operaciones en una ubicación alternativa. Durante la recuperación ante desastres, los contenedores de volúmenes del dispositivo de origen cambia la propiedad y se transfieren al dispositivo virtual. Los requisitos previos para la recuperación ante desastres son que haya creado y configurado el dispositivo virtual, todos los volúmenes en el contenedor de volúmenes se hayan desconectado y el contenedor de volúmenes tenga asociada una instantánea en la nube.
 
 ### Para restaurar el dispositivo físico en el dispositivo virtual de StorSimple
 

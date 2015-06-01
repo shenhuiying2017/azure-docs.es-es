@@ -18,17 +18,17 @@
 
 #Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores#
 
-El servicio de Búsqueda de Azure le ayuda a proporcionar una experiencia de búsqueda excelente, pero antes de realizar una búsqueda debe rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, la nueva característica **indizador de Búsqueda de Azure para la Base de datos SQL de Azure** \(o **indizador SQL de Azure**, para abreviar\) de Búsqueda de Azure puede automatizar el proceso de indización. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
+El servicio de Búsqueda de Azure le ayuda a proporcionar una experiencia de búsqueda excelente, pero antes de realizar una búsqueda debe rellenar un índice de Búsqueda de Azure con los datos. Si los datos residen en una Base de datos SQL de Azure, la nueva característica **indizador de Búsqueda de Azure para la Base de datos SQL de Azure** (o **indizador SQL de Azure**, para abreviar) de Búsqueda de Azure puede automatizar el proceso de indización. Esto significa que tendrá que escribir menos código y tendrá menos infraestructura para mantener.
 
 Actualmente, los indizadores solo funcionan con la Base de datos SQL de Azure, SQL Server en máquinas virtuales de Azure y la Base de datos de documentos de Azure. En este artículo, nos centraremos en los indizadores que funcionan con la Base de datos SQL de Azure. Si le gustaría consultar soporte técnico para orígenes de datos adicionales, envíe sus comentarios a través del [foro de comentarios de Búsqueda de Azure](http://feedback.azure.com/forums/263029-azure-search).
 
-Este artículo aborda la forma de usar los indizadores, pero también detalla las características y los comportamientos que solo están disponibles con Bases de datos SQL \(por ejemplo, seguimiento de cambios integrado\).
+Este artículo aborda la forma de usar los indizadores, pero también detalla las características y los comportamientos que solo están disponibles con Bases de datos SQL (por ejemplo, seguimiento de cambios integrado).
 
 ## Indizadores y orígenes de datos ##
 
 Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de REST de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528173) para crear y administrar **indizadores** y **orígenes de datos**. En el futuro, esta funcionalidad también estará disponible en el Portal de administración de Azure y en el SDK para .NET de Búsqueda de Azure.
 
-Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz \(filas nuevas, modificadas o eliminadas\). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
+Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
 Un **indizador** es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino. Un indizador se usa de las maneras siguientes:
  
@@ -45,7 +45,7 @@ Según varios factores relacionados con los datos, el uso del indizador de SQL A
 - El indizador admite los tipos de datos usados en el origen de datos. Se admite la mayoría de los tipos de SQL, aunque no todos. Para obtener más información, consulte [Asignar tipos de datos en Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - No necesita actualizaciones del índice casi en tiempo real cuando una fila cambia. 
 	- El indizador puede volver a indizar la tabla cada 5 minutos como máximo. Si los datos cambian con frecuencia y los cambios deben reflejarse en el índice en cuestión de segundos o minutos, se recomienda usar directamente la [API de índice de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798930.aspx). 
-- Si tiene un conjunto de datos grande y prevé ejecutar el indizador en una programación, su esquema nos permite identificar de forma eficaz las filas cambiadas \(y eliminadas, si corresponde\). Para obtener más información, vea a continuación «Capturar filas cambiadas y eliminadas». 
+- Si tiene un conjunto de datos grande y prevé ejecutar el indizador en una programación, su esquema nos permite identificar de forma eficaz las filas cambiadas (y eliminadas, si corresponde). Para obtener más información, vea a continuación «Capturar filas cambiadas y eliminadas». 
 - El tamaño de los campos indizados en una fila no supera el tamaño máximo de una solicitud de indización de Búsqueda de Azure, que es de 16 MB. 
 
 ## Crear y usar un indizador de SQL Azure ##
@@ -68,7 +68,7 @@ Puede obtener la cadena de conexión del [Portal de Azure](https://portal.azure.
 
 Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede hacerlo desde la [interfaz de usuario del Portal](https://portal.azure.com) o mediante la [API de creación de índices](https://msdn.microsoft.com/library/azure/dn798941.aspx). Asegúrese de que el esquema del índice de destino es compatible con el esquema de la tabla de origen. Consulte en la siguiente tabla la asignación entre los tipos de datos de SQL y Búsqueda de Azure.
 
-**Asignaciones entre los tipos de datos de SQL y los tipos de datos de Búsqueda de Azure** <table style="font-size:12"> <tr> <td>Tipo de datos de SQL</td> <td>Tipos de campo de índice de destino permitidos</td> <td>Notas</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>decimal<br/>numérico </td> <td>Edm.String</td> <td>Búsqueda de Azure no admite la conversión de tipos decimales en Edm.Double porque se podría perder precisión </td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection\(Edm.String\)</td> <td>La transformación de una columna de cadenas en Collection\(Edm.String\) requiere el uso de una versión de API de vista previa 2015-02-28-Preview. Consulte [este artículo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obtener más información</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, fecha, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifier</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geografía</td> <td>Edm.GeographyPoint</td> <td>Solo se admiten instancias de geografía de tipo POINT con SRID 4326 \(que es el valor predeterminado\)</td> </tr> <tr> <td>rowversion</td> <td>N/D</td> <td>Las columnas de versión de fila no se pueden almacenar en el índice de búsqueda, pero pueden usarse para el seguimiento de cambios</td> </tr> <tr> <td>tiempo, timespan<br>binario, varbinary, imagen,<br>xml, geometría, tipos CLR</td> <td>N/D</td> <td>No se admite</td> </tr> </table>
+**Asignaciones entre los tipos de datos de SQL y los tipos de datos de Búsqueda de Azure** <table style="font-size:12"> <tr> <td>Tipo de datos de SQL</td> <td>Tipos de campo de índice de destino permitidos</td> <td>Notas</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>decimal<br/>numérico </td> <td>Edm.String</td> <td>Búsqueda de Azure no admite la conversión de tipos decimales en Edm.Double porque se podría perder precisión </td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>La transformación de una columna de cadenas en Collection(Edm.String) requiere el uso de una versión de API de vista previa 2015-02-28-Preview. Consulte [este artículo](search-api-indexers-2015-02-28-Preview.md#create-indexer) para obtener más información</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, fecha, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifier</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geografía</td> <td>Edm.GeographyPoint</td> <td>Solo se admiten instancias de geografía de tipo POINT con SRID 4326 (que es el valor predeterminado)</td> </tr> <tr> <td>rowversion</td> <td>N/D</td> <td>Las columnas de versión de fila no se pueden almacenar en el índice de búsqueda, pero pueden usarse para el seguimiento de cambios</td> </tr> <tr> <td>tiempo, timespan<br>binario, varbinary, imagen,<br>xml, geometría, tipos CLR</td> <td>N/D</td> <td>No se admite</td> </tr> </table>
 
 Por último, cree el indizador asignándole un nombre y haciendo referencia al índice de origen y destino de datos:
 
@@ -89,7 +89,7 @@ Un indizador creado de esta forma no tiene una programación. Se ejecuta automá
  
 Puede que necesite permitir que los servicios de Azure se conecten a la base de datos. Consulte [Conectarse desde Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) para obtener instrucciones sobre cómo hacerlo.
 
-Para supervisar el estado del indizador y el historial de ejecución \(número de elementos indizados, errores, etc.\), use una solicitud **estado del indizador**:
+Para supervisar el estado del indizador y el historial de ejecución (número de elementos indizados, errores, etc.), use una solicitud **estado del indizador**:
 
 	GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2015-02-28 
 	api-key: admin-key
@@ -127,7 +127,7 @@ La respuesta debe ser similar a la siguiente:
 		]
 	}
 
-El historial de ejecución contiene como máximo las 50 ejecuciones completadas más recientemente en orden cronológico inverso \(la ejecución más reciente aparece en primer lugar\). Puede encontrar información adicional sobre la respuesta en [Obtener el estado del indizador](http://go.microsoft.com/fwlink/p/?LinkId=528198).
+El historial de ejecución contiene como máximo las 50 ejecuciones completadas más recientemente en orden cronológico inverso (la ejecución más reciente aparece en primer lugar). Puede encontrar información adicional sobre la respuesta en [Obtener el estado del indizador](http://go.microsoft.com/fwlink/p/?LinkId=528198).
 
 ## Ejecutar indizadores según una programación ##
 
@@ -143,7 +143,7 @@ También puede disponer que el indizador se ejecute periódicamente según una p
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD \(un subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (un subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 El valor **startTime** opcional indica cuándo deben comenzar las ejecuciones programadas; si se omite, se usará la hora UTC actual. Este tiempo puede estar en el pasado, en cuyo caso la primera ejecución se programará como si el indizador se hubiera ejecutado continuamente desde la hora de inicio.
 
@@ -156,9 +156,9 @@ Veamos un ejemplo entenderlo concretamente. Supongamos que está configurada la 
 Esto es lo que sucede:
 
 1. La primera ejecución del indizador se inicia exactamente o en torno al 1 de marzo de 2015, 12:00 a. m. hora UTC.
-1. Suponga que esta ejecución tarda 20 minutos \(o un período inferior a 1 hora\).
+1. Suponga que esta ejecución tarda 20 minutos (o un período inferior a 1 hora).
 1. La segunda ejecución se inicia exactamente o en torno al 1 de marzo de 2015, 1:00 a. m. 
-1. Suponga que esta ejecución tarda más de una hora \(haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil\), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
+1. Suponga que esta ejecución tarda más de una hora (haría falta un gran número de documentos para que esto sucediera en la realidad, pero es una ilustración útil), por ejemplo, 70 minutos, de modo que finaliza en torno a las 2:10 a. m.
 1. Ahora son las 2:00 a. m., momento en que debe comenzar la tercera ejecución. Sin embargo, dado que la segunda ejecución de la 1 a. m. todavía se está ejecutando, se omite la tercera ejecución. La tercera ejecución empieza a las 3 a. m.
 
 Puede agregar, cambiar o eliminar la programación de un indizador existente mediante una solicitud **PUT de indizador**.
@@ -235,7 +235,7 @@ Tenga en cuenta que **softDeleteMarkerValue** debe ser una cadena. Use la repres
 
 ## Personalizar un indizador de SQL Azure ##
  
-Puede personalizar algunos aspectos del comportamiento de indizador \(por ejemplo, el tamaño de lote, el número de documentos que se puede omitir antes de que la ejecución de un indizador produzca un error, etc.\). Para obtener más información, consulte [Documentación de la API de indizador](http://go.microsoft.com/fwlink/p/?LinkId=528173).
+Puede personalizar algunos aspectos del comportamiento de indizador (por ejemplo, el tamaño de lote, el número de documentos que se puede omitir antes de que la ejecución de un indizador produzca un error, etc.). Para obtener más información, consulte [Documentación de la API de indizador](http://go.microsoft.com/fwlink/p/?LinkId=528173).
 
 ## Preguntas frecuentes ##
 

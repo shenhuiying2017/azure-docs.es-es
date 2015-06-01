@@ -59,9 +59,9 @@ Después de este cambio, cualquier usuario de Internet podrá ver los blobs de l
 
 ## Procedimientos: Carga de un blob en un contenedor
 
-Para cargar datos en un blob, use los métodos **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Para cargar datos en un blob, use los métodos **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** o **put_block_blob_from_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-**put\_block\_blob\_from\_path** carga el contenido de un archivo desde una ruta de acceso específica, **put\_block\_blob\_from\_file** carga el contenido desde una secuencia o un archivo que ya están abiertos. **put\_block\_blob\_from\_bytes** carga una matriz de bytes, **put\_block\_blob\_from\_text** carga el valor de texto especificado con la codificación especificada (la predeterminada es UTF-8).
+**put_block_blob_from_path** carga el contenido de un archivo desde una ruta de acceso específica, **put_block_blob_from_file** carga el contenido desde una secuencia o un archivo que ya están abiertos. **put_block_blob_from_bytes** carga una matriz de bytes, **put_block_blob_from_text** carga el valor de texto especificado con la codificación especificada (la predeterminada es UTF-8).
 
 En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el blob **myblob**.
 
@@ -74,7 +74,7 @@ En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el b
 
 ## Procedimientos: Enumeración de los blobs de un contenedor
 
-Para enumerar los blobs de un contenedor, use el método **list\_blobs** con un bucle
+Para enumerar los blobs de un contenedor, use el método **list_blobs** con un bucle
 **for** para mostrar el nombre de cada blob del contenedor. El código siguiente ofrece el **nombre** y la **url** de todos los blobs de un contenedor a la consola.
 
 	blobs = blob_service.list_blobs('mycontainer')
@@ -84,9 +84,9 @@ Para enumerar los blobs de un contenedor, use el método **list\_blobs** con un 
 
 ## Procedimientos: Descarga de blobs
 
-Para descargar datos de un blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Para descargar datos de un blob, use **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** o **get_blob_to_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-En el ejemplo siguiente se muestra cómo utilizar **get\_blob\_to\_path** para descargar el contenido del blob **myblob** y almacenarlo en el archivo **out-sunset.png**:
+En el ejemplo siguiente se muestra cómo utilizar **get_blob_to_path** para descargar el contenido del blob **myblob** y almacenarlo en el archivo **out-sunset.png**:
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 

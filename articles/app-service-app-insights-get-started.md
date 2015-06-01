@@ -24,7 +24,7 @@ Application Insights de Visual Studio supervisa su aplicación activa para ayuda
 
 En este artículo nos centraremos en los tipos de aplicaciones que se desarrollan en Visual Studio. También hay extensiones de Application Insights para otros IDE.
 
-Necesitará [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) \(o posterior\) y una cuenta en [Microsoft Azure](http://azure.com).
+Necesitará [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (o posterior) y una cuenta en [Microsoft Azure](http://azure.com).
 
 ## <a name="ide"></a>Incorporación de Application Insights a un proyecto
 
@@ -51,7 +51,7 @@ En este caso, no se agrega el [SDK de JavaScript][client] a las páginas web: le
 
 #### Opciones de configuración
 
-La primera vez deberá iniciar sesión o registrarse en Microsoft Azure en vista previa. \(Al margen de la cuenta de Visual Studio Online\).
+La primera vez deberá iniciar sesión o registrarse en Microsoft Azure en vista previa. (Al margen de la cuenta de Visual Studio Online).
 
 Si esta aplicación forma parte de una aplicación mayor, es posible que quiera usar **Configurar valor** para colocarla en el mismo grupo de recursos que los demás componentes.
 

@@ -36,7 +36,7 @@ Cada una de las reglas representa un propiedad de estilo del elemento selecciona
 
 > Si está familiarizado con [bootstrap][<http://getbootstrap.com/>], estas reglas son en realidad [variables LESS][<http://getbootstrap.com/css/>] del tema de bootstrap que se usa en el portal para desarrolladores.
 
-Ahora cambiaremos el color del texto del encabezado. Seleccione la entrada en el campo **@headings-color** y escriba \#000000. Este es el código hexadecimal para el color negro. Cuando esté haciendo esto verá que aparece un cuadrado indicador de color al final del cuadro de texto. Si hace clic en este indicador, un selector de colores le permitirá elegir un color.
+Ahora cambiaremos el color del texto del encabezado. Seleccione la entrada en el campo **@headings-color** y escriba #000000. Este es el código hexadecimal para el color negro. Cuando esté haciendo esto verá que aparece un cuadrado indicador de color al final del cuadro de texto. Si hace clic en este indicador, un selector de colores le permitirá elegir un color.
 
 ![Color picker][Color picker]
 

@@ -85,7 +85,7 @@ Siga estos pasos si solo dispone de un dispositivo y necesita realizar una conmu
 												
 	>[AZURE.IMPORTANT]**Si no se completa primero la configuración mínima, se producirá un error en la recuperación ante desastres como resultado de un error en la implementación actual. Este comportamiento se solucionará en una versión posterior.**
 
-1. Seleccione el dispositivo antiguo \(estado desconectado\) y haga clic en **Conmutación por error**. En el asistente que aparece, conmute por error este dispositivo y especifique el dispositivo de destino como dispositivo recién registrado. Para obtener instrucciones detalladas, consulte [Conmutar por error a otro dispositivo físico](#fail-over-to-another-physical-device).
+1. Seleccione el dispositivo antiguo (estado desconectado) y haga clic en **Conmutación por error**. En el asistente que aparece, conmute por error este dispositivo y especifique el dispositivo de destino como dispositivo recién registrado. Para obtener instrucciones detalladas, consulte [Conmutar por error a otro dispositivo físico](#fail-over-to-another-physical-device).
 
 1. Se creará un trabajo de restauración de dispositivo que puede supervisar desde la página **Trabajos**.
 

@@ -22,7 +22,7 @@ El desarrollo de un modelo de análisis predictivo es un proceso iterativo: a me
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores. Cuando se ejecuta un experimento, el Estudio de aprendizaje automático  conserva un historial de la ejecución, incluidos el conjunto de datos, el módulo y las conexiones y los parámetros de puertos. Este historial también captura los resultados, información de tiempo de ejecución \(como el inicio y las detenciones\), los mensajes de registro y el estado de ejecución. Puede volver atrás en cualquiera de estas ejecuciones en cualquier momento para revisar la cronología de su experimento y los resultados intermedios. Incluso puede usar una ejecución anterior de su experimento para iniciar en una nueva fase de consulta y detección en su ruta de acceso para la creación de soluciones simples, complejas o incluso de modelado de conjuntos.
+Puede revisar las ejecuciones anteriores de sus experimentos en cualquier momento con el fin de cuestionar, volver a plantear y, en última instancia, confirmar o refinar suposiciones anteriores. Cuando se ejecuta un experimento, el Estudio de aprendizaje automático  conserva un historial de la ejecución, incluidos el conjunto de datos, el módulo y las conexiones y los parámetros de puertos. Este historial también captura los resultados, información de tiempo de ejecución (como el inicio y las detenciones), los mensajes de registro y el estado de ejecución. Puede volver atrás en cualquiera de estas ejecuciones en cualquier momento para revisar la cronología de su experimento y los resultados intermedios. Incluso puede usar una ejecución anterior de su experimento para iniciar en una nueva fase de consulta y detección en su ruta de acceso para la creación de soluciones simples, complejas o incluso de modelado de conjuntos.
 
 > [AZURE.NOTE]Al ver una ejecución anterior de un experimento, esa versión del experimento está bloqueada y no se puede editar. Sin embargo, puede guardar una copia haciendo clic en **GUARDAR COMO** y proporcionar un nombre nuevo para la copia. El Estudio de aprendizaje automático abrirá la nueva copia, que podrá editar y ejecutar. Esta copia del experimento está disponible en la lista **EXPERIMENTOS** junto con los demás experimentos.
 
@@ -30,7 +30,7 @@ Puede revisar las ejecuciones anteriores de sus experimentos en cualquier moment
 
 Al abrir un experimento que ha ejecutado al menos una vez, puede ver la ejecución anterior del experimento haciendo clic en **Ejecución anterior** en el panel Propiedades.
 
-Por ejemplo, suponga que crea un experimento y ejecuta versiones de este a las 11:23, 11:42 y 11:55. Si abre la última ejecución del experimento \(11:55\) y hace clic en **Ejecución anterior**, se abrirá la versión que se ejecutó a las 11:42.
+Por ejemplo, suponga que crea un experimento y ejecuta versiones de este a las 11:23, 11:42 y 11:55. Si abre la última ejecución del experimento (11:55) y hace clic en **Ejecución anterior**, se abrirá la versión que se ejecutó a las 11:42.
 
 ##Ver el historial de ejecuciones
 
@@ -53,7 +53,7 @@ Haga clic en cualquiera de estas ejecuciones para ver una instantánea del exper
 
 > [AZURE.TIP]Para documentar las iteraciones del experimento, puede modificar el título cada vez que lo ejecuta, puede actualizar el **Resumen** del experimento en el panel de propiedades y puede agregar o actualizar comentarios en módulos individuales para registrar los cambios. El título, el resumen y los comentarios del módulo se guardan con cada ejecución del experimento.
 
-La lista de experimentos de la pestaña **EXPERIMENTOS** de Estudio de aprendizaje automático muestra siempre la versión más reciente de un experimento. Si abre una ejecución anterior del experimento \(mediante **Ejecución anterior** o **VER HISTORIAL DE EJECUCIÓN**\), puede volver a la versión de borrador haciendo clic en **VER HISTORIAL DE EJECUCIÓN** y seleccionando la iteración que con un **ESTADO** **Modificable**.
+La lista de experimentos de la pestaña **EXPERIMENTOS** de Estudio de aprendizaje automático muestra siempre la versión más reciente de un experimento. Si abre una ejecución anterior del experimento (mediante **Ejecución anterior** o **VER HISTORIAL DE EJECUCIÓN**), puede volver a la versión de borrador haciendo clic en **VER HISTORIAL DE EJECUCIÓN** y seleccionando la iteración que con un **ESTADO** **Modificable**.
 
 ##Iterar en una ejecución anterior
 
@@ -64,7 +64,7 @@ Si desea iniciar una iteración del experimento a partir de la configuración de
 Por ejemplo, suponga que el historial de ejecución del experimento se muestra en la sección anterior. Desea observar lo que sucede cuando establece el parámetro de **Velocidad de aprendizaje** en 0,4 y probar distintos valores para el parámetro **Número de tiempos de formación**.
 
 
-1. Haga clic en **VER HISTORIAL DE EJECUCIÓN** y abra la iteración del experimento que ejecutó a las 4:28:36 pm \(en la que estableció el valor del parámetro en 0,4\). 
+1. Haga clic en **VER HISTORIAL DE EJECUCIÓN** y abra la iteración del experimento que ejecutó a las 4:28:36 pm (en la que estableció el valor del parámetro en 0,4). 
 
 2. Haga clic en **GUARDAR COMO**.
 

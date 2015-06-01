@@ -30,10 +30,10 @@ Cada grupo de recursos que contiene al menos una aplicación de API incluye tamb
 
 La hoja de **aplicación de API** se utiliza para las siguientes tareas:
 
-- Configurar el nivel de acceso: haga clic en **Configuración \> Configuración de la aplicación**. El valor predeterminado es interno, lo que significa que solo las aplicaciones de API del mismo grupo de recursos pueden llamar a la aplicación de API. Para obtener más información, consulte [Protección de una aplicación de API](app-service-api-dotnet-add-authentication.md).   
-- Configurar la directiva de actualización: haga clic en **Configuración \> Configuración de la aplicación**. El valor predeterminado es **Activado**. Esto significa que cuando se publica una nueva versión de la aplicación de API en Marketplace, la aplicación de API se actualiza automáticamente a la nueva versión si se trata de un cambio no radical.  
-- Configurar la autenticación para llamadas salientes desde la aplicación de API: haga clic en **Configuración \> Autenticación**. Si la aplicación de API realiza llamadas a un servicio externo que requiere autenticación, los valores de configuración requeridos se introducen aquí. Por ejemplo, un conector de Dropbox requiere un identificador de cliente y un secreto de cliente para tener acceso al servicio de Dropbox.
-- Configurar [RBAC](role-based-access-control-configure.md): haga clic en **Configuración \> Usuarios**. El acceso de usuario que configure aquí determina solo quién puede tener acceso a las características específicas de la aplicación de API. Para configurar RBAC para las características de la aplicación web, utilice la hoja de **host de aplicación de API**. Normalmente deseará mantener sincronizados los valores de RBAC para la aplicación de API y el host de la aplicación de API. Si asigna a alguien acceso a la aplicación de API pero no al host de la aplicación de API, no podrá utilizar las características de la hoja de **aplicación de API** que realmente guardan relación con el host de la aplicación de API. La relación entre la hoja de **aplicación de API** y la hoja de **host de aplicación de API** se explica más adelante.
+- Configurar el nivel de acceso: haga clic en **Configuración > Configuración de la aplicación**. El valor predeterminado es interno, lo que significa que solo las aplicaciones de API del mismo grupo de recursos pueden llamar a la aplicación de API. Para obtener más información, consulte [Protección de una aplicación de API](app-service-api-dotnet-add-authentication.md).   
+- Configurar la directiva de actualización: haga clic en **Configuración > Configuración de la aplicación**. El valor predeterminado es **Activado**. Esto significa que cuando se publica una nueva versión de la aplicación de API en Marketplace, la aplicación de API se actualiza automáticamente a la nueva versión si se trata de un cambio no radical.  
+- Configurar la autenticación para llamadas salientes desde la aplicación de API: haga clic en **Configuración > Autenticación**. Si la aplicación de API realiza llamadas a un servicio externo que requiere autenticación, los valores de configuración requeridos se introducen aquí. Por ejemplo, un conector de Dropbox requiere un identificador de cliente y un secreto de cliente para tener acceso al servicio de Dropbox.
+- Configurar [RBAC](role-based-access-control-configure.md): haga clic en **Configuración > Usuarios**. El acceso de usuario que configure aquí determina solo quién puede tener acceso a las características específicas de la aplicación de API. Para configurar RBAC para las características de la aplicación web, utilice la hoja de **host de aplicación de API**. Normalmente deseará mantener sincronizados los valores de RBAC para la aplicación de API y el host de la aplicación de API. Si asigna a alguien acceso a la aplicación de API pero no al host de la aplicación de API, no podrá utilizar las características de la hoja de **aplicación de API** que realmente guardan relación con el host de la aplicación de API. La relación entre la hoja de **aplicación de API** y la hoja de **host de aplicación de API** se explica más adelante.
 - Ver definición de API: haga clic en **Definición de API** en la sección **Resumen** para ver una lista de los métodos expuestos por la **aplicación de API**.
 
 ### Características comunes de las hojas de aplicación de API y de host de aplicación de API 
@@ -50,8 +50,8 @@ La hoja de **host de aplicación de API** se utiliza para todas las tareas que h
 
 La hoja de **puerta de enlace** se utiliza para las siguientes tareas:
 
-- Configurar el proveedor de autenticación para las llamadas entrantes a aplicaciones de API: haga clic en **Configuración \> Identidad**. Si la puerta de enlace debe autenticar a los usuarios antes de permitirles llamar a las aplicaciones de API en el grupo de recursos, los valores de configuración requeridos se introducen aquí. Para obtener más información, consulte [Configuración y prueba de un conector SaaS en el Servicio de aplicaciones de Azure](app-service-api-connnect-your-app-to-saas-connector.md). 
-- Configurar [RBAC](role-based-access-control-configure.md): haga clic en **Configuración \> Usuarios**. Los mismos comentarios anteriores que explican la relación entre la configuración de RBAC especificada en las hojas de aplicación de API y de host de aplicación de API se aplica a las hojas de puerta de enlace y de host de puerta de enlace.
+- Configurar el proveedor de autenticación para las llamadas entrantes a aplicaciones de API: haga clic en **Configuración > Identidad**. Si la puerta de enlace debe autenticar a los usuarios antes de permitirles llamar a las aplicaciones de API en el grupo de recursos, los valores de configuración requeridos se introducen aquí. Para obtener más información, consulte [Configuración y prueba de un conector SaaS en el Servicio de aplicaciones de Azure](app-service-api-connnect-your-app-to-saas-connector.md). 
+- Configurar [RBAC](role-based-access-control-configure.md): haga clic en **Configuración > Usuarios**. Los mismos comentarios anteriores que explican la relación entre la configuración de RBAC especificada en las hojas de aplicación de API y de host de aplicación de API se aplica a las hojas de puerta de enlace y de host de puerta de enlace.
 
 ### Tareas de la hoja de host de puerta de enlace
 
@@ -59,7 +59,7 @@ La hoja de **host de puerta de enlace** se utiliza para todas las tareas que har
 
 ## Navegación hasta la hoja de aplicación de API 
 
-Una manera de obtener acceso a la hoja de **aplicación de API** es a través de la característica de exploración del portal de vista previa de Azure. En la página principal del portal, haga clic en **Examinar \> Aplicaciones de API** para ver todas las aplicaciones de API que se pueden administrar.
+Una manera de obtener acceso a la hoja de **aplicación de API** es a través de la característica de exploración del portal de vista previa de Azure. En la página principal del portal, haga clic en **Examinar > Aplicaciones de API** para ver todas las aplicaciones de API que se pueden administrar.
 
 ![](./media/app-service-api-manage-in-portal/browse.png)
 
@@ -97,7 +97,7 @@ Para obtener acceso a la hoja de **host de puerta de enlace**, haga clic en el v
 
 En el Explorador de servidores de Visual Studio puede iniciar una sesión de depuración remota, ver registros de streaming y hacer clic en una entrada de menú que abre la hoja de aplicación de API en el portal.
 
-Para obtener una aplicación de API en el Explorador de servidores, haga clic en **Azure \> Servicio de aplicaciones \> [nombre del grupo de recursos] \> [nombre de la aplicación de API]**, como se muestra en la ilustración.
+Para obtener una aplicación de API en el Explorador de servidores, haga clic en **Azure > Servicio de aplicaciones > [nombre del grupo de recursos] > [nombre de la aplicación de API]**, como se muestra en la ilustración.
 
 ![](./media/app-service-api-manage-in-portal/se.png)
 

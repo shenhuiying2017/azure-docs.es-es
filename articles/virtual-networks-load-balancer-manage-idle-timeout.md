@@ -58,7 +58,7 @@ El valor de IdleTimeoutInMinutes es opcional. Si no se establece, el tiempo de e
 
 ### Recuperar la configuración de tiempo de espera de inactividad
 
-    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet

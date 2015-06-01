@@ -57,7 +57,7 @@ Para poder conectarse, a veces es necesario crear una excepción de firewall que
 
 ## Conexión a un servidor local
 
-1. En Management Studio, en Conectar al servidor, asegúrese de que Motor de base de datos esté seleccionado y, a continuación, escriba el nombre de una sesión local con el formato siguiente: *servername*\\*instancename*. Si el servidor es local y se trata de una sesión predeterminada, escriba *localhost*.
+1. En Management Studio, en Conectar al servidor, asegúrese de que Motor de base de datos esté seleccionado y, a continuación, escriba el nombre de una sesión local con el formato siguiente: *servername**instancename*. Si el servidor es local y se trata de una sesión predeterminada, escriba *localhost*.
 
 2. En Autenticación, elija **Autenticación de Windows** y, a continuación, escriba una cuenta de Windows que pertenezca al rol sysadmin.
 

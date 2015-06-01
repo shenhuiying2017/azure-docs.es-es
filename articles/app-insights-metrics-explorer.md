@@ -76,11 +76,11 @@ Se agregan métricas diferentes de distintas maneras:
 
  * Para una métrica como el tiempo de respuesta, los valores se **promedian** durante el período del gráfico.
  * Para los recuentos de eventos, como las solicitudes con error, el valor agregado es la **suma** de recuentos durante el período.
- * Para los recuentos de usuarios, el valor agregado es el número de usuarios **únicos** durante el período. \(Si a un usuario se le registra más de una vez en el período, se cuenta solo una vez\).
+ * Para los recuentos de usuarios, el valor agregado es el número de usuarios **únicos** durante el período. (Si a un usuario se le registra más de una vez en el período, se cuenta solo una vez).
 
 Para averiguar si el valor es una suma, promedio o es un valor único, haga clic en el gráfico y desplácese hacia abajo hasta el valor seleccionado. También puede obtener una breve descripción de la métrica.
 
-![Desplace el ratón sobre \(i\)](./media/app-insights-metrics-explorer/06-total.png)
+![Desplace el ratón sobre (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -96,7 +96,7 @@ Seleccione un gráfico nuevo o uno existente para editar lo siguiente:
 
 Puede mostrar más de una métrica en un gráfico, aunque hay restricciones sobre las combinaciones que se pueden mostrar juntas. Cuando elija una métrica, algunas otras se deshabilitan.
 
-Si codifica las [métricas personalizadas][track] en la aplicación \(llamadas a TrackMetric y TrackEvent\), aparecerán aquí.
+Si codifica las [métricas personalizadas][track] en la aplicación (llamadas a TrackMetric y TrackEvent), aparecerán aquí.
 
 ## Segmentación de los datos
 

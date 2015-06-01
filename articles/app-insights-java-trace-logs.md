@@ -17,7 +17,7 @@
 
 # Exploración de los registros de seguimiento de Java en Application Insights
 
-Si está usando Logback o Log4J \(v1.2 o v2.0\) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
+Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
 
 Instale el [SDK de Application Insights para Java][java], si no ha hecho ya.
 
@@ -89,7 +89,7 @@ Registrador | Descargar | Biblioteca
 ----|----|----
 Logback|[SDK con el appender de Logback](http://dl.msopentech.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
 Log4J v2.0|[SDK con el appender de Log4J v2](http://dl.msopentech.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK con el appender de Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
+Log4j v1.2|[SDK con el appender de Log4J v1.2](http://dl.msopentech.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -130,7 +130,7 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
       <appender-ref ref="aiAppender" />
     </root>
 
-Los appenders de Application Insights pueden hacer referencia a cualquier registrador configurado y no necesariamente por el registrador de raíz \(como se muestra en los ejemplos de código anteriores\).
+Los appenders de Application Insights pueden hacer referencia a cualquier registrador configurado y no necesariamente por el registrador de raíz (como se muestra en los ejemplos de código anteriores).
 
 ## En el portal de Application Insights, explore los seguimientos.
 

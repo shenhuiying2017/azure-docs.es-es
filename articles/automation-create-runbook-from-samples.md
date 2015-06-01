@@ -56,7 +56,7 @@ La [Galería de runbooks](http://aka.ms/runbookgallery) incluye runbooks de ejem
 
 	![Pestaña Runbooks](./media/automation/automation_04_RunbooksTab.png)
   
-6.	Haga clic en **Nuevo** \> **Runbook** \> **Desde la galería**.
+6.	Haga clic en **Nuevo** > **Runbook** > **Desde la galería**.
 
 	![Galería de runbooks](./media/automation/automation_05_ImportGallery.png)
 
@@ -138,4 +138,6 @@ Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ej
 
 ## Comentarios
 
-<strong>¡Envíenos sus comentarios!</strong> Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). ¡Gracias! <!--HONumber=52-->
+<strong>¡Envíenos sus comentarios!</strong> Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). ¡Gracias! 
+
+<!---HONumber=52-->

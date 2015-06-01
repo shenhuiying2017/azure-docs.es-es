@@ -106,7 +106,7 @@ cuando expire el periodo de vida del contenido almacenado en la memoria caché.
 
 Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección del blob en caché será similar a la siguiente:
 
-http://<*CDNNamespace*\>.vo.msecnd.net/<*myPublicContainer*\>/<*BlobName*\>
+http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
 <a id="Step4"> </a>
 <h2>Paso 4: Eliminar su contenido de la red CDN</h2>

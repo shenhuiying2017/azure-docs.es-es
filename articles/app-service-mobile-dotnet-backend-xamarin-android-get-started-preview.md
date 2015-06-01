@@ -84,15 +84,16 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación. Se le solicitará que seleccione un emulador o un dispositivo USB conectado.
 
-	> [AZURE.NOTE]Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android \(AVD\). Use el administrador AVD para crear y administrar estos dispositivos.
+	> [AZURE.NOTE]Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 
-3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma \(\*\*+\*\*\).
+3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma (**+**).
 
 	![][10]
 
 	Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de aplicación móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-	> [AZURE.NOTE]\> Puede revisar el código de acceso al back-end de aplicación móvil para consultar e insertar datos; este se encuentra en el archivo de C\# ToDoActivity.cs.
+	> [AZURE.NOTE]
+   	> Puede revisar el código de acceso al back-end de aplicación móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
 
 
 

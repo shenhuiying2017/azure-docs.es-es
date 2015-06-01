@@ -9,9 +9,9 @@
    ms.date="04/13/2015"
    ms.author="rasquill" />
 
-## Uso de xplat-cli con el Administrador de recursos de Azure \(ARM\)
+## Uso de xplat-cli con el Administrador de recursos de Azure (ARM)
 
-Para poder usar xplat-cli con los comandos y plantillas del Administrador de recursos para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure \(por supuesto\). Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+Para poder usar xplat-cli con los comandos y plantillas del Administrador de recursos para implementar los recursos de Azure y las cargas de trabajo mediante grupos de recursos, necesitará una cuenta de Azure (por supuesto). Si no tiene una cuenta, puede obtener [aquí una evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 > [AZURE.NOTE]Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
 
@@ -26,7 +26,7 @@ Si necesita actualizar la versión de xplat-cli, consulte [xplat-cli](https://gi
 
 ### Paso 2: Comprobación de que utiliza una identidad profesional o educativa con Azure
 
-Solo puede utilizar el modo de comandos de ARM si utiliza un [inquilino de Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) o un [nombre principal de servicio](https://msdn.microsoft.com/library/azure/dn132633.aspx). \(También se denominan *identificadores de la organización*\).
+Solo puede utilizar el modo de comandos de ARM si utiliza un [inquilino de Azure Active Directory](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) o un [nombre principal de servicio](https://msdn.microsoft.com/library/azure/dn132633.aspx). (También se denominan *identificadores de la organización*).
 
 Para ver si tiene uno, inicie sesión escribiendo `azure login` y usando el nombre de usuario y contraseña profesional o educativa cuando se le solicite. Si tiene uno, debe ver algo parecido a lo siguiente:
 
@@ -41,7 +41,7 @@ Para ver si tiene uno, inicie sesión escribiendo `azure login` y usando el nomb
     +
     info:    login command OK
     
-Si no ve esta opción, debe crear un nuevo inquilino \(o nombre principal de servicio\) con la identidad de la cuenta de Microsoft. \(Esto suele ser el caso de las suscripciones personales a MSDN o suscripciones de evaluación gratuita\). Para crear un identificador profesional o educativo desde la cuenta de Azure con un identificador de Microsoft, consulte [Asociación de un directorio de Azure AD con una nueva suscripción de Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Si cree que debería tener un identificador de la organización, quizá tenga que hablar con la persona que creó la cuenta por usted.
+Si no ve esta opción, debe crear un nuevo inquilino (o nombre principal de servicio) con la identidad de la cuenta de Microsoft. (Esto suele ser el caso de las suscripciones personales a MSDN o suscripciones de evaluación gratuita). Para crear un identificador profesional o educativo desde la cuenta de Azure con un identificador de Microsoft, consulte [Asociación de un directorio de Azure AD con una nueva suscripción de Azure](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Si cree que debería tener un identificador de la organización, quizá tenga que hablar con la persona que creó la cuenta por usted.
 
 ### Paso 3: Elección de la suscripción de Azure
 
@@ -57,7 +57,7 @@ Debe ver algo parecido a lo siguiente:
     
 ### Paso 4: Ubicación de xplat-cli en modo ARM
 
-Para utilizar el modo de administración de recursos de Azure \(ARM\) con xplat-cli, escriba `azure config mode arm`. Debe ver algo parecido a lo siguiente:
+Para utilizar el modo de administración de recursos de Azure (ARM) con xplat-cli, escriba `azure config mode arm`. Debe ver algo parecido a lo siguiente:
 
     $ azure config mode arm
     info:    New mode is arm

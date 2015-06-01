@@ -21,7 +21,7 @@
 
 ## Información general
 
-El Almacenamiento premium de Azure almacena datos en unidades de estado sólido \(SSD\) de última tecnología y admite el uso de discos de alto rendimiento y baja latencia para cargas de trabajo con un alto consumo de E/S que se ejecutan en Máquinas virtuales de Azure. Con el Almacenamiento premium, las aplicaciones pueden tener hasta 32 TB de almacenamiento por máquina virtual y logran 50.000 IOPS \(operaciones de entrada/salida por segundo\) por máquina virtual con latencias extremadamente bajas para operaciones de lectura. Este artículo sirve de guía para migrar sus discos y máquinas virtuales \(VM\) desde un almacenamiento estándar o local, o bien desde una plataforma de nube diferente, al Almacenamiento premium de Azure. Para ver una descripción pormenorizada de la oferta de Almacenamiento premium de Azure, vea [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
+El Almacenamiento premium de Azure almacena datos en unidades de estado sólido (SSD) de última tecnología y admite el uso de discos de alto rendimiento y baja latencia para cargas de trabajo con un alto consumo de E/S que se ejecutan en Máquinas virtuales de Azure. Con el Almacenamiento premium, las aplicaciones pueden tener hasta 32 TB de almacenamiento por máquina virtual y logran 50.000 IOPS (operaciones de entrada/salida por segundo) por máquina virtual con latencias extremadamente bajas para operaciones de lectura. Este artículo sirve de guía para migrar sus discos y máquinas virtuales (VM) desde un almacenamiento estándar o local, o bien desde una plataforma de nube diferente, al Almacenamiento premium de Azure. Para ver una descripción pormenorizada de la oferta de Almacenamiento premium de Azure, vea [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
 
 ## Antes de empezar 
 
@@ -37,21 +37,21 @@ Aquí condensamos los tamaños de máquina virtual de la serie DS y sus caracter
 
 |Tamaño de VM|Núcleos de CPU|Máx. E/S|Máx. Ancho de banda de disco|
 |:---:|:---:|:---:|:---:|
-|**STANDARD\_DS1**|1|3\.200|32 MB por segundo|
-|**STANDARD\_DS2**|2|6\.400|64 MB por segundo|
-|**STANDARD\_DS3**|4|12\.800|128 MB por segundo|
-|**STANDARD\_DS4**|8|25\.600|256 MB por segundo|
-|**STANDARD\_DS11**|2|6\.400|64 MB por segundo|
-|**STANDARD\_DS12**|4|12\.800|128 MB por segundo|
-|**STANDARD\_DS13**|8|25\.600|256 MB por segundo|
-|**STANDARD\_DS14**|16|50\.000|512 MB por segundo|
+|**STANDARD_DS1**|1|3.200|32 MB por segundo|
+|**STANDARD_DS2**|2|6.400|64 MB por segundo|
+|**STANDARD_DS3**|4|12.800|128 MB por segundo|
+|**STANDARD_DS4**|8|25.600|256 MB por segundo|
+|**STANDARD_DS11**|2|6.400|64 MB por segundo|
+|**STANDARD_DS12**|4|12.800|128 MB por segundo|
+|**STANDARD_DS13**|8|25.600|256 MB por segundo|
+|**STANDARD_DS14**|16|50.000|512 MB por segundo|
 
 #### Tamaños de disco 
 Hay tres tipos de discos que se pueden usar con las máquinas virtuales, cada uno de ellos con sus límites particulares de rendimiento y E/S por segundo. Tenga presentes estos límites a la hora de elegir el tipo de disco para la máquina virtual según las necesidades de capacidad, rendimiento, escalabilidad y cargas máximas de la aplicación.
 
 |Tipo de disco de Almacenamiento premium|P10|P20|P30|
 |:---:|:---:|:---:|:---:|
-|Tamaño del disco|128 GB|512 GB|1\.024 GB \(1 TB\)|
+|Tamaño del disco|128 GB|512 GB|1.024 GB (1 TB)|
 |IOPS por disco|500|2300|5000|
 |Rendimiento de disco|100 MB por segundo|150 MB por segundo|200 MB por segundo|
 
@@ -69,7 +69,7 @@ Para más información sobre las especificaciones del Almacenamiento premium, ve
 Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. Si secciona discos de datos Almacenamiento premium usando [Espacios de almacenamiento](http://technet.microsoft.com/library/hh831739.aspx), será necesario configurarlo con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado a causa de la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux esto se logra con la utilidad mdadm. Vea el artículo [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md) para más información.
 
 #### Directiva de almacenamiento en caché de disco 
-La directiva de almacenamiento en caché de los discos es de "Solo lectura" de forma predeterminada en todos los discos de datos premium y de "Lectura y escritura" en el disco de sistema operativo premium conectado a la máquina virtual. Recomendamos esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. En los discos de datos de solo escritura o de gran cantidad de escritura \(por ejemplo, archivos de registro de SQL Server\), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar con el Portal de Azure o con el parámetro *- HostCaching* del cmdlet *Set-AzureDataDisk*.
+La directiva de almacenamiento en caché de los discos es de "Solo lectura" de forma predeterminada en todos los discos de datos premium y de "Lectura y escritura" en el disco de sistema operativo premium conectado a la máquina virtual. Recomendamos esta opción de configuración para lograr el rendimiento óptimo de E/S de la aplicación. En los discos de datos de solo escritura o de gran cantidad de escritura (por ejemplo, archivos de registro de SQL Server), deshabilite el almacenamiento en caché de disco para lograr un mejor rendimiento de la aplicación. La configuración de caché de los discos de datos existentes se puede actualizar con el Portal de Azure o con el parámetro *- HostCaching* del cmdlet *Set-AzureDataDisk*.
 
 #### Ubicación 
 Elija una ubicación donde el Almacenamiento premium de Azure esté disponible. Vea [Cosas importantes acerca del Almacenamiento premium](storage-premium-storage-preview-portal.md#important-things-to-know-about-premium-storage) para obtener información actualizada sobre las ubicaciones disponibles. El rendimiento de las máquinas virtuales será superior si están en la misma región que la cuenta de almacenamiento donde se almacenan los discos de máquina virtual, y no en regiones separadas.
@@ -97,7 +97,7 @@ En la siguiente sección encontrará las instrucciones necesarias para preparar 
 
 |Escenario|Pasos|
 |:---|:---|
-|Disco duro virtual de sistema operativo generalizado para crear varias instancias de VM|<p>Si está cargando un **disco duro virtual que se va usar para crear varias instancias de máquina virtual de Azure genéricas**, antes habrá que generalizarlo usando una utilidad sysprep. Esto es válido para discos duro virtuales tanto locales como en la nube. Sysprep quita cualquier información específica del equipo del disco duro virtual.</p><p>\*\*Importante:\*\* haga una instantánea o copia de seguridad de la máquina virtual antes de generalizarla. Cuando sysprep se ejecuta, se elimina la instancia de VM.</p>Siga los pasos aquí descritos para usar sysprep en un disco duro virtual del sistema operativo Windows:<br />Recuerde que, para ejecutar el comando Sysprep, hay que apagar la máquina virtual. Para más información sobre Sysprep, vea [Introducción a Sysprep](http://technet.microsoft.com/library/hh825209.aspx) o [Referencia técnica de Sysprep]http://technet.microsoft.com/library/cc766049(v=ws.10).aspx). <ul><li>Abra una ventana del símbolo del sistema como administrador.</li><li>Escriba el siguiente comando para abrir Sysprep:<br />\*\*%windir%\\system32\\sysprep\\sysprep.exe\*\*</li><li>En la Herramienta de preparación del sistema, seleccione Iniciar la configuración rápida \(OOBE\) del sistema, active la casilla Generalizar, seleccione **Apagar** y, luego, haga clic en **Aceptar**.</li><li>Esto hará que el sistema operativo se generalice y que el sistema se apague.![][1]</li></ul>En el caso de una VM de Ubuntu, use sysprep virt para lograr lo mismo. Vea [sysprep virt](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) para más información. Vea también algunos de los [software de aprovisionamiento del servidor Linux](http://www.cyberciti.biz/tips/server-provisioning-software.html) de código abierto correspondientes a otros sistemas operativos Linux.|
+|Disco duro virtual de sistema operativo generalizado para crear varias instancias de VM|<p>Si está cargando un **disco duro virtual que se va usar para crear varias instancias de máquina virtual de Azure genéricas**, antes habrá que generalizarlo usando una utilidad sysprep. Esto es válido para discos duro virtuales tanto locales como en la nube. Sysprep quita cualquier información específica del equipo del disco duro virtual.</p><p>**Importante:** haga una instantánea o copia de seguridad de la máquina virtual antes de generalizarla. Cuando sysprep se ejecuta, se elimina la instancia de VM.</p>Siga los pasos aquí descritos para usar sysprep en un disco duro virtual del sistema operativo Windows:<br />Recuerde que, para ejecutar el comando Sysprep, hay que apagar la máquina virtual. Para más información sobre Sysprep, vea [Introducción a Sysprep](http://technet.microsoft.com/library/hh825209.aspx) o [Referencia técnica de Sysprep]http://technet.microsoft.com/library/cc766049(v=ws.10).aspx). <ul><li>Abra una ventana del símbolo del sistema como administrador.</li><li>Escriba el siguiente comando para abrir Sysprep:<br />**%windir%\\system32\\sysprep\\sysprep.exe**</li><li>En la Herramienta de preparación del sistema, seleccione Iniciar la configuración rápida (OOBE) del sistema, active la casilla Generalizar, seleccione **Apagar** y, luego, haga clic en **Aceptar**.</li><li>Esto hará que el sistema operativo se generalice y que el sistema se apague.![][1]</li></ul>En el caso de una VM de Ubuntu, use sysprep virt para lograr lo mismo. Vea [sysprep virt](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) para más información. Vea también algunos de los [software de aprovisionamiento del servidor Linux](http://www.cyberciti.biz/tips/server-provisioning-software.html) de código abierto correspondientes a otros sistemas operativos Linux.|
 |Disco duro virtual de sistema operativo único para crear una sola instancia de VM|Si una aplicación que se ejecuta en la máquina virtual requiere los datos específicos de la máquina, no generalice el disco duro virtual. **Un disco duro virtual no generalizado se puede usar para crear una única instancia de la máquina virtual de Azure.** Por ejemplo, si tiene el controlador de dominio en el disco duro virtual, ejecutar sysprep lo anulará como controlador de dominio. Antes de generalizar el disco duro virtual, revise las aplicaciones que se ejecutan en la máquina virtual y el impacto que sysprep puede tener en ellos.|
 |Discos duros virtuales de discos de datos que se van a conectar a instancias de máquina virtual|Si tiene discos de datos en un almacenamiento en la nube y va a migrarlos, asegúrese de que las máquinas virtuales que usan esos discos de datos estén apagadas. En el caso de los discos de datos locales, cree un disco duro virtual coherente.|
 Ya tenemos listo el disco duro virtual, así que vamos a realizar los pasos descritos en la siguiente sección para cargar el disco duro virtual en Almacenamiento de Azure y registrarlo como una imagen de sistema operativo, como un disco de sistema de operativo aprovisionado o como un disco de datos aprovisionado.
@@ -108,8 +108,8 @@ Ya tenemos listo el disco duro virtual, así que vamos a realizar los pasos desc
 
 |Escenario|Pasos|
 |:---|:---|
-|Copiar el disco duro virtual desde Almacenamiento de Azure|Si va a migrar un disco duro virtual entre una cuenta de almacenamiento estándar de Azure y una cuenta de Almacenamiento premium de Azure, copie la ruta de acceso de origen y el nombre del contenedor de disco duro virtual y la clave de la cuenta de almacenamiento de origen.<ul><li>Vaya a Portal de Azure \> Máquinas virtuales \> Discos</li><li>Copie y guarde la dirección URL del contenedor del disco duro virtual de la columna de ubicación, https://*AccountName*.blob.core.windows.net/*ContainerName*/</li></ul>|
-|Copiar el disco duro virtual desde una nube que no es de Azure|Si va a migrar un disco duro virtual desde un almacenamiento en la nube que no es de Azure a Azure, exporte antes el disco duro virtual a un directorio local. Copie la ruta de acceso de origen completa del directorio local donde está el disco duro virtual. <ul><li>Si usa AWS, exporte la instancia de EC2 a un disco duro virtual en un depósito de Amazon S3. Siga los pasos descritos en el tema sobre [exportación de instancias de Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html) para instalar la herramienta de interfaz de línea de comandos \(CLI\) de Amazon EC2 y ejecutar el comando para exportar la instancia de EC2 a un archivo VHD. Procure usar **VHD** para la variable DISK\_IMAGE\_FORMAT cuando ejecute el comando. El archivo VHD exportado se guarda en el depósito de Amazon S3 que haya especificado durante el proceso.</li></ul>![][2]<ul><li>Descargue el archivo VHD del depósito de S3. Seleccione el archivo VHD \> **Acciones** \> **Descargar**.</li></ul>![][3]|
+|Copiar el disco duro virtual desde Almacenamiento de Azure|Si va a migrar un disco duro virtual entre una cuenta de almacenamiento estándar de Azure y una cuenta de Almacenamiento premium de Azure, copie la ruta de acceso de origen y el nombre del contenedor de disco duro virtual y la clave de la cuenta de almacenamiento de origen.<ul><li>Vaya a Portal de Azure > Máquinas virtuales > Discos</li><li>Copie y guarde la dirección URL del contenedor del disco duro virtual de la columna de ubicación, https://*AccountName*.blob.core.windows.net/*ContainerName*/</li></ul>|
+|Copiar el disco duro virtual desde una nube que no es de Azure|Si va a migrar un disco duro virtual desde un almacenamiento en la nube que no es de Azure a Azure, exporte antes el disco duro virtual a un directorio local. Copie la ruta de acceso de origen completa del directorio local donde está el disco duro virtual. <ul><li>Si usa AWS, exporte la instancia de EC2 a un disco duro virtual en un depósito de Amazon S3. Siga los pasos descritos en el tema sobre [exportación de instancias de Amazon EC2](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html) para instalar la herramienta de interfaz de línea de comandos (CLI) de Amazon EC2 y ejecutar el comando para exportar la instancia de EC2 a un archivo VHD. Procure usar **VHD** para la variable DISK_IMAGE_FORMAT cuando ejecute el comando. El archivo VHD exportado se guarda en el depósito de Amazon S3 que haya especificado durante el proceso.</li></ul>![][2]<ul><li>Descargue el archivo VHD del depósito de S3. Seleccione el archivo VHD > **Acciones** > **Descargar**.</li></ul>![][3]|
 |Copiar un disco duro virtual de un entorno local|Si va a migrar un disco duro virtual desde un entorno local, necesitará la ruta de acceso de origen completa en la que se almacena el disco duro virtual. Puede ser una ubicación de servidor o un recurso compartido de archivo.
 
 ### Destino 
@@ -119,7 +119,7 @@ Cree una cuenta de almacenamiento para mantener los discos duros virtuales. Teng
 - La cuenta de almacenamiento de destino puede ser un almacenamiento estándar o premium, según cuáles sean los requisitos de la aplicación. 
 - La ubicación de la cuenta de almacenamiento debe ser la misma que la de las VM de Azure de la serie DS que crearemos en el paso final. Puede copiar en una nueva cuenta de almacenamiento o decidir usar la misma cuenta de almacenamiento, según sus necesidades.
 - Copie y guarde la clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino para el siguiente paso.
-- En relación con los discos de datos, puede optar por mantener algunos en una cuenta de almacenamiento estándar \(por ejemplo, los discos que disponen de almacenamiento más frío\) y almacenar otros con una gran cantidad de E/S por segundo en la cuenta de Almacenamiento premium.
+- En relación con los discos de datos, puede optar por mantener algunos en una cuenta de almacenamiento estándar (por ejemplo, los discos que disponen de almacenamiento más frío) y almacenar otros con una gran cantidad de E/S por segundo en la cuenta de Almacenamiento premium.
 
 ### Copiar un disco duro virtual con AzCopy
 
@@ -134,7 +134,7 @@ Con AzCopy, puede cargar el disco duro virtual fácilmente a través de Internet
  - *&lt;Clave de almacenamiento de destino&gt;:* clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
  - /BlobType:page: indica que el destino es un blob de página.
  - *&lt;Nombre de archivo&gt;*: nombre del archivo de disco duro virtual que quiere copiar.
- - /Pattern:\*&lt;Nombre de archivo&gt;:\* escriba el nombre de archivo del disco duro virtual que va a copiar.
+ - /Pattern:*&lt;Nombre de archivo&gt;:* escriba el nombre de archivo del disco duro virtual que va a copiar.
    
 Con este comando se copiarán todos los archivos del *&lt;Origen&gt;* en el contenedor de *&lt;Destino&gt;*. Para más información sobre el uso de la herramienta AzCopy, vea [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md).
 ### Otras opciones para cargar un disco duro virtual 
@@ -173,7 +173,7 @@ Para crear una máquina virtual a partir de un disco duro virtual de sistema ope
 
 ### Crear una máquina virtual de Azure de la serie DS  
 
-Tras registrar la imagen de sistema operativo o disco de sistema operativo, se puede crear una instancia de máquina virtual de Azure de la serie DS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual “Standard\_DS2”.
+Tras registrar la imagen de sistema operativo o disco de sistema operativo, se puede crear una instancia de máquina virtual de Azure de la serie DS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual “Standard_DS2”.
 
 >[AZURE.NOTE]Actualice el tamaño del disco para procurar que coincida con sus requisitos de capacidad y rendimiento y los tamaños de disco de Azure disponibles.
 

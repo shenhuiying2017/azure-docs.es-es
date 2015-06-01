@@ -29,10 +29,10 @@
 
 ¡Saludos, aventurero! Bienvenido a MongoDB como servicio. En este tutorial, aprenderá lo siguiente:
 
-1. [Aprovisionamiento de la base de datos][provision]\: el complemento [MongoLab](http://mongolab.com) de Azure Marketplace le proporcionará una base de datos MongoDB que se hospeda en la nube de Azure y que administra la plataforma de base de datos en la nube de MongoLab.
-2. [Creación de la aplicación][create]\: será una aplicación Node.js sencilla para mantener una lista de tareas.
-3. [Implementación de la aplicación][deploy]\: uniendo unos cuantos enlaces de configuración, insertaremos nuestro código en [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) en un abrir y cerrar de ojos.
-4. [Administración de la base de datos][manage]\: por último, le mostraremos el portal de administración de base de datos basado en web de MongoLab, donde puede buscar, visualizar y modificar los datos con facilidad.
+1. [Aprovisionamiento de la base de datos][provision]: el complemento [MongoLab](http://mongolab.com) de Azure Marketplace le proporcionará una base de datos MongoDB que se hospeda en la nube de Azure y que administra la plataforma de base de datos en la nube de MongoLab.
+2. [Creación de la aplicación][create]: será una aplicación Node.js sencilla para mantener una lista de tareas.
+3. [Implementación de la aplicación][deploy]: uniendo unos cuantos enlaces de configuración, insertaremos nuestro código en [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) en un abrir y cerrar de ojos.
+4. [Administración de la base de datos][manage]: por último, le mostraremos el portal de administración de base de datos basado en web de MongoLab, donde puede buscar, visualizar y modificar los datos con facilidad.
 
 En cualquier momento de este tutorial puede enviar un correo electrónico a [support@mongolab.com](mailto:support@mongolab.com) si tiene alguna pregunta.
 
@@ -67,7 +67,7 @@ Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comen
  		...
  		mongoose.connect(connectionString);
 
-Azure agrega el prefijo **CUSTOMCONNSTR\\_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a** CUSTOMCONNSTR\\_MONGOLAB\\_URI** en vez de a **MONGOLAB\\_URI**.
+Azure agrega el prefijo **CUSTOMCONNSTR_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a** CUSTOMCONNSTR_MONGOLAB_URI** en vez de a **MONGOLAB_URI**.
 
 Ahora, continuemos con el tutorial completo...
 

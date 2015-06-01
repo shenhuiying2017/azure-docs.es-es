@@ -35,9 +35,9 @@ Cuando abra cualquier solicitud de servicio de Azure Mobile Engagement, proporci
 
 
 ## Código: proporcione la información de codificación aplicable relacionada con su problema
-- La plataforma y versión SDK de la aplicación \(SDK de Android 2.4.1, iOS 1.16.2, etc.\)
-- La ubicación de descarga de la aplicación de producción \(o los archivos APK/TGZ de la aplicación de desarrollo\)
-- "AndroidManifest.xml" o cualquier fragmento de código de la aplicación relacionado con Azure Mobile Engagement \(para la solución avanzada de problemas\)
+- La plataforma y versión SDK de la aplicación (SDK de Android 2.4.1, iOS 1.16.2, etc.)
+- La ubicación de descarga de la aplicación de producción (o los archivos APK/TGZ de la aplicación de desarrollo)
+- "AndroidManifest.xml" o cualquier fragmento de código de la aplicación relacionado con Azure Mobile Engagement (para la solución avanzada de problemas)
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

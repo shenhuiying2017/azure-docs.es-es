@@ -17,11 +17,11 @@
 	ms.author="larryfr"/>
 
 
-#Uso de C\# con Hive y Pig en HDInsight
+#Uso de C# con Hive y Pig en HDInsight
 
-Hive y Pig resultan excelentes para trabajar con datos en Azure HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Hive y Pig permiten efectuar llamadas a código externo a través de funciones definidas por el usuario \(UDF\) o de streaming.
+Hive y Pig resultan excelentes para trabajar con datos en Azure HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Hive y Pig permiten efectuar llamadas a código externo a través de funciones definidas por el usuario (UDF) o de streaming.
 
-Con este documento, aprenderá a usar C\# con Hive y Pig.
+Con este documento, aprenderá a usar C# con Hive y Pig.
 
 ##Requisitos previos
 
@@ -41,19 +41,19 @@ Con este documento, aprenderá a usar C\# con Hive y Pig.
 
 ##.NET en HDInsight
 
-Common Language Runtime \(CLR\) de .NET y los marcos se instalan de forma predeterminada en los clústeres de HDInsight basados en Windows. Esto permite utilizar las aplicaciones de C\# con el streaming de Hive y Pig \(los datos se pasan entre Hive/Pig y la aplicación de C\# a través de stdin y stdout\).
+Common Language Runtime (CLR) de .NET y los marcos se instalan de forma predeterminada en los clústeres de HDInsight basados en Windows. Esto permite utilizar las aplicaciones de C# con el streaming de Hive y Pig (los datos se pasan entre Hive/Pig y la aplicación de C# a través de stdin y stdout).
 
 Actualmente, no se pueden ejecutar aplicaciones de .NET Framework en clústeres de HDInsight basados en Linux.
 
 ##.NET y streaming
 
-El streaming obliga a Hive y Pig a pasar datos a una aplicación externa a través de stdout y a recibir los resultados a través de stdin. En el caso de las aplicaciones de C\#, esto se consigue más fácilmente a través de `Console.ReadLine()` y `Console.WriteLine()`.
+El streaming obliga a Hive y Pig a pasar datos a una aplicación externa a través de stdout y a recibir los resultados a través de stdin. En el caso de las aplicaciones de C#, esto se consigue más fácilmente a través de `Console.ReadLine()` y `Console.WriteLine()`.
 
-Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay que utilizar la plantilla de **aplicación de consola** en los proyectos de C\#.
+Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay que utilizar la plantilla de **aplicación de consola** en los proyectos de C#.
 
-##Hive y C&\#35;
+##Hive y C&#35;
 
-###Creación de un proyecto de C\#
+###Creación de un proyecto de C#
 
 1. Abra Visual Studio y cree una nueva solución. Para el tipo de proyecto, elija **Aplicación de consola**. Asigne al nuevo proyecto el nombre **HiveCSharp**.
 
@@ -146,15 +146,15 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    Este comando selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable`, y los pasa a la aplicación HiveCSharp.exe. La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que HiveCSharp.exe esté en la raíz del contenedor de almacenamiento predeterminado \(`add file wasb:///HiveCSharp.exe`\).
+    Este comando selecciona los campos `clientid`, `devicemake` y `devicemodel` de `hivesampletable`, y los pasa a la aplicación HiveCSharp.exe. La consulta espera que la aplicación devuelva tres campos, que están almacenados como `clientid`, `phoneLabel` y `phoneHash`. La consulta también espera que HiveCSharp.exe esté en la raíz del contenedor de almacenamiento predeterminado (`add file wasb:///HiveCSharp.exe`).
 
 5. Haga clic en **Enviar** para enviar el trabajo al clúster de HDInsight. Se abrirá la ventana **Resumen del trabajo de Hive**.
 
 6. Haga clic en **Actualizar** para actualizar el resumen hasta que el valor de **Estado del trabajo** cambie a **Completado**. Para ver la salida del trabajo, haga clic en **Salida de trabajo**.
 
-###Pig y C&\#35;
+###Pig y C&#35;
 
-###Creación de un proyecto de C\#
+###Creación de un proyecto de C#
 
 1. Abra Visual Studio y cree una nueva solución. Para el tipo de proyecto, elija **Aplicación de consola**. Asigne al nuevo proyecto el nombre **PigUDF**.
 
@@ -195,7 +195,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
 1. El streaming de Pig espera que la aplicación sea local en el sistema de archivos del clúster. Habilite el Escritorio remoto para el clúster de HDInsight y, acto seguido, conéctese a él siguiendo las instrucciones dadas en <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
-2. Una vez conectado, copie **PigUDF.exe** desde el directorio **bin/debug** para el proyecto PigUDF en el equipo local y péguelo en el directorio **% PIG\_HOME %** del clúster.
+2. Una vez conectado, copie **PigUDF.exe** desde el directorio **bin/debug** para el proyecto PigUDF en el equipo local y péguelo en el directorio **% PIG_HOME %** del clúster.
 
 ###Uso de la aplicación desde Pig Latin
 
@@ -218,7 +218,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
 	La instrucción `DEFINE` crea un alias de `streamer` para las aplicaciones de pigudf.exe, y `SHIP` lo distribuye entre los nodos del clúster. Más adelante, `streamer` se usa con el operador `STREAM` para procesar las líneas individuales incluidas en el registro y devolver los datos como una serie de columnas.
 
-> [AZURE.NOTE]El nombre de la aplicación que se usa para el streaming debe estar encerrado entre caracteres \` \(acento grave\) cuando se usa como alias, y entre caracteres ' \(comilla sencilla\) cuando se utiliza con `SHIP`.
+> [AZURE.NOTE]El nombre de la aplicación que se usa para el streaming debe estar encerrado entre caracteres ` (acento grave) cuando se usa como alias, y entre caracteres ' (comilla sencilla) cuando se utiliza con `SHIP`.
 
 3. Después de escribir la última línea, debe iniciarse el trabajo. Finalmente, se devolverán unos resultados similares a los siguientes:
 

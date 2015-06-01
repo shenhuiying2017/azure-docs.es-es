@@ -29,10 +29,10 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 ### Causas
 - Los problemas que parecen deberse a interrupciones del servicio de Azure Mobile Engagement pueden deberse a diversos problemas:
     - Problemas aislados que originalmente parecen sistémicos de todo Azure Mobile Engagement
-    - Problemas conocidos causados por interrupciones de los servidores \(no siempre se muestran en el estado del servidor\):
+    - Problemas conocidos causados por interrupciones de los servidores (no siempre se muestran en el estado del servidor):
 	- Retrasos de la programación, errores de orientación, problemas de actualización de distintivos, detención de la recopilación de estadísticas, detención del funcionamiento de las API, imposibilidad de crear nuevas aplicaciones o usuarios, errores de DNS y errores de tiempo de espera en la interfaz de usuario, en la API o en las aplicaciones de un dispositivo.
-    - Interrupciones de dependencia en la nube [Estado del servicio Azure](http://status.azure.com/), [Estado de los servicios web de Amazon \(AWS\)](http://status.aws.amazon.com/) 
-    - Interrupciones de dependencia de los servicios de notificaciones de inserción \(PNS\) [Google - Servicio](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Servicio](http://www.apple.com/support/systemstatus/), [Android -  Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone: WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone: MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
+    - Interrupciones de dependencia en la nube [Estado del servicio Azure](http://status.azure.com/), [Estado de los servicios web de Amazon (AWS)](http://status.aws.amazon.com/) 
+    - Interrupciones de dependencia de los servicios de notificaciones de inserción (PNS) [Google - Servicio](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Servicio](http://www.apple.com/support/systemstatus/), [Android -  Google GCM](http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM](https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone: WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone: MPNS][LinkMPNS], [Windows - WNS](https://developer.windows.com/)
     - Interrupciones de App Store [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Tienda de Windows Phone](http://www.windowsphone.com/), [Tienda Windows](http://windows.microsoft.com/)
 
 *Para comprobar si el problema es sistémico puede probar la misma función desde otro:*
@@ -91,8 +91,8 @@ Para probar si el problema está relacionado con las actualizaciones del sistema
     - Confirme que el problema no se limita a un equipo o a la red local.
     - Confirme que el servicio de Azure Mobile Engagement no tiene interrupciones registradas.
     - Confirme que los archivos de la etiqueta de información de la aplicación siguen todas estas reglas:
-        - Use únicamente el juego de caracteres UTF8 \(no se admite el juego de caracteres ANSI\).
-        - Use una coma "," como carácter separador \(puede abrir una solicitud de servicio para solicitar cambiar el carácter separador de .csv de una coma "," a otro carácter como un punto y coma ";"\).
+        - Use únicamente el juego de caracteres UTF8 (no se admite el juego de caracteres ANSI).
+        - Use una coma "," como carácter separador (puede abrir una solicitud de servicio para solicitar cambiar el carácter separador de .csv de una coma "," a otro carácter como un punto y coma ";").
         - Use minúsculas para los valores booleanos "true" y "false".
         - Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
 

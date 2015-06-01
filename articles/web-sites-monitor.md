@@ -137,7 +137,7 @@ Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la
 
 - La ubicación en que se guardarán los registros de aplicaciones, en relación con la raíz web.
 
-- Valor predeterminado: ..\..\\LogFiles\\Application
+- Valor predeterminado: ....\\LogFiles\\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 

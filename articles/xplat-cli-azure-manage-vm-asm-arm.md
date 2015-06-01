@@ -18,7 +18,7 @@
 
 
 # Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows
-Este artículo muestra los comandos equivalentes de la interfaz de línea de comandos de Azure \(CLI de Azure\) para crear y administrar máquinas virtuales de Azure en los modos Administración de servicios \(asm\) y Administrador de recursos \(arm\). Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
+Este artículo muestra los comandos equivalentes de la interfaz de línea de comandos de Azure (CLI de Azure) para crear y administrar máquinas virtuales de Azure en los modos Administración de servicios (asm) y Administrador de recursos (arm). Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
 
 * Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure para Mac, Linux y Windows](xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure para Mac, Linux y Windows](xplat-cli-connect.md). Cuando use los comandos del modo arm asegúrese de conectarse con el método de inicio de sesión.
 

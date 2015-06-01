@@ -20,7 +20,7 @@
 
 ## Información general
 
-En las notas siguientes se identifican los problemas críticos por resolver de la versión de enero de 2015 de Microsoft Azure StorSimple. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Se trata de la segunda versión después del lanzamiento de la disponibilidad general \(GA\) de Microsoft Azure StorSimple.
+En las notas siguientes se identifican los problemas críticos por resolver de la versión de enero de 2015 de Microsoft Azure StorSimple. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Se trata de la segunda versión después del lanzamiento de la disponibilidad general (GA) de Microsoft Azure StorSimple.
   
 Esta actualización no cambia la versión de software del dispositivo físico de la actualización de octubre. Sigue siendo la versión 6.3.9600.17312. En esta versión, la imagen que usa la imagen del dispositivo virtual cambió. Por lo tanto, en todos los dispositivos virtuales nuevos creados después del 20/01/2015 se mostrará la versión 6.3.9600.17361.
 
@@ -34,7 +34,7 @@ Consulte la siguiente información de las notas de la versión referente a la ac
 
 ## Novedades de la versión de enero
 
-Esta actualización contiene una revisión relacionada con los volúmenes que se desconectan en el dispositivo virtual. \(Consulte [Problemas corregidos en esta versión](#issues-fixed-in-the-january-release)\).
+Esta actualización contiene una revisión relacionada con los volúmenes que se desconectan en el dispositivo virtual. (Consulte [Problemas corregidos en esta versión](#issues-fixed-in-the-january-release)).
 
 La actualización no contiene características o funcionalidades nuevas.
 
@@ -52,7 +52,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
  
 |N.º|Característica|Problema|Comentarios/solución alternativa|Se aplica a un dispositivo físico|Se aplica a un dispositivo virtual 
 |---|-------|-----|-------------------|--------------------------|-------------------------
-|1|	Restablecimiento de fábrica|	En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso \(fase 8\)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso.|	No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes.|Sí|No|
+|1|	Restablecimiento de fábrica|	En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso (fase 8)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso.|	No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes.|Sí|No|
 |2|Cuórum de disco|	En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el bloque de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos.|Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes.|Sí |No
 |3|Errores de instantánea en la nube|En raras ocasiones, una instantánea en la nube puede producir el error **Se ha alcanzado el límite máximo de copia de seguridad**. Esto ocurre si se superan los 255 clones en línea en el mismo dispositivo, procedentes del mismo volumen original eliminado.||Sí|Sí
 |4|Identificador de controlador incorrecto|Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema.|No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador.|Sí|No 
@@ -62,15 +62,15 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 |8|	Instalación|Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente.||Sí|No
 |9|	Proxy web|Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo.|Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Obtenga más información sobre cómo [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx).|Sí |No
 |10|Proxy web|	Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo.||	Sí |No
-|11|Latencia alta de la nube y alta carga de trabajo de E/S|Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube \(del orden de segundos\) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo».|Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación.|Sí|No
+|11|Latencia alta de la nube y alta carga de trabajo de E/S|Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo».|Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación.|Sí|No
 
 ## Actualizaciones del dispositivo físico en la versión de enero
 
 Esta actualización no contiene otros cambios en el dispositivo StorSimple.
 
-## Controlador SCSI conectado en serie \(SAS\) y actualizaciones de firmware en la versión de enero
+## Controlador SCSI conectado en serie (SAS) y actualizaciones de firmware en la versión de enero
 
-Esta versión no contiene las actualizaciones para el controlador SCSI conectado en serie \(SAS\) o el firmware. La actualización del controlador se introdujo en la versión de octubre de 2014.
+Esta versión no contiene las actualizaciones para el controlador SCSI conectado en serie (SAS) o el firmware. La actualización del controlador se introdujo en la versión de octubre de 2014.
 
 ## Actualizaciones del dispositivo virtual de enero
 

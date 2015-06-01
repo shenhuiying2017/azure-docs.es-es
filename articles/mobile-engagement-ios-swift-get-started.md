@@ -25,7 +25,7 @@
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md) 
 
-En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a los usuarios segmentados a una aplicación de iOS. En este tutorial, puede crear una aplicación iOS vacía que recopile datos básicos y reciba notificaciones push mediante el sistema de notificaciones push de Apple \(APN\). Cuando haya terminado, podrá difundir notificaciones de inserción a todos los dispositivos o dirigirse a usuarios específicos en función de las propiedades de sus dispositivos.
+En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a los usuarios segmentados a una aplicación de iOS. En este tutorial, puede crear una aplicación iOS vacía que recopile datos básicos y reciba notificaciones push mediante el sistema de notificaciones push de Apple (APN). Cuando haya terminado, podrá difundir notificaciones de inserción a todos los dispositivos o dirigirse a usuarios específicos en función de las propiedades de sus dispositivos.
 
 En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. Asegúrese de seguir el tutorial siguiente para ver cómo usar Mobile Engagement para dirigirse a usuarios y grupos de dispositivos específicos.
 
@@ -33,7 +33,7 @@ Este tutorial requiere lo siguiente:
 
 + XCode, que se puede instalar desde la tienda de aplicaciones MAC.
 + [SDK de Mobile Engagement iOS]
-+ Certificado de notificaciones push \(.p12\), que puede obtener en el centro de desarrolladores de Apple.
++ Certificado de notificaciones push (.p12), que puede obtener en el centro de desarrolladores de Apple.
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Mobile Engagement para aplicaciones iOS.
 
@@ -58,7 +58,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
    	![][8]
 
 	- **Nombre de la aplicación**: escriba el nombre de la aplicación. Puede usar cualquier carácter.
-	- **Plataforma**: seleccione la plataforma de destino \(\*\*iOS\*\*\) para la aplicación \(si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma\). 
+	- **Plataforma**: seleccione la plataforma de destino (**iOS**) para la aplicación (si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma). 
 	- **Nombre del recurso de la aplicación**: este es el nombre por el que la aplicación será accesible a través de las API y las direcciones URL. Solo debe usar caracteres convencionales de dirección URL. El nombre que se genera automáticamente debería proporcionar una sugerencia sólida. También debe anexar el nombre de la plataforma para evitar cualquier conflicto de nombres, ya que este debe ser único.
 	- **Ubicación**: seleccione el centro de datos donde se alojará esta aplicación y, más importante aún, su colección.
 	- **Colección**: si ya ha creado una aplicación, seleccione una colección creada anteriormente; en caso contrario, seleccione una colección nueva.
@@ -114,7 +114,7 @@ Xcode creará la aplicación de demostración en la que se integrará Mobile Eng
 
 	![][19]
 
-6. Cree un encabezado puente para poder usar las API de Objective-C de SDK mediante la selección de Archivo \> Nuevo \> Archivo \> iOS \> Origen \> Archivo de encabezado.
+6. Cree un encabezado puente para poder usar las API de Objective-C de SDK mediante la selección de Archivo > Nuevo > Archivo > iOS > Origen > Archivo de encabezado.
 
 	![][41]
 
@@ -130,7 +130,7 @@ Xcode creará la aplicación de demostración en la que se integrará Mobile Eng
 		#import "EngagementViewController.h"
 		#import "AEIdfaProvider.h"
 
-8. En Configuración de compilación, asegúrese de que la compilación del encabezado puente Objective-C en Compilador de Swift - Generación de código tiene una ruta de acceso a este encabezado. Este es un ejemplo de ruta de acceso: **$\(SRCROOT\)/MySuperApp/MySuperApp-Bridging-Header.h \(en función de la ruta de acceso\)**
+8. En Configuración de compilación, asegúrese de que la compilación del encabezado puente Objective-C en Compilador de Swift - Generación de código tiene una ruta de acceso a este encabezado. Este es un ejemplo de ruta de acceso: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (en función de la ruta de acceso)**
 
 9. Vuelva al portal de Azure en la página *Información de conexión* de la aplicación y copie la cadena de conexión
 
@@ -147,7 +147,7 @@ Xcode creará la aplicación de demostración en la que se integrará Mobile Eng
 
 ##<a id="monitor">Habilitar supervisión en tiempo real
 
-Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla \(Actividad\) al back-end de Mobile Engagement.
+Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla (Actividad) al back-end de Mobile Engagement.
 
 - Abra el archivo `ViewController.h`, importe `EngagementViewController.h` y sustituya la superclase de la interfaz `ViewController` de `EngagementViewController`.
 

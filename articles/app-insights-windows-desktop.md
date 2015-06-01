@@ -35,7 +35,7 @@ Application Insights permite supervisar el uso y rendimiento de la aplicación i
 
     ![Haga clic en Nuevo, Application Insights.](./media/app-insights-windows-get-started/01-new.png)
 
-    \(Su elección del tipo de aplicación establece el contenido de la hoja de información general así como de las propiedades disponibles en el [explorador de métricas][metrics]\).
+    (Su elección del tipo de aplicación establece el contenido de la hoja de información general así como de las propiedades disponibles en el [explorador de métricas][metrics]).
 
 2.  Realice una copia de la clave de instrumentación.
 
@@ -50,11 +50,11 @@ Application Insights permite supervisar el uso y rendimiento de la aplicación i
 
     ![Seleccione **En línea**, **Incluir versión preliminar** y busque "Application Insights".](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-    \(Como alternativa, puede elegir el SDK de Application Insights para Aplicaciones web. Esto proporciona cierta telemetría de contador de rendimiento integrada\).
+    (Como alternativa, puede elegir el SDK de Application Insights para Aplicaciones web. Esto proporciona cierta telemetría de contador de rendimiento integrada).
 
-3. Edite ApplicationInsights.config \(que la instalación de NuGet ha agregado\). Inserte esto justo antes de la etiqueta de cierre:
+3. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
 
-    &lt;InstrumentationKey&gt;\*la clave que copió\*&lt;/InstrumentationKey&gt;
+    &lt;InstrumentationKey&gt;*la clave que copió*&lt;/InstrumentationKey&gt;
 
     Asimismo, puede lograr el mismo efecto con este código:
     
@@ -66,7 +66,7 @@ Application Insights permite supervisar el uso y rendimiento de la aplicación i
 
 Cree una instancia `TelemetryClient` y después [utilícela para enviar telemetría][track].
 
-Utilice `TelemetryClient.Flush` para enviar los mensajes antes de cerrar la aplicación. \(Este procedimiento no se recomienda en otros tipos de aplicación\).
+Utilice `TelemetryClient.Flush` para enviar los mensajes antes de cerrar la aplicación. (Este procedimiento no se recomienda en otros tipos de aplicación).
 
 Por ejemplo, en una aplicación de Windows Forms, podría escribir:
 
@@ -96,11 +96,11 @@ Por ejemplo, en una aplicación de Windows Forms, podría escribir:
 
 Utilice cualquiera de las [API de Application Insights][track] para enviar telemetría. En las aplicaciones de escritorio de Windows, no se envía automáticamente ninguna telemetría. Normalmente se usaría:
 
-* TrackPageView\(pageName\) acerca de cómo cambiar formularios, páginas o pestañas
-* TrackEvent\(eventName\) para las demás acciones de usuario
-* TrackTrace\(logEvent\) para el [registro de diagnóstico][diagnostic]
-* TrackException\(exception\) en cláusulas catch
-* TrackMetric\(name, value\) en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
+* TrackPageView(pageName) acerca de cómo cambiar formularios, páginas o pestañas
+* TrackEvent(eventName) para las demás acciones de usuario
+* TrackTrace(logEvent) para el [registro de diagnóstico][diagnostic]
+* TrackException(exception) en cláusulas catch
+* TrackMetric(name, value) en una tarea en segundo plano para enviar informes periódicos de métricas no asociados a eventos específicos.
 
 Para ver los recuentos de usuarios y sesiones, establezca un inicializador de contexto:
 

@@ -49,7 +49,7 @@ Las versiones del SO invitado 4.15, 3.22 y 2.34 tienen la fecha de deshabilitaci
 
 
 ###### **29 de enero de 2015**
-La fecha de deshabilitación de las versiones del SO invitado 4.14, 4.13, 3.21, 3.20, 2.33, 2.32 \(lanzadas en noviembre\) se ha desplazado. Se ha actualizado la siguiente matriz de lanzamientos de SO invitado.
+La fecha de deshabilitación de las versiones del SO invitado 4.14, 4.13, 3.21, 3.20, 2.33, 2.32 (lanzadas en noviembre) se ha desplazado. Se ha actualizado la siguiente matriz de lanzamientos de SO invitado.
 
 
 ###### **13 de enero de 2015, actualizada el 15 de enero de 2015**
@@ -67,13 +67,13 @@ El lanzamiento del SO invitado de diciembre está previsto para iniciarse a part
 
 ###### **11 de noviembre de 2014**
 
-El lanzamiento de noviembre \(4.14, 3.21 y 2.33\) se implementó el 11 de noviembre. Esta actualización se desplazó a una fecha anterior porque incluye la actualización de MSRC [Boletín de seguridad de Microsoft MS14-066: crítico][MS14-066]. Los roles de web y de trabajo en la actualización automática deben reiniciarse una vez en los próximos días y recibir esta corrección.
+El lanzamiento de noviembre (4.14, 3.21 y 2.33) se implementó el 11 de noviembre. Esta actualización se desplazó a una fecha anterior porque incluye la actualización de MSRC [Boletín de seguridad de Microsoft MS14-066: crítico][MS14-066]. Los roles de web y de trabajo en la actualización automática deben reiniciarse una vez en los próximos días y recibir esta corrección.
 
 ###### **10 de noviembre de 2014**
-La fecha de deshabilitación del lanzamiento de octubre \(4.13, 3.20 y 2.32\) se ha actualizado en función de los comentarios de los clientes. La fecha de deshabilitación siempre será al menos dos meses a partir de la fecha de lanzamiento.
+La fecha de deshabilitación del lanzamiento de octubre (4.13, 3.20 y 2.32) se ha actualizado en función de los comentarios de los clientes. La fecha de deshabilitación siempre será al menos dos meses a partir de la fecha de lanzamiento.
 
 ###### **4 de noviembre de 2014**
-El lanzamiento de octubre \(4.13, 3.20 y 2.32\) se implementó el 4 de noviembre de 2014. Incluye la revisión de MSRC que provocó problemas con las versiones de agosto y septiembre. Para solucionar este problema, el lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalados pero deshabilitados. Los scripts que intenten instalar .NET 3.5 o 3.5.1 volverán a rehabilitarlos de manera efectiva y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación completa creado por la revisión de MSRC.
+El lanzamiento de octubre (4.13, 3.20 y 2.32) se implementó el 4 de noviembre de 2014. Incluye la revisión de MSRC que provocó problemas con las versiones de agosto y septiembre. Para solucionar este problema, el lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalados pero deshabilitados. Los scripts que intenten instalar .NET 3.5 o 3.5.1 volverán a rehabilitarlos de manera efectiva y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación completa creado por la revisión de MSRC.
 
 
 
@@ -92,7 +92,7 @@ Las familias del SO invitado se basan en versiones lanzadas de Microsoft Windows
 
 La **familia del SO invitado** corresponde a una versión de sistema operativo de Windows Server en la que se basa un SO invitado. Por ejemplo, la familia 3 se basa en Windows Server 2012.
 
-Una **"versión de SO invitado"** es la imagen de familia de SO más las revisiones relevantes del [Centro de respuestas de seguridad de Microsoft \(MSRC\)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones. Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
+Una **"versión de SO invitado"** es la imagen de familia de SO más las revisiones relevantes del [Centro de respuestas de seguridad de Microsoft (MSRC)][msrc] disponibles en la fecha en que se genera la nueva versión del SO invitado. Es posible que no se incluyan todas las revisiones. Los números empiezan por 0 y se incrementan en 1 cada vez que se agrega un nuevo conjunto de actualizaciones. Solo se muestran los ceros finales si es importante. Es decir, la versión 2.10 es una versión mucho más posterior y diferente que la versión 2.1.
 
 Una **"versión del SO invitado"** hace referencia a un lanzamiento de una versión del SO invitado. Un relanzamiento se produce si Microsoft encuentra problemas durante las pruebas que requieren cambios. El lanzamiento más reciente siempre reemplaza a los lanzamientos anteriores, ya sean públicos o no. El portal de administración solo permitirá a los usuarios elegir el lanzamiento más reciente de una versión concreta. Las implementaciones que se ejecutan en un lanzamiento anterior no suelen ser una actualización forzada, según la gravedad del error.
 
@@ -100,7 +100,7 @@ En el ejemplo siguiente, 2 es la familia, 12 es la versión y "rel2" es el lanza
 
 **Lanzamiento del SO invitado**: 2.12 rel2
 
-**Cadena de configuración para este lanzamiento** -WA-GUEST-OS-2. 12\_201208-02
+**Cadena de configuración para este lanzamiento** -WA-GUEST-OS-2. 12_201208-02
 
 La cadena de configuración para un SO invitado incluye esta misma información incrustada, junto con una fecha que muestra qué revisiones de MSRC se tuvieron en cuenta para ese lanzamiento. En este ejemplo, las revisiones de MSRC generadas para Windows Server 2008 R2 hasta e incluido agosto de 2012 se tuvieron en cuenta para su inclusión. Solo se incluyen las revisiones que se aplican específicamente a esa versión de Windows Server. Por ejemplo, si una revisión de MSRC se aplica a Microsoft Office, no se incluirá porque este producto no forma parte de la imagen base de Windows Server.
 
@@ -109,22 +109,22 @@ La cadena de configuración para un SO invitado incluye esta misma información 
 ## Lanzamientos de la familia 4
 **Windows Server 2012 R2**
 
-Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 \(Nota 2\)
+Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 4\.19 | WA-GUEST-OS-4.19\_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 4.21 | TBD |
-| 4\.18 | WA-GUEST-OS-4.18\_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 4.20 | TBD |
-| 4\.17 | WA-GUEST-OS-4.17\_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
-| 4\.16 | WA-GUEST-OS-4.16\_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
-| 4\.15 | WA-GUEST-OS-4.15\_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
-| 4\.14 | WA-GUEST-OS-4.14\_201411-01 | 11 de noviembre de 2014 | 28 de febrero de 2015 | TBD |
-| 4\.13 | WA-GUEST-OS-4.13\_201410-01 | 3 de noviembre de 2014 | 14 de febrero de 2015 | TBD |
-| 4\.12 \(Nota 1\) | WA-GUEST-OS-4.12\_201409-02 | 6 de octubre de 2014 | 12 de octubre de 2014 | 23 de marzo de 2015 |
-| 4\.11 \(Nota 1\) | WA-GUEST-OS-4.11\_201408-02 | 25 de agosto de 2014 | 11 de septiembre de 2014 | 23 de marzo de 2015 |
-| 4\.10 | WA-GUEST-OS-4.10\_201407-01 | 18 de julio de 2014 | 1 de diciembre de 2014 | 23 de marzo de 2015 |
-| 4\.9 | WA-GUEST-OS-4.9\_201406-01 | 16 de junio de 2014 | 10 de noviembre de 2014 | 23 de marzo de 2015 |
-| 4\.8 | WA-GUEST-OS-4.8\_201405-01 | 1 de junio de 2014. | 1 de agosto de 2014 | 23 de marzo de 2015 |
+| 4.19 | WA-GUEST-OS-4.19_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 4.21 | TBD |
+| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 4.20 | TBD |
+| 4.17 | WA-GUEST-OS-4.17_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
+| 4.16 | WA-GUEST-OS-4.16_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
+| 4.15 | WA-GUEST-OS-4.15_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
+| 4.14 | WA-GUEST-OS-4.14_201411-01 | 11 de noviembre de 2014 | 28 de febrero de 2015 | TBD |
+| 4.13 | WA-GUEST-OS-4.13_201410-01 | 3 de noviembre de 2014 | 14 de febrero de 2015 | TBD |
+| 4.12 (Nota 1) | WA-GUEST-OS-4.12_201409-02 | 6 de octubre de 2014 | 12 de octubre de 2014 | 23 de marzo de 2015 |
+| 4.11 (Nota 1) | WA-GUEST-OS-4.11_201408-02 | 25 de agosto de 2014 | 11 de septiembre de 2014 | 23 de marzo de 2015 |
+| 4.10 | WA-GUEST-OS-4.10_201407-01 | 18 de julio de 2014 | 1 de diciembre de 2014 | 23 de marzo de 2015 |
+| 4.9 | WA-GUEST-OS-4.9_201406-01 | 16 de junio de 2014 | 10 de noviembre de 2014 | 23 de marzo de 2015 |
+| 4.8 | WA-GUEST-OS-4.8_201405-01 | 1 de junio de 2014. | 1 de agosto de 2014 | 23 de marzo de 2015 |
 
 ## Lanzamientos de la familia 3
 
@@ -134,18 +134,18 @@ Admite .NET 4.0, 4.5
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 3\.26 | WA-GUEST-OS-3.26\_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 3.28 | TBD |
-| 3\.25 | WA-GUEST-OS-3.25\_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 3.27 | TBD |
-| 3\.24 | WA-GUEST-OS-3.24\_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
-| 3\.23 | WA-GUEST-OS-3.23\_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
-| 3\.22 | WA-GUEST-OS-3.22\_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
-| 3\.21 | WA-GUEST-OS-3.21\_201411-01 | 11 de noviembre de 2014 | 28 de febrero de 2015 | TBD |
-| 3\.20 | WA-GUEST-OS-3.20\_201410-01 | 3 de noviembre de 2014 | 14 de febrero de 2015 | TBD |
-| 3\.19 \(Nota 1\) | WA-GUEST-OS-3.19\_201409-02 | 6 de octubre de 2014 | 12 de octubre de 2014 | 23 de marzo de 2015 |
-| 3\.18 \(Nota 1\) | WA-GUEST-OS-3.18\_201408-02 | 25 de agosto de 2014 | 11 de septiembre de 2014 | 23 de marzo de 2015 |
-| 3\.17 | WA-GUEST-OS-3.17\_201407-01 | 18 de julio de 2014 | 1 de diciembre de 2014 | 23 de marzo de 2015 |
-| 3\.16 | WA-GUEST-OS-3.16\_201406-01 | 16 de junio de 2014 | 10 de noviembre de 2014 | 23 de marzo de 2015 |
-| 3\.15 | WA-GUEST-OS-3.15\_201405-01 | 1 de junio de 2014. | 1 de agosto de 2014 | 23 de marzo de 2015 |
+| 3.26 | WA-GUEST-OS-3.26_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 3.28 | TBD |
+| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 3.27 | TBD |
+| 3.24 | WA-GUEST-OS-3.24_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
+| 3.23 | WA-GUEST-OS-3.23_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
+| 3.22 | WA-GUEST-OS-3.22_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
+| 3.21 | WA-GUEST-OS-3.21_201411-01 | 11 de noviembre de 2014 | 28 de febrero de 2015 | TBD |
+| 3.20 | WA-GUEST-OS-3.20_201410-01 | 3 de noviembre de 2014 | 14 de febrero de 2015 | TBD |
+| 3.19 (Nota 1) | WA-GUEST-OS-3.19_201409-02 | 6 de octubre de 2014 | 12 de octubre de 2014 | 23 de marzo de 2015 |
+| 3.18 (Nota 1) | WA-GUEST-OS-3.18_201408-02 | 25 de agosto de 2014 | 11 de septiembre de 2014 | 23 de marzo de 2015 |
+| 3.17 | WA-GUEST-OS-3.17_201407-01 | 18 de julio de 2014 | 1 de diciembre de 2014 | 23 de marzo de 2015 |
+| 3.16 | WA-GUEST-OS-3.16_201406-01 | 16 de junio de 2014 | 10 de noviembre de 2014 | 23 de marzo de 2015 |
+| 3.15 | WA-GUEST-OS-3.15_201405-01 | 1 de junio de 2014. | 1 de agosto de 2014 | 23 de marzo de 2015 |
 
 
 ## Lanzamientos de la familia 2
@@ -156,18 +156,18 @@ Admite .NET 3.5, 4.0
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
-| 2\.38 | WA-GUEST-OS-2.38\_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 2.40 | TBD |
-| 2\.37 | WA-GUEST-OS-2.37\_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 2.39 | TBD |
-| 2\.36 | WA-GUEST-OS-2.36\_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
-| 2\.35 | WA-GUEST-OS-2.35\_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
-| 2\.34 | WA-GUEST-OS-2.34\_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
-| 2\.33 | WA-GUEST-OS-2.33\_201411-01 | 11 de noviembre de 2014 | 28 de febrero de 2015 | TBD |
-| 2\.32 | WA-GUEST-OS-2.32\_201410-01 | 3 de noviembre de 2014 | 14 de febrero de 2015 | TBD |
-| 2\.31 \(Nota 1\) | WA-GUEST-OS-2.31\_201409-02 | 6 de octubre de 2014 | 12 de octubre de 2014 | 23 de marzo de 2015 |
-| 2\.30 \(Nota 1\) | WA-GUEST-OS-2.30\_201408-02 | 25 de agosto de 2014 | 11 de septiembre de 2014 | 23 de marzo de 2015 |
-| 2\.29 | WA-GUEST-OS-2.29\_201407-01 | 18 de julio de 2014 | 1 de diciembre de 2014 | 23 de marzo de 2015 |
-| 2\.28 | WA-GUEST-OS-2.28\_201406-01 | 16 de junio de 2014 | 10 de noviembre de 2014 | 23 de marzo de 2015 |
-| 2\.27 | WA-GUEST-OS-2.27\_201405-01 | 1 de junio de 2014. | 1 de agosto de 2014 | 23 de marzo de 2015 |
+| 2.38 | WA-GUEST-OS-2.38_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 2.40 | TBD |
+| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 2.39 | TBD |
+| 2.36 | WA-GUEST-OS-2.36_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
+| 2.35 | WA-GUEST-OS-2.35_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
+| 2.34 | WA-GUEST-OS-2.34_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
+| 2.33 | WA-GUEST-OS-2.33_201411-01 | 11 de noviembre de 2014 | 28 de febrero de 2015 | TBD |
+| 2.32 | WA-GUEST-OS-2.32_201410-01 | 3 de noviembre de 2014 | 14 de febrero de 2015 | TBD |
+| 2.31 (Nota 1) | WA-GUEST-OS-2.31_201409-02 | 6 de octubre de 2014 | 12 de octubre de 2014 | 23 de marzo de 2015 |
+| 2.30 (Nota 1) | WA-GUEST-OS-2.30_201408-02 | 25 de agosto de 2014 | 11 de septiembre de 2014 | 23 de marzo de 2015 |
+| 2.29 | WA-GUEST-OS-2.29_201407-01 | 18 de julio de 2014 | 1 de diciembre de 2014 | 23 de marzo de 2015 |
+| 2.28 | WA-GUEST-OS-2.28_201406-01 | 16 de junio de 2014 | 10 de noviembre de 2014 | 23 de marzo de 2015 |
+| 2.27 | WA-GUEST-OS-2.27_201405-01 | 1 de junio de 2014. | 1 de agosto de 2014 | 23 de marzo de 2015 |
 
 
 
@@ -215,21 +215,21 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
  
 ## Archivo de noticias
 
-**20 de octubre de 2014. Actualizado el 4 de noviembre de 2014** - El lanzamiento de septiembre \(4.12, 3.19, 2.31 y 1.39\) se implementó parcialmente debido a que la misma [revisión de MSRC MS14-046][MS14-046] provocaba errores para aquellos que intentaban instalar .NET 3.5 o 3.5.1 en la familia 3 o 4. .NET 3.5.x no es compatible oficialmente con ninguna de estas familias, pero Microsoft responde al cambio de comportamiento porque las instalaciones de algunos clientes dependen de esta versión y el cambio no se anunció. Las fechas de deshabilitación de los SO invitados anteriores \(junio y julio\) se retrasarán en consecuencia para que al menos dos SO invitados lanzados sean compatibles y estén disponibles. En el lanzamiento de octubre de 2014 se incluyó una solución para el problema de instalación de .NET.
+**20 de octubre de 2014. Actualizado el 4 de noviembre de 2014** - El lanzamiento de septiembre (4.12, 3.19, 2.31 y 1.39) se implementó parcialmente debido a que la misma [revisión de MSRC MS14-046][MS14-046] provocaba errores para aquellos que intentaban instalar .NET 3.5 o 3.5.1 en la familia 3 o 4. .NET 3.5.x no es compatible oficialmente con ninguna de estas familias, pero Microsoft responde al cambio de comportamiento porque las instalaciones de algunos clientes dependen de esta versión y el cambio no se anunció. Las fechas de deshabilitación de los SO invitados anteriores (junio y julio) se retrasarán en consecuencia para que al menos dos SO invitados lanzados sean compatibles y estén disponibles. En el lanzamiento de octubre de 2014 se incluyó una solución para el problema de instalación de .NET.
 
-El lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalado \(pero está deshabilitado\) y también incluye la revisión de MSRC indicada anteriormente. Los scripts que intenten instalar .NET 3.5 o 3.5.1 lo volverán a habilitar y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación creado por la revisión de MSRC.
+El lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalado (pero está deshabilitado) y también incluye la revisión de MSRC indicada anteriormente. Los scripts que intenten instalar .NET 3.5 o 3.5.1 lo volverán a habilitar y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación creado por la revisión de MSRC.
 
 Debido a la implementación parcial de los dos últimos lanzamientos, los usuarios que elijan la actualización automática o hayan implementado nuevas instalaciones pueden estar en  cualquiera de estos lanzamientos del SO invitado. La siguiente tabla enumera qué lanzamientos del SO invitado permiten instalar .NET 3.5 o 3.5.1 en la familia 3 y 4. Actualmente, si un lanzamiento permite la instalación, significa que no tiene instalada la revisión de MSRC MS14-046.
 
 | Versión del SO. | Puede instalar .NET 3.5 | Incluye la revisión de MSRC [MS14-046][] |
 | --- | --- | --- |
 | Todas las versiones posteriores del SO invitado | Sí | Sí |
-| WA-GUEST-OS-4.13\_201410-01 | Sí | Sí |
-| WA-GUEST-OS-4.12\_201409-02 | No | Sí |
-| WA-GUEST-OS-4.12\_201409-01 | No | Sí |
-| WA-GUEST-OS-4.11\_201408-02 | Sí | No |
-| WA-GUEST-OS-4.11\_201408-01 | No | Sí |
-| WA-GUEST-OS-4.10\_201407-01 | Sí | No |
+| WA-GUEST-OS-4.13_201410-01 | Sí | Sí |
+| WA-GUEST-OS-4.12_201409-02 | No | Sí |
+| WA-GUEST-OS-4.12_201409-01 | No | Sí |
+| WA-GUEST-OS-4.11_201408-02 | Sí | No |
+| WA-GUEST-OS-4.11_201408-01 | No | Sí |
+| WA-GUEST-OS-4.10_201407-01 | Sí | No |
 
 **20 de octubre de 2014** - Puesto que el lanzamiento de agosto y septiembre solo se implementó parcialmente, debe tener en cuenta lo siguiente:
 
@@ -245,14 +245,14 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 4\.7 | WA-GUEST-OS-4.7\_201404-01 | 2 de mayo de 2014 | 2 de julio de 2014 | 18 de agosto de 2014 |
-| 4\.6 | WA-GUEST-OS-4.6\_201403-01 | 28 de marzo de 2014 | 9 de junio de 2014. | 18 de agosto de 2014 |
-| 4\.5. | WA-GUEST-OS-4.5\_201402-01 | 21 de marzo de 2014 | 21 de mayo de 2014 | 18 de agosto de 2014 |
-| 4\.4. | WA-GUEST-OS-4.4\_201401-01 | 8 de febrero de 2014 | 8 de abril de 2014 | 14 de mayo de 2014 |
-| 4\.3 | WA-GUEST-OS-4.3\_201312-01 | 6 de enero de 2014 | 6 de marzo de 2014 | 14 de mayo de 2014 |
-| 4\.2 | WA-GUEST-OS-4.2\_201311-01 | 12 de diciembre de 2013 | 12 de febrero de 2014 | 14 de mayo de 2014 |
-| 4\.1 | WA-GUEST-OS-4.1\_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
-| 4\.0 rel3 | WA-GUEST-OS-4.0\_201309-03 | 9 de octubre de 2013 Publicada el 18 de octubre. | N/D | 14 de mayo de 2014 |
+| 4.7 | WA-GUEST-OS-4.7_201404-01 | 2 de mayo de 2014 | 2 de julio de 2014 | 18 de agosto de 2014 |
+| 4.6 | WA-GUEST-OS-4.6_201403-01 | 28 de marzo de 2014 | 9 de junio de 2014. | 18 de agosto de 2014 |
+| 4.5. | WA-GUEST-OS-4.5_201402-01 | 21 de marzo de 2014 | 21 de mayo de 2014 | 18 de agosto de 2014 |
+| 4.4. | WA-GUEST-OS-4.4_201401-01 | 8 de febrero de 2014 | 8 de abril de 2014 | 14 de mayo de 2014 |
+| 4.3 | WA-GUEST-OS-4.3_201312-01 | 6 de enero de 2014 | 6 de marzo de 2014 | 14 de mayo de 2014 |
+| 4.2 | WA-GUEST-OS-4.2_201311-01 | 12 de diciembre de 2013 | 12 de febrero de 2014 | 14 de mayo de 2014 |
+| 4.1 | WA-GUEST-OS-4.1_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
+| 4.0 rel3 | WA-GUEST-OS-4.0_201309-03 | 9 de octubre de 2013 Publicada el 18 de octubre. | N/D | 14 de mayo de 2014 |
  
 
 
@@ -260,29 +260,29 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 3\.14 | WA-GUEST-OS-3.14\_201404-01 | 2 de mayo de 2014 | 2 de julio de 2014 | 18 de agosto de 2014 |
-| 3\.13 | WA-GUEST-OS-3.13\_201403-01 | 28 de marzo de 2014 | 9 de junio de 2014. | 18 de agosto de 2014 |
-| 3\.12 | WA-GUEST-OS-3.12\_201402-01 | 21 de marzo de 2014 | 21 de mayo de 2014 | 18 de agosto de 2014 |
-| 3\.11 | WA-GUEST-OS-3.11\_201401-01 | 8 de febrero de 2014 | 8 de abril de 2014 | 14 de mayo de 2014 |
-| 3\.10 | WA-GUEST-OS-3.10\_201312-01 | 6 de enero de 2014 | 6 de marzo de 2014 | 14 de mayo de 2014 |
-| 3\.9 | WA-GUEST-OS-3.9\_201311-01 | 12 de diciembre de 2013 | 12 de febrero de 2014 | 14 de mayo de 2014 |
-| 3\.8 | WA-GUEST-OS-3.8\_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
-| 3\.7 rel3 | WA-GUEST-OS-3.7\_201309-03 | 9 de octubre de 2013 | N/D | 14 de mayo de 2014 |
-| 3\.7 rel1 | WA-GUEST-OS-3.7\_201309-01 | 23 de septiembre de 2013 | N/D | 14 de mayo de 2014 |
+| 3.14 | WA-GUEST-OS-3.14_201404-01 | 2 de mayo de 2014 | 2 de julio de 2014 | 18 de agosto de 2014 |
+| 3.13 | WA-GUEST-OS-3.13_201403-01 | 28 de marzo de 2014 | 9 de junio de 2014. | 18 de agosto de 2014 |
+| 3.12 | WA-GUEST-OS-3.12_201402-01 | 21 de marzo de 2014 | 21 de mayo de 2014 | 18 de agosto de 2014 |
+| 3.11 | WA-GUEST-OS-3.11_201401-01 | 8 de febrero de 2014 | 8 de abril de 2014 | 14 de mayo de 2014 |
+| 3.10 | WA-GUEST-OS-3.10_201312-01 | 6 de enero de 2014 | 6 de marzo de 2014 | 14 de mayo de 2014 |
+| 3.9 | WA-GUEST-OS-3.9_201311-01 | 12 de diciembre de 2013 | 12 de febrero de 2014 | 14 de mayo de 2014 |
+| 3.8 | WA-GUEST-OS-3.8_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
+| 3.7 rel3 | WA-GUEST-OS-3.7_201309-03 | 9 de octubre de 2013 | N/D | 14 de mayo de 2014 |
+| 3.7 rel1 | WA-GUEST-OS-3.7_201309-01 | 23 de septiembre de 2013 | N/D | 14 de mayo de 2014 |
 
 ### Familia 2
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ------------ | ------------ | --- |
-| 2\.26 | WA-GUEST-OS-2.26\_201404-01 | 2 de mayo de 2014 | 2 de julio de 2014 | 18 de agosto de 2014 |
-| 2\.25 | WA-GUEST-OS-2.25\_201403-01 | 28 de marzo de 2014 | 9 de junio de 2014. | 18 de agosto de 2014 |
-| 2\.24 | WA-GUEST-OS-2.24\_201402-01 | 21 de marzo de 2014 | 21 de mayo de 2014 | 18 de agosto de 2014 |
-| 2\.23 | WA-GUEST-OS-2.23\_201401-01 | 8 de febrero de 2014 | 8 de abril de 2014 | 14 de mayo de 2014 |
-| 2\.22 | WA-GUEST-OS-2.22\_201312-01 | 6 de enero de 2014 | 6 de marzo de 2014 | 14 de mayo de 2014 |
-| 2\.21 | WA-GUEST-OS-2.21\_201311-01 | 12 de diciembre de 2013 | 12 de febrero de 2014 | 14 de mayo de 2014 |
-| 2\.20 | WA-GUEST-OS-2.20\_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
-| 2\.19 rel3 | WA-GUEST-OS-2.19\_201309-03 | 9 de octubre de 2013 | N/D | 14 de mayo de 2014 |
-| 2\.19 rel1 | WA-GUEST-OS-2.19\_201309-01 | 23 de septiembre de 2013 | N/D | 14 de mayo de 2014 |
+| 2.26 | WA-GUEST-OS-2.26_201404-01 | 2 de mayo de 2014 | 2 de julio de 2014 | 18 de agosto de 2014 |
+| 2.25 | WA-GUEST-OS-2.25_201403-01 | 28 de marzo de 2014 | 9 de junio de 2014. | 18 de agosto de 2014 |
+| 2.24 | WA-GUEST-OS-2.24_201402-01 | 21 de marzo de 2014 | 21 de mayo de 2014 | 18 de agosto de 2014 |
+| 2.23 | WA-GUEST-OS-2.23_201401-01 | 8 de febrero de 2014 | 8 de abril de 2014 | 14 de mayo de 2014 |
+| 2.22 | WA-GUEST-OS-2.22_201312-01 | 6 de enero de 2014 | 6 de marzo de 2014 | 14 de mayo de 2014 |
+| 2.21 | WA-GUEST-OS-2.21_201311-01 | 12 de diciembre de 2013 | 12 de febrero de 2014 | 14 de mayo de 2014 |
+| 2.20 | WA-GUEST-OS-2.20_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
+| 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | 9 de octubre de 2013 | N/D | 14 de mayo de 2014 |
+| 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | 23 de septiembre de 2013 | N/D | 14 de mayo de 2014 |
 [Configuración de actualización del SO invitado de Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/

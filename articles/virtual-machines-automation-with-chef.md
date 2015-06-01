@@ -76,7 +76,7 @@ El archivo zip del starter kit contiene sus claves y archivos de configuración 
 
 Extraiga el contenido de chef-starter.zip en **C:\chef**.
 
-Copie todos los archivos de **chef-starter\chef-repo\.chef** en **c:\chef**.
+Copie todos los archivos de **chef-starter\chef-repo.chef** en **c:\chef**.
 
 El directorio debería tener ahora un aspecto similar al siguiente:
 
@@ -110,7 +110,7 @@ A continuación, descargue e instale el ChefDK (Kit de desarrollo de Chef) para 
 
 Esto es sencillo. Deje que se instale en su ubicación predeterminada de c:\opscode. Esta instalación tardará unos 10 minutos.
 
-Confirme que la variable PATH contiene entradas para C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin.
+Confirme que la variable PATH contiene entradas para C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin.
 
 Si no están ahí, asegúrese de agregar estas rutas de acceso.
 

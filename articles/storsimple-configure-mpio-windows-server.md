@@ -17,7 +17,7 @@
 
 # Configurar MPIO para el dispositivo StorSimple
 
-Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas \(MPIO\) para que sea más fácil crear configuraciones de SAN de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes \(es decir, adaptadores, cables y conmutadores\) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, dependiendo de la configuración de MPIO, puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Información general y características de MPIO").
+Microsoft incorporó a Windows Server la compatibilidad con la característica de E/S de múltiples rutas (MPIO) para que sea más fácil crear configuraciones de SAN de alta disponibilidad y tolerancia a errores. MPIO usa componentes de ruta de acceso físicas redundantes (es decir, adaptadores, cables y conmutadores) para crear rutas de acceso lógicas entre el servidor y el dispositivo de almacenamiento. Si se produce un error de componente, lo que haría que la ruta de acceso lógica no funcionara, la lógica de múltiples rutas usa una ruta alternativa para E/S a fin de que las aplicaciones puedan seguir teniendo acceso a los datos. Además, dependiendo de la configuración de MPIO, puede mejorar el rendimiento al volver a equilibrar la carga entre estas rutas de acceso. Para más información, consulte [Introducción a E/S de múltiples rutas](https://technet.microsoft.com/library/cc725907.aspx "Información general y características de MPIO").
 
 Para conseguir una alta disponibilidad de la solución StorSimple, es necesario que MPIO esté configurado en el dispositivo StorSimple. Cuando MPIO se instala en los servidores host que ejecutan Windows Server 2012 R2, dichos servidores tendrán tolerancia a errores de vínculo, red e interfaz.
 
@@ -42,8 +42,8 @@ Haga lo siguiente para instalar esta característica en el host de Windows Serve
 
 ### Para instalar MPIO en el host
 
-1. Abra el Administrador del servidor en el host de Windows Server. El Administrador del servidor se inicia de forma predeterminada cuando un miembro del grupo Administradores inicia sesión en un equipo que ejecuta Windows Server 2012 R2 o Windows Server 2012. Si el Administrador del servidor no está abierto aún, haga clic en **Inicio \> Administrador del servidor**. ![Administrador del servidor](./media/storsimple-configure-mpio-windows-server/IC740997.png)
-2. Haga clic en **Administrador del servidor \> Panel \> Agregar roles y características**. De esta forma, se abre el **Asistente para agregar roles y características**. ![Asistente para agregar roles y características 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
+1. Abra el Administrador del servidor en el host de Windows Server. El Administrador del servidor se inicia de forma predeterminada cuando un miembro del grupo Administradores inicia sesión en un equipo que ejecuta Windows Server 2012 R2 o Windows Server 2012. Si el Administrador del servidor no está abierto aún, haga clic en **Inicio > Administrador del servidor**. ![Administrador del servidor](./media/storsimple-configure-mpio-windows-server/IC740997.png)
+2. Haga clic en **Administrador del servidor > Panel > Agregar roles y características**. De esta forma, se abre el **Asistente para agregar roles y características**. ![Asistente para agregar roles y características 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
 3. En el **Asistente para agregar roles y características**, haga lo siguiente:
 
 	- En la página **Antes de comenzar**, haga clic en **Siguiente**.
@@ -60,15 +60,15 @@ MPIO tiene que configurarse de forma que identifique los volúmenes de StorSimpl
 
 ### Para configurar MPIO para volúmenes de StorSimple
 
-1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor \> Panel \> Herramientas \> MPIO**.
+1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor > Panel > Herramientas > MPIO**.
 
 2. En el cuadro de diálogo **Propiedades de MPIO**, seleccione la pestaña **Detectar múltiples rutas**.
 
-3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y, luego, haga clic en **Agregar**. ![Propiedades de MPIO \> Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
+3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y, luego, haga clic en **Agregar**. ![Propiedades de MPIO > Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 
 4. Reinicie el servidor cuando se le pida.
-5. En el cuadro de diálogo **Propiedades de MPIO**, haga clic en la pestaña **Dispositivos con MPIO**. Haga clic en **Agregar**. </br>![Propiedades de MPIO \> Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. En el cuadro de diálogo **Agregar compatibilidad con MPIO**, en **Identificador de hardware de dispositivo**, escriba el número de serie del dispositivo. Encontrará el número de serie del dispositivo si tiene acceso al administrador de StorSimple y va a **Dispositivos \> Panel**. El número de serie del dispositivo se muestra en el panel de **vista rápida** derecho del panel del dispositivo. </br>![Agregar compatibilidad con MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+5. En el cuadro de diálogo **Propiedades de MPIO**, haga clic en la pestaña **Dispositivos con MPIO**. Haga clic en **Agregar**. </br>![Propiedades de MPIO > Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+6. En el cuadro de diálogo **Agregar compatibilidad con MPIO**, en **Identificador de hardware de dispositivo**, escriba el número de serie del dispositivo. Encontrará el número de serie del dispositivo si tiene acceso al administrador de StorSimple y va a **Dispositivos > Panel**. El número de serie del dispositivo se muestra en el panel de **vista rápida** derecho del panel del dispositivo. </br>![Agregar compatibilidad con MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reinicie el servidor cuando se le pida.
 
 ## Paso 3: montar los volúmenes de StorSimple en el host
@@ -77,16 +77,16 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 
 ### Para montar volúmenes en el host
 
-1. Abra la ventana **Propiedades del iniciador iSCSI** en el host de Windows Server. Haga clic en **Administrador del servidor \> Panel \> Herramientas \> Iniciador iSCSI**.
+1. Abra la ventana **Propiedades del iniciador iSCSI** en el host de Windows Server. Haga clic en **Administrador del servidor > Panel > Herramientas > Iniciador iSCSI**.
 2. En el cuadro de diálogo **Propiedades del iniciador iSCSI**, haga clic en la pestaña Detección y, después, en **Detectar portal de destino**.
 3. Haga lo siguiente en el cuadro de diálogo **Detectar portal de destino**:
 	
-	- Escriba la dirección IP del puerto DATA del dispositivo StorSimple \(por ejemplo, escriba DATA 0\).
+	- Escriba la dirección IP del puerto DATA del dispositivo StorSimple (por ejemplo, escriba DATA 0).
 	- Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**.
 	>[AZURE.IMPORTANT]**Si está usando una red privada para las conexiones iSCSI, escriba la dirección IP del puerto DATA que esté conectado a la red privada.**
 
-4. Repita los pasos 2 y 3 para una segunda interfaz de red \(por ejemplo, DATA 1\) en el dispositivo. No olvide que estas interfaces deben estar habilitadas para iSCSI. Para más información al respecto, vaya a [Configurar las interfaces de red](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
-5. Seleccione la pestaña **Destinos** del cuadro de diálogo **Propiedades del iniciador iSCSI**. Debería ver el destino de dispositivo StorSimple IQN en **Destinos detectados**. ![Propiedades del iniciador iSCSI \> pestaña Destinos](./media/storsimple-configure-mpio-windows-server/IC741007.png)
+4. Repita los pasos 2 y 3 para una segunda interfaz de red (por ejemplo, DATA 1) en el dispositivo. No olvide que estas interfaces deben estar habilitadas para iSCSI. Para más información al respecto, vaya a [Configurar las interfaces de red](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
+5. Seleccione la pestaña **Destinos** del cuadro de diálogo **Propiedades del iniciador iSCSI**. Debería ver el destino de dispositivo StorSimple IQN en **Destinos detectados**. ![Propiedades del iniciador iSCSI > pestaña Destinos](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Haga clic en **Conectar** para establecer una sesión iSCSI con el dispositivo StorSimple. Aparecerá el cuadro de diálogo **Conectarse al destino**.
 
 7. En el cuadro de diálogo **Conectarse al destino**, active la casilla **Habilitar múltiples rutas**. Haga clic en **Avanzadas**.
@@ -105,7 +105,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 	-  En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
 	-  Haga clic en **Aceptar** para volver al cuadro de diálogo Propiedades del iniciador iSCSI. Agregó una segunda sesión al destino.
 
-12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor \> Panel \> Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento \> Administración de discos**. Los volúmenes creados en el dispositivo StorSimple que son visibles para este host aparecerán en **Administración de discos** como discos nuevos.
+12. Abra **Administración de equipos**; para ello, vaya a **Administrador del servidor > Panel > Administración de equipos**. En el panel izquierdo, haga clic en **Almacenamiento > Administración de discos**. Los volúmenes creados en el dispositivo StorSimple que son visibles para este host aparecerán en **Administración de discos** como discos nuevos.
 
 13. Inicialice el disco y cree otro volumen. Durante el proceso de formato, seleccione un tamaño de bloque de 64 KB. ![Administración de discos](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. En **Administración de discos**, haga clic con el botón secundario en el **disco** y seleccione **Propiedades**.
@@ -124,7 +124,7 @@ Después de configurar MPIO en Windows Server, los volúmenes creados en el disp
 
 ## Paso 4: configurar MPIO para alta disponibilidad y equilibrio de carga
 
-En entornos de múltiples rutas basadas en alta disponibilidad y equilibrio de carga, hay que agregar manualmente varias sesiones para declarar las distintas rutas de acceso disponibles. Por ejemplo, si el host tiene dos interfaces conectadas a la SAN y el dispositivo también tiene otras dos interfaces conectadas a la SAN, serán necesarias cuatro sesiones configuradas con permutaciones de ruta de acceso adecuadas \(solo se necesitarán dos sesiones si cada interfaz DATA e interfaz de host están en una subred IP diferente y no es enrutable\).
+En entornos de múltiples rutas basadas en alta disponibilidad y equilibrio de carga, hay que agregar manualmente varias sesiones para declarar las distintas rutas de acceso disponibles. Por ejemplo, si el host tiene dos interfaces conectadas a la SAN y el dispositivo también tiene otras dos interfaces conectadas a la SAN, serán necesarias cuatro sesiones configuradas con permutaciones de ruta de acceso adecuadas (solo se necesitarán dos sesiones si cada interfaz DATA e interfaz de host están en una subred IP diferente y no es enrutable).
 
 >[AZURE.IMPORTANT]**Recomendamos no combinar interfaces de red de 1 GbE y de 10 GbE. Si usa dos interfaces de red, ambas deben ser de idéntico tipo.**
 
@@ -160,9 +160,9 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 	3. En la lista desplegable **IP del portal de destino**, seleccione la dirección IP de la segunda interfaz de datos habilitada en el dispositivo.
 	4. Haga clic en **Aceptar** para volver al cuadro de diálogo **Propiedades del iniciador iSCSI**. Agregó una segunda sesión al destino.
 
-10. Repita los pasos 8, 9 y 10 para agregar más sesiones \(rutas de acceso\) al destino. Con dos interfaces en el host y dos en el dispositivo, puede agregar un total de cuatro sesiones.
+10. Repita los pasos 8, 9 y 10 para agregar más sesiones (rutas de acceso) al destino. Con dos interfaces en el host y dos en el dispositivo, puede agregar un total de cuatro sesiones.
 
-11. Después de agregar las sesiones \(rutas de acceso\) que quiera, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione el destino y haga clic en **Propiedades**. En la pestaña Sesiones del cuadro de diálogo **Propiedades**, fíjese en los cuatro identificadores de sesión, que se corresponden con las posibles permutaciones de ruta de acceso. Para cancelar una sesión, active la casilla situada junto a un identificador de sesión y, luego, haga clic en **Desconectar**.
+11. Después de agregar las sesiones (rutas de acceso) que quiera, en el cuadro de diálogo **Propiedades del iniciador iSCSI**, seleccione el destino y haga clic en **Propiedades**. En la pestaña Sesiones del cuadro de diálogo **Propiedades**, fíjese en los cuatro identificadores de sesión, que se corresponden con las posibles permutaciones de ruta de acceso. Para cancelar una sesión, active la casilla situada junto a un identificador de sesión y, luego, haga clic en **Desconectar**.
 
 12. Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos**. Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparecerá el cuadro de diálogo **Detalles del dispositivo**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
 

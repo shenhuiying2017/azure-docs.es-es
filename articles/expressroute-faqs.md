@@ -44,7 +44,7 @@ Sí. Los circuitos ExpressRoute están configurados para admitir casos en los qu
 ### ¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
 Sí. Un circuito ExpressRoute, una vez que el programa de instalación le permita acceder a los servicios en una red virtual y otros servicios de Azure simultáneamente. Se conectará a redes virtuales a través de la ruta de acceso de emparejamiento privado y otros servicios a través de la ruta de acceso de emparejamiento público.
 
-### ¿ExpressRoute ofrece un contrato de nivel de servicio \(SLA\)?
+### ¿ExpressRoute ofrece un contrato de nivel de servicio (SLA)?
 Consulte la [página de SLA de ExpressRoute](http://azure.microsoft.com/support/legal/sla/) para obtener más información.
 
 ## Servicios de Azure compatibles
@@ -105,7 +105,7 @@ Sí. Puede tener circuitos ExpressRoute de muchos otros proveedores de servicios
 Los pasos básicos se describen a continuación.
 
 - Se debe establecer un circuito ExpressRoute y que el proveedor de servicios lo habilite.
-- Debe configurar el BGP para el emparejamiento privado \(si está utilizando un proveedor de Exchange\).
+- Debe configurar el BGP para el emparejamiento privado (si está utilizando un proveedor de Exchange).
 - Debe vincular la red virtual al circuito ExpressRoute.
 
 Los siguientes tutoriales le ayudarán a:
@@ -132,10 +132,10 @@ No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman p
 Sí. Puede vincular una única red virtual única con hasta 4 circuitos ExpressRoute. Todos los circuitos ExpressRoute deben estar en el mismo continente. Pueden solicitarse a través de distintos proveedores de servicio y en distintas ubicaciones.
 
 ### ¿Es posible obtener acceso a Internet desde mis redes virtuales conectadas a circuitos ExpressRoute?
-Sí. Si no ha anunciado rutas predeterminadas \(0.0.0.0/0\) o prefijos de rutas de Internet a través de la sesión BGP, podrá conectarse a Internet desde una red virtual vinculada a un circuito ExpressRoute.
+Sí. Si no ha anunciado rutas predeterminadas (0.0.0.0/0) o prefijos de rutas de Internet a través de la sesión BGP, podrá conectarse a Internet desde una red virtual vinculada a un circuito ExpressRoute.
 
 ### ¿Es posible bloquear la conectividad a Internet a redes virtuales conectadas a circuitos ExpressRoute?
-Sí. Puede anunciar rutas predeterminadas \(0.0.0.0/0\) para bloquear toda la conectividad de Internet a las máquinas virtuales implementadas en una red virtual y enrutar todo el tráfico de salida a través del circuito de ExpressRoute. Tenga en cuenta que si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento público \(por ejemplo, Almacenamiento de Azure y Base de datos SQL\) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento público o Internet.
+Sí. Puede anunciar rutas predeterminadas (0.0.0.0/0) para bloquear toda la conectividad de Internet a las máquinas virtuales implementadas en una red virtual y enrutar todo el tráfico de salida a través del circuito de ExpressRoute. Tenga en cuenta que si anuncia rutas predeterminadas, forzaremos el tráfico a los servicios ofrecidos a través del emparejamiento público (por ejemplo, Almacenamiento de Azure y Base de datos SQL) de nuevo a sus instalaciones. Tendrá que configurar los enrutadores para devolver el tráfico a Azure a través de la ruta de acceso de emparejamiento público o Internet.
 
 ### ¿Las redes virtuales vinculadas al mismo circuito ExpressRoute pueden comunicarse entre sí?
 Sí. Las máquinas virtuales implementadas en redes virtuales conectadas al mismo circuito ExpressRoute pueden comunicarse entre sí.
@@ -153,20 +153,20 @@ Debe establecer un circuito ExpressRoute y configurar rutas para el intercambio 
 Sí. Aceptamos hasta 4000 prefijos de rutas para el intercambio público y privado. Puede aumentarlo a 10.000 rutas si habilita la característica Premium en ExpressRoute.
 
 ### ¿Existen restricciones en los intervalos IP que puedo anunciar durante la sesión BGP?
-Los prefijos anunciados a través de BGP deben ser/29 o mayor \(/ 28 a /8\).
+Los prefijos anunciados a través de BGP deben ser/29 o mayor (/ 28 a /8).
 
-Se filtrarán los prefijos privados \(RFC1918\) en la sesión BGP de interconexión pública.
+Se filtrarán los prefijos privados (RFC1918) en la sesión BGP de interconexión pública.
 
 ### ¿Qué ocurre si supero los límites de BGP?
 Se quitarán las sesiones BGP. Se restablecerán una vez que el recuento del prefijo esté por debajo del límite.
 
-### Después de anunciar la ruta predeterminada \(0.0.0.0/0\) a mis redes virtuales no se puede activar Windows en mi máquinas virtuales de Azure. ¿Qué puedo hacer?
+### Después de anunciar la ruta predeterminada (0.0.0.0/0) a mis redes virtuales no se puede activar Windows en mi máquinas virtuales de Azure. ¿Qué puedo hacer?
 Los pasos siguientes ayudarán a Azure a reconocer la solicitud de activación:
 
 1. Establezca el intercambio público para el circuito de ExpressRoute.
 2. Realice una búsqueda DNS y busque la dirección IP de **kms.core.windows.net**.
 3. A continuación, realice uno de los dos pasos siguientes para que el servicio de administración de claves reconozca que la solicitud de activación procede de Azure y se respete la solicitud.
-	- En la red local, enrute el tráfico destinado a la dirección IP \(obtenida en el paso 2\) a Azure mediante el intercambio de tráfico público.
+	- En la red local, enrute el tráfico destinado a la dirección IP (obtenida en el paso 2) a Azure mediante el intercambio de tráfico público.
 	- Haga que el proveedor NSP devuelva el tráfico a Azure a través de la interconexión pública. 
 
 ### ¿Es posible cambiar el ancho de banda de un circuito ExpressRoute?
@@ -181,7 +181,7 @@ Puede actualizar el ancho de banda del circuito ExpressRoute mediante el cmdlet 
 ExpressRoute Premium es la colección de características que se enumera a continuación.
  
  - Límite de tabla de enrutamiento aumentado de 4000 rutas a 10.000 rutas para el intercambio público y privado.
- - Mayor número de redes virtuales que puede conectarse al circuito ExpressRoute \(el valor predeterminado es 10\). Vea la tabla siguiente para obtener más información.
+ - Mayor número de redes virtuales que puede conectarse al circuito ExpressRoute (el valor predeterminado es 10). Vea la tabla siguiente para obtener más información.
  - Conectividad global a través de la red principal de Microsoft. Ahora podrá vincular una red virtual en una región geopolítica con un circuito ExpressRoute en otra región. **Ejemplo:** puede vincular una red virtual creada en Europa occidental a un circuito ExpressRoute creado en Silicon Valley. 
 
 ### ¿Cuántas redes virtuales puedo vincular a un circuito ExpressRoute si habilito ExpressRoute Premium?
@@ -192,11 +192,11 @@ La tabla siguiente proporciona los límites ampliados para el número de redes v
 | **Tamaño del circuito** | **Número de vínculos de red virtual para la configuración predeterminada** | **Número de vínculos de red virtual con ExpressRoute Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
 | 10 Mbps | 10 | No compatible |
-| 50 Mbps | 10 | 20 \| |
+| 50 Mbps | 10 | 20 | |
 | 100 Mbps | 10 | 25 |
 | 500 Mbps | 10 | 40 |
 | 1 Gbps | 10 | 50                                                                                     
-\|
+|
 
 
 **Límites para los circuitos creados a través de los EXP**
@@ -269,7 +269,7 @@ Los siguientes tutoriales le ayudarán a:
 - Yammer
 - Descargas de cliente de Office 365 ProPlus
 - Inicio de sesión del proveedor de identidades local 
-- Servicio de Office 365 \(operado por Vianet 21\) en China
+- Servicio de Office 365 (operado por Vianet 21) en China
 
 Puede conectarse a esos servicios a través de Internet.
 

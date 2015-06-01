@@ -20,14 +20,14 @@
 
 >[AZURE.NOTE]**La documentación de Servicios móviles se encuentra [aquí.](http://azure.microsoft.com/documentation/services/mobile-services/)**
 
-El Servicio de aplicaciones de Azure es una plataforma totalmente administrada como una oferta de servicio \(PaaS\) para desarrolladores profesionales que ofrece un amplio conjunto de capacidades para la web, dispositivos móviles y escenarios de integración. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a las aplicaciones móviles.
+El Servicio de aplicaciones de Azure es una plataforma totalmente administrada como una oferta de servicio (PaaS) para desarrolladores profesionales que ofrece un amplio conjunto de capacidades para la web, dispositivos móviles y escenarios de integración. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a las aplicaciones móviles.
 
 ![Aplicaciones móviles](./media/app-service-mobile-value-prop-preview/overview.png)
 
 ##¿Por qué aplicaciones móviles?
 Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a las aplicaciones móviles. Con las aplicaciones móviles, puede:
 
-- **Crear aplicaciones nativas y multiplataforma**: si va a crear aplicaciones iOS, Android y Windows nativas o aplicaciones Xamarin o Cordova \(Phonegap\) multiplataforma, puede aprovechar el Servicio de aplicaciones usando SDK nativos.  
+- **Crear aplicaciones nativas y multiplataforma**: si va a crear aplicaciones iOS, Android y Windows nativas o aplicaciones Xamarin o Cordova (Phonegap) multiplataforma, puede aprovechar el Servicio de aplicaciones usando SDK nativos.  
 - **Conectarse a sus sistemas empresariales**: con aplicaciones móviles, puede agregar el inicio de sesión corporativo en cuestión de minutos y conectarse a sus recursos locales o en la nube empresariales.
 - **Conectarse a las API de SaaS fácilmente**: con más de 40 conectores de API de SaaS, puede integrar fácilmente la aplicación con las API de SaaS que su empresa usa hoy en día. ¿Desea actualizar el estado de la cuenta en CRM y el sistema de facturación? Las aplicaciones móviles ofrecen API de SaaS al alcance de su mano.
 - **Creación de aplicaciones de uso sin conexión con sincronización**: haga que su plantilla móvil sea productiva mediante la creación de aplicaciones que funcionen sin conexión y utilice las aplicaciones móviles para sincronizar datos en segundo plano cuando exista conectividad con cualquiera de los orígenes de datos empresariales o API de SaaS.

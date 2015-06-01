@@ -19,7 +19,7 @@
 
 En el[portal de Azure](http://portal.azure.com), puede configurar la supervisión para recopilar estadísticas y detalles sobre las dependencias de la aplicación en las aplicaciones web o las máquinas virtuales.
 
-Azure admite la supervisión del rendimiento de las aplicaciones \(o *APM*\) haciendo uso de las *extensiones.*. Dichas extensiones se instalan en la aplicación, donde recopilan los datos e informan a los servicios de supervisión.
+Azure admite la supervisión del rendimiento de las aplicaciones (o *APM*) haciendo uso de las *extensiones.*. Dichas extensiones se instalan en la aplicación, donde recopilan los datos e informan a los servicios de supervisión.
 
 ## Cómo habilitar una extensión 1.
 

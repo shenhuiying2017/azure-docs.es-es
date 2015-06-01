@@ -32,11 +32,11 @@ Este artículo parte de estos artículos anteriores para demostrar el uso que pu
 
 ## Habilitación de CORS
 
-Normalmente, CORS \(uso compartido de recursos entre orígenes\) es necesario en las aplicaciones HTML a las que se ofrecerá servicio desde diferentes hosts que la propia API. Con las aplicaciones de API, hay al menos dos opciones para habilitar CORS. En esta sección se describen estas opciones.
+Normalmente, CORS (uso compartido de recursos entre orígenes) es necesario en las aplicaciones HTML a las que se ofrecerá servicio desde diferentes hosts que la propia API. Con las aplicaciones de API, hay al menos dos opciones para habilitar CORS. En esta sección se describen estas opciones.
 
 ### Habilitación de CORS para puertas de enlace de aplicación de API
 
-Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting*  **MS\_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
+Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting*  **MS_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
 
 1. Navegue hasta la hoja del portal de vista previa de Azure para la aplicación de API en la que quiere habilitar CORS. Una vez allí, haga clic en el icono *Puerta de enlace* de la aplicación de API. 
 
@@ -54,7 +54,7 @@ Es posible configurar puertas de enlace de aplicación de API para habilitar COR
 
 	![Configuración de la aplicación de puerta de enlace](./media/app-service-api-javascript-client/22-gateway-app-settings-blade.png)
 
-1. Agregue el valor de configuración de aplicación **MS\_CrossDomainOrigins**. Convierta el valor de configuración en la lista de hosts HTTP separados por comas a los que desea proporcionar acceso a su aplicación de API. Si desea proporcionar acceso a varios hosts, el valor de *appSetting* se puede establecer en algo similar al código siguiente.
+1. Agregue el valor de configuración de aplicación **MS_CrossDomainOrigins**. Convierta el valor de configuración en la lista de hosts HTTP separados por comas a los que desea proporcionar acceso a su aplicación de API. Si desea proporcionar acceso a varios hosts, el valor de *appSetting* se puede establecer en algo similar al código siguiente.
 
 		http://foo.azurewebsites.net, https://foo.azurewebsites.net, http://contactlistwebapp.azurewebsites.net
 
@@ -66,11 +66,11 @@ Es posible configurar puertas de enlace de aplicación de API para habilitar COR
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
-El valor de configuración **MS\_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
+El valor de configuración **MS_CrossDomainOrigins** de la aplicación se describe detalladamente en la entrada de blog [Actualizaciones de .NET de Servicios móviles de Azure](http://azure.microsoft.com/blog/2014/07/28/azure-mobile-services-net-updates/); así pues, consúltela para obtener más información sobre dicho valor de configuración.
 
 ### Habilitación de CORS en código de API web
 
-El proceso de habilitación CORS en API web  se documenta en profundidad en el artículo de ASP.NET [Habilitación de solicitudes entre orígenes en API web 2 de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api). Para las aplicaciones de API compiladas con la API web de ASP.NET, el proceso es exactamente el mismo \(se resume a continuación\). Omita esta sección si ya ha habilitado CORS, ya que la aplicación de API ya debe estar configurada correctamente.
+El proceso de habilitación CORS en API web  se documenta en profundidad en el artículo de ASP.NET [Habilitación de solicitudes entre orígenes en API web 2 de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api). Para las aplicaciones de API compiladas con la API web de ASP.NET, el proceso es exactamente el mismo (se resume a continuación). Omita esta sección si ya ha habilitado CORS, ya que la aplicación de API ya debe estar configurada correctamente.
 
 1. La funcionalidad de CORS se proporciona por parte del paquete de NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/). Para instalarlo, abra la **Consola del administrador de paquetes** y ejecute el siguiente script de PowerShell. 
 
@@ -80,7 +80,7 @@ El proceso de habilitación CORS en API web  se documenta en profundidad en el a
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Abra el archivo la *App\_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig**  en el archivo.
+1. Abra el archivo la *App_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig**  en el archivo.
 
 		config.EnableCors();
 
@@ -143,7 +143,7 @@ El proceso de habilitación CORS en API web  se documenta en profundidad en el a
 
 En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar AngularJS en ella y enlazar un front-end HTML sencillo a la aplicación de API. Implementará la aplicación web que se utiliza en el Servicio de aplicaciones de Azure. La aplicación web HTML se enlazará y mostrará los datos recuperados desde la aplicación de API, y pondrá a disposición de los usuarios una sencilla interfaz de usuario para la API de contactos.
 
-1. Haga clic con el botón derecho en la solución y seleccione **Agregar \> Nuevo proyecto**.
+1. Haga clic con el botón derecho en la solución y seleccione **Agregar > Nuevo proyecto**.
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -171,7 +171,7 @@ En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/07-index-html.png)
 
-1. Agregue los archivos de JavaScript de CSS y AngularJS de arranque a la página HTML, y además utilice una plantilla sencilla de Bootstrap \([como esta](http://getbootstrap.com/examples/starter-template/)\) y cree una etiqueta de script vacía para preparar la página.
+1. Agregue los archivos de JavaScript de CSS y AngularJS de arranque a la página HTML, y además utilice una plantilla sencilla de Bootstrap ([como esta](http://getbootstrap.com/examples/starter-template/)) y cree una etiqueta de script vacía para preparar la página.
 	
 	> Nota: los comentarios en el siguiente código HTML y JavaScript sirven como antecedente para los pasos posteriores de esta sección.
 

@@ -47,7 +47,7 @@ Actualmente, se admiten dos tipos de desencadenadores:
 
 ### Desencadenador de sondeo
 
-Un desencadenador de sondeo se implementa como una API de REST normal y espera que sus clientes \(por ejemplo, una aplicación lógica\) efectúen un sondeo para obtener notificaciones. El cliente puede conservar el estado, pero desencadenador de sondeo en sí no tiene estado.
+Un desencadenador de sondeo se implementa como una API de REST normal y espera que sus clientes (por ejemplo, una aplicación lógica) efectúen un sondeo para obtener notificaciones. El cliente puede conservar el estado, pero desencadenador de sondeo en sí no tiene estado.
 
 En la información siguiente sobre los paquetes de solicitud y respuesta, se ilustran algunos aspectos claves del contrato del desencadenador de sondeo:
 
@@ -108,8 +108,8 @@ En la información siguiente sobre los paquetes de solicitud y respuesta, se ilu
 - Solicitud
     - Método HTTP: PUT
     - Parámetros
-        - triggerId: \(obligatorio\) cadena opaca \(por ejemplo, un GUID\) que representa el registro de un desencadenador de inserción.
-        - callbackUrl: \(obligatorio\) dirección URL de la devolución de llamada que se ejecuta al activarse el evento. La ejecución es una llamada HTTP POST simple.
+        - triggerId: (obligatorio) cadena opaca (por ejemplo, un GUID) que representa el registro de un desencadenador de inserción.
+        - callbackUrl: (obligatorio) dirección URL de la devolución de llamada que se ejecuta al activarse el evento. La ejecución es una llamada HTTP POST simple.
         - Parámetros específicos de la API
 - Respuesta
     - Código de estado **200**: solicitud de registro de cliente correcta.
@@ -227,7 +227,7 @@ Si hace clic en el botón para **descargar Swagger** y abra el archivo JSONj. Ve
       }
     }
 
-La propiedad de extensión **x-ms-schedular-trigger** representa la forma en que los desencadenadores se han descrito en la definición de la API. Esta propiedad la agrega automáticamente la puerta de enlace de la aplicación de API cuando se solicita la definición de la API a través de la puerta de enlace, si la solicitud se ajusta a uno de los siguientes criterios. \(También puede agregar esta propiedad manualmente\).
+La propiedad de extensión **x-ms-schedular-trigger** representa la forma en que los desencadenadores se han descrito en la definición de la API. Esta propiedad la agrega automáticamente la puerta de enlace de la aplicación de API cuando se solicita la definición de la API a través de la puerta de enlace, si la solicitud se ajusta a uno de los siguientes criterios. (También puede agregar esta propiedad manualmente).
 
 - Desencadenador de sondeo
     - Si el método HTTP es **GET**.
@@ -260,7 +260,7 @@ Por ejemplo, el parámetro **triggerState** para los desencadenadores de sondeo 
 
 NOTA: para obtener una explicación de las funciones utilizadas en la expresión anterior, consulte la documentación sobre el [lenguaje de definición del flujo de trabajo de la aplicación lógica](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Los usuarios de la aplicación lógica deben proporcionar la expresión anterior para el parámetro **triggerState** mientras usan el desencadenador. Este valor se puede preconfigurar en el diseñador de aplicaciones lógicas mediante la propiedad de extensión **x-ms-scheduler\_recommendation**. La propiedad de extensión **x-ms-visibility** se puede establecer en el valor *internal*, de modo que el propio parámetro no se muestre en el diseñador. El siguiente fragmento de código ilustra este hecho.
+Los usuarios de la aplicación lógica deben proporcionar la expresión anterior para el parámetro **triggerState** mientras usan el desencadenador. Este valor se puede preconfigurar en el diseñador de aplicaciones lógicas mediante la propiedad de extensión **x-ms-scheduler_recommendation**. La propiedad de extensión **x-ms-visibility** se puede establecer en el valor *internal*, de modo que el propio parámetro no se muestre en el diseñador. El siguiente fragmento de código ilustra este hecho.
 
     "/api/Messages/poll": {
       "get": {
@@ -299,7 +299,7 @@ Mediante las propiedades de extensión **x-ms-scheduler-recommendation** y **x-m
 
 ### Adición de propiedades de extensión en la definición de la API
 
-La información de metadatos adicionales \(por ejemplo, las propiedades de extensión **x-ms-scheduler-recommendation** y **x-ms-visibility**\) puede agregarse en la definición de la API de dos maneras: estática o dinámica.
+La información de metadatos adicionales (por ejemplo, las propiedades de extensión **x-ms-scheduler-recommendation** y **x-ms-visibility**) puede agregarse en la definición de la API de dos maneras: estática o dinámica.
 
 En el caso de los metadatos estáticos, puede editar directamente el archivo */metadata/apiDefinition.swagger.json* en el proyecto y agregar manualmente las propiedades.
 

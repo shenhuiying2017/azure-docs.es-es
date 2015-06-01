@@ -17,7 +17,7 @@
 	ms.author="telmos" />
 
 # Proveedor de recursos de red
-Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure \(ARM\) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
+Una necesidad que sustenta el éxito de un negocio hoy en día es la capacidad de crear y administrar aplicaciones compatibles con redes de gran escala de una forma ágil, flexible, segura y repetible. El Administrador de recursos de Azure (ARM) permite crear aplicaciones, como una única colección de recursos en grupos de recursos. Estos recursos se administran a través de diversos proveedores de recursos en el Administrador de recursos de Azure.
 
 El Administrador de recursos de Azure permite crear dichas aplicaciones y la colección asociada de recursos de red como una única colección de recursos en un grupo de recursos. La aplicación y los recursos de red se ejecutan como una sola unidad en un grupo de recursos del Administrador de recursos de Azure.
 
@@ -37,13 +37,13 @@ Con la incorporación de proveedores de recursos de red, puede disfrutar de las 
 - **Metadatos**: puede agregar información a los recursos mediante etiquetas. Estas etiquetas pueden utilizarse para realizar el seguimiento de la utilización de recursos en todas las suscripciones y los grupos de recursos.
 - **Mayor control de la red**: los recursos de red están acoplados holgadamente y los puede controlar de forma más detallada. Esto significa que tendrá una mayor flexibilidad en la administración de los recursos de red.
 - **Configuración más rápida**: dado que los recursos de red están acoplados holgadamente, puede crear y organizar los recursos de red en paralelo. Esto ha reducido drásticamente el tiempo de configuración.
-- **Control de acceso basado en rol \(RBAC\)**: RBAC proporciona roles predeterminados, con un  ámbito de seguridad específico, además de permitir la creación de roles personalizados para una administración segura. 
+- **Control de acceso basado en rol (RBAC)**: RBAC proporciona roles predeterminados, con un  ámbito de seguridad específico, además de permitir la creación de roles personalizados para una administración segura. 
 - **Administración e implementación más sencillas**: resulta más fácil implementar y administrar aplicaciones, ya que puede crear una pila de toda la aplicación como una única colección de recursos en un grupo de recursos. Y más rápido de implementar, ya que es posible hacerlo con solo proporcionar una carga JSON de la plantilla.
 - **Personalización rápida**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones. 
 - **Personalización repetible**: puede utilizar las plantillas de estilo declarativo para habilitar la personalización repetible y rápida de las implementaciones.
 
 ## Recursos de red 
-Ahora puede administrar los recursos de red de forma independiente, en lugar de tener hacerlo a través de un recurso de proceso único \(una máquina virtual\). Esto garantiza un mayor grado de flexibilidad y agilidad a la hora de componer una infraestructura compleja y de gran escala en un grupo de recursos.
+Ahora puede administrar los recursos de red de forma independiente, en lugar de tener hacerlo a través de un recurso de proceso único (una máquina virtual). Esto garantiza un mayor grado de flexibilidad y agilidad a la hora de componer una infraestructura compleja y de gran escala en un grupo de recursos.
  
 El diagrama siguiente muestra una visión general del modelo de recursos de red y sus asociaciones. Los recursos de nivel superior están coloreados con un contorno azul. Además de los recursos de nivel superior, puede ver los recursos secundarios coloreados con un contorno gris. Puede administrar individualmente cada recurso.
 
@@ -75,7 +75,7 @@ Se admiten los siguientes métodos HTTP cuando se realizan llamadas a la API de 
 La solicitud y la respuesta se ajustan a un formato de carga JSON. Para obtener más información, consulte [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
 ## Lenguaje de la plantilla del Administrador de recursos de Azure
-Además de administrar recursos de forma imperativa \(a través de API o SDK\), también puede utilizar un estilo de programación declarativo para crear y administrar recursos de red mediante el lenguaje de la plantilla del Administrador de recursos de Azure.
+Además de administrar recursos de forma imperativa (a través de API o SDK), también puede utilizar un estilo de programación declarativo para crear y administrar recursos de red mediante el lenguaje de la plantilla del Administrador de recursos de Azure.
 
 A continuación se proporciona una representación de una plantilla de ejemplo:
 
@@ -216,7 +216,7 @@ Para obtener más información sobre el lenguaje de la plantilla del Administrad
 La plantilla del ejemplo anterior utiliza la red virtual y los recursos de la subred. Hay otros recursos de red que se pueden utilizar, como se muestra a continuación:
 
 ## NIC
-La tarjeta de interfaz de red, o NIC, representa una interfaz de red que se puede asociar a una máquina virtual \(VM\). Una máquina virtual puede tener una o varias NIC.
+La tarjeta de interfaz de red, o NIC, representa una interfaz de red que se puede asociar a una máquina virtual (VM). Una máquina virtual puede tener una o varias NIC.
 
 ![NIC en una sola máquina virtual](./media/resource-groups-networking/Figure3.png)
 
@@ -226,11 +226,11 @@ Entre las principales propiedades de un recurso de NIC se incluyen las siguiente
 
 Una NIC también se puede asociar con los siguientes recursos de red:
 
-- Grupo de seguridad de red \(NSG\) 
+- Grupo de seguridad de red (NSG) 
 - Equilibrador de carga
 
 ## Red virtual y subred
-Las redes virtuales \(VNET\) y las subredes ayudan a definir un límite de seguridad para las cargas de trabajo que se ejecutan en Azure. Una red virtual se caracteriza por un espacio de direcciones, también denominado bloque CIDR.
+Las redes virtuales (VNET) y las subredes ayudan a definir un límite de seguridad para las cargas de trabajo que se ejecutan en Azure. Una red virtual se caracteriza por un espacio de direcciones, también denominado bloque CIDR.
 
 Una subred es un recurso secundario de una red virtual, y ayuda a definir segmentos de espacios de direcciones dentro de un bloque CIDR usando prefijos de direcciones IP. Las máquinas virtuales que ejecutan varias cargas de trabajo  funcionan básicamente en un límite de subred.
 
@@ -238,7 +238,7 @@ Una subred es un recurso secundario de una red virtual, y ayuda a definir segmen
 
 Entre las principales propiedades de un recurso de red virtual se incluyen las siguientes:
 
-- Espacio de direcciones IP \(bloque CIDR\) 
+- Espacio de direcciones IP (bloque CIDR) 
 - Nombre de red virtual
 - subredes
 
@@ -262,7 +262,7 @@ Se utiliza un equilibrador de carga cuando desea escalar sus aplicaciones. Entre
 
 Los equilibradores de carga contienen los siguientes recursos secundarios:
 
-- **Configuración de dirección IP de front-end**: un equilibrador de carga puede incluir una o varias direcciones IP de front-end, conocidas también como IP virtuales \(VIP\). Estas direcciones IP sirven como entrada para el tráfico. 
+- **Configuración de dirección IP de front-end**: un equilibrador de carga puede incluir una o varias direcciones IP de front-end, conocidas también como IP virtuales (VIP). Estas direcciones IP sirven como entrada para el tráfico. 
 - **Grupo de direcciones de back-end**: se trata de direcciones IP asociadas a las NIC de máquina virtual a la que se distribuirá la carga.
 - **Reglas de equilibrio de carga**: una propiedad de regla asigna una combinación de una determinada dirección IP de front-end y puerto a un conjunto compuesto por una combinación de direcciones IP de back-end y puerto. Con una única definición de un recurso de equilibrador de carga, puede definir varias reglas de equilibrio de carga, donde cada regla refleja una combinación de dirección IP de front-end y puerto y de dirección IP de back-end y puerto asociada con las máquinas virtuales. 
 - **Sondeos**: los sondeos permiten realizar un seguimiento del estado de las instancias de máquina virtual. Si se produce un error en un sondeo de estado, la instancia de VM se sacará automáticamente de la rotación.
@@ -275,8 +275,8 @@ Entre las principales propiedades de un recurso de dirección IP pública se inc
 
 - **Método de asignación de IP**: reservado o dinámico. 
 
-## Grupo de seguridad de red \(NSG\)
-Un recurso de grupo de seguridad de red permite la creación de un límite de seguridad para las cargas de trabajo mediante la implementación de reglas de permiso y denegación. Estas reglas se pueden aplicar en el nivel de NIC \(nivel de instancia de máquina virtual\) o en el nivel de subred \(grupo de máquinas virtuales\).
+## Grupo de seguridad de red (NSG)
+Un recurso de grupo de seguridad de red permite la creación de un límite de seguridad para las cargas de trabajo mediante la implementación de reglas de permiso y denegación. Estas reglas se pueden aplicar en el nivel de NIC (nivel de instancia de máquina virtual) o en el nivel de subred (grupo de máquinas virtuales).
 
 Entre las principales propiedades de un recurso de grupo de seguridad de red se incluyen las siguientes:
 

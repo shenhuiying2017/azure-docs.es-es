@@ -27,7 +27,7 @@ Como administrador, puede agregar Búsqueda a una suscripción existente sin cos
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
-2. En la barra de salto, haga clic en **Nuevo** \| **Datos + Almacenamiento** \| **Búsqueda**.
+2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
  
      ![][1]
 
@@ -70,7 +70,7 @@ Después de crear el servicio, puede volver al portal para obtener la dirección
 
 Muchos clientes comienzan con el servicio gratuito y, a continuación, actualizan al nivel estándar cuando el rendimiento de las consultas o el almacenamiento es suficiente para las cargas de trabajo que debe ejecutar. El nivel estándar ofrece recursos dedicados en un centro de datos de Azure que solo usted puede usar. Las operaciones de búsqueda requieren réplicas de almacenamiento y servicio. Al registrarse para una búsqueda estándar, puede optimizar la configuración del servicio para usar más de cualquier recurso que sea el más importante para su escenario.
 
-Para usar el nivel estándar, repita los pasos anteriores de este artículo para crear un nuevo servicio de búsqueda, eligiendo el nivel de precios estándar. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos \(hasta 15 minutos o más\).
+Para usar el nivel estándar, repita los pasos anteriores de este artículo para crear un nuevo servicio de búsqueda, eligiendo el nivel de precios estándar. Tenga en cuenta que la configuración de recursos dedicados puede tardar unos minutos (hasta 15 minutos o más).
 
 No hay ninguna actualización de la versión gratuita. Cambiar al modo estándar, con su potencial de escalación, requiere un servicio nuevo. Tendrá que volver a cargar los índices y documentos usados por su aplicación de búsqueda.
 

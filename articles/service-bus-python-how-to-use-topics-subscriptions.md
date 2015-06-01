@@ -45,7 +45,7 @@ Los valores para el nombre clave y el valor de la SAS pueden encontrarse en la i
 
 	bus_service.create_topic('mytopic')
 
-**create\_topic** también admite opciones adicionales, lo que permite modificar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. En el siguiente ejemplo se muestra cómo establecer el tamaño máximo de los temas en 5 GB y el período de vida en 1 minuto:
+**create_topic** también admite opciones adicionales, lo que permite modificar la configuración predeterminada de los temas, como el período de vida de los mensajes o el tamaño máximo de los temas. En el siguiente ejemplo se muestra cómo establecer el tamaño máximo de los temas en 5 GB y el período de vida en 1 minuto:
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -71,9 +71,9 @@ También puede configurar filtros que le permitan especificar qué mensajes envi
 
 El tipo más flexible de filtro compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][].
 
-Es posible agregar filtros a una suscripción utilizando el método **create\_rule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
+Es posible agregar filtros a una suscripción utilizando el método **create_rule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-**Nota**: Ya que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, primero debe eliminar el filtro predeterminado o **MatchAll** invalidará todos los filtros que especifique. Puede quitar la regla predeterminada utilizando el método **delete\_rule** del objeto **ServiceBusService**.
+**Nota**: Ya que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, primero debe eliminar el filtro predeterminado o **MatchAll** invalidará todos los filtros que especifique. Puede quitar la regla predeterminada utilizando el método **delete_rule** del objeto **ServiceBusService**.
 
 El ejemplo siguiente crea una suscripción llamada 'HighMessages' con un **SqlFilter** que solo selecciona los mensajes que tienen una propiedad **messagenumber** predeterminada mayor que 3:
 
@@ -101,7 +101,7 @@ Cuando se envía ahora un mensaje a 'mytopic', siempre se entregará a los desti
 
 ## Envío de mensajes a un tema
 
-Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **send\_topic\_message** del objeto **ServiceBusService**.
+Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **send_topic_message** del objeto **ServiceBusService**.
 
 En el ejemplo siguiente se demuestra cómo enviar cinco mensajes de prueba a 'mytopic'. Fíjese en cómo el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones lo reciben):
 
@@ -113,17 +113,17 @@ Los temas del Bus de servicio admiten mensajes con un tamaño máximo de 256 MB 
 
 ## Recepción de mensajes de una suscripción
 
-Los mensajes se reciben de una suscripción utilizando el método **receive\_subscription\_message** en el objeto **ServiceBusService**:
+Los mensajes se reciben de una suscripción utilizando el método **receive_subscription_message** en el objeto **ServiceBusService**:
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-Los mensajes se eliminan de la suscripción a medida que se leen cuando el parámetro **peek\_lock** está establecido en **False**. Puede leer y bloquearlos mensajes sin eliminarlos de la cola si establece el parámetro **peek\_lock** en **True**.
+Los mensajes se eliminan de la suscripción a medida que se leen cuando el parámetro **peek_lock** está establecido en **False**. Puede leer y bloquearlos mensajes sin eliminarlos de la cola si establece el parámetro **peek_lock** en **True**.
 
 El comportamiento por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 
-Si el parámetro **peek\_lock** está establecido en **True**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
+Si el parámetro **peek_lock** está establecido en **True**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
 Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete** en el objeto **Message**.
 El método **delete** marcará el mensaje como consumido y lo eliminará de la suscripción.
 

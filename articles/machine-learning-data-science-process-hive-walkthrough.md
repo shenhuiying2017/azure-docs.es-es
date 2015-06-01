@@ -46,17 +46,17 @@ Los datos de carreras de taxi de Nueva York son aproximadamente 20 GB de archivo
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clave única para unir trip\_data y trip\_fare se compone de los campos: medallion, hack\_licence y pickup\_datetime.
+La clave única para unir trip_data y trip_fare se compone de los campos: medallion, hack_licence y pickup_datetime.
 
 Hay 12 carreras  'trip_data' y 'trip_fare' archivos, respectivamente. En los nombres de archivo, los números del 1 al 12 representan los meses en que se realizan los viajes. 
 
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 Al trabajar con datos, determinar el tipo de predicciones que desea realizar en función de su análisis ayuda a aclarar las tareas que necesitará incluir en el proceso.
-A continuación presentamos tres ejemplos de problemas de predicción que abordaremos en este tutorial cuya formulación se basa en la  *tip\_amount*:
+A continuación presentamos tres ejemplos de problemas de predicción que abordaremos en este tutorial cuya formulación se basa en la  *tip_amount*:
 
-1. **Clasificación binaria**: Predecir o no si se pagó una propina para una carrera, es decir, una *tip\_amount* que es mayor que $0 es un ejemplo positivo, mientras que una *tip\_amount* de $ 0 es un ejemplo negativo.
+1. **Clasificación binaria**: Predecir o no si se pagó una propina para una carrera, es decir, una *tip_amount* que es mayor que $0 es un ejemplo positivo, mientras que una *tip_amount* de $ 0 es un ejemplo negativo.
 
-2. **Clasificación de multiclase**: para predecir el intervalo de los importes de propinas pagados para el viaje. Dividimos el *tip\_amount* en cinco ubicaciones o clases:
+2. **Clasificación de multiclase**: para predecir el intervalo de los importes de propinas pagados para el viaje. Dividimos el *tip_amount* en cinco ubicaciones o clases:
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -85,7 +85,7 @@ Para configurar el entorno de ciencia de datos de Azure para este enfoque que us
 
 3. [Aprovisionar una máquina virtual de **Windows** ciencia de datos](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] Los scripts de ejemplo se descargarán en la máquina virtual de ciencia de los datos durante el proceso de instalación de la máquina virtual. Cuando se completa el script posterior a la instalación de máquina virtual, los ejemplos estarán en la biblioteca de documentos de la máquina virtual que se encuentra en  *C:\Users\<user_name>\Documents\Data Science Scripts*  Las carpetas de ejemplo se denominan **Scripts de muestra** a continuación. Las consultas de subárbol de ejemplo se encuentran en los archivos con la extensión .hql de la carpeta **Scripts de muestra**. Tenga en cuenta que el *<nombre_usuario>* al que se hace referencia en la ruta de acceso a esta carpeta es el nombre de inicio de sesión de Windows de la máquina virtual, no su nombre de usuario de Azure.
+	> [AZURE.NOTE] Los scripts de ejemplo se descargarán en la máquina virtual de ciencia de los datos durante el proceso de instalación de la máquina virtual. Cuando se completa el script posterior a la instalación de máquina virtual, los ejemplos estarán en la biblioteca de documentos de la máquina virtual que se encuentra en  *C:\Users<user_name>\Documents\Data Science Scripts*  Las carpetas de ejemplo se denominan **Scripts de muestra** a continuación. Las consultas de subárbol de ejemplo se encuentran en los archivos con la extensión .hql de la carpeta **Scripts de muestra**. Tenga en cuenta que el *<nombre_usuario>* al que se hace referencia en la ruta de acceso a esta carpeta es el nombre de inicio de sesión de Windows de la máquina virtual, no su nombre de usuario de Azure.
 
 4. [Personalizar clústeres de Hadoop de HDInsight de Azure de ciencia de datos](machine-learning-data-science-customize-hadoop-cluster.md). Este paso creará un clúster de HDInsight de Hadoop de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Después de que se cree el clúster de Hadoop personalizado, habilite el acceso remoto en el nodo principal del clúster de Hadoop en el portal de Azure mediante el procedimiento descrito en este tema de personalización.
 
@@ -106,7 +106,7 @@ Para copiar los datos mediante AzCopy:
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://getgoing.blob.core.windows.net/nyctaxifare /Dest:<path_to_data_folder> /S
 
-	Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip\_data y 12 para trip\_fare) en la carpeta de datos.
+	Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip_data y 12 para trip_fare) en la carpeta de datos.
 
 	>[AZURE.NOTE] *Origen: https://getgoing.blob.core.windows.net/nyctaxitrip* y *origen: https://getgoing.blob.core.windows.net/nyctaxifare* especifican dos contenedores de Azure públicos que se utilizan para compartir los datos de taxis de Nueva York Taxi descomprimidos con los usuarios. La lectura de estos dos contenedores de Azure públicos no requiere una clave de acceso. 
 
@@ -211,7 +211,7 @@ Las tareas de exploración de datos e ingeniería de características para los d
 - Ver los diez registros principales en ambas tablas.
 - Explorar distribuciones de datos de algunos campos en diferentes ventanas de tiempo.
 - Investigar la calidad de los datos de los campos de longitud y latitud.
-- Generar etiquetas de clasificación binaria y multiclase según la **tip\_amount**.
+- Generar etiquetas de clasificación binaria y multiclase según la **tip_amount**.
 - Generar características calculando las distancias de las carreras directas.
 - Combinar las dos tablas y extraer una muestra aleatoria que se usará para generar modelos.
 
@@ -363,7 +363,7 @@ Cuando finalice la consulta, puede usar el SDK de Azure para leer el resultado d
 	
 ### Preparar datos para la generación de modelos
 
-La consulta proporcionada en esta sección combina las tablas **nyctaxidb.trip** y **nyctaxidb.fare**, genera una etiqueta de clasificación binaria **con propinas** y una etiqueta de clasificación de clase **tip\_class**. Esta consulta se puede copiar y pegar directamente en el módulo del lector de[Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para la ingesta directa de datos desde la **consulta de subárbol** en Azure. Esta consulta también excluye los registros con las coordenadas de latitud y longitud incorrectas.
+La consulta proporcionada en esta sección combina las tablas **nyctaxidb.trip** y **nyctaxidb.fare**, genera una etiqueta de clasificación binaria **con propinas** y una etiqueta de clasificación de clase **tip_class**. Esta consulta se puede copiar y pegar directamente en el módulo del lector de[Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para la ingesta directa de datos desde la **consulta de subárbol** en Azure. Esta consulta también excluye los registros con las coordenadas de latitud y longitud incorrectas.
 
 Esta consulta aplica los UDF incrustados de subárbol directamente para generar varias características de los registros de subárbol, incluida la hora, la semana del año y el día de la semana (1 indica lunes y 7, domingo) del campo _pickup_datetime_. Los usuarios pueden hacer referencia a [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) para obtener una lista completa de UDF de subárbol incrustados.
 
@@ -496,7 +496,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 ![Create workspace][12]
 
-> [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de las secciones anteriores, **todas las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (obligatorio) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los dos problemas y cualquier otra **fugas de destino**. Por ejemplo., cuando se use clasificación binaria, se utiliza la etiqueta **tipped** y se excluyen los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
+> [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de las secciones anteriores, **todas las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (obligatorio) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los dos problemas y cualquier otra **fugas de destino**. Por ejemplo., cuando se use clasificación binaria, se utiliza la etiqueta **tipped** y se excluyen los campos **tip_class**, **tip_amount** y **total_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 
 > En este experimento, el primer módulo **Editor de metadatos** agrega nombres de columnas a los datos de salida desde el módulo del lector. Este módulo es necesario puesto que el módulo del lector que lee datos desde la consulta de subárbol no crea nombres de columnas para los datos de salida. 
 

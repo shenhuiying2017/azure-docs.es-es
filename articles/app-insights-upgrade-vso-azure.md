@@ -33,19 +33,19 @@ O bien examine el proyecto en el Explorador de soluciones de Visual Studio y en 
 2. Elimine ApplicationInsights.config. 
 3. Quite los paquetes de NuGet de Application Insights del proyecto. Para ello, haga clic con el botón secundario en el proyecto en el Explorador de soluciones y seleccione Administrar paquetes de NuGet.
 4. SDK: haga clic con el botón secundario y seleccione [Agregar Application Insights][greenbrown]. Se agrega el SDK al proyecto y también se crea un nuevo recurso de Application Insights en Azure.
-5. Registro: si el código incluye llamadas a la API antigua como LogEvent\(\), las descubrirá al intentar compilar la solución. Actualícelas para [usar la nueva API][track].
+5. Registro: si el código incluye llamadas a la API antigua como LogEvent(), las descubrirá al intentar compilar la solución. Actualícelas para [usar la nueva API][track].
 6. Páginas web: si el proyecto incluye páginas web, reemplace los scripts en las secciones <head>. Normalmente solo hay una copia en una página maestra, como Views\\Shared\_Layout.cshtml. [Obtenga el script nuevo desde la hoja Inicio rápido del recurso de Application Insights en Azure][usage]. Si las páginas web incluyen llamadas de telemetría en el cuerpo, como logEvent o logPage, [actualícelas para usar la nueva API][track].
 7. Monitor de servidor: si la aplicación es un servicio que se ejecuta en IIS, desinstale Microsoft Monitoring Agent desde el servidor y, a continuación, [instale el Monitor de estado de Application Insights][redfield].
 8. Pruebas web: si utilizaba las pruebas de disponibilidad de web, [vuelva a crearlas en el nuevo portal][availability], con sus alertas.
 9. Alertas: configure las [alertas sobre métricas][alerts] en el portal de Azure.
-10. Contadores de rendimiento: si usa contadores de rendimiento, puede escribir su propio código para muestrear los contadores periódicamente y enviarlos mediante [TrackMetric\(\)][track].
+10. Contadores de rendimiento: si usa contadores de rendimiento, puede escribir su propio código para muestrear los contadores periódicamente y enviarlos mediante [TrackMetric()][track].
 
 ## Si tiene un servicio web de Java...
 
 1. En el equipo servidor, deshabilite al agente anterior quitando las referencias al agente de APM del archivo de inicio del servicio web. En un servidor TomCat, edite Catalina.bat. En un servidor JBoss, edite Run.bat. 
 2. Reinicie el servicio web.
 3. En el portal de Microsoft Azure, [agregue un nuevo recurso de Application Insights][java]. En el equipo de desarrollo, agregue [el SDK de Java][java] al proyecto web. Ahora puede [enviar telemetría personalizada][track] desde el código del servidor.
-4. Reemplace los scripts en las secciones <head> de las páginas web. \(Puede haber solo una copia en un comando include del servidor\). [Obtenga el script nuevo desde la hoja Inicio rápido del recurso nuevo de Application Insights en Azure][usage]. Si las páginas web incluyen llamadas de telemetría en el cuerpo, como logEvent o logPage, [actualícelas para usar la nueva API][track].
+4. Reemplace los scripts en las secciones <head> de las páginas web. (Puede haber solo una copia en un comando include del servidor). [Obtenga el script nuevo desde la hoja Inicio rápido del recurso nuevo de Application Insights en Azure][usage]. Si las páginas web incluyen llamadas de telemetría en el cuerpo, como logEvent o logPage, [actualícelas para usar la nueva API][track].
 
 
 

@@ -97,11 +97,11 @@ La tabla de Azure se puede utilizar para los datos estructurados con menos restr
  
 Para empezar a usar un almacenamiento de tablas de Azure, debe tener la siguiente información acerca de la tabla:
 
-1. Nombre de la cuenta de almacenamiento \(si este almacenamiento está en una suscripción diferente de su trabajo de transmisión\).
-2. Clave de la cuenta de almacenamiento \(si este almacenamiento está en una suscripción diferente de su trabajo de transmisión\).
-3. Nombre de la tabla de salida \(se creará si no existe\).
-4. Clave de partición \(obligatoria\).
-5.   Clave de fila \(actualmente es necesaria; de acuerdo con los comentarios de los clientes, planeamos que sea opcional\)
+1. Nombre de la cuenta de almacenamiento (si este almacenamiento está en una suscripción diferente de su trabajo de transmisión).
+2. Clave de la cuenta de almacenamiento (si este almacenamiento está en una suscripción diferente de su trabajo de transmisión).
+3. Nombre de la tabla de salida (se creará si no existe).
+4. Clave de partición (obligatoria).
+5.   Clave de fila (actualmente es necesaria; de acuerdo con los comentarios de los clientes, planeamos que sea opcional)
 
 Para un mejor diseño de la clave de partición y la clave de fila, consulte el siguiente artículo [Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 

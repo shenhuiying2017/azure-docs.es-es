@@ -22,7 +22,7 @@ Este artículo proporciona orientación sobre cómo automatizar las tareas comun
 
 ## Preparación
 
-Para poder utilizar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y un identificador de cuenta profesional o educativa \(también conocido como identificador de la organización\).
+Para poder utilizar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y un identificador de cuenta profesional o educativa (también conocido como identificador de la organización).
 
 ### Paso 1: Actualización de la CLI de Azure a la versión 0.9.0
 
@@ -60,7 +60,7 @@ con el nombre de la suscripción o el identificador que tiene los recursos que d
 
 ### Paso 3: Cambio al modo de grupo de recursos de CLI de Azure
 
-De forma predeterminada, la CLI de Azure se inicia en el modo de administración de servicio \(\*\*modo asm\*\*\). Escriba
+De forma predeterminada, la CLI de Azure se inicia en el modo de administración de servicio (**modo asm**). Escriba
 
 	azure config mode arm
 
@@ -70,14 +70,14 @@ para cambiar al modo de grupo de recursos.
 
 ## Descripción de las plantillas de recursos y grupos de recursos de Azure
 
-La mayoría de las aplicaciones constan de una combinación de diferentes tipos de recursos \(por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una base de datos SQL, una red virtual o una red de entrega de contenido o *CDN*\). La API de administración de servicios de Azure predeterminada y el portal de Azure clásico representan estos elementos mediante un enfoque de servicio por servicio, que requiere implementar y administrar servicios individuales \(o buscar otras herramientas que lo hagan\) y no como una unidad lógica de implementación.
+La mayoría de las aplicaciones constan de una combinación de diferentes tipos de recursos (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una base de datos SQL, una red virtual o una red de entrega de contenido o *CDN*). La API de administración de servicios de Azure predeterminada y el portal de Azure clásico representan estos elementos mediante un enfoque de servicio por servicio, que requiere implementar y administrar servicios individuales (o buscar otras herramientas que lo hagan) y no como una unidad lógica de implementación.
 
-*Las plantillas del Administrador de recursos de Azure* permiten implementar y administrar estos recursos diferentes como una unidad lógica de implementación de manera declarativa. En lugar de indicar imperativamente a Azure que debe implementar un comando tras otro, describa la implementación completa en un archivo JSON \(todos los recursos y configuración asociada y parámetros de implementación\) e indíquele a Azure que implemente esos recursos como un único grupo.
+*Las plantillas del Administrador de recursos de Azure* permiten implementar y administrar estos recursos diferentes como una unidad lógica de implementación de manera declarativa. En lugar de indicar imperativamente a Azure que debe implementar un comando tras otro, describa la implementación completa en un archivo JSON (todos los recursos y configuración asociada y parámetros de implementación) e indíquele a Azure que implemente esos recursos como un único grupo.
 
 Después puede administrar el ciclo de vida general de los recursos del grupo mediante el uso de comandos de administración de recursos de CLI de Azure para:
 
 - Detener, iniciar o eliminar todos los recursos dentro del grupo a la vez. 
-- Aplicar reglas de control de acceso basado en roles \(RBAC\) para bloquear los permisos de seguridad en ellos. 
+- Aplicar reglas de control de acceso basado en roles (RBAC) para bloquear los permisos de seguridad en ellos. 
 - Auditar operaciones. 
 - Etiquetar recursos con metadatos adicionales para un mejor seguimiento. 
 
@@ -107,21 +107,21 @@ En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de A
 
 | Publisher | ImageOffer | ImageSku | ComputeImageVersion |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic | CentOS | 7 | 7\.0.201503 |
-| OpenLogic | CentOS | 7\.1 | 7\.1.201504 |
-| CoreOS | CoreOS | Versión beta | 647\.0.0 |
-| CoreOS | CoreOS | Stable | 633\.1.0 |
-| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8\.0.40459 |
-| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Estándar | 1\.0.0 |
-| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1\.0.0 |
-| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW | 12\.0.2430 |
-| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP | 12\.0.2430 |
-| Canonical | UbuntuServer | 14\.04.1-LTS | 14\.04.201501230 |
-| Canonical | UbuntuServer | 14\.04.2-LTS | 14\.04.201503090 |
-| Microsoft Windows Server | Windows Server | Windows-Server-Technical-Preview | 5\.0.201504 |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
-| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
+| OpenLogic | CentOS | 7 | 7.0.201503 |
+| OpenLogic | CentOS | 7.1 | 7.1.201504 |
+| CoreOS | CoreOS | Versión beta | 647.0.0 |
+| CoreOS | CoreOS | Stable | 633.1.0 |
+| MicrosoftDynamicsNAV | DynamicsNAV | 2015 | 8.0.40459 |
+| MicrosoftSharePoint | MicrosoftSharePointServer | 2013 | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Estándar | 1.0.0 |
+| msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
+| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW | 12.0.2430 |
+| MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
+| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| Microsoft Windows Server | Windows Server | Windows-Server-Technical-Preview | 5.0.201504 |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
+| MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
 
 Basta con crear la máquina virtual mediante `azure vm quick-create command` y estar preparado para las indicaciones. Debe tener un aspecto similar al siguiente.
 
@@ -216,9 +216,9 @@ Siga las instrucciones de estas secciones para implementar una nueva máquina vi
  
 ### Paso 1: Examen en el archivo JSON de los parámetros de plantilla
 
-Este es el contenido del archivo JSON de la plantilla. \(La plantilla también se encuentra en GitHub, [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json)\).
+Este es el contenido del archivo JSON de la plantilla. (La plantilla también se encuentra en GitHub, [aquí](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json)).
 
-Las plantillas son flexibles, de tal forma que el diseñador pueda haber optado por ofrecer muchos parámetros, o bien haya decidido ofrecer unas pocas para crear una plantilla más específica. Para recopilar la información que se necesita para pasar la plantilla como parámetros, abra el archivo de plantilla \(este tema tiene una plantilla insertada, a continuación\) y examine los valores de **parameters**.
+Las plantillas son flexibles, de tal forma que el diseñador pueda haber optado por ofrecer muchos parámetros, o bien haya decidido ofrecer unas pocas para crear una plantilla más específica. Para recopilar la información que se necesita para pasar la plantilla como parámetros, abra el archivo de plantilla (este tema tiene una plantilla insertada, a continuación) y examine los valores de **parameters**.
 
 En este caso, la plantilla siguiente solicitará:
 
@@ -432,8 +432,8 @@ Para crear el grupo de recursos, escriba `azure group create <group name> <locat
 
 Ahora para crear la implementación, llame a `azure group deployment create` y pase:
 
-- el archivo de plantilla \(en caso de que haga guardado la plantilla JSON anterior en un archivo local\) 
-- un URI de plantilla \(en caso de que desee apuntar al archivo en Github o a alguna otra dirección web\)
+- el archivo de plantilla (en caso de que haga guardado la plantilla JSON anterior en un archivo local) 
+- un URI de plantilla (en caso de que desee apuntar al archivo en Github o a alguna otra dirección web)
 - el grupo de recursos en el que desea realizar la implementación
 - y un nombre de implementación opcional. 
 
@@ -479,7 +479,7 @@ Recibirá el siguiente tipo de información:
 
 ## Tareas comunes: Creación de una imagen de máquina virtual personalizada
 
-Ha visto el uso básico de las plantillas anteriores, de modo que ahora podemos usar instrucciones similares para crear una máquina virtual personalizada desde un archivo .vhd concreto en Azure con una plantilla mediante la CLI de Azure. La diferencia aquí radica en que esta plantilla crea una única máquina virtual desde un disco duro virtual \(VHD\) especificado.
+Ha visto el uso básico de las plantillas anteriores, de modo que ahora podemos usar instrucciones similares para crear una máquina virtual personalizada desde un archivo .vhd concreto en Azure con una plantilla mediante la CLI de Azure. La diferencia aquí radica en que esta plantilla crea una única máquina virtual desde un disco duro virtual (VHD) especificado.
 
 ### Paso 1: Examen en el archivo JSON de la plantilla
 
@@ -693,7 +693,7 @@ Ahora ya puede crear una máquina virtual nueva basada en .vhd. Cree un grupo pa
     data:    
     info:    group create command OK
     
-Después cree la implementación mediante la opción `--template-uri` para llamar directamente a la plantilla \(o puede utilizar la opción `--template-file` para utilizar un archivo guardado localmente\). Tenga en cuenta que como la plantilla tiene valores predeterminados especificados, solo se le pedirán un par de cosas. Si implementa la plantilla en distintos lugares, puede encontrar que tengan lugar algunos conflictos de nomenclatura con los valores predeterminados \(especialmente el nombre DNS creado\).
+Después cree la implementación mediante la opción `--template-uri` para llamar directamente a la plantilla (o puede utilizar la opción `--template-file` para utilizar un archivo guardado localmente). Tenga en cuenta que como la plantilla tiene valores predeterminados especificados, solo se le pedirán un par de cosas. Si implementa la plantilla en distintos lugares, puede encontrar que tengan lugar algunos conflictos de nomenclatura con los valores predeterminados (especialmente el nombre DNS creado).
 
     azure group deployment create \
     > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
@@ -1166,17 +1166,17 @@ Recuerde que puede volver a implementar un grupo de recursos, pero si ha termina
     
 ## Visualización del registro para una implementación del grupo de recursos
 
-Este es bastante común al crear o usar plantillas. La llamada para mostrar los registros de implementación de un grupo es `azure group log show <groupname>`, que muestra gran cantidad de información útil para entender por qué ha ocurrido algo o por qué no. \(Para obtener más información sobre cómo solucionar problemas de las implementaciones, así como otra información acerca de problemas, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)\).
+Este es bastante común al crear o usar plantillas. La llamada para mostrar los registros de implementación de un grupo es `azure group log show <groupname>`, que muestra gran cantidad de información útil para entender por qué ha ocurrido algo o por qué no. (Para obtener más información sobre cómo solucionar problemas de las implementaciones, así como otra información acerca de problemas, consulte [Solución de problemas de implementaciones de grupo de recursos en Azure](resource-group-deploy-debug.md)).
 
 Por ejemplo, para solucionar errores específicos, puede usar herramientas como **jq** para realizar consultas algo más precisas, como qué errores individuales se deben corregir. El siguiente ejemplo utiliza **jq** para analizar un registro de implementación para **lbgroup**, buscando errores.
 
     azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties' 
 
-Puede detectar rápidamente qué salió mal, corregirlo y volver a intentarlo. En el caso siguiente, la plantilla había creado dos máquinas virtuales al mismo tiempo, lo que ha creado un bloqueo en el archivo .vhd. \(Después de modificar la plantilla, la implementación se realizó correctamente\).
+Puede detectar rápidamente qué salió mal, corregirlo y volver a intentarlo. En el caso siguiente, la plantilla había creado dos máquinas virtuales al mismo tiempo, lo que ha creado un bloqueo en el archivo .vhd. (Después de modificar la plantilla, la implementación se realizó correctamente).
 
     {
       "statusCode": "Conflict",
-      "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+      "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
     
 
@@ -1271,7 +1271,7 @@ Ejecute este comando:
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]Utilice este parámetro para mantener la IP virtual \(VIP\) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
+>[AZURE.IMPORTANT]Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
 
 ## Inicio de una máquina virtual
 
@@ -1289,7 +1289,7 @@ Para adjuntar un disco de datos existente, ejecute este comando:
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
     
-A continuación, deberá montar el disco, como haría normalmente en Linux \(o en Windows\).
+A continuación, deberá montar el disco, como haría normalmente en Linux (o en Windows).
 
 
 ## Pasos siguientes

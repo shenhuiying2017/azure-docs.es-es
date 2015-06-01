@@ -22,7 +22,7 @@
 
 # Utilización de las colas del Bus de servicio
 
-<span>Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en C\# y usan la API de .NET. Los escenarios descritos incluyen la **creación de colas, el envío y la recepción de mensajes** y la **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes]. </span>
+<span>Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en C# y usan la API de .NET. Los escenarios descritos incluyen la **creación de colas, el envío y la recepción de mensajes** y la **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes]. </span>
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 

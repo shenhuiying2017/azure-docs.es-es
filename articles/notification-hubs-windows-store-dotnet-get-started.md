@@ -22,7 +22,7 @@
 
 ##Información general
 
-En este tema se muestra cómo se pueden utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación de la Tienda Windows o de Windows Phone 8.1 \(no Silverlight\). Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-get-started.md). En este tutorial puede crear una aplicación de la Tienda Windows vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Windows \(WNS\). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
+En este tema se muestra cómo se pueden utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación de la Tienda Windows o de Windows Phone 8.1 (no Silverlight). Si su objetivo es Silverlight para Windows Phone 8.1, consulte la versión de [Windows Phone](notification-hubs-windows-phone-get-started.md). En este tutorial puede crear una aplicación de la Tienda Windows vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Windows (WNS). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su Centro de notificaciones.
 
 En este tutorial se demuestra un escenario de difusión sencillo con Centros de notificaciones. Asegúrese de seguirlo junto con el próximo tutorial para aprender a usar los Centros de notificaciones para abordar usuarios y grupos de dispositivos específicos.
 
@@ -53,7 +53,7 @@ Para enviar notificaciones de inserción a las aplicaciones de la Tienda Windows
 
    Se crea un nuevo registro de la Tienda Windows para su aplicación.
 
-3. En Visual Studio, cree un nuevo proyecto de aplicaciones de la Tienda en Visual C\# con la plantilla **Aplicación vacía**.
+3. En Visual Studio, cree un nuevo proyecto de aplicaciones de la Tienda en Visual C# con la plantilla **Aplicación vacía**.
 
    ![][2]
 
@@ -71,7 +71,7 @@ Para enviar notificaciones de inserción a las aplicaciones de la Tienda Windows
 
    Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 
-7. \(Opcional\) Repita los pasos 4-6 para el proyecto de la aplicación de la Tienda de Windows Phone.  
+7. (Opcional) Repita los pasos 4-6 para el proyecto de la aplicación de la Tienda de Windows Phone.  
 
 7. De nuevo en la página del Centro de desarrollo de Windows de su nueva aplicación, haga clic en **Servicios**.
 
@@ -81,11 +81,12 @@ Para enviar notificaciones de inserción a las aplicaciones de la Tienda Windows
 
    ![][17]
 
-9. En la pestaña **Configuración de aplicaciones**, anote los valores de **Secreto del cliente** e **Identificador de seguridad de paquete \(SID\)**. 
+9. En la pestaña **Configuración de aplicaciones**, anote los valores de **Secreto del cliente** e **Identificador de seguridad de paquete (SID)**. 
 
    ![][6]
 
- >[AZURE.NOTE]**Nota de seguridad**El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
+ >[AZURE.NOTE]**Nota de seguridad**
+	El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No los comparta con nadie ni los distribuya con su aplicación.
 
 ##Configuración del Centro de notificaciones
 
@@ -99,7 +100,7 @@ Para enviar notificaciones de inserción a las aplicaciones de la Tienda Windows
 
    ![][8]
 
-4. Haga clic en el espacio de nombres que acaba de crear \(por lo general ***nombre del centro de notificaciones*-ns**\) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
+4. Haga clic en el espacio de nombres que acaba de crear (por lo general ***nombre del centro de notificaciones*-ns**) y, a continuación, haga clic en la pestaña **Configurar** en la parte superior.
 
    ![][9]
 
@@ -158,7 +159,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 	
     Este código recupera el valor de ChannelURI de la aplicación desde WNS y, a continuación, lo registra con su Centro de notificaciones.
 
-    >[AZURE.NOTE]Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones** \(por ejemplo, **mynotificationhub2** en el ejemplo anterior\). Sustituya también el marcador de posición de la cadena de conexión por la cadena de conexión **DefaultListenSharedAccessSignature** que obtuvo en la sección anterior.
+    >[AZURE.NOTE]Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones** (por ejemplo, **mynotificationhub2** en el ejemplo anterior). Sustituya también el marcador de posición de la cadena de conexión por la cadena de conexión **DefaultListenSharedAccessSignature** que obtuvo en la sección anterior.
     
 5. En la parte superior del controlador de eventos **OnLaunched** en App.xaml.cs, agregue la siguiente llamada al nuevo método **InitNotificationsAsync**:
 
@@ -172,25 +173,25 @@ Su Centro de notificaciones está ahora configurado para funcionar con WNS y tie
 
    En el menú **Archivo**, haga clic en **Guardar todo**.
 
-7. \(Opcional\) Repita los pasos anteriores para el proyecto de la aplicación de la Tienda de Windows Phone.
+7. (Opcional) Repita los pasos anteriores para el proyecto de la aplicación de la Tienda de Windows Phone.
 
 8. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente con la clave de registro.
    
    ![][19]
 
-9. \(Opcional\) Repita el paso anterior para ejecutar el otro proyecto.
+9. (Opcional) Repita el paso anterior para ejecutar el otro proyecto.
 
 La carpeta ahora ya está lista para recibir notificaciones.
 
 ##Envío de notificaciones desde el back-end
 
-Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** \([back-end .NET](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) \| [back-end JavaScript](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)\). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** \([Java](notification-hubs-java-backend-how-to.md) \| [PHP](notification-hubs-php-backend-how-to.md)\).
+Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** ([back-end .NET](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [back-end JavaScript](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)). Para ver un ejemplo de cómo enviar notificaciones con las API de REST, consulte **Uso de los Centros de notificaciones desde Java o PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Haga clic con el botón secundario en la solución, seleccione **Agregar** y **Nuevo proyecto...**, a continuación en **Visual C\#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**. 
+1. Haga clic con el botón secundario en la solución, seleccione **Agregar** y **Nuevo proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**. 
 
    ![][13]
 
-	This adds a new Visual C# console application to the solution. You can also do this in a separate solution. 
+	Esta acción agrega una aplicación de consola nueva de Visual C# a la solución. También puede hacer esto en una solución separada. 
 
 4. En Visual Studio, haga clic en **Herramientas**, en **Administrador de paquetes de Nuget** y, después, haga clic en **Consola del administrador de paquetes**. 
 
@@ -218,7 +219,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
    Asegúrese de reemplazar el marcador de posición "hub name" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del Centro de notificaciones".
 
-	>[AZURE.NOTE]Make sure that you use the connection string with **Full** access, not **Listen** access. The listen access string does not have permissions to send notifications.
+	>[AZURE.NOTE]Asegúrese de usar la cadena de conexión con acceso **Total**, no con acceso **Escuchar**. La cadena de acceso escuchar no tiene permisos para enviar notificaciones.
 
 7. Agregue las siguientes líneas al método **Main**:
 
@@ -229,7 +230,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
    ![][14]
 
-	You will receive a toast notification on all registered devices. Clicking or taping on the toast banner loads the app.
+	Debería recibir una notificación del sistema en todos los dispositivos registrados. Si hace clic o toca el banner de notificaciones se carga la aplicación.
 
 Puede encontrar todas las cargas compatibles en los temas de [catálogo de notificaciones del sistema], [catálogo de iconos] e [información general sobre distintivos] de MSDN.
 

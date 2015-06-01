@@ -76,7 +76,7 @@ Para ver o descargar una factura:
 
  **NOMBRE DE LA OFERTA** | **TIPO DE OFERTA** | **INCLUYE SERVICIOS GRATUITOS** | **DESCARGA** |
  :--------- |:-------- | :----------------: | :-------|
-Azure MSDN-Visual Studio Ultimate| Programa de beneficios | Sí\* | [Archivo de muestra](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
+Azure MSDN-Visual Studio Ultimate| Programa de beneficios | Sí* | [Archivo de muestra](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
 Pay-As-You-Go | Consumo | No| [Archivo de muestra](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
 Uso detallado - csv | N/D | N/D | [Archivo de muestra](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
 
@@ -96,7 +96,7 @@ El período de tiempo en que se realizó el uso.
 Fecha en que se generó la factura.
 
 ### Método de pago
-Tipo de pago que se utiliza en la cuenta \(es decir, factura o tarjeta de crédito\).
+Tipo de pago que se utiliza en la cuenta (es decir, factura o tarjeta de crédito).
 
 ### Dirección de facturación
 Dirección de pagos de Microsoft Azure.
@@ -119,8 +119,8 @@ El saldo anterior es el importe total debido en la última factura.
 ### Pagos
 Los pagos son los pagos totales aplicados a la última factura.
 
-### Saldo pendiente \(desde el ciclo de facturación anterior\)
-Todos los ajustes de factura \(créditos o saldos\) aplicados a la cuenta desde la última factura.
+### Saldo pendiente (desde el ciclo de facturación anterior)
+Todos los ajustes de factura (créditos o saldos) aplicados a la cuenta desde la última factura.
 
 
 ## Comprender los cargos actuales
@@ -169,7 +169,7 @@ El servicio de Azure se puede definir por tipo en esta columna, lo que puede afe
 Identifica la unidad de medida del recurso que se está utilizando.
 
 ### Región
-Las regiones a las que se aplica el uso y, principalmente, se refiere a servicios en la nube y máquinas virtuales y a transferencias de datos \(excepto CDN\), dado que estas tarifas pueden variar por región. La región para la asignación de CDN a la ubicación del centro de datos donde se realizó el tráfico.
+Las regiones a las que se aplica el uso y, principalmente, se refiere a servicios en la nube y máquinas virtuales y a transferencias de datos (excepto CDN), dado que estas tarifas pueden variar por región. La región para la asignación de CDN a la ubicación del centro de datos donde se realizó el tráfico.
 
 ### Consumida
 Contiene la cantidad consumida del recurso durante el período de facturación.
@@ -187,7 +187,7 @@ Muestra la tarifa que se le cobra por unidad facturable.
 Muestra el resultado de multiplicar la columna Facturable por la columna Tarifa. Si la cantidad Consumida no supera la cantidad incluida, no habrá cargo en esta columna.
 
 ## Analizar los datos de uso diario
-Dependiendo del uso, puede haber miles de filas de datos de uso diario. Si desea analizar estos datos, haga clic en Descargar uso para exportar los datos de uso diario correspondientes al período de facturación actual a un archivo variable delimitado por comas \(CSV\), que luego se puede ver en Microsoft Office Excel y otros programas. Como referencia, puede descargar un archivo CSV de muestra.
+Dependiendo del uso, puede haber miles de filas de datos de uso diario. Si desea analizar estos datos, haga clic en Descargar uso para exportar los datos de uso diario correspondientes al período de facturación actual a un archivo variable delimitado por comas (CSV), que luego se puede ver en Microsoft Office Excel y otros programas. Como referencia, puede descargar un archivo CSV de muestra.
 
 
 ![Resumen de pago por uso](./media/azure-billing-understand-your-bill/AnalyzeDailyUsageData1.png)
@@ -204,7 +204,7 @@ Período de facturación | El período de facturación en que se consumió el re
 Nombre | Identifica el nombre del servicio que se utilizó.
 Tipo | En algunos casos, un servicio de Azure se puede definir por tipo en esta columna, lo que puede afectar la tarifa.
 Recurso | Identifica el tipo de recurso que se ha consumido. Por ejemplo, las transferencia de datos, horas de proceso y transacciones de almacenamiento son tipos de recurso.
-Región | Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos \(por ejemplo, transferencias de datos\).
+Región | Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos (por ejemplo, transferencias de datos).
 SKU | Identifica el identificador único de sistema de cada recurso de Azure.
 Unidad | Identifica la unidad en que se cobra el servicio. Por ejemplo, GB, horas, por 10.000
 Consumida | Contiene la cantidad del recurso consumida durante ese día.
@@ -226,7 +226,7 @@ La fecha en que se emitió el uso.
 El GUID del medidor facturado.
 
 ### Subregión
-Identifica la ubicación específica del servicio que se omite \(es decir, la ubicación del centro de datos\).
+Identifica la ubicación específica del servicio que se omite (es decir, la ubicación del centro de datos).
 
 ### Servicio
 Esta columna se utiliza para hacer un seguimiento del servicio individual de la plataforma Azure que puede no estar específicamente identificado en la columna Nombre. Esta columna Servicio indicará el servicio específico al que pertenece el uso.
@@ -248,7 +248,7 @@ Consulte este archivo de fuentes de información adicionales para obtener más d
 >>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
 
 
-Para buscar la versión más reciente, escriba el año y el mes \(por ejemplo, para buscar el archivo correspondiente a mayo de 2015, escriba **052015** en la sección _**“MMYYYY”**_ de la dirección URL anterior\). En esta hoja de cálculo aparece una lista de todas las combinaciones posibles de los campos relacionados con el servicio en el **informe de descarga de uso**.
+Para buscar la versión más reciente, escriba el año y el mes (por ejemplo, para buscar el archivo correspondiente a mayo de 2015, escriba **052015** en la sección _**“MMYYYY”**_ de la dirección URL anterior). En esta hoja de cálculo aparece una lista de todas las combinaciones posibles de los campos relacionados con el servicio en el **informe de descarga de uso**.
 
 
 <!--Image references-->

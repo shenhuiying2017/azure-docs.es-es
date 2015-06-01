@@ -2,7 +2,7 @@
 
 2. Haga clic en **Máquina Virtual**, y, a continuación, en **Desde la galería**.
 
-3. En **Elegir una imagen**, seleccione una imagen en una de las listas. \(Las imágenes disponibles pueden ser diferentes según la suscripción que esté usando\). Haga clic en la flecha para continuar.
+3. En **Elegir una imagen**, seleccione una imagen en una de las listas. (Las imágenes disponibles pueden ser diferentes según la suscripción que esté usando). Haga clic en la flecha para continuar.
 
 4. Si hay varias versiones disponibles de la imagen, en **Fecha de lanzamiento de la versión**, seleccione la versión que desea usar.
 
@@ -24,7 +24,7 @@
 
 13. En **Conjunto de disponibilidad**, a efectos de este tutorial, use la configuración predeterminada de **Ninguno**.
 
-14.	En **Extremos**, revise el extremo que se crea automáticamente para permitir conexiones de Secure Shell \(SSH\) con la máquina virtual. \(Los extremos permiten que los recursos en Internet u otras redes virtuales se comuniquen con una máquina virtual\). Puede agregar más extremos ahora o crearlos más adelante. Para obtener instrucciones sobre la creación de extremos más adelante, consulte [Configuración de extremos en una máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
+14.	En **Extremos**, revise el extremo que se crea automáticamente para permitir conexiones de Secure Shell (SSH) con la máquina virtual. (Los extremos permiten que los recursos en Internet u otras redes virtuales se comuniquen con una máquina virtual). Puede agregar más extremos ahora o crearlos más adelante. Para obtener instrucciones sobre la creación de extremos más adelante, consulte [Configuración de extremos en una máquina virtual](../articles/virtual-machines-set-up-endpoints.md).
 
 15.  En **Agente de máquina virtual**, revise las extensiones disponibles. Estas extensiones proporcionan varias características que facilitan el uso y la administración de una máquina virtual. Para obtener más información, consulte [Extensiones de máquina virtual de Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 

@@ -45,15 +45,15 @@ El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archivo
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clave única para unir trip\_data y trip\_fare se compone de los campos: medallion, hack\_licence y pickup\_datetime.
+La clave única para unir trip_data y trip_fare se compone de los campos: medallion, hack_licence y pickup_datetime.
 
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 
-Se formularán tres problemas de predicción según *tip\_amount*, a saber:
+Se formularán tres problemas de predicción según *tip_amount*, a saber:
 
-1. Clasificación binaria: Predecir si se pagó una propina para una carrera o no; por ejemplo, un valor de *tip\_amount* que sea mayor de 0 $ es un ejemplo positivo, mientras que un valor de *tip\_amount* de 0 $ es un ejemplo negativo.
+1. Clasificación binaria: Predecir si se pagó una propina para una carrera o no; por ejemplo, un valor de *tip_amount* que sea mayor de 0 $ es un ejemplo positivo, mientras que un valor de *tip_amount* de 0 $ es un ejemplo negativo.
 
-2. Clasificación de multiclase: Para predecir el intervalo de propinas pagadas para el viaje. Dividimos el *tip\_amount* en cinco ubicaciones o clases:
+2. Clasificación de multiclase: Para predecir el intervalo de propinas pagadas para el viaje. Dividimos el *tip_amount* en cinco ubicaciones o clases:
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -82,8 +82,8 @@ Para configurar el entorno de ciencia de datos de Azure:
 3. [Aprovisionar una máquina virtual de ciencia de datos](machine-learning-data-science-setup-sql-server-virtual-machine.md), que actuará como un servidor de SQL Server y también como un servidor de Blocs de notas de IPython.
 
 	> [AZURE.NOTE] Los scripts y Blocs de notas de IPython de ejemplo se descargarán en la máquina virtual de ciencia de datos durante el proceso de instalación. Cuando se complete el script posterior a la instalación de máquina virtual, los ejemplos estarán en la biblioteca de documentos de su máquina virtual:  
-	> - Scripts de ejemplo: `C:\Users\<user_name>\Documents\Data Science Scripts`  
-	> - Blocs de notas de IPython de ejemplo: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+	> - Scripts de ejemplo: `C:\Users<user_name>\Documents\Data Science Scripts`  
+	> - Blocs de notas de IPython de ejemplo: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
 	> donde `<user_name>` es su nombre de inicio de sesión de Windows de la máquina virtual. Se hará referencia a las carpetas de ejemplo como **Scripts de ejemplo** y **Blocs de notas de IPython de ejemplo**.
 
 
@@ -103,9 +103,9 @@ Para copiar los datos mediante AzCopy:
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip\_data y 12 para trip\_fare) en la carpeta de datos.
+	Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip_data y 12 para trip_fare) en la carpeta de datos.
 
-4. Descomprima los archivos descargados. Observe la carpeta donde se encuentran los archivos sin comprimir. Se hará referencia a esta carpeta como <path\_to\_data\_files\>.
+4. Descomprima los archivos descargados. Observe la carpeta donde se encuentran los archivos sin comprimir. Se hará referencia a esta carpeta como <path_to_data_files>.
 
 ## <a name="dbload"></a>Importación masiva de datos en una base de datos de SQL Server
 
@@ -117,7 +117,7 @@ Puede mejorar el rendimiento de la carga y transferencia de grandes cantidades d
 
 	![SSMS Connect][12]
 
-3. Si aún no ha cambiado el modo de autenticación de SQL Server ni ha creado un nuevo usuario de inicio de sesión de SQL, abra el archivo de script llamado **change\_auth.sql** en la carpeta **Scripts de ejemplo**. Cambie el nombre de usuario y la contraseña predeterminados. Haga clic en **!Ejecutar** en la barra de herramientas para ejecutar el script.
+3. Si aún no ha cambiado el modo de autenticación de SQL Server ni ha creado un nuevo usuario de inicio de sesión de SQL, abra el archivo de script llamado **change_auth.sql** en la carpeta **Scripts de ejemplo**. Cambie el nombre de usuario y la contraseña predeterminados. Haga clic en **!Ejecutar** en la barra de herramientas para ejecutar el script.
 
 	![Execute Script][13]
 
@@ -133,22 +133,22 @@ Puede mejorar el rendimiento de la carga y transferencia de grandes cantidades d
 	
 		![SQL Database Defaults][15]  
 
-5. Para crear una nueva base de datos y un conjunto de grupos de archivos para almacenar las tablas con particiones, abra el script **create\_db\_default.sql**. El script creará una nueva base de datos llamada **TaxiNYC** y 12 grupos de archivos en la ubicación de datos predeterminada. Cada grupo de archivos contendrá un mes de datos de trip\_data y trip\_fare. Modifique el nombre de la base de datos, si lo desea. Haga clic en **!Ejecutar** para ejecutar el script.
+5. Para crear una nueva base de datos y un conjunto de grupos de archivos para almacenar las tablas con particiones, abra el script **create_db_default.sql**. El script creará una nueva base de datos llamada **TaxiNYC** y 12 grupos de archivos en la ubicación de datos predeterminada. Cada grupo de archivos contendrá un mes de datos de trip_data y trip_fare. Modifique el nombre de la base de datos, si lo desea. Haga clic en **!Ejecutar** para ejecutar el script.
 
-6. A continuación, cree dos tablas de particiones, una para trip\_data y otra para trip\_fare. Abra el script de ejemplo **create\_partitioned\_table.sql**, que:
+6. A continuación, cree dos tablas de particiones, una para trip_data y otra para trip_fare. Abra el script de ejemplo **create_partitioned_table.sql**, que:
 
 	- Creará una función de partición para dividir los datos por mes.
 	- Creará un esquema de partición para asignar los datos de cada mes a un grupo de archivos distinto.
-	- Cree dos tablas con particiones asignadas al esquema de partición: **nyctaxi\_trip** contendrá los datos de trip\_data y **nyctaxi\_fare** contendrá los de trip\_fare.
+	- Cree dos tablas con particiones asignadas al esquema de partición: **nyctaxi_trip** contendrá los datos de trip_data y **nyctaxi_fare** contendrá los de trip_fare.
 
 	Haga clic en **!Ejecutar** para iniciar el script y crear las tablas con particiones.
 
 7. En la carpeta **Script de ejemplo**, se facilitan dos scripts de PowerShell de ejemplo para mostrar las importaciones masivas paralelas de datos en tablas de SQL Server.
 
-	- **bcp\_parallel\_generic.ps1** es un script genérico para importar de forma masiva y paralela datos en una tabla. Modifique este script para establecer las variables de entrada y de destino, como se indica en las líneas de comentario del script.
-	- **bcp\_parallel\_nyctaxi.ps1** es una versión configurada previamente del script genérico y puede usarse para cargar ambas tablas para los datos de NYC Taxi Trips.
+	- **bcp_parallel_generic.ps1** es un script genérico para importar de forma masiva y paralela datos en una tabla. Modifique este script para establecer las variables de entrada y de destino, como se indica en las líneas de comentario del script.
+	- **bcp_parallel_nyctaxi.ps1** es una versión configurada previamente del script genérico y puede usarse para cargar ambas tablas para los datos de NYC Taxi Trips.
 
-8. Haga clic en el nombre de script **bcp\_parallel\_nyctaxi.ps1** y, después, en **Editar** para abrirlo en PowerShell. Revise las variables preestablecidas y modifíquelas según el nombre de la base de datos seleccionada, la carpeta de datos de entrada, la carpeta de registro de destino y las rutas de acceso a los archivos de formato de ejemplo **nyctaxi_trip.xml** y **nyctaxi\_fare.xml** (que se incluyen en la carpeta **Scripts de ejemplo**). 
+8. Haga clic en el nombre de script **bcp_parallel_nyctaxi.ps1** y, después, en **Editar** para abrirlo en PowerShell. Revise las variables preestablecidas y modifíquelas según el nombre de la base de datos seleccionada, la carpeta de datos de entrada, la carpeta de registro de destino y las rutas de acceso a los archivos de formato de ejemplo **nyctaxi_trip.xml** y **nyctaxi_fare.xml** (que se incluyen en la carpeta **Scripts de ejemplo**). 
 
 	![Bulk Import Data][16]
 
@@ -156,22 +156,22 @@ Puede mejorar el rendimiento de la carga y transferencia de grandes cantidades d
 
 9. El script de PowerShell informa de las horas de inicio y finalización. Cuando se completan todas las importaciones masivas, se notifica la hora de finalización. Revise la carpeta de registro de destino para comprobar que las importaciones masivas se realizaron correctamente, es decir, que no se informó de errores en la carpeta de registro de destino.
 
-10. La base de datos ya está preparada para la exploración, diseño de características y otras operaciones que desee. Dado que las particiones de las tablas se crean según el campo **pickup\_datetime**, las consultas que incluyan condiciones **pickup\_datetime** en la cláusula **WHERE** se beneficiarán del esquema de partición.
+10. La base de datos ya está preparada para la exploración, diseño de características y otras operaciones que desee. Dado que las particiones de las tablas se crean según el campo **pickup_datetime**, las consultas que incluyan condiciones **pickup_datetime** en la cláusula **WHERE** se beneficiarán del esquema de partición.
 
-11. En **SQL Server Management Studio**, explore el script de ejemplo **sample\_queries.sql**. Para ejecutar cualquiera de las consultas de ejemplo, resalte las líneas de la consulta y haga clic en **!Ejecutar** en la barra de herramientas.
+11. En **SQL Server Management Studio**, explore el script de ejemplo **sample_queries.sql**. Para ejecutar cualquiera de las consultas de ejemplo, resalte las líneas de la consulta y haga clic en **!Ejecutar** en la barra de herramientas.
 
-12. Los datos de NYC Taxi Trips se cargan en dos tablas distintas. Para mejorar las operaciones de combinación, se recomienda la indexación de las tablas. El script de ejemplo **create\_partitioned\_index.sql** crea índices con particiones en la clave de combinación compuesta **medallion, hack\_license y pickup\_datetime**.
+12. Los datos de NYC Taxi Trips se cargan en dos tablas distintas. Para mejorar las operaciones de combinación, se recomienda la indexación de las tablas. El script de ejemplo **create_partitioned_index.sql** crea índices con particiones en la clave de combinación compuesta **medallion, hack_license y pickup_datetime**.
 
 ## <a name="dbexplore"></a>Exploración de datos y diseño de características en SQL Server
 
-En esta sección, se llevará a cabo la exploración de datos y la generación de características mediante la ejecución de consultas SQL directamente en **SQL Server Management Studio**, con la base de datos de SQL Server creada anteriormente. Un script de ejemplo llamado **sample\_queries.sql** se proporciona en la carpeta **Scripts de ejemplo**. Modifique el script para cambiar el nombre de la base de datos, si es diferente del valor predeterminado: **TaxiNYC**.
+En esta sección, se llevará a cabo la exploración de datos y la generación de características mediante la ejecución de consultas SQL directamente en **SQL Server Management Studio**, con la base de datos de SQL Server creada anteriormente. Un script de ejemplo llamado **sample_queries.sql** se proporciona en la carpeta **Scripts de ejemplo**. Modifique el script para cambiar el nombre de la base de datos, si es diferente del valor predeterminado: **TaxiNYC**.
 
 En este ejercicio, se hará lo siguiente:
 
 - Conectarse a **SQL Server Management Studio** mediante Autenticación de Windows o con autenticación de SQL y el nombre de inicio de sesión y la contraseña de SQL.
 - Explorar distribuciones de datos de algunos campos en diferentes ventanas de tiempo.
 - Investigar la calidad de los datos de los campos de longitud y latitud.
-- Generar etiquetas de clasificación binaria y multiclase según la **tip\_amount**.
+- Generar etiquetas de clasificación binaria y multiclase según la **tip_amount**.
 - Generar características y calcular o comparar distancias de carreras.
 - Combinar las dos tablas y extraer una muestra aleatoria que se usará para generar modelos.
 
@@ -192,7 +192,7 @@ Para una comprobación rápida del número de filas y columnas en las tablas que
 
 #### Exploración: Distribución de carreras por licencia
 
-Este ejemplo identifica las licencias (números de taxi) con más de 100 carreras dentro de un período de tiempo. La consulta se beneficiaría del acceso de la tabla con particiones, ya que está condicionada por el esquema de partición de **pickup\_datetime**. La consulta el conjunto de datos completo también hará uso de la tabla con particiones o del recorrido de índice.
+Este ejemplo identifica las licencias (números de taxi) con más de 100 carreras dentro de un período de tiempo. La consulta se beneficiaría del acceso de la tabla con particiones, ya que está condicionada por el esquema de partición de **pickup_datetime**. La consulta el conjunto de datos completo también hará uso de la tabla con particiones o del recorrido de índice.
 
 	SELECT medallion, COUNT(*)
 	FROM nyctaxi_fare
@@ -268,7 +268,7 @@ Las consultas de exploración de conversión geográfica y la generación de eti
 
 #### Preparación de los datos para la creación del modelo
 
-La siguiente consulta combina las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, genera una etiqueta de clasificación binaria **tipped** (con propina), una etiqueta de clasificación multiclase **tip\_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo Lector del [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para la ingesta directa de datos de la instancia de base de datos de SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi_trip** y **nyctaxi_fare**, genera una etiqueta de clasificación binaria **tipped** (con propina), una etiqueta de clasificación multiclase **tip_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo Lector del [Estudio de aprendizaje automático de Azure](https://studio.azureml.net) para la ingesta directa de datos de la instancia de base de datos de SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -367,7 +367,7 @@ Número de filas y columnas recuperadas = (84952, 21)
 #### Estadísticas descriptivas
 
 Ya se pueden explorar los datos de muestreo. Comenzamos
-echando un vistazo a las estadísticas descriptivas del campo **trip\_distance** (u otros cualesquiera):
+echando un vistazo a las estadísticas descriptivas del campo **trip_distance** (u otros cualesquiera):
 
     df1['trip_distance'].describe()
 
@@ -410,14 +410,14 @@ Podemos trazar la distribución de discretización anterior en un gráfico de ba
 
 #### Visualización: Ejemplo de gráfico de dispersión
 
-Se muestra el gráfico de dispersión entre **trip\_time\_in\_secs** y **trip\_distance** para ver si existe
+Se muestra el gráfico de dispersión entre **trip_time_in_secs** y **trip_distance** para ver si existe
 alguna correlación
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Plot #6][6]
 
-Del mismo modo en que podemos comprobar la relación entre **rate\_code** y **trip\_distance**.
+Del mismo modo en que podemos comprobar la relación entre **rate_code** y **trip_distance**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
@@ -425,13 +425,13 @@ Del mismo modo en que podemos comprobar la relación entre **rate\_code** y **tr
 
 ### Submuestreo de los datos en SQL
 
-Al preparar los datos para crear el modelo en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo del Lector** o conservar los datos de ingeniería y muestreados en una tabla nueva, que puede utilizar en el módulo del Lector con una simple instrucción **SELECT * FROM <your\_new\_table\_name>**.
+Al preparar los datos para crear el modelo en [Estudio de aprendizaje automático de Azure](https://studio.azureml.net), puede decidir **usar consultas SQL directamente en el módulo del Lector** o conservar los datos de ingeniería y muestreados en una tabla nueva, que puede utilizar en el módulo del Lector con una simple instrucción **SELECT * FROM <your_new_table_name>**.
 
 En esta sección se creará una nueva tabla para almacenar los datos de ingeniería y muestreados. Se proporciona un ejemplo de una consulta SQL directa para la creación del modelo en la sección [Exploración de datos y diseño de características en SQL Server](#dbexplore).
 
 #### Cree una tabla de ejemplo y rellénela con el 1 % de las tablas combinadas. Quite la tabla primero si existe.
 
-En esta sección, se combinan las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, se extrae una muestra aleatoria de un 1 % y se conservan los datos del muestreo en un nuevo nombre de tabla **nyctaxi\_one\_percent**:
+En esta sección, se combinan las tablas **nyctaxi_trip** y **nyctaxi_fare**, se extrae una muestra aleatoria de un 1 % y se conservan los datos del muestreo en un nuevo nombre de tabla **nyctaxi_one_percent**:
 
     cursor = conn.cursor()
     
@@ -456,7 +456,7 @@ En esta sección, se combinan las tablas **nyctaxi\_trip** y **nyctaxi\_fare**, 
     
 ### Exploración de datos mediante consultas SQL en Blocs de notas de IPython
 
-En esta sección, se explorarán las distribuciones de datos con los datos de 1 % de muestreo que se conservan en la nueva tabla que se creó anteriormente. Tenga en cuenta que se pueden realizar exploraciones similares mediante las tablas originales, con el uso opcional de **TABLESAMPLE** para limitar el ejemplo de exploración o mediante la limitación de los resultados a un período de tiempo determinado con las particiones **pickup\_datetime**, como se muestra en la sección [Exploración de datos mediante consultas SQL en Blocs de notas de IPython](#dbexplore).
+En esta sección, se explorarán las distribuciones de datos con los datos de 1 % de muestreo que se conservan en la nueva tabla que se creó anteriormente. Tenga en cuenta que se pueden realizar exploraciones similares mediante las tablas originales, con el uso opcional de **TABLESAMPLE** para limitar el ejemplo de exploración o mediante la limitación de los resultados a un período de tiempo determinado con las particiones **pickup_datetime**, como se muestra en la sección [Exploración de datos mediante consultas SQL en Blocs de notas de IPython](#dbexplore).
 
 #### Exploración: Distribución diaria de carreras
 
@@ -487,7 +487,7 @@ En esta sección, se generarán nuevas etiquetas y características directamente
 En el ejemplo siguiente, se generan dos conjuntos de etiquetas que se usan para el modelado:
 
 1. Etiquetas de clase binaria **tipped** (que predirán si se dará propina)
-2. Las etiquetas multiclase **tip\_class** (que predirán el intervalo o la discretización de la propina)
+2. Las etiquetas multiclase **tip_class** (que predirán el intervalo o la discretización de la propina)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -657,7 +657,7 @@ En la ilustración siguiente se muestra un ejemplo de un experimento de clasific
 
 ![Azure ML Train][10]
 
-> [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de las secciones anteriores, **todas las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (obligatorio) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los dos problemas y cualquier otra **fugas de destino**. Por ejemplo., cuando se use clasificación binaria, se utiliza la etiqueta **tipped** y se excluyen los campos **tip\_class**, **tip\_amount** y **total\_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
+> [AZURE.IMPORTANT] En los ejemplos de consultas de extracción y muestreo de datos de las secciones anteriores, **todas las etiquetas de los tres ejercicios de modelado se incluyen en la consulta**. Un paso importante (obligatorio) en cada uno de los ejercicios de modelado consiste en **excluir** las etiquetas innecesarias de los dos problemas y cualquier otra **fugas de destino**. Por ejemplo., cuando se use clasificación binaria, se utiliza la etiqueta **tipped** y se excluyen los campos **tip_class**, **tip_amount** y **total_amount**. Estos últimos son fugas de destino ya que implican que se pagó propina.
 >
 > Para excluir columnas innecesarias o fugas de destino, puede usar el módulo **Proyectar columnas** o el **Editor de metadatos**. Para obtener más información, consulte las páginas de referencia [Proyectar columnas](https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223) y [Editor de metadatos](https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66).
 

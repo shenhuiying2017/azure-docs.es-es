@@ -21,7 +21,7 @@
 
 ## CLI de Azure
 
-La manera más fácil y rápida de buscar una imagen para usar con `azure vm quick-create` o para crear un archivo de plantilla de grupo de recursos es llamar al comando `azure vm image list` y pasar la ubicación, el nombre del publicador \(no distingue mayúsculas de minúsculas\) y una oferta \(si la conoce\). Por ejemplo, la lista siguiente es solo un ejemplo breve \(muchas listas son bastante largas\) si sabe que "Canonical" es un publicador de la oferta "UbuntuServer".
+La manera más fácil y rápida de buscar una imagen para usar con `azure vm quick-create` o para crear un archivo de plantilla de grupo de recursos es llamar al comando `azure vm image list` y pasar la ubicación, el nombre del publicador (no distingue mayúsculas de minúsculas) y una oferta (si la conoce). Por ejemplo, la lista siguiente es solo un ejemplo breve (muchas listas son bastante largas) si sabe que "Canonical" es un publicador de la oferta "UbuntuServer".
 
     azure vm image list westus canonical ubuntuserver
     info:    Executing command vm image list
@@ -40,7 +40,7 @@ La manera más fácil y rápida de buscar una imagen para usar con `azure vm qui
     
 La columna **Urn** será el formulario que pase a `azure vm quick-create`.
     
-A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes, detectando primero los publicadores que utilizan `azure vm image list-publishers` y respondiendo a la solicitud de ubicación con la ubicación de centro de datos que vaya a utilizar para el grupo de recursos. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. \(pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar\).
+A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, puede navegar por las imágenes, detectando primero los publicadores que utilizan `azure vm image list-publishers` y respondiendo a la solicitud de ubicación con la ubicación de centro de datos que vaya a utilizar para el grupo de recursos. Por ejemplo, a continuación se enumeran todos los publicadores de imágenes en la ubicación Oeste de EE. UU. (pase el argumento de ubicación en minúsculas y sin espacios a partir de las ubicaciones estándar).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -54,7 +54,7 @@ A menudo, sin embargo, aún no se conoce lo que está disponible. En este caso, 
     data:    AlertLogic.Extension                            westus  
 
     
-Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterior es simplemente un fragmento. Supongamos que hemos observado que Canonical es, de hecho, un publicador de imágenes en la ubicación Oeste de EE. UU. Ahora puede encontrar sus ofertas mediante una llamada a \`azure vm image list-offers y pasar la ubicación y el publicador cuando se soliciten, como en el ejemplo siguiente:
+Estas listas pueden ser bastante largas, por lo que la lista del ejemplo anterior es simplemente un fragmento. Supongamos que hemos observado que Canonical es, de hecho, un publicador de imágenes en la ubicación Oeste de EE. UU. Ahora puede encontrar sus ofertas mediante una llamada a `azure vm image list-offers y pasar la ubicación y el publicador cuando se soliciten, como en el ejemplo siguiente:
 
     azure vm image list-offers           
     info:    Executing command vm image list-offers
@@ -149,8 +149,8 @@ En la pantalla del comando **Get-AzureVMImageSku** tiene toda la información qu
 
 Aquí tiene un ejemplo.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -168,8 +168,8 @@ Aquí tiene un ejemplo.
 
 Para el publicador de "MicrosoftWindowsServer":
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -177,8 +177,8 @@ Para el publicador de "MicrosoftWindowsServer":
 
 Para la oferta "WindowsServer":
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----

@@ -20,7 +20,7 @@
 
 En este tutorial se crea una aplicación de búsqueda web personalizada en Visual Studio 2013 o posterior que usa Búsqueda de Azure para la experiencia de búsqueda. En el tutorial se usa el [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para crear las clases de los objetos y las operaciones que se usan en el ejemplo.
 
-Puede descargar el ejemplo de codeplex en la [demostración de Búsqueda de Azure con datos de USGS](https://azsearchdemos.codeplex.com/SourceControl/latest) para seguir los pasos de este tutorial. La aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Washington. Vamos a usar estos datos para crear una aplicación de búsqueda basada en los datos sobre edificios de referencia, como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
+Puede descargar el ejemplo de codeplex en la [demostración de Búsqueda de Azure con datos de USGS](https://azsearchdemos.codeplex.com/SourceControl/latest) para seguir los pasos de este tutorial. La aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Washington. Vamos a usar estos datos para crear una aplicación de búsqueda basada en los datos sobre edificios de referencia, como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
 
 Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, para el que puede registrarse en el [portal de Azure](https://portal.azure.com).
 
@@ -30,7 +30,7 @@ Puede empezar con [Crear un servicio en el portal](../search-create-service-port
 
 ##Crear el índice##
 
-1. Copie el nombre del servicio y la clave de administración desde el [portal de Azure](https://portal.azure.com) y péguelos en **DataIndexer** \| **App.config**.
+1. Copie el nombre del servicio y la clave de administración desde el [portal de Azure](https://portal.azure.com) y péguelos en **DataIndexer** | **App.config**.
 1. Haga clic con el botón secundario en el proyecto **DataIndexer** para establecerlo como proyecto de inicio.
 1. Compile y ejecute el proyecto.
 
@@ -45,7 +45,7 @@ En el portal, verá un nuevo índice de características con xx y xx. Como el po
 ##Compilar la aplicación##
 
 
-1. Copie el nombre del servicio y la clave de administración desde el [portal de Azure](https://portal.azure.com) y péguelos en **SimpleSearchMVCApp** \| **Web.config**.
+1. Copie el nombre del servicio y la clave de administración desde el [portal de Azure](https://portal.azure.com) y péguelos en **SimpleSearchMVCApp** | **Web.config**.
 1. Haga clic con el botón secundario en el proyecto **SimpleSearchMVCApp** para establecerlo como proyecto de inicio.
 1. Compile y ejecute el proyecto.
 
@@ -55,7 +55,7 @@ En el explorador predeterminado, verá una página web que proporciona un cuadro
 
 ##Buscar en los datos de USGS##
 
-El conjunto de datos de USGS incluye registros que son relevantes para el estado de Washington. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas \(es el valor predeterminado\).
+El conjunto de datos de USGS incluye registros que son relevantes para el estado de Washington. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas (es el valor predeterminado).
 
 Escriba un término de búsqueda para que el motor de búsqueda tenga con qué trabajar. Pruebe a escribir un nombre regional. "Snoqualmie" es una ciudad de Washington. También es el nombre de un río, una cascada, un paso de montaña y parques del estado.
 
@@ -66,7 +66,7 @@ También puede probar con alguno de estos términos:
 - Seattle
 - Rainier
 - Seattle y Rainier
-- Seattle + Rainier + Mount \(obtiene resultados de los puntos de referencia en Rainier Avenue, o el club Rainier, todo dentro de los límites de la ciudad de Seattle\).
+- Seattle + Rainier + Mount (obtiene resultados de los puntos de referencia en Rainier Avenue, o el club Rainier, todo dentro de los límites de la ciudad de Seattle).
 
 ##Explorar el código##
 
@@ -76,7 +76,7 @@ En el resto de esta sección se tratan algunos puntos sobre cada proyecto. En su
 
 **Proyecto DataIndexer**
 
-Para simplificar las cosas, los datos se insertan dentro de la solución, en un archivo de texto generado a partir de los datos del [sitio web del Servicio geológico de Estados Unidos \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm).
+Para simplificar las cosas, los datos se insertan dentro de la solución, en un archivo de texto generado a partir de los datos del [sitio web del Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm).
 
 Algunos métodos alternativos a la inserción de los datos son los [indizadores de DocumentDB](documentdb-search-indexer.md) o los [indizadores de Base de datos SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Los indizadores extraen los datos en el índice de Búsqueda de Azure, lo que puede simplificar mucho el código que hay que escribir y mantener.
 
@@ -96,7 +96,7 @@ Para concluir, si aún no está convencido del valor y la sencillez del SDK de .
 
 Este es el primer tutorial de Búsqueda de Azure basado en el conjunto de datos de USGS. Con el tiempo, ampliaremos este tutorial y crearemos otros nuevos para mostrar las características de búsqueda que podría interesarle incluir en sus soluciones personalizadas.
 
-Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias \(escritura automática o autocompletar consultas\), filtros y navegación por facetas. También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
+Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
 
 ¿Es la primera vez que usa Búsqueda de Azure? Le recomendamos que pruebe otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. También puede ver los vínculos en nuestra [lista de vídeos y tutoriales](https://msdn.microsoft.com/library/azure/dn798933.aspx) para obtener acceso a más información.
 

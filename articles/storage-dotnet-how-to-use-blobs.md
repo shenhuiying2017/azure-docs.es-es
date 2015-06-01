@@ -40,10 +40,10 @@ servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en c�
 ### Obtención del ensamblado
 Se recomienda usar NuGet para obtener el ensamblado  `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto en el**Explorador de soluciones** y seleccione **Administrar paquetes de NuGet**.  Busque "WindowsAzure.Storage" en línea y haga clic en **Instalar** para instalar el paquete y las dependencias de Almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. El ensamblado se instala en el directorio  `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. El ensamblado se instala en el directorio  `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref`.
 
 ### Declaraciones de espacio de nombres
-Agregue las siguientes declaraciones de espacio de nombres en la parte superior de cualquier archivo C\# en el que desee obtener acceso al almacenamiento de Azure mediante programación:
+Agregue las siguientes declaraciones de espacio de nombres en la parte superior de cualquier archivo C# en el que desee obtener acceso al almacenamiento de Azure mediante programación:
 
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;

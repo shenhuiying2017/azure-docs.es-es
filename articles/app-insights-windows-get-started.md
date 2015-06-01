@@ -23,8 +23,8 @@
 
 Application Insights de Visual Studio permite supervisar una aplicación activa en cuanto a:
 
-* [**Uso**][windowsUsage] \: sepa cuántos usuarios tiene y qué hacen con su aplicación.
-* [**Bloqueos**][windowsCrash] \: obtenga informes de diagnóstico de bloqueos y comprenda el impacto de estos sobre los usuarios.
+* [**Uso**][windowsUsage] : sepa cuántos usuarios tiene y qué hacen con su aplicación.
+* [**Bloqueos**][windowsCrash] : obtenga informes de diagnóstico de bloqueos y comprenda el impacto de estos sobre los usuarios.
 
 ![](./media/appinsights/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@ Necesitará:
 * Una suscripción a [Microsoft Azure][azure].
 * Visual Studio 2013 o posterior.
 
-## 1\. Creación de recursos en Application Insights 
+## 1. Creación de recursos en Application Insights 
 
 En el [portal de Azure][portal], cree un nuevo recurso de Application Insights.
 
@@ -50,7 +50,7 @@ La clave identifica el recurso. La necesitará pronto para configurar el SDK par
 ![Abra el espacio de la lista desplegable de Essentials y seleccione la clave de instrumentación](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. Incorporación del SDK de Application Insights a las aplicaciones
+## 2. Incorporación del SDK de Application Insights a las aplicaciones
 
 En Visual Studio, agregue el SDK adecuado a su proyecto.
 
@@ -68,9 +68,9 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
    * Application Insights para aplicaciones de Windows: *para aplicaciones de la Tienda Windows*
    * Application Insights para aplicaciones de Windows Phone
    * Application Insights para aplicaciones web: *úselo para una aplicación de escritorio* 
-4. Edite ApplicationInsights.config \(que la instalación de NuGet ha agregado\). Inserte esto justo antes de la etiqueta de cierre:
+4. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
 
-    `<InstrumentationKey>`\* la clave que copió \*`</InstrumentationKey>`
+    `<InstrumentationKey>`* la clave que copió *`</InstrumentationKey>`
 
 **Aplicaciones universales de Windows**: repita los pasos para el proyecto de Windows Phone y de la Tienda Windows.
 
@@ -116,7 +116,7 @@ Si prefiere usar Visual Studio para completar los pasos de instalación, puede h
 
 En el cuadro de diálogo Nuevo proyecto, seleccione Application Insights.
 
-Si se le pide que inicie sesión, use las credenciales para la cuenta de Azure \(que es independiente de su cuenta de Visual Studio Online\).
+Si se le pide que inicie sesión, use las credenciales para la cuenta de Azure (que es independiente de su cuenta de Visual Studio Online).
 
 ![](./media/appinsights/appinsights-d21-new.png)
 

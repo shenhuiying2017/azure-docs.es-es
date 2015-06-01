@@ -26,7 +26,7 @@ Un conector Slack le permite publicar mensajes en canales Slack.
 Para usar el conector Slack, deberá crear primero una instancia de la aplicación de API del conector Slack. Se puede hacer de la forma siguiente:
 
 1.	Abra Azure Marketplace mediante la opción "+ NUEVO" en la parte inferior izquierda del Portal de Azure.
-2.	Vaya a “Web y móvil \> Azure Marketplace” y busque “Conector Slack”.
+2.	Vaya a “Web y móvil > Azure Marketplace” y busque “Conector Slack”.
 3.	Configure el conector Slack de la siguiente forma:
  
 	![][1] 
@@ -50,7 +50,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector Slack como
 3.	El conector Slack aparecerá en la sección “Aplicaciones de API en este grupo de recursos” en la galería, en el lado derecho.
  
 	![][2]
-4.	Puede quitar la aplicación de la API del conector Slack en el editor haciendo clic en “Conector Slack”. Haga clic en el botón Autorizar. Proporcione las credenciales de Microsoft \(si no ha iniciado sesión automáticamente\). Inicie sesión en su cuenta Slack mediante los pasos correspondientes. Hacia el final, se le pedirá que conceda al conector permiso de acceso a su cuenta Slack. Haga clic en "Autorizar"
+4.	Puede quitar la aplicación de la API del conector Slack en el editor haciendo clic en “Conector Slack”. Haga clic en el botón Autorizar. Proporcione las credenciales de Microsoft (si no ha iniciado sesión automáticamente). Inicie sesión en su cuenta Slack mediante los pasos correspondientes. Hacia el final, se le pedirá que conceda al conector permiso de acceso a su cuenta Slack. Haga clic en "Autorizar"
  
 	![][3]
 	![][4]
@@ -68,7 +68,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector Slack como
 	Configure las propiedades de entrada de la acción "Publicar mensaje" de la siguiente manera:
 
  - **Texto**: especifique el texto del mensaje que se va a publicar.
- - **Nombre de canal**: especifique el canal Slack en el que se va a cargar este mensaje. Si no se proporciona ninguno, el mensaje se publicarán en \#general.
+ - **Nombre de canal**: especifique el canal Slack en el que se va a cargar este mensaje. Si no se proporciona ninguno, el mensaje se publicarán en #general.
 
  	**Propiedades avanzadas**
  	- **Nombre de usuario de bot**: nombre del bot que se va a usar para este mensaje. Si no se especifica, los mensajes se publicarán como "Bot".
@@ -76,7 +76,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector Slack como
  	- **Emoji icono**: emoji que se va a usar como icono del mensaje. Reemplaza a URL de icono.
  
 
-7. Para usar el conector fuera de una aplicación lógica, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -\> Aplicación de API -\> Conector Slack. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector.
+7. Para usar el conector fuera de una aplicación lógica, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -> Aplicación de API -> Conector Slack. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector.
 
 	![][9]
 

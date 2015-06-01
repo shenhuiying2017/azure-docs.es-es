@@ -55,9 +55,9 @@ Los valores para el nombre clave y el valor de la SAS pueden encontrarse en la i
 
 ## Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola del bus de servicio, la aplicación debe llamar al método **send\_queue\_message** del objeto **ServiceBusService**.
+Para enviar un mensaje a una cola del bus de servicio, la aplicación debe llamar al método **send_queue_message** del objeto **ServiceBusService**.
 
-En el ejemplo siguiente se muestra cómo enviar un mensaje de prueba a la cola llamada *taskqueue using* **send\_queue\_message**:
+En el ejemplo siguiente se muestra cómo enviar un mensaje de prueba a la cola llamada *taskqueue using* **send_queue_message**:
 
 	msg = Message(b'Test Message')
 	bus_service.send_queue_message('taskqueue', msg)
@@ -66,17 +66,17 @@ Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB 
 
 ## Recepción de mensajes de una cola
 
-Los mensajes se reciben de una suscripción utilizando el método **receive\_subscription\_message** en el objeto **ServiceBusService**:
+Los mensajes se reciben de una suscripción utilizando el método **receive_subscription_message** en el objeto **ServiceBusService**:
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 	print(msg.body)
 
-Los mensajes se borran de la cola a medida que se leen cuando el parámetro**peek\_lock** está establecido como **False**. Puede leer y bloquear los mensajes sin eliminarlos de la cola si establece el parámetro opcional **peek\_lock** como **True**.
+Los mensajes se borran de la cola a medida que se leen cuando el parámetro**peek_lock** está establecido como **False**. Puede leer y bloquear los mensajes sin eliminarlos de la cola si establece el parámetro opcional **peek_lock** como **True**.
 
 El comportamiento por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 
-Si el parámetro **peek\_lock** está establecido en **True**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
+Si el parámetro **peek_lock** está establecido en **True**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
 Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete** en el objeto **Message**. El método **delete** marcará el mensaje como consumido y lo eliminará de la cola.
 
 	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)

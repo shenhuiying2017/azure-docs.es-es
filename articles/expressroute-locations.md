@@ -17,10 +17,10 @@
 # Asociados de ExpressRoute y ubicaciones de emparejamiento
 Esta tabla proporciona información acerca de:
 
-1. Los proveedores de conectividad ExpressRoute \(EXP y NSP\)
+1. Los proveedores de conectividad ExpressRoute (EXP y NSP)
 2. La cobertura geográfica de ExpressRoute
 3. Los servicios en la nube de Microsoft compatibles a través de ExpressRoute
-4. Integradores de sistemas de ExpressRoute \(SI\)
+4. Integradores de sistemas de ExpressRoute (SI)
 
 ## Proveedores de conectividad ExpressRoute
 ExpressRoute es compatible con todas las ubicaciones y regiones de Azure. El mapa siguiente proporciona una lista de regiones de Azure y ubicaciones de ExpressRoute. Las ubicaciones de ExpressRoute hacen referencia a los emparejamientos de Microsoft con varios proveedores de servicio.
@@ -41,11 +41,11 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 No se admite la conectividad entre las regiones geopolíticas. Puede trabajar con su proveedor de conectividad para ampliar la conectividad entre las regiones geopolíticas a través de su red.
 
 
-### Ubicaciones del proveedor \(EXP\) de Exchange
+### Ubicaciones del proveedor (EXP) de Exchange
 - Consulte esta [tabla](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP) para obtener una lista de proveedores de Exchange y las ubicaciones en las que son compatibles.
 -  Visite [Configuración de la conexión de EXP](expressroute-configuring-exps.md) para conocer los pasos para la configuración de la conexión.
 
-### Ubicaciones del proveedor de servicios de red \(NSP\)
+### Ubicaciones del proveedor de servicios de red (NSP)
 - Consulte esta [tabla](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP) para obtener una lista de proveedores de servicios de red y las ubicaciones en las que son compatibles.
 - Visite [Configuración de la conexión de NSP](expressroute-configuring-nsps.md) para conocer los pasos para la configuración de la conexión.
 
@@ -58,7 +58,7 @@ Si su proveedor de conectividad no está en la lista de las secciones anteriores
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Haga que el proveedor de conectividad amplíe su red a la ubicación de Exchange que elija.
 	- Asegúrese de que su proveedor de conectividad amplíe la conectividad con una alta disponibilidad para que no haya ningún punto único de error.
-	- Los proveedores de conectividad \(específicamente los proveedores de Ethernet\) pueden requerir que adquiera un par de circuitos de intercambios de Ethernet para garantizar una alta disponibilidad. 
+	- Los proveedores de conectividad (específicamente los proveedores de Ethernet) pueden requerir que adquiera un par de circuitos de intercambios de Ethernet para garantizar una alta disponibilidad. 
 - Solicite un circuito ExpressRoute a través del proveedor de Exchange para conectarse a Azure.
 	- Siga los pasos [Configuración de la conexión de EXP](expressroute-configuring-exps.md) para establecer la conectividad.
 
@@ -70,7 +70,7 @@ Si su proveedor de conectividad no está en la lista de las secciones anteriores
 ## ExpressRoute y Servicios en la nube de Microsoft
 Las tablas siguientes proporcionan detalles sobre los proveedores de conectividad y la lista de servicios en la nube de Microsoft con las que son compatibles. Póngase en contacto con su proveedor de servicios.
 
-**Proveedores de Exchange \(EXP\)**
+**Proveedores de Exchange (EXP)**
 
 |**Proveedor de servicios**|**Servicios de Microsoft Azure**|**Servicios de Office 365**|
 |---|---|---|
@@ -82,7 +82,7 @@ Las tablas siguientes proporcionan detalles sobre los proveedores de conectivida
 |**TeleCity Group**|Compatible||
 |**Zayo Group**|Compatible||
 
-**Proveedores de servicios de red \(NSP\)**
+**Proveedores de servicios de red (NSP)**
 
 |**Proveedor de servicios**|**Servicios de Microsoft Azure**|**Servicios de Office 365**|
 |---|---|---|

@@ -106,10 +106,10 @@ El objeto **BlobService** le permite trabajar con contenedores y blobs. El códi
 
 Use los siguientes métodos para cargar datos en un blob:
  
-1. put\_block\_blob\_from\_path (carga el contenido de un archivo desde la ruta especificada)
-2. put\_block_blob\_from\_file (carga el contenido de una secuencia o archivo ya abierto)
-3. put\_block\_blob\_from\_bytes (carga una matriz de bytes)
-4. put\_block\_blob\_from\_text (carga el valor de texto especificado utilizando la codificación especificada)
+1. put_block_blob_from_path (carga el contenido de un archivo desde la ruta especificada)
+2. put_block_blob_from_file (carga el contenido de una secuencia o archivo ya abierto)
+3. put_block_blob_from_bytes (carga una matriz de bytes)
+4. put_block_blob_from_text (carga el valor de texto especificado utilizando la codificación especificada)
  
 El siguiente código de ejemplo carga un archivo local en un contenedor:
 	
@@ -143,10 +143,10 @@ El siguiente código de ejemplo carga todos los archivos (excepto los directorio
 ###Descargar datos del blob
 
 Utilice los siguientes métodos para descargar datos de un blob:
-1. get\_blob\_to\_path
-2. get\_blob\_to\_file
-3. get\_blob\_to\_bytes
-4. get\_blob\_to\_text 
+1. get_blob_to_path
+2. get_blob_to_file
+3. get_blob_to_bytes
+4. get_blob_to_text 
 
 Estos métodos que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB. 
 
@@ -154,7 +154,7 @@ El código de ejemplo siguiente descarga el contenido de un blob de un contenedo
 
 	blob_service.get_blob_to_path("<your_container_name>", "<your_blob_name>", "<your_local_file_name>")
 
-El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa list\_blobs para obtener la lista de blobs disponibles del contenedor y los descarga en un directorio local. 
+El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa list_blobs para obtener la lista de blobs disponibles del contenedor y los descarga en un directorio local. 
 
 	from azure.storage import BlobService
 	from os.path import join

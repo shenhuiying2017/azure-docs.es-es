@@ -49,12 +49,12 @@ El código siguiente crea un objeto **TableService** utilizando el nombre de la 
 Para agregar una entidad, primero cree un diccionario que defina sus nombres y valores de propiedad de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey**. Estos son los identificadores exclusivos de sus entidades y son valores que se pueden consultar más rápidamente que las demás propiedades. El sistema usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento.
 Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. El **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
 
-Para agregar una entidad a la tabla, pase un objeto de diccionario al método **insert\_entity**.
+Para agregar una entidad a la tabla, pase un objeto de diccionario al método **insert_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
 
-También puede pasar una instancia de la clase **Entity** al método **insert\_entity**.
+También puede pasar una instancia de la clase **Entity** al método **insert_entity**.
 
 	task = Entity()
 	task.PartitionKey = 'tasksSeattle'
@@ -70,7 +70,7 @@ Este código muestra cómo reemplazar la versión anterior de una entidad existe
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
 
-Si la entidad que se está actualizando no existe, la operación de actualización generará un error. Si desea almacenar una entidad independientemente de si ya existía antes, utilice **insert\_or\_replace_entity**. 
+Si la entidad que se está actualizando no existe, la operación de actualización generará un error. Si desea almacenar una entidad independientemente de si ya existía antes, utilice **insert_or_replace_entity**. 
 En el siguiente ejemplo, la primera llamada reemplazará la entidad existente. La segunda llamada insertará una nueva entidad, debido a que en la tabla no existe ninguna entidad con **PartitionKey** y **RowKey** especificados.
 
 	task = {'description' : 'Take out the garbage again', 'priority' : 250}
@@ -81,7 +81,7 @@ En el siguiente ejemplo, la primera llamada reemplazará la entidad existente. L
 
 ## Cambio de un grupo de entidades
 
-A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, utilice el método **begin\_batch** en **TableService** y, a continuación, llamar a las series de operaciones como de costumbre. Cuando quiera enviar el lote, llame a **commit\_batch**. Tenga en cuenta que todas las entidades deben estar en la misma partición para que se pueda cambiar como un lote. El ejemplo siguiente agrega dos entidades juntas en un lote.
+A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, utilice el método **begin_batch** en **TableService** y, a continuación, llamar a las series de operaciones como de costumbre. Cuando quiera enviar el lote, llame a **commit_batch**. Tenga en cuenta que todas las entidades deben estar en la misma partición para que se pueda cambiar como un lote. El ejemplo siguiente agrega dos entidades juntas en un lote.
 
 	task10 = {'PartitionKey': 'tasksSeattle', 'RowKey': '10', 'description' : 'Go grocery shopping', 'priority' : 400}
 	task11 = {'PartitionKey': 'tasksSeattle', 'RowKey': '11', 'description' : 'Clean the bathroom', 'priority' : 100}
@@ -92,7 +92,7 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 
 ## Consulta de una entidad
 
-Para consultar la entidad de una tabla, use el método **get\_entity**, pasando el valor de **PartitionKey** y **RowKey**.
+Para consultar la entidad de una tabla, use el método **get_entity**, pasando el valor de **PartitionKey** y **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

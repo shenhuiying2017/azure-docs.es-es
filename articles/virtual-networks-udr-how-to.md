@@ -97,6 +97,6 @@ Para ver el estado del reenvío IP en una máquina virtual denominada *FirewallA
 
 [Información del reenvío IP y de las rutas definidas por el usuario](../virtual-networks-udr-overview)
 
-[Dirección IP pública de nivel de instancia \(ILIP\)](../virtual-networks-instance-level-public-ip)
+[Dirección IP pública de nivel de instancia (ILIP)](../virtual-networks-instance-level-public-ip)
 
 [Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx) <!--HONumber=52-->

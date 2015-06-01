@@ -236,7 +236,7 @@ A continuación, inicie sesión en la nueva máquina virtual de DC2.
 3.	Cuando se le pida que abra DC2.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-	- Nombre: **DC2\\**[Nombre de la cuenta del administrador local]
+	- Nombre: **DC2**[Nombre de la cuenta del administrador local]
 	- Contraseña: [Contraseña de la cuenta del administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 

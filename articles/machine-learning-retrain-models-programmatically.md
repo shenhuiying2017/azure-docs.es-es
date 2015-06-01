@@ -40,7 +40,8 @@ Para empezar, el proceso implica a los siguientes componentes: un experimento de
  
 Diagrama 1: Descripción del proceso de reentrenamiento
 
-1. *Crear un entrenamiento de entrenamiento* Para este ejemplo, usaremos el experimento "Ejemplo 5 \(entrenamiento, prueba, evaluación para la clasificación binaria: conjunto de datos de adultos\)" de los experimentos de ejemplo de aprendizaje automático de Azure. Como verá a continuación, he quitado algunos módulos para simplificar el ejemplo. También he denominado el experimento "Modelo de censo".
+1. *Crear un entrenamiento de entrenamiento*  
+	Para este ejemplo, usaremos el experimento "Ejemplo 5 (entrenamiento, prueba, evaluación para la clasificación binaria: conjunto de datos de adultos)" de los experimentos de ejemplo de aprendizaje automático de Azure. Como verá a continuación, he quitado algunos módulos para simplificar el ejemplo. También he denominado el experimento "Modelo de censo".
 
  	![][2]
 
@@ -52,7 +53,8 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	Una vez completado el experimento, hacemos clic en Crear experimento de puntuación. Esto crea un experimento de puntuación, guarda el modelo como un modelo entrenado y agrega los módulos de entrada y salida de servicio web como se muestra a continuación. A continuación, hacemos clic en Ejecutar.
 
 	Una vez ejecutado el experimento, al hacer clic en "Publicar servicio web", se publicará el experimento de puntuación como un servicio web y se creará un extremo predeterminado. El modelo de aprendizaje en este servicio web se puede actualizar, como se muestra a continuación. Los detalles de este extremo se mostrarán en la pantalla.  
-3. *Publicar el experimento de entrenamiento como un servicio web* Para volver a entrenar el modelo entrenado, necesitamos publicar el experimento de formación que hemos creado en el paso 1 anterior como un servicio web. Este servicio web necesitará un módulo de salida del servicio web conectado al módulo [Entrenar modelo][train-model] para poder generar nuevos modelos entrenados. Haga clic en el icono Experimentos en el panel izquierdo, y luego haga clic en el experimento denominado Modelo de censo para volver al experimento de entrenamiento.  
+3. *Publicar el experimento de entrenamiento como un servicio web*  
+	Para volver a entrenar el modelo entrenado, necesitamos publicar el experimento de formación que hemos creado en el paso 1 anterior como un servicio web. Este servicio web necesitará un módulo de salida del servicio web conectado al módulo [Entrenar modelo][train-model] para poder generar nuevos modelos entrenados. Haga clic en el icono Experimentos en el panel izquierdo, y luego haga clic en el experimento denominado Modelo de censo para volver al experimento de entrenamiento.  
 
 	Ahora, agregamos una entrada de servicio web y dos módulos de salida de servicio web al flujo de trabajo. La salida del servicio web para Entrenar modelo nos ofrecerá el nuevo modelo entrenado. La salida vinculada a Evaluar modelo devolverá el resultado de la evaluación del modelo de dicho módulo.
 
@@ -61,14 +63,16 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 	![][4]
 
 	Ahora hacemos clic en el botón Publicar servicio web y, a continuación, en Sí. Esto publicará el experimento de entrenamiento como un servicio web que genera modelos entrenados y resultados de evaluación del modelo. Aparecerá el panel del servicio web con la clave de API y la página de Ayuda de API para la ejecución por lotes. Tenga en cuenta que solo se puede usar el método de ejecución por lotes para crear modelos entrenados.  
-4. *Agregar un nuevo extremo* El servicio web de puntuación publicado en el paso 2 anterior se creó con un extremo predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un extremo actualizable, visite el Portal de Azure y haga clic en Agregar extremo \(más detalles [aquí](machine-learning-create-endpoint.md)\).	
-5. *Volver a entrenar el modelo con nuevos datos y BES* Para llamar a las API de reentrenamiento, crearemos una nueva aplicación de consola C\# en Visual Studio \(Nuevo -\> Proyecto -\> Windows Desktop -\> Aplicación de consola\).  
+4. *Agregar un nuevo extremo*  
+	El servicio web de puntuación publicado en el paso 2 anterior se creó con un extremo predeterminado. Los extremos predeterminados se mantienen sincronizados con el experimento original y, por tanto, el modelo entrenado de un extremo predeterminado no se puede reemplazar. Para crear un extremo actualizable, visite el Portal de Azure y haga clic en Agregar extremo (más detalles [aquí](machine-learning-create-endpoint.md)).	
+5. *Volver a entrenar el modelo con nuevos datos y BES*  
+	Para llamar a las API de reentrenamiento, crearemos una nueva aplicación de consola C# en Visual Studio (Nuevo -> Proyecto -> Windows Desktop -> Aplicación de consola).  
 
-	A continuación, copiamos el código C\# de ejemplo de la página de Ayuda de API del servicio web de entrenamiento para la ejecución por lotes \(que se creó en el paso 3 anterior\) y lo pegamos en el archivo Program.cs, asegurándonos de que el espacio de nombres permanece intacto.
+	A continuación, copiamos el código C# de ejemplo de la página de Ayuda de API del servicio web de entrenamiento para la ejecución por lotes (que se creó en el paso 3 anterior) y lo pegamos en el archivo Program.cs, asegurándonos de que el espacio de nombres permanece intacto.
 
 	Tenga en cuenta que el código de ejemplo tiene comentarios que indican las partes del código que necesitan actualizaciones.
 
-	1. Proporcionar información de almacenamiento de Azure El código de ejemplo para BES cargará un archivo desde una unidad local \(por ejemplo, “C:\\temp\\CensusIpnput.csv”\) para que el Almacenamiento de Azure lo procese y escriba los resultados de nuevo en Almacenamiento de Azure.  
+	1. Proporcionar información de almacenamiento de Azure El código de ejemplo para BES cargará un archivo desde una unidad local (por ejemplo, “C:\\temp\\CensusIpnput.csv”) para que el Almacenamiento de Azure lo procese y escriba los resultados de nuevo en Almacenamiento de Azure.  
 
 		Para ello, deberá recuperar el nombre, la clave y la información de contenedor de su cuenta de Almacenamiento desde el Portal de administración de Azure para, después, actualizar el código aquí. También deberá asegurarse de que el archivo de entrada está disponible en la ubicación que especifique en el código.
 
@@ -76,13 +80,15 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 		![][6]
  
-6. *Evaluar los resultados de reentrenamiento* Mediante la combinación de BaseLocation, RelativeLocaiton y SasBlobToken de los resultados de salida anteriores para "output2", podemos ver los resultados de rendimiento del modelo reentrenado copiado y pegando la dirección URL completa en la barra de direcciones del explorador.
+6. *Evaluar los resultados de reentrenamiento*  
+	Mediante la combinación de BaseLocation, RelativeLocaiton y SasBlobToken de los resultados de salida anteriores para "output2", podemos ver los resultados de rendimiento del modelo reentrenado copiado y pegando la dirección URL completa en la barra de direcciones del explorador.
 
 	Esto nos indicará si el modelo recientemente entrenado funciona lo suficientemente bien como para reemplazar el existente.
 
-7. *Actualizar modelo entrenado del extremo agregado* Para completar el proceso, es preciso actualizar el modelo entrenado del extremo de puntuación creado en el paso 4 anterior.
+7. *Actualizar modelo entrenado del extremo agregado*  
+	Para completar el proceso, es preciso actualizar el modelo entrenado del extremo de puntuación creado en el paso 4 anterior.
 
-	La salida de BES anterior muestra la información del resultado de reentrenamiento de "output1", que contiene la información de ubicación del modelo reentrenado. Ahora necesitamos tomar este modelo entrenado y actualizar el extremo de puntuación \(creado en el paso 4\).
+	La salida de BES anterior muestra la información del resultado de reentrenamiento de "output1", que contiene la información de ubicación del modelo reentrenado. Ahora necesitamos tomar este modelo entrenado y actualizar el extremo de puntuación (creado en el paso 4).
 
 	![][7]
   

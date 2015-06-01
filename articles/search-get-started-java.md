@@ -34,7 +34,7 @@ Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, para el q
 
 ## Acerca de los datos
 
-Esta aplicación de ejemplo utiliza los datos del [Servicio geológico de Estados Unidos \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
+Esta aplicación de ejemplo utiliza los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
 
 En esta aplicación, el programa **SearchServlet.java** compila y carga el índice utilizando un constructo de [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) y obtiene el conjunto de datos filtrado de USGS desde una base de datos SQL pública de Azure. En el código del programa se proporcionan credenciales predefinidas e información de conexión al origen de datos en línea. En términos de acceso a datos, no es necesario realizar ninguna otra configuración.
 
@@ -45,7 +45,7 @@ En esta aplicación, el programa **SearchServlet.java** compila y carga el índi
 La lista siguiente describe los archivos que son relevantes para este ejemplo.
 
 - Search.jsp: proporciona la interfaz de usuario
-- SearchServlet.java: proporciona métodos \(similar a un controlador de MVC\)
+- SearchServlet.java: proporciona métodos (similar a un controlador de MVC)
 - SearchServiceClient.java: controla las solicitudes HTTP
 - SearchServiceHelper.java: clase auxiliar que proporciona métodos estáticos
 - Document.java: proporciona el modelo de datos
@@ -57,7 +57,7 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
-2. En la barra de salto, haga clic en **Nuevo** \| **Datos + Almacenamiento** \| **Búsqueda**.
+2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
  
      ![][1]
 
@@ -107,31 +107,31 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 ## Importación del proyecto
 
-1. En Eclipse, elija **File** \| **Import** \| **General** \| **Existing Projects into Workspace** \(Archivo \| Importar \| General \| Proyectos existentes al área de trabajo\).
+1. En Eclipse, elija **File** | **Import** | **General** | **Existing Projects into Workspace** (Archivo | Importar | General | Proyectos existentes al área de trabajo).
 
     ![][4]
 
-2. En **Select root directory** \(Seleccionar directorio raíz\), vaya a la carpeta que contiene los archivos de ejemplo. Seleccione la carpeta que contiene la carpeta .project. El proyecto debe aparecer en la lista **Projects** \(Proyectos\) como elemento seleccionado.
+2. En **Select root directory** (Seleccionar directorio raíz), vaya a la carpeta que contiene los archivos de ejemplo. Seleccione la carpeta que contiene la carpeta .project. El proyecto debe aparecer en la lista **Projects** (Proyectos) como elemento seleccionado.
 
     ![][12]
 
 3. Haga clic en **Finalizar**
 
-4. Utilice **Project Explorer** \(Explorador de proyectos\) para ver y editar los archivos. Si aún no está abierto, haga clic en **Window** \| **Show View** \| **Project Explorer** \(Ventana \| Mostrar vista \| Explorador de proyectos\) o utilice el método abreviado para abrirlo.
+4. Utilice **Project Explorer** (Explorador de proyectos) para ver y editar los archivos. Si aún no está abierto, haga clic en **Window** | **Show View** | **Project Explorer** (Ventana | Mostrar vista | Explorador de proyectos) o utilice el método abreviado para abrirlo.
 
 ## Configuración de la dirección URL del servicio y la clave de API
 
-1. En **Project Explorer** \(Explorador de proyectos\), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API. 
+1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API. 
  
 2. Consulte los pasos descritos anteriormente en este artículo, referentes a la obtención de la dirección URL del servicio y la clave de API en el [Portal de Azure](https://portal.azure.com), para obtener los valores que debe introducir en **config.properties**.
 
-3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, utilice el nombre de servicio \(el primer componente de la dirección URL http://servicename.search.windows.net\) para reemplazar "service name" en el mismo archivo.
+3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, utilice el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) para reemplazar "service name" en el mismo archivo.
 
 	![][5]
 
 ## Configuración de los entornos de proyecto, compilación y tiempo de ejecución
 
-1. En Eclipse, en Project Explorer, haga clic con el botón secundario en el proyecto \| **Properties** \| **Project Facets** \(Propiedades \| Facetas del proyecto\).
+1. En Eclipse, en Project Explorer, haga clic con el botón secundario en el proyecto | **Properties** | **Project Facets** (Propiedades | Facetas del proyecto).
 
 2. Seleccione **Dynamic Web Module**, **Java**, y **JavaScript**.
 
@@ -139,7 +139,7 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 3. Haga clic en **Apply**.
 
-4. Seleccione **Window** \| **Preferences** \| **Server** \| **Runtime Environments** \| **Add...** \(Ventana \| Preferencias \| Servidor \| Entornos de tiempo de ejecución \| Agregar...\).
+4. Seleccione **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add...** (Ventana | Preferencias | Servidor | Entornos de tiempo de ejecución | Agregar...).
 
 5. Expanda Apache y seleccione la versión del servidor Apache Tomcat que ha instalado anteriormente. En nuestro sistema, se instala la versión 8.
 
@@ -149,21 +149,21 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 6. Haga clic en **Finalizar**
  
-7. Seleccione **Window** \| **Preferences** \| **Java** \| **Installed JREs** \| **Add...** \(Ventana \| Preferencias \| Java \| JRE instalados \| Agregar...\).
+7. Seleccione **Window** | **Preferences** | **Java** | **Installed JREs** | **Add...** (Ventana | Preferencias | Java | JRE instalados | Agregar...).
 
-8. En **Add JRE** \(Agregar JRE\), seleccione **Standard VM** \(VM estándar\).
+8. En **Add JRE** (Agregar JRE), seleccione **Standard VM** (VM estándar).
 
 10. Haga clic en **Siguiente**.
  
-11. En JRE Definition \(Definición de JRE\), en JRE home \(Directorio de JRE\), haga clic en **Directory** \(Directorio\).
+11. En JRE Definition (Definición de JRE), en JRE home (Directorio de JRE), haga clic en **Directory** (Directorio).
 
-12. Vaya a **Program Files** \| **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
+12. Vaya a **Program Files** | **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
 
 13. En Installed JREs, elija el **JDK**. Su configuración debería ser similar a la siguiente captura de pantalla.
 
     ![][9]
 
-14. Opcionalmente, seleccione **Window** \| **Web Browser** \| **Internet Explorer** \(Ventana \| Explorador web \| Internet Explorer\) para abrir la aplicación en una ventana del explorador externo. Utilizar un explorador externo proporciona una mejor experiencia de aplicación web.
+14. Opcionalmente, seleccione **Window** | **Web Browser** | **Internet Explorer** (Ventana | Explorador web | Internet Explorer) para abrir la aplicación en una ventana del explorador externo. Utilizar un explorador externo proporciona una mejor experiencia de aplicación web.
 
     ![][8]
 
@@ -171,11 +171,11 @@ Ahora ha completado las tareas de configuración. A continuación, podrá compil
 
 ## Compilación del proyecto
  
-1. En Project Explorer, haga clic con el botón secundario en el nombre del proyecto y elija **Run As** \| **Maven build...** \(Ejecutar como \| Compilación de Maven...\) para configurar el proyecto.
+1. En Project Explorer, haga clic con el botón secundario en el nombre del proyecto y elija **Run As** | **Maven build...** (Ejecutar como | Compilación de Maven...) para configurar el proyecto.
 
     ![][10]
 
-8. En Edit Configuration \(Editar configuración\), en la sección Goals \(Objetivos\), escriba "clean install" y, a continuación, haga clic en **Run** \(Ejecutar\).
+8. En Edit Configuration (Editar configuración), en la sección Goals (Objetivos), escriba "clean install" y, a continuación, haga clic en **Run** (Ejecutar).
  
 Los mensajes de estado se envían a la ventana de consola. Debería ver BUILD SUCCESS, lo que indica que el proyecto se ha compilado sin errores.
 
@@ -185,19 +185,19 @@ En este último paso, ejecutará la aplicación en un entorno de tiempo de ejecu
 
 Si todavía no ha especificado un entorno de tiempo de ejecución del servidor en Eclipse, deberá hacerlo en primer lugar.
 
-1. En Project Explorer, expanda **WebContent** \(Contenido web\).
+1. En Project Explorer, expanda **WebContent** (Contenido web).
 
-5. Haga clic con el botón secundario en **Search.jsp** \| **Run As** \| **Run on Server** \(Search.jsp \| Ejecutar como \| Ejecutar en el servidor\). Seleccione el servidor Apache Tomcat y, a continuación, haga clic en **Run** \(Ejecutar\).
+5. Haga clic con el botón secundario en **Search.jsp** | **Run As** | **Run on Server** (Search.jsp | Ejecutar como | Ejecutar en el servidor). Seleccione el servidor Apache Tomcat y, a continuación, haga clic en **Run** (Ejecutar).
 
-> [AZURE.TIP]Si utiliza un área de trabajo distinta de la predeterminada para almacenar el proyecto, probablemente necesite modificar **Run Configuration** \(Configuración de ejecución\) para que apunte a la ubicación del proyecto y evitar un error de inicio del servidor. En Project Explorer, haga clic en **Search.jsp** \| **Run As** \| **Run Configurations** \(Search.jsp \| Ejecutar como \| Configuraciones de ejecución\). Seleccione el servidor Apache Tomcat. Haga clic en **Arguments** \(Argumentos\). Haga clic en **Workspace** \(Área de trabajo\) o en **File System** \(Sistema de archivos\) para definir la carpeta que contiene el proyecto.
+> [AZURE.TIP]Si utiliza un área de trabajo distinta de la predeterminada para almacenar el proyecto, probablemente necesite modificar **Run Configuration** (Configuración de ejecución) para que apunte a la ubicación del proyecto y evitar un error de inicio del servidor. En Project Explorer, haga clic en **Search.jsp** | **Run As** | **Run Configurations** (Search.jsp | Ejecutar como | Configuraciones de ejecución). Seleccione el servidor Apache Tomcat. Haga clic en **Arguments** (Argumentos). Haga clic en **Workspace** (Área de trabajo) o en **File System** (Sistema de archivos) para definir la carpeta que contiene el proyecto.
 
 Al ejecutar la aplicación, aparecerá una ventana del explorador que ofrece un cuadro de búsqueda para introducir términos.
 
-Aguarde un minuto antes de hacer clic en **Search** \(Buscar\) para que el servicio tenga tiempo de crear y cargar el índice. Si obtiene un error HTTP 404, sólo necesitará esperar un poco más antes de intentarlo.
+Aguarde un minuto antes de hacer clic en **Search** (Buscar) para que el servicio tenga tiempo de crear y cargar el índice. Si obtiene un error HTTP 404, sólo necesitará esperar un poco más antes de intentarlo.
 
 ## Buscar en los datos de USGS
 
-El conjunto de datos de USGS incluye los registros que son relevantes para el estado de Rhode Island. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas \(es el valor predeterminado\).
+El conjunto de datos de USGS incluye los registros que son relevantes para el estado de Rhode Island. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas (es el valor predeterminado).
 
 Escriba un término de búsqueda para que el motor de búsqueda tenga con qué trabajar. Pruebe a escribir un nombre regional. "Roger Williams" fue el primer gobernador de Rhode Island. Hay numerosos parques, edificios y escuelas que llevan su nombre.
 

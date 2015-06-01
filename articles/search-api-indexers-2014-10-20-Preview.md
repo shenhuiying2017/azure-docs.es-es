@@ -2,7 +2,7 @@
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
 
-#Operaciones de indexador \(API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview\)
+#Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)
 
 > [AZURE.NOTE]En este artículo se describe un prototipo de la nueva funcionalidad que no está en la versión publicada de la API. Obtenga más información acerca de las versiones y compatibilidad en [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) en MSDN. Para obtener más información sobre otras funciones de esta API de vista previa, consulte [API de REST de servicio de Búsqueda de Azure: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
@@ -10,7 +10,7 @@
 
 Búsqueda de Azure puede integrarse directamente con algunos orígenes de datos comunes, eliminando la necesidad de escribir código para indexar los datos. Para configurar esto, puede llamar a la API de Búsqueda de Azure para crear y administrar **indexadores** y **orígenes de datos**.
 
-Un **origen de datos** especifica los datos que es necesario indexar, las credenciales para obtener acceso a estos y las sugerencias que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz \(por ejemplo, las filas modificadas o eliminadas de una tabla de una base de datos\).
+Un **origen de datos** especifica los datos que es necesario indexar, las credenciales para obtener acceso a estos y las sugerencias que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (por ejemplo, las filas modificadas o eliminadas de una tabla de una base de datos).
 
 Un **indexador** describe cómo fluyen los datos desde el origen de datos a un índice de búsqueda. Un indexador puede:
 
@@ -49,7 +49,7 @@ Los pasos típicos para configurar la indexación automática son los siguientes
 Consulte la página [Límites y restricciones](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener detalles.
 
 ## Operaciones de orígenes de datos
-Puede crear y administrar orígenes de datos en Búsqueda de Azure a través de solicitudes HTTP sencillas \(POST, GET, PUT, DELETE\) en un recurso de origen de datos determinado.
+Puede crear y administrar orígenes de datos en Búsqueda de Azure a través de solicitudes HTTP sencillas (POST, GET, PUT, DELETE) en un recurso de origen de datos determinado.
 
 ### Crear origen de datos
 
@@ -78,7 +78,7 @@ El nombre del origen de datos debe estar en minúsculas, comenzar por una letra 
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
 
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
-- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración \(en lugar de una clave de consulta\). 
+- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta). 
  
 También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
 
@@ -105,7 +105,7 @@ La solicitud puede contener las siguientes propiedades:
 - `description`: descripción opcional. 
 - `type`: obligatorio. Use `azuresql` para un origen de datos de SQL Azure, `docdb` para un origen de datos DocumentDB.
 - `container`: 
-	- La propiedad `name` obligatoria especifica la tabla o vista \(para el origen de datos de SQL Azure\) o una colección \(para el origen de datos DocumentDB\) que se indexarán. 
+	- La propiedad `name` obligatoria especifica la tabla o vista (para el origen de datos de SQL Azure) o una colección (para el origen de datos DocumentDB) que se indexarán. 
 	- Los orígenes de datos de DocumentDB también admiten una propiedad `query` opcional que le permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.   
 - Los `dataChangeDetectionPolicy` y `dataDeletionDetectionPolicy` opcionales se describen a continuación.
 
@@ -282,9 +282,9 @@ Código de estado: al obtener una respuesta correcta, se visualiza 204 Sin conte
 
 Un indexador es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino. Debe planear la creación de un indizador para cada combinación de origen de datos e índice de destino. Puede hacer que varios indexadores escriban en el mismo índice. Sin embargo, un indexador solo puede escribir en un índice.
 
-Puede crear y administrar índices a través de solicitudes HTTP sencillas \(POST, GET, PUT, DELETE\) en un recurso de indexador determinado.
+Puede crear y administrar índices a través de solicitudes HTTP sencillas (POST, GET, PUT, DELETE) en un recurso de indexador determinado.
 
-Después de crear un indexador, puede recuperar su estado de ejecución mediante la operación [Obtener el estado del indexador](#GetIndexerStatus). También puede ejecutar un indexador en cualquier momento \(en lugar de o además de ejecutarlo de forma periódica según una programación\) mediante la operación [Ejecutar indexador](#RunIndexer).
+Después de crear un indexador, puede recuperar su estado de ejecución mediante la operación [Obtener el estado del indexador](#GetIndexerStatus). También puede ejecutar un indexador en cualquier momento (en lugar de o además de ejecutarlo de forma periódica según una programación) mediante la operación [Ejecutar indexador](#RunIndexer).
 
 ### Crear indexador
 
@@ -320,7 +320,7 @@ La sintaxis para estructurar la carga de la solicitud es la siguiente. En este t
 
 Un indizador puede especificar opcionalmente una programación. Si existe una programación, el indizador se ejecutará de forma periódica de acuerdo con la misma. Una programación tiene los siguientes atributos:
 
-- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD \(subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)\). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M`para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M`para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indexador.
 
@@ -462,7 +462,7 @@ La operación **Obtener estado del indexador** recupera el estado actual y el hi
 
 Código de estado: 200 Correcto al obtener una respuesta correcta.
 
-El cuerpo de la respuesta contiene información sobre el estado general del indexador, la última invocación de este, así como el historial de invocaciones recientes del mismo \(si existe\).
+El cuerpo de la respuesta contiene información sobre el estado general del indexador, la última invocación de este, así como el historial de invocaciones recientes del mismo (si existe).
 
 Un cuerpo de respuesta de muestra tiene el siguiente aspecto:
 
@@ -516,13 +516,13 @@ El resultado de la ejecución del indexador contiene las siguientes propiedades:
 
 - `errors`: una lista de errores de nivel de elemento, si los hay.
 
-- `itemsProcessed`: el número de elementos del origen de datos \(por ejemplo, filas de tablas\) que el indexador intentó indexar durante esta ejecución.
+- `itemsProcessed`: el número de elementos del origen de datos (por ejemplo, filas de tablas) que el indexador intentó indexar durante esta ejecución.
 
 - `itemsFailed`: el número de elementos que produjeron un error durante esta ejecución.
  
-- `initialTrackingState`: siempre `null` para la primera ejecución del indexador, o si la política de seguimiento de cambio de datos no está habilitada en el origen de datos usado. Si esta directiva está habilitada, en ejecuciones posteriores, este valor indica el primer valor de seguimiento de cambio \(el más bajo\) procesado por esta ejecución.
+- `initialTrackingState`: siempre `null` para la primera ejecución del indexador, o si la política de seguimiento de cambio de datos no está habilitada en el origen de datos usado. Si esta directiva está habilitada, en ejecuciones posteriores, este valor indica el primer valor de seguimiento de cambio (el más bajo) procesado por esta ejecución.
 
-- `finalTrackingState`: siempre `null` si la política de seguimiento de cambio de datos no está habilitada en el origen de datos usado. En caso contrario, indica el último valor de seguimiento de cambios \(superior\) procesado correctamente por esta ejecución.
+- `finalTrackingState`: siempre `null` si la política de seguimiento de cambio de datos no está habilitada en el origen de datos usado. En caso contrario, indica el último valor de seguimiento de cambios (superior) procesado correctamente por esta ejecución.
 
 <a name="IndexerExecutionStatus"></a> **Estado de la ejecución del indexador**
 
@@ -534,14 +534,14 @@ El estado de la ejecución del indexador captura el estado de una ejecución de 
 
 - `transientFailure` indica que se ha producido un error en la invocación del indexador, pero este error puede ser transitorio. Las invocaciones del indexador continuarán según la programación, si hay alguna establecida.
 
-- `persistentFailure` indica que se ha producido un fallo en el indexador de manera que es probable que requiera intervención por parte del usuario \(por ejemplo, debido a una incompatibilidad de esquema entre el origen de datos y el índice de destino\). Detención de las ejecuciones programadas del indesador; se requiere intervención por parte del para solucionar el problema \(descrito en la propiedad `errorMessage`\) y reiniciar la ejecución del indexador.
+- `persistentFailure` indica que se ha producido un fallo en el indexador de manera que es probable que requiera intervención por parte del usuario (por ejemplo, debido a una incompatibilidad de esquema entre el origen de datos y el índice de destino). Detención de las ejecuciones programadas del indesador; se requiere intervención por parte del para solucionar el problema (descrito en la propiedad `errorMessage`) y reiniciar la ejecución del indexador.
 
-- `reset` indica que se ha restablecido el indexador mediante una llamada a la API de restablecimiento del indexador \(consultar a continuación\).
+- `reset` indica que se ha restablecido el indexador mediante una llamada a la API de restablecimiento del indexador (consultar a continuación).
 
 <a name="ResetIndexer"></a>
 ### Restablecer el indexador
 
-La operación **Restablecer el indexador** restablece el estado de seguimiento de cambios asociado con el indexador. Esto permite desencadenar la reindexación desde cero \(por ejemplo, si ha cambiado el esquema del origen de datos\) o para cambiar la directiva de detección de cambios de datos de un origen de datos asociado con el indexador.
+La operación **Restablecer el indexador** restablece el estado de seguimiento de cambios asociado con el indexador. Esto permite desencadenar la reindexación desde cero (por ejemplo, si ha cambiado el esquema del origen de datos) o para cambiar la directiva de detección de cambios de datos de un origen de datos asociado con el indexador.
 
 	POST https://[service name].search.windows.net/indexers/[indexer name]/reset?api-version=[api-version]
     api-key: [admin key]

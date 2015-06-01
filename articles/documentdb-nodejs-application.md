@@ -43,7 +43,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
 - Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](../../pricing/free-trial/).
 - [Node.js][] versión v0.10.29 o superior
-- [Express Generator](http://www.expressjs.com/starter/generator.html) \(puede instalarlo mediante `npm install express-generator -g`\)
+- [Express Generator](http://www.expressjs.com/starter/generator.html) (puede instalarlo mediante `npm install express-generator -g`)
 - [Git][].
 
 ## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
@@ -93,7 +93,7 @@ El archivo **package.json** es uno de los archivos creados en la raíz del proye
 
 	![Captura de pantalla de la ficha package.json](./media/documentdb-nodejs-application/image17.png)
 
-Esto indica a Node \(y a Azure más tarde\) que la aplicación depende de estos módulos adicionales.
+       Esto indica a Node (y a Azure más tarde) que la aplicación depende de estos módulos adicionales.
 
 ## <a name="_Toc395783180"></a>Paso 4: Uso del servicio de DocumentDB en una aplicación Node
 
@@ -176,7 +176,8 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada.
+> Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
 		
 3. Guarde y cierre el archivo **docdbUtils.js**.
 
@@ -389,7 +390,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = config;
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH\_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de Microsoft Azure](http://portal.azure.com):
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de Microsoft Azure](http://portal.azure.com):
 
 4. Guarde y cierre el archivo **config.js**.
  
@@ -423,7 +424,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a DocumentDB \(utilizando los valores de lectura de **config.js**\). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**. 
+6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a DocumentDB (utilizando los valores de lectura de **config.js**). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**. 
 
 7. Por último, guarde y cierre el archivo **app.js**. Estamos a punto de terminar.
  
@@ -450,8 +451,8 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 
 
-	This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
-	Save and close this **layout.jade** file.
+	Esto indica al motor **Jade** de forma efectiva, que represente HTML de nuestra aplicación y cree un "**bloque**" llamado “**contenido**” dónde podemos proporcionar el diseño de nuestras páginas de contenido.
+	Guarde y cierre el archivo **layout.jade**.
 
 4. Ahora abra el archivo **index.jade**, la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por lo siguiente:
 
@@ -495,7 +496,9 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 	Esto amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**.
 	
-	En este diseño hemos creado dos formularios HTML. El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador. El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
+	En este diseño hemos creado dos formularios HTML. 
+	El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador.
+	El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
 	
 	Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 

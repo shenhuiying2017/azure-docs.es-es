@@ -30,7 +30,7 @@ El entorno de prueba de la configuración básica está formado por la subred de
 
 Contiene:
 
-- Una máquina virtual de Azure ejecuta un Windows Server 2012 R2 llamado DC1, que está configurado como un servidor de sistema de nombres de dominio \(DNS\) y un controlador de dominio de la intranet.
+- Una máquina virtual de Azure ejecuta un Windows Server 2012 R2 llamado DC1, que está configurado como un servidor de sistema de nombres de dominio (DNS) y un controlador de dominio de la intranet.
 - Una máquina virtual de Azure que ejecuta Windows Server 2012 R2 llamado APP1, que está configurado como un servidor web y de aplicaciones generales.
 - Una máquina virtual de Azure ejecuta el Windows Server 2012 R2 denominado CLIENT1, que actúa como cliente de la intranet.
 
@@ -54,13 +54,13 @@ Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba grat
 
 En primer lugar, cree la red virtual de Azure TestLab, que va a hospedar la subred de la red corporativa de la configuración básica.
 
-1.	En la barra de tareas del Portal de administración de Azure, haga clic en **Nuevo \> Servicios de red \> Red virtual \> Creación personalizada**.
+1.	En la barra de tareas del Portal de administración de Azure, haga clic en **Nuevo > Servicios de red > Red virtual > Creación personalizada**.
 2.	En la página Detalles de redes virtuales, escriba **TestLab** en **Nombre**.
 3.	En **Ubicación**, seleccione la región adecuada.
 4.	Haga clic en la flecha Siguiente.
 5.	En la página Servidores DNS y conectividad VPN, en **Servidores DNS**, introduzca **DC1** en **Seleccione o introduzca un nombre**, escriba **10.0.0.4** en **Dirección IP** y, a continuación, haga clic en la flecha Siguiente.
 6.	En la página Espacios de direcciones de la red virtual, en **Subredes**, haga clic en **Subred 1** y reemplace el nombre por **Corpnet**. 
-7.	En la columna **CIDR \(recuento de direcciones\)** para la subred de la red corporativa, haga clic en **/24 \(256\)**.
+7.	En la columna **CIDR (recuento de direcciones)** para la subred de la red corporativa, haga clic en **/24 (256)**.
 8.	Haga clic en el icono Completar. Espere hasta que se cree la red virtual antes de continuar.
 
 A continuación, siga las instrucciones en [Cómo instalar y configurar Azure PowerShell](install-configure-powershell.md) para instalar Azure PowerShell en el equipo local. Abra un símbolo del sistema de Azure PowerShell.
@@ -76,7 +76,7 @@ A continuación, cree un servicio en la nube de Azure. El servicio en la nube ac
 
 Debe elegir un nombre único para el servicio en la nube. *El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.*
 
-Por ejemplo, podría asignar el nombre TestLab-\*UniqueSequence\* al servicio en la nube , en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestLab-Tailspin.
+Por ejemplo, podría asignar el nombre TestLab-*UniqueSequence* al servicio en la nube , en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestLab-Tailspin.
 
 Se puede comprobar la exclusividad del nombre con este comando de Azure PowerShell.
 
@@ -105,7 +105,7 @@ Se trata de la configuración actual.
 
 ## Fase 2: Configuración de DC1
 
-DC1 es un controlador de dominio para el dominio de servicios de dominio de Active Directory \(AD DS\) corp.contoso.com y un servidor DNS para las máquinas virtuales de la red virtual TestLab.
+DC1 es un controlador de dominio para el dominio de servicios de dominio de Active Directory (AD DS) corp.contoso.com y un servidor DNS para las máquinas virtuales de la red virtual TestLab.
 
 En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local para crear una máquina Virtual de Azure para DC1.
 
@@ -126,14 +126,14 @@ A continuación, conéctese a la máquina virtual DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le soliciten credenciales, utilice lo siguiente:
-- Nombre: **DC1\\**[nombre de la cuenta de administrador local]
+- Nombre: **DC1**[nombre de la cuenta de administrador local]
 - Contraseña: [contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
 A continuación, agregue un disco de datos adicional como un nuevo volumen con la letra de unidad F:.
 
 1.	En el panel izquierdo del Administrador de servidores, haga clic en **Servicios de archivos y almacenamiento** y, a continuación, haga clic en **Discos**.
-2.	En el panel de contenido, en el grupo **Discos**, haga clic en **disco 2** \(con la **partición** establecida en **Desconocida**\).
+2.	En el panel de contenido, en el grupo **Discos**, haga clic en **disco 2** (con la **partición** establecida en **Desconocida**).
 3.	Haga clic en **Tareas** y, a continuación, haga clic en **Nuevo volumen**.
 4.	En la página Antes de empezar del Asistente para volumen nuevo, haga clic en **Siguiente**.
 5.	En la página Selección del servidor y del disco, haga clic en **Disco 2** y, a continuación, haga clic en **Siguiente**. Cuando se le solicite, haga clic en **Aceptar**.
@@ -155,7 +155,7 @@ Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le soliciten credenciales, utilice lo siguiente:
-- Nombre: **CORP\\**[nombre de la cuenta de administrador local]
+- Nombre: **CORP**[nombre de la cuenta de administrador local]
 - Contraseña: [contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
@@ -266,7 +266,7 @@ Para cerrar las máquinas virtuales con Azure PowerShell, escriba el nombre del 
 	Stop-AzureVM -ServiceName $serviceName -Name "DC1" -Force -StayProvisioned
 
 
-Para asegurarse de que las máquinas virtuales funcionan correctamente al iniciar todos ellos desde el estado Detenido \(desasignado\), debe iniciarlos en el orden siguiente:
+Para asegurarse de que las máquinas virtuales funcionan correctamente al iniciar todos ellos desde el estado Detenido (desasignado), debe iniciarlos en el orden siguiente:
 
 1.	DC1
 2.	APP1

@@ -30,10 +30,10 @@ En este artículo también se describen las herramientas para solucionar problem
 Si surge un problema al implementar el dispositivo por primera vez, tenga en cuenta lo siguiente:
 
 - Si se trata de problemas de un dispositivo físico, asegúrese de que el hardware está instalado y configurado como se describe en [Instalación de hardware de su dispositivo](https://msdn.microsoft.com/library/azure/dn772375.aspx).
-- Compruebe los requisitos previos para la implementación. Asegúrese de que dispone de toda la información que se describe en la [lista de comprobación de implementación](storsimple-deployment-walkthrough.md\#pre-installation checklist\).
+- Compruebe los requisitos previos para la implementación. Asegúrese de que dispone de toda la información que se describe en la [lista de comprobación de implementación](storsimple-deployment-walkthrough.md#pre-installation checklist).
 - Revise las notas de la versión de StorSimple para ver si se describe el problema. Las notas de la versión incluyen soluciones alternativas a problemas de instalación conocidos. 
 
-Durante la implementación del dispositivo, los problemas más habituales a los que se enfrentan los usuarios se producen cuando se ejecuta el Asistente para instalación y cuando se registra el dispositivo a través de Windows PowerShell para StorSimple. \(Windows PowerShell para StorSimple se utiliza para registrar y configurar el dispositivo de StorSimple. Para obtener más información sobre el registro de dispositivos, consulte [Registro del dispositivo](https://msdn.microsoft.com/library/azure/dn757742.aspx)\).
+Durante la implementación del dispositivo, los problemas más habituales a los que se enfrentan los usuarios se producen cuando se ejecuta el Asistente para instalación y cuando se registra el dispositivo a través de Windows PowerShell para StorSimple. (Windows PowerShell para StorSimple se utiliza para registrar y configurar el dispositivo de StorSimple. Para obtener más información sobre el registro de dispositivos, consulte [Registro del dispositivo](https://msdn.microsoft.com/library/azure/dn757742.aspx)).
 
 Las siguientes secciones le ayudarán a resolver los problemas que aparecen al configurar el dispositivo de StorSimple por primera vez.
 
@@ -43,7 +43,7 @@ Los pasos siguientes resumen el proceso del Asistente para instalación. Para ob
 
 1. Ejecute el cmdlet [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) para iniciar el Asistente para instalación, que le guiará por el resto de los pasos. 
 2. Configure la red: el Asistente para instalación permite configurar la red para la interfaz de red DATA 0 del dispositivo de StorSimple. Entre los ajustes se incluyen los siguientes:
-  - IP virtual \(VIP\), máscara de subred y puerta de enlace: el cmdlet [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) se ejecuta en segundo plano. Configura la dirección IP, la máscara de subred y la puerta de enlace para la interfaz de red DATA 0 del dispositivo de StorSimple.
+  - IP virtual (VIP), máscara de subred y puerta de enlace: el cmdlet [Set-HcsNetInterface](https://technet.microsoft.com/library/dn688161.aspx) se ejecuta en segundo plano. Configura la dirección IP, la máscara de subred y la puerta de enlace para la interfaz de red DATA 0 del dispositivo de StorSimple.
   - Servidor DNS principal: el cmdlet [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) se ejecuta en segundo plano. Establece la configuración de DNS para la solución de StorSimple.
   - Servidor NTP: el cmdlet [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) se ejecuta en segundo plano. Establece la configuración del servidor NTP para la solución de StorSimple.
   - Proxy web opcional: el cmdlet [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) se ejecuta en segundo plano. Establece y habilita la configuración de proxy web para la solución de StorSimple.
@@ -51,7 +51,7 @@ Los pasos siguientes resumen el proceso del Asistente para instalación. Para ob
   - La contraseña del administrador de dispositivos se usa para iniciar sesión en el dispositivo. La contraseña predeterminada del dispositivo es *Password1*.
   - La contraseña de StorSimple Snapshot Manager se requiere cuando se configura un dispositivo para utilizar este complemento. Debe establecer primero la contraseña en el Asistente para instalación y, a continuación, puede establecerla y cambiarla desde el servicio StorSimple Manager. Esta contraseña autentica el dispositivo con StorSimple Snapshot Manager.
  
-    > [AZURE.IMPORTANT]Las contraseñas se recopilan antes del registro, pero solo se aplican después de registrar correctamente el dispositivo. Si hay un error al aplicar una contraseña, se le pedirá que proporcione la contraseña de nuevo hasta que se recopilen las contraseñas necesarias \(que cumplan los requisitos de complejidad\).
+    > [AZURE.IMPORTANT]Las contraseñas se recopilan antes del registro, pero solo se aplican después de registrar correctamente el dispositivo. Si hay un error al aplicar una contraseña, se le pedirá que proporcione la contraseña de nuevo hasta que se recopilen las contraseñas necesarias (que cumplan los requisitos de complejidad).
 
 4. Registre el dispositivo: el último paso consiste en registrar el dispositivo con el servicio StorSimple Manager en ejecución en Microsoft Azure. Para ello, debe [obtener la clave de registro del servicio](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) desde el Portal de administración de Azure e indicarla en el Asistente para instalación. Una vez registrado correctamente el dispositivo, se le indicará una clave de cifrado de datos del servicio. Asegúrese de mantener esta clave de cifrado en una ubicación segura, ya que será necesaria para registrar todos los dispositivos posteriores con el servicio.
 
@@ -70,21 +70,21 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 | ---| ------------- | --------------- | ------------------ |
 | 1 | Invoke-HcsSetupWizard: Este comando solo se puede ejecutar en el controlador activo. | La configuración se estaba realizando en el controlador pasivo.| Ejecute este comando desde el controlador activo. Para obtener más información, consulte [Identificación de un controlador activo en el dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx).|
 | 2 | Invoke-HcsSetupWizard: El dispositivo no está listo. | Hay problemas con la conectividad de red en DATA 0.| Compruebe la conectividad de red física en DATA 0.|
-| 3 | Invoke-HcsSetupWizard: Hay un conflicto de dirección IP con otro sistema en la red \(excepción de HRESULT: 0x80070263\). | Otro sistema estaba usando la dirección IP indicada para DATA 0. | Indique una dirección IP nueva que no esté en uso.|
-| 4 | Invoke-HcsSetupWizard: Error en un recurso de clúster \(excepción de HRESULT:0x800713AE\). | VIP duplicada. La dirección IP proporcionada ya está en uso.| Indique una dirección IP nueva que no esté en uso.|
+| 3 | Invoke-HcsSetupWizard: Hay un conflicto de dirección IP con otro sistema en la red (excepción de HRESULT: 0x80070263). | Otro sistema estaba usando la dirección IP indicada para DATA 0. | Indique una dirección IP nueva que no esté en uso.|
+| 4 | Invoke-HcsSetupWizard: Error en un recurso de clúster (excepción de HRESULT:0x800713AE). | VIP duplicada. La dirección IP proporcionada ya está en uso.| Indique una dirección IP nueva que no esté en uso.|
 | 5 | Invoke-HcsSetupWizard: Dirección IPv4 no válida. | La dirección IP se ha indicado con un formato incorrecto.| Compruebe el formato e indique de nuevo la dirección IP. Para obtener más información, consulte [Direcciones Ipv4][1]. |
 | 6 | Invoke-HcsSetupWizard: Dirección IPv6 no válida. | La dirección IP se ha indicado con un formato incorrecto.| Compruebe el formato e indique de nuevo la dirección IP. Para obtener más información, consulte [Direcciones Ipv6][2].|
-| 7 | Invoke-HcsSetupWizard: No hay más extremos disponibles desde el asignador de extremos \(excepción de HRESULT: 0x800706d9\). | La funcionalidad de clúster no funciona. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes.
+| 7 | Invoke-HcsSetupWizard: No hay más extremos disponibles desde el asignador de extremos (excepción de HRESULT: 0x800706d9). | La funcionalidad de clúster no funciona. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes.
 
 ### Errores que se producen al realizar la configuración de proxy web opcional
 
 | Nº| Mensaje de error | Causas posibles | Acción recomendada |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard: Parámetro no válido \(excepción de HRESULT: 0x80070057\) | Uno de los parámetros proporcionados para la configuración del proxy no es válido.| El URI no se indica con el formato correcto. Utilice el siguiente formato: http://*<IP address or FQDN of the web proxy server>\*: \*<TCP port number>\* |
-| 2 | Invoke-HcsSetupWizard: Servidor RPC no disponible \(excepción de HRESULT: 0x800706ba\) | La causa principal es una de las siguientes:<ol><li>El clúster no está activo.</li><li>El controlador pasivo no puede comunicarse con el controlador activo y el comando se ejecuta desde el controlador pasivo.</li></ol> | Dependiendo de la causa principal:<ol><li>[Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para asegurarse de que el clúster está activo.</li><li>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Tendrá que [ponerse en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) si se interrumpe la conectividad.</li></ol> |
-| 3 | Invoke-HcsSetupWizard: Error en la llamada RPC \(excepción de HRESULT: 0x800706be\) | El clúster está inactivo. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para asegurarse de que el clúster está activo.|
-| 4 | Invoke-HcsSetupWizard: El recurso de clúster no se encontró \(excepción de HRESULT: 0x8007138f\). | No se encuentra el recurso de clúster. Esto puede ocurrir si la instalación no se realizó correctamente. | Puede que necesite restablecer la configuración predeterminada de fábrica del dispositivo. [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para crear un recurso de clúster.|
-| 5 | Invoke-HcsSetupWizard: El recurso de clúster no está en línea \(excepción de HRESULT: 0x8007138c\).| Los recursos de clúster no están en línea. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes.|
+| 1 | Invoke-HcsSetupWizard: Parámetro no válido (excepción de HRESULT: 0x80070057) | Uno de los parámetros proporcionados para la configuración del proxy no es válido.| El URI no se indica con el formato correcto. Utilice el siguiente formato: http://*<IP address or FQDN of the web proxy server>*: *<TCP port number>* |
+| 2 | Invoke-HcsSetupWizard: Servidor RPC no disponible (excepción de HRESULT: 0x800706ba) | La causa principal es una de las siguientes:<ol><li>El clúster no está activo.</li><li>El controlador pasivo no puede comunicarse con el controlador activo y el comando se ejecuta desde el controlador pasivo.</li></ol> | Dependiendo de la causa principal:<ol><li>[Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para asegurarse de que el clúster está activo.</li><li>Ejecute el comando desde el controlador activo. Si desea ejecutar el comando desde el controlador pasivo, deberá asegurarse de que el controlador pasivo puede comunicarse con el controlador activo. Tendrá que [ponerse en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) si se interrumpe la conectividad.</li></ol> |
+| 3 | Invoke-HcsSetupWizard: Error en la llamada RPC (excepción de HRESULT: 0x800706be) | El clúster está inactivo. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para asegurarse de que el clúster está activo.|
+| 4 | Invoke-HcsSetupWizard: El recurso de clúster no se encontró (excepción de HRESULT: 0x8007138f). | No se encuentra el recurso de clúster. Esto puede ocurrir si la instalación no se realizó correctamente. | Puede que necesite restablecer la configuración predeterminada de fábrica del dispositivo. [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para crear un recurso de clúster.|
+| 5 | Invoke-HcsSetupWizard: El recurso de clúster no está en línea (excepción de HRESULT: 0x8007138c).| Los recursos de clúster no están en línea. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes.|
 
 ### Errores que se producen al configurar las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager.
 
@@ -136,8 +136,8 @@ Para registrar el dispositivo se utiliza el servicio StorSimple Manager que se e
 | 4 | Error 350049: No se pudo alcanzar el servicio durante el registro. | Cuando se realiza la llamada al servicio, se recibe una excepción de web. En algunos casos, esto se puede corregir volviendo a intentar realizar la operación más adelante. | Compruebe la dirección IP y el nombre DNS y, a continuación, vuelva a intentar la operación. Si el problema persiste, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx). | 
 | 5 | Error 350031: El dispositivo ya se ha registrado. | | No es necesaria ninguna acción. |
 | 6 | Error 350016: Error de registro de dispositivo. | |Asegúrese de que la clave de registro es correcta. |
-| 7 | Invoke-HcsSetupWizard: Se ha producido un error al registrar el dispositivo; se puede deber a una dirección IP o un nombre DNS incorrectos. Compruebe la configuración de red y vuelva a intentarlo. Si el problema persiste, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) \(error 350050\). | Asegúrese de que el dispositivo puede hacer ping a la red externa. Si no tiene conectividad con la red externa, se puede producir este error en el registro. Este error puede ser una combinación de uno o varios de los siguientes elementos:<ul><li>IP incorrecta</li><li>Subred incorrecta</li><li>Puerta de enlace incorrecta</li><li>Configuración de DNS incorrecta</li></ul> | Consulte los pasos del [Ejemplo de solución de problemas paso a paso](#step-by-step-storsimple-troubleshooting-example). |
-| 8 | Invoke-HcsSetupWizard: No se pudo realizar la operación actual debido a un error de servicio interno [0x1FBE2]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. | Se trata de un error genérico que se produce para todos los errores invisibles de usuario del servicio o del agente. La razón más habitual es un error en la autenticación de ACS. El error puede deberse a problemas con la configuración del servidor NTP y a una configuración incorrecta de la hora en el dispositivo. | Corrija la hora \(si hay problemas\) y, a continuación, vuelva a intentar la operación de registro. Si persiste este problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes. |
+| 7 | Invoke-HcsSetupWizard: Se ha producido un error al registrar el dispositivo; se puede deber a una dirección IP o un nombre DNS incorrectos. Compruebe la configuración de red y vuelva a intentarlo. Si el problema persiste, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) (error 350050). | Asegúrese de que el dispositivo puede hacer ping a la red externa. Si no tiene conectividad con la red externa, se puede producir este error en el registro. Este error puede ser una combinación de uno o varios de los siguientes elementos:<ul><li>IP incorrecta</li><li>Subred incorrecta</li><li>Puerta de enlace incorrecta</li><li>Configuración de DNS incorrecta</li></ul> | Consulte los pasos del [Ejemplo de solución de problemas paso a paso](#step-by-step-storsimple-troubleshooting-example). |
+| 8 | Invoke-HcsSetupWizard: No se pudo realizar la operación actual debido a un error de servicio interno [0x1FBE2]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft. | Se trata de un error genérico que se produce para todos los errores invisibles de usuario del servicio o del agente. La razón más habitual es un error en la autenticación de ACS. El error puede deberse a problemas con la configuración del servidor NTP y a una configuración incorrecta de la hora en el dispositivo. | Corrija la hora (si hay problemas) y, a continuación, vuelva a intentar la operación de registro. Si persiste este problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes. |
 | 9 | Advertencia: no se pudo activar el dispositivo. Las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager no han cambiado. | Si se produce un error en el registro, las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager no cambian. |
 
 ## Herramientas para solucionar problemas en implementaciones de StorSimple
@@ -161,14 +161,14 @@ Un paquete de soporte contiene todos los registros relevantes que pueden ayudar 
 
 4. Los registros del paquete de soporte descifrado están en formato etw/etvx. Para ver estos archivos en el Visor de eventos de Windows, realice lo siguiente:
   1. Ejecute el comando **eventvwr** en el cliente Windows. Se iniciará el Visor de eventos.
-  2. En el panel **Acciones**, haga clic en **Abrir registro guardado** y elija los archivos de registro con formato etvx/etw \(el paquete de soporte\). Ahora puede ver el archivo. Después de abrirlo, puede hacer clic con el botón secundario y guardarlo como texto.
+  2. En el panel **Acciones**, haga clic en **Abrir registro guardado** y elija los archivos de registro con formato etvx/etw (el paquete de soporte). Ahora puede ver el archivo. Después de abrirlo, puede hacer clic con el botón secundario y guardarlo como texto.
    
     > [AZURE.IMPORTANT]También puede utilizar el cmdlet **Get-WinEvent** para abrir este archivo en Windows PowerShell. Para obtener más información, consulte [Get-WinEvent](https://technet.microsoft.com/library/hh849682.aspx) en la documentación de referencia de cmdlets de Windows PowerShell.
 
 5. Cuando los registros se abran en el Visor de eventos, busque los siguientes registros, que contienen problemas relacionados con la configuración del dispositivo:
 
-  - hcs\_pfconfig/registro operativo
-  - hcs\_pfconfig/registro de configuración
+  - hcs_pfconfig/registro operativo
+  - hcs_pfconfig/registro de configuración
 
 6. En los archivos de registro, busque cadenas relacionadas con los cmdlets a los que llama el Asistente para instalación. Consulte [Proceso del Asistente para instalación por primera vez](#first-time-setup-wizard-process) para obtener una lista de estos cmdlets. 
 
@@ -194,7 +194,7 @@ Al configurar las interfaces de red para una implementación de dispositivo por 
 
 2. Utilice la salida del cmdlet Get-NetAdapter y las instrucciones siguientes para conocer el estado de la interfaz de red.
   - Si el mantenimiento es correcto y la interfaz está habilitada, el estado de **ifIndex** se muestra como **Up**.
-  - Si el mantenimiento es correcto pero la interfaz no está conectada físicamente \(mediante un cable de red\), el estado de **ifIndex** se muestra como **Disabled**.
+  - Si el mantenimiento es correcto pero la interfaz no está conectada físicamente (mediante un cable de red), el estado de **ifIndex** se muestra como **Disabled**.
   - Si el mantenimiento es correcto pero la interfaz no está habilitada, el estado de **ifIndex** se muestra como **NotPresent**.
   - Si la interfaz no existe, no aparece en la lista. La interfaz de usuario del servicio StorSimple Manager seguirá mostrando esta interfaz con un estado de error.
 
@@ -215,7 +215,7 @@ El controlador 1 actuó como controlador activo, con la siguiente configuración
 
 **Ejemplo de salida: controlador 0**
 
-A continuación se puede ver la salida del controlador 0 \(el controlador pasivo\). DATA 1, DATA 2 y DATA 3 no están conectadas. DATA 4 y DATA 5 no se muestran porque no están presentes en el dispositivo.
+A continuación se puede ver la salida del controlador 0 (el controlador pasivo). DATA 1, DATA 2 y DATA 3 no están conectadas. DATA 4 y DATA 5 no se muestran porque no están presentes en el dispositivo.
 
      Controller0>Get-NetAdapter
      Name                 InterfaceDescription                        ifIndex  Status
@@ -229,7 +229,7 @@ A continuación se puede ver la salida del controlador 0 \(el controlador pasivo
 
 **Ejemplo de salida: controlador 1**
 
-A continuación se puede ver la salida del controlador 1 \(el controlador activo\). Solo está configurada y en funcionamiento la interfaz de red DATA 0 del dispositivo.
+A continuación se puede ver la salida del controlador 1 (el controlador activo). Solo está configurada y en funcionamiento la interfaz de red DATA 0 del dispositivo.
 
      Controller1>Get-NetAdapter
      Name                 InterfaceDescription                        ifIndex  Status
@@ -245,7 +245,7 @@ A continuación se puede ver la salida del controlador 1 \(el controlador activo
  
 ## Solución de problemas con el cmdlet Test-Connection
 
-Puede usar el cmdlet Test-Connection para determinar si el dispositivo de StorSimple puede conectarse a la red externa. Si todos los parámetros de redes, incluidos los de DNS, están configurados correctamente en el Asistente para instalación, puede usar el cmdlet Test-Connection para hacer ping a una dirección conocida fuera de la red \(por ejemplo, outlook.com\).
+Puede usar el cmdlet Test-Connection para determinar si el dispositivo de StorSimple puede conectarse a la red externa. Si todos los parámetros de redes, incluidos los de DNS, están configurados correctamente en el Asistente para instalación, puede usar el cmdlet Test-Connection para hacer ping a una dirección conocida fuera de la red (por ejemplo, outlook.com).
 
 Consulte los siguientes ejemplos de salida del cmdlet Test-Connection.
 
@@ -287,16 +287,16 @@ Use el cmdlet Test-HcsmConnection para un dispositivo que ya está conectado al 
    - ErrorCode.DeviceNotReady: indica que el dispositivo se encuentra en modo de mantenimiento.
    - ErrorCode.DeviceNotReady: indica que el dispositivo no está en línea.
 
-3. Compruebe que el servicio StorSimple Manager se está ejecutando \(utilice el cmdlet [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx)\). Si no se está ejecutando el servicio, pueden aparecer los errores siguientes:
+3. Compruebe que el servicio StorSimple Manager se está ejecutando (utilice el cmdlet [Get-ClusterResource](https://technet.microsoft.com/library/ee461004.aspx)). Si no se está ejecutando el servicio, pueden aparecer los errores siguientes:
 
    - ErrorCode.CiSApplianceAgentNotOnline
    - ErrorCode.CisPowershellScriptHcsError: indica que se produjo una excepción al ejecutar Get-ClusterResource.
 
-4. Compruebe el token del servicio de control de acceso \(ACS\). Si se produce una excepción de web, puede deberse a un problema de puerta de enlace, a la falta de una autenticación de proxy, a un DNS incorrecto o a un error de autenticación. Pueden aparecer los errores siguientes:
+4. Compruebe el token del servicio de control de acceso (ACS). Si se produce una excepción de web, puede deberse a un problema de puerta de enlace, a la falta de una autenticación de proxy, a un DNS incorrecto o a un error de autenticación. Pueden aparecer los errores siguientes:
 
-   - ErrorCode.CiSApplianceGateway: indica una excepción de HttpStatusCode.BadGateway \(el servicio de resolución de nombres no pudo resolver el nombre de host\). 
-   - ErrorCode.CiSApplianceProxy: indica una excepción de HttpStatusCode.ProxyAuthenticationRequired con código de estado HTTP 407 \(el cliente no se pudo autenticar con el servidor proxy\). 
-   - ErrorCode.CiSApplianceDNSError: indica una excepción de WebExceptionStatus.NameResolutionFailure \(el servicio de resolución de nombres no pudo resolver el nombre de host\).
+   - ErrorCode.CiSApplianceGateway: indica una excepción de HttpStatusCode.BadGateway (el servicio de resolución de nombres no pudo resolver el nombre de host). 
+   - ErrorCode.CiSApplianceProxy: indica una excepción de HttpStatusCode.ProxyAuthenticationRequired con código de estado HTTP 407 (el cliente no se pudo autenticar con el servidor proxy). 
+   - ErrorCode.CiSApplianceDNSError: indica una excepción de WebExceptionStatus.NameResolutionFailure (el servicio de resolución de nombres no pudo resolver el nombre de host).
    - ErrorCode.CiSApplianceACSError: indica que el servicio ha devuelto un error de autenticación, aunque existe conectividad.
    
    Si no se produce una excepción de web, compruebe lo siguiente:
@@ -305,9 +305,9 @@ Use el cmdlet Test-HcsmConnection para un dispositivo que ya está conectado al 
 
 5. Compruebe la conectividad del servicio en la nube. Si el servicio inicia una excepción de web, pueden aparecer los errores siguientes:
 
-  - ErrorCode.CiSApplianceGateway: indica una excepción de HttpStatusCode.BadGateway \(un servidor proxy intermedio recibió una solicitud incorrecta de otro proxy o del servidor original\).
-  - ErrorCode.CiSApplianceProxy: indica una excepción de HttpStatusCode.ProxyAuthenticationRequired con código de estado HTTP 407 \(el cliente no se pudo autenticar con el servidor proxy\). 
-  - ErrorCode.CiSApplianceDNSError: indica una excepción de WebExceptionStatus.NameResolutionFailure \(el servicio de resolución de nombres no pudo resolver el nombre de host\).
+  - ErrorCode.CiSApplianceGateway: indica una excepción de HttpStatusCode.BadGateway (un servidor proxy intermedio recibió una solicitud incorrecta de otro proxy o del servidor original).
+  - ErrorCode.CiSApplianceProxy: indica una excepción de HttpStatusCode.ProxyAuthenticationRequired con código de estado HTTP 407 (el cliente no se pudo autenticar con el servidor proxy). 
+  - ErrorCode.CiSApplianceDNSError: indica una excepción de WebExceptionStatus.NameResolutionFailure (el servicio de resolución de nombres no pudo resolver el nombre de host).
   - ErrorCode.CiSApplianceACSError: indica que el servicio ha devuelto un error de autenticación, aunque existe conectividad.
   
   Si no se produce una excepción de web, compruebe lo siguiente: - ErrorCode.CiSApplianceSaasServiceError: indica un problema con el servicio StorSimple Manager.
@@ -368,11 +368,11 @@ El error puede deberse a alguna de las siguientes causas:
 
 1. Compruebe la configuración del dispositivo: en el controlador activo, ejecute **Invoke-HcsSetupWizard**.
 
-     \>[AZURE.NOTE]El Asistente para instalación se debe ejecutar en el controlador activo. Para comprobar que está conectado al controlador activo, observe el banner que aparece en la consola serie. Este banner indica si está conectado al controlador 0 o al 1, y si es el controlador activo o pasivo. Para más información, vaya a [Identificación de un controlador activo en el dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx).
+     >[AZURE.NOTE]El Asistente para instalación se debe ejecutar en el controlador activo. Para comprobar que está conectado al controlador activo, observe el banner que aparece en la consola serie. Este banner indica si está conectado al controlador 0 o al 1, y si es el controlador activo o pasivo. Para más información, vaya a [Identificación de un controlador activo en el dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx).
  
 2. Asegúrese de que los cables del dispositivo están conectados correctamente: compruebe el cableado de red en la parte posterior del dispositivo. Los cables son específicos del modelo de dispositivo. Para obtener más información, vaya a [Cableado del dispositivo 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) o a [Cableado del dispositivo 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
 
-     \>[AZURE.NOTE]Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores recomendados por el proveedor OEM para puertos Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+     >[AZURE.NOTE]Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores recomendados por el proveedor OEM para puertos Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
  
 3. Compruebe el mantenimiento de la interfaz de red:
 
@@ -387,14 +387,14 @@ El error puede deberse a alguna de las siguientes causas:
    
 5. Elimine los errores de usuario:
 
-  - Vuelva a ejecutar el Asistente para instalación \(ejecute **Invoke-HcsSetupWizard**\) y escriba de nuevo los valores para asegurarse de que no hay ningún error. 
+  - Vuelva a ejecutar el Asistente para instalación (ejecute **Invoke-HcsSetupWizard**) y escriba de nuevo los valores para asegurarse de que no hay ningún error. 
   - Compruebe la clave de registro utilizada. Se puede usar la misma clave del registro para conectar varios dispositivos a un servicio StorSimple Manager. Siga el procedimiento de [Obtención de la clave de registro de servicio](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) para asegurarse de que está utilizando la clave de registro correcta.
 
-    > [AZURE.IMPORTANT]Si está ejecutando varios servicios, asegúrese de que se usa la clave de registro correspondiente al servicio adecuado para registrar el dispositivo. Si ha registrado un dispositivo con el servicio StorSimple Manager incorrecto, deberá [ponerse en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes. Tal vez sea necesario realizar un restablecimiento de fábrica del dispositivo \(que puede provocar la pérdida de datos\) para, a continuación, conectarlo al servicio deseado.
+    > [AZURE.IMPORTANT]Si está ejecutando varios servicios, asegúrese de que se usa la clave de registro correspondiente al servicio adecuado para registrar el dispositivo. Si ha registrado un dispositivo con el servicio StorSimple Manager incorrecto, deberá [ponerse en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes. Tal vez sea necesario realizar un restablecimiento de fábrica del dispositivo (que puede provocar la pérdida de datos) para, a continuación, conectarlo al servicio deseado.
 
 6. Use el cmdlet Test-Connection para comprobar que dispone de conectividad con la red externa. Para obtener más información, vaya a [Solución de problemas con el cmdlet Test-Connection](#troubleshoot-with-the-test-connection-cmdlet).
 
-7. Compruebe si existen interferencias de firewall. Si ha comprobado que la configuración de IP virtual \(VIP\), subred, puerta de enlace y DNS es correcta y todavía existen problemas de conectividad, es posible que el firewall esté bloqueando la comunicación entre el dispositivo y la red externa. Debe asegurarse de que los puertos 80 y 443 están disponibles en el dispositivo de StorSimple para la comunicación saliente. Para obtener más información, consulte [Requisitos de red para el dispositivo de StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
+7. Compruebe si existen interferencias de firewall. Si ha comprobado que la configuración de IP virtual (VIP), subred, puerta de enlace y DNS es correcta y todavía existen problemas de conectividad, es posible que el firewall esté bloqueando la comunicación entre el dispositivo y la red externa. Debe asegurarse de que los puertos 80 y 443 están disponibles en el dispositivo de StorSimple para la comunicación saliente. Para obtener más información, consulte [Requisitos de red para el dispositivo de StorSimple](https://msdn.microsoft.com/library/azure/dn772371.aspx).
 
 8. Revise los registros. Vaya a [Paquetes de soporte y registros de dispositivo disponibles para solucionar problemas ](#support-packages-and-device logs-for-troubleshooting).
 

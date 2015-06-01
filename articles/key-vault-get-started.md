@@ -18,7 +18,7 @@
 # Introducción al Almacén de claves de Azure #
 
 ## Introducción  
-Use este tutorial para empezar a trabajar con el Almacén de claves de Azure, actualmente en versión de vista previa, para crear un contenedor reforzado \(un almacén\) en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Se describe el proceso para usar Windows PowerShell a fin de crear un almacén en el que se guardará una clave o una contraseña para usarla con una aplicación de Azure. A continuación, se explica cómo utiliza una aplicación esa clave o contraseña.
+Use este tutorial para empezar a trabajar con el Almacén de claves de Azure, actualmente en versión de vista previa, para crear un contenedor reforzado (un almacén) en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Se describe el proceso para usar Windows PowerShell a fin de crear un almacén en el que se guardará una clave o una contraseña para usarla con una aplicación de Azure. A continuación, se explica cómo utiliza una aplicación esa clave o contraseña.
 
 **Tiempo estimado para completar el tutorial:** 20 minutos
 
@@ -154,7 +154,7 @@ Este paso lo haría normalmente un programador en un equipo independiente. No es
 Las aplicaciones que utilizan un Almacén de claves deben autenticarse utilizando un token de Azure Active Directory. Para ello, el propietario de la aplicación debe registrarla primero en su Azure Active Directory. Al final del registro, el propietario de la aplicación obtiene los valores siguientes:
 
 
-- Un **identificador de aplicación** \(también conocido como un "identificador del cliente"\) y una **clave de autenticación** \(también conocida como "secreto compartido"\). Para obtener un token, la aplicación debe presentar estos dos valores a Azure Active Directory. La forma en que se configura la aplicación para ello depende de la aplicación. Para la aplicación de ejemplo del Almacén de claves, el propietario de la aplicación establece estos valores en el archivo app.config.
+- Un **identificador de aplicación** (también conocido como un "identificador del cliente") y una **clave de autenticación** (también conocida como "secreto compartido"). Para obtener un token, la aplicación debe presentar estos dos valores a Azure Active Directory. La forma en que se configura la aplicación para ello depende de la aplicación. Para la aplicación de ejemplo del Almacén de claves, el propietario de la aplicación establece estos valores en el archivo app.config.
 
 
 
@@ -165,11 +165,11 @@ Para registrar la aplicación en Azure Active Directory:
 
 3. Haga clic en **Aplicaciones**. Si no se han agregado aplicaciones a su directorio, esta página muestra solo el vínculo **Agregar una aplicación**. Haga clic en el vínculo, o como alternativa, puede hacer clic en **Agregar** en la barra de comandos.
 4.	En el asistente **Agregar aplicación**, en la página **¿Qué desea hacer?**, haga clic en **Agregar una aplicación que mi organización está desarrollando**.
-5.	En la página **Proporcione información sobre su aplicación**, especifique un nombre para la aplicación y elija **Aplicación web y/o API** \(valor predeterminado\). Haga clic en el icono Siguiente.
-6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación ** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso \(por ejemplo, podría especificar http://test1.contoso.com para ambos\). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
+5.	En la página **Proporcione información sobre su aplicación**, especifique un nombre para la aplicación y elija **Aplicación web y/o API** (valor predeterminado). Haga clic en el icono Siguiente.
+6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación ** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso (por ejemplo, podría especificar http://test1.contoso.com para ambos). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
 7.	Haga clic en el icono Completar para guardar los cambios en el Asistente.
 8.	En la página de inicio rápido, haga clic en **Configurar**. 
-9.	Desplácese hasta la sección **Claves**, especifique la duración y, a continuación, haga clic en **Guardar**. La página se actualiza y muestra ahora un valor de clave. Debe configurar la aplicación con este valor de clave y el valor del **identificador del cliente**. \(Las instrucciones para realizar esta configuración serán específicas para la aplicación\).
+9.	Desplácese hasta la sección **Claves**, especifique la duración y, a continuación, haga clic en **Guardar**. La página se actualiza y muestra ahora un valor de clave. Debe configurar la aplicación con este valor de clave y el valor del **identificador del cliente**. (Las instrucciones para realizar esta configuración serán específicas para la aplicación).
 10.	Copie el valor del identificador del cliente en esta página. Lo utilizará en el paso siguiente para definir los permisos del almacén.
 
 
@@ -186,9 +186,9 @@ Por ejemplo, si el nombre del almacén es ContosoKeyVault y la aplicación que d
 
 
 
-## <a id="HSM"></a>Si desea utilizar un módulo de seguridad de hardware \(HSM\) ##
+## <a id="HSM"></a>Si desea utilizar un módulo de seguridad de hardware (HSM) ##
 
-Para obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware \(HSM\) que no se salen nunca del límite de los HSM. Los HSM están certificados para FIPS 140-2 nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete).
+Para obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM están certificados para FIPS 140-2 nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete).
 
 Para crear estas claves protegidas con HSM, debe contar con una [suscripción de almacén que admita claves protegidas mediante HSM](../../../pricing/free-trial).
 
@@ -197,7 +197,7 @@ Cuando cree el almacén, agregue el parámetro 'SKU':
 
 	New-AzureKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
-A este almacén, se pueden agregar claves protegidas mediante software \(tal como se ha mostrado anteriormente\) y claves protegidas con HSM. Para crear una clave protegida con HSM, establezca el parámetro Destination en 'HSM':
+A este almacén, se pueden agregar claves protegidas mediante software (tal como se ha mostrado anteriormente) y claves protegidas con HSM. Para crear una clave protegida con HSM, establezca el parámetro Destination en 'HSM':
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -205,7 +205,7 @@ Puede utilizar el siguiente comando para importar una clave desde un archivo .PF
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
-El comando siguiente importa un paquete BYOK \("traiga su propia clave"\). Esto permite generar la clave en el HSM local y transferirla al HSM en el servicio del Almacén de claves, sin que la clave salga del límite del HSM:
+El comando siguiente importa un paquete BYOK ("traiga su propia clave"). Esto permite generar la clave en el HSM local y transferirla al HSM en el servicio del Almacén de claves, sin que la clave salga del límite del HSM:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -241,7 +241,7 @@ Estos son otros comandos que pueden resultar útiles para administrar el Almacé
 
 Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de claves de Azure, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Para conocer las referencias de programación, consulte [API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) y [Referencia de API de cliente de C\# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para conocer las referencias de programación, consulte [API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) y [Referencia de API de cliente de C# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
 
 

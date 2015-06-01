@@ -54,7 +54,7 @@ Hay tres tipos de cuentas de almacenamiento que se pueden usar con el dispositiv
 
 ## Agregar una cuenta de almacenamiento
 
-Puede agregar una cuenta de almacenamiento proporcionando un nombre descriptivo único y las credenciales de acceso vinculadas a la cuenta de almacenamiento \(con el proveedor de servicios en la nube especificado\). También tiene la opción de habilitar el modo de Capa de sockets seguros \(SSL\) para crear un canal seguro para la comunicación de red entre su dispositivo y la nube.
+Puede agregar una cuenta de almacenamiento proporcionando un nombre descriptivo único y las credenciales de acceso vinculadas a la cuenta de almacenamiento (con el proveedor de servicios en la nube especificado). También tiene la opción de habilitar el modo de Capa de sockets seguros (SSL) para crear un canal seguro para la comunicación de red entre su dispositivo y la nube.
 
 Puede crear varias cuentas para un proveedor de servicios en la nube determinado. No obstante, tenga en cuenta que, después de crear una cuenta de almacenamiento, no puede cambiar el proveedor de servicios en la nube.
 
@@ -105,7 +105,7 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 2. En la lista tabular de cuentas de almacenamiento, desplace el ratón sobre la cuenta que desea eliminar.
 
-3. Aparecerá un icono de eliminación \(\*\*x\*\*\) en la columna de la derecha de todo para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
+3. Aparecerá un icono de eliminación (**x**) en la columna de la derecha de todo para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
 
 4. Cuando se le pida confirmación, haga clic en **Sí** para continuar con la eliminación. La lista tabular se actualizará para reflejar los cambios.
 
@@ -125,9 +125,9 @@ Las claves de la cuenta de almacenamiento siempre se almacenan en el servicio en
 
 ## Flujo de trabajo de rotación
 
-Un administrador de Microsoft Azure puede volver a generar o cambiar la clave principal o secundaria accediendo directamente a la cuenta de almacenamiento \(mediante el servicio de almacenamiento de Microsoft Azure\). El servicio de Administrador de StorSimple no verá este cambio automáticamente.
+Un administrador de Microsoft Azure puede volver a generar o cambiar la clave principal o secundaria accediendo directamente a la cuenta de almacenamiento (mediante el servicio de almacenamiento de Microsoft Azure). El servicio de Administrador de StorSimple no verá este cambio automáticamente.
 
-Para informar al servicio de Administrador de StorSimple del cambio, tendrá que acceder a dicho servicio, entrar en la cuenta de almacenamiento y sincronizar la clave principal o secundaria \(en función de cuál se haya cambiado\). A continuación, el servicio obtiene la clave más reciente, cifra las claves y envía la clave cifrada al dispositivo.
+Para informar al servicio de Administrador de StorSimple del cambio, tendrá que acceder a dicho servicio, entrar en la cuenta de almacenamiento y sincronizar la clave principal o secundaria (en función de cuál se haya cambiado). A continuación, el servicio obtiene la clave más reciente, cifra las claves y envía la clave cifrada al dispositivo.
 
 ### Para sincronizar las claves de cuentas de almacenamiento de la misma suscripción que el servicio
 
@@ -138,7 +138,7 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 3. En el cuadro de diálogo, haga lo siguiente:
 
   1. Seleccione la cuenta de almacenamiento con la clave que desea sincronizar. Las claves de la cuenta de almacenamiento se muestran cifradas.
-  2. En el servicio de Administrador de StorSimple, deberá actualizar la clave que se cambió anteriormente en el servicio de almacenamiento de Microsoft Azure. Si la clave de acceso principal se cambió \(se volvió a generar\), haga clic en **Sincronizar clave principal**. Si se cambió la clave secundaria, haga clic en **Sincronizar clave secundaria**.
+  2. En el servicio de Administrador de StorSimple, deberá actualizar la clave que se cambió anteriormente en el servicio de almacenamiento de Microsoft Azure. Si la clave de acceso principal se cambió (se volvió a generar), haga clic en **Sincronizar clave principal**. Si se cambió la clave secundaria, haga clic en **Sincronizar clave secundaria**.
 
     ![sincronizar claves](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 

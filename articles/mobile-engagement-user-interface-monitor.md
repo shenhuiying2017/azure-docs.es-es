@@ -44,7 +44,7 @@ Puede revisar la información de bloqueos sobre la aplicación desde Supervisió
 ![Monitor3][16]
 
 ## Supervisión - Alertas
-También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. \(Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles\). Las alertas se basan en un umbral de detección predefinido mayor que \(\>\) o menor que \(\<\) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico. También puede especificar una tasa de detección mínima, que es la cantidad mínima de tiempo que separa dos notificaciones para la misma alerta para asegurarse de que cuando se desencadene la alerta, nunca recibirá más de una notificación cada X minutos.
+También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. (Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles). Las alertas se basan en un umbral de detección predefinido mayor que (>) o menor que (<) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico. También puede especificar una tasa de detección mínima, que es la cantidad mínima de tiempo que separa dos notificaciones para la misma alerta para asegurarse de que cuando se desencadene la alerta, nunca recibirá más de una notificación cada X minutos.
  
 ![Monitor4][17]
 

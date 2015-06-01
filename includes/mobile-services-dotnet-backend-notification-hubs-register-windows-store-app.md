@@ -26,7 +26,7 @@
 
    Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 
-7. \(Opcional\) Repita los pasos 4 a 6 para también registrar el proyecto de la aplicación de la Tienda de Windows Phone de una aplicación universal de Windows.
+7. (Opcional) Repita los pasos 4 a 6 para también registrar el proyecto de la aplicación de la Tienda de Windows Phone de una aplicación universal de Windows.
 
 8. De nuevo en la página del Centro de desarrollo de Windows de su nueva aplicación, haga clic en **Servicios**.
 
@@ -36,7 +36,7 @@
 
 	![](./media/mobile-services-javascript-backend-register-windows-store-app/mobile-services-win8-edit2-app.png)
 
-10. Haga clic en **Autenticación del servicio** y anote los valores de **Secreto de cliente** e **Identificador de seguridad de paquete \(SID\)**.
+10. Haga clic en **Autenticación del servicio** y anote los valores de **Secreto de cliente** e **Identificador de seguridad de paquete (SID)**.
 
    ![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 

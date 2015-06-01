@@ -32,7 +32,7 @@ Desde la escala de tiempo de Información general, haga clic en los gráficos Us
 ![](./media/appinsights/appinsights-d018-oview.png)
 
 * A los **usuarios** se les realiza un seguimiento de forma anónima, por lo que se contaría dos veces al mismo usuario en diferentes dispositivos.
-* Una **sesión** se cuenta cuando se suspende la aplicación \(durante más de un intervalo breve, para evitar el recuento de suspensiones accidentales\).
+* Una **sesión** se cuenta cuando se suspende la aplicación (durante más de un intervalo breve, para evitar el recuento de suspensiones accidentales).
 
 #### Segmentación
 

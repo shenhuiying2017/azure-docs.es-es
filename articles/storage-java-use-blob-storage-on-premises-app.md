@@ -53,8 +53,8 @@ Declare una clase llamada **StorageSample** e incluya el corchete de apertura
 
     public class StorageSample {
 
-Dentro de la clase **StorageSample**, declare una variable de cadena que contendrá el protocolo de extremo predeterminado, el nombre de la cuenta de almacenamiento y su clave de acceso al almacenamiento, según lo especificado en su cuenta de almacenamiento de Azure. Reemplace los valores de marcador de posición **your\_account\_name** y
-**your\_account\_key** con su propio nombre y clave de cuenta, respectivamente.
+Dentro de la clase **StorageSample**, declare una variable de cadena que contendrá el protocolo de extremo predeterminado, el nombre de la cuenta de almacenamiento y su clave de acceso al almacenamiento, según lo especificado en su cuenta de almacenamiento de Azure. Reemplace los valores de marcador de posición **your_account_name** y
+**your_account_key** con su propio nombre y clave de cuenta, respectivamente.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
@@ -211,8 +211,8 @@ Cierre **MakeHTMLPage** con la inserción de un corchete de cierre: **}**
 
 Cierre **StorageSample** mediante la inserción de un corchete de cierre: **}**
 
-El siguiente es el código completo de este ejemplo. Recuerde que debe modificar los valores de marcador de posición **your\_account\_name** y
-**your\_account\_key** para usar su nombre y clave de cuenta, respectivamente.
+El siguiente es el código completo de este ejemplo. Recuerde que debe modificar los valores de marcador de posición **your_account_name** y
+**your_account_key** para usar su nombre y clave de cuenta, respectivamente.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;

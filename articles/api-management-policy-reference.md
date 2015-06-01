@@ -319,7 +319,7 @@ se utiliza para pasar parámetros de consulta previstos por el servicio de back-
 | exists-action="override" | reemplaza el valor del parámetro, si está presente en la solicitud |
 | exists-action="skip"     | no hace nada si el parámetro está presente en la solicitud         |
 | exists-action="append"   | anexa el valor al parámetro de la solicitud existente              |
-| exists-action="delete"   | quita el parámetro de la solicitud\*                               |
+| exists-action="delete"   | quita el parámetro de la solicitud*                               |
 | value="value"            | establece el valor del parámetro en el elemento encerrado          |
 
 ## <a name="caching-policies"> </a> Directivas de almacenamiento en caché
@@ -410,9 +410,9 @@ el almacenamiento en caché de las respuestas reduce el ancho de banda y los req
 
 | Elemento/atributo                                 | Descripción                                                                                                                                                                                                                                                               |
 |---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| vary-by-developer="true | false"                  | Se establece en \*true\* para iniciar el almacenamiento en caché de las respuestas por clave de desarrollador; de manera predeterminada se establece en \*false\*                                                                                                         |
-| vary-by-developer-groups="true | false"           | Se establece en \*true\* para iniciar el almacenamiento en caché de las respuestas por rol de usuario; de manera predeterminada se establece en \*false\*                                                                                                                 |
-| downstream-caching-type="none | private | public" | \*none\* - no se permite el almacenamiento en caché de bajada; se establece de forma predeterminada | \*private\* - se permite el almacenamiento en caché privado de bajada | \*public\* - se permite el almacenamiento en caché de bajada privado y compartido.          |
+| vary-by-developer="true | false"                  | Se establece en *true* para iniciar el almacenamiento en caché de las respuestas por clave de desarrollador; de manera predeterminada se establece en *false*                                                                                                         |
+| vary-by-developer-groups="true | false"           | Se establece en *true* para iniciar el almacenamiento en caché de las respuestas por rol de usuario; de manera predeterminada se establece en *false*                                                                                                                 |
+| downstream-caching-type="none | private | public" | *none* - no se permite el almacenamiento en caché de bajada; se establece de forma predeterminada | *private* - se permite el almacenamiento en caché privado de bajada | *public* - se permite el almacenamiento en caché de bajada privado y compartido.          |
 | vary-by-header: "Accept"                          | Inicia el almacenamiento en caché de las respuestas por valor del encabezado `Accept`                                                                                                                                                                                     |
 | vary-by-header: Accept-Charset"                   | Inicia el almacenamiento en caché de las respuestas por valor del encabezado `Accept-Charset`                                                                                                                                                                             |
 | vary-by-header: "header name"                     | Inicia el almacenamiento en caché de las respuestas por valor del encabezado especificado, por ejemplo, `Accept | Accept-Charset | Accept-Encoding | Accept-Language | Authorization | Expect | From | Host | If-Match`                                                   |
@@ -557,7 +557,7 @@ se utiliza en la sección entrante y únicamente en los ámbitos *API* y *Operac
 
 | Atributo             | Descripción                                                                                                                      |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| <origin>\*</origin>  | Se permite cualquiera O una lista de uno o varios URI específicos                                                                |
+| <origin>*</origin>  | Se permite cualquiera O una lista de uno o varios URI específicos                                                                |
 | <origin>URI</origin> | El URI debe incluir un esquema, un host y un puerto. Si el puerto se omite, se asume el puerto 80 para http y el 443 para https. |
 
   [Directivas en Administración de API]: ../api-management-howto-policies

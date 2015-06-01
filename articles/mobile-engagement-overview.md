@@ -18,7 +18,7 @@
 
 #Información general de Azure Mobile Engagement
 
-Azure Mobile Engagement es una plataforma que se ofrece como SaaS \(software como servicio\) para interactuar con los usuarios. Está controlada por datos y permite segmentar a los usuarios de forma específica y en tiempo real, análisis de usuarios de aplicaciones y funcionalidad inteligente y acorde con el contexto de notificaciones de inserción y mensajería en la aplicación en todos los dispositivos conectados.
+Azure Mobile Engagement es una plataforma que se ofrece como SaaS (software como servicio) para interactuar con los usuarios. Está controlada por datos y permite segmentar a los usuarios de forma específica y en tiempo real, análisis de usuarios de aplicaciones y funcionalidad inteligente y acorde con el contexto de notificaciones de inserción y mensajería en la aplicación en todos los dispositivos conectados.
 
 ###Vídeo de información general
 > [AZURE.VIDEO azure-mobile-engagement-overview]
@@ -45,8 +45,8 @@ Desde siempre, Microsoft tiene un compromiso con la privacidad, que es una parte
 
 ###Pasos siguientes:
 
-[Tutoriales introductorios \(marketing\)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Tutoriales introductorios (marketing)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
-[Tutoriales introductorios \(desarrolladores\)](/documentation/services/mobile-engagement/)
+[Tutoriales introductorios (desarrolladores)](/documentation/services/mobile-engagement/)
 
 <!--HONumber=54-->

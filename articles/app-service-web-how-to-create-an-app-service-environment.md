@@ -18,14 +18,14 @@
 
 # Creación de un entorno del Servicio de aplicaciones #
 
-Los entornos del Servicio de aplicaciones \(ASE\) son una opción del servicio Premium del Servicio de aplicaciones de Azure que se encuentra actualmente en vista previa. Ofrece una capacidad de configuración mejorada que no está disponible en las marcas multiempresa. Para comprender mejor las capacidades ofrecidas por los entornos del Servicio de aplicaciones lea la [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
+Los entornos del Servicio de aplicaciones (ASE) son una opción del servicio Premium del Servicio de aplicaciones de Azure que se encuentra actualmente en vista previa. Ofrece una capacidad de configuración mejorada que no está disponible en las marcas multiempresa. Para comprender mejor las capacidades ofrecidas por los entornos del Servicio de aplicaciones lea la [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
 
 ### Información general ###
 
 La característica de ASE esencialmente implementa el Servicio de aplicaciones de Azure en la red virtual de un cliente. Para ello, el cliente necesita:
 
-- Una red virtual regional con 512 \(/23\) direcciones o más
-- Una subred en esta red virtual con 256 \(/ 24\) direcciones o más
+- Una red virtual regional con 512 (/23) direcciones o más
+- Una subred en esta red virtual con 256 (/ 24) direcciones o más
 
 Si aún no tiene una red virtual que desea usar para hospedar el entorno del Servicio de aplicaciones, puede crear una durante la creación del entorno del Servicio de aplicaciones.
 
@@ -33,12 +33,12 @@ Cada implementación de ASE es un servicio hospedado que Azure administra y mant
 
 ## Creación del entorno del Servicio de aplicaciones ##
 
-Hay dos maneras de obtener acceso a la IU de creación de ASE. Puede encontrarlo buscando ***entorno del Servicio de aplicaciones*** en Azure Marketplace o a través de Nuevo -\> Web + Móvil.
+Hay dos maneras de obtener acceso a la IU de creación de ASE. Puede encontrarlo buscando ***entorno del Servicio de aplicaciones*** en Azure Marketplace o a través de Nuevo -> Web + Móvil.
 
 ### Creación rápida ###
 Después de entrar en la IU de creación puede crear rápidamente un ASE simplemente escribiendo un nombre para la implementación. A su vez se creará una red virtual con 512 direcciones, una subred con 256 direcciones en esa red virtual y un entorno ASE con 2 servidores front-end y lo 2 trabajos en el grupo de trabajo 1. Asegúrese de seleccionar la ubicación donde desea que se encuentre el sistema y la suscripción en la que desee que esté. Las únicas cuentas que puede usar el ASE para hospedar contenido deben encontrarse en la suscripción utilizada para crearlo.
 
-El nombre especificado para el ASE se utilizará para las aplicaciones web creadas en el ASE. Si el nombre del ASE es appsvcenvdemo, el nombre de dominio sería .\*appsvcenvdemo.p.azurewebsites.net\*. Si creó una aplicación web llamada mytestapp, sería podría obtener acceso a ella a través de la dirección *mytestapp.appsvcenvdemo.p.azurewebsites.net*. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas en el nombre, el nombre de dominio será la versión en minúsculas total de ese nombre.
+El nombre especificado para el ASE se utilizará para las aplicaciones web creadas en el ASE. Si el nombre del ASE es appsvcenvdemo, el nombre de dominio sería .*appsvcenvdemo.p.azurewebsites.net*. Si creó una aplicación web llamada mytestapp, sería podría obtener acceso a ella a través de la dirección *mytestapp.appsvcenvdemo.p.azurewebsites.net*. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas en el nombre, el nombre de dominio será la versión en minúsculas total de ese nombre.
 
 
 ![][1]
@@ -64,7 +64,7 @@ Dentro de cualquier grupo de trabajo los requisitos de tolerancia a errores son 
 - Si el valor de X está comprendido entre 21 y 40, la cantidad de recursos de proceso utilizables que puede usar para cargas de trabajo es X-2
 - Si el valor de X está comprendido entre 41 y 53, la cantidad de recursos de proceso utilizables que puede usar para cargas de trabajo es X-3
 
-Además de ser capaz de administrar la cantidad de recursos de proceso que se pueden asignar a un grupo determinado, también tiene control sobre el tamaño. Con entornos del Servicio de aplicaciones puede elegir 4 tamaños diferentes \(etiqueta P1 a P4\). Para obtener detalles sobre los tamaños y sus precios, vea [Precios de Servicio de aplicaciones][AppServicePricing]. Los tamaños de los recursos de proceso P1 a P3 son los mismos que los que están disponibles en los entornos multiempresa. El recurso de proceso P4 proporciona 8 núcleos con 14 GB de RAM y solamente está disponible en un entorno del Servicio de aplicaciones.
+Además de ser capaz de administrar la cantidad de recursos de proceso que se pueden asignar a un grupo determinado, también tiene control sobre el tamaño. Con entornos del Servicio de aplicaciones puede elegir 4 tamaños diferentes (etiqueta P1 a P4). Para obtener detalles sobre los tamaños y sus precios, vea [Precios de Servicio de aplicaciones][AppServicePricing]. Los tamaños de los recursos de proceso P1 a P3 son los mismos que los que están disponibles en los entornos multiempresa. El recurso de proceso P4 proporciona 8 núcleos con 14 GB de RAM y solamente está disponible en un entorno del Servicio de aplicaciones.
 
 El precio de los entornos del Servicio de aplicaciones está en contra de los recursos de proceso asignados. Se paga por los recursos de proceso asignados a su entorno del Servicio de aplicaciones independientemente de si hospedan cargas de trabajo o no.
 
@@ -102,10 +102,10 @@ De forma predeterminada, un ASE viene con 1 dirección IP que está disponible p
 
 Después de la creación de ASE puede ajustar:
 
-- La cantidad de servidores front-end \(mínimo: 2\)
-- La cantidad de trabajos \(mínimo: 2\)
+- La cantidad de servidores front-end (mínimo: 2)
+- La cantidad de trabajos (mínimo: 2)
 - La cantidad de direcciones IP
-- Los tamaños de recursos de proceso usados por los servidores front-end o los trabajos \(el tamaño mínimo de front-end es P2\)
+- Los tamaños de recursos de proceso usados por los servidores front-end o los trabajos (el tamaño mínimo de front-end es P2)
 
 No puede cambiar:
 

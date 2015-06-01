@@ -255,11 +255,11 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
             await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, userTag);
 
             // apns
-            var alert = "{\"aps\":{\"alert\":\"Hello\"}}";
+            var alert = "{"aps":{"alert":"Hello"}}";
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(alert, userTag);
 
             // gcm
-            var notif = "{ \"data\" : {\"msg\":\"Hello\"}}";
+            var notif = "{ "data" : {"msg":"Hello"}}";
             await Notifications.Instance.Hub.SendGcmNativeNotificationAsync(notif, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);

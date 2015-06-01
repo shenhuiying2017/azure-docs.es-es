@@ -26,7 +26,7 @@ Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, para el q
 
 ##Acerca de los datos##
 
-Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos \(USGS\)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia, como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
+Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia, como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
 
 En esta aplicación, el programa **DataIndexer** compila y carga el índice usando una construcción [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx), y obtiene el conjunto de datos filtrado de USGS desde una base de datos SQL pública de Azure. En el código del programa se proporcionan las credenciales y la información de conexión al origen de datos en línea. No es necesario realizar ninguna otra configuración.
 
@@ -36,7 +36,7 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
-2. En la barra de salto, haga clic en **Nuevo** \| **Datos + Almacenamiento** \| **Búsqueda**.
+2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
  
      ![][1]
 
@@ -78,14 +78,14 @@ Después de crear el servicio, puede volver al portal para obtener la dirección
 
 Esta solución incluirá dos proyectos:
 
-- **DataIndexer**, una aplicación de consola de Visual C\# que se usa para cargar datos
-- **SimpleSearchMVCApp**, una aplicación web ASP.NET MVC de Visual C\# que se usa para consultar y devolver resultados de búsqueda. 
+- **DataIndexer**, una aplicación de consola de Visual C# que se usa para cargar datos
+- **SimpleSearchMVCApp**, una aplicación web ASP.NET MVC de Visual C# que se usa para consultar y devolver resultados de búsqueda. 
 
 En este paso, creará ambos proyectos.
 
-1. Inicie **Visual Studio** \| **Nuevo proyecto** \| **Visual C\#** \| **Aplicación de consola**. 
+1. Inicie **Visual Studio** | **Nuevo proyecto** | **Visual C#** | **Aplicación de consola**. 
 2. Asigne el nombre **DataIndexer** al proyecto y, después, asigne el nombre **AzureSearchDotNetDemo** a la solución.
-3. En el Explorador de soluciones, en la solución, haga clic con el botón derecho en **Agregar** \| **Nuevo proyecto** \| **Visual C\#** \| **Aplicación web ASP.NET**. 
+3. En el Explorador de soluciones, en la solución, haga clic con el botón derecho en **Agregar** | **Nuevo proyecto** | **Visual C#** | **Aplicación web ASP.NET**. 
 4. Asigne el nombre **SimpleSearchMVCApp** al proyecto.
 5. En el nuevo proyecto de ASP.NET, elija la plantilla MVC y desactive las opciones para evitar crear artefactos de programa que no va a usar en este tutorial. 
 
@@ -100,7 +100,7 @@ Cuando haya terminado de crear los proyectos, la solución tendrá un aspecto si
 ##Instalar la biblioteca de cliente .NET y actualizar otros paquetes
 
 1. Haga clic con el botón secundario en **Administrar paquetes de NuGet** en la solución, en el Explorador de soluciones. 
-2. Especifique **Actualizaciones** \| **Solo estable** \| **Actualizar todo**.
+2. Especifique **Actualizaciones** | **Solo estable** | **Actualizar todo**.
 
    ![][11]
 
@@ -108,7 +108,7 @@ Cuando haya terminado de crear los proyectos, la solución tendrá un aspecto si
 
 4. Después, instale la biblioteca de cliente .NET para Búsqueda de Azure. Asegúrese de especificar la búsqueda correctamente o no encontrará fácilmente el paquete. Haga clic con el botón secundario en **Administrar paquetes de NuGet** nuevamente.
 
-5. Especifique **En línea** \| **nuget.org** \| **Incluir versión preliminar** y, después, busque *azure.search* e instale la biblioteca.
+5. Especifique **En línea** | **nuget.org** | **Incluir versión preliminar** y, después, busque *azure.search* e instale la biblioteca.
 
    ![][12]
 
@@ -120,7 +120,7 @@ A continuación se muestra una lista parcial de los ensamblados usados en este e
 
 **DataIndexer** usa **System.Configuration** para leer los valores de configuración de app.config.
 
-1. Haga clic en **DataIndexer** \| **Agregar** \| **Referencia** \| **Framework** \| **System.Configuration**. Active la casilla. 
+1. Haga clic en **DataIndexer** | **Agregar** | **Referencia** | **Framework** | **System.Configuration**. Active la casilla. 
 2. Haga clic en **Aceptar**.
 
 ##Actualizar los archivos de configuración
@@ -268,7 +268,7 @@ Cada proyecto incluye archivos de configuración que especifican el nombre del s
 
 ##Modificar DataIndexer
 
-Este programa es una aplicación de consola que se conecta con el servicio de búsqueda \(tal y como se especifica en app.config\), crea el índice y, después, lo carga con el conjunto de datos de USGS almacenado en una Base de datos SQL de Azure.
+Este programa es una aplicación de consola que se conecta con el servicio de búsqueda (tal y como se especifica en app.config), crea el índice y, después, lo carga con el conjunto de datos de USGS almacenado en una Base de datos SQL de Azure.
 
 Actualmente, la versión preliminar de la biblioteca cliente no admite indizadores, por lo que vamos a usar la API de REST para crear y usar un indizador en esta parte del tutorial.
 
@@ -282,7 +282,7 @@ Antes de ejecutar este programa, hará dos modificaciones:
 
 El código que llama a la API de REST debe incluir una clase que controla las conexiones y la serialización y deserialización de las solicitudes y respuestas JSON. En los ejemplos proporcionados con Búsqueda de Azure, esta clase normalmente se llama **AzureSearchHelper.cs**. Puede crear esta clase y agregarla a **DataIndexer**, usando el código siguiente.
 
-1. En el Explorador de soluciones, haga clic con el botón secundario en **DataIndexer** \| **Agregar** \| **Nuevo elemento** \| **Código** \| **Clase**.
+1. En el Explorador de soluciones, haga clic con el botón secundario en **DataIndexer** | **Agregar** | **Nuevo elemento** | **Código** | **Clase**.
 2. Asigne el nombre **AzureSearchHelper** a la clase.
 3. Reemplace el código predeterminado por el siguiente.
 
@@ -368,7 +368,7 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 
 ###Actualizar Program.cs
 
-1. En el Explorador de soluciones, abra **DataIndexer** \| **Program.cs**
+1. En el Explorador de soluciones, abra **DataIndexer** | **Program.cs**
 2. Reemplace el contenido de Program.cs por el código siguiente.
 
 		using Microsoft.Azure;
@@ -692,7 +692,7 @@ Reemplace el código predeterminado por el siguiente.
 
 Agregue una clase que proporcione la funcionalidad de búsqueda a la aplicación.
 
-1. En el Explorador de soluciones, haga clic en **SimpleSearchMVCApp** \| **Agregar ** \| **Nuevo elemento** \| **Código** \| **Clase**.
+1. En el Explorador de soluciones, haga clic en **SimpleSearchMVCApp** | **Agregar ** | **Nuevo elemento** | **Código** | **Clase**.
 2. Asigne el nombre **FeaturesSearch** a la clase.
 3. Reemplace el código predeterminado por el siguiente.
 
@@ -760,7 +760,7 @@ Al compilar y ejecutar este programa, en el explorador predeterminado verá una 
 
 ###Buscar en los datos de USGS
 
-El conjunto de datos de USGS incluye los registros que son relevantes para el estado de Rhode Island. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas \(es el valor predeterminado\).
+El conjunto de datos de USGS incluye los registros que son relevantes para el estado de Rhode Island. Si hace clic en **Search** en un cuadro de búsqueda vacío, obtendrá las 50 primeras entradas (es el valor predeterminado).
 
 Al escribir un término de búsqueda se proporcionan al motor de búsqueda criterios para delimitar la búsqueda. Pruebe a escribir un nombre regional. *Roger Williams* fue el primer gobernador de Rhode Island. Hay numerosos parques, edificios y escuelas que llevan su nombre.
 
@@ -776,7 +776,7 @@ También puede probar estas consultas, agregando o quitando frases u operadores 
 
 Este es el primer tutorial de Búsqueda de Azure basado en .NET y en el conjunto de datos de USGS. Con el tiempo, ampliaremos este tutorial para mostrar otras características de búsqueda que podría querer usar en sus soluciones personalizadas.
 
-Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias \(escritura automática o autocompletar consultas\), filtros y navegación por facetas. También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
+Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
 
 ¿Es la primera vez que usa Búsqueda de Azure? Le recomendamos que pruebe otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. También puede ver los vínculos en nuestra [lista de vídeos y tutoriales](https://msdn.microsoft.com/library/azure/dn798933.aspx) para obtener acceso a más información.
 

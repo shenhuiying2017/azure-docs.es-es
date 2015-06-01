@@ -6,7 +6,7 @@
 
 	![Navegue a Desde la galería en la barra de comandos](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 	
-4. La primera pantalla le permite **Elegir una imagen** para la máquina virtual de una de las listas de la Galería de imágenes. \(Las imágenes disponibles pueden ser diferentes según la suscripción que esté usando\). Haga clic en la flecha para continuar.
+4. La primera pantalla le permite **Elegir una imagen** para la máquina virtual de una de las listas de la Galería de imágenes. (Las imágenes disponibles pueden ser diferentes según la suscripción que esté usando). Haga clic en la flecha para continuar.
 
 	![Elija una imagen](./media/virtual-machines-create-WindowsVM/chooseimage.png)
 
@@ -23,13 +23,13 @@
 6. La tercera pantalla permite configurar los recursos relacionados con las redes, el almacenamiento y la disponibilidad. A continuación, se ofrecen algunos datos para ayudarle a rellenarlos: 
 	
 
-	- The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](../articles/cloud-services-connect-virtual-machine.md).
+	- **Nombre DNS de servicio en la nube** es el nombre DNS global que forma parte del URI que se usa para establecer contacto con la máquina virtual. Tendrá que proponer su propio nombre de servicio en la nube porque debe ser único en Azure. Los servicios en la nube tienen importancia en los escenarios que usan [varias máquinas virtuales](../articles/cloud-services-connect-virtual-machine.md).
  
-	- For **Region/Affinity Group/Virtual Network**, use a region that's appropriate to your location. You can also choose to specify a virtual network instead.
+	- En **Región/grupo de afinidad/red virtual**, use una región que sea adecuada para su ubicación. También puede optar por especificar una red virtual en su lugar.
  
-	>[AZURE.NOTE] If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+	>[AZURE.NOTE] Si desea que una máquina virtual use una red virtual, **debe** especificar la red virtual cuando cree la máquina virtual. No puede incorporar una máquina virtual a una red virtual después de crear la VM. Para obtener más información, consulte [Información general sobre redes virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-	- For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines-set-up-endpoints-classic-portal.md).
+	- Para obtener información detallada sobre la configuración de extremos, consulte [Configuración de extremos en una máquina virtual](../articles/virtual-machines-set-up-endpoints-classic-portal.md).
 
 	![Configure the connected resources of the virtual machine](./media/virtual-machines-create-WindowsVM/resourceconfiguration.png)
 
@@ -38,7 +38,7 @@
 
 	![Configure VM Agent and extensions for the virtual machine](./media/virtual-machines-create-WindowsVM/agent-and-extensions.png)
 
-	>[AZURE.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).  
+	>[AZURE.NOTE] El agente de máquina virtual proporciona el entorno para que pueda instalar las extensiones que pueden ayudarle a interactuar con la máquina virtual o a administrarla. Para conocer los detalles, consulte [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).  
     
 8. Una vez creada la máquina virtual, en el portal clásico se muestra la nueva máquina virtual en **Máquinas virtuales**. También se crean el servicio en la nube y la cuenta de almacenamiento correspondientes y se muestran en dichas secciones. La máquina virtual y el servicio en la nube se inician automáticamente, y su estado aparece como **En ejecución**. 
 

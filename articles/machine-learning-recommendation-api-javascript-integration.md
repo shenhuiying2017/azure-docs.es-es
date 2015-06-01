@@ -53,7 +53,7 @@ En la segunda fase, si desea mostrar las recomendaciones en la página, seleccio
 2. Codifique su &lt;dataMarketUser&gt;:&lt;dataMarketKey&gt; con base64. (Esto se utilizará para la autenticación básica para permitir que el código JS llame a las API).
 
 
-##3\. Envíe eventos de adquisición de datos con JavaScript.
+##3. Envíe eventos de adquisición de datos con JavaScript.
 Los siguientes pasos permiten enviar eventos:
 
 1.	Incluya la biblioteca de JQuery en su código. Puede descargarlo desde nuget en la siguiente dirección URL.

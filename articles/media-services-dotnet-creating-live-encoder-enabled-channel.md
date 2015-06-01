@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits \(vista previa\)
+#Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)
 
 ##Información general
 
@@ -29,7 +29,7 @@ Este tutorial le guía por los pasos para crear un **canal** que reciba una secu
 
 Los pasos siguientes describen las tareas para crear aplicaciones comunes de streaming en vivo.
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP \(MPEG-TS\). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	Este paso también puede realizarse después de crear el canal.
 
@@ -47,7 +47,7 @@ Los pasos siguientes describen las tareas para crear aplicaciones comunes de str
 	
 	1. 	Cree una clave de contenido. 
 	1. 	Configure la directiva de autorización de claves de contenido.
-1. Configure la directiva de entrega de recursos \(usada por el empaquetado y el cifrado dinámicos\).
+1. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
 3. Cree un programa y especifique que se use el recurso que ha creado.
 1. Publique el recurso asociado al programa mediante la creación de un localizador a petición.  
 
@@ -55,7 +55,7 @@ Los pasos siguientes describen las tareas para crear aplicaciones comunes de str
 1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
 2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-1. Elimine el programa \(y, opcionalmente, elimine el recurso\).   
+1. Elimine el programa (y, opcionalmente, elimine el recurso).   
 
 ##En este tema
 
@@ -64,7 +64,7 @@ Este tema muestra cómo ejecutar distintas operaciones en los canales y programa
 En el tema se muestra cómo:
 
 1. Crear e iniciar un canal. Se usan las API de ejecución prolongada.
-1. Obtener el extremo de ingesta \(entrada\) de los canales. Este extremo debe proporcionarse al codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
+1. Obtener el extremo de ingesta (entrada) de los canales. Este extremo debe proporcionarse al codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
 1. Obtener el extremo de vista previa. Este extremo se usa para obtener una vista previa de la secuencia. 
 1. Crear un recurso que se usará para almacenar el contenido. También deben configurarse las directivas de entrega de recursos, como se muestra en este ejemplo.
 1. Crear un programa y especificar que se use el recurso creado anteriormente. Iniciar el programa. Se usan las API de ejecución prolongada.

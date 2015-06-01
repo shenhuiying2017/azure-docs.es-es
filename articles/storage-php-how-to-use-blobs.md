@@ -135,7 +135,7 @@ Un objeto **BlobRestProxy** le permiten crear un contenedor de blobs mediante el
 		echo $code.": ".$error_message."<br />";
 	}
 
-Si llama a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**, los datos del contenedor y los blobs pasan a ser accesibles mediante solicitudes anónimas. Si llama a **setPublicAccess(PublicAccessType::BLOBS_ONLY)**, solo los datos de los blobs pasan a ser accesibles mediante solicitudes anónimas. Para obtener más información acerca de las ACL del contenedor, consulte [Definición de ACL del contenedor (API de REST)][container-acl].
+Si llama a **setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS)**, los datos del contenedor y los blobs pasan a ser accesibles mediante solicitudes anónimas. Si llama a **setPublicAccess(PublicAccessType::BLOBS_ONLY)**, solo los datos de los blobs pasan a ser accesibles mediante solicitudes anónimas. Para obtener más información acerca de las ACL del contenedor, consulte [Definición de ACL del contenedor (API de REST)][container-acl].
 
 Para obtener más información acerca de los códigos de error del servicio de blobs, consulte [Códigos de error del servicio de blobs][error-codes].
 
@@ -168,7 +168,7 @@ Para cargar un archivo en forma de blob, utilice el método **BlobRestProxy->cre
 		echo $code.": ".$error_message."<br />";
 	}
 
-Observe que en el ejemplo anterior se carga un blob en forma de secuencia. Sin embargo, también es posible cargar un blob en forma de cadena utilizando, por ejemplo, la función [file\_get\_contents][file_get_contents]. Para hacerlo, cambie "$content = fopen("c:\myfile.txt", "r");" en el ejemplo anterior por "$content = file_get_contents("c:\myfile.txt");".
+Observe que en el ejemplo anterior se carga un blob en forma de secuencia. Sin embargo, también es posible cargar un blob en forma de cadena utilizando, por ejemplo, la función [file_get_contents][file_get_contents]. Para hacerlo, cambie "$content = fopen("c:\myfile.txt", "r");" en el ejemplo anterior por "$content = file_get_contents("c:\myfile.txt");".
 
 ## Procedimientos: Enumeración de los blobs de un contenedor
 
@@ -230,7 +230,7 @@ Para descargar un blob, llame al método **BlobRestProxy->getBlob** y, a continu
 		echo $code.": ".$error_message."<br />";
 	}
 
-Observe que en el ejemplo anterior se obtiene un blob en forma de recurso de secuencia (opción predeterminada). Sin embargo, es posible utilizar la función [stream\_get\_contents][stream-get-contents] para convertir la secuencia en una cadena.
+Observe que en el ejemplo anterior se obtiene un blob en forma de recurso de secuencia (opción predeterminada). Sin embargo, es posible utilizar la función [stream_get_contents][stream-get-contents] para convertir la secuencia en una cadena.
 
 ## Procedimientos: Eliminación de un blob
 

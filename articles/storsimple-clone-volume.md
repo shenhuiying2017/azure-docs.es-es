@@ -49,7 +49,7 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
 
 5. En **Especificar los hosts que pueden usar este volumen**:
 
-  1. Especifique un registro de control de acceso \(ACR\) para el clon. Puede agregar un ACR nuevo o elegir uno de la lista.
+  1. Especifique un registro de control de acceso (ACR) para el clon. Puede agregar un ACR nuevo o elegir uno de la lista.
   2. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-clone-volume/HCS_CheckIcon.png) para completar la operación.
 
 6. Se iniciará un trabajo de clonación y se le notificará cuando se haya creado correctamente el clon. Haga clic en **Ver trabajo** para supervisar el trabajo de clonación en la página **Trabajos**.

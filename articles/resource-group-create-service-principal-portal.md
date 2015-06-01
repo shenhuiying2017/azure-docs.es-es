@@ -24,7 +24,7 @@ Una entidad de servicio es un proceso, aplicación o servicio automatizado que n
 En este tema se muestra cómo crear a una nueva entidad de servicio mediante el portal de Azure. Actualmente, debe usar el portal de Microsoft Azure para crear una nueva entidad de servicio. Esta capacidad se agregará al portal de vista previa de Azure en una versión posterior.
 
 ## Conceptos
-1. Azure Active Directory \(AAD\): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](./active-directory-whatis/)
+1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso creado para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](./active-directory-whatis/)
 2. Entidad de servicio: una instancia de una aplicación en un directorio.
 3. Aplicación de AD: un registro de directorio en AAD que identifica una aplicación en AAD. Para obtener más información, consulte [Conceptos básicos sobre autenticación en Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 

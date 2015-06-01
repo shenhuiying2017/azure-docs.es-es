@@ -123,7 +123,7 @@ espacio de nombres.
 ## Creación de una aplicación Java que realiza una tarea de proceso intensivo
 
 1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://www.windowsazure.com/develop/java/).
-2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
+2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your_service_bus_namespace**, **your_service_bus_owner** y **your_service_bus_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
 3. Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPSolver.jar** como el nombre JAR generado.
 
 <p/>
@@ -313,7 +313,7 @@ espacio de nombres.
 
 ## Creación de una aplicación Java que supervisa el progreso de la tarea de proceso intensivo
 
-1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior, modifique los marcadores de posición**your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
+1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior, modifique los marcadores de posición**your_service_bus_namespace**, **your_service_bus_owner** y **your_service_bus_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
 2. Exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPClient.jar** como el nombre JAR generado.
 
 <p/>

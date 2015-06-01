@@ -36,7 +36,7 @@ Para ello, deberá instalar la biblioteca de cliente de almacenamiento de Azure 
 Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, puede usar los métodos siguientes:
 
 -	**Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
--	**Windows:** en Visual Studio, haga clic en **Herramientas \> Administrador de paquetes de NuGet \> Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.  
+-	**Windows:** en Visual Studio, haga clic en **Herramientas > Administrador de paquetes de NuGet > Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.  
 
 		Install-Package wastorage -Pre
 
@@ -62,12 +62,12 @@ Para iniciar el emulador de almacenamiento de Azure, seleccione el botón **Inic
 En los ejemplos siguientes se supone que usó uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
 ## Recuperación de la cadena de conexión
-Puede usar la clase **cloud\_storage\_account** para representar la información de la cuenta de almacenamiento. Para recuperar la información de la cuenta de almacenamiento a partir de la cadena de conexión de almacenamiento, puede usar el método **parse**.
+Puede usar la clase **cloud_storage_account** para representar la información de la cuenta de almacenamiento. Para recuperar la información de la cuenta de almacenamiento a partir de la cadena de conexión de almacenamiento, puede usar el método **parse**.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-A continuación, obtenga una referencia a una clase **cloud\_blob\_client**, ya que le permite recuperar objetos que representan contenedores y blobs almacenados en el servicio de almacenamiento de blobs. El código siguiente crea un objeto **cloud\_blob\_client** usando el objeto de cuenta de almacenamiento recuperado anteriormente:
+A continuación, obtenga una referencia a una clase **cloud_blob_client**, ya que le permite recuperar objetos que representan contenedores y blobs almacenados en el servicio de almacenamiento de blobs. El código siguiente crea un objeto **cloud_blob_client** usando el objeto de cuenta de almacenamiento recuperado anteriormente:
 
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
@@ -93,7 +93,7 @@ Cada blob del almacenamiento de Azure debe residir en un contenedor. En este eje
 	{
 	std::wcout << U("Error: ") << e.what() << std::endl;
 	}  
-De manera predeterminada, el nuevo contenedor es privado y debe especificar su clave de acceso de almacenamiento para descargar blobs de él. Si desea poner los archivos \(blobs\) del contenedor a disposición de todo el mundo, puede convertir el contenedor en público usando el código siguiente:
+De manera predeterminada, el nuevo contenedor es privado y debe especificar su clave de acceso de almacenamiento para descargar blobs de él. Si desea poner los archivos (blobs) del contenedor a disposición de todo el mundo, puede convertir el contenedor en público usando el código siguiente:
 
 	// Make the blob container publicly accessible.
 	azure::storage::blob_container_permissions permissions;
@@ -105,7 +105,7 @@ Cualquier usuario de Internet puede ver los blobs de los contenedores públicos,
 ## Cómo cargar un blob en un contenedor
 El almacenamiento de blobs de Azure admite blobs en bloques y en páginas. En la mayoría de los casos, se recomienda usar blobs en bloques.
 
-Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y úsela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier flujo de datos en ella llamando al método **upload\_from\_stream**. De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía. En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
+Para cargar un archivo en un blob en bloques, obtenga una referencia de contenedor y úsela para obtener una referencia de blob en bloques. Una vez que disponga de la referencia de blob, puede cargar cualquier flujo de datos en ella llamando al método **upload_from_stream**. De este modo, se creará el blob si no existía anteriormente, o bien se sobrescribirá si ya existía. En el siguiente ejemplo se muestra cómo cargar un blob en un contenedor creado anteriormente.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -133,10 +133,10 @@ Para cargar un archivo en un blob en bloques, obtenga una referencia de contened
 	azure::storage::cloud_block_blob blob3 = container.get_block_blob_reference(U("my-directory/my-sub-directory/my-blob-3"));
 	blob3.upload_text(U("other text"));  
 
-Como alternativa, puede usar el método **upload\_from\_file** para cargar un archivo en un blob en bloques.
+Como alternativa, puede usar el método **upload_from_file** para cargar un archivo en un blob en bloques.
 
 ## Cómo enumerar los blobs en un contenedor
-Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, puede usar el método **list\_blobs\_segmented** del contenedor para recuperar los blobs y los directorios que contiene. Para obtener acceso a las numerosas propiedades y métodos de un **blob\_result\_segment** devuelto, debe llamar a la propiedad **blob\_result\_segment.blobs** para obtener un objeto **cloud\_blob**, o bien a la propiedad **blob\_result\_segment.directories** para obtener un objeto cloud\_blob\_directory. El código siguiente muestra cómo recuperar y consultar el URI de cada elemento del contenedor**my-sample-container**:
+Para enumerar los blobs de un contenedor, primero obtenga una referencia de contenedor. A continuación, puede usar el método **list_blobs_segmented** del contenedor para recuperar los blobs y los directorios que contiene. Para obtener acceso a las numerosas propiedades y métodos de un **blob_result_segment** devuelto, debe llamar a la propiedad **blob_result_segment.blobs** para obtener un objeto **cloud_blob**, o bien a la propiedad **blob_result_segment.directories** para obtener un objeto cloud_blob_directory. El código siguiente muestra cómo recuperar y consultar el URI de cada elemento del contenedor**my-sample-container**:
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -151,17 +151,17 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
 	azure::storage::continuation_token token;
 	do
 	{
-	 azure::storage::blob\_result\_segment result = container.list\_blobs\_segmented\(token\); std::vector\<azure::storage::cloud\_blob\> blobs = result.blobs\(\);
+	 azure::storage::blob_result_segment result = container.list_blobs_segmented(token); std::vector<azure::storage::cloud_blob> blobs = result.blobs();
 	
-	for \(std::vector\<azure::storage::cloud\_blob\>::const\_iterator it = blobs.cbegin\(\); it != blobs.cend\(\); ++it\) { std::wcout \<\< U\("Blob: "\) \<< it->uri\(\).primary\_uri\(\).to\_string\(\) \<\< std::endl; }
+	for (std::vector<azure::storage::cloud_blob>::const_iterator it = blobs.cbegin(); it != blobs.cend(); ++it) { std::wcout << U("Blob: ") << it->uri().primary_uri().to_string() << std::endl; }
 	
-	std::vector\<azure::storage::cloud\_blob\_directory\> directories = result.directories\(\);
+	std::vector<azure::storage::cloud_blob_directory> directories = result.directories();
 	
-	for \(std::vector\<azure::storage::cloud\_blob\_directory\>::const\_iterator it = directories.cbegin\(\); it != directories.cend\(\); ++it\) { std::wcout \<\< U\("Directory: "\) \<< it->uri\(\).primary\_uri\(\).to\_string\(\) \<\< std::endl; } token = result.continuation\_token\(\); } while \(!token.empty\(\)\);
+	for (std::vector<azure::storage::cloud_blob_directory>::const_iterator it = directories.cbegin(); it != directories.cend(); ++it) { std::wcout << U("Directory: ") << it->uri().primary_uri().to_string() << std::endl; } token = result.continuation_token(); } while (!token.empty());
 
 
 ## Cómo descargar blobs
-Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **download\_to\_stream**. En el siguiente ejemplo, se usa el método **download\_to\_stream** para transferir el contenido del blob a un objeto de flujo que, a continuación, puede guardar en un archivo local.
+Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **download_to_stream**. En el siguiente ejemplo, se usa el método **download_to_stream** para transferir el contenido del blob a un objeto de flujo que, a continuación, puede guardar en un archivo local.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -186,7 +186,7 @@ Para descargar blobs, primero recupere una referencia de blob y, a continuación
 	outfile.write((char *)&data[0], buffer.size());
 	outfile.close();  
 
-Como alternativa, puede usar el método **download\_to\_file** para descargar el contenido de un blob en un archivo. También puede usar el método **download\_text** para descargar el contenido de un blob en forma de cadena de texto.
+Como alternativa, puede usar el método **download_to_file** para descargar el contenido de un blob en un archivo. También puede usar el método **download_text** para descargar el contenido de un blob en forma de cadena de texto.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -204,7 +204,7 @@ Como alternativa, puede usar el método **download\_to\_file** para descargar el
 	utility::string_t text = text_blob.download_text();
 
 ## Cómo eliminar blobs
-Para eliminar un blob, primero obtenga una referencia de blob y, a continuación, llame al método **delete\_blob** en ella.
+Para eliminar un blob, primero obtenga una referencia de blob y, a continuación, llame al método **delete_blob** en ella.
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);

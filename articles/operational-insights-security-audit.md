@@ -34,7 +34,7 @@ En este artículo, aprenderá lo siguiente:
 3. En la página **Auditoría y seguridad**, revise la información de la hoja **PROBLEMAS IMPORTANTES**. En la imagen del ejemplo, verá seis problemas importantes para hoy y dos de ayer. En este ejemplo, hay un ejecutable sospechoso. Haga clic en **Ejecutables sospechosos** en la hoja **PROBLEMAS IMPORTANTES**. ![Imagen de la página Seguridad y auditoría](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. Búsqueda muestra la consulta y los resultados de los ejecutables sospechosos en los que hizo clic. En el ejemplo, hay un resultado y se muestra el hash del archivo. Haga clic en el id. de **FILEHASH**. ![Imagen del filehash de Resultados de búsqueda](./media/operational-insights-security-audit/sec-audit-search01.png) 
 5. Búsqueda muestra información adicional sobre el archivo ejecutable, incluido su nombre de proceso y la ruta del archivo. Haga clic en **Procesar & lt; Nombre de archivo&gt;**. En el ejemplo, es HEXEDIT.EXE. ![Imagen del proceso de Resultados de búsqueda](./media/operational-insights-security-audit/sec-audit-search02.png) 
-6. Búsqueda anexa el nombre del proceso entre comillas a la consulta. "\*\*HEXEDIT.EXE"\*\*, en este ejemplo. ![Imagen de la Consulta de búsqueda](./media/operational-insights-security-audit/sec-audit-search03.png)
+6. Búsqueda anexa el nombre del proceso entre comillas a la consulta. "**HEXEDIT.EXE"**, en este ejemplo. ![Imagen de la Consulta de búsqueda](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. En el cuadro Consulta de búsqueda, elimine todo excepto el nombre del proceso y las comillas y, luego, haga clic en el icono Buscar. ![Imagen de la información de búsqueda detallada](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Búsqueda muestra información detallada acerca del proceso, incluidos los equipos donde ejecutó el proceso, la cuenta de usuario que ha ejecutado el proceso, y la fecha y hora en que se creó un evento para el proceso.
 9. Con la información que encuentre, puede adoptar medidas correctivas según sea necesario. Por ejemplo, si determina que el ejecutable es software malintencionado, entonces deberá tomar medidas para quitarlo de todos los sistemas informáticos a los que afecta. Una vez eliminado el archivo ejecutable y cuando Visión operativa recibe eventos de registro y auditoría actualizados de los sistemas informáticos, los valores en la hoja PROBLEMAS IMPORTANTES cambiarán al día siguiente.
@@ -51,9 +51,9 @@ Sin embargo, si los usuarios tienen acceso a sus propios equipos o tienen acceso
 
 Para sacar el máximo provecho al módulo de inteligencia Seguridad y auditoría, debe configurar el nivel de eventos de auditoría recopilados por su entorno de Windows que más se ajuste a sus necesidades, mediante los siguientes recursos.
 
-- [Cómo configurar la directiva de seguridad](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx\)
+- [Cómo configurar la directiva de seguridad](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
-- [Configuración avanzada de la directiva de auditoría](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx\)
+- [Configuración avanzada de la directiva de auditoría](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
 
 - [Recomendaciones de la directiva de auditoría](https://technet.microsoft.com/library/dn487457.aspx)
 
@@ -91,7 +91,7 @@ Puede usar el módulo de inteligencia Seguridad y auditoría para recopilar dato
 
 **Usar Directiva de grupo para recopilar datos de auditoría**
 
-Los datos de auditoría que quiere recopilar y enviar a Visión operativa se administran en su totalidad con la Directiva de grupo. Se usa para definir las configuraciones de seguridad como parte de un objeto de directiva de grupo \(GPO\) que están vinculadas a contenedores de Active Directory como sitios, dominios y unidades organizativas, y ayudar a administrar la configuración de seguridad. Una vez registrados los datos de la directiva, estos se envían a la Vista operativa.
+Los datos de auditoría que quiere recopilar y enviar a Visión operativa se administran en su totalidad con la Directiva de grupo. Se usa para definir las configuraciones de seguridad como parte de un objeto de directiva de grupo (GPO) que están vinculadas a contenedores de Active Directory como sitios, dominios y unidades organizativas, y ayudar a administrar la configuración de seguridad. Una vez registrados los datos de la directiva, estos se envían a la Vista operativa.
 
 **Usar AppLocker para recopilar datos de auditoría**
 

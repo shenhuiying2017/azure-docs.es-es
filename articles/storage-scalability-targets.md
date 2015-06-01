@@ -24,7 +24,7 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 >[AZURE.IMPORTANT]Los objetivos de escalabilidad y rendimiento que mencionamos aquí son objetivos exigentes, pero se pueden lograr. En todos los casos, la velocidad de solicitudes y el ancho de banda obtenido por la cuenta de almacenamiento depende del tamaño de los objetos almacenados, de los patrones de acceso utilizados y del tipo de carga de trabajo que realiza la aplicación. Asegúrese de probar el servicio para determinar si el rendimiento se ajusta a sus requisitos. Si es posible, evite picos en la tasa de tráfico y asegúrese de que este se distribuya equitativamente entre las particiones.
 
->Cuando la aplicación alcanza el límite de lo que puede administrar una partición para la carga de trabajo, Almacenamiento de Azure comenzará a responder con el código de error 503 \(servidor ocupado\) o el código de error 500 \(tiempo de espera de operación\). Cuando esto ocurre, la aplicación debe utilizar una directiva de retroceso exponencial para los reintentos. El retroceso exponencial permite que disminuya la carga de la partición y evita los picos de tráfico en esa partición.
+>Cuando la aplicación alcanza el límite de lo que puede administrar una partición para la carga de trabajo, Almacenamiento de Azure comenzará a responder con el código de error 503 (servidor ocupado) o el código de error 500 (tiempo de espera de operación). Cuando esto ocurre, la aplicación debe utilizar una directiva de retroceso exponencial para los reintentos. El retroceso exponencial permite que disminuya la carga de la partición y evita los picos de tráfico en esa partición.
 
 Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Una sola suscripción de Azure permite 100 cuentas de almacenamiento. Consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/) para obtener información sobre los precios por volumen.
 
@@ -58,9 +58,9 @@ En la tabla siguiente se describen los objetivos de escalabilidad para las cuent
 </tr>
 </table>
 
-*Entrada se refiere a todos los datos \(solicitudes\) enviados a una cuenta de almacenamiento.
+*Entrada se refiere a todos los datos (solicitudes) enviados a una cuenta de almacenamiento.
 
-*Salida se refiere a todos los datos \(respuestas\) recibidos desde una cuenta de almacenamiento.
+*Salida se refiere a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
 
 ### Objetivos de escalabilidad para las cuentas de almacenamiento estándar en regiones de Europa y Asia
 
@@ -86,9 +86,9 @@ En la tabla siguiente se describen los objetivos de escalabilidad para las cuent
 </tr>
 </table>
 
-*Entrada se refiere a todos los datos \(solicitudes\) enviados a una cuenta de almacenamiento.
+*Entrada se refiere a todos los datos (solicitudes) enviados a una cuenta de almacenamiento.
 
-*Salida se refiere a todos los datos \(respuestas\) recibidos desde una cuenta de almacenamiento.
+*Salida se refiere a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
 
 ### Objetivos de escalabilidad para cuentas de Almacenamiento Premium
 
@@ -106,9 +106,9 @@ En la tabla siguiente se describen los objetivos de escalabilidad para las cuent
 <td>Hasta 50 gigabits por segundo de entrada y salida</td>
 </table>
 
-*Entrada se refiere a todos los datos \(solicitudes\) enviados a una cuenta de almacenamiento.
+*Entrada se refiere a todos los datos (solicitudes) enviados a una cuenta de almacenamiento.
 
-*Salida se refiere a todos los datos \(respuestas\) recibidos desde una cuenta de almacenamiento.
+*Salida se refiere a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
 
 Para obtener más información acerca de los discos de Almacenamiento Premium, consulte [Almacenamiento Premium: almacenamiento de alto rendimiento para cargas de trabajo de máquinas virtuales de Azure](storage-premium-storage-preview-portal.md).
 
@@ -128,7 +128,7 @@ En la tabla siguiente se describen los objetivos de rendimiento para una sola pa
 <td>Hasta 60 MB por segundo</td>
 </table>
 
-Cada objeto que contiene datos almacenados en Almacenamiento de Azure \(blobs, mensajes, entidades y archivos\) pertenece a una partición y se identifica mediante una clave de partición. La partición determina cómo Almacenamiento de Azure equilibra entre servidores la carga de blobs, mensajes, entidades y archivos para satisfacer las necesidades de tráfico de esos objetos. La clave de partición es única dentro de la cuenta de almacenamiento y se utiliza para ubicar un blob, un mensaje o una entidad.
+Cada objeto que contiene datos almacenados en Almacenamiento de Azure (blobs, mensajes, entidades y archivos) pertenece a una partición y se identifica mediante una clave de partición. La partición determina cómo Almacenamiento de Azure equilibra entre servidores la carga de blobs, mensajes, entidades y archivos para satisfacer las necesidades de tráfico de esos objetos. La clave de partición es única dentro de la cuenta de almacenamiento y se utiliza para ubicar un blob, un mensaje o una entidad.
 
 Para las tablas, todas las entidades con el mismo valor de clave de partición se agrupan en la misma partición y se almacenan en el mismo servidor de particiones. Se trata de un punto importante a tener en cuenta en el diseño de la aplicación. La aplicación debería equilibrar las ventajas de escalabilidad que supone propagar las entidades por varias particiones con las ventajas de acceso que supone agrupar las entidades en una sola partición. Una ventaja fundamental de la agrupación de entidades en las particiones es que permite realizar operaciones atómicas entre entidades de la misma partición, ya que la partición está en un solo servidor.
 

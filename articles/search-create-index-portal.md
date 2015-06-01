@@ -27,7 +27,7 @@ Para completar esta tarea, asegúrese de disponer de un servicio de Búsqueda de
 
 2. Abra el panel del servicio de Búsqueda de Azure. A continuación se presentan algunas formas de buscar el panel.
 	- En la barra de salto, haga clic en **Inicio**. La página principal dispone de iconos para cada servicio de su suscripción. Haga clic en el icono para abrir el panel de servicio.
-	- En la barra de salto, haga clic en **Examinar** \| **Filtrar por** \| **Servicios de búsqueda** para encontrar el servicio de búsqueda en la lista. 
+	- En la barra de salto, haga clic en **Examinar** | **Filtrar por** | **Servicios de búsqueda** para encontrar el servicio de búsqueda en la lista. 
 
 3. En el panel del servicio, verá una barra de comandos en la parte superior, incluso uno para **Agregar índice**.
 	
@@ -45,7 +45,7 @@ Para completar esta tarea, asegúrese de disponer de un servicio de Búsqueda de
 
 6. Haga clic en *hoteles* para abrir la hoja de la definición del índice.
 
-	Cuando se crea un índice en el portal, se crea un campo obligatorio \(Id.\) para usted. Este es el campo clave, usado para identificar de forma única cada documento. Hay solo un campo por clave \(no hay claves compuestas\) y siempre es una cadena.
+	Cuando se crea un índice en el portal, se crea un campo obligatorio (Id.) para usted. Este es el campo clave, usado para identificar de forma única cada documento. Hay solo un campo por clave (no hay claves compuestas) y siempre es una cadena.
 
 	Si desea cambiar el nombre del campo de clave, es importante que realice este paso ahora, durante la creación del índice. No podrá cambiar el nombre del campo después de crear el índice.
 
@@ -55,11 +55,11 @@ Para completar esta tarea, asegúrese de disponer de un servicio de Búsqueda de
 
 8. Reemplace *id* por *hotelId*.
 
-9. Haga clic en **Aceptar** en cada hoja \(campos e índice\) para crear el índice.
+9. Haga clic en **Aceptar** en cada hoja (campos e índice) para crear el índice.
 
 ##Agregar campos
 
-En la Búsqueda de Azure, los atributos de índice, como buscable, facetable y filtrable están habilitados de forma predeterminada. Normalmente, al establecer estos atributos, es habitualmente para desactivar los comportamientos de búsqueda que no tienen sentido \(por ejemplo, ordenar o hacer faceting en una descripción\).
+En la Búsqueda de Azure, los atributos de índice, como buscable, facetable y filtrable están habilitados de forma predeterminada. Normalmente, al establecer estos atributos, es habitualmente para desactivar los comportamientos de búsqueda que no tienen sentido (por ejemplo, ordenar o hacer faceting en una descripción).
 
 El portal es diferente. En el portal, los comportamientos de búsqueda están desactivados de forma predeterminada para que pueda seleccionar todos los comportamientos que se aplican en cada campo.
 

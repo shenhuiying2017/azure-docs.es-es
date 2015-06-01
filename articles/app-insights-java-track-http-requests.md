@@ -99,7 +99,7 @@ Ejecute la aplicación.
 
 Vuelva al recurso Application Insights en Microsoft Azure.
 
-Los datos de las solicitudes HTTP aparecerán en la hoja de información general. \(Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar\).
+Los datos de las solicitudes HTTP aparecerán en la hoja de información general. (Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar).
 
 ![](./media/app-insights-java-track-http-requests/5-results.png)
  

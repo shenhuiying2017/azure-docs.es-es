@@ -1,4 +1,4 @@
-<properties pageTitle="Creación de una copia de seguridad manual" description="Se explica cómo iniciar un trabajo de copia de seguridad manual a petición." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" editor="tysonn" \> 
+<properties pageTitle="Creación de una copia de seguridad manual" description="Se explica cómo iniciar un trabajo de copia de seguridad manual a petición." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" editor="tysonn" > 
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -20,7 +20,7 @@
  
     Esto iniciará un trabajo para crear una instantánea. Verá una notificación en la parte inferior de la página después de que el trabajo se cree correctamente.
 
-4. Para supervisar el trabajo, haga clic en **Ver trabajo** en el área de notificación \(en la parte inferior de la página\).
+4. Para supervisar el trabajo, haga clic en **Ver trabajo** en el área de notificación (en la parte inferior de la página).
 
     ![Crear copia de seguridad2 manual](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
 

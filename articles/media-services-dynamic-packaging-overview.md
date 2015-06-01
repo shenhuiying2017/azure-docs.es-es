@@ -21,7 +21,7 @@
 
 ##Información general
 
-Servicios multimedia de Microsoft Azure puede usarse para proporcionar varios formatos de archivo de origen multimedia, formatos de streaming multimedia y formatos de protección de contenido a diversas tecnologías cliente \(por ejemplo, iOS, XBOX, Silverlight y Windows 8\). Estos clientes entienden distintos protocolos. Por ejemplo, iOS requiere un formato HTTP Live Streaming \(HLS\) V4, y Silverlight y Xbox requieren Smooth Streaming. Si tiene un conjunto de archivos MP4 \(ISO Base Media 14496-12\) de velocidad de bits adaptable \(varias velocidades de bits\) o un conjunto de archivos Smooth Streaming de velocidad de bits adaptable que desea ofrecer a los clientes que entienden MPEG DASH, HLS o Smooth Streaming, puede aprovechar el empaquetado dinámico de Servicios multimedia.
+Servicios multimedia de Microsoft Azure puede usarse para proporcionar varios formatos de archivo de origen multimedia, formatos de streaming multimedia y formatos de protección de contenido a diversas tecnologías cliente (por ejemplo, iOS, XBOX, Silverlight y Windows 8). Estos clientes entienden distintos protocolos. Por ejemplo, iOS requiere un formato HTTP Live Streaming (HLS) V4, y Silverlight y Xbox requieren Smooth Streaming. Si tiene un conjunto de archivos MP4 (ISO Base Media 14496-12) de velocidad de bits adaptable (varias velocidades de bits) o un conjunto de archivos Smooth Streaming de velocidad de bits adaptable que desea ofrecer a los clientes que entienden MPEG DASH, HLS o Smooth Streaming, puede aprovechar el empaquetado dinámico de Servicios multimedia.
 
 Con el empaquetado dinámico, lo único que debe hacer es crear un recurso que contenga un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
 
@@ -38,7 +38,7 @@ El diagrama siguiente muestra el flujo de trabajo de empaquetado dinámico.
 
 ##Escenario común
 
-1. Cargar un archivo de entrada \(llamado archivo intermedio\). Por ejemplo, H.264, MP4 o WMV \(para obtener la lista de formatos compatibles, consulte Formatos admitidos por el Codificador de Servicios multimedia\).
+1. Cargar un archivo de entrada (llamado archivo intermedio). Por ejemplo, H.264, MP4 o WMV (para obtener la lista de formatos compatibles, consulte Formatos admitidos por el Codificador de Servicios multimedia).
  
 1. Codificar el archivo intermedio en conjuntos MP4 de velocidad de bits adaptable H.264.
  
@@ -75,7 +75,7 @@ Normalmente, esta tarea se realiza si se carga un conjunto de archivos MP4 de ve
 
 ##Streaming del contenido a los clientes
 
-Una vez que tenga los conjuntos de velocidad de bits adaptable, puede publicar el recurso si crea un localizador a petición y compone las direcciones URL de streaming para Smooth Streaming, MPEG DASH, HLS y HDS \(solo para licenciatarios de Adobe PrimeTime/Access\).
+Una vez que tenga los conjuntos de velocidad de bits adaptable, puede publicar el recurso si crea un localizador a petición y compone las direcciones URL de streaming para Smooth Streaming, MPEG DASH, HLS y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
 Para obtener información sobre cómo crear localizadores y usar el empaquetado dinámico para hacer streaming del contenido, consulte los temas siguientes:
 
@@ -85,7 +85,7 @@ Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Publique recursos \(creando localizadores\) mediante el **Portal de administración de Azure** o **.NET**.
+Publique recursos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 

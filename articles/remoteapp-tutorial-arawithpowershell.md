@@ -36,7 +36,7 @@ Es sencillo, ejecute el siguiente comando:
 
     New-AzureRemoteAppCollection -Collectionname RAppO365Col1 -ImageName "Office 365 ProPlus (Subscription required)" -Plan Basic -Location "West US" - Description "Office 365 Collection."
 
-El comando anterior publica automáticamente las aplicaciones de Microsoft Office 365 \(Excel, OneNote, Outlook, PowerPoint, Visio y Word\).
+El comando anterior publica automáticamente las aplicaciones de Microsoft Office 365 (Excel, OneNote, Outlook, PowerPoint, Visio y Word).
 
 La creación de la colección puede tardar 30 minutos o más en completarse. Por lo tanto, este comando devuelve un identificador de seguimiento que se puede utilizar como sigue:
 

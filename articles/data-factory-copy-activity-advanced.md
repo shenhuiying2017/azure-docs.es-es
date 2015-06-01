@@ -18,7 +18,7 @@
 
 # Escenarios avanzados para usar la actividad de copia en la Factoría de datos de Azure 
 ## Información general
-Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor \(destino\) en un lote. En este tema se describe los escenarios avanzados que admite la actividad de copia. Para obtener información general detallada de la actividad de copia y los escenarios principales que admite, consulte [Copia de datos con la Factoría de datos de Azure][adf-copyactivity].
+Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. En este tema se describe los escenarios avanzados que admite la actividad de copia. Para obtener información general detallada de la actividad de copia y los escenarios principales que admite, consulte [Copia de datos con la Factoría de datos de Azure][adf-copyactivity].
 
 
 ## Filtrado de columnas mediante la definición de estructuras
@@ -136,9 +136,9 @@ En este ejemplo, la **tabla de salida** se define del siguiente modo. La tabla d
 		}
 	}	
 
-Si no especifica un valor **fileName** para una tabla de salida, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt \(por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.\).
+Si no especifica un valor **fileName** para una tabla de salida, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, **folderPath** usa Year, Month y Day de SliceStart \(hora de inicio del segmento que se va a procesar\) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv.
+Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, **folderPath** usa Year, Month y Day de SliceStart (hora de inicio del segmento que se va a procesar) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv.
 
   	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
@@ -151,7 +151,7 @@ Para establecer **folderPath** y **fileName** de forma dinámica según la hora 
     ],
 
 #### Ejemplo: definición de asignación de columnas
-En este ejemplo, una actividad en una canalización se define como se indica a continuación. Las columnas del origen se asignan a columnas del receptor \(\*\*columnMappings\*\*\) usando la propiedad **Translator**.
+En este ejemplo, una actividad en una canalización se define como se indica a continuación. Las columnas del origen se asignan a columnas del receptor (**columnMappings**) usando la propiedad **Translator**.
 
 	{
 		"name": "CopyActivity",
@@ -180,7 +180,7 @@ En este ejemplo, una actividad en una canalización se define como se indica a c
 ![Asignación de columnas][image-data-factory-column-mapping-1]
 
 ### Ejemplo 2: asignación de columnas con una consulta SQL de SQL Server a un blob de Azure
-En este ejemplo, se utiliza una consulta SQL \(en lugar de una tabla como en el ejemplo anterior\) para extraer datos de un servidor SQL Server local, y se asignan las columnas de los resultados de la consulta al artefacto de origen y después al artefacto de destino. Para este ejemplo, la consulta devuelve 5 columnas.
+En este ejemplo, se utiliza una consulta SQL (en lugar de una tabla como en el ejemplo anterior) para extraer datos de un servidor SQL Server local, y se asignan las columnas de los resultados de la consulta al artefacto de origen y después al artefacto de destino. Para este ejemplo, la consulta devuelve 5 columnas.
 
 	{
 		"name": "CopyActivity",
@@ -193,7 +193,7 @@ En este ejemplo, se utiliza una consulta SQL \(en lugar de una tabla como en el 
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = '{0:yyyyMMdd-HH}'', SliceStart)"
 			},
 			"sink":
 			{
@@ -263,7 +263,7 @@ Los tipos de datos especificados en la sección Structure de la definición de l
 ## Invocación del procedimiento almacenado para el receptor de SQL
 Al copiar datos en SQL Server o en Base de datos SQL de Azure, se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales.
 ### Ejemplo
-1. Defina el JSON de la tabla de salida de la manera siguiente \(tome la tabla Base de datos SQL de Azure como ejemplo\):
+1. Defina el JSON de la tabla de salida de la manera siguiente (tome la tabla Base de datos SQL de Azure como ejemplo):
 
     	{
     		"name": "MyAzureSQLTable",
@@ -320,7 +320,7 @@ Al copiar datos en SQL Server o en Base de datos SQL de Azure, se puede configur
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla][table-valued-parameters].
 
 ## Especificación de la codificación para archivos de texto
-Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos de texto de hora de Blob de Azure siguen otras codificaciones por motivos históricos. La propiedad **encodingName** le permite especificar la codificación por nombre de la página de código para las tablas de tipo TextFormat. Para obtener la lista de nombres de codificación válidos, vea: Propiedad Encoding.EncodingName. Por ejemplo: windows-1250 o shift\_jis. El valor predeterminado es: UTF-8. Consulte [Clase de codificación](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx\) para obtener nombres de codificación válidos.
+Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos de texto de hora de Blob de Azure siguen otras codificaciones por motivos históricos. La propiedad **encodingName** le permite especificar la codificación por nombre de la página de código para las tablas de tipo TextFormat. Para obtener la lista de nombres de codificación válidos, vea: Propiedad Encoding.EncodingName. Por ejemplo: windows-1250 o shift_jis. El valor predeterminado es: UTF-8. Consulte [Clase de codificación](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) para obtener nombres de codificación válidos.
 
 ## Otras referencias
 

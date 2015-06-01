@@ -102,13 +102,13 @@ Consulte [Configuración de una conexión VPN de punto a sitio a la red virtual 
 
 #### Configuración de una red virtual y una puerta de enlace de enrutamiento dinámico
 
-Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en una red virtual de Azure \(consulte los requisitos previos de esta sección\). El siguiente paso es configurar una conexión punto a sitio.
+Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en una red virtual de Azure (consulte los requisitos previos de esta sección). El siguiente paso es configurar una conexión punto a sitio.
 
 **Para configurar la conectividad punto a sitio**
 
 1. Inicie sesión en el [Portal de Azure][azure-portal].
 2. A la izquierda, haga clic en **REDES**.
-3. Haga clic en la red virtual que ha creado \(consulte [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]\).
+3. Haga clic en la red virtual que ha creado (consulte [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]).
 4. Haga clic en **CONFIGURAR** en la parte superior.
 5. En la sección **Conectividad punto a sitio**, seleccione **Configurar la conectividad punto a sitio**. 
 6. Configure **Dirección IP de inicio** y **CIDR** para especificar el intervalo de direcciones IP desde la que los clientes de VPN recibirán una dirección IP cuando se conecten. El intervalo no puede coincidir con cualquiera de los intervalos de la red local y la red virtual de Azure a la que se va a conectar. Por ejemplo. Si selecciona 10.0.0.0/20 para la red virtual, puede seleccionar 10.1.0.0/24 para el espacio de direcciones de cliente. Consulte la página [Conectividad punto a sitio][vnet-point-to-site-connectivity] para obtener más información.
@@ -130,7 +130,7 @@ Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en u
 
 #### Creación de certificados
 
-Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados \(makecert.exe\) que se incluye con [Microsoft Visual Studio Express 2013 para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
+Una forma de crear un certificado X.509 es mediante la herramienta de creación de certificados (makecert.exe) que se incluye con [Microsoft Visual Studio Express 2013 para escritorio de Windows](https://www.visualstudio.com/products/visual-studio-express-vs.aspx).
 
 
 **Para crear un certificado raíz autofirmado**
@@ -149,17 +149,17 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 
 **Para crear un certificado de cliente**
 
-- Desde el mismo símbolo del sistema \(debe estar en el mismo equipo donde ha creado el certificado raíz. Se debe generar el certificado de cliente desde el certificado raíz\), ejecute el siguiente comando:
+- Desde el mismo símbolo del sistema (debe estar en el mismo equipo donde ha creado el certificado raíz. Se debe generar el certificado de cliente desde el certificado raíz), ejecute el siguiente comando:
 
-  makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
+  		makecert.exe -n "CN=HBaseVnetVPNClientCertificate" -pe -sky exchange -m 96 -ss My -in "HBaseVnetVPNRootCertificate" -is my -a sha1
 
-	HBaseVnetVPNRootCertificate is the root certificate name.  It has to match the root certificate name.  
+	HBaseVnetVPNRootCertificate no es el nombre del certificado raíz.  Tiene que coincidir con el nombre del certificado raíz.  
 
-	Both the root certificate and the client certificate are stored in your Personal certificate store on your computer. Use certmgr.msc to verify.
+	Tanto el certificado raíz como el certificado de cliente se almacenan en su almacén de certificados personal en su equipo. Use certmgr.msc para realizar la comprobación.
 
 	![Azure virtual network point-to-site vpn certificate][img-certificate]
 
-	A client certificate must be installed on each computer that you want to connect to the virtual network. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network. To export the client certificates, use certmgr.msc. 
+	Se debe instalar un certificado de cliente en cada equipo que desee conectar a la red virtual. Le recomendamos que cree certificados de cliente únicos para cada equipo que desee conectar a la red virtual. Para exportar los certificados de cliente, use certmgr.msc. 
 
 **Para cargar el certificado raíz en el Portal de Azure**
 
@@ -202,7 +202,7 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 
 **Para instalar SQuirrel**
 
-1. Descargue el archivo jar de cliente SQL SQuirrel de [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Descargue el archivo jar de cliente SQL SQuirrel de [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Abra/ejecute el archivo jar. Requiere [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Haga clic en **Siguiente** dos veces.
 4. Especifique una ruta de acceso donde tenga permiso de escritura y, a continuación, haga clic en **Siguiente**.
@@ -219,7 +219,7 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 El archivo jar del controlador de Phoenix se encuentra en el clúster de HBase. La ruta de acceso es similar a la siguiente según las versiones:
 
 	C:\apps\dist\phoenix-4.0.0.2.1.11.0-2316\phoenix-4.0.0.2.1.11.0-2316-client.jar
-Debe copiarla en la estación de trabajo en la ruta de acceso [carpeta de instalación de SQuirrel]/lib. La forma más sencilla es aplicar RDP en el clúster y, a continuación, usar las tareas de copia y pega de archivos \(CTRL+C y CTRL+V\) para copiarlo en su estación de trabajo.
+Debe copiarla en la estación de trabajo en la ruta de acceso [carpeta de instalación de SQuirrel]/lib. La forma más sencilla es aplicar RDP en el clúster y, a continuación, usar las tareas de copia y pega de archivos (CTRL+C y CTRL+V) para copiarlo en su estación de trabajo.
 
 **Para agregar un controlador de Phoenix a SQuirrel**
 
@@ -270,10 +270,10 @@ Debe copiarla en la estación de trabajo en la ruta de acceso [carpeta de instal
 ##Pasos siguientes
 En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight. Para obtener más información, consulte:
 
-- [Información general de HBase de HDInsight][hdinsight-hbase-overview]\: HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que proporciona acceso aleatorio y una coherencia sólida para grandes cantidades de datos no estructurados y semiestructurados.
-- [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]\: con la integración de redes virtuales, los clústeres de HBase se pueden implementar en la misma red virtual que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
+- [Información general de HBase de HDInsight][hdinsight-hbase-overview]: HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que proporciona acceso aleatorio y una coherencia sólida para grandes cantidades de datos no estructurados y semiestructurados.
+- [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]: con la integración de redes virtuales, los clústeres de HBase se pueden implementar en la misma red virtual que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
 - [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md): aprenda a configurar la replicación de HBase entre dos centros de datos de Azure. 
-- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]\: descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de grandes volúmenes de datos con HBase en un clúster de Hadoop en HDInsight.
+- [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]: descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de grandes volúmenes de datos con HBase en un clúster de Hadoop en HDInsight.
 
 [azure-portal]: https://manage.windowsazure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT

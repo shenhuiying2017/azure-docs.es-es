@@ -18,11 +18,11 @@
 
 # Creación de una aplicación web en un entorno del Servicio de aplicaciones #
 
-Crear aplicaciones web es prácticamente lo mismo en entornos del Servicio de aplicaciones \(ASE\) que normalmente. Si está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones, lea el documento [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
+Crear aplicaciones web es prácticamente lo mismo en entornos del Servicio de aplicaciones (ASE) que normalmente. Si está familiarizado con la funcionalidad del entorno del Servicio de aplicaciones, lea el documento [¿Qué es un entorno del Servicio de aplicaciones][WhatisASE].
 
 Para crear una aplicación web en un ASE deberá comenzar por tener un ASE. Para obtener detalles sobre la creación de un ASE lea el documento [Creación de un entorno del Servicio de aplicaciones][HowtoCreateASE].
 
-El primer paso para crear una aplicación web es crear o seleccionar un plan del Servicio de aplicaciones \(ASP\). La creación de un ASP en un ASE se inicia de la misma forma que normalmente, es decir, siguiendo el flujo de creación de aplicaciones web seleccionando Nuevo -\> Web + Mobile -\> Aplicación web.
+El primer paso para crear una aplicación web es crear o seleccionar un plan del Servicio de aplicaciones (ASP). La creación de un ASP en un ASE se inicia de la misma forma que normalmente, es decir, siguiendo el flujo de creación de aplicaciones web seleccionando Nuevo -> Web + Mobile -> Aplicación web.
 
 ![][1]
 
@@ -51,7 +51,7 @@ Dado que un entorno del Servicio de aplicaciones es esencialmente una ubicación
 
 ![][2]
 
-Después de la selección la IU actualizará y reemplazará el selector de planes de precios mediante un selector de grupos de trabajo. La ubicación muestra el nombre del sistema ASE y la región en la que se encuentra. En la dirección URL, el nombre de dominio para el ASE reemplaza .azurewebsites.net \(normalmente presente\) por el nombre del entorno del Servicio de aplicaciones.
+Después de la selección la IU actualizará y reemplazará el selector de planes de precios mediante un selector de grupos de trabajo. La ubicación muestra el nombre del sistema ASE y la región en la que se encuentra. En la dirección URL, el nombre de dominio para el ASE reemplaza .azurewebsites.net (normalmente presente) por el nombre del entorno del Servicio de aplicaciones.
 
 ![][3]
 

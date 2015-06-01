@@ -78,7 +78,7 @@ A continuación, conéctese a la nueva máquina virtual de SQL1 *using the local
 3.	Cuando se le pida que abra SQL1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-	- Nombre: **SQL1\\**[Nombre de la cuenta del administrador local]
+	- Nombre: **SQL1**[Nombre de la cuenta del administrador local]
 	- Contraseña: [Contraseña de la cuenta del administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 

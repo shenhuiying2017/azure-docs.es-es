@@ -90,7 +90,7 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 
 ## Configuración de una conexión del bus de servicio de Azure
 
-El módulo azure leerá las variables de entorno **AZURE\_SERVICEBUS\_NAMESPACE** y **AZURE\_SERVICEBUS\_ACCESS\_KEY** para obtener la información necesaria para conectarse al espacio de nombres del bus de servicio de Azure. Si no configura estas variables de entorno, debe especificar la información del espacio de nombres antes de usar **Azure::ServiceBusService** con el siguiente código:
+El módulo azure leerá las variables de entorno **AZURE_SERVICEBUS_NAMESPACE** y **AZURE_SERVICEBUS_ACCESS_KEY** para obtener la información necesaria para conectarse al espacio de nombres del bus de servicio de Azure. Si no configura estas variables de entorno, debe especificar la información del espacio de nombres antes de usar **Azure::ServiceBusService** con el siguiente código:
 
     Azure.config.sb_namespace = "<your azure service bus namespace>"
     Azure.config.sb_access_key = "<your azure service bus access key>"
@@ -99,7 +99,7 @@ Defina el valor del espacio de nombres del Bus de servicio en el valor que creó
 
 ## Creación de un tema
 
-El objeto **Azure::ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **Azure::ServiceBusService**. Para crear un tema, use el método **create\_topic()**. En el siguiente ejemplo se crea un tema o se imprime el error si lo hubiera.
+El objeto **Azure::ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **Azure::ServiceBusService**. Para crear un tema, use el método **create_topic()**. En el siguiente ejemplo se crea un tema o se imprime el error si lo hubiera.
 
 	azure_service_bus_service = Azure::ServiceBusService.new
 	begin
@@ -135,11 +135,11 @@ También puede configurar filtros que le permitan especificar qué mensajes envi
 
 El tipo de filtro más flexible compatible con las suscripciones es **Azure::ServiceBus::SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
-Es posible agregar filtros a una suscripción utilizando el método **create\_rule()** del objeto **Azure::ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
+Es posible agregar filtros a una suscripción utilizando el método **create_rule()** del objeto **Azure::ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
-Ya que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, primero debe eliminar el filtro predeterminado **MatchAll** si no quiere que este anule todos los otros filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete\_rule()** del objeto **Azure::ServiceBusService**.
+Ya que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, primero debe eliminar el filtro predeterminado **MatchAll** si no quiere que este anule todos los otros filtros que especifique. Puede eliminar la regla predeterminada utilizando el método **delete_rule()** del objeto **Azure::ServiceBusService**.
 
-En los ejemplos que aparecen a continuación se crea una suscripción llamada "high-messages" con un **Azure::ServiceBus::SqlFilter** que solo selecciona los mensajes con una propiedad **message\_number** personalizada superior a 3:
+En los ejemplos que aparecen a continuación se crea una suscripción llamada "high-messages" con un **Azure::ServiceBus::SqlFilter** que solo selecciona los mensajes con una propiedad **message_number** personalizada superior a 3:
 
 	subscription = azure_service_bus_service.create_subscription("test-topic", 
 	  "high-messages")
@@ -171,7 +171,7 @@ Ahora, cuando se envíe un mensaje a "test-topic", siempre se entregará a los d
 
 ## Envío de mensajes a un tema
 
-Para enviar un mensaje a un tema del Bus de servicio, la aplicación debe utilizar el método **send\_topic\_message()** del objeto **Azure::ServiceBusService**. Los mensajes enviados a los temas del Bus de servicio son objetos **Azure::ServiceBus::BrokeredMessage**. **Los objetos Azure::ServiceBus::BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **label** y **time\_to\_live**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **send\_topic\_message()**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
+Para enviar un mensaje a un tema del Bus de servicio, la aplicación debe utilizar el método **send_topic_message()** del objeto **Azure::ServiceBusService**. Los mensajes enviados a los temas del Bus de servicio son objetos **Azure::ServiceBus::BrokeredMessage**. **Los objetos Azure::ServiceBus::BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **label** y **time_to_live**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **send_topic_message()**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
 
 En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a "test-topic". Fíjese en cómo el valor de la propiedad **message_number** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripción lo recibe):
 
@@ -185,13 +185,13 @@ Los temas del Bus de servicio admiten mensajes con un tamaño máximo de 256 MB 
 
 ## Recepción de mensajes de una suscripción
 
-Los mensajes se reciben de una suscripción utilizando el método **receive\_subscription\_message()** del objeto **Azure::ServiceBusService**. De forma predeterminada, los mensajes se leen (máximo) y bloquean sin que se eliminen de la suscripción. Puede leer y eliminar el mensaje de la suscripción estableciendo la opción **peek\_lock** en **false**.
+Los mensajes se reciben de una suscripción utilizando el método **receive_subscription_message()** del objeto **Azure::ServiceBusService**. De forma predeterminada, los mensajes se leen (máximo) y bloquean sin que se eliminen de la suscripción. Puede leer y eliminar el mensaje de la suscripción estableciendo la opción **peek_lock** en **false**.
 
-El comportamiento predeterminado convierte la lectura y eliminación en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete\_subscription\_message()** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **delete\_subscription\_message()** marcará el mensaje como consumido y lo eliminará de la suscripción.
+El comportamiento predeterminado convierte la lectura y eliminación en una operación de dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete_subscription_message()** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **delete_subscription_message()** marcará el mensaje como consumido y lo eliminará de la suscripción.
 
-Si el parámetro **:peek\_lock** se establece en **false**, la lectura y eliminación del mensaje se convierte en el modelo más simple y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+Si el parámetro **:peek_lock** se establece en **false**, la lectura y eliminación del mensaje se convierte en el modelo más simple y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-El siguiente ejemplo muestra cómo pueden recibirse y procesarse los mensajes con **receive\_subscription\_message()**. El ejemplo primero recibe y elimina un mensaje de la suscripción "low-messages" mediante **: peek\_lock** establecido en **false**, a continuación, recibe otro mensaje de "high-messages" y, a continuación, elimina el mensaje mediante **delete\_subscription\_message()**:
+El siguiente ejemplo muestra cómo pueden recibirse y procesarse los mensajes con **receive_subscription_message()**. El ejemplo primero recibe y elimina un mensaje de la suscripción "low-messages" mediante **: peek_lock** establecido en **false**, a continuación, recibe otro mensaje de "high-messages" y, a continuación, elimina el mensaje mediante **delete_subscription_message()**:
 
     message = azure_service_bus_service.receive_subscription_message(
 	  "test-topic", "low-messages", { :peek_lock => false })
@@ -201,11 +201,11 @@ El siguiente ejemplo muestra cómo pueden recibirse y procesarse los mensajes co
 
 ## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
-El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces puede llamar al método **unlock\_subscription\_message()** del objeto **Azure::ServiceBusService**. Esto hará que el Bus de servicio desbloquee el mensaje de la suscripción y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces puede llamar al método **unlock_subscription_message()** del objeto **Azure::ServiceBusService**. Esto hará que el Bus de servicio desbloquee el mensaje de la suscripción y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
 También hay un tiempo de espera asociado con un mensaje bloqueado en la suscripción y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete\_subscription\_message()**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **At Least Once Processing**; es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **message\_id** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete_subscription_message()**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **At Least Once Processing**; es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **message_id** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## Eliminación de temas y suscripciones
 

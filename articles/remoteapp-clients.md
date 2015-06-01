@@ -70,7 +70,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 
 ![Primera página de Azure Active Directory](./media/remoteapp-clients/Android3.png)
 
-4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft \(LiveID\) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
+4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
 
 ![Página de invitaciones](./media/remoteapp-clients/Android4.png)
 
@@ -98,7 +98,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde Ap
 
 ![Solicitud de inicio de sesión](./media/remoteapp-clients/IOS2.png)
 
-3. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft \(LiveID\) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
+3. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
 
 ![Página de invitaciones](./media/remoteapp-clients/IOS3.png)
 
@@ -130,7 +130,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 
 ![Primera página de Azure Active Directory](./media/remoteapp-clients/Mac3.png)
 
-4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft \(LiveID\) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y cierre el cuadro de diálogo.
+4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y cierre el cuadro de diálogo.
 
 ![Página de invitaciones](./media/remoteapp-clients/Mac4.png)
 
@@ -146,7 +146,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 
 ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Mac7.png)
 
-## Windows \(todas las versiones compatibles excepto Windows Phone\)
+## Windows (todas las versiones compatibles excepto Windows Phone)
 
 El cliente se inicia automáticamente una vez finalizada la instalación, sin embargo, cuando necesite tener acceso a este más adelante, lo encontrará en la lista de aplicaciones con el nombre **Azure RemoteApp**.
 
@@ -158,7 +158,7 @@ El cliente se inicia automáticamente una vez finalizada la instalación, sin em
 
 ![Primer aviso del sistema de Azure Active Directory](./media/remoteapp-clients/Windows2.png)
 
-3. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft \(LiveID\) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y haga clic en **Hecho**.
+3. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y haga clic en **Hecho**.
 
 ![Página de invitaciones del cliente RemoteApp de Azure](./media/remoteapp-clients/Windows3.png)
 
@@ -190,7 +190,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 
 ![Primera página de Azure Active Directory](./media/remoteapp-clients/WinPhone4.png)
 
-5. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft \(LiveID\) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque **Guardar**.
+5. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (LiveID) o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque **Guardar**.
 
 ![Página de invitaciones](./media/remoteapp-clients/WinPhone5.png)
 

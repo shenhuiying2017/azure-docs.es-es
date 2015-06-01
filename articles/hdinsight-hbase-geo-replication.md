@@ -36,9 +36,9 @@ Se trata de la tercera parte de la serie:
 
 - [Configuración de la conectividad VPN entre dos redes virtuales][hdinsight-hbase-replication-vnet]
 - [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns]
-- Configuración de la replicación geográfica de HBase \(este tutorial\)
+- Configuración de la replicación geográfica de HBase (este tutorial)
 
-El siguiente diagrama muestra las dos redes virtuales y la conectividad de red que creó en [Configuración de una conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet] y [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns]\:
+El siguiente diagrama muestra las dos redes virtuales y la conectividad de red que creó en [Configuración de una conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet] y [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns]:
 
 ![Diagrama de red virtual de replicación de HBase para HDInsight][img-vnet-diagram]
 
@@ -223,8 +223,8 @@ Cree tablas de HBase con los mismos nombres y familias de columna en los clúste
 
 **Para agregar Contoso-HBase-US como un punto de replicación**
 
-1. Cambie a la ventana de RPD de **Contso-HBase\_EU**.
-2. En la ventana de shell de HBase, agregue el clúster de destino \(Contoso-HBase-US\) como un punto, por ejemplo:
+1. Cambie a la ventana de RPD de **Contso-HBase_EU**.
+2. En la ventana de shell de HBase, agregue el clúster de destino (Contoso-HBase-US) como un punto, por ejemplo:
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
 
@@ -290,7 +290,7 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 - [Información general de HBase de HDInsight][hdinsight-hbase-overview]
 - [Aprovisionamiento de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]
 - [Realización de análisis de opinión en Twitter en tiempo real con HBase][hdinsight-hbase-twitter-sentiment]
-- [Análisis de los datos de sensor con Storm y HBase en HDInsight \(Hadoop\)][hdinsight-sensor-data]
+- [Análisis de los datos de sensor con Storm y HBase en HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
 [hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-VNet.md

@@ -58,7 +58,7 @@ Ahora veremos cómo crear una nueva aplicación web de Phyton Flask desde el pri
 
 ## Paso 2: Creación de una nueva aplicación web de Phyton Flask
 
-1. Abra Visual Studio y, a continuación, haga clic en **Archivo** -\> **Nuevo proyecto** -\> **Python** -\> **Proyecto web Flask** y cree un nuevo proyecto llamado **tutorial**. 
+1. Abra Visual Studio y, a continuación, haga clic en **Archivo** -> **Nuevo proyecto** -> **Python** -> **Proyecto web Flask** y cree un nuevo proyecto llamado **tutorial**. 
 
 	Para aquellos que desconozcan Flask: se trata de un marco web que nos ayuda a crear aplicaciones web en Python más rápido. [Haga clic aquí para tener acceso a tutoriales de Flask][].
 
@@ -272,12 +272,12 @@ En la carpeta de plantillas, agregue los siguientes archivos html: create.html, 
     	{% endblock %}
 
 
-### Adición de un archivo de configuración y modificación de \_\_init\_\_.py
+### Adición de un archivo de configuración y modificación de __init__.py
 
 1. Haga clic con el botón derecho en el tutorial del nombre del proyecto y agregue el archivo **config.py**.
 Esta configuración es necesaria para los formularios en flask. También puede utilizarlo para proporcionar una clave secreta. Sin embargo, esto no es necesario para este tutorial. 
 
-2. Agregue el siguiente código a config.py. Modifique los valores de **DOCUMENTDB\_HOST** y **DOCUMENTDB\_KEY**.
+2. Agregue el siguiente código a config.py. Modifique los valores de **DOCUMENTDB_HOST** y **DOCUMENTDB_KEY**.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ Esta configuración es necesaria para los formularios en flask. También puede u
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. Del mismo modo, sustituya el contenido de **\_\_init\_\_.py** por lo siguiente.
+3. Del mismo modo, sustituya el contenido de **__init__.py** por lo siguiente.
 
     	from flask import Flask
     	app = Flask(__name__)

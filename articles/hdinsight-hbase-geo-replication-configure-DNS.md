@@ -29,11 +29,11 @@ Obtenga información acerca de cómo agregar y configurar los servidores DNS par
 Este tutorial es la segunda parte de la [serie][hdinsight-hbase-geo-replication] sobre la creación de replicación geográfica de HBase.
 
 - [Configuración de la conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet]
-- Configuración de DNS para las redes virtuales \(este tutorial\)
+- Configuración de DNS para las redes virtuales (este tutorial)
 - [Configuración de la replicación geográfica de HBase][hdinsight-hbase-geo-replication]
 
 
-El siguiente diagrama muestra las dos redes virtuales que creó en [Configuración de una conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet]\:
+El siguiente diagrama muestra las dos redes virtuales que creó en [Configuración de una conectividad VPN entre dos redes virtuales][hdinsight-hbase-geo-replication-vnet]:
 
 ![Diagrama de red virtual de replicación de HBase para HDInsight][img-vnet-diagram]
 
@@ -69,14 +69,14 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	- **CONTRASEÑA NUEVA**: 
 4.	Especifique:
 	- **SERVICIO EN LA NUBE**: creación de un nuevo servicio en la nube
-	- **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**: \(seleccione Contoso-VNet-EU\)
+	- **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL**: (seleccione Contoso-VNet-EU)
 	- **SUBREDES DE LA RED VIRTUAL**: Subnet-1
 	- **CUENTA DE ALMACENAMIENTO**: use una cuenta de almacenamiento generada automáticamente
 	
 		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
 
 		The storage account is used to store the virtual machine image file. 
-	- **EXTREMOS**: \(desplácese hacia abajo y seleccione **DNS**\) 
+	- **EXTREMOS**: (desplácese hacia abajo y seleccione **DNS**) 
 
 Después de crear la máquina virtual, descubra la IP interna y externa.
 
@@ -94,7 +94,7 @@ Después de crear la máquina virtual, descubra la IP interna y externa.
 	- REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL: seleccione Contoso-VNet-EU
 	- SUBREDES DE LA RED VIRTUAL: Subnet-1
 	- CUENTA DE ALMACENAMIENTO: use una cuenta de almacenamiento generada automáticamente
-	- EXTREMOS: \(seleccione DNS\)
+	- EXTREMOS: (seleccione DNS)
 
 ##Configuración de direcciones IP estáticas para las dos máquinas virtuales
 
@@ -129,7 +129,7 @@ Los servidores DNS requieren direcciones IP estáticas. Este paso no puede reali
 4.	Haga clic en **Agregar roles y características**.
 5.	Haga clic en **Siguiente**.
 6.	Seleccione **Instalación basada en características o en roles** y haga clic en **Siguiente**.
-7.	Seleccione la máquina virtual DNS \(ya debe estar marcada\) y, a continuación, haga clic en **Siguiente**.
+7.	Seleccione la máquina virtual DNS (ya debe estar marcada) y, a continuación, haga clic en **Siguiente**.
 8.	Elija **Servidor DNS**.
 9.	Haga clic en **Agregar características** y, a continuación, en **Continuar**.
 10.	Haga clic en **Siguiente** tres veces y, a continuación, haga clic en **Instalar**. 
@@ -202,7 +202,7 @@ Para configurar el reenviador condicional, necesitará saber los sufijos de domi
 
 ##Prueba de la resolución de nombres a través de las redes virtuales
 
-Ahora puede realizar la prueba de la resolución de nombres a través de las redes virtuales. El firewall bloquea el ping de forma predeterminada. Puede usar nslookup para resolver las máquinas virtuales del servidor DNS \(debe usar FQDN\) en las redes del mismo nivel.
+Ahora puede realizar la prueba de la resolución de nombres a través de las redes virtuales. El firewall bloquea el ping de forma predeterminada. Puede usar nslookup para resolver las máquinas virtuales del servidor DNS (debe usar FQDN) en las redes del mismo nivel.
 
 
 ##Pasos siguientes

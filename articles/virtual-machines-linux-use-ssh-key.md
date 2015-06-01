@@ -122,7 +122,7 @@ El archivo **myCert.pem** es la clave pública que, a partir de entonces, se pue
 
 4. Haga clic en el menú: File > Load a Private Key.
 
-5. Busque su clave privada, a la que hemos denominado  `myPrivateKey_rsa` anteriormente. Deberá cambiar el filtro de archivos para mostrar **Todos los archivos (\*.\*)**
+5. Busque su clave privada, a la que hemos denominado  `myPrivateKey_rsa` anteriormente. Deberá cambiar el filtro de archivos para mostrar **Todos los archivos (*.*)**
 
 6. Haga clic en **Open**. Recibirá una secuencia parecida a la siguiente:
 

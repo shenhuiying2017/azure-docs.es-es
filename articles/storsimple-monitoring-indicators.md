@@ -19,7 +19,7 @@
 
 ## Información general
 
-El dispositivo StorSimple incluye diodos emisores de luz \(LED\) y alarmas que sirven para supervisar los módulos y el estado general del dispositivo StorSimple. Los indicadores de supervisión pueden estar en los componentes de hardware del revestimiento principal del dispositivo y del revestimiento de EBOD. Estos indicadores de supervisión pueden ser LED o alarmas audibles.
+El dispositivo StorSimple incluye diodos emisores de luz (LED) y alarmas que sirven para supervisar los módulos y el estado general del dispositivo StorSimple. Los indicadores de supervisión pueden estar en los componentes de hardware del revestimiento principal del dispositivo y del revestimiento de EBOD. Estos indicadores de supervisión pueden ser LED o alarmas audibles.
 
 Existen tres estados de LED para indicar el estado de un módulo: verde, intermitencia entre verde y rojo-ámbar o rojo-ámbar.
 
@@ -38,9 +38,9 @@ El panel frontal, también conocido como *panel de operaciones*, muestra el esta
 El panel frontal contiene los siguientes indicadores:
 
 1. Botón de encendido
-2. Indicador LED de alimentación \(verde/rojo-ámbar\)
-3. Indicador LED de error de módulo \(encendido rojo-ámbar/apagado\)
-4. Indicador LED de error lógico \(encendido rojo-ámbar/apagado
+2. Indicador LED de alimentación (verde/rojo-ámbar)
+3. Indicador LED de error de módulo (encendido rojo-ámbar/apagado)
+4. Indicador LED de error lógico (encendido rojo-ámbar/apagado
 5. Pantalla de identificación de la unidad  
 
 La principal diferencia entre los LED del panel frontal del dispositivo y los del revestimiento de EBOD estriba en el **número de identificación de la unidad de sistema** que aparece en la pantalla LED. El identificador de unidad predeterminado que se muestra en el dispositivo es **00**, mientras que el del revestimiento de EBOD es **01**. Esto permite diferenciar rápidamente entre el dispositivo y el revestimiento de EBOD cuando el dispositivo está encendido. Si el dispositivo está apagado, use la información recogida en [Encendido de un dispositivo nuevo](https://msdn.microsoft.com/library/azure/dn772378.aspx) para diferenciar el dispositivo del revestimiento de EBOD.
@@ -52,16 +52,16 @@ Use la siguiente tabla para conocer el estado indicado por los LED del panel fro
 |Alimentación del sistema | Error de módulo | Error lógico | Alarma | Estado|
 |-------------|---------------|-----------------|-------|-------|
 |Rojo-ámbar | Apagado | Apagado | N/D | Pérdida de corriente alterna, funcionamiento con la alimentación de respaldo, o bien corriente alterna funcionando y módulos de controlador retirados.|
-|Verde | Encendido | Encendido | N/D | Alimentación del panel de operaciones en estado de prueba \(5 s\)|
+|Verde | Encendido | Encendido | N/D | Alimentación del panel de operaciones en estado de prueba (5 s)|
 |Verde | Apagado | Apagado | N/D | Encendido, todas las funciones correctas|
 |Verde | Encendido |N/D | LED de error del PCM, LED de error del ventilador | Cualquier error del PCM, error del ventilador, exceso o defecto de temperatura|
 | Verde | Encendido | N/D | LED del módulo de E/S | Cualquier error del módulo de controlador|
 | Verde | Encendido | N/D | N/D | Error lógico del revestimiento|
 | Verde | Intermitente | N/D | LED de estado de módulo en módulo del controlador. LED de error del PCM, LED de error del ventilador | Tipo de módulo de controlador desconocido instalado, error de bus I2C, error de configuración de datos de producto vitales del módulo de controlador |
 
-## Indicadores LED del módulo de refrigeración de alimentación \(PCM\)   
+## Indicadores LED del módulo de refrigeración de alimentación (PCM)   
 
-Los indicadores LED del módulo de refrigeración de alimentación \(PCM\) se encuentran en la parte posterior del revestimiento principal o del revestimiento de EBOD de cada módulo PCM. Aquí indicamos cómo interpretar los siguientes LED para controlar el estado del dispositivo StorSimple.
+Los indicadores LED del módulo de refrigeración de alimentación (PCM) se encuentran en la parte posterior del revestimiento principal o del revestimiento de EBOD de cada módulo PCM. Aquí indicamos cómo interpretar los siguientes LED para controlar el estado del dispositivo StorSimple.
 
 - LED de PCM del revestimiento principal
 - LED de PCM del revestimiento de EBOD
@@ -83,26 +83,26 @@ El dispositivo StorSimple tiene un módulo PCM de 764 W con una batería adicion
 El estado del PCM se indica en el panel de LED. El panel de LED de PCM del dispositivo tiene seis LED. Cuatro de ellos indican el estado de la fuente de alimentación y el ventilador, mientras que los dos restantes señalan el estado del módulo de la batería de reserva en el PCM. Use las siguientes tablas para conocer el estado del PCM.
 
 ### Indicadores LED del PCM relativos a la fuente de alimentación y el ventilador
-| Estado | PCM correcto \(verde\) | Error de corriente alterna \(ámbar\) | Error de ventilador \(ámbar\) | Error de corriente continua \(ámbar\) |
+| Estado | PCM correcto (verde) | Error de corriente alterna (ámbar) | Error de ventilador (ámbar) | Error de corriente continua (ámbar) |
 |--------|----------------|-----------------------|------------------|----------------------|
-| No hay corriente alterna \(en el revestimiento\) | Apagado | Apagado | Apagado | Apagado|
-| No hay corriente alterna \(solo en este PCM\) | Apagado | Encendido | Apagado | Encendido |
+| No hay corriente alterna (en el revestimiento) | Apagado | Apagado | Apagado | Apagado|
+| No hay corriente alterna (solo en este PCM) | Apagado | Encendido | Apagado | Encendido |
 | Hay corriente alterna y el PCM está encendido: todo correcto | Encendido | Apagado | Apagado | Apagado |
-| Error de PCM \(error de ventilador\) | Apagado | Apagado | Encendido | N/D |
-| Error de PCM \(exceso de amperaje, de voltaje o de corriente\) | Apagado | Encendido | Encendido | Encendido |
-| PCM \(ventilador fuera de tolerancia\) | Encendido | Apagado | Apagado | Encendido |
+| Error de PCM (error de ventilador) | Apagado | Apagado | Encendido | N/D |
+| Error de PCM (exceso de amperaje, de voltaje o de corriente) | Apagado | Encendido | Encendido | Encendido |
+| PCM (ventilador fuera de tolerancia) | Encendido | Apagado | Apagado | Encendido |
 | Modo de espera | Intermitente | Apagado | Apagado | Apagado |
 | Descarga del firmware del PCM | Apagado | Intermitente | Intermitente | Intermitente |
 
 ### Indicadores LED del PCM relativos a la batería de reserva  
 
-| Estado | Batería correcta \(verde\) | Error de batería \(ámbar\) |
+| Estado | Batería correcta (verde) | Error de batería (ámbar) |
 |--------|----------------------|-----------------------|
 | No hay batería | Apagado | Apagado |
 | Hay batería y está cargada | Encendido | Apagado |
 | Batería en carga o en descarga de mantenimiento | Intermitente | Apagado |
-| Error flexible de la batería \(recuperable\) | Apagado | Intermitente |
-| Error severo de la batería \(recuperable\) | Apagado | Encendido |
+| Error flexible de la batería (recuperable) | Apagado | Intermitente |
+| Error severo de la batería (recuperable) | Apagado | Encendido |
 | Batería desarmada | Intermitente | Apagado |
 
 ## LED de PCM del revestimiento de EBOD  
@@ -113,14 +113,14 @@ El revestimiento de EBOD tiene un PCM de 580 W sin batería adicional. El panel 
  
 Use la siguiente tabla para conocer el estado del PCM.
 
-| Estado | PCM correcto \(verde\) | Error de corriente alterna \(ámbar\) | Error de ventilador \(ámbar\) | Error de corriente continua \(ámbar\) |
+| Estado | PCM correcto (verde) | Error de corriente alterna (ámbar) | Error de ventilador (ámbar) | Error de corriente continua (ámbar) |
 |--------|---------------|------------------------|------------------|----------------------|
-| No hay corriente alterna \(en el revestimiento\) | Apagado | Apagado | Apagado | Apagado |
-| No hay corriente alterna \(solo en este PCM\) | Apagado | Encendido | Apagado | Encendido |
+| No hay corriente alterna (en el revestimiento) | Apagado | Apagado | Apagado | Apagado |
+| No hay corriente alterna (solo en este PCM) | Apagado | Encendido | Apagado | Encendido |
 | Hay corriente alterna y el PCM está encendido: todo correcto | Encendido | Apagado | Apagado | Apagado |
-| Error de PCM \(error de ventilador\) | Apagado | Apagado | Encendido | X |
-| Error de PCM \(exceso de amperaje, de voltaje o de corriente\) | Apagado | Encendido | Encendido | Encendido |
-| PCM \(ventilador fuera de tolerancia\) | Encendido | Apagado | Apagado | Encendido |
+| Error de PCM (error de ventilador) | Apagado | Apagado | Encendido | X |
+| Error de PCM (exceso de amperaje, de voltaje o de corriente) | Apagado | Encendido | Encendido | Encendido |
+| PCM (ventilador fuera de tolerancia) | Encendido | Apagado | Apagado | Encendido |
 | Modo de espera | Intermitente | Apagado | Apagado | Apagado |
 | Descarga del firmware del PCM | Apagado | Intermitente | Intermitente | Intermitente |
 
@@ -129,7 +129,7 @@ Use la siguiente tabla para conocer el estado del PCM.
 El dispositivo StorSimple dispone de LED relativos al controlador principal y a los módulos de controlador de EBOD.
 
 ### LED de supervisión del controlador principal
-La siguiente ilustración sirve para identificar los LED en el controlador principal con mayor facilidad. \(Se muestran todos los componentes a modo orientativo\).
+La siguiente ilustración sirve para identificar los LED en el controlador principal con mayor facilidad. (Se muestran todos los componentes a modo orientativo).
 
    ![][4]
  
@@ -139,17 +139,17 @@ Use la siguiente tabla para saber si el módulo del controlador está funcionand
 
 | LED | Descripción                                                                            
 |---- | ----------- |
-| LED de identificación \(azul\) | Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, vea [Identificar un controlador activo en el dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
-| LED de error \(ámbar\) | Indica un error en el controlador.        
-| LED correcto \(verde\) | Un color verde fijo indica que el controlador funciona correctamente. La intermitencia en verde indica un error de configuración de VPD del controlador. |
-| LED de actividad SAS \(verde\) | Un color verde fijo señala una conexión sin ninguna actividad actual. La intermitencia en verde indica que la conexión tiene una actividad en curso. |
-| Indicadores LED de estado de Ethernet | El lado derecho indica la actividad de vínculo/red: \(verde fijo\) vínculo activo, \(intermitencia en verde\) actividad de red. El lado izquierdo indica la velocidad de la red: \(amarillo\) 1000 Mb/s, \(verde\) 100 Mb/s y \(apagado\) 10 Mb/s. Según el modelo del componente, esta luz puede parpadear aun cuando la interfaz de red no esté habilitada. |
+| LED de identificación (azul) | Indica que el módulo se está identificando. Si el LED azul parpadea en un controlador en funcionamiento, quiere decir que es el controlador activo y el otro, el controlador en modo de espera. Para más información, vea [Identificar un controlador activo en el dispositivo](https://msdn.microsoft.com/library/azure/dn790262.aspx). |
+| LED de error (ámbar) | Indica un error en el controlador.        
+| LED correcto (verde) | Un color verde fijo indica que el controlador funciona correctamente. La intermitencia en verde indica un error de configuración de VPD del controlador. |
+| LED de actividad SAS (verde) | Un color verde fijo señala una conexión sin ninguna actividad actual. La intermitencia en verde indica que la conexión tiene una actividad en curso. |
+| Indicadores LED de estado de Ethernet | El lado derecho indica la actividad de vínculo/red: (verde fijo) vínculo activo, (intermitencia en verde) actividad de red. El lado izquierdo indica la velocidad de la red: (amarillo) 1000 Mb/s, (verde) 100 Mb/s y (apagado) 10 Mb/s. Según el modelo del componente, esta luz puede parpadear aun cuando la interfaz de red no esté habilitada. |
 | LED POST | Indica el progreso de inicio cuando el controlador está encendido. Si el dispositivo StorSimple no puede iniciarse, este LED servirá para que el equipo de soporte técnico de Microsoft pueda identificar el punto en el proceso de inicio en el que se produjo el error. |
 
 >[AZURE.IMPORTANT]Si el LED de error está encendido, quiere decir que hay un problema con el módulo del controlador que podría resolverse reiniciando el controlador. Póngase en contacto con el equipo de soporte técnico de Microsoft si reiniciar el controlador no resuelve este problema.
 
 
-###LED de supervisión del EBOD \(revestimiento de EBOD\)  
+###LED de supervisión del EBOD (revestimiento de EBOD)  
 
 Cada uno de los controladores de EBOD SAS de 6 Gb/s tiene varios LED que indican su estado, como se muestra en la siguiente ilustración.
 
@@ -180,17 +180,17 @@ Use la siguiente tabla para conocer el estado de cada unidad de disco, lo que a 
 
 ### Indicadores LED de unidad de disco del revestimiento de EBOD  
 
-| Estado | LED de actividad correcta \(verde\) | LED de error \(rojo-ámbar\) | LED del panel de operaciones asociado |
+| Estado | LED de actividad correcta (verde) | LED de error (rojo-ámbar) | LED del panel de operaciones asociado |
 |-------|--------------------------|----------------------|-------------------------|
 | No hay unidades instaladas | Apagado | Apagado | Ninguno |
 | Unidad instalada y operativa | Intermitencia con actividad | X | Ninguno |
-| Conjunto de identidad de dispositivo de los servicios de SCSI Enclosure \(SES\) | Encendido | Intermitente 1 segundo sí/1 segundo no | Ninguno |
-| Conjunto de bits de error de dispositivo SES | Encendido | Encendido | Error lógico \(rojo\) |
-| Error de circuito de control de alimentación | Apagado | Encendido | Error del módulo \(rojo\) |
+| Conjunto de identidad de dispositivo de los servicios de SCSI Enclosure (SES) | Encendido | Intermitente 1 segundo sí/1 segundo no | Ninguno |
+| Conjunto de bits de error de dispositivo SES | Encendido | Encendido | Error lógico (rojo) |
+| Error de circuito de control de alimentación | Apagado | Encendido | Error del módulo (rojo) |
 
 ## Alarmas audibles  
 
-Un dispositivo StorSimple cuenta con alarmas audibles asociadas al revestimiento principal y el revestimiento de EBOD. Las alarmas audibles se emiten desde el panel frontal \(también conocido como panel de operaciones\) de ambos revestimientos. Una alarma audible indica que hay una condición de error. Las siguientes condiciones activarán la alarma:
+Un dispositivo StorSimple cuenta con alarmas audibles asociadas al revestimiento principal y el revestimiento de EBOD. Las alarmas audibles se emiten desde el panel frontal (también conocido como panel de operaciones) de ambos revestimientos. Una alarma audible indica que hay una condición de error. Las siguientes condiciones activarán la alarma:
 
 - Error o avería del ventilador
 - Voltaje fuera del intervalo
@@ -199,7 +199,7 @@ Un dispositivo StorSimple cuenta con alarmas audibles asociadas al revestimiento
 - Error del sistema
 - Error lógico
 - Error de la fuente de alimentación
-- Eliminación de un módulo de refrigeración de alimentación \(PCM\)  
+- Eliminación de un módulo de refrigeración de alimentación (PCM)  
 
 En la siguiente tabla se describen los distintos estados de alarma.
 
@@ -208,7 +208,7 @@ En la siguiente tabla se describen los distintos estados de alarma.
 | Estado de alarma | Acción | Acción cuando el botón Silenciar está presionado |
 |------------|---------|---------------------------------|
 | S0 | Modo normal: silencioso | Pitido doble |
-| S1 | Modo de error: 1 segundo activado/1 segundo desactivado | Transición a S2 o a S3 \(ver notas\) |
+| S1 | Modo de error: 1 segundo activado/1 segundo desactivado | Transición a S2 o a S3 (ver notas) |
 | S2 | Modo de recordatorio: pitido intermitente | Ninguna |
 | S3 | Modo en silencio: silencioso | Ninguna |
 | S4 | Modo de error crítico: alarma continua | No disponible: silencio no activo |
@@ -237,7 +237,7 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 | Alerta de advertencia temperatura alta | Advertencia | S1 | Error de módulo |
 | Alarma de exceso de temperatura | Error: crítico | S1 | Error de módulo |
 | Error de bus I2C | Error: pérdida de redundancia | S1 | Error de módulo |
-| Error de comunicación del panel de operaciones \(I2C\) | Error: crítico | S1 | Error de módulo |
+| Error de comunicación del panel de operaciones (I2C) | Error: crítico | S1 | Error de módulo |
 | Error de controlador | Error: crítico | S1 | Error de módulo |
 | Error del módulo de la interfaz SBB | Error: crítico | S1 | Error de módulo |
 | Error del módulo de la interfaz SBB: no quedan módulos en funcionamiento | Error: crítico | S4 | Error de módulo |

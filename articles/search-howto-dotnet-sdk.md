@@ -105,7 +105,7 @@ Lo recorreremos paso a paso. Primero, debemos crear un nuevo `SearchServiceClien
 
         SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 
-> [AZURE.NOTE]Si proporciona una clave incorrecta \(por ejemplo, una clave de consulta cuando se requiere una clave de administración\), el `SearchServiceClient` producirá un `CloudException` con el mensaje de error "Forbidden" \(Prohibido\) cuando llame a un método de operación con él, como `Indexes.Create`. Si esto sucede, compruebe la clave de API.
+> [AZURE.NOTE]Si proporciona una clave incorrecta (por ejemplo, una clave de consulta cuando se requiere una clave de administración), el `SearchServiceClient` producirá un `CloudException` con el mensaje de error "Forbidden" (Prohibido) cuando llame a un método de operación con él, como `Indexes.Create`. Si esto sucede, compruebe la clave de API.
 
 Las siguientes líneas llaman a métodos para crear un índice llamado "hotels", eliminándolo antes si ya existe. Describiremos estos métodos más adelante.
 
@@ -200,7 +200,7 @@ A continuación, `Main` crea un nuevo índice "hotels" mediante una llamada a es
         serviceClient.Indexes.Create(definition);
     }
 
-Este método crea un nuevo objeto `Index` con una lista de objetos `Field` que define el esquema del nuevo índice. Cada campo tiene un nombre, un tipo de datos y varios atributos que definen su comportamiento de búsqueda. Además de campos, puede agregar al índice perfiles de puntuación, proveedores de sugerencias u opciones de CORS \(se omiten en el ejemplo para mayor brevedad\). Puede encontrar más información sobre el objeto Index y sus partes constituyentes en la referencia del SDK en [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), así como en la [referencia de la API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Este método crea un nuevo objeto `Index` con una lista de objetos `Field` que define el esquema del nuevo índice. Cada campo tiene un nombre, un tipo de datos y varios atributos que definen su comportamiento de búsqueda. Además de campos, puede agregar al índice perfiles de puntuación, proveedores de sugerencias u opciones de CORS (se omiten en el ejemplo para mayor brevedad). Puede encontrar más información sobre el objeto Index y sus partes constituyentes en la referencia del SDK en [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.index_members.aspx), así como en la [referencia de la API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
 ### Llenado del índice ###
 
@@ -333,7 +333,7 @@ Quizás se pregunte cómo consigue el SDK de Azure para .NET cargar en el índic
         }
     }
 
-Lo primero que debe tener en cuenta es que cada propiedad pública de `Hotel` corresponde a un campo de la definición del índice, pero con una diferencia fundamental: el nombre de cada campo comienza con una letra minúscula \("mayúsculas y minúsculas Camel"\), mientras que el nombre de cada propiedad pública de `Hotel` comienza con una letra mayúscula \("mayúsculas y minúsculas Pascal"\). Se trata de un escenario común en las aplicaciones .NET que realizan enlaces de datos cuando el esquema de destino está fuera del control del desarrollador de la aplicación. En lugar de tener que infringir las directrices de nomenclatura de .NET utilizando mayúsculas y minúsculas Camel para los nombres de las propiedades, puede usar el atributo `[SerializePropertyNamesAsCamelCase]` para indicar al SDK que asigne los nombres de las propiedades automáticamente a mayúsculas y minúsculas Camel.
+Lo primero que debe tener en cuenta es que cada propiedad pública de `Hotel` corresponde a un campo de la definición del índice, pero con una diferencia fundamental: el nombre de cada campo comienza con una letra minúscula ("mayúsculas y minúsculas Camel"), mientras que el nombre de cada propiedad pública de `Hotel` comienza con una letra mayúscula ("mayúsculas y minúsculas Pascal"). Se trata de un escenario común en las aplicaciones .NET que realizan enlaces de datos cuando el esquema de destino está fuera del control del desarrollador de la aplicación. En lugar de tener que infringir las directrices de nomenclatura de .NET utilizando mayúsculas y minúsculas Camel para los nombres de las propiedades, puede usar el atributo `[SerializePropertyNamesAsCamelCase]` para indicar al SDK que asigne los nombres de las propiedades automáticamente a mayúsculas y minúsculas Camel.
 
 La segunda cosa importante acerca de la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `Edm.String`. Se dan asignaciones de tipos semejantes entre `bool?` y `Edm.Boolean`, `DateTimeOffset?` y `Edm.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx). Tenga en cuenta que los tipos de valores como `bool` y `int` admiten valores null en la clase `Hotel` porque todos los tipos de campo primitivos de Búsqueda de Azure admiten valores null.
 
@@ -374,7 +374,7 @@ Veamos más de cerca cómo se llama a este método:
 
     SearchDocuments(indexClient, searchText: "*", filter: "category eq 'Luxury'");
 
-En la primera llamada estamos buscando todos los documentos que contienen los términos de consulta "fancy" o "wifi". En la segunda llamada, el texto de búsqueda se define como "\*", lo que significa "buscar todos los elementos". Puede encontrar más información acerca de la sintaxis de expresiones de consulta de búsqueda [aquí](https://msdn.microsoft.com/library/azure/dn798920.aspx).
+En la primera llamada estamos buscando todos los documentos que contienen los términos de consulta "fancy" o "wifi". En la segunda llamada, el texto de búsqueda se define como "*", lo que significa "buscar todos los elementos". Puede encontrar más información acerca de la sintaxis de expresiones de consulta de búsqueda [aquí](https://msdn.microsoft.com/library/azure/dn798920.aspx).
 
 La segunda llamada usa una expresión `$filter` de OData, `category eq 'Luxury'`. Esto restringe la búsqueda de forma que devuelva solo aquellos documentos en los que el campo `category` coincida exactamente con la cadena "Luxury". Puede encontrar más información acerca de la sintaxis de OData admitida por Búsqueda de Azure [aquí](https://msdn.microsoft.com/library/azure/dn798921.aspx).
 

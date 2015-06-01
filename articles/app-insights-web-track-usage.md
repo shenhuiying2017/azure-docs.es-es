@@ -47,7 +47,7 @@ En Inicio rápido, obtenga el script para páginas web.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Inserte el script justo antes de la etiqueta </head> de cada página que desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, la colocaría en View\Shared\_Layout.cshtml
+Inserte el script justo antes de la etiqueta </head> de cada página que desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, la colocaría en View\Shared_Layout.cshtml
 
 ## <a name="usage"></a>Análisis de uso
 

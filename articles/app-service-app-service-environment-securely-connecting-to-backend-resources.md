@@ -25,7 +25,7 @@ Por ejemplo, puede haber un servidor SQL Server que se ejecute en un clúster de
 
 Otro ejemplo: los extremos con información confidencial pueden ejecutarse localmente y conectarse a Azure mediante conexiones [De sitio a sitio][SiteToSite] o [Azure ExpressRoute][ExpressRoute]. Como resultado, solo los recursos de las redes virtuales conectadas a túneles ExpressRoute o De sitio a sitio podrán tener acceso a los extremos locales.
 
-En todos estos escenarios, las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones podrán conectarse de forma segura a los distintos servidores y recursos. El tráfico saliente de las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones hacia extremos privados de la misma red virtual \(o conectadas a la misma red virtual\) solamente fluirá a través de la red virtual. El tráfico saliente hacia extremos privados no fluirá a través de la red pública de Internet.
+En todos estos escenarios, las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones podrán conectarse de forma segura a los distintos servidores y recursos. El tráfico saliente de las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones hacia extremos privados de la misma red virtual (o conectadas a la misma red virtual) solamente fluirá a través de la red virtual. El tráfico saliente hacia extremos privados no fluirá a través de la red pública de Internet.
 
 
 ## Conexión a un servidor SQL Server
@@ -36,7 +36,7 @@ Una configuración común de SQL Server tiene un extremo que escucha en el puert
 Existen dos formas de restringir el tráfico a este extremo:
 
 
-- [Listas de control de acceso de red][NetworkAccessControlLists] \(ACL de red\)
+- [Listas de control de acceso de red][NetworkAccessControlLists] (ACL de red)
 
 - [Grupos de seguridad de red][NetworkSecurityGroups]
 

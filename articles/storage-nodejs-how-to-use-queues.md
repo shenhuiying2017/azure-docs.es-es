@@ -59,7 +59,7 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
 3.  Puede ejecutar manualmente el comando **ls** para verificar que se ha creado la carpeta
-    **node\_modules**. Dentro de esa carpeta
+    **node_modules**. Dentro de esa carpeta
     encontrará el paquete **azure-storage**, que contiene las bibliotecas que necesita para
     obtener acceso al almacenamiento.
 
@@ -72,7 +72,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 ## Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
+El módulo azure leerá las variables de AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
 

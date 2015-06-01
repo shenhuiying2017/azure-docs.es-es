@@ -23,15 +23,15 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 ## Problemas de sintaxis
 
 ### Problema
-- Errores de sintaxis mediante la API \(o un comportamiento inesperado\).
+- Errores de sintaxis mediante la API (o un comportamiento inesperado).
 
 ### Causas
 
 - Problemas de sintaxis:
     - Asegúrese de comprobar la sintaxis de la API específica que se utiliza para confirmar que la opción está disponible.
-    - Un problema común con el uso de la API consiste en confundir la API de cobertura y la API de inserción \(la mayoría de las tareas debe realizarse con la API de cobertura en lugar de la API de inserción\). 
+    - Un problema común con el uso de la API consiste en confundir la API de cobertura y la API de inserción (la mayoría de las tareas debe realizarse con la API de cobertura en lugar de la API de inserción). 
     - Otro problema común con la integración del SDK y el uso de la API es confundir la clave del SDK y la clave de la API.
-    - Las secuencias de comandos que se conectan a las API necesitan enviar datos al menos cada 10 minutos o la conexión agotará el tiempo de espera \(especialmente frecuente en secuencias de comandos de API de supervisión que escuchan datos\). Para evitar los tiempos de espera, haga que la secuencia de comandos envíe un ping XMPP cada 10 minutos para mantener la sesión activa con el servidor.
+    - Las secuencias de comandos que se conectan a las API necesitan enviar datos al menos cada 10 minutos o la conexión agotará el tiempo de espera (especialmente frecuente en secuencias de comandos de API de supervisión que escuchan datos). Para evitar los tiempos de espera, haga que la secuencia de comandos envíe un ping XMPP cada 10 minutos para mantener la sesión activa con el servidor.
 
 ### Consulte también
  

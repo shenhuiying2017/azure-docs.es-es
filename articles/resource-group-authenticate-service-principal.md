@@ -18,11 +18,11 @@
 
 # Autenticación de una entidad de servicio con el Administrador de recursos de Azure
 
-En este tema se muestra cómo permitir que una entidad de servicio \(por ejemplo, un proceso, una aplicación o un servicio automatizado\) tenga acceso a otros recursos de la suscripción. Con el Administrador de recursos de Azure, puede usar el control de acceso basado en rol para conceder las acciones permitidas a una entidad de servicio y autenticar a esa entidad de servicio. En este tema se muestra cómo usar PowerShell y la CLI de Azure para asignar un rol a una entidad de servicio y autenticar la entidad de servicio.
+En este tema se muestra cómo permitir que una entidad de servicio (por ejemplo, un proceso, una aplicación o un servicio automatizado) tenga acceso a otros recursos de la suscripción. Con el Administrador de recursos de Azure, puede usar el control de acceso basado en rol para conceder las acciones permitidas a una entidad de servicio y autenticar a esa entidad de servicio. En este tema se muestra cómo usar PowerShell y la CLI de Azure para asignar un rol a una entidad de servicio y autenticar la entidad de servicio.
 
 
 ## Conceptos
-1. Azure Active Directory \(AAD\): un servicio de administración de identidades y acceso para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](./active-directory-whatis.md)
+1. Azure Active Directory (AAD): un servicio de administración de identidades y acceso para la nube. Para obtener más información, consulte [¿Qué es Azure Active Directory?](./active-directory-whatis.md)
 2. Entidad de servicio: una instancia de una aplicación en un directorio.
 3. Aplicación de AD: un registro de directorio que identifica una aplicación en AAD. Para obtener más información, consulte [Conceptos básicos sobre autenticación en Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
@@ -32,9 +32,9 @@ Si no tiene instalado Azure PowerShell, consulte [Instalación y configuración 
 
 Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicación en el directorio. Esta sección le guiará a través de la creación de una nueva aplicación en el directorio.
 
-1. Cree una nueva aplicación de AAD ejecutando el comando **New-AzureADApplication**. Proporcione un nombre para mostrar para la aplicación, el URI para una página que describe la aplicación \(no se comprueba el vínculo\), los URI que identifican la aplicación y la contraseña para la identidad de aplicación.
+1. Cree una nueva aplicación de AAD ejecutando el comando **New-AzureADApplication**. Proporcione un nombre para mostrar para la aplicación, el URI para una página que describe la aplicación (no se comprueba el vínculo), los URI que identifican la aplicación y la contraseña para la identidad de aplicación.
 
-        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+        PS C:> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
    Se devuelve a la aplicación de Azure AD:
 
@@ -70,23 +70,23 @@ Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicac
 
 3. Cree a una entidad de servicio para la aplicación.
 
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
    Ahora ha creado una entidad de servicio en el directorio, pero el servicio no tiene asignado ningún permiso o ámbito. Debe conceder explícitamente permisos a la entidad de servicio a fin de realizar operaciones en cierto ámbito.
 
 4. Conceda los permisos de la entidad de servicio en su suscripción. En este ejemplo se concederá a la entidad de servicio el permiso de lectura para todos los recursos de la suscripción. Para el parámetro **ServicePrincipalName**, proporcione el valor de **ApplicationId** o **IdentifierUris** que utilizó al crear la aplicación. Para obtener más información sobre el control de acceso basado en rol, consulte [Administración y auditoría de acceso a recursos](./resource-group-rbac.md).
 
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 5. Recupere la suscripción en la que se creó la asignación de roles. Esta suscripción se utilizará más adelante para obtener el valor de **TenantId** del inquilino en el que reside la asignación de rol de la entidad de servicio.
 
-        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+        PS C:> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
 
    Si ha creado la asignación de rol en una suscripción que no sea la suscripción seleccionada actualmente, puede especificar los parámetros **SubscriptoinId** o **SubscriptionName**  para recuperar una suscripción diferente.
 
 6. Cree un nuevo objeto **PSCredential** que contiene las credenciales mediante la ejecución del comando **Get-Credential**.
 
-        PS C:\> $creds = Get-Credential
+        PS C:> $creds = Get-Credential
 
    Se le pedirá que escriba sus credenciales.
 
@@ -96,7 +96,7 @@ Comenzará creando una entidad de servicio. Para ello, debemos crear una aplicac
 
 7. Utilice las credenciales que especificó para el cmdlet **Add-AzureAccount**, que firmará la entidad de servicio en:
 
-        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        PS C:> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
 
    Ahora debe autenticarse como la entidad de servicio para la aplicación de AAD que ha creado.
 

@@ -175,7 +175,7 @@ También puede configurar el host con el archivo App.config. El código de hospe
     Console.ReadLine();
     sh.Close();
 
-Las definiciones del extremo se trasladan al archivo App.config. Tenga en cuenta que el paquete **NuGet** ya ha agregado una serie de definiciones al archivo App.config, que son las extensiones de configuración necesarias para el bus del servicio. El siguiente fragmento de código, que es el equivalente exacto del código anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. El fragmento presupone que el espacio de nombres C\# del proyecto tiene el nombre de "Service".
+Las definiciones del extremo se trasladan al archivo App.config. Tenga en cuenta que el paquete **NuGet** ya ha agregado una serie de definiciones al archivo App.config, que son las extensiones de configuración necesarias para el bus del servicio. El siguiente fragmento de código, que es el equivalente exacto del código anterior, debe aparecer directamente debajo del elemento **system.serviceModel**. El fragmento presupone que el espacio de nombres C# del proyecto tiene el nombre de "Service".
 Reemplace los marcadores de posición por el espacio de nombres del servicio de Bus de servicio y la clave SAS.
 
     <services>

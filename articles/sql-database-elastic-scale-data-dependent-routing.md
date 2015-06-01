@@ -76,7 +76,7 @@ El método **OpenConnectionForKeyAsync** también está disponible si la aplicac
 
 ## Integración con el control de errores transitorios 
 
-Un procedimiento recomendado para el desarrollo de aplicaciones de acceso a datos en la nube es asegurar de que la aplicación capture los errores transitorios en la conexión o la consulta a la base de datos y que las operaciones se recuperen varias veces antes de arrojar un error. El control de errores transitorios para aplicaciones en la nube se analiza en [Control de errores transitorios](http://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
+Un procedimiento recomendado para el desarrollo de aplicaciones de acceso a datos en la nube es asegurar de que la aplicación capture los errores transitorios en la conexión o la consulta a la base de datos y que las operaciones se recuperen varias veces antes de arrojar un error. El control de errores transitorios para aplicaciones en la nube se analiza en [Control de errores transitorios](http://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx). 
  
 El control de errores transitorios puede coexistir naturalmente con el patrón de Enrutamiento dependiente de los datos. El requisito clave es volver a intentar la solicitud de acceso a los datos completa, incluido el bloque **using** que obtuvo la conexión de enrutamiento dependiente de los datos. El ejemplo anterior se podría reescribir de la siguiente manera (observe el cambio resaltado). 
 

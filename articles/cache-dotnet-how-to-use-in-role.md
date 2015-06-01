@@ -197,7 +197,7 @@ Si se trata de un rol web de ASP.NET, también se incorpora la siguiente referen
 
 -	Microsoft.Web.DistributedCache.dll.
 
->Estos ensamblados se encuentran en la carpeta C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\.
+>Estos ensamblados se encuentran en la carpeta C:\\Program Files\\Microsoft SDKs\\Windows Azure\.NET SDK\\2012-10\\ref\\Caching\.
 
 Cuando el proyecto de cliente ya está configurado para el almacenamiento en caché, puede usar las técnicas descritas en las siguientes secciones para trabajar con la caché.
 

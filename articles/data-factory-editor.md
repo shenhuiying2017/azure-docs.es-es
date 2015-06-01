@@ -34,16 +34,16 @@ Hay cuatro botones en la barra de herramientas que puede usar para crear entidad
 - **Nuevo almacén de datos** para crear un servicio vinculado al almacén de datos. Al hacer clic en este botón, aparecerá un menú con las siguientes opciones: almacenamiento de Azure, base de datos SQL de Azure y base de datos local de SQL server.
 - **Nuevo proceso** para crear un servicio vinculado a un proceso. Al hacer clic en este botón, aparecerá un menú con las siguientes opciones: clúster de HDInsight a petición, clúster de HDInsight, el servicio vinculado del Aprendizaje automático de Azure.      
 - **Nuevo conjunto de datos** para crear un conjunto de datos. Al hacer clic en este botón, verá las siguientes opciones: tabla de blobs, tabla de SQL de Azure y tabla local.  
-- **Nueva canalización** para crear una canalización. Haga clic en **... \(puntos suspensivos\)** en la barra de herramientas si no ve el botón.
+- **Nueva canalización** para crear una canalización. Haga clic en **... (puntos suspensivos)** en la barra de herramientas si no ve el botón.
  
 ### Para crear un servicio de almacenamiento vinculado
 1. Haga clic en **Nuevo almacén de datos** y elija una de las opciones del menú.
  
 	![Menú Nuevo almacén de datos][new-data-store-menu] 
 2. Verá la plantilla JSON para crear un servicio de almacenamiento almacenado en el **lienzo del Editor** a la derecha. También verá que aparece un nodo de borrador en **Borradores**. Haga lo siguiente:
-	1. En **Almacenamiento de Azure**: reemplace **\<accountname\>** y **\<accountkey \>** por el nombre y la clave de su cuenta de almacenamiento de Azure.
-	2. En **Base de datos SQL de Azure**: reemplace **\<servername\>** por el nombre del servidor SQL de Azure, **\<databasename \>** por el nombre de la base de datos, **\<username\>@\<servername\>** por el nombre del usuario y **\<password\>** por la contraseña de la cuenta de usuario. 
-	3. En **Base de datos local de SQL Server**: reemplace **\<servername\>** por el nombre del servidor SQL local, **\<databasename \>** por el nombre de la base de datos, **\<username\>** por el nombre del usuario y **\<password\>** por la contraseña de la cuenta de usuario.
+	1. En **Almacenamiento de Azure**: reemplace **<accountname>** y **<accountkey >** por el nombre y la clave de su cuenta de almacenamiento de Azure.
+	2. En **Base de datos SQL de Azure**: reemplace **<servername>** por el nombre del servidor SQL de Azure, **<databasename >** por el nombre de la base de datos, **<username>@<servername>** por el nombre del usuario y **<password>** por la contraseña de la cuenta de usuario. 
+	3. En **Base de datos local de SQL Server**: reemplace **<servername>** por el nombre del servidor SQL local, **<databasename >** por el nombre de la base de datos, **<username>** por el nombre del usuario y **<password>** por la contraseña de la cuenta de usuario.
 4. Haga clic en **Implementar** en la barra de herramientas para implementar el servicio vinculado. Puede hacer clic en **Descartar** para descartar el borrador JSON que ha creado.
  
 	![Botón Implementar][deploy-button]
@@ -64,9 +64,9 @@ Hay cuatro botones en la barra de herramientas que puede usar para crear entidad
 		1. En la propiedad **clusterSize**, especifique el tamaño del clúster de HDInsight que desea que el servicio Factoría de datos cree en tiempo de ejecución. 
 		2. En la propiedad **jobsContainer**, especifique el nombre del contenedor de blobs predeterminado donde desea que se almacenen los registros de clúster.
 		3. En la propiedad **timeToLive**, especifique el tiempo de inactividad permitido antes de que se elimine el clúster de HDInsight. Por ejemplo: 00:05:00 indica que el clúster debería eliminarse después de 5 minutos de tiempo de inactividad.
-		4. En la propiedad **version**, especifique la versión de HDInsight para el clúster \(valor predeterminado: versión 3.1\).
+		4. En la propiedad **version**, especifique la versión de HDInsight para el clúster (valor predeterminado: versión 3.1).
 		5. En la propiedad **linkedServiceName**, especifique el servicio de almacenamiento vinculado de Azure que se asociará con el clúster de HDInsight. 
-	6. En **Clúster de HDInsight** \(traiga su propio clúster\), especifique los valores para las propiedades siguientes:
+	6. En **Clúster de HDInsight** (traiga su propio clúster), especifique los valores para las propiedades siguientes:
 		1. En la propiedad **clusterUri**, especifique la dirección URL para su propio clúster de HDInsight. 
 		2. En la propiedad **userName**, especifique la cuenta de usuario que el servicio Factoría de datos debe usar para conectarse a su clúster de HDInsight. 
 		3. En la propiedad **password**, especifique la contraseña de la cuenta de usuario. 
@@ -101,7 +101,7 @@ Hay cuatro botones en la barra de herramientas que puede usar para crear entidad
 > [AZURE.NOTE]Consulte el tema [Tablas][msdn-tables-reference] de la Biblioteca de MSDN para obtener descripciones de los elementos JSON que se usan para definir una tabla de la Factoría de datos de Azure.
  		           
 ### Para crear y activar una canalización 
-1. Haga clic en **Nueva canalización** en la barra de herramientas. Si no ve el botón **Nueva canalización**, haga clic en **... \(puntos suspensivos\)** para verlo.   
+1. Haga clic en **Nueva canalización** en la barra de herramientas. Si no ve el botón **Nueva canalización**, haga clic en **... (puntos suspensivos)** para verlo.   
 2. Verá la plantilla JSON para crear una canalización en el lienzo del Editor a la derecha. Haga lo siguiente: 
 	1. En la propiedad **description**, especifique la descripción de la canalización.
 	2. En la sección **activities**, agregue actividades a la canalización. Ejemplo:
@@ -190,14 +190,14 @@ Los borradores permiten guardar temporalmente el trabajo cuando cambia de contex
 Puede descartar la definición de JSON de una entidad de la Factoría de datos de Azure haciendo clic en el botón **Descartar** en la barra de herramientas.
 
 ## Para clonar una entidad de la Factoría de Datos
-Puede clonar una entidad existente de la Factoría de datos de Azure \(servicio vinculado, tabla o canalización\) seleccionando la entidad en la vista de árbol y haciendo clic en el botón **Clonar** de la barra de herramientas.
+Puede clonar una entidad existente de la Factoría de datos de Azure (servicio vinculado, tabla o canalización) seleccionando la entidad en la vista de árbol y haciendo clic en el botón **Clonar** de la barra de herramientas.
 
 ![Clonar una entidad de la Factoría de datos][clone-datafactory-entity]
 
 Aparecerá un nuevo borrador en el nodo **Borradores** de la vista de árbol.
 
 ## Para eliminar una entidad de la Factoría de Datos
-Para eliminar una entidad de la Factoría de datos de Azure \(servicio vinculado, tabla o canalización\), seleccione la entidad en la vista de árbol y haga clic en **Eliminar** en la barra de herramientas o haga clic con el botón secundario en la entidad y seleccione **Eliminar**.
+Para eliminar una entidad de la Factoría de datos de Azure (servicio vinculado, tabla o canalización), seleccione la entidad en la vista de árbol y haga clic en **Eliminar** en la barra de herramientas o haga clic con el botón secundario en la entidad y seleccione **Eliminar**.
 
 ![Eliminar una entidad de la Factoría de datos][delete-datafactory-entity]
 

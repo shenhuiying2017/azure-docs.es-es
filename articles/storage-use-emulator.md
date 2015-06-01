@@ -101,7 +101,7 @@ A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la 
 ## Inicializar el emulador de almacenamiento con la herramienta de línea de comandos
 La herramienta de la línea de comandos del emulador de almacenamiento se puede usar para inicializar el emulador de almacenamiento para que señale a una instancia de base de datos distinta a la predeterminada. Si desea utilizar la instancia de base de datos LocalDB predeterminada, no es necesario ejecutar un paso de inicialización aparte.
 
-Esta herramienta se instala de manera predeterminada en el directorio C:\Archivos de programa(x86)\Microsoft SDKs\Azure\Storage Emulator\. La inicialización se ejecuta automáticamente la primera vez que se inicia el emulador.
+Esta herramienta se instala de manera predeterminada en el directorio C:\Archivos de programa(x86)\Microsoft SDKs\Azure\Storage Emulator. La inicialización se ejecuta automáticamente la primera vez que se inicia el emulador.
 
 > [AZURE.NOTE] Necesita tener privilegios de administrador para ejecutar el comando `init` que se describe a continuación.
 

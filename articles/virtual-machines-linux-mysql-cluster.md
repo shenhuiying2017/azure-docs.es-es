@@ -152,7 +152,7 @@ Si no pretende conmutar por error DRBD ahora, la primera opción es más sencill
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* TO root;
+    GRANT ALL ON things.* TO root;
 
 **Advertencia**: esta última instrucción deshabilita de forma eficaz la autenticación para el usuario raíz en esta tabla. Las instrucciones GRANT de producción deben reemplazar esto y solamente se incluye por motivos ilustrativos.
 

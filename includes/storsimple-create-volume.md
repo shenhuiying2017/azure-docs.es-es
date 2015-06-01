@@ -27,10 +27,10 @@
 
      ![Agregar volumen](./media/storsimple-create-volume/HCS_AddVolume1M-include.png)
 
-3. En el cuadro de diálogo **Configuración adicional**, agregue un nuevo registro de control de acceso \(ACR\):
+3. En el cuadro de diálogo **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
    1. Proporcione un **Nombre** para el ACR.
-   2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI \(IQN\) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
-   3. En **¿Copia de seguridad predeterminada para este volumen?**, seleccione la casilla **Habilitar**. La copia de seguridad predeterminada creará una directiva que se ejecuta a las 22:30 cada día \(hora del dispositivo\) y crea una instantánea en la nube de este volumen.
+   2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
+   3. En **¿Copia de seguridad predeterminada para este volumen?**, seleccione la casilla **Habilitar**. La copia de seguridad predeterminada creará una directiva que se ejecuta a las 22:30 cada día (hora del dispositivo) y crea una instantánea en la nube de este volumen.
 
      >[AZURE.NOTE]Después de habilitar aquí la copia de seguridad, no se puede revertir. Necesitará modificar el volumen para modificar esta configuración.
 

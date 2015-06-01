@@ -74,7 +74,7 @@ En el ejemplo siguiente se muestra cómo establecer una directiva de indización
 	           }                                                  
 	        ],                                                               
 	        "ExcludedPaths":[                                                
-	           "/\"nonIndexedContent\"/*"                                 
+	           "/"nonIndexedContent"/*"                                 
 	        ]                                                               
 	     }                                                                 
 	 }                                                                                                                                                
@@ -86,7 +86,7 @@ En el ejemplo siguiente se muestra cómo establecer una directiva de indización
 
 **Nota:** la directiva de indización de una colección debe especificarse en el momento de la creación. No se permite la modificación de la directiva de indización después de la creación de la colección, pero se admitirá en una versión futura de DocumentDB.
 
-**Nota:** de forma predeterminada, la DocumentDB indiza todas las rutas de los documentos de forma homogénea con un índice hash. La ruta de acceso interna de marca de tiempo (\_ts) se almacena con un índice de intervalo.
+**Nota:** de forma predeterminada, la DocumentDB indiza todas las rutas de los documentos de forma homogénea con un índice hash. La ruta de acceso interna de marca de tiempo (_ts) se almacena con un índice de intervalo.
 
 ### Indexación automática
 
@@ -285,7 +285,7 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
 										IndexType = IndexType.Range, 
-										Path = "/\"CreatedTimestamp\"/?",   
+										Path = "/"CreatedTimestamp"/?",   
 										NumericPrecision = 7   
 							 			}
 									);   
@@ -307,7 +307,7 @@ En el ejemplo siguiente se excluye un árbol secundario de rutas de acceso de la
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
-	excluded.IndexingPolicy.ExcludedPaths.Add("/\" nonIndexedContent\"/*");    
+	excluded.IndexingPolicy.ExcludedPaths.Add("/" nonIndexedContent"/*");    
 	excluded = await client.CreateDocumentCollectionAsync(database.SelfLink,excluded);                                                               
 
 
@@ -316,7 +316,7 @@ Optimización del rendimiento
 
 A medida que evalúe distintas configuraciones de directiva de indexación, debe medir las implicaciones de rendimiento y almacenamiento de la directiva a través de las API de DocumentDB.
 
-Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud HEAD o GET en el recurso de colección e inspeccione la cuota x-ms-request y los encabezados x-ms-request-usage. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
+Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute una solicitud HEAD o GET en el recurso de colección e inspeccione la cuota x-ms-request y los encabezados x-ms-request-usage. En el SDK de .NET, las propiedades [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) y [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) contienen los valores correspondientes.
 
 
  	// Measure the document size usage (which includes the index size) against   
@@ -325,7 +325,7 @@ Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute un
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Para medir la sobrecarga de la indización en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado x-ms-request-charge (o la propiedad [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET para medir el número de unidades de solicitudes utilizadas por estas operaciones.
+Para medir la sobrecarga de la indización en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado x-ms-request-charge (o la propiedad [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET para medir el número de unidades de solicitudes utilizadas por estas operaciones.
 
 
  	// Measure the performance (request units) of writes.     

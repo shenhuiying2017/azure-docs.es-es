@@ -40,9 +40,9 @@ La siguiente lista de comprobación previa a la instalación describe la informa
 | 3 | Acceso serie | Configuración inicial del dispositivo | Sí/No |
 | 4 | Direcciones IP del servidor DNS | Necesarias para conectarse a Microsoft Azure: necesarias un total de 2 para alta disponibilidad | |
 | 5 | Direcciones IP del servidor NTP | Necesarias para sincronizar la hora con Azure: 1 necesaria, 1 opcional | |
-| 6 | Servidor proxy \(opcional\) | Dirección IP/nombre de dominio completo del servidor proxy, puerto que se usará | |
+| 6 | Servidor proxy (opcional) | Dirección IP/nombre de dominio completo del servidor proxy, puerto que se usará | |
 | 7 | Cuenta de almacenamiento de Azure | Credenciales de acceso, como el nombre de cuenta y la clave acceso, por cuenta de almacenamiento | |
-| 8 | Clave de cifrado de almacenamiento en la nube \(recomendado\) | Por contenedor de volúmenes | |
+| 8 | Clave de cifrado de almacenamiento en la nube (recomendado) | Por contenedor de volúmenes | |
 | 9 | IQN del host | Por host | |
 
 ## Requisitos previos de implementación
@@ -183,7 +183,7 @@ Para conectarse a Windows PowerShell para StorSimple, deberá usar software de e
 
 ## Obtener el IQN de un host de Windows Server
 
-Siga estos pasos para obtener el nombre completo del iSCSI \(IQN\) de un host de Windows que ejecute Windows Server® 2012.
+Siga estos pasos para obtener el nombre completo del iSCSI (IQN) de un host de Windows que ejecute Windows Server® 2012.
 
 [AZURE.INCLUDE [Crear una copia de seguridad manual](../includes/storsimple-get-iqn.md)]
 
@@ -195,7 +195,7 @@ Siga estos pasos en el Portal de administración para crear una copia de segurid
 
 ## Configurar MPIO
 
-E/S de múltiples rutas \(MPIO\) es una característica opcional y no está instalada de forma predeterminada en Windows Server. Se debe instalar como característica a través del Administrador de servidores.
+E/S de múltiples rutas (MPIO) es una característica opcional y no está instalada de forma predeterminada en Windows Server. Se debe instalar como característica a través del Administrador de servidores.
 
 > [AZURE.NOTE]No se admite MPIO en un dispositivo virtual de StorSimple.
 

@@ -17,7 +17,7 @@
 
 ### Para conectarse a través de la consola serie
 
-1. Conecte el cable serie al dispositivo \(directamente o a través de un adaptador USB-serie\).
+1. Conecte el cable serie al dispositivo (directamente o a través de un adaptador USB-serie).
 
 2. Abra el **Panel de control** y, a continuación, abra el **Administrador de dispositivos**.
 

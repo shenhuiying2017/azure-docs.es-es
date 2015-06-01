@@ -11,7 +11,7 @@
 
 ## Uso de la xplat-cli
 
-Los pasos siguientes le ayudarán a usar la xplat-cli fácilmente con la versión más reciente y la suscripción adecuada. Si necesita instalar la xplat-cli y conectarla a su cuenta en primer lugar, consulte la [Interfaz de línea de comandos de Azure \(xplat-cli\)](xplat-cli.md).
+Los pasos siguientes le ayudarán a usar la xplat-cli fácilmente con la versión más reciente y la suscripción adecuada. Si necesita instalar la xplat-cli y conectarla a su cuenta en primer lugar, consulte la [Interfaz de línea de comandos de Azure (xplat-cli)](xplat-cli.md).
 
 ### Paso 1: actualización de la versión de xplat-cli
 

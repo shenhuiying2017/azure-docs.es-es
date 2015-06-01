@@ -58,7 +58,7 @@ Transcurridos unos minutos, el paquete de aplicaciones de API se sincronizará c
 
 ## Implementación del paquete de aplicaciones de API en el Portal de vista previa de Azure
 
-También puede iniciar sesión en el [Portal de vista previa de Azure](https://portal.azure.com) con la cuenta de Azure \(puede ser una cuenta distinta de la que usa para publicar el paquete de aplicaciones de API\). Aquí puede comprobar la experiencia de creación del Portal de vista previa de Azure para el paquete de aplicaciones de API. Si desea realizar algún cambio, solo tiene que hacer la modificación correspondiente en el paquete de aplicaciones de API y publicarlo de nuevo.
+También puede iniciar sesión en el [Portal de vista previa de Azure](https://portal.azure.com) con la cuenta de Azure (puede ser una cuenta distinta de la que usa para publicar el paquete de aplicaciones de API). Aquí puede comprobar la experiencia de creación del Portal de vista previa de Azure para el paquete de aplicaciones de API. Si desea realizar algún cambio, solo tiene que hacer la modificación correspondiente en el paquete de aplicaciones de API y publicarlo de nuevo.
 
 Para obtener información detallada sobre cómo implementar un paquete de aplicaciones de API en el portal de Azure, vea un ejemplo de implementación de DropboxConnector [aquí](app-service-api-connnect-your-app-to-saas-connector.md).
 

@@ -77,10 +77,10 @@ Una función de script de tabla siempre cuenta con tres argumentos.
 
 A continuación se muestran las firmas canónicas de funciones principales para las operaciones de tabla:
 
-+ [Insertar][insert function]\: `function insert (item, user, request) { ... }`
-+ [Actualizar][update function]\: `function update (item, user, request) { ... }`
-+ [Eliminar][delete function]\: `function del (id, user, request) { ... }`
-+ [Leer][read function]\: `function read (query, user, request) { ... }`
++ [Insertar][insert function]: `function insert (item, user, request) { ... }`
++ [Actualizar][update function]: `function update (item, user, request) { ... }`
++ [Eliminar][delete function]: `function del (id, user, request) { ... }`
++ [Leer][read function]: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]Debe usarse el nombre del para la función registrada en la operación de eliminación porque _del_ es una palabra clave reservada en JavaScript.
 
@@ -228,7 +228,7 @@ Cuando una aplicación proporciona un valor para un identificador, Servicios mó
 El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes conjuntos:
 
 + Caracteres de control: [0x0000-0x001F] y [0x007F-0x009F]. Para obtener más información, consulte [Códigos de control ASCII C0 y C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
-+  Caracteres imprimibles: **"**(0 x 0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **\`** (0x0060)
++  Caracteres imprimibles: **"**(0 x 0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\** (0x005C), **`** (0x0060)
 +  Los identificadores "." y ".."
 
 También puede utilizar identificadores enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` usando la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](virtual-machines-command-line-tools.md#Mobile_Tables).
@@ -537,7 +537,7 @@ En el siguiente ejemplo, se registra un script de tabla en la operación de inse
  
 En un script, las funciones auxiliares deben declararse después de la función principal. Debe declarar todas las variables en su script. Las variables no declaradas provocan un error.
 
-Las funciones auxiliares también pueden definirse una vez y compartirse entre scripts del servidor. Para compartir una función entre scripts, deben exportarse las funciones y el archivo de script debe existir en el directorio `.\service\shared\`. En el siguiente ejemplo se muestra una plantilla sobre cómo exportar una función compartida en un archivo `.\services\shared\helpers.js`:
+Las funciones auxiliares también pueden definirse una vez y compartirse entre scripts del servidor. Para compartir una función entre scripts, deben exportarse las funciones y el archivo de script debe existir en el directorio `.\service\shared`. En el siguiente ejemplo se muestra una plantilla sobre cómo exportar una función compartida en un archivo `.\services\shared\helpers.js`:
 
 		exports.handleUnapprovedItem = function (tables, user, callback) {
 		    
@@ -599,7 +599,7 @@ En Servicios móviles, puede crear, modificar y eliminar scripts del servidor me
 
 Tenga en cuenta que esta estructura de directorios es la misma que la del repositorio git cuando se usa el control de código fuente.
 
-Cuando se cargan los archivos de script desde la herramienta de línea de comandos, primero debe dirigirse al directorio `.\services\`. El siguiente comando carga un script con el nombre `todoitem.insert.js` desde el subdirectorio `table`:
+Cuando se cargan los archivos de script desde la herramienta de línea de comandos, primero debe dirigirse al directorio `.\services`. El siguiente comando carga un script con el nombre `todoitem.insert.js` desde el subdirectorio `table`:
 
 		~$azure mobile script upload todolist table/todoitem.insert.js
 		info:    Executing command mobile script upload

@@ -40,7 +40,7 @@ En función de la edición que elija, puede que no estén disponibles todos los 
 2.  En el panel de navegación inferior, seleccione **NUEVO**:
     ![Seleccione el botón Nuevo][Seleccione el botón Nuevo]
 
-3.  Seleccione **SERVICIOS DE APLICACIONES** \> **SERVICIO DE BIZTALK** \> **CREACIÓN PERSONALIZADA**:
+3.  Seleccione **SERVICIOS DE APLICACIONES** > **SERVICIO DE BIZTALK** > **CREACIÓN PERSONALIZADA**:
     ![Seleccione Servicio de BizTalk y seleccione Creación personalizada][Seleccione Servicio de BizTalk y seleccione Creación personalizada]
 
 4.  Escriba la configuración del Servicio de BizTalk.

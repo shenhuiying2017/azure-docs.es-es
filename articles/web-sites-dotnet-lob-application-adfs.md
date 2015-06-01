@@ -253,7 +253,7 @@ Hasta ahora, ha llevado a cabo correctamente lo siguiente:
 - AD FS ha autenticado correctamente un usuario de AD y le redirige de nuevo a la página principal de la aplicación
 - AD FS ha enviado correctamente la notificación del nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) a la aplicación, como se indica por el hecho de que el nombre de usuario aparece en la esquina. 
 
-Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vistazo a Views\Shared\_LoginPartial.cshtml, verá que usa `User.Identity.Name` para mostrar el nombre del usuario. Como se mencionó anteriormente, ASP.NET hidrata esta propiedad con la notificación del nombre de usuario autenticado, si está disponible en el token de SAML. Para ver todas las notificaciones que se envían por AD FS, coloque un punto de interrupción en Controllers\HomeController.cs, en el método de acción de índice. Cuando se autentique el usuario, inspeccione la colección `System.Security.Claims.Current.Claims`.
+Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vistazo a Views\Shared_LoginPartial.cshtml, verá que usa `User.Identity.Name` para mostrar el nombre del usuario. Como se mencionó anteriormente, ASP.NET hidrata esta propiedad con la notificación del nombre de usuario autenticado, si está disponible en el token de SAML. Para ver todas las notificaciones que se envían por AD FS, coloque un punto de interrupción en Controllers\HomeController.cs, en el método de acción de índice. Cuando se autentique el usuario, inspeccione la colección `System.Security.Claims.Current.Claims`.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png) 
 

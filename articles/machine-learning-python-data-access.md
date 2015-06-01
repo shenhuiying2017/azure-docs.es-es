@@ -111,7 +111,7 @@ Después de ejecutar un experimento en el Estudio de aprendizaje automático, es
 
 El acceso a los conjuntos de datos intermedios es posible siempre que el formato de los datos sea compatible con la biblioteca de cliente de Python.
 
-Se admiten los siguientes formatos \(sus constantes están en la clase `azureml.DataTypeIds`\):
+Se admiten los siguientes formatos (sus constantes están en la clase `azureml.DataTypeIds`):
 
  - PlainText
  - GenericCSV
@@ -187,7 +187,7 @@ Para enumerar solo los conjuntos de datos de ejemplo:
     for ds in ws.example_datasets:
         print(ds.name)
 
-Puede tener acceso a un conjunto de datos por nombre \(que distingue mayúsculas de minúsculas\):
+Puede tener acceso a un conjunto de datos por nombre (que distingue mayúsculas de minúsculas):
 
     ds = ws.datasets['my dataset name']
 
@@ -198,7 +198,7 @@ O bien, puede tener acceso a él por su índice:
 
 ### Metadatos
 
-Los conjuntos de datos tienen metadatos, además de contenido. \(Los conjuntos de datos intermedios son una excepción a esta regla y no tienen metadatos\).
+Los conjuntos de datos tienen metadatos, además de contenido. (Los conjuntos de datos intermedios son una excepción a esta regla y no tienen metadatos).
 
 Algunos valores de metadatos son asignados por el usuario en tiempo de creación:
 
@@ -264,7 +264,7 @@ Si sus datos ya están serializados, puede utilizar:
         description='my description'
     )
 
-La biblioteca de cliente de Python puede serializar un Pandas DataFrame a los siguientes formatos \(sus constantes están en la clase `azureml.DataTypeIds`\):
+La biblioteca de cliente de Python puede serializar un Pandas DataFrame a los siguientes formatos (sus constantes están en la clase `azureml.DataTypeIds`):
 
  - PlainText
  - GenericCSV

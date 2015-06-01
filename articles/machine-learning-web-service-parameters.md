@@ -35,7 +35,7 @@ Una vez que defina un parámetro de servicio web, está disponible para cualquie
 
 Puede decidir si se debe proporcionar un valor predeterminado para el parámetro del servicio web. Si lo hace, el parámetro es opcional para el usuario del servicio web. Si no proporciona un valor predeterminado, el usuario tiene que especificar un valor al que se tiene acceso al servicio web.
 
-La documentación para el servicio web \(mediante el vínculo **Página de Ayuda de API** en el servicio web **PANEL** en el Estudio de aprendizaje automático\) incluirá información para el usuario del servicio web acerca de cómo especificar el parámetro del servicio web mediante programación al obtener acceso al servicio web.
+La documentación para el servicio web (mediante el vínculo **Página de Ayuda de API** en el servicio web **PANEL** en el Estudio de aprendizaje automático) incluirá información para el usuario del servicio web acerca de cómo especificar el parámetro del servicio web mediante programación al obtener acceso al servicio web.
 
 
 ##Ejemplo
@@ -60,7 +60,7 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo de [Escritor][
 
 4.	Para cambiar el nombre del parámetro del servicio web, haga clic en el nombre, escriba "Ruta de acceso de blobs" y presione la tecla **Intro**.
  
-5.	Para proporcionar un valor predeterminado para el parámetro del servicio web, haga clic en el icono a la derecha del nombre, seleccione "Proporcionar valor predeterminado", escriba un valor \(por ejemplo, "container1/output1.csv"\) y presione la tecla **Intro**.
+5.	Para proporcionar un valor predeterminado para el parámetro del servicio web, haga clic en el icono a la derecha del nombre, seleccione "Proporcionar valor predeterminado", escriba un valor (por ejemplo, "container1/output1.csv") y presione la tecla **Intro**.
 
 	![Parámetro del servicio web][parameter]
 

@@ -26,18 +26,18 @@ RemoteApp aprovecha el Protocolo de escritorio remoto (RDP) y RemoteFX para prop
 Al usar RemoteApp, los redireccionamientos siguientes se habilitan de forma predeterminada. La información entre paréntesis muestra la configuración de RDP.
 
 - Reproducir sonidos en el equipo local (**reproducir en este equipo**). (audiomode:i:0)
-- Capturar audio desde el equipo local y enviar al equipo remoto \(**Registro desde este equipo**). \(audiocapturemode:i:1\)
-- Imprimir en impresoras locales \(redirectprinters:i:1\)
-- Puertos COM \(redirectcomports:i:1\)
-- Dispositivo de tarjeta inteligente \(redirectsmartcards:i:1\)
-- Portapapeles \(capacidad de copiar y pegar\) \(redirectclipboard:i:1\)
-- Desactivar el suavizado de fuentes \(permitir suavizado de fuentes: i:1\)
-- Redirigir todos los dispositivos Plug and Play compatibles. \(devicestoredirect:s:)
+- Capturar audio desde el equipo local y enviar al equipo remoto (**Registro desde este equipo**). (audiocapturemode:i:1)
+- Imprimir en impresoras locales (redirectprinters:i:1)
+- Puertos COM (redirectcomports:i:1)
+- Dispositivo de tarjeta inteligente (redirectsmartcards:i:1)
+- Portapapeles (capacidad de copiar y pegar) (redirectclipboard:i:1)
+- Desactivar el suavizado de fuentes (permitir suavizado de fuentes: i:1)
+- Redirigir todos los dispositivos Plug and Play compatibles. (devicestoredirect:s:)
 
 ## ¿Qué otro redireccionamiento está disponible?
 Existen dos opciones de redireccionamiento deshabilitadas de forma predeterminada:
 
-- Redireccionamiento de unidad \(asignación de unidades\): las unidades del equipo local se convierten en las unidades asignadas en la sesión remota. Esto permite guardar o abrir los archivos de las unidades locales mientras trabaja en la sesión remota. 
+- Redireccionamiento de unidad (asignación de unidades): las unidades del equipo local se convierten en las unidades asignadas en la sesión remota. Esto permite guardar o abrir los archivos de las unidades locales mientras trabaja en la sesión remota. 
 - Redireccionamiento de USB: puede usar los dispositivos USB conectados al equipo local en la sesión remota.
 
 ## Cambiar la configuración de redireccionamiento de RemoteApp
@@ -47,7 +47,7 @@ A continuación, utilice un comando similar al siguiente para establecer las pro
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:*"
     
-\(Tenga en cuenta que *`n* se utiliza como delimitador entre las propiedades individuales\).
+(Tenga en cuenta que *`n* se utiliza como delimitador entre las propiedades individuales).
 
 Para obtener una lista de las propiedades personalizadas de RDP que se configuran, ejecute el siguiente cmdlet. Tenga en cuenta que solo se muestran las propiedades personalizadas como resultados de salida y no las propiedades predeterminadas:
 
@@ -68,7 +68,7 @@ Use este cmdlet para deshabilitar el uso compartido del portapapeles:
 
 	Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0”
 
-Asegúrese de cerrar completamente la sesión de todos los usuarios de la colección \(y no solo de desconectarlos\) antes de probar el cambio. Para asegurarse de que los usuarios han cerrado sesión completamente, vaya a la pestaña **Sesiones** de la colección del portal de Azure y cierre la sesión de todos los usuarios que estén desconectados o que hayan iniciado sesión. A veces es posible que las unidades locales tarden varios segundos en mostrarse en el explorador dentro de la sesión.
+Asegúrese de cerrar completamente la sesión de todos los usuarios de la colección (y no solo de desconectarlos) antes de probar el cambio. Para asegurarse de que los usuarios han cerrado sesión completamente, vaya a la pestaña **Sesiones** de la colección del portal de Azure y cierre la sesión de todos los usuarios que estén desconectados o que hayan iniciado sesión. A veces es posible que las unidades locales tarden varios segundos en mostrarse en el explorador dentro de la sesión.
 
 ## Cambie la configuración de redireccionamiento de USB en el cliente Windows
 
@@ -96,7 +96,7 @@ Para configurar el redireccionamiento USB en su equipo:
 También puede utilizar la herramienta de administración de directivas de grupo para crear y aplicar la directiva de redireccionamiento USB para todos los equipos del dominio:
 
 1. Inicie sesión en el controlador de dominio como administrador de dominio.
-2. Abra la consola de administración de directivas de grupo. \(Haga clic en **Inicio \> Herramientas administrativas \> Administración de directivas de grupo**\).
+2. Abra la consola de administración de directivas de grupo. (Haga clic en **Inicio > Herramientas administrativas > Administración de directivas de grupo**).
 3. Navegue hasta el dominio o unidad organizativa para la que desea crear la directiva.
 4. Haga clic con el botón derecho en **Directiva de dominio predeterminada** y, a continuación, haga clic en **Editar**.
 5. Abra **Configuración del equipo\\Directivas\\Plantillas administrativas\\Componentes Windows\\Servicios de escritorio remoto\\Cliente de conexión de escritorio remoto\\Redireccionamiento de dispositivo USB RemoteFX**.

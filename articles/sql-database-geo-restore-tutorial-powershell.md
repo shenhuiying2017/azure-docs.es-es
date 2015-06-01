@@ -39,13 +39,13 @@ Debe utilizar la autenticación basada en certificados para ejecutar los cmdlets
 1. Para obtener la lista de bases de datos recuperables, use el cmdlet [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Especifique el parámetro siguiente:
 	* **ServerName**, donde se encuentra la base de datos.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`PS C:>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Elija la base de datos de la que desea realizar la recuperación mediante el cmdlet [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Especifique los parámetros siguientes:
 	* **ServerName**, donde se encuentra la base de datos.
 	* **DatabaseName** de la base de datos desde la que va a realizar la recuperación.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" -DatabaseName "mydb"`
+	`PS C:>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" -DatabaseName "mydb"`
 	 
 3. Comience la recuperación mediante el uso del cmdlet [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Especifique los parámetros siguientes:	
 	* **SourceDatabase** (base de datos de origen) que desea recuperar.
@@ -54,14 +54,14 @@ Debe utilizar la autenticación basada en certificados para ejecutar los cmdlets
 
 	Almacene lo obtenido en una variable denominada **$RestoreRequest**. Esta variable contiene el identificador de solicitud de restauración usado para supervisar el estado de una restauración.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database -TargetDatabaseName "myrecoveredDB" -TargetServerName "mytargetserver"`
+	`PS C:>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database -TargetDatabaseName "myrecoveredDB" -TargetServerName "mytargetserver"`
 	
 Puede que la recuperación de la base de datos tarde algún tiempo en completarse. Para supervisar el estado de la recuperación, use el cmdlet [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) y especifique los siguientes parámetros:
 
 * **ServerName** (nombre del servidor) de la base de datos en el que va a restaurar.
 * **OperationGuid**, que es el identificador de solicitud de restauración almacenado en la variable **$RecoveryRequest** en el paso 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation -ServerName "mytargetserver" -OperationGuid $RecoveryRequest.ID`
+	`PS C:>Get-AzureSqlDatabaseOperation -ServerName "mytargetserver" -OperationGuid $RecoveryRequest.ID`
 
 Los campos **State** y **PercentComplete** muestran el estado de la restauración.
 

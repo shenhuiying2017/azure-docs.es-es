@@ -113,7 +113,7 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en  **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
 8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Utilice el siguiente formato: 
-- *ComputerName*\\*LocalAdministratorAccountName*
+- *ComputerName**LocalAdministratorAccountName*
 9.	En **Contraseña**, escriba la contraseña para la cuenta de administrador local.
 10.	Haga clic en **Aceptar**.
 11.	En el cuadro de diálogo **Conexión a Escritorio remoto**, haga clic en **Sí**. El escritorio de la nueva máquina aparece en una ventana de sesión de Escritorio remoto.

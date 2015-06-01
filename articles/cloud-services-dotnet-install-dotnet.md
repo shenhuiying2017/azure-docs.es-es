@@ -25,10 +25,10 @@ El proceso de instalación de .NET en el rol web y el rol de trabajo implica inc
 ## Agregar el instalador de .NET al proyecto
 1. Descargue el [instalador web de .NET 4.5.2](http://www.microsoft.com/es-es/download/details.aspx?id=42643)
 2. Para un rol web
-  1. En el **Explorador de soluciones**, en **Roles** del proyecto de servicio en la nube, haga clic con el botón secundario en su rol y, a continuación, seleccione **Agregar \> Nueva carpeta**. Cree una carpeta llamada *bin*.
-  2. Haga clic con el botón secundario en la carpeta **bin** y seleccione **Agregar \> Elemento existente**. Seleccione el instalador de .NET y agréguelo a la carpeta bin.
+  1. En el **Explorador de soluciones**, en **Roles** del proyecto de servicio en la nube, haga clic con el botón secundario en su rol y, a continuación, seleccione **Agregar > Nueva carpeta**. Cree una carpeta llamada *bin*.
+  2. Haga clic con el botón secundario en la carpeta **bin** y seleccione **Agregar > Elemento existente**. Seleccione el instalador de .NET y agréguelo a la carpeta bin.
 3. Para un rol de trabajo
-  1. Haga clic con el botón secundario en el rol y seleccione **Agregar \> Elemento existente**. Seleccione el instalador de .NET y agréguelo al rol. 
+  1. Haga clic con el botón secundario en el rol y seleccione **Agregar > Elemento existente**. Seleccione el instalador de .NET y agréguelo al rol. 
 
 Los archivos que se agregan de esta manera a la carpeta de contenido del rol se agregarán automáticamente al paquete de servicios en la nube y se implementarán en una ubicación coherente en la máquina virtual. Repita este proceso para todos los roles web y roles de trabajo en el servicio en la nube, de manera que todos los roles tengan una copia del instalador.
 
@@ -74,15 +74,15 @@ Las tareas de inicio le permiten realizar operaciones antes de que se inicie un 
 	echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
 	```
 
-	El script de instalación consulta el registro para comprobar si .NET 4.5.2 está instalado en el equipo. Si .NET 4.5.2 no está instalado, se iniciará el instalador web de .NET. El script registrará toda la actividad en un archivo llamado *startuptasklog-\(fechayhoractual\).txt* almacenado en el almacenamiento local *InstallLogs* para ayudar a solucionar cualquier problema que pueda surgir.
+	El script de instalación consulta el registro para comprobar si .NET 4.5.2 está instalado en el equipo. Si .NET 4.5.2 no está instalado, se iniciará el instalador web de .NET. El script registrará toda la actividad en un archivo llamado *startuptasklog-(fechayhoractual).txt* almacenado en el almacenamiento local *InstallLogs* para ayudar a solucionar cualquier problema que pueda surgir.
 
-	> [AZURE.NOTE]Para crear este archivo, utilice un editor de texto sencillo, como el Bloc de notas. Si usa Visual Studio para crear un archivo de texto y, a continuación, le cambia el nombre a ".cmd", es posible que el archivo todavía contenga una marca BOM UTF-8 y ejecutar la primera línea del script generará un error. Si desea usar Visual Studio para crear el archivo, agregue una instrucción REM \(nota\) en la primera línea del archivo, para que se omita al ejecutarlo.
+	> [AZURE.NOTE]Para crear este archivo, utilice un editor de texto sencillo, como el Bloc de notas. Si usa Visual Studio para crear un archivo de texto y, a continuación, le cambia el nombre a ".cmd", es posible que el archivo todavía contenga una marca BOM UTF-8 y ejecutar la primera línea del script generará un error. Si desea usar Visual Studio para crear el archivo, agregue una instrucción REM (nota) en la primera línea del archivo, para que se omita al ejecutarlo.
       
-3. Agregue el archivo install.cmd a todos los roles mediante un clic con el botón derecho en el rol y seleccionando **Agregar \> Elemento existente...**. De este modo, ahora todos los roles deben tener el archivo de instalador de .NET, además del archivo install.cmd.
+3. Agregue el archivo install.cmd a todos los roles mediante un clic con el botón derecho en el rol y seleccionando **Agregar > Elemento existente...**. De este modo, ahora todos los roles deben tener el archivo de instalador de .NET, además del archivo install.cmd.
 	
 	![Contenidos de rol con todos los archivos][2]
 
-## Configurar los diagnósticos para transferir los registros de las tareas de inicio al almacenamiento de blobs \(opcional\)
+## Configurar los diagnósticos para transferir los registros de las tareas de inicio al almacenamiento de blobs (opcional)
 De manera opcional, puede configurar Diagnósticos de Azure para transferir todos los archivos de registro generados por el script de inicio o el instalador de .NET al almacenamiento de blobs. Con este enfoque, es posible ver los registros simplemente al descargar los archivos de registro desde el almacenamiento de blobs, en lugar de tener que realizar una conexión de Escritorio remoto con el rol.
 
 Para configurar los diagnósticos, abra *diagnostics.wadcfgx* y agregue lo siguiente en el nodo *<Directories>*:

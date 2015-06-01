@@ -207,7 +207,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
     <p>En primer lugar, vamos a crear una tabla de Hive a partir de nuestra colección de DocumentDB. Agregue el siguiente fragmento de código en el panel de scripts de PowerShell <strong>después</strong> del fragmento de código número 1. Asegúrese de incluir el parámetro DocumentDB.query opcional para recortar nuestros documentos solo a _ts y _rid. </p>
 
     > [AZURE.NOTE] **El nombre DocumentDB.inputCollections no es incorrecto.** Se permite agregar varias colecciones como entrada: </br>
-    '*DocumentDB.inputCollections*' = '*\<Nombre colección entrada DocumentDB 1\>*,*\<Nombre colección entrada DocumentDB 2\>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma.
+    '*DocumentDB.inputCollections*' = '*<Nombre colección entrada DocumentDB 1>*,*<Nombre colección entrada DocumentDB 2>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma.
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
@@ -223,7 +223,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 3.  A continuación, vamos a crear una tabla de Hive para la colección de salida. Las propiedades del documento de salida serán el mes, el día, la hora, el minuto y el número total de apariciones.
 
 	> [AZURE.NOTE] **Una vez más, el nombre DocumentDB.outputCollections no es incorrecto.** Se permite agregar varias colecciones como salida: </br>
-    '*DocumentDB.outputCollections*' = '*\<Nombre colección salida DocumentDB 1\>*,*\<Nombre colección salida DocumentDB 2\>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </br></br>
+    '*DocumentDB.outputCollections*' = '*<Nombre colección salida DocumentDB 1>*,*<Nombre colección salida DocumentDB 2>*' </br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </br></br>
     Documentos se distribuirán en cadena en varias colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
 
 		# Create a Hive table for the output data to DocumentDB.
@@ -303,7 +303,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
     <p>En primer lugar, cargue documentos de DocumentDB en HDInsight. Agregue el siguiente fragmento de código en el panel de scripts de PowerShell <strong>después</strong> del fragmento de código número 1. Asegúrese de agregar una consulta de DocumentDB para el parámetro de consulta de DocumentDB opcional para recortar los documentos a solo _ts y _rid.</p>
 
     > [AZURE.NOTE] Sí, se pueden agregar varias colecciones como una entrada: </br>
-    '*\<Nombre colección entrada DocumentDB 1\>*,*\<Nombre colección entrada DocumentDB 2\>*'</br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </b>
+    '*<Nombre colección entrada DocumentDB 1>*,*<Nombre colección entrada DocumentDB 2>*'</br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma. </b>
 
 	Documentos se distribuirán en cadena en varias colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
 
@@ -324,7 +324,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 4. Por último, vamos a almacenar los resultados en nuestra nueva colección de salida.
 
     > [AZURE.NOTE] Sí, se pueden agregar varias colecciones como una salida: </br>
-    '\<DocumentDB Output Collection Name 1\>,\<DocumentDB Output Collection Name 2\>'</br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma.</br>
+    '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br> Los nombres de las colecciones se separan sin espacios en blanco, solo con una coma.</br>
     Documentos se distribuirán en cadena por las distintas colecciones. Un lote de documentos se almacenará en una colección. A continuación, un segundo lote de documentos se almacenará en la colección siguiente y así sucesivamente.
 
 		# Store output data to DocumentDB.

@@ -46,13 +46,13 @@ Para solucionar problemas en aplicaciones cliente que usan Almacenamiento de Mic
 
 ## Acerca del escenario de ejemplo
 
-Para este tutorial, analizaremos un escenario donde las métricas de Almacenamiento de Azure indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Almacenamiento de Azure. La métrica de tasa de éxito de bajo porcentaje \(señalada como **PercentSuccess** en el Portal de Azure y en las tablas de métricas\) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
+Para este tutorial, analizaremos un escenario donde las métricas de Almacenamiento de Azure indican una tasa de éxito de bajo porcentaje de una aplicación que llama a Almacenamiento de Azure. La métrica de tasa de éxito de bajo porcentaje (señalada como **PercentSuccess** en el Portal de Azure y en las tablas de métricas) hace un seguimiento de las operaciones que se realizaron correctamente, pero que devolvieron un código de estado HTTP superior a 299. En los archivos de registro de almacenamiento del servidor, estas operaciones se registran con el estado de transacción **ClientOtherErrors**. Para más información sobre la métrica de tasa de éxito de bajo porcentaje, vea [Las métricas muestran un PercentSuccess bajo o las entradas de registro de análisis tienen operaciones con el estado de transacción ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Como parte de su funcionalidad habitual, es posible que las operaciones de Almacenamiento de Azure devuelvan códigos de estado HTTP mayores que 299. Aun así, en algunos casos estos errores indicarán que es posible que pueda optimizar su aplicación cliente para mejorar el rendimiento.
 
 En este escenario, todo aquello que esté por debajo del 100% será considerado como una tasa de bajo porcentaje de éxito. Pero siempre puede elegir un nivel de métricas diferente acorde a sus necesidades. Le recomendamos que, mientras esté probando la aplicación, establezca una tolerancia de línea de base de las métricas de rendimiento clave. Según las pruebas que haga, puede establecer que la aplicación tenga una tasa de porcentaje de éxito constante de, por ejemplo, un 90% o de un 85%. Si los datos de las métricas arrojan que la aplicación se desvía de ese porcentaje, puede investigar para saber cuál es la causa del aumento.
 
-En nuestro escenario de ejemplo, una vez que hayamos establecido la métrica de tasa de porcentaje de éxito por debajo del 100%, revisaremos los registros para buscar los errores que guardan relación con las métricas y usarlos para averiguar cuál es la causa de la tasa de bajo porcentaje de éxito. En concreto, revisaremos los errores del intervalo 400. Después, revisaremos con más detalle los errores 404 \(no encontrado\).
+En nuestro escenario de ejemplo, una vez que hayamos establecido la métrica de tasa de porcentaje de éxito por debajo del 100%, revisaremos los registros para buscar los errores que guardan relación con las métricas y usarlos para averiguar cuál es la causa de la tasa de bajo porcentaje de éxito. En concreto, revisaremos los errores del intervalo 400. Después, revisaremos con más detalle los errores 404 (no encontrado).
 
 ### Algunas de las causas de los errores del intervalo 400
 
@@ -60,20 +60,20 @@ En los siguientes ejemplos se exponen algunas muestras de errores de intervalo 4
 
 Tenga en cuenta que las siguientes listas no están ni mucho menos completas. Vea [Códigos de estado y de error](http://msdn.microsoft.com/library/azure/dd179382.aspx) en MSDN para más información sobre los errores generales de Almacenamiento de Azure y sobre los errores específicos de cada uno de los servicios de almacenamiento.
 
-**Ejemplos de código de estado 404 \(no encontrado\)**
+**Ejemplos de código de estado 404 (no encontrado)**
 
 Se produce cuando una operación de lectura en un contenedor o un blob falla porque no se puede encontrar el blob o el contenedor.
 
 - Se produce cuando otro cliente elimina un contenedor o un blob antes de realizar la solicitud. 
 - Se produce si está usando una llamada API que crea el contenedor o el blob después de comprobar si existe. Las API de tipo CreateIfNotExists hacen primero una llamada HEAD para comprobar la existencia del contenedor o del blob; si no existe, se devuelve un error 404 y se realiza una segunda llamada PUT para escribir el contenedor o el blob.
 
-**Ejemplos de código de estado de 409 \(conflicto\)**
+**Ejemplos de código de estado de 409 (conflicto)**
 
 - Se produce cuando usa una API de tipo Create para crear un contenedor o un blob sin comprobar si ya existen, o bien cuando ya hay otro contenedor u otro blob con el mismo nombre. 
 - Se produce si elimina un contenedor e intenta crear otro con el mismo nombre antes de que finalice la operación de eliminación.
 - Se produce si especifica una concesión en un contenedor o un blob y ya hay una concesión.
  
-**Ejemplos de código de estado 412 \(error de condición previa\)**
+**Ejemplos de código de estado 412 (error de condición previa)**
 
 - Se produce cuando no se cumple la condición especificada por un encabezado condicional.
 - Se produce cuando el identificador de concesión especificado no coincide con el identificador de concesión en el contenedor o el blob.
@@ -94,7 +94,7 @@ Primero, necesitaremos configurar el registro y las métricas de Almacenamiento 
 
 Para configurar el registro y las métricas de la cuenta de almacenamiento con el portal, siga las instrucciones para [supervisar una cuenta de almacenamiento](storage-monitor-storage-account.md).
 
-> [AZURE.NOTE]No se pueden establecer métricas por minuto con el Portal de administración de Azure, pero le recomendamos establecerlas en este tutorial para investigar cualquier problema de rendimiento que ocurra en su aplicación. Las métricas por minuto se pueden establecer con PowerShell \(como se indica aquí\), mediante programación o a través del Portal de vista previa de Azure.
+> [AZURE.NOTE]No se pueden establecer métricas por minuto con el Portal de administración de Azure, pero le recomendamos establecerlas en este tutorial para investigar cualquier problema de rendimiento que ocurra en su aplicación. Las métricas por minuto se pueden establecer con PowerShell (como se indica aquí), mediante programación o a través del Portal de vista previa de Azure.
 >
 > Tenga en cuenta que el Portal de administración de Azure no mostrará las métricas por minuto, solo las métricas por horas.
 
@@ -109,7 +109,7 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 	```
 
 2. En la ventana de **inicio de sesión en Microsoft Azure**, escriba la dirección de correo electrónico y contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
-3. Ejecute los siguientes comandos en la ventana de PowerShell{b\> \<b}para establecer la cuenta de almacenamiento predeterminada en la cuenta de almacenamiento que esté usando en este tutorial:
+3. Ejecute los siguientes comandos en la ventana de PowerShell{b> <b}para establecer la cuenta de almacenamiento predeterminada en la cuenta de almacenamiento que esté usando en este tutorial:
 
 	```
 	$SubscriptionName = 'Your subscription name'
@@ -130,13 +130,13 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 
 ### Configurar el registro del lado cliente de .NET
 
-Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación \(web.config o app.config\). Vea [Inicio de sesión del lado cliente con la biblioteca de cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de almacenamiento de Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
+Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Vea [Inicio de sesión del lado cliente con la biblioteca de cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con el SDK de almacenamiento de Microsoft Azure para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) en MSDN para más información.
 
 El registro del lado cliente incluye información detallada sobre el modo en que el cliente prepara la solicitud y recibe y procesa la respuesta.
 
 El registro del lado cliente se configura en el archivo app.config o web.config de la aplicación. Para más información, vea [Inicio de sesión del lado cliente con la biblioteca de cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) en MSDN.
 
-La biblioteca de cliente de almacenamiento almacena datos de registro del lado cliente en la ubicación que se especificó en el archivo de configuración de la aplicación \(web.config o app.config\).
+La biblioteca de cliente de almacenamiento almacena datos de registro del lado cliente en la ubicación que se especificó en el archivo de configuración de la aplicación (web.config o app.config).
 
 ### Recopilar un seguimiento de red
 
@@ -144,27 +144,27 @@ Puede usar el analizador de mensajes para recopilar un seguimiento de red HTTP/H
 
 1. Instale [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie Fiddler.
-2. Seleccione **Tools \| Fiddler Options** \(Herramientas \| Opciones de Fiddler\).
-3. En el cuadro de diálogo de opciones, asegúrese de que las opciones **Capture HTTPS CONNECTs** \(Capturar CONEXIONES HTTPS\){b\> \<b}y **Decrypt HTTPS Traffic** \(Descifrar tráfico HTTPS\) están seleccionadas, tal y como se muestra aquí.
+2. Seleccione **Tools | Fiddler Options** (Herramientas | Opciones de Fiddler).
+3. En el cuadro de diálogo de opciones, asegúrese de que las opciones **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS){b> <b}y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS) están seleccionadas, tal y como se muestra aquí.
 
 ![Configurar opciones de Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 En este tutorial, primero deberá recopilar y guardar un seguimiento de red en el analizador de mensajes y, luego, crear una sesión de análisis para analizar el seguimiento y los registros. Para recopilar un seguimiento de red en el analizador de mensajes:
 
-1. En el analizador de mensajes, seleccione **File \| Quick Trace \| Unencrypted HTTPS** \(Archivo \| Seguimiento rápido \| HTTPS sin cifrar\).
-2. El seguimiento se iniciará inmediatamente. Seleccione **Stop** \(Detener\) para detener el seguimiento y poder configurarlo para que solo haga el seguimiento del tráfico de almacenamiento.
-3. Seleccione **Edit** \(Editar\) para editar la sesión de seguimiento.
-4. Seleccione el vínculo **Configure** \(Configurar\) que está a la derecha del proveedor ETW **Microsoft-Pef-WebProxy**.
-5. En el cuadro de diálogo **Advanced Settings** \(Configuración avanzada\), haga clic en la pestaña **Provider** \(Proveedor\).
-6. En el campo **Hostname Filter** \(Filtro de nombre de host\), especifique los extremos de almacenamiento, separados por espacios. Por ejemplo, puede especificar los extremos cambiando `storagesample` por el nombre de su cuenta de almacenamiento. Así:
+1. En el analizador de mensajes, seleccione **File | Quick Trace | Unencrypted HTTPS** (Archivo | Seguimiento rápido | HTTPS sin cifrar).
+2. El seguimiento se iniciará inmediatamente. Seleccione **Stop** (Detener) para detener el seguimiento y poder configurarlo para que solo haga el seguimiento del tráfico de almacenamiento.
+3. Seleccione **Edit** (Editar) para editar la sesión de seguimiento.
+4. Seleccione el vínculo **Configure** (Configurar) que está a la derecha del proveedor ETW **Microsoft-Pef-WebProxy**.
+5. En el cuadro de diálogo **Advanced Settings** (Configuración avanzada), haga clic en la pestaña **Provider** (Proveedor).
+6. En el campo **Hostname Filter** (Filtro de nombre de host), especifique los extremos de almacenamiento, separados por espacios. Por ejemplo, puede especificar los extremos cambiando `storagesample` por el nombre de su cuenta de almacenamiento. Así:
 	
 	```	
 	storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
 	```
 
-7. Salga del cuadro de diálogo y haga clic en **Restart** \(Reiniciar\) para empezar a recopilar el seguimiento con el filtro de nombre de host activado, de modo que solo se incluya en el seguimiento el tráfico de red de Almacenamiento de Azure.
+7. Salga del cuadro de diálogo y haga clic en **Restart** (Reiniciar) para empezar a recopilar el seguimiento con el filtro de nombre de host activado, de modo que solo se incluya en el seguimiento el tráfico de red de Almacenamiento de Azure.
 
->[AZURE.NOTE]Una vez finalizada la recopilación del seguimiento de red, le recomendamos restablecer la configuración inicial de Fiddler para descifrar el tráfico HTTPS. En el cuadro de diálogo de opciones de Fiddler, desactive las casillas **Capture HTTPS CONNECTs** \(Capturar CONEXIONES HTTPS\) y **Decrypt HTTPS Traffic** \(Descifrar tráfico HTTPS\).
+>[AZURE.NOTE]Una vez finalizada la recopilación del seguimiento de red, le recomendamos restablecer la configuración inicial de Fiddler para descifrar el tráfico HTTPS. En el cuadro de diálogo de opciones de Fiddler, desactive las casillas **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS) y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS).
 
 Vea el tema sobre el [uso de las características de seguimiento de red](http://technet.microsoft.com/library/jj674819.aspx) en TechNet para más información.
 
@@ -178,7 +178,7 @@ Una vez que la aplicación se haya estado ejecutando durante un rato, puede revi
 
 ![Elegir métricas](./media/storage-e2e-troubleshooting/choose-metrics-portal-1.png)
 
-En el portal, verá **Porcentaje de operaciones correctas** en el gráfico de supervisión, junto con las otras métricas que pueda haber agregado \(pueden aparecer hasta seis a la vez\). En la siguiente imagen puede ver que la tasa de porcentaje de éxito es ligeramente inferior al 100%; este es el escenario que pasaremos a investigar ahora analizando los registros en el analizador de mensajes:
+En el portal, verá **Porcentaje de operaciones correctas** en el gráfico de supervisión, junto con las otras métricas que pueda haber agregado (pueden aparecer hasta seis a la vez). En la siguiente imagen puede ver que la tasa de porcentaje de éxito es ligeramente inferior al 100%; este es el escenario que pasaremos a investigar ahora analizando los registros en el analizador de mensajes:
 
 ![Gráfico de métricas del portal](./media/storage-e2e-troubleshooting/portal-metrics-chart-1.png)
 
@@ -209,7 +209,7 @@ El analizador de mensajes incluye herramientas del servicio Almacenamiento de Az
 1. Descargue el [analizador de mensajes](http://www.microsoft.com/download/details.aspx?id=44226) del Centro de descarga de Microsoft y ejecute el programa de instalación.
 2. Inicie el analizador de mensajes.
 3. En la página **Inicio**, vaya a **Descargas** y filtre por **Almacenamiento de Azure**. Verá las herramientas de Almacenamiento de Azure como se muestra en la imagen de abajo.
-4. Haga clic en **Sync All Displayed Items** \(Sincronizar todos los elementos que se muestran\) para instalar las herramientas de Almacenamiento de Azure. Tiene disponibles los siguientes recursos: 
+4. Haga clic en **Sync All Displayed Items** (Sincronizar todos los elementos que se muestran) para instalar las herramientas de Almacenamiento de Azure. Tiene disponibles los siguientes recursos: 
 	- **Reglas de color de Almacenamiento Azure:** las reglas de color de Almacenamiento de Azure permiten definir filtros especiales que usan estilos de color, texto y fuente para resaltar los mensajes que contengan información específica en un seguimiento.
 	- **Gráficos de Almacenamiento de Azure:** los gráficos de Almacenamiento de Azure son gráficos predefinidos que en los que se trazan datos de los registro de servidor. Tenga en cuenta que, actualmente, el uso de los gráficos de Almacenamiento de Azure se reduce únicamente a cargar el registro del servidor en la cuadrícula de análisis.
 	- **Analizadores de Almacenamiento de Azure:** los analizadores de Almacenamiento de Azure analizan los registros de cliente, servidor y HTTP del Almacenamiento de Azure para mostrarlos en la cuadrícula de análisis.
@@ -223,13 +223,13 @@ El analizador de mensajes incluye herramientas del servicio Almacenamiento de Az
 
 ### Importar los archivos de registro al analizador de mensajes
 
-Puede importar todos los archivos de registro guardados \(del lado servidor, del lado cliente y de red\) en una sola sesión en el analizador de mensajes de Microsoft para analizarlos.
+Puede importar todos los archivos de registro guardados (del lado servidor, del lado cliente y de red) en una sola sesión en el analizador de mensajes de Microsoft para analizarlos.
 
-1. En el menú **File** \(Archivo\) del analizador de mensajes de Microsoft, haga clic en **New Session** \(Nueva sesión\) y, luego, en **Blank Session** \(Sesión en blanco\). En el cuadro de diálogo **New Session** \(Nueva sesión\), escriba un nombre para la sesión de análisis. En el panel **Session Details** \(Detalles de la sesión\), haga clic en el botón **Files** \(Archivos\). 
-1. Para cargar los datos de seguimiento de red generados por el analizador de mensajes, haga clic en **Add Files** \(Agregar archivos\), vaya a la ubicación donde guardó el archivo .matp correspondiente a la sesión de seguimiento web, seleccione el archivo .matp y haga clic en **Open** \(Abrir\). 
-1. Para cargar los datos del registro del lado servidor, haga clic en **Add Files** \(Agregar archivos\), vaya a la ubicación donde descargó los registros del lado servidor, seleccione los archivos de registro para el intervalo de tiempo que desee analizar y haga clic en **Open** \(Abrir\). Tras esto, en el panel **Session Details** \(Detalles de la sesión\), establezca el elemento desplegable **Text Log Configuration** \(Configuración del registro de texto\) de cada archivo de registro del lado servidor en **AzureStorageLog**; así, se asegurará de que el analizador de mensajes de Microsoft puede analizar correctamente el archivo de registro.
-1. Para cargar los datos del registro del lado cliente, haga clic en **Add Files** \(Agregar archivos\), vaya a la ubicación donde guardó los registros del lado cliente, seleccione los archivos de registro que quiera analizar y haga clic en **Open** \(Abrir\). Posteriormente, en el panel **Session Details** \(Detalles de la sesión\), establezca el elemento desplegable **Text Log Configuration** \(Configuración del registro de texto\) de cada archivo de registro del lado cliente en **AzureStorageClientDotNetV4**; así, se asegurará de que el analizador de mensajes de Microsoft puede analizar correctamente el archivo de registro.
-1. Haga clic en **Start** \(Iniciar\) en el cuadro de diálogo **New Session** \(Nueva sesión\) para cargar y analizar los datos de registro. Los datos de registro se muestran en la cuadrícula de análisis del analizador de mensajes.
+1. En el menú **File** (Archivo) del analizador de mensajes de Microsoft, haga clic en **New Session** (Nueva sesión) y, luego, en **Blank Session** (Sesión en blanco). En el cuadro de diálogo **New Session** (Nueva sesión), escriba un nombre para la sesión de análisis. En el panel **Session Details** (Detalles de la sesión), haga clic en el botón **Files** (Archivos). 
+1. Para cargar los datos de seguimiento de red generados por el analizador de mensajes, haga clic en **Add Files** (Agregar archivos), vaya a la ubicación donde guardó el archivo .matp correspondiente a la sesión de seguimiento web, seleccione el archivo .matp y haga clic en **Open** (Abrir). 
+1. Para cargar los datos del registro del lado servidor, haga clic en **Add Files** (Agregar archivos), vaya a la ubicación donde descargó los registros del lado servidor, seleccione los archivos de registro para el intervalo de tiempo que desee analizar y haga clic en **Open** (Abrir). Tras esto, en el panel **Session Details** (Detalles de la sesión), establezca el elemento desplegable **Text Log Configuration** (Configuración del registro de texto) de cada archivo de registro del lado servidor en **AzureStorageLog**; así, se asegurará de que el analizador de mensajes de Microsoft puede analizar correctamente el archivo de registro.
+1. Para cargar los datos del registro del lado cliente, haga clic en **Add Files** (Agregar archivos), vaya a la ubicación donde guardó los registros del lado cliente, seleccione los archivos de registro que quiera analizar y haga clic en **Open** (Abrir). Posteriormente, en el panel **Session Details** (Detalles de la sesión), establezca el elemento desplegable **Text Log Configuration** (Configuración del registro de texto) de cada archivo de registro del lado cliente en **AzureStorageClientDotNetV4**; así, se asegurará de que el analizador de mensajes de Microsoft puede analizar correctamente el archivo de registro.
+1. Haga clic en **Start** (Iniciar) en el cuadro de diálogo **New Session** (Nueva sesión) para cargar y analizar los datos de registro. Los datos de registro se muestran en la cuadrícula de análisis del analizador de mensajes.
 
 En la siguiente imagen se muestra una sesión de ejemplo configurada con archivos de registro de servidor, de cliente y seguimiento de red.
 
@@ -239,7 +239,7 @@ Tenga en cuenta que el analizador de mensajes carga los archivos en la memoria. 
 
 Primero, deberá indicar el intervalo de tiempo que desea revisar e intentar que este sea lo más reducido posible. Es probable que en la mayoría de casos solo quiera revisar un período de minutos o, como mucho, de horas. Importe el conjunto más pequeño de registros que le resulte más adecuado.
 
-Si, aun así, la cantidad de datos de registro es demasiado grande, conviene delimitarlos con un filtro de sesión antes de cargarlos. En el cuadro **Session Filter** \(Filtros de sesión\), seleccione el botón **Library** \(Biblioteca\) para elegir un filtro predefinido; por ejemplo, elija **Global Time Filter** \(Filtro de tiempo global\) de entre los filtros de Almacenamiento de Azure para poder filtrar según un intervalo de tiempo. Tras ello, puede editar los parámetros del filtro para especificar la marca de tiempo de inicio y de fin del intervalo que quiera ver. También puede filtrar los datos según un código de estado específico; por ejemplo, puede cargar solo las entradas de registro que tengan un código de estado 404.
+Si, aun así, la cantidad de datos de registro es demasiado grande, conviene delimitarlos con un filtro de sesión antes de cargarlos. En el cuadro **Session Filter** (Filtros de sesión), seleccione el botón **Library** (Biblioteca) para elegir un filtro predefinido; por ejemplo, elija **Global Time Filter** (Filtro de tiempo global) de entre los filtros de Almacenamiento de Azure para poder filtrar según un intervalo de tiempo. Tras ello, puede editar los parámetros del filtro para especificar la marca de tiempo de inicio y de fin del intervalo que quiera ver. También puede filtrar los datos según un código de estado específico; por ejemplo, puede cargar solo las entradas de registro que tengan un código de estado 404.
 
 Para más información sobre cómo importar datos de registro al analizador de mensajes de Microsoft, vea el tema de [recuperación de datos de mensajes](http://technet.microsoft.com/library/dn772437.aspx) en TechNet.
 
@@ -253,11 +253,11 @@ En las siguientes secciones describiremos cómo usar las vistas de diseño perso
 
 Entre las herramientas de almacenamiento del analizador de mensajes encontramos los diseños de vista de Almacenamiento de Azure, que son vistas ya configuradas que sirven para visualizar los datos y distribuirlos en grupos y columnas de utilidad según el escenario. También puede crear diseños de vista personalizados y guardarlos para volver a usarlos.
 
-En la siguiente imagen se muestra el menú **View Layout** \(Diseño de vista\), al que puede tener acceso seleccionando **View Layout** \(Diseño de vista\) en la cinta de opciones de la barra de herramientas. Los diseños de vista de Almacenamiento de Azure están en el nodo **Almacenamiento de Azure** del menú. Puede buscar `Azure Storage` en el cuadro de búsqueda para filtrar únicamente por diseños de vista de Almacenamiento de Azure. Además, puede seleccionar el icono con forma de estrella al lado de cada diseño de vista para marcarlo como favorito y que, de este modo, se muestre en la parte superior del menú.
+En la siguiente imagen se muestra el menú **View Layout** (Diseño de vista), al que puede tener acceso seleccionando **View Layout** (Diseño de vista) en la cinta de opciones de la barra de herramientas. Los diseños de vista de Almacenamiento de Azure están en el nodo **Almacenamiento de Azure** del menú. Puede buscar `Azure Storage` en el cuadro de búsqueda para filtrar únicamente por diseños de vista de Almacenamiento de Azure. Además, puede seleccionar el icono con forma de estrella al lado de cada diseño de vista para marcarlo como favorito y que, de este modo, se muestre en la parte superior del menú.
 
 ![Menú de diseño de vista](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
-Para empezar, seleccione **Grouped by ClientRequestID and Module** \(Agrupados por ClientRequestID y Module\). Este diseño de vista agrupa los datos de registro de los tres registros de la siguiente manera: primero, por identificador de solicitud de cliente y, después, por archivo de registro de origen \(o **Module** en el analizador de mensajes\). Con esta vista, podrá explorar en profundidad un identificador de solicitud de cliente en particular y ver los datos de los tres archivos de registro relativos a ese identificador de solicitud de cliente.
+Para empezar, seleccione **Grouped by ClientRequestID and Module** (Agrupados por ClientRequestID y Module). Este diseño de vista agrupa los datos de registro de los tres registros de la siguiente manera: primero, por identificador de solicitud de cliente y, después, por archivo de registro de origen (o **Module** en el analizador de mensajes). Con esta vista, podrá explorar en profundidad un identificador de solicitud de cliente en particular y ver los datos de los tres archivos de registro relativos a ese identificador de solicitud de cliente.
 
 En la siguiente imagen puede ver el diseño aplicado a los datos de registro de ejemplo, junto con un subconjunto de columnas. Puede observar que, para un identificador de solicitud de cliente en particular, la cuadrícula de análisis muestra los datos del registro de cliente, de servidor y de seguimiento de red.
 
@@ -271,7 +271,7 @@ Aparte de usar los diseños de vista de Almacenamiento de Azure, también puede 
 
 Las herramientas de almacenamiento incluyen una serie de reglas de color que ofrecen una forma más visual de identificar los diferentes tipos de errores que aparecen en la cuadrícula de análisis. Las reglas de color predefinidas se aplican a los errores HTTP, así que solo aparecerán en el registro de servidor y el seguimiento de red.
 
-Para aplicar reglas de color, seleccione **Color Rules** \(Reglas de color\) de la cinta de opciones de la barra de herramientas. En el menú verá las reglas de color de Almacenamiento de Azure. Para el tutorial, seleccione **Client Errors \(StatusCode between 400 and 499\)** \(Errores del cliente \[StatusCode entre 400 y 499\]\), tal y como se muestra en esta imagen.
+Para aplicar reglas de color, seleccione **Color Rules** (Reglas de color) de la cinta de opciones de la barra de herramientas. En el menú verá las reglas de color de Almacenamiento de Azure. Para el tutorial, seleccione **Client Errors (StatusCode between 400 and 499)** (Errores del cliente [StatusCode entre 400 y 499]), tal y como se muestra en esta imagen.
 
 ![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -281,10 +281,10 @@ Además de las reglas de color de Almacenamiento de Azure, también puede crear 
 
 Ahora agruparemos y filtraremos los datos de registro para encontrar todos los errores que estén dentro del intervalo 400.
 
-1. Localice la columna **StatusCode** en la cuadrícula de análisis, haga clic con el botón secundario en el encabezado de la columna y, después, seleccione **Group** \(Agrupar\).
+1. Localice la columna **StatusCode** en la cuadrícula de análisis, haga clic con el botón secundario en el encabezado de la columna y, después, seleccione **Group** (Agrupar).
 2. Tras ello, agrupe por la columna **ClientRequestId**. Verá que los datos de la cuadrícula de análisis están organizados por código de estado y por identificador de solicitud de cliente.
-1. Abra la ventana de la herramienta de filtro de vista si aún no está abierta. En la cinta de opciones de la barra de herramientas, seleccione **Tool Windows** \(Ventanas de herramientas\) y, luego, **View Filter** \(Filtro de vista\).
-2. Para filtrar los datos de registro para que solo se muestren los errores del intervalo 400, agregue el siguiente criterio de filtro a la ventana **View Filter** \(Filtro de vista\) y haga clic en **Apply** \(Aplicar\):
+1. Abra la ventana de la herramienta de filtro de vista si aún no está abierta. En la cinta de opciones de la barra de herramientas, seleccione **Tool Windows** (Ventanas de herramientas) y, luego, **View Filter** (Filtro de vista).
+2. Para filtrar los datos de registro para que solo se muestren los errores del intervalo 400, agregue el siguiente criterio de filtro a la ventana **View Filter** (Filtro de vista) y haga clic en **Apply** (Aplicar):
 
 		(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
 
@@ -292,11 +292,11 @@ En la siguiente imagen puede ver los resultados de la agrupación y filtrado. Si
 
 ![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna \*\*StatusCode\*\*. Para empezar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
+Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna **StatusCode**. Para empezar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
 
->[AZURE.NOTE]Si agrega una expresión al filtro que incluya entradas de registro donde el código de estado sea nulo, puede filtrar la columna **StatusCode** y ver datos de los tres registros \(incluido el registro de cliente\). Para crear esta expresión de filtro, use:
+>[AZURE.NOTE]Si agrega una expresión al filtro que incluya entradas de registro donde el código de estado sea nulo, puede filtrar la columna **StatusCode** y ver datos de los tres registros (incluido el registro de cliente). Para crear esta expresión de filtro, use:
 >
-> <code>&\#42;StatusCode \>= 400 or !&\#42;StatusCode</code>
+> <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 >
 > Este filtro devuelve todas las filas del registro de cliente y solo aquellas filas del registro de servidor y HTTP cuyo código de estado sea mayor que 400. Si aplica esto al diseño de vista que se agrupó por identificador de solicitud de cliente y módulo, podrá buscar o desplazarse por las entradas de registro para encontrar aquellas donde estén representados los tres registros.
 
@@ -304,11 +304,11 @@ Una vez aplicado este filtro, verá que las filas del registro de cliente se exc
 
 Las herramientas de almacenamiento incluyen filtros predefinidos que puede usar para acotar los datos de registro y, así, dar con los errores o tendencias que esté buscando. Ahora aplicaremos dos filtros predefinidos: uno que filtre los registros de servidor y de seguimiento de red para los errores 404 y otro que filtre los datos de un intervalo de tiempo específico.
 
-1. Abra la ventana de la herramienta de filtro de vista si aún no está abierta. En la cinta de opciones de la barra de herramientas, seleccione **Tool Windows** \(Ventanas de herramientas\) y, luego, **View Filter** \(Filtro de vista\).
-2. En la ventana de filtro de vista, seleccione **Library** \(Biblioteca\) y busque en `Azure Storage` para encontrar los filtros de Almacenamiento de Azure. Seleccione el filtro **404 \(Not Found\) messages in all logs** \(Mensajes 404 \[no encontrado\] en todos los registros\).
-3. Vaya de nuevo al menú **Library** \(Biblioteca\) y localice y seleccione **Global Time Filter** \(Filtro de tiempo global\).
+1. Abra la ventana de la herramienta de filtro de vista si aún no está abierta. En la cinta de opciones de la barra de herramientas, seleccione **Tool Windows** (Ventanas de herramientas) y, luego, **View Filter** (Filtro de vista).
+2. En la ventana de filtro de vista, seleccione **Library** (Biblioteca) y busque en `Azure Storage` para encontrar los filtros de Almacenamiento de Azure. Seleccione el filtro **404 (Not Found) messages in all logs** (Mensajes 404 [no encontrado] en todos los registros).
+3. Vaya de nuevo al menú **Library** (Biblioteca) y localice y seleccione **Global Time Filter** (Filtro de tiempo global).
 4. Edite las marcas de tiempo que se muestran en el filtro del intervalo que quiera ver. Esto servirá para reducir el intervalo de datos que va a analizar.
-5. Su filtro debería ser similar al que aparece en el siguiente ejemplo. Haga clic en **Apply** \(Aplicar\) para aplicar el filtro a la cuadrícula de análisis.
+5. Su filtro debería ser similar al que aparece en el siguiente ejemplo. Haga clic en **Apply** (Aplicar) para aplicar el filtro a la cuadrícula de análisis.
 
 		((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
 		(#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
@@ -323,12 +323,12 @@ En la siguiente imagen, podrá ver una solicitud específica en la que una opera
 
 ![Registros de servidor y de seguimiento de red filtrados](./media/storage-e2e-troubleshooting/server-filtered-404-error.png)
 
-Ahora, pondremos en correlación el identificador de solicitud de cliente con los datos del registro de cliente para ver qué estaba haciendo el cliente cuando ocurrió el error. Puede mostrar una nueva cuadrícula de análisis \(en una segunda pestaña\) para esta sesión para ver los datos del registro de cliente:
+Ahora, pondremos en correlación el identificador de solicitud de cliente con los datos del registro de cliente para ver qué estaba haciendo el cliente cuando ocurrió el error. Puede mostrar una nueva cuadrícula de análisis (en una segunda pestaña) para esta sesión para ver los datos del registro de cliente:
 
 1. Primero, copie el valor del campo **ClientRequestId** en el portapapeles. Para ello, seleccione una fila, busque el campo **ClientRequestId**, haga clic con el botón secundario en el valor de datos y seleccione **Copiar 'ClientRequestId'**. 
-1. En la cinta de opciones de la barra de herramientas, seleccione **New Viewer** \(Nuevo visor\) y, luego, **Analysis Grid** \(Cuadrícula de análisis\) para abrir una nueva pestaña. En la nueva ficha se recogen todos los datos de sus archivos de registro sin agrupar ni filtrar o sin reglas de color. 
-2. En la cinta de opciones de la barra de herramientas, seleccione **View Layout** \(Vista de diseño\) y, después, **All .NET Client Columns** \(Todas las columnas de cliente .NET\) en la sección correspondiente a **Almacenamiento de Azure**. En este diseño de vista se muestran los datos del registro de cliente, así como los de los registros de servidor y de seguimiento de red. Los datos se ordenan de forma predeterminada por la columna **MessageNumber**.
-3. Ahora, buscaremos el registro de cliente del identificador de solicitud de cliente. En la cinta de opciones de la barra de herramientas, seleccione **Find Messages** \(Buscar mensajes\) y especifique un filtro personalizado en el identificador de solicitud de cliente en el campo **Find** \(Buscar\). Use esta sintaxis para el filtro, indicando su propio identificador de solicitud de cliente:
+1. En la cinta de opciones de la barra de herramientas, seleccione **New Viewer** (Nuevo visor) y, luego, **Analysis Grid** (Cuadrícula de análisis) para abrir una nueva pestaña. En la nueva ficha se recogen todos los datos de sus archivos de registro sin agrupar ni filtrar o sin reglas de color. 
+2. En la cinta de opciones de la barra de herramientas, seleccione **View Layout** (Vista de diseño) y, después, **All .NET Client Columns** (Todas las columnas de cliente .NET) en la sección correspondiente a **Almacenamiento de Azure**. En este diseño de vista se muestran los datos del registro de cliente, así como los de los registros de servidor y de seguimiento de red. Los datos se ordenan de forma predeterminada por la columna **MessageNumber**.
+3. Ahora, buscaremos el registro de cliente del identificador de solicitud de cliente. En la cinta de opciones de la barra de herramientas, seleccione **Find Messages** (Buscar mensajes) y especifique un filtro personalizado en el identificador de solicitud de cliente en el campo **Find** (Buscar). Use esta sintaxis para el filtro, indicando su propio identificador de solicitud de cliente:
 
 		*ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
 
@@ -336,7 +336,7 @@ El analizador de mensajes encuentra y selecciona la primera entrada de registro 
 
 ![Registro de cliente con errores 404](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-Si usa los datos que se muestran en los diseños de vista de estas dos pestañas, podrá analizar los datos de solicitud para averiguar qué es lo que provocó el error. También puede echar un vistazo a las solicitudes anteriores a esta para ver si algún evento previo fue el que causó el error 404. Por ejemplo, puede revisar las entradas del registro de cliente de este identificador de solicitud de cliente para saber si el blob se eliminó o si el error se produjo porque la aplicación cliente llamó a una API de tipo CreateIfNotExists en un contenedor o un blob. En el registro de cliente, encontrará las direcciones del blob en el campo de **Description** \(Descripción\), mientras que en los registros de servidor y de seguimiento de red esta información aparece recogida en el campo **Summary** \(Resumen\).
+Si usa los datos que se muestran en los diseños de vista de estas dos pestañas, podrá analizar los datos de solicitud para averiguar qué es lo que provocó el error. También puede echar un vistazo a las solicitudes anteriores a esta para ver si algún evento previo fue el que causó el error 404. Por ejemplo, puede revisar las entradas del registro de cliente de este identificador de solicitud de cliente para saber si el blob se eliminó o si el error se produjo porque la aplicación cliente llamó a una API de tipo CreateIfNotExists en un contenedor o un blob. En el registro de cliente, encontrará las direcciones del blob en el campo de **Description** (Descripción), mientras que en los registros de servidor y de seguimiento de red esta información aparece recogida en el campo **Summary** (Resumen).
 
 Cuando sepa qué dirección del blob produjo el error 404, podrá realizar un examen más exhaustivo. Si, en las entradas de registro, busca otros mensajes relacionados operaciones en el mismo blob, podrá saber si el cliente ya había eliminado la entidad.
 
@@ -344,12 +344,12 @@ Cuando sepa qué dirección del blob produjo el error 404, podrá realizar un ex
 
 Ahora que ya está familiarizado con el analizador de mensajes y su uso para analizar los datos de sus registros, podrá analizar otros tipos de errores usando diseños de vista, reglas de color y criterios de búsqueda o filtrado. En las siguientes tablas se muestran distintos problemas con los que podría encontrarse y los criterios de filtrado que puede usar para poder localizarlos. Para más información sobre cómo crear filtros y sobre el lenguaje de filtrado del analizador de mensajes, vea el tema sobre el [filtrado de datos de mensajes](http://technet.microsoft.com/library/jj819365.aspx).
 
-| Para investigar... | Use la expresión de filtro... | La expresión se aplica al registro \(de cliente, de servidor, de red, todos\) |
+| Para investigar... | Use la expresión de filtro... | La expresión se aplica al registro (de cliente, de servidor, de red, todos) |
 |------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------|
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
-| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 &\#124;&\#124; HTTP.Response.StatusCode == 503 | Red |
+| Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
-| Aumento en PercentTimeoutError \(todos\) | *StatusCode == 500 \| Todos \| \| Aumento en PercentNetworkError \| AzureStorageClientDotNetV4.EventLogEntry.Level \< 2 \| Cliente \| \| Mensajes HTTP 403 \(prohibido\) \| HTTP.Response.StatusCode == 403 \| Red \| \| Mensajes HTTP 404 \(no encontrado\) \| HTTP.Response.StatusCode == 404 \| Red \| \| 404 \(todos\) \| *StatusCode == 404 \| Todos \| \| Problema de autorización de Firma de acceso compartido \(SAS\) \| AzureStorageLog.RequestStatus == "SASAuthorizationError" \| Red \| \| Mensajes HTTP 409 \(conflicto\) \| HTTP.Response.StatusCode == 409 \| Red \| \| 409 \(todos\) \| *StatusCode == 409 \| Todos \| \| Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors \| AzureStorageLog.RequestStatus == "ClientOtherError" \| Servidor \| \| Advertencia de Nagle \| \(\(AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS\) \> \(AzureStorageLog.ServerLatencyMS \* 1.5\)\) y \(AzureStorageLog.RequestPacketSize \<1460\) y \(AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS \>= 200\) \| Servidor \| \| Intervalo de tiempo en los registros de servidor y de red \| \#Timestamp \>= 2014-10-20T16:36:38 y \#Timestamp \<= 2014-10-20T16:36:39 \| Servidor, red \| \| Intervalo de tiempo en los registros de servidor \| AzureStorageLog.Timestamp \>= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp \<= 2014-10-20T16:36:39 \| Servidor \|
+| Aumento en PercentTimeoutError (todos) | *StatusCode == 500 | Todos | | Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red | | Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red | | Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red | | 409 (todos) | *StatusCode == 409 | Todos | | Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red | | Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Pasos siguientes

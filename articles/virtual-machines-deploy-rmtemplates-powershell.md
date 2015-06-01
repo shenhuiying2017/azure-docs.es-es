@@ -26,14 +26,14 @@ Antes de comenzar, asegúrese de que tiene Azure PowerShell listo para usar.
 
 ## Descripción de las plantillas de recursos y grupos de recursos de Azure
 
-La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure constan de una combinación de diferentes tipos de recursos en la nube \(por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una base de datos SQL, una red virtual o una CDN\). Las *plantillas del Administrador de recursos de Azure* permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
+La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure constan de una combinación de diferentes tipos de recursos en la nube (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una base de datos SQL, una red virtual o una CDN). Las *plantillas del Administrador de recursos de Azure* permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
 
 Una vez definida una plantilla de recursos basada en JSON, puede ejecutarla y definir los recursos dentro de ella implementada en Azure mediante un comando PowerShell. Puede ejecutar estos comandos de forma independiente dentro del shell de comandos de PowerShell o integrarlos dentro de un script que contenga una lógica de automatización adicional.
 
 Los recursos que se crean con plantillas del Administrador de recursos de Azure se implementarán en un grupo de recursos de Azure nuevo o existente. Un *grupo de recursos de Azure* le permite administrar varios recursos implementados conjuntamente como un grupo lógico, para que pueda administrar el ciclo de vida general de la aplicación o del grupo y ofrecer API de administración que le permiten:
 
 - Detener, iniciar o eliminar todos los recursos dentro del grupo a la vez. 
-- Aplicar reglas de control de acceso basado en roles \(RBAC\) para bloquear los permisos de seguridad en ellos. 
+- Aplicar reglas de control de acceso basado en roles (RBAC) para bloquear los permisos de seguridad en ellos. 
 - Auditar operaciones. 
 - Etiquetar recursos con metadatos adicionales para un mejor seguimiento. 
 
@@ -292,7 +292,7 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 ## Tareas comunes: Creación de una imagen de máquina virtual personalizada
 
-Siga las instrucciones de esta sección para crear una imagen personalizada de la máquina virtual en Azure con una plantilla del Administrador de recursos mediante Azure PowerShell. Esta plantilla crea una sola máquina virtual desde un disco duro virtual \(VHD\) especificado.
+Siga las instrucciones de esta sección para crear una imagen personalizada de la máquina virtual en Azure con una plantilla del Administrador de recursos mediante Azure PowerShell. Esta plantilla crea una sola máquina virtual desde un disco duro virtual (VHD) especificado.
 
 ### Paso 1: Examen del archivo JSON para la plantilla.
 
@@ -383,7 +383,7 @@ Para una máquina virtual Linux, consulte [Creación y carga de un disco duro vi
 
 ### Paso 3: Creación de la máquina virtual con la plantilla.
 
-Para crear una nueva máquina virtual basada en el disco duro virtual, reemplace los elementos dentro de "\< \>" por su información específica y ejecute estos comandos:
+Para crear una nueva máquina virtual basada en el disco duro virtual, reemplace los elementos dentro de "< >" por su información específica y ejecute estos comandos:
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"

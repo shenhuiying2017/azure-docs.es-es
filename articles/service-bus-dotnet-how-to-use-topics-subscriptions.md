@@ -22,7 +22,7 @@
 
 # Uso de temas/suscripciones del Bus de servicio
 
-En esta guía se indica cómo usar los temas y las suscripciones de Bus de servicio. Los ejemplos están escritos en C\# y usan la API de .NET. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes][].
+En esta guía se indica cómo usar los temas y las suscripciones de Bus de servicio. Los ejemplos están escritos en C# y usan la API de .NET. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes][].
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 

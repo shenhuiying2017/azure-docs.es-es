@@ -37,7 +37,7 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 - 80: puerto predeterminado para el tráfico HTTP entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 443: puerto predeterminado para el tráfico SSL entrante a aplicaciones que se ejecutan en planes del Servicio de aplicaciones en un entorno del Servicio de aplicaciones
 - 21: canal de control para FTP. Este puerto se puede bloquear de forma segura si no se utiliza FTP.
-- 10001-10020: canales de datos para FTP. Al igual que ocurre con el canal de control, estos puertos se pueden bloquear de forma segura si no se utiliza FTP \(\*\*Nota:\*\* los canales de datos FTP pueden cambiar durante la vista previa\).
+- 10001-10020: canales de datos para FTP. Al igual que ocurre con el canal de control, estos puertos se pueden bloquear de forma segura si no se utiliza FTP (**Nota:** los canales de datos FTP pueden cambiar durante la vista previa).
 - 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
@@ -59,7 +59,7 @@ En el ejemplo siguiente se muestra una regla que concede acceso de forma explíc
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
 
-Al bloquear el acceso a los puertos 80 y 443 para "ocultar" un entorno del Servicio de aplicaciones tras dispositivos o servicios ascendentes, tendrá que conocer la dirección IP ascendente. Por ejemplo, si usa un firewall de aplicaciones web \(WAF\), este tendrá su propia dirección \(o direcciones\) IP, que usa al transmitir el tráfico a un entorno del Servicio de aplicaciones de nivel auxiliar. Deberá usar esta dirección IP en el parámetro *SourceAddressPrefix* de una regla de seguridad de red.
+Al bloquear el acceso a los puertos 80 y 443 para "ocultar" un entorno del Servicio de aplicaciones tras dispositivos o servicios ascendentes, tendrá que conocer la dirección IP ascendente. Por ejemplo, si usa un firewall de aplicaciones web (WAF), este tendrá su propia dirección (o direcciones) IP, que usa al transmitir el tráfico a un entorno del Servicio de aplicaciones de nivel auxiliar. Deberá usar esta dirección IP en el parámetro *SourceAddressPrefix* de una regla de seguridad de red.
 
 En el ejemplo siguiente, se permite explícitamente el tráfico entrante de una dirección IP ascendente específica. La dirección *1.2.3.4* se usa como marcador de posición para la dirección IP de un WAF ascendente. Cambie el valor para que coincida con la dirección usada por su dispositivo o servicio ascendente.
 
@@ -71,7 +71,7 @@ Si se desea compatibilidad con FTP, las reglas siguientes pueden utilizarse como
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-\(**Nota:** puede cambiar el intervalo de puertos del canal de datos durante el período de vista previa\).
+(**Nota:** puede cambiar el intervalo de puertos del canal de datos durante el período de vista previa).
 
 Si se usa la depuración remota con Visual Studio, las reglas siguientes muestran cómo conceder acceso. Puesto que cada versión usa un puerto diferente para la depuración remota, hay una regla distinta para cada versión compatible de Visual Studio. Al igual que ocurre con el acceso FTP, es posible que el tráfico de depuración remoto no fluya correctamente a través de un dispositivo de proxy o WAF tradicional. En su lugar, *SourceAddressPrefix* se puede establecer en el intervalo de direcciones IP de los equipos del desarrollador que ejecutan Visual Studio.
 
@@ -89,7 +89,7 @@ En el ejemplo siguiente se muestra la asignación de un grupo de seguridad de re
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
-Cuando se realice correctamente la asignación del grupo de seguridad de red \(la asignación es una operación de ejecución prolongada y puede tardar unos minutos en completarse\), solo el tráfico entrante que coincida con las reglas de *permisión* llegará correctamente a las aplicaciones del entorno del Servicio de aplicaciones.
+Cuando se realice correctamente la asignación del grupo de seguridad de red (la asignación es una operación de ejecución prolongada y puede tardar unos minutos en completarse), solo el tráfico entrante que coincida con las reglas de *permisión* llegará correctamente a las aplicaciones del entorno del Servicio de aplicaciones.
 
 Por razones de integridad, en el ejemplo siguiente se muestra cómo quitar y, por tanto, desasociar el grupo de seguridad de red de la subred:
 

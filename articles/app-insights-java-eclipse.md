@@ -22,16 +22,16 @@ El SDK de Application Insights envía telemetría desde la aplicación web de Ja
 
 ## Requisitos previos
 
-Actualmente el complemento funciona para proyectos web dinámicos en Eclipse. \([Agregue Application Insights a otros tipos de proyectos de Java][java]\).
+Actualmente el complemento funciona para proyectos web dinámicos en Eclipse. ([Agregue Application Insights a otros tipos de proyectos de Java][java]).
 
 Necesitará:
 
 * Oracle JRE 1.6 o posterior
-* Una suscripción a [Microsoft Azure](http://azure.microsoft.com/). \(Puede empezar con la [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/)\).
+* Una suscripción a [Microsoft Azure](http://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/)).
 * [Eclipse IDE para Java EE Developers](http://www.eclipse.org/downloads/), Indigo o superior.
 * Windows 7 o posterior, o Windows Server 2008 o posterior
 
-## Instalar el SDK en Eclipse \(una vez\)
+## Instalar el SDK en Eclipse (una vez)
 
 Basta con hacerlo una vez por equipo. Este paso instala un kit de herramientas que puede agregar después el SDK a cada proyecto web dinámico.
 
@@ -50,7 +50,7 @@ Siga los pasos restantes para cada proyecto de Java.
 
 El análisis de uso y de rendimiento se mostrará en un recurso de Azure en el portal web de Azure. En este paso, va a configurar un recurso de Azure para la aplicación.
 
-1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com). \(Necesitará una [suscripción de Azure](http://azure.microsoft.com/)\).
+1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com). (Necesitará una [suscripción de Azure](http://azure.microsoft.com/)).
 2. Creación de un recurso de Application Insights
 
     ![Haga clic en + y elija Application Insights](./media/app-insights-java-get-started/01-create.png)
@@ -79,7 +79,7 @@ Ejecute la aplicación.
 
 Vuelva al recurso Application Insights en Microsoft Azure.
 
-Los datos de las solicitudes HTTP aparecerán en la hoja de información general. \(Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar\).
+Los datos de las solicitudes HTTP aparecerán en la hoja de información general. (Si todavía no está ahí, espere unos segundos y, a continuación, haga clic en Actualizar).
 
 ![Respuesta del servidor, recuentos de solicitudes y errores](./media/app-insights-java-track-http-requests/5-results.png)
  
@@ -120,7 +120,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 ## Registros de diagnóstico
 
-Si está usando Logback o Log4J \(v1.2 o v2.0\) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
+Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
 
 [Más información acerca de los registros de diagnóstico][javalogs]
 

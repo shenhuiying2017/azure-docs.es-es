@@ -18,12 +18,12 @@
 	
 #Análisis de transmisiones de Azure y Power BI: panel dinámico en tiempo real de los datos de Análisis de transmisiones
 
-Un caso de uso común de Análisis de transmisiones de Azure es analizar grandes volúmenes de datos de transmisión en tiempo real y obtener la información en un panel dinámico \(es decir, un panel que se actualiza en tiempo real sin tener que actualizar el explorador del usuario\). [Microsoft Power BI](https://powerbi.com/) es perfecto para crear el panel dinámico en muy poco tiempo. [Aquí se proporciona un ejemplo de vídeo para ilustrar el escenario](https://www.youtube.com/watch?v=SGUpT-a99MA). En este artículo, aprenderá a usar Power BI como una salida para el trabajo de Análisis de transmisiones de Azure. Nota: normalmente, Análisis de transmisiones de Azure está disponible; sin embargo, en este momento la salida de Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
+Un caso de uso común de Análisis de transmisiones de Azure es analizar grandes volúmenes de datos de transmisión en tiempo real y obtener la información en un panel dinámico (es decir, un panel que se actualiza en tiempo real sin tener que actualizar el explorador del usuario). [Microsoft Power BI](https://powerbi.com/) es perfecto para crear el panel dinámico en muy poco tiempo. [Aquí se proporciona un ejemplo de vídeo para ilustrar el escenario](https://www.youtube.com/watch?v=SGUpT-a99MA). En este artículo, aprenderá a usar Power BI como una salida para el trabajo de Análisis de transmisiones de Azure. Nota: normalmente, Análisis de transmisiones de Azure está disponible; sin embargo, en este momento la salida de Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
 
 ##Requisitos previos
 
-* Cuenta de Microsoft Azure con Id. org. \(Power BI solo funciona con Id. org.\). Id. org. es la dirección de correo electrónico de su trabajo o empresa; por ejemplo, xyz@mycompany.com. Los mensajes de correo electrónico personales, como xyz@hotmail.com, no son Id. org. [Puede obtener más información acerca de la identificación de la organización](https://www.arin.net/resources/request/org.html) \).
-* Una secuencia de entrada para un trabajo ASA \(Análisis de transmisiones de Azure\) desde el que consumir datos de transmisiones. En este punto, ASA acepta la entrada de un centro de eventos de Azure o el almacén de blobs de Azure.  
+* Cuenta de Microsoft Azure con Id. org. (Power BI solo funciona con Id. org.). Id. org. es la dirección de correo electrónico de su trabajo o empresa; por ejemplo, xyz@mycompany.com. Los mensajes de correo electrónico personales, como xyz@hotmail.com, no son Id. org. [Puede obtener más información acerca de la identificación de la organización](https://www.arin.net/resources/request/org.html) ).
+* Una secuencia de entrada para un trabajo ASA (Análisis de transmisiones de Azure) desde el que consumir datos de transmisiones. En este punto, ASA acepta la entrada de un centro de eventos de Azure o el almacén de blobs de Azure.  
 
 ##Creación de un trabajo de Análisis de transmisiones de Azure
 
@@ -72,7 +72,7 @@ Para este tutorial, se supone que está utilizando el centro de eventos como una
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]Nota: el resultado de Power BI solo está disponible para cuentas de Azure que usan Id. org. Si no está utilizando ningún Id. org. para su cuenta de Azure \(por ejemplo, su live id / cuenta personal de Microsoft\), no verá una opción de salida de Power BI.
+> [AZURE.NOTE]Nota: el resultado de Power BI solo está disponible para cuentas de Azure que usan Id. org. Si no está utilizando ningún Id. org. para su cuenta de Azure (por ejemplo, su live id / cuenta personal de Microsoft), no verá una opción de salida de Power BI.
 
 2.  Seleccione **Power BI** y, a continuación, haga clic con el botón secundario.
 3.  Verá una pantalla similar a la siguiente:
@@ -130,7 +130,7 @@ Para crear el panel, vaya a la opción Paneles y cree un nuevo panel.
 
 En este ejemplo vamos a llamarlo "Panel de demostración".
 
-Ahora haga clic en el conjunto de datos creado por el ASA \(pbidemo en nuestro ejemplo actual\). Se le llevará a una página para crear un gráfico encima de este conjunto de datos. El siguiente solo es un ejemplo de los informes que puede crear:
+Ahora haga clic en el conjunto de datos creado por el ASA (pbidemo en nuestro ejemplo actual). Se le llevará a una página para crear un gráfico encima de este conjunto de datos. El siguiente solo es un ejemplo de los informes que puede crear:
 
 Seleccione los campos Σ temp y time. Pasarán automáticamente al valor y el eje del gráfico:
 
