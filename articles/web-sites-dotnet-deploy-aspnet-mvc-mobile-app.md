@@ -36,9 +36,12 @@ Puede usar las herramientas de desarrollador de Internet Explorer 11 F12 y la [h
 Aprenderá lo siguiente:
 
 -	Cómo usar Visual Studio 2013 para publicar la aplicación web directamente en una aplicación web en el servicio de aplicaciones de Azure.
--   Cómo las plantillas de ASP.NET MVC 5 usan el marco CSS Bootstrap para mejorar la visualización en dispositivos móviles.
--   Creación de vistas específicos de móviles para dirigirse a exploradores móviles específicos, tales como iPhone y Android
--   Creación de vistas de respuesta (vistas que responden a exploradores distintos entre varios dispositivos)
+-   Cómo las plantillas de ASP.NET MVC 5 usan el marco CSS Bootstrap para
+    mejorar la visualización en dispositivos móviles.
+-   Creación de vistas específicos de móviles para dirigirse a
+    exploradores móviles específicos, tales como iPhone y Android
+-   Creación de vistas de respuesta (vistas que responden a
+    exploradores distintos entre varios dispositivos)
 
 ## Configuración del entorno de desarrollo
 
@@ -49,7 +52,8 @@ Configure el entorno de desarrollo mediante la instalación del SDK de Azure par
 
 También necesitará un emulador de explorador móvil. Funcionará cualquiera de las siguientes opciones:
 
--   Emulador de explorador en las herramientas para desarrolladores de [Internet Explorer 11 F12][EmulatorIE11] (se usan en todas las capturas de pantalla de explorador). Cuenta con los calores predefinidos de cadena de agente de usuario para Windows Phone 8, Windows Phone 7 y Apple iPad.
+-   Emulador de explorador en las herramientas para desarrolladores de [Internet Explorer 11 F12][EmulatorIE11] (se usan en todas las
+    capturas de pantalla de explorador). Cuenta con los calores predefinidos de cadena de agente de usuario para Windows Phone 8, Windows Phone 7 y Apple iPad.
 -	Emulador de explorador en [Google Chrome DevTools][EmulatorChrome]. Contiene valores predefinidos para varios dispositivos Android, así como Apple iPhone, Apple iPad y Amazon Kindle Fire. También emula eventos táctiles.
 -   [Emulador de Opera Mobile][EmulatorOpera]
 
@@ -114,7 +118,7 @@ La vista de etiquetas ASP.NET se ajusta en zoom a la pantalla, que Bootstrap hac
 
 La plantilla MVC 5 ahora cuenta con compatibilidad con Bootstrap integrada. Ya ha visto cómo mejora inmediatamente las distintas vistas en su aplicación. Por ejemplo, la barra de navegación de la parte superior se contrae automáticamente cuando el ancho del explorador es menor. En el explorador de escritorio,intente cambiar el tamaño de la ventana del explorador para ver cómo la barra de navegación cambia su aspecto. Este es el diseño web de respuesta integrado en Bootstrap.
 
-Para ver el aspecto de la aplicación web sin Bootstrap, abra *App_Start\\BundleConfig.cs* y convierta en comentario las líneas que contienen *bootstrap.js* y *bootstrap.css*. En el código siguiente se muestran las dos últimas instrucciones del método `RegisterBundles` después del cambio:
+Para ver el aspecto de la aplicación web sin Bootstrap, abra *App\_Start\\BundleConfig.cs* y convierta en comentario las líneas que contienen *bootstrap.js* y *bootstrap.css*. En el código siguiente se muestran las dos últimas instrucciones del método `RegisterBundles` después del cambio:
 
      bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
               //"~/Scripts/bootstrap.js",
@@ -159,11 +163,11 @@ Copie el archivo *Views\\Home\\AllTags.cshtml* en *Views\\Home\\AllTags.Mobile.c
 
     <h2>Tags (M)</h2>
 
-Diríjase a la página de etiquetas usando un explorador de escritorio y un emulador de explorador móvil. El emulador de explorador móvil muestra los dos cambios que ha realizado (el título en *_Layout.Mobile.cshtml*  y el título en *AllTags.Mobile.cshtml*).
+Diríjase a la página de etiquetas usando un explorador de escritorio y un emulador de explorador móvil. El emulador de explorador móvil muestra los dos cambios que ha realizado (el título en *\_Layout.Mobile.cshtml*  y el título en *AllTags.Mobile.cshtml*).
 
 ![][AllTagsMobile_LayoutMobile]
 
-Por el contrario, la pantalla de escritorio no ha cambiado (con los títulos en *_Layout.cshtml* y *AllTags.cshtml*).
+Por el contrario, la pantalla de escritorio no ha cambiado (con los títulos en *\_Layout.cshtml* y *AllTags.cshtml*).
 
 ![][AllTagsMobile_LayoutMobileDesktop]
 
@@ -205,18 +209,19 @@ En la captura siguiente se muestra la vista  *AllTags* representada en el emulad
 
 ![][AllTagsIPhone_LayoutIPhone]
 
-En el explorador móvil, seleccione el vínculo **Oradores**. Como no hay una vista móvil (*AllSpeakers.Mobile.cshtml*), la vista de oradores predeterminada (*AllSpeakers.cshtml*) se procesa con la vista de diseño móvil (*_Layout.Mobile.cshtml*). Tal como se muestra a continuación, el título **Aplicación MVC5 (móvil)** se define en *_Layout.Mobile.cshtml*.
+En el explorador móvil, seleccione el vínculo **Oradores**. Como no hay una vista móvil (*AllSpeakers.Mobile.cshtml*), la vista de oradores predeterminada (*AllSpeakers.cshtml*) se procesa con la vista de diseño móvil (*\_Layout.Mobile.cshtml*). Tal como se muestra a continuación, el título **Aplicación MVC5 (móvil)** se define en *\_Layout.Mobile.cshtml*.
 
 ![][AllSpeakers_LayoutMobile]
 
-Puede deshabilitar globalmente una vista predeterminada (no móvil) de su procesamiento dentro de un diseño móvil al establecer `RequireConsistentDisplayMode` en `true` en el archivo *Views_ViewStart.cshtml*, como a continuación:
+Puede deshabilitar globalmente una vista predeterminada (no móvil) de su procesamiento dentro de un diseño móvil al establecer `RequireConsistentDisplayMode` en `true` en el archivo *Views\\\_ViewStart.cshtml*, como a continuación:
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-Cuando `RequireConsistentDisplayMode` se establece en `true`, se usa el diseño móvil (*_Layout.Mobile.cshtml*) solo para vistas móviles (por ejemplo, cuando el archivo de vista tiene el formato ***ViewName**.Mobile.cshtml*). Es posible que quiera establecer `RequireConsistentDisplayMode` en `true` si el diseño móvil no funciona bien con las vistas que no son móviles. En la siguiente captura de pantalla se muestra cómo se presenta la página *Oradores* cuando `RequireConsistentDisplayMode` está establecido en `true` (sin la cadena "(Mobile)" en la barra de navegación de la parte superior).
+Cuando `RequireConsistentDisplayMode` se establece en `true`, se usa el diseño móvil (*\_Layout.Mobile.cshtml*) solo para vistas móviles (por ejemplo, cuando el archivo de vista tiene el formato ***ViewName**.Mobile.cshtml*). Es posible que quiera
+establecer `RequireConsistentDisplayMode` en `true` si el diseño móvil no funciona bien con las vistas que no son móviles. En la siguiente captura de pantalla se muestra cómo se presenta la página *Oradores* cuando `RequireConsistentDisplayMode` está establecido en `true` (sin la cadena "(Mobile)" en la barra de navegación de la parte superior).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -262,7 +267,7 @@ El estilo de [grupo de listas vinculadas][] de Bootstrap permite hacer clic en t
 
 ![][AllSpeakersFixedDesktop]
 
-Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta <form> justo después de la etiqueta <h2>, como se muestra a continuación:
+Aunque la vista de explorador móvil ha mejorado, es difícil desplazarse por la larga lista de oradores. Bootstrap no proporciona una funcionalidad de filtro de búsqueda de forma predeterminada, pero puede agregarla con unas pocas líneas de código. En primer lugar, agregará un cuadro de búsqueda a la vista y luego lo enlazará con el código JavaScript para la función de filtro. En *Views\\Home\\AllSpeakers.cshtml*, agregue una etiqueta \<form\> justo después de la etiqueta \<h2\>, como se muestra a continuación:
 
     @model IEnumerable<string>
 
@@ -323,7 +328,7 @@ También debe incluir filter.js en los paquetes registrados. Abra *App_Start\\Bu
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/filter.js"));
 
-El paquete **jquery** ya está presentado por la vista  *_Layout* de forma predeterminada. Más adelante, puede utilizar el mismo código JavaScript para aplicar la funcionalidad de filtro a otras vistas de lista.
+El paquete **jquery** ya está presentado por la vista  *\_Layout* de forma predeterminada. Más adelante, puede utilizar el mismo código JavaScript para aplicar la funcionalidad de filtro a otras vistas de lista.
 
 Actualice el explorador móvil y vaya a la vista *AllSpeakers*. En el cuadro de búsqueda, escriba "sc". Ahora, la lista de oradores debería estar filtrada según la cadena de búsqueda.
 
@@ -444,9 +449,12 @@ Como puede observar, la pantalla tiene el formato de una tabla, que está diseñ
 
 El código hace tres cosas:
 
--   Utiliza el [grupo de listas vinculadas personalizado][] de Bootstrap para que la información de sesión tenga un formato vertical, de modo que se pueda leer en un explorador móvil (mediante clases como, por ejemplo, list-group-item-text).
--   aplica el [sistema de cuadrículas][] al diseño, de modo que los elementos de la sesión tengan un flujo horizontal en el explorador de escritorio y un flujo vertical en el explorador móvil (con la clase col-md-4 class).
--   usa [utilidades con respuesta][] para ocultar las etiquetas de sesión cuando el contenido se visualiza en el explorador móvil (con la clase hidden-xs).
+-   Utiliza el [grupo de listas vinculadas personalizado][]
+    de Bootstrap para que la información de sesión tenga un formato vertical, de modo que se pueda leer en un explorador móvil (mediante clases como, por ejemplo, list-group-item-text).
+-   aplica el [sistema de cuadrículas][]
+    al diseño, de modo que los elementos de la sesión tengan un flujo horizontal en el explorador de escritorio y un flujo vertical en el explorador móvil (con la clase col-md-4 class).
+-   usa [utilidades con respuesta][]
+    para ocultar las etiquetas de sesión cuando el contenido se visualiza en el explorador móvil (con la clase hidden-xs).
 
 También puede pulsar un vínculo de título para dirigirse a la respectiva sesión. La imagen siguiente refleja los cambios en el código.
 
