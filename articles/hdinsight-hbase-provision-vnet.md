@@ -129,7 +129,9 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
 	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
 	<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
-</table>>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+</table>
+
+	>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 	Haga clic en el botón derecho.
 

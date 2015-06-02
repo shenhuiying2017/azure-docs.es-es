@@ -67,11 +67,13 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 8. Suponiendo que no ha creado una aplicación web en Azure, Visual Studio pueden ayudarle a crearla. En el cuadro de diálogo **Configurar el sitio web de Microsoft Azure**, asegúrese de que el nombre del sitio es único. A continuación, haga clic en **Aceptar**.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/5-create-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Una vez creada la aplicación ASP.NET, publíquela en Azure en el panel de la actividad de publicación web haciendo clic en **Publicar `<app name>` en este sitio ahora**. Haga clic en **Publicar** para completar el proceso.
 
-	<!--todo: need 2.5.1 screenshot-->![](media/cdn-websites-with-cdn/6-publish-website.png)
+	<!--todo: need 2.5.1 screenshot-->
+	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	Verá la aplicación web publicada en el explorador cuando la publicación se complete.
 

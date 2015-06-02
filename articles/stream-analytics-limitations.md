@@ -18,7 +18,8 @@
 
 # Problemas conocidos y limitaciones de Azure Stream Analytics en su versión preliminar
 
-En este documento se describen las limitaciones y los problemas conocidos de [Análisis de transmisiones][stream.analytics.documentation] durante la versión preliminar. En la mayoría de los casos estos límites existen con la intención de obtener sus comentarios anticipados o se basan en las restricciones de capacidad actual. <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
+En este documento se describen las limitaciones y los problemas conocidos de [Análisis de transmisiones][stream.analytics.documentation] durante la versión preliminar. En la mayoría de los casos estos límites existen con la intención de obtener sus comentarios anticipados o se basan en las restricciones de capacidad actual. 
+<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
 
 ## Limitaciones

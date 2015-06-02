@@ -28,7 +28,8 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 
 > [AZURE.NOTE]Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> 
+<!-- ===================================== -->
 ## Escalado al modo Compartido o Básico
 <!-- ===================================== -->
 
