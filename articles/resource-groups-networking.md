@@ -348,4 +348,5 @@ Entre las principales propiedades de un extremo se incluyen las siguientes:
 
 [Uso de etiquetas en el Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn848368.aspx)
 
-[Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx) <!--HONumber=52-->
+[Implementaciones de plantilla](https://msdn.microsoft.com/library/azure/dn790549.aspx) 
+<!---HONumber=52-->
