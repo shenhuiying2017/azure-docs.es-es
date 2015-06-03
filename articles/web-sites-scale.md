@@ -49,7 +49,8 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
 	
-<a name="scalingstandard"></a> <!-- ================================= -->
+<a name="scalingstandard"></a>
+<!-- ================================= -->
 ## Escalado al modo Estándar o Premium
 <!-- ================================= -->
 
