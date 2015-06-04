@@ -37,11 +37,14 @@ En cualquier momento de este tutorial puede enviar un correo electrónico a [sup
 ## Inicio rápido
 Si ya dispone de una aplicación web en el Servicio de aplicaciones de Azure con la que desea trabajar o está algo familiarizado con Azure Marketplace, use esta sección para empezar a trabajar rápidamente. De lo contrario, vaya a la sección [Aprovisionamiento de la base de datos][provision] a continuación.
  
-1. Abra Azure Marketplace haciendo clic en **Nuevo** > **Markeplace**. <!-- ![Store][button-store] -->
+1. Abra Azure Marketplace haciendo clic en **Nuevo** > **Markeplace**. 
+	<!-- ![Store][button-store] -->
 
-1. Compre el complemento MongoLab. ![MongoLab][entry-mongolab]
+1. Compre el complemento MongoLab. 
+	![MongoLab][entry-mongolab]
 
-1. En la lista de complementos, haga clic en el complemento MongoLab y luego en **Información de conexión**. ![BotónConnectionInfo][button-connectioninfo]
+1. En la lista de complementos, haga clic en el complemento MongoLab y luego en **Información de conexión**. 
+	![BotónConnectionInfo][button-connectioninfo]
 
 1. Copie MONGOLAB_URI en el Portapapeles. ![ConnectionInfoScreen][screen-connectioninfo] **Este URI contiene el nombre de usuario y la contraseña de su base de datos. Trátelo como información confidencial y no lo comparta.**
 
