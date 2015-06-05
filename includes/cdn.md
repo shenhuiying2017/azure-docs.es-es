@@ -1,4 +1,4 @@
-﻿# Uso de la red CDN en Azure
+# Uso de la red CDN en Azure
 
 La Red de entrega de contenido (CDN) de Azure ofrece a los desarrolladores una
 solución global para entregar contenido de ancho de banda alto mediante el almacenamiento en caché de los blobs
@@ -138,7 +138,7 @@ El Portal de administración de Azure no admite actualmente la posibilidad de pu
 -   [Asignación del contenido de la red CDN a un dominio personalizado]
 
   [Crear una cuenta de almacenamiento]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
-  [Ubicaciones de los nodos de la red CDN de Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
+  [Ubicaciones POP de la Red de entrega de contenido de Azure (CDN)]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [plan de facturación]: /pricing/calculator/?scenario=full
   [Registro de un nombre de subdominio personalizado para obtener acceso a blobs en Azure]: http://msdn.microsoft.com/library/windowsazure/ee795179.aspx

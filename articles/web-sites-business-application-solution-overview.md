@@ -20,7 +20,7 @@
 
 # Creación de una aplicación de línea de negocio en Sitios web Azure
 
-[Sitios web Azure] es una elección excelente para las aplicaciones de línea de negocio. Estas aplicaciones son aplicaciones de intranet que deberían protegerse para su uso comercial interno. Normalmente requieren autenticación, de forma habitual en un directorio corporativo, y con algún acceso o integración con servicios y datos locales. 
+[Sitios web Azure](http://go.microsoft.com/fwlink/?LinkId=529714) es una elección excelente para las aplicaciones de línea de negocio. Estas aplicaciones son aplicaciones de intranet que deberían protegerse para su uso comercial interno. Normalmente requieren autenticación, de forma habitual en un directorio corporativo, y con algún acceso o integración con servicios y datos locales. 
 
 Existen ventajas importantes al mover aplicaciones de línea de negocio móviles a los sitios web Azure, como:
 
