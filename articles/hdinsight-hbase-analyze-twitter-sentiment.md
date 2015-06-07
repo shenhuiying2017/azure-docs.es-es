@@ -98,11 +98,13 @@ Las API de streaming de Twitter autorizan las solicitudes con [OAuth](http://oau
 3. Escriba un **nombre**, una **descripción** y un **sitio web**. El campo Sitio web no se usa en realidad. No es necesario escribir una URL válida. La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
 	<table border="1">
-<tr><th>Campo</th><th>Valor</th></tr>
-<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
+	<tr><th>Campo</th><th>Valor</th></tr>
+	<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
 
 4. Haga clic en **Sí, acepto** y luego haga clic en **Crear su aplicación de Twitter**.
 5. Haga clic en la pestaña **Permisos**. El permiso predeterminado es **Solo lectura**. Esto es suficiente para este tutorial. 
@@ -1175,7 +1177,8 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 
 **Para modificar layout.cshtml, siga estos pasos:**
 
-1. En el **Explorador de soluciones**, expanda **TweetSentimentWeb**, **Vistas** y **Compartido**, y haga doble clic en _**Layout.cshtml**.2. Reemplace el contenido por lo siguiente:
+1. En el **Explorador de soluciones**, expanda **TweetSentimentWeb**, **Vistas** y **Compartido**, y haga doble clic en _**Layout.cshtml**.
+2. Reemplace el contenido por lo siguiente:
 
 		<!DOCTYPE html>
 		<html>

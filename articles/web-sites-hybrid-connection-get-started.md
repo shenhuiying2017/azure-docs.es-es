@@ -90,11 +90,19 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para la
 	
 	![Haga clic en Aceptar][CreateBTScomplete]
 	
-6. Al finalizar el proceso, el área de notificaciones del portal le informa que la conexión se ha creado correctamente. <!-- TODO
+6. Al finalizar el proceso, el área de notificaciones del portal le informa que la conexión se ha creado correctamente. 
+<!-- TODO
 
-    Todo falla en este paso. No se puede crear un servicio de BizTalk en el portal con software propio. Cambié al portal anterior (portal completo) y creé el servicio de BizTalk, pero, al parecer, no permite conectarse. Cuando finaliza el paso Crear conexión híbrida, recibe el siguiente error: Error al crear conexión híbrida RelecloudHC. No se encontró el tipo de recurso en el espacio de nombres "Microsoft.BizTaIkServices para versión de API 2014-06-01".
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 	
-	El error indica que no se pudo encontrar el tipo, no la instancia. ![Success notification][CreateHCSuccessNotification] -->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. En la hoja de la aplicación web, el icono **Conexiones híbridas** ahora muestra que se creó una conexión híbrida.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]

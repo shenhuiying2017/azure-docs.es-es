@@ -42,7 +42,7 @@ Los archivos del proyecto para este tutorial se almacenarán en un directorio ll
 
 Los pasos de este tutorial usan Node.js. Debe tener una versión reciente de [Node.js][node] en su entorno de desarrollo.
 
-Additionally, the [Git] must be available from the command-line in your development environment, as this is used to deploy the application to an Azure Website.
+Adicionalmente, el [Git] debe estar disponible desde la línea de comandos en su entorno de desarrollo, debido a que se utiliza para implementar la aplicación en un sitio web de Azure.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -529,7 +529,9 @@ Para obtener información sobre la protección de MongoDB, consulte [MongoDB Sec
 
 ##Recursos adicionales
 
-[Herramienta de línea de comandos de Azure para Mac y Linux][Build and deploy a Node.js web app in Azure App Service] [Implementación continua mediante GIT en el servicio de aplicaciones de Azure]
+[Herramienta de línea de comandos de Azure para Mac y Linux]    
+[Build and deploy a Node.js web app in Azure App Service]    
+[Implementación continua mediante GIT en el servicio de aplicaciones de Azure]    
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)

@@ -384,7 +384,7 @@ Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecut
 
 
 
-\---
+---
 ##<a id="appendix-a"></a>Apéndice A: Carga de datos de retraso de vuelos en el almacenamiento de blobs de Azure
 La carga del archivo de datos y los archivos de script de HiveQL (consulte el [Apéndice B](#appendix-b)) requiere planificación. La idea es almacenar los archivos de datos y el archivo HiveQL antes de aprovisionar un clúster de HDInsight y ejecutar el trabajo de Hive. Tiene dos opciones:
 
@@ -496,7 +496,7 @@ La ruta de acceso tutorials/flightdelays/data es la carpeta virtual que creó al
 
 > Debe configurar el permisos de acceso del contenedor para que sea público o enlazar la cuenta de Almacenamiento con el clúster de HDInsight. En caso contrario, la cadena de consulta de Hive no podrá acceder a los archivos de datos.
 
-\---
+---
 ##<a id="appendix-b"></a>Apéndice B: Creación y carga de un script de HiveQL
 
 Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o empaquetar la instrucción de HiveQL en un archivo script. Esta sección muestra cómo crear un script de HiveQL y cargarlo en el almacenamiento de blobs de Azure usando PowerShell de Azure. Hive requiere que los scripts de HiveQL se almacenen en el almacenamiento de blobs de Azure.
@@ -677,7 +677,7 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 	- **$srcDataFolder** y **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
 
-\---
+---
 ##<a id="appendix-c"></a>Apéndice C: Preparación de la base de datos SQL de Azure para el resultado del trabajo de Sqoop
 **Para preparar la base de datos SQL (combine esto con el script de Sqoop)**
 

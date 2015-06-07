@@ -69,7 +69,7 @@ Para recuperar el servicio móvil después de una interrupción del servicio:
 		info:    mobile recover command OK
 
 
-	> [AZURE.NOTE] It may take a few minutes after the command completes until you can see the changes in the portal.
+	> [AZURE.NOTE] Pueden pasar unos minutos después de la finalización del comando hasta que pueda ver los cambios en el portal.
 
 5. Compruebe que todos los scripts se han recuperado correctamente comparándolos con los originales en el control de código fuente. En la mayoría de los casos, los scripts se recuperan automáticamente sin pérdida de datos, pero si encuentra una discrepancia, puede recuperar dicho script manualmente.
 

@@ -59,7 +59,8 @@ La interfaz de línea de comandos se puede instalar usando *Node.js Package Mana
 
 **Para instalar la interfaz de línea de comandos con Windows Installer**
 
-1.	Vaya a  **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos multiplataforma** y siga el asistente del instalador de plataforma web.
+1.	Vaya a  **http://azure.microsoft.com/downloads/**. 
+2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos multiplataforma** y siga el asistente del instalador de plataforma web.
 
 ##Descarga e importación del archivo publishsettings de la cuenta de Azure
 

@@ -219,7 +219,14 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
 
 	Este método no está operativo aquí porque **CustomLoginProvider** no se integra en la canalización de autenticación.
 
-4. Agregue la siguiente implementación del método abstracto `ParseCredentials` a **CustomLoginProvider**. Reemplace públicamente ProviderCredentials ParseCredentials(JObject serialized) { if (serialized == null) { throw new ArgumentNullException("serialized"); }
+4. Agregue la siguiente implementación del método abstracto `ParseCredentials` a **CustomLoginProvider**. 
+
+        public override ProviderCredentials ParseCredentials(JObject serialized)
+        {
+            if (serialized == null)
+            {
+                throw new ArgumentNullException("serialized");
+            }
 
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }

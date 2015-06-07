@@ -219,9 +219,29 @@ Comience por crear un modelo de datos sencillo con código. Este modelo de datos
 1. En el **Explorador de soluciones**, haga clic en la carpeta *Models* y, a continuación, seleccione **Agregar** -> **Clase**. ![Selección de clase](./media/web-sites-dotnet-web-forms-secure/SecureWebForms12.png) Se mostrará el cuadro de diálogo **Agregar nuevo elemento**.  
 
 2. Denomine a esta nueva clase *Contacts.cs*. ![Cuadro de diálogo Add New Item](./media/web-sites-dotnet-web-forms-secure/SecureWebForms13.png)
-3. Reemplace el código predeterminado por el siguiente código:  <pre class="prettyprint"> using System.ComponentModel.DataAnnotations; using System.Globalization;
+3. Reemplace el código predeterminado por el siguiente código:  
+
+	<pre class="prettyprint">
+	using System.ComponentModel.DataAnnotations;
+	using System.Globalization;
 	
-	namespace ContactManager.Models { public class Contacts { [ScaffoldColumn(false)][Key] public int ContactId { get; set; } public string Name { get; set; } public string Address { get; set; } public string City { get; set; } public string State { get; set; } public string Zip { get; set; } [DataType(DataType.EmailAddress)] public string Email { get; set; } } } </pre>
+	namespace ContactManager.Models
+	{
+	    public class Contacts
+	    {
+	        [ScaffoldColumn(false)]
+	        [Key]
+	        public int ContactId { get; set; }
+	        public string Name { get; set; }
+	        public string Address { get; set; }
+	        public string City { get; set; }
+	        public string State { get; set; }
+	        public string Zip { get; set; }
+	        [DataType(DataType.EmailAddress)]
+	        public string Email { get; set; }
+	    }
+	}
+	</pre>
 
 La clase **Contacts** define qué datos de los contactos va a almacenar, además de una clave primaria (`ContactID`), necesaria para la base de datos. La clase **Contacts** representa los datos del contacto que se mostrarán. Cada instancia de un objeto Contacts corresponde a una fila de una tabla de la base de datos relacional y cada propiedad de la clase Contacts se asigna a una columna de esa tabla. Más adelante en este tutorial, revisará los datos del contacto que contiene la base de datos.
 

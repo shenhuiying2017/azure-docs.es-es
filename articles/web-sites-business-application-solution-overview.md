@@ -51,7 +51,7 @@ Proteja los recursos internos contra interceptores con [HTTPS]. El nombre de dom
 
 [Autenticar a los usuarios] en el directorio corporativo. Sitios web Azure puede autenticar a los usuarios con proveedores de identidades locales, como los Servicios de federación de Active Directory (AD FS), o con un inquilino de Azure Active Directory que se haya sincronizado con su implementación de Active Directory corporativo. Los usuarios pueden acceder a sus propiedades web en Sitios web de Azure a través de un inicio de sesión único, tanto cuando se encuentran de forma local como de forma remota. Los servicios existentes, como Office 365 o Windows Intune, ya usan Azure Active Directory. Mediante [Easy Auth], la activación de la autenticación con el mismo inquilino de Azure Active Directory para su sitio web es muy fácil. 
 
-[Autorice que los usuarios] usen sus propiedades web. Con un mínimo de código adicional, puede adoptar el mismo patrón de codificación de ASP.NET local en Sitios web de Azure, por ejemplo con la decoración `[Authorize]`. Conserve la misma flexibilidad de control de acceso detallado de las aplicaciones que mantiene de forma local.
+[Autorice que los usuarios](web-sites-authentication-authorization.md) usen sus propiedades web. Con un mínimo de código adicional, puede adoptar el mismo patrón de codificación de ASP.NET local en Sitios web de Azure, por ejemplo con la decoración `[Authorize]`. Conserve la misma flexibilidad de control de acceso detallado de las aplicaciones que mantiene de forma local.
 
 ### Conexión con recursos locales ###
 
@@ -98,28 +98,28 @@ En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de sup
 [Detalles de precios de Sitios web]:/es-es/pricing/details/web-sites/#service-ssl
 [Autenticación de usuarios]:/es-es/documentation/articles/web-sites-authentication-authorization/
 [Easy Auth]:/blog/2014/11/13/azure-websites-authentication-authorization/
-[Autorización de los usuarios]:/es-es/documentation/articles/web-sites-authentication-authorization/
+[Autenticar a los usuarios]:/es-es/documentation/articles/web-sites-authentication-authorization/
 
-[Centro de confianza de Microsoft Azure]:/es-es/support/trust-center/
+[Centro de confianza de Azure]:/es-es/support/trust-center/
 [MySQL]:/es-es/documentation/articles/web-sites-php-mysql-deploy-use-git/
 [Base de datos SQL de Azure]:/es-es/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
 [conexión híbrida]:/es-es/documentation/articles/web-sites-hybrid-connection-get-started/
 [Red virtual de Azure]:/es-es/documentation/articles/web-sites-integrate-with-vnet/
 
-[escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
+[escalar vertical y horizontalmente]:/es-es/manage/services/web-sites/how-to-scale-websites/
 [Portal de administración de Azure]:http://manage.windowsazure.com/
-[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[API de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [Scripting de PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[Estado de la sesión de ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
+[estado de sesión e ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
 [caché de resultados]:https://msdn.microsoft.com/es-es/library/azure/dn798898.aspx
 
 [vista rápida]:/es-es/manage/services/web-sites/how-to-monitor-websites/
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
 [New Relic]:/es-es/develop/net/how-to-guides/new-relic/
-[Uso de notificaciones de alerta y administración de reglas de alerta en Azure].:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[Inserción de notificaciones de alerta y administración de reglas de alerta en Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
 

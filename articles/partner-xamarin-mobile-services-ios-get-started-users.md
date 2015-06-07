@@ -36,7 +36,7 @@ Para completar este tutorial necesita [Xamarin.iOS], XCode 6.0 e iOS 7.0 o ver
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions">Restricción de los permisos para los usuarios autenticados</a></h2>
+<h2><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados</h2>
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]

@@ -406,7 +406,44 @@ En esta sección, modificará temporalmente el método **ExternalLoginConfirmati
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   El código anterior, agrega el usuario recién registrado al rol "canEdit", que les proporciona acceso a los métodos de acción que cambian datos (edit). <pre> // POST: /Account/ExternalLoginConfirmation [HttpPost][AllowAnonymous] [ValidateAntiForgeryToken] public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) { if (User.Identity.IsAuthenticated) { return RedirectToAction("Index", "Manage"); } if (ModelState.IsValid) { // Obtener la información sobre el usuario de la información var del proveedor de inicio de sesión externo = await AuthenticationManager.GetExternalLoginInfoAsync(); if (info == null) { return View("ExternalLoginFailure"); } var user = new ApplicationUser { UserName = model.Email, Email = model.Email }; var result = await UserManager.CreateAsync(user); if (result.Succeeded) { result = await UserManager.AddLoginAsync(user.Id, info.Login); if (result.Succeeded) { <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark> await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false); return RedirectToLocal(returnUrl); } } AddErrors(result); } ViewBag.ReturnUrl = returnUrl; return View(model); } </pre>
+   El código anterior, agrega el usuario recién registrado al rol "canEdit", que les proporciona acceso a los métodos de acción que cambian datos (edit). 
+	<pre> 
+		// POST: /Account/ExternalLoginConfirmation
+	      [HttpPost]
+	      [AllowAnonymous]
+	      [ValidateAntiForgeryToken]
+	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+	      {
+	         if (User.Identity.IsAuthenticated)
+	         {
+	            return RedirectToAction("Index", "Manage");
+	         }
+	         if (ModelState.IsValid)
+	         {
+	            // Get the information about the user from the external login provider
+	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+	            if (info == null)
+	            {
+	               return View("ExternalLoginFailure");
+	            }
+	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+	            var result = await UserManager.CreateAsync(user);
+	            if (result.Succeeded)
+	            {
+	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
+	               if (result.Succeeded)
+	               {
+	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
+	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+	                  return RedirectToLocal(returnUrl);
+	               }
+	            }
+	            AddErrors(result);
+	         }
+	         ViewBag.ReturnUrl = returnUrl;
+	         return View(model);
+	      }
+	</pre>
 
 Más adelante en este tutorial implementará la aplicación en Azure, donde iniciará sesión con Google u otro proveedor de autenticación de terceros. De este modo, la cuenta recién registrada se agregará al rol *canEdit*. Cualquiera que encuentre la URL de la aplicación web y tenga un identificador de Google podrá registrarse y actualizar su base de datos. Para evitar que otros usuarios hagan esto, puede detener el sitio. Podrá comprobar quién está incluido en el rol *canEdit* examinando la base de datos.
 

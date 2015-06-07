@@ -51,7 +51,8 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
 	Una alternativa es instalar un certificado de administración que permita el acceso a su cuenta. Si elige instalar un certificado, haga clic con el botón secundario en el nodo **Azure** del **Explorador de servidores** y, a continuación, haga clic en **Administrar suscripciones** en el menú contextual. En el cuadro de diálogo **Administrar suscripciones de Azure**, haga clic en la pestaña **Certificados** y, a continuación, en **Importar**. Siga las instrucciones para descargar e importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
 
-	> [AZURE.NOTE]Si descarga un archivo de suscripción, guárdelo en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
+	> [AZURE.NOTE]
+	> Si descarga un archivo de suscripción, guárdelo en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.
 
 	Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administración de cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 
@@ -569,7 +570,8 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 1. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![Configure logging](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Esto abre la pestaña **Configurar** en el portal de administración de su aplicación web. También puede llegar ahí mediante un clic en la pestaña **Aplicaciones web**, donde debe hacer clic en su aplicación web y, a continuación, en la pestaña **Configurar**.
 

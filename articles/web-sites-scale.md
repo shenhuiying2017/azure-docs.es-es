@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Escalación de una aplicación web en el Servicio de aplicaciones de Azure" 
-	description="Aprenda a escalar vertical y horizontalmente una aplicación web en Servicios de aplicaciones de Azure, incluido el escalado automático." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Escalación de una aplicación web en el Servicio de aplicaciones de Azure"
+	description="Aprenda a escalar vertical y horizontalmente una aplicación web en Servicios de aplicaciones de Azure, incluido el escalado automático."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 # Escalación de una aplicación web en el Servicio de aplicaciones de Azure #
@@ -28,27 +28,27 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 
 > [AZURE.NOTE]Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
-<a name="scalingsharedorbasic"></a> 
+<a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
 ## Escalado al modo Compartido o Básico
 <!-- ===================================== -->
 
 1. En el explorador, abra el [Portal de Azure][portal].
-	
+
 2. En la hoja de la aplicación web, haga clic en **Toda la configuración**, en **Escalar** y, a continuación, haga clic en **Actualizar desde un plan gratuito para agregar instancias y obtener un mejor rendimiento**.
-	
+
 	![Selección del plan][ChooseWHP]
-	
+
 4. En la hoja **Elegir el nivel de precios**, seleccione el modo **Compartido** o **Básico** y, a continuación, haga clic en **Seleccionar**.
-	
+
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
-	
+
 5. Deslice la barra **Instancia** de izquierda a derecha para aumentar el número de instancias y, a continuación, haga clic en **Guardar** en la barra de comandos. La opción del tamaño de instancia no está disponible en el modo **Compartido**. Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
-	
+
 	![Tamaño de instancia para el modo básico][ChooseBasicInstances]
-	
+
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
-	
+
 <a name="scalingstandard"></a>
 <!-- ================================= -->
 ## Escalado al modo Estándar o Premium
@@ -56,51 +56,51 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 
 > [AZURE.NOTE]Antes de cambiar un plan del Servicio de aplicaciones al modo **Estándar** o **Premium**, debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Microsoft Azure. De lo contrario, se arriesga a que su aplicación web no esté disponible si alcanza los límites antes de la finalización del período de facturación. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
-1. Para escalar al modo **Estándar** o **Premium**, siga los mismos pasos iniciales que al escalar a **Compartido** o **Básico**, a continuación, elija un modo **Estándar** o **Premium** en **Elegir el nivel de precios** y haga clic en **Seleccionar**. 
-	
+1. Para escalar al modo **Estándar** o **Premium**, siga los mismos pasos iniciales que al escalar a **Compartido** o **Básico**, a continuación, elija un modo **Estándar** o **Premium** en **Elegir el nivel de precios** y haga clic en **Seleccionar**.
+
 	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación y se activará el modo de **Escalado automático**.
-	
+
 	![Reducción horizontal de los modos Estándar o Premium][ScaleStandard]
-	
+
 	Puede deslizar la barra **Instancia** para escalar manualmente en más instancias, como en el modo **Básico** como se mostró anteriormente. Sin embargo, a continuación, sabrá cómo usar el modo de **Escalado automático**.
-	
+
 2. En **Modo de escalado automático**, seleccione **Rendimiento** para realizar la escalación automática según las métricas de rendimiento.
-	
+
 	![Modo de escalado automático definido en Rendimiento][Autoscale]
-	
+
 3. En **Rango de instancias**, mueva los dos controles deslizantes para definir el número mínimo y máximo de instancias que escalar automáticamente para el plan de Servicios de aplicaciones. Para este tutorial, mueva el control deslizante al máximo, hasta **6** instancias.
-	
+
 4. Haga clic en **Guardar** en la barra de comandos.
-	
+
 4. En **Métricas de destino**, haga clic en **>** para configurar reglas de escalación automática para la métrica predeterminada.
-	
+
 	![Definir conjunto de métricas][SetTargetMetrics]
-	
+
 	Puede configurar reglas de escalación automática para las métricas de rendimiento diferentes, incluyendo la CPU, la memoria, la cola de disco, la cola HTTP y el flujo de datos. A continuación, podrá configurar la escalación automática para el porcentaje de CPU que hace lo siguiente:
-	
+
 	- Escalación horizontal de 1 instancia si la CPU supera el 70% en los últimos 10 minutos
 	- Escalación horizontal de 3 instancias si la CPU supera el 90% en los últimos 5 minutos
-	- Escalación vertical de 1 instancia si la CPU es inferior al 50% en los últimos 30 minutos 
-	
-	
+	- Escalación vertical de 1 instancia si la CPU es inferior al 50% en los últimos 30 minutos
+
+
 4. Deje el cuadro desplegable **Métrica** como **Porcentaje de CPU**.
-	
+
 5. En **Escalar reglas horizontalmente**, para configurar la primera regla, establezca **Condición** en **Mayor**, **Umbral** en **70** (%), **Tiempo transcurrido** en **10** (minutos), **Escalar horizontalmente** en **1** (instancia) y **Duración del enfriamiento** en **10** (minutos).
-	
+
 	![Definir primera regla de escalado automático][SetFirstRule]
-	
+
 	>[AZURE.NOTE]La configuración de **Duración del enfriamiento** especifica el tiempo que tiene que esperar esta regla tras una acción de escalado anterior para volver a escalar.
-	
+
 6. En **Escalar reglas horizontalmente**, para configurar la segunda regla, establezca **Condición** en **Mayor**, **Umbral** en **90** (%), **Tiempo transcurrido** en **1** (minutos), **Escalar horizontalmente** en **3** (instancia) y **Duración del enfriamiento** en **1** (minutos).
-	
+
 	![Definir segunda regla de escalado automático][SetSecondRule]
-	
+
 5. En **Escalar reglas verticalmente**, para configurar la tercera regla, establezca **Condición** en **Menor**, **Umbral** en **50** (%), **Tiempo transcurrido** en **30** (minutos), **Escalar verticalmente** en **1** (instancia) y **Duración del enfriamiento** en **60** (minutos).
-	
+
 	![Definir tercera regla de escalado automático][SetThirdRule]
-	
+
 7. Haga clic en **Guardar** en la barra de comandos. La regla de escalado automático ahora debe reflejarse en la hoja **Escala**.
-	
+
 	![Definir el resultado de la regla de escalado automático][SetRulesFinal]
 
 <a name="ScalingSQLServer"></a>
@@ -110,13 +110,13 @@ Si tiene una o más bases de datos de SQL Server vinculadas a la aplicación web
 1. Para escalar una de las bases de datos vinculadas, abra la hoja de la aplicación web en el [Portal de Azure][portal]. En el menú desplegable que se puede contraer **Essentials**, haga clic en el vínculo **Grupo de recursos**. A continuación, en la parte **Resumen** de la hoja del grupo de recursos, haga clic en una de las bases de datos vinculadas.
 
 	![Base de datos vinculada][ResourceGroup]
-	
+
 2. En la hoja de base de datos SQL vinculada, haga clic en la parte **Nivel de precios**, seleccione uno de los niveles según sus requisitos de rendimiento y haga clic en **Seleccionar**.
-	
+
 	![Escalación de la base de datos SQL][ScaleDatabase]
-	
+
 3. También puede configurar la replicación geográfica para aumentar las capacidades de recuperación ante desastres y de alta disponibilidad de la base de datos SQL. Para ello, haga clic en la parte **Replicación geográfica**.
-	
+
 	![Configuración de la replicación geográfica para la base de datos SQL][GeoReplication]
 
 <a name="devfeatures"></a>
@@ -149,25 +149,25 @@ Según el modo de aplicación web, se encuentran disponibles las siguientes cara
 
 - Para comenzar con Azure, consulte [Evaluación gratuita de Microsoft Azure](/pricing/free-trial/).
 - Para obtener información sobre el precio, soporte técnico y contrato de nivel de servicio, consulte los siguientes vínculos.
-	
+
 	[Detalles de precios de Transferencias de datos](/pricing/details/data-transfers/)
-	
+
 	[Planes de soporte técnico de Azure](/support/plans/)
-	
+
 	[Contratos de nivel de servicio](/support/legal/sla/)
-	
+
 	[Detalles de precios de Base de datos SQL](/pricing/details/sql-database/)
-	
+
 	[Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes]
-	
+
 	[Detalles de precios del Servicio de aplicaciones](/pricing/details/web-sites/)
-	
+
 	[Detalles de precios de Servicios de aplicaciones: las conexiones SSL](/pricing/details/web-sites/#ssl-connections)
 
 - Para obtener información sobre las prácticas recomendadas de Servicios de aplicaciones, incluida la creación de una arquitectura resistente y escalable, consulte [Prácticas recomendadas: Aplicaciones web del Servicio de aplicaciones](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Vídeos sobre cómo escalar aplicaciones web:
-	
+
 	- [Cuándo escalar sitios web de Azure: con Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	- [Escalación automática de sitios web de Azure mediante CPU o programación: con Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
 	- [Escalación de sitios web de Azure: con Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)

@@ -10,13 +10,13 @@ También hay varios tipos de registros, cada uno con sus propias funciones y lim
 
 ###Registro de dirección (registro D)
 
-El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como ***.contoso.com**, a una dirección IP. En el caso de una aplicación web del Servicio de aplicaciones, la IP virtual del servicio o una dirección IP específica que haya adquirido para su aplicación web.
+El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como **\*.contoso.com**, a una dirección IP. En el caso de una aplicación web del Servicio de aplicaciones, la IP virtual del servicio o una dirección IP específica que haya adquirido para su aplicación web.
 
 Las principales ventajas de un registro D sobre un registro CNAME son:
 
 * Puede asignar un dominio raíz, como **contoso.com**, a una dirección IP; muchos registradores solo lo permiten con los registros D.
 
-* Puede disponer de una entrada que utilice un carácter comodín, como ***.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **blogs.contoso.com** o **www.contso.com**.
+* Puede disponer de una entrada que utilice un carácter comodín, como **\*.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **blogs.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]Dado que cada registro D se asigna a una dirección IP estática, no puede resolver automáticamente los cambios que se produzcan en la dirección IP de la aplicación web. Al configurar las opciones del nombre de dominio personalizado para la aplicación web se proporciona una dirección IP que se puede usar con los registros D; sin embargo, este valor puede cambiar si la aplicación web se elimina y se vuelve a crear, o si se cambia el nodo de plan del Servicio de aplicaciones de nuevo a **Gratuito**.
 

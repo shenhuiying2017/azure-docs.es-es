@@ -203,13 +203,13 @@ La interfaz de la línea de comandos de Azure de varias plataformas (xplat-cli) 
 
 -  Para mostrar los comandos disponibles para el Servicio de aplicaciones de Azure en la xplat-cli, llame a `azure site -h`.
 
-\----------
+----------
 ### azure site list
 Para obtener información acerca de las aplicaciones web de Azure de la suscripción actual, llame a **azure site list**, como en el ejemplo siguiente.
 
 `azure site list webappslotstest`
 
-\----------
+----------
 ### azure site create
 Para crear una ranura de implementación, llame a **azure site create** y especifique el nombre de la aplicación web existente y el de la ranque se vaya a crear, como en el ejemplo siguiente.
 
@@ -219,13 +219,13 @@ Para habilitar el control de código fuente en la nueva ranura, use la opción *
 
 `azure site create --git webappslotstest --slot staging`
 
-\----------
+----------
 ### azure site swap
 Para hacer que la ranura de implementación actualizada se convierta en la aplicación de producción, utilice el comando **azure site swap** para realizar una operación de intercambio, como en el ejemplo siguiente. La aplicación de producción no experimentará tiempos de inactividad ni arranques en frío.
 
 `azure site swap webappslotstest`
 
-\----------
+----------
 ### azure site delete
 Para eliminar una ranura de implementación que ya no sea necesaria, utilice el comando **azure site delete**, como en el ejemplo siguiente.
 
