@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante el Portal de vista previa de Azure" 
 	description="Obtenga información acerca de cómo usar el Portal de administración de Azure para supervisar y administrar las factorías de datos de Azure que ha creado." 
 	services="data-factory" 
@@ -13,104 +13,126 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="05/18/2015" 
 	ms.author="spelluru"/>
 
 # Supervisión de la Factoría de datos de Azure mediante el Portal de vista previa de Azure
+Este artículo describe varios escenarios para utilizar el Portal de vista previa de Azure para supervisar y administrar la factoría de datos de Azure.
 
-- [Vista de todas las factorías de datos de una suscripción de Azure](#AllDataFactories)
-- [Ver detalles acerca de una factoría de datos](#DataFactoryDetails)
-- [Ver una vista de diagrama de una factoría de datos](#DataFactoryDiagram)
-- [Vista de los servicios vinculados de una factoría de datos](#DataFactoryLinkedServices)
-- [Vista de detalles acerca de un servicio vinculado](#DataFactoryLinkedService) 
-- [Vista de conjuntos de datos de una factoría de datos](#DataFactoryDatasets)
-- [Vista de detalles acerca de un conjunto de datos](#DataFactoryDataset)
-- [Vista de detalles acerca de un sector](#DataFactorySlice) 
-- [Vista de todas las ejecuciones de actividad de un segmento](#DataFactoryActivtyRuns) 
-- [Vista de detalles acerca de una ejecución de actividad](#DataFactoryActivtyRunDetails)
-- [Modos de operaciones: eventos de la semana pasada](#EventsInThePastweek)  
-   
-
-
-## <a name="AllDataFactories"></a> Vista de todas las factorías de datos de una suscripción de Azure
+## <a name="AllDataFactories"></a> Ver todos los generadores de datos en una suscripción de Azure
 
 - Inicie sesión en el [Portal de vista previa de Azure][azure-preview-portal].
-- Haga clic en el centro **EXAMINAR** de la izquierda y haga clic en **Factorías de datos.**  
+- Haga clic en **Examinar** concentrador izquierda y haga clic en **generadores de datos**.  
 
-	![BROWSE hub -> Data Factories][image-data-factory-browse-datafactories]
+	![Examinar concentrador -> generadores de datos][image-data-factory-browse-datafactories]
 
-	Si no ve **Factorías de datos**, haga clic en **Todo** y luego en **Factorías de datos** en la hoja **Examinar**.
+	Si no ve **generadores de datos**, haga clic en **todo** y, a continuación, haga clic en **datos factorries** en el **Examinar** blade.
 
-	![BROWSE hub -> Everything] [image-data-factory-browse-everything]
+	![Concentrador de examinar todo ->][image-data-factory-browse-everything]
 
-- Debería ver todas las factorías de datos en la hoja **Factorías de datos**.
+- Debería ver todos los generadores de datos en el **generadores de datos** blade.
 
-	![Data factories blade][image-data-factory-datafactories-blade]
+	![Módulo de generadores de datos][image-data-factory-datafactories-blade]
 
     
-## <a name="DataFactoryDetails"></a> Ver detalles acerca de una factoría de datos
+## <a name="DataFactoryDetails"></a> Ver detalles acerca de un generador de datos
 
-Para ver los detalles sobre una factoría de datos, realice una de las acciones siguientes: 
-
-
-- Haga clic en una factoría de datos en la hoja **Factorías de datos** mostrada anteriormente.
-- Haga clic en el vínculo de la factoría de datos en el **Panel de inicio**. **Panel de inicio** es la hoja que ve cuando inicia sesión en el Portal de vista previa de Azure. Si había seleccionado **Agregar al Panel de inicio** al crear una factoría de datos (opción predeterminada), debería ver el vínculo de factoría de datos en el Panel de inicio como se muestra en la siguiente imagen. En este ejemplo, los vínculos a las factorías de datos **ADFTutorialDataFactory****, ADFTutorialDataFactoryDF** y **LogProcessingFactory** están disponibles en el **Panel de inicio**.
+Para ver los detalles sobre una factoría de datos, realice una de las acciones siguientes:
 
 
-![Data factory from the Startboard][image-data-factory-datafactory-from-startboard]
+- Haga clic en un generador de datos en el **generadores de datos** blade mostrado anteriormente.
+- Haga clic en el vínculo para el generador de datos en el **panel de inicio**. **Panel de inicio** es el módulo que verá cuando inicie sesión en el portal de vista previa de Azure. Si se ha seleccionado **Agregar al panel de inicio** al crear un generador de datos (opción predeterminada), verá el generador de datos de vínculo en el panel de inicio tal como se muestra en la siguiente imagen. En este ejemplo, **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** y **LogProcessingFactory** vínculos de generador de datos están disponibles en la **panel de inicio**.
 
-En cualquier caso, verá la hoja **FACTORÍA DE DATOS** para la factoría de datos seleccionada como se muestra en la siguiente imagen. 
 
- ![Data Factory Home Page][image-data-factory-datafactory-home-page]
+![Generador de datos en el panel de inicio][image-data-factory-datafactory-from-startboard]
+
+En cualquier caso, verá la **factoría de datos** blade para el generador de datos seleccionado, como se muestra en la siguiente imagen.
+
+ ![Página de inicio del generador de datos][image-data-factory-datafactory-home-page]
  
-## <a name="DataFactoryDiagram"></a> Vista de una vista de diagrama de la factoría de datos
-En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Diagrama** para ver la vista de diagrama de la factoría de datos. 
+## <a name="DataFactoryDiagram"></a> Vista de diagrama de la vista del generador de datos
+En el **factoría de datos** blade para el generador de datos, haga clic en **diagrama** mosaico para ver la vista de diagrama del generador de datos.
 
-![Data Factory Diagram View][image-data-factory-diagram-view]
+![Vista de diagrama de generador de datos][image-data-factory-diagram-view]
  
+### Abrir una canalización en la vista de diagrama
+Puede ver todas las actividades en una canalización con el botón secundario en la vista de diagrama de la canalización de y haciendo clic en **abrir canalización**. Debería ver las actividades en la canalización, junto con los conjuntos de datos de entrada y salida para las actividades. ![Canalización abierto](./media/data-factory-monitor-manage-using-management-portal/DiagramView-OpenPipeline.png)
 
-## <a name="DataFactoryLinkedServices"></a> Vista de los servicios vinculados de una factoría de datos
-En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Servicios vinculados** para ver todos los servicios vinculados en una lista. 
+Haga clic en **factoría de datos** en la ruta de exploración en la esquina superior izquierda para volver a la vista de diagrama. La vista de diagrama muestra todas las canalizaciones. En este ejemplo, solo ha creado una canalización.
 
-![Linked Services Blade][image-data-factory-linked-services]
+## <a name="DataFactoryLinkedServices"></a> Ver servicios vinculados en un generador de datos
+En el **factoría de datos** blade para el generador de datos, haga clic en **servicios vinculados** mosaico para ver todos los servicios vinculados en una lista.
 
-## <a name="DataFactoryLinkedService"></a> Vista de detalles acerca de un servicio vinculado
-En la hoja **SERVICIOS VINCULADOS**, haga clic en el servicio vinculado de la lista para ver detalles acerca de él. 
+![Módulo de servicios vinculados][image-data-factory-linked-services]
 
-![Linked Service Blade][image-data-factory-linked-service]
+## <a name="DataFactoryLinkedService"></a> Ver detalles acerca de un servicio vinculado
+En el **servicios vinculados** blade, haga clic en el servicio vinculado desde la lista para ver detalles acerca de él.
 
-## <a name="DataFactoryDatasets"></a> Vista de conjuntos de datos de una factoría de datos 
-En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Conjuntos de datos** para ver todas las tablas de la factoría de datos.
+![Módulo de servicio vinculado][image-data-factory-linked-service]
 
-![Data Sets Blade][image-data-factory-datasets] 
+## <a name="DataFactoryDatasets"></a> Conjuntos de datos de vista de un generador de datos 
+En el **factoría de datos** blade para el generador de datos, haga clic en **conjuntos de datos** mosaico para ver todas las tablas en el generador de datos.
 
-## <a name="DataFactoryDataset"></a>  Vista de detalles acerca de un conjunto de datos
-Haga clic en el conjunto de datos de la lista de conjuntos de datos en la hoja CONJUNTOS DE DATOS para ver detalles sobre el conjunto de datos. Tenga en cuenta que una tabla es un conjunto de datos rectangular que tiene un esquema. Es el único tipo de conjunto de datos admitido en este momento. 
+![Módulo de conjuntos de datos][image-data-factory-datasets]
 
-![Table Blade][image-data-factory-table]
+## <a name="DataFactoryDataset"></a> Ver detalles acerca de un conjunto de datos
+Haga clic en el conjunto de datos de la lista de conjuntos de datos en la hoja CONJUNTOS DE DATOS para ver detalles sobre el conjunto de datos. Tenga en cuenta que una tabla es un conjunto de datos rectangular que tiene un esquema. Es el único tipo de conjunto de datos admitido en este momento.
 
-En la hoja **TABLA** anterior, verá los **Segmentos recientes** así como los **Segmentos con problemas**. Haga clic en **... (puntos suspensivos)** para ver todos los segmentos. 
+![Cuadro de tabla][image-data-factory-table]
 
-![All Slices of a Table][image-data-factory-all-slices]
+En el **tabla** blade anteriormente, ambos **actualizado recientemente sectores** y **error recientemente sectores** listas se ordenan por el **hora de última actualización**. En las situaciones siguientes, se cambia la hora de un intervalo de actualización.
 
-En la tabla **Segmentos de datos**, haga clic en el botón de filtro para ver la hoja de filtro que le permite **filtrar** segmentos para ver los segmentos específicos que desea revisar.
+-  Actualiza el estado del sector manualmente, por ejemplo, utilizando la **conjunto AzureDataFactorySliceStatus** (o), haga clic en **ejecutar** en el **sector** módulo para el sector.
+-  El segmento cambia estado debido a una ejecución (por ejemplo, una ejecución iniciado, una ejecución finalizado y no se pudo, una ejecución finaliza y se realizó correctamente, etc.).
+ 
+	
+Para ver los intervalos de datos ordenados por los tiempos de inicio y fin del sector en su lugar, haga clic en **rebanadas de datos (por hora de sector)** en mosaico.
+ 
+![Segmentos de datos por intervalo de tiempo][DataSlicesBySliceTime]
 
-![Filter Blade][image-data-factory-filter-blade]
+Haga clic en el título de las listas o **... (puntos suspensivos)** Para ver la lista más amplia de sectores.
+
+![Todos los sectores de una tabla][image-data-factory-all-slices]
+
+En el **rebanadas de datos** blade, haga clic en el **filtro** botón para ver el **filtro** cuadro que le permite **filtro** sectores para ver los intervalos específicos que desee revisar. Aparecerá el cuadro similar al siguiente al hacer clic en **filtro** en el **rebanadas de datos** blade con sectores **ordenados por fecha de actualización**.
+
+![Módulo de filtro][image-data-factory-filter-blade]
+
+El **filtro** blade le permite filtrar según **fecha de última actualización** y **segmentar estado**. En la tabla siguiente describe los Estados del sector y su descripción.
+ 
+Estado de segmento | Descripción
+------------ | ------------
+PendingExecution | El procesamiento de datos no se ha iniciado aún.
+InProgress | El procesamiento de datos está en curso.
+Ready | El procesamiento de datos se ha completado y el segmento de datos está listo.
+Failed | Error de ejecución de la ejecución que produce el segmento.
+Skip | Se omite el procesamiento del segmento.
+Retry | Reintento de la ejecución que produce el segmento.
+Timed Out | Se agotó el tiempo de espera del procesamiento de datos del sector.
+PendingValidation | El segmento de datos está esperando la validación contra las directivas de validación antes de procesarse.
+RetryValidation | Reintentando la validación del sector.
+FailedValidation | Error de validación del segmento.
+LongRetry | Un segmento estará en este estado si se especifica LongRetry en la tabla JSON y los reintentos periódicos del segmento han dado error.
+ValidationInProgress | Se está realizando la validación del segmento (según las directivas definidas en la tabla JSON).
+
+Al hacer clic en **filtro** en el **rebanadas de datos** blade con sectores **ordenados por el tiempo de intervalo**, verá un tipo diferente de **filtro** blade.
+
+![Módulo de filtro 2][image-data-factory-filter-blade-2]
 
 
-Al iniciar la hoja de **filtro**, el campo **Para** se establecerá automáticamente en la hora más reciente (redondeada) para limitar el número de registros devueltos. El campo **De** campo se establece también automáticamente. Puede cambiar la fecha **Desde** haciendo clic en el botón **Calendario**. La fecha **Hasta** se cambia automáticamente al cambiar la fecha **Desde**. 
+Al iniciar el **filtro** blade, el **a** campo se establece automáticamente en el momento más reciente (redondeado) para limitar el número de registros devueltos. El **de** campo se establece automáticamente también. Puede cambiar la **de** fecha haciendo clic en el **calendario** botón. El **a** fecha se cambia automáticamente al cambiar la **de** fecha.
 
-Puede hacer clic en los botones **Anterior**/**Siguiente** para ver segmentos en el período anterior o siguiente. El intervalo de tiempo para los botones **Anterior** y **Siguiente** se establece en el intervalo y la frecuencia de segmentos como se muestra en la tabla siguiente.
+Puede hacer clic en **anterior**/ ** siguiente ** botones para ver sectores en la versión anterior de período/siguiente período. El intervalo de tiempo para **anterior** y **siguiente** botones se establecen en función de la frecuencia de segmento y el intervalo, como se muestra en la tabla siguiente.
 
-Frecuencia | Rango de valores de intervalo | Fragmento de tiempo resultante
+Frecuencia | Valor de intervalo | Fragmento de tiempo resultante
 ----------| -------------------- | --------------------
 Minuto | 1-4 | 6 horas
 Minuto | 5-29 | 1 día
-Minuto | 30-180 | 7 días
-Minuto | 180 + | 28 días (aproximado, mes del calendario)
+Minuto | 30 a 180 | 7 días
+Minuto | 180 + | 28 días (aproximado. mes natural)
 Hora | 1-3 | 7 días
-Hora | 4-11 | 28 días (aproximado, mes del calendario)
-Hora | 12-72 | 182 días (aproximado, 6 meses)
+Hora | 4-11 | 28 días (aproximado. mes natural)
+Hora | 12-72 | 182 días (aproximados. 6 meses)
 Hora | 73 + | 1 año
 Día | 1-6 | 1 año
 Día | 7-20 | 5 años
@@ -119,73 +141,54 @@ Semana | 1-3 | 5 años
 Semana | 4 + | 10 años
 Mes | cualquiera | 10 años
  
-Por ejemplo, si define la **frecuencia** como **Hora** y el **intervalo** de **2**, haga clic en los botones **Siguiente**/**Anterior** para mover el intervalo de tiempo **7 días** en cualquier dirección. Esta lógica se aplica a la hoja de filtro si está viendo todos los segmentos, los segmentos recientes o los segmentos de problemas.
-
-La hoja de **filtro** le permite filtrar en función de sus **estados**. En la tabla siguiente se describen los estados del segmento y su descripción.
- 
-Estado del segmento | Descripción
------------- | ------------
-PendingExecution | El procesamiento de datos no se ha iniciado todavía.
-InProgress | El procesamiento de datos está en curso.
-Ready | Se ha completado el procesamiento de datos y el segmento de datos está listo.
-Failed | Error en la ejecución que genera el segmento.
-Omitir | Omita el procesamiento del segmento.
-Reintentar | Reintentando la ejecución que produce el segmento.
-Tiempo de espera agotado | Se agotó el tiempo de espera del procesamiento de datos del segmento.
-PendingValidation | El segmento de datos está esperando la validación frente a las directivas de validación antes de procesarse.
-RetryValidation | Reintentando la validación del segmento.
-FailedValidation | Error en la validación del segmento.
-LongRetry | Habrá un segmento en este estado si se especifica LongRetry en la tabla JSON y se ha producido un error en los reintentos periódicos del segmento.
-ValidationInProgress | Se está realizando la validación del segmento (según las directivas definidas en la tabla JSON).
+Por ejemplo, si define **frecuencia** como **hora** y **intervalo** de **2**, haga clic en el **siguiente**/ ** anterior ** botones Mover el intervalo de tiempo **7 días** en cualquier dirección. Esta lógica se aplica a la hoja de filtro si está viendo todos los segmentos, los segmentos recientes o los segmentos de problemas.
 
 
 
-## <a name="DataFactorySlice"></a> Vista de detalles acerca de un sector
-Haga clic en un segmento de la lista de segmentos en la hoja **TABLA** o la hoja **Segmentos de datos** para ver detalles acerca de ese segmento. 
 
-![Data Slice][image-data-factory-dataslice]
+## <a name="DataFactorySlice"></a> Ver detalles acerca de un sector
+Haga clic en un sector en la lista de intervalos ya sea en el **tabla** blade o **rebanadas de datos** blade para ver detalles sobre dicho sector.
 
+![Segmento de datos][image-data-factory-dataslice]
 
-### <a name="DataFactoryActivtyRuns"></a> Vista de todas las ejecuciones de actividad de un segmento
-Para un segmento, puede haber más de una ejecución. Por ejemplo, cuando un segmento da error, el servicio puede realizar algunos reintentos. También puede volver a ejecutar un segmento que ha dado error en todos los reintentos. Puede ver todas las ejecuciones de actividad en la hoja** Segmento de datos** de la lista de la parte inferior. 
+Si no se encuentra en el sector del **Listo** estado, puede ver los intervalos de nivel superior que no están listos y están bloqueando el intervalo actual de la ejecución en el **intervalos de nivel superior que no están listos** lista.
 
-## <a name="DataFactoryActivtyRunDetails"></a>  Vista de detalles acerca de una ejecución de actividad
-Haga clic en una ejecución de actividad de la lista de ejecuciones de la hoja **Segmento de datos** para ver los detalles acerca de la ejecución de actividad. 
+### <a name="DataFactoryActivtyRuns"></a> Ver que toda la actividad se ejecuta para un sector
+Para un segmento, puede haber más de una ejecución. Por ejemplo, cuando un segmento da error, el servicio puede realizar algunos reintentos. También puede volver a ejecutar un segmento que ha dado error en todos los reintentos. Puede ver toda la actividad se ejecuta en el ** datos sector ** blade en la lista en la parte inferior.
 
-![Activity Run Details][image-data-factory-activity-run-details]
+## <a name="DataFactoryActivtyRunDetails"></a> Ver detalles acerca de una actividad se ejecute
+Haga clic en una actividad que se ejecute desde la lista de ejecuciones de la **segmento de datos** blade para ver detalles acerca de la actividad se ejecute.
 
-## <a name="EventsInThePastweek"></a> Modos de operaciones: eventos de la semana pasada
-En la hoja **FACTORÍA DE DATOS** (o la página principal) de la factoría de datos, haga clic en **Eventos de la pasada semana** en el modo **Operaciones** para ver los eventos de la semana pasada. Esto le ayuda a obtener una vista de alto nivel de las operaciones realizadas por la factoría de datos en la semana pasada. También le ayuda a solucionar los errores con el movimiento o procesamiento de los datos. 
+![Detalles de ejecución de actividad][image-data-factory-activity-run-details]
 
-![ Data Factory Events][image-data-factory-events]
+## <a name="EventsInThePastweek"></a> Operaciones lente - eventos de la semana pasada
+En el **factoría de datos** blade (o página principal) para el generador de datos, haga clic en **los eventos de la semana pasada** en **Operations** lente para ver los eventos de la semana pasada. Esto le ayuda a obtener una vista de alto nivel de las operaciones realizadas por la factoría de datos en la semana pasada. También le ayuda a solucionar los errores con el movimiento o procesamiento de los datos.
+
+![Eventos del generador de datos][image-data-factory-events]
 
 
 ## Otras referencias
 
 Artículo | Descripción
 ------ | ---------------
-[Supervisión y administración de la factoría de datos de Azure con PowerShell][monitor-manage-using-powershell] | En este artículo se describe cómo supervisar una factoría de datos de Azure mediante cmdlets de Azure PowerShell. 
-[Habilitar las canalizaciones para trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial en el que se muestra cómo copiar datos de una base de datos de SQL Server local a un blob de Azure.
-[Usar Pig y Hive con la factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo tiene un tutorial que muestra cómo utilizar la actividad de HDInsight para ejecutar un script de Hive y Pig para procesar los datos de entrada a fin de producir datos de salida.
-[Tutorial: Mover y procesar los archivos de registro mediante la factoría de datos][adf-tutorial] | Este artículo proporciona un tutorial completo en el que se muestra cómo implementar un escenario en tiempo real mediante el uso de la factoría de datos de Azure para transformar los datos de los archivos de registro en información.
-[Usar actividades personalizadas en una factoría de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones detalladas para crear una actividad personalizada y usarla en una canalización. 
-[Solución de problemas de la factoría de datos][troubleshoot] | En este artículo se describe cómo solucionar problemas de la factoría de datos de Azure.
-[Referencia del desarrollador de la factoría de datos de Azure][developer-reference] | La Referencia del desarrollador tiene el contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
-[Referencia de cmdlets de la factoría de datos de Azure][cmdlet-reference] | Este contenido de referencia tiene detalles acerca de todos los **cmdlets de la factoría de datos**.
+[Monitor y administrar factoría de datos Azure con PowerShell][monitor-manage-using-powershell] | En este artículo se describe cómo supervisar un generador de datos de Azure mediante cmdlets de PowerShell de Azure. 
 
 
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[troubleshoot]: ../data-factory-troubleshoot
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 [azure-preview-portal]: http://portal.azure.com/
 
 [image-data-factory-filter-blade]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade.png
+
+[image-data-factory-filter-blade-2]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade2.png
+
 
 [image-data-factory-browse-everything]: ./media/data-factory-monitor-manage-using-management-portal/BrowseEverything.png
 
@@ -216,9 +219,6 @@ Artículo | Descripción
 [image-data-factory-activity-run-details]: ./media/data-factory-monitor-manage-using-management-portal/ActivityRunDetails.png
 
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
+[DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!---HONumber=GIT-SubDir-->

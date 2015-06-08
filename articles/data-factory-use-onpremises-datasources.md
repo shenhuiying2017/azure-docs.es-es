@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Factoría de datos de Azure" 
 	description="Obtenga información acerca de cómo registrar un origen de datos local con una factoría de datos de Azure y copiar datos en el origen de datos o desde él." 
 	services="data-factory" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="05/06/2015" 
 	ms.author="spelluru"/>
 
 # Habilitación de canalizaciones para trabajar con datos locales
@@ -21,171 +21,207 @@
 Para habilitar las canalizaciones en una factoría de datos de Azure para trabajar con un origen de datos local, debe agregar el origen de datos local como un servicio vinculado a la factoría de datos mediante el Portal de administración de Azure o Azure PowerShell.
  
 Para poder agregar un origen de datos local como un servicio vinculado a una factoría de datos, primero debe descargar e instalar Microsoft Data Management Gateway en un equipo local y configurar el servicio vinculado para que el origen de datos local use la puerta de enlace.
- 
-> [WACOM.NOTE] Actualmente, solo se admite SQL Server como origen de datos local.
+
 
 ## <a href="DMG"></a> Data Management Gateway
 
-**Data Management Gateway** es un software que conecta orígenes de datos locales a servicios en la nube de forma segura y administrada. Con Data Management Gateway, puede realizar lo siguiente:
+**Data Management Gateway** es un software que se conecta a orígenes de datos locales para servicios en la nube de manera segura y administrada. Con Data Management Gateway, puede realizar lo siguiente:
 
-- **Conectar datos locales para el acceso a datos híbrido.** Puede conectar datos locales a servicios en la nube para aprovechar las ventajas que ofrecen los servicios en la nube mientras su negocio continúa funcionando con los datos locales.
-- **Definir un proxy de datos seguro.** Puede definir qué orígenes de datos locales se exponen a través de Data Management Gateway para que esta puerta de enlace autentique la solicitud de datos de servicios en la nube y proteja los orígenes de datos locales.
-- **Administrar la puerta de enlace para tener el control total.** Se proporcionan supervisión y registro completos de todas las actividades dentro de Data Management Gateway con fines de administración y control.
-- **Mover datos de manera eficaz.** Los datos se transfieren en paralelo, con resistencia a problemas de red intermitentes mediante lógica automática de reintentos.
+- **Conectar a datos locales para el acceso de datos híbrida** : datos locales puede conectarse a servicios de nube para beneficiarse de los servicios en la nube mientras mantiene el negocio en funcionamiento con datos locales.
+- **Definir un proxy de proteger los datos** : puede definir qué orígenes de datos locales se exponen a través de puerta de enlace de datos de administración para que dicha puerta de enlace autentica la solicitud de datos de servicios de nube y protege los orígenes de datos locales.
+- **Administrar su puerta de enlace para el gobierno completa** – se proporcionan con la supervisión y el registro de todas las actividades dentro de la puerta de enlace de administración de datos para la administración y control total.
+- **Mover datos de forma eficaz** : los datos se transfieren en paralelo, problemas de red resistente a intermitentes con auto lógica de reintento.
 
 
 Data Management Gateway ofrece una gama completa de características de conexión de datos locales que incluye las siguientes:
 
-- **No intrusivo para el firewall corporativo.** Data Management Gateway funciona después de la instalación, sin tener que abrir una conexión de servidor de seguridad ni realizar cambios intrusivos en la infraestructura de red corporativa.
-- **Cifrar las credenciales con el certificado.** Las credenciales usadas para conectarse a orígenes de datos se cifran con un certificado que pertenece totalmente a un usuario. Sin el certificado, nadie puede descifrar las credenciales en texto sin formato, incluido Microsoft.
-
-### Instalación de la puerta de enlace: procedimientos recomendados
-
-1.	Si el equipo host hiberna, la puerta de enlace no puede responder a la solicitud de datos. Por tanto, configure un **plan de energía** adecuado en el equipo antes de instalar la puerta de enlace. 
-2.	Data Management Gateway debe ser capaz de conectarse a los orígenes de datos locales que va a registrar en el servicio Factoría de datos de Azure. No necesita estar en el mismo equipo que el origen de datos, pero, **si está cerca del origen de datos**, reduce el tiempo de la puerta de enlace para conectarse al origen de datos.
+- **No intrusivo para el firewall corporativo** – Data Management Gateway funciona después de la instalación, sin tener que abrir un servidor de seguridad de conexión o requerir intrusivo cambia a la infraestructura de red corporativa. 
+- **Cifrar las credenciales con el certificado** – credenciales usadas para conectarse a orígenes de datos se cifran con un certificado totalmente pertenecen a un usuario. Sin el certificado, nadie puede descifrar las credenciales en texto sin formato, incluido Microsoft.
 
 ### Consideraciones para utilizar Data Management Gateway
-1.	Una única instancia de Data Management Gateway se puede usar para varios orígenes de datos locales, pero tenga en cuenta que una **puerta de enlace está asociada a una factoría de datos de Azure** y no puede compartirse con otra factoría de datos.
-2.	So puede haber **una instancia de Data Management Gateway** instalada en el equipo. Supongamos que tiene dos factorías de datos que necesitan tener acceso a orígenes de datos locales. Debe instalar puertas de enlace en dos equipos locales donde cada puerta de enlace esté asociada a una factoría de datos diferente.
-3.	Si ya tiene una puerta de enlace instalada en el equipo que atiende a un escenario de **Power BI**, instale una **puerta de enlace para la Factoría de datos de Azure** en otro equipo. 
+1.	Una única instancia de puerta de enlace de datos de administración se pueden usar para varios orígenes de datos locales, pero tenga en cuenta que un **puerta de enlace está asociado a un generador de datos de Azure** y no puede compartirse con otro generador de datos.
+2.	Puede tener **solo una instancia de puerta de enlace de datos de administración** instalado en su equipo. Supongamos que tiene dos factorías de datos que necesitan tener acceso a orígenes de datos locales. Debe instalar puertas de enlace en dos equipos locales donde cada puerta de enlace esté asociada a una factoría de datos diferente.
+3.	El **puerta de enlace no deben estar en el mismo equipo que el origen de datos**, pero mantiene más cercano al origen de datos reduce el tiempo de la puerta de enlace para conectarse al origen de datos. Se recomienda que instale la puerta de enlace en un equipo que es diferente de la que se hospeda el origen de datos local para que la puerta de enlace no compiten por los recursos con origen de datos.
+4.	Puede tener **varias puertas de enlace en diferentes equipos que se conectan al mismo origen de datos local**. Por ejemplo, es posible que tenga dos puertas de enlace que actúa de dos generadores de datos, pero el mismo origen de datos local se registra con tanto los generadores de datos. 
+5.	Si ya tiene una puerta de enlace instalado en la porción del equipo un **Power BI** escenario, instale un **puerta de enlace independiente para el generador de datos de Azure** en otro equipo.
+
+### Consideraciones de seguridad y puertos 
+- Se abre el programa de instalación de Data Management Gateway **8050** y **8051** puertos en el equipo de puerta de enlace. Estos puertos son utilizados por la **Administrador de credenciales** (aplicación ClickOnce), que le permite establecer credenciales para un servicio local vinculado y probar la conexión al origen de datos. Estos puertos no se puede alcanzar desde internet y no necesita tener estos abierto en el firewall corporativo.
+- Cuando se copian datos desde y hacia una base de datos de SQL Server local desde una base de datos de SQL Azure, asegúrese de lo siguiente:
+ 
+	- Firewall en el equipo de puerta de enlace permite la comunicación TCP de salida en **TCP** puerto **1433**
+	- Configurar [configuración de firewall de SQL Azure](https://msdn.microsoft.com/library/azure/jj553530.aspx) para agregar la **dirección IP del equipo de puerta de enlace** a la **direcciones IP permitidas**.
+
+- Al copiar datos en SQL Server local a cualquier destino y la puerta de enlace y los equipos de SQL Server son diferentes, realice lo siguiente: [configurar Firewall de Windows](https://msdn.microsoft.com/library/ms175043.aspx) en SQL Server del equipo para que la puerta de enlace puede tener acceso a la base de datos a través de puertos que escucha la instancia de SQL Server. Para la instancia predeterminada, es el puerto 1433.
+
+- Debe iniciar la **Administrador de credenciales** a la aplicación en un equipo que pueda conectarse a la puerta de enlace de datos de administración para poder establecer credenciales para el origen de datos y probar la conexión al origen de datos.
+
+### Instalación de puerta de enlace: requisitos previos 
+
+1.	Los valores de **sistema operativo** versiones son Windows 7, Windows 8/8.1, Windows Server 2008 R2, Windows Server 2012.
+2.	La opción **configuración** la puerta de enlace máquina es al menos 2 GHz, 4 núcleos, 8 GB de RAM y 80 GB de disco.
+3.	Si el equipo host hiberna, la puerta de enlace no podrá responder a las solicitudes de datos. Por lo tanto, configurar adecuada **plan de energía** en el equipo antes de instalar la puerta de enlace. La instalación de puerta de enlace solicita un mensaje si el equipo está configurado para la hibernación.  
+
+
  
 
 ## Tutorial
 
-En este tutorial se crea una factoría de datos con una canalización que mueve los datos de una base de datos de SQL Server local a un blob de Azure. 
+En este tutorial se crea una factoría de datos con una canalización que mueve los datos de una base de datos de SQL Server local a un blob de Azure.
 
-### Paso 1: Crear una factoría de datos de Azure
-En este paso, utilice el Portal de administración de Azure para crear una instancia de factoría de datos de Azure denominada **ADFTutorialOnPremDF**. También puede crear una factoría de datos mediante cmdlets de la Factoría de datos de Azure. 
+## Paso 1: Crear un generador de datos de Azure
+En este paso, se utilizará el Portal de administración de Azure para crear una instancia de generador de datos de Azure denominada **ADFTutorialOnPremDF**. También puede crear una factoría de datos mediante cmdlets de la Factoría de datos de Azure.
 
-1.	Tras iniciar sesión en el [Portal de Azure en vista previa][
-2.	azure-preview-portal], haga clic en **NUEVO** en la esquina inferior izquierda y elija **Factoría de datos** en la hoja **Nuevo**.
+1.	Tras iniciar sesión en la [Portal de vista previa de Azure][azure-preview-portal], haga clic en **nuevo** en la esquina inferior izquierda, seleccione **análisis de datos** en el **crear** blade y haga clic en **factoría de datos** en el **análisis de datos** blade.
 
-	![New->DataFactory][image-data-factory-new-datafactory-menu] 
-	
-	Si no aparece **Factoría de datos** en la hoja **Nuevo**, desplace el menú hacia abajo.  
-6. En la hoja **Nueva factoría de datos**:
-	1. Escriba **ADFTutorialOnPremDF** en **Nombre**.
-	2. Haga clic en **NOMBRE DEL GRUPO DE RECURSOS** y seleccione **ADFTutorialResourceGroup** (si ha realizado el tutorial [Introducción a la Factoría de datos de Azure][adfgetstarted]. Puede seleccionar un grupo de recursos existente o crear uno nuevo. Para crear un nuevo grupo de recursos:
-		1. Haga clic en **Crear un nuevo grupo de recursos**.
-		2. En la hoja **Crear grupo de recursos**, escriba un **nombre** para el grupo y haga clic en **Aceptar**.
+	![Nuevo -> DataFactory][image-data-factory-new-datafactory-menu]
+  
+6. En el **Nuevo generador de datos** módulo:
+	1. Escriba **ADFTutorialOnPremDF** para el **nombre**.
+	2. Haga clic en **nombre del grupo de recursos** y seleccione **ADFTutorialResourceGroup** (si hubiera hecho el tutorial de [empezar a trabajar con el generador de datos de Azure][adfgetstarted]. Puede seleccionar un grupo de recursos existente o crear uno nuevo. Para crear un nuevo grupo de recursos:
+		1. Haga clic en **crear un nuevo grupo de recursos**.
+		2. En el **Crear cuadro de grupo de recursos**, especifique una **nombre** para el grupo de recursos y haga clic en **Aceptar**.
 
-7. Observe que está seleccionada la opción **Agregar al Panel de inicio** en la hoja **Nueva factoría de datos**.
+7. Tenga en cuenta que **Agregar al panel de inicio** se comprueba en el **Nuevo generador de datos** blade.
 
-	![Add to Startboard][image-data-factory-add-to-startboard]
+	![Agregar al Panel de inicio][image-data-factory-add-to-startboard]
 
-8. En la hoja **Nueva factoría de datos**, haga clic en **Crear**.
-9. Busque las notificaciones del proceso de creación en el centro de **NOTIFICACIONES** situado a la izquierda.
+8. En el **Nuevo generador de datos** blade, haga clic en **crear**.
 
-	![NOTIFICATIONS hub][image-data-factory-notifications-hub]
+	> [AZURE.NOTE]**Nombre del generador de datos "ADFTutorialOnPremDF" no está disponible**  
+9. Busque las notificaciones desde el proceso de creación de la **notificaciones** concentrador a la izquierda. Haga clic en **X** para cerrar la **notificaciones** blade si está abierto.
 
-11. Una vez completada la creación, verá la hoja Factoría de datos como se muestra a continuación:
+	![Centro de notificaciones][image-data-factory-notifications-hub]
 
-	![Data Factory Home Page][image-data-factory-datafactory-homepage]
+11. Una vez completada la creación, verá el **factoría de datos** blade tal como se muestra a continuación:
 
-12. Debe aparecer también en el **Panel de inicio** como se muestra a continuación. Haga clic en él para abrir la hoja **Factoría de datos** si no está abierta aún.
+	![Página de inicio del generador de datos][image-data-factory-datafactory-homepage]
 
-	![Startboard][image-data-factory-startboard]
+## Paso 2: Crear una puerta de enlace de administración de datos
+5.	En el **factoría de datos** módulo para **ADFTutorialOnPremDF**, haga clic en **servicios vinculados**. 
 
-### Paso 2: Crear servicios vinculados 
-En este paso, creará dos servicios vinculados: **MyBlobStore** y **OnPremSqlLinkedService**. El servicio **OnPremSqlLinkedService** vincula una base de datos de SQL Server local y el servicio vinculado **MyBlobStore** vincula un almacén de blobs de Azure a **ADFTutorialDataFactory**. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure. 
+	![Página de inicio del generador de datos][image-data-factory-home-age]
 
-### Adición de un servicio vinculado a una base de datos de SQL Server local
-1.	En la hoja **Factoría de datos** de **ADFTutorialOnPremDF**, haga clic en **Servicios vinculados**. 
+2.	En el **servicios vinculados** blade, haga clic en **+ puerta de enlace de datos**.
 
-	![Data Factory Home Page][image-data-factory-home-age]
+	![Servicios vinculados - agregar un botón de la puerta de enlace][image-data-factory-linkedservices-add-gateway-button]
 
-2.	En la hoja **Servicios vinculados**, haga clic en **+ Puerta de enlace de datos**.
+2. En el **crear** blade, escriba **adftutorialgateway** para el **nombre**, y haga clic en **Aceptar**.
 
-	![Linked Services - Add a Gateway button][image-data-factory-linkedservices-add-gateway-button]
-
-2. En la hoja **Crear**, escriba **adftutorialgateway** para **Nombre** y haga clic en **Aceptar**. 	
-
-	![Create Gateway blade][image-data-factory-create-gateway-blade]
+	![Crear módulos de puerta de enlace][image-data-factory-create-gateway-blade]
 
 3. En la hoja **Configurar**, haga clic en **Instalar directamente en este equipo**. Esto descarga el paquete de instalación de la puerta de enlace, instala, configura y registra la puerta de enlace en el equipo.
 
-	![Gateway - Configure blade][image-data-factory-gateway-configure-blade]
+	> [AzURE.NOTE]Utilice Internet Explorer o un explorador web compatible de Microsoft ClickOnce.
 
-	Esta es la forma más sencilla (un clic) para descargar, instalar, configurar y registrar la puerta de enlace en un solo paso. Puede ver que la aplicación **Administrador de configuración de Microsoft Data Management Gateway** está instalada en el equipo. También puede buscar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\Archivos de programa\Microsoft Data Management Gateway\1.0\Shared**.
+	![Puerta de enlace - configurar blade][image-data-factory-gateway-configure-blade]
 
-	Asimismo, puede descargar e instalar la puerta de enlace manualmente con los vínculos de esta hoja y registrarla utilizando la clave que se muestra en el cuadro de texto **REGISTRAR CON LA CLAVE**.
+	Esta es la forma más sencilla (un clic) para descargar, instalar, configurar y registrar la puerta de enlace en un solo paso. Puede ver el **Microsoft Data Management Gateway Configuration Manager** aplicación está instalada en el equipo. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\Program Files\Microsoft datos administración Gateway\1.0\Shared**.
+
+	También puede descargar e instalar puerta de enlace de manualmente mediante los vínculos en este módulo y registrarlo mediante la clave que se muestra en el **registrar con la clave** cuadro de texto.
 	
-	Consulte la sección [Data Management Gateway](#DMG) para obtener información detallada de la puerta de enlace, incluidos procedimientos recomendados y algunas consideraciones importantes. 
+	Consulte [Data Management Gateway](#DMG) sección para obtener más información acerca de la puerta de enlace incluye mejores prácticas y consideraciones importantes.
 
-4. Haga clic en **Aceptar** en la hoja **Nueva puerta de enlace de datos**.
-5. Inicie la aplicación **Microsoft Data Management Gateway**   en el equipo.
+	>[AZURE.NOTE]Debe ser un administrador en el equipo local para instalar y configurar correctamente la puerta de enlace de datos de administración. Puede agregar usuarios adicionales al grupo local de usuarios de puerta de enlace de administración de datos de Windows. Los miembros de este grupo podrán utilizar la herramienta Administrador de configuración de puerta de enlace de administración de datos para configurar la puerta de enlace.
 
-	![Gateway Configuration Manager][image-data-factory-gateway-configuration-manager]
+4. Haga clic en el **notificaciones** concentrador a la izquierda. Espere hasta que vea **Express el programa de instalación de 'adftutorialgateway' se realizó correctamente** el mensaje en el **notificaciones** blade.
+
+	![Se realizó correctamente la configuración rápida][express-setup-succeeded]
+5. Haga clic en **Aceptar** en el **crear** blade y, a continuación, en la **nueva puerta de enlace de datos** blade.
+6. Cerrar la **servicios vinculados** blade (presionando **X** situado en la esquina superior derecha) y vuelva a abrir el **servicios vinculados** blade para ver el estado más reciente de la puerta de enlace. 
+7. Confirme que el **estado** de la puerta de enlace es **en línea**. 
+
+	![Estado de la puerta de enlace][gateway-status]
+5. Iniciar **Microsoft Data Management Gateway Configuration Manager** a la aplicación en el equipo.
+
+	![Administrador de configuración de puerta de enlace][image-data-factory-gateway-configuration-manager]
 
 6. Espere hasta que los valores se hayan establecido como se indica a continuación:
-	1. Si el **estado** del servicio no es **Iniciado**, haga clic en **Iniciar servicio** para iniciarlo y espere un minuto para que se actualicen los demás campos.
-	2. **Nombre de la puerta de enlace** está establecido en **adftutorialgateway**.
+	1. Si el servicio **estado** no está establecido en **Started**, haga clic en **iniciar el servicio** para iniciar el servicio y espera un minuto para los demás campos actualizar.
+	2. **Nombre de puerta de enlace** está establecido en **adftutorialgateway**.
 	3. **Nombre de instancia** está establecido en **adftutorialgateway**.
-	4. **Estado de la clave de la puerta de enlace** está establecido en **Registrada**.
-	5. La barra de estado de la parte inferior muestra **Conectado al servicio en la nube Data Management Gateway** junto con una **marca de verificación verde**.  
-
-7. En la hoja **Servicios vinculados**, confirme que el **estado** de la puerta de enlace es **Bueno** y haga clic en **+ Almacén de datos**. Puede que necesite cerrar y volver a abrir la hoja para actualizarla. 
-
-	![Add Data Store button][image-data-factory-add-datastore-SQL-button]
-
-8. En la hoja **Nuevo almacén de datos**, escriba **OnPremSqlLinkedService** para el **nombre**.
-9. Haga clic en **TIPO (requiere configuración)** y seleccione **SQL Server**. 
-10. En la hoja **Nuevo almacén de datos**, haga clic en **PUERTA DE ENLACE DE DATOS(requiere configuración)**.
-
-	![Data Gateway Configure link][image-data-factory-gateway-configure-link]
-  
-11. Seleccione la puerta **adftutorialgateway** que creó antes. 
-12.	En la hoja **Nuevo almacén de datos**, haga clic en **CREDENCIALES** para mostrar la hoja **Credenciales**.
-
-	![Data Source Credentials Blade][image-data-factory-credentials-blade]
-
-13.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales de forma segura**. Inicia el siguiente cuadro de diálogo emergente.
-
-	![One Click application install][image-data-factory-oneclick-install]
-
-14. Haga clic en **Ejecutar** para instalar la aplicación **Administrador de credenciales** y mostrar el cuadro de diálogo Configuración de credenciales. 
-15.	En el cuadro de diálogo **Configuración de credenciales**, escriba el **nombre de usuario** y la **contraseña** que el servicio puede usar para obtener acceso a la base de datos de SQL Server local, y haga clic en **Aceptar**. Este cuadro de diálogo solo admite **Autenticación de SQL**. Espere hasta que se cierre el cuadro de diálogo.
-16.	Haga clic en **Aceptar** en la hoja **Credenciales** y elija **Aceptar** en la hoja **Nuevo almacén de datos**. Debe aparecer el servicio vinculado **OnPremSqlLinkedService** que agregó en la hoja Servicios vinculados.
-
-	![Linked Services Blade with OnPrem Store][image-data-factory-linkedservices-blade-onprem]
-
+	4. **Estado clave de puerta de enlace** está establecido en **registrado**.
+	5. El muestra de la parte inferior de la barra de estado **conectado al servicio de nube de Data Management Gateway** junto con un **marca de verificación verde**.
 	
-   
+7. En el **servicios vinculados** blade, confirme que la **estado** de la puerta de enlace es **buena**.
+8. Cierre todos los módulos hasta que llegue a la **factoría de datos** página principal. 
 
+## Paso 2: Crear servicios vinculados 
+En este paso, creará dos servicios vinculados: **StorageLinkedService** y **SqlServerLinkedService**. El **SqlServerLinkedService** vincula una base de datos de SQL Server local y la **StorageLinkedService** servicios vinculados vincula un almacén de blobs de Azure para la **ADFTutorialDataFactory**. Más adelante en este tutorial creará una canalización que copia datos de la base de datos de SQL Server local al almacén de blobs de Azure.
+
+### Adición de un servicio vinculado a una base de datos de SQL Server local
+1.	En el **factoría de datos** blade, haga clic en **autor e implementar** mosaico para iniciar la **Editor** para el generador de datos.
+
+	![Mosaico Crear e implementar][image-author-deploy-tile]
+
+	> [AZURE.NOTE][Editor de generador de datos][data-factory-editor]
+2.	En el **Editor**, haga clic en **nuevo almacén de datos** botón en la barra de herramientas y seleccione **base de datos local SQL server** desde el menú desplegable. 
+
+	![Botón de almacén de datos nuevo editor][image-editor-newdatastore-onpremsql-button]
+    
+3.	Debería ver la plantilla JSON para crear un servicio de SQL Server vinculado de forma local en el panel derecho. ![Local SQL vinculado servicio: configuración][image-editor-newdatastore-onpremsql-settings]
+
+4.	Haga lo siguiente en el panel JSON:
+	1.	Para el **gatewayName** propiedad, escriba **adftutorialgateway** para reemplazar todo el texto entre comillas dobles.  
+	2.	Si está utilizando **autenticación de SQL**: 
+		1.	Para el **connectionString** propiedad, reemplace **< nombreServidor >**, **< databasename >**, **< username >**, y **< contraseña >** con los nombres de su SQL server en local, la base de datos, la cuenta de usuario y la contraseña.	
+		2.	Quitar las últimas dos propiedades (** username ** y **contraseña**) desde el JSON de archivos y quitar los **coma (,)** caracteres al final de la última línea del script JSON restantes.
+		
+				{
+	    			"name": "SqlServerLinkedService",
+	    			"properties": {
+		        		"type": "OnPremisesSqlLinkedService",
+		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+		        		"gatewayName": "adftutorialgateway"
+	    			}
+				}
+	3.	Si está utilizando **la autenticación de Windows**:
+		1. Para el **connectionString** propiedad, reemplace **< nombreServidor >** y **< databasename >** con los nombres de la base de datos y SQL server en local. Establecer **la seguridad integrada de** a **True**. Quitar **ID de** y **contraseña** de la cadena de conexión.
+			
+				{
+    				"name": "SqlServerLinkedService",
+    				"properties": {
+        				"type": "OnPremisesSqlLinkedService",
+        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+		   				"gatewayName": "adftutorialgateway",
+				        "username": "<Specify user name if you are using Windows Authentication>",
+				        "password": "<Specify password for the user account>"
+    				}
+				}		
+		
+6. Haga clic en **implementar** en la barra de herramientas para implementar el SqlServerLinkedService. Confirme que aparece el mensaje **vinculado el servicio creado correctamente** en la barra de título. También debe ver el **SqlServerLinkedService** en la vista de árbol de la izquierda.
+		   
+	![Implementación de SqlServerLinkedService correcta][image-editor-sql-linked-service-successful]
+	
+  
+> [AZURE.NOTE]También puede crear un servicio de SQL Server vinculado, haga clic en **nuevo almacén de datos** botón de barra de herramientas en el **servicios vinculados** blade. Si optamos por este camino, establezca las credenciales para el origen de datos mediante el uso de la aplicación de ClickOnce de administrador de credenciales que se ejecuta en el equipo de acceso al portal. Si tiene acceso al portal desde un equipo diferente desde el equipo de puerta de enlace, debe asegurarse de que la aplicación Administrador de credenciales puede conectar con el equipo de puerta de enlace. Si la aplicación no puede ponerse en contacto con el equipo de puerta de enlace, no le permitirá establecer credenciales para el origen de datos y probar la conexión al origen de datos.
 
 #### Adición de un servicio vinculado para una cuenta de almacenamiento de Azure
+ 
+1. En el **Editor**, haga clic en **nuevo almacén de datos** botón en la barra de herramientas y seleccione **almacenamiento de Azure** desde el menú desplegable. Debería ver la plantilla JSON para crear un servicio de almacenamiento de Azure vinculado en el panel derecho. 
 
-1.	En la hoja **Factoría de datos**, haga clic en el cuadro **Servicios vinculados** para iniciar la hoja **Servicios vinculados**.
-2. En la hoja **Servicios vinculados**, haga clic en **Agregar almacén de datos**.	
-3. En la hoja **Nuevo almacén de datos**:
-	1. Escriba un **nombre** para el almacén de datos. Para este tutorial, escriba **MyBlobStore** para el **nombre**.
-	2. Escriba una **descripción (opcional)** para el almacén de datos.
-	3. Haga clic en **Tipo**.
-	4. Seleccione **Cuenta de almacenamiento de Azure** y haga clic en **Aceptar**.
-		
-		![Azure Storage Account][image-data-factory-azure-storage-account]
+	![Botón de almacén de datos nuevo editor][image-editor-newdatastore-button]
+    
+6. Reemplace **< nombreCuenta >** y **< accountkey >** con el nombre de cuenta y valores de clave de cuenta para la cuenta de almacenamiento de Azure.
 
-4. Ahora ha vuelto a la hoja **Nuevo almacén de datos**, que tiene el siguiente aspecto:
+	![Almacenamiento de blobs de editor JSON][image-editor-blob-storage-json]
+	
+	> [AZURE.NOTE]Consulte [referencia de secuencias de comandos de JSON](http://go.microsoft.com/fwlink/?LinkId=516971) para obtener más información acerca de las propiedades JSON.
 
-	![Azure Storage settings][image-data-factory-azure-storage-settings]
+6. Haga clic en **implementar** en la barra de herramientas para implementar el StorageLinkedService. Confirme que aparece el mensaje **vinculado el servicio creado correctamente** en la barra de título.
 
-5. Escriba el **Nombre de cuenta** y la **Clave de cuenta** para la cuenta de almacenamiento de Azure y haga clic en **Aceptar**.
-
-  
-6. Después de hacer clic en **Aceptar** en la hoja **Nuevo almacén de datos**, debe aparecer **MyBlobStore** en la lista **ALMACENES DE DATOS** en la hoja **Servicios vinculados**. Compruebe si hay algún mensaje en el centro de **NOTIFICACIONES** (a la izquierda).
-
-	![Linked Services blade with MyBlobStore][image-data-factory-linkedservices-with-storage]
+	![Implementar el almacenamiento de blobs de editor][image-editor-blob-storage-deploy]
 
  
-## Paso 3: Crear conjuntos de datos de entrada y salida
-En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => almacenamiento de blobs de Azure). Actualmente, el Portal de Azure en vista previa no admite la creación de conjuntos de datos ni canalizaciones, por lo que usará cmdlets de PowerShell de Azure para crear tablas y canalizaciones. Antes de crear conjuntos de datos o tablas (conjuntos de datos rectangulares), debe hacer lo siguiente (después de la lista, se detallan los pasos):
+## Paso 3: Crear la entrada y salida de los conjuntos de datos
+En este paso, creará conjuntos de datos de entrada y de salida que representan datos de entrada y de salida para la operación de copia (base de datos de SQL Server local => almacenamiento de blobs de Azure). Antes de crear conjuntos de datos o tablas (conjuntos de datos rectangulares), debe hacer lo siguiente (después de la lista, se detallan los pasos):
 
-- Cree una tabla con el nombre **emp** en la base de datos de SQL Server que agregó como servicio vinculado a la factoría de datos e inserte un par de entradas de ejemplo en la tabla.
-- - Si no ha realizado el tutorial del artículo [Introducción a la Factoría de datos de Azure][adfgetstarted], cree un contenedor de blobs denominado **adftutorial** en la cuenta de almacenamiento de blobs de Azure que agregó como servicio vinculado a la factoría de datos.
+- Crear una tabla denominada **emp** en la base de datos de SQL Server se agrega como un servicio vinculado a los datos par de fábrica y de inserción de entradas de ejemplo en la tabla.
+- - Si no ha experimentado el tutorial de [empezar a trabajar con el generador de datos de Azure][adfgetstarted] del artículo, crear un contenedor de blob denominado **adftutorial** de Azure agrega como un servicio vinculado al generador de datos de cuenta de almacenamiento de blobs.
 
 ### Preparación de la instancia local de SQL Server para el tutorial
 
-1. En la base de datos que especificó para el servicio vinculado SQL Server local (**OnPremSqlLinkedService**), use el siguiente script SQL para crear la tabla **emp** en la base de datos.
+1. En la base de datos especificada para las instalaciones de SQL Server vinculado service (** SqlServerLinkedService **), use el siguiente script SQL para crear el **emp** tabla en la base de datos.
 
 
         CREATE TABLE dbo.emp
@@ -198,7 +234,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 		GO
  
 
-2. Inserte algún ejemplo en la tabla: 
+2. Inserte algún ejemplo en la tabla:
 
 
         INSERT INTO emp VALUES ('John', 'Doe')
@@ -208,8 +244,8 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
 ### Creación de la tabla de entrada
 
-1.	Cree un archivo JSON para una tabla de factoría de datos que represente los datos de la tabla **emp** en la base de datos de SQL Server. Inicie el **Bloc de notas**, copie el siguiente script JSON y guárdelo como **EmpOnPremSQLTable.json** en la carpeta C:\ADFGetStarted**OnPrem**. Cree la subcarpeta **OnPrem** en la carpeta **C:\ADFGetStarted** si no existe. 
-
+1.	En el **Editor del generador de datos**, haga clic en **nuevo conjunto de datos** en la barra de comandos y haga clic en **local SQL**. 
+2.	Reemplace el JSON en el panel derecho con el siguiente texto:    
 
         {
     		"name": "EmpOnPremSQLTable",
@@ -219,7 +255,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
         		{
             		"type": "OnPremisesSqlServerTableLocation",
             		"tableName": "emp",
-            		"linkedServiceName": "OnPremSqlLinkedService"
+            		"linkedServiceName": "SqlServerLinkedService"
         		},
         		"availability": 
         		{
@@ -236,29 +272,22 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
     		}
 		}
 
-	Tenga en cuenta lo siguiente: 
+	Tenga en cuenta lo siguiente:
 	
-	- El tipo (**type**) de ubicación está establecido en **OnPremisesSqlServerTableLocation**.
+	- ubicación **tipo** está establecido en **OnPremisesSqlServerTableLocation**.
 	- **tableName** está establecido en **emp**.
-	- **linkedServiceName** está establecido en **OnPremSqlLinkedService** (creó este servicio vinculado en el paso 2).
-	- Para una tabla de entrada no generada por otra canalización en la Factoría de datos de Azure, debe especificar la sección **waitOnExternal** en el código JSON. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure.   
+	- **linkedServiceName** está establecido en **SqlServerLinkedService** (este servicio vinculado hubiera creado en el paso 2).
+	- Para una tabla de entrada que no se genera por otra canalización en la factoría de datos de Azure, debe especificar **waitOnExternal** sección en JSON. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure.   
 
-	Consulte la [documentación de referencia de scripting con JSON][json-script-reference] para obtener información detallada acerca de las propiedades JSON.
+	Consulte [referencia de secuencias de comandos de JSON][json-script-reference] para obtener más información acerca de las propiedades JSON.
 
-2. Los cmdlets de la Factoría de datos de Azure están disponibles en el modo **AzureResourceManager**. Inicie **Azure PowerShell** y ejecute el siguiente comando para cambiar al modo **AzureResourceManager**.     
+2. Haga clic en **implementar** en la barra de comandos para implementar el conjunto de datos (tabla es un conjunto de datos rectangular). Confirme que aparece un mensaje en la barra de título dice **tabla implementada correctamente**.
 
-        switch-azuremode AzureResourceManager
-
-	Descargue [Azure PowerShell][azure-powershell-install] si no lo tiene instalado en el equipo.
-3. Utilice el cmdlet **New-AzureDataFactoryTable** para crear la tabla de entrada con el archivo **EmpOnPremSQLTable.json**.
-
-		New-AzureDataFactoryTable -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -File C:\ADFGetStarted\OnPrem\EmpOnPremSQLTable.json  
-	
-	Actualice el comando si está usando un grupo de recursos diferente.
 
 ### Creación de la tabla de salida
 
-1.	Cree un archivo JSON para usar una tabla de la Factoría de datos como salida de la canalización que va a crear en el siguiente paso. Inicie el Bloc de notas, copie el siguiente script JSON y guárdelo como **OutputBlobTable.json** en la carpeta **C:\ADFGetStarted\OnPrem**.
+1.	En el **Editor del generador de datos**, haga clic en **nuevo conjunto de datos** en la barra de comandos y haga clic en **almacenamiento Azure Blob**.
+2.	Reemplace el JSON en el panel derecho con el siguiente texto: 
 
 		{
     		"name": "OutputBlobTable",
@@ -273,7 +302,7 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
                 		"type": "TextFormat",
                 		"columnDelimiter": ","
             		},
-            		"linkedServiceName": "MyBlobStore"
+            		"linkedServiceName": "StorageLinkedService"
         		},
         		"availability": 
         		{
@@ -283,18 +312,18 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
     		}
 		}
   
-	Tenga en cuenta lo siguiente: 
+	Tenga en cuenta lo siguiente:
 	
-	- location **type** está establecido en **AzureBlobLocation**.
-	- **linkedServiceName** está establecido en **MyBlobStore** (creó este servicio vinculado en el paso 2).
-	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
-	- **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** en **1**).  El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** en la base de datos SQL de Azure. 
+	- ubicación **tipo** está establecido en **AzureBlobLocation**.
+	- **linkedServiceName** está establecido en **StorageLinkedService** (este servicio vinculado hubiera creado en el paso 2).
+	- **folderPath** está establecido en **adftutorial/outfromonpremdf** donde outfromonpremdf es la carpeta en el contenedor adftutorial. Necesitará crear el **adftutorial** contenedor.
+	- El **disponibilidad** está establecido en **cada hora** (** frecuencia ** establecido en **hora** y **intervalo** establecido en **1**). El servicio de generador de datos generará un segmento de datos de salida cada hora en el **emp** tabla en la base de datos de SQL Azure. 
 
-	Si no especifica un **nombre de archivo** para una **tabla de entrada**, todos los archivos o blobs de esta carpeta (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Puede ver algunos archivos de ejemplo en el [tutorial][adf-tutorial].
+	Si no especifica un **nombre de archivo** para un **tabla de entrada**, todos los archivos o blobs desde la carpeta de entrada (** folderPath **) se consideran como entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Ver los archivos de ejemplo en el [tutorial][adf-tutorial] para obtener ejemplos.
  
-	Si no especifica un **nombre de archivo** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan en el siguiente formato: Data.<Guid>.txt (por ejemplo: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+	Si no especifica un valor **fileName** para una tabla de salida, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-	Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad partitionedBy. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se va a procesar) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv. 
+	Para establecer **folderPath** y **nombre de archivo** dinámicamente en función de la **SliceStart** tiempo, utilice la propiedad partitionedBy. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se va a procesar) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv.
 
 	  	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
         "fileName": "{Hour}.csv",
@@ -308,17 +337,17 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 
  
 
-	Consulte la [documentación de referencia de scripting con JSON][json-script-reference] para obtener información detallada acerca de las propiedades JSON.
+	Consulte [referencia de secuencias de comandos de JSON][json-script-reference] para obtener más información acerca de las propiedades JSON.
 
-2.	En **Azure PowerShell**, ejecute el siguiente comando para crear otra tabla de factoría de datos para representar la tabla emp en la base de datos de SQL Azure.
+2.	Haga clic en **implementar** en la barra de comandos para implementar el conjunto de datos (tabla es un conjunto de datos rectangular). Confirme que aparece un mensaje en la barra de título dice **tabla implementada correctamente**.
+  
 
-		New-AzureDataFactoryTable -DataFactoryName ADFTutorialOnPremDF -File C:\ADFGetStarted\OnPrem\OutputBlobTable.json -ResourceGroupName ADFTutorialResourceGroup  
+## Paso 4: Crear y ejecutar una canalización
+En este paso, creará un **canalización** con una **copia actividad** que utiliza **EmpOnPremSQLTable** como entrada y **OutputBlobTable** como salida.
 
-## Paso 4: Creación y ejecución de una canalización
-En este paso, va a crear una **canalización** con una **actividad de copia** que usa **EmpOnPremSQLTable** como entrada y **OutputBlobTable** como salida.
+1.	Haga clic en **nueva canalización** en la barra de comandos. Si no ve el botón, haga clic en **... (puntos suspensivos)** para expandir la barra de comandos.
+2.	Reemplace el JSON en el panel derecho con el siguiente texto:   
 
-1.	Cree un archivo JSON para la canalización. Inicie el Bloc de notas, copie el siguiente script JSON y guárdelo como **ADFTutorialPipelineOnPrem.json** en la carpeta **C:\ADFGetStarted\OnPrem**.
-	 
 
         {
 			"name": "ADFTutorialPipelineOnPrem",
@@ -355,148 +384,148 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 						}		
 
 				     }
-	        	]
+	        	],
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z",
+        		"isPaused": false
 			}
 		}
 
 	Tenga en cuenta lo siguiente:
  
-	- En la sección activities, hay solo una actividad cuyo **type** está establecido en **CopyActivity**.
-	- **Input** está establecido en **EmpOnPremSQLTable** y **output** está establecido en **OutputBlobTable** para la actividad.
-	- En la sección **transformation**, **SqlSource** está especificado como **tipo de origen** y **BlobSink ** está especificado como **tipo de receptor**.
-	- La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
+	- En la sección actividades, hay sólo actividad cuya **tipo** está establecido en **CopyActivity**.
+	- **Entrada** de la actividad se establece en **EmpOnPremSQLTable** y **salida** de la actividad se establece en **OutputBlobTable**.
+	- En el **transformación** sección, **SqlSource** se especifica como el **tipo de origen de** y **BlobSink **se especifica como el **receptor tipo**. - Consulta SQL **Seleccionar * desde emp** se especifica para la **sqlReaderQuery** propiedad de **SqlSource**.
 
-2. Use el cmdlet **New-AzureDataFactoryPipeline** para crear una canalización mediante el archivo **ADFTutorialPipeline.json** que ha creado.
+	> [AZURE.NOTE]Sustituya el valor de la **iniciar** propiedad con la fecha actual y **end** valor con el día siguiente. Ambos iniciar y fechas y horas de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. El **end** tiempo es opcional, pero se utilizará en este tutorial. Si no especifica el valor para el **end** propiedad, se calcula como "** inicio + 48 horas **". Para ejecutar la canalización de forma indefinida, especifique **9/9/9999** como el valor de la **end** propiedad. Define la duración de tiempo en el que se procesarán las rebanadas de datos basándose en los **disponibilidad** las propiedades que se definen para cada tabla de la factoría de datos de Azure. En el ejemplo anterior, habrá 24 segmentos de datos, porque cada segmento de datos se produce cada hora.
+	
+2. Haga clic en **implementar** en la barra de comandos para implementar el conjunto de datos (tabla es un conjunto de datos rectangular). Confirme que aparece un mensaje en la barra de título dice **canalización implementada correctamente**.
+5. Ahora, cierre el **Editor** blade haciendo clic en **X**. Haga clic en **X** para cerrar el cuadro de ADFTutorialDataFactory con la vista de árbol y de la barra de herramientas. Si ve **se descartarán los cambios no guardados** de mensajes, haga clic en **Aceptar**.
+6. Debe volver a la **factoría de datos** módulo para la **ADFTutorialOnPremDF**.
 
-		New-AzureDataFactoryPipeline  -DataFactoryName ADFTutorialOnPremDF -File C:\ADFGetStarted\OnPrem\ADFTutorialPipelineOnPrem.json -ResourceGroupName ADFTutorialResourceGroup  
+**¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, servicios vinculados, tablas y una canalización, y ha programado la canalización.
 
-3. Una vez creadas las canalizaciones, puede especificar el tiempo en el que se producirá el procesamiento de datos. Al especificar el período activo para una canalización, define el tiempo durante el que se procesarán los segmentos de datos en función de las propiedades **Availability** que se definieron para cada tabla de la Factoría de datos de Azure.  Ejecute el siguiente comando de PowerShell para establecer el período activo en la canalización y escriba Y para confirmar. 
+### Vista del generador de datos en una vista de diagrama 
+1. En el **Portal de vista previa de Azure**, haga clic en **diagrama** en mosaico en la página principal de la **ADFTutorialOnPremDF** factoría de datos.:
 
+	![Vínculo de diagrama][image-data-factory-diagram-link]
 
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialOnPremDF -StartDateTime 2014-09-29 -EndDateTime 2014-09-30 -Name ADFTutorialPipelineOnPrem  
+2. Debería ver un diagrama similar al siguiente:
 
-	> [WACOM.NOTE] Reemplace el valor de **StartDateTime** por el día actual y el valor de **EndDateTime** por el día siguiente. Tanto StartDateTime como EndDateTime son horas UTC y deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. EndDateTime es opcional, pero se usará en este tutorial.
-	> Si no especifica **EndDateTime**, se calcula como "**StartDateTime + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de **EndDateTime**.
+	![Vista de diagrama][image-data-factory-diagram-view]
 
-	En el ejemplo anterior, habrá 24 segmentos de datos, porque cada segmento de datos se produce cada hora.
-4. En el **Portal de Azure en vista previa**, haga clic en **Diagrama** en la página principal de la factoría de datos **ADFTutorialOnPremDF**. :
+	Puede acercar, alejar, zoom al 100%, zoom ajustar automáticamente colocar las canalizaciones y tablas y mostrar información de linaje (resalta elementos ascendente y descendentes de los elementos seleccionados). Puede blick de doble en un objeto (tabla de entrada y salida o canalización) para ver las propiedades para ella.
 
-	![Diagram Link][image-data-factory-diagram-link]
+## Paso 5: Supervisar las canalizaciones y los conjuntos de datos
+En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener más información acerca del uso de cmdlets para la supervisión, consulte [Monitor y administrar factoría de datos Azure con PowerShell][monitor-manage-powershell].
 
-5. Debería ver un diagrama similar al siguiente:
+1. Vaya a **Portal de vista previa de Azure** (si se haya cerrado)
+2. Si el módulo para **ADFTutorialOnPremDF** no está abierto, ábralo haciendo clic en **ADFTutorialOnPremDF** en el **panel de inicio**.
+3. Debería ver el **recuento** y **nombres** de tablas y canalización creada en este cuadro.
 
-	![Diagram View][image-data-factory-diagram-view]
+	![Página de inicio del generador de datos][image-data-factory-homepage-2]
+4. Ahora, haga clic en **conjuntos de datos** de mosaico.
+5. En el **conjuntos de datos** blade, haga clic en el **EmpOnPremSQLTable**.
 
-	**¡Enhorabuena!** Ha creado una factoría de datos de Azure, servicios vinculados, tablas y una  	canalización, y ha iniciado el flujo de trabajo.
+	![Sectores EmpOnPremSQLTable][image-data-factory-onprem-sqltable-slices]
 
-## Paso 5: Supervisar la canalización y los conjuntos de datos
-En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure. También puede usar los cmdlets de PowerShell para supervisar los conjuntos de datos y las canalizaciones. Para obtener información detallada acerca del uso de cmdlets para supervisión, consulte [Supervisión y administración de Factoría de datos de Azure con PowerShell][monitor-manage-powershell].
-
-1. Vaya al **Portal de Azure en vista previa** (si lo ha cerrado)
-2. Si la hoja de **ADFTutorialOnPremDF** no está abierta, ábrala haciendo clic en **ADFTutorialOnPremDF** en el **Panel de inicio**.
-3. Deben mostrarse el **recuento** y los **nombres** de las tablas y la canalización que creó en esta hoja.
-
-	![Data Factory Home Page][image-data-factory-homepage-2]
-4. Ahora haga clic en **Conjuntos de datos**.
-5. En la hoja **Conjuntos de datos**, haga clic en **EmpOnPremSQLTable**.
-
-	![EmpOnPremSQLTable slices][image-data-factory-onprem-sqltable-slices]
-
-6. Tenga en cuenta que ya se han producido los segmentos de datos hasta el momento actual y están **listos**. Esto ocurre porque ha insertado los datos en la base de datos de SQL Server y están ahí todo el tiempo. Confirme que no aparecen segmentos en la sección de **segmentos problemáticos** en la parte inferior.
-7. Ahora en la hoja **Conjuntos de datos**, haga clic en **OutputBlobTable**.
-
-	![OputputBlobTable slices][image-data-factory-output-blobtable-slices]
-8. Confirme que se han producido los segmentos hasta el momento actual y que están **listos**.
-9. Haga clic en cada segmento de datos de la lista. Debe aparecer la hoja **SEGMENTO DE DATOS**.
-
-	![Data Slice Blade][image-data-factory-dataslice-blade]
-10. Haga clic en la **ejecución de la actividad** en la lista inferior para ver los **detalles de la ejecución de la actividad**.
-
-	![Activity Run Details blade][image-data-factory-activity-run-details]
-
-11. Haga clic en la **X** para cerrar todas las hojas hasta que vuelva a la hoja principal de **ADFTutorialOnPremDF**.
-14. (Opcional) Haga clic en **Canalizaciones**, elija **ADFTutorialOnPremDF** y explore en profundidad las tablas de entrada (**Consumido**) o las tablas de salida (**Producido**).
-15. Use herramientas como el **Explorador de almacenamiento de Azure** para comprobar la salida.
-
-	![Azure Storage Explorer][image-data-factory-stroage-explorer]
+6. Observe que ya se han producido las rebanadas de datos hasta la hora actual y son **Listo**. Esto ocurre porque ha insertado los datos en la base de datos de SQL Server y están ahí todo el tiempo. Confirme que los sectores no aparecen en la **sectores problema** sección en la parte inferior.
 
 
-## Creación y registro de una puerta de enlace con cmdlets de Azure PowerShell
-En esta sección se explica cómo crear y registrar una puerta de enlace usando cmdlets de Azure PowerShell. 
+	Ambos **actualizado recientemente sectores** y **error recientemente sectores** listas se ordenan por el **hora de última actualización**. En las situaciones siguientes, se cambia la hora de un intervalo de actualización.
+    
 
-1. Inicie **Azure PowerShell** en modo de administrador. 
-2. Los cmdlets de la Factoría de datos de Azure están disponibles en el modo **AzureResourceManager**. Ejecute el siguiente comando para cambiar al modo **AzureResourceManager**.     
+	-  Actualiza el estado del sector manualmente, por ejemplo, utilizando la **conjunto AzureDataFactorySliceStatus** (o), haga clic en **ejecutar** en el **sector** módulo para el sector.
+	-  El segmento cambia estado debido a una ejecución (por ejemplo, una ejecución iniciado, una ejecución finalizado y no se pudo, una ejecución finaliza y se realizó correctamente, etc.).
+ 
+	Haga clic en el título de las listas o **... (puntos suspensivos)** Para ver la lista más amplia de sectores. Haga clic en **filtro** en la barra de herramientas para filtrar los sectores.
+	
+	Para ver los intervalos de datos ordenados por los tiempos de inicio y fin del sector en su lugar, haga clic en **rebanadas de datos (por hora de sector)** en mosaico.
+
+7. Ahora, en la **conjuntos de datos** blade, haga clic en **OutputBlobTable**.
+
+	![Sectores OputputBlobTable][image-data-factory-output-blobtable-slices]
+8. Confirme que se producen sectores hasta la hora actual y **Listo**. Espere hasta que se establecen los Estados de sectores hasta la hora actual en **Listo**.
+9. Haga clic en cualquier segmento de datos de la lista y debería ver el **segmento de datos** blade.
+
+	![Módulo de segmento de datos][image-data-factory-dataslice-blade]
+
+	Si no se encuentra en el sector del **Listo** estado, puede ver los intervalos de nivel superior que no están listos y están bloqueando el intervalo actual de la ejecución en el **intervalos de nivel superior que no están listos** lista.
+
+10. Haga clic en el **actividad se ejecute** de la lista en la parte inferior para ver **Detalles de ejecución de la actividad**.
+
+	![Cuadro de detalles de actividad][image-data-factory-activity-run-details]
+
+11. Haga clic en **X** para cerrar todos los módulos hasta que regrese al blade principal para la **ADFTutorialOnPremDF**.
+14. (opcional) Haga clic en **canalizaciones**, haga clic en **ADFTutorialOnPremDF**, y obtener detalles de las tablas de entrada (** consumidos **) o tablas de salida (** producido **).
+15. Usar herramientas como **Azure Storage Explorer** para comprobar el resultado.
+
+	![Explorador de almacenamiento de Azure][image-data-factory-stroage-explorer]
+
+
+## Crear y registrar una puerta de enlace con Azure PowerShell 
+En esta sección se explica cómo crear y registrar una puerta de enlace usando cmdlets de Azure PowerShell.
+
+1. Iniciar **Azure PowerShell** en modo de administrador. 
+2. Los cmdlets de generador de datos de Azure están disponibles en la **AzureResourceManager** modo. Ejecute el siguiente comando para cambiar a la **AzureResourceManager** modo.     
 
         switch-azuremode AzureResourceManager
 
 
-2. Use el cmdlet **New-AzureDataFactoryGateway** para crear una puerta de enlace lógica como se indica a continuación:
+2. Utilice la **AzureDataFactoryGateway nuevo** cmdlet para crear una puerta de enlace lógico como sigue:
 
-		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description <desc>
+		New-AzureDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
 
-	**Ejemplo de comando y salida**:
-
-
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -Location "West US" -ResourceGroupName ADF -Description "gateway for walkthrough"
-
-		Name            : MyGateway
-		Location        : West US
-		Description     : gateway for walkthrough
-		Version         :
-		Status          : NeedRegistration
-		VersionStatus   : None
-		CreateTime      : 9/28/2014 10:58:22
-		RegisterTime    :
-		LastConnectTime :
-		ExpiryTime      :
+	**Comando de ejemplo y salida**:
 
 
-3. Use el cmdlet **New-AzureDataFactoryGatewayKey** para generar una clave de registro para la puerta de enlace recién creada y guarde la clave en una variable local **$Key**:
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
-		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName $df 
+		Name              : MyGateway
+		Description       : gateway for walkthrough
+		Version           :
+		Status            : NeedRegistration
+		VersionStatus     : None
+		CreateTime        : 9/28/2014 10:58:22
+		RegisterTime      :
+		LastConnectTime   :
+		ExpiryTime        :
+		ProvisioningState : Succeeded
+
+
+3. Utilice la **AzureDataFactoryGatewayKey nuevo** cmdlet para generar una clave de registro para la puerta de enlace recién creado y almacenar la clave en una variable local **$Key**:
+
+		New-AzureDataFactoryGatewayKey -GatewayName <gatewayname> -ResourceGroupName ADF -DataFactoryName <dataFactoryName>
 
 	
-	**Ejemplo de comando y salida:**
+	**Resultado del comando de ejemplo:**
 
 
 		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. En Azure PowerShell, cambie a la carpeta: **C:\Archivos de programa\Microsoft Data Management Gateway\1.0\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
+4. En Azure PowerShell, cambie a la carpeta: **C:\Program Files\Microsoft datos administración Gateway\1.0\PowerShellScript** y ejecute **RegisterGateway.ps1** secuencia de comandos asociado a la variable local **$Key** como se muestra en el siguiente comando para registrar el agente de cliente instalado en el equipo con la puerta de enlace lógico crear anteriormente.
 
 		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
-5. Utilice el cmdlet **Get-AzureDataFactoryGateway** para obtener la lista de puertas de enlace de su factoría de datos. Cuando el **Estado** es **En línea**, significa que la puerta de enlace está lista para usarla.
+5. Puede utilizar el **AzureDataFactoryGateway Get** para obtener la lista de puertas de enlace en el generador de datos. Cuando el **estado** muestra **en línea**, esto significa que la puerta de enlace está listo para su uso.
 
-		Get-AzureDataFactoryGateway -DataFactoryName $df -ResourceGroupName ADF
+		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
-Puede quitar una puerta de enlace usando el cmdlet **Remove-AzureDataFactoryGateway** y actualizar la descripción de una puerta de enlace usando los cmdlets **Set-AzureDataFactoryGateway**. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.  
-
-
-
-
-## Otras referencias
-
-Artículo | Descripción
------- | ---------------
-[Introducción a la Factoría de datos de Azure][adf-getstarted] | En este artículo se ofrece un tutorial completo que muestra cómo crear una factoría de datos de Azure de ejemplo que copia datos de un blob de Azure a una base de datos de SQL Azure.
-[Uso de Pig y Hive con la Factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo contiene un tutorial que muestra cómo utilizar la actividad HDInsight para ejecutar un script de hive y pig que procesa datos de entrada para generar datos de salida. 
-[Tutorial: Movimiento y procesamiento de archivos de registro usando la Factoría de datos][adf-tutorial] | Este artículo ofrece un tutorial completo que muestra cómo implementar un escenario casi real usando la Factoría de datos de Azure para transformar datos de archivos de registro en perspectivas.
-[Uso de actividades personalizadas en una factoría de datos][use-custom-activities] | En este artículo se ofrece un tutorial con instrucciones paso a paso para crear una actividad personalizada y usarla en una canalización. 
-[Solución de problemas de Factoría de datos][troubleshoot] | En este artículo se explica cómo solucionar problemas de la Factoría de datos de Azure.  
-[Documentación de referencia para desarrolladores de Factoría de datos de Azure][developer-reference] | La documentación de referencia para desarrolladores incluye el contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
+Puede quitar una puerta de enlace con el **AzureDataFactoryGateway quitar** descripción del cmdlet y actualización de una puerta de enlace mediante el **AzureDataFactoryGateway Set** cmdlets. Para ver la sintaxis y otros detalles de estos cmdlets, consulte la documentación de referencia de los cmdlets de Factoría de datos.
 
 
 
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[adf-getstarted]: ../data-factory-get-started
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[adf-getstarted]: data-factory-get-started.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
+[data-factory-editor]: data-factory-editor.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -506,8 +535,8 @@ Artículo | Descripción
 [32bit-download-link]: http://go.microsoft.com/fwlink/?LinkId=517624
 
 [azure-preview-portal]: http://portal.azure.com
-[adfgetstarted]: ../data-factory-get-started
-[monitor-manage-powershell]: ../data-factory-monitor-manage-using-powershell
+[adfgetstarted]: data-factory-get-started.md
+[monitor-manage-powershell]: data-factory-monitor-manage-using-powershell.md
 
 
 
@@ -520,7 +549,16 @@ Artículo | Descripción
 
 [azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[image-author-deploy-tile]: ./media/data-factory-use-onpremises-datasources/author-deploy-tile.png
+[image-editor-newdatastore-button]: ./media/data-factory-use-onpremises-datasources/editor-newdatastore-button.png
+[image-editor-blob-storage-json]: ./media/data-factory-use-onpremises-datasources/editor-blob-storage-settings.png
+[image-editor-blob-storage-deploy]: ./media/data-factory-use-onpremises-datasources/editor-deploy-blob-linked-service.png
+[image-editor-newdatastore-onpremsql-button]: ./media/data-factory-use-onpremises-datasources/editor-newdatastore-onpremsql-button.png
+[image-editor-newdatastore-onpremsql-settings]: ./media/data-factory-use-onpremises-datasources/editor-onprem-sql-settings.png
+[image-editor-sql-linked-service-successful]: ./media/data-factory-use-onpremises-datasources/editor-sql-linked-service-successful.png
 
+[gateway-status]: ./media/data-factory-use-onpremises-datasources/gateway-status.png
+[express-setup-succeeded]: ./media/data-factory-use-onpremises-datasources/express-setup-succeeded.png
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png
 
 [image-data-factory-onprem-datastorage-cache-backup]: ./media/data-factory-use-onpremises-datasources/OnPremDataStorageCacheBackup.png
@@ -547,13 +585,7 @@ Artículo | Descripción
 
 [image-data-factory-new-datastore-blade]: ./media/data-factory-use-onpremises-datasources/OnPremNewDataStoreBlade.png
 
-[image-data-factory-azure-storage-account]: ./media/data-factory-use-onpremises-datasources/OnPremAzureStorageAccount.png
-
-[image-data-factory-azure-storage-settings]: ./media/data-factory-use-onpremises-datasources/OnPremAzureStorageSettings.png
-
 [image-data-factory-get-storage-key]: ./media/data-factory-use-onpremises-datasources/OnPremGetStorageKey.png
-
-[image-data-factory-linkedservices-with-storage]: ./media/data-factory-use-onpremises-datasources/OnPremLinkedServicesWithMyBlobStore.png
 
 [image-data-factory-linkedservices-add-gateway-button]: ./media/data-factory-use-onpremises-datasources/OnPremLinkedServicesAddGaewayButton.png
 
@@ -562,12 +594,6 @@ Artículo | Descripción
 [image-data-factory-gateway-configure-blade]: ./media/data-factory-use-onpremises-datasources/OnPremGatewayConfigureBlade.png
 
 [image-data-factory-gateway-configuration-manager]: ./media/data-factory-use-onpremises-datasources/OnPremDMGConfigurationManager.png
-
-[image-data-factory-add-datastore-SQL-button]: ./media/data-factory-use-onpremises-datasources/OnPremLinkedServicesAddSQLDataStoreButton.png
-
-[image-data-factory-gateway-configure-link]: ./media/data-factory-use-onpremises-datasources/OnPremNewDataStoreDataGatewayConfigureLink.png
-
-[image-data-factory-credentials-blade]: ./media/data-factory-use-onpremises-datasources/OnPremCredentionlsBlade.png
 
 [image-data-factory-oneclick-install]: ./media/data-factory-use-onpremises-datasources/OnPremOneClickInstall.png
 
@@ -581,8 +607,6 @@ Artículo | Descripción
 
 [image-data-factory-home-age]: ./media/data-factory-use-onpremises-datasources/DataFactoryHomePage.png
 
-[image-data-factory-linkedservices-blade-onprem]: ./media/data-factory-use-onpremises-datasources/LinkedServiceBladeWithOnPremSql.png
-
 [image-data-factory-onprem-sqltable-slices]: ./media/data-factory-use-onpremises-datasources/OnPremSQLTableSlicesBlade.png
 
 [image-data-factory-output-blobtable-slices]: ./media/data-factory-use-onpremises-datasources/OutputBlobTableSlicesBlade.png
@@ -595,6 +619,4 @@ Artículo | Descripción
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!---HONumber=GIT-SubDir-->

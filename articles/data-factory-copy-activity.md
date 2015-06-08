@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 # Copia de datos con la Factoría de datos de Azure (actividad de copia)
@@ -126,11 +126,15 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 </table>
 
 ### SQL en infraestructura como servicio (IaaS)
-Para SQL en IaaS, se admite Azure como proveedor de IaaS. Se admiten las siguientes topologías VPN y de red. Tenga en cuenta que Data Management Gateway es necesaria para el caso n.º 2 y n.º 3, aunque no es necesario para el caso n.º 1. Para obtener detalles acerca de Data Management Gateway, vea [Habilitación de las canalizaciones para tener acceso a datos locales][use-onpremises-datasources].
+También se admite SQL Server en IaaS como origen y receptor. Data Management Gateway es necesario al crear un servicio vinculado a SQL Server en IaaS. Considere la posibilidad de instalar la puerta de enlace de administración de datos en una máquina virtual que no sea un hospedaje SQL Server para evitar la degradación del rendimiento debido a que SQL Server y la puerta de enlace que compiten por los recursos. Para obtener detalles acerca de Data Management Gateway, vea [Habilitación de las canalizaciones para tener acceso a datos locales][use-onpremises-datasources].
 
 1.	Máquina virtual con nombre DNS público y puerto público estático: asignación de puerto privado
-2.	Máquina virtual con el nombre DNS público sin exponer el extremo SQL
-3.	Red virtual <ol type='a'> <li>VPN de nube de Azure con la topología siguiente al final de la lista. </li> <li>Máquina virtual con VPN de entorno local a nube y de sitio a sitio usando Red Virtual de Azure.</li> </ol> ![Factoría de datos con actividad de copia][image-data-factory-copy-actvity]
+2.	Máquina virtual con el nombre DNS público sin exponer el extremo SQL.
+3.	Red virtual
+	<ol type='a'>
+<li>VPN de nube de Azure con la topología siguiente al final de la lista. </li>	
+<li>Máquina virtual con VPN de local a nube o de sitio a sitio usando Red Virtual de Azure.</li>	
+</ol>![Factoría de datos con actividad de copia][image-data-factory-copy-actvity]
 
 ## Componentes de la actividad de copia
 La actividad de copia contiene los siguientes componentes:
@@ -237,8 +241,7 @@ Para obtener una lista de tipos de origen y de receptor, así como de las propie
 ## Ejemplo de actividad de copia
 En este ejemplo, se definen una tabla de entrada y una tabla de salida, y se utilizan en una actividad de copia dentro de una canalización que copia datos de una base de datos de SQL Server local a un blob de Azure.
 
-**Asunciones**
-En estos scripts JSON de ejemplo se hace referencia a los siguientes artefactos de la Factoría de datos de Azure:
+**Asunciones** En estos scripts JSON de ejemplo se hace referencia a los siguientes artefactos de la Factoría de datos de Azure:
 
 * Grupo de recursos denominado **ADF**.
 * Una factoría de datos de Azure denominada **CopyFactory**.
@@ -403,4 +406,4 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
-<!--HONumber=52-->
+<!---HONumber=GIT-SubDir-->
