@@ -108,7 +108,7 @@ La aplicación debe estar configurada para hacer referencia al certificado y se 
         ...
         </WebRole>
 
-    La sección **Certificates** define el nombre del certificado,su ubicación y el nombre del almacén donde se encuentra. Debido a que instalamos el certificado en el almacén de certificados del usuario, se utiliza un valor de "My". También pueden utilizarse otras ubicaciones de almacén de certificados. Consulte [Asociación de un certificado con un servicio para obtener más información].
+    La sección **Certificates** define el nombre del certificado,su ubicación y el nombre del almacén donde se encuentra. Debido a que instalamos el certificado en el almacén de certificados del usuario, se utiliza un valor de "My". También pueden utilizarse otras ubicaciones de almacén de certificados. Consulte [Asociación de un certificado con un servicio para obtener más información](http://msdn.microsoft.com/library/windowsazure/gg465718.aspx).
 
 2.  En el archivo de definición de servicio, actualice el elemento http **InputEndpoint** dentro de la sección **Extremos** para habilitar HTTPS:
 
