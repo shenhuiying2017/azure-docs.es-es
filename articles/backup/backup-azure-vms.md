@@ -186,4 +186,4 @@ Para obtener más información acerca de cómo empezar a usar Copia de seguridad
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administración de máquinas virtuales](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

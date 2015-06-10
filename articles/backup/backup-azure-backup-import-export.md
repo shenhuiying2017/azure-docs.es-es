@@ -26,7 +26,7 @@ Con la Copia de seguridad y la importación y exportación de Azure, es simple y
 
 ## Requisitos previos
 
-1. Es importante familiarizarse con el flujo de trabajo de exportación de importación de Azure que aparece [aquí](storage-import-export-service.md).
+1. Es importante familiarizarse con el flujo de trabajo de exportación de importación de Azure que aparece [aquí](../storage-import-export-service.md).
 
 2. Antes de iniciar el flujo de trabajo, asegúrese de que se ha creado un almacén de copia de seguridad de Azure, de que las credenciales de almacén se han descargado, el agente de Copia de seguridad de Azure se ha instalado en el servidor/cliente de Windows o en System Center Data Protection Manager (SCDPM) y la máquina está registrada con el almacén de copia de seguridad de Azure.
 
@@ -42,7 +42,7 @@ Con la Copia de seguridad y la importación y exportación de Azure, es simple y
 
 
 ## Flujo de trabajo
-La información proporcionada en esta sección es para completar el flujo de trabajo de **Copia de seguridad sin conexión**, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en el almacenamiento de Azure. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, vea la información general de servicio de importación a la que se ha hecho referencia [anteriormente](storage-import-export-service.md).
+La información proporcionada en esta sección es para completar el flujo de trabajo de **Copia de seguridad sin conexión**, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en el almacenamiento de Azure. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, vea la información general de servicio de importación a la que se ha hecho referencia [anteriormente](../storage-import-export-service.md).
 
 ### Iniciar la copia de seguridad sin conexión
 
@@ -119,7 +119,7 @@ Una vez completada la operación, se crea un archivo *. AIBBlob* y un archivo *.
 Una vez que los datos de copia de seguridad iniciales están disponibles en la cuenta de almacenamiento, el agente de copia de seguridad de Azure copia el contenido de los datos desde esta cuenta a la cuenta de almacenamiento de copia de seguridad de varios inquilinos. En la siguiente copia de seguridad de programación, el agente de Copia de seguridad de Azure realiza la copia de seguridad incremental sobre la copia de seguridad inicial.
 
 ## Pasos siguientes
-+ Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](storage-import-export-service.md).
++ Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](../storage-import-export-service.md).
 
 + Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
 
@@ -134,4 +134,4 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

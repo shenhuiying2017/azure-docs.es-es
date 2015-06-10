@@ -57,4 +57,4 @@ Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/en-in/docume
 + Para más información sobre la Copia de seguridad de Azure, vea [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425).
 + Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
