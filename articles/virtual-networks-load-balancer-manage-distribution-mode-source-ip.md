@@ -1,27 +1,24 @@
 <properties 
-	authors="danielceckert" 
-	documentationCenter="dev-center-name" 
-	editor=""
-	manager="jefco" 
-	pageTitle="Administrar: Modo de distribución del equilibrador de carga (afinidad de IP de origen)" 
-	description="Características de administración para el modo de distribución del equilibrador de carga de Azure" 
-	services="virtual-network" 
+   pageTitle="Administración: Modo de distribución del equilibrador de carga (afinidad de IP de origen)"
+   description="Características de administración para el modo de distribución del equilibrador de carga de Azure" 
+   services="virtual-network" 
+   documentationCenter="" 
+   authors="telmosampaio" 
+   manager="carolz" 
+   editor=""
    />
 
 <tags
-	ms.author="danecke"
-	ms.date="02/20/2015"
-	ms.devlang="na"
-	ms.service="virtual-network"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
+   ms.service="virtual-network"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="05/27/2015"
+   ms.author="telmos"
    />
-<!-- HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md-->
    
-# Administrar la red virtual: Modo de distribución del equilibrador de carga (afinidad de IP de origen)
-
-
+# Administrar la red virtual : Modo de distribución del equilibrador de carga (afinidad de IP de origen)
 **Afinidad de IP de origen** (también conocida como **afinidad de la sesión** o **afinidad de IP del cliente**), un modo de distribución del equilibrador de carga de Azure, enlaza las conexiones de un solo cliente a un único servidor hospedado de Azure, en lugar de distribuir cada conexión de cliente de manera dinámica a distintos servidores hospedados de Azure (el comportamiento del equilibrador de carga predeterminado).
 
 Al usar la afinidad de IP de origen, el equilibrador de carga de Azure se puede configurar para usar una combinación de 2-tupla (IP de origen, IP de destino) o una combinación de 3-tupla (IP de origen, IP de destino, protocolo) para asignar el tráfico al grupo de servidores hospedados de Azure disponibles. Cuando se usa la afinidad de IP de origen, un único extremo DIP (un único servidor hospedado de Azure) administra las conexiones iniciadas desde el mismo equipo cliente.
@@ -32,9 +29,9 @@ Afinidad de IP de origen resuelve una [incompatibilidad anterior entre el equili
 
 ## Implementación
 
-Afinidad de IP de origen se puede configurar para: 
+Afinidad de IP de origen se puede configurar para:
 
-* [Extremos de máquina virtual](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/)
+* [Extremos de máquina virtual](virtual-machines-set-up-endpoints.md)
 * [Conjuntos de extremo de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx)
 * [Roles web](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Roles de trabajo](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -53,32 +50,19 @@ Afinidad de IP de origen se puede configurar para:
 * El uso de la afinidad de IP de origen puede dar lugar a una distribución del tráfico desigual entre servidores hospedados de Azure.
 * El equilibrador de carga de Azure puede considerar a los clientes que enrutan su tráfico a través de un servidor proxy como un único cliente.
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-=======
-## Pasos siguientes
-* TBD
-   
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 ## Ejemplos de PowerShell
-Descargue [la última versión de PowerShell de Azure](https://github.com/Azure/azure-sdk-tools/releases) para obtener mejores resultados.
+Descargue la [última versión de Azure PowerShell](https://github.com/Azure/azure-sdk-tools/releases) para obtener mejores resultados.
 
 ### Agregar un extremo de Azure a una máquina virtual y establecer el modo de distribución del equilibrador de carga
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution "sourceIP"| Update-AzureVM  
-=======
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€"LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
 
-LoadBalancerDistribution puede establecerse en sourceIP para equilibrio de carga de 2-tupla (IP de origen, IP de destino), sourceIPProtocol para equilibrio de carga de 3-tupla (IP de origen, IP de destino, protocolo) o ninguno si desea el comportamiento predeterminado (equilibrio de carga de 5-tupla).  
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+
+LoadBalancerDistribution puede establecerse en sourceIP para equilibrio de carga de 2-tupla (IP de origen, IP de destino), sourceIPProtocol para equilibrio de carga de 3-tupla (IP de origen, IP de destino, protocolo) o ninguno si desea el comportamiento predeterminado (equilibrio de carga de 5-tupla).
 
 ### Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
-
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    PS C:> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
-=======
-    PS C:> Get-AzureVM â€"ServiceName â€œMyServiceâ€� â€"Name â€œMyVMâ€� | Get-AzureEndpoint
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    PS C:> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -102,11 +86,9 @@ Si el elemento LoadBalancerDistribution no está presente, el equilibrador de ca
 
 ### Establecer el modo de distribución en un conjunto de extremo de carga equilibrada
 
-<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -LoadBalancerDistribution "sourceIP"
-=======
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€"LoadBalancerDistribution "sourceIP"
->>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
     
 Si los extremos forman parte de un conjunto de extremo de carga equilibrada, el modo de distribución debe establecerse en el conjunto de extremo de carga equilibrada.
 
@@ -114,7 +96,7 @@ Si los extremos forman parte de un conjunto de extremo de carga equilibrada, el 
 
 Puede aprovechar el SDK de Azure para .NET para actualizar el servicio en la nube.
 
-La configuración de extremo para los servicios en la nube se realiza en el .csdef. Para actualizar el modo de distribución del equilibrador de carga para una implementación de servicios en la nube, se requiere una actualización de la implementación.
+La configuración de extremo para los servicios en la nube se realiza en el archivo .csdef. Para actualizar el modo de distribución del equilibrador de carga para una implementación de servicios en la nube, se requiere una actualización de la implementación.
 
 Este es un ejemplo de los cambios de .csdef para la configuración de extremo:
 
@@ -136,7 +118,7 @@ Este es un ejemplo de los cambios de .csdef para la configuración de extremo:
     
 ## Ejemplos de API
 
-Los desarrolladores pueden configurar la distribución del equilibrador de carga con la API de administración de servicios.  Asegúrese de agregar el encabezado x-ms-version y que esté establecido en la versión 2014-09-01 o posterior.
+Los desarrolladores pueden configurar la distribución del equilibrador de carga con la API de administración de servicios. Asegúrese de agregar el encabezado x-ms-version y que esté establecido en la versión 2014-09-01 o posterior.
 
 ### Actualizar la configuración del conjunto de carga equilibrada especificado en una implementación
 
@@ -168,7 +150,7 @@ Los desarrolladores pueden configurar la distribución del equilibrador de carga
 
 El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tupla, sourceIPProtocol para la afinidad de 3-tupla o ninguno (sin afinidad, es decir, 5-tupla).
 
-#### Respuesta
+#### Response
 
     HTTP/1.1 202 Accepted 
     Cache-Control: no-cache 
@@ -178,4 +160,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
 
-<!--HONumber=47-->
+<!---HONumber=58-->

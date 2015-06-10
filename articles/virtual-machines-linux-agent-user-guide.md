@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Guía de usuario del Agente de Linux para Azure" 
 	description="Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure." 
 	services="virtual-machines" 
@@ -13,10 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2014" 
-	ms.author="szarkos"/>
-
-
+	ms.date="04/07/2015" 
+	ms.author="szark"/>
 
 
 
@@ -24,7 +22,7 @@
 
 ##Introducción
 
-El Agente de Linux de Azure (waagent) administra la interacción de la máquina virtual con el controlador de tejido de Azure. Hace lo siguiente:
+El agente de Linux de Azure (/usr/sbin/waagent) administra la interacción de la máquina virtual con el controlador de tejido de Azure. Hace lo siguiente:
 
 * **Aprovisionamiento de imágenes**
   - Crea una cuenta de usuario
@@ -47,6 +45,12 @@ El Agente de Linux de Azure (waagent) administra la interacción de la máquina 
   - Remite la consola al puerto serie
 * **Implementaciones de SCVMM**
     - Detecta y arranca el agente VMM para Linux cuando se ejecuta en un entorno de System Center Virtual Machine Manager 2012 R2
+* **Extensión de máquina virtual**
+    - Inserta un componente creado por Microsoft y sus socios en la VM de Linux (IaaS) para habilitar software y automatización de la configuración
+    - Implementación de la referencia de la extensión de máquina virtual en [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+
+
+##Comunicación
 
 El flujo de información desde la plataforma hasta el agente se produce a través de dos canales:
 
@@ -58,10 +62,14 @@ El flujo de información desde la plataforma hasta el agente se produce a travé
 Puede obtener el Agente de Linux más reciente directamente de:
 
 - [Los diferentes proveedores de distribución que admiten Linux en Azure](http://support.microsoft.com/kb/2805216)
-- o del [repositorio de código abierto de Github para el Agente de Linux de Azure](https://github.com/WindowsAzure/WALinuxAgent)
+- O del [repositorio de código abierto de GitHub para el Agente de Linux de Azure](https://github.com/Azure/WALinuxAgent)
 
+
+## Requisitos
+Los siguientes sistemas se han probado y se sabe que funcionan con el agente de Linux de Azure. **Tenga en cuenta que esta lista puede diferir de la lista oficial de sistemas compatibles en la plataforma Microsoft Azure**, como se describe aquí: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 
 ###Distribuciones de Linux compatibles
+
 * CoreOS
 * CentOS 6.2+
 * Debian 7.0+
@@ -72,29 +80,28 @@ Puede obtener el Agente de Linux más reciente directamente de:
 
 Otros sistemas compatibles:
 
-* FreeBSD 9+ (WALinuxAgent v2.0.0+)
+* FreeBSD 9+ (Agente Linux de Azure v2.0.10+)
 
 
-###Requisitos
+El agente de Linux depende de algunos paquetes de sistema para funcionar correctamente:
 
-Waagent depende de algunos paquetes de sistema para funcionar correctamente:
-
-* Python 2.5+
+* Python 2.6
 * Openssl 1.0+
 * Openssh 5.3+
-* Utilidades del sistema de archivos: sfdisk, fdisk, mkfs
+* Utilidades del sistema de archivos: sfdisk, fdisk, mkfs, parted
 * Herramientas de contraseña: chpasswd, sudo
 * Herramientas de procesamiento de texto: sed, grep
 * Herramientas de red: ip-route
 
+
 ##Instalación
 
-La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el Agente de Linux de Azure.
+La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure.
 
-Si se va a realizar una instalación manual, se debe copiar waagent a /usr/sbin/waagent e instalarse mediante la ejecución de: 
+Si se va a realizar una instalación manual, se debe copiar el script 'waagent' en /usr/sbin/waagent e instalarse mediante la ejecución de:
 
 	# sudo chmod 755 /usr/sbin/waagent
-	# /usr/sbin/waagent -install -verbose
+	# sudo /usr/sbin/waagent -install -verbose
 
 El archivo de registro del agente se guarda en /var/log/waagent.log.
 
@@ -121,7 +128,7 @@ El archivo de registro del agente se guarda en /var/log/waagent.log.
 
  * Detecta la versión del kernel y aplica la solución alternativa VNUMA si es necesario
 
- * Mueve las reglas de udev que pueden interferir con la red (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) a /var/lib/waagent/  
+ * Mueve las reglas de udev que pueden interferir con la red (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) a /var/lib/waagent/
 
 - uninstall: Quita waagent y los archivos asociados
  * Quita del registro el script init del sistema y lo elimina
@@ -132,7 +139,7 @@ El archivo de registro del agente se guarda en /var/log/waagent.log.
 
  * No se admite la reversión automática de la solución alternativa VNUMA, edite los archivos de configuración de GRUB manualmente para volver a habilitar NUMA, si es necesario.
 
-- deprovision: Intento de limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. Esta operación eliminó lo siguiente:
+- deprovision: Intenta limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. Esta operación eliminó lo siguiente:
  * Todas las claves de host de SSH (si Provisioning.RegenerateSshHostKeyPair es "y" en el archivo de configuración)
 
  * Configuración de Nameserver en /etc/resolv.conf
@@ -149,17 +156,13 @@ El archivo de registro del agente se guarda en /var/log/waagent.log.
 
 - version: Muestra la versión de waagent
 
-- serialconsole: Configura GRUB para marcar ttyS0 (el primer puerto serie) como
-   la consola de arranque. Garantiza que los registros de arranque del kernel se envían al
-   puerto serie y están disponibles para depuración.
+- serialconsole:Configura GRUB para marcar ttyS0 (el primer puerto serie) como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen al puerto serie y queden disponibles para depurarlos.
 
-- daemon: Ejecuta waagent como demonio para administrar la interacción con la plataforma.
-   Este argumento se especifica en waagent en el script init de waagent.
+- daemon: Ejecuta waagent como un daemon para administrar la interacción con la plataforma. Este argumento se especifica en waagent en el script init de waagent.
 
 ##Configuración
 
-Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. 
-Abajo se muestra un archivo de configuración de ejemplo:
+Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. Abajo se muestra un archivo de configuración de ejemplo:
 	
 	#
 	# Azure Linux Agent Configuration	
@@ -182,50 +185,43 @@ Abajo se muestra un archivo de configuración de ejemplo:
 	OS.RootDeviceScsiTimeout=300
 	OS.OpensslPath=None
 
-A continuación se describen en detalle las diferentes opciones de configuración. 
-Las opciones de configuración son de tres tipos: booleana, cadena o entero. 
-Las opciones de configuración booleana se pueden especificar como "y" o "n". 
-La palabra clave especial "None" se puede usar para algunas entradas de la configuración tipo cadena como se detalla a continuación.
+A continuación se describen en detalle las diferentes opciones de configuración. Las opciones de configuración son de tres tipos: Boolean, String o Integer. Las opciones de configuración booleana se pueden especificar como "y" o "n". La palabra clave especial "None" se puede usar para algunas entradas de la configuración tipo cadena como se detalla a continuación.
 
 **Role.StateConsumer:**
 
-Tipo: String  
-Predeterminado: None
+Tipo: String Predeterminado: None
 
 Si se específica una ruta a un programa ejecutable, se invoca cuando waagent ha aprovisionado la imagen y el estado "Ready" está a punto de informarse al tejido. El argumento especificado para el programa será "Ready". El agente no esperará a que el programa regrese antes de continuar.
 
 **Role.ConfigurationConsumer:**
 
-Tipo: String  
-Predeterminado: None
+Tipo: String Predeterminado: None
 
 Si se especifica una ruta a un programa ejecutable, el programa se invoca cuando el Tejido indica que hay un archivo de configuración disponible para la máquina virtual. La ruta al archivo de configuración XML se proporciona como un argumento para el ejecutable. Este se puede invocar todas las veces que el archivo de configuración cambia. En el Anexo se proporciona un archivo de muestra. La ruta actual de este archivo es /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
-Tipo: String  
-Predeterminado: None
+Tipo: String Predeterminado: None
 
 Si se específica una ruta a un programa ejecutable, el programa se invoca cuando el Tejido indica que hay un nuevo diseño de topología de red disponible para la máquina virtual. La ruta del archivo de configuración XML se proporciona como un argumento para el ejecutable. Este se puede invocar varias veces cada vez que la topología de red cambia (debido a, por ejemplo, la recuperación del servicio). En el Anexo se proporciona un archivo de muestra. La ubicación actual de este archivo es /var/lib/waagent/SharedConfig.xml.
 
 **Provisioning.Enabled:**
 
-Tipo: Boolean  
-Predeterminado: y
+Tipo: Boolean Predeterminado: y
 
 Esta opción permite que el usuario habilite o deshabilite la funcionalidad de aprovisionamiento en el agente. Los valores válidos son "y" o "n". Si se deshabilita el aprovisionamiento, se mantiene el host SSH y las claves de usuario en la imagen y se ignora toda configuración que se especifique en la API de aprovisionamiento de Azure.
 
+	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+
 **Provisioning.DeleteRootPassword:**
 
-Tipo: Boolean  
-Predeterminado: n
+Tipo: Boolean Predeterminado: n
 
 Si se establece, se borra la contraseña raíz en el archivo /etc/shadow durante el proceso de aprovisionamiento.
 
 **Provisioning.RegenerateSshHostKeyPair:**
 
-Tipo: Boolean  
-Predeterminado: y
+Tipo: Boolean Predeterminado: y
 
 Si se establece, se eliminan todos los pares de clave de host de SSH (ecdsa, dsa y rsa) durante el proceso de aprovisionamiento desde /etc/ssh/. Además, se genera un solo par de clave nuevo.
 
@@ -233,190 +229,90 @@ El tipo de cifrado para el par de clave nuevo se puede configurar mediante la en
 
 **Provisioning.SshHostKeyPairType:**
 
-Tipo: String  
-Predeterminado: rsa
+Tipo: String Predeterminado: rsa
 
 Esta opción se puede establecer en un tipo de algoritmo de cifrado que es compatible con el demonio de SSH en la máquina virtual. Los valores generalmente admitidos son "rsa", "dsa" y "ecdsa". Tenga en cuenta que "putty.exe" en Windows no admite "ecdsa". Por lo tanto, si pretende usar putty.exe en Windows para conectarse a una implementación de Linux, use "rsa" o "dsa".
 
 **Provisioning.MonitorHostName:**
 
-Tipo: Boolean  
-Predeterminado: y
+Tipo: Boolean Predeterminado: y
 
 Si se configura, waagent supervisará la máquina virtual de Linux en busca de cambios en el nombre de host (según los devuelve el comando "hostname") y actualizará automáticamente la configuración de red en la imagen para reflejar el cambio. Para insertar el cambio de nombre en los servidores DNS, la red se reiniciará en la máquina virtual. Esta acción tiene como resultado una breve pérdida de la conectividad con Internet.
 
 **ResourceDisk.Format:**
 
-Tipo: Boolean  
-Predeterminado: y
+Tipo: Boolean Predeterminado: y
 
 Si se establece, el disco de recursos proporcionado por la plataforma se formatea y se monta a través de waagent si el tipo de sistema de archivos solicitado por el usuario en "ResourceDisk.Filesystem" es cualquiera, salvo "ntfs". Se dejará disponible una sola partición de tipo Linux (83) en el disco. Tenga en cuenta que esta partición no se va a formatear si se puede montar correctamente.
 
 **ResourceDisk.Filesystem:**
 
-Tipo: String  
-Predeterminado: ext4
+Tipo: String Predeterminado: ext4
 
 De esta manera se especifica el tipo de sistema de archivos para el disco de recursos. Los valores admitidos varían según la distribución de Linux. Si la cadena es X, entonces mkfs.X debe estar presente en la imagen de Linux. Las imágenes de SLES 11 deben usar generalmente "ext3". Las imágenes de FreeBSD deben usar "ufs2".
 
 **ResourceDisk.MountPoint:**
 
-Tipo: String  
-Predeterminado: /mnt/resource 
+Tipo: String Predeterminado: / mnt/resource
 
-Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco  *temporary* que debe vaciarse cuando la máquina virtual se desaprovisiona.
+Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona.
 
 **ResourceDisk.EnableSwap:**
 
-Tipo: Boolean  
-Predeterminado: n 
+Tipo: Boolean Predeterminado: n
 
 Si se establece, se crea un archivo de intercambio (/swapfile) en el disco de recursos y se agrega al espacio de intercambio del sistema.
 
 **ResourceDisk.SwapSizeMB:**
 
-Tipo: entero  
-Predeterminado: 0
+Tipo: Integer Predeterminado: 0
 
 El tamaño del archivo de intercambio en megabytes.
 
 **LBProbeResponder:**
 
-Tipo: Boolean  
-Predeterminado: y
+Tipo: Boolean Predeterminado: y
 
 Si se establece, waagent responderá a las sondas del equilibrador de carga desde la plataforma (si está presente).
 
 **Logs.Verbose:**
 
-Tipo: Boolean  
-Predeterminado: n
+Tipo: Boolean Predeterminado: n
 
 Si se establece, se aumenta el nivel de detalle del registro. Waagent crea los registros en /var/log/waagent.log y aprovecha la funcionalidad logrotate del sistema para alternar los registros.
 
 **OS.RootDeviceScsiTimeout:**
 
-Tipo: entero  
-Predeterminado: 300
+Tipo: Integer Predeterminado: 300
 
 Esta opción configura el tiempo de espera SCSI en segundos en el disco del SO y las unidades de datos. Si no se establece, se usan los valores predeterminados del sistema.
 
 **OS.OpensslPath:**
 
-Tipo: String  
-Predeterminado: None
+Tipo: String Predeterminado: None
 
 Esta opción se puede usar para especificar una ruta alternativa para que el binario openssl la use para las operaciones criptográficas.
 
-##Anexo
 
-###Archivo de configuración de rol de muestra
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
-	  <StoredCertificates>
-	    <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
-	  </StoredCertificates>
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_2" guid="{5c87ab8b-2f6a-4758-9f74-37e68c3e957b}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" hostingEnvironmentVersion="1" software="" softwareType="ApplicationPackage" entryPoint="" parameters="" settleTimeSeconds="10" />
-	  <HostingEnvironmentSettings name="full" Runtime="rd_fabric_stable.111026-1712.RuntimePackage_1.0.0.9.zip">
-	    <CAS mode="full" />
-	    <PrivilegeLevel mode="max" />
-	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
-	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
-	      <Setting name="startpage" value="Hello World!" />
-	      <Setting name="Certificate|Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" value="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" />
-	    </ApplicationSettings>
-	    <ResourceReferences>
-	      <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore" disableQuota="false" />
-	    </ResourceReferences>
-	  </HostingEnvironmentConfig>
+##Ubuntu Cloud Images
 
-###Archivo de topología de rol de muestra
+Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para realizar muchas tareas de configuración que de lo contrario, serían administradas por el agente Linux de Azure. Tenga en cuenta las siguientes diferencias:
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<SharedConfig version="1.0.0.0" goalStateIncarnation="2">
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_1" guid="{a7b94774-db5c-4007-8707-0b9e91fd808d}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" settleTimeSeconds="10" />
-	  <LoadBalancerSettings timeoutSeconds="32" waitLoadBalancerProbeCount="8">
-	    <Probes>
-	      <Probe name="LinuxVM" />
-	      <Probe name="03F7F19398C4358108B7ED059966EEBD" />
-	      <Probe name="47194D0E3AB3FCAD621CAAF698EC82D8" />
-	    </Probes>
-	  </LoadBalancerSettings>
-	  <OutputEndpoints>
-	    <Endpoint name="LinuxVM:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" type="SFS">
-	      <Target instance="LinuxVM_IN_0" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_1" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_2" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	    </Endpoint>
-	  </OutputEndpoints>
-	  <Instances>
-	    <Instance id="LinuxVM_IN_1" address="10.115.38.202">
-	      <FaultDomains randomId="1" updateId="1" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="HTTP" address="10.115.38.202:80" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:80" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="80" to="80" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.38.202:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	          <RemoteInstances>
-	            <RemoteInstance instance="LinuxVM_IN_0" />
-	            <RemoteInstance instance="LinuxVM_IN_2" />
-	          </RemoteInstances>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" address="10.115.38.202:20000" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:3389" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="20000" to="20000" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="SSH" address="10.115.38.202:22" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:22" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="22" to="22" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_0" address="10.115.58.82">
-	      <FaultDomains randomId="0" updateId="0" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.82:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_2" address="10.115.58.148">
-	      <FaultDomains randomId="0" updateId="2" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.148:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	  </Instances>
-	</SharedConfig>
 
-<!--HONumber=45--> 
+- **Provisioning.Enabled** toma el valor predeterminado "n" en Ubuntu Cloud Images que utilizan cloud-init para realizar tareas de aprovisionamiento.
+
+- Los parámetros de configuración siguientes no tienen ningún efecto en Ubuntu Cloud Images que usan cloud-init para administrar el disco de recursos y el espacio de intercambio:
+
+ - **ResourceDisk.Format**
+ - **ResourceDisk.Filesystem**
+ - **ResourceDisk.MountPoint**
+ - **ResourceDisk.EnableSwap**
+ - **ResourceDisk.SwapSizeMB**
+
+- Consulte los recursos siguientes para configurar el punto de montaje del disco de recursos e intercambiar espacio en Ubuntu Cloud Images durante el aprovisionamiento:
+
+ - [Ubuntu Wiki: Configure Swap Partitions (Configuración de particiones de intercambio)](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+ - [Inyección de datos personalizados en una máquina virtual de Azure](./virtual-machines-how-to-inject-custom-data.md)
+
+<!---HONumber=58-->

@@ -1,20 +1,6 @@
-Una vez que haya registrado la aplicación en APNS y haya configurado el proyecto, debe configurar la aplicación móvil para que se integre con APNS.
 
-1. En Acceso a llaves, haga clic con el botón secundario en el nuevo certificado de la aplicación de inicio rápido en **Llaves** o **Mis certificados**, haga clic en  **Exportar**, asigne como nombre de archivo QuickstartPusher, seleccione el formato **.p12** y haga clic en **Guardar**.
+* Siga los pasos que aparecen en [Instalación de una identidad de firma SSL de cliente en el servidor](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15) para exportar el certificado que descargó en el paso anterior a un archivo .p12.
 
-   	![](./media/mobile-services-apns-configure-push/mobile-services-ios-push-step18.png)
+* En el Portal de vista previa de Azure, haga clic en **Examinar** > **Aplicaciones móviles** > su aplicación > **Servicios de notificaciones push** > **Servicios de notificaciones push de Apple** > **Cargar certificado**. Cargue el archivo .p12 y asegúrese de que esté seleccionado el **modo** correcto (ya sea Espacio aislado o Producción, que dependerá si generó un certificado SSL de cliente de Desarrollo o Distribución). El servicio ahora está configurado para trabajar con las notificaciones push en iOS.
 
-    Anote el nombre de archivo y la ubicación del certificado exportado.
-
->[AZURE.NOTE]Con este tutorial se crea un archivo QuickstartPusher.p12. El nombre del archivo y la ubicación pueden ser diferentes.
-
-2. Inicie sesión en el  [Portal de vista previa de Azure], seleccione **Examinar**, **Aplicaciones móviles** y, a continuación, haga clic en la aplicación. Haga clic en los servicios de notificaciones de inserción.
-
-3. En el Servicio de notificaciones push de Apple, cargue el certificado con el archivo **.p12** y la contraseña asociada con él, y seleccione el modo deseado.
-
-La aplicación móvil del Servicio de aplicaciones ya está configurada para poder funcionar con APNS.
-
-<!-- URLs. -->
-[Portal de vista previa de Azure]: https://portal.azure.com/
-
-<!--HONumber=54-->
+<!---HONumber=58-->

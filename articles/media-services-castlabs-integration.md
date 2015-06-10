@@ -1,0 +1,115 @@
+<properties 
+	pageTitle="Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure" 
+	description="En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="05/12/2015" 
+	ms.author="juliako"/>
+
+
+#Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure
+
+##Información general
+
+En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias de PlayReady de Servicios multimedia y la licencia de Widevine se entrega por el servidor de licencias **castLabs**.
+
+En el siguiente diagrama se muestra una arquitectura de integración de castLabs y Servicios multimedia de Azure de alto nivel.
+
+![Página de escala](./media/media-services-with-castlabs/media-services-castlabs-integration.png)
+
+##Configuración de sistema típico
+
+- El contenido multimedia se almacena en AMS.
+- Los id. de clave de claves de contenido se almacenan en castLabs y AMS.
+- Tanto castLabs como AMS tienen la autenticación de tokens integrada. En las secciones siguientes se analizan los tokens de autenticación. 
+- Cuando un cliente solicita el flujo de vídeo, el contenido se cifra dinámicamente con **cifrado común** (CENC) y se empaqueta dinámicamente por AMS a cualquiera de los protocolos especificados (o a todos ellos): Smooth Streaming, HLS o DASH. 
+- La licencia de PlayReady se recupera del servidor de licencias de AMS y la licencia de Widevine se recupera del servidor de licencias de castLabs. 
+- El reproductor multimedia decide automáticamente qué licencia capturar basándose en la capacidad de la plataforma del cliente. 
+
+##Generación de tokens de autenticación para obtener una licencia
+
+Tanto castLabs como AMS admiten el formato de token JWT (token web JSON) usado para autorizar una licencia.
+
+###Token JWT en AMS 
+
+En la tabla siguiente se describen los tokens JWT en AMS.
+
+<table border="1">
+<tr><td>Emisor</td><td>Cadena de emisor desde el servicio de tokens seguro (STS) elegido</td></tr>
+<tr><td>Público</td><td>Cadena de audiencia del STS usado</td></tr>
+<tr><td>Notificaciones</td><td>Un conjunto de notificaciones</td></tr>
+<tr><td>NotBefore</td><td>Iniciar la validez del token</td></tr>
+<tr><td>Expira</td><td>Finalizar la validez del token</td></tr>
+<tr><td>SigningCredentials</td><td>La clave que se comparte entre el servidor de licencias de PlayReady, el servidor de licencias de castLabs y STS; podría ser una clave simétrica o asimétrica.</td></tr>
+</table>
+
+###Token JWT en castLabs
+
+En la tabla siguiente se describen los tokens JWT en castLabs.
+
+<table border="1">
+<tr><td>optData</td><td>Cadena JSON que contiene información sobre el usuario. </td></tr>
+<tr><td>crt</td><td>Cadena JSON que contiene información sobre el activo, su información de licencia y derechos de reproducción.</td></tr>
+<tr><td>iat</td><td>La fecha y hora actual en la época.</td></tr>
+<tr><td>jti</td><td>Identificador único sobre este token (cada token solo puede usarse una vez en el sistema castLabs).</td></tr>
+</table>
+
+##Configuración de soluciones de ejemplo 
+
+La [solución de ejemplo](https://github.com/AzureMediaServicesSamples/CastlabsIntegration) consta de dos proyectos:
+
+-	Una aplicación de consola que puede usarse para establecer restricciones de DRM en un activo ya introducido, tanto para PlayReady como para Widevine.
+-	Una aplicación web que distribuye tokens, que podrían considerarse como una versión MUY SIMPLIFICADA de un STS.
+
+
+Para usar la aplicación de consola:
+
+1.	Cambie el archivo app.config para configurar las credenciales de AMS, las credenciales de castLabs, la configuración de STS y la clave compartida.
+2.	Cargue un activo en AMS.
+3.	Obtenga el UUID del recurso cargado y cambie la línea 32 del archivo Program.cs:
+
+		 var objIAsset = _context.Assets.Where(x => x.Id == "nb:cid:UUID:dac53a5d-1500-80bd-b864-f1e4b62594cf").FirstOrDefault();
+
+4.	Use un AssetId para asignar un nombre al activo del sistema castLabs (línea 44 del archivo Program.cs).
+
+	Debe establecer AssetId para **castLabs**; debe ser una cadena alfanumérica única.
+
+5.	Ejecute el programa.
+
+
+Para usar la aplicación web (STS):
+
+1.	Cambie el archivo web.config para configurar el id. de comerciante de castlabs, la configuración de STS y la clave compartida.
+2.	Implemente en Sitios web de Azure.
+3.	Vaya al sitio web.
+
+##Reproducir un vídeo
+
+Para reproducir un vídeo cifrado con cifrado común (PlayReady y Widevine), puede usar el [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Cuando se ejecuta la aplicación de consola, se reflejan el id. de clave de contenido y la dirección URL del manifiesto.
+
+1.	Abra una pestaña nueva e inicie su STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
+2.	Vaya al [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+3.	Pegue la dirección URL de streaming.
+4.	Haga clic en la casilla **Opciones avanzadas**.
+5.	Seleccione PlayReady en la lista desplegable **Protección**.
+6.	Pegue el token que obtuvo de su STS en el cuadro de texto Token.
+7.	Actualice el reproductor.
+8.	El vídeo se debe estar reproduciendo.
+
+Para reproducir el vídeo protegido en HTML5 con Chrome con el reproductor de castLabs, póngase en contacto con castLabs para obtener acceso al reproductor. Cuando tenga acceso, hay 2 cosas que debe tener en cuenta:
+
+1.	El reproductor de castLabs necesita acceder al archivo de manifiesto de MPEG-DASH; por tanto, anexe (format=mpd-time-csf) al archivo de manifiesto para obtener el archivo de manifiesto de MPEG-DASH, en lugar del Smooth Streaming predeterminado.
+
+2.	El servidor de licencias de castLab no necesita el prefijo “Bearer=” delante del token. Por tanto, quítelo antes de enviar el token.
+
+<!---HONumber=58-->

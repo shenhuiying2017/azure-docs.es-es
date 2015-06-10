@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
-	ms.author="szarkos"/>
+	ms.date="05/15/2015" 
+	ms.author="szark"/>
 
 # Preparación de una máquina virtual Oracle Linux para Azure
 
 - [Preparación de una máquina virtual Oracle Linux 6.4+ para Azure](#oracle6)
-- [Preparación de una máquina virtual Oracle Linux 7.0 y posteriores para Azure](#oracle7)
+- [Preparación de una máquina virtual Oracle Linux 7.0+ para Azure](#oracle7)
 
 ##Requisitos previos##
 
-En este artículo se supone que ya ha instalado un sistema operativo Oracle Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones al respecto, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+En este artículo se supone que ya ha instalado un sistema operativo Oracle Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 
 **Notas sobre la instalación de Oracle Linux**
@@ -34,11 +34,11 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 
 - el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas.  LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
+- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
 
 - NUMA no se admite para tamaños de máquina virtual más grandes debido a un error en las versiones del kernel de Linux anteriores a la 2.6.37. Este problema afecta principalmente a las distribuciones que usan el kernel Red Hat 2.6.32 de canal de subida. La instalación manual del agente de Linux de Azure (waagent) deshabilitará automáticamente NUMA en la configuración GRUB para el kernel de Linux. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 
-- No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal.  Puede encontrar más información al respecto en los pasos que vienen a continuación.
+- No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
@@ -55,7 +55,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 		# sudo rpm -e --nodeps NetworkManager
 
-	**Nota:** si el paquete no está instalado, el comando fallará con un mensaje de error. Esto es lo esperado.
+	**Nota:** si el paquete todavía no está instalado, se producirá un mensaje de error en este comando. Se espera que esto sea así.
 
 4.	Cree un archivo llamado **network** en el directorio `/etc/sysconfig/` que contenga el texto siguiente:
 
@@ -72,7 +72,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Mueva (o elimine) las reglas udev para impedir que se generen reglas estáticas para la interfaz Ethernet.  Estas reglas causan problemas al clonar una máquina virtual en Azure o Hyper-V:
+6.	Mueva (o elimine) las reglas udev para impedir que se generen reglas estáticas para la interfaz Ethernet. Estas reglas causan problemas al clonar una máquina virtual en Azure o Hyper-V:
 
 		# sudo mkdir -m 0700 /var/lib/waagent
 		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
@@ -92,16 +92,16 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Esto deshabilitará NUMA debido a un error en el kernel compatible Red Hat de Oracle.
 
-	Además de lo anterior, se recomienda eliminar (*remove*) los parámetros siguientes:
+	Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
 
 		rhgb quiet crashkernel=auto
 
 	Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie.
 
-	Es posible dejar la opción  `crashkernel` configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de VM más reducidos.
+	Es posible dejar la opción `crashkernel` configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de VM más reducidos.
 
 
-10.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
+10.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
 11. Instale el Agente de Linux de Azure ejecutando el comando siguiente:
 
@@ -111,7 +111,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 12.	No cree espacio de intercambio en el disco del SO.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -125,7 +125,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 		# export HISTSIZE=0
 		# logout
 
-14. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+14. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
 
 ----------
@@ -137,7 +137,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar a Oracle Linux 6, aunque hay varias diferencias importantes que es necesario tener en cuenta:
 
- - Tanto el kernel compatible Red Hat como el UEK3 de Oracle se admiten en Azure.  Se recomienda el kernel UEK3.
+ - Tanto el kernel compatible Red Hat como el UEK3 de Oracle se admiten en Azure. Se recomienda el kernel UEK3.
  - El paquete NetworkManager ya no entra en conflicto con el agente de Linux de Azure. Este paquete está instalado de manera predeterminada y recomendamos que no se quite.
  - GRUB2 se utiliza ahora como cargador de arranque predeterminado; por ello, el proceso de edición de los parámetros de kernel ha cambiado (ver más adelante).
  - XFS es ahora el sistema de archivos predeterminado. El sistema de archivos ext4 se puede seguir utilizando si así se desea.
@@ -147,7 +147,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 1. En el Administrador de Hyper-V, seleccione la máquina virtual.
 
-2. Haga clic en **Conectar** para abrir la ventana de consola de la máquina virtual.
+2. Haga clic en **Conectar** para abrir una ventana de consola de la máquina virtual.
 
 3.	Cree un archivo llamado **network** en el directorio `/etc/sysconfig/` que contenga el texto siguiente:
 
@@ -183,24 +183,24 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.	Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro  `GRUB_CMDLINE_LINUX`; por ejemplo:
+9.	Modifique la línea de arranque de kernel de su configuración grub para que incluya parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto y edite el parámetro `GRUB_CMDLINE_LINUX`; por ejemplo:
 
 		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda eliminar (*remove*) los parámetros siguientes:
+	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. Además de lo anterior, se recomienda *quitar* los parámetros siguientes:
 
 		rhgb quiet crashkernel=auto
 
 	Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie.
 
-	Es posible dejar la opción  `crashkernel` configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de VM más reducidos.
+	Es posible dejar la opción `crashkernel` configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de VM más reducidos.
 
 
 10. Una vez que haya finalizado de editar "/etc/default/grub" como se indica anteriormente, ejecute el comando siguiente para volver a compilar la configuración de grub:
 
 		# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-11.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
+11.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
 12. Instale el Agente de Linux de Azure ejecutando el comando siguiente:
 
@@ -208,7 +208,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 13.	No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -222,8 +222,6 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 		# export HISTSIZE=0
 		# logout
 
-15. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+15. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

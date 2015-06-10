@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación y carga de un VHD de Ubuntu Linux en Azure" 
 	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Ubuntu Linux." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="05/15/2015" 
 	ms.author="szarkos"/>
 
 
@@ -21,15 +21,15 @@
 
 ##Requisitos previos##
 
-En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones al respecto, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linux en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones, consulte [Instalación del rol de Hyper-V y configuración de una máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Notas de instalación de Ubuntu**
 
 - el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas.  LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
+- Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas. LVM o [RAID](virtual-machines-linux-configure-raid.md) se pueden utilizar en discos de datos si así se prefiere.
 
-- No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal.  Puede encontrar más información al respecto en los pasos que vienen a continuación.
+- No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
@@ -58,12 +58,12 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
 		# sudo apt-get update
 
-	Ubuntu 14.04+:
+	Ubuntu 14.04+
 
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Actualice el sistema operativo con el kernel más reciente ejecutando los comandos siguientes: 
+4. Actualice el sistema operativo con el kernel más reciente ejecutando los comandos siguientes:
 
 	Ubuntu 12.04:
 
@@ -81,7 +81,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 		# sudo reboot
 	
-	Ubuntu 14.04+:
+	Ubuntu 14.04+
 
 		# sudo apt-get update
 		# sudo apt-get install hv-kvp-daemon-init
@@ -93,26 +93,26 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 	a) Abra el archivo /etc/grub.d/00_header.
 
-	b) En la función **make_timeout()**, busque **if ["\${recordfail}" = 1 ]; then**
+	b) En la función **make_timeout()**, busque **if ["\${recordfail}" = 1 ]; a continuación**
 
 	c) Cambie la instrucción que se encuentra debajo de esta línea a **set timeout=5**.
 
 	d) Ejecute 'sudo update-grub'.
 
-6. Modifique la línea de arranque de kernel para que Grub incluya los parámetros de kernel adicionales para Azure. Para ello, abra /etc/default/grub en un editor de texto, busque la variable llamada  `GRUB_CMDLINE_LINUX_DEFAULT` (o agréguela si fuera necesario) y edítela para que incluya los parámetros siguientes:
+6. Modifique la línea de arranque de kernel para que Grub incluya los parámetros de kernel adicionales para Azure. Para ello, abra "/etc/default/grub" en un editor de texto, busque la variable llamada`GRUB_CMDLINE_LINUX_DEFAULT` (o agréguela si fuera necesario) y edítela para que incluya los parámetros siguientes:
 
-		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
+		GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	Guarde el archivo, ciérrelo y, a continuación, ejecute '`sudo update-grub`'. Así se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. 
+	Guarde el archivo, ciérrelo y, a continuación, ejecute '`sudo update-grub`'. Así se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores.
 
-8.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
+8.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
 
 9.	Instale el Agente de Linux de Azure:
 
 		# sudo apt-get update
 		# sudo apt-get install walinuxagent
 
-	Tenga en cuenta que al instalar el paquete  `walinuxagent` se eliminan los paquetes  `NetworkManager` y  `NetworkManager-gnome`, si están instalados.
+	Tenga en cuenta que al instalar el paquete `walinuxagent` se eliminan los paquetes `NetworkManager` y `NetworkManager-gnome`, si están instalados.
 
 10.	Ejecute los comandos siguientes para desaprovisionar la máquina virtual y prepararla para aprovisionarse en Azure:
 
@@ -120,8 +120,6 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 		# export HISTSIZE=0
 		# logout
 
-11. Haga clic en **Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
+11. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

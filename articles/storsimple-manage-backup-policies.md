@@ -1,0 +1,87 @@
+<properties 
+   pageTitle="Administración de directivas de copia de seguridad de StorSimple"
+   description="Explica cómo se puede usar el Servicio de Administrador de StorSimple para crear y administrar trabajos de copia de seguridad y programaciones de copia de seguridad."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="05/22/2015"
+   ms.author="alkohli" />
+
+# Administración de directivas de copia de seguridad de StorSimple
+
+## Información general
+
+Este tutorial explica cómo utilizar la página **Directivas de copia de seguridad** del  Servicio de Administrador de StorSimple para controlar los procesos de copia de seguridad y la retención de copias de seguridad de los volúmenes de StorSimple. También describe cómo realizar copias de seguridad manuales.
+
+La página **Directivas de copia de seguridad** permite administrar las directivas de copia de seguridad y programar instantáneas locales y en la nube. (Las directivas de copia de seguridad se usan para configurar las programaciones de copia de seguridad y la retención de copias de seguridad de una colección de volúmenes). Esta página enumera las directivas de copia de seguridad, sus tipos, los volúmenes asociados, el número de copias de seguridad retenidas y la opción para habilitar estas directivas.
+
+La página **Directivas de copia de seguridad** también permite filtrar las directivas de copia de seguridad existentes por uno, o varios, de los siguientes campos:
+
+- **Nombre de directiva**: el nombre asociado con la directiva. Los distintos tipos de directivas incluyen:
+
+   - Directivas programadas, que las crea explícitamente el usuario.
+   - Directivas automáticas, que se crean al habilitar la copia de seguridad predeterminada de esta opción de volumen en el momento en que se creó dicho volumen. Estas directivas se denominan VolumeName_Default, donde el nombre del volumen hace referencia al nombre del volumen de StorSimple que ha configurado el usuario en el Portal de administración. Las directivas automáticas generan instantáneas diarias en la nube a partir de las 22:30, hora del dispositivo.
+   - Directivas importadas, que se crearon originalmente en el Administrador de instantáneas de StorSimple. Dichas directivas tienen una etiqueta que describe el host de Administrador de instantáneas StorSimple del que se importaron las directivas.
+
+- **Volúmenes** : los volúmenes asociados a la directiva. Cuando se crean copias de seguridad se agrupan todos los volúmenes asociados a una directiva de copia de seguridad.
+
+- **Última copia de seguridad correcta**: la fecha y hora de la última copia de seguridad correcta que se ha realizado con esta directiva.
+
+- **Siguiente copia de seguridad**: la fecha y hora de la siguiente copia de seguridad programada que iniciará esta directiva.
+
+- **Programaciones** : el número de programaciones asociadas a la directiva de copia de seguridad.
+
+Estas son las operaciones utilizadas con frecuencia que se pueden realizar desde esta página:
+
+- Incorporación de una directiva de copia de seguridad 
+- Incorporación o modificación de una programación 
+- Eliminación de una directiva de copia de seguridad 
+- Creación de una copia de seguridad manual 
+- Creación de una directiva de copia de seguridad personalizada con varios volúmenes y programaciones 
+
+## Incorporación de una directiva de copia de seguridad
+
+Agregue una directiva de copia de seguridad para programar automáticamente sus copias de seguridad. Realice los pasos siguientes en el Portal de administración para agregar una directiva de copia de seguridad para el dispositivo StorSimple. Después de agregar la directiva, puede definir una programación (consulte [Incorporación o modificación de una programación](#add-or-modify-a-schedule).
+
+[AZURE.INCLUDE [storsimple-add-backup-policy](../includes/storsimple-add-backup-policy.md)]
+
+
+## Incorporación o modificación de una programación
+
+Es posible agregar o modificar una programación adjunta a una directiva de copia de seguridad de un dispositivo StorSimple. Siga estos pasos en el Portal de administración para agregar o modificar una programación.
+
+[AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../includes/storsimple-add-modify-backup-schedule.md)]
+
+## Eliminación de una directiva de copia de seguridad
+
+Realice los pasos siguientes en el Portal de administración para eliminar una directiva de copia de seguridad de un dispositivo StorSimple.
+
+[AZURE.INCLUDE [storsimple-delete-backup-policy](../includes/storsimple-delete-backup-policy.md)]
+
+
+## Creación de una copia de seguridad manual
+
+Siga estos pasos en el Portal de administración para crear una copia de seguridad a petición (manual) de un único volumen.
+
+[AZURE.INCLUDE [storsimple-create-manual-backup](../includes/storsimple-create-manual-backup.md)]
+
+## Creación de una directiva de copia de seguridad personalizada con varios volúmenes y programaciones
+
+Realice los pasos siguientes en el Portal de administración para crear una directiva de copia de seguridad personalizada que tenga varios volúmenes y programaciones.
+
+[AZURE.INCLUDE [storsimple-create-custom-backup-policy](../includes/storsimple-create-custom-backup-policy.md)]
+
+
+## Pasos siguientes
+
+Obtenga información sobre cómo administrar las copias de seguridad de StorSimple con el [Administrador de instantáneas StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+
+<!---HONumber=58-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Trabajos de supervisión de Análisis de transmisiones | Azure" 
-	description="Supervise trabajos de Análisis de transmisiones mediante programación." 
+	pageTitle="Supervisión de trabajos de Análisis de transmisiones mediante programación | Microsoft Azure" 
+	description="Obtenga información sobre cómo supervisar los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="05/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# Supervisión de trabajos de Análisis de transmisiones mediante programación
-En este artículo se muestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones . Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
+# Supervisión de trabajos de Análisis de transmisiones mediante programación 
+En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
 
 ![Pestaña Supervisión de trabajos](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
@@ -45,6 +45,9 @@ Antes de empezar este artículo, debe tener lo siguiente:
     ```
     <appSettings>
     	<!--CSM Prod related values-->
+    	<add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
+    	<add key="JobName" value="YOUR JOB NAME" />
+    	<add key="StorageAccountName" value="YOUR STORAGE ACCOUNT"/>
     	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
     	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
     	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
@@ -135,7 +138,13 @@ El código siguiente configurará las variables y los clientes de administració
 
 El código siguiente habilitará la supervisión de un trabajo de Análisis de transmisiones **existente**. La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad "Id" (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Análisis de transmisiones.
 
-> [AZURE.WARNING]- Si anteriormente se ha habilitado la supervisión para otro trabajo de Análisis de transmisiones, bien a través del Portal de Azure o mediante programación con el siguiente código, **se recomienda especificar el mismo nombre de cuenta de almacenamiento que especificó al habilitar anteriormente la supervisión.** - La cuenta de almacenamiento está vinculada a la región en la que creó el trabajo de Análisis de transmisiones, no específicamente para el mismo trabajo. - Todos los trabajos de Análisis de transmisiones (y los demás recursos de Azure) de esa misma región comparten esta cuenta de almacenamiento para almacenar datos de supervisión. Si especifica otra cuenta de almacenamiento, puede provocar efectos secundarios no deseados en la supervisión de los demás trabajos de Análisis de transmisiones y en otros recursos de Azure. - El nombre de la cuenta de almacenamiento que se use para reemplazar a ```“<YOUR STORAGE ACCOUNT NAME>”``` a continuación debe ser una cuenta de almacenamiento que se encuentre en la misma suscripción que el trabajo de Análisis de transmisiones cuya supervisión se habilita.
+> [AZURE.WARNING]Si previamente ha habilitado la supervisión de otro trabajo de Análisis de transmisiones, a través del Portal de Azure o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
+> 
+> La cuenta de almacenamiento está vinculada a la región en la que se ha creado el trabajo de Análisis de transmisiones, no específicamente al trabajo.
+> 
+> Todos los trabajos de Análisis de transmisiones (y todos los demás recursos de Azure) de esa misma región comparten esta cuenta de almacenamiento para almacenar los datos de supervisión. Si proporciona otra cuenta de almacenamiento, puede provocar efectos secundarios no deseados en la supervisión de sus otros trabajos de Análisis de transmisiones y otros recursos de Azure.
+> 
+> El nombre de la cuenta de almacenamiento utilizado para reemplazar ```“<YOUR STORAGE ACCOUNT NAME>”``` a continuación debe ser una cuenta de almacenamiento que esté en la misma suscripción que el trabajo de Análisis de transmisiones para el que está habilitando la supervisión.
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
@@ -156,7 +165,7 @@ El código siguiente habilitará la supervisión de un trabajo de Análisis de t
 
 
 
-## Obtención de soporte técnico
+## Obtenga soporte técnico
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
@@ -168,4 +177,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=54-->
+<!---HONumber=58-->

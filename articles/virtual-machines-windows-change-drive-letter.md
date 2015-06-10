@@ -16,17 +16,17 @@
 	ms.date="01/15/2015" 
 	ms.author="kathydav"/>
 
-# Cambio de la letra de unidad del disco temporal de Windows
+#Cambio de la letra de unidad del disco temporal de Windows
 
 Si necesita utilizar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use la unidad temporal para almacenar los datos que desee conservar.
 
-Antes de comenzar, necesitará un disco de datos asociado a la máquina virtual para poder almacenar el archivo de paginación de Windows (pagefile.sys) durante este procedimiento. Consulte [Conexión de un disco de datos a una máquina virtual de Windows] si no tiene ninguno. Para obtener instrucciones sobre cómo averiguar qué discos están conectados, vea "Administración de discos" en [Acerca de los discos de máquina Virtual en Azure].
+Antes de comenzar, necesitará un disco de datos asociado a la máquina virtual para poder almacenar el archivo de paginación de Windows (pagefile.sys) durante este procedimiento. Consulte [Conexión de un disco de datos a una máquina virtual de Windows] si no tiene ninguno. Para obtener instrucciones sobre cómo averiguar qué discos están conectados, consulte "Administración de discos" en [Acerca de los discos de máquina Virtual en Azure].
 
 Si desea usar un disco de datos existente en la unidad D, asegúrese de que también se haya cargado el VHD en la cuenta de almacenamiento. Para obtener instrucciones, consulte los pasos 3 y 4 que se encuentran en [Creación y carga de un VHD de Windows Server en Azure].
 
-> [AZURE.WARNING] Si al modificar el tamaño de una máquina virtual se mueve la máquina virtual a otro host, la unidad temporal volverá a ser la unidad D.
+> [AZURE.WARNING]Si al modificar el tamaño de una máquina virtual se mueve la máquina virtual a otro host, la unidad temporal volverá a ser la unidad D.
 
-## Cambio de la letra de unidad
+##Cambio de la letra de unidad
 
 1. Inicie sesión en la máquina virtual. 
 
@@ -36,7 +36,7 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 4. 	Inicie sesión de nuevo y cambie la letra de unidad de D a E.
 
-5.	En el [Portal de administración de Azure](http://manage.windowsazure.com), acople un disco de datos existente en un disco de datos vacío.
+5.	En el [Portal de administración de Azure](http://manage.windowsazure.com), acople un disco de datos existente o un disco de datos vacío.
 
 6.	Inicie sesión en la máquina virtual de nuevo, inicialice el disco y asigne la letra D como la letra de unidad para el disco que acaba de acoplar.
 
@@ -44,7 +44,7 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 8.	Mueva el archivo pagefile.sys de la otra unidad a la unidad E.
 
-## Recursos adicionales
+##Recursos adicionales
 [Inicio de sesión en una máquina virtual con Windows Server]
 
 [Desconexión de un disco de datos de una máquina virtual]
@@ -52,13 +52,11 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 [Acerca de las cuentas de almacenamiento de Azure]
 
 <!--Link references-->
-[Conexión de un disco de datos a una máquina virtual de Windows]: ../storage-windows-attach-disk
-[Acerca de los discos de máquina virtual en Azure]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
-[Creación y carga de un VHD de Windows Server en Azure]: ../virtual-machines-create-upload-vhd-windows-server/
-[Inicio de sesión en una máquina virtual con Windows Server]: ../virtual-machines-log-on-windows-server/
-[Desconexión de un disco de datos de una máquina virtual]: ../storage-windows-detach-disk/
-[Acerca de las cuentas de almacenamiento de Azure]: ../storage-whatis-account/
+[Conexión de un disco de datos a una máquina virtual de Windows]: storage-windows-attach-disk.md
+[Acerca de los discos de máquina Virtual en Azure]: http.md://msdn.microsoft.com/library/azure/dn790303.aspx
+[Creación y carga de un VHD de Windows Server en Azure]: virtual-machines-create-upload-vhd-windows-server.md
+[Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-log-on-windows-server.md
+[Desconexión de un disco de datos de una máquina virtual]: storage-windows-detach-disk.md
+[Acerca de las cuentas de almacenamiento de Azure]: storage-whatis-account.md
 
-
-
-<!--HONumber=47-->
+<!---HONumber=58-->

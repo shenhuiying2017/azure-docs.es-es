@@ -13,33 +13,53 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
 # Implementación y administración de Máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure
 
-Este artículo proporciona orientación sobre cómo automatizar las tareas comunes para implementar y administrar Máquinas virtuales de Azure mediante plantillas del Administrador de recursos de Azure y la CLI de Azure, así como vínculos a más documentación sobre la automatización de las máquinas virtuales.
+En este artículo se muestra cómo utilizar las plantillas del Administrador de recursos de Azure y la línea de comandos (CLI) de Azure para realizar tareas comunes de implementación y administración de máquinas virtuales de Azure. Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de la aplicación](virtual-machines-app-frameworks.md).
+
+Tareas comunes:
+
+- [Creación rápida de una máquina virtual en Azure](#quick-create-a-vm-in-azure)
+- [Implementación de una máquina virtual en Azure desde una plantilla](#deploy-a-vm-in-azure-from-a-template)
+- [Creación de una máquina virtual desde una imagen personalizada](#create-a-custom-vm-image) 
+- [Implementación de una máquina virtual con la red virtual y el equilibrador de carga](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Eliminación de un grupo de recursos](#remove-a-resource-group)
+- [Visualización del registro para una implementación del grupo de recursos](#show-the-log-for-a-resource-group-deployment)
+- [Visualización de información acerca de una máquina virtual](#display-information-about-a-virtual-machine)
+- [Conexión a una máquina virtual basada en Linux](#log-on-to-a-linux-based-virtual-machine)
+- [Detención de una máquina virtual](#stop-a-virtual-machine)
+- [Inicio de una máquina virtual](#start-a-virtual-machine)
+- [Acoplamiento de un disco de datos](#attach-a-data-disk)
+
+
 
 ## Preparación
 
 Para poder utilizar la CLI de Azure con grupos de recursos de Azure, necesitará la versión correcta de la CLI de Azure y un identificador de cuenta profesional o educativa (también conocido como identificador de la organización).
 
-### Paso 1: Actualización de la CLI de Azure a la versión 0.9.0
+### Actualización de la CLI de Azure a la versión 0.9.0 o posterior
 
-Escriba `azure --version` para ver si ya está instalada la versión 0.9.0.
+Escriba `azure --version` para ver si ya está instalada la versión 0.9.0 o posterior
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-Si la versión no es 0.9.0, tendrá que [instalar la CLI de Azure](xplat-cli-install.md) o actualizarla mediante uno de los instaladores nativos o a través de **npm** escribiendo `npm update -g azure-cli`.
+Si la versión no es 0.9.0 o posterior, tendrá que [instalar la CLI de Azure](xplat-cli-install.md) o actualizarla mediante uno de los instaladores nativos o a través de **npm** escribiendo `npm update -g azure-cli`.
 
-### Paso 2: Establecimiento de su cuenta y suscripción de Azure
+También puede ejecutar la CLI de Azure como un contenedor de Docker con la siguiente [imagen de Docker](https://registry.hub.docker.com/u/microsoft/azure-cli/). Desde un host de Docker, ejecute el siguiente comando:
+
+	docker run -it microsoft/azure-cli
+
+### Definición de su cuenta y suscripción de Azure
 
 Si aún no tiene una suscripción de Azure pero tiene una suscripción a MSDN, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). O puede suscribirse a una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 También necesitará una cuenta profesional o educativas para utilizar plantillas de administración de recursos de Azure; si tiene una, escriba `azure login`, escriba su nombre de usuario y contraseña e inicie la sesión correctamente.
 
-> [AZURE.NOTE]Si no los tiene, verá un mensaje de error que indica que necesita un tipo diferente de la cuenta. Para crear una desde su cuenta de Azure actual, consulte [Conexión a su cuenta de Azure](xplat-cli-connect.md).
+> [AZURE.NOTE]Si no los tiene, verá un mensaje de error que indica que necesita un tipo diferente de la cuenta. Para crear una desde su cuenta de Azure actual, consulte [Creación de una identidad profesional o educativa en Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 La cuenta puede tener más de una suscripción. Puede enumerar las suscripciones escribiendo `azure account list`, que podría ser algo similar a lo siguiente:
 
@@ -54,11 +74,11 @@ La cuenta puede tener más de una suscripción. Puede enumerar las suscripciones
     
 Puede establecer la suscripción de Azure actual escribiendo
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 con el nombre de la suscripción o el identificador que tiene los recursos que desea administrar.
 
-### Paso 3: Cambio al modo de grupo de recursos de CLI de Azure
+### Cambio al modo de grupo de recursos de CLI de Azure
 
 De forma predeterminada, la CLI de Azure se inicia en el modo de administración de servicio (**modo asm**). Escriba
 
@@ -83,7 +103,7 @@ Después puede administrar el ciclo de vida general de los recursos del grupo me
 
 Puede aprender mucho más acerca de los grupos de recursos de Azure y qué puede hacer por los usuarios [aquí](resource-groups-overview.md). Si está interesado en la creación de plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
 
-## Tareas comunes: Creación rápida de una máquina virtual en Azure
+## Creación rápida de una máquina virtual en Azure
 
 A veces sabe qué imagen necesita y necesita una máquina virtual desde esa imagen inmediatamente y no le preocupa demasiado la infraestructura: quizá tenga que probar algo en una máquina virtual limpia. Es decir, cuando desea utilizar el comando `azure vm quick-create` y pasar los argumentos necesarios para crear una máquina virtual y su infraestructura.
 
@@ -105,7 +125,9 @@ En primer lugar, cree el grupo de recursos.
 
 En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de Azure, consulte [Navegación por las imágenes de máquina virtual de Azure y su selección con PowerShell y la CLI de Azure](resource-groups-vm-searching.md). Para este tutorial rápido, le presentamos una breve lista de imágenes populares. Vamos a usar la imagen Stable de CoreOS para esta creación rápida.
 
-| Publisher | ImageOffer | ImageSku | ComputeImageVersion |
+> [AZURE.NOTE]Para ComputeImageVersion, puede  proporcionar simplemente 'latest' como parámetro en el lenguaje de la plantilla y la CLI de Azure. Esto le permitirá utilizar siempre la versión más reciente y con revisiones de la imagen sin tener que modificar los scripts o las plantillas. Esto se muestra a continuación.
+
+| PublisherName | Oferta | SKU | Versión |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 | 7.0.201503 |
 | OpenLogic | CentOS | 7.1 | 7.1.201504 |
@@ -117,8 +139,10 @@ En segundo lugar, necesitará una imagen. Para buscar una imagen con la CLI de A
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise | 1.0.0 |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW | 12.0.2430 |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP | 12.0.2430 |
-| Canonical | UbuntuServer | 14.04.1-LTS | 14.04.201501230 |
+| Canonical | UbuntuServer | 12.04.5-LTS | 12.04.201504230 |
 | Canonical | UbuntuServer | 14.04.2-LTS | 14.04.201503090 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012 | 3.0.201503 |
+| Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 | 4.0.201503 |
 | Microsoft Windows Server | Windows Server | Windows-Server-Technical-Preview | 5.0.201504 |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4.3.4665 |
@@ -131,7 +155,7 @@ Basta con crear la máquina virtual mediante `azure vm quick-create command` y e
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
@@ -208,7 +232,7 @@ Basta con crear la máquina virtual mediante `azure vm quick-create command` y e
     
 Y ya está lista la nueva máquina virtual.
 
-## Tareas comunes: Implementación de una máquina virtual en Azure desde una plantilla
+## Implementación de una máquina virtual en Azure desde una plantilla
 
 Siga las instrucciones de estas secciones para implementar una nueva máquina virtual de Azure mediante una plantilla con la CLI de Azure. Esta plantilla crea una única máquina virtual en una nueva red virtual con una única subred y, a diferencia de `azure vm quick-create`, le permite describir precisamente lo que desea y repitirlo sin errores. Esto es lo que crea esta plantilla:
 
@@ -477,7 +501,7 @@ Recibirá el siguiente tipo de información:
     
 
 
-## Tareas comunes: Creación de una imagen de máquina virtual personalizada
+## Creación de una imagen de máquina virtual personalizada
 
 Ha visto el uso básico de las plantillas anteriores, de modo que ahora podemos usar instrucciones similares para crear una máquina virtual personalizada desde un archivo .vhd concreto en Azure con una plantilla mediante la CLI de Azure. La diferencia aquí radica en que esta plantilla crea una única máquina virtual desde un disco duro virtual (VHD) especificado.
 
@@ -1198,7 +1222,7 @@ y después buscar myVM1:
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1232,7 +1256,7 @@ y después buscar myVM1:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1241,25 +1265,11 @@ y después buscar myVM1:
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
-> [AZURE.NOTE] Si desea almacenar y manipular mediante programación la salida de los comandos de consola, puede usar una herramienta de análisis de JSON como **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o bibliotecas de idioma adecuadas para la tarea.
-
-## Visualización de información sobre una máquina virtual
-
-Es una tarea básica que utilizará a menudo. Utilícelo para obtener información acerca de una máquina virtual, realizar tareas en una máquina virtual y obtener el resultado para almacenarlo en una variable.
-
-Para obtener información acerca de la máquina virtual, ejecute este comando y reemplace todo el contenido de las comillas, incluidos los caracteres < and >:
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-Para almacenar el resultado en una variable $vm como un documento JSON, ejecute:
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-o bien, puede canalizar el stdout a un archivo.
+> [AZURE.NOTE]Si desea almacenar y manipular mediante programación la salida de los comandos de consola, puede usar una herramienta de análisis de JSON como **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** o bibliotecas de idioma adecuadas para la tarea.
 
 ## Inicio de sesión en una máquina virtual Linux
 
@@ -1294,14 +1304,8 @@ A continuación, deberá montar el disco, como haría normalmente en Linux (o en
 
 ## Pasos siguientes
 
-Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con administración de recursos de Azure](xplat-cli-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
+Para consultar más ejemplos de uso de la CLI de Azure con el modo **arm**, consulte [Uso de la CLI de Microsoft Azure para Mac, Linux y Windows con administración de recursos de Azure](xplat-cli-azure-resource-manager.md). Para obtener más información acerca de los recursos de Azure y sus conceptos, consulte [Información general del Administrador de recursos de Azure](resource-group-overview.md).
 
+Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio rápido de Azure](http://azure.microsoft.com/documentation/templates/) y [Marcos de la aplicación](virtual-machines-app-frameworks.md).
 
-
-
-
-
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58-->

@@ -31,7 +31,7 @@ Azure trata esta plantilla como una imagen y la almacena en su lista de imágene
 
 
 
-## Antes de empezar##
+##Antes de empezar##
 
 
 
@@ -45,7 +45,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 
 
 
-## Capture la máquina virtual##
+##Capture la máquina virtual##
 
 
 
@@ -61,7 +61,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 
 
 
-    Tenga en cuenta que una de las opciones de  `vm shutdown` es `-p`, que mantendrá el recurso de proceso al apagar. **No** habilite esta opción, ya que la máquina virtual debe tener cancelado el aprovisionamiento para capturarla.
+    Tenga en cuenta que una de las opciones de `vm shutdown` es `-p`, que mantendrá el recurso de proceso al apagar. **No** habilite esta opción, ya que la máquina virtual debe tener cancelado el aprovisionamiento para capturarla.
 
 
 
@@ -73,7 +73,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 
 
 
-    Para capturar la imagen, se debe eliminar la máquina virtual. Puede usar `--eliminar` o `-t` para hacerlo.
+    Para capturar la imagen, se debe eliminar la máquina virtual. Puede utilizar `--deleted` o `-t` para ello.
 
 
 
@@ -151,14 +151,14 @@ El siguiente es un ejemplo de tutorial de captura de una máquina virtual, inclu
 Visite la [página de documentación de CLI de Azure][] para conocer más detalles y comandos adicionales.
 
 
-[Página de documentación de CLI de Azure]: ../virtual-machines-command-line-tools/
+[página de documentación de CLI de Azure]: virtual-machines-command-line-tools.md
 
-[Inicio de sesión en una máquina virtual con Linux]: ../virtual-machines-linux-how-to-log-on/
+[Inicio de sesión en una máquina virtual con Linux]: virtual-machines-linux-how-to-log-on.md
 
 [Acerca de las imágenes de máquina virtual en Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 
-[Creación de una máquina virtual personalizada]: ../virtual-machines-create-custom/
+[Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
 
-[Acoplamiento de un disco de datos a una máquina virtual]: ../storage-windows-attach-disk/
+[Acoplamiento de un disco de datos a una máquina virtual]: storage-windows-attach-disk.md
 
-<!--HONumber=47-->
+<!---HONumber=58-->

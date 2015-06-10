@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Selección de nombres de usuario para Linux en Azure" 
 	description="Aprenda a seleccionar nombres de usuario para una máquina virtual de Linux en Azure." 
 	services="virtual-machines" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/16/2015" 
 	ms.author="szark"/>
 
 
 
 #Selección de nombres de usuario para Linux en Azure#
 
-Al crear una máquina virtual de Linux, puede elegir un nombre para el nombre de usuario o aceptar el predeterminado, que es  *azureuser*. En la mayoría de casos este usuario nuevo no existirá en la imagen base y se crea durante el proceso de aprovisionamiento. Si el usuario ya existe en la imagen de la máquina virtual base, el agente Azure Linux sencillamente configura la contraseña (o la tecla SSH) para ese usuario de acuerdo con la información especificada al crear la máquina virtual.
+Al crear una máquina virtual Linux, puede elegir un nombre para el nombre de usuario o aceptar el predeterminado, que es *azureuser*. En la mayoría de casos este usuario nuevo no existirá en la imagen base y se crea durante el proceso de aprovisionamiento. Si el usuario ya existe en la imagen de la máquina virtual base, el agente Azure Linux sencillamente configura la contraseña (o la tecla SSH) para ese usuario de acuerdo con la información especificada al crear la máquina virtual.
 
-**Sin embargo**, Linux define un conjunto de nombres de usuario que no se deben usar al crear usuarios nuevos. El proceso de aprovisionamiento generará un **error** si trata de aprovisionar una máquina virtual de Linux con un usuario del sistema existente, que se define como un usuario con UID 0-99. Un ejemplo típico es el usuario  `root`, que tiene el UID de 0.
+**Sin embargo**, Linux define un conjunto de nombres de usuario que no se deben usar al crear usuarios nuevos. El proceso de aprovisionamiento generará un **error** si trata de aprovisionar una máquina virtual Linux con un usuario del sistema existente, que se define como un usuario con UID 0-99. Un ejemplo típico es el usuario `root`, que tiene el UID de 0.
 
  - Consulte también: [Base estándar de Linux - Intervalos de identificadores de usuarios](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
@@ -244,5 +244,4 @@ A continuación, se indican los nombres de usuario que debería evitar al realiz
 - whoopsie
 - www-data
 
-
-<!--HONumber=45--> 
+<!---HONumber=58-->

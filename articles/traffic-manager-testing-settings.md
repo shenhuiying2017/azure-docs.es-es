@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
    pageTitle="Pruebas de configuración del Administrador de tráfico"
    description="Este artículo le ayudará a probar la configuración del Administrador de tráfico"
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # Pruebas de configuración del Administrador de tráfico
 
@@ -21,17 +21,15 @@ La mejor forma de probar la configuración del Administrador de tráfico es conf
 
 ## Pasos de pruebas básicos
 
-- **Establezca el TTL de DNS muy bajo** de forma que los cambios se propaguen rápidamente; por ejemplo, en 30 segundos.
+- **Establezca el TTL de DNS muy bajo** de forma que los cambios se propaguen rápidamente; por ejemplo, en 30 segundos.
 - **Conozca las direcciones IP de los servicios en la nube de Azure y los sitios web** del perfil que prueba.
-- **Use herramientas que le permitan resolver un nombre de DNS en una dirección IP** y muestre dicha dirección. Compruebe que el nombre de dominio de la empresa se resuelve en las direcciones IP de los extremos del perfil. Deben resolverse de manera coherente con el método de equilibrio de carga del perfil del Administrador de tráfico. Si se encuentra en un equipo que ejecuta Windows, puede usar la herramienta Nslookup.exe desde un símbolo del sistema o de Windows PowerShell. También dispone en Internet de otras herramientas disponibles públicamente que le permiten "profundizar" en la dirección IP.
+- **Use herramientas que permiten resolver un nombre de DNS en una dirección IP** y mostrar dicha dirección. Compruebe que el nombre de dominio de la empresa se resuelve en las direcciones IP de los extremos del perfil. Deben resolverse de manera coherente con el método de equilibrio de carga del perfil del Administrador de tráfico. Si se encuentra en un equipo que ejecuta Windows, puede usar la herramienta Nslookup.exe desde un símbolo del sistema o de Windows PowerShell. También dispone en Internet de otras herramientas disponibles públicamente que le permiten "profundizar" en la dirección IP.
 
 ### Para comprobar el perfil del Administrador de tráfico con nslookup
 
 1. Abra un símbolo del sistema o de Windows PowerShell como administrador.
 2. Escriba `ipconfig /flushdns` para vaciar la memoria caché de resolución DNS.
-3. Escriba `nslookup <your Traffic Manager domain name>`. Por ejemplo, el siguiente comando comprueba el nombre de dominio con el prefijo  *myapp.contoso*:
-    nslookup myapp.contoso.trafficmanager.net
-   A continuación se muestra un resultado típico:
+3. Escriba `nslookup <your Traffic Manager domain name>`. Por ejemplo, el siguiente comando comprueba el dominio con el prefijo *myapp.contoso* nslookup myapp.contoso.trafficmanager.net. A continuación se muestra un resultado típico:
    - El nombre de DNS y la dirección IP del servidor DNS al que se accede para resolver este nombre de dominio del Administrador de tráfico.
    - El nombre de dominio del Administrador de tráfico que especificó en la línea de comandos después de "nslookup" y la dirección IP en la que se resuelve el dominio del Administrador de tráfico. La segunda dirección IP es la que es importante comprobar. Debe coincidir con una dirección IP virtual (VIP) pública de uno de los servicios en la nube o los sitios web del perfil del Administrador de tráfico que prueba.
 
@@ -44,7 +42,7 @@ La mejor forma de probar la configuración del Administrador de tráfico es conf
 3. Solicite la resolución DNS del nombre de dominio de la empresa con la herramienta Nslookup.exe o una utilidad similar.
 4. Asegúrese de que la dirección IP resuelta que obtiene sea para el extremo principal
 5. Desactive el extremo principal o elimine el archivo de supervisión para que el Administrador de tráfico considere que está desactivado.
-6. Espere durante el período de vida (TTL) de DNS del Administrador de tráfico, más dos minutos adicionales. Por ejemplo, si el TTL de DNS es de 300 segundos (cinco minutos), debe esperar siete minutos.
+6. Espere durante el período de vida (TTL) de DNS del Administrador de tráfico, más dos minutos adicionales. Por ejemplo, si el TTL de DNS es de 300 segundos (cinco minutos), debe esperar siete minutos.
 7. Vacíe la memoria caché del cliente DNS y solicite la resolución DNS. En Windows, puede vaciar la memoria caché de DNS emitiendo el comando ipconfig /flushdns en el símbolo del sistema o de Windows PowerShell.
 8. Asegúrese de que la dirección IP que obtiene sea para el extremo secundario.
 9. Repita el proceso desactivando el extremo secundario y luego el terciario, y así sucesivamente. Cada vez, asegúrese de que la resolución DNS devuelve la dirección IP del siguiente extremo de la lista. Cuando haya desactivado todos los extremos, debería volver a obtener la dirección IP del extremo principal.
@@ -77,5 +75,4 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-
-<!--HONumber=49-->
+<!---HONumber=58-->

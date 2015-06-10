@@ -8,7 +8,7 @@
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/web-sites/">Sitios web</a><sup>1</sup> por <a href="http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/">Plan de hospedaje web</a></p></td>
-   <td valign="middle"><p>de</p></td>
+   <td valign="middle"><p>10</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
    <td valign="middle"><p>500<sup>2</sup></p></td>
@@ -75,25 +75,25 @@
    <td valign="middle"><p>350</p></td>
    <td valign="middle"><p>Sin límite</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/">Conexiones de depurador</a> simultáneas por aplicación</p></td>
+   <td valign="middle"><p>Conexiones de depurador <a href="http://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/">simultáneas</a> por aplicación</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>5</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">Subdominio azurewebsites.net con FTP/S y SSL</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">subdominio de azurewebsites.net con FTP/S y SSL</a></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p>Compatibilidad con <a href="http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/">dominio personalizado</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/">Compatibilidad con dominio</a> personalizado</p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
 </tr><tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">Soporte SSL</a> del dominio personalizado<sup>9</sup></p></td>
+   <td valign="middle"><p>Soporte SSL <a href="http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/">de dominio personalizado</a><sup>9</sup></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
@@ -131,7 +131,7 @@
    <td valign="middle"><p>X</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Compatibilidad con <a href="http://azure.microsoft.com/services/scheduler/">Programador de Azure</a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/scheduler/">Compatibilidad con Programador de Azure</a></p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p>X</p></td>
    <td valign="middle"><p>X</p></td>
@@ -161,8 +161,8 @@
    <td valign="middle"><p>Contrato de nivel de servicio</p></td>
    <td valign="middle"><p></p></td>
    <td valign="middle"><p></p></td>
-   <td valign="middle"><p>99,9%</p></td>
-   <td valign="middle"><p>99,9%</p></td>
+   <td valign="middle"><p>99,9&#160;%</p></td>
+   <td valign="middle"><p>99,9&#160;%</p></td>
 </tr>
 </table>
 
@@ -170,9 +170,9 @@
 
 <sup>2</sup>Los sitios de los niveles Básico y Estándar se ejecutan en máquinas dedicadas. El número real de sitios que puede hospedar en estas máquinas depende de la actividad de los sitios, el tamaño de las instancias de la máquina y el correspondiente uso de los recursos.
 
-<sup>3</sup>A excepción del nivel Gratis, los límites de los Planes de hospedaje web se especifican por grupo de recursos. Para obtener más información sobre la creación y la administración de grupos de recursos, consulte [Uso del grupo de recursos para administrar los recursos de Azure][useresourcegroups].
+<sup>3</sup>A excepción del nivel Gratis, los límites de los Planes de hospedaje web se especifican por grupo de recursos. Para obtener más información sobre la creación y la administración de grupos de recursos, vea [Uso del grupo de recursos para administrar los recursos de Azure][useresourcegroups].
 
-<sup>4</sup>Las instancias dedicadas pueden ser de tamaño Pequeño, Medio o Grande. Consulte la [página de precios de sitios Web de Azure][websitespricing] para obtener más detalles. Hay instancias adicionales disponibles mediante la apertura de una solicitud de soporte.
+<sup>4</sup>Las instancias dedicadas pueden ser de tamaño Pequeño, Medio o Grande. Vea la página [Precios de Sitios web Azure ][websitespricing]para más información. Hay instancias adicionales disponibles mediante la apertura de una solicitud de soporte.
 
 <sup>5</sup>Todos los sitios web comparten los mismos recursos de almacenamiento para el contenido del sitio. Por tanto, el límite de almacenamiento es el tamaño total de todos los sitios y no de cada uno de los sitios web. Se pueden aumentar los límites de almacenamiento mediante la apertura de una solicitud de soporte.
 
@@ -182,7 +182,7 @@
 
 <sup>8</sup>Este valor representa las conexiones web socket simultáneas por instancia de sitio web. Por ejemplo, si escaló horizontalmente un sitio web Básico a dos instancias, tendría efectivamente 700 conexiones simultáneas (350 x 2).
 
-<sup>9</sup>Para el nivel Básico, [se aplican los precios de SSL][sslpricing] estándar.
+<sup>9</sup>Para el nivel Básico, se aplican [los precios de SSL estándar][sslpricing].
 
 <sup>10</sup>Ejecute scripts o ejecutables personalizados a demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de Sitios web. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere el Programador de Azure de nivel Gratis o Estándar para Trabajos web programados.
 
@@ -190,4 +190,4 @@
   [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
   [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
 
-<!--HONumber=47-->
+<!---HONumber=58-->

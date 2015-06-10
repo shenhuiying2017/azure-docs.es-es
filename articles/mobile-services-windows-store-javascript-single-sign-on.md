@@ -144,4 +144,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!--HONumber=54-->
+<!---HONumber=58-->

@@ -13,54 +13,57 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/04/2015" 
 	ms.author="kathydav"/>
 
 # Creación de un conjunto de disponibilidad con las plantillas del Administrador de recursos de Azure
 
-Puede crear fácilmente un conjunto de disponibilidad para una máquina virtual con Azure PowerShell o xplat-cli y una plantilla del Administrador de recursos. Esta plantilla crea un conjunto de disponibilidad.
+Puede crear fácilmente un conjunto de disponibilidad para una máquina virtual con Azure PowerShell o la línea de comandos (CLI) de Azure y una plantilla del Administrador de recursos. Esta plantilla crea un conjunto de disponibilidad.
  
-Antes de profundizar, asegúrese de tener Azure PowerShell y xplat-cli configurados y listos para usar.
+Antes de profundizar, asegúrese de tener Azure, PowerShell y CLI de Azure configurados y listos para usar.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up](../includes/xplat-getting-set-up.md)]
 
 
-## [Hacer algo] con una plantilla del Administrador de recursos mediante Azure PowerShell
+## Creación de un conjunto de disponibilidad con una plantilla del Administrador de recursos
 
-Siga estos pasos para [hacer algo] mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con Azure PowerShell.
+Siga estos pasos para crear una máquina virtual mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con Azure PowerShell.
 
 ### Paso 1: Descarga del archivo JSON
 
-Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\\Azure\\Templates[thing]).
+Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\Azure\Templates\availability).
 
 Cambie el nombre de la carpeta y, a continuación, copie y ejecute estos comandos.
 
-	$folderName="<folder name, such as C:\Azure\Templates[thing]>"
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "[Writers: add the URL to the RAW version of the target template in GitHub]"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath) 
 
-### Paso 2: (opcional) Visualización de los parámetros
+### Paso 2: Recopilación de los detalles de los parámetros obligatorios
 
-Cuando se [hace algo] con una plantilla, debe especificar un conjunto de parámetros de configuración. Para ver los parámetros que se deben especificar para la plantilla en un archivo JSON local antes de ejecutar el comando para crear la máquina virtual, abra el archivo JSON en el editor de texto o la herramienta de su elección. Busque la sección "parameters" en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar la máquina virtual. Esta es la sección **"parameters"** de la plantilla azuredeploy.json:
+Cuando se utiliza una plantilla, necesitará para proporcionar detalles como la ubicación, el nombre del conjunto, etc. Para averiguar qué parámetros son necesarios para una plantilla, realice una de las acciones siguientes:
 
-[Nota para los escritores: pegue la sección "parameters" de azuredeploy.json y dele formato de código.]
+- Revise la lista de parámetros [aquí](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
+- Abra el archivo JSON en un editor de texto o la herramienta de su elección. Busque la sección "parameters" en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar la máquina virtual. 
 
-### Paso 3: Obtención de la [información necesaria para completar la plantilla].
+Recopile la información necesaria para tenerla preparada para escribirla. Al ejecutar el comando para implementar la plantilla, se le pedirá la información.
 
-[Nota para los escritores: sección opcional para recopilar valores de parámetros si es necesario.]
+### Paso 3: Creación del conjunto de disponibilidad
 
-### Paso 4: [Realización de algo] con la plantilla.
+Las secciones siguientes muestran cómo utilizar Azure PowerShell o CLI de Azure para hacerlo.
+
+### Uso de Azure PowerShell
 
 Rellene un nombre de implementación de Azure, un nombre de grupo de recursos, una ubicación de Azure, la carpeta para el archivo JSON guardado y, a continuación, ejecute estos comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates[thing]>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -79,8 +82,6 @@ Este es un ejemplo del conjunto de comandos PowerShell para la plantilla.
 
 Verá algo parecido a lo siguiente.
 
-[Nota para los escritores: pegue la visualización de PowerShell para los primeros parámetros solicitados y reemplace lo siguiente:]
-
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
@@ -96,51 +97,10 @@ Para quitar este grupo de recursos y todos sus recursos (cuenta de almacenamient
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
 
-## [Hacer algo] con una plantilla del Administrador de recursos mediante xplat-cli
+## Uso de CLI de Azure
 
-Siga estos pasos para [hacer algo] mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con comandos xplat-cli.
+Siga estos pasos para crear el conjunto de disponibilidad mediante una plantilla del Administrador de recursos en el repositorio de Github de plantillas con los comandos CLI de Azure.
 
-### Paso 1: Descarga del archivo JSON para la plantilla.
+	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\\Azure\\Templates[thing]).
-
-Rellene el nombre de la carpeta y ejecute estos comandos.
-
-[Comandos xplat para descargar el archivo de plantilla]
-
-### Paso 2: (opcional) Visualización de los parámetros de plantilla.
-
-Cuando se [hace algo] con una plantilla, debe especificar un conjunto de parámetros de configuración. Para ver los parámetros que se deben especificar para la plantilla en un archivo JSON local antes de ejecutar el comando para crear la máquina virtual, abra el archivo JSON en el editor de texto o la herramienta de su elección. Busque la sección "parameters" en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar la máquina virtual. Esta es la sección **"parameters"** de la plantilla azuredeploy.json:
-
-[Nota para los escritores: pegue la sección "parameters" de azuredeploy.json y dele formato de código.]
-
-### Paso 3: Obtención de la [información necesaria para completar la plantilla].
-
-[Nota para los escritores: sección opcional para recopilar valores de parámetros si es necesario.]
-
-### Paso 4: [Realización de algo] con la plantilla.
-
-Rellene [la información necesaria] y, a continuación, ejecute estos comandos.
-
-[Comandos xplat para ejecutar el archivo de plantilla]
-
-[explicación de cómo xplat ejecuta la plantilla]
-
-
-Este es un ejemplo del conjunto de comandos xplat-cli para la plantilla.
-
-[Ejemplo del comando xplat]
-
-Verá algo parecido a lo siguiente.
-
-[Nota para los escritores: pegue la visualización de xplat para los primeros parámetros solicitados]
-
-
-Para quitar este grupo de recursos y todos sus recursos ([material del grupo de recursos]), utilice este comando.
-
-[Comando xplat]
-
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58-->

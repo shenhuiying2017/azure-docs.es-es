@@ -1,19 +1,8 @@
-<properties services="virtual-machines" title="Setting up PowerShell for Resource Manager templates" authors="JoeDavies-MSFT" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="infrastructure"
-   ms.date="04/27/2015"
-   ms.author="josephd" />
-
 ## Configuración de PowerShell para plantillas del Administrador de recursos
-
+ 
 Para poder usar Azure PowerShell con el Administrador de recursos, debe tener las versiones adecuadas de Windows PowerShell y PowerShell de Azure.
 
-### Paso 1: Comprobar las versiones de PowerShell
+### Comprobar las versiones de PowerShell
 
 Compruebe que tiene Windows PowerShell, versión 3.0 o 4.0. Para buscar la versión de Windows PowerShell, escriba este comando en un símbolo del sistema de Windows PowerShell.
 
@@ -48,7 +37,7 @@ Recibirá el siguiente tipo de información:
 
 Si no tiene la versión 0.9.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
-### Paso 2: Establecer su cuenta y suscripción de Azure
+### Establecer su cuenta y suscripción de Azure
 
 Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -76,11 +65,11 @@ Recibirá el siguiente tipo de información:
 Puede establecer la suscripción actual de Azure ejecutando estos comandos en el símbolo del sistema de Azure PowerShell. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >, por el nombre correcto.
 
 	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current	
+	Select-AzureSubscription -SubscriptionName $subscr -Current	
 
 Para obtener más información acerca de las cuentas y suscripciones de Azure, vea [Conexión a su suscripción](powershell-install-configure.md#Connect).
 
-### Paso 3: Cambiar al módulo Administrador de recursos de Azure
+### Cambiar al módulo Administrador de recursos de Azure
 
 Para poder usar el módulo Administrador de recursos de Azure necesitará cambiar desde el conjunto predeterminado de comandos de Azure al conjunto de comandos de Administrador de recursos de Azure. Ejecute este comando.
 
@@ -88,5 +77,4 @@ Para poder usar el módulo Administrador de recursos de Azure necesitará cambia
 
 > [AZURE.NOTE]Puede volver al conjunto predeterminado de comandos con el comando **Switch-AzureMode AzureServiceManagement**.
 
-
-<!--HONumber=52-->
+<!---HONumber=58-->
