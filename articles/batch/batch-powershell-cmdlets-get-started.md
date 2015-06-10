@@ -25,11 +25,11 @@ Para conocer la sintaxis detallada de cmdlet, escriba ```get-help <Cmdlet_name>`
 ## Requisitos previos
 
 * **Vista previa del lote**: suscríbase a la [Vista previa del lote](https://account.windowsazure.com/PreviewFeatures), si no lo ha hecho aún, para trabajar con el servicio.
-* **Azure PowerShell**: vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md) para obtener los requisitos previos y descargar las instrucciones de instalación. Los cmdlets de lotes se introdujeron en la versión 0.8.10 y posteriores.
+* **Azure PowerShell**: vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener los requisitos previos y descargar las instrucciones de instalación. Los cmdlets de lotes se introdujeron en la versión 0.8.10 y posteriores.
 
 ## Usar los cmdlets de lote
 
-Utilice los procedimientos estándar para iniciar Azure PowerShell y [conectarse a las suscripciones de Azure](powershell-install-configure.md#Connect). Además:
+Utilice los procedimientos estándar para iniciar Azure PowerShell y [conectarse a las suscripciones de Azure](../powershell-install-configure.md#Connect). Además:
 
 * **Seleccione la suscripción de Azure**: si tiene más de una suscripción, seleccione la suscripción a la que agregó la característica de vista previa del lote:
 
@@ -37,7 +37,7 @@ Utilice los procedimientos estándar para iniciar Azure PowerShell y [conectarse
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
     ```
 
-* **Cambie al modo de AzureResourceManage**: los cmdlets por lotes envían el módulo de administrador de recursos de Azure. Vea [Uso de Windows PowerShell con el Administrador de recursos](powershell-azure-resource-manager.md) para obtener más detalles. Para utilizar este módulo, ejecute el cmdlet [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx):
+* **Cambie al modo de AzureResourceManage**: los cmdlets por lotes envían el módulo de administrador de recursos de Azure. Vea [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md) para obtener más detalles. Para utilizar este módulo, ejecute el cmdlet [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx):
 
     ```
     Switch-AzureMode -Name AzureResourceManager
