@@ -119,7 +119,7 @@ Obtenga información acerca del [Agente de máquina virtual](https://go.microsof
 - No se admite la restauración y copia de seguridad entre regiones.
 - La copia de seguridad de máquinas virtuales con el servicio de Copia de seguridad de Azure solo se admite en determinadas regiones. Consulte la lista de [regiones admitidas](http://azure.microsoft.com/regions/#services). Si la región que está buscando hoy en día no es compatible, no aparecerá en la lista desplegable durante la creación del almacén.
 - La copia de seguridad de máquinas virtuales con el servicio de Copia de seguridad de Azure solo se admite en determinadas versiones de sistemas operativos:
-  - **Linux**: la lista de distribuciones aprobadas por Azure está disponible [aquí](virtual-machines-linux-endorsed-distributions.md). Otras distribuciones con la iniciativa «traiga su propio Linux» también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
+  - **Linux**: la lista de distribuciones aprobadas por Azure está disponible [aquí](../virtual-machines-linux-endorsed-distributions.md). Otras distribuciones con la iniciativa «traiga su propio Linux» también deberían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual.
   - **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 
 Si hay alguna característica que le gustaría que se incluyera, [envíenos sus comentarios](http://aka.ms/azurebackup_feedback).
@@ -133,4 +133,4 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 
 + Supervisar los trabajos de copia de seguridad
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

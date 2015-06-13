@@ -94,4 +94,4 @@ Después de que se instala el agente, puede usar la interfaz de administración 
 - Para más información sobre la Copia de seguridad de Azure, vea [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425). 
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

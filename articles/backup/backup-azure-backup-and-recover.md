@@ -113,4 +113,4 @@ Una vez proporcionada la entrada, haga clic en el botón **Recuperar**, que dese
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

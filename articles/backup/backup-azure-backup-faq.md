@@ -153,4 +153,4 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 [1]: ./media/backup-azure-backup-faq/Schedule.png
 [2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 

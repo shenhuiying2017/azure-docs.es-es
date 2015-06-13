@@ -78,4 +78,4 @@ Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=GIT-SubDir--> 
