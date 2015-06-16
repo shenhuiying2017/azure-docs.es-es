@@ -38,7 +38,7 @@ La aplicación usa el [patrón de trabajo centrado en colas](http://www.asp.net/
 
 ## Arquitectura alternativa: sitios web y WebJobs
 
-En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en versión preliminar) para el back-end. Para ver un tutorial que usa WebJobs, vea [Introducción al SDK de WebJobs de Azure](websites-dotnet-webjobs-sdk-get-started.md). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, vea [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
+En este tutorial se muestra cómo ejecutar un front-end y un back-end en un servicio en la nube de Azure. Una alternativa es ejecutar el front-end en un [sitio web de Azure](/services/web-sites/) y usar la característica [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) (actualmente en versión preliminar) para el back-end. Para ver un tutorial que usa WebJobs, vea [Introducción al SDK de WebJobs de Azure](app-service-web/websites-dotnet-webjobs-sdk-get-started.md). Para obtener información sobre cómo elegir los servicios que mejor se adapten a su escenario, vea [Comparación entre sitios web, servicios en la nube y máquinas virtuales de Azure](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## Temas que se abordarán
 

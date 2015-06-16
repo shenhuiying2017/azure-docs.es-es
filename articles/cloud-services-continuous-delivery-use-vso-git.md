@@ -59,7 +59,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 1. En Team Explorer, en la sección Soluciones, elija el vínculo Nuevo para crear un nuevo proyecto en el repositorio local.<br/>
 ![][4]
 
-2. Puede implementar un sitio web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial. Cree un proyecto nuevo de Servicio en la nube de Azure o un proyecto nuevo de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo. Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure a Sitios web de Azure y ASP.NET](web-sites-dotnet-get-started.md).
+2. Puede implementar un sitio web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial. Cree un proyecto nuevo de Servicio en la nube de Azure o un proyecto nuevo de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo. Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure a Sitios web de Azure y ASP.NET](app-service-web/web-sites-dotnet-get-started.md).
 
 3. Abra el menú contextual de la solución y elija **Confirmar**.<br/>
 ![][7]
@@ -200,7 +200,7 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 
 11. Vaya a la vista **Compilaciones** y busque la compilación que se acaba de desencadenar para la bifurcación de trabajo.
 
-Para obtener más información, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Para obtener información adicional sobre el uso de Git con Visual Studio Online, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git no administrado por Visual Studio Online para publicar en Azure, consulte [Publicación en Sitios web Azure con Git](web-sites-publish-source-control.md).
+Para obtener más información, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Para obtener información adicional sobre el uso de Git con Visual Studio Online, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git no administrado por Visual Studio Online para publicar en Azure, consulte [Publicación en Sitios web Azure con Git](app-service-web/web-sites-publish-source-control.md).
 
 [Paso 1: crear un repositorio Git]: #step1
 [Paso 2: crear un proyecto e insertarlo en el repositorio Git.]: #step2

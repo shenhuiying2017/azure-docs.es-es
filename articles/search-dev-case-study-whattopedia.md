@@ -64,7 +64,7 @@ Si examina los cuadros verdes en el diagrama anterior, verá que la solución de
 
 - [Búsqueda de Azure](http://azure.microsoft.com/services/search/)
 - [Sitios web de Azure que usan MVC 4](http://azure.microsoft.com/services/websites/)
-- [WebJobs de Azure para las tareas programadas](websites-webjobs-resources.md)
+- [WebJobs de Azure para las tareas programadas](app-service-web/websites-webjobs-resources.md)
 - [Base de datos SQL de Azure](http://azure.microsoft.com/services/sql-database/)
 - [Almacenamiento de blobs de Azure](http://azure.microsoft.com/services/storage/)
 - [Servicio de correo electrónico SendGrid](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -417,7 +417,7 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 <!--HONumber=54-->

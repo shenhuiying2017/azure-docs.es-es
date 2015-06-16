@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de contenido desde una red CDN en su aplicación web" 
 	description="Un tutorial que le enseña a usar el contenido de una red CDN para mejorar el rendimiento de su aplicación web." 
 	services="cdn" 
@@ -255,12 +255,12 @@ Con [Sitios web Azure](/services/websites/) y [Servicios en la nube de Azure](/s
 
 La integración de Sitios web Azure o Servicios en la nube de Azure con la red CDN de Azure le ofrece las siguientes ventajas:
 
-- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](web-sites-publish-source-control.md) de su sitio web Azure
+- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](app-service-web/web-sites-publish-source-control.md) de su sitio web Azure
 - Actualización sencilla de los paquetes de NuGet servidos por CDN, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 
 Para ver tutoriales relacionados, consulte:
-- [Integración de un sitio web de Azure con la red CDN de Azure](cdn-websites-with-cdn.md)
+- [Integración de un sitio web de Azure con la red CDN de Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 
 Sin la integración con Sitios web de Azure o Servicios en la nube de Azure, es posible utilizar la red CDN de Azure para sus uniones de scripts, con las siguientes reservas:
@@ -272,7 +272,7 @@ Sin la integración con Sitios web de Azure o Servicios en la nube de Azure, es 
 
 # Más información #
 - [Información general de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Integración de un sitio web de Azure con la red CDN de Azure](cdn-websites-with-cdn.md)
+- [Integración de un sitio web de Azure con la red CDN de Azure](app-service-web/cdn-websites-with-cdn.md)
 - [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 - [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx)
 - [Uso de la red CDN en Azure](cdn-how-to-use.md)

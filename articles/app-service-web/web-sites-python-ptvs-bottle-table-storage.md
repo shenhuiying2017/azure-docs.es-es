@@ -1,0 +1,220 @@
+<properties 
+	pageTitle="Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio" 
+	description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio para crear una aplicación de Bottle que almacene los datos en el almacenamiento de tabla de Azure y se pueda implementar en un sitio web." 
+	services="app-service\web" 
+	tags="python"
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="02/09/2015" 
+	ms.author="huguesv"/>
+
+
+
+
+# Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio 
+
+En este tutorial, usaremos las [herramientas de Python para Visual Studio][] a fin de crear una aplicación de sondeos sencilla mediante una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=GJXDGaEPy94)
+
+La aplicación de sondeos define una abstracción para su repositorio, por lo que puede alternar fácilmente entre los diferentes tipos de repositorios (en memoria, almacenamiento de tablas de Azure y MongoDB).
+
+Facilitaremos información acerca de cómo crear una cuenta de almacenamiento de Azure, cómo configurar la aplicación para usar el Almacenamiento de tablas de Azure y cómo publicar la aplicación en un sitio web de Azure.
+
+Consulte el [Centro para desarrolladores de Python][] para tener acceso a más artículos que tratan sobre el desarrollo de Sitios web de Azure con PTVS mediante el uso de marcos web Bottle, Flask y Django, con MongoDB, Almacenamiento de tablas de Azure y los servicios de Base de datos MySQL y SQL.  Si bien estos artículos se centran en Sitios web de Azure, los pasos son similares a los que se aplican para desarrollar [Servicios en la nube de Azure][].
+
+## Requisitos previos
+
+ - Visual Studio 2012 o 2013
+ - [Python Tools 2.1 para Visual Studio][]
+ - [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio][]
+ - [Herramientas del SDK de Azure para VS 2013][] o [Herramientas del SDK de Azure para VS 2012][]
+ - [Python 2.7 de 32 bits][] o [Python 3.4 de 32 bits][]
+
+[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+
+## Creación del proyecto
+
+En esta sección, vamos a crear un proyecto de Visual Studio con la utilización de una plantilla de ejemplo.  Vamos a crear un entorno virtual e instalar los paquetes necesarios.  A continuación, vamos a ejecutar la aplicación localmente con el repositorio en memoria predeterminado.
+
+1.  En Visual Studio, seleccione **Archivo** y **Nuevo proyecto**.
+
+1.  Las plantillas de proyecto de los archivos VSIX de ejemplo de PTVS se encuentran disponibles en **Python**, **Samples** (Ejemplos).  Seleccione **Polls Flask Web Project** (Proyecto web de Flask para sondeos) y haga clic en OK (Aceptar) para crear el proyecto.
+
+  	![Cuadro de diálogo Nuevo proyecto](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleNewProject.png)
+
+1.  Se le pedirá que instale paquetes externos.  Seleccione **Instalar en un entorno virtual**.
+
+  	![Cuadro de diálogo Paquetes externos](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleExternalPackages.png)
+
+1.  Seleccione **Python 2.7** o **Python 3.4** como el intérprete de base.
+
+  	![Cuadro de diálogo Agregar entorno virtual](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAddVirtualEnv.png)
+
+1.  Presione <kbd>F5</kbd> para confirmar que la aplicación funciona.  De forma predeterminada, la aplicación usa un repositorio en memoria que no requiere ninguna configuración.  Todos los datos se pierden cuando el servidor web se detiene.
+
+1.  Haga clic en **Create Sample Polls** (Crear sondeos de ejemplo) y, a continuación, haga clic en un sondeo y vote.
+
+  	![Explorador web](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleInMemoryBrowser.png)
+
+## Creación de una cuenta de almacenamiento de Azure
+
+Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacenamiento. Siga estos pasos para crear una cuenta de almacenamiento.
+
+1.  Inicie sesión en el [Portal de administración de Azure][].
+
+1.  En la parte inferior del panel de navegación, haga clic en **NEW**.
+
+  	![Botón Nuevo](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png)
+
+1.  Haga clic en **DATA SERVICES**, en **STORAGE** y, a continuación, en **QUICK CREATE**.
+
+  	![Creación rápida](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
+
+1.  En URL, escriba el nombre de subdominio que vaya usar en el URI para la cuenta de almacenamiento.  Esta entrada puede contener de 3 a 24 letras minúsculas y números. Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción.
+
+1.  Seleccione un grupo de región/afinidad en el que ubicar el almacenamiento. Si va a usar el almacenamiento desde la aplicación de Azure, seleccione la misma región en la que implementará la aplicación.
+
+1.  También puede habilitar la replicación geográfica.  Con la replicación geográfica, Almacenamiento de Azure ahora conserva los datos de manera duradera en dos ubicaciones. En ambas ubicaciones, Almacenamiento de Azure mantiene constantemente varias réplicas en buen estado de los datos.
+
+1.  Haga clic en **CREAR CUENTA DE ALMACENAMIENTO**.
+
+## Configuración del proyecto
+
+En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de almacenamiento que acabamos de crear.  Observaremos cómo obtener la configuración de la conexión en el portal de Azure.  A continuación, ejecutaremos la aplicación localmente.
+
+1.  En el [Portal de administración de Azure][], haga clic en la cuenta de almacenamiento creada en la sección anterior.
+
+1.  Haga clic en **ADMINISTRAR CLAVES DE ACCESO**.
+
+  	![Cuadro de diálogo Administrar claves de acceso](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureTableStorageManageKeys.png)
+
+1.  En Visual Studio, haga clic con el botón secundario en el Explorador de soluciones y seleccione **Propiedades**.  Haga clic en la pestaña **Depurar**.
+
+  	![Configuración de depuración del proyecto](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageProjectDebugSettings.png)
+
+1.  Establezca los valores de las variables del entorno que necesita la aplicación en **Depurar comando del servidor**, **Entorno**.
+
+        REPOSITORY_NAME=azuretablestorage
+        STORAGE_NAME=<storage account name>
+        STORAGE_KEY=<primary access key>
+
+    De esta forma se definirán las variables del entorno cuando **empiece a depurar**.  Si desea que las variables se definan al **Iniciar sin depurar**, establezca los mismos valores en **Ejecutar comando del servidor**.
+
+    De forma alternativa, puede definir las variables del entorno con el Panel de control de Windows.  Se trata de una opción más conveniente si desea evitar que las credenciales se almacenen en el archivo de proyecto / de código fuente.  Tenga en cuenta que necesitará reiniciar Visual Studio para que los nuevos valores del entorno estén disponibles en la aplicación.
+
+1.  El código que implementa el repositorio de Almacenamiento de tablas de Azure se encuentra en **models/azuretablestorage.py**.  Consulte la [documentación] para obtener más información sobre cómo usar el servicio Tabla en Python.
+
+1.  Presione <kbd>F5</kbd> para ejecutar la aplicación.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en el Almacenamiento de tablas de Azure.
+
+1.  Vaya a la página **Acerca de** para comprobar que la aplicación usa el repositorio de **Almacenamiento de tablas de Azure**.
+
+  	![Explorador web](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureTableStorageAbout.png)
+
+## Exploración del Almacenamiento de tablas de Azure
+
+Es fácil ver y editar tablas de almacenamiento con el Explorador de servidores en Visual Studio.  En esta sección, vamos a utilizar el Explorador de servidores para ver el contenido de las tablas de la aplicación de sondeos.
+
+> [AZURE.NOTE] Para esto es necesario que estén instaladas las Herramientas de Microsoft Azure, que se encuentran disponibles como parte del [SDK de Azure para .NET][].
+
+1.  Abra el **Explorador de servidores**.  Expanda **Azure**, **Almacenamiento**, la cuenta de almacenamiento y, a continuación, **Tablas**.
+
+  	![Explorador de servidores](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorer.png)
+
+1.  Haga doble clic en la tabla **sondeos** u **opciones** para ver el contenido de la tabla en una ventana de documento, así como las entidades agregar/quitar/editar.
+
+  	![Resultados de la consulta de tabla](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonServerExplorerTable.png)
+
+## Publicación en un sitio web de Azure
+
+PTVS ofrece una forma fácil de implementar la aplicación web en un sitio web de Azure.
+
+1.  En el **Explorador de soluciones**, haga clic con el botón secundario en el nodo del proyecto y seleccione **Publicar**.
+
+  	![Cuadro de diálogo Publicación web](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonPublishWebSiteDialog.png)
+
+1.  Haga clic en **Sitios web de Microsoft Azure**.
+
+1.  Haga clic en **Nuevo** para crear un sitio nuevo.
+
+1.  Seleccione un **Nombre de sitio** y una **Región** y haga clic en **Crear**.
+
+  	![Cuadro de diálogo Crear sitio en Microsoft Azure](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonCreateWebSite.png)
+
+1.  Acepte todos los valores predeterminados y haga clic en **Publicar**.
+
+1.  El explorador web se abrirá automáticamente en el sitio web publicado.  Si navega hasta la página Acerca de, observará que usa el repositorio **En memoria** y no el repositorio de **Almacenamiento de tablas de Azure**.
+
+    Esto se debe a que las variables del entorno no están definidas en el sitio web de Azure, por lo que usa los valores predeterminados especificados en **settings.py**.
+
+## Configuración del sitio web de Azure
+
+En esta sección, vamos a configurar las variables del entorno para el sitio.
+
+1.  En el [Portal de administración de Azure][], haga clic en el sitio creado en la sección anterior.
+
+1.  En el menú superior, haga clic en **CONFIGURAR**.
+
+  	![Menú superior](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png)
+
+1.  Desplácese hacia abajo hasta la sección **configuración de la aplicación** y defina los valores para **REPOSITORY_NAME**, **STORAGE_NAME** y **STORAGE_KEY**, como se describe en la sección anterior.
+
+  	![Configuración de aplicaciones](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png)
+
+1. En el menú inferior, haga clic en **GUARDAR**, en **REINICIAR** y, por último, en **EXAMINAR**.
+
+  	![Menú inferior](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureBottomMenu.png)
+
+1.  La aplicación ahora debe funcionar según lo previsto, con la utilización del repositorio de **Almacenamiento de tablas de Azure**.
+
+    ¡Enhorabuena!
+
+  	![Explorador web](./media/web-sites-python-ptvs-bottle-table-storage/PollsBottleAzureBrowser.png)
+
+## Pasos siguientes
+
+Siga estos vínculos para obtener más información sobre las herramientas de Python para Visual Studio, Bottle y Almacenamiento de tablas de Azure.
+
+- [Documentación sobre Python Tools para Visual Studio][]
+  - [Proyectos web][]
+  - [Proyectos de servicio en la nube][]
+  - [Depuración remota en Microsoft Azure][]
+- [Documentación de Bottle][]
+- [Almacenamiento de Azure][]
+- [SDK de Azure para Python][]
+- [Uso del servicio de almacenamiento de tablas desde Python][]
+
+
+<!--Link references-->
+[Centro para desarrolladores de Python]: /develop/python/
+[Servicios en la nube de Azure]: ../cloud-services-python-ptvs.md
+[documentación]: ../storage-python-how-to-use-table-storage.md
+[Uso del servicio de almacenamiento de tablas desde Python]: ../storage-python-how-to-use-table-storage.md
+
+<!--External Link references-->
+[Portal de administración de Azure]: https://manage.windowsazure.com
+[SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
+[Python Tools para Visual Studio]: http://aka.ms/ptvs
+[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
+[Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
+[Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
+[Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
+[Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Almacenamiento de Azure]: http://azure.microsoft.com/documentation/services/storage/
+[SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
+
+
+<!--HONumber=52--> 

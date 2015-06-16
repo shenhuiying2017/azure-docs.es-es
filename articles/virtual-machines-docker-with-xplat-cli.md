@@ -132,7 +132,7 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 
 <!--Link references-->
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
-[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 [Uso de la extensión de VM Docker con el portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 

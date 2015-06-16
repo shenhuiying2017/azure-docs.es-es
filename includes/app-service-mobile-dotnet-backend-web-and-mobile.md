@@ -1,4 +1,4 @@
-﻿# Creación de una aplicación con un cliente móvil y con un cliente web en el Servicio de aplicaciones de Azure
+# Creación de una aplicación con un cliente móvil y con un cliente web en el Servicio de aplicaciones de Azure
 
 En este tema se muestra cómo crear una aplicación tanto con un cliente móvil como con un cliente web. Creará una aplicación móvil y una aplicación web, y utilizará la misma base de datos subyacente para ambas.
 
@@ -77,6 +77,6 @@ En este ejemplo se le ha mostrado cómo usar la misma base de datos subyacente p
 <!-- Links -->
 
 [MultiChannelToDo]: https://github.com/Azure/mobile-services-samples/tree/web-mobile/MultiChannelToDo
-[Creación de una aplicación móvil]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Creación de una aplicación móvil]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 <!--HONumber=49-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
    pageTitle="Patrones de caché comunes con Caché en Redis de Azure" 
    description="Aprender dónde y por qué usar Caché en Redis de Azure" 
    services="redis-cache" 
@@ -35,7 +35,7 @@ Para obtener más información acerca del uso de Caché en Redis de Azure:
  
 - [Documentos de Caché en Redis de Azure](http://azure.microsoft.com/documentation/services/cache/): Esta página proporciona numerosos y excelentes vínculos para usar Caché en Redis de Azure.
 - [Aplicación de película de MVC con Caché en Redis de Azure en 15 minutos](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): La entrada de blog proporciona un inicio rápido para usar Caché en Redis de Azure en una aplicación MVC de ASP.NET.
-- [Uso del estado de sesión de ASP.NET con Sitios web Azure](web-sites-dotnet-session-state-caching.md): En este tema se explica cómo utilizar el servicio Caché en Redis de Azure para el estado de sesión.
+- [Uso del estado de sesión de ASP.NET con Sitios web Azure](app-service-web/web-sites-dotnet-session-state-caching.md): En este tema se explica cómo utilizar el servicio Caché en Redis de Azure para el estado de sesión.
 
 
 
