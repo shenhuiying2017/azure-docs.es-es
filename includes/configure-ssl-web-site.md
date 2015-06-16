@@ -1,4 +1,4 @@
-﻿#Habilitación de HTTPS para una aplicación web en el Servicio de aplicaciones de Azure
+#Habilitación de HTTPS para una aplicación web en el Servicio de aplicaciones de Azure
 
 > [AZURE.NOTE]
 > Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804) de Azure.  Con este tutorial, resulta muy fácil asociar un nombre de dominio personalizado Y proteger la comunicación (SSL) con los Servicios en la nube o el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) de Azure.
@@ -444,7 +444,7 @@ Llegados a este punto, debería ser capaz de visitar su aplicación web con `HTT
 
 El Servicio de aplicaciones de Azure *not* exige el uso de HTTPS. Los visitantes pueden obtener acceso a la aplicación web mediante HTTP, lo que puede suponer un riesgo para la seguridad de la aplicación web. Si desea exigir HTTPS en la aplicación web, puede utilizar el módulo **URL Rewrite**. El módulo URL Rewrite se incluye en el Servicio de aplicaciones de Azure y permite definir reglas que se aplican a las solicitudes entrantes antes de que las solicitudes lleguen a la aplicación. **Se puede utilizar para aplicaciones escritas en cualquier lenguaje de programación compatible con Azure.** 
 
-> [AZURE.NOTE] Las aplicaciones .NET MVC deben utilizar el filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx), en lugar de URL Rewrite. Para obtener más información acerca del uso de RequireHttps, consulte [Implementar una aplicación ASP.NET MVC 5 segura en una aplicación web](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+> [AZURE.NOTE] Las aplicaciones .NET MVC deben utilizar el filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx), en lugar de URL Rewrite. Para obtener más información acerca del uso de RequireHttps, consulte [Implementar una aplicación ASP.NET MVC 5 segura en una aplicación web](../article/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > Para obtener información sobre la redirección programática de las solicitudes utilizando otros lenguajes y marcos de programación, consulte la documentación de esas tecnologías.
 
@@ -512,8 +512,8 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 ## Más recursos ##
 - [Centro de confianza de Microsoft Azure](/support/trust-center/security/)
 - [Opciones de configuración desbloqueadas en sitios web de Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Activación del registro de diagnósticos](../articles/web-sites-enable-diagnostic-log.md)
-- [Configuración de sitios web](../articles/web-sites-configure.md)
+- [Activación del registro de diagnósticos](../article/app-service-web/web-sites-enable-diagnostic-log.md)
+- [Configuración de sitios web](../article/app-service-web/web-sites-configure.md)
 - [Portal de administración de Azure](https://manage.windowsazure.com)
 
 >[AZURE.NOTE] Si desea ver una introducción al Servicio de aplicaciones de Azure antes de registrar una cuenta de Azure, vaya a [Probar Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751) (en inglés), donde puede crear inmediatamente una aplicación web básica de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
@@ -522,7 +522,7 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 * Si desea una guía de los cambios de los sitios web al Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Si desea una guía de los cambios del portal nuevo con respecto al portal anterior, consulte: [Referencia para desplazarse por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../articles/web-sites-custom-domain-name.md
+[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

@@ -23,7 +23,7 @@
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un extremo HTTPS para una aplicación Node.js hospedada como un servicio en la nube de Azure en un rol web y cómo cargar un certificado SSL para proteger la aplicación.
 
-> [AZURE.NOTE]Los pasos descritos en este artículo solo se aplican a las aplicaciones de Node hospedadas como un servicio de nube de Azure en un rol web; para los sitios Web, consulte [Configuración de un certificado SSL para un sitio web de Azure](web-sites-configure-ssl-certificate.md).
+> [AZURE.NOTE]Los pasos descritos en este artículo solo se aplican a las aplicaciones de Node hospedadas como un servicio de nube de Azure en un rol web; para los sitios Web, consulte [Configuración de un certificado SSL para un sitio web de Azure](app-service-web/web-sites-configure-ssl-certificate.md).
 
 Esta tarea incluye los siguientes pasos:
 

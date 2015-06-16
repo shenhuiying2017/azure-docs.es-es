@@ -70,5 +70,5 @@ Cuando se le pide que inicie sesión, use las credenciales para la cuenta de Azu
 * [Supervisar las métricas de estado de servicio ](insights-how-to-customize-monitoring.md) para asegurarse de que el servicio esté disponible y ofrezca capacidad de respuesta.
 * [Habilite la supervisión y el diagnóstico](insights-how-to-use-diagnostics.md) para recopilar métricas de alta frecuencia detalladas sobre el servicio.
 * [Recibir notificaciones de alerta](insights-receive-alert-notifications.md) cada vez que se produzca un evento operativo o cuando una métrica supere un umbral establecido.
-* Uso [Application Insights para las páginas web y aplicaciones de JavaScript](app-insights-web-track-usage.md) para obtener análisis de cliente sobre los exploradores que visitan una página web.
-* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](app-insights-monitor-web-app-availability.md) con Application Insights para que pueda averiguar si la página está inactiva.
+* Uso [Application Insights para las páginas web y aplicaciones de JavaScript](application-insights/app-insights-web-track-usage.md) para obtener análisis de cliente sobre los exploradores que visitan una página web.
+* [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](application-insights/app-insights-monitor-web-app-availability.md) con Application Insights para que pueda averiguar si la página está inactiva.

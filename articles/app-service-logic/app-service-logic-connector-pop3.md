@@ -1,0 +1,78 @@
+<properties 
+   pageTitle="Aplicación de API del conector de POP3" 
+   description="Uso del conector de POP3" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="anuragdalmia" 
+   manager="dwrede" 
+   editor=""/>
+
+<tags
+   ms.service="app-service-logic"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="03/31/2015"
+   ms.author="adgoda"/>
+
+
+# Uso del conector de POP3 en la aplicación lógica #
+
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. 
+
+El conector POP3 permite conectarse a un servidor POP3 y proporciona un desencadenador para recuperar mensajes de correo electrónico con datos adjuntos.
+
+## Creación de un conector de POP3 para la aplicación lógica ##
+Para usar el conector de POP3, deberá crear primero una instancia de la aplicación de API del conector de POP3. Se puede hacer de la forma siguiente:
+
+1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior izquierda del Portal de Azure.
+2.	Vaya a "Web y móvil > Aplicaciones de API" y busque "Conector POP3".
+3.	Configure el conector de POP3 de la siguiente forma:
+ 
+	![][1]
+	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
+	- **Suscripción**: elija una suscripción en la que desee crear este conector.
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
+	- **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web.
+	- **Nivel de precios**: elija un nivel de precios para el conector.
+	- **Nombre**: asigne un nombre al conector de POP3
+	- **Configuración del paquete**
+		- **Nombre de usuario**: especifique el nombre de usuario para conectarse al servidor POP3
+		- **Contraseña**: especifique la contraseña para conectarse al servidor POP3
+		- **Dirección del servidor**: especifique el nombre del servidor POP3 o la dirección IP
+		- **Puerto del servidor**: especifique el número de puerto del servidor POP3
+		- **Habilitar SSL**: especifique true para usar POP3 a través del canal SSL/TLS seguro
+4.	Haga clic en Crear. Se creará un nuevo conector de POP3.
+5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de POP3. 
+
+## Uso del conector de POP3 en la aplicación lógica ##
+Una vez creada la aplicación de la API, ahora puede usar el conector de POP3 como desencadenador para la aplicación lógica. Para ello, necesita lo siguiente:
+
+1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de POP3.
+ 
+	![][2]
+2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo. 
+ 
+	![][3]
+3.	El conector de POP3 aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho. Selecciónelo.
+ 
+	![][4]
+4.	Puede quitar la aplicación de la API del conector de POP3 en el editor haciendo clic en "Conector de POP3". 
+	
+5.	Ahora puede usar el conector de POP3 en el flujo. Seleccione el desencadenador "Obtener correo electrónico" y configure la frecuencia y el intervalo. Puede utilizar el correo electrónico recuperado desde el desencadenador de POP3 en otras acciones del flujo.
+		
+	![][5]
+	![][6]
+
+
+<!--Image references-->
+[1]: ./media/app-service-logic-connector-pop3/img1.PNG
+[2]: ./media/app-service-logic-connector-pop3/img2.PNG
+[3]: ./media/app-service-logic-connector-pop3/img3.png
+[4]: ./media/app-service-logic-connector-pop3/img4.PNG
+[5]: ./media/app-service-logic-connector-pop3/img5.PNG
+[6]: ./media/app-service-logic-connector-pop3/img6.PNG
+
+
+<!--HONumber=52--> 

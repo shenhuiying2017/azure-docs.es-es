@@ -51,7 +51,7 @@ Cuando habilite el acceso de red CDN para una cuenta el almacenamiento, el Porta
 
 ## Almacenamiento en caché de contenido de Sitios web Azure
 
-Puede habilitar la red CDN desde sus sitios web para almacenar en caché su contenido web, como imágenes, scripts y hojas de estilo. Vea [Integración de un sitio web de Azure con la red CDN de Azure ](cdn-websites-with-cdn.md).
+Puede habilitar la red CDN desde sus sitios web para almacenar en caché su contenido web, como imágenes, scripts y hojas de estilo. Vea [Integración de un sitio web de Azure con la red CDN de Azure ](app-service-web/cdn-websites-with-cdn.md).
 
 Cuando habilite el acceso de la red CDN para un sitio web, el Portal de administración le proporcionará un nombre de dominio de red CDN con el siguiente formato: http://<identificador>.vo.msecnd.net/. Este nombre de dominio se puede usar para recuperar objetos desde un sitio web. Por ejemplo, dado un contenedor público llamado cdn y un archivo de imagen llamado music.png, los usuarios pueden obtener acceso al objeto usando una de las dos direcciones URL siguientes:
 

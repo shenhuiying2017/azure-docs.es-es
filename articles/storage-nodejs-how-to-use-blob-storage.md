@@ -372,8 +372,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
 [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Servicio en la nube de Node.js con almacenamiento]: storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicación web Node.js con almacenamiento]: storage-nodejs-use-table-storage-web-site.md
-[Sitio web con WebMatrix]: web-sites-nodejs-use-webmatrix.md
+[Aplicación web Node.js con almacenamiento]: app-service-web/storage-nodejs-use-table-storage-web-site.md
+[Sitio web con WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 [Mediante la API de REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Portal de administración de Azure]: http://manage.windowsazure.com
 [Servicio en la nube de Node.js]: cloud-services-nodejs-develop-deploy-app.md

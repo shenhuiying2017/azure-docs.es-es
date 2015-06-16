@@ -541,7 +541,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 ## <a name="_Toc395783182"></a>Paso 7: Implementación de su aplicación en sitios web de Azure
 
-1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. Encontrará información sobre cómo hacerlo [aquí](web-sites-publish-source-control-git.md#step4).
+1. Si todavía no lo ha hecho, habilite un repositorio para el sitio web de Azure. Encontrará información sobre cómo hacerlo [aquí](app-service-web/web-sites-publish-source-control-git.md#step4).
 
 2. Agregue el sitio web de Azure como un git remoto.
 

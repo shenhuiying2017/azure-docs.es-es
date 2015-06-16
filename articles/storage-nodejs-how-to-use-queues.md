@@ -334,9 +334,9 @@ para obtener información sobre tareas de almacenamiento más complejas.
   [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
   [Uso de la API de REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servicio en la nube de Node.js con almacenamiento]: storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicación web Node.js con almacenamiento]: storage-nodejs-use-table-storage-web-site.md
+  [Aplicación web Node.js con almacenamiento]: app-service-web/storage-nodejs-use-table-storage-web-site.md
 
   
   [Cola1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -348,6 +348,6 @@ para obtener información sobre tareas de almacenamiento más complejas.
   [Servicio en la nube de Node.js]: cloud-services-nodejs-develop-deploy-app.md
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Sitio web con WebMatrix]: web-sites-nodejs-use-webmatrix.md
+ [Sitio web con WebMatrix]: app-service-web/web-sites-nodejs-use-webmatrix.md
 
 <!--HONumber=49-->

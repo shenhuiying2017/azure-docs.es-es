@@ -254,7 +254,7 @@ En su entorno de desarrollo, siga estos pasos para ejecutar la topología Temper
 
 ### Publicación del panel del sitio web
 
-1. Para implementar el panel en un sitio web de Azure, siga los pasos de [Compilación e implementación de un sitio web de Node.js en Azure](web-sites-nodejs-develop-deploy-mac.md). Observe la dirección URL del sitio web, que será similar a **mywebsite.azurewebsites.net**.
+1. Para implementar el panel en un sitio web de Azure, siga los pasos de [Compilación e implementación de un sitio web de Node.js en Azure](app-service-web/web-sites-nodejs-develop-deploy-mac.md). Observe la dirección URL del sitio web, que será similar a **mywebsite.azurewebsites.net**.
 
 2. Cuando se cree el sitio web, vaya al sitio en el Portal de Azure y seleccione la pestaña **Configurar**. Habilite **Sockets web** y haga clic en **Guardar**, en la parte inferior de la página.
 
