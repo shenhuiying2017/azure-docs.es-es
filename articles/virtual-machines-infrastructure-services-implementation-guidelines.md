@@ -167,7 +167,7 @@ El almacenamiento es una parte integral de cualquier solución de Azure, ya que 
  
 Existen dos tipos de almacenamiento disponibles en Azure: El almacenamiento estándar proporciona acceso al almacenamiento de blobs, tablas, colas y archivos. El almacenamiento Premium está diseñado para aplicaciones de alto rendimiento, como servidores SQL Server en un clúster de AlwaysOn, y actualmente solo admite discos de máquina virtual de Azure.
 
-Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md#storage-limits) para familiarizarse con los límites actuales de almacenamiento de Azure. Consulte también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](storage-scalability-targets.md).
+Las cuentas de almacenamiento están vinculadas a objetivos de escalabilidad. Consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](azure-subscription-service-limits.md#storage-limits) para familiarizarse con los límites actuales de almacenamiento de Azure. Consulte también [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](storage/storage-scalability-targets.md).
 
 Azure crea máquinas virtuales con un disco del sistema operativo, un disco temporal y ninguno o varios discos de datos opcionales. El disco del sistema operativo y los discos de datos son blobs de Azure, mientras que el disco temporal está respaldado por el almacenamiento local en el nodo donde reside el equipo. Esto hace que el disco temporal no sea apto para los datos que deben mantenerse durante un reciclaje del sistema, ya que el equipo podría migrarse en modo silencioso de un nodo a otro, con lo que se perderían los datos de ese disco. No almacene nada en la unidad temporal.
 
@@ -550,6 +550,6 @@ Estos comandos de Azure PowerShell crean las máquinas virtuales en esta configu
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-[Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage-scalability-targets.md)
+[Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](storage/storage-scalability-targets.md)
 
 <!--HONumber=54-->

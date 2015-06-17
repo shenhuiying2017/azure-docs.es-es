@@ -87,7 +87,7 @@ Para obtener más información sobre las características, las ventajas y la fun
 
 ##<a id="portal"></a> Uso del portal de Azure
 
-Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azure como el sistema de archivos predeterminado. Es preciso tener una cuenta de almacenamiento de Azure ubicada en el mismo centro de datos antes de crear un clúster de HDInsight. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure, consulte [Creación de una cuenta de almacenamiento](storage-create-storage-account.md).
+Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azure como el sistema de archivos predeterminado. Es preciso tener una cuenta de almacenamiento de Azure ubicada en el mismo centro de datos antes de crear un clúster de HDInsight. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure, consulte [Creación de una cuenta de almacenamiento](storage/storage-create-storage-account.md).
 
 
 > [AZURE.NOTE]Actualmente, solo las regiones **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.** y **Centro y sur de EE. UU.** pueden hospedar clústeres de HDInsight.
@@ -494,7 +494,7 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
 	Cuando se le pida una ubicación, seleccione aquella en la que se puede aprovisionar el clúster de HDInsight. El almacenamiento debe encontrarse en la misma ubicación que el clúster de HDInsight. Actualmente, solo las regiones **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.** y **Centro y sur de EE. UU.** pueden hospedar clústeres de HDInsight.
 
-Para obtener información sobre la creación de una cuenta de almacenamiento de Azure a través del portal de Azure, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](storage-create-storage-account.md).
+Para obtener información sobre la creación de una cuenta de almacenamiento de Azure a través del portal de Azure, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](storage/storage-create-storage-account.md).
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -507,7 +507,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
 	-- Lists the keys for a Storage account
 	azure storage account keys list <StorageAccountName>
 
-Para obtener información sobre cómo obtener la información mediante el portal de Azure, vea la sección *Cómo: ver, copiar y regenerar claves de acceso de almacenamiento* de [Crear, administrar o eliminar una cuenta de almacenamiento](storage-create-storage-account.md).
+Para obtener información sobre cómo obtener la información mediante el portal de Azure, vea la sección *Cómo: ver, copiar y regenerar claves de acceso de almacenamiento* de [Crear, administrar o eliminar una cuenta de almacenamiento](storage/storage-create-storage-account.md).
 
 Un clúster de HDInsight también requiere un contenedor dentro de una cuenta de almacenamiento. Si la cuenta de almacenamiento que proporciona todavía no tiene un contenedor, el comando *azure hdinsight cluster create* le pide un nombre de contenedor y también lo crea. Sin embargo, si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -721,7 +721,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 
 [azure-command-line-tools]: xplat-cli.md
 
-[azure-create-storageaccount]: storage-create-storage-account.md
+[azure-create-storageaccount]: storage/storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Planear su entorno de ciencia de datos en la nube | Azure" 
 	description="Planear su entorno de ciencia de datos en la nube" 
 	metaKeywords="" 
@@ -62,7 +62,7 @@ Antes de comenzar a crear el entorno de ciencia de datos en la nube, considere l
 
 Según el escenario, podría necesitar lo siguiente:
 
-1.  Herramientas de Azure: [SDK de Azure PowerShell](install-configure-powershell.md), [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md) y otras
+1.  Herramientas de Azure: [SDK de Azure PowerShell](install-configure-powershell.md), [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage/storage-use-azcopy.md) y otras
 2.  Máquinas virtuales de Azure que ejecutan SQL Server
 3.  HDInsight de Azure (Hadoop)
 4.  Redes virtuales de Azure para el uso compartido de archivos entre local y Azure

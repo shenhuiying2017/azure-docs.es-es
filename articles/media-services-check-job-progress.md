@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Comprobación del progreso del trabajo mediante .NET" 
 	description="Aprenda a usar el código del controlador de eventos para realizar el seguimiento del progreso del trabajo y enviar actualizaciones de estado. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
@@ -105,7 +105,7 @@ El siguiente ejemplo de código define el controlador de eventos StateChanged. E
 
 ##<a id="check_progress_with_queues"></a>Uso del almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia
 
-Servicios multimedia de Microsoft Azure tiene la capacidad de entregar mensajes de notificación al [almacenamiento en cola de Azure](storage-dotnet-how-to-use-queues.md#what-is) cuando se procesan trabajos multimedia. Este tema muestra cómo obtener estos mensajes de notificación del almacenamiento en cola.
+Servicios multimedia de Microsoft Azure tiene la capacidad de entregar mensajes de notificación al [almacenamiento en cola de Azure](storage/storage-dotnet-how-to-use-queues.md#what-is) cuando se procesan trabajos multimedia. Este tema muestra cómo obtener estos mensajes de notificación del almacenamiento en cola.
 
 Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería en cola de Azure es fiable y altamente escalable. El almacenamiento en cola de sondeo es preferible a otros métodos. 
 

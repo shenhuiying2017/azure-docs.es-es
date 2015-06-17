@@ -31,7 +31,7 @@ Las máquinas virtuales están disponibles en dos niveles: básico y estándar. 
 
 *   Las máquinas virtuales de la serie D están diseñadas para ejecutar aplicaciones que exigen mayor capacidad de proceso y rendimiento de disco temporal. Las máquinas virtuales de la serie D proporcionan procesadores más rápidos, una mayor proporción de memoria a núcleo y una unidad de estado sólido (SSD) para el disco temporal. Para obtener más información, consulte el anuncio en el blog de Azure, [Nuevos tamaños de máquinas virtuales de la serie D](http://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).  
 
-*   Las máquinas virtuales de la serie DS pueden usar almacenamiento Premium, que proporciona un almacenamiento de alto rendimiento y una baja latencia para cargas de trabajo con uso intensivo de E/S. Utiliza unidades de estado sólido (SSD) para hospedar los discos de una máquina virtual y ofrece una caché de disco SSD local. El almacenamiento Premium está en Vista previa y está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md)
+*   Las máquinas virtuales de la serie DS pueden usar almacenamiento Premium, que proporciona un almacenamiento de alto rendimiento y una baja latencia para cargas de trabajo con uso intensivo de E/S. Utiliza unidades de estado sólido (SSD) para hospedar los discos de una máquina virtual y ofrece una caché de disco SSD local. El almacenamiento Premium está en Vista previa y está disponible en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage/storage-premium-storage-preview-portal.md)
 
 *   Las máquinas virtuales de la serie G ofrecen el mayor tamaño y el mejor rendimiento, y se ejecutan en hosts con procesadores de la familia Intel Xeon E5 V3.
 
@@ -103,7 +103,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 |Standard_DS13(igual)|8|56|<p>SO = 1023 GB</p><p>Disco SSD local = 112 GB</p>|16|288|<p>25,600</p><p>256 MB por segundo</p>|
 |Standard_DS14(igual)|16|112|<p>SO = 1023 GB</p><p>Disco SSD local = 224 GB</p>|32|576|<p>50,000</p><p>512 MB por segundo</p>|
 
-*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage-premium-storage-preview-portal.md).
+*Las operaciones de entrada/salida máximas por segundo (E/S) y el rendimiento (ancho de banda) posibles con una máquina virtual de la serie DS se ven afectadas por el tamaño del disco. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](storage/storage-premium-storage-preview-portal.md).
 
 ### Nivel estándar: serie G
 

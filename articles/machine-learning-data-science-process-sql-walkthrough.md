@@ -75,7 +75,7 @@ En este tutorial se mostrará la importación paralela masiva de los datos en SQ
 
 Para configurar el entorno de ciencia de datos de Azure:
 
-1. [Crear una cuenta de almacenamiento](storage-create-storage-account.md)
+1. [Crear una cuenta de almacenamiento](storage/storage-create-storage-account.md)
 
 2. [Crear un área de trabajo de aprendizaje automático de Azure](machine-learning-create-workspace.md)
 

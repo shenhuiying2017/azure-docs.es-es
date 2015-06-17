@@ -25,7 +25,7 @@ Mediante el uso de plantillas y grupos de recursos, tendrá la posibilidad de ad
 Para completar este tutorial, también necesita:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Cuenta de almacenamiento de Azure](storage-create-storage-account.md)
+- [Cuenta de almacenamiento de Azure](storage/storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/es-es/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/es-es/download/details.aspx?id=40855)
 - [Azure PowerShell](install-configure-powershell.md)
 

@@ -308,7 +308,7 @@ Dado que las colas de Service Bus ofrecen varias características avanzadas, com
 En los artículos siguientes se ofrece más orientación e información acerca del uso de las colas de Azure o las colas de Service Bus.
 
 - [Utilización de las colas del Bus de servicio](service-bus-dotnet-how-to-use-queues.md)
-- [Uso del servicio de almacenamiento en cola](storage-dotnet-how-to-use-queues.md)
+- [Uso del servicio de almacenamiento en cola](storage/storage-dotnet-how-to-use-queues.md)
 - [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería asíncrona de Service Bus](https://msdn.microsoft.com/library/hh528527.aspx)
 - [Introducción a las colas y los temas de Service Bus de Azure](http://www.code-magazine.com/article.aspx?quickid=1112041)
 - [Guía para desarrolladores sobre el Service Bus](http://www.cloudcasts.net/devguide/)
