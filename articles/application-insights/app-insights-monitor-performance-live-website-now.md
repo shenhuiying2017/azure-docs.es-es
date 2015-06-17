@@ -2,6 +2,7 @@
 	pageTitle="Diagnostique problemas de rendimiento en un sitio web en ejecución" 
 	description="Supervise el rendimiento de un sitio web sin volver a implementarlo. Uso independiente o con el SDK de Application Insights" 
 	services="application-insights" 
+documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="01/23/2015" 
 	ms.author="awills"/>
  
 

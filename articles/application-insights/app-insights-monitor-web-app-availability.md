@@ -2,6 +2,7 @@
 	pageTitle="Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web" 
 	description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud." 
 	services="application-insights" 
+documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-27" 
+	ms.date="01/27/2015" 
 	ms.author="awills"/>
  
 # Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web
