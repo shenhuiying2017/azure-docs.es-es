@@ -20,7 +20,7 @@
 
 Este tema describe cómo utilizar la CLI de Azure en modo **asm** para crear, administrar y eliminar servicios en la línea de comandos de equipos Mac, Linux y Windows. Su funcionalidad es parecida a la proporcionada por los cmdlets de Windows PowerShell que se han instalado con los SDK de Azure para .NET, Node.JS y PHP.
 
-> [AZURE.NOTE]El uso de los servicios de Azure con el modo **asm** es conceptualmente similar a pensar en los conceptos y servicios individuales de Azure como sitios web, máquinas virtuales, redes virtuales, almacenamiento, etc. En la línea de comandos está disponible una mayor funcionalidad con un modelo agrupado de forma lógica y jerárquica de los recursos utilizando el modo **arm**. Para cambiar a ese modo, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md).
+> [AZURE.NOTE]El uso de los servicios de Azure con el modo **asm** es conceptualmente similar a pensar en los conceptos y servicios individuales de Azure como sitios web, máquinas virtuales, redes virtuales, almacenamiento, etc. En la línea de comandos está disponible una mayor funcionalidad con un modelo agrupado de forma lógica y jerárquica de los recursos utilizando el modo **arm**. Para cambiar a ese modo, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](virtual-machines/xplat-cli-azure-resource-manager.md).
 
 Para obtener instrucciones de instalación, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](xplat-cli-install.md).
 

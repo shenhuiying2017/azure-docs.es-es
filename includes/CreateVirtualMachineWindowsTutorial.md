@@ -53,7 +53,7 @@ En esta sección se muestra cómo iniciar sesión en una máquina virtual para p
 
 ## <a id="attachdisk"> </a>Acoplamiento de un disco de datos a la nueva máquina virtual ##
 
-En esta sección se muestra cómo asociar un disco de datos vacío a una máquina virtual. Consulte el tutorial sobre cómo [acoplar un disco de datos](../articles/storage-windows-attach-disk.md) para obtener más información sobre la asociación de discos vacíos y discos existentes.
+En esta sección se muestra cómo asociar un disco de datos vacío a una máquina virtual. Consulte el tutorial sobre cómo [acoplar un disco de datos](../articles/virtual-machines/storage-windows-attach-disk.md) para obtener más información sobre la asociación de discos vacíos y discos existentes.
 
 1. Inicie sesión en el [Portal de administración](http://manage.windowsazure.com) de Azure.
 
@@ -113,11 +113,11 @@ En esta sección se muestra cómo asociar un disco de datos vacío a una máquin
 
 Para obtener más información sobre la configuración de máquinas virtuales de Windows en Azure, consulte los siguientes artículos:
 
-[Conexión de máquinas virtuales en un Servicio en la nube](../articles/cloud-services-connect-virtual-machine.md)
+[Conexión de máquinas virtuales en un Servicio en la nube](../articles/virtual-machines/cloud-services-connect-virtual-machine.md)
 
-[Creación y carga de su propio disco duro virtual con el sistema operativo Windows Server](../articles/virtual-machines-create-upload-vhd-windows-server.md)
+[Creación y carga de su propio disco duro virtual con el sistema operativo Windows Server](../articles/virtual-machines/virtual-machines-create-upload-vhd-windows-server.md)
 
-[Acoplamiento de discos de datos a una máquina virtual](../articles/storage-windows-attach-disk.md)
+[Acoplamiento de discos de datos a una máquina virtual](../articles/virtual-machines/storage-windows-attach-disk.md)
 
 [Administración de la disponibilidad de las máquinas virtuales](../articles/manage-availability-virtual-machines.md)
 
