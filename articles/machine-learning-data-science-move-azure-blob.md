@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Mover datos hacia y desde el  Almacenamiento de blobs de Azure" 
 	description="Mover datos hacia y desde el  Almacenamiento de blobs de Azure" 
 	services="machine-learning" 
@@ -26,9 +26,9 @@ El artículo [Escenarios de ejemplo de ciencia de datos en la nube](http://azure
 
 
 
-> [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](storage-dotnet-how-to-use-blobs.md) y  [Servicio Blob de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
+> [AZURE.NOTE] Para ver una introducción completa al almacenamiento de blobs de Azure, consulte [Aspectos básicos del blob de Azure](storage/storage-dotnet-how-to-use-blobs.md) y  [Servicio Blob de Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
 
-Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta. Para obtener instrucciones acerca de cómo conseguir esta información, consulte la sección "Visualización, copia y generación de claves de acceso al almacenamiento" de [Administración de cuentas de almacenamiento](storage-create-storage-account.md). En este documento se supone que tiene una cuenta de almacenamiento de Azure y las claves de almacenamiento correspondientes.
+Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta. Para obtener instrucciones acerca de cómo conseguir esta información, consulte la sección "Visualización, copia y generación de claves de acceso al almacenamiento" de [Administración de cuentas de almacenamiento](storage/storage-create-storage-account.md). En este documento se supone que tiene una cuenta de almacenamiento de Azure y las claves de almacenamiento correspondientes.
 
 <a id="explorer"></a>
 ## Usar el Explorador de almacenamiento de Azure 
@@ -52,7 +52,7 @@ El Explorador de almacenamiento de Azure es una herramienta gratuita basada en W
 
 AzCopy es una utilidad de línea de comandos para cargar y descargar datos. 
 
-**Advertencia** Si está usando una máquina diferente a la máquina virtual que se configuró anteriormente en el proceso de ciencia de datos en la nube, instale AzCopy mediante las siguientes instrucciones de instalación: [Descarga e instalación de AzCopy](storage-use-azcopy.md#install).
+**Advertencia** Si está usando una máquina diferente a la máquina virtual que se configuró anteriormente en el proceso de ciencia de datos en la nube, instale AzCopy mediante las siguientes instrucciones de instalación: [Descarga e instalación de AzCopy](storage/storage-use-azcopy.md#install).
 
 ####Ejemplos de carga/descarga de archivos a/desde blobs:
 
@@ -77,7 +77,7 @@ AzCopy es una utilidad de línea de comandos para cargar y descargar datos.
 > 2. Al descargar el archivo, /S buscará el contenedor de manera recursiva hasta que se descarguen todos los archivos del directorio especificado y sus subdirectorios, o todos los archivos que coincidan con el patrón especificado en el directorio especificado y sus subdirectorios.  
 > 3.  No se puede especificar un archivo de blob específico para descargar mediante el parámetro /Source. Para descargar un archivo específico, especifique el nombre del archivo blob que se va a descargar mediante el parámetro /Pattern. El parámetro /S se puede usar para que AzCopy busque de forma recursiva un patrón de nombre de archivo. Sin el parámetro de patrón, AzCopy descargará todos los archivos en ese directorio. 
 
-Para un uso detallado de AzCopy, consulte [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md#install).
+Para un uso detallado de AzCopy, consulte [Introducción a la utilidad de línea de comandos AzCopy](storage/storage-use-azcopy.md#install).
 
 
 <a id="PythonSDK"></a>
@@ -91,7 +91,7 @@ Con la API de Python proporcionada en el SDK de Azure, puede
 - Enumerar los blobs de un contenedor
 - Eliminar un blob
 
-En esta sección se describe cómo enumerar, cargar y descargar blobs. Para obtener más detalles del uso de la API de Python, consulte [Uso del servicio de almacenamiento de blobs desde Python](storage-python-how-to-use-blob-storage.md). 
+En esta sección se describe cómo enumerar, cargar y descargar blobs. Para obtener más detalles del uso de la API de Python, consulte [Uso del servicio de almacenamiento de blobs desde Python](storage/storage-python-how-to-use-blob-storage.md). 
 
 > [AZURE.NOTE] Si está utilizando una máquina diferente de la máquina virtual que se configuró anteriormente en el proceso de ciencia de datos en la nube, deberá instalar el [SDK de Azure para Python](python-how-to-install.md) para usar el código de ejemplo siguiente.
 

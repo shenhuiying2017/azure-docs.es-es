@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Actualización de Servicios multimedia después de rotar las claves de acceso" 
 	description="En este artículo se proporcionan instrucciones sobre cómo actualizar Servicios multimedia tras rotar las claves de acceso de almacenamiento." 
 	services="media-services" 
@@ -33,7 +33,7 @@ En este tema se describen los pasos que tomaría para rotar las claves de almace
 
 ## Paso 1: Regenerar la clave de acceso de almacenamiento
 
-Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria.  Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Procedimiento: Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria.  Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Procedimiento: Vista, copia y regeneración de las claves de acceso de almacenamiento](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
 ##<a id="step2"></a>Paso 2:  Actualizar Servicios multimedia para usar la nueva clave de almacenamiento secundaria
 
@@ -91,7 +91,7 @@ Para actualizar la fecha de caducidad en un localizador, use las API de [REST](h
 
 ##Paso 5: Regenerar la clave de acceso de almacenamiento principal
 
-Regenere la clave de acceso de almacenamiento principal. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Procedimiento: Vista, copia y regeneración de las claves de acceso de almacenamiento](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+Regenere la clave de acceso de almacenamiento principal. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Procedimiento: Vista, copia y regeneración de las claves de acceso de almacenamiento](storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
 
 ##Paso 6: Actualizar Servicios multimedia para usar la nueva clave de almacenamiento principal
 	

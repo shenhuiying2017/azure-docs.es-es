@@ -20,7 +20,7 @@
 
 ## Información general
 
-El [almacenamiento Premium de Azure](storage-premium-storage-preview-portal.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](http://azure.microsoft.com/services/virtual-machines/) de SQL Server en IaaS. Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use almacenamiento Premium. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
+El [almacenamiento Premium de Azure](storage/storage-premium-storage-preview-portal.md) es un almacenamiento de última generación que proporciona baja latencia y E/S de alto rendimiento. Funciona mejor para cargas de trabajo intensivas clave de E/S, como [máquinas virtuales](http://azure.microsoft.com/services/virtual-machines/) de SQL Server en IaaS. Este artículo proporciona instrucciones de planificación y orientación para migrar una máquina virtual que ejecuta SQL Server de modo que use almacenamiento Premium. Esto incluye pasos relacionados con la infraestructura de Azure (redes, almacenamiento) y la máquina virtual invitada de Windows. En el ejemplo del [Apéndice](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) se muestra una migración de extremo a extremo completa para mover máquinas virtuales mayores con el fin de aprovechar mejor el almacenamiento SSD local mejorado con PowerShell.
 
 Es importante comprender el proceso de extremo a extremo para usar el almacenamiento Premium de Azure con máquinas virtuales de SQL Server en IAAS. En ella se incluye:
 
@@ -142,7 +142,7 @@ Una vez asignados los VHD a discos físicos en los grupos de almacenamiento, pue
 
 El nivel de rendimiento del almacenamiento depende del tamaño especificado de la máquina virtual DS* y de los tamaños del VHD. Las máquinas virtuales tienen diferentes asignaciones para el número de VHD que se pueden conectar y el ancho de banda máximo que admitirán (MB/s). Para obtener las cifras específicas del ancho de banda, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
-El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-esing-premium-storage).
+El aumento de IOPS se consigue con tamaños de disco mayores. Debe tenerlo en cuenta al considerar la ruta de acceso de la migración. Para obtener más información, [vea la tabla de IOPS y tipos de discos](storage/storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whes-esing-premium-storage).
 
 Por último, tenga en cuenta que las máquinas virtuales admiten diferentes anchos de banda de disco máximos para todos los discos conectados. Con una carga elevada, podría saturar el ancho de banda de disco máximo disponible para ese tamaño de rol de máquina virtual. Por ejemplo, un Standard_DS14 admitirá hasta 512 MB/s; por lo tanto, con tres discos P30 podría saturar el ancho de banda de disco de la máquina virtual. No obstante, en este ejemplo, se puede superar el límite de rendimiento en función de la combinación de E/S de lectura y escritura.
 
@@ -1110,7 +1110,7 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 	![Appendix15][25]
 
 ## Recursos adicionales
-- [Almacenamiento Premium de Azure](storage-premium-storage-preview-portal.md)
+- [Almacenamiento Premium de Azure](storage/storage-premium-storage-preview-portal.md)
 - [Máquinas virtuales](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md)
 
