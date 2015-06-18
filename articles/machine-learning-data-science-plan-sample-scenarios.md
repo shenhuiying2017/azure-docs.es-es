@@ -29,7 +29,7 @@ Este artículo le guía a través del mapa del Proceso de ciencia de datos en la
 
    [Crear una cuenta de almacenamiento](storage-whatis-account.md)
 
-  [Crear un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md)
+  [Crear un área de trabajo de Aprendizaje automático de Azure](machine-learning/machine-learning-create-workspace.md)
 
 **En las secciones siguientes se presentan algunos escenarios de ejemplo. Para cada escenario, se enumeran un posible flujo de ciencia de datos y recursos de compatibilidad de Azure.**
 
@@ -175,7 +175,7 @@ Este artículo le guía a través del mapa del Proceso de ciencia de datos en la
 
     f. Si se requieren combinaciones de tablas, cree índices para acelerar dichas combinaciones.
 
- > [AZURE.NOTE]Para acelerar la carga de tamaños de datos de gran tamaño, es recomendable crear tablas con particiones e importar en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE]Para acelerar la carga de tamaños de datos de gran tamaño, es recomendable crear tablas con particiones e importar en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -215,7 +215,7 @@ Este artículo le guía a través del mapa del Proceso de ciencia de datos en la
 
 	f. Si se requieren combinaciones de tablas, cree índices para acelerar dichas combinaciones.
 
-> [AZURE.NOTE]Para acelerar la carga de tamaños de datos de gran tamaño, cree tablas con particiones e importe en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE]Para acelerar la carga de tamaños de datos de gran tamaño, cree tablas con particiones e importe en masa los datos en paralelo. Para obtener más información, vea [Importación de datos en paralelo a tablas con particiones de SQL](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore datos y cree características según sea necesario. Tenga en cuenta que las características no necesitan materializarse en las tablas de base de datos. Solo tenga en cuenta la consulta necesaria para crearlas.
 
@@ -300,7 +300,7 @@ El diagrama siguiente resume los escenarios descritos anteriormente y las elecci
 
 ### Ejemplo de ciencia de datos de Azure en acción
 
-Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de Azure mediante un conjunto de datos público, consulte [Proceso de ciencia de datos de Azure en acción](machine-learning-data-science-process-sql-walkthrough.md).
+Para obtener un ejemplo de tutorial completo del Proceso de ciencia de datos de Azure mediante un conjunto de datos público, consulte [Proceso de ciencia de datos de Azure en acción](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png
