@@ -106,6 +106,6 @@
 </tr>
 </table>
 
-Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](../articles/documentdb-increase-limits.md).
+Las cuotas que aparecen con un asterisco (*) [se pueden ajustar poniéndose en contacto con el soporte técnico de Azure](../articles/documentdb/documentdb-increase-limits.md).
 
 <!---HONumber=58-->

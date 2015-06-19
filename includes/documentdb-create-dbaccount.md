@@ -1,4 +1,4 @@
-﻿1.	Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com/).
+1.	Inicie sesión en el [portal de vista previa de Azure](https://portal.azure.com/).
 2.	En la barra de salto, haga clic en **Nuevo**, a continuación, seleccione **Datos y almacenamiento**y, a continuación, haga clic en **DocumentDB**. 
 
 	![Screen shot of the Azure Preview portal, highlighting the **New** button, **Data + storage** in the Create blade, and **DocumentDB** in the Data + storage blade][1]   
@@ -51,6 +51,6 @@
 
 [Procedimiento: de una cuenta de DocumentDB]: #Howto
 [Pasos siguientes]: #NextSteps
-[documentdb-manage]:../articles/documentdb-manage.md
+[documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 <!--HONumber=49-->
