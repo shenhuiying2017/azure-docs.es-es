@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de la interfaz de la línea de comandos entre plataformas de Microsoft Azure con Resource Manager" 
 	description="Usar la interfaz de la línea de comandos entre plataformas de Microsoft Azure con el Administrador de recursos" 
 	editor="tysonn" 
@@ -185,3 +185,4 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
 <!--HONumber=47-->
+ 

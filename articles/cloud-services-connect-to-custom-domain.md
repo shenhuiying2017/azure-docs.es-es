@@ -30,7 +30,7 @@ Siga esta guía paso a paso y, en caso de que surja algún problema, deje un com
 
 ## Creación de una red virtual
 
-Puede crear una red virtual en Azure mediante el Portal de Azure o Powershell. En este tutorial, usaremos Powershell. Para crear una red virtual mediante el Portal de Azure, consulte [Creación de una red virtual](create-virtual-network.md).
+Puede crear una red virtual en Azure mediante el Portal de Azure o Powershell. En este tutorial, usaremos Powershell. Para crear una red virtual mediante el Portal de Azure, consulte [Creación de una red virtual](virtual-machines/create-virtual-network.md).
 
     #Create Virtual Network
 
