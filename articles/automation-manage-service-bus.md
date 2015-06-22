@@ -40,7 +40,7 @@ Bus de servicio se puede administrar en Automatización de Azure mediante el uso
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Bus de servicio de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-* Consulte el [Tutorial de introducción](automation-create-runbook-from-samples.md) de Automatización de Azure.
+* Consulte el [Tutorial de introducción](automation/automation-create-runbook-from-samples.md) de Automatización de Azure.
 * Consulte el artículo sobre [Administración de Bus de servicio con PowerShell](service-bus-powershell-how-to-provision.md)
 
 <!---HONumber=58-->

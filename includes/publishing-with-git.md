@@ -302,6 +302,6 @@ Estos son los errores o problemas que suelen aparecer al utilizar Git para publi
 [Creación de un repositorio (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Inicio rápido: Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Uso de Dropbox para compartir repositorios de Git]: https://gist.github.com/trey/2722927
-[Entrega continua a Azure con Visual Studio Online]: ../articles/cloud-services-continuous-delivery-use-vso.md
+[Entrega continua a Azure con Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 <!--HONumber=49-->

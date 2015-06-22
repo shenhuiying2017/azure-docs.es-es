@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Administración del control de acceso basado en roles con la interfaz de la línea de comandos entre plataformas de Azure" 
 	description="Administrar el control de acceso basado en roles con la interfaz de línea de comandos entre plataformas" 
 	services="" 
@@ -150,3 +150,4 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 <!--HONumber=46--> 
 
 <!--HONumber=46--> 
+ 

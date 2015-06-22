@@ -254,7 +254,7 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 
 ## Pasos siguientes
 - [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md)
+- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 

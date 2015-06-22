@@ -1,4 +1,4 @@
-﻿## Configuración de una cadena de conexión de almacenamiento
+## Configuración de una cadena de conexión de almacenamiento
 
 La biblioteca del cliente de almacenamiento de Azure para .NET admite el uso de una cadena de conexión de almacenamiento para configurar extremos y credenciales a fin de obtener acceso a los servicios de almacenamiento. Es recomendable mantener la cadena de conexión de almacenamiento en un archivo de configuración en vez de codificarla de forma rígida en su aplicación. Tiene dos opciones para guardar su cadena de conexión:
 

@@ -99,12 +99,12 @@ Introducción
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)  
 - [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md)
 - [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Uso del Portal de Azure para administrar los recursos de Azure](./resource-group-portal.md)  
+- [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)  
   
 Creación e implementación de aplicaciones
   
 - [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md)  
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md)  
+- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)  
 - [Solución de problemas de implementaciones de grupo de recursos en Azure](virtual-machines/resource-group-deploy-debug.md)  
 - [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)  
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)  
@@ -116,7 +116,7 @@ Organización de los recursos
   
 Administración y auditoría del acceso
   
-- [Administración y auditoría del acceso a los recursos](./resource-group-rbac.md)  
+- [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md)  
 - [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md)  
 
 <!-- Images. -->
