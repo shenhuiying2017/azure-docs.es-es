@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	urldisplayname="Service Bus AMQP" 
 	headerexpose="" 
 	pageTitle="Uso de AMQP 1.0 con la API del Bus de servicio de Java - Azure" 
@@ -370,3 +370,4 @@ También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como
 * [Utilización de las colas del Bus de servicio](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
 <!--HONumber=47-->
+ 

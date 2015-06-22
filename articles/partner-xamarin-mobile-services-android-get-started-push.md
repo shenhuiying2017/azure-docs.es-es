@@ -76,7 +76,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 * [Introducción a la autenticación](partner-xamarin-mobile-services-android-get-started-users.md) <br/>Aprenda a autenticar a usuarios de su aplicación con distintos tipos de cuentas mediante los servicios móviles.
 
-* [¿Qué son los Centros de notificaciones?](notification-hubs-overview.md) <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
+* [¿Qué son los Centros de notificaciones?](notification-hubs/notification-hubs-overview.md) <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
 * [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga orientación sobre la solución de problemas y la depuración de soluciones de los Centros de notificaciones.
 

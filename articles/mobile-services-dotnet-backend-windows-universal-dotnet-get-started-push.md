@@ -110,7 +110,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[¿Qué son los Centros de notificaciones?]: notification-hubs-overview.md
+[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
 
 [Uso de un cliente .NET para Servicios móviles de Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

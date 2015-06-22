@@ -1,6 +1,6 @@
 
 En esta sección se muestra cómo enviar notificaciones desde una aplicación de consola .NET y desde cualquier otra aplicación.
-Si está usando Servicios móviles, consulte los tutoriales de [Introducción a las notificaciones de inserción](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Si quiere utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [interfaz de REST de Centros de notificaciones].
+Si está usando Servicios móviles, consulte los tutoriales de [Introducción a las notificaciones de inserción](../articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) . Si quiere utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [interfaz de REST de Centros de notificaciones].
 
 El código siguiente envía notificaciones a dispositivos de la Tienda Windows, Windows Phone, iOS y Android. 
 
@@ -92,7 +92,7 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: ../articles/notification-hubs-windows-store-dotnet-get-started.md
+[get-started]: ../articles/notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
 [Uso de los Centros de notificaciones para enviar notificaciones a los usuario]: ../articles/tutorial-notify-users-mobileservices.md
 [Introducción a los servicios móviles]: /develop/mobile/tutorials/get-started/#create-new-service
 [Portal de administración de Azure]: https://manage.windowsazure.com/

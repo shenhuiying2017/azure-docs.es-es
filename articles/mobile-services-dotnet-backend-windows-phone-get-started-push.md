@@ -210,8 +210,8 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
 
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
-[¿Qué son los Centros de notificaciones?]: notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs-windows-phone-send-breaking-news.md
+[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-phone-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-phone-send-localized-breaking-news.md
 
 

@@ -123,7 +123,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users.md
 
-[¿Qué son los Centros de notificaciones?]: notification-hubs-overview.md
+[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-store-javascript-send-localized-breaking-news.md
 

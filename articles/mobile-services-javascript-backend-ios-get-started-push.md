@@ -237,9 +237,9 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
 
 [Enviar notificaciones de inserción a los usuarios autenticados]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[¿Qué son los Centros de notificaciones?]: notification-hubs-overview.md
-[Enviar notificaciones de difusión a los suscriptores]: notification-hubs-ios-send-breaking-news.md
-[Envío de notificaciones basadas en plantillas a los suscriptores]: notification-hubs-ios-send-localized-breaking-news.md
+[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
+[Enviar notificaciones de difusión a los suscriptores]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Envío de notificaciones basadas en plantillas a los suscriptores]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
 
 [Documentación conceptual sobre Objective-C en Servicios móviles]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
