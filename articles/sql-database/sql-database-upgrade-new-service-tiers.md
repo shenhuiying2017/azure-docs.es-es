@@ -14,7 +14,7 @@ ms.devlang="NA"
 	ms.author="jhubbard; sstein" 
 	ms.workload="data-services" 
 	ms.topic="article" 
-	ms.tgt_pltfrm=""/>
+	ms.tgt_pltfrm="NA"/>
 
 
 # Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos
@@ -172,11 +172,11 @@ Esta es una consulta en la base de datos maestra que realiza el cálculo de la b
 
 **Resultado de ejemplo:**
 
-![Sample Result](media/sql-database-upgrade-new-service-tiers/CTnjv26.png)
+![Sample Result](media/sql-database-upgrade-new-service-tiers/sample_result.png)
 
 En el gráfico puede ver la tendencia del consumo de porcentaje promedio de DTU en el tiempo. Este es un gráfico de ejemplo para una base de datos que se encuentra dentro de un nivel S2 la mayoría del tiempo, con alguna actividad máxima que llega al nivel P1 de la base de datos.  El consumo de DTU a lo largo del tiempo varía desde los límites de 'Basic' hasta los límites de 'P1'. Para ajustar completamente esta base de datos al nuevo nivel, necesitará una base de datos de nivel de servicio Premium con un nivel de rendimiento 'P1'. Por otro lado, una base de datos de nivel S2 puede funcionar si esas ráfagas ocasionales a nivel P1 son poco frecuentes.
 
-![DTU Usage](media/sql-database-upgrade-new-service-tiers/e4N4ay5.png)
+![DTU Usage](media/sql-database-upgrade-new-service-tiers/DTU_usage.png)
 
 **Impacto de la memoria en el rendimiento:** aunque la memoria es una de las dimensiones de recursos que contribuye a la clasificación de DTU, la base de datos SQL está diseñada para usar toda la memoria disponible para las operaciones de la base de datos. Por eso, el consumo de la memoria no se incluye en el promedio de consumo de DTU en la consulta anterior. Por otro lado, si pasa a un nivel de rendimiento inferior, la memoria disponible se reduce para la base de datos. Esto podría dar lugar a un consumo de E/S superior que afectará a la DTU consumida. Por lo tanto, al reducir el tamaño a un nivel de rendimiento inferior, asegúrese de que tiene suficiente espacio disponible en el porcentaje de E/S. Use la DMV [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) mencionada anteriormente para supervisar esto.
 
