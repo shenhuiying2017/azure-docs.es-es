@@ -40,7 +40,7 @@ RemoteApp se puede administrar en Automatización de Azure mediante los cmdlets 
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar RemoteApp de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-* Vea el [Tutorial de introducción de Automatización de Azure](automation-create-runbook-from-samples.md)
+* Vea el [Tutorial de introducción de Automatización de Azure](automation/automation-create-runbook-from-samples.md)
 
 
 <!--HONumber=52-->

@@ -203,4 +203,4 @@ Para seguir explorando la funcionalidad de ACS y experimentar con escenarios má
 [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: active-directory-java-authenticate-users-access-control-eclipse.md
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
 
-<!---HONumber=58-->
+<!---HONumber=58--> 

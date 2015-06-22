@@ -210,7 +210,7 @@ Ahora que conoce los fundamentos de uso de los Centros de notificaciones, consul
   [Centros de notificaciones del Bus de servicio de Azure]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
   [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Sitio web con WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Servicio en la nube Node.js]: cloud-services-nodejs-develop-deploy-app.md
+  [Servicio en la nube Node.js]: cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Portal de administración anterior]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
   [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
   [Servicio en la nube de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-app-with-storage/
