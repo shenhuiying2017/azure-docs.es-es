@@ -1436,7 +1436,7 @@ Este comando permite quitar todas las filas de datos de la tabla.
 
 ###<a name="Mobile_Scripts"></a>Comandos para administrar scripts
 
-Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles](mobile-services-how-to-use-server-scripts.md).
+Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options][servicename]**
 

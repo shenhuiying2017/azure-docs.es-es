@@ -1,4 +1,4 @@
-﻿
+
 Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En esta sección, agregará código al servicio móvil que valida la longitud de los datos de la cadena enviados al servicio móvil y rechaza las cadenas que son demasiado largas, en este caso, con más de 10 caracteres.
 
 1. Inicie Visual Studio con la opción **Ejecutar como administrador** y abra la solución que contiene el proyecto de servicio móvil con el que trabajó en el tutorial de [Introducción] o de [Introducción a los datos](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md).
