@@ -1,0 +1,45 @@
+<properties 
+	pageTitle="Preguntas más frecuentes" 
+	description="Preguntas más frecuentes (P+F)" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/15/2015" 
+	ms.author="juliako"/>
+
+
+#Preguntas más frecuentes  
+
+##Información general
+
+P: ¿Cómo se escala la indización?
+
+R: Las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalación de unidades reservadas de codificación](media-services-how-to-scale.md). **Tenga en cuenta que** el rendimiento del indizador no se ve afectado por tipo de unidad reservada.
+
+P: He cargado, codificado y publicado un vídeo. ¿Cuál es el motivo por el que el vídeo no se reproduce cuando intento transmitirlo? 
+
+R: Uno de los motivos más habituales es que no dispone de al menos una unidad de streaming reservada asignada en el extremo de streaming desde el que está intentando reproducir.  Siga las instrucciones de [Escalación de unidades reservadas de streaming](media-services-how-to-scale.md).
+
+P: ¿Puedo realizar una composición en una secuencia en vivo? 
+
+R: No se ofrece actualmente la composición en secuencias en vivo en Servicios multimedia de Azure, por lo que tendrá que realizar una composición previa en el equipo.
+
+P: ¿Puedo usar CDN de Azure con Live Streaming? 
+
+R: Servicios multimedia admite la integración con CDN de Azure (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md#enable_cdn)).  Puede usar el streaming en vivo con CDN. Servicios multimedia de Azure proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
+
+P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
+
+R: Si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Almacenamiento de blobs de Azure. No supone una ventaja si se colocan en la cuenta de Servicios multimedia a menos que desee mantenerlas asociadas a los recursos de vídeo o audio. O bien, si es posible que tenga que usar las imágenes como superposiciones en el codificador de vídeo. Codificador de Servicios multimedia es compatible con imágenes superpuestas en la parte superior de los vídeos, lo que hace que JPEG y PNG sean formatos de entrada compatibles. Para obtener más información, consulte [Creación de superposiciones](https://msdn.microsoft.com/library/azure/dn640496.aspx).
+
+
+<!--HONumber=52--> 
