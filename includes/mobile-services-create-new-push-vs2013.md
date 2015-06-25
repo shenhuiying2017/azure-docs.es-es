@@ -1,4 +1,4 @@
-﻿Los pasos siguientes permiten registrar su aplicación en la Tienda Windows, configurar su servicio móvil para habilitar las notificaciones de inserción y agregar código a su aplicación para registrar un canal de dispositivo en el centro de notificaciones. Visual Studio 2013 se conecta a Azure y a la Tienda Windows mediante las credenciales que proporcione el usuario. 
+Los pasos siguientes permiten registrar su aplicación en la Tienda Windows, configurar su servicio móvil para habilitar las notificaciones de inserción y agregar código a su aplicación para registrar un canal de dispositivo en el centro de notificaciones. Visual Studio 2013 se conecta a Azure y a la Tienda Windows mediante las credenciales que proporcione el usuario. 
 
 1. En Visual Studio 2013, abra el Explorador de soluciones, haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows, haga clic en **Agregar** y, a continuación, haga clic en **Notificación de inserción...**. 
 

@@ -17,7 +17,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 	- 	Busque el método **OnCreate** en **TodoActivity.java** y localice el código que crea una instancia del cliente de servicios móviles. El código se puede ver en la imagen anterior.
 	- 	Reemplace "MobileServiceUrl" con la dirección URL real del servicio móvil.
 	- 	Reemplace "AppKey" con la clave del servicio móvil.
-	- 	Para obtener más información, consulte el tutorial [Incorporación de Servicios móviles a una aplicación existente](../articles/mobile-services-android-get-started-data.md). 
+	- 	Para obtener más información, consulte el tutorial [Incorporación de Servicios móviles a una aplicación existente](../articles/mobile-services/mobile-services-android-get-started-data.md). 
 
 6. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar) para iniciar el proyecto en el emulador de Android.
 
@@ -52,9 +52,9 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services-javascript-backend-android-get-started-push.md
+[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
+[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
