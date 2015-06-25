@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Incorporación de notificaciones de inserción a la aplicación de Servicios móviles (iOS) | Mobile Dev Center" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS." 
 	services="mobile-services,notification-hubs" 

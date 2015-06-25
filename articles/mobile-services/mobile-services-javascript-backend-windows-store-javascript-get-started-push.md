@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Incorporación de notificaciones de inserción a la aplicación de Servicios móviles (Windows Store) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." 
 	services="mobile-services,notification-hubs" 

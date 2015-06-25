@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Escalado de Servicios móviles respaldados por Base de datos SQL de Azure - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo diagnosticar y corregir problemas de escalabilidad en los servicios móviles con copia de seguridad por la base de datos SQL" 
 	services="mobile-services" 

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introducción a la notificación de inserción usando un servicio móvil de back-end de .NET" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación universal de Windows." 
 	services="mobile-services,notification-hubs" 

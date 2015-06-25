@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Incorporación de notificaciones de inserción a la aplicación de Servicios móviles - Servicios móviles" 
 	description="Obtenga información acerca de cómo usar notificaciones de inserción en aplicaciones Xamarin.Android con Servicios móviles de Azure." 
 	documentationCenter="xamarin" 

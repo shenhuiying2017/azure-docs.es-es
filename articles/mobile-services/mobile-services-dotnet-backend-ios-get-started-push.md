@@ -262,8 +262,14 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-dotnet-backend-ios-push-notifications-app-users.md
 
+<<<<<<< HEAD:articles/mobile-services-dotnet-backend-ios-get-started-push.md
+[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-ios-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-ios-send-localized-breaking-news.md
+=======
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
+>>>>>>> master:articles/mobile-services/mobile-services-dotnet-backend-ios-get-started-push.md
 
 <!--HONumber=54--> 

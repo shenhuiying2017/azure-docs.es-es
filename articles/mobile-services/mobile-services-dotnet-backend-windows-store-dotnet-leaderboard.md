@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." 
 	documentationCenter="windows" 
@@ -758,7 +758,8 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 [Más información acerca de Servicios móviles de Azure]: /develop/mobile/resources/
 [Más información acerca de Web API]: http://asp.net/web-api
 [Control de conflictos de escritura de bases de datos]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
-[Incorporación de notificaciones de inserción]: ../notification-hubs-windows-store-dotnet-get-started.md
+[Incorporación de notificaciones de inserción]: notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
+
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
 

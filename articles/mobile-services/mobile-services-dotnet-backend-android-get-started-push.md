@@ -117,9 +117,15 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Enviar notificaciones de inserción a los usuarios autenticados]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
+<<<<<<< HEAD:articles/mobile-services-dotnet-backend-android-get-started-push.md
+[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
+[Enviar notificaciones de difusión a los suscriptores]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Envío de notificaciones basadas en plantillas a los suscriptores]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+=======
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Enviar notificaciones de difusión a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+>>>>>>> master:articles/mobile-services/mobile-services-dotnet-backend-android-get-started-push.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 <!--HONumber=54--> 
