@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a los Servicios móviles para aplicaciones de la Tienda Windows | Centro de desarrollo móvil" 
-	description="Siga este tutorial para aprender a usar Servicios móviles de Azure para el desarrollo de la Tienda Windows en C#, VB o JavaScript." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introducción a los Servicios móviles para aplicaciones de la Tienda Windows | Centro de desarrollo móvil"
+	description="Siga este tutorial para aprender a usar Servicios móviles de Azure para el desarrollo de la Tienda Windows en C#, VB o JavaScript."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="javascript" 
-	ms.topic="hero-article" 
-	ms.date="11/21/2014" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="javascript"
+	ms.topic="article" 
+	ms.date="04/24/2015"
 	ms.author="glenga"/>
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación universal de Windows con Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de*Lista de pendientes* en HTML y JavaScript que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree usa los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la versión de JavaScript de este tema.
+En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación universal de Windows con Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple *To do list* de pendientes en HTML y JavaScript que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree usa los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la versión de JavaScript de este tema.
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -37,23 +37,23 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## Creación de una nueva aplicación universal de Windows
 
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio. 
+Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
 
 En esta sección, creará una nueva aplicación universal de Windows que se conecta al servicio móvil.
 
 1. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
-   
+
 2. En la pestaña de inicio rápido, haga clic en **Windows** en **Seleccionar plataforma** y, a continuación, expanda **Crear una nueva aplicación de la Tienda Windows**.
 
-   ![][6]
+   	![][6]
 
    	Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación de la Tienda Windows conectada al servicio móvil.
 
   	![][7]
 
-3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o máquina virtual.
+3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o la máquina virtual.
 
-4. En **Descargar y ejecutar la aplicación y el servicio localmente**, seleccione un idioma para la aplicación de la Tienda Windows y, a continuación, haga clic en **Descargar**. 
+4. En **Descargar y ejecutar la aplicación y el servicio localmente**, seleccione un idioma para la aplicación de la Tienda Windows y, a continuación, haga clic en **Descargar**.
 
   	De esta forma, se descarga una solución que contiene proyectos tanto para el servicio móvil como para la aplicación _To do list_ de ejemplo conectada a su servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
@@ -78,9 +78,9 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 	<p>El cliente ahora tendrá acceso al servicio móvil publicado en Azure.</p></li>
 
-<li><p>Presione la tecla <strong>F5</strong> para recompilar el proyecto e iniciar la aplicación.</p></li>
+<li><p>Presione la tecla <strong>F5</strong> para recopilar el proyecto e iniciar la aplicación.</p></li>
 
-<li><p>En la aplicación, escriba texto significativo, como <em>Realice el tutorial</em>, en <strong>Insertar TodoItem</strong> y luego haga clic en <strong>Guardar</strong>.</p>
+<li><p>En la aplicación, escriba texto significativo, como <em>Realice el tutorial</em>, en <strong>Insertar TodoItem</strong> y, a continuación, haga clic en <strong>Guardar</strong>.</p>
 
 <p>Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure.</p>
 </li>
@@ -92,10 +92,10 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
-[Introducción a Servicios móviles]:#getting-started
-[Creación de un servicio móvil]:#create-new-service
-[Definición de la instancia del servicio móvil]:#define-mobile-service-instance
-[Pasos siguientes]:#next-steps
+[Getting started with Mobile Services]: #getting-started
+[Create a new mobile service]: #create-new-service
+[Define the mobile service instance]: #define-mobile-service-instance
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started/mobile-quickstart-completed.png
@@ -110,15 +110,15 @@ Para obtener más información acerca de las aplicaciones universales de Windows
 
 
 <!-- URLs. -->
-[Introducción a los datos]: ../mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md
-[Introducción a la autenticación]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
-[Introducción a las notificaciones de inserción]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-push.md
+[Get started with data]: ../mobile-services-dotnet-backend-windows-universal-javascript-get-started-data.md
+[Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[SDK de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
-[JavaScript y HTML]: mobile-services-win8-javascript/
-[Portal de administración]: https://manage.windowsazure.com/
-[Versión de JavaScript]: ../mobile-services-windows-store-get-started.md
-[Introducción a los datos en Servicios móviles con Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
+[Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[JavaScript and HTML]: mobile-services-win8-javascript/
+[Management Portal]: https://manage.windowsazure.com/
+[JavaScript version]: ../mobile-services-windows-store-get-started.md
+[Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=58_postMigration-->

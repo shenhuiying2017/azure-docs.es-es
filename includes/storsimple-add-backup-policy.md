@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Add StorSimple backup policies"
-   description="Explains how you can use the StorSimple Manager service to create a backup policy."
+   pageTitle="Agregación de directivas de copia de seguridad de StorSimple"
+   description="Explica cómo puede usar el servicio del Administrador de StorSimple para crear una directiva de copia de seguridad."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -15,20 +15,19 @@
    ms.date="05/22/2015"
    ms.author="alkohli" />
 
-#### To add a StorSimple backup policy
+#### Para agregar una directiva de copia de seguridad de StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. En la página **Inicio rápido** del dispositivo, haga clic en la pestaña **Directivas de copia de seguridad**. Esto le llevará a la página **Directivas de copia de seguridad**.
 
-2. At the bottom of the page, click **Add**.
+2. En la parte inferior de la página, haga clic en **Agregar**.
 
-3. In the **Add Backup Policy** dialog box, do the following:
+3. En el cuadro de diálogo**Agregar directiva de copia de seguridad**, realice lo siguiente:
 
-    1. Specify a backup policy name that contains between 3 and 150 characters.
-    2. Assign one or more volumes to this backup policy. If you are using other cloud service providers, based on your first selection, the dropdown list will show volumes belonging to only that cloud service provider. This will allow you to group volumes belonging to a single cloud service provider for taking a snapshot.
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to save the policy.
+    1. Especifique un nombre que tenga entre 3 y 150 caracteres para la directiva de copia de seguridad.
+    2. Asigne uno o más volúmenes a esta directiva de copia de seguridad. Si utiliza otros proveedores de servicios en nube, en función de su primera selección, la lista desplegable mostrará los volúmenes que pertenecen solo ese proveedor de servicios en la nube. Esto le permitirá agrupar los volúmenes que pertenecen a un único proveedor de servicios en la nube para tomar una instantánea.
+    3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) para guardar la directiva.
 
-The newly added policy will be displayed in the tabular view on the **Backup Policies** page.
+La directiva recién agregada se mostrará en la vista tabular en la página **Directivas de copia de seguridad**.
  
 
-
-
+<!---HONumber=58_postMigration-->

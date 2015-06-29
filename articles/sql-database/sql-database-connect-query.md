@@ -1,27 +1,27 @@
-
-<properties 
-	pageTitle="Conexión y consultas a la base de datos SQL con C#" 
+<properties
+	pageTitle="Conexión y consultas a la base de datos SQL con C#"
 	description="Ejemplo de código para un cliente de C# que usa ADO.NET para conectarse e interactuar con la base de datos de AdventureWorks en el servicio de nube de la base de datos SQL de Azure."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="ckarst" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="ckarst"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/14/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/14/2015"
 	ms.author="cakarst"/>
 
 
-# Conexión y consultas a la base de datos SQL con C## 
+# Conexión y consultas a Base de datos SQL con C&#x23;
 
-Este tema proporciona un ejemplo de código C# que muestra cómo conectarse a una base de datos SQL de AdventureWorks existente mediante el uso de ADO.NET. El ejemplo se compila en una aplicación de consola que consulta la base de datos y muestra los resultados.
+
+Este tema proporciona un ejemplo de código C# que muestra cómo conectarse a una base de datos SQL de AdventureWorks existente mediante el uso de ADO.NET. El ejemplo se compila en una aplicación de consola que consulta la base de datos y muestra el conjunto de resultados.
 
 
 ## Requisitos previos
@@ -70,7 +70,7 @@ Pegue el código fuente siguiente en su archivo **Program.cs**.
 	using System.Text;
 	using System.Threading.Tasks;
 	using System.Data.SqlClient;
-	
+
 	namespace ConnectandQuery_Example
 	{
 		class Program
@@ -114,20 +114,20 @@ Pegue el código fuente siguiente en su archivo **Program.cs**.
 ## Paso 3: Búsqueda de la cadena de conexión para su base de datos
 
 
-1. Abra el [Portal de Azure](http://portal.azure.com/).
+1. Abra el [Portal de vista previa de Azure](http://portal.azure.com/).
 2. Haga clic en **Examinar** > **Bases de datos SQL** > **Base de datos de "Adventure Works"** > **Propiedades** > **Mostrar cadenas de conexión de la base de datos**.
 
 
 ![Portal](./media/sql-database-connect-query/ConnectandQuery_portal.png)
 
 
-En la hoja de cadenas de conexión de la base de datos, se mostrarán las cadenas de conexión adecuadas para ADO.NET, ODBC, PHP y JDBC.
+En la hoja de cadenas de conexión de la base de datos, encontrará las cadenas de conexión adecuadas para ADO.NET, ODBC, PHP y JDBC.
 
 
 ## Paso 4: Sustitución de la información de conexión real
 
 
--En el código fuente que pegó, reemplace el marcador de posición *[Your_Connection_String]* con la cadena de conexión y asegúrese de reemplazar *your_password_here* en dicha cadena con su contraseña real.
+- En el código fuente pegado, reemplace el marcador de posición *[Your_Connection_String]* por la cadena de conexión y asegúrese de reemplazar *your_password_here* en dicha cadena por su contraseña real.
 
 
 ## Paso 5: Ejecución de la aplicación
@@ -135,5 +135,6 @@ En la hoja de cadenas de conexión de la base de datos, se mostrarán las cadena
 
 1. Para compilar y ejecutar la aplicación, haga clic en **DEPURAR** > **Iniciar depuración**.
 2. El programa imprimirá los resultados de la consulta en la ventana de la consola.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

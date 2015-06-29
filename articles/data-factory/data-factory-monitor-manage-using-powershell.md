@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Tutorial: crear y supervisar un generador de datos de Azure con Azure PowerShell" 
-	description="Aprenda a usar Azure PowerShell para crear y supervisar los generadores de datos de Azure." 
+	pageTitle="Tutorial: Creación y supervisión de una factoría de datos de Azure mediante PowerShell de Azure" 
+	description="Obtenga información sobre cómo usar PowerShell de Azure para crear y supervisar las factorías de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,62 +13,62 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
-# Tutorial: Crear y supervisar un generador de datos con Azure PowerShell
+# Tutorial: Crear y supervisar una factoría de datos mediante PowerShell de Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
-El [empezar a trabajar con el generador de datos de Azure][adf-get-started] tutorial muestra cómo crear y supervisar un generador de datos de Azure mediante el [Portal de vista previa de Azure][azure-preview-portal]. En este tutorial, creará y supervisar un generador de datos de Azure mediante cmdlets de PowerShell de Azure. La canalización en el generador de datos que se crea en este tutorial copia los datos de un Azure blob en una base de datos de SQL Azure.
+El tutorial [Introducción a la Factoría de datos de Azure][adf-get-started] le muestra cómo crear y supervisar una factoría de datos de Azure con el [Portal de vista previa de Azure][azure-preview-portal]. En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de PowerShell de Azure. La canalización en la factoría de datos que cree en este tutorial copia los datos del blob de Azure a una base de datos SQL de Azure.
 
-> [AZURE.NOTE]Este artículo no abarca todos los cmdlets de generador de datos. Consulte [referencia de cmdlets de generador de datos][cmdlet-reference] para obtener documentación completa sobre los cmdlets de generador de datos.
+> [AZURE.NOTE]Este artículo no abarca todos los cmdlets de Factoría de datos. Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
 ##Requisitos previos
-Además de requisitos previos que se enumeran en el tema de información general del Tutorial, debe tener instalado en el equipo de Azure PowerShell. Si no tiene ya, descargue e instale [Azure PowerShell][download-azure-powershell] en el equipo.
+Además de los requisitos previos que se enumeran en el tema de información general del tutorial, debe tener instalado PowerShell de Azure en el equipo. Si aún no dispone de él, descargue e instale [PowerShell de Azure][download-azure-powershell] en el equipo.
 
 ##Apartados de este tutorial
-En la tabla siguiente se enumera los pasos que se llevará a cabo como parte de este tutorial y sus descripciones.
+En la tabla siguiente se enumera los pasos que se llevarán a cabo como parte de este tutorial y sus descripciones.
 
 Paso | Descripción
 -----| -----------
-[Paso 1: Crear un generador de datos de Azure](#CreateDataFactory) | En este paso, creará un generador de datos de Azure denominado **ADFTutorialDataFactoryPSH**. 
-[Paso 2: Crear servicios vinculados](#CreateLinkedServices) | En este paso, creará dos servicios vinculados: **StorageLinkedService** y **AzureSqlLinkedService**. El StorageLinkedService vincula un almacenamiento de Azure y AzureSqlLinkedService vincula el ADFTutorialDataFactoryPSH una base de datos de SQL Azure.
-[Paso 3: Crear la entrada y salida de los conjuntos de datos](#CreateInputAndOutputDataSets) | En este paso, definirá dos conjuntos de datos (** EmpTableFromBlob ** y **EmpSQLTable**) que se utilizan como tablas de entrada y salidas para el **copia actividad** en el ADFTutorialPipeline que creará en el paso siguiente.
-[Paso 4: Crear y ejecutar una canalización](#CreateAndRunAPipeline) | En este paso, va a crear una canalización con nombre **ADFTutorialPipeline** en el generador de datos: **ADFTutorialDataFactoryPSH**... La canalización tendrá un **actividad de copia** que copia datos de un Azure blob a una tabla de base de datos de Azure de salida.
-[Paso 5: Supervisar los conjuntos de datos y canalización](#MonitorDataSetsAndPipeline) | En este paso, va a supervisar los conjuntos de datos y la canalización con Azure PowerShell en este paso.
+[Paso 1: Crear una factoría de datos de Azure](#CreateDataFactory) | En este paso creará una factoría de datos de Azure denominada **ADFTutorialDataFactoryPSH**. 
+[Paso 2: Crear servicios vinculados](#CreateLinkedServices) | En este paso, creará dos servicios vinculados: **StorageLinkedService** y **AzureSqlLinkedService**. StorageLinkedService vincula el Almacenamiento de Azure y AzureSqlLinkedService vincula la Base de datos SQL de Azure a ADFTutorialDataFactoryPSH.
+[Paso 3: Crear conjuntos de datos de entrada y salida](#CreateInputAndOutputDataSets) | En este paso, definirá dos conjuntos de datos (**EmpTableFromBlob** y **EmpSQLTable**) que se usan como tablas de entrada y salida de la **actividad de copia** en la ADFTutorialPipeline que creará en el siguiente paso.
+[Paso 4: Crear y ejecutar una canalización](#CreateAndRunAPipeline) | En este paso, creará una canalización denominada **ADFTutorialPipeline** en Factoría de datos: **ADFTutorialDataFactoryPSH**. La canalización dispondrá de una **actividad de copia** que copia datos de un blob de Azure en una tabla de base de datos de Azure de salida.
+[Paso 5: Supervisar conjuntos de datos y canalización](#MonitorDataSetsAndPipeline) | En este paso, supervisará los conjuntos de datos y la canalización con PowerShell de Azure.
 
-## <a name="CreateDataFactory"></a>Paso 1: Crear un generador de datos de Azure
-En este paso, uso de Azure PowerShell para crear un generador de datos de Azure denominado **ADFTutorialDataFactoryPSH**.
+## <a name="CreateDataFactory"></a>Paso 1: Crear una factoría de datos de Azure
+En este paso, use PowerShell de Azure para crear una factoría de datos de Azure llamada **ADFTutorialDataFactoryPSH**.
 
-1. Iniciar **Azure PowerShell** y ejecute los comandos siguientes. Mantenga el Azure PowerShell abierta hasta el final de este tutorial. Si cierra y vuelve a abrir, deberá volver a ejecutar estos comandos.
-	- Ejecutar **Add-AzureAccount** y escriba el nombre de usuario y la contraseña que utilizas para iniciar sesión en el Portal de vista previa de Azure.  
-	- Ejecutar **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
-	- Ejecutar **Select-AzureSubscription** para seleccionar la suscripción que desea trabajar. Esta suscripción debe ser la misma que la usada en el Portal de vista previa de Azure. 
-2. Cambiar a **AzureResourceManager** están disponibles en este modo de modo que los cmdlets del generador de datos de Azure.
+1. Inicie **PowerShell de Azure** y ejecute los comandos siguientes: Mantenga PowerShell de Azure abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
+	- Ejecute **Add-AzureAccount** y escriba el mismo nombre de usuario y contraseña que usó para iniciar sesión en el Portal de vista previa de Azure.  
+	- Ejecute **Get-AzureSubscription** para ver todas las suscripciones para esta cuenta.
+	- Ejecute **Select-AzureSubscription** para seleccionar la suscripción con la que quiere trabajar. Esta suscripción debe ser la misma que la usada en el Portal de vista previa de Azure. 
+2. Cambie al modo **AzureResourceManager** a medida que los cmdlets de la factoría de datos de Azure están disponibles.
 
 		Switch-AzureMode AzureResourceManager 
-3. Crear un grupo de recursos de Azure denominado: **ADFTutorialResourceGroup** ejecute el comando siguiente.
+3. Cree un grupo de recursos de Azure con el nombre: **ADFTutorialResourceGroup** ejecutando el siguiente comando.
    
 		New-AzureResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-	Algunos de los pasos en este tutorial se supone que usa el grupo de recursos denominado **ADFTutorialResourceGroup**. Si utiliza un grupo de recursos distinto, debe usar en lugar de ADFTutorialResourceGroup en este tutorial. 
-4. Ejecute el **nueva AzureDataFactory** cmdlet para crear un generador de datos con nombre: **ADFTutorialDataFactoryPSH**.  
+	En algunos de los pasos de este tutorial se supone que se usa el grupo de recursos denominado **ADFTutorialResourceGroup**. Si usa un grupo de recursos diferentes, deberá usarlo en lugar de ADFTutorialResourceGroup en este tutorial. 
+4. Ejecute el cmdlet **New-AzureDataFactory** para crear una factoría de datos con el nombre: **ADFTutorialDataFactoryPSH**.  
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 
-	> [AZURE.NOTE]El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **nombre del generador de datos "ADFTutorialDataFactoryPSH" no está disponible**, cambie el nombre (por ejemplo, yournameADFTutorialDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras realiza los pasos de este tutorial.
+	El nombre del generador de datos de Azure debe ser único global. Si recibe el error: **El nombre de la factoría de datos "ADFTutorialDataFactoryPSH" no está disponible**, cambie el nombre (por ejemplo, yournameADFTutorialDataFactoryPSH). Use este nombre en lugar de ADFTutorialFactoryPSH mientras lleva a cabo los pasos de este tutorial.
 
 ## <a name="CreateLinkedServices"></a>Paso 2: Crear servicios vinculados
-Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Un almacén de datos puede ser un almacenamiento de Azure, base de datos de SQL Azure o una base de datos de SQL Server local que contiene los datos de entrada o almacena los datos de salida de una canalización del generador de datos. Un servicio de proceso es el servicio que procesa datos de entrada y genera datos de salida.
+Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Un almacén de datos puede ser Almacenamiento de Azure, Base de datos SQL de Azure o Base de datos SQL Server local que contenga los datos de entrada o almacene los datos de salida de una canalización de Factoría de datos. Un servicio de proceso es el servicio que procesa datos de entrada y genera datos de salida.
 
-En este paso, creará dos servicios vinculados: **StorageLinkedService** y **AzureSqlLinkedService**. StorageLinkedService vinculados a vínculos de servicio una cuenta de almacenamiento de Azure y AzureSqlLinkedService vincula una base de datos de SQL Azure para el generador de datos: **ADFTutorialDataFactoryPSH**. Más adelante en este tutorial que copia datos de un contenedor de blob en StorageLinkedService a una tabla SQL en AzureSqlLinkedService creará una canalización.
+En este paso, creará dos servicios vinculados: **StorageLinkedService** y **AzureSqlLinkedService**. El servicio vinculado StorageLinkedService vincula una cuenta de almacenamiento de Azure y AzureSqlLinkedService vincula una base de datos SQL de Azure a la factoría de datos: **ADFTutorialDataFactoryPSH**. Más adelante en este tutorial creará una canalización que copia datos de un contenedor de blobs de StorageLinkedService en una tabla SQL de AzureSqlLinkedService.
 
 ### Creación de un servicio vinculado para una cuenta de almacenamiento de Azure
-1.	Cree un archivo JSON denominado **StorageLinkedService.json** en la **C:\ADFGetStartedPSH** con el siguiente contenido. Si todavía no existe, cree la carpeta ADFGetStartedPSH.
+1.	Cree un archivo JSON con el nombre **StorageLinkedService.json** en **C:\ADFGetStartedPSH** con el siguiente contenido. Si todavía no existe, cree la carpeta ADFGetStartedPSH.
 
 		{
 		    "name": "StorageLinkedService",
@@ -78,23 +78,23 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 		    }
 		}
-2.	En el **Azure PowerShell**, cambie a la **ADFGetStartedPSH** carpeta. 
-3.	Puede utilizar el **nueva AzureDataFactoryLinkedService** cmdlet para crear un servicio vinculado. Este cmdlet y otros cmdlets de factoría de datos que se utiliza en este tutorial requieren que se pasen valores la **ResourceGroupName** y **DataFactoryName** parámetros. Como alternativa, puede usar **Get AzureDataFactory** para obtener un objeto DataFactory y pasar el objeto sin necesidad de escribir ResourceGroupName y DataFactoryName cada vez que ejecuta un cmdlet. Ejecute el comando siguiente para asignar el resultado de la **AzureDataFactory Get** cmdlet a una variable: **$df**. 
+2.	En **PowerShell de Azure**, cambie a la carpeta **ADFGetStartedPSH**. 
+3.	Use el cmdlet **New-AzureDataFactoryLinkedService** para crear un servicio vinculado. Este cmdlet y otros cmdlets de Factoría de datos que usa en este tutorial requieren que pase los valores para los parámetros **ResourceGroupName** y **DataFactoryName**. Como alternativa, puede usar **Get AzureDataFactory** para obtener un objeto DataFactory y pasar el objeto sin necesidad de escribir ResourceGroupName y DataFactoryName cada vez que ejecuta un cmdlet. Ejecute el comando siguiente para asignar el resultado del cmdlet **Get-AzureDataFactory** a una variable: **$df**. 
 
-		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoyPSH
+		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
-4.	Ahora, ejecute el **nueva AzureDataFactoryLinkedService** cmdlet para crear el servicio vinculado: **StorageLinkedService**.
+4.	Ahora, ejecute el cmdlet **New-AzureDataFactoryLinkedService** para crear un servicio vinculado: **StorageLinkedService**.
 
 		New-AzureDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
-	Si no había ejecutado la **AzureDataFactory Get** cmdlet y asigna el resultado a **$df** variable, tendría que especificar los valores de los parámetros ResourceGroupName y DataFactoryName como sigue.
+	Si no hubiera ejecutado el cmdlet **Get-AzureDataFactory** y asignado el resultado a la variable **$df**, tendría que especificar valores para los parámetros ResourceGroupName y DataFactoryName de la siguiente forma.
 		
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-	Si cierra Azure PowerShell en el centro del tutorial, habrá ejecuta el cmdlet Get-AzureDataFactory próxima vez que ejecute Azure PowerShell para completar el tutorial.
+	Si cierra PowerShell de Azure en el centro del tutorial, tendrá que ejecutar el cmdlet Get-AzureDataFactory la próxima vez que ejecute PowerShell de Azure para completar el tutorial.
 
 ### Creación de un servicio vinculado para una base de datos SQL de Azure
-1.	Cree un archivo JSON denominado AzureSqlLinkedService.json con el siguiente contenido.
+1.	Cree un archivo JSON con el nombre AzureSqlLinkedService.json con el siguiente contenido.
 
 		{
 		    "name": "AzureSqlLinkedService",
@@ -108,41 +108,40 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 	
 		New-AzureDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-	> [AZURE.NOTE]Confirme que el **Permitir el acceso a los servicios de Azure** esté activada para el servidor de SQL Azure. Para comprobar y encenderlo, haga lo siguiente:
-	>
-	> <ol>
-<li>Haga clic en <b>Examinar</b> concentrador a la izquierda y haga clic en <b>servidores SQL</b>.</li>
-<li>Seleccione el servidor y haga clic en <b>configuración</b> en el <b>SQL SERVER</b> blade.</li>
-<li>En el <b>configuración</b> blade, haga clic en <b>Firewall</b>.</li>
-<li>En el <b>Firewalll configuración</b> blade, haga clic en <b>ON</b> para <b>Permitir el acceso a los servicios de Azure</b>.</li>
-<li>Haga clic en <b>ACTIVE</b> concentrador a la izquierda para cambiar a la <b>factoría de datos</b> estuviera en el módulo.</li>
-</ol>
+	Confirme que la configuración **Permitir el acceso a los servicios de Azure** esté activada para el servidor SQL de Azure. Para comprobarla y activarla, realice la siguiente tarea:
 
-## <a name="CreateInputAndOutputDataSets"></a>Paso 3: Crear la entrada y salida de las tablas
+	1. Haga clic en el concentrador **EXAMINAR** a la izquierda y haga clic en **Servidores SQL**.
+	2. Seleccione un servidor y haga clic en **CONFIGURACIÓN** en la hoja SQL SERVER.
+	3. En la hoja **CONFIGURACIÓN**, haga clic en **Firewall**.
+	4. En la hoja **Configuración de firewall**, haga clic en **ACTIVADA** para **Permitir el acceso a los servicios de Azure**.
+	5. Haga clic en el concentrador **ACTIVO** a la izquierda para cambiar a la hoja **Factoría de datos** en la que está.
+	
 
-En el paso anterior, creó servicios vinculados **StorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de almacenamiento de Azure y una base de datos de SQL Azure para el generador de datos: **ADFTutorialDataFactoryPSH**. En este paso, creará las tablas que representan la entrada y salida de datos para la actividad de copia en la canalización que se va a crear en el paso siguiente.
+## <a name="CreateInputAndOutputDataSets"></a>Paso 3: Crear tablas de entrada y salida
 
-Una tabla es un conjunto de datos rectangular y es el único tipo de conjunto de datos que se admite en este momento. La tabla de entrada en este tutorial refiere a un contenedor de blob en el almacenamiento de Azure que StorageLinkedService apunta a y la tabla de resultados en una tabla SQL en la base de datos de SQL Azure que señala AzureSqlLinkedService.
+En el paso anterior, creó los servicios vinculados **StorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de almacenamiento de Azure y una base de datos SQL de Azure con la factoría de datos: **ADFTutorialDataFactoryPSH**. En este paso, creará tablas que representan los datos de entrada y salida para la actividad de copia en la canalización que va a crear en el paso siguiente.
+
+Una tabla es un conjunto de datos rectangular y es el único tipo de conjunto de datos que se admite en este momento. La tabla de entrada de este tutorial hace referencia a un contenedor de blobs en el Almacenamiento de Azure al que apunta StorageLinkedService y la tabla de salida hace referencia a una tabla SQL en la Base de datos de SQL Azure a la que apunta AzureSqlLinkedService.
 
 ### Preparación del almacenamiento de blobs de Azure y la base de datos SQL de Azure para el tutorial
-Omita este paso si ha realizado el tutorial de [empezar a trabajar con el generador de datos de Azure][adf-get-started] artículo.
+Omita este paso si ha pasado por el tutorial desde el artículo [Introducción a la Factoría de datos de Azure][adf-get-started].
 
-Tendrá que realizar los pasos siguientes para preparar el almacenamiento de blobs de Azure y la base de datos de SQL Azure para este tutorial.
+Tiene que realizar los siguientes pasos para preparar el Almacenamiento de blobs de Azure y Base de datos SQL de Azure para este tutorial.
  
-* Crear un contenedor de blob denominado **adftutorial** almacenamiento de blobs de Azure que **StorageLinkedService** señala a. 
-* Crear y cargar un archivo de texto **emp.txt**, como un blob en el **adftutorial** contenedor. 
-* Crear una tabla denominada **emp** en la base de datos de SQL Azure en SQL Azure de base de datos que **AzureSqlLinkedService** señala a.
+* Cree un contenedor de blobs con el nombre **adftutorial** en el almacenamiento de blobs de Azure al que señala **StorageLinkedService**. 
+* Cree y cargue un archivo de texto, **emp.txt**, como un blob para el contenedor **adftutorial**. 
+* Cree una tabla llamada **emp** en la Base de datos SQL de Azure a la que apunta **AzureSqlLinkedService**.
 
 
-1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** a **C:\ADFGetStartedPSH** carpeta en el disco duro. 
+1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\ADFGetStartedPSH** de su disco duro. 
 
         John, Doe
 		Jane, Doe
 				
-2. Usar herramientas como [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) para crear la **adftutorial** contenedor y cargar la **emp.txt** archivo al contenedor.
+2. Use herramientas como el [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
 
     ![Explorador de almacenamiento de Azure][image-data-factory-get-started-storage-explorer]
-3. Use el siguiente script SQL para crear el **emp** tabla en la base de datos de SQL Azure.  
+3. Use el siguiente script de SQL para crear la tabla **emp** en su Base de datos SQL de Azure.  
 
 
         CREATE TABLE dbo.emp 
@@ -155,14 +154,14 @@ Tendrá que realizar los pasos siguientes para preparar el almacenamiento de blo
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-	Si tiene instalado en el equipo de SQL Server 2014: siga las instrucciones de [paso 2: conectar con base de datos SQL de la administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] artículo para conectarse al servidor SQL Azure y ejecutar la secuencia de comandos SQL.
+	Si tiene SQL Server 2014 instalado en el equipo: siga las instrucciones del artículo [Paso 2: Conexión con la base de datos SQL de la base de datos de administración de SQL de Azure con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL.
 
-	Si tiene instalado en el equipo de Visual Studio 2013: en el Portal de vista previa de Azure ([http://portal.azure.com](http://portal.sazure.com)), haga clic en **Examinar** concentrador izquierdo, haga clic en la **servidores SQL Server**, seleccione la base de datos y haga clic en **abierta en Visual Studio** en la barra de herramientas para conectarse al servidor SQL Azure y ejecutar la secuencia de comandos. Si el cliente no tiene permiso para tener acceso al servidor de SQL Azure, necesitará configurar el firewall de su servidor de SQL Azure para permitir el acceso desde su equipo (dirección IP). Consulte el artículo anterior para conocer los pasos configurar el firewall para el servidor de SQL Azure.
+	Si tiene instalado Visual Studio 2013 en el equipo: en el Portal de vista previa de Azure, ([http://portal.azure.com](http://portal.sazure.com)), haga clic en el concentrador **EXAMINAR** a la izquierda, en **Servidores SQL**, seleccione su base de datos y haga clic en el botón **Abrir en Visual Studio** de la barra de herramientas para conectarse a su servidor SQL de Azure y ejecutar el script. Si el cliente no tiene permiso para acceder al servidor SQL de Azure, tendrá que configurar el firewall de su servidor SQL de Azure para permitir el acceso desde su equipo (dirección IP). Consulte el artículo anterior para conocer los pasos para configurar el firewall para el servidor SQL de Azure.
 		
 ### Creación de la tabla de entrada 
-Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, creará una tabla denominada **EmpBlobTable** que señala a un contenedor de blob en el almacenamiento de Azure representado por la **StorageLinkedService** vinculados de servicio. Este contenedor de blobs (** adftutorial **) contiene los datos de entrada en el archivo: **emp.txt**.
+Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, creará una tabla denominada **EmpBlobTable** que apunta a un contenedor de blobs en el almacenamiento de Azure representado por el servicio vinculado **StorageLinkedService**. Este contenedor de blobs (**adftutorial**) contiene los datos de entrada en el archivo: **emp.txt**.
 
-1.	Cree un archivo JSON denominado **EmpBlobTable.json** en la **C:\ADFGetStartedPSH** carpeta con el siguiente contenido:
+1.	Cree un archivo JSON llamado **EmpBlobTable.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido:
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -195,16 +194,16 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 	
 	Tenga en cuenta lo siguiente:
 	
-	- ubicación **tipo** está establecido en **AzureBlobLocation**.
-	- **linkedServiceName** está establecido en **StorageLinkedService**. 
-	- **folderPath** está establecido en el **adftutorial** contenedor. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
-	- formato **tipo** está establecido en **TextFormat**
-	- Hay dos campos en el archivo de texto **FirstName** y **LastName** separados por un carácter de coma (** columnDelimiter **)	
-	- El **disponibilidad** está establecido en **cada hora** (** frecuencia ** se establece en **hora** y **intervalo** está establecido en **1** ), por lo que el servicio de generador de datos buscará los datos de entrada cada hora en la carpeta raíz en el contenedor de blob (** adftutorial **) especificado.
+	- el **tipo** de ubicación se establece en **AzureBlobLocation**.
+	- **linkedServiceName** se establece en **StorageLinkedService**. 
+	- **folderPath** se establece en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
+	- el **tipo** de formato se establece en **TextFormat**
+	- Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**)	
+	- La **disponibilidad** se establece en **cada hora** (**frecuencia** se establece en **hora** e **intervalo** se establece en **1** ), por lo que el servicio de la factoría de datos buscará los datos de entrada cada hora en la carpeta raíz del contenedor de blob (**adftutorial**) especificado.
 
-	Si no especifica un **nombre de archivo** para un **entrada** **tabla**, todos los archivos o blobs desde la carpeta de entrada (** folderPath **) se consideran como entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Ver los archivos de ejemplo en el [tutorial][adf-tutorial] para obtener ejemplos.
+	Si no especifica un **nombre de archivo** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. Consulte los archivos de muestra del [tutorial][adf-tutorial] para ver algunos ejemplos.
  
-	Si no se especifica un **nombre de archivo** para un **tabla de salida**, el genera los archivos de la **folderPath** se denominan con el siguiente formato: datos. < Guid > .txt (ejemplo: Data.0a405f8a 93ff 4c6f b3be f69616f1df7a.txt.).
+	Si no especifica un valor **fileName** para una **tabla de salida**, los archivos generados en la **ruta de la carpeta** se denominan con el siguiente formato: Data.<Guid>.txt (ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 	Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se va a procesar) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv.
 
@@ -218,16 +217,16 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
             { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
         ],
 
-	> [AZURE.NOTE]Consulte [referencia de secuencias de comandos de JSON](http://go.microsoft.com/fwlink/?LinkId=516971) para obtener más información acerca de las propiedades JSON.
+	Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-2.	Ejecute el siguiente comando para crear la tabla de generador de datos.
+2.	Ejecute el comando siguiente para crear la tabla Factoría de datos.
 
 		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
 
 ### Creación de la tabla de salida
-En esta parte del paso, va a crear una tabla de resultados denominada **EmpSQLTable** que señala a una tabla SQL (** emp **) en la base de datos de SQL Azure está representado por la **AzureSqlLinkedService** vinculados de servicio. La canalización copia los datos de blob de entrada a la **emp** tabla.
+En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** que apunta a una tabla SQL (**emp**) de la base de datos SQL de Azure que está representada por el servicio vinculado **AzureSqlLinkedService**. La canalización copia los datos del blob de entrada a la tabla **emp**.
 
-1.	Cree un archivo JSON denominado **EmpSQLTable.json** en la **C:\ADFGetStartedPSH** carpeta con el contenido siguiente.
+1.	Cree un archivo JSON llamado**EmpSQLTable.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido:
 		
 		{
 		    "name": "EmpSQLTable",
@@ -254,21 +253,21 @@ En esta parte del paso, va a crear una tabla de resultados denominada **EmpSQLTa
 
      Tenga en cuenta lo siguiente:
 	
-	* ubicación **tipo** está establecido en **AzureSQLTableLocation**.
-	* **linkedServiceName** está establecido en **AzureSqlLinkedService**.
+	* el **tipo** de ubicación está establecido en **AzureSQLTableLocation**.
+	* **linkedServiceName** se establece en **AzureSqlLinkedService**.
 	* **tablename** está establecido en **emp**.
-	* Hay tres columnas: **ID de**, **FirstName**, y **LastName** : en la tabla emp en la base de datos, pero el identificador es una columna de identidad, por lo que necesitará especificar sólo **FirstName** y **LastName** aquí.
-	* El **disponibilidad** está establecido en **cada hora** (** frecuencia ** establecido en **hora** y **intervalo** establecido en **1**). El servicio de generador de datos generará un segmento de datos de salida cada hora en el **emp** tabla en la base de datos de SQL Azure.
+	* Hay tres columnas: **ID**, **FirstName** y **LastName**: en la tabla emp de la base de datos, pero el id. es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
+	* La **disponibilidad** está establecida en **cada hora** (**frecuencia** está establecida en **hora** e **intervalo** en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
-2.	Ejecute el siguiente comando para crear la tabla de generador de datos.
+2.	Ejecute el comando siguiente para crear la tabla Factoría de datos.
 	
 		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Paso 4: Crear y ejecutar una canalización
-En este paso, se crea una canalización con un **copia actividad** que utiliza **EmpTableFromBlob** como entrada y **EmpSQLTable** como salida.
+En este paso, creará una canalización con una **actividad de copia** que usa **EmpTableFromBlob** como entrada y **EmpSQLTable** como salida.
 
-1.	Cree un archivo JSON denominado **ADFTutorialPipeline.json** en la **C:\ADFGetStartedPSH** carpeta con el siguiente contenido: 
+1.	Cree un archivo JSON llamado **ADFTutorialPipeline.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido: 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -311,35 +310,39 @@ En este paso, se crea una canalización con un **copia actividad** que utiliza *
 
 	Tenga en cuenta lo siguiente:
 
-	- En la sección actividades, hay sólo una actividad cuya **tipo** está establecido en **CopyActivity**.
-	- Entrada de la actividad se establece en **EmpTableFromBlob** y de salida de la actividad se establece en **EmpSQLTable**.
-	- En el **transformación** sección, **BlobSource** se especifica como el tipo de origen y **SqlSink** se especifica como el tipo de receptor.
+	- En la sección de actividades, solo hay una actividad cuyo **tipo** está establecido en **CopyActivity**.
+	- La entrada de la actividad está establecida en **EmpTableFromBlob** y la salida en **EmpSQLTable**.
+	- En la sección **transformación**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor.
 
-	> [AZURE.NOTE]Sustituya el valor de la **iniciar** propiedad con la fecha actual y **end** valor con el día siguiente. Ambos iniciar y fechas y horas de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. El **end** tiempo es opcional, pero se utilizará en este tutorial. Si no especifica el valor para el **end** propiedad, se calcula como "** inicio + 48 horas **". Para ejecutar la canalización de forma indefinida, especifique **9/9/9999** como el valor de la **end** propiedad. En el ejemplo anterior, habrá 24 segmentos de datos, porque cada segmento de datos se produce cada hora.
+	Reemplace el valor de la propiedad **start** por el día actual y el valor **end** por el próximo día. Las fechas y horas de inicio y de finalización deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial.
 	
-	> [Referencia de secuencias de comandos de JSON](http://go.microsoft.com/fwlink/?LinkId=516971)
-2.	Ejecute el siguiente comando para crear la tabla de generador de datos. 
+	Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9/9/9999** como valor de la propiedad **end**.
+	
+	En el ejemplo anterior, habrá 24 segmentos de datos, porque cada segmento de datos se produce cada hora.
+	
+	Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
+2.	Ejecute el comando siguiente para crear la tabla Factoría de datos. 
 		
 		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
 
 **¡Enhorabuena!** Ha creado correctamente una factoría de datos de Azure, servicios vinculados, tablas y una canalización, y ha programado la canalización.
 
 ## <a name="MonitorDataSetsAndPipeline"></a>Paso 5: Supervisar la canalización y los conjuntos de datos
-En este paso, usará Azure PowerShell para supervisar lo que está ocurriendo en un generador de datos de Azure.
+En este paso, usará PowerShell de Azure para supervisar lo que está ocurriendo en una factoría de datos de Azure.
 
-1.	Ejecutar **Get AzureDataFactory** y asignar el resultado a una variable $df.
+1.	Ejecute **Get-AzureDataFactory** y asigne el resultado a la variable $df.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
  
-2.	Ejecutar **Get AzureDataFactorySlice** para obtener detalles acerca de todos los sectores de la **EmpSQLTable**, que es la tabla de salida de la canalización.
+2.	Ejecute **Get-AzureDataFactorySlice** para obtener la información sobre todos los segmentos de **EmpSQLTable**, que es la tabla de salida de la canalización.
 
 		Get-AzureDataFactorySlice $df -TableName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
 
-	> [AZURE.NOTE]Reemplazar parte de fecha, mes y año el **StartDateTime** parámetro con el año, mes y fecha. Debe coincidir con el **iniciar** valor en la canalización de JSON.
+	Reemplace la parte del año, mes y fecha del parámetro **StartDateTime** por el año, mes y fecha actuales. Debe coincidir con el valor de **inicio** en JSON de canalización.
 
-	Debe ver 24 sectores, uno para cada hora de 12 A.M. del día actual a las 12 A.M. del día siguiente.
+	Debe ver 24 segmentos, uno para cada hora de 12 A.M. del día actual hasta las 12 A.M. del día siguiente.
 	
-	**Primer sector:**
+	**Primer segmento:**
 
 		ResourceGroupName : ADFTutorialResourceGroup
 		DataFactoryName   : ADFTutorialDataFactoryPSH
@@ -363,7 +366,7 @@ En este paso, usará Azure PowerShell para supervisar lo que está ocurriendo en
 		LatencyStatus     : 
 		LongRetryCount    : 0
 
-3.	Ejecutar **Get AzureDataFactoryRun** para obtener los detalles de actividad se ejecuta durante un **específico** sector. Cambie el valor de la **StartDateTime** parámetro para que coincida con el **iniciar** tiempo del sector de la salida anterior. El valor de la **StartDateTime** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-03-03T22:00:00Z.
+3.	Ejecute **Get-AzureDataFactoryRun** para obtener la información de la actividad que se ejecuta para un segmento **específico**. Cambie el valor del parámetro **StartDateTime** para que coincida con la hora de **inicio** del segmento desde la salida anterior. El valor de **StartDateTime** debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-03-03T22:00:00Z.
 
 		Get-AzureDataFactoryRun $df -TableName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
 
@@ -387,20 +390,20 @@ En este paso, usará Azure PowerShell para supervisar lo que está ocurriendo en
 		PipelineName        : ADFTutorialPipeline
 		Type                : Copy
 
-> [AZURE.NOTE]Consulte [referencia de cmdlets de generador de datos][cmdlet-reference] para obtener documentación completa sobre los cmdlets de generador de datos.
+Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos.
 
 ## Pasos siguientes
 
 Artículo | Descripción
 ------ | ---------------
-[Copiar los datos con el generador de datos de Azure - actividad de copia][copy-activity] | Este artículo proporciona una descripción detallada de la **copia actividad** utilizados en este tutorial. 
-[Habilitar las canalizaciones trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial que muestra cómo copiar datos desde una **base de datos de SQL Server local** a un blob de Azure. 
-[Uso de Pig y Hive con el generador de datos][use-pig-and-hive-with-data-factory] | Este artículo tiene un tutorial que muestra cómo usar **HDInsight actividad** para ejecutar una **hive y pig** secuencia de comandos para procesar datos de entrada para generar datos de salida.
-[Tutorial: Mover y procesar los archivos de registro mediante el generador de datos][adf-tutorial] | Este artículo proporciona un **-to-end tutorial** que muestra cómo implementar un **escenario real** mediante el generador de datos de Azure para transformar los datos de archivos de registro en perspectivas.
-[Utilizar actividades personalizadas en un generador de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones paso a paso para crear un **actividad personalizada** y su uso en una canalización. 
-[Solucionar problemas del generador de datos][troubleshoot] | Este artículo se describe cómo **solucionar** problemas del generador de datos de Azure. Puede probar el tutorial de este artículo en ADFTutorialDataFactory introduciendo un error (eliminando la tabla de la Base de datos SQL de Azure). 
-[Referencia de cmdlets de generador de datos de Azure][cmdlet-reference] | Este contenido de referencia con información detallada sobre todos los **cmdlets del generador de datos**.
-[Referencia del programador de generador de datos de Azure][developer-reference] | La referencia del programador tiene el contenido de referencia completa de cmdlets, script JSON, funciones, etc.... 
+[Copia de datos con la Factoría de datos de Azure (actividad de copia)][copy-activity] | Este artículo proporciona una descripción detallada de la **actividad de copia** que ha usado en este tutorial. 
+[Habilitación de canalizaciones para trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial que muestra cómo copiar datos desde una **base de datos de SQL Server local** a un blob de Azure. 
+[Uso de Pig y Hive con la Factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo tiene un tutorial que muestra cómo utilizar **HDInsight Activity** para ejecutar un script de **hive/pig** para procesar los datos de entrada para generar datos de salida.
+[Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial] | En este artículo se proporciona un **tutorial completo** en el que se muestra cómo implementar un **escenario real** mediante la factoría de datos de Azure para transformar los datos de archivos de registro en información.
+[Uso de actividades personalizadas en una Factoría de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones paso a paso para crear una **actividad personalizada** y utilizarla en un proceso. 
+[Solución de problemas de la factoría de datos][troubleshoot] | En este artículo se describe cómo **solucionar problemas** de la factoría de datos de Azure. Puede probar el tutorial de este artículo en ADFTutorialDataFactory introduciendo un error (eliminando la tabla de la Base de datos SQL de Azure). 
+[Referencia de cmdlets de Factoría de datos de Azure][cmdlet-reference] | Esta referencia tiene información detallada acerca de todos los **cmdlets de Factoría de datos**.
+[Referencia para desarrolladores de la Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
 
 [copy-activity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
@@ -423,5 +426,6 @@ Artículo | Descripción
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=58_postMigration-->

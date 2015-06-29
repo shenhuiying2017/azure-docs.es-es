@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Factoría de datos - Crear canalizaciones predictivas con la factoría de datos y el aprendizaje automático | Azure" 
-	description="Describe cómo crear crear canalizaciones predictivas mediante el generador de datos Azuer y aprendizaje automático de Azure" 
+	description="Describe cómo crear canalizaciones predictivas con Factoría de datos de Azure y Aprendizaje automático de Azure" 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,33 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/09/2015" 
 	ms.author="spelluru"/>
 
 # Crear canalizaciones predictivas con la factoría de datos de Azure y el aprendizaje automático de Azure 
 ## Información general
-Puede hacer operativa publicado [aprendizaje automático de Azure][azure-machine-learning] modelos dentro de las canalizaciones de generador de datos de Azure. Estas canalizaciones se denominan canalizaciones predictivas. Para crear una canalización predictiva, necesitará:
+Puede operacionalizar modelos publicados de [Aprendizaje automático de Azure][azure-machine-learning] dentro de las canalizaciones de Factoría de datos de Azure. Estas canalizaciones se denominan canalizaciones predictivas. Para crear una canalización predictiva, necesitará:
 
 -	La clave de la API del modelo del área de trabajo publicada y la URL de puntuación del lote (vea la imagen siguiente)
--	Un blob de Azure que contiene el archivo CSV de entrada (o) de una base de datos de SQL Azure que contiene la entrada de datos de almacenamiento examinados. 
--	Almacenamiento de blobs de Azure que contendrá el archivo CSV de resultados de la puntuación (o) de una base de datos de SQL Azure que contendrá los datos de salida. 
+-	Almacenamiento de blob de Azure que contiene el archivo CSV de entrada (o) una base de datos SQL de Azure que contiene los datos de entrada que se van a puntuar. 
+-	Almacenamiento de blob de Azure que contiene el archivo CSV de resultados de puntuación (o) una base de datos SQL que contendrá los datos de salida. 
 
-	![Panel de aprendizaje de máquina][machine-learning-dashboard]
+	![Panel de aprendizaje automático][machine-learning-dashboard]
 
-	El lote de puntuación dirección URL para el AzureMLLinkedService se obtiene como del indicado en la imagen anterior, menos ' ** Ayuda **': https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
+	La URL de puntuación de lote para el AzureMLLinkedService se obtiene como se indica en la imagen anterior, menos ‘**help**’: https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
 
-Un **canalización predictivo** consta de estas partes:
+Una **canalización predictiva** consta de estas partes:
 
 -	Tablas de entrada y salida
--	SQL Azure y almacenamiento de Azure y Azure ML vinculan de servicios
+-	Almacenamiento de Azure/SQL Azure y servicios vinculados de ML de AzureSQL Azure y almacenamiento de Azure y Azure ML vinculan de servicios
 -	Una canalización con actividad de puntuación de lote de ML de Azure
 
-> [AZURE.NOTE]Puede utilizar parámetros de servicios Web expuestos por un servicio Web de aprendizaje del equipo de Azure publicado en las canalizaciones de generador de datos de Azure (ADF). Para obtener más información, vea la sección de parámetros de servicio Web en este artículo.
+> [AZURE.NOTE]Puede utilizar parámetros de servicios web expuestos por un servicio web de Aprendizaje automático de Azure publicado en las canalizaciones de Factoría de datos de Azure (ADF). Para obtener más información, consulte la sección Parámetros de servicio web en este artículo.
 
 ## Ejemplo
-Este ejemplo utiliza el almacenamiento de Azure para almacenar los datos de entrada y salidos. También puede utilizar la base de datos de SQL Azure en lugar de utilizar el almacenamiento de Azure.
+Este ejemplo utiliza Almacenamiento de Azure para almacenar los datos de entrada y salida. También puede utilizar Base de datos SQL de Azure en lugar de utilizar Almacenamiento de Azure.
 
-Se recomienda que siguió el [empezar a trabajar con el generador de datos de Azure][adf-getstarted] tutorial antes de pasar por este ejemplo y utilice el Editor de generador de datos para crear artefactos de generador de datos (servicios vinculados, tablas, canalización) en este ejemplo.
+Se recomienda que siga el tutorial [Introducción a la Factoría de datos de Azure][adf-getstarted] antes de pasar por este ejemplo y utilizar el Editor de Factoría de datos para crear artefactos de Factoría de datos (servicios vinculados, tablas y canalización) en este ejemplo.
  
 
 1. Cree un servicio vinculado para su almacenamiento de Azure. Si los archivos de entrada y salida de puntuación van a estar en diferentes cuentas de almacenamiento, necesitará dos servicios vinculados. Este es un ejemplo de JSON:
@@ -53,7 +53,7 @@ Se recomienda que siguió el [empezar a trabajar con el generador de datos de Az
 		    }
 		}
 
-2. Cree las tablas de la factoría de datos de Azure de entrada y salida. Tenga en cuenta que a diferencia de otras tablas de generador de datos, éstos deben contener ambos **folderPath** y **nombre de archivo** valores. Puede utilizar la creación de particiones para hacer que cada ejecución de lotes (cada segmento de datos) se procese o produzca archivos de entrada y salida únicos. Probablemente necesitará incluir alguna actividad ascendente para transformar la entrada en el formato de archivo CSV y colocarlo en la cuenta de almacenamiento para cada segmento. En ese caso, no incluiría la configuración de "waitOnExternal" que se muestra en el ejemplo siguiente y su ScoringInputBlob sería la tabla de salida de una actividad diferente.
+2. Cree las tablas de la factoría de datos de Azure de entrada y salida. Tenga en cuenta que a diferencia de otras tablas de Factoría de datos, estas deben contener tanto los valores **folderPath** como **fileName**. Puede utilizar la creación de particiones para hacer que cada ejecución de lotes (cada segmento de datos) se procese o produzca archivos de entrada y salida únicos. Probablemente necesitará incluir alguna actividad ascendente para transformar la entrada en el formato de archivo CSV y colocarlo en la cuenta de almacenamiento para cada segmento. En ese caso, no incluiría la configuración de "waitOnExternal" que se muestra en el ejemplo siguiente y su ScoringInputBlob sería la tabla de salida de una actividad diferente.
 
 		{  
 			"name":"ScoringInputBlob",
@@ -85,7 +85,7 @@ Se recomienda que siguió el [empezar a trabajar con el generador de datos de Az
 		   		}
 			}
 	
-	Un lote de puntuación archivo csv debe tener la fila de encabezado de columna. Si está utilizando la **copia actividad** para crear o mover el csv en el almacenamiento de blobs, debe establecer la propiedad de receptor **blobWriterAddHeader** a **true**. Por ejemplo:
+	Un archivo CSV de puntuación por lotes debe tener la fila de encabezado de columna. Si está usando la **copia de actividad** para crear/mover el CSV en el Almacenamiento de blog, debe establecer la propiedad de receptor **blobWriterAddHeader** en **true**. Por ejemplo:
 	
 	     sink: 
 	     {
@@ -93,7 +93,7 @@ Se recomienda que siguió el [empezar a trabajar con el generador de datos de Az
 	         "blobWriterAddHeader": true 
 	     }
 	 
-	Si el archivo csv no tiene la fila de encabezado, verá el siguiente error: **Error en la actividad: Error al leer la cadena. Token inesperado: StartObject. Ruta de acceso ', línea 1, posición 1**.
+	Si el archivo CSV no tiene la fila de encabezado, es posible que vea el siguiente error: **Error en actividad: error de lectura de la cadena. Token inesperado: StartObject. Path '', line 1, position 1**.
 3. En este ejemplo de salida se usa la creación de particiones para crear una ruta de acceso de salida única para cada ejecución de segmento. Sin esto, la actividad sobrescribiría el archivo.
 
 		{  
@@ -124,7 +124,7 @@ Se recomienda que siguió el [empezar a trabajar con el generador de datos de Az
 		}
 
 
-4. Crear un servicio de tipo vinculado: **AzureMLLinkedService**, con la clave de API y el modelo de lotes puntuación dirección URL.
+4. Cree un servicio vinculado de tipo: **AzureMLLinkedService**, proporcionando la clave de la API y la URL de la puntuación del lote de modelo.
 		
 		{
 		    "name": "MyAzureMLLinkedService",
@@ -136,7 +136,7 @@ Se recomienda que siguió el [empezar a trabajar con el generador de datos de Az
 		    }
 		}
 
-5. Por último, crear una canalización que contiene un **AzureMLBatchScoringActivity**. Obtendrá la ubicación del archivo de entrada de las tablas de entrada, llamará a la API de puntuación de lote de AzureML y copiará la salida de la puntuación del lote en el blob proporcionado en la tabla de salida. A diferencia de otras actividades de la factoría de datos, AzureMLBatchScoringActivity solo puede tener una tabla de entrada y salida.
+5. Por último, cree una canalización que contenga una **AzureMLBatchScoringActivity**. Obtendrá la ubicación del archivo de entrada de las tablas de entrada, llamará a la API de puntuación de lote de AzureML y copiará la salida de la puntuación del lote en el blob proporcionado en la tabla de salida. A diferencia de otras actividades de la factoría de datos, AzureMLBatchScoringActivity solo puede tener una tabla de entrada y salida.
 
 		 {
 		    "name": "PredictivePipeline",
@@ -164,11 +164,11 @@ Se recomienda que siguió el [empezar a trabajar con el generador de datos de Az
 		}
 
 
-## Parámetros de servicio Web
-Puede utilizar parámetros de servicios Web expuestos por un servicio Web de aprendizaje del equipo de Azure publicado en las canalizaciones de generador de datos de Azure (ADF). Puede crear un experimento en aprendizaje automático de Azure y publicarlo como un servicio web y, a continuación, usar ese servicio web en varias canalizaciones ADF o actividades, pasando entradas diferentes a través de los parámetros del servicio Web.
+## Parámetros de servicio web
+Puede utilizar parámetros de servicios web expuestos por un servicio web de Aprendizaje automático de Azure publicado en las canalizaciones de Factoría de datos de Azure (ADF). Puede crear un experimento en Aprendizaje automático de Azure y publicarlo como un servicio web y, a continuación, usar ese servicio web en varias actividades y canalizaciones ADF pasando por distintas entradas a través de los parámetros de servicio web.
 
-### Pasar valores de parámetros de servicio Web
-Agregar un **transformación** sección a la **AzureMLBatchScoringActivty** sección en la canalización de JSON para especificar valores para parámetros de servicio Web en esa sección, como se muestra en el ejemplo siguiente:
+### Paso de valores para los parámetros de servicio web
+Agregue una sección **transformación** a la sección **AzureMLBatchScoringActivty** en JSON de canalización para especificar valores para los parámetros de servicio web en esa sección como se muestra en el siguiente ejemplo:
 
 	transformation: {
 		webServiceParameters: {
@@ -178,7 +178,7 @@ Agregar un **transformación** sección a la **AzureMLBatchScoringActivty** secc
 	}
 
 
-También puede usar [funciones del generador de datos](https://msdn.microsoft.com/library/dn835056.aspx) en pasar valores para la Web, servicio parámetros como se muestra en el ejemplo siguiente:
+También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com/library/dn835056.aspx) para pasar valores para los parámetros de servicio web como se muestra en el siguiente ejemplo:
 
 	transformation: {
     	webServiceParameters: {
@@ -186,69 +186,69 @@ También puede usar [funciones del generador de datos](https://msdn.microsoft.co
     	}
   	}
  
-> [AZURE.NOTE]Los parámetros del servicio Web distinguen mayúsculas de minúsculas, así que asegúrese de que los nombres especificados en la actividad JSON coinciden con las expuestas por el servicio Web.
+> [AZURE.NOTE]Los parámetros de servicio web distinguen entre mayúsculas y minúsculas para garantizar que los nombres que especifica en JSON de actividad coinciden con los que muestra el servicio web.
 
-### SQL azure lectores y escritores
-Un escenario común para utilizar parámetros de servicio Web es el uso de Azure SQL lectores y escritores. El módulo de lector se utiliza para cargar datos en un experimento de servicios de administración de datos fuera de Azure máquina aprendizaje Studio y el módulo de escritor es guardar los datos de sus experimentos en servicios de administración de datos fuera de Azure máquina aprendizaje Studio. Para obtener más información acerca de lector/escritor SQL Azure/Blob de Azure, consulte [lector](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) temas en MSDN Library. El ejemplo en la sección anterior utiliza el lector de Blob de Azure y escritor de Blob de Azure. En esta sección se describe el uso de lector de SQL Azure y el escritor SQL Azure.
+### Lectores y escritores SQL de Azure
+Un escenario común para el uso de parámetros de servicio web es el uso de Lectores y escritores SQL de Azure. El módulo de lector se utiliza para cargar datos en un experimento desde los servicios de administración de datos fuera de Estudio de aprendizaje automático de Azure y el módulo de escritor es para guardar datos de los experimentos en los servicios de administración de datos fuera de Estudio de aprendizaje automático de Azure. Para obtener información acerca del lector/escritor SQL Azure/Blob, consulte los temas [Lector](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Escritor](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library. El ejemplo de la sección anterior utilizó el lector de Blob de Azure y el lector de Blob de Azure. En esta sección se trata el uso del lector SQL Azure y el escritor SQL Azure.
 
 #### Lector SQL Azure
-En Azure ML Studio, puede crear un experimento y publicar un servicio Web con un lector de SQL Azure para la entrada. El lector de SQL Azure tiene propiedades de conexión que se pueden exponer como parámetros de servicios Web, lo que permite los valores de las propiedades de conexión que se pasan en tiempo de ejecución en el lote de solicitudes de puntuación.
+En Estudio de aprendizaje automático de Azure, puede crear un experimento y publicar un servicio web con un lector SQL de Azure para la entrada. El lector SQL de Azure tiene propiedades de conexión que pueden visualizarse como parámetros de servicio web, lo que permite a los valores para las propiedades de conexión que se pasen en tiempo de ejecución en la solicitud de puntuación por lotes.
 
-En tiempo de ejecución, los detalles de la tabla de la factoría de datos de entrada se utilizará el servicio del generador de datos para rellenar los parámetros del servicio Web. Tenga en cuenta que debe utilizar nombres predeterminados (nombre del servidor de base de datos, nombre de la base de datos, nombre de cuenta de usuario de servidor, contraseña de cuenta de usuario de servidor) para los parámetros del servicio Web para esta integración con el servicio de generador de datos para trabajar.
+En tiempo de ejecución, el servicio de Factoría de datos usará información de la tabla de Factoría de datos de entrada para completar los parámetros de servicio web. Tenga en cuenta que debe usar nombres predeterminados (nombre de servidor de base de datos, nombre de base de datos, nombre de cuenta de usuario de servidor y contraseña de cuenta de usuario de servidor) para que los parámetros de servicio web para esta integración con el servicio de Factoría de datos funcionen.
 
-Si tiene cualquier Web adicionales parámetros de servicio, use la **webServiceParameters** sección de la actividad de JSON. Si especifica valores para parámetros de lector de SQL Azure en esta sección, los valores invalidará los valores que ha seleccionado en el servicio de SQL Azure vinculados de entrada. No se recomienda que especificar valores para el lector de SQL Azure directamente en la sección webServiceParameters. Use la sección para pasar los valores para los parámetros adicionales.
+Si tiene parámetros de servicio web adicionales, use la sección **webServiceParameters** de JSON de actividad. Si especifica valores para los parámetros de Lector SQL de Azure en esta sección, los valores sobrescribirán los valores seleccionados del servicio vinculado de SQL Azure de entrada. No recomiendo que especifique valores para Lector SQL de Azure directamente en la sección webServiceParameters. Use la sección para pasar valores para parámetros adicionales.
 
-Para utilizar un lector de SQL Azure a través de una canalización del generador de datos de Azure, haga lo siguiente:
+Para utilizar Lector SQL de Azure a través de la canalización de Factoría de datos de Azure, realice lo siguiente:
 
-- Crear un **SQL Azure vinculados servicio**. 
-- Crear un generador de datos **tabla** que utiliza **AzureSqlTableLocation**.
-- Establecer ese generador de datos **tabla** como el **entrada** para el **AzureMLBatchScoringActivity** en la canalización de JSON. 
+- Cree un **servicio vinculado de SQL Azure**. 
+- Cree una **tabla** de Factoría de datos que use **AzureSqlTableLocation**.
+- Establezca la **tabla** de Factoría de datos como la **entrada** para **AzureMLBatchScoringActivity** en el JSON de canalización. 
 
 
 
-#### Sistema de escritura SQL Azure
-Como con el lector de SQL Azure, un sistema de escritura de SQL Azure también pueden tener sus propiedades expuestos como parámetros de servicio Web. Un sistema de escritura de SQL Azure usa configuración desde el servicio vinculado asociado a la tabla de entrada o la tabla de salida. La siguiente tabla describe cuando la entrada se usan servicios vinculados frente a salida vinculado servicio.
+#### Escritor SQL Azure
+Como con el Lector SQL Azure, un Escritor SQL Azure también puede tener sus propiedades expuestas como parámetros de servicio web. Un Escritor SQL de Azure usa la configuración del servicio vinculado asociado con la tabla de entrada o la entrada de salida. La siguiente tabla describe cuándo se usa el servicio vinculado de entrada frente el servicio vinculado de salida.
 
 <table>
 <tr>
 <td>Entrada/salida</td>
 <td><b>La entrada es SQL Azure</b></td>
-<td><b>La entrada es el Blob de Azure</b></td>
+<td><b>La entrada es Blob de Azure</b></td>
 </tr>
 <tr>
-<td><b>Salida es SQL Azure</b></td>
-<td><p>El servicio de generador de datos usa la información de la cadena de conexión del servicio de entrada vinculada para generar los parámetros del servicio web con nombres: "Nombre de servidor de base de datos", "Nombre de la base de datos", "Nombre de cuenta de usuario de servidor", "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe utilizar estos nombres predeterminados para los parámetros del servicio Web en Azure ML Studio.</p>
-<p>Si el lector de SQL Azure y el escritor SQL de Azure en el modelo de Azure ML comparten los mismos parámetros de servicio Web mencionados anteriormente, está bien. Si no comparten la misma paramers de servicio Web, por ejemplo, si el sistema de escritura de SQL Azure usa los nombres de parámetros: servidor nombre1, Nombre1 de base de datos, Nombre1 de cuenta de usuario de servidor, usuario del servidor de base de datos cuenta password1 (con '1' al final) y, a continuación, debe pasar los valores para estos parámetros de servicio web de salida en la sección webServiceParameters de actividad de JSON.</p>
+<td><b>La salida es SQL Azure</b></td>
+<td><p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure.</p>
+<p>Si Lector SQL de Azure y Escritor SQL de Azure en el modelo ML de Azure comparten los mismos parámetros de servicio web mencionados anteriormente, significa que todo es correcto. Si no comparten los mismos parámetros de servicio web, por ejemplo, si Escritor SQL de Azure usa nombres de parámetros; nombre de servidor de base de datos1, nombre de base de datos1, nombre de cuenta de usuario de servidor1, contraseña de cuenta de usuario de servidor1 (con "1" al final), debe pasar estos valores para estos parámetros de servicio web de SALIDA en la sección webServiceParameters de JSON de actividad.</p>
 <p>
-Puede pasar valores de cualquier otro parámetro del servicio Web utilizando la sección webServiceParameters de actividad de JSON.  
+Puede pasar valores para cualquier otro parámetro de servicio web con la sección webServiceParameters de JSON de actividad.  
 </p>
 
 </td>
 <td>
-<p>El servicio de generador de datos usa la información de la cadena de conexión del servicio de salida vinculado para generar los parámetros del servicio web con nombres: "Nombre de servidor de base de datos", "Nombre de la base de datos", "Nombre de cuenta de usuario de servidor", "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe utilizar estos nombres predeterminados para los parámetros del servicio Web en Azure ML Studio.</p>
-<p>Puede pasar valores de cualquier otro parámetro del servicio Web utilizando la sección webServiceParameters de actividad de JSON. <p>Blob de entrada se utilizará como ubicación de entrada.</p>
+<p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de SALIDA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure.</p>
+<p>Puede pasar valores para cualquier otro parámetro de servicio web con la sección webServiceParameters de JSON de actividad. <p>El blob de entrada se utilizará como ubicación de entrada.</p>
 </td>
 </tr>
 <tr>
-<td><b>Es de salida Blob de Azure</b></td>
-<td>El servicio de generador de datos usa la información de la cadena de conexión del servicio de entrada vinculada para generar los parámetros del servicio web con nombres: "Nombre de servidor de base de datos", "Nombre de la base de datos", "Nombre de cuenta de usuario de servidor", "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe utilizar estos nombres predeterminados para los parámetros del servicio Web en Azure ML Studio.
+<td><b>La salida es Blob de Azure</b></td>
+<td>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure.
 </td>
 <td>
-<p>Debe pasar los valores de los parámetros del servicio Web utilizando la sección WebServiceParameters de actividad de JSON.</p> 
+<p>Debe pasar valores para cualquier otro parámetro de servicio web con la sección webServiceParameters de JSON de actividad.</p> 
 
-<p>BLOB se utilizará como ubicaciones de entrada y salidas.</p>
+<p>Los blobs se usarán como ubicaciones de entrada y salida.</p>
 
 </td>
 <tr>
 
 </table>
 
-> [AZURE.NOTE]Sistema de escritura de SQL Azure puede encontrar infracciones de clave si está sobrescribiendo una columna de identidad. Debe asegurarse de que se estructura de la tabla de salida para evitar esta situación.
+> [AZURE.NOTE]Escritor SQL de Azure puede detectar infracciones de clave si se sobrescribe una columna de identidad. Debe asegurarse de que estructura la tabla de salida para evitar esta situación.
 > 
-> Puede utilizar tablas de ensayo con una actividad de procedimiento almacenado para combinar filas o truncar los datos antes de puntuación. Si utiliza este enfoque, establezca la configuración de simultaneidad de la executionPolicy en 1.
+> Puede usar tablas de ensayo con una actividad de procedimiento almacenado para combinar filas o truncar los datos antes de la puntuación. Si usa este enfoque, establezca la configuración de concurrencia de executionPolicy en 1.
 
-### Ejemplo de uso de parámetros de servicio Web
-#### Canalización con AzureMLBatchScoringActivity con parámetros de servicio Web
+### Ejemplo de uso de parámetros de servicio web
+#### Canalización con AzureMLBatchScoringActivity con parámetros de servicio web
 
 	{
 		"name": "MLWithSqlReaderSqlWriter",
@@ -279,22 +279,26 @@ Puede pasar valores de cualquier otro parámetro del servicio Web utilizando la 
 		          		}  
 		        	}
 		      	}
-	    	]
+	    	],
+
+			"start": "2015-02-13T00:00:00Z",
+        	"end": "2015-02-14T00:00:00Z"
 		}
 	}
  
-En el ejemplo anterior de JSON:
+En el ejemplo JSON anterior:
 
-- El modelo de Azure ML utiliza Azure SQL lector y escritor de SQL Azure
-- Cuando se expone a través del servicio Web, se utilizan los nombres predeterminados para los parámetros
-	- Para el **lector**: nombre del servidor, nombre de la base de datos, nombre de cuenta de usuario de servidor y contraseña de cuenta de usuario de servidor de base de datos.
-	- Para el **escritor**: base de datos servidor nombre1, Nombre1 de base de datos, Nombre1 de cuenta de usuario de servidor y password1 de cuenta de usuario de servidor.
+- El modelo ML de Azure utiliza tanto Lector SQL de Azure y Escritor SQL de Azure
+- Cuando se expone mediante servicio web, los nombres predeterminados se usan para los parámetros
+	- Para el **lector**: nombre de servidor de base de datos, nombre de base de datos, nombre de cuenta de usuario de servidor y contraseña de cuenta de usuario de servidor.
+	- Para el **escritor**: nombre de servidor de base de datos1, nombre de base de datos1, nombre de cuenta de usuario de servidor1 y contraseña de cuenta de usuario de servidor1.
 	
-		Tenga en cuenta que el lector y escritor no comparten los parámetros en este caso.  
-- El servicio de generador de datos genera automáticamente valores para parámetros de servicio Web con los nombres **el nombre del servidor de base de datos**, **nombre de base de datos**, **nombre de cuenta de usuario de Server**, y **contraseña de cuenta de usuario de servidor**, que coinciden con los nombres del lector de entrada. Por lo tanto, no es necesario pasar explícitamente los valores para estos parámetros a través de **webServiceParameters** en la actividad siguiente JSON.  
-- Los parámetros de escritor (las que con el sufijo '1') no se rellenan automáticamente por el servicio del generador de datos. Por lo tanto, debe especificar valores para estos parámetros en el **webServiceParameters** sección de la actividad de JSON.  
-- **ID de cliente**, **puntúan etiquetas**, y **puntúan probabilidades** se guardan como columnas separadas por comas. 
-- El **nombre de la tabla de datos** en este ejemplo corresponde a una tabla en la base de datos de salida.
+		Tenga en cuenta que el lector y el escritor no comparten parámetros en este caso.  
+- El servicio Factoría de datos genera automáticamente valores para los parámetros de servicio web con los nombres **Nombre de servidor de base de datos**, **Nombre de base de datos**, **Nombre de cuenta de usuario de servidor** y **Contraseña de cuenta de usuario de servidor**, que coinciden con los nombres del lector de entrada. Por lo tanto, no tiene que pasar de forma explícita los valores para estos parámetros a través de **webServiceParameters** en el JSON de actividad siguiente.  
+- El servicio Factoría de datos no completa automáticamente los parámetros de escritor (los que tienen el sufijo "1"). Por lo tanto, tiene que especificar valores para estos parámetros en la sección **webServiceParameters** de JSON de actividad.  
+- **Id. de cliente**, **etiquetas puntuadas** y **probabilidades puntuadas** se guardan como columnas separadas por comas. 
+- El **nombre de la tabla de datos** en este ejemplo se corresponde con una tabla en la base de datos de salida.
+- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial. Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -303,7 +307,7 @@ En el ejemplo anterior de JSON:
 
 Artículo | Descripción
 ------ | ---------------
-[Referencia del programador de generador de datos de Azure][developer-reference] | La referencia del programador tiene el contenido de referencia completa de cmdlets, script JSON, biblioteca de clases. NET, funciones, etc.... 
+[Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para cmdlets, script de JSON, biblioteca de clase .NET, funciones, etc. 
 
 [adf-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
@@ -318,4 +322,6 @@ Artículo | Descripción
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
 [machine-learning-dashboard]: ./media/data-factory-create-predictive-pipelines/AzureMLDashboard.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=58_postMigration-->

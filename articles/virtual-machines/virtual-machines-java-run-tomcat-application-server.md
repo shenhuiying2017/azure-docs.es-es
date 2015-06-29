@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Ejecución de un servidor de aplicaciones Java en una máquina virtual
@@ -63,7 +63,7 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
 4. Una vez que la máquina virtual se haya iniciado, un menú emergente en la parte inferior de la página permitirá las conexiones.
-5. Haga clic en  **Conectar**.
+5. Haga clic en **Conectar**.
 6. Siga las indicaciones, según sea necesario, para conectarse a la máquina virtual. Esto debería implicar el guardado o la apertura del archivo .rdp que contiene los detalles de conexión. Es posible que tenga que copiar el valor de url:port de la parte final de la primera línea del archivo .rdp y pegarlo en una aplicación remota de inicio de sesión.
 
 ## Para instalar un servidor de aplicaciones Java en la máquina virtual
@@ -158,5 +158,6 @@ En este momento, el sitio web de Tomcat se debería ver desde un explorador exte
 [NewRuleAction]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

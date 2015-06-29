@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Para crear un contenedor de volúmenes
+#### Para crear un contenedor de volúmenes
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en **Agregar un contenedor de volúmenes**. Aparece el cuadro de diálogo **Crear contenedor de volúmenes**.
 
@@ -31,4 +31,4 @@
 
   El contenedor de volúmenes recién creado se mostrará en la página **Contenedores de volúmenes**.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

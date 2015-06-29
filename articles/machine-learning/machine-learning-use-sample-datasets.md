@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático | Azure" 
-	description="Descripciones de los conjuntos de datos de ejemplo que se incluyen en Estudio de aprendizaje automático de Azure" 
+	pageTitle="Uso de los conjuntos de datos de muestra en Estudio de aprendizaje automático | Microsoft Azure" 
+	description="Descripciones de los conjuntos de datos que se usan en los modelos de muestras incluidos en Estudio de aprendizaje automático. Puede usar estos conjuntos de datos de ejemplo para los experimentos." 
+	keywords="data sets,datasets,ml studio,sample data sets"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -13,347 +14,365 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2014" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
-# Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure
+# Uso de los conjuntos de datos de muestra en Estudio de aprendizaje automático de Azure
 
-Estudio de aprendizaje automático incluye algunos conjuntos de datos de ejemplo que puede utilizar. Se trata de conjuntos de datos de aprendizaje automático estándar de dominio público. 
+[top]: #machine-learning-sample-datasets
 
-Puede utilizar esos conjuntos de datos en sus experimentos mientras explora diversos tipos de modelos analíticos de aprendizaje automático en Estudio de aprendizaje automático. 
+Cuando se crea un área de trabajo nueva en Aprendizaje automático de Azure, de manera predeterminada se incluyen diversos conjuntos de datos y experimentos de muestra. Los modelos de muestra de la [Galería de modelos de Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/services/machine-learning/models/) usan muchos de estos conjuntos de datos de muestra, mientras que otros se incluyen como ejemplos de los diversos tipos de datos usados en el aprendizaje automático.
 
-- Para ver una lista de estos conjuntos de datos estándar en Estudio de aprendizaje automático, haga clic en la pestaña **CONJUNTOS DE DATOS**. En cada uno de los conjuntos de datos verá información como el nombre del conjunto de datos, quién lo envió y una breve descripción.
- 
-    Para ordenar los conjuntos de datos, haga clic en el encabezado de cualquier columna. Por ejemplo, haga clic en **ENVIADO POR** para agrupar todos los conjuntos de datos de ejemplo suministrados por Microsoft Corporation. Esto puede servir también para ver fácilmente los conjuntos de datos que usted y otros usuarios de su área de trabajo han importado. 
+Algunos de estos conjuntos de datos están disponibles en el almacenamiento de blobs de Azure. Para dichos conjuntos de datos, las tablas siguientes proporcionan un vínculo directo. Puede usar estos conjuntos de datos en los experimentos mediante el módulo [Lector][reader] (si desea ver un ejemplo de cómo tener acceso a un conjunto de datos, consulte las propiedades del módulo [Lector][reader] del experimento de muestra asociado con el conjunto de datos).
 
-- Para utilizar un conjunto de datos en un experimento, expanda la sección **Conjuntos de datos guardados** de la paleta de módulos a la izquierda del lienzo del experimento, o busque un conjunto de datos determinado escribiendo su nombre en el cuadro de búsqueda que se encuentra encima de la paleta. Arrastre el conjunto de datos al lienzo para agregarlo al experimento. 
+El resto de estos conjuntos de datos de muestra aparece en **Conjuntos de datos guardados** en la paleta de módulos a la izquierda del lienzo de experimentos al abrir o crear un experimento nuevo en Estudio de aprendizaje automático. Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
 
-##Conjuntos de datos de ejemplo
 
-La tabla siguiente proporciona información adicional acerca de los conjuntos de datos que podrían resultarle de utilidad al explorar las características de aprendizaje automático de Estudio de aprendizaje automático. La tabla muestra los siguientes elementos para cada conjunto de datos:
- 
-- El nombre y el origen de cada conjunto de datos.
-- Una descripción de los posibles usos del conjunto de datos y citas a la investigación de aprendizaje automático que utilizó dicho conjunto de datos.
-- Un resumen de las columnas importantes incluidas en el conjunto de datos y otros atributos útiles.
+<!--
+For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
-Algunas descripciones están adaptadas a partir de la documentación suministrada por la fuente (normalmente, el [Repositorio de aprendizaje automático de UC Irvine](http://archive.ics.uci.edu/ml/ "UC Irvine Machine Learning Repository")), mientras que otras descripciones se basan en investigaciones adicionales o reflejan los cambios realizados en estos ejemplos.
-
-<table>
-<tr valign=top>
-<th>Nombre del conjunto de datos</th>
-<th>Descripción del conjunto de datos</th>
-<th>Información relacionada</th>
-</tr>
-<tr valign=top>
-<td>Conjunto de datos de clasificación binaria de ingresos en el censo de adultos</td>
-<td>
-<p>Subconjunto de la base de datos del censo de 1994 en el que se utilizan adultos trabajadores a partir de 16 años con un índice de ingresos ajustado > 100.</p>
-<p><strong>Uso:</strong> clasificar personas utilizando valores demográficos para predecir si una persona gana más de 50.000 al año.</p>
-</td>
-<td>
-<p>Kohavi, R., Becker, B., (1996). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Información sobre precios de automóviles (datos sin procesar)</p>
-</td>
-<td>
-<p>Información acerca de automóviles por marca y modelo, incluido el precio, características como el número de cilindros y el consumo en relación a la distancia recorrida, así como una puntuación de riesgo para aseguradoras.</p>
-<p>La puntuación de riesgo se asocia inicialmente con el precio del automóvil y, a continuación, se ajusta para el riesgo real en un proceso que los actuarios conocen como <legacyItalic>simbología</legacyItalic>. Un valor de +3 indica que es arriesgado, y un valor de -3 indica que probablemente es bastante seguro.</p>
-<p><strong>Uso:</strong> predecir la puntuación de riesgo por características, utilizando una clasificación de regresión o de múltiples variantes.</p>
-</td>
-<td>
-<p>
-Schlimmer, J.C. (1987). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Datos sobre donación de sangre</p>
-</td>
-<td>
-<p>Subconjunto de datos de la base de datos de donantes de sangre del Centro de servicios de transfusiones de sangre de Hsin-Chu City (Taiwán).</p>
-  <p>Los datos de los donantes incluyen los meses transcurridos desde la última donación y la frecuencia, o el número total de donaciones, el tiempo transcurrido desde la última donación y la cantidad de sangre donada.</p>
-  <p><strong>Uso:</strong> el objetivo es predecir mediante la clasificación si el donante donó sangre en marzo de 2007, donde 1 hace referencia a un donante durante el período objetivo y 0 a un no donante.</p>
-</td>
-<td>
-<list class="bullet">
-<listItem>
-<p>
-Yeh, I.C., (2008). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</listItem>
-<listItem>
-<p>
-Yeh, I-Cheng, Yang, King-Jang y Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, [<a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>]
-</p>
-</listItem>
-</list>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Datos sobre cáncer de mama</p>
-</td>
-<td>
-<p>Uno de los tres conjuntos de datos relacionados con el cáncer facilitados por el Instituto de Oncología que aparece frecuentemente en la literatura sobre aprendizaje automático. Combina información de diagnóstico con características de análisis de laboratorio de unas 300 muestras de tejido.</p>
-<p><strong>Uso:</strong> clasificar el tipo de cáncer con base en 9 atributos, algunos de los cuales son lineales y otros categóricos.</p>
-</td>
-<td>
-<p>
-Wohlberg, W.H., Street, W.N., &amp; Mangasarian, O.L. (1995). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Datos de regresión de eficiencia energética</p>
-</td>
-<td>
-<p>Colección de perfiles energéticos simulados, con base en 12 formas de edificios diferentes. Los edificios se diferencian tomando como base 8 características, como la zona acristalada, la distribución de la zona acristalada y la orientación.</p>
-<p><strong>Uso:</strong> uso de la regresión o la clasificación para predecir la clasificación de eficiencia energética en función de una de las dos respuestas con valores reales. En el caso de una clasificación de varias clases, la variable de respuesta se redondea al entero más cercano.</p>
-</td>
-<td>
-<p>
-Xifara, A. &amp; Tsanas, A. (2012). Repositorio de aprendizaje automático de UCI   [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Información sobre puntualidad de vuelos (datos sin procesar)</p>
-</td>
-<td>
-<p>Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubre de 2011.</p>
-<p><strong>Uso:</strong> predecir retrasos en los vuelos.</p>
-</td>
-<td>
-<p>
-Datos tomados del Departamento de Transporte de EE. UU. [<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&amp;DB_Short_Name=On-Time</a>]
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Datos de incendios forestales</p>
-</td>
-<td>
-<p>Contiene información meteorológica (como índices de temperatura y humedad y velocidad del viento) de una zona del noreste de Portugal combinada con registros de incendios forestales.</p>
-<p><strong>Uso:</strong> se trata de una tarea de regresión difícil, cuyo objetivo es predecir el área quemada por incendios forestales.</p>
-</td>
-<td>
-<list class="bullet">
-<listItem>
-<p>
-Cortez, P., &amp; Morais, A. (2008). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</listItem>
-<listItem>
-<p>
-[Cortez y Morais, 2007] P. Cortez y A. Morais. 
-A Data Mining Approach to Predict Forest Fires using Meteorological Data. 
-In J. Neves, M. F. Santos y J. Machado Eds., New Trends in Artificial Intelligence, 
-Actas del 13.er encuentro EPIA 2007 - Conferencia portuguesa sobre inteligencia artificial 
-Diciembre, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Disponible en:
-[<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>]
-</p>
-</listItem>
-</list>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Datos sobre iris de dos clases</p>
-</td>
-<td>
-<p>Esta es quizá la base de datos más conocida entre la literatura de reconocimiento de modelos. El conjunto de datos es relativamente pequeño, con 50 ejemplos de cada una de las mediciones de pétalos de tres variedades de iris.</p>
-<p><strong>Uso:</strong> predecir el tipo de iris a partir de las mediciones. 
-<!-- I believe the following doesn't apply anymore, but I'm not sure so I'll remove it for now.
-One class is linearly separable from the other two; but the latter are not linearly separable from each other.
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
-</p>
-</td>
-<td>
-<p>
-Fisher, R.A. (1988). Repositorio de aprendizaje automático de UCI   [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## Conjuntos de datos de ejemplo asociados con modelos de la Galería de aprendizaje automático
+
+Los modelos de ejemplo de la [Galería de modelos de Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/services/machine-learning/models/) usan los siguientes conjuntos de datos. Para obtener más información acerca del modelo y su experimento asociado, siga el vínculo que aparece en la tabla para ver los detalles del modelo.
+
+<table>
+
+<tr>
+  <th align=left>Modelo de ejemplo</th>
+  <th align=left>Experimento asociado</th>
+  <th align=left>Nombre del conjunto de datos</th>
+  <th align=left>Descripción del conjunto de datos</th>
+</tr>
+
+<tr ID=bill-gates-rgb-image>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-color-quantization-using-k-means-clustering/">Cuantificación del color mediante la agrupación en clústeres de K-Means</a></td>
+  <td valign=top>Experimento de ejemplo - Compresión de imágenes basada en colores mediante agrupaciones en clústeres de K-Means - Desarrollo</td>
+  <td valign=top>Imagen RGB de Bill Gates</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
+  </td>
+</tr>
+
+<tr ID=german-credit-card-uci-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-credit-risk-prediction/">Predicción de riesgo de crédito</a></td>
+  <td valign=top>Experimento de ejemplo - Crédito alemán - Desarrollo</td>
+  <td valign=top>Conjunto de datos UCI de tarjeta de crédito alemana</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+  </td>
+</tr>
+
+<tr ID=crm-dataset-shared>
+  <td rowspan=4 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-crm-task/">Tarea de CRM</a></td>
+  <td rowspan=4 valign=top>Experimentos de ejemplo - CRM - Desarrollo</td>
+  <td valign=top>Conjunto de datos CRM compartido</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-dataset-shared](../../includes/machine-learning-sample-dataset-crm-dataset-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-appetency-labels-shared>
+  <td valign=top>Etiquetas de apetencia CRM compartidas</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-appetency-labels-shared](../../includes/machine-learning-sample-dataset-crm-appetency-labels-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-churn-labels-shared>
+  <td valign=top>Etiquetas de rotación de clientes de CRM compartidas</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-churn-labels-shared](../../includes/machine-learning-sample-dataset-crm-churn-labels-shared.md)]
+  </td>
+</tr>
+<tr ID=crm-upselling-labels-shared>
+  <td valign=top>Etiquetas de mejora de ventas de CRM compartidas</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-crm-upselling-labels-shared](../../includes/machine-learning-sample-dataset-crm-upselling-labels-shared.md)]
+  </td>
+</tr>
+
+<tr ID=wikipedia-sp-500-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-finding-similar-companies/">Búsqueda de empresas similares</a></td>
+  <td valign=top>Experimento de ejemplo - Agrupación de empresas del índice S &amp; P 500 - Desarrollo</td>
+  <td valign=top>Conjunto de datos de SP 500 de Wikipedia</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-wikipedia-sp-500](../../includes/machine-learning-sample-dataset-wikipedia-sp-500.md)]
+  </td>
+</tr>
+
+<tr ID=airport-codes-dataset>
+  <td rowspan=3 valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-flight-delay-prediction/">Predicción del retraso de los vuelos</a></td>
+  <td rowspan=3 valign=top>Experimento de ejemplo - Predicción del retraso de los vuelos - Desarrollo</td>
+  <td valign=top>Conjunto de datos de códigos de aeropuerto</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-airport-codes](../../includes/machine-learning-sample-dataset-airport-codes.md)]
+  </td>
+</tr>
+
+<tr ID=flight-delays-data>
+  <td valign=top>Datos de retrasos de vuelos</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-delays-data](../../includes/machine-learning-sample-dataset-flight-delays-data.md)]
 </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Datos sobre consumo de combustible por distancia recorrida para varios automóviles</p>
-</td>
-<td>
-<p>Este conjunto de datos es una versión ligeramente diferente del conjunto de datos ofrecido por la biblioteca StatLib de la Universidad Carnegie Mellon. El conjunto de datos se utilizó en la exposición de la asociación americana de estadística de 1983.</p>
-<p>Los datos enumeran el consumo de combustible de varios automóviles en millas por galón, junto con información como número de cilindros, cilindrada, caballos de potencia, peso total y aceleración.</p>
-<p><strong>Uso:</strong> predecir la economización de combustible en función de 3 atributos discretos multivalores y 5 atributos continuos.</p>
-</td>
-<td>
-<p>
-StatLib, Universidad Carnegie Mellon (1993). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
+<tr ID=weather-dataset>
+  <td valign=top>Conjunto de datos del tiempo</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-weather-dataset](../../includes/machine-learning-sample-dataset-weather-dataset.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Conjunto de datos de clasificación binaria sobre diabetes en indios pima</p>
-</td>
-<td>
-<p>Subconjunto de datos de la base de datos del Instituto Nacional de la Diabetes y las Enfermedades Digestivas y Renales. El conjunto de datos se filtró para centrarse en pacientes femeninos con herencia de indios pima. Los datos incluyen información médica como niveles de glucosa e insulina y factores de estilo de vida.</p>
-<p><strong>Uso:</strong> predecir si el sujeto tiene diabetes (clasificación binaria).</p>
-</td>
-<td>
-<p>
-Sigillito, V. (1990). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
+<tr ID=intrusion-detection>
+  <td valign=top> <a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-network-intrusion-detection/">Detección de intrusiones de red</a></td>
+  <td valign=top>Experimentos de ejemplo - Detección de intrusiones de red - Desarrollo</td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-network-intrusion](../../includes/machine-learning-sample-dataset-network-intrusion.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Datos de clientes de restaurantes</p>
-</td>
-<td>
-<p>Conjunto de metadatos sobre clientes que incluye información demográfica y preferencias.</p>
-<p><strong>Uso:</strong> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones.</p>
-</td>
-<td>
-<p>
-Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
+<tr ID=bike-rental-uci-dataset>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/">Previsión de la demanda de bicicletas</a></td>
+  <td valign=top>Experimento de ejemplo - Previsión de la demanda de bicicletas</td>
+  <td valign=top>Conjunto de datos UCI de alquiler de bicicletas</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-bike-rental-uci-dataset](../../includes/machine-learning-sample-dataset-bike-rental-uci-dataset.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Datos de características de restaurantes</p>
-</td>
-<td>
-<p>Un conjunto de metadatos acerca de restaurantes y sus características, como el tipo de comida, el estilo de comedor y la ubicación.</p>
-<p><strong>Uso:</strong> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones.</p>
-</td>
-<td>
-<p>
-Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
+<tr ID=student-performance>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-student-performance/">Predicción del rendimiento estudiantil</a></td>
+  <td valign=top>Experimento de ejemplo - Rendimiento estudiantil - Desarrollo</td>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-student-performance](../../includes/machine-learning-sample-dataset-student-performance.md)]
+  </td>
 </tr>
 
-<tr valign=top>
-<td>
-<p>Valoraciones de restaurantes</p>
-</td>
-<td>
-<p>Contiene valoraciones que los usuarios realizan sobre restaurantes en una escala de 0 a 2.</p>
-<p><strong>Uso:</strong> uso de este conjunto de datos, en combinación con los otros dos conjuntos de datos de restaurantes, para entrenar y probar un sistema de recomendaciones.</p>
-</td>
-<td>
-<p>
-Bache, K. y Lichman, M. (2013). Repositorio de aprendizaje automático de UCI 
-[<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>].
-Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Conjunto de datos de varias clases de recocido de acero</p>
-</td>
-<td>
-<p>Este conjunto de datos contiene una serie de registros de pruebas de recocido de acerco con los atributos físicos , como grosor o tipo (rollo, lámina, etc.) de los tipos de acero resultantes.</p>
-<p><strong>Uso:</strong> predecir uno de los dos atributos de clase numéricos: rigidez o solidez. También puede analizar las correlaciones entre atributos.</p>
-<p>Los grados del acero siguen una norma establecida, definida por la SAE y otras organizaciones. Está buscando un "grado" determinado (la variable de clase) y desea conocer los valores requeridos.</p>
-</td>
-<td>
-<p>
-Sterling, D. & Buntine, W., (NA). Repositorio de aprendizaje automático de UCI   [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-<p>Una guía útil sobre grados del acero:</p>
-<p>[<a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf>]
-  </p>
-</td>
-</tr>
-
-<tr valign=top>
-<td>
-<p>Datos de telescopio</p>
-</td>
-<td>
-<p>Registro de explosiones de partículas gamma de alta energía junto con ruido de fondo, ambos simulados utilizando un proceso de Monte Carlo.</p>
-<p>El objetivo de la simulación era mejorar la precisión de los telescopios gamma Cherenkov atmosféricos terrestres, utilizando métodos estadísticos para diferenciar entre la señal deseada (duchas de radiación de Cherenkov) y el ruido de fondo (duchas hadrónicas iniciadas por los rayos cósmicos en la atmósfera superior).</p>
-<p>Los datos se sometieron a un procesado previo para crear un grupo alargado con el eje central orientado hacia el centro de la cámara. Las características de esta elipse (llamada en ocasiones parámetros de Hillas) se encuentran entre los parámetros de imagen que se pueden utilizar para la discriminación.</p>
-<p><strong>Uso:</strong> predecir si la imagen de una ducha representa señal o ruido de fondo.</p>
-<p><strong>Notas:</strong> una precisión de clasificación sencilla no es significativa para estos datos, ya que clasificar un evento de fondo como señal es peor que clasificar un evento de señal como fondo. Para comparar los diferentes clasificadores se debe utilizar el gráfico ROC. La probabilidad de aceptar un evento de fondo como señar debe estar por debajo de uno de los umbrales siguientes: 0.01 , 0.02 , 0.05 , 0.1 o 0.2.</p>
-<p>Además, tenga en cuenta que el número de eventos de fondo (h, para las duchas hadrónicas) está subestimado, mientras que en las medidas reales, la clase h o ruido representa la mayoría de eventos.</p>
-</td>
-<td>
-<p>
-Bock, R.K. (1995). Repositorio de aprendizaje automático de UCI [<a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>]. Irvine (California): Universidad de California, Facultad de Ciencias de la Computación y de la Información
-</p>
-</td>
+<tr ID=book-reviews-from-amazon>
+  <td valign=top><a href="http://azure.microsoft.com/documentation/articles/machine-learning-sample-sentiment-analysis/">Análisis de opiniones</a></td>
+  <td valign=top>Experimento de ejemplo - Clasificación de opiniones - Desarrollo</td>
+  <td valign=top>Reseñas de libros de Amazon</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]
+  </td>
 </tr>
 
 </table>
 
-A continuación se enumeran los tipos de conjuntos de datos que puede encontrar.
+
+
+## Conjuntos de datos utilizados en experimentos de ejemplo de Estudio de aprendizaje automático
+
+Los experimentos de muestra incluidos en [Estudio de aprendizaje automático](https://studio.azureml.net/Home) Los usan los siguientes conjuntos de datos.
+
+Estos conjuntos de datos se puede encontrar en **Conjuntos de datos guardados** en la paleta de módulos a la izquierda del lienzo de experimentos al abrir o crear un experimento nuevo en Estudio de aprendizaje automático. Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
+
+Puede encontrar todos los experimentos de ejemplo mencionados aquí en la pestaña **Ejemplos** de la página **Experimentos** en Estudio de aprendizaje automático. Para crear una copia de un experimento de ejemplo que puede editar, abra el experimento en Estudio de aprendizaje automático y, a continuación, haga clic en **Guardar como**.
+
+
+<table>
+
+<tr>
+  <th align=left>Nombre del conjunto de datos</th>
+  <th align=left>Experimento de ejemplo</th>
+  <th align=left>Descripción del conjunto de datos</th>
+</tr>
+
+<tr ID=breast-cancer-features>
+  <td valign=top>Características de cáncer de mama
+  <td valign=top>Experimento de ejemplo - Cáncer de mama - Desarrollo</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-features](../../includes/machine-learning-sample-dataset-breast-cancer-features.md)]
+  </td>
+</tr>
+
+<tr ID=breast-cancer-info>
+  <td valign=top>Información sobre cáncer de mama</td>
+  <td valign=top><i>same</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-info](../../includes/machine-learning-sample-dataset-breast-cancer-info.md)]
+  </td>
+</tr>
+
+<tr ID=direct-marketing>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/direct_marketing.csv">direct_marketing.csv</a></td>
+  <td valign=top>Experimento de ejemplo - Marketing directo - Desarrollo - Entrenamiento</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-direct-marketing](../../includes/machine-learning-sample-dataset-direct-marketing.md)]
+  </td>
+</tr>
+
+<tr ID=imdb-movie-titles>
+  <td valign=top>Títulos de películas en IMDB</td>
+  <td valign=top>Experimento de ejemplo - Recomendador de películas - Desarrollo</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-imdb-movie-titles](../../includes/machine-learning-sample-dataset-imdb-movie-titles.md)]
+  </td>
+</tr>
+
+<tr ID=movie-tweets>
+  <td valign=top>Tweets sobre películas</td>
+  <td valign=top>Experimento de ejemplo - Clasificación de tweets sobre películas según su popularidad a futuro - Desarrollo</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-movie-tweets](../../includes/machine-learning-sample-dataset-movie-tweets.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-test>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
+  <td valign=top>Experimentación de ejemplo - Categorización de noticias - Desarrollo</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-test](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-test.md)]
+  </td>
+</tr>
+
+<tr ID=lyrl2004-tokens-train>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
+  <td valign=top><i>same</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-lyrl2004-tokens-train](../../includes/machine-learning-sample-dataset-lyrl2004-tokens-train.md)]
+  </td>
+</tr>
+
+<tr ID=rcv1-v2-topics-qrels>
+  <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1 v2.topics.qrels.csv</a></td>
+  <td valign=top><i>same</i></td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-rcv1-v2-topics](../../includes/machine-learning-sample-dataset-rcv1-v2-topics.md)]
+  </td>
+</tr>
+
+</table>
+
+
+
+## Conjuntos de datos de muestra varios de Estudio de aprendizaje automático
+
+Los siguientes conjuntos de datos se incluyen en [Estudio de aprendizaje automático](https://studio.azureml.net/Home) para proporcionar ejemplos de los distintos tipos de datos que se usan en el aprendizaje automático. Puede encontrarlos en **Conjuntos de datos guardados** en la paleta de módulos a la izquierda del lienzo del experimento cuando abre o crea un experimento nuevo en Estudio de aprendizaje automático. Para usar cualquiera de estos conjuntos de datos en su propio experimento, arrástrelo a su lienzo de experimentos.
 
 <table>
 <tr>
-<th>Formato de datos</th>
-<th>Descripción</th>
+  <th align=left>Nombre del conjunto de datos</th>
+  <th align=left>Descripción</th>
 </tr>
+
 <tr>
-<td>
-Valores separados por comas (CSV)
-</td>
-<td>
-Formato de intercambio bien conocido para todas las plataformas de datos. Estudio de aprendizaje automático carga estos datos e incorpora una función de reconocimiento automático de tipo con una distribución en columnas que aplica metadatos en función de los datos tomados como muestra de cada columna.
-</td>
+  <td valign=top>Conjunto de datos de clasificación binaria de ingresos en el censo de adultos</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-adult-census-income](../../includes/machine-learning-sample-dataset-adult-census-income.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-Formato de archivo de relación de atributos (ARFF)
-</td>
-<td>
-Formato de datos de aprendizaje automático definido por WEKA. Contiene metadatos (para tipos nominales, numéricos y de cadena) que se convierten directamente en tablas de datos de Estudio de aprendizaje automático.
-</td>
+  <td valign=top>Información sobre los precios de los automóviles (datos sin procesar)</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-price](../../includes/machine-learning-sample-dataset-automobile-price.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-Texto sin formato
-</td>
-<td>
-El texto sin formato puede leerse y luego dividirse en columnas con la ayuda de módulos de procesado previo que se aplican a continuación. El principal formato de texto sin formato compatible es JSON.
-</td>
+  <td valign=top>Datos sobre donación de sangre</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-blood-donation](../../includes/machine-learning-sample-dataset-blood-donation.md)]
+  </td>
 </tr>
+
 <tr>
-<td>
-DotNetTable
-</td>
-<td>
-La versión serializada del contenedor primario pasada entre módulos de Estudio de aprendizaje automático (el <i>conjunto de datos</i>).
-</td>
+  <td valign=top>Datos sobre cáncer de mama</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-breast-cancer-data](../../includes/machine-learning-sample-dataset-breast-cancer-data.md)]
+  </td>
 </tr>
+
+<tr>
+  <td valign=top>Datos de regresión de eficiencia energética</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-energy-efficiency-regression](../../includes/machine-learning-sample-dataset-energy-efficiency-regression.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Información sobre puntualidad de vuelos (datos sin procesar)</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-flight-on-time-performance](../../includes/machine-learning-sample-dataset-flight-on-time-performance.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Datos de incendios forestales</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-forest-fires](../../includes/machine-learning-sample-dataset-forest-fires.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Datos sobre iris de dos clases</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-iris-two-class](../../includes/machine-learning-sample-dataset-iris-two-class.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Datos sobre consumo de combustible por distancia recorrida para varios automóviles</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-automobile-mpg](../../includes/machine-learning-sample-dataset-automobile-mpg.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Conjunto de datos de clasificación binaria sobre diabetes en indios pima</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-pima-indians-diabetes](../../includes/machine-learning-sample-dataset-pima-indians-diabetes.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Datos de clientes de restaurantes</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-customer-data](../../includes/machine-learning-sample-dataset-restaurant-customer-data.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Datos de características de restaurantes</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-feature-data](../../includes/machine-learning-sample-dataset-restaurant-feature-data.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Valoraciones de restaurantes</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-restaurant-ratings](../../includes/machine-learning-sample-dataset-restaurant-ratings.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Conjunto de datos de varias clases de recocido de acero</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-steel-annealing](../../includes/machine-learning-sample-dataset-steel-annealing.md)]
+  </td>
+</tr>
+
+<tr>
+  <td valign=top>Datos de telescopio</td>
+  <td valign=top>
+[AZURE.INCLUDE [machine-learning-sample-dataset-telescope-data](../../includes/machine-learning-sample-dataset-telescope-data.md)]
+  </td>
+</tr>
+
+
 </table>
 
-<!--HONumber=46--> 
 
-<!--HONumber=46--> 
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
+
+<!---HONumber=58_postMigration-->

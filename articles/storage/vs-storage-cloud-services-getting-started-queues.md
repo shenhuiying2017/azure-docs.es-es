@@ -3,7 +3,7 @@
 	description="Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto de servicio en la nube en Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de servicio en la nube)
 
@@ -272,5 +272,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -32,7 +32,7 @@
 | 2. Haga clic en **EXAMINAR**. | ![Examinar servicios][2] |
 | 3. Haga clic en **Servidores SQL Server**. Se muestra una lista de nombres de SQL Server. | ![Seleccione un servicio SQL Server][3] |
 | 4. Seleccione el servidor que quiere copiar a un servidor nuevo con SQL Database Update habilitado. | ![Muestra una lista de servidores SQL Server][4] |
-| 5. Haga clic en **Versión más reciente de SQL Database Update V12**. | ![Característica de vista previa más reciente][5] |
+| 5. Haga clic en **Configuración** o **Versión de servidor** para actualizar el servidor a la V12. | ![Característica de vista previa más reciente][5] |
 | 6. Haga clic en **ACTUALIZAR ESTE SERVIDOR**. | ![Actualiza el servidor SQL Server a la vista previa][6] |
 
 
@@ -58,7 +58,7 @@ Al hacer clic en la opción **ACTUALIZAR ESTE SERVIDOR**, la hoja que se abre mu
 | 8. Se inicia el proceso de actualización. La actualización puede tardar hasta 24 horas. Durante este tiempo, todas las bases de datos en este servidor permanecerán en línea, pero se limitarán las acciones de administración de base de datos y servidor. Una vez que el proceso se haya completado, el estado **Habilitado** se muestra en la hoja del servidor. | ![Confirma que las características de vista previa están habilitadas][8] |
 
 
-## cmdlets de PowerShell
+## Cmdlets de PowerShell
 
 
 Los cmdlets de PowerShell se pueden usar para iniciar, detener o supervisar una actualización a Base de datos SQL de Azure V12 desde V11, o desde cualquier otra versión anterior a la V12.
@@ -77,18 +77,19 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 
 ## Vínculos relacionados
 
--  [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md)
+-  [Novedades de Base de datos SQL V12](sql-database-v12-whats-new.md) 
 - [Planeación y preparación para realizar la actualización a Base de datos SQL V12](sql-database-v12-plan-prepare-upgrade.md)
 
 
 <!--Image references-->
 [1]: ./media/sql-database-v12-upgrade/firstscreenportal.png
-[2]: ./media/sql-database-v12-upgrade/browse.png
-[3]: ./media/sql-database-v12-upgrade/sqlserver.png
+[2]: ./media/sql-database-v12-upgrade/firstscreenportal.png
+[3]: ./media/sql-database-v12-upgrade/sqlserverlist.png
 [4]: ./media/sql-database-v12-upgrade/sqlserverlist.png
 [5]: ./media/sql-database-v12-upgrade/latestprview.png
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

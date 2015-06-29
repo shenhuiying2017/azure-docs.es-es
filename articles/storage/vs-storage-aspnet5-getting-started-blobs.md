@@ -3,7 +3,7 @@
 	description="Cómo empezar a usar el almacenamiento en blob de Azure en un proyecto de ASP.NET 5 en Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos ASP.NET 5)
 
@@ -126,7 +126,7 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
 Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md/#list-blob).
 
 #####Descarga de un blob
-Para descargar un blob, primero obtenga una referencia al blob y, a continuación, llame al método **DownloadToStreamAsync()**.  En el siguiente ejemplo se usa el método **DownloadToStreamAsync()** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar como archivo local.
+Para descargar un blob, primero obtenga una referencia al blob y, a continuación, llame al método **DownloadToStreamAsync()**. En el siguiente ejemplo se usa el método **DownloadToStreamAsync()** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar como archivo local.
 
 	// Get a reference to a blob named "photo1.jpg".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
@@ -149,5 +149,6 @@ Para eliminar un blob, primero obtenga una referencia al blob y, a continuación
 	await blockBlob.DeleteAsync();
 
 [Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

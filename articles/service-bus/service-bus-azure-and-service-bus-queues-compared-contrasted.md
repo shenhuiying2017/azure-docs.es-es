@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Colas de Service Bus y colas de Azure: comparación y diferencias"
-   description="analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure"
+   description="Analiza las diferencias y similitudes entre dos tipos de colas que se ofrecen en Azure."
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -295,7 +295,7 @@ En esta sección se comparan las colas de Azure y las de Service Bus desde una p
 
 - Dada la compatibilidad del sondeo prolongado, el uso de la colas de Service Bus puede ser rentable en situaciones en las que se necesita la entrega de baja latencia.
 
->[AZURE.NOTE]Todos los costes están sujetos a cambios. Esta tabla refleja los precios actuales en el momento de redactar este artículo y no incluye ninguna oferta promocional que pueda haber disponible actualmente. Para obtener información actualizada sobre los precios de Azure, vea la página [Precios de Azure](http://azure.microsoft.com/pricing/). Para obtener más información sobre los precios de Service Bus, vea [Precios de Service Bus]((http://azure.microsoft.com/pricing/details/service-bus/).
+>[AZURE.NOTE]Todos los costes están sujetos a cambios. Esta tabla refleja los precios actuales en el momento de redactar este artículo y no incluye ninguna oferta promocional que pueda haber disponible actualmente. Para obtener información actualizada sobre los precios de Azure, vea la página [Precios de Azure](http://azure.microsoft.com/pricing/). Para obtener más información sobre los precios de Bus de servicio, consulte [Precios de Bus de servicio]((http://azure.microsoft.com/pricing/details/service-bus/).
 
 ## Conclusión
 
@@ -316,5 +316,6 @@ En los artículos siguientes se ofrece más orientación e información acerca d
 - [Arquitectura de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 - [Uso del servicio de cola en Azure ](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 - [Descripción de la facturación del almacenamiento de Azure: ancho de banda, transacciones y capacidad](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

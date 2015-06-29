@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Inicio de sesión desde la interfaz de la línea de comandos de Azure (CLI de Azure)"
+	pageTitle="Inicio de sesión desde la interfaz de la línea de comandos de Azure (CLI de Azure) | Microsoft Azure"
 	description="Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="dsk-2015"
+	authors="dlepow"
 	services=""/>
 
 <tags
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
-	ms.author="dkshir"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Conexión a una suscripción de Azure desde la interfaz de la línea de comandos de Azure (CLI de Azure)
 
-La CLI de Azure es un conjunto de comandos de código abierto y multiplataforma para trabajar con la plataforma de Azure. Este documento describe cómo conectarse a su suscripción de Azure desde xplat-cli. Para obtener instrucciones de instalación, consulte [Instalación de la CLI de Azure](xplat-cli-install.md).
+La CLI de Azure es un conjunto de comandos de código abierto y multiplataforma para trabajar con la plataforma de Azure. Este documento describe cómo conectarse a su suscripción de Azure desde la CLI de Azure. Para obtener instrucciones de instalación, consulte [Instalación de la CLI de Azure](xplat-cli-install.md).
 
 <a id="configure"></a>
 ## Conexión con su suscripción de Azure
@@ -91,7 +91,7 @@ A continuación, importe el archivo `.publishsettings` ejecutando el siguiente c
 
 	azure account import <path to your .publishsettings file>
 
-Después de importar su configuración de publicación, debe eliminar el archivo `.publishsettings`, porque ya no se necesitan las herramientas de línea de comandos y suponen un riesgo para la seguridad, ya que se puede usar para obtener acceso a su suscripción.
+Después de importar su configuración de publicación, debe eliminar el archivo `.publishsettings`, porque ya no lo necesita la CLI de Azure y supone un riesgo para la seguridad, ya que se puede usar para obtener acceso a su suscripción.
 
 > [AZURE.NOTE]Al iniciar una sesión en una cuenta profesional o educativa o importar la configuración de publicación, la información de acceso a su suscripción de Azure se almacena en un directorio `.azure` ubicado en su directorio `user`. El sistema operativo protege su directorio `user`; no obstante, es recomendable que tome medidas adicionales para cifrar su directorio `user`. Puede hacerlo de las siguientes maneras:
 >
@@ -101,7 +101,7 @@ Después de importar su configuración de publicación, debe eliminar el archivo
 
 ### Varias suscripciones
 
-Si tiene varias suscripciones de Azure, la conexión a Azure le dará acceso a todas las suscripciones asociadas a sus credenciales. Se seleccionará una suscripción como predeterminada y xplat-cli la utilizará al realizar operaciones. Podrá ver las suscripciones, así como cuál es la predeterminada, mediante el comando `azure account list`. Este comando devolverá información similar a la siguiente:
+Si tiene varias suscripciones de Azure, la conexión a Azure le dará acceso a todas las suscripciones asociadas a sus credenciales. Se seleccionará una suscripción como predeterminada y la CLI de Azure la utilizará al realizar operaciones. Podrá ver las suscripciones, así como cuál es la predeterminada, mediante el comando `azure account list`. Este comando devolverá información similar a la siguiente:
 
 	info:    Executing command account list
 	data:    Name              Id                                    Current
@@ -124,9 +124,9 @@ Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los
 <a id="additional-resources"></a>
 ## Recursos adicionales
 
-* [Uso de la CLI de Azure con los comandos de administración de servicios (o modo ASM)][xplatasm]
+* [Uso de la CLI de Azure con los comandos de administración de servicios (o modo ASM)][cliasm]
 
-* [Uso de la CLI de Azure con los comandos de administración de recursos (o modo ARM)][xplatarm]
+* [Uso de la CLI de Azure con los comandos de administración de recursos (o modo ARM)][cliarm]
 
 * Si desea obtener más información acerca de la CLI de Azure para descargar el código fuente, informar sobre problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la CLI de Azure](https://github.com/azure/azure-xplat-cli).
 
@@ -142,7 +142,7 @@ Una vez que esté conectado a su suscripción de Azure, puede empezar a usar los
 [free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
-[xplatasm]: virtual-machines-command-line-tools.md
-[xplatarm]: xplat-cli-azure-resource-manager.md
+[cliasm]: virtual-machines-command-line-tools.md
+[cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

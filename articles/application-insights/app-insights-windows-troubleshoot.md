@@ -31,9 +31,11 @@
 * ¿Hay un firewall entre el dispositivo de prueba o el emulador y el portal de Application Insights? Puede que tenga que abrir los puertos TCP 80 y 443 para el tráfico saliente a dc.services.visualstudio.com y f5.services.visualstudio.com.
 * En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
 
+
 #### Solía ver datos, pero ya no sucede esto.
 
 * Compruebe el [blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
+* ¿Ha alcanzado su cuota mensual de puntos de datos? Abra Configuración/Cuotas y Precios para averiguarlo. Si es así, puede actualizar el plan o pagar para obtener capacidad adicional. Consulte el [esquema de precios](http://azure.microsoft.com/pricing/details/application-insights/).
 
 
 ## ¿Cómo puedo agregar Application Insights a una aplicación universal?
@@ -116,4 +118,6 @@ Consulte [Privacidad y retención de los datos][data].
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

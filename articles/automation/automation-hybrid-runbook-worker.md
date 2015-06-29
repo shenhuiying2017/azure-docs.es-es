@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Trabajos híbridos de runbook de Automatización de Azure"
    description="Este artículo brinda información sobre cómo instalar y usar Trabajo híbrido de runbook, una característica de Automatización de Azure que le permite ejecutar runbooks en máquinas de su centro de datos local."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/11/2015"
@@ -59,7 +59,7 @@ Cuando agregue un equipo a Visión operativa, la solución Automatización inser
 
 Abra una sesión de PowerShell en modo de Administrador y ejecute el comando siguiente para importar el módulo.
 
-	Import-Module HybridRegistration 
+	Import-Module HybridRegistration
 
 Si recibe un mensaje de error que indica que no se encontró el archivo del módulo, es posible que deba usar el comando siguiente que usa toda la ruta de acceso al archivo del módulo.
 
@@ -75,7 +75,7 @@ A continuación, ejecute el cmdlet **Add-HybridRunbookWorker** con la siguiente 
 - **Token** es la **Clave de acceso primaria** en la hoja **Administrar claves**. Puede abrir la hoja Administrar claves con un clic en el icono de clave en el panel Elementos de la cuenta de Automatización.<br><br>![Información general de Trabajo híbrido de runbook](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. Instalación de módulos PowerShell 
+#### 3. Instalación de módulos PowerShell
 Los runbooks pueden usar cualquiera de las actividades y los cmdlets definidos en los módulos instalados en el entorno de Automatización de Azure. Sin embargo, estos módulos no se implementan automáticamente en las máquinas locales, por lo que debe instalarlos de forma manual. La excepción es el módulo de Azure que se instala de manera predeterminada y brinda acceso a los cmdlets para todos los servicios y actividades de Azure para Automatización de Azure.
 
 Debido a que el propósito principal de la característica Trabajo híbrido de runbook es administrar recursos locales, es muy probable que deba instalar los módulos que admiten estos recursos. Puede consultar [Instalación de módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obtener información sobre cómo instalar módulos de Windows PowerShell.
@@ -123,16 +123,17 @@ Si es un usuario existente de SMA, puede mover los runbooks a Automatización de
 
 Puede usar los criterios siguientes para determinar si Automatización de Azure con Trabajo híbrido de runbook o Service Management Automation es más adecuado para sus requisitos.
 
-- SMA requiere una instalación local de Windows Azure Pack con más recursos locales y costos de mantenimiento más altos que Automatización de Azure, el que solo necesita instalar un agente en los trabajos de runbooks locales. Visión operativa administra los agentes, con lo que disminuyen los costos de mantenimiento. 
+- SMA requiere una instalación local de Windows Azure Pack con más recursos locales y costos de mantenimiento más altos que Automatización de Azure, el que solo necesita instalar un agente en los trabajos de runbooks locales. Visión operativa administra los agentes, con lo que disminuyen los costos de mantenimiento.
 - Automatización de Azure almacena sus runbooks en la nube y los entrega a Trabajos híbridos de runbooks locales. Si su directiva de seguridad no permite este comportamiento, deberá usar SMA.
 - Windows Azure Pack es una descarga gratuita, mientras que Automatización de Azure podría generar gastos de suscripción. Azure. Debe mantener varias bases de datos para SMA.
 - Automatización de Azure con Trabajo híbrido de runbook le permiten administrar runbooks para recursos de nube y recursos locales en una ubicación, en lugar de administrar Automatización de Azure y SMA de manera independiente.
-- Automatización de Azure tiene características avanzadas, que incluyen la creación gráfica que no se encuentra disponible en SMA. 
+- Automatización de Azure tiene características avanzadas, que incluyen la creación gráfica que no se encuentra disponible en SMA.
 
 
 ## Artículos relacionados
 
 - [Inicio de un runbook en Automatización de Azure](../automation-starting-a-runbook)
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

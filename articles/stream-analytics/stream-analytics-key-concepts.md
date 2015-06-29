@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/28/2015" 
+	ms.date="06/16/2015" 
 	ms.author="jeffstok" />
 
 
@@ -30,7 +30,7 @@ Con Análisis de transmisiones, puede:
 - Procesar datos de telemetría para supervisión y diagnóstico casi en tiempo real. 
 - Captura y archivado de eventos en tiempo real para su futuro procesamiento
 
-Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream.analytics.introduction).
+Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md).
 
 Un trabajo de Análisis de transmisiones incluye lo siguiente: * Uno o varios orígenes de entrada * Una consulta sobre un flujo de datos de entrada * Un destino de salida.
 
@@ -39,10 +39,10 @@ Un trabajo de Análisis de transmisiones incluye lo siguiente: * Uno o varios or
 
 ### Secuencia de datos
 
-Cada definición de trabajo de Stream Analytics debe contener al menos un origen de entrada de secuencia de datos para su uso y transformación por parte del trabajo. [Almacenamiento de blobs de Azure](azure.blob.storage) y [Centros de eventos de Azure](azure.event.hubs) se admiten como orígenes de entrada de flujos de datos. Los orígenes de entrada de Centros de eventos se usan para recopilar streaming de eventos procedentes de varios dispositivos y servicios diferentes, mientras que el almacenamiento de blobs se puede usar como origen de entrada para la introducción de grandes cantidades de datos. Como los blobs no transmiten datos, los trabajos de Análisis de transmisiones por blobs no serán de carácter temporal a menos que los registros del blob contengan marcas de tiempo.
+Cada definición de trabajo de Stream Analytics debe contener al menos un origen de entrada de secuencia de datos para su uso y transformación por parte del trabajo. [Almacenamiento de blobs de Azure](http://azure.microsoft.com/documentation/services/storage/) y [Centros de eventos de Azure](http://azure.microsoft.com/services/event-hubs/) se admiten como orígenes de entrada de flujos de datos. Los orígenes de entrada de Centros de eventos se usan para recopilar streaming de eventos procedentes de varios dispositivos y servicios diferentes, mientras que el almacenamiento de blobs se puede usar como origen de entrada para la introducción de grandes cantidades de datos. Como los blobs no transmiten datos, los trabajos de Análisis de transmisiones por blobs no serán de carácter temporal a menos que los registros del blob contengan marcas de tiempo.
 
 ### Datos de referencia
-Análisis de transmisiones también admite un segundo tipo de origen de entrada: datos de referencia. Se trata de datos auxiliares usados para realizar correlaciones y búsquedas, y los datos de aquí suelen ser estáticos o cambiar con poca frecuencia. [Almacenamiento de blobs de Azure](azure.blob.storage) es el único origen de entrada admitido para los datos de referencia. Los blobs de origen de datos de referencia están limitados a 50 MB de tamaño.
+Análisis de transmisiones también admite un segundo tipo de origen de entrada: datos de referencia. Se trata de datos auxiliares usados para realizar correlaciones y búsquedas, y los datos de aquí suelen ser estáticos o cambiar con poca frecuencia. [Almacenamiento de blobs de Azure](http://azure.microsoft.com/documentation/services/storage/) es el único origen de entrada admitido para los datos de referencia. Los blobs de origen de datos de referencia están limitados a 50 MB de tamaño.
 
 Para habilitar la compatibilidad para actualizar los datos de referencia, el usuario debe especificar una lista de blobs en la configuración de entrada utilizando los tokens {date} y {time} dentro del patrón de la ruta de acceso. El trabajo cargará el blob correspondiente según la fecha y hora que se codifican en los nombres de blob con la zona horaria UTC.
 
@@ -102,7 +102,7 @@ También puede optar por esperar solo durante un tiempo limitado; 'Máximo retra
 Cuando la consulta del trabajo de streaming usa la palabra clave TIMESTAMP BY, no hay ninguna garantía sobre el orden en el que llegarán los eventos a la entrada; algunos eventos de la misma partición de entrada pueden quedarse atrás; el parámetro 'máximo desorden permitido dentro de una entrada' hace que el trabajo de streaming actúe en eventos que quedan fuera del margen de tolerancia de orden según el valor de 'Acción en eventos de retraso', quitar los eventos o ajustar las marcas de tiempo de los eventos.
 
 ### Recursos adicionales
-Para obtener más información sobre la creación de orígenes de entrada, consulte [Guía para desarrolladores de Centros de eventos de Azure](azure.event.hubs.developer.guide) y [Uso del Almacenamiento de blobs de Azure](azure.blob.storage.use).
+Para obtener más información sobre la creación de orígenes de entrada, consulte [Guía para desarrolladores de Centros de eventos de Azure](http://msdn.microsoft.com/library/azure/dn789972.aspx) y [Uso del Almacenamiento de blobs de Azure](../storage/storage-dotnet-how-to-use-blobs.md).
 
 
 
@@ -129,14 +129,14 @@ Para consultas más complejas, se puede usar la cláusula SQL estándar **WITH**
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-Para obtener más información sobre el lenguaje de consulta, consulte [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](stream.analytics.query.language.reference).
+Para obtener más información sobre el lenguaje de consulta, consulte [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](http://go.microsoft.com/fwlink/?LinkID=513299).
 
 ## Salida
 En el destino de salida se escribirán los resultados del trabajo de Análisis de transmisiones. Los resultados se escriben continuamente en el destino de salida a medida que el trabajo procesa los eventos de entrada. Se admiten los siguientes destinos de salida:
 
 - Centros de eventos de Azure: elija Centros de eventos como destino de salida en escenarios en los que sea necesario preparar varias canalizaciones de streaming como, por ejemplo, para emitir comandos de vuelta a los dispositivos.
 - Almacenamiento de blobs de Azure: use el almacenamiento de blobs para archivar salidas a largo plazo o para almacenar datos para su posterior procesamiento.
-- Almacenamiento de tablas de Azure: se trata de un almacén de datos estructurados con menos restricciones en el esquema. Las entidades con un esquema diferente y diferentes tipos pueden almacenarse en la misma tabla de Azure. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz. Para obtener más información, consulte [Introducción al almacenamiento de Azure](../storage.introduction.md) y [Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Almacenamiento de tablas de Azure: se trata de un almacén de datos estructurados con menos restricciones en el esquema. Las entidades con un esquema diferente y diferentes tipos pueden almacenarse en la misma tabla de Azure. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz. Para obtener más información, consulte [Introducción al almacenamiento de Azure](../storage/storage-introduction.md) y [Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Base de datos SQL de Azure: este destino de salida es adecuado para datos de carácter relacional o para aplicaciones que dependen del contenido que se hospeda en una base de datos.
 
 
@@ -144,7 +144,7 @@ En el destino de salida se escribirán los resultados del trabajo de Análisis d
 
 Un trabajo de Análisis de transmisiones se puede escalar a través de la configuración de unidades de streaming, que definen la cantidad de potencia de procesamiento de datos que recibe un trabajo. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento. Cada suscripción tiene una cuota de 12 unidades de streaming por región que se distribuyen entre los trabajos de la región.
 
-Para obtener más información, consulte [Trabajos de escala de Análisis de transmisiones de Azure](stream.analytics.scale.jobs).
+Para obtener más información, consulte [Trabajos de escala de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md).
 
 
 ## Trabajos de supervisión y solución de problemas
@@ -182,10 +182,9 @@ Puede ajustar los siguientes valores de nivel superior para un trabajo de Stream
 
 ### Estado
 
-El estado de los trabajos de Análisis de transmisiones se puede inspeccionar en el portal de Azure. Los trabajos en ejecución pueden estar en uno de estos tres estados: **Inactivo**, **Procesamiento** o **degradado**. La definición de cada uno de estos estados se indica a continuación:
+El estado de los trabajos de Análisis de transmisiones se puede inspeccionar en el portal de Azure. Los trabajos en ejecución pueden estar en uno de estos dos estados: **En ejecución** o **Degradado**. La definición de cada uno de estos estados se indica a continuación:
 
-- **Inactivo**: no se ha visto ningún byte de entrada desde que se creó el trabajo o en los últimos dos minutos. Si un trabajo permanece en estado **Inactivo** durante un largo período de tiempo, es probable que la entrada exista , pero no hay bytes sin formato que procesar.
-- **Procesamiento**: cantidad distinta de cero de eventos de entrada filtrados que ha usado correctamente el trabajo de Análisis de transmisiones. Si un trabajo se encuentra atascado en el estado **Procesamiento** sin generar salida, es probable que la ventana de tiempo de procesamiento de datos sea grande o la lógica de consulta sea complicada.
+- **En ejecución**: El trabajo está asignado, procesando entradas o en espera de procesar entradas. Si el trabajo muestra un estado En ejecución sin generar salida, es probable que la ventana de tiempo de procesamiento de datos sea grande o la lógica de consulta sea complicada. Otra razón puede ser que actualmente no haya ningún dato que se esté enviándose al trabajo.
 - **Degradado**: este estado indica que un trabajo de Análisis de transmisiones detecta uno de los siguientes errores: errores de comunicación de entrada y salida, errores de consulta o errores en tiempo de ejecución con posibilidad de reintentar la operación. Para distinguir el tipo de errores que detecta el trabajo, vea los registros de operación.
 
 
@@ -202,27 +201,6 @@ Ahora que está familiarizado con los conceptos básicos de Análisis de transmi
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-
-
-
-
-<!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
-
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

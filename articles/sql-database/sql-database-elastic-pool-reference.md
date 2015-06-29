@@ -96,6 +96,8 @@ El límite de almacenamiento del grupo se determina según la cantidad de DTU de
 
 *Las unidades de API son MB y no GB.
 
+Si se supera el límite de almacenamiento de un grupo, todas las bases de datos del grupo serán de solo lectura. Si ocurre esto, intente aumentar la DTU o el almacenamiento del grupo en sí, o sacar una o más bases de datos del grupo. Para identificar y evitar superar el límite de almacenamiento del grupo, puede crear una alerta en el Portal para que se desencadene cuando el uso del almacenamiento del grupo supere un valor preestablecido.
+
 ## Límites de trabajadores y sesiones
 
 El número máximo de sesiones y trabajadores simultáneos que se admiten para todas las bases de datos del grupo elástico depende del valor de DTU del grupo:
@@ -191,4 +193,8 @@ El precio unitario de DTU de un grupo elástico es mayor que el precio unitario 
 | 40891 | EX_USER | El número mínimo de DTU por base de datos (%d) no puede superar el número máximo de DTU por base de datos (%d). | Número mínimo de DTU por base de datos; número máximo de DTU por base de datos. | Se intentó establecer el número mínimo de DTU por base de datos con un valor superior al número máximo de DTU por base de datos. | Asegúrese de que el número mínimo de DTU por base de datos no supere el número máximo de DTU por base de datos. |
 | TBD | EX_USER | El tamaño de almacenamiento para una base de datos individual de un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio ' %.* ls'. | Nivel de servicio de grupo elástico. | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos por debajo de los límites de tamaño máximo permitidos por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=58--> 
+
+
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Aprovisionamiento de clústeres de HBase en una red virtual | Microsoft Azure" 
-	description="Introducción al uso de HBase en HDInsight de Azure Aprenda a crear clústeres de Hbase de HDInsight en Red virtual de Azure" 
+	description="Introducción al uso de HBase en HDInsight de Azure Aprenda a crear clústeres de HBase de HDInsight en Red virtual de Azure." 
 	keywords=""	
 	services="hdinsight,virtual-network" 
 	documentationCenter="" 
@@ -30,9 +30,9 @@ Con la integración de red virtual, los clústeres de HBase se pueden implementa
 ##Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
+- **Una suscripción de Azure**. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una estación de trabajo con Azure PowerShell instalado y configurado**. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Uso del cmdlet Set-ExecutionPolicy][2].
+- **Una estación de trabajo con Azure PowerShell**. Consulte [Install and use Azure PowerShell (Instalación y uso de Azure PowerShell)](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Uso del cmdlet Set-ExecutionPolicy][2].
 
 	Antes de ejecutar scripts de Azure PowerShell, asegúrese de estar conectado a su suscripción de Azure mediante el siguiente cmdlet:
 
@@ -55,7 +55,7 @@ Antes de aprovisionar un clúster de HBase, debe tener una red virtual de Azure.
 
 	- **Nombre**: el nombre de la red virtual.
 	- **Espacio de direcciones**: elija un espacio de direcciones para la red virtual que sea lo bastante grande para proporcionar direcciones para todos los nodos del clúster. De lo contrario, se producirá un error en el aprovisionamiento. Para completar este tutorial, puede elegir cualquiera de las tres opciones. 
-	- **Número máximo de VM**: elija uno de los números máximos de máquinas virtuales (VM). Este valor determina el número de hosts (VM) posibles que se pueden crear en el espacio de direcciones. Para completar este tutorial, es suficiente con **4096 [CIDR: /20]**. 
+	- **Número máximo de VM**: elija uno de los números máximos de máquinas virtuales (VM). Este valor determina el número de hosts (VM) posibles que se pueden crear en el espacio de direcciones. Para realizar este tutorial, es suficiente con **4096 [CIDR: /20]**. 
 	- **Ubicación**: la ubicación debe ser la misma que el clúster de HBase que va a crear
 	- **Servidor DNS**: este tutorial usa un servidor de Sistema de nombres de dominio (DNS) interno proporcionado por Azure, de modo que pueda elegir **Ninguno**. Asimismo, se admiten configuraciones de red más avanzadas con servidores DNS personalizados. Para obtener instrucciones detalladas, consulte [Resolución de nombres (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 4. Haga clic en **CREAR UNA RED VIRTUAL** en la esquina inferior derecha. El nombre de la nueva red virtual aparecerá en la lista. Espere hasta que aparezca **Creado** en la columna de estado.
@@ -74,7 +74,7 @@ Un servidor DNS es opcional, pero es necesario en algunos casos. El procedimient
 
 1. Agregar una máquina virtual de Azure a una red virtual
 2. Configurar una dirección IP estática para la máquina virtual
-3. Agregar el rol de servidor DNS a la máquina virtual 
+3. Agregar el rol de servidor DNS a la máquina virtual
 4. Asignar el servidor DNS a la red virtual 
 
 
@@ -129,9 +129,7 @@ Al igual que otros clústeres de HDInsight, el clúster de HBase requiere una cu
 	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual para el nodo principal.</p></td></tr>
 	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
 	<tr><td>Tamaño de Zookeeper</td><td><p>Seleccione un tamaño de máquina virtual para el nodo Zookeeper.</p></td></tr>
-</table>
-
-	>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+</table>[AZURE.NOTE]En función de la elección de máquinas virtuales, su coste puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 	Haga clic en el botón derecho.
 
@@ -402,7 +400,7 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md#rdp
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
@@ -427,5 +425,6 @@ En este tutorial, ha aprendido a aprovisionar un clúster de HBase. Para obtener
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Detalles de aprovisionamiento para el nuevo clúster de HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Uso de la acción de script para personalizar un clúster de HBase"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

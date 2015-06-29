@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create a custom StorSimple backup policy"
-   description="Explains how you can use the StorSimple Manager service to create a custom backup policy."
+   pageTitle="Creación de una directiva de copia de seguridad de StorSimple personalizada"
+   description="Explica cómo puede usar el servicio del Administrador de StorSimple para crear una directiva de copia de seguridad personalizada."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,44 +15,44 @@
    ms.date="05/14/2015"
    ms.author="v-sharos" />
 
-#### To create a custom backup policy
+#### Para crear una directiva de copia de seguridad personalizada
 
-1. On the **Devices** page, click **Backup Policies** and then click **Add**.
+1. En la página **Dispositivos**, haga clic en **Directivas de copia de seguridad** y luego haga clic en **Agregar**.
 
-2. In the **Add a backup policy** dialog box, under **Define your backup policy**:
+2. En el cuadro de diálogo **Agregar directiva de copia de seguridad**, en **Definir directiva de copia de seguridad**:
 
-    1. Specify a backup policy name.
+    1. Especifique un nombre de directiva de copia de seguridad.
 
-    2. Select the volumes to be added to this policy. You can choose to add multiple volumes by selecting them from the drop-down list.
+    2. Seleccione los volúmenes que se agregarán a esta directiva. Puede agregar varios volúmenes seleccionándolos en la lista desplegable.
 
-    3. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
+    3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png).
 
-     You will be notified after the policy is created successfully. The backup policies page will also be updated to show the newly created policy.
+     Recibirá una notificación cuando la directiva se cree correctamente. La página de directivas de copia de seguridad también se actualizará para mostrar la directiva creada recientemente.
 
-4. Click the policy name (first column) to drill down into details of the policy you just created.
+4. Haga clic en el nombre de la directiva (primera columna) para profundizar en los detalles de la directiva que acaba de crear.
 
-5. Click **manage schedules**.
+5. Haga clic en **Administrar programaciones**.
 
-6. In the **Manage Schedules** dialog box:
+6. En el cuadro de diálogo **Administrar programaciones**:
 
-    1. Select **Create new** to add another schedule.
+    1. Seleccione **Crear nuevo** para agregar otra programación.
 
-    2. From the drop-down list, choose the backup type as **local** or **cloud** snapshot.
+    2. En la lista desplegable, elija el tipo de copia de seguridad como instantánea **local** o en **nube**.
 
-    3. Specify the backup frequency in minutes, hours, days, or weeks.
+    3. Especifique la frecuencia de copia de seguridad en minutos, horas, días o semanas.
 
-    4. Select a retention. The retention choices depend on the backup frequency. For instance, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
+    4. Seleccione una retención. Las opciones de retención dependen de la frecuencia de copia de seguridad. Por ejemplo, para una directiva diaria, la retención puede especificarse en semanas, mientras que la retención de una directiva mensual es en meses.
  
-    5. Select the starting time and date for the policy.
+    5. Seleccione la fecha y hora de inicio para la directiva.
 
-    6. Select the check box to enable the policy.
+    6. Seleccione la casilla para habilitar la directiva.
 
-7. Click the check icon ![check icon](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) to finish.
+7. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-add-backup-policy/HCS_CheckIcon-include.png) para continuar.
 
-8. You will return to the policy details. Click **Save** to save the changes you made to this policy. You will be notified when the policy has been saved.
+8. Volverá a los detalles de la directiva. Haga clic en **Guardar** para guardar los cambios realizados en esta directiva. Se le notificará cuando se haya guardado la directiva.
 
-9. Navigate back to the **Backup Policies** page. The tabular listing of the backup policies will be updated to display the modified policy.
+9. Vuelva a la página **Directivas de copia de seguridad**. La lista tabular de las directivas de copia de seguridad se actualizará para mostrar la directiva modificada.
 
-    ![Custom backup policy](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
+    ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-
+<!---HONumber=58_postMigration-->

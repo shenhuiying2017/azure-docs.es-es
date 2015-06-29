@@ -134,5 +134,6 @@ A continuación se indican los detalles de configuración:
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

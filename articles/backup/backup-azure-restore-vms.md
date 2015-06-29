@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Copia de seguridad de Azure: restauración de una máquina virtual"
 	description="Información sobre cómo restaurar una máquina virtual de Azure"
@@ -41,7 +42,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Seleccionar una fecha](./media/backup-azure-restore-vms/select-date.png)
 
-    Una vez que se hace clic en una fecha en el control de calendario, los puntos de recuperación disponibles en la fecha se mostrarán en la siguiente tabla de puntos de recuperación. La columna **Tiempo** indica el momento en que se tomó la instantánea. El **tipo** columna muestra el [coherencia](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) del punto de recuperación. El encabezado de tabla muestra el número de puntos de recuperación disponibles de ese día entre paréntesis.
+    Una vez que se hace clic en una fecha en el control de calendario, los puntos de recuperación disponibles en la fecha se mostrarán en la siguiente tabla de puntos de recuperación. La columna **Tiempo** indica el momento en que se tomó la instantánea. La columna **Tipo** muestra la [coherencia](https://azure.microsoft.com/documentation/articles/backup-azure-vms/#consistency-of-recovery-points) del punto de recuperación. El encabezado de tabla muestra el número de puntos de recuperación disponibles de ese día entre paréntesis.
 
     ![Puntos de recuperación](./media/backup-azure-restore-vms/recovery-points.png)
 
@@ -54,9 +55,9 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
   - Especifique el nombre de la máquina virtual: en un servicio de nube determinado, el nombre de la máquina virtual debe ser único. Si planea reemplazar una máquina virtual existente con el mismo nombre, primero elimine la máquina virtual existente y los discos de datos y, a continuación, restaure los datos de copia de seguridad de Azure.
   - Seleccione un servicio de nube para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede usar un servicio de nube existente o crear un nuevo servicio de nube.
 
-        Whatever cloud service name is picked should be globally unique. Typically, the cloud service name gets associated with a public-facing URL in the form of [cloudservice].cloudapp.net. Azure will not allow you to create a new cloud service if the name has already been used. If you choose to create select create a new cloud service, it will be given the same name as the virtual machine – in which case the VM name picked should be unique enough to be applied to the associated cloud service.
+        Sea cual sea el nombre del servicio en la nube que se elija, este debe ser exclusivo. Habitualmente, el nombre del servicio en la nube queda asociado a una URL de acceso público de esta forma: [cloudservice].cloudapp.net. Azure no permite crear un nuevo servicio en la nube si el nombre elegido ya está en uso. Si se decide crea un nuevo servicio en la nube, este recibirá el mismo nombre que la máquina virtual, en cuyo caso el nombre de la VM elegida deberá ser exclusivo también para poder aplicarse al servicio en la nube que se le asocie.
 
-        We only display cloud services and virtual networks that are not associated with any affinity groups in the restore instance details. [Learn More](https://msdn.microsoft.com/en-us/library/azure/jj156085.aspx).
+        Solo se muestran servicios en la nube y redes virtuales que no están asociadas con ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](https://msdn.microsoft.com/es-es/library/azure/jj156085.aspx).
 
 2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
@@ -70,7 +71,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Seleccionar una red virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles de subred, vaya a la extensión de las redes en el [página principal del portal](https://manage.windowsazure.com/), vaya a las redes virtuales y seleccione la red virtual y profundizar en configurar para ver los detalles de subred.
+4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), acceda a Redes virtuales y elija la red virtual. Acceda a Configuración para ver los detalles de la subred.
 
     ![Seleccionar una subred](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -89,7 +90,7 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 
 ![Trabajo de restauración completado](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Después de restaurar la máquina virtual puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [volver a crear los extremos](virtual-machines-set-up-endpoints) para la máquina virtual en el portal de Azure.
+Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [volver a crear los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el Portal de Azure.
 
 ## Solución de errores
 Para la mayoría de los errores, puede seguir la acción recomendada sugerida en los detalles del error. Estos son algunos puntos adicionales para ayudar con la solución de problemas:
@@ -101,4 +102,6 @@ Para la mayoría de los errores, puede seguir la acción recomendada sugerida en
 ## Pasos siguientes
 - [Administración de máquinas virtuales](backup-azure-manage-vms)
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=58_postMigration-->

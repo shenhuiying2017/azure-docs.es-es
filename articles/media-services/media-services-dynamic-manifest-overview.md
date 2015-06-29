@@ -176,13 +176,13 @@ Puede combinar varias reglas de filtrado en un filtro único. Por ejemplo, puede
 
 En el siguiente tema se describen las entidades de los Servicios multimedia que están relacionadas con los filtros. En el tema también se muestra cómo crear filtros mediante programación.
 
-[Crear filtros con las API de REST](media-services-rest-create-filters).
+[Crear filtros con las API de REST](media-services-rest-dynamic-manifest.md).
 
 ##Problemas conocidos y limitaciones
 
 - El manifiesto dinámico funciona en los límites GOP (fotogramas clave), por lo que el recorte tiene precisión GOP. 
 - Puede usar el mismo nombre de filtro para los filtros globales y locales. Tenga en cuenta que el filtro local tienen una mayor prioridad e invalidará los filtros globales.
-- Si actualiza un filtro, se pueden tardar hasta 2 minutos en que el extremo de streaming actualice las reglas. Si el contenido se suministró con algunos filtros (y se almacenó en caché en servidores proxy y cachés CDN), la actualización de  estos filtros puede generar errores del reproductor. Se recomienda borrar la memoria caché después de actualizar el filtro. Si esta opción no es posible, piense en usar un filtro diferente.
+- Si actualiza un filtro, se pueden tardar hasta 2 minutos en que el extremo de streaming actualice las reglas. Si el contenido se suministró con algunos filtros (y se almacenó en caché en servidores proxy y cachés CDN), la actualización de estos filtros puede generar errores del reproductor. Se recomienda borrar la memoria caché después de actualizar el filtro. Si esta opción no es posible, piense en usar un filtro diferente.
 
 
 ##Otras referencias
@@ -207,5 +207,6 @@ En el siguiente tema se describen las entidades de los Servicios multimedia que 
 [language_filter]: ./media/media-services-dynamic-manifest-overview/media-services-language-filter.png
 [dvr_filter]: ./media/media-services-dynamic-manifest-overview/media-services-dvr-filter.png
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

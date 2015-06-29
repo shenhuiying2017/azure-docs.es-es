@@ -83,7 +83,7 @@ El registro de su aplicación web es el primer paso. A continuación, también d
 7. Escriba un nombre descriptivo para la aplicación, por ejemplo "ServicioListaTodo-Android", seleccione "Aplicación de cliente nativo" y haga clic en Siguiente.
 8. Para el URI de redirección, escriba `http://TodoListClient`. Haga clic en Finalizar.
 9. Haga clic en la pestaña Configurar de la aplicación.
-10. Busque el valor de Id. de cliente y cópielo aparte, lo necesitará más tarde cuando configure la aplicación.
+10. Busque el valor de identificador de cliente y cópielo aparte, lo necesitará más tarde al configurar la aplicación.
 11. En "Permisos para otras aplicaciones", haga clic en "Agregar aplicación". Seleccione "Otras" en la lista desplegable "Mostrar" y haga clic en la marca de comprobación superior. Busque ServicioListaTodo y haga clic en él. Haga clic también en la marca de comprobación inferior para agregar la aplicación. Seleccione "Acceso a ServicioListaTodo" en la lista desplegable "Permisos delegados" y guarde la configuración.
 
 
@@ -268,7 +268,8 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
+11. **Agente**:
+  la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -280,7 +281,9 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
 
  ```java
  String brokerAccount =  mContext.getBrokerUser();
- ``` Si la cuenta es válida, se devolverá el usuario del agente.
+ ```
+
+ Si la cuenta es válida, se devolverá el usuario del agente.
 
  El manifiesto de aplicación debe tener permisos para usar cuentas del administrador de cuentas: http://developer.android.com/reference/android/accounts/AccountManager.html
 
@@ -299,7 +302,7 @@ Los recursos del proyecto de la biblioteca pueden sobrescribirse con los recurso
 
 ### Agente
 
-El componente del agente se entregará con la aplicación del portal de empresa de Intune. La cuenta se creará en el administrador de cuentas. El tipo de cuenta es "com.microsoft.workaccount". Solo se permiten cuentas SSO. Después de completar el desafío del dispositivo para una de las aplicaciones, se creará la cookie de SSO para este usuario.
+El componente del agente se entregará con la aplicación del portal de empresa de Microsoft Intune. La cuenta se creará en el administrador de cuentas. El tipo de cuenta es "com.microsoft.workaccount". Solo se permiten cuentas SSO. Después de completar el desafío del dispositivo para una de las aplicaciones, se creará la cookie de SSO para este usuario.
 
 ### ADFS y URL de la autoridad
 
@@ -309,9 +312,12 @@ La dirección URL de la autoridad necesita la instancia de STS y el nombre del i
 
 ### Consulta de los elementos en caché
 
-ADAL proporciona memoria caché predeterminada en SharedPrefrecens con algunas características sencillas para hacer consultas sobre los elementos en caché. Puede obtener la memoria caché actual de AuthenticationContext con: ```Java
+ADAL proporciona memoria caché predeterminada en SharedPrefrecens con algunas características sencillas para hacer consultas sobre los elementos en caché. Puede obtener la memoria caché actual de AuthenticationContext con: 
+```Java
  ITokenCacheStore cache = mContext.getCache();
-``` También puede proporcionar la implementación de la memoria caché, si desea personalizarla. ```Java
+```
+También puede proporcionar la implementación de la memoria caché, si desea personalizarla.
+```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
 
@@ -357,7 +363,8 @@ Puede configurar la biblioteca para que genere mensajes de registro que podrá u
       writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);
      }
  }
- ``` Los mensajes pueden escribirse en un archivo de registro personalizado, tal como se muestra a continuación. Por desgracia, no hay ninguna manera estándar de obtener los registros de un dispositivo. Hay algunos servicios que pueden ayudar con esta tarea. También puede "inventar" sus propios métodos, como enviar el archivo a un servidor.
+ ```
+ Los mensajes pueden escribirse en un archivo de registro personalizado, tal como se muestra a continuación. Por desgracia, no hay ninguna manera estándar de obtener los registros de un dispositivo. Hay algunos servicios que pueden ayudar con esta tarea. También puede "inventar" sus propios métodos, como enviar el archivo a un servidor.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -378,7 +385,8 @@ private syncronized void writeToLogFile(Context ctx, String msg) {
 + Info (información)
 + Verbose (más detalles)
 
-El nivel de registro se define de la siguiente forma: ```Java
+El nivel de registro se define de la siguiente forma: 
+```Java
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
@@ -386,7 +394,8 @@ Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
- ``` Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
+ ```
+Más ejemplos sobre comandos adb: https://developer.android.com/tools/debugging/debugging-log.html#startingLogcat
 
 #### Seguimiento de red
 
@@ -411,12 +420,14 @@ La clase AuthenticationParameters proporciona funcionalidad para obtener el auth
 
 ### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: ```java
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
+```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
-``` Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+```
+Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Reemplazos de recursos
 
@@ -439,4 +450,4 @@ La aplicación debe sobrescribirlas si desea ver las cadenas traducidas.
 ### Cuadro de diálogo NTLM
 La versión 1.1.0 de ADAL admite el cuadro de diálogo NTLM que se procesa a través del evento onReceivedHttpAuthRequest desde WebViewClient. El diseño del cuadro de diálogo y las cadenas se pueden personalizar. ### Paso 5: descargue el código de ejemplo de cliente nativo de iOS
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

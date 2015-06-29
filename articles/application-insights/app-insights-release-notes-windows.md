@@ -4,17 +4,33 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
-# Notas de la versión del SDK de Application Insights para ASP.NET
+# Notas de la versión del SDK de Application Insights para la Tienda Windows Phone
+
+El [SDK de Application Insights](app-insights-windows-get-started.md) envía telemetría acerca de la aplicación activa a [Application Insights](http://azure.microsoft.com/services/application-insights/), donde puede analizar su uso y el rendimiento.
+
+
+#### Para instalar el SDK en su aplicación
+
+Consulte [Introducción a Application Insights para aplicaciones de la Tienda Windows Phone](app-insights-windows-get-started.md)
+
+#### Para actualizar al SDK más reciente 
+
+* Realice una copia de ApplicationInsights.config para mantener las personalizaciones realizadas.
+* En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
+* Establezca el filtro para mostrar los paquetes instalados. 
+* Seleccione los paquetes de Application Insights instalados y elija Actualizar.
+* Compare las versiones antigua y nueva de ApplicationInsights.config. Vuelva a combinar las personalizaciones realizadas en la versión anterior.
+* Vuelva a generar la solución.
 
 
 ## Versión 0.16 
@@ -34,4 +50,4 @@ Vista previa del 28-04-2015
 
 No existen notas de la versión para versiones anteriores.
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

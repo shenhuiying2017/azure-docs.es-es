@@ -32,7 +32,7 @@ Si instala estos elementos en el orden en que se muestran, su equipo con Ubuntu 
 
 La forma más rápida para comenzar con **docker-machine** es descargar la versión adecuada directamente desde la opción para [compartir la versión](https://github.com/docker/machine/releases). El equipo cliente de este tutorial ejecutaba Ubuntu en un equipo x64, así que la imagen que se ha usado es **docker-machine_linux-amd64**.
 
-También puede compilar su  **docker-machine** mediante los pasos que se indican para [contribuir a la máquina](https://github.com/docker/machine#contributing). Tiene que poder descargar más de un 1 GB para realizar la compilación; gracias a ello podrá personalizar su experiencia de la forma que le sea más cómoda.
+También puede compilar su **docker-machine** mediante los pasos que se indican para [contribuir a la máquina](https://github.com/docker/machine#contributing). Tiene que poder descargar más de un 1 GB para realizar la compilación; gracias a ello podrá personalizar su experiencia de la forma que le sea más cómoda.
 
 > [AZURE.NOTE]También puede crear un [vínculo simbólico](http://en.wikipedia.org/wiki/Symbolic_link) en su propia versión de la plataforma, pero en este tutorial se usará directamente el binario para mostrar claramente cada comportamiento. El resultado de esto, es que en lugar de comandos como `docker-machine env` tal y como muestra la documentación de **docker-machine**, este tutorial usa `docker-machine_linux-amd64 env`. Usted decide si crear un vínculo simbólico o si directamente prefiere usar el nombre binario, pero, si cambia el nombre que está usando, recuerde modificarlo en las instrucciones que tiene a continuación.
 
@@ -208,5 +208,6 @@ Vaya a la [guía de usuario de Docker](https://docs.docker.com/userguide/) y cre
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

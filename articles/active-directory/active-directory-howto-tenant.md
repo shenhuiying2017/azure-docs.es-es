@@ -18,7 +18,7 @@
 
 # Obtención de un inquilino de Azure Active Directory
 
-En Azure Active Directory (Azure AD), un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) es un representante de una organización. Se trata de una instancia dedicada del servicio de Azure AD que recibe una organización y que posee cuando registra un servicio en la nube de Microsoft, como Azure, InTune u Office 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD.
+En Azure Active Directory (Azure AD), un [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) es un representante de una organización. Se trata de una instancia dedicada del servicio de Azure AD que recibe una organización y que posee cuando registra un servicio en la nube de Microsoft, como Azure, Microsoft InTune u Office 365. Cada inquilino de Azure AD es distinto e independiente de los demás inquilinos de Azure AD.
 
 Un inquilino aloja los usuarios de una empresa y la información sobre ellos: sus contraseñas, datos de perfil de usuario, permisos, etc. También contiene grupos, aplicaciones y otra información relativa a una organización y su seguridad.
 
@@ -64,5 +64,6 @@ Si se ha registrado anteriormente en una suscripción de Azure con la cuenta org
 Si todo lo anterior es un galimatías para usted, no se preocupe. Simplemente visite [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para registrarse en Azure con una nueva organización. Cuando haya completado el proceso, tendrá su propio inquilino de Azure AD con el nombre de dominio que elija durante el registro. En el [Portal de administración de Azure](https://manage.windowsazure.com), puede encontrar el inquilino dirigiéndose a "Active Directory" en panel de navegación de la izquierda.
 
 Como parte del proceso de registro en Azure, se le solicitará que proporcione la información de tarjeta de crédito. Puede continuar con confianza: no se le cobrará por publicar aplicaciones en Azure AD o crear nuevos inquilinos.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

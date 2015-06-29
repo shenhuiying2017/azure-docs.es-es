@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Creación y administración de trabajos de bases de datos elásticas" 
-	description="Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica." 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
+<properties
+	pageTitle="Creación y administración de trabajos de bases de datos elásticas"
+	description="Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica."
+	services="sql-database"
+	documentationCenter=""
+	manager="jhubbard"
+	authors="sidneyh"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/12/2015"
 	ms.author="sidneyh"/>
 
 # Creación y administración de trabajos de bases de datos elásticas
@@ -29,12 +29,15 @@ Los **grupos de bases de datos elásticas** proporcionan un modelo de predicció
 ## Creación de trabajos
 
 1. En la hoja del grupo de trabajos de bases de datos elásticas, haga clic en **Crear trabajo**.
-2. Escriba el nombre y la contraseña del administrador de la base de datos (creado durante la instalación).
-2. En la hoja **Crear trabajo**, escriba un nombre para el trabajo.
-3. Péguelo o escríbalo en la secuencia de comandos T-SQL.
-4. Haga clic en **Guardar** y, a continuación, haga clic en **Ejecutar**.
+2. Escriba el nombre de usuario y la contraseña del administrador de base de datos (creados al instalar los trabajos) de la base de datos de control de trabajos (almacenamiento de metadatos para los trabajos).
 
 	![Asigne un nombre al trabajo, escríbalo o péguelo en el código y haga clic en Ejecutar.][1]
+2. En la hoja **Crear trabajo**, escriba un nombre para el trabajo.
+3. Escriba el nombre de usuario y la contraseña para conectarse a las bases de datos de destino con los permisos necesarios para que la ejecución de script sea correcta.
+4. Péguelo o escríbalo en la secuencia de comandos T-SQL.
+5. Haga clic en **Guardar** y, a continuación, haga clic en **Ejecutar**.
+
+	![Creación y ejecución de trabajos][5]
 
 ## Ejecución de trabajos idempotentes
 
@@ -44,36 +47,36 @@ Al ejecutar una secuencia de comandos en un conjunto de bases de datos, debe ase
             WHERE name = N'IX_ProductVendor_VendorID')
     DROP INDEX IX_ProductVendor_VendorID ON Purchasing.ProductVendor;
 	GO
-	CREATE INDEX IX_ProductVendor_VendorID 
+	CREATE INDEX IX_ProductVendor_VendorID
     ON Purchasing.ProductVendor (VendorID);
 
 De manera alternativa, puede usar una cláusula "IF NOT EXISTS" antes de crear una nueva instancia:
 
-	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable') 
-	BEGIN 
-	 CREATE TABLE TestTable( 
-	  TestTableId INT PRIMARY KEY IDENTITY, 
-	  InsertionTime DATETIME2 
-	 ); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime()); 
-	GO 
+	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
+	BEGIN
+	 CREATE TABLE TestTable(
+	  TestTableId INT PRIMARY KEY IDENTITY,
+	  InsertionTime DATETIME2
+	 );
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime());
+	GO
 
 Esta secuencia de comandos, a continuación, actualizará la tabla creada anteriormente.
 
-	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation') 
-	BEGIN 
-	
-	ALTER TABLE TestTable 
-	
-	ADD AdditionalInformation NVARCHAR(400); 
-	END 
-	GO 
-	
-	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test'); 
-	GO 
+	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation')
+	BEGIN
+
+	ALTER TABLE TestTable
+
+	ADD AdditionalInformation NVARCHAR(400);
+	END
+	GO
+
+	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
+	GO
 
 
 ## Comprobación del estado del trabajo
@@ -103,6 +106,8 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 [2]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
 [3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
-[5]: ./media/sql-database-elastic-jobs-create-and-manage/provide-creds.png
+[5]: ./media/sql-database-elastic-jobs-create-and-manage/screen-2.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

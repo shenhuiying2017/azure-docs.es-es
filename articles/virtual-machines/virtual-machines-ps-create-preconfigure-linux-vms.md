@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/11/2015" 
 	ms.author="josephd"/>
 
 # Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux
@@ -55,14 +55,14 @@ A continuación, se muestran algunos ejemplos de valores de ImageFamily de equip
 - CoreOS Alpha
 - SUSE Linux Enterprise Server 12
 
-Abra una nueva instancia del editor de texto que prefiera (o una instancia del entorno de scripting integrado de PowerShell [ISE]) y copie lo siguiente en el nuevo archivo de texto, sustituyendo el valor de ImageFamily.
+Abra una nueva instancia del editor de texto que prefiera o una instancia del entorno de scripting integrado de PowerShell (ISE). Copie lo siguiente en el nuevo archivo de texto o PowerShell ISE, sustituyendo el valor de ImageFamily.
  
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
 ## Paso 4: Creación del conjunto de comandos
 
-Cree el resto del conjunto de comandos copiando el conjunto de bloques adecuado en el nuevo archivo de texto y, a continuación, rellene los valores de las variables y quite los caracteres < and >. Consulte los dos [ejemplos](#examples) al final de este artículo para obtener una idea del resultado final.
+Cree el resto del conjunto de comandos copiando el conjunto de bloques adecuado en el nuevo archivo de texto o PowerShell ISE y, a continuación, rellene los valores de las variables y quite los caracteres < and >. Consulte los dos [ejemplos](#examples) al final de este artículo para obtener una idea del resultado final.
 
 Inicie el conjunto de comandos eligiendo uno de estos dos bloques de comandos (obligatorio).
 
@@ -85,8 +85,6 @@ Especifique el nombre de usuario y la contraseña iniciales de Linux (obligatori
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-Si va a guardar el conjunto de comandos resultante en un archivo, almacénelo en una ubicación segura para proteger el nombre de cuenta y la contraseña.
 
 Opcionalmente, puede especificar un conjunto de pares de claves SSH que ya estén implementados en la suscripción.
 
@@ -148,15 +146,17 @@ Opción 2: Creación de la máquina virtual en un servicio en la nube y la red v
 
 ## Paso 5: Ejecución del conjunto de comandos
 
-Revise el conjunto de comandos de Azure PowerShell creado en el editor de texto, que consta de varios bloques de comandos del paso 4. Asegúrese de que ha especificado todas las variables necesarias y de que tengan los valores correctos. También asegúrese de que ha quitado todos los caracteres < and >.
+Revise el conjunto de comandos de Azure PowerShell creado en el editor de texto o PowerShell ISE, que consta de varios bloques de comandos del paso 4. Asegúrese de que ha especificado todas las variables necesarias y de que tengan los valores correctos. También asegúrese de que ha quitado todos los caracteres < and >.
 
-Copie el conjunto de comandos en el Portapapeles y haga clic en el símbolo del sistema de Azure PowerShell abierto. Así, se emitirá el conjunto de comandos como una serie de comandos de PowerShell y se creará la máquina virtual de Azure. Si crea la máquina virtual en una suscripción, una cuenta de almacenamiento, un servicio en la nube, un conjunto de disponibilidad, una red virtual o una subred incorrectos, elimine la máquina virtual, corrija la sintaxis del bloque de comandos y, a continuación, ejecute el conjunto de comandos corregido.
+Si está utilizando un editor de texto, copie el conjunto de comandos en el Portapapeles y, a continuación, haga clic con el botón derecho en el símbolo del sistema del Azure PowerShell abierto. Así, se emitirá el conjunto de comandos como una serie de comandos de PowerShell y se creará la máquina virtual de Azure. Como alternativa, ejecute el conjunto de comandos en PowerShell ISE.
+
+Si crea la máquina virtual en una suscripción, una cuenta de almacenamiento, un servicio en la nube, un conjunto de disponibilidad, una red virtual o una subred incorrectos, elimine la máquina virtual, corrija la sintaxis del bloque de comandos y, a continuación, ejecute el conjunto de comandos corregido.
 
 Después de crear la máquina virtual, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md).
 
 Si va a crear esta máquina virtual de nuevo o una similar, puede:
 
-- Guardar este conjunto de comandos como un archivo de texto o como un archivo de script de PowerShell (*.ps1)
+- Guardar este conjunto de comandos como archivo de script de PowerShell (*.ps1)
 - Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure 
 
 ## <a id="examples"></a>Ejemplos
@@ -259,4 +259,6 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

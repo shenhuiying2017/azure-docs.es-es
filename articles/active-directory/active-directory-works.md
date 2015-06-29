@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
 
@@ -21,7 +21,8 @@
 # ¿Cómo funciona Azure Active Directory?
 
 
-[¿Qué es Azure AD?](active-directory-whatis.md)<br> [Introducción](active-directory-get-started.md)<br> [Pasos siguientes](active-directory-next-steps.md)<br> [Más información](active-directory-learn-map.md)
+###Otros artículos sobre este tema
+[¿Qué es Azure AD?](active-directory-whatis.md)<br> [¿Cómo funciona?](active-directory-works.md)<br> [Introducción](active-directory-get-started.md)<br> [Pasos siguientes](active-directory-next-steps.md)<br> [Más información](active-directory-learn-map.md)
 
 
 Azure AD crea un panorama de identidad en la nube para usted. Se puede conectar a su sistema de identidad local o usar de forma independiente.
@@ -45,7 +46,8 @@ Azure Active admite varios de los protocolos de autenticación y autorización m
 
 ## Recursos adicionales
 
-* [Inicio de sesión en Azure como una organización](sign-up-organization.md)
+* [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

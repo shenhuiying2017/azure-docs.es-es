@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article" 
  ms.tgt_pltfrm="vm-multiple" 
  ms.workload="infrastructure-services"
- ms.date="05/26/2015" 
+ ms.date="05/28/2015" 
  ms.author="kathydav"/>
 
 # Tamaños de máquinas virtuales
@@ -76,10 +76,10 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 |A5(igual)|2|14 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
 |A6(igual)|4|28 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
 |A7(igual)|8|56 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
-|A8(igual)|8|56 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>[AZURE.NOTE]Para obtener información y algunas consideraciones sobre el uso de este tamaño, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre las Instancias de proceso intensivo A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
-|A9(igual)|16|112 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>[AZURE.NOTE]Para obtener información y algunas consideraciones sobre el uso de este tamaño, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre las Instancias de proceso intensivo A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
-|A10(igual)|8|56 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>[AZURE.NOTE]Para obtener información y algunas consideraciones sobre el uso de este tamaño, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre las Instancias de proceso intensivo A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
-|A11(igual)|16|112 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>[AZURE.NOTE]Para obtener información y algunas consideraciones sobre el uso de este tamaño, consulte <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Sobre las Instancias de proceso intensivo A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
+|A8(igual)|8|56 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
+|A9(igual)|16|112 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
+|A10(igual)|8|56 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
+|A11(igual)|16|112 GB|<p><p>SO = 1023 GB</p><p>Temporal = 382 GB</p><blockquote><p>Nota: para obtener información y algunas consideraciones sobre el uso de este tamaño, vea <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">Acerca de las instancias intensivas de proceso A8, A9, A10 y A11</a>.</p></blockquote>|16|16x500|
 |Standard_D1(igual)|1|3,5 GB|<p>SO = 1023 GB</p><p>Temporal (SSD) =50 GB</p>|2|2 x 500|
 |Standard_D2(igual)|2|7 GB|<p>SO = 1023 GB</p><p>Temporal (SSD) =100 GB</p>|4|4x500|
 |Standard_D3(igual)|4|14 GB|<p>SO = 1023 GB</p><p>Temporal (SSD) =200 GB</p>|8|8x500|
@@ -117,18 +117,9 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 
 ### Otras referencias
 
-#### Conceptos
-
-[Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108)
-
- [Configurar tamaños para los servicios en la nube](https://msdn.microsoft.com/library/ee814754)
-
-#### Otros recursos
-
 [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md)
  
- [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](http://go.microsoft.com/fwlink/p/?linkid=328042).
+[Sobre las instancias informáticas intensivas A8, A9, A10 y A11](http://go.microsoft.com/fwlink/p/?linkid=328042).
+ 
 
-[Tamaños de servicios en la nube](../cloud-services-sizes-specs.md)
-
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

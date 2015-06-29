@@ -20,7 +20,7 @@ Establezca la propiedad `namespace` en el dominio de su inquilino de Azure Activ
 
 ### Definición de la API de Swagger dinámica
 
-Para proporcionar un extremo de URL para una definición de la API de [Swagger](http://swagger.io/) dinámica, almacene en la propiedad `endpoints.apiDefinition` la URL relativa de una API expuesta por la aplicación de API que devuelve una definición de la API de Swagger 2.0 en una solicitud GET. Por ejemplo:
+Si la aplicación de API puede devolver una definición de API de [Swagger](http://swagger.io/) dinámica, almacene la URL relativa de una solicitud GET que devuelva la definición de API JSON en la propiedad `endpoints.apiDefinition`. Por ejemplo:
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1"
@@ -35,6 +35,5 @@ Para proporcionar un archivo de definición de la API de [Swagger](http://swagge
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
 Deje `endpoints.apiDefinition` fuera del archivo *apiapp.json* o establezca su valor en null. Si incluye tanto una URL de `endpoints.apiDefinition` como un archivo *apiDefinition.swagger.json*, la URL tendrá prioridad y se omitirá el archivo.
- 
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

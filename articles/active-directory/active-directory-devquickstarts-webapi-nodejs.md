@@ -1176,5 +1176,6 @@ Solo tiene que clonar su equipo del desarrollador y configurarlo como se indica 
 [ADAL para Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android)
 
 [ADAL para .Net](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

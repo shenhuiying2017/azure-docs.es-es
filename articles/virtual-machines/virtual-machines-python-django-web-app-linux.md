@@ -127,5 +127,6 @@ Cuando finalice este tutorial, apague o quite la m√°quina virtual de Azure reci√
 
 
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

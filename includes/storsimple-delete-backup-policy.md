@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Delete a StorSimple backup policy"
-   description="Explains how you can use the StorSimple Manager service to delete a backup policy."
+   pageTitle="Eliminación de una directiva de copia de seguridad de StorSimple"
+   description="Explica cómo puede usar el servicio del Administrador de StorSimple para eliminar una directiva de copia de seguridad."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -15,16 +15,15 @@
    ms.date="05/14/2015"
    ms.author="v-sharos" />
 
-#### To delete a StorSimple backup policy
+#### Para eliminar una directiva de copia de seguridad de StorSimple
 
-1. On the device **Quick Start** page, click the **Backup Policies** tab. This will take you to the **Backup Policies** page.
+1. En la página **Inicio rápido** del dispositivo, haga clic en la pestaña **Directivas de copia de seguridad**. Esto le llevará a la página **Directivas de copia de seguridad**.
 
-2. Select the policy you want to delete, and then click **Delete** at the bottom of the page.
+2. Seleccione la directiva que desea eliminar y, a continuación, haga clic en **Eliminar** en la parte inferior de la página.
 
-3. You will be prompted for confirmation. Keep in mind that deleting a backup policy will delete all the associated backups. Click **OK** to delete.
+3. Se le pedirá confirmación. Tenga en cuenta que la eliminación de una directiva de copia de seguridad eliminará todas las copias de seguridad asociadas. Haga clic en **Aceptar** para eliminar.
 
-The **Backup Policies** page will be updated to display the new list of policies.
+La página **Directivas de copia de seguridad** se actualizará para mostrar la nueva lista de directivas.
  
 
-
-
+<!---HONumber=58_postMigration-->

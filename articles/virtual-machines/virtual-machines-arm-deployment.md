@@ -33,13 +33,13 @@ Tardará unos 30 minutos en realizar estos pasos.
 
 ## Paso 1: Adición de una aplicación a Azure AD y establecer permisos
 
-Para usar Azure AD para autenticar las solicitudes al Administrador de recursos de Azure, es necesario agregar una aplicación en el directorio predeterminado. Siga este procedimiento para agregar una aplicación:
+Para usar Azure AD para autenticar las solicitudes con el Administrador de recursos de Azure, es necesario agregar una aplicación en el directorio predeterminado. Siga este procedimiento para agregar una aplicación:
 
 1. Abra un símbolo del sistema de Azure PowerShell y, a continuación, ejecute este comando:
 
         Switch-AzureMode –Name AzureResourceManager
 
-2. Establezca la cuenta de Azure que desea utilizar para este tutorial. Ejecute este comando y especifique las credenciales para la suscripción cuando se le solicite:
+2. Establezca la cuenta de Azure que desea utilizar para este tutorial. Ejecute este comando y escriba las credenciales para la suscripción cuando se le solicite:
 
 	    Add-AzureAccount
 
@@ -53,7 +53,7 @@ Para usar Azure AD para autenticar las solicitudes al Administrador de recursos 
 
 	>[AZURE.NOTE]También puede encontrar el identificador de la aplicación en el campo Id. de cliente de la aplicación en el Portal de administración.
 
-5. Reemplace {application-id} por el identificador que acaba de registrar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
+5. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
         New-AzureADServicePrincipal -ApplicationId {application-id} 
 
@@ -71,7 +71,7 @@ Los Paquetes de NuGet son la manera más fácil de instalar las bibliotecas que 
 
 3. Haga clic con el botón derecho en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
-4. Escriba *Active Directory* en el cuadro de búsqueda, haga clic en **Instalar** para la biblioteca de autenticación de Active Directory del paquete y, a continuación, siga las instrucciones para instalar el paquete.
+4. Escriba *Active Directory* en el cuadro de búsqueda, haga clic en **Instalar** para el paquete de la biblioteca de autenticación de Active Directory y, a continuación, siga las instrucciones para instalar el paquete.
 
 5. En la parte superior de la página, seleccione **Incluir versión preliminar**. Escriba *Proceso de Azure* en el cuadro de búsqueda, haga clic en **instalar** para las bibliotecas .NET de proceso y, a continuación, siga las instrucciones para instalar el paquete.
 
@@ -381,10 +381,10 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 2.	Presione **Entrar** después de que se devuelva cada código de estado para crear cada recurso. Después de crear la máquina virtual, realice el siguiente paso antes de presionar Entrar para eliminar todos los recursos.
 
-	Esta aplicación de consola tardará unos 5 minutos en ejecutarse completamente de principio a fin. Antes de presionar Entrar para iniciar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en el Portal de vista previa de Azure antes de eliminarlos.
+	Esta aplicación de consola tardará unos cinco minutos en ejecutarse completamente de principio a fin. Antes de presionar Entrar para comenzar la eliminación de recursos, puede dedicar unos minutos a comprobar la creación de los recursos en el Portal de vista previa de Azure antes de eliminarlos.
 
 3. Vaya a los registros de auditoría en el Portal de vista previa de Azure para ver el estado de los recursos:
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

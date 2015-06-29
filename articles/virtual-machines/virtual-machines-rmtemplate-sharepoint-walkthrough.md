@@ -376,4 +376,6 @@ Para obtener más información, consulte [Idioma de la plantilla del Administrad
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

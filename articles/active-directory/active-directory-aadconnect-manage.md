@@ -4,8 +4,8 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="lisatoft"/>
+	manager="swadhwa" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -26,7 +26,7 @@
 Los temas tratan cuestiones operativas avanzadas que le permiten personalizar Azure Active Directory Connect para satisfacer las necesidades y los requisitos de sus organizaciones.
 
 ## Cambio de la configuración predeterminada
-La configuración predeterminada de Azure AD Connect en la mayoría de casos es suficiente para ampliar fácilmente los directorios locales llevándolos a la nube. Sin embargo, hay ciertas instancias en las que puede que necesite modificar el valor predeterminado y adaptarlo a la lógica de negocios de sus organizaciones. En estos casos, puede modificar la configuración predeterminada; sin embargo, hay algunos aspectos que debe tener en cuenta antes de hacerlo.
+La configuración predeterminada de Azure AD Connect en la mayoría de casos es suficiente para ampliar fácilmente los directorios locales llevándolos a la nube. Sin embargo, hay ciertas instancias en las que necesita modificar el valor predeterminado y adaptarlo a su lógica de negocios de sus organizaciones. En estos casos, puede modificar la configuración predeterminada; sin embargo, hay algunos aspectos que debe tener en cuenta antes de hacerlo.
 
 Si va a actualizar Sincronización de Azure AD o DirSync o va a moverse desde estas aplicaciones, tenga en cuenta lo siguiente:
 
@@ -85,5 +85,6 @@ Algunos de los documentos que se crearon para Sincronización de Azure AD siguen
 * [Introducción a Azure AD Connect](../active-directory-aadconnect-getstarted.md)
 * [Administración de Azure AD Connect](active-directory-aadconnect-manage.md)
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

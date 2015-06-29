@@ -83,7 +83,7 @@ Notas:
 
 ## Administrador de recursos de Azure
 
-Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte  [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
+Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
 
 ## Recursos adicionales
 
@@ -95,4 +95,4 @@ Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

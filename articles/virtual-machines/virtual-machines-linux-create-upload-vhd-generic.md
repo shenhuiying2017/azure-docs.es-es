@@ -75,7 +75,7 @@ Para solucionar este problema, puede cambiar el tamaño de la máquina virtual m
 
 Si no está ejecutando en un entorno de Windows, se recomienda usar qemu-img para convertir (si es necesario) y cambiar el tamaño del disco duro virtual:
 
- 1. Cambiar el tamaño del disco duro virtual directamente mediante herramientas como `qemu-img` o `vbox-manage` puede dar  como resultado un disco duro virtual que no puede arrancar. Por tanto, se recomienda convertir primero el disco duro virtual a una imagen de disco sin procesar. Si la imagen de VM ya se ha creado como imagen de disco sin procesar (el valor predeterminado para algunos hipervisores como KVM), puede omitir este paso:
+ 1. Cambiar el tamaño del disco duro virtual directamente mediante herramientas como `qemu-img` o `vbox-manage` puede dar como resultado un disco duro virtual que no puede arrancar. Por tanto, se recomienda convertir primero el disco duro virtual a una imagen de disco sin procesar. Si la imagen de VM ya se ha creado como imagen de disco sin procesar (el valor predeterminado para algunos hipervisores como KVM), puede omitir este paso:
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
@@ -189,4 +189,7 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

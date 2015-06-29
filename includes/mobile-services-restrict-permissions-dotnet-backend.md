@@ -20,8 +20,8 @@ De manera predeterminada, todas las solicitudes a recursos de servicios móviles
 
 4. (Opcional) En el archivo de proyecto web.config, establezca un valor de cadena para la configuración de la aplicación `MS_ApplicationKey`. Esta es la contraseña que se utiliza (sin nombre de usuario) para probar las páginas de ayuda de API cuando se ejecuta el servicio localmente.
 
-	[AZURE.NOTE]Este valor de cadena no se utiliza en el sitio activo en Azure y no es necesario utilizar la clave de aplicación real; funcionará cualquier valor de cadena válido.
+	>[AZURE.NOTE]Este valor de cadena no se utiliza en el sitio activo en Azure y no es necesario utilizar la clave de aplicación real; funcionará cualquier valor de cadena válido.
  
 4. Vuelva a publicar el proyecto.
 
-<!--HONumber=54-->
+<!---HONumber=58_postMigration-->

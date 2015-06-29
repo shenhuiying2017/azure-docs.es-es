@@ -3,28 +3,28 @@
 	description="Describe cómo puede configurar alertas en su factura de Azure para que pueda evitar sorpresas de facturación." 
 	services="" 
 	documentationCenter="" 
-	authors="cabailey" 
-	manager="mbaldwin" 
+	authors="vikdesai" 
+	manager="msmbaldwin" 
 	editor=""/>
 
 <tags 
 	ms.service="multiple" 
 	ms.workload="multiple" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
-	ms.author="cabailey"/>
+	ms.date="06/01/2015" 
+	ms.author="vikdesai"/>
 
 # Configurar alertas de facturación para las suscripciones de Microsoft Azure
 
 ¿Le preocupa cuánto gasta cada mes en su suscripción de Azure? Si es usted el Administrador de cuentas de una suscripción de Azure, puede utilizar el servicio de alertas de facturación de Azure para crear alertas de facturación personalizadas que le ayudarán a supervisar y administrar la actividad de facturación de las cuentas de Azure.
 
-Este es un servicio de vista previa, por lo que lo primero que debe hacer es suscribirse en él: visite <a href="https://account.windowsazure.com/PreviewFeatures">la página de funciones de vista previa </a> en el portal de administración de la cuenta de Azure para hacerlo.
+Este es un servicio de vista previa, por lo que lo primero que debe hacer es suscribirse en él: visite la <a href="https://account.windowsazure.com/PreviewFeatures">página de funciones de vista previa</a> en el portal de administración de cuentas de Azure para hacerlo.
 
 ## Establecimiento de los destinatarios de correo electrónico y del umbral de alerta
 
-Después de recibir la confirmación de correo electrónico acerca de que el servicio de facturación está activado para su suscripción, visite <a href="https://account.windowsazure.com/Subscriptions">la página suscripciones</a> en el portal de cuentas. Haga clic en la suscripción que desea supervisar y, a continuación, haga clic en **Alertas**.
+Después de recibir la confirmación de correo electrónico acerca de que el servicio de facturación está activado para su suscripción, visite <a href="https://account.windowsazure.com/Subscriptions">la página de suscripciones</a> en el portal de cuentas. Haga clic en la suscripción que desea supervisar y, a continuación, haga clic en **Alertas**.
 
 ![][Image1]
 
@@ -46,4 +46,4 @@ Después de configurar las alertas, el centro de cuentas enumera y muestra cuán
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!--HONumber=47-->
+<!---HONumber=58_postMigration-->

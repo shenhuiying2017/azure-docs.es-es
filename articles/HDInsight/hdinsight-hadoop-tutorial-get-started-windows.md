@@ -1,19 +1,19 @@
-<properties 
-   pageTitle="Tutorial de Hadoop: introducción a Hadoop en Windows | Microsoft Azure" 
-   description="Introducción a Hadoop en HDInsight. Aprenda a aprovisionar clústeres de Hadoop en Windows, a ejecutar una consulta de Hive en datos y analizar  resultados en Excel." 
+<properties
+   pageTitle="Tutorial de Hadoop: introducción a Hadoop en Windows | Microsoft Azure"
+   description="Introducción a Hadoop en HDInsight. Aprenda a aprovisionar clústeres de Hadoop en Windows, a ejecutar una consulta de Hive en datos y analizar resultados en Excel."
    keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="05/20/2015"
    ms.author="nitinme"/>
 
@@ -26,7 +26,7 @@
 
 Para ayudarle a aprender a usar Hadoop en Windows y a empezar a usar HDInsight, en este tutorial se muestra cómo ejecutar una consulta de Hive en datos no estructurados en un clúster de Hadoop y, a continuación, analizar los resultados en Microsoft Excel.
 
-## ¿Qué logra este tutorial de Hadoop? 
+## ¿Qué logra este tutorial de Hadoop?
 
 Supongamos que tiene un gran conjunto de datos no estructurados y que quiere ejecutar una consulta de Hive en él para extraer alguna información significativa. Eso es exactamente lo que vamos a hacer en este tutorial. Así es como lo lograremos:
 
@@ -48,8 +48,8 @@ Además de poner HDInsight de Azure a disposición de los usuarios, Microsoft ta
 Antes de empezar este tutorial para Hadoop en Windows, debe contar con lo siguiente:
 
 
-- Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
-- Un equipo con Office Professional Plus 2013, Office 365 Pro Plus, Excel 2013 Standalone u Office Professional Plus 2010.
+- **Una suscripción de Azure**. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- Una **estación de trabajo** con Office Professional Plus 2013, Office 365 Pro Plus, Excel 2013 Standalone u Office Professional Plus 2010.
 
 **Tiempo estimado para completar este tutorial:** 30 minutos
 
@@ -75,7 +75,7 @@ En este tutorial solamente se usa el blob predeterminado y la cuenta de almacena
 >[AZURE.NOTE]Asegúrese de crear la cuenta de almacenamiento en una ubicación admitida para el clúster. Son las siguientes: **Asia oriental**, **sudeste de Asia**, **norte de Europa**, **oeste de Europa**, **este de EE. UU.**, **oeste de EE. UU.**, **centro y norte de EE. UU.** y **centro y sur de EE. UU**.
 
 Elija la nueva cuenta de almacenamiento en la lista y haga clic en **Administrar claves de acceso** en la parte inferior de la página. Anote la **CLAVE DE ACCESO PRIMARIA** (o la **CLAVE DE ACCESO SECUNDARIA**, cualquiera de las claves funciona). Las necesitará más adelante en el tutorial. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento][azure-create-storageaccount].
-	
+
 ##<a name="provision"></a>Aprovisionamiento de un clúster de Hadoop
 
 Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que contienen aplicaciones de Hadoop y aplicaciones relacionadas. En esta sección, se aprovisiona un clúster de HDInsight de la versión 3.1, que se basa en la versión 2.4 de Hadoop. También puede crear clústeres de Hadoop para otras versiones mediante el portal de Azure, los cmdlets de HDInsight PowerShell o el SDK .NET de HDInsight. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HDInsight usando opciones personalizadas][hdinsight-provision]. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](hdinsight-component-versioning.md).
@@ -85,7 +85,7 @@ Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que con
 
 **Para aprovisionar un clúster de Hadoop**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal]. 
+1. Inicie sesión en el [Portal de Azure][azure-management-portal].
 
 2. Haga clic en **NUEVO** en la esquina inferior izquierda y luego escriba los valores como se muestra en la imagen.
 
@@ -95,7 +95,7 @@ Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que con
 
 4. Enter or select the following values:
 
-	
+
 	<table border="1">
 	<tr><th>Name</th><th>Value</th></tr>
 	<tr><td>Cluster Name</td><td>Name of the cluster.</td></tr>
@@ -105,13 +105,13 @@ Cuando aprovisiona un clúster, aprovisiona recursos de proceso de Azure que con
 
 	When a storage account is chosen, it cannot be changed. If the storage account is removed, the cluster will no longer be available for use.
 
-	The HDInsight cluster is located in the same datacenter as the storage account. 
+	The HDInsight cluster is located in the same datacenter as the storage account.
 	</td></tr>
 	</table>
-	
+
 	Keep a copy of the cluster name. You will need it later in the tutorial.
 
-	
+
 5. Click **Create HDInsight Cluster**. When the provisioning completes, the  status column shows **Running**.
 
 -- COMMENTED OUT TEXT ENDS -->
@@ -140,9 +140,9 @@ Ahora que ha aprovisionado un clúster de HDInsight, el paso siguiente es ejecut
 
 **Para ejecutar un trabajo de Hive desde el panel del clúster**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal]. 
+1. Inicie sesión en el [Portal de Azure][azure-management-portal].
 2. Haga clic en **HDINSIGHT** en el panel izquierdo. Verá una lista de los clústeres, incluido el que acaba de crear en la sección anterior.
-3. Haga clic en el nombre del clúster que desea usar para ejecutar el trabajo de Hive. Después, haga clic en **Consola de consultas** en la parte inferior de la página. 
+3. Haga clic en el nombre del clúster que desea usar para ejecutar el trabajo de Hive. Después, haga clic en **Consola de consultas** en la parte inferior de la página.
 4. Se abre una página web en una pestaña de explorador diferente. Escriba la cuenta de usuario y la contraseña de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de aprovisionamiento del clúster. El panel tiene este aspecto:
 
 	![Pestaña Editor de Hive en el panel del clúster en HDInsight.][img-hdi-dashboard]
@@ -152,7 +152,7 @@ Ahora que ha aprovisionado un clúster de HDInsight, el paso siguiente es ejecut
 	> [AZURE.NOTE]Tenga en cuenta que la dirección URL de la página web es *&lt;NombreClúster&gt;.azurehdinsight.net*. Por tanto, en lugar de abrir el panel desde el Portal, puede abrirlo desde el explorador web mediante la dirección URL.
 
 6. En la pestaña **Editor de Hive**, para **Nombre de la consulta**, escriba **HTC20**. El nombre de la consulta es el título del trabajo. En el panel de consulta, escriba la consulta de Hive como se muestra en la imagen:
-		
+
 	![Consulta de Hive especificada en el panel de consulta del Editor de Hive.][img-hdi-dashboard-query-select]
 
 4. Haga clic en **Enviar**. Los resultados tardan unos segundos en aparecer. La pantalla se actualiza cada 30 segundos. También puede hacer clic en **Actualizar** para renovar la pantalla.
@@ -168,7 +168,7 @@ Ahora que ha aprovisionado un clúster de HDInsight, el paso siguiente es ejecut
 
 **Para examinar el archivo de salida**
 
-1. En el panel del clúster, haga clic en **Explorador de archivos**. 
+1. En el panel del clúster, haga clic en **Explorador de archivos**.
 2. Haga clic en el nombre de la cuenta de almacenamiento, haga clic en el nombre del contenedor (que coincide con el del clúster) y, después, haga clic en **usuario**.
 3. Haga clic en **admin** y, después, haga clic en el GUID que tiene la hora de la última modificación (un poco después de la hora de inicio del trabajo que ha anotado anteriormente). Copie este GUID. Lo necesitará en la siguiente sección.
 
@@ -176,7 +176,7 @@ Ahora que ha aprovisionado un clúster de HDInsight, el paso siguiente es ejecut
    	![GUID del archivo de salida de la consulta de Hive mostrado en la pestaña Explorador de archivos.][img-hdi-dashboard-query-browse-output]
 
 
-##<a name="powerquery"></a>Conexión a las herramientas de inteligencia empresarial de Microsoft para Excel 
+##<a name="powerquery"></a>Conexión a las herramientas de inteligencia empresarial de Microsoft para Excel
 
 Puede usar el complemento Power Query para Microsoft Excel para importar la salida del trabajo desde HDInsight hasta Excel, donde se pueden usar las herramientas de inteligencia empresarial de Microsoft para analizar más en profundidad los resultados.
 
@@ -194,8 +194,8 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2013 o 2010.
 	![Menú de importación de PowerQuery de Excel abierto para HDInsight de Azure.][image-hdi-gettingstarted-powerquery-importdata]
 
 3. En **Nombre de cuenta**, escriba el nombre de la cuenta de almacenamiento de blobs de Azure asociada al clúster y, a continuación, haga clic en **Aceptar**. (Esta es la cuenta de almacenamiento creada previamente en el tutorial).
-4. En **Clave de cuenta**, escriba la clave de la cuenta de almacenamiento de blobs de Azure y, a continuación, haga clic en **Guardar**. 
-5. En el panel derecho, haga doble clic en el nombre del blob. De forma predeterminada, el nombre del blob es el mismo que el del clúster. 
+4. En **Clave de cuenta**, escriba la clave de la cuenta de almacenamiento de blobs de Azure y, a continuación, haga clic en **Guardar**.
+5. En el panel derecho, haga doble clic en el nombre del blob. De forma predeterminada, el nombre del blob es el mismo que el del clúster.
 
 6. Busque **stdout** en la columna **Nombre**. Compruebe que el GUID de la columna **Ruta de acceso de la carpeta** correspondiente coincide con el GUID que copió anteriormente. Una coincidencia sugiere que los datos de salida corresponden al trabajo que envió. Haga clic en **Binario** en la columna izquierda de **stdout**.
 
@@ -274,5 +274,6 @@ En este tutorial de Hadoop, ha aprendido a aprovisionar un clúster de Hadoop en
 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

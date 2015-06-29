@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2015"
+	ms.date="05/29/2015"
 	ms.author="kathydav"/>
 
-#Acoplamiento de un disco de datos a una máquina virtual Linux
+# Acoplamiento de un disco de datos a una máquina virtual Linux
 
 Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
 
-> [AZURE.NOTE]Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otra parte, en Linux el kernel puede poner al disco de datos el nombre `/dev/sdc`. Si ese fuera el caso, tiene que crear particiones en ese recurso, darle formato y montarlo. Consulte la [Guía de usuario del Agente de Linux de Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
-
-- [Acoplamiento de un disco vacío](#attachempty)
-- [Acoplamiento de un disco existente](#attachexisting)
-- [Inicialización de un nuevo disco de datos en Linux](#initializeinlinux)
+> [AZURE.NOTE]Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otra parte, en Linux el kernel puede poner al disco de datos el nombre `/dev/sdc`. Si ese fuera el caso, tiene que crear particiones en ese recurso, darle formato y montarlo. Consulte la [Guía de usuario del Agente de Linux de Azure][Agent] para obtener más información.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinlinux"></a>Inicialización de un nuevo disco de datos en Linux
+## Inicialización de un nuevo disco de datos en Linux
 
-
-
-1. Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Linux](logonlinux) para conectarse a una máquina virtual.
+1. Conexión a una máquina virtual. Para obtener más información, vea [Inicio de sesión en una máquina virtual con Linux][Logon].
 
 
 
@@ -137,8 +131,15 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 	Si el comando `mount` genera un error, compruebe la sintaxis correcta del archivo /etc/fstab. Si se crean particiones o unidades de datos adicionales, tendrá que especificarlas también en /etc/fstab por separado.
 
 
-	>[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no se monta al arrancar. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+>[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no se monta al arrancar. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
-[logonlinux]: virtual-machines-linux-how-to-log-on.md
+## Recursos adicionales
+[Inicio de sesión en una máquina virtual con Linux][Logon]
 
-<!---HONumber=58--> 
+
+<!--Link references-->
+[Agent]: virtual-machines-linux-agent-user-guide.md
+[Logon]: virtual-machines-linux-how-to-log-on.md
+ 
+
+<!---HONumber=58_postMigration-->

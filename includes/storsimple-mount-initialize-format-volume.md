@@ -1,19 +1,6 @@
-<properties pageTitle="Montar, inicializar y formatear un volumen" description="Se explica cómo configurar un volumen en un dispositivo StorSimple." 
-services="storsimple" 
-documentationCenter="NA" 
-authors="SharS" 
-manager="adinah" 
-editor="tysonn" > 
-<tags 
-ms.service="storsimple" 
-ms.devlang="NA" 
-ms.topic="article" 
-ms.tgt_pltfrm="NA" 
-ms.workload="TBD" 
-ms.date="04/01/2015" 
-ms.author="v-sharos" >
+<properties pageTitle="Montaje, inicialización y aplicación de formato de un volumen" description="Explica cómo configurar un volumen en un dispositivo de StorSimple." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags ms.se**rvice="storsimple" ms.devlang="NA" ms.topic="article" ms.tgt_pltfrm="NA" ms.workload="TBD" ms.date="04/29/2015" ms.author="v-sharos" />
 
-### Para montar, inicializar y formatear un volumen
+#### Para montar, inicializar y formatear un volumen
 
 1. Inicie el iniciador iSCSI de Microsoft.
 
@@ -44,4 +31,4 @@ ms.author="v-sharos" >
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

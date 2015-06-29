@@ -125,7 +125,7 @@ Cuando instala Azure AD Connect en un nuevo servidor, no encontrará DirSync y s
 1. Ejecute el instalador de Azure AD Connect (MSI).
 2. Cuando aparezca la pantalla " Azure AD Connect", salga del asistente haciendo clic en la "X" en la esquina superior derecha de las ventanas.
 3. Abra un símbolo del sistema.
-4. Desde la ubicación de instalación de  Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:
+4. Desde la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:
     * AzureADConnect.exe /migrate
 
 Azure AD se conecta y le muestra la interfaz de usuario siguiente:
@@ -143,14 +143,14 @@ Vea esas opciones en la interfaz de usuario siguiente:
 ![Escriba sus credenciales de Azure AD](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
 7. Haga clic en Next. 
-8. En la página "Listo para configurar" desactive la opción "Iniciar el proceso de configuración tan pronto como se complete la configuración".
-8. Haga clic en "Instalar".
+8. En la página "Listo para configurar" deje la opción "Iniciar el proceso de configuración tan pronto como se complete la configuración" seleccionada.[AZURE.NOTE]Se iniciará la sincronización entre Windows Server Active Directory y Azure Active Directory, pero no se exportará ningún cambio a Azure AD. Solo una herramienta de sincronización puede a exportar activamente los cambios de una vez.
+9. Haga clic en "Instalar".
 
 [AZURE.NOTE]Desactive la casilla de sincronización de inicio para asegurarse de que DirSync, que sigue estando instalado y en ejecución, y Azure AD Connect no intentan escribir en Azure AD al mismo tiempo.
 
 ### Comprobación de que Azure AD Connect está listo para comenzar la sincronización.
 
-Para determinar si Azure AD Connect está listo o no para asumir el control de DirSync, necesitará abrir Synchronization Service Manager de Azure AD Connect. La búsqueda del término  "Sincronización" en el menú Inicio de Windows mostrará esta aplicación.
+Para determinar si Azure AD Connect está listo o no para asumir el control de DirSync, necesitará abrir Synchronization Service Manager de Azure AD Connect. La búsqueda del término "Sincronización" en el menú Inicio de Windows mostrará esta aplicación.
 
 Dentro de la aplicación se debe ver la ficha "Operaciones". En esta pestaña desea confirmar que se han completado las siguientes operaciones:
 
@@ -203,5 +203,6 @@ La siguiente es una lista de requisitos previos y componentes de soporte que Azu
 * [Qué sigue en Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Más información](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

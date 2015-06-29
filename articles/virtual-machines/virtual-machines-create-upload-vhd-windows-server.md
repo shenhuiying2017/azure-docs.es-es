@@ -209,5 +209,6 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
 [Paso 2: Creación de una cuenta de almacenamiento de Azure]: #createstorage
 [Paso 3: Preparación de la conexión a Azure]: #prepAzure
 [Paso 4: Carga del archivo .vhd]: #upload
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

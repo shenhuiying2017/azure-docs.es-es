@@ -77,5 +77,6 @@ Para obtener más información, consulte la [documentación de cloud-init para U
 [Referencia de la API de REST de administración de servicios: Agregar rol](http://msdn.microsoft.com/library/azure/jj157186.aspx)
 
 [Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-sdk-tools-xplat)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

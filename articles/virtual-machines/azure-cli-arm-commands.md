@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure"
-	description="Obtenga información sobre cómo utilizar las herramientas de línea de comandos para Mac, Linux y Windows para administrar recursos de Azure utilizando el modo arm de la CLI de Azure."
+	pageTitle="Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure | Microsoft Azure"
+	description="Obtenga información sobre cómo utilizar la CLI de Azure para Mac, Linux y Windows para administrar recursos de Azure mediante el modo arm de la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure
 
@@ -940,7 +940,7 @@ Opciones de parámetro:
  	-l, --lb-name <lb-name>                the name of the load balancer
  	-s, --subscription <subscription>      the subscription identifier
 
-<BR> network lb address-pool delete [options] <resource-group> <lb-name> <name>
+<BR> network lb address-pool delete [opciones] <resource-group> <lb-name> <name>
 
 Quita el recurso de intervalo de grupo IP de backend de equilibrador de carga.
 
@@ -1245,7 +1245,7 @@ Crea un recurso de dirección ip pública. Creará el recurso de dirección ip p
 	info:    network public-ip create command OK
 
 
-Opciones de parámetros: -h, --help información de uso de salida -v, --verbose salida de uso de verbose --json salida de uso de use -g, --resource-group <resource-group> nombre del grupo de recursos -n, --name <name> nombre de IP pública -l, --location <location> la ubicación -d, --domain-name-label <domain-name-label> el nombre de la etiqueta de dominio. Esto establece DNS en <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> el método de asignación [Static][Dynamic] -i, --idletimeout <idletimeout> tiempo de inactividad en minutos -f, --reverse-fqdn <reverse-fqdn> fqdn inverso -t, --tags <tags> lista de etiquetas. Pueden ser varios. Con el formato "nombre=valor". El nombre es obligatorio y el valor es opcional. Por ejemplo, -t tag1=value1;tag2 -s, --subscription <subscription> el identificador de la suscripción <br>
+Opciones de parámetros: -h, --help información de uso de salida -v, --verbose salida de uso de verbose --json salida de uso de use -g, --resource-group <resource-group> nombre del grupo de recursos -n, --name <name> nombre de IP pública -l, --location <location> la ubicación -d, --domain-name-label <domain-name-label> el nombre de la etiqueta de dominio. Establece el DNS en <domain-name-label>.<location>.cloudapp.azure.com -a, --allocation-method <allocation-method> el método de asignación [Static][Dynamic] -i, --idletimeout <idletimeout> el tiempo de espera de inactividad en minutos -f, --reverse-fqdn <reverse-fqdn> el nombre de dominio completo inverso -t, --tags <tags> la lista de etiquetas. Pueden ser varios. Con el formato "nombre=valor". El nombre es obligatorio y el valor es opcional. Por ejemplo, -t tag1=value1;tag2 -s, --subscription <subscription> el identificador de la suscripción <br>
 
 	network public-ip set [options] <resource-group> <name>
 Actualiza las propiedades de un recurso de dirección ip pública existente. En el siguiente ejemplo hemos cambiado la dirección IP pública de dinámica a estática.
@@ -1286,7 +1286,7 @@ Opciones de parámetro:
 	--no-tags                                    remove all existing tags
 	-s, --subscription <subscription>            the subscription identifier
 
-<br> network public-ip list [options] <resource-group> Enumera todos los recursos IP públicos en un grupo de red.
+<br> network public-ip list [opciones] <resource-group> Enumera todos los recursos IP públicos de un grupo de recursos.
 
 	azure network public-ip list -g myresourcegroup
 
@@ -1306,7 +1306,7 @@ Opciones de parámetro:
 	--json                                 use json output
 	-g, --resource-group <resource-group>  the name of the resource group
 	-s, --subscription <subscription>      the subscription identifier
-<BR> network public-ip show [options] <resource-group> <name> Muestra las propiedades de la dirección ip pública de un recurso de dirección ip pública dentro de un grupo de recursos.
+<BR> network public-ip show [opciones] <resource-group> <name> Muestra las propiedades de la dirección IP pública de un recurso con IP pública de un grupo de recursos.
 
 	azure network public-ip show -g myresourcegroup -n mytestpublicip
 
@@ -1735,5 +1735,6 @@ Opciones de parámetro:
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

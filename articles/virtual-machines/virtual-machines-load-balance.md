@@ -21,8 +21,8 @@
 
 Hay dos niveles de equilibrio de carga disponibles para Servicios de infraestructura de Azure:
 
-- **Nivel DNS**: Equilibrio de carga para el tráfico a distintos servicios en la nube situados en centros de datos diferentes, a distintos sitios web de Azure situados en centros de datos diferentes o a extremos externos. Esto se realiza mediante el Administrador de tráfico y el método de equilibrio de carga Round Robin.
-- **Nivel de red**: Equilibrio de carga del tráfico de Internet entrante a distintas máquinas virtuales de un servicio en la nube o equilibrio de carga del tráfico entre las máquinas virtuales de un servicio en la nube o una red virtual. Esto se realiza mediante el equilibrador de carga de Azure.
+- **Nivel DNS**: equilibre la carga del tráfico entre diferentes servicios en la nube ubicados en diferentes centros de datos, entre diferentes sitios web de Azure ubicados en centros de datos diferentes o entre extremos externos. Esto se realiza mediante el Administrador de tráfico y el método de equilibrio de carga Round Robin.
+- **Nivel de red**: equilibre la carga del tráfico de Internet entrante entre diferentes máquinas virtuales de un servicio en la nube o entre las máquinas virtuales de un servicio en la nube o una red virtual. Esto se realiza mediante el equilibrador de carga de Azure.
 
 ## Equilibrio de carga del Administrador de tráfico para servicios en la nube y sitios web##
 
@@ -32,11 +32,11 @@ Debe usar REST o Windows PowerShell para configurar los extremos externos o los 
 
 El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de carga para distribuir el tráfico:
 
-- **Conmutación por error**: Use este método cuando desee usar un extremo principal para todo el tráfico, pero proporcionar copias de seguridad en caso de que el extremo principal pierda disponibilidad.
-- **Rendimiento**: Utilice este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" en términos de la latencia más baja.
-- **Round Robin:** Use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
+- **Conmutación por error**: use este método cuando desee usar un extremo principal para todo el tráfico, pero proporcionar copias de seguridad en caso de que el extremo principal pierda disponibilidad.
+- **Rendimiento**: use este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" en términos de la latencia más baja.
+- **Round Robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
 
-Para obtener más información, consulte[ Acerca de los métodos de equilibrio de carga del Administrador de tráfico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
+Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
 En la figura siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
 
@@ -61,7 +61,7 @@ En la siguiente ilustración se muestra un extremo con equilibrio de carga para 
 
 ![equilibrio de carga](./media/virtual-machines-load-balance/LoadBalancing.png)
 
-Para obtener más información, consulte [Equilibrador de carga de Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Para obtener más información, consulte [Equilibrador de carga de Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx).
 
 Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
@@ -83,4 +83,4 @@ Para obtener más información, consulte [Equilibrio de carga interno](http://ms
 
 <!-- LINKS -->
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

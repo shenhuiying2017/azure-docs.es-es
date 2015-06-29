@@ -1,5 +1,4 @@
-<properties pageTitle="Creación de una copia de seguridad manual" description="Se explica cómo iniciar un trabajo de copia de seguridad manual a petición." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" editor="tysonn" > 
-<tags 
+<properties pageTitle="Creación de una copia de seguridad manual" description="Se explica cómo iniciar un trabajo de copia de seguridad manual a petición." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -8,7 +7,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### Creación de una copia de seguridad manual
+#### Creación de una copia de seguridad manual
 
 1. En la página **Dispositivos**, vaya a la pestaña **Directivas de copia de seguridad**. En esta pestaña se enumeran todas las directivas de copia de seguridad en formato tabular, incluida la directiva para el volumen del que desea realizar copias de seguridad.
 
@@ -30,4 +29,4 @@
 
   La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

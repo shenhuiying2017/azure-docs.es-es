@@ -1,27 +1,27 @@
 <properties 
-   pageTitle="Administración de directivas de copia de seguridad de StorSimple"
+   pageTitle="Administración de directivas de copia de seguridad de StorSimple | Microsoft Azure"
    description="Explica cómo se puede usar el Servicio de Administrador de StorSimple para crear y administrar trabajos de copia de seguridad y programaciones de copia de seguridad."
    services="storsimple"
    documentationCenter="NA"
-   authors="alkohli"
+   authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor=""/>
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
+   ms.date="06/17/2015"
+   ms.author="v-sharos"/>
 
 # Administración de directivas de copia de seguridad de StorSimple
 
 ## Información general
 
-Este tutorial explica cómo utilizar la página **Directivas de copia de seguridad** del  Servicio de Administrador de StorSimple para controlar los procesos de copia de seguridad y la retención de copias de seguridad de los volúmenes de StorSimple. También describe cómo realizar copias de seguridad manuales.
+Este tutorial explica cómo utilizar la página **Directivas de copia de seguridad** del Servicio de Administrador de StorSimple para controlar los procesos de copia de seguridad y la retención de copias de seguridad de los volúmenes de StorSimple. También describe cómo realizar copias de seguridad manuales.
 
-La página **Directivas de copia de seguridad** permite administrar las directivas de copia de seguridad y programar instantáneas locales y en la nube. (Las directivas de copia de seguridad se usan para configurar las programaciones de copia de seguridad y la retención de copias de seguridad de una colección de volúmenes). Esta página enumera las directivas de copia de seguridad, sus tipos, los volúmenes asociados, el número de copias de seguridad retenidas y la opción para habilitar estas directivas.
+La página **Directivas de copia de seguridad** permite administrar las directivas de copia de seguridad y programar instantáneas locales y en la nube. (Las directivas de copia de seguridad se usan para configurar las programaciones de copia de seguridad y la retención de copias de seguridad de una colección de volúmenes). Las directivas de copia de seguridad le permiten tomar una instantánea de varios volúmenes simultáneamente. Esto significa que las copias de seguridad creadas por una directiva de copia de seguridad serán copias preparadas para bloqueos. Esta página enumera las directivas de copia de seguridad, sus tipos, los volúmenes asociados, el número de copias de seguridad retenidas y la opción para habilitar estas directivas.
 
 La página **Directivas de copia de seguridad** también permite filtrar las directivas de copia de seguridad existentes por uno, o varios, de los siguientes campos:
 
@@ -84,4 +84,4 @@ Realice los pasos siguientes en el Portal de administración para crear una dire
 
 Obtenga información sobre cómo administrar las copias de seguridad de StorSimple con el [Administrador de instantáneas StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

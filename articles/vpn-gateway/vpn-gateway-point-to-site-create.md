@@ -10,7 +10,7 @@
 <tags
    ms.service="vpn-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="05/12/2015"
@@ -118,8 +118,8 @@ Para conectarse a la red virtual, también necesitará configurar el cliente VPN
 
 ### Instalación del paquete de configuración de VPN en el cliente e inicio de la conexión
 
-1. Copie el archivo de configuración localmente en el equipo que desea conectar a la red virtual y haga doble clic en el archivo .exe. Una vez instalado el paquete, puede iniciar la conexión VPN. Tenga en cuenta que el paquete de configuración no está firmado por Microsoft. Puede que desee firmar el paquete mediante el servicio de firma de su organización o firmarlo usted mismo mediante [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). Se puede utilizar el paquete sin firmar. Sin embargo, si el paquete no está firmado, aparecerá una advertencia cuando se instala el paquete. 
-2. En el equipo cliente, navegue a las conexiones VPN y busque la conexión VPN que acaba de crear. Tendrá el mismo nombre que su red virtual. Haga clic en  **Conectar**.
+1. Copie el archivo de configuración localmente en el equipo que desea conectar a la red virtual y haga doble clic en el archivo .exe. Una vez instalado el paquete, puede iniciar la conexión VPN. Tenga en cuenta que el paquete de configuración no está firmado por Microsoft. Puede que desee firmar el paquete mediante el servicio de firma de su organización o firmarlo usted mismo mediante [SignTool](https://msdn.microsoft.com/library/windows/desktop/aa387764(v=vs.85).aspx). Se puede utilizar el paquete sin firmar. Sin embargo, si el paquete no está firmado, aparecerá una advertencia cuando se instala el paquete.
+2. En el equipo cliente, navegue a las conexiones VPN y busque la conexión VPN que acaba de crear. Tendrá el mismo nombre que su red virtual. Haga clic en **Conectar**.
 3. Aparece un mensaje emergente que se usa para crear un certificado autofirmado para el extremo de la puerta de enlace. Haga clic en **Continuar** para usar privilegios elevados.
 4. En la página de estado **Conexión**, haga clic en **Conectar** para iniciar la conexión.
 5. Si ve una pantalla para **Seleccionar certificado**, compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de la lista desplegable para seleccionar el certificado correcto y, a continuación, haga clic en **Aceptar**.
@@ -142,7 +142,7 @@ Ejemplo:
 		Autoconfiguration Enabled.......: Yes
 		IPv4 Address....................: 192.168.130.2(Preferred)
 		Subnet Mask.....................: 255.255.255.255
-		Default Gateway.................: 
+		Default Gateway.................:
 		NetBIOS over Tcpip..............: Enabled
 
 
@@ -157,5 +157,6 @@ Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md)
 
 Si desea configurar una conexión de red virtual mediante RRAS, consulte [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

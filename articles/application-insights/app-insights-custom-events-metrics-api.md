@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/01/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
 
 *Application Insights se encuentra en su versión de vista previa.*
 
-Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios, o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web.
+Inserte unas cuantas líneas de código en la aplicación para averiguar qué uso hacen de ella los usuarios o para ayudarle a diagnosticar problemas. Puede enviar datos de telemetría desde aplicaciones de escritorio y de dispositivo y desde clientes y servidores web.
 
 Los recopiladores de datos de Application Insights usan esta API para enviar datos de telemetría estándar como vistas de página e informes de excepciones, pero también puede usarla para enviar sus propios datos de telemetría personalizados.
 
@@ -30,11 +30,11 @@ La API es uniforme en todas las plataformas, excepto por algunas pequeñas varia
 Método | Usado para
 ---|---
 [`TrackPageView`](#page-views) | Páginas, pantallas, hojas o formularios
-[`TrackEvent`](#track-event) | Acciones de usuario y otros eventos Se usa para realizar el seguimiento del comportamiento de los usuarios o para supervisar el rendimiento.
+[`TrackEvent`](#track-event) | Acciones de usuario y otros eventos. Se usa para realizar el seguimiento del comportamiento de los usuarios o para supervisar el rendimiento.
 [`TrackMetric`](#track-metric) | Las medidas de rendimiento como las longitudes de cola no están relacionadas con eventos específicos.
-[`TrackException`](#track-exception)|Excepciones de registro para diagnóstico Permite realizar el seguimiento del lugar donde se producen en relación con otros eventos y examinar los seguimientos de pila.
+[`TrackException`](#track-exception)|Excepciones de registro para diagnóstico. Permite realizar el seguimiento del lugar donde se producen en relación con otros eventos y examinar los seguimientos de pila.
 [`TrackRequest`](#track-request)| Permite registrar la frecuencia y duración de las solicitudes de servidor para el análisis de rendimiento.
-[`TrackTrace`](#track-trace)|Mensajes de registro de diagnóstico También puede capturar registros de terceros.
+[`TrackTrace`](#track-trace)|Mensajes de registro de diagnóstico. También puede capturar registros de terceros.
 
 Puede [adjuntar propiedades y métricas](#properties) a la mayoría de estas llamadas de telemetría.
 
@@ -73,7 +73,7 @@ Construya una instancia de TelemetryClient (excepto en JavaScript en páginas we
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-Se recomienda usar una instancia de `TelemetryClient` para cada solicitud en una aplicación web, o para cada sesión en otras aplicaciones. Puede establecer propiedades tales como `TelemetryClient.Context.User.Id` para realizar el seguimiento de los usuarios y de las sesiones. Esta información se adjunta a todos los eventos enviados por la instancia.
+Se recomienda usar una instancia de `TelemetryClient` para cada solicitud en una aplicación web o para cada sesión en otras aplicaciones. Puede establecer propiedades tales como `TelemetryClient.Context.User.Id` para realizar el seguimiento de los usuarios y de las sesiones. Esta información se adjunta a todos los eventos enviados por la instancia.
 
 TelemetryClient es seguro para subprocesos.
 
@@ -81,7 +81,7 @@ TelemetryClient es seguro para subprocesos.
 
 ## Seguimiento de eventos
 
-Los eventos se pueden mostrar en el [Explorador de métricas][metrics] como un recuento agregado, y también se pueden mostrar las repeticiones individuales en [Búsqueda de diagnóstico][diagnostic].
+Los eventos se pueden mostrar en el [Explorador de métricas][metrics] como un recuento agregado y también se pueden mostrar las repeticiones individuales en [Búsqueda de diagnóstico][diagnostic].
 
 Inserte eventos en el código para contabilizar la frecuencia con que usan una determinada característica, la frecuencia con que consiguen unos determinados objetivos o la frecuencia con que realizan unas determinadas elecciones.
 
@@ -127,11 +127,15 @@ Puede asociar propiedades y medidas a los eventos (y también a las métricas, v
 
 Las **propiedades** son valores de cadena que se pueden usar para filtrar los datos de telemetría en los informes de uso. Por ejemplo, si su aplicación proporciona varios juegos, querrá adjuntar el nombre del juego a cada evento para así poder ver cuáles son los juegos más populares.
 
-Hay un límite de aproximadamente 1 KB en la longitud de cadena. (Si quiere enviar fragmentos grandes de datos, use el parámetro de mensaje de [TrackTrace](#track-trace)).
+Hay un límite de aproximadamente 1.000 en la longitud de cadena. (Si quiere enviar fragmentos grandes de datos, use el parámetro de mensaje de [TrackTrace](#track-trace)).
 
 Las **métricas** son valores numéricos que se pueden presentar de forma gráfica. Por ejemplo, puede que quiera ver si hay un aumento gradual en las puntuaciones que alcanzan sus jugadores. Los gráficos se pueden segmentar por las propiedades enviadas con el evento, así que podría separar o apilar los gráficos para diferentes juegos.
 
 Los valores de métrica deben ser > = 0 para que se muestren correctamente.
+
+
+Hay algunos [límites en el número de propiedades, valores de propiedad y métricas](#limits) que puede usar.
+
 
 *JavaScript*
 
@@ -194,14 +198,14 @@ Los valores de métrica deben ser > = 0 para que se muestren correctamente.
 **Si usó propiedades y métricas**, segmente la métrica por la propiedad:
 
 
-![Establezca la opción de agrupación y luego seleccione la propiedad que aparece bajo Agrupar por.](./media/app-insights-custom-events-metrics-api/04-segment-metric-event.png)
+![Establezca la opción de agrupación y seleccione la propiedad en Agrupar por.](./media/app-insights-custom-events-metrics-api/04-segment-metric-event.png)
 
 
 
 **En Búsqueda de diagnóstico**, puede ver las propiedades y las métricas de repeticiones individuales de un evento.
 
 
-![Seleccione una instancia y luego seleccione '...'](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-4.png)
+![Seleccione una instancia y luego seleccione '...'.](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-4.png)
 
 
 Utilice el campo de búsqueda para ver las apariciones del evento con un valor de propiedad concreto.
@@ -209,7 +213,7 @@ Utilice el campo de búsqueda para ver las apariciones del evento con un valor d
 
 ![Escriba un término en Buscar.](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-5.png)
 
-[Más información sobre las cadenas de búsqueda][diagnostic]
+[Más información sobre las expresiones de búsqueda][diagnostic].
 
 #### Método alternativo para establecer propiedades y métricas
 
@@ -227,23 +231,10 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a> Eventos cronometrados
+#### <a name="timed"></a> Eventos de temporización
 
-Seguro que en ocasiones le gustaría representar el tiempo que se tarda en realizar alguna acción. Por ejemplo, puede que quiera saber cuánto tiempo tardan los usuarios en considerar las opciones de un juego.
+Seguro que en ocasiones le gustaría representar el tiempo que se tarda en realizar alguna acción. Por ejemplo, puede que quiera saber cuánto tiempo tardan los usuarios en considerar las opciones de un juego. Este es un ejemplo útil del uso del parámetro de medición.
 
-Puede asociar datos de tiempo a eventos. En el cliente web, en lugar de llamar a trackEvent, use estas llamadas:
-
-*JavaScript en el cliente web*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-Use la misma cadena como primer parámetro en las llamadas inicial y final.
-
-Esta característica no está integrada en los demás SDK. Pero puede escribir su propio código, como éste:
 
 *C#*
 
@@ -303,10 +294,11 @@ De hecho, puede realizar esta operación en un subproceso en segundo plano:
     }
 
 
-Para ver los resultados, abra el Explorador de métricas y agregue un nuevo gráfico. Configúrelo para que muestre su métrica.
+Para ver los resultados, abra el Explorador de métricas y agregue un gráfico nuevo. Configúrelo para que muestre su métrica.
 
-![Agregue un gráfico nuevo o seleccione un gráfico, y en Personalizada, seleccione su métrica.](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
+![Agregue un gráfico nuevo o seleccione un gráfico y en Personalizada, seleccione su métrica.](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
 
+Hay algunos [límites en cuanto al número de métricas](#limits) que puede usar.
 
 ## Vistas de página
 
@@ -314,7 +306,7 @@ En una aplicación de dispositivo o de página web, se envían datos de telemetr
 
 ![Uso de modos en la hoja Información general](./media/app-insights-custom-events-metrics-api/appinsights-47usage-2.png)
 
-Los datos de usuario y de sesión se envían como propiedades junto con las vistas de página, así que los gráficos de usuario y de sesión se activan cuando hay datos de telemetría de vistas de página.
+Los datos de usuario y de sesión se envían como propiedades junto con las vistas de página, por lo que los gráficos de usuario y de sesión se activan cuando hay datos de telemetría de vistas de página.
 
 #### Vistas de página personalizadas
 
@@ -375,7 +367,7 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
 
 ## Seguimiento de excepciones
 
-Envíe excepciones a Application Insights para [contabilizarlas][metrics], como una indicación de la frecuencia de un problema y para [examinar todas las repeticiones individuales][diagnostic].
+Envíe excepciones a Application Insights para [contabilizarlas][metrics], como una indicación de la frecuencia de un problema, y para [examinar todas las repeticiones individuales][diagnostic].
 
 *C#*
 
@@ -388,13 +380,12 @@ Envíe excepciones a Application Insights para [contabilizarlas][metrics], como 
        telemetry.TrackException(ex);
     }
 
-En las aplicaciones móviles de Windows, el SDK detecta las excepciones no controladas, así que no tiene que registrarlas.
-
+En las aplicaciones móviles de Windows, el SDK detecta las excepciones no controladas, así que no tiene que registrarlas. En ASP.NET, puede [escribir código para detectar excepciones automáticamente][exceptions].
 
 
 ## Seguimiento de seguimientos 
 
-Use este método para ayudar a diagnosticar problemas mediante el envío de una ’ruta de exploración’ a Application Insights. Puede enviar fragmentos de datos de diagnóstico e inspeccionarlos en [Búsqueda de diagnóstico][diagnostic].
+Use este método para ayudar a diagnosticar problemas mediante el envío de una ''ruta de exploración'' a Application Insights. Puede enviar fragmentos de datos de diagnóstico e inspeccionarlos en [Búsqueda de diagnóstico][diagnostic].
 
  
 
@@ -408,11 +399,11 @@ Los [adaptadores de registro][trace] usan esta API para enviar registros de terc
 El límite de tamaño en `message` es mucho mayor que el límite en propiedades. Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de propiedad) no puede filtrar por él.
 
 
-## Establecimiento de las propiedades predeterminadas para todos los datos de telemetría
+## <a name="default-properties"></a>Establecimiento de las propiedades predeterminadas para todos los datos de telemetría
 
-Puede configurar un inicializador universal para que todos los TelemetryClients nuevos usen automáticamente el contexto.
+Puede configurar un inicializador universal para que todos los TelemetryClients nuevos usen automáticamente el contexto. Aquí se incluyen los datos de telemetría estándar enviados por los módulos de telemetría específicos de la plataforma, como el seguimiento de solicitudes de servidor web.
 
-Aquí se incluyen los datos de telemetría estándar enviados por los módulos de telemetría específicos de la plataforma, como el seguimiento de solicitudes de servidor web.
+Un uso típico consiste en identificar telemetría procedente de distintas versiones o componentes de la aplicación. En el portal, puede filtrar o agrupar resultados por esta propiedad.
 
 *C#*
 
@@ -450,12 +441,13 @@ Aquí se incluyen los datos de telemetría estándar enviados por los módulos d
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
+En el cliente web de JavaScript, no hay actualmente ninguna forma de establecer propiedades predeterminadas.
 
-## Establecimiento de la clave de instrumentación en el código para todos los datos de telemetría
+## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
-En lugar de obtener la clave de instrumentación del archivo de configuración, puede establecerla en el código. Se recomienda hacer esto para, por ejemplo, enviar datos de telemetría de instalaciones de prueba a un recurso de Application Insights diferente al de los datos de telemetría de la aplicación activa.
+Para evitar la mezcla de telemetría de entornos de desarrollo, prueba y producción, puede [crear recursos separados de Application Insights][create] y cambiar sus claves según el entorno.
 
-Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
+En lugar de obtener la clave de instrumentación del archivo de configuración, puede establecerla en el código. Establezca la clave en un método de inicialización, como global.aspx.cs en un servicio de ASP.NET:
 
 *C#*
 
@@ -533,6 +525,17 @@ Las llamadas de telemetría individuales pueden invalidar los valores predetermi
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
 
+## Datos de vaciado
+
+Normalmente el SDK envía datos en momentos elegidos para minimizar el impacto en el usuario. Sin embargo, en algunos casos puede que desee vaciar el búfer: por ejemplo, si usa el SDK en una aplicación que se apaga.
+
+*C#*
+
+    telemetry.Flush();
+
+Tenga en cuenta que la función es sincrónica.
+
+
 
 ## Deshabilitación de los datos de telemetría estándar
 
@@ -554,15 +557,51 @@ Durante la depuración, resulta útil enviar los datos de telemetría por la can
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
+## TelemetryContext
 
+TelemetryClient tiene una propiedad de Context, que contiene un número de valores que se envían junto con todos los datos de telemetría. Normalmente, se establecen mediante los módulos de telemetría estándar, pero también los puede establecer usted mismo.
+
+Si establece cualquiera de estos valores manualmente, considere la posibilidad de quitar la línea pertinente de [ApplicationInsights.config][config], de modo que no se confundan sus valores con los valores estándar.
+
+* **Component** Identifica la aplicación y su versión
+* **Device** Datos sobre el dispositivo en el que se ejecuta la aplicación (en las aplicaciones web, es el servidor o dispositivo cliente desde el que se envía la telemetría).
+* **InstrumentationKey** Identifica el recurso de Application Insights en Azure donde aparecerá la telemetría. Normalmente, se selecciona de ApplicationInsights.config
+* **Location** Identifica la ubicación geográfica del dispositivo.
+* **Operation** En las aplicaciones web, es la solicitud HTTP actual. En otros tipos de aplicaciones, puede establecer este valor para agrupar los eventos juntos.
+ * **Id**: valor generado que correlaciona distintos eventos, de modo que cuando usted inspeccione cualquier evento en Búsqueda de diagnóstico, puede encontrar "Elementos relacionados".
+ * **Nombre**: dirección URL de la solicitud HTTP.
+ * **SyntheticSource**: si no es null o no está vacío, esta cadena indica que el origen de la solicitud se ha identificado como un robot o una prueba web. De forma predeterminada se excluirá de cálculos en el Explorador de métricas.
+* **Properties** Propiedades que se envían con todos los datos de telemetría. Se pueden invalidar en llamadas de seguimiento* individuales.
+* **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
+* **User** Permite contar a los usuarios. En una aplicación web, si hay una cookie, el id. de usuario se toma de ella. Si no hay ninguna, se genera un identificador nuevo. Si los usuarios tienen que iniciar sesión en su aplicación, puede establecer el id. desde su id. autenticado, con el fin de proporcionar un recuento más confiable que sea correcto incluso si el usuario inicia sesión desde otro equipo. 
+
+## Límites
+
+Hay algunos límites en cuanto al número de métricas y eventos por aplicación.
+
+1. Hasta 500 puntos de datos de telemetría por segundo por clave de instrumentación (es decir, por aplicación). Esto incluye la telemetría estándar enviada por los módulos del SDK, además de eventos personalizados, métricas y otros datos de telemetría enviados por el código.
+1.	Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones u otros tipos de datos como eventos. Los nombres de métricas y propiedades son globales por clave de instrumentación, no limitadas al tipo de datos.
+2.	Las propiedades se pueden usar para filtrar y agrupar por solo cuando tienen menos de 100 valores únicos para cada propiedad. Después de que los valores únicos superen 100, una propiedad todavía se puede usar para búsqueda y filtrado pero no para filtros.
+3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". El valor original puede seguir usándose para la búsqueda de texto completo y el filtrado.
+
+* *P: ¿Durante cuánto tiempo se conservan los datos?*
+
+    Consulte [Privacidad y retención de los datos][data].
 
 ## Documentos de referencia
 
 * [Referencia de ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Referencia de Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
+## Preguntas
 
-* *P: ¿Hay una API de REST?*
+* *¿Qué excepciones pueden iniciar las llamadas de seguimiento *?*
+    
+    Ninguno. No es necesario agruparlas en cláusulas Catch.
+
+
+
+* *¿Hay una API de REST?*
 
     Sí, pero aún no está publicada.
 
@@ -578,7 +617,10 @@ Durante la depuración, resulta útil enviar los datos de telemetría por la can
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[create]: app-insights-create-new-resource.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [metrics]: app-insights-metrics-explorer.md
@@ -586,4 +628,6 @@ Durante la depuración, resulta útil enviar los datos de telemetría por la can
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -77,4 +77,4 @@ Para poder usar el módulo Administrador de recursos de Azure necesitará cambia
 
 > [AZURE.NOTE]Puede volver al conjunto predeterminado de comandos con el comando **Switch-AzureMode AzureServiceManagement**.
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

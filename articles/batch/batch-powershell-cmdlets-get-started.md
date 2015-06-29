@@ -1,25 +1,25 @@
 <properties
-	pageTitle="Introducción a los cmdlets de lotes PowerShell de Azure"
-	description="Presenta los cmdlets de Azure PowerShell usados para administrar el servicio de lotes de Azure"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor="yidingz"/>
+   pageTitle="Introducción a los cmdlets de Lote de Azure PowerShell | Microsoft Azure"
+   description="Presenta los cmdlets de Azure PowerShell usados para administrar el servicio de lotes de Azure"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
-	ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="04/15/2015"
-	ms.author="danlep"/>
+   ms.service="batch"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="05/29/2015"
+   ms.author="danlep"/>
 
 # Introducción a los cmdlets de lotes PowerShell de Azure
 Este artículo es una breve introducción a los cmdlets de PowerShell de Azure que puede usar para administrar sus cuentas por lotes y obtener información acerca de los elementos de trabajo, los trabajos y las tareas por lotes.
 
-Para conocer la sintaxis detallada de cmdlet, escriba ```get-help <Cmdlet_name>```.
+Para conocer la sintaxis detallada de cmdlet, escriba `get-help <Cmdlet_name>` o consulte la [referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 
 ## Requisitos previos
@@ -123,9 +123,9 @@ Get-AzureBatchPool -BatchContext $context
 Puede proporcionar un filtro de OData mediante el parámetro **Filter** para buscar solo los objetos que le interesan. Por ejemplo, puede encontrar todos los elementos de trabajo cuyos nombres empiecen por "myWork":
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'" 
+$filter = "startswith(name,'myWork') and state eq 'active'"
 Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
-``` 
+```
 
 Este método no es tan flexible como "Where-Object" en una canalización local. Sin embargo, la consulta se envía al servicio de lote directamente para que todos los filtros se apliquen en el servidor, lo cual ahorra ancho de banda de Internet.
 
@@ -133,8 +133,8 @@ Este método no es tan flexible como "Where-Object" en una canalización local. 
 
 Una alternativa al filtro OData es el parámetro **Name**. Para consultar un elemento de trabajo específico denominado "myWorkItem":
 
-``` 
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context 
+```
+Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 
 ```
 El parámetro **Name** admite solo búsqueda de nombre completo, no de caracteres comodín o filtros al estilo de OData.
@@ -144,7 +144,7 @@ El parámetro **Name** admite solo búsqueda de nombre completo, no de caractere
 Los cmdlets de lote pueden aprovechar la canalización para enviar datos entre los cmdlets de PowerShell. Esto tiene el mismo efecto que si se especifica un parámetro, pero hace enumerar varias entidades de forma más fácil. Por ejemplo, puede encontrar todas las tareas en su cuenta:
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context 
+Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### Uso del parámetro MaxCount
@@ -152,7 +152,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 De forma predeterminada, cada cmdlet devuelve un máximo de 1000 objetos. Si se alcanza este límite, puede perfeccionar el filtro para que devuelva menos objetos, o establecer explícitamente un máximo mediante el parámetro **MaxCount**. Por ejemplo:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context 
+Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -161,6 +161,7 @@ Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 ## Temas relacionados
 * [Información técnica de los lotes](batch-technical-overview.md)
 * [Descarga de Azure PowerShell](http://go.microsoft.com/p/?linkid=9811175)
-* [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/jj554330.aspx)
+* [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
+* [Consultas de lista eficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

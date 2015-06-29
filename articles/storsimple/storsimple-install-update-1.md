@@ -3,7 +3,7 @@
    description="Explica cómo instalar la actualización 1 de la serie StorSimple 8000 Series en un dispositivo."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,23 +12,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="06/18/2015"
+   ms.author="alkohli" />
 
 # Instalar la actualización 1 en el dispositivo StorSimple
 
 ## Información general
 
-En este tutorial se explica cómo instalar la actualización 1 en un dispositivo StorSimple con una versión de software anterior a la actualización 1. El dispositivo puede ejecutar la versión disponible con carácter general (GA), la  actualización 0.1, la actualización 0.2 o la actualización 0.3 del software. El tutorial también explica qué hacer si se configura una puerta de enlace en una interfaz de red que no sea de DATA 0 en el dispositivo StorSimple.
+En este tutorial se explica cómo instalar la actualización 1 en un dispositivo StorSimple con una versión de software anterior a la actualización 1. El dispositivo puede ejecutar la versión disponible con carácter general (GA), la actualización 0.1, la actualización 0.2 o la actualización 0.3 del software.
 
-En la instalación, si el dispositivo utiliza una versión anterior a la actualización 1.0, se realizan varias comprobaciones en el mismo. Estas comprobaciones determinan el estado del dispositivo en cuanto a la conectividad de red y al estado del hardware.
+En la instalación, si el dispositivo utiliza una versión anterior a la actualización 1, se realizan varias comprobaciones en el mismo. Estas comprobaciones determinan el estado del dispositivo en cuanto a la conectividad de red y al estado del hardware.
 
 Se le solicitará que realice una comprobación previa manual para asegurarse de que:
 
 - Las direcciones IP fijas del controlador son enrutables y se pueden conectar a Internet. Estas direcciones IP se usan para atender las actualizaciones de los dispositivos de StorSimple. Esto se puede comprobar ejecutando el siguiente cmdlet en cada controlador:
 
-    `Test-Connection -Source <fixed IP of your device controller> <Destination IP> `
+    `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter network> `
  
+	**Salida de ejemplo para la conexión de prueba cuando los IP fijos pueden conectarse a Internet**
+
+	    
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination bing.com
+	    
+	    Source	  Destination 	IPV4Address      IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	    HCSNODE0  bing.com		204.79.197.200
+	
+		Controller0>Test-Connection -Source 10.126.173.91 -Destination  204.79.197.200
+
+	    Source	  Destination 	  IPV4Address    IPV6Address
+	    ----------------- -----------  -----------
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    HCSNODE0  204.79.197.200  204.79.197.200
+	    
+	    
+
+
 - Antes de actualizar el dispositivo, se recomienda tomar una instantánea en la nube de los datos del dispositivo.
 
 Tras comprobar y confirmar las comprobaciones manuales (arriba), se realizará una serie de comprobaciones automáticas previas a la actualización. Entre ellos se incluyen los siguientes:
@@ -51,41 +75,6 @@ Para actualizar los dispositivos que ejecutan la versión GA, se recomienda util
 
 [AZURE.INCLUDE [storsimple-install-update-via-portal](../../includes/storsimple-install-update-via-portal.md)]
 
-## Instalación de la actualización 1 en un dispositivo con una puerta de enlace en una interfaz de red que no sea DATA 0 
-
-Este procedimiento se aplica a los dispositivos StorSimple que usan una versión del software anterior a la actualización 1.0 y tienen una puerta de enlace establecido en una interfaz de red que no sea DATA 0.
- 
-Si el dispositivo no tiene una puerta de enlace en una interfaz de red que no sea DATA 0, puede actualizar el dispositivo directamente desde el Portal de administración. Consulte [Uso del portal de administración para instalar la actualización 1](#use-the-management-portal-to-install-update-1).
- 
-> [AZURE.NOTE]Este procedimiento debe realizarse una sola vez para aplicar la actualización 1.0. El Portal de administración de Azure se puede usar para aplicar las actualizaciones posteriores.
- 
-Si el dispositivo ejecuta el software de actualización 1.0 y tiene una puerta de enlace establecida para una interfaz de red que no sea DATA 0, la actualización 1.0 se puede aplicar de las dos maneras siguientes:
-
-- **Opción 1**: descargar la actualización y aplicarla mediante el cmdlet [Start-HcsHotfix](https://technet.microsoft.com/library/dn688134.aspx) desde la interfaz de Windows PowerShell del dispositivo. Éste es el método recomendado.
-
-- **Opción 2**: instalar la actualización directamente desde el Portal de administración.
- 
-En las siguientes secciones, se proporcionan instrucciones detalladas de cada una de estas opciones.
-
-### Opción 1: usar Windows PowerShell para StorSimple aplicar la actualización 1
-
-Antes de utilizar este procedimiento para aplicar la actualización, asegúrese de que:
-
-- Los dos controladores de dispositivo están en línea.
-
-- DATOS 2 y DATOS 3 están deshabilitados. Esta operación solo debe realizarse si los dispositivos ejecutan la versión de GA. No es preciso que se deshabiliten los dispositivos que ejecutan la actualización 0.2 y 0.3. Una vez completada la actualización, puede volver a habilitar estas interfaces de red.
- 
-Realice los pasos siguientes para aplicar la actualización 1.0. La actualización puede tardar unas horas en completarse.
-
-[AZURE.INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
-
-### Opción 2: usar el Portal de administración de Azure para aplicar la actualización 1
-
-La actualización puede tardar unas horas en completarse. Si los hosts se encuentran en subredes diferentes, la eliminación de la configuración de la puerta de enlace de las interfaces de iSCSI podría provocar un tiempo de inactividad. Para reducir el tiempo de inactividad, se recomienda configurar DATA 0 para el tráfico iSCSI.
- 
-Realice los pasos siguientes para borrar la configuración de la puerta de enlace y, a continuación, aplique la actualización.
- 
-[AZURE.INCLUDE [storsimple-install-update-option2](../../includes/storsimple-install-update-option2.md)]
 
 ## Solución de errores en actualización
 
@@ -101,7 +90,7 @@ Es preciso asegurarse de que ambos controladores funcionan correctamente y está
 
 Una causa probable podría ser que no tiene conectividad con los servidores de Microsoft Update. Esta es una comprobación manual que se debe realizar. Si se pierde la conexión con servidor de actualizaciones, se producirá un error en el trabajo de actualización. Para comprobar la conectividad, ejecute el siguiente cmdlet desde la interfaz de Windows PowerShell del dispositivo StorSimple:
 
- `Test-Connection -Source <Fixed IP of your device controller> <Destination IP>`
+ `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
 Ejecute el cmdlet en ambos controladores.
  
@@ -111,4 +100,4 @@ Si ha comprobado que existe conectividad y sigue apareciendo este problema, pón
 
 Más información acerca de [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

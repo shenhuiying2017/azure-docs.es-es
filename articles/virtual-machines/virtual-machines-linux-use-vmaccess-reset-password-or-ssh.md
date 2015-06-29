@@ -261,5 +261,6 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell.md
 [Características y extensiones de máquina virtual de Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

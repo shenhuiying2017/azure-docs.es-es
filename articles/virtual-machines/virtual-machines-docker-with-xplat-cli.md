@@ -75,7 +75,7 @@ donde:
 
 +  *&lt;username&gt;* es el nombre de usuario del usuario raíz predeterminado de la máquina virtual.
 
-+ *&lt;password&gt;* es la contraseña de la cuenta de  *username* que cumple los estándares de complejidad de Azure.
++ *&lt;password&gt;* es la contraseña de la cuenta de *username* que cumple los estándares de complejidad de Azure.
 
 > [AZURE.NOTE]Actualmente, una contraseña debe tener al menos 8 caracteres, contener un carácter en minúscula y otro en mayúscula, un número y un carácter especial como uno de los siguientes: `!@#$%^&+=`. No, el punto al final de la frase anterior NO es un carácter especial.
 
@@ -137,5 +137,6 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 [Uso de la extensión de VM Docker con el portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

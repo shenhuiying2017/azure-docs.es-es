@@ -42,7 +42,7 @@ Para configurar... | Local | Red virtual
 ------------- | -------------  | ------------
 **Dirección IP para el controlador de dominio** | Asigne la dirección IP estática en las propiedades del adaptador de red. | Ejecute el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática.
 **Resolución de clientes DNS** | Establezca la dirección de servidor DNS preferida y alternativa en las propiedades del adaptador de red de los miembros del dominio. | Establezca la dirección del servidor DNS en las propiedades de la red virtual.
-**Almacenamiento de base de datos de Active Directory** | Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:. | Debe cambiar la ubicación de almacenamiento predeterminada de C:.
+**Almacenamiento de base de datos de Active Directory** | Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:\. | Debe cambiar la ubicación de almacenamiento predeterminada de C:\.
 
 
 
@@ -69,7 +69,7 @@ Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfa
 
     En esta página del asistente… | Especifique estos valores
 	------------- | -------------
-	**Elección de una imagen** | Windows Server 2012 R2 Datacenter
+	**Elija una imagen** | Windows Server 2012 R2 Datacenter
 	**Configuración de la máquina virtual** | <p>Nombre de la máquina virtual: escriba un nombre de etiqueta única (como AzureDC1).</p><p>Nuevo nombre de usuario: escriba el nombre de un usuario. Este usuario será un miembro del grupo local Administradores en la máquina virtual. Necesitará este nombre para iniciar sesión en la máquina virtual por primera vez. La cuenta incorporada con el nombre de Administrador no funcionará.</p><p>Nueva contraseña/confirmación: escriba una contraseña</p>
 	**Configuración de la máquina virtual** | <p>Servicio en la nube: elija <b>Crear un nuevo servicio en la nube</b> para la primera máquina virtual y seleccione el mismo nombre de servicio en la nube cuando cree más máquinas virtuales que hospedarán el rol DC.</p><p>Nombre DNS de servicio en la nube: especifique un nombre único global</p><p>Región/Grupo de afinidiad/Red virtual: especifique el nombre de red virtual (como WestUSVNet).</p><p>Cuenta de almacenamiento: elija <b>Usar una cuenta de almacenamiento generada automáticamente</b> para la primera máquina virtual y, a continuación, seleccione el mismo nombre de cuenta de almacenamiento cuando cree más máquinas virtuales que hospeden el rol DC.</p><p>Conjunto de disponibilidad: elija <b>Crear conjunto de disponibilidad</b>.</p><p>Nombre de conjunto de disponibilidad: escriba un nombre para el conjunto de disponibilidad cuando cree la primera máquina virtual y, a continuación, seleccione el mismo nombre cuando cree más máquinas virtuales.</p>
 	**Configuración de la máquina virtual** | <p>Seleccione <b>Instalar el agente de máquina virtual</b> y cualquier otra extensión que necesite.</p>
@@ -92,11 +92,11 @@ Después de finalizada la instalación del controlador de dominio, vuelva a cone
 1. Restablezca la configuración del reenviador DNS en el nuevo servidor DC/DNS. 
   1. En el administrador del servidor, haga clic en **Herramientas** > **DNS**. 
   2. En **Administrador de DNS**, haga clic con el botón secundario en el nombre del servidor DNS y haga clic en **Propiedades**. 
-  3. En la pestaña **Reenviadores**, haga clic en la dirección IP del reenviador y en  **Editar**. Seleccione la dirección IP y haga clic en **Eliminar**. 
+  3. En la pestaña **Reenviadores**, haga clic en la dirección IP del reenviador y en **Editar**. Seleccione la dirección IP y haga clic en **Eliminar**. 
   4. Haga clic en **Aceptar** para cerrar el editor y en **Aceptar** para cerrar las propiedades del servidor DNS. 
 2. Actualice la configuración del servidor DNS para la red virtual. 
   1. Haga clic en **Redes virtuales** > haga doble clic en la red virtual que creó > **Configurar** > **Servidores DNS**, escriba el nombre y la DIP de una de las máquinas virtuales que ejecuta el rol de servidor DC/DNS y haga clic en **Guardar**. 
-  2. Seleccione la VM y haga clic en  **Restablecer** para activar la VM y definir la configuración del solucionador de DNS con la dirección IP del servidor DNS nuevo. 
+  2. Seleccione la VM y haga clic en **Restablecer** para activar la VM y definir la configuración del solucionador de DNS con la dirección IP del servidor DNS nuevo. 
 
 
 ## Cree máquinas virtuales para miembros de dominio
@@ -107,9 +107,9 @@ Después de finalizada la instalación del controlador de dominio, vuelva a cone
 	------------- | -------------
 	**Elija una imagen** | Windows Server 2012 R2 Datacenter
 	**Configuración de la máquina virtual** | <p>Nombre de la máquina virtual: escriba un nombre de etiqueta única (como AppServer1).</p><p>Nuevo nombre de usuario: escriba el nombre de un usuario. Este usuario será un miembro del grupo local Administradores en la máquina virtual. Necesitará este nombre para iniciar sesión en la máquina virtual por primera vez. La cuenta incorporada con el nombre de Administrador no funcionará.</p><p>Nueva contraseña/confirmación: escriba una contraseña</p>
-	**Configuración de la máquina virtual** | <p>Servicio en la nube: elija **Crear un nuevo servicio en la nube** para la primera máquina virtual y seleccione el mismo nombre de servicio en la nube cuando cree más máquinas virtuales que hospedarán la aplicación.</p><p>Nombre DNS de servicio en la nube: especifique un nombre único global</p><p>Región/Grupo de afinidiad/Red virtual: especifique el nombre de red virtual (como WestUSVNet).</p><p>Cuenta de almacenamiento: elija  **Usar una cuenta de almacenamiento generada automáticamente** para la primera máquina virtual y, a continuación, seleccione el mismo nombre de cuenta de almacenamiento cuando cree más máquinas virtuales que hospeden la aplicación.</p><p>Conjunto de disponibilidad: elija **Crear conjunto de disponibilidad**.</p><p>Nombre de conjunto de disponibilidad: escriba un nombre para el conjunto de disponibilidad cuando cree la primera máquina virtual y, a continuación, seleccione el mismo nombre cuando cree más máquinas virtuales.</p>
+	**Configuración de la máquina virtual** | <p>Servicio en la nube: elija **Crear un nuevo servicio en la nube** para la primera máquina virtual y seleccione el mismo nombre de servicio en la nube cuando cree más máquinas virtuales que hospedarán la aplicación.</p><p>Nombre DNS de servicio en la nube: especifique un nombre único global</p><p>Región/Grupo de afinidiad/Red virtual: especifique el nombre de red virtual (como WestUSVNet).</p><p>Cuenta de almacenamiento: elija **Usar una cuenta de almacenamiento generada automáticamente** para la primera máquina virtual y, a continuación, seleccione el mismo nombre de cuenta de almacenamiento cuando cree más máquinas virtuales que hospeden la aplicación.</p><p>Conjunto de disponibilidad: elija **Crear conjunto de disponibilidad**.</p><p>Nombre de conjunto de disponibilidad: escriba un nombre para el conjunto de disponibilidad cuando cree la primera máquina virtual y, a continuación, seleccione el mismo nombre cuando cree más máquinas virtuales.</p>
 	**Configuración de la máquina virtual** | <p>Seleccione<b> Instalar el agente de máquina virtual</b> y cualquier otra extensión que necesite.</p>
-2. Una vez aprovisionada cada máquina virtual, inicie sesión y únalas al dominio. En **Administrador de servidores**, haga clic en **Servidor local** > **GRUPO DE TRABAJO** > **Cambiar…** y, a continuación, seleccione  **Dominio** y escriba el nombre del dominio local. Proporcione las credenciales de un usuario de dominio y, a continuación, reinicie la máquina virtual para completar la unión al dominio.
+2. Una vez aprovisionada cada máquina virtual, inicie sesión y únalas al dominio. En **Administrador de servidores**, haga clic en **Servidor local** > **GRUPO DE TRABAJO** > **Cambiar…** y, a continuación, seleccione **Dominio** y escriba el nombre del dominio local. Proporcione las credenciales de un usuario de dominio y, a continuación, reinicie la máquina virtual para completar la unión al dominio.
 
 Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines-ps-create-preconfigure-windows-vms.md).
 
@@ -137,4 +137,6 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

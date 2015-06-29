@@ -266,7 +266,7 @@ Los siguientes pasos muestran cómo crear un entorno de granjas de SharePoint pe
 	- Utilice el agente de Operations Manager y el nuevo paquete de integración de Azure para conectar el System Center local con Máquinas virtuales de Azure.
 	- Utilice App Controller y Orchestrator locales para las funciones de administración.
 
-## Conclusión
+## Resumen
 
 Las máquinas virtuales de Azure proporcionan una continuación completa de las implementaciones de SharePoint. Es un servicio completamente respaldado y probado para proporcionar una experiencia óptima junto con otras aplicaciones de Microsoft. De este modo, las organizaciones pueden configurar e implementar fácilmente SharePoint Server dentro de Azure, ya sea para aprovisionar infraestructura para una nueva implementación de SharePoint o para expandir una existente. A medida que las cargas de trabajo de negocios crecen, las organizaciones pueden expandir rápidamente su infraestructura de SharePoint. Del mismo modo, si las necesidades de carga de trabajo disminuyen, las organizaciones pueden contratar recursos a petición, para así pagar solo lo que utilizan. Las máquinas virtuales de Azure brindan una infraestructura excepcional para una amplia variedad de requisitos del negocio, tal como se describe en los cuatro escenarios basados en SharePoint analizados en este artículo.
 
@@ -278,8 +278,10 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Azure PowerShell](http://msdn.microsoft.com/library/jj156055)
+[Carga de trabajo de Servicios de infraestructura de Azure: granja de servidores de SharePoint de Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
-[Cmdlets de administración de Azure](http://msdn.microsoft.com/library/jj152841)
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

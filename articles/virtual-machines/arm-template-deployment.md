@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/15/2015" 
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla
@@ -25,13 +25,13 @@ Mediante el uso de plantillas y grupos de recursos, tendrá la posibilidad de ad
 Para completar este tutorial, también necesita:
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
-- [Cuenta de almacenamiento de Azure](../storage-create-storage-account.md)
+- [Cuenta de Almacenamiento de Azure](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/es-es/download/details.aspx?id=34595) o [Windows Management Framework 4.0](http://www.microsoft.com/es-es/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+- [Azure PowerShell](../powershell-install-configure.md)
 
 Tardará unos 30 minutos en realizar estos pasos.
 
-## Paso 1: Agregar una aplicación a Azure AD y establecer permisos
+## Paso 1: Adición de una aplicación a Azure AD y establecer permisos
 
 Para usar Azure AD para autenticar las solicitudes con el Administrador de recursos de Azure, es necesario agregar una aplicación en el directorio predeterminado. Siga este procedimiento para agregar una aplicación:
 
@@ -450,4 +450,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

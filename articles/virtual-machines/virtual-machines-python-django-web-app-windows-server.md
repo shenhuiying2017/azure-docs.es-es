@@ -198,4 +198,6 @@ Cuando finalice este tutorial, apague o quite la m√°quina virtual de Azure reci√
 
 [Instalador de la plataforma web]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

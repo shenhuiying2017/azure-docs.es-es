@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### Para obtener el IQN de un host de Windows
+#### Para obtener el IQN de un host de Windows
 
 1. Inicie el iniciador iSCSI de Microsoft en el host de Windows.
 
@@ -25,4 +25,4 @@
 
 3. Guarde esta cadena.
 
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

@@ -25,7 +25,7 @@ En este tema se describen los límites de servicio para RemoteApp de Azure.
 Todas las colecciones:
 
 - Colecciones por usuario: 1
-- Aplicaciones publicadas por colección: 5000 
+- Aplicaciones publicadas por colección: 100 
 
 Colecciones de prueba:
 
@@ -76,4 +76,6 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 8.	Siga las instrucciones de la página siguiente y especifique luego detalles sobre el aumento del límite que necesita. Por ejemplo, si desea ampliar el período de prueba, escriba "Amplíe mi período de prueba X días". 
 9.	Haga clic en **Enviar** para abrir la incidencia.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

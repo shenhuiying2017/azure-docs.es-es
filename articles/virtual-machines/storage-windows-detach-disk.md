@@ -13,14 +13,19 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2014" 
+	ms.date="05/27/2015" 
 	ms.author="kathydav"/>
 
 
 
-
+# Desacoplamiento de un disco de una máquina virtual de Windows
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=42-->
+## Recursos adicionales
+
+[Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md)
+
  
+
+<!---HONumber=58_postMigration-->

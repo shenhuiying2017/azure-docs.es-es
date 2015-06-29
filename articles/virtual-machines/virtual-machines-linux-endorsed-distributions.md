@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="06/03/2015" 
 	ms.author="szark"/>
 
 
@@ -29,7 +29,7 @@ En la tabla siguiente se enumeran las distribuciones y versiones de Linux que se
 
 Los controladores de los Servicios de integración de Linux (LIS) para Hyper-V y Azure son módulos del kernel que Microsoft aporta directamente al kernel de Linux del canal de subida. Los controladores de LIS están integrados en el núcleo de distribución de forma predeterminada o, para distribuciones anteriores basadas en RHEL/CentOS, están disponibles [aquí](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) en forma de descarga independiente. Consulte [este artículo](virtual-machines-linux-create-upload-vhd-generic.md#linux-kernel-requirements) para obtener más información acerca de los controladores de LIS.
 
-El Agente de Linux de Azure ya está preinstalado en las imágenes de la galería de Linux y generalmente está disponible en el repositorio de paquetes de distribución. El código fuente se puede encontrar en [GitHub](https://github.com/azure/walinuxagent).
+El Agente de Linux de Azure ya está preinstalado en las imágenes de la Galería de imágenes de Azure y generalmente está disponible en el repositorio de paquetes de distribución. El código fuente se puede encontrar en [GitHub](https://github.com/azure/walinuxagent).
 
 <table border="1" width="600">
   <tr bgcolor="#E9E7E7">
@@ -40,14 +40,14 @@ El Agente de Linux de Azure ya está preinstalado en las imágenes de la galerí
 			</tr>
 	<tr>
 		<th>  Ubuntu de Canonical </th>
-		<td> Ubuntu 12.04.1+, 14.04 y 14.10 </td>
+		<td> Ubuntu 12.04, 14.04, 14.10 y 15.04 </td>
 		<td>En kernel</td>
 		<td>Paquete: En el repositorio, en "walinuxagent" <br />
 			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 			</tr>
 	<tr>
 		<th> CentOS de OpenLogic </th>
-		<td> CentOS 6.3+</td>
+		<td> CentOS 6.3+, 7.0+</td>
 	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Descarga de LIS</a><br/>
 	        CentOS 6.4 +: En kernel</td>
 		<td>Paquete: En el repositorio <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic</a>, en "WALinuxAgent"<br />
@@ -63,7 +63,7 @@ El Agente de Linux de Azure ya está preinstalado en las imágenes de la galerí
 	</tr>
 	<tr>
 		<th> Oracle Linux </th>
-		<td> 6.4+</td>
+		<td> 6.4+, 7.0+ </td>
         <td>En kernel</td>
 		<td>Paquete: En el repositorio, en "WALinuxAgent"<br />
 			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
@@ -71,9 +71,9 @@ El Agente de Linux de Azure ya está preinstalado en las imágenes de la galerí
 	</tr>
 	<tr>
 		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3+</td>
+		<td> SLES 11 SP3+, SLES 12+ y <br /> SLES para SAP 11.3+ </td>
         <td>En kernel</td>
-		<td>Paquete: En el repositorio <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, en "WALinuxAgent"<br />
+		<td>Paquete: En el repositorio <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a>, en "WALinuxAgent"<br />
 			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -122,4 +122,6 @@ La estrategia de Oracle es ofrecer una amplia cartera de soluciones para nubes p
 
 SUSE Linux Enterprise Server en Azure es una plataforma probada que brinda confiabilidad y seguridad de nivel superior para la informática en nube. La versátil plataforma Linux de SUSE se integra de manera fluida con los servicios en la nube de Azure para brindar un entorno de nube fácilmente administrable. Y con más de 9.200 aplicaciones certificadas de más de 1.800 fabricantes de software independiente para SUSE Linux Enterprise Server, SUSE garantiza que las cargas de trabajo que se ejecutan de manera compatible en el centro de datos pueden implementarse con confianza en Azure.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

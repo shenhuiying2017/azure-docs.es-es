@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Escenarios de autenticación para Azure AD
@@ -23,9 +23,7 @@ Azure Active Directory (Azure AD) simplifica la autenticación para los desarrol
 
 - [Conceptos básicos sobre autenticación en Azure AD](#basics-of-authentication-in-azure-ad)
 
-
 - [Notificaciones de tokens de seguridad de Azure AD](#claims-in-azure-ad-security-tokens)
-
 
 - [Conceptos básicos sobre el registro de una aplicación en Azure AD](#basics-of-registering-an-application-in-azure-ad)
 
@@ -47,7 +45,9 @@ Azure Active Directory (Azure AD) simplifica la autenticación para los desarrol
 
 Si no está familiarizado con los conceptos básicos de la autenticación en Azure AD, lea esta sección. De lo contrario, puede pasar a [Tipos de aplicaciones y escenarios](#application-types-and-scenarios).
 
-Veamos el escenario más básico en el que es necesario identificarse: un usuario de un explorador web debe autenticarse en una aplicación web. Este escenario se describe más detalladamente en la sección [Explorador web a aplicación web](#web-browser-to-web-application), pero es un punto de partida útil para ilustrar las capacidades de Azure AD y conceptualizar el funcionamiento del escenario. Tenga en cuenta el siguiente diagrama para este escenario: Información general del inicio de sesión en la aplicación web.
+Veamos el escenario más básico en el que es necesario identificarse: un usuario de un explorador web debe autenticarse en una aplicación web. Este escenario se describe más detalladamente en la sección [Explorador web a aplicación web](#web-browser-to-web-application), pero es un punto de partida útil para ilustrar las capacidades de Azure AD y conceptualizar el funcionamiento del escenario. Tenga en cuenta el diagrama siguiente para este escenario:
+
+![Información general de inicio de sesión en la aplicación web](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 Teniendo en cuenta el diagrama anterior, a continuación se indica qué debe saber sobre los distintos componentes:
 
@@ -60,7 +60,7 @@ Teniendo en cuenta el diagrama anterior, a continuación se indica qué debe sab
 - Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de Azure AD para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Consulte [Bibliotecas de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151135.aspx) para obtener más información.
 
 
-• Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente para las partes implicadas. Los desarrolladores pueden usar las bibliotecas de autenticación proporcionadas para administrar la validación de cualquier token de Azure AD, incluidos los tokens web JSON (JWT) o de SAML 2.0. Si desea realizar la validación manualmente, consulte la documentación del [Controlador de tokens JWT](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
+• Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente para las partes implicadas. Los desarrolladores pueden usar las bibliotecas de autenticación proporcionadas para administrar la validación de cualquier token de Azure AD, incluidos los tokens web JSON (JWT) o de SAML 2.0. Si desea realizar la validación manualmente, consulte la documentación del [JWT Token Handler](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx).
 
 
 > [AZURE.IMPORTANT]Azure AD usa criptografía de clave pública para firmar los tokens y verificar que son válidos. Consulte [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) para obtener más información sobre la lógica necesaria que debe tener en la aplicación para garantizar que siempre está actualizada con las claves más recientes.
@@ -68,7 +68,7 @@ Teniendo en cuenta el diagrama anterior, a continuación se indica qué debe sab
 
 • El flujo de solicitudes y respuestas del proceso de autenticación lo determina el protocolo de autenticación que se use, como OAuth 2.0, OpenID Connect, WS-Federation o SAML 2.0. Estos protocolos se analizan con más detalle en el tema [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) y en las secciones siguientes.
 
-> [AZURE.NOTE]Azure AD admite los estándares OAuth 2.0 y OpenID Connect, que hacen un uso generalizado de tokens portadores, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS).  Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrese siempre de que la aplicación transmite y almacena los tokens portadores de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
+> [AZURE.NOTE]Azure AD admite los estándares OAuth 2.0 y OpenID Connect, que hacen un uso generalizado de tokens portadores, incluidos los representados como JWT. Un token portador es un token de seguridad ligero que concede al "portador" acceso a un recurso protegido. En este sentido, el "portador" es cualquier parte que pueda presentar el token. Aunque una parte debe autenticarse primero con Azure AD para recibir el token portador, si no se realizan los pasos necesarios para asegurar el token en la transmisión y el almacenamiento, este puede interceptarse y ser utilizado por un usuario no deseado. Mientras que algunos tokens de seguridad disponen de un mecanismo integrado para evitar ser usados por partes no autorizadas, los tokens portadores no tienen este mecanismo y deben transportarse en un canal seguro como, por ejemplo, la seguridad de la capa de transporte (HTTPS). Si un token portador se transmite sin cifrar, un usuario malintencionado puede utilizar un ataque de tipo "Man in the middle" para adquirir el token y usarlo para obtener acceso sin autorización a un recurso protegido. Los mismos principios de seguridad se aplican al almacenamiento o almacenamiento en caché de tokens portadores para su uso posterior. Asegúrese siempre de que la aplicación transmite y almacena los tokens portadores de manera segura. Para otras consideraciones sobre la seguridad de los tokens portadores, consulte la [Sección 5 de RFC 6750](http://tools.ietf.org/html/rfc6750).
 
 
 Ahora que ya tiene información general sobre los conceptos básicos, lea las secciones siguientes para comprender cómo funciona el aprovisionamiento en Azure AD, así como los escenarios comunes admitidos por Azure AD.
@@ -130,7 +130,7 @@ El aprovisionamiento se entiende mejor cuando se comprende que existen dos categ
 
 - Aplicación multiempresa (de varios inquilinos): el uso de una aplicación multiempresa se destina a varias organizaciones, no solo a una. Suele tratarse de aplicaciones de software como servicio (SaaS) escritas por un proveedor de software independiente (ISV). Las aplicaciones multiempresa se deben aprovisionar en cada uno de los directorios en los que se usarán, lo que requiere el consentimiento del usuario o del administrador para registrarlas. El proceso de consentimiento se inicia cuando una aplicación se ha registrado en el directorio y se le proporciona acceso a la API de gráficos o quizás a otra API web. Cuando un usuario o un administrador de otra organización inicia sesión para usar la aplicación, se muestra un cuadro de diálogo que indica los permisos requeridos por la aplicación. A continuación, el usuario o el administrador pueden dar su consentimiento a la aplicación, lo que proporciona a la aplicación acceso a los datos establecidos y, por último, registra la aplicación en el directorio. Para obtener más información, consulte [Información general del marco de consentimiento](https://msdn.microsoft.com/library/azure/b08d91fa-6a64-4deb-92f4-f5857add9ed8#BKMK_Consent).
 
-Cuando se desarrolla una aplicación multiempresa en lugar de una aplicación de un solo inquilino hay que tener en cuenta otros aspectos. Por ejemplo, si pone la aplicación a disposición de usuarios de varios directorios, necesitará un mecanismo para determinar en qué inquilino se encuentran. Una aplicación de un solo inquilino únicamente necesita buscar un usuario en su propio directorio, mientras que una aplicación multiempresa debe identificar un usuario específico en todos los directorios de Azure AD. Para realizar esta tarea, Azure AD proporciona un extremo de autenticación común donde cualquier aplicación multiempresa puede dirigir solicitudes de inicio de sesión, en lugar de un extremo específico del inquilino. Este extremo es https://login.windows.net/common para todos los directorios de Azure AD, mientras que un extremo específico de un inquilino podría ser https://login.windows.net/contoso.onmicrosoft.com. Es especialmente importante tener en cuenta el extremo común al desarrollar la aplicación porque necesitará toda la lógica necesaria para administrar varios inquilinos durante el inicio y el cierre de sesión y la validación de tokens.
+Cuando se desarrolla una aplicación multiempresa en lugar de una aplicación de un solo inquilino hay que tener en cuenta otros aspectos. Por ejemplo, si pone la aplicación a disposición de usuarios de varios directorios, necesitará un mecanismo para determinar en qué inquilino se encuentran. Una aplicación de un solo inquilino únicamente necesita buscar un usuario en su propio directorio, mientras que una aplicación multiempresa debe identificar un usuario específico en todos los directorios de Azure AD. Para realizar esta tarea, Azure AD proporciona un extremo de autenticación común donde cualquier aplicación multiempresa puede dirigir solicitudes de inicio de sesión, en lugar de un extremo específico del inquilino. Este extremo es https://login.microsoftonline.com/common para todos los directorios de Azure AD, mientras que un extremo específico de un inquilino podría ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Es especialmente importante tener en cuenta el extremo común al desarrollar la aplicación porque necesitará toda la lógica necesaria para administrar varios inquilinos durante el inicio y el cierre de sesión y la validación de tokens.
 
 Si actualmente desarrolla una aplicación de un solo inquilino pero quiere ponerla a disposición de varias organizaciones, puede realizar cambios fácilmente en la aplicación y en su configuración en Azure AD para que pueda aceptar varios inquilinos. Además, Azure AD usa la misma clave de firma para todos los tokens en todos los directorios, tanto si se proporciona autenticación para una aplicación de un solo inquilino como para una aplicación multiempresa de varios inquilinos.
 
@@ -336,7 +336,7 @@ Para el tipo de identidad de usuario delegado, este escenario se puede conseguir
 
 Los tipos de identidad de aplicación y de identidad de usuario delegado se tratan en el flujo siguiente. La diferencia clave entre ambos es que la identidad de usuario delegado debe adquirir primero un código de autorización para que el usuario pueda iniciar sesión y obtener acceso a la API web.
 
-##### Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 
+##### Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0
 
 1. Un usuario inicia sesión en Azure AD en la aplicación web (vea la sección anterior Explorador web a aplicación web).
 
@@ -416,7 +416,7 @@ Para el escenario en el que una aplicación de servidor necesita llamar a una AP
 
 #### Descripción del flujo de protocolo
 
-##### Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0 
+##### Identidad de aplicación con concesión de credenciales de cliente OAuth 2.0
 
 1. En primer lugar, la aplicación de servidor necesita autenticarse con Azure AD por sí misma, sin ninguna interacción como, por ejemplo, un cuadro de diálogo de inicio de sesión interactivo. Esta realiza una solicitud al extremo de token de Azure AD y proporciona las credenciales, el identificador del cliente y el URI del identificador de aplicación.
 
@@ -459,12 +459,11 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 ## Otras referencias
 
-
-### Conceptos
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
 
 [Información importante acerca de la cadencia de sustitución de clave en Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx)
-
+ 
 [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

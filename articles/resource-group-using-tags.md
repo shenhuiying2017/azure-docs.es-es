@@ -56,7 +56,7 @@ Este cmdlet devuelve varios bits de metadatos en el grupo de recursos, incluso q
 
 ![Establecimiento de etiquetas con Get-AzureResourceGroup en PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
-Recuerde que las etiquetas se actualizan como un todo, por lo que si va a agregar una etiqueta a un recurso que ya se ha etiquetado, deberá guardar una matriz con todas las etiquetas que desee conservar. Para quitar una, simplemente guarde la matriz sin la que desea quitar.
+Recuerde que las etiquetas se actualizan como un todo, por lo que si va a agregar una etiqueta a un recurso que ya se ha etiquetado, deberá usar una matriz con todas las etiquetas que desee conservar. Para quitar una, simplemente guarde la matriz sin la que desea quitar.
 
 El proceso es el mismo para los recursos, excepto en que va a usar los cmdlets `Get-AzureResource` y `Set-AzureResource`. Para obtener recursos o grupos de recursos con una etiqueta específica, use el cmdlet `Get-AzureResource` o `Get-AzureResourceGroup` con el parámetro `-Tag`.
 
@@ -112,4 +112,4 @@ Administración y auditoría del acceso
 - [Creación de una nueva entidad de servicio de Azure mediante el portal clásico de Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

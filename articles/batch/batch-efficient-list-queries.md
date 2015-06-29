@@ -26,7 +26,7 @@ Los métodos siguientes son ejemplos de operaciones que prácticamente todas las
 - [ListPools](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.ipoolmanager.listpools.aspx)
 - [ListCertificates](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icertificatemanager.listcertificates.aspx)
 
-La supervisión es un caso común; determinar la capacidad y el estado de un conjunto requiere que se consulten todas las VM del grupo, por ejemplo. Otro ejemplo sería consultar las tareas de un trabajo para determinar si aún haylas  tareas en cola. En algunos casos se necesita un amplio conjunto de datos, pero en otros casos es necesario únicamente un recuento del número total de elementos o elementos en un estado determinado.
+La supervisión es un caso común; determinar la capacidad y el estado de un conjunto requiere que se consulten todas las VM del grupo, por ejemplo. Otro ejemplo sería consultar las tareas de un trabajo para determinar si aún haylas tareas en cola. En algunos casos se necesita un amplio conjunto de datos, pero en otros casos es necesario únicamente un recuento del número total de elementos o elementos en un estado determinado.
 
 Es importante tener en cuenta que el número de elementos que se pueden devolver puede ser muy grande y el tamaño de los datos necesarios para representar la lista de elementos también puede ser muy grande. Simplemente consultar una gran cantidad de elementos que produzca respuestas grandes puede dar lugar a muchos problemas:
 
@@ -80,4 +80,4 @@ Un [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 > [AZURE.NOTE]Se recomienda que siempre utilice el filtro y seleccione cláusulas para las llamadas API de la lista para garantizar la máxima eficacia y el mejor rendimiento de su aplicación.
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

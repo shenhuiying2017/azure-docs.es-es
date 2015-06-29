@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales" 
-	description="Este artículo proporciona información sobre cómo comenzar a usar el almacenamiento Premium de Azure con SQL Server en ejecución en máquinas virtuales de Azure. Incluye ejemplos de las nuevas implementaciones y migraciones de las implementaciones existentes de SQL Server en IaaS." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="danielsollondon" 
+	pageTitle="Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales"
+	description="Este artículo proporciona información sobre cómo comenzar a usar el almacenamiento Premium de Azure con SQL Server en ejecución en máquinas virtuales de Azure. Incluye ejemplos de las nuevas implementaciones y migraciones de las implementaciones existentes de SQL Server en IaaS."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="danielsollondon"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -12,11 +12,12 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services" 
-	ms.date="04/29/2015"
+	ms.workload="infrastructure-services"
+	ms.date="06/02/2015"
 	ms.author="jroth"/>
 
 # Usar el almacenamiento Premium de Azure con SQL Server en máquinas virtuales
+
 
 ## Información general
 
@@ -32,7 +33,7 @@ Es importante comprender el proceso de extremo a extremo para usar el almacenami
 
 Para obtener información general sobre SQL Server en máquinas virtuales de Azure, consulte [SQL Server en máquinas virtuales de Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-**Revisores técnicos:** Luis Carlos Vargas arenque, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz
+**Autor:** Daniel Sol **Revisores técnicos:** Luis Carlos Vargas Herring, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
 ## Requisitos previos para el almacenamiento Premium
 
@@ -1140,5 +1141,6 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [23]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

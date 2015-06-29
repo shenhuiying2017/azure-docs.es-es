@@ -20,7 +20,7 @@
 
 La extensión CustomScript de Azure para Linux proporciona una manera de personalizar sus máquinas virtuales (VM) mediante la ejecución de código arbitrario escrito en cualquier lenguaje de scripting compatible con la máquina virtual (por ejemplo, Python, Bash, etc.). Esto proporciona una forma muy flexible de automatizar la implementación de aplicaciones en varios equipos.
 
-Puede implementar la extensión CustomScript mediante el Portal de Azure, PowerShell o la interfaz de la línea de comandos entre plataformas de Azure (CLI de Azure).
+Puede implementar la extensión CustomScript mediante el Portal de Azure, PowerShell o la interfaz de la línea de comandos de Azure (CLI de Azure).
 
 En este ejemplo, analizaremos los pasos para implementar una simple aplicación LAMP para Ubuntu usando la CLI de Azure.
 
@@ -57,7 +57,7 @@ Esta secuencia de comandos instala una pila LAMP en Ubuntu (incluida la configur
 
 	# write some PHP
 	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
-	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> > /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart
@@ -105,5 +105,6 @@ A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, L
 [Extensiones de Linux de Azure (GitHub)](https://github.com/Azure/azure-linux-extensions)
 
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

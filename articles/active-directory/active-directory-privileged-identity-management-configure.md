@@ -18,9 +18,9 @@
 
 # Administración de identidades con privilegios de Azure AD
 
-Administración de identidades con privilegios de AD Azure le permite administrar, controlar y supervisar las identidades con privilegios y su acceso a recursos en Azure AD y en otros servicios en línea de Microsoft como Office 365 o Intune.
+Administración de identidades con privilegios de AD Azure le permite administrar, controlar y supervisar las identidades con privilegios y su acceso a recursos en Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.
 
-Para que los usuarios puedan realizar operaciones con privilegios, a menudo las organizaciones han tenido que proporcionar a muchos de su usuarios acceso con privilegios permanente en Azure AD o para recursos de Azure u Office 365, así como para otras aplicaciones de SaaS. Para muchos clientes, esto es un riesgo de seguridad creciente para los recursos hospedados en la nube porque no  pueden supervisar suficientemente qué hacen esos usuarios con sus privilegios administrativos. Además, una cuenta de usuario en peligro que tiene acceso con privilegios puede afectar su seguridad global en la nube. Administración de identidades con privilegios de Azure AD le ayuda a resolver este riesgo.
+Para que los usuarios puedan realizar operaciones con privilegios, a menudo las organizaciones han tenido que proporcionar a muchos de su usuarios acceso con privilegios permanente en Azure AD o para recursos de Azure u Office 365, así como para otras aplicaciones de SaaS. Para muchos clientes, esto es un riesgo de seguridad creciente para los recursos hospedados en la nube porque no pueden supervisar suficientemente qué hacen esos usuarios con sus privilegios administrativos. Además, una cuenta de usuario en peligro que tiene acceso con privilegios puede afectar su seguridad global en la nube. Administración de identidades con privilegios de Azure AD le ayuda a resolver este riesgo.
 
 Administración de identidades con privilegios de Azure AD en esta vista previa le permite:
 
@@ -105,4 +105,6 @@ Mediante Administración de identidades con privilegios de Azure AD, también pu
 [5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

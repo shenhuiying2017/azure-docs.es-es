@@ -97,4 +97,4 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 [Entorno de prueba de la configuración base]: virtual-machines-base-configuration-test-environment.md
 [Entornos de prueba de nube híbrida de Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

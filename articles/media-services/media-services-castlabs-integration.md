@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/03/2015" 
 	ms.author="juliako"/>
 
 
@@ -32,7 +32,7 @@ En el siguiente diagrama se muestra una arquitectura de integración de castLabs
 - El contenido multimedia se almacena en AMS.
 - Los id. de clave de claves de contenido se almacenan en castLabs y AMS.
 - Tanto castLabs como AMS tienen la autenticación de tokens integrada. En las secciones siguientes se analizan los tokens de autenticación. 
-- Cuando un cliente solicita el flujo de vídeo, el contenido se cifra dinámicamente con **cifrado común** (CENC) y se empaqueta dinámicamente por AMS a cualquiera de los protocolos especificados (o a todos ellos): Smooth Streaming, HLS o DASH. 
+- Cuando un cliente solicita transmitir el vídeo, el contenido se cifra dinámicamente con **cifrado común** (CENC) y se empaqueta dinámicamente por AMS a Smooth Streaming y DASH. También ofrecemos cifrado de streaming elemental de PlayReady M2TS para el protocolo de streaming HLS.
 - La licencia de PlayReady se recupera del servidor de licencias de AMS y la licencia de Widevine se recupera del servidor de licencias de castLabs. 
 - El reproductor multimedia decide automáticamente qué licencia capturar basándose en la capacidad de la plataforma del cliente. 
 
@@ -95,7 +95,7 @@ Para usar la aplicación web (STS):
 
 ##Reproducir un vídeo
 
-Para reproducir un vídeo cifrado con cifrado común (PlayReady y Widevine), puede usar el [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Cuando se ejecuta la aplicación de consola, se reflejan el id. de clave de contenido y la dirección URL del manifiesto.
+Para reproducir un vídeo cifrado con cifrado común (PlayReady), puede usar el [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Cuando se ejecuta la aplicación de consola, se reflejan el id. de clave de contenido y la dirección URL del manifiesto.
 
 1.	Abra una pestaña nueva e inicie su STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
 2.	Vaya al [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
@@ -106,10 +106,12 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady y Widevine), pue
 7.	Actualice el reproductor.
 8.	El vídeo se debe estar reproduciendo.
 
-Para reproducir el vídeo protegido en HTML5 con Chrome con el reproductor de castLabs, póngase en contacto con castLabs para obtener acceso al reproductor. Cuando tenga acceso, hay 2 cosas que debe tener en cuenta:
+Para reproducir el vídeo protegido en HTML5 con Chrome con el reproductor de castLabs, póngase en contacto con yanmf@microsoft.com para obtener acceso al reproductor. Cuando tenga acceso, hay 2 cosas que debe tener en cuenta:
 
 1.	El reproductor de castLabs necesita acceder al archivo de manifiesto de MPEG-DASH; por tanto, anexe (format=mpd-time-csf) al archivo de manifiesto para obtener el archivo de manifiesto de MPEG-DASH, en lugar del Smooth Streaming predeterminado.
 
 2.	El servidor de licencias de castLab no necesita el prefijo “Bearer=” delante del token. Por tanto, quítelo antes de enviar el token.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure"
+	pageTitle="Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure | Microsoft Azure"
 	description="Obtenga información sobre cómo utilizar las herramientas de línea de comandos para Mac, Linux y Windows para administrar Azure utilizando el modo arm de la CLI de Azure."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
-	authors="squillace"
+	authors="dlepow"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="06/09/2015"
+	ms.author="danlep"/>
 
 # Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de servicios de Azure
 
@@ -151,7 +151,7 @@ Permite ver los entornos de cuenta.
 	data:    AzureChinaCloud
 	info:    account env list command OK
 
-**account env show [options][environment]**
+**account env show [options] [environment]**
 
 Permite ver la información del entorno de cuenta.
 
@@ -162,15 +162,15 @@ Permite ver la información del entorno de cuenta.
 	data:    Environment portal  http://go.microsoft.com/fwlink/?LinkId=2544
 	info:    account env show command OK
 
-**account env add [options][environment]**
+**account env add [options] [environment]**
 
 Este comando permite agregar un entorno a la cuenta.
 
-**account env set [options][environment]**
+**account env set [options] [environment]**
 
 Este comando permite establecer el entorno de cuenta.
 
-**account env delete [options][environment]**
+**account env delete [options] [environment]**
 
 Este comando permite eliminar el entorno especificado de la cuenta.
 
@@ -213,7 +213,7 @@ Este comando permite crear una nueva máquina virtual de Azure desde un archivo 
 	~$ azure vm create-from my-vm example.json
 	info:   OK
 
-**lista de VM [opciones]**
+**vm list [options]**
 
 Este comando permite ver las máquinas virtuales de Azure. La opción --json especifica que los resultados se devuelven con un formato JSON sin procesar.
 
@@ -474,7 +474,7 @@ Los comandos para conectar discos de datos (azure vm disk attach y azure vm disk
 
 Cuando desconecte un disco de datos con el comando azure vm disk detach, use el parámetro &lt;lun&gt; para indicar qué disco desconectar.
 
-> [AZURE>NOTA] Tenga en cuenta que siempre debe desconectar los discos de datos en orden inverso, empezando por el LUN con el número mayor que se haya asignado. La capa SCSI de Linux no es compatible con la desconexión de un LUN con un número inferior si hay un LUN con número superior conectado. Por ejemplo, no debe desconectar LUN 0 si LUN 1 sigue estando conectado.
+> [AZURE>NOTE] Tenga en cuenta que siempre debe desconectar los discos de datos en orden inverso, empezando por el LUN con el número mayor que se haya asignado. La capa SCSI de Linux no es compatible con la desconexión de un LUN con un número inferior si hay un LUN con número superior conectado. Por ejemplo, no debe desconectar LUN 0 si LUN 1 sigue estando conectado.
 
 **vm disk show [options] &lt;name>**
 
@@ -493,7 +493,7 @@ Este comando muestra información sobre un disco de Azure.
 	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-es-es-30GB.vhd"
 	info:   vm disk show command OK
 
-**vm disk list [options][vm-name]**
+**vm disk list [options] [vm-name]**
 
 Este comando permite ver los discos de Azure o los discos conectados a una máquina virtual especificada. Si se ejecuta con un parámetro de nombre de máquina virtual, devuelve todos los discos conectados a la máquina virtual. Lun 1 se crea con la máquina virtual y los demás discos que aparecen se conectan de forma independiente.
 
@@ -688,7 +688,7 @@ Este comando permite ver las aplicaciones web.
 	data:   mydrupalsite36  Running  mydrupalsite36.antdf0.antares.windows.net
 	info:   site list command OK
 
-**site set [options][name]**
+**site set [options] [name]**
 
 Este comando establecerá las opciones de configuración para la aplicación web [name]
 
@@ -709,7 +709,7 @@ Este comando le permitirá generar un script de implementación personalizado.
 	info:    Generated deployment script files
 	info:    site deploymentscript command OK
 
-**site create [options][name]**
+**site create [options] [name]**
 
 Este comando crea una nueva aplicación web y directorio local.
 
@@ -724,7 +724,7 @@ Este comando crea una nueva aplicación web y directorio local.
 
 > [AZURE.NOTE]El nombre del sitio debe ser exclusivo. No puede crear un sitio con el mismo nombre DNS que un sitio existente.
 
-**site browse [options][name]**
+**site browse [options] [name]**
 
 Este comando permite abrir la aplicación web en un explorador.
 
@@ -733,7 +733,7 @@ Este comando permite abrir la aplicación web en un explorador.
 	info:   Launching browser to http://mysite.antdf0.antares-test.windows-int.net
 	info:   site browse command OK
 
-**site show [options][name]**
+**site show [options] [name]**
 
 Este comando permite ver información sobre una aplicación web.
 
@@ -763,7 +763,7 @@ Este comando permite ver información sobre una aplicación web.
 	data:   Repository https://mysite.scm.antdf0.antares-test.windows-int.net/
 	info:   site show command OK
 
-**site delete [options][name]**
+**site delete [options] [name]**
 
 Este comando permite eliminar una aplicación web.
 
@@ -773,7 +773,7 @@ Este comando permite eliminar una aplicación web.
 	info:   Site mysite has been deleted
 	info:   site delete command OK
 
- **site swap [options][name]**
+ **site swap [options] [name]**
 
 Este comando intercambia entre dos espacios de aplicaciones web.
 
@@ -782,7 +782,7 @@ Este comando es compatible con la siguiente opción adicional:
 **-q o **--quiet**: No solicita confirmación. Use esta opción en los scripts automáticos.
 
 
-**site start [options][name]**
+**site start [options] [name]**
 
 Este comando permite iniciar una aplicación web.
 
@@ -792,7 +792,7 @@ Este comando permite iniciar una aplicación web.
 	info:   Site mysite has been started
 	info:   site start command OK
 
-**site stop [options][name]**
+**site stop [options] [name]**
 
 Este comando permite detener una aplicación web.
 
@@ -802,7 +802,7 @@ Este comando permite detener una aplicación web.
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options][name]
+**site restart [options] [name]
 
 Este comando detiene y después inicia una aplicación web especificada.
 
@@ -830,7 +830,7 @@ Este comando permite ver las ubicaciones de aplicaciones web.
 
 ###Comandos para administrar la configuración de aplicaciones de aplicaciones web
 
-**site appsetting list [options][name]**
+**site appsetting list [options] [name]**
 
 Este comando permite ver la configuración de la aplicación agregada a la aplicación web.
 
@@ -883,7 +883,7 @@ Este comando muestra información de la configuración de la aplicación especif
 
 ###Comandos para administrar certificados de la aplicación web
 
-**site cert list [options][name]**
+**site cert list [options] [name]**
 
 Este comando permite ver una lista de certificados de la aplicación web.
 
@@ -923,7 +923,7 @@ Este comando permite ver la información del certificado.
 
 ###Comandos para administrar las cadenas de conexión de la aplicación web
 
-**site connectionstring list [options][name]**
+**site connectionstring list [options] [name]**
 
 **site connectionstring add [options] &lt;connectionname> &lt;value> &lt;type> [name]**
 
@@ -933,7 +933,7 @@ Este comando permite ver la información del certificado.
 
 ###Comandos para administrar documentos predeterminados de la aplicación web
 
-**site defaultdocument list [options][name]**
+**site defaultdocument list [options] [name]**
 
 **site defaultdocument add [options] &lt;document> [name]**
 
@@ -941,19 +941,19 @@ Este comando permite ver la información del certificado.
 
 ###Comandos para administrar implementaciones de la aplicación web
 
-**site deployment list [options][name]**
+**site deployment list [options] [name]**
 
 **site deployment show [options] &lt;commitId> [name]**
 
 **site deployment redeploy [options] &lt;commitId> [name]**
 
-**site deployment github [options][name]**
+**site deployment github [options] [name]**
 
-**site deployment user set [options][username] [pass]**
+**site deployment user set [options] [username] [pass]**
 
 ###Comandos para administrar aplicaciones web
 
-**site domain list [options][name]**
+**site domain list [options] [name]**
 
 **site domain add [options] &lt;dn> [name]**
 
@@ -961,7 +961,7 @@ Este comando permite ver la información del certificado.
 
 ###Comandos para administrar asignaciones del controlador de aplicaciones web
 
-**site handler list [options][name]**
+**site handler list [options] [name]**
 
 **site handler add [options] &lt;extension> &lt;processor> [name]**
 
@@ -969,7 +969,7 @@ Este comando permite ver la información del certificado.
 
 ###Comandos para administrar trabajos web
 
-**site job list [options][name]**
+**site job list [options] [name]**
 
 Este comando enumera todos los trabajos web de una aplicación web.
 
@@ -1031,7 +1031,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 ###Comandos para administrar el historial de trabajos web
 
-**site job history list [options][jobName] [name]**
+**site job history list [options] [jobName] [name]**
 
 Este comando muestra un historial de las ejecuciones del trabajo web especificado.
 
@@ -1040,7 +1040,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **--job-name** &lt;job-name>: Obligatorio. Nombre del trabajo web.
 + **--slot** &lt;slot>: Nombre del espacio que se va a reiniciar.
 
-**site job history show [options][jobName] [runId][name]**
+**site job history show [options] [jobName] [runId] [name]**
 
 Este comando obtiene los detalles de la ejecución de trabajo del trabajo web especificado.
 
@@ -1052,7 +1052,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 ###Comandos para administrar el diagnóstico de la aplicación web
 
-**site log download [options][name]**
+**site log download [options] [name]**
 
 Permite descargar un archivo .zip que contiene el diagnóstico de la aplicación web.
 
@@ -1064,7 +1064,7 @@ Permite descargar un archivo .zip que contiene el diagnóstico de la aplicación
 	+ Downloading diagnostic log to diagnostics.zip
 	info:    site log download command OK
 
-**site log tail [options][name]**
+**site log tail [options] [name]**
 
 Este comando permite conectar su terminal al servicio de streaming de registros.
 
@@ -1075,7 +1075,7 @@ Este comando permite conectar su terminal al servicio de streaming de registros.
 	+ Getting site information
 	2013-11-19T17:24:17  Welcome, you are now connected to log-streaming service.
 
-**site log set [options][name]**
+**site log set [options] [name]**
 
 Este comando configura las opciones de diagnóstico para la aplicación web.
 
@@ -1098,9 +1098,9 @@ Este comando configura las opciones de diagnóstico para la aplicación web.
 
 **site repository branch [options] &lt;branch> [name]**
 
-**site repository delete [options][name]**
+**site repository delete [options] [name]**
 
-**site repository sync [options][name]**
+**site repository sync [options] [name]**
 
 ###Comandos para administrar la escalación de la aplicación web
 
@@ -1139,7 +1139,7 @@ Este comando permite ver las ubicaciones geográficas compatibles con Servicios 
 	info:    West US
 	info:    North Europe
 
-**mobile create [options][servicename] [sqlAdminUsername][sqlAdminPassword]**
+**mobile create [options] [servicename] [sqlAdminUsername] [sqlAdminPassword]**
 
 Este comando permite crear un servicio móvil junto con un servidor y una base de datos SQL.
 
@@ -1159,7 +1159,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-l `<location>`** o **--location `<location>`**: Permite crear el servicio en una ubicación determinada, que se especifica como `<location>`. Ejecute ubicaciones móviles de Azure para obtener ubicaciones disponibles.
 + **--sqlLocation `<location>`**: Permite crear el servidor SQL en una `<location>` específica; el valor predeterminado es la ubicación del servicio móvil.
 
-**mobile delete [options][servicename]**
+**mobile delete [options] [servicename]**
 
 Este comando permite eliminar un servicio móvil junto con su servidor y base de datos SQL.
 
@@ -1194,7 +1194,7 @@ Este comando permite ver los servicios móviles.
 	data:    mymobileapp   Ready  https://mymobileapp.azure-mobile.net/
 	info:    mobile list command OK
 
-**mobile show [options][servicename]**
+**mobile show [options] [servicename]**
 
 Este comando muestra información sobre un servicio móvil.
 
@@ -1220,7 +1220,7 @@ Este comando muestra información sobre un servicio móvil.
 	data:    tables TodoItem
 	info:    mobile show command OK
 
-**mobile restart [options][servicename]**
+**mobile restart [options] [servicename]**
 
 Este comando permite reiniciar una instancia de servicio móvil.
 
@@ -1230,7 +1230,7 @@ Este comando permite reiniciar una instancia de servicio móvil.
 	info:    Service was restarted.
 	info:    mobile restart command OK
 
-**mobile log [options][servicename]**
+**mobile log [options] [servicename]**
 
 Este comando permite devolver registros de servicios móviles filtrando todos los tipos de registros excepto `error`.
 
@@ -1253,7 +1253,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 > [AZURE.NOTE]El parámetro **--query** prevalece sobre **--type**, **--skip** y **--top**.
 
-**mobile recover [options][unhealthyservicename] [healthyservicename]**
+**mobile recover [options] [unhealthyservicename] [healthyservicename]**
 
 Este comando permite recuperar un servicio móvil que no está en buen estado moviéndolo a un servicio móvil en buen estado de otra región.
 
@@ -1261,7 +1261,7 @@ Este comando es compatible con la siguiente opción adicional:
 
 **-q** o **--quiet**: Suprime la solicitud de confirmación de recuperación.
 
-**mobile key regenerate [options][servicename] [type]**
+**mobile key regenerate [options] [servicename] [type]**
 
 Este comando vuelve a generar la clave de la aplicación del servicio móvil.
 
@@ -1274,14 +1274,14 @@ Los tipos de clave son `master` y `application`.
 
 > [AZURE.NOTE]Cuando vuelva a generar las claves, es posible que los clientes que usan la clave antigua no puedan obtener acceso a su servicio móvil. Si vuelve a generar la clave de aplicación, debe actualizar su aplicación con el nuevo valor de clave.
 
-**mobile key set [options][servicename] [type][value]**
+**mobile key set [options] [servicename] [type] [value]**
 
 Este comando establece la clave de servicio móvil en un valor específico.
 
 
 ###<a name="Mobile_Configuration"></a>Comandos para administrar la configuración de servicios móviles
 
-**mobile config list [options][servicename]**
+**mobile config list [options] [servicename]**
 
 Este comando permite ver las opciones de configuración para un servicio móvil.
 
@@ -1303,7 +1303,7 @@ Este comando permite ver las opciones de configuración para un servicio móvil.
 	data:    apnsCertifcate Not configured
 	info:    mobile config list command OK
 
-**mobile config get [options][servicename] [key]**
+**mobile config get [options] [servicename] [key]**
 
 Este comando permite obtener una opción de configuración específica para un servicio móvil. En este caso, se trata de un esquema dinámico.
 
@@ -1312,7 +1312,7 @@ Este comando permite obtener una opción de configuración específica para un s
 	data:    dynamicSchemaEnabled true
 	info:    mobile config get command OK
 
-**mobile config set [options][servicename] [key][value]**
+**mobile config set [options] [servicename] [key] [value]**
 
 Este comando permite establecer una opción de configuración específica para un servicio móvil. En este caso, se trata de un esquema dinámico.
 
@@ -1323,7 +1323,7 @@ Este comando permite establecer una opción de configuración específica para u
 
 ###<a name="Mobile_Tables"></a>Comandos para administrar tablas de servicios móviles
 
-**mobile table list [options][servicename]**
+**mobile table list [options] [servicename]**
 
 Este comando permite ver todas las tablas del servicio móvil.
 
@@ -1335,7 +1335,7 @@ Este comando permite ver todas las tablas del servicio móvil.
 	data:    TodoItem  1        0
 	info:    mobile table list command OK
 
-**mobile table show [options][servicename] [tablename]**
+**mobile table show [options] [servicename] [tablename]**
 
 Este comando permite ver la información de devolución sobre una tabla específica.
 
@@ -1359,7 +1359,7 @@ Este comando permite ver la información de devolución sobre una tabla específ
 	data:    complete  boolean
 	info:    mobile table show command OK
 
-**mobile table create [options][servicename] [tablename]**
+**mobile table create [options] [servicename] [tablename]**
 
 Este comando permite crear una tabla.
 
@@ -1372,7 +1372,7 @@ Este comando es compatible con la siguiente opción adicional:
 
 + **-p `&lt;permissions>`** o **--permissions `&lt;permissions>`**: Lista delimitada por comas de los pares `<operation>`=`<permission>`, donde `<operation>` es `insert`, `read`, `update` o `delete` y `&lt;permissions>` es `public`, `application` (valor predeterminado) `user` o `admin`.
 
-**mobile data read [options][servicename] [tablename][query]**
+**mobile data read [options] [servicename] [tablename] [query]**
 
 Este comando permite leer los datos de una tabla.
 
@@ -1392,7 +1392,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-t `<top>`** o **--top `<top>`**: Devuelve el número determinado de filas especificado por `<top>`.
 + **-l** o **--list**: Permite devolver los datos en un formato de lista.
 
-**mobile table update [options][servicename] [tablename]**
+**mobile table update [options] [servicename] [tablename]**
 
 Este comando permite cambiar los permisos de eliminación en una tabla solo para los administradores.
 
@@ -1410,7 +1410,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **--addIndex `<columns>`**: Lista delimitada por comas de columnas para incluir en el índice.
 + **--deleteIndex `<columns>`**: Lista delimitada por comas de columnas para excluir del índice.
 
-**mobile table delete [options][servicename] [tablename]**
+**mobile table delete [options] [servicename] [tablename]**
 
 Este comando permite eliminar una tabla.
 
@@ -1422,7 +1422,7 @@ Este comando permite eliminar una tabla.
 
 Especifique el parámetro -q para eliminar la tabla sin que sea necesaria la confirmación. Esto evita el bloqueo de los scripts de automatización.
 
-**mobile data truncate [options][servicename] [tablename]**
+**mobile data truncate [options] [servicename] [tablename]**
 
 Este comando permite quitar todas las filas de datos de la tabla.
 
@@ -1438,7 +1438,7 @@ Este comando permite quitar todas las filas de datos de la tabla.
 
 Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles](mobile-services/mobile-services-how-to-use-server-scripts.md).
 
-**mobile script list [options][servicename]**
+**mobile script list [options] [servicename]**
 
 Este comando permite ver los scripts registrados, incluidos los scritps del programador y de tablas.
 
@@ -1458,7 +1458,7 @@ Este comando permite ver los scripts registrados, incluidos los scritps del prog
 	data:    scheduler/undefined  undefined  undefined  undefined  undefined
 	info:    mobile script list command OK
 
-**mobile script download [options][servicename] [scriptname]**
+**mobile script download [options] [servicename] [scriptname]**
 
 Este comando permite descargar el script de inserción de la tabla TodoItem en un archivo con el nombre `todoitem.insert.js` en la subcarpeta `table`.
 
@@ -1474,7 +1474,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-o** o **--override**: Permite sobrescribir un archivo existente.
 + **-c** o **--console**: Permite escribir el script en la consola en lugar de en un archivo.
 
-**mobile script upload [options][servicename] [scriptname]**
+**mobile script upload [options] [servicename] [scriptname]**
 
 Este comando carga un nuevo script con el nombre `todoitem.insert.js` desde la subcarpeta `table`.
 
@@ -1485,7 +1485,7 @@ Este comando carga un nuevo script con el nombre `todoitem.insert.js` desde la s
 El nombre del archivo debe estar compuesto por los nombres de operación y de tabla, y debe encontrarse en la subcarpeta table relativa a la ubicación en la que se ejecuta el comando. También puede usar el parámetro **-f `<file>`** o **--file `<file>`** para especificar una ruta y un nombre de archivo distintos para el archivo que contienen el script para registrar.
 
 
-**mobile script delete [options][servicename] [scriptname]**
+**mobile script delete [options] [servicename] [scriptname]**
 
 Este comando permite eliminar el script de inserción existente de la tabla TodoItem.
 
@@ -1497,7 +1497,7 @@ Este comando permite eliminar el script de inserción existente de la tabla Todo
 
 Los comandos de esta sección se usan para administrar los trabajos programados que pertenecen a un servicio móvil. Para obtener más información, vea [Programación de trabajos](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
-**mobile job list [options][servicename]**
+**mobile job list [options] [servicename]**
 
 Este comando permite ver los trabajos programados.
 
@@ -1510,7 +1510,7 @@ Este comando permite ver los trabajos programados.
 	info:    You can manipulate scheduled job scripts using the 'azure mobile script' command.
 	info:    mobile job list command OK
 
-**mobile job create [options][servicename] [jobname]**
+**mobile job create [options] [servicename] [jobname]**
 
 Este comando permite crear un nuevo trabajo con el nombre `getUpdates` que se programa para ejecutarse cada hora.
 
@@ -1533,7 +1533,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 > [AZURE.NOTE]Los nuevos trabajos se crean en un estado deshabilitado porque aún se debe cargar un script. Use el comando **mobile script upload** para cargar un script y el comando **mobile job update** para habilitar el trabajo.
 
-**mobile job update [options][servicename] [jobname]**
+**mobile job update [options] [servicename] [jobname]**
 
 El siguiente comando habilita el trabajo deshabilitado `getUpdates`.
 
@@ -1553,7 +1553,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-t `<time>`** **--startTime `<time>`** La hora de inicio de la primera ejecución del script, en formato ISO; el valor predeterminado es `now`.
 + **-a `<status>`** o **--status `<status>`**: Estado del trabajo, que puede ser `enabled` o `disabled`.
 
-**mobile job delete [options][servicename] [jobname]**
+**mobile job delete [options] [servicename] [jobname]**
 
 Este comando quita el trabajo programado getUpdates del servidor TodoList.
 
@@ -1567,7 +1567,7 @@ Este comando quita el trabajo programado getUpdates del servidor TodoList.
 
 Los comandos de esta sección se usan para escalar un servicio móvil. Para obtener más información, consulte [Escalar un servicio móvil](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
-**mobile scale show [options][servicename]**
+**mobile scale show [options] [servicename]**
 
 Este comando permite ver la información de la escalación, incluido el modo de proceso actual y el número de instancias.
 
@@ -1578,7 +1578,7 @@ Este comando permite ver la información de la escalación, incluido el modo de 
 	data:    numberOfInstances 1
 	info:    mobile scale show command OK
 
-**mobile scale change [options][servicename]**
+**mobile scale change [options] [servicename]**
 
 Este comando permite cambiar la escala del servicio móvil del modo libre a premium.
 
@@ -1597,7 +1597,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 ###Comandos para habilitar características de vista previa para su servicio móvil
 
-**mobile preview list [options][servicename]**
+**mobile preview list [options] [servicename]**
 
 Este comando muestra las características de vista previa disponibles en el servicio especificado y si están habilitadas.
 
@@ -1611,13 +1611,13 @@ Este comando muestra las características de vista previa disponibles en el serv
 	info:    You can enable preview features using the 'azure mobile preview enable' command.
 	info:    mobile preview list command OK
 
-**mobile preview enable [options][servicename] [featurename]**
+**mobile preview enable [options] [servicename] [featurename]**
 
 Este comando habilita la característica de vista previa especificada para un servicio móvil. Tenga en cuenta que una vez habilitadas, las características de vista previa no se pueden deshabilitar para un servicio móvil.
 
 ###Comandos para administrar las API de servicios móviles
 
-**mobile api list [options][servicename]**
+**mobile api list [options] [servicename]**
 
 Este comando muestra una lista de API personalizadas de servicio móvil que creó para su servicio móvil.
 
@@ -1631,7 +1631,7 @@ Este comando muestra una lista de API personalizadas de servicio móvil que cre�
 	info:    You can manipulate API scripts using the 'azure mobile script' command.
 	info:    mobile api list command OK
 
-**mobile api create [options][servicename] [apiname]**
+**mobile api create [options] [servicename] [apiname]**
 
 Creación de API personalizada de servicio móvil
 
@@ -1645,7 +1645,7 @@ Este comando es compatible con la siguiente opción adicional:
 
 **-p** o **--permissions** &lt;permissions>: Lista delimitada por comas de pares &lt;method>=&lt;permission>.
 
-**mobile api update [options][servicename] [apiname]**
+**mobile api update [options] [servicename] [apiname]**
 
 Este comando actualiza la API personalizada del servicio móvil especificado.
 
@@ -1656,7 +1656,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-p** o **--permissions** &lt;permissions>: Lista delimitada por comas de pares &lt;method>=&lt;permission>.
 + **-f** o **--force**: invalida los cambios personalizados en el archivo de metadatos de permisos.
 
-**mobile api delete [options][servicename] [apiname]**
+**mobile api delete [options] [servicename] [apiname]**
 
 	~$ azure mobile api delete mysite myCustomRetrieveAPI
 	info:    Executing command mobile api delete
@@ -1667,7 +1667,7 @@ Este comando elimina la API personalizada del servicio móvil especificado.
 
 ###Comandos para administrar la configuración de aplicaciones móviles
 
-**mobile appsetting list [options][servicename]**
+**mobile appsetting list [options] [servicename]**
 
 Este comando muestra la configuración de aplicaciones móviles del servicio especificado.
 
@@ -1679,7 +1679,7 @@ Este comando muestra la configuración de aplicaciones móviles del servicio esp
 	data:    enablebetacontent  true
 	info:    mobile appsetting list command OK
 
-**mobile appsetting add [options][servicename] [name][value]**
+**mobile appsetting add [options] [servicename] [name] [value]**
 
 Este comando agrega una configuración de aplicación personalizada a su servicio móvil.
 
@@ -1689,7 +1689,7 @@ Este comando agrega una configuración de aplicación personalizada a su servici
 	+ Adding app setting
 	info:    mobile appsetting add command OK
 
-**mobile appsetting delete [options][servicename] [name]**
+**mobile appsetting delete [options] [servicename] [name]**
 
 Este comando quita la configuración de la aplicación especificada de su servicio móvil.
 
@@ -1699,7 +1699,7 @@ Este comando quita la configuración de la aplicación especificada de su servic
 	+ Removing app setting 'enablebetacontent'
 	info:    mobile appsetting delete command OK
 
-**mobile appsetting show [options][servicename] [name]**
+**mobile appsetting show [options] [servicename] [name]**
 
 Este comando quita la configuración de la aplicación especificada de su servicio móvil.
 
@@ -1868,14 +1868,13 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-d** o **--description** &lt;description>: Descripción de la cuenta de almacenamiento.
 + **-l** o **--location** &lt;name>: Región geográfica donde se creará la cuenta de almacenamiento.
 + **-a** o **--affinity-group** &lt;name>: Grupo de afinidad al que se asociará la cuenta de almacenamiento.
-+ **--geoReplication**: Indica si la replicación geográfica está habilitada.
-+ **--disable-geoReplication**: Indica si la replicación geográfica está habilitada.
++ **--type**: indica el tipo de cuenta que se va a crear: almacenamiento Estándar con opción de redundancia (LRS/ZRS/GRS/RAGRS) o almacenamiento Premium (PLRS).
 
 **storage account set [options] <name>**
 
 Este comando actualiza la cuenta de almacenamiento especificada.
 
-	~$ azure storage account set mybasestorage --geoReplication
+	~$ azure storage account set mybasestorage --type GRS
 	info:    Executing command storage account set
 	+ Updating storage account
 	info:    storage account set command OK
@@ -1885,8 +1884,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-e** o **--label** &lt;label>: Etiqueta de la cuenta de almacenamiento.
 + **-d** o **--description** &lt;description>: Descripción de la cuenta de almacenamiento.
 + **-l** o **--location** &lt;name>: Región geográfica donde se creará la cuenta de almacenamiento.
-+ **--geoReplication**: Indica si la replicación geográfica está habilitada.
-+ **--disable-geoReplication**: Indica si la replicación geográfica está habilitada.
++ **--type**: indica el nuevo tipo de cuenta: almacenamiento Estándar con opción de redundancia (LRS/ZRS/GRS/RAGRS) o almacenamiento Premium (PLRS).
 
 **storage account delete [options] <name>**
 
@@ -1906,7 +1904,7 @@ Este comando enumera las claves principal y secundaria para la cuenta de almacen
 
 ###Comandos para administrar el contenedor de almacenamiento
 
-**storage container list [options][prefix]**
+**storage container list [options] [prefix]**
 
 Este comando muestra la lista de contenedores de almacenamiento de una cuenta de almacenamiento especificada. La cuenta de almacenamiento está especificada por la cadena de conexión o por el nombre y la clave de la cuenta de almacenamiento.
 
@@ -1918,7 +1916,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento.
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage container show [options][container]** **storage container create [options][container]**
+**storage container show [options] [container]** **storage container create [options] [container]**
 
 Este comando permite crear un contenedor de almacenamiento para la cuenta de almacenamiento especificada. La cuenta de almacenamiento está especificada por la cadena de conexión o por el nombre y la clave de la cuenta de almacenamiento.
 
@@ -1931,7 +1929,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage container delete [options][container]**
+**storage container delete [options] [container]**
 
 Este comando elimina el contenedor de almacenamiento especificado. La cuenta de almacenamiento está especificada por la cadena de conexión o por el nombre y la clave de la cuenta de almacenamiento.
 
@@ -1944,7 +1942,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento.
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage container set [options][container]**
+**storage container set [options] [container]**
 
 Este comando establece la lista de control de acceso del control de acceso del contenedor de almacenamiento. La cuenta de almacenamiento está especificada por la cadena de conexión o por el nombre y la clave de la cuenta de almacenamiento.
 
@@ -1959,7 +1957,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 ###Comandos para administrar el blob de almacenamiento
 
-**storage blob list [options][container] [prefix]**
+**storage blob list [options] [container] [prefix]**
 
 Este comando devuelve una lista de blobs de almacenamiento en el contenedor de almacenamiento especificado.
 
@@ -1972,7 +1970,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento.
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage blob show [options][container] [blob]**
+**storage blob show [options] [container] [blob]**
 
 Este comando muestra información del blob de almacenamiento especificado.
 
@@ -1985,7 +1983,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento.
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage blob delete [options][container] [blob]**
+**storage blob delete [options] [container] [blob]**
 
 Este comando es compatible con las siguientes opciones adicionales:
 
@@ -1997,7 +1995,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento.
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage blob upload [options][file] [container][blob]**
+**storage blob upload [options] [file] [container] [blob]**
 
 Este comando carga el archivo especificado en el blob de almacenamiento especificado.
 
@@ -2015,7 +2013,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 + **-c** o **--connection-string** &lt;connectionString>: Cadena de conexión de almacenamiento.
 + **--debug**: Ejecuta el comando de almacenamiento en modo de depuración.
 
-**storage blob download [options][container] [blob][destination]**
+**storage blob download [options] [container] [blob] [destination]**
 
 Este comando descarga el blob de almacenamiento especificado.
 
@@ -2023,7 +2021,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 
 + **--container** &lt;container>: Nombre del contenedor de almacenamiento que se va a crear.
 + **-b** o **--blob** &lt;blobName>: Nombre de blob de almacenamiento.
-+ **-d** o **--destination** [destination]: Archivo de destino o ruta de directorio de descarga.
++ **-d** o **--destination** [destination]: archivo de destino o ruta de directorio de descarga.
 + **-m** o **--checkmd5**: Comprobación md5sum del archivo descargado.
 + **--concurrenttaskcount** &lt;concurrenttaskcount>: Número máximo de solicitudes de carga simultáneas
 + **-q** o **--quiet**: Sobrescribe el archivo de destino sin confirmación.
@@ -2340,4 +2338,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=58-->
+<!---HONumber=58_postMigration-->

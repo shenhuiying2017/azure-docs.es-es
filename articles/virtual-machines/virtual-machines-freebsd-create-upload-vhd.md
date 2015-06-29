@@ -41,22 +41,22 @@ Desde la máquina virtual en la que se instaló el sistema operativo FreeBSD, re
 
 1. **Habilitar DHCP**
 
-		# echo 'ifconfig_hn0="SYNCDHCP"' >> /etc/rc.conf
+		# echo 'ifconfig_hn0="SYNCDHCP"' > /etc/rc.conf
 		# service netif restart
 
 2. **Habilitar SSH**
 
     SSH se activa de forma predeterminada después de la instalación desde el disco. Si no es así, o si utiliza VHD de FreeBSD directamente, escriba:
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
+		# echo 'sshd_enable="YES"' > /etc/rc.conf 
 		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
 		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
 		# service sshd restart
 
 3. **Configurar la consola de serie**
 
-		# echo 'console="comconsole vidconsole"' >> /boot/loader.conf
-		# echo 'comconsole_speed="115200"' >> /boot/loader.conf
+		# echo 'console="comconsole vidconsole"' > /boot/loader.conf
+		# echo 'comconsole_speed="115200"' > /boot/loader.conf
 
 4. **Instalar sudo**
 
@@ -204,5 +204,6 @@ Después de cargar el archivo .vhd, puede agregarlo como una imagen a la lista d
 4. Cuando haya completado el aprovisionamiento, verá que la máquina virtual de FreeBSD se ejecuta en Azure.
 
 	![imagen de FreeBSD en azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

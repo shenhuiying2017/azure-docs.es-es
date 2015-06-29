@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Configuración de Automatización de Azure"
    description="Describe los pasos que debe realizar para configurar Automatización de Azure para su uso inicial."
    services="automation"
@@ -6,10 +6,10 @@
    authors="bwren"
    manager="stevenka"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="automation"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/13/2015"
@@ -24,6 +24,11 @@ Este artículo describe las acciones que debe realizar para comenzar a usar Auto
 Cuando inicia Automatización de Azure por primera vez, debe crear al menos una cuenta de Automatización. Las cuentas de Automatización le permiten aislar los recursos de Automatización (runbooks, recursos) desde los recursos de Automatización contenidos en otras cuentas de Automatización. Puede usar cuentas de Automatización para separar recursos de Automatización en entornos lógicos independientes. Por ejemplo, puede usar una cuenta para desarrollo y otra para producción.
 
 Los recursos de Automatización de cada cuenta de Automatización están asociados con una sola región de Azure, pero las cuentas de Automatización pueden administrar servicios de Azure en cualquier región. El principal motivo para crear cuentas de Automatización en distintas regiones sería si tiene directivas que requieren que los datos y recursos se aíslen en una región específica.
+
+>[AZURE.NOTE]A las cuentas de automatización y los recursos que contienen, que se crean con el Portal de vista previa de Azure, no se puede acceder desde el portal de Azure. Si desea administrar estas cuentas o sus recursos con Windows PowerShell, debe usar los módulos del Administrador de recursos de Azure.
+>
+>Las cuentas de automatización que se crean con el portal de Azure se pueden administrar a través de cualquiera de los portales y de cualquiera de los conjuntos de cmdlets. Tras crear la cuenta da igual la forma en que cree y administre los recursos en la misma. Si piensa seguir usando el portal de Azure, debe utilizarlo en lugar del Portal de vista previa de Azure para crear las cuentas de automatización.
+
 
 En caso de que se produzca un problema con su cuenta de Azure, como un pago vencido, es posible que se suspenda una cuenta de Automatización. En este caso, no será posible obtener acceso a la cuenta, se suspenderá todo trabajo que esté en ejecución y se deshabilitarán todas las programaciones. Podrá ver la cuenta, pero no podrá ver los recursos existentes en ella. Una vez que corrija el problema y que se habilite la cuenta de Automatización, podrá habilitar las programaciones y reiniciar todo runbook que se haya suspendido.
 
@@ -58,7 +63,8 @@ Puede recuperar la credencial en un runbook mediante el uso de la actividad [Get
 
 Deberá repetir estas líneas después de cada [punto de control](automation-runbook-execution/#checkpoints) de su runbook. Si el runbook se suspende y luego se reanuda en otro trabajo, se deberá volver a realizar la autenticación.
 
-# Artículos relacionados
-- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Automatización de Azure: autenticación en Azure mediante Azure Active Directory) 
+## Artículos relacionados
+- [Azure Automation: Authenticating to Azure using Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/) (Automatización de Azure: autenticación en Azure mediante Azure Active Directory)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

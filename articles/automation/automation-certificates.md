@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Certificados"
+   pageTitle="Activos de certificados en Automatización de Azure"
    description="Los certificados se pueden almacenar de manera segura en Automatización de Azure, de manera tal que los runbooks pueden tener acceso a ellos para realizar la autenticación respecto de Azure y recursos de terceros. Este artículo explica los detalles de los certificados y cómo trabajar con ellos en la creación de textos y de gráficos."
    services="automation"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="06/14/2015"
    ms.author="bwren" />
 
-# Certificados
+# Activos de certificados en Automatización de Azure
 
 Los certificados se pueden almacenar de manera segura en Automatización de Azure de manera que los runbooks pueden tener acceso a ellos mediante el uso de la actividad **Get-AutomationCertificate**. Esto le permite crear runbooks que usan certificados para autenticación o agregarlos a Azure o a recursos de terceros que crea o configura su runbook.
 
@@ -105,6 +105,6 @@ Este ejemplo utiliza el conjunto de parámetros **UseConnectionObject** para la 
 
 ## Otras referencias
 
-- [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -3,7 +3,7 @@
 	description="Cómo empezar a usar el almacenamiento en cola de Azure en un proyecto de ASP.NET en Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="kempb"/>
+	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos ASP.NET 5)
 
@@ -102,5 +102,6 @@ Este proceso extracción de un mensaje que consta de dos pasos garantiza que si 
 	await queue.DeleteMessageAsync(retrievedMessage);
 
 [Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2015"
+	ms.date="06/11/2015"
 	ms.author="szark"/>
 
 
@@ -74,10 +74,13 @@ El Agente de Linux de Azure incluye la funcionalidad para detectar automáticame
 
  - [Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
-### Imágenes de Ubuntu
-Las imágenes de Ubuntu usan cloud-init, que proporciona funcionalidades adicionales para arrancar una máquina virtual.
+### Cloud-Init
+Las imágenes de **Ubuntu** y **CoreOS** usan cloud-init en Azure, que proporciona funcionalidades adicionales para arrancar una máquina virtual.
 
- - Consulte [Inserción de datos personalizados](virtual-machines-how-to-inject-custom-data.md) y [Datos personalizados y Cloud-Init en Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
+ - [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-how-to-inject-custom-data.md)
+ - [Custom Data and Cloud-Init on Microsoft Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) (Datos personalizados y cloud-init en Microsoft Azure)
+ - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions) (Creación de particiones de intercambio de Azure con cloud-init)
+ - [Uso de CoreOS en Azure](virtual-machines-linux-coreos-how-to.md)
 
 
 ## <a id="virtualmachine"></a>Captura de imagen de máquina virtual
@@ -99,10 +102,12 @@ Las máquinas virtuales disponen de un *disco de recursos* local y temporal acop
 
 En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu).
 
+
 	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se trata paso a paso en el tutorial: [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
- - Consulte también: [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
+ - **Consulte también:** [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

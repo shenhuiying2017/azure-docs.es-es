@@ -113,11 +113,16 @@ Cuando especifica un valor para un parámetro, selecciona un origen de datos par
 
 | Origen de datos | Descripción |
 |:---|:---|
-|Salida de la actividad|Salida de una actividad que precede la actividad actual en el flujo de trabajo. Se mostrarán todas las actividades válidas. Seleccione solo la actividad para usar su salida en el valor de parámetro. Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad.|
 |Valor constante|Escriba un valor para el parámetro. Este solo se encuentra disponible para los siguientes tipos de datos: Int32, Int64, String, Boolean, DateTime, Switch. |
+|Salida de la actividad|Salida de una actividad que precede la actividad actual en el flujo de trabajo. Se mostrarán todas las actividades válidas. Seleccione solo la actividad para usar su salida en el valor de parámetro. Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad.|
+|Parámetro de entrada runbook<br>*(próximamente) *|Seleccione un parámetro de entrada runbook como entrada para el parámetro de actividad.|  
+|Activo de variable de Automatización<br>*(próximamente)*|Seleccione una variable de Automatización como entrada.|  
+|Activo de credencial de Automatización<br>*(próximamente)*|Seleccione una credencial de Automatización como entrada.|  
+|Activo de certificado de Automatización<br>*(próximamente)*|Seleccione un certificado de Automatización como entrada.|  
+|Activo de conexión de Automatización<br>*(próximamente)*|Seleccione una conexión de Automatización como entrada.| 
+|Expresión de PowerShell|Especifique una expresión simple de PowerShell. La expresión se evaluará antes de la actividad y el resultado se usará en el valor del parámetro. Puede usar variables para consultar la salida de una actividad o un parámetro de entrada de runbook.|
 |Cadena vacía|Un valor de cadena vacío.|
 |Null|Un valor Null.|
-|Expresión de PowerShell|Especifique una expresión simple de PowerShell. La expresión se evaluará antes de la actividad y el resultado se usará en el valor del parámetro. Puede usar variables para consultar la salida de una actividad o un parámetro de entrada de runbook.|
 |Anular selección|Borrar cualquier valor configurado anteriormente.|
 
 
@@ -180,7 +185,7 @@ En el caso de un vínculo de secuencia, la condición solo se evalúa una vez, d
 
 Cuando usa un vínculo condicional, los datos disponibles desde la actividad de origen a otras actividades en esa rama se filtrarán según la condición. Si una actividad es el origen de varios vínculos, los datos disponibles para las actividades en cada rama dependerán de la condición del vínculo que se conecta a esa rama.
 
-Por ejemplo, la actividad de origen del runbook que aparece a continuación obtiene todas las máquinas virtuales. Tiene dos vínculos condicionales y un vínculo sin una condición. El primer vínculo condicional usa la expresión *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* para filtrar solo las máquinas virtuales que actualmente están en ejecución. El segundo vínculo usa la expresión *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* para filtrar solo las máquinas virtual que actualmente están detenidas.
+Por ejemplo, la actividad de origen del runbook que aparece a continuación obtiene todas las máquinas virtuales. Tiene dos vínculos condicionales y un vínculo sin una condición. El primer vínculo condicional usa la expresión *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Started'* para filtrar solo las máquinas virtuales que están en ejecución. El segundo usa la expresión *$ActivityOutput['Get-AzureVM'].PowerState -eq 'Stopped'* para filtrar solo las máquinas virtual que están detenidas.
 
 ![Ejemplo de vínculo condicional](media/automation-graphical-authoring-intro/conditional-links.png)
 
@@ -273,5 +278,6 @@ Los datos que crea alguna actividad que no tienen un vínculo saliente se agrega
 
 - [Conceptos de runbooks de Automatización de Azure](automation-runbook-concepts.md)
 - [Recursos de automatización](http://msdn.microsoft.com/library/azure/dn939988.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

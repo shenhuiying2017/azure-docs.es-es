@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2015" 
+	ms.date="04/14/2015"
 	ms.author="jparrel"/>
 
 # Uso de conjuntos de carga equilibrada para crear clústeres en MySQL en Linux
@@ -324,7 +324,7 @@ Si optamos por la opción de hardware, lo que haremos será cerrar la máquina v
 
 ## STONITH
 
-Debe ser posible emitir un cierre de máquina virtual a través de las herramientas de línea de comandos de Azure para Linux en lugar de un script STONITH que controle un dispositivo físico. Puede usar `/usr/lib/stonith/plugins/external/ssh` como base y habilitar STONITH en la configuración del clúster. CLI de Azure se debe instalar globalmente y la configuración o el perfil de publicación se debe cargar para el usuario del clúster.
+Debe ser posible emitir un cierre de máquina virtual a través de la CLI de Azure en lugar de un script STONITH que controle un dispositivo físico. Puede usar `/usr/lib/stonith/plugins/external/ssh` como base y habilitar STONITH en la configuración del clúster. CLI de Azure se debe instalar globalmente y la configuración o el perfil de publicación se debe cargar para el usuario del clúster.
 
 Código de ejemplo para el recurso disponible en [GitHub](https://github.com/bureado/aztonith). Necesita cambiar la configuración del clúster agregando lo siguiente a `sudo crm configure`:
 
@@ -346,5 +346,6 @@ Se aplican las siguientes limitaciones:
 - El equilibrador de carga necesita al menos 5 segundos para responder, por lo que las aplicaciones deben ser compatibles con clústeres y ser más tolerantes en lo que al tiempo de espera se refiere; otras arquitecturas también pueden ser útiles, como por ejemplo colas en aplicación, middleware de consulta, etc.
 - El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

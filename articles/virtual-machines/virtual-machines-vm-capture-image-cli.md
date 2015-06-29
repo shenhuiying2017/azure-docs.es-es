@@ -160,5 +160,6 @@ Visite la [página de documentación de CLI de Azure][] para conocer más detall
 [Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
 
 [Acoplamiento de un disco de datos a una máquina virtual]: storage-windows-attach-disk.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

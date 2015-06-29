@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de un área de trabajo de Aprendizaje automático | Azure" 
+	pageTitle="Administración de un área de trabajo de aprendizaje automático | Microsoft Azure" 
 	description="Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,36 +13,85 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="04/29/2015" 
 	ms.author="garye"/>
 
 
 # Administración de un área de trabajo de Aprendizaje automático de Azure 
-Puede administrar las áreas de trabajo de Aprendizaje automático de Microsoft Azure para implementar los servicios web de producción, administrar los servicios web de Aprendizaje automático de Azure y gestionar el acceso a estos. Además, la pestaña Panel muestra el uso del área de trabajo de información general y una vista rápida de la información del área de trabajo.  
+Mediante el Portal de administración de Azure, puede administrar sus áreas de trabajo de Aprendizaje automático para realizar las siguientes tareas:
 
-En la pestaña **SERVICIOS WEB**, puede agregar, actualizar o eliminar un servicio web de Aprendizaje automático de Azure.  
+- Supervisar el uso del área de trabajo
+- Configurar el área de trabajo para permitir o denegar el acceso
+- Administrar servicios web creados en el área de trabajo
+- Eliminar el área de trabajo
 
-## Para acceder a la página de administración del área de trabajo, siga estos pasos: ##
-1.	Inicie sesión en su cuenta de Microsoft Azure.
-2.	En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
-3.	En la lista **aprendizaje automático**, haga clic en una área de trabajo.  
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+Además, la pestaña Panel muestra una descripción general del uso del área de trabajo y una vista rápida de la información que contiene.
+
+> [AZURE.TIP]En Estudio de aprendizaje automático de Azure, en la pestaña **Servicios web**, puede agregar, actualizar o eliminar un servicio web de Aprendizaje automático.
+
+Para administrar un área de trabajo:
+
+1.	Inicie sesión en su cuenta de Microsoft Azure (use la cuenta que está asociada a la suscripción de Azure).
+2.	En el panel de servicios de Microsoft Azure del [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Aprendizaje automático**.
+3.	Haga clic en el área de trabajo que desea administrar.
+
+La página del área de trabajo tiene tres pestañas:
+
+- **Panel**: permite ver el uso y la información del área de trabajo.
+- **Configurar**: permite administrar el acceso al área de trabajo.
+- **Servicios web**: permite administrar los servicios web que se han publicado desde esta área de trabajo.
+
   
-![][1]
+## Para supervisar el uso del área de trabajo
 
-## Concesión o suspensión de acceso a los usuarios ##
-Para aprender a administrar usuarios, consulte el vínculo.
-## Implementación de servicios web de producción ##
-Para aprender a implementar los servicios web de producción, consulte el vínculo.
+Haga clic en la pestaña **Panel**.
 
-<!--Anchors-->
-[Para acceder a la página de administración del área de trabajo, siga estos pasos:]: #manageworkspace
-[Concesión o suspensión de acceso a los usuarios]: #grantsuspendaccess
-[Implementación de servicios web de producción]: #deployproduction
+En el panel, puede ver el uso general del área de trabajo y obtener una vista rápida de su información.
 
-<!--Image references-->
-[1]: ./media/machine-learning-manage-workspace/mw1.png
+- El gráfico **Proceso** muestra los recursos de proceso que se usan en el área de trabajo. Puede cambiar la vista para mostrar valores relativos o absolutos, y puede cambiar el período de tiempo que se muestra en el gráfico.
+- **Información general del uso**: muestra el almacenamiento de Azure que usa el área de trabajo. Nota: la supervisión del almacenamiento no está disponible durante la versión de vista previa pública de Aprendizaje automático de Azure.
+- **Vista rápida**: proporciona un resumen de la información del área de trabajo y vínculos útiles.
 
-<!--HONumber=46--> 
+> [AZURE.NOTE]El enlace **Abrir en estudio** permite abrir Estudio de aprendizaje automático mediante la cuenta de Microsoft en la que ha iniciado sesión actualmente. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure para crear un área de trabajo no tiene permiso automáticamente para abrir dicha área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
 
-<!--HONumber=46--> 
+
+## Concesión o suspensión del acceso de los usuarios ##
+
+Haga clic en la pestaña **Configurar**.
+
+Desde la pestaña de configuración, puede realizar las siguientes acciones:
  
+- Suspender el acceso al área de trabajo de Aprendizaje automático haciendo clic en Denegar. Los usuarios ya no podrán abrir el área de trabajo en Estudio de aprendizaje automático. Para restaurar el acceso, haga clic en Permitir.
+- Cambiar el propietario del área de trabajo especificando otra cuenta de Microsoft. 
+
+Para administrar quién tiene acceso al área de trabajo en Estudio de aprendizaje automático, haga clic en **Abrir en estudio** (vea la nota anterior sobre **Abrir en estudio**). De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **Configuración** y, a continuación, en **Usuarios**. Puede hacer clic en **Invitar más usuarios** para proporcionar acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **Quitar**.
+
+
+## Para administrar servicios web en esta área de trabajo
+
+Haga clic en la ficha **Servicios web**.
+
+Esto muestra una lista de servicios web publicados desde esta área de trabajo. Para administrar un servicio web, haga clic en el nombre en la lista para abrir la página del servicio web.
+
+Un servicio web puede tener uno o varios extremos definidos.
+
+- Puede definir extremos adicionales, además del extremo "predeterminado". Para agregar un extremo, haga clic en **Agregar extremo** en la parte inferior de la página.
+
+- Para eliminar un extremo (no se puede eliminar el extremo "predeterminado"), haga clic en cualquier parte en la fila del extremo (excepto en el nombre) y haga clic en **Eliminar extremo** en la parte inferior de la página. De esta manera, se elimina el extremo del servicio web.
+ 
+    > [AZURE.NOTE]Si una aplicación está utilizando el extremo del servicio web cuando se elimina dicho extremo, la aplicación recibirá un error la próxima vez que intente acceder al servicio.
+
+Haga clic en el nombre de un extremo de servicio web para abrirlo. El gráfico de uso muestra los recursos de proceso y de predicción que está utilizando el extremo del servicio web. Puede cambiar la vista para mostrar valores relativos o absolutos, y puede cambiar el período de tiempo que se muestra en el gráfico.
+
+Esta página también proporciona la información que necesita para acceder al extremo mediante la API de REST del servicio web. Para obtener más información, consulte [Consumo de servicios web de Aprendizaje automático de Azure][consume].
+
+También puede publicar el servicio web en el mercado de datos de Azure desde esta página. Para obtener más información, consulte [Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace][marketplace].
+
+[consume]: machine-learning-consume-web-services.md
+[marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
+
+ 
+
+<!---HONumber=58_postMigration-->

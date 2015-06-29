@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="06/09/2015" 
 	ms.author="mahender"/>
 
 # Introducción a la autenticación personalizada
@@ -52,9 +52,7 @@ Puesto que autenticación personalizada y no depende de otro proveedor de identi
 
         public DbSet<Account> Accounts { get; set; }
 
-	>[AZURE.NOTE]Los fragmentos de código de este tutorial usan `todoContext` como nombre del contexto. Debe actualizar los fragmentos de código para el contexto del proyecto.
-
-	A continuación, va a configurar las funciones de seguridad para trabajar con estos datos.
+	>[AZURE.NOTE]Los fragmentos de código de este tutorial usan `todoContext` como nombre del contexto. Debe actualizar los fragmentos de código para el contexto del proyecto. A continuación, va a configurar las funciones de seguridad para trabajar con estos datos.
  
 5. Cree una clase denominada `CustomLoginProviderUtils` y agréguele la siguiente declaración `using`:
 
@@ -162,7 +160,7 @@ Llegado este punto, dispone de todo lo necesario para comenzar a crear cuentas d
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]A este extremo de registro puede tener acceso cualquier cliente a través de HTTP. Antes de publicar esto
+>[AZURE.IMPORTANT]A este extremo de registro puede tener acceso cualquier cliente a través de HTTP. Antes de publicar este servicio en un entorno de producción, debe implementar algún tipo de esquema para validar los registros, como una comprobación por correo electrónico o SMS. Esto puede ayudar a evitar que un usuario malintencionado cree registros fraudulentos.
 
 ## Creación del proveedor de inicio de sesión
 
@@ -217,9 +215,9 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
             return;
         }
 
-	Este método no está operativo aquí porque **CustomLoginProvider** no se integra en la canalización de autenticación.
+	Este método no está implementado porque **CustomLoginProvider** no se integra en la canalización de autenticación.
 
-4. Agregue la siguiente implementación del método abstracto `ParseCredentials` a **CustomLoginProvider**. 
+4. Agregue la siguiente implementación del método abstracto `ParseCredentials` a **CustomLoginProvider**.
 
         public override ProviderCredentials ParseCredentials(JObject serialized)
         {
@@ -252,6 +250,12 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
         }
 
 	Este método convierte un elemento [ClaimsIdentity] en un objeto [ProviderCredentials] que se usa en la fase de emisión de tokens de autenticación. De nuevo, puede capturar otras notificaciones adicionales en este método.
+	
+6. Abra el archivo de proyecto WebApiConfig.cs en la carpeta App_Start y se crea la siguiente línea de código después de **ConfigOptions**:
+		
+		options.LoginProviders.Add(typeof(CustomLoginProvider));
+
+	
 
 ## Creación del extremo de inicio de sesión
 
@@ -414,4 +418,6 @@ De este modo finaliza este tutorial.
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=58_postMigration-->

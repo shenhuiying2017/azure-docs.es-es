@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="06/03/2015"
    ms.author="telmos" />
 
 # Dirección IP pública de nivel de instancia
@@ -24,8 +24,10 @@ Una IP pública de nivel de instancia (ILPIP) es una dirección IP que se puede 
 
 Como se muestra en la Ilustración 1, al servicio en la nube se accede mediante una VIP, mientras que las máquinas virtuales individuales normalmente son accesibles mediante VIP:&lt;número de puerto&gt;. Al asignar una ILPIP a una máquina virtual específica, se puede tener acceso directamente a esa máquina virtual mediante esa dirección IP.
 
-Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspondientes se crean automáticamente para permitir el acceso al servicio mediante un nombre de dominio completo (FQDN) en lugar de usar la VIP real. Se produce el mismo proceso para la ILPIP, lo que permite el acceso a la máquina virtual o instancia de rol mediante el FQDN en lugar de la ILPIP.
+Cuando se crea un servicio en la nube en Azure, los registros de DNS A correspondientes se crean automáticamente para permitir el acceso al servicio mediante un nombre de dominio completo (FQDN) en lugar de usar la VIP real. Se produce el mismo proceso para la ILPIP, lo que permite el acceso a la máquina virtual o instancia de rol mediante el FQDN en lugar de la ILPIP. Por ejemplo, si crea un servicio en la nube denominado *contosoadservice* y configura un rol web denominado *contosoweb* con dos instancias, Azure registrará los siguientes registros A para las instancias:
 
+- contosoweb_IN_0.contosoadservice.cloudapp.net
+- contosoweb_IN_1.contosoadservice.cloudapp.net 
 
 >[AZURE.NOTE]Solo puede asignar una ILPIP para cada máquina virtual o instancia de rol. Puede usar hasta 5 ILPIP por suscripción. Por ahora, no se admiten ILPIP para máquinas virtuales con varias NIC.
 
@@ -116,14 +118,11 @@ También puede asociar una ILPIP a una máquina virtual mediante un archivo de c
 	  </NetworkConfiguration>
 	</ServiceConfiguration>
 
-## Otras referencias
+## Pasos siguientes
 
-[IP privada reservada (DIP)](../virtual-networks-reserved-private-ip)
-
-[IP pública reservada](../virtual-networks-reserved-public-ip)
-
-[Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[IP reservada](../virtual-networks-reserved-public-ip)
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

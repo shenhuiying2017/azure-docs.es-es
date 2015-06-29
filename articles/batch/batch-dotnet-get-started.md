@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Tutorial: Introducción a la biblioteca de Lote de Azure para .NET"
-	description="Aprenda los conceptos básicos sobre el lote de Azure y cómo desarrollar para el servicio de proceso por lotes con un escenario simple"
+	description="Aprenda los conceptos básicos sobre el Lote de Azure y cómo desarrollar el servicio Lote con un escenario simple."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="batch"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
 	ms.date="05/04/2015"
@@ -20,50 +20,50 @@
 
 Este artículo contiene los siguientes dos tutoriales que le introducirán en el desarrollo con la biblioteca de .NET para el servicio Lote de Azure.
 
--	[Tutorial 1: Biblioteca de Azure por lotes para .NET](#tutorial1)
--	[Tutorial 2: Biblioteca de aplicaciones de Azure por lotes para .NET](#tutorial2)  
+-	[Tutorial 1: Biblioteca de Lote de Azure para .NET](#tutorial1)
+-	[Tutorial 2: Biblioteca de Aplicaciones de Lote de Azure para .NET](#tutorial2)  
 
 
-Para obtener información general y escenarios para el lote de Azure, consulte [Introducción técnica a Azure lote](batch-technical-overview.md).
+Para obtener información general y escenarios para Lote de Azure, consulte [Información general técnica de Lote de Azure](batch-technical-overview.md).
 
-##<a name="tutorial1"></a>Tutorial 1: Biblioteca de Azure por lotes para .NET
+##<a name="tutorial1"></a>Tutorial 1: Biblioteca de Lote de Azure para .NET
 
 Este tutorial le enseñará a crear una aplicación de consola que configura el cálculo distribuido entre un grupo de máquinas virtuales mediante el servicio Lote de Azure. Las tareas que se crean en este tutorial evalúan el texto de los archivos de almacenamiento de Azure y devuelven las palabras que se utilizan normalmente. Los ejemplos están escritos en código C# y utilizan la biblioteca de Lote de Azure para .NET.
 
 
 >[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 >
->Deberá usar NuGet para obtener la **Microsoft.Azure.Batch.dll** ensamblado. Después de crear el proyecto en Visual Studio, haga clic en el proyecto en **el Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Buscar en línea **Azure.Batch** y, a continuación, haga clic en instalar para instalar el paquete de proceso de Azure y las dependencias.
+>Necesitará usar NuGet para obtener el ensamblado **Microsoft.Azure.Batch.dll**. Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Busque **Azure.Batch** en línea y luego haga clic en Instalar para instalar el paquete y las dependencias de Lote de Azure.
 >
 >Asegúrese de que la versión del Administrador de paquetes de NuGet es 2.8 o posterior. Puede encontrar el número de versión en Visual Studio -> "Ayuda" -> cuadro de diálogo "Acerca de Microsoft Visual Studio". Si tiene una versión anterior del Administrador de paquetes de NuGet, deberá actualizar Visual Studio o puede que tenga problemas al descargar la versión correcta de las dependencias de NuGet.
 >
->Además, puede hacer referencia a la [ejemplo Hello World de Azure por lotes](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) en MSDN para obtener un ejemplo similar al código que se tratan aquí.
+>Además, puede consultar el [ejemplo Hello World de Lote de Azure](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) en MSDN para ver un ejemplo similar al código que se trata aquí.
 
 
 
 ###Conceptos
 El servicio Lote se utiliza para programar un cálculo escalable y distribuido. Le permite ejecutar cargas de trabajo de gran escala que se distribuyen entre varias máquinas virtuales. Estas cargas de trabajo proporcionan soporte eficiente para el cálculo intensivo. Cuando usa el servicio Lote, se beneficia de los siguientes recursos:
 
--	**Cuenta** - A identifica de forma única entidad dentro del servicio. Todo el procesamiento se realiza a través de una cuenta de Lote.
--	**Grupo** : una colección de máquinas virtuales de tareas en las aplicaciones de tarea que ejecutar.
--	**Máquina Virtual de tareas** -una máquina que se asigna a un grupo y se utiliza por las tareas que se asignan a los trabajos que se ejecutan en el grupo.
--	**Usuario de la máquina Virtual de tarea** : una cuenta de usuario en una máquina virtual de tarea.
--	**Workitem** -especifica cómo se realiza el cálculo en máquinas virtuales de tareas en un grupo.
--	**Trabajo** - A ejecutando la instancia de un elemento de trabajo y consta de una colección de tareas.
--	**Tareas** : una aplicación que está asociada con un proyecto y se ejecuta en una máquina virtual de tareas.
--	**Archivo** – contiene la información que es procesada por una tarea.  
+-	**Cuenta**: una entidad identificada de forma exclusiva en el servicio. Todo el procesamiento se realiza a través de una cuenta de Lote.
+-	**Grupo**: una colección de máquinas virtuales de tareas en las que se ejecutan las aplicaciones de tarea.
+-	**Máquina virtual de tareas**: una máquina que se asigna a un grupo y que la utilizan las tareas que se asignan a los trabajos que se ejecutan en el grupo.
+-	**Usuario de máquina virtual de tareas**: una cuenta de usuario en una máquina virtual de tareas.
+-	**Elemento de trabajo**: especifica cómo se realiza el cálculo en máquinas virtuales de tareas en un grupo.
+-	**Trabajo**: una instancia en ejecución de un elemento de trabajo que consta de una colección de tareas.
+-	**Tarea**: una aplicación que está asociada con un trabajo y se ejecuta en una máquina virtual de tareas.
+-	**Archivo**: contiene la información que es procesada por una tarea.  
 
 Comencemos con el uso más básico.
 
 ###Creación de una cuenta de Lote de Azure
-Puede utilizar el Portal de administración para crear la cuenta de Lote. Una vez creada la cuenta, se le proporciona una clave. Para obtener más información, consulte [Introducción técnica a Azure lote](batch-technical-overview.md).
+Puede utilizar el Portal de administración para crear la cuenta de Lote. Una vez creada la cuenta, se le proporciona una clave. Para obtener más información, consulte [Información general técnica de Lote de Azure](batch-technical-overview.md).
 
-###Cómo: agregar un grupo a una cuenta
+###Adición de un grupo a una cuenta
 Un grupo de máquinas virtuales de tareas es el primer conjunto de recursos que debe crear cuando desee ejecutar tareas.
 
-1.	Abra Microsoft Visual Studio 2013, en la **archivo** menú, haga clic en **nuevo**, y, a continuación, haga clic en **proyecto**.
+1.	Abra Microsoft Visual Studio 2013, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Proyecto**.
 
-2.	De **Windows**, en **Visual C#**, haga clic en **aplicación de consola**, denomine el proyecto **GettingStarted**, llame a la solución **AzureBatch**, y, a continuación, haga clic en **Aceptar**.
+2.	En **Windows**, en **Visual C#**, haga clic en **Aplicación de consola**, denomine el proyecto **GettingStarted**, denomine la solución **AzureBatch** y, a continuación, haga clic en **Aceptar**.
 
 3.	Agregue las siguientes declaraciones de espacio de nombres en la parte superior de Program.cs:
 
@@ -80,7 +80,7 @@ Un grupo de máquinas virtuales de tareas es el primer conjunto de recursos que 
 		private const string AccountName = "[name-of-batch-account]";
 		private const string AccountKey = "[key-of-batch-account]";
 		private const string Uri = "https://batch.core.windows.net";
-	Reemplace los valores siguientes:- **[nombre de grupo]** - el nombre que desea utilizar para el grupo. - **[cuenta de nombre de lote]** - el nombre de la cuenta de proceso por lotes. - **[clave de cuenta de proceso por lotes]** -la clave que proporcionó para la cuenta de proceso por lotes.
+	Reemplace los valores siguientes: - **[name-of-pool]**: el nombre que desea usar para el grupo. - **[name-of-batch-account]**: el nombre de la cuenta de Lote. - **[key-of-batch-account]**: la clave que se le proporcionó para la cuenta de Lote.
 5.	Agregue el código siguiente a Main que define las credenciales que se van a utilizar:
 
 		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
@@ -105,9 +105,9 @@ Un grupo de máquinas virtuales de tareas es el primer conjunto de recursos que 
 		}
 		Console.WriteLine("Created pool {0}", PoolName);
 		Console.ReadLine();
-8.	Guarde y ejecute el programa. El estado es **Active** para un grupo que se agregó correctamente.  
+8.	Guarde y ejecute el programa. El estado es **Activo** si agregó el grupo correctamente.  
 
-###Cómo: enumerar los grupos de una cuenta
+###Lista de los grupos de una cuenta
 Si no conoce el nombre de un grupo existente, puede obtener una lista de ellos en una cuenta.
 
 1.	Agregue el código siguiente a Main que define las credenciales que se van a utilizar:  
@@ -153,7 +153,7 @@ Si no conoce el nombre de un grupo existente, puede obtener una lista de ellos e
 		Pool: gettingstarted State:Active
 		Created pool gettingstarted. Press <Enter> to continue.
 
-###Cómo: enumerar los elementos de trabajo en una cuenta
+###Lista de los elementos de trabajo de una cuenta
 Si no conoce el nombre de un elemento de trabajo existente, puede obtener una lista de ellos en una cuenta.
 
 1.	Agregue el código siguiente al final de Main que escribe los nombres y los estados de todos los elementos de trabajo de la cuenta:
@@ -171,14 +171,14 @@ Si no conoce el nombre de un elemento de trabajo existente, puede obtener una li
 		Console.ReadLine();
 7.	Guarde y ejecute el programa. Probablemente no verá nada, ya que no hemos enviado ningún elemento de trabajo. Hablaremos acerca de cómo agregar elementos de trabajo en la sección siguiente.  
 
-##Cómo: agregar un elemento de trabajo a una cuenta
+##Adición de un elemento de trabajo a una cuenta
 Debe crear un elemento de trabajo para definir el modo en que se ejecutarán las tareas en el grupo.
 
 1.	Agregue las siguientes variables a la clase Program:
 
 		private static readonly string WorkItemName = Environment.GetEnvironmentVariable("USERNAME") + DateTime.Now.ToString("yyyyMMdd-HHmmss");
 
-2.	Cuando se crea un elemento de trabajo, también se crea un trabajo. Puede asignar un nombre al elemento de trabajo, pero el trabajo siempre se asigna el nombre de **0000000001 de trabajo**. Agregue el código siguiente a Main (antes del código del elemento de trabajo de la lista) que agrega el elemento de trabajo:
+2.	Cuando se crea un elemento de trabajo, también se crea un trabajo. Puede asignar un nombre al elemento de trabajo, pero el trabajo siempre asigna el nombre de **job-0000000001**. Agregue el código siguiente a Main (antes del código del elemento de trabajo de la lista) que agrega el elemento de trabajo:
 
 		using (IWorkItemManager wm = client.OpenWorkItemManager())
 		{
@@ -188,7 +188,7 @@ Debe crear un elemento de trabajo para definir el modo en que se ejecutarán las
 		}
 		Console.WriteLine("Workitem successfully added. Press <Enter> to continue.");
 		Console.ReadLine();
-3.	Guarde y ejecute el programa. El estado es **Active** para un elemento de trabajo que se agregó correctamente. Debería ver la siguiente salida.
+3.	Guarde y ejecute el programa. El estado es **Activo** si agregó el elemento de trabajo correctamente. Debería ver la siguiente salida.
 
 		Listing Pools
 		=================
@@ -202,7 +202,7 @@ Debe crear un elemento de trabajo para definir el modo en que se ejecutarán las
 		Workitem: yidingz20141106-111211 State:Active
 		Press <Enter> to continue.
 
-###Cómo: agregar tareas a un trabajo
+###Adición de tareas a un trabajo
 Un elemento de trabajo sin tarea no hará nada. Una vez creados el elemento de trabajo y el trabajo, puede agregar tareas a este último. Vamos a agregar una tarea sencilla al trabajo.
 
 1.	Agregue las siguientes variables a la clase Program:
@@ -253,7 +253,7 @@ Un elemento de trabajo sin tarea no hará nada. Una vez creados el elemento de t
 ###Creación de un programa de procesamiento de tareas
 Ahora que podemos ejecutar hello world en la máquina virtual, hagamos algo real. Vamos a crear un programa de procesamiento de tareas en esta sección y cargarlo en la máquina virtual de tareas que ejecuta tareas.
 
-1.	En el Explorador de soluciones, cree un nuevo proyecto de aplicación de consola denominado **ProcessTaskData** en la **AzureBatch** solución.
+1.	En el Explorador de soluciones, cree un nuevo proyecto de aplicación de consola denominado **ProcessTaskData** en la solución **AzureBatch**.
 
 2.	Agregue las siguientes declaraciones de espacio de nombres en la parte superior de Program.cs:
 
@@ -297,7 +297,7 @@ Utilizará el siguiente flujo de trabajo básico al crear un escenario de cálcu
 Hemos mostrado los pasos de 3 a 6. Veamos cómo preparar el Almacenamiento de Azure para ejecutar la tarea.
 
 ####Obtención de cuenta de almacenamiento
-Necesitará una cuenta de almacenamiento para completar el resto de este tutorial. Si no sabe cómo hacerlo, consulte [crear una cuenta de almacenamiento de Azure](#tutorial1_storage).
+Necesitará una cuenta de almacenamiento para completar el resto de este tutorial. Si no sabe cómo hacerlo, consulte [Creación de una cuenta de Almacenamiento de Azure](#tutorial1_storage).
 
 ####Carga de datos
 
@@ -317,7 +317,7 @@ Necesitará una cuenta de almacenamiento para completar el resto de este tutoria
 >[AZURE.NOTE]En un entorno de producción, se recomienda que utilice una firma de acceso compartido.
 
 
->[AZURE.NOTE]Equipo de almacenamiento de Azure tiene un [entrada de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) lista de exploradores de almacenamiento de Azure que pueden ayudar a la carga de archivos.
+>[AZURE.NOTE]El equipo de Almacenamiento de Azure tiene una [publicación de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) que enumera los exploradores de Almacenamiento de Azure que pueden ayudar a la carga de archivos.
 
 
 
@@ -326,7 +326,7 @@ Necesitará una cuenta de almacenamiento para completar el resto de este tutoria
 1.	Agregue las siguientes variables a la clase Program:
 
 		private const string BlobPath = "[storage-path]";
-	Reemplace los valores siguientes:- **[ruta de acceso de almacenamiento]** -la ruta de acceso del BLOB en almacenamiento. Por ejemplo: http://yiding.blob.core.windows.net/gettingstarted/
+	Reemplace los valores siguientes: -**[storage-path]**: -la ruta de acceso al blob de almacenamiento. Por ejemplo: http://yiding.blob.core.windows.net/gettingstarted/
 
 2. Actualice el código de envío de la tarea del modo siguiente.
 
@@ -376,7 +376,7 @@ Necesitará una cuenta de almacenamiento para completar el resto de este tutoria
 		and 5
 		to 3
 
-###Cómo: eliminar el grupo y el elemento de trabajo
+###Eliminación del grupo y del elemento de trabajo
 Una vez procesado el elemento de trabajo, puede liberar recursos eliminando el grupo y el elemento de trabajo.
 
 ####Eliminación del grupo
@@ -402,29 +402,29 @@ Una vez procesado el elemento de trabajo, puede liberar recursos eliminando el g
 		Console.ReadLine();
 2.	Guarde y ejecute el programa.
 
-###<a name="tutorial1_storage"></a>Apéndice: Crear una cuenta de almacenamiento de Azure
+###<a name="tutorial1_storage"></a>APENDICE: Creación de una cuenta de Almacenamiento de Azure
 Para poder ejecutar el código en este tutorial, debe tener acceso a una cuenta de almacenamiento de Azure.
 
 1.	Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/).
-2.	En la parte inferior del panel de navegación, haga clic en **nuevo**. ![][1]
-3.	Haga clic en **DATA SERVICES**, a continuación, **almacenamiento**, y, a continuación, haga clic en **creación rápida**. ![][2]
+2.	En la parte inferior del panel de navegación, haga clic en **+NUEVO**. ![][1]
+3.	Haga clic en **SERVICIOS DE DATOS**, en **ALMACENAMIENTO** y, a continuación, en **CREACIÓN RÁPIDA**. ![][2]
 
-4.	En **URL**, escriba un nombre de subdominio para usar en el URI para la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 letras minúsculas y números. Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción.
-5.	Elija un **ubicación/grupo de AFINIDAD** en el que se ubicará el almacenamiento.
+4.	En **URL**, escriba el nombre de subdominio que vaya usar en el URI para la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 letras minúsculas y números. Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción.
+5.	Elija un valor en **UBICACIÓN/GRUPO DE AFINIDAD** que servirá para ubicar el almacenamiento.
 6.	También puede habilitar la replicación geográfica.
 7.	Haga clic en **CREAR CUENTA DE ALMACENAMIENTO**.  
 
-Para obtener más información acerca del almacenamiento de Azure, consulte [cómo utilizar el servicio de almacenamiento de blobs de Azure en .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
+Para obtener más información acerca de Almacenamiento de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure en .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
 
 
-##<a name="tutorial2"></a>Tutorial 2: Biblioteca de aplicaciones de Azure por lotes para .NET
+##<a name="tutorial2"></a>Tutorial 2: Biblioteca de Aplicaciones de Lote de Azure para .NET
 Este tutorial muestra cómo ejecutar cargas de trabajo de proceso paralelas en Lote de Azure mediante el servicio de Aplicaciones de Lote.
 
 Aplicaciones de Lote es una característica de Lote de Azure que proporciona una manera de administrar y ejecutar las cargas de trabajo de Lote centrada en las aplicaciones. Con el SDK de Aplicaciones de Lote, puede crear paquetes para habilitar una aplicación para el uso de Lote e implementarlos en su propia cuenta o bien ponerlos a disposición de otros usuarios de Lote. Lote también proporciona administración de datos, supervisión de trabajos, diagnóstico y registro integrado y soporte para dependencias entre tareas. Además, incluye un portal de administración donde puede administrar trabajos, ver registros y descargar resultados sin tener que escribir su propio cliente.
 
 En el caso de Aplicaciones de Lote, se escribe código utilizando el SDK de la nube de Aplicaciones de Lote para dividir trabajos en tareas paralelas, se describen las dependencias entre estas tareas y se especifica cómo ejecutar cada tarea. Este código se implementa en la cuenta de Lote. Los clientes, a continuación, pueden ejecutar trabajos de manera sencilla especificando el tipo de trabajo y los archivos de entrada en una API de REST.
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). Puede usar NuGet para obtener tanto los <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">lote aplicaciones de nube</a> ensamblado y el <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">lote aplicaciones cliente</a> ensamblado. Después de crear el proyecto en Visual Studio, haga clic en el proyecto en **el Explorador de soluciones** y elija **Administrar paquetes de NuGet**. También puede descargar la extensión de Visual Studio para las aplicaciones de proceso por lotes que incluye una plantilla de proyecto para la nube permiten a las aplicaciones y la capacidad de implementar una aplicación <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aquí</a> o a través de la búsqueda de **aplicaciones de proceso por lotes** en Visual Studio mediante el elemento de menú de extensiones y actualizaciones. También puede encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">-to-end muestras en MSDN.</a>
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). Puede usar NuGet para obtener el ensamblado <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Nube de Aplicaciones de Lote</a> y el ensamblado <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Cliente de Aplicaciones de Lote</a>. Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. También puede descargar aquí la extensión de Visual Studio para Aplicaciones de Lote que incluye una plantilla de proyecto para habilitar las aplicaciones para la nube y la posibilidad de implementar una aplicación <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aquí</a> o bien utilizar la función de búsqueda de **Aplicaciones de Lote** en Visual Studio mediante el elemento de menú de extensiones y actualizaciones. También puede encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos completos en MSDN.</a>
 >
 
 ###Aspectos básicos de Aplicaciones de Lote de Azure
@@ -434,7 +434,7 @@ Lote está diseñado para trabajar con las aplicaciones existentes de proceso in
 2.	Cree un archivo comprimido con los "ensamblados de nube" que distribuyen las cargas de trabajo en la aplicación, y cárguelo a través del portal de administración o la API de REST. Un ensamblado de nube contiene dos componentes que se generan con el SDK de nube:
 	1.	Divisor de trabajo: desglosa el trabajo en tareas que se pueden procesar de forma independiente. Por ejemplo, en un escenario de animación, el divisor de trabajo podría tomar un trabajo de película y desglosarlo en fotogramas individuales.
 	2.	Procesador de tareas: invoca el ejecutable de la aplicación para una tarea determinada. Por ejemplo, en un escenario de animación, el procesador de tareas invocaría un programa de representación para representar el fotograma único especificado por la tarea en cuestión.
-3.	Proporcione una manera de enviar trabajos a la aplicación habilitada en Azure. Podría tratarse de un complemento en la interfaz de usuario o un portal web de la aplicación, o incluso un servicio no atendido como parte de la canalización de ejecución. Consulte la <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos</a> en MSDN para obtener ejemplos.
+3.	Proporcione una manera de enviar trabajos a la aplicación habilitada en Azure. Podría tratarse de un complemento en la interfaz de usuario o un portal web de la aplicación, o incluso un servicio no atendido como parte de la canalización de ejecución. Consulte los <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos</a> de MSDN como referencia.
 
 
 
@@ -442,16 +442,16 @@ Lote está diseñado para trabajar con las aplicaciones existentes de proceso in
 El modelo de programación y uso de Aplicaciones de Lote gira en torno a los conceptos siguientes:
 
 ####Trabajos
-Un **trabajo** es un elemento de trabajo enviada por el usuario. Cuando se envía un trabajo, el usuario especifica el tipo de trabajo, cualquier configuración de ese trabajo y los datos requeridos para el trabajo. La implementación habilitada puede ocuparse de estos detalles en nombre del usuario o, en algunos casos, el usuario puede proporcionar esta información explícitamente a través del cliente. Un trabajo tiene resultados que se devuelven. Cada trabajo tiene una salida principal y, opcionalmente, un resultado en vista previa. Los trabajos también pueden devolver resultados adicionales si lo desea.
+Un **trabajo** es un elemento de trabajo enviado por el usuario. Cuando se envía un trabajo, el usuario especifica el tipo de trabajo, cualquier configuración de ese trabajo y los datos requeridos para el trabajo. La implementación habilitada puede ocuparse de estos detalles en nombre del usuario o, en algunos casos, el usuario puede proporcionar esta información explícitamente a través del cliente. Un trabajo tiene resultados que se devuelven. Cada trabajo tiene una salida principal y, opcionalmente, un resultado en vista previa. Los trabajos también pueden devolver resultados adicionales si lo desea.
 
 ####Tareas
-Un **tarea** es una parte del trabajo para llevar a cabo como parte de un trabajo. Cuando un usuario envía un trabajo, este se desglosa en tareas más pequeñas. El servicio procesa estas tareas individuales y, a continuación, ensambla los resultados de la tarea en una salida de trabajo global. La naturaleza de las tareas depende del tipo de trabajo. El divisor de trabajo define cómo se desglosa un trabajo en tareas, guiado por el conocimiento de aquellos fragmentos de trabajo que la aplicación va a procesar según su diseño. Los resultados de tarea también se pueden descargar individualmente y pueden resultar útiles en algunos casos; por ejemplo, cuando un usuario desea descargar tareas individuales de un trabajo de animación.
+Una **tarea** es un elemento de trabajo que se lleva a cabo como parte de un trabajo. Cuando un usuario envía un trabajo, este se desglosa en tareas más pequeñas. El servicio procesa estas tareas individuales y, a continuación, ensambla los resultados de la tarea en una salida de trabajo global. La naturaleza de las tareas depende del tipo de trabajo. El divisor de trabajo define cómo se desglosa un trabajo en tareas, guiado por el conocimiento de aquellos fragmentos de trabajo que la aplicación va a procesar según su diseño. Los resultados de tarea también se pueden descargar individualmente y pueden resultar útiles en algunos casos; por ejemplo, cuando un usuario desea descargar tareas individuales de un trabajo de animación.
 
 ####Tareas de combinación
-Un **tarea de mezcla** es un tipo especial de tarea que ensambla los resultados de las tareas individuales en los resultados del trabajo final. En el caso de un trabajo de representación de película, la tarea de combinación podría ensamblar los fotogramas representados en una película o comprimir todos los fotogramas representados en un único archivo. Todos los trabajos tienen una tarea de combinación, incluso si no se requiere una "combinación" real.
+Una **tarea de combinaciones** un tipo especial de tarea que ensambla los resultados de tareas individuales en los resultados del trabajo final. En el caso de un trabajo de representación de película, la tarea de combinación podría ensamblar los fotogramas representados en una película o comprimir todos los fotogramas representados en un único archivo. Todos los trabajos tienen una tarea de combinación, incluso si no se requiere una "combinación" real.
 
 ####Archivos
-Un **archivo** es un fragmento de datos que se utilizan como entrada a un trabajo. Un trabajo puede no tener asociado ningún archivo de entrada o bien tener uno o varios. El mismo archivo puede utilizarse en varios trabajos, por ejemplo, para una película de trabajo de procesamiento, los archivos que podrían estar texturas, modelos, etc.. Para un trabajo de análisis de datos, los archivos pueden ser un conjunto de observaciones o mediciones.
+Un **archivo** es un elemento de datos que se utiliza para suministrar información a un trabajo. Un trabajo puede no tener asociado ningún archivo de entrada o bien tener uno o varios. El mismo archivo puede utilizarse en varios trabajos, por ejemplo, para trabajo de procesamiento de películas, archivos que podrían tener texturas, modelos, etc. Para un trabajo de análisis de datos, los archivos pueden ser un conjunto de observaciones o mediciones.
 
 ###Habilitación de la aplicación en la nube
 La aplicación debe contener una propiedad o un campo estático que contenga todos los detalles de la aplicación. Este especifica el nombre de la aplicación y los tipos de trabajo controlados por la aplicación. Se proporciona cuando se utiliza la plantilla en el SDK que se puede descargar a través de la Galería de Visual Studio.
@@ -602,4 +602,4 @@ Un trabajo describe una carga de trabajo que se ejecutará y debe incluir toda l
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=GIT-SubDir-->
+<!---HONumber=58_postMigration-->

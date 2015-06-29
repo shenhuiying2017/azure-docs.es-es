@@ -315,4 +315,6 @@ Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/
  - [Ubuntu Wiki: Configure Swap Partitions (Configuración de particiones de intercambio)](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
  - [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-how-to-inject-custom-data.md)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

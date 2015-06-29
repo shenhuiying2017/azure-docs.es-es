@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -15,7 +15,7 @@
    ms.date="04/28/15"
    ms.author="v-sharos" />
 
-### Para crear un volumen
+#### Para crear un volumen
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en **Agregar un volumen**. Se iniciará el Asistente para agregar volúmenes.
 
@@ -38,7 +38,4 @@
 
 4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Se creará un volumen con la configuración especificada.
 
-
-
-
-<!--HONumber=52-->
+<!---HONumber=58_postMigration-->

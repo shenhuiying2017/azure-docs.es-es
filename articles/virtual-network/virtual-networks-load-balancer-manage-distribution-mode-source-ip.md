@@ -55,14 +55,14 @@ Descargue la [última versión de Azure PowerShell](https://github.com/Azure/azu
 
 ### Agregar un extremo de Azure a una máquina virtual y establecer el modo de distribución del equilibrador de carga
 
-    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM  
-
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 â€“LoadBalancerDistribution â€œsourceIPâ€�| Update-AzureVM  
+
+    Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 Ã¢â‚¬â€œLoadBalancerDistribution Ã¢â‚¬Å“sourceIPÃ¢â‚¬ï¿½| Update-AzureVM  
 
 LoadBalancerDistribution puede establecerse en sourceIP para equilibrio de carga de 2-tupla (IP de origen, IP de destino), sourceIPProtocol para equilibrio de carga de 3-tupla (IP de origen, IP de destino, protocolo) o ninguno si desea el comportamiento predeterminado (equilibrio de carga de 5-tupla).
 
 ### Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
-    PS C:> Get-AzureVM –ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+    PS C:> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -86,9 +86,9 @@ Si el elemento LoadBalancerDistribution no está presente, el equilibrador de ca
 
 ### Establecer el modo de distribución en un conjunto de extremo de carga equilibrada
 
-    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
-
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 â€“LoadBalancerDistribution "sourceIP"
+
+    Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 Ã¢â‚¬â€œLoadBalancerDistribution "sourceIP"
     
 Si los extremos forman parte de un conjunto de extremo de carga equilibrada, el modo de distribución debe establecerse en el conjunto de extremo de carga equilibrada.
 
@@ -159,5 +159,6 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     x-ms-servedbyregion: ussouth2 
     x-ms-request-id: 9c7bda3e67c621a6b57096323069f7af 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

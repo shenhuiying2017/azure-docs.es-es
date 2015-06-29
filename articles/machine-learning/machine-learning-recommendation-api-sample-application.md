@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Operaciones comunes en la API de recomendaciones de aprendizaje automático | Azure" 
+	pageTitle="Operaciones comunes en la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
 	description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,87 +13,80 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
-	ms.author="jaymathe"/> 
+	ms.date="04/15/2015" 
+	ms.author="luiscabrer"/>
 
 
 # Operaciones comunes en la API de recomendaciones de aprendizaje automático
 
 ##Propósito
 
-Este documento muestra el uso de algunas de las API de recomendación de aprendizaje automático de Azure a través de una aplicación de ejemplo.
+Este documento muestra el uso de algunas de las API de recomendaciones de Aprendizaje automático de Azure a través de una [aplicación de ejemplo](http://1drv.ms/1xeO2F3).
 
-Esta aplicación no pretende incluir la funcionalidad completa o usar todas las API, sino simplemente mostrar algunas de las operaciones comunes que se pueden realizar la primera vez que desee jugar con el servicio de recomendación de aprendizaje automático de Azure. 
+Esta aplicación no está pensada para incluir todas las funcionalidades ni usa todas las API. Muestra algunas operaciones que se suelen realizar las primeras veces que se usa el servicio de recomendación de Aprendizaje automático.
 
-##Introducción a la recomendación
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-La recomendación a través del servicio de aprendizaje automático de Azure se habilita al compilar un modelo de recomendación basado en los datos siguientes:
+##Introducción al servicio de recomendación de Aprendizaje automático
 
-* Un repositorio del elemento que desea recomendar, también conocido como catálogo
-* Datos que representan el uso de elementos por usuario/sesión (esto se puede adquirir con el tiempo a través de la adquisición de datos, no forma parte de la aplicación de ejemplo)
+Las recomendaciones a través del servicio de recomendación de Aprendizaje automático se habilitan al compilar un modelo de recomendaciones basado en los datos siguientes:
 
-Una vez compilado un modelo de recomendación puede utilice para predecir elementos a un usuario según un conjunto de elementos (puede ser un elemento único) que selecciona.
+* Un repositorio de los elementos que desea recomendar, también conocido como "catálogo".
+* Datos que representan el uso de los elementos por cada usuario o sesión (se pueden adquirir con el tiempo a través de la adquisición de datos, no forman parte de la aplicación de muestra).
 
-Para permitir el escenario anterior, realizará la siguiente operación en el servicio de recomendación de aprendizaje automático de Azure:
+Una vez compilado un modelo de recomendación, puede utilizarlo para predecir elementos que puedan resultar de interés para algún usuario, según un conjunto de elementos (o un elemento único) que seleccione el usuario.
 
-* Crear un modelo: se trata de un contenedor lógico que mantiene los datos (catálogo y uso) y los modelos de predicción, cada contenedor de modelo se identifica mediante un identificador único asignado en el momento de su creación (se denomina identificador de modelo) y lo usa la mayor parte de la API 
-* Cargar el catálogo: una vez que se crea un contenedor de modelo puede asociar un catálogo al mismo
+Para habilitar el escenario anterior, haga lo siguiente en el servicio de recomendación de Aprendizaje automático:
 
-Nota: los pasos anteriores ('crear modelo' y "cargar el catálogo") normalmente se realizan una vez para el ciclo de vida del modelo.
+* Crear un modelo: se trata de un contenedor lógico que incluye los datos (catálogo y uso) y los modelos de predicción. Cada contenedor de modelo se identifica mediante un identificador único que se asigna en el momento de su creación. Este identificador se denomina "identificador de modelo" y lo utilizan la mayoría de las API. 
+* Cargar en el catálogo: una vez que se crea un contenedor de modelo, es posible asociarlo a un catálogo.
 
-* Uso de carga: para agregar datos de uso al contenedor del modelo.
-* Compilar modelo de recomendación: cuando tenga suficientes datos, desencadenará la compilación del modelo de recomendación. Esta operación usará algoritmos de aprendizaje automático de última generación para crear un modelo de recomendación. Cada compilación está asociada a un identificador único; tendrá que conservar este identificador, ya que es necesario para la funcionalidad de algunas API.
-* Supervisar el proceso de compilación: una compilación de un modelo de recomendación es una operación asincrónica y puede tardar desde varios minutos a varias horas, según la cantidad de datos (catálogo y uso) y parámetros de compilación. Por lo tanto, necesitará supervisar la compilación. Un modelo de recomendación solo se compila si su compilación asociada finaliza correctamente.
-* (Opcional) Elija una compilación de modelo de recomendación activa, este paso solo es necesario si tiene más de un modelo de recomendación compilado en el contenedor de modelos. Cualquier solicitud para obtener la recomendación sin indicar la compilación activa (modelo de recomendación activo), el sistema la redirigirá automáticamente a la compilación activa predeterminada. 
+**Nota**: la creación de un modelo y la carga a un catálogo normalmente se realizan solo una vez durante el ciclo de vida del modelo.
 
-Nota: Una compilación activa (modelo de recomendación) está lista para producción y se compila para carga de trabajo de producción en contraposición a un modelo de recomendación no activo que permanece en un entorno de prueba (a veces denominado ensayo)
+* Cargar datos de uso: cargue los datos de uso en el contenedor del modelo.
+* Compilar un modelo de recomendación: cuando tenga suficientes datos, podrá crear el modelo de recomendación. Esta operación usa algoritmos de Aprendizaje automático de última generación para crear un modelo de recomendación. Cada compilación está asociada a un identificador único. Hay que mantener un registro de este identificador porque es necesario para la funcionalidad de algunas API.
+* Supervisar el proceso de compilación: una compilación de un modelo de recomendación es una operación asincrónica y puede tardar desde varios minutos a varias horas, según la cantidad de datos (catálogo y uso) y los parámetros de compilación. Por lo tanto, es necesario supervisar la compilación. Un modelo de recomendación solo se crea si su compilación asociada finaliza correctamente.
+* (Opcional) Elegir una compilación de modelo de recomendación activa: este paso solo es necesario si tiene más de un modelo de recomendación compilado en el contenedor de modelos. El sistema redirigirá automáticamente a la compilación activa predeterminada cualquier solicitud para obtener recomendaciones en la que no se indique el modelo de recomendación activa. 
 
-* Obtener Recomendación: cuando ya tenga un modelo de recomendación, puede desencadenar la recomendación para un solo elemento o una lista de elementos que elija. 
+**Nota**: los modelos de recomendación activa están listos para su uso en producción y se diseñan para cargas de trabajo de producción. Esto difiere de un modelo de recomendación no activo, que permanece en un entorno similar al de prueba (a veces denominado "de ensayo").
 
-Generalmente invocará a Obtener recomendación durante un período de tiempo determinado; mientras tanto puede redirigir los datos de uso al sistema de recomendación de aprendizaje automático de Azure que agregará este uso al contenedor especificado de modelos. Cuando ya tenga suficientes datos de uso, puede desencadenar una nueva compilación de modelo de recomendación para usar los datos más actuales. 
+* Obtener recomendación: cuando ya tenga un modelo de recomendación, puede desencadenar recomendaciones para un solo elemento o para una lista de elementos que elija. 
+
+Normalmente, se ejecuta la recomendación Get para un cierto período de tiempo. Durante ese período de tiempo, puede redirigir los datos de uso al sistema de recomendación de Aprendizaje automático, que agrega estos datos al contenedor del modelo especificado. Cuando tenga suficientes datos de uso, puede crear un nuevo modelo de recomendación que incorpore los datos de uso adicionales.
 
 ##Requisitos previos
 
 * Visual Studio 2013
 * Acceso a Internet 
 
-##Solución de aplicación de ejemplo de aprendizaje automático de Azure
+##Solución de aplicación de ejemplo de Aprendizaje automático de Azure
 
-La solución contiene el código fuente, el archivo de uso y de catálogo de ejemplo y las directivas para descargar los paquetes de nuget necesarios para la compilación.
+Esta solución contiene el código fuente, el uso de la muestra, el archivo de catálogo y las directivas para descargar los paquetes necesarios para la compilación.
 
-##La API usada
+##API utilizadas
 
-La aplicación usa solo un pequeño subconjunto de la funcionalidad de recomendación de aprendizaje automático de Azure a través de un subconjunto de las API disponibles. Las siguientes API se muestran en la aplicación:
+La aplicación utiliza la funcionalidad de la recomendación de Aprendizaje automático a través de un subconjunto de API disponibles. Las siguientes API se muestran en la aplicación:
 
-* Crear modelo: cree el contenedor lógico para mantener los modelos de datos y recomendación. Un modelo se identifica mediante un nombre; un usuario no puede crear un modelo con el mismo nombre dos veces.
-* Cargar archivo de catálogo: para cargar los datos del catálogo
-* Cargar archivo de uso: para cargar los datos de uso
-* Desencadenar la compilación: para crear un modelo de recomendación
-* Supervisar la ejecución de la compilación: supervisar el estado de una compilación de modelo de recomendación
-* Elegir un modelo compilado para recomendación: para indicar qué modelo de recomendación usar de forma predeterminada para un determinado contenedor de modelos. Este paso solamente es necesario si tiene más de un modelo de recomendación y desea una compilación no activa como compilación activa.
-* Obtener recomendación: para recuperar un elemento recomendado según una único elemento o un conjunto de elementos. 
+* Crear modelo: cree el contenedor lógico para mantener los modelos de datos y recomendación. Un modelo se identifica mediante un nombre. El usuario no puede crear más de un modelo con el mismo nombre.
+* Cargar archivo de catálogo: se usa para cargar los datos del catálogo.
+* Cargar archivo de uso: se usa para cargar los datos de uso.
+* Desencadenar la compilación: se usa para crear un modelo de recomendación.
+* Supervisar la ejecución de la compilación: se usa para supervisar el estado de una compilación de modelo de recomendación.
+* Elegir un modelo compilado para recomendación: se usa para indicar qué modelo de recomendación se debe usar de forma predeterminada para un contenedor de modelos concreto. Este paso solamente es necesario si tiene más de un modelo de recomendación y desea activar una compilación no activa como modelo de recomendación activa.
+* Obtener recomendación: se usa para recuperar elementos recomendados según un único elemento o un conjunto de elementos. 
 
-Para obtener una descripción completa de la API, consulte la documentación de Microsoft Azure Marketplace. 
+Para obtener una descripción completa de la API, consulte la documentación de Microsoft Azure Marketplace.
 
-Nota: Un modelo puede tener varias compilaciones con el tiempo (no de forma simultánea), cada una de ellas creada con el catálogo o con el catálogo actualizado y con datos de uso adicionales.
+**Nota**: un modelo puede tener varias compilaciones con el tiempo (no de forma simultánea). Cada compilación se crea con el mismo catálogo o con uno actualizado y los datos de uso adicionales.
 
 ## Dificultades habituales
 
-* Necesita proporcionar su nombre de usuario y la clave de la cuenta principal de Microsoft Azure Marketplace como una línea de comandos para ejecutar el ejemplo
-* La ejecución de la aplicación de ejemplo de forma consecutiva provocará errores: el flujo de la aplicación administra el monitor de creación, carga y compilación y obtiene la recomendación de un nombre de modelo predefinido, por lo tanto, se producirán errores cuando se ejecute de forma consecutiva si no cambia el nombre del modelo entre invocaciones
-* La recomendación podría no devolver datos: la aplicación de ejemplo utiliza un archivo de catálogo y uso muy pequeño, por lo que el modelo de recomendación creado no es significativo como consecuencia de que algún elemento del catálogo no tendrá elementos recomendados.
+* Debe proporcionar su nombre de usuario y la clave de la cuenta principal de Microsoft Azure Marketplace para ejecutar la aplicación de ejemplo.
+* Si ejecuta la aplicación de ejemplo de forma consecutiva, se producirá un error. El flujo de la aplicación incluye el monitor de creación, carga y compilación, y obtiene la recomendación de un nombre de modelo predefinido; por lo tanto, se producirán errores cuando se ejecute de forma consecutiva si no cambia el nombre del modelo entre ejecuciones.
+* Puede que las recomendaciones no devuelvan datos. La aplicación de ejemplo usa un archivo de uso y de catálogo muy pequeño. Por lo tanto, algunos elementos del catálogo no tendrán ningún elemento recomendado.
 
 ## Renuncia de responsabilidades
-La aplicación de ejemplo no está diseñada para ejecutarse para producción, los datos proporcionados en el catálogo y uso son muy pequeños y no proporcionarán un modelo de recomendación significativo, sino que solamente se proporciona como demostración. 
-
-## Información legal
-Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. 
-Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. 
-Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. 
-(c) 2014 Microsoft. Todos los derechos reservados. 
-
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
  
+
+<!---HONumber=58_postMigration-->

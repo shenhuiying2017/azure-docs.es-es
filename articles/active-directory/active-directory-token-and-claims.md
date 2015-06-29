@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/29/2015"
+   ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
 # Tipos de notificaciones y tokens admitidos
@@ -221,7 +221,7 @@ En un token JWT, el firmante aparece en una notificación sub.
 ### Id. de inquilino
 El id. de inquilino es un identificador inmutable, no reutilizable que identifica al inquilino de directorio que emitió el token. Puede usar este valor para tener acceso a recursos de directorio específicos del inquilino en una aplicación multiempresa. Por ejemplo, puede usar este valor para identificar al inquilino en una llamada a API Graph.
 
-En un token SAML, el id. de inquilino aparece en una notificación en el elemento  tenantid SAML Attribute.
+En un token SAML, el id. de inquilino aparece en una notificación en el elemento tenantid SAML Attribute.
 
     <Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>
     <AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>
@@ -409,8 +409,8 @@ Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de
     }.
 
 ##Otras referencias
-### Conceptos
 
-[Protocolos de autenticación de Azure Active Directory](active-directory-authentication-protocols.md)
+[Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

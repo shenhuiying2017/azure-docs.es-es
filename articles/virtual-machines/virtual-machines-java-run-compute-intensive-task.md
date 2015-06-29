@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 # Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
@@ -70,7 +70,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 2. Haga clic en **Máquinas virtuales**.
 3. Haga clic en el nombre de la máquina virtual en la que desea iniciar sesión.
-4. Haga clic en  **Conectar**.
+4. Haga clic en **Conectar**.
 5. Siga las indicaciones, según sea necesario, para conectarse a la máquina virtual. Cuando se le pida el nombre y la contraseña del administrador, utilice los valores que proporcionó cuando creó la máquina virtual.
 
 Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el JRE usado para este tutorial. Si no tiene este certificado en su almacén **cacerts**, consulte [Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert] para obtener más información acerca de cómo agregarlo (así como información acerca de la visualización de certificados en el almacén cacerts).
@@ -101,7 +101,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ## Creación de una aplicación Java que realiza una tarea de proceso intensivo
 
-1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://www.windowsazure.com/develop/java/).
+1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://azure.microsoft.com/develop/java/).
 2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your_service_bus_namespace**, **your_service_bus_owner** y **your_service_bus_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
 3. Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPSolver.jar** como el nombre JAR generado.
 
@@ -265,7 +265,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 	                restCities.add(i);
 	            distances = new double[numCities][numCities];
 	            cityNames = new String[numCities];
-	            buildDistances("c:\TSP\cities.txt", numCities);
+	            buildDistances("C:\TSP\cities.txt", numCities);
 	            minDistance = -1;
 	            bestOrder = new int[numCities];
 	            permutation(startCities, 0, restCities);
@@ -413,9 +413,9 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 ### Ejecución de la aplicación de proceso intensivo
 
 1. Inicie sesión en la máquina virtual.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
-3. Copie **TSPSolver.jar** en **c:\TSP**,
-4. Cree un archivo con el nombre **c:\TSP\cities.txt** con el siguiente contenido:
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **C:\TSP**.
+3. Copie **TSPSolver.jar** en **C:\TSP**,
+4. Cree un archivo con el nombre **C:\TSP\cities.txt** con el siguiente contenido:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -468,7 +468,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 	
-5. En el símbolo del sistema, cambie los directorios a c:\TSP.
+5. En el símbolo del sistema, cambie los directorios a C:\TSP.
 6. Asegúrese de que la carpeta bin de JRE se encuentra en la variable de entorno PATH.
 7. Tendrá que crear la cola del bus de servicio antes de ejecutar las permutaciones del solucionador del TSP. Ejecute el comando siguiente para crear la cola del bus de servicio:
 
@@ -484,10 +484,10 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
  
 ### Ejecución de la supervisión de la aplicación cliente
 1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación **TSPSolver**, aunque podría serlo.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
-3. Copie **TSPClient.jar** en **c:\TSP**,
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **C:\TSP**.
+3. Copie **TSPClient.jar** en **C:\TSP**,
 4. Asegúrese de que la carpeta bin de JRE se encuentra en la variable de entorno PATH.
-5. En el símbolo del sistema, cambie los directorios a c:\TSP.
+5. En el símbolo del sistema, cambie los directorios a C:\TSP.
 6. Ejecute el siguiente comando:
 
         java -jar TSPClient.jar
@@ -516,4 +516,7 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->

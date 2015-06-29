@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Application Insights para páginas web y aplicaciones JavaScript" 
-	description="Obtenga recuentos de sesiones y vistas de página, además de datos de cliente web, y realice el seguimiento de los patrones de uso. Detecte problemas de rendimiento y excepciones en páginas web y aplicaciones de JavaScript." 
+	pageTitle="Application Insights para y aplicaciones web de JavaScript" 
+	description="Obtenga recuentos de sesiones y vistas de página, además de datos de cliente web, y realice el seguimiento de los patrones de uso. Detecte problemas de rendimiento y excepciones en páginas web de JavaScript." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="06/03/2015" 
 	ms.author="awills"/>
  
-# Application Insights para páginas web y aplicaciones JavaScript
+# Application Insights para y aplicaciones web de JavaScript
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -51,16 +51,6 @@ El script contiene la clave de instrumentación que dirige los datos al recurso 
 
 *(Si está usando un marco de página web conocido, mire a ver si encuentra adaptadores de Application Insights). Por ejemplo, hay [un módulo AngularJS](http://ngmodules.org/modules/angular-appinsights)).*
 
-#### Si la aplicación no es una página web...
-
-Si su aplicación de JavaScript es una aplicación [Cordova](http://cordova.apache.org/), inserte una línea adicional después de la clave de instrumentación:
-
-    ...{
-        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
-        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
-    } ...
-
-Si se trata de una [aplicación de Windows en tiempo de ejecución que usa JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx), agregue el paquete de NuGet *Application Insights para aplicaciones Javascript* al proyecto. (En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione Administrar paquetes de NuGet. Active "Incluir versión preliminar" y busque Application Insights).
  
 ## <a name="run"></a>Ejecución de la aplicación
 
@@ -185,4 +175,6 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-custom-events-metrics-api.md
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=58_postMigration-->

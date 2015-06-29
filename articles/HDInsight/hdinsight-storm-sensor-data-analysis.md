@@ -1,6 +1,6 @@
 <properties
    pageTitle="Análisis de los datos de los sensores con Apache Storm y HBase | Microsoft Azure"
-   description="Aprenda a usar Apache Storm y HBase en HDInsight para procesar datos de sensores del Centro de eventos de Azure y visualizarlos mediante D3.js. Además, conéctese a Storm con una red virtual."
+   description="Obtenga información acerca de cómo conectarse a Apache Storm con una red virtual. Utilice Storm con HBase para procesar los datos de sensores de un centro de eventos y visualizarlos con D3.js."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -22,7 +22,7 @@ Aprenda a usar Apache Storm en HDInsight para procesar datos de sensores de los 
 
 ## Requisitos previos
 
-* Una suscripción de Azure
+* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un [clúster de Apache Storm en HDInsight](../hdinsight-storm-getting-started.md)
 
@@ -117,7 +117,7 @@ Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos sig
 
 3. Haga clic en el icono de HDInsight en la segunda columna y seleccione **Personalizado**.
 
-4. En la página** Detalles del clúster**, escriba el nombre del nuevo clúster y seleccione **Storm** como **Tipo de clúster**. Haga clic en la flecha para continuar.
+4. En la página **Detalles del clúster**, escriba el nombre del nuevo clúster y seleccione **Storm** como **Tipo de clúster**. Haga clic en la flecha para continuar.
 
 5. Especifique 1 como el número de **Nodos de datos** que se usarán en este clúster.
 
@@ -125,7 +125,7 @@ Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos sig
 
 6. Escriba el **Nombre de usuario** y la **Contraseña** del administrador y, después, haga clic en la flecha para continuar.
 
-4. En **Cuenta de almacenamiento**, seleccione **Crear nuevo almacenamiento** o seleccione una cuenta de almacenamiento existente. Seleccione o escriba el **Nombre de cuenta** y el **Contenedor predeterminado** que se usarán. Seleccione el icono de verificación de la parte inferior izquierda para crear el clúster de Storm.
+4. En **Cuenta de almacenamiento**, seleccione **Crear nuevo almacenamiento** o seleccione una cuenta de almacenamiento existente. Seleccione o escriba el **Nombre de cuenta** y el **Contenedor predeterminado** que se van a usar. Seleccione el icono de verificación de la parte inferior izquierda para crear el clúster de Storm.
 
 ## Descarga e instalación del elemento EventHubSpout
 
@@ -258,7 +258,7 @@ En su entorno de desarrollo, siga estos pasos para ejecutar la topología Temper
 
 2. Cuando se cree el sitio web, vaya al sitio en el Portal de Azure y seleccione la pestaña **Configurar**. Habilite **Sockets web** y haga clic en **Guardar**, en la parte inferior de la página.
 
-2. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** y cambie la línea siguiente para que señale a la dirección URL del panel publicado:
+2. Abra **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** y cambie la línea siguiente para que señale a la dirección URL del panel publicado:
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -274,7 +274,7 @@ En su entorno de desarrollo, siga estos pasos para ejecutar la topología Temper
 
 2. Siga los pasos de [Implementación y administración de topologías de Storm](hdinsight-storm-deploy-monitor-topology.md) para cargar e iniciar la topología en el clúster de Storm en HDInsight mediante el **panel Storm**.
 
-3. Cuando se haya iniciado la topología, abra un explorador con el sitio web publicado en Azure y  use el comando `node app.js` para enviar datos a un Centro de eventos. Debería ver que el panel web se actualiza para mostrar la información.
+3. Cuando se haya iniciado la topología, abra un explorador con el sitio web publicado en Azure y use el comando `node app.js` para enviar datos a un Centro de eventos. Debería ver que el panel web se actualiza para mostrar la información.
 
 	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
@@ -362,13 +362,13 @@ La parte del nombre de dominio que comienza con el nombre del clúster es el suf
 
 ### Habilitación del bolt de HBase
 
-1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** y reemplace las entradas `suffix` en la línea siguiente por el sufijo DNS que obtuvo anteriormente para el clúster de HBase. Después de realizar estos cambios, guarde el archivo.
+1. Abra **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** y reemplace las entradas `suffix` en la línea siguiente por el sufijo DNS que obtuvo anteriormente para el clúster de HBase. Después de realizar estos cambios, guarde el archivo.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	El bolt de HBase lo usará para comunicarse con el clúster de HBase.
 
-1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** en un editor de texto y quite el comentario de las líneas siguientes, quitando los caracteres `//` del principio. Después de realizar estos cambios, guarde el archivo.
+1. Abra **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts** en un editor de texto y quite el comentario de las líneas siguientes, quitando los caracteres `//` del principio. Después de realizar estos cambios, guarde el archivo.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@ Antes de ejecutar la topología, debe preparar HBase para que acepte los datos.
 
 2. En el escritorio, inicie la línea de comandos de HDInsight y escriba los comandos siguientes:
 
-    cd %HBASE_HOME% bin\\hbase shell
+    cd %HBASE_HOME% bin\hbase shell
 
 3. En el shell de HBase, escriba el comando siguiente para crear una tabla en la que se almacenarán los datos de los sensores:
 
@@ -419,5 +419,6 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 * Para obtener información sobre la creación de topologías en .NET, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight mediante Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=58_postMigration-->

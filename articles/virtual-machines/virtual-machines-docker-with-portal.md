@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso de la extensión de VM Docker para Linux en Azure"
-	description="Describe Docker y las extensiones de máquinas virtuales de Azure y muestra cómo crear máquinas virtuales en Azure mediante programación que son host de Docker desde la línea de comandos usando la interfaz de comandos azure-cli."
+	description="Describe Docker y las extensiones de máquinas virtuales de Azure y muestra cómo crear máquinas virtuales en Azure mediante programación que son host de Docker desde la línea de comandos usando la CLI de Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -143,5 +143,6 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 
 [Ejecución de Docker con https]: http://docs.docker.com/articles/https/
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

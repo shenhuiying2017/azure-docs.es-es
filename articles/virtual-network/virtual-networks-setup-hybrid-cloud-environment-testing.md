@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Configuración de un entorno de nube híbrida para pruebas
@@ -239,7 +239,7 @@ A continuación, inicie sesión en la nueva máquina virtual de DC2.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
 	- Nombre: **DC2**[Nombre de la cuenta del administrador local]
-	- Contraseña: [contraseña de la cuenta de administrador local]
+	- Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
 A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en DS2, ejecute:
@@ -299,6 +299,7 @@ Su entorno de nube híbrida ya está listo para las pruebas.
 
 [Entornos de prueba de nube híbrida de Azure](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
 
+[Directrices de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
 
 ## Minimización del coste de este entorno
 
@@ -322,5 +323,6 @@ A continuación, inicie sesión en RRAS1 como administrador local y ejecute esto
 	Set-VpnS2SInterface -Name S2StoTestVNET -Destination "<IP address of the Azure VPN gateway>" -SharedSecret $PresharedKey
 
 A continuación, vaya al Portal de administración de Azure en el equipo local y espere hasta que se muestre un estado de la red virtual TestVNET de conectado.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guía sobre el lenguaje de especificación de redes neuronales de Net# para el Aprendizaje automático de Azure" 
+	pageTitle="Guía sobre el lenguaje de especificación de redes neuronales de Net# | Microsoft Azure" 
 	description="Sintaxis para el lenguaje de especificación de redes neuronales de Net#, junto con ejemplos de la manera de crear un modelo de red neuronal personalizada en el aprendizaje automático de Microsoft Azure con Net#" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-# Guía de lenguaje de especificación de red neuronal Net#
+# Guía sobre el lenguaje de especificación de redes neuronales de Net# para el Aprendizaje automático de Azure
 
 ##Información general
 Net#© es un lenguaje desarrollado por Microsoft que se utiliza para definir arquitecturas de redes neuronales para módulos de redes neuronales en el Aprendizaje automático de Microsoft Azure. En este artículo, aprenderá lo siguiente:
@@ -28,7 +28,7 @@ Net#© es un lenguaje desarrollado por Microsoft que se utiliza para definir arq
 -	Sintaxis y palabras clave del lenguaje de especificación Net#
 -	Ejemplos de redes neuronales personalizadas creadas mediante Net# 
 	
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ##Conceptos básicos sobre redes neuronales
 Una estructura de red neuronal consta de ***nodos*** que se disponen en ***capas*** y ***conexiones*** ponderadas (o ***bordes***) entre los nodos. Las conexiones son direccionales y cada una de ellas tiene un nodo de ***origen*** y un nodo de ***destino***.
@@ -150,8 +150,8 @@ Una especificación de conjunto de conexiones filtrado incluye un predicado, exp
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	En el predicado de ByRow, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada, Pixels, y **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta ByRow. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** intervalos sobre todos los pares de enteros con 0 <= s[0] < 10 y 0 <= s[1] < 20, y **d** intervalos de todos los pares de enteros con 0 <= d[0] < 10 y 0 <= d[1] < 12. 
--	En la parte derecha de la expresión del predicado hay una condición. En este ejemplo, para cada valor de **s** y **d** en los que esa condición sea verdadera, hay un borde que va desde el nodo de la capa de origen al nodo de la capa de destino. Por tanto, esta expresión de filtro indica que el conjunto incluye una conexión desde el nodo definido por s  **s** hasta el nodo definido por **d** en todos aquellos casos en que s[0] sea igual a d[0].  
+-	En el predicado de ByRow, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada, Pixels, y **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta ByRow. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** intervalos sobre todos los pares de enteros con 0 <= s[0] < 10 y 0 <= s[1] < 20 y **d** intervalos de todos los pares de enteros con 0 <= d[0] < 10 y 0 <= d[1] < 12. 
+-	En la parte derecha de la expresión del predicado hay una condición. En este ejemplo, para cada valor de **s** y **d** en los que esa condición sea verdadera, hay un borde que va desde el nodo de la capa de origen al nodo de la capa de destino. Por tanto, esta expresión de filtro indica que el conjunto incluye una conexión desde el nodo definido por **s** hasta el nodo definido por **d** en todos aquellos casos en que s[0] sea igual a d[0].  
 
 También tiene la posibilidad de especificar un conjunto de ponderaciones para un conjunto filtrado. El valor del atributo **Weights** debe ser una tupla de los valores de punto flotante con una longitud que coincida con el número de conexiones definidas por la agrupación. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
 
@@ -160,7 +160,7 @@ Los valores ponderados se agrupan según el índice del nodo de destino. Esto es
 ##Conjuntos convolucionales
 Cuando los datos de entrenamiento tienen una estructura homogénea, se utilizan conexiones de circunvolución habitualmente para aprender funciones de alto nivel de los datos. Por ejemplo, en datos de imagen, audio o vídeo, la dimensionalidad espacial o temporal puede ser bastante homogénea.
 
-Los conjuntos convolucionales usan  **kernels** que se deslizan a través de las dimensiones. Básicamente, cada kernel define un conjunto de ponderaciones aplicado en vecindades locales, conocidas como **aplicaciones de kernel**. Cada aplicación de kernel se corresponde con un nodo de la capa de origen, conocido como **nodo central**. Las ponderaciones de un kernel se comparten entre varias conexiones. En un conjunto convolucional, cada kernel es rectangular y todas las aplicaciones de kernel tienen el mismo tamaño.
+Los conjuntos convolucionales usan **kernels** que se deslizan a través de las dimensiones. Básicamente, cada kernel define un conjunto de ponderaciones aplicado en vecindades locales, conocidas como **aplicaciones de kernel**. Cada aplicación de kernel se corresponde con un nodo de la capa de origen, conocido como **nodo central**. Las ponderaciones de un kernel se comparten entre varias conexiones. En un conjunto convolucional, cada kernel es rectangular y todas las aplicaciones de kernel tienen el mismo tamaño.
 
 Las agrupaciones de circunvolución admiten las siguientes los atributos:
 
@@ -170,10 +170,10 @@ Para definir la forma y las ubicaciones de los kernels, use los atributos **Kern
 
 -	**KernelShape**: (obligatorio) define la dimensionalidad de cada kernel para el conjunto convolucional. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ninguno de los componentes de esta tupla debe superar en tamaño al componente correspondiente de **InputShape**. 
 -	**Stride**: (opcional) define los tamaños de los pasos de deslizamiento de la convolución (un tamaño de paso para cada dimensión), es decir, la distancia entre los nodos centrales. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ningún componente de esta tupla debe superar en tamaño al componente correspondiente de **KernelShape**. El valor predeterminado es una tupla con todos los componentes iguales a uno. 
--	**Padding**: (opcional) determina si la entrada debe completarse usando un esquema de completado predeterminado. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. Si el valor de una dimensión es verdadero, el origen se completa lógicamente en esa dimensión con celdas de valor cero para atender a las aplicaciones de kernel adicionales, por lo cual los nodos centrales del primer y último kernel de esa dimensión son el primer y último nodo en esa dimensión en la capa de origen. De este modo, el número de nodos "ficticios" de cada dimensión se determina automáticamente, para que coincida exactamente con el número de kernels (InputShaped[d] - 1) / Stride[d] + 1 en la capa de origen completada. Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
--	**UpperPad** y **LowerPad**: (opcional) proporcionan control sobre la cantidad de completado que se usa. Estos atributos pueden definirse si y solo si **Padding** ***no*** está definido. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior de cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
+-	**Padding**: (opcional) determina si la entrada debe completarse usando un esquema de completado predeterminado. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. Si el valor de una dimensión es verdadero, el origen se completa lógicamente en esa dimensión con celdas de valor cero para atender a las aplicaciones de kernel adicionales, por lo cual los nodos centrales del primer y último kernel de esa dimensión son el primer y último nodo en esa dimensión en la capa de origen. De este modo, el número de nodos "ficticios" de cada dimensión se determina automáticamente, para coincidir exactamente con el número de kernels (InputShape[d] - 1) / Stride[d] + 1 en la capa de origen completada. Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
+-	**UpperPad** y **LowerPad**: (opcional) proporcionan control sobre la cantidad de completado que se usa. Estos atributos pueden definirse si y solo si **Padding** ***no*** está definido. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
 	-	Cada componente de **LowerPad** debe ser estrictamente inferior a KernelShape[d]/2. 
-	-	Ningún componente de **UpperPad** debe ser superior a KernelShape[d]/2. 
+	-	Ningún componente de **UpperPad** puede ser superior a KernelShape[d]/2. 
 	-	El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0. 
 -	**Sharing**: (opcional) define el uso compartido de las ponderaciones de cada dimensión de la convolución. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. El valor predeterminado es una tupla que consta de todos los valores True. 
 -	**MapCount**: (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino. 
@@ -188,7 +188,7 @@ Para obtener más información acerca de las redes convolucionales y sus aplicac
 ##Conjuntos de agrupación
 Un **conjunto de agrupación** aplica una geometría similar a la conectividad convolucional, pero usa funciones predefinidas sobre los valores de los nodos de origen para derivar el valor del nodo de destino. Por tanto, los conjuntos de agrupación no tienen estado entrenable (ponderaciones o sesgos). Los paquetes de agrupación admiten todos los atributos convolucionales, excepto **Sharing**, **MapCount** y **Weights**.
 
-Normalmente, los kernel resumidos por las unidades de agrupación adyacentes no se superponen. Si Stride[d] es igual a KernelShape[d] en cada dimensión, la capa obtenida es la capa de agrupación local tradicional, usada habitualmente en redes neuronales convolucionales. Cada nodo de destino calcula el valor máximo o la media de las actividades de su kernel en la capa de origen.
+Normalmente, los kernel resumidos por las unidades de agrupación adyacentes no se superponen. Si Stride[d] es igual a KernelShape[d] en cada dimensión, la capa obtenida es la capa de agrupación local tradicional, utilizada habitualmente en redes neuronales convolucionales. Cada nodo de destino calcula el valor máximo o la media de las actividades de su kernel en la capa de origen.
 
 El ejemplo siguiente ilustra un conjunto de agrupación:
 
@@ -211,7 +211,7 @@ Para obtener más información acerca de las capas de agrupación, consulte esto
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
 ##Conjuntos de normalización de respuesta
-La **normalización de respuesta** es un esquema de normalización local presentado por primera vez por Geoffrey Hinton et al. en un documento titulado "ImageNet Classiﬁcation with Deep Convolutional Neural Networks" (vea la sección 3.3). La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza por medio de tres parámetros (***α***, ***β*** y ***k***) y una estructura convolucional (o forma de vecindad). Cada neurona de la capa de destino ***y*** se corresponde con una neurona  ***x*** de la capa de origen. El nivel de activación de ***y*** se determina mediante la fórmula siguiente, donde***f*** es el nivel de activación de una neurona y ***Nx*** es el kernel (o el conjunto que contiene las neuronas en la vecindad de ***x***) como se define en la siguiente estructura convolucional:
+La **normalización de respuesta** es un esquema de normalización local presentado por primera vez por Geoffrey Hinton et al. en un documento titulado "ImageNet Classiﬁcation with Deep Convolutional Neural Networks" (vea la sección 3.3). La normalización de respuesta se utiliza para ayudar a la generalización en redes neuronales. Cuando una neurona se activa a un nivel muy alto, una capa de normalización de respuesta local suprime la capa de activación de las neuronas circundantes. Esto se realiza por medio de tres parámetros (***α***, ***β*** y ***k***) y una estructura convolucional (o forma de vecindad). Cada neurona de la capa de destino ***y*** se corresponde con una neurona ***x*** de la capa de origen. El nivel de activación de ***y*** se determina mediante la fórmula siguiente, donde***f*** es el nivel de activación de una neurona y ***Nx*** es el kernel (o el conjunto que contiene las neuronas en la vecindad de ***x***) como se define en la siguiente estructura convolucional:
 
 ![][1]
 
@@ -391,8 +391,9 @@ La definición de la siguiente red está diseñada para reconocer los números y
 	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
 -	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
--	Dado que Sharingd**Sharing**[d] es falso solo para d == 0, el número de los kernel es **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
+-	Dado que **Sharing**[d] es falso solo para d == 0, el número de los kernel es **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=58_postMigration-->

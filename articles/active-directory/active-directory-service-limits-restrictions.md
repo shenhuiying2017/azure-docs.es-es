@@ -31,7 +31,7 @@ Un solo usuario solo puede asociarse a un máximo de 20 directorios de Azure Act
 
 ## Objetos
 
-- No hay ningún límite para los suscriptores de Azure Active Directory Premium o Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Windows Intune o cualquier otro servicio en línea de Microsoft que se base en Azure Active Directory para servicios de directorio.
+- No hay ningún límite para los suscriptores de Azure Active Directory Premium o Azure Active Directory Basic, Enterprise Mobility Suite, Office 365, Microsoft Intune o cualquier otro servicio en línea de Microsoft que se base en Azure Active Directory para servicios de directorio.
 - Se puede usar un máximo de 500.000 objetos en un solo directorio con la edición gratuita de Azure Active Directory.
 - Un usuario que no es administrador puede crear hasta 250 objetos.
 
@@ -72,4 +72,7 @@ Se puede ver o descargar en cualquier informe un máximo de 1.000 filas. Los dat
 - [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminología de Azure AD](active-directory-terminology.md)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=58_postMigration-->
