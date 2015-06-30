@@ -350,7 +350,7 @@ La ejecución de un procedimiento almacenado se realiza emitiendo un POST HTTP e
 	        console.log("Error");
 	    });
 
-###Unregistering a stored procedure
+###Anulación del registro de un procedimiento almacenado
 Anular el registro de un procedimiento almacenado es sencillo mediante la emisión de un DELETE HTTP en un recurso de procedimiento almacenado existente.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)

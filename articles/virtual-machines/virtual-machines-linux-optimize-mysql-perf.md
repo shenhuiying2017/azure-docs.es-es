@@ -21,11 +21,11 @@
 Existen muchos factores que afectan al rendimiento de MySQL en Azure, tanto en la configuración de selección de software y hardware virtual. Este artículo se centra en la optimización del rendimiento a través del almacenamiento, el sistema y las configuraciones de base de datos.
 
 ##Uso de RAID en una máquina virtual de Azure 
-El almacenamiento es el factor clave que afecta al rendimiento de la base de datos en entornos de nube. En comparación con un solo disco, RAID puede proporcionar un acceso más rápido gracias a la simultaneidad. Consulte [Niveles RAID estándar](http://en.wikipedia.org/wiki/Standard_RAID_levels) para obtener más detalles.
+El almacenamiento es el factor clave que afecta al rendimiento de la base de datos en entornos de nube. En comparación con un solo disco, RAID puede proporcionar un acceso más rápido gracias a la simultaneidad. Consulte [Niveles RAID estándar](http://en.wikipedia.org/wiki/Standard_RAID_levels) para obtener más detalles.   
 
-El rendimiento de E/S de disco, así como el tiempo de respuesta de las E/S pueden mejorarse significativamente con RAID. Nuestras pruebas de laboratorio indican que es posible duplicar el rendimiento de E/S de disco. Asimismo, es posible reducir a la mitad el tiempo de respuesta de E/S de media cuando se duplica el número de discos RAID (de 2 a 4, de 4 a 8, etc.). Consulte el [Apéndice A](#AppendixA) para obtener más información.
+El rendimiento de E/S de disco, así como el tiempo de respuesta de las E/S pueden mejorarse significativamente con RAID. Nuestras pruebas de laboratorio indican que es posible duplicar el rendimiento de E/S de disco. Asimismo, es posible reducir a la mitad el tiempo de respuesta de E/S de media cuando se duplica el número de discos RAID (de 2 a 4, de 4 a 8, etc.). Consulte el [Apéndice A](#AppendixA) para obtener más información.   
 
-Además de las E/S de disco, el rendimiento de MySQL mejora al aumentar el nivel de RAID. Consulte el [Apéndice B](#AppendixB) para obtener más información.
+Además de las E/S de disco, el rendimiento de MySQL mejora al aumentar el nivel de RAID. Consulte el [Apéndice B](#AppendixB) para obtener más información.   
 
 También puede que desee considerar el tamaño del fragmento. En general, cuando el tamaño de fragmento es mayor, obtendrá una menor sobrecarga, especialmente para las operaciones de escritura de mayor envergadura. Sin embargo, si el tamaño del fragmento es demasiado grande, podría agregar una sobrecarga adicional, con lo que no se aprovecharían las ventajas de RAID. El tamaño predeterminado actual es de 512 KB. Este es el tamaño óptimo para los entornos de producción más generales. Consulte el [Apéndice C](#AppendixC) para obtener más información.
 
@@ -68,7 +68,7 @@ Siga las instrucciones de este artículo para obtener información detallada ace
 
 [http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-configure-RAID/)
 
->[AZURE.NOTE]Si usa el sistema de archivos XFS, siga los pasos siguientes después de haber creado RAID.
+>[AZURE.NOTE] Si usa el sistema de archivos XFS, siga los pasos siguientes después de haber creado RAID.
 
 Para instalar XFS en Debian, Ubuntu o Linux Mint, use el comando siguiente:
 
@@ -103,13 +103,13 @@ Linux implementa cuatro tipos de algoritmos de programación de E/S:
 -	Algoritmo de cola justa (CFQ)
 -	Algoritmo de período de presupuesto (antelación)  
 
-Puede seleccionar distintos programadores de E/S en distintos escenarios para optimizar el rendimiento. En un entorno de acceso completamente aleatorio, no hay una gran diferencia entre los algoritmos CFQ y de fecha límite en cuanto a rendimiento. Por lo general se recomienda establecer el entorno de base de datos MySQL en Fecha límite para disponer de mayor estabilidad. Si hay un elevado volumen de E/S secuenciales, el algoritmo CFQ puede reducir el rendimiento de las E/S de disco.
+Puede seleccionar distintos programadores de E/S en distintos escenarios para optimizar el rendimiento. En un entorno de acceso completamente aleatorio, no hay una gran diferencia entre los algoritmos CFQ y de fecha límite en cuanto a rendimiento. Por lo general se recomienda establecer el entorno de base de datos MySQL en Fecha límite para disponer de mayor estabilidad. Si hay un elevado volumen de E/S secuenciales, el algoritmo CFQ puede reducir el rendimiento de las E/S de disco.   
 
-Para SSD y otros equipos, el algoritmo NOOP o de Fecha límite puede ofrecer mayor rendimiento que el programador predeterminado.
+Para SSD y otros equipos, el algoritmo NOOP o de Fecha límite puede ofrecer mayor rendimiento que el programador predeterminado.   
 
-Desde el kernel 2.5, el algoritmo de programación de E/S predeterminado es el algoritmo de Fecha límite. A partir del kernel 2.6.18, CFQ se convirtió en el algoritmo de programación de E/S predeterminado. Puede especificar este valor en el tiempo de arranque de Kernel, o bien modificar esta configuración de forma dinámica cuando el sistema se está ejecutando.
+Desde el kernel 2.5, el algoritmo de programación de E/S predeterminado es el algoritmo de Fecha límite. A partir del kernel 2.6.18, CFQ se convirtió en el algoritmo de programación de E/S predeterminado. Puede especificar este valor en el tiempo de arranque de Kernel, o bien modificar esta configuración de forma dinámica cuando el sistema se está ejecutando.  
 
-En el ejemplo siguiente se muestra cómo comprobar y establecer el programador predeterminado con el algoritmo NOOP.
+En el ejemplo siguiente se muestra cómo comprobar y establecer el programador predeterminado con el algoritmo NOOP.  
 
 Para la familia de distribución Debian:
 
@@ -131,7 +131,7 @@ Use los comandos siguientes:
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE]Establecer este valor solo para /dev/sda no es útil. Debe establecerse en todos los discos de datos en los que reside la base de datos.
+>[AZURE.NOTE] Establecer este valor solo para /dev/sda no es útil. Debe establecerse en todos los discos de datos en los que reside la base de datos.
 
 Debería mostrarse el resultado siguiente, que indica que grub.cfg se ha vuelto a compilar correctamente y que se ha actualizado el programador predeterminado a NOOP.
 
@@ -167,7 +167,7 @@ A continuación, vuelva a montar el sistema de archivos con el comando siguiente
 
 Pruebe el resultado modificado. Tenga en cuenta que cuando se modifica el archivo de prueba, la hora de acceso no se modifica.
 
-Antes del ejemplo:
+Antes del ejemplo:		
 
 ![][5]
  
@@ -213,7 +213,8 @@ Los elementos de configuración siguientes son los principales factores que infl
 -	**innodb_buffer_pool_size**: El grupo de búferes contiene los datos almacenados en el búfer, así como el índice. Normalmente se establece en el 70% de memoria física.
 -	**innodb_log_file_size**: Este es el tamaño de registro de rehacer. Los registros de rehacer se usan para garantizar que las operaciones de escritura son rápidas, confiables y recuperables después de un bloqueo. Se establece en 512 MB, lo que proporcionará una cantidad de espacio suficiente para registrar las operaciones de escritura.
 -	**max_connections**: A veces, las aplicaciones no cierran las conexiones correctamente. Un valor mayor proporciona al servidor más tiempo para reciclar las conexiones inactivas. El número máximo de conexiones es de 10000, pero el máximo recomendado es de 5000.
--	**Innodb_file_per_table**: Esta configuración habilita o deshabilita la posibilidad de InnoDB de almacenar tablas en archivos independientes. Al activar la opción se asegurará de que se pueden aplicar varias operaciones avanzadas de administración eficaces. Desde el punto de vista del rendimiento, puede acelerar la transmisión del espacio de tabla y optimizar el rendimiento de la administración de residuos. Por lo tanto, el valor recomendado para esto es ON.</br> Desde MySQL 5.6, el valor predeterminado es ON. Por lo tanto, no se requiere ninguna acción. Para otras versiones, anteriores a la 5.6, la configuración predeterminada es OFF. Es necesario establecer esta opción en ON. Debe establecerla antes de cargar los datos, ya que solo afecta a las tablas recién creadas.
+-	**Innodb_file_per_table**: Esta configuración habilita o deshabilita la posibilidad de InnoDB de almacenar tablas en archivos independientes. Al activar la opción se asegurará de que se pueden aplicar varias operaciones avanzadas de administración eficaces. Desde el punto de vista del rendimiento, puede acelerar la transmisión del espacio de tabla y optimizar el rendimiento de la administración de residuos. Por lo tanto, el valor recomendado para esto es ON.</br>
+	Desde MySQL 5.6, el valor predeterminado es ON. Por lo tanto, no se requiere ninguna acción. Para otras versiones, anteriores a la 5.6, la configuración predeterminada es OFF. Es necesario establecer esta opción en ON. Debe establecerla antes de cargar los datos, ya que solo afecta a las tablas recién creadas.
 -	**innodb_flush_log_at_trx_commit**: El valor predeterminado es 1, con el ámbito establecido en 0~2. El valor predeterminado es la opción más adecuada para la base de datos MySQL independiente. El valor 2 permite una mayor integridad de datos y es adecuado para Master en clúster de MySQL. El valor 0 permite la pérdida de datos, lo que puede afectar a la confiabilidad, en algunos casos con un mejor rendimiento, y es adecuado para la opción de esclavo en clúster de MySQL.
 -	**Innodb_log_buffer_size**: El búfer de registro permite que las transacciones se ejecuten sin tener que vaciar el registro en el disco antes de confirmar las transacciones. Sin embargo, si hay un objeto binario de gran tamaño o un campo de texto, se consumirá la memoria caché muy rápidamente y se activará la E/S de discos frecuentes. Es mejor incrementar el tamaño del búfer si la variable de estado Innodb_log_waits no es 0.
 -	**query_cache_size**: La mejor opción es deshabilitarla desde el principio. Establezca query_cache_size en 0 (ahora es el valor predeterminado en MySQL 5.6) y use otros métodos para agilizar las consultas.  
@@ -237,7 +238,7 @@ Tenga en cuenta que no está habilitado de forma predeterminada. Activar el regi
 
 ###Paso 3: Comprobación de si la configuración surte efecto con el comando "show"
  
-![][7]
+![][7]   
    
 ![][8]
  
@@ -251,7 +252,8 @@ En este ejemplo, puede ver que se ha activado la característica de consulta len
 
 A continuación se muestran los datos de las pruebas de rendimiento obtenidos en el entorno de laboratorio de destino. Estos datos proporcionan información general acerca de las tendencias de datos de rendimiento con distintos enfoques de optimización del rendimiento. Sin embargo, los resultados pueden variar con las distintas versiones de producto o entorno.
 
-<a name="AppendixA"></a>Apéndice A: **Rendimiento del disco (IOPS) con los distintos niveles de RAID**
+<a name="AppendixA"></a>Apéndice A:  
+**Rendimiento del disco (IOPS) con los distintos niveles de RAID** 
 
 
 ![][9]
@@ -262,22 +264,27 @@ A continuación se muestran los datos de las pruebas de rendimiento obtenidos en
 
 >AZURE.NOTE: La carga de trabajo de esta prueba usa 64 subprocesos para intentar alcanzar el límite superior de RAID.
 
-<a name="AppendixB"></a>Apéndice B: **Comparación de rendimiento de MySQL con distintos niveles de RAID** (sistema de archivos XFS)
+<a name="AppendixB"></a>Apéndice B:  
+**Comparación de rendimiento de MySQL con distintos niveles de RAID**   
+(sistema de archivos XFS)
 
  
-![][10] ![][11]
+![][10]  
+![][11]
 
 **Comandos de prueba:**
 
 	mysqlslap -p0ps.123 --concurrency=2 --iterations=1 --number-int-cols=10 --number-char-cols=10 -a --auto-generate-sql-guid-primary --number-of-queries=10000 --auto-generate-sql-load-type=write –engine=innodb
 
-**Comparación de rendimiento (OLTP) de MySQL con distintos niveles de RAID** ![][12]
+**Comparación de rendimiento (OLTP) de MySQL con distintos niveles de RAID**  
+![][12]
 
 **Comandos de prueba:**
 
 	time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Apéndice C: **Comparación de rendimiento (IOPS) de disco con distintos tamaños de fragmento** (sistema de archivos XFS)
+<a name="AppendixC"></a>Apéndice C:   
+**Comparación de rendimiento (IOPS) de disco con distintos tamaños de fragmento** (sistema de archivos XFS)  
 
  
 ![][13]
@@ -344,4 +351,4 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=58--> 
+<!----HONumber=58--> 

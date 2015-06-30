@@ -100,6 +100,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Introducción a las notificaciones de inserción]: mobile-services-javascript-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de administración de Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
 <!--HONumber=54--> 

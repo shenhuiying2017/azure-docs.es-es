@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a las notificaciones de inserción (JavaScript para Android) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación JavaScript de Android." 
 	services="mobile-services, notification-hubs" 
@@ -191,15 +191,17 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Introducción a Servicios móviles]: mobile-services-android-get-started.md
 [Introducción a los datos]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Configuración del SDK de Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de administración de Azure]: https://manage.windowsazure.com/
 [Cómo usar la biblioteca de cliente Android para servicios móviles]: mobile-services-android-how-to-use-client-library.md
 
 [objeto gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645
