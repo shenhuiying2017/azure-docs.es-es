@@ -46,7 +46,150 @@ Examinaremos las secciones de la plantilla con mayor detenimiento más adelante 
 
 ## Expresiones y funciones
 
-La sintaxis básica de la plantilla es JSON; sin embargo, las expresiones y funciones amplían el JSON que está disponible en la plantilla y le permiten crear valores que no son valores literales estrictos. Las expresiones se incluyen entre corchetes ([ y ]) y se evalúan cuando se implementa la plantilla. Pueden aparecer expresiones en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete [, debe usar dos corchetes [[. Normalmente, se usan expresiones con funciones para realizar operaciones con el fin de configurar la implementación. Al igual que en JavaScript, las llamadas de función tienen el formato **functionName(arg1,arg2,arg3)**. Se hace referencia a las propiedades mediante los operadores dot e [index] . En la siguiente lista se muestran funciones comunes. -**parameters(parameterName) ** Devuelve un valor de parámetro que se proporciona cuando se ejecuta la implementación. -** variables(variableName) ** Devuelve una variable que se define en la plantilla. -**concat(arg1,arg2,arg3,...) ** Combina varios valores de cadena. Esta función puede tomar cualquier número de argumentos. -** base64(inputString) ** Devuelve la representación de base64 de la cadena de entrada. -** resourceGroup() ** Devuelve un objeto estructurado (con propiedades de id., nombre y ubicación) que representa el grupo de recursos actual. -**resourceId ([resourceGroupName] resourceType, resourceName1, [resourceName2]...) ** Devuelve el identificador único de un recurso. Se puede usar para recuperar recursos de otro grupo de recursos. En el ejemplo siguiente se muestra cómo usar algunas de las funciones para la construcción de valores: "variables": { "location": "[resourceGroup().location]", "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]", "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]" } Por ahora, sabe lo suficiente sobre expresiones y funciones para comprender las secciones de la plantilla. Para obtener más información sobre todas las funciones de plantilla, incluidos los parámetros y el formato de los valores devueltos, vea [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md). ## Parámetros En la sección de parámetros de la plantilla, especifique los valores que un usuario puede especificar al implementar los recursos. Puede usar estos valores de parámetros a lo largo de la plantilla para establecer valores para los recursos implementados. Solo los parámetros declarados en la sección de parámetros se pueden usar en otras secciones de la plantilla. En la sección de parámetros, no puede usar un valor de parámetro para construir otro valor de parámetro. Ese tipo de operación suele producirse en la sección de variables. Defina parámetros con la estructura siguiente: "parameters": { "<parameterName>" : { "type" : "<type-of-parameter-value>", "defaultValue": "<optional-default-value-of-parameter>", "allowedValues": [ "<optional-array-of-allowed-values>" ] } } | Nombre del elemento | Obligatorio | Descripción | :------------: | :------: | :---------- | parameterName | Sí | Nombre del parámetro. Debe ser un identificador válido de JavaScript. | tipo | Sí | Tipo del valor del parámetro. Vea la siguiente lista de tipos permitidos. | defaultValue | No | Valor predeterminado para el parámetro, si no se proporciona ningún valor para el parámetro. | allowedValues | No | Matriz de valores permitidos para que el parámetro se asegure de que se proporciona el valor correcto. Los valores y tipos permitidos son: - string o secureString: cualquier cadena JSON válida - int: cualquier entero válido de JSON - bool: cualquier booleano JSON válido - object: cualquier objeto JSON válido - array: cualquier matriz JSON válida > [AZURE.NOTE] Todas las contraseñas, claves y otros secretos deben usar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos. En el ejemplo siguiente se muestra cómo definir parámetros: "parameters": { "siteName": { "type": "string" }, "siteLocation": { "type": "string" }, "hostingPlanName": { "type": "string" }, "hostingPlanSku": { "type": "string", "allowedValues": [ "Free", "Shared", "Basic", "Standard", "Premium" ], "defaultValue": "Free" } } ## Variables En la sección de variables, se construyen valores que se pueden usar para simplificar expresiones de idioma de plantilla. Normalmente, estas variables se basarán en los valores proporcionados de los parámetros. En el ejemplo siguiente se muestra cómo definir una variable que se construye a partir de dos valores de parámetro: "parameters": { "username": { "type": "string" }, "password": { "type": "secureString" } }, "variables": { "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]" } En el siguiente ejemplo se muestra una variable que es un tipo JSON complejo y las variables que se construyen de otras variables: "parameters": { "environmentName": { "type": "string", "allowedValues": [ "test", "prod" ] } }, "variables": { "environmentSettings": { "test": { "instancesSize": "Small", "instancesCount": 1 }, "prod": { "instancesSize": "Large", "instancesCount": 4 } }, "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]", "instancesSize": "[variables('currentEnvironmentSettings').instancesSize", "instancesCount": "[variables('currentEnvironmentSettings').instancesCount" }
+La sintaxis básica de la plantilla es JSON; sin embargo, las expresiones y funciones amplían el JSON que está disponible en la plantilla y le permiten crear valores que no son valores literales estrictos. Las expresiones se incluyen entre corchetes ([ y ]) y se evalúan cuando se implementa la plantilla. Pueden aparecer expresiones en cualquier lugar de un valor de cadena JSON y devolver siempre otro valor JSON. Si necesita usar una cadena literal que comienza por un corchete [, debe usar dos corchetes [[.
+
+Normalmente, se usan expresiones con funciones para realizar operaciones con el fin de configurar la implementación. Al igual que en JavaScript, las llamadas de función tienen el formato **functionName(arg1,arg2,arg3)**. Se hace referencia a las propiedades mediante los operadores dot e [index] .
+
+La siguiente lista muestra las funciones comunes.
+
+- **parameters(parameterName)**
+
+    Devuelve un valor de parámetro que se proporciona cuando se ejecuta la implementación.
+
+- **variables(variableName)**
+
+    Devuelve una variable que se define en la plantilla.
+
+- **concat(arg1,arg2,arg3,...)**
+
+    Combina varios valores de cadena. Esta función puede tomar cualquier número de argumentos.
+
+- **base64(inputString)**
+
+    Devuelve la representación de base64 de la cadena de entrada.
+
+- **resourceGroup()**
+
+    Devuelve un objeto estructurado (con las propiedades de identificador, nombre y ubicación) que representa el grupo de recursos actual.
+
+- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+
+    Devuelve el identificador único de un recurso. Se puede usar para recuperar recursos de otro grupo de recursos.
+
+En el ejemplo siguiente se muestra cómo utilizar algunas de las funciones para la construcción de valores:
+ 
+    "variables": {
+       "location": "[resourceGroup().location]",
+       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
+       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
+    }
+
+Por ahora, ya sabe lo suficiente acerca de expresiones y funciones para comprender las secciones de la plantilla. Para obtener más información acerca de todas las funciones de plantilla, incluidos los parámetros y el formato de valores devueltos, consulte [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md).
+
+
+## Parámetros
+
+En la sección de parámetros de la plantilla, especifique los valores que el usuario puede introducir al implementar los recursos. Puede usar estos valores de parámetros a lo largo de la plantilla para establecer valores para los recursos implementados. Solo los parámetros declarados en la sección de parámetros se pueden usar en otras secciones de la plantilla.
+
+En la sección de parámetros, no puede usar un valor de parámetro para construir otro valor de parámetro. Ese tipo de operación suele producirse en la sección de variables.
+
+Defina recursos con la estructura siguiente:
+
+    "parameters": {
+       "<parameterName>" : {
+         "type" : "<type-of-parameter-value>",
+         "defaultValue": "<optional-default-value-of-parameter>",
+         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+       }
+    }
+
+| Nombre del elemento | Obligatorio | Descripción
+| :------------: | :------: | :----------
+| parameterName | Sí | Nombre del parámetro. Debe ser un identificador válido de JavaScript.
+| type | Sí | Tipo del valor del parámetro. Consulte la lista siguiente de tipos permitidos.
+| defaultValue | No | Valor predeterminado del parámetro, si no se proporciona ningún valor.
+| allowedValues | No | Matriz de valores permitidos para el parámetro para asegurarse de que se proporciona el valor correcto.
+
+Los valores y tipos permitidos son los siguientes:
+
+- string o secureString: cualquier cadena JSON válida
+- int: cualquier entero JSON válido
+- bool: cualquier booleano JSON válido
+- objet: cualquier objeto JSON válido
+- array: cualquier matriz JSON válida
+
+
+>[AZURE.NOTE]Todas las contraseñas, claves y otros secretos deben utilizar el tipo **secureString**. No se pueden leer los parámetros de plantilla con el tipo secureString después de la implementación de recursos.
+
+En el ejemplo siguiente se muestra cómo definir los parámetros.
+
+    "parameters": {
+       "siteName": {
+          "type": "string"
+       },
+       "siteLocation": {
+          "type": "string"
+       },
+       "hostingPlanName": {
+          "type": "string"
+       },  
+       "hostingPlanSku": {
+          "type": "string",
+          "allowedValues": [
+            "Free",
+            "Shared",
+            "Basic",
+            "Standard",
+            "Premium"
+          ],
+          "defaultValue": "Free"
+       }
+    }
+
+## Variables
+
+En la sección de variables puede construir valores que se utilizan para simplificar las expresiones de idioma de la plantilla. Normalmente, estas variables se basarán en los valores proporcionados de los parámetros.
+
+En el ejemplo siguiente se muestra cómo definir una variable que se construye a partir de dos valores de parámetro:
+
+    "parameters": {
+       "username": {
+         "type": "string"
+       },
+       "password": {
+         "type": "secureString"
+       }
+     },
+     "variables": {
+       "connectionString": "[concat('Name=', parameters('username'), ';Password=', parameters('password'))]"
+    }
+
+En el ejemplo siguiente se muestra una variable que es un tipo JSON complejo y las variables que se construyen a partir de otras variables:
+
+    "parameters": {
+       "environmentName": {
+         "type": "string",
+         "allowedValues": [
+           "test",
+           "prod"
+         ]
+       }
+    },
+    "variables": {
+       "environmentSettings": {
+         "test": {
+           "instancesSize": "Small",
+           "instancesCount": 1
+         },
+         "prod": {
+           "instancesSize": "Large",
+           "instancesCount": 4
+         }
+       },
+       "currentEnvironmentSettings": "[variables('environmentSettings')[parameters('environmentName')]]",
+       "instancesSize": "[variables('currentEnvironmentSettings').instancesSize",
+       "instancesCount": "[variables('currentEnvironmentSettings').instancesCount"
+    }
 
 ## Recursos
 
@@ -254,8 +397,9 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 
 ## Pasos siguientes
 - [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
+- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md)
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 
 <!---HONumber=58-->
+
