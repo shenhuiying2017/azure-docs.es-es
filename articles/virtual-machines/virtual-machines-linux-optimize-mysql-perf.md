@@ -27,22 +27,22 @@ El rendimiento de E/S de disco, así como el tiempo de respuesta de las E/S pued
 
 Además de las E/S de disco, el rendimiento de MySQL mejora al aumentar el nivel de RAID. Consulte el [Apéndice B](#AppendixB) para obtener más información.   
 
-También puede que desee considerar el tamaño del fragmento. En general, cuando el tamaño de fragmento es mayor, obtendrá una menor sobrecarga, especialmente para las operaciones de escritura de mayor envergadura. Sin embargo, si el tamaño del fragmento es demasiado grande, podría agregar una sobrecarga adicional, con lo que no se aprovecharían las ventajas de RAID. El tamaño predeterminado actual es de 512 KB. Este es el tamaño óptimo para los entornos de producción más generales. Consulte el [Apéndice C](#AppendixC) para obtener más información.
+También puede que desee considerar el tamaño del fragmento. En general, cuando el tamaño de fragmento es mayor, obtendrá una menor sobrecarga, especialmente para las operaciones de escritura de mayor envergadura. Sin embargo, si el tamaño del fragmento es demasiado grande, podría agregar una sobrecarga adicional, con lo que no se aprovecharían las ventajas de RAID. El tamaño predeterminado actual es de 512 KB. Este es el tamaño óptimo para los entornos de producción más generales. Consulte el [Apéndice C](#AppendixC) para obtener más información.   
 
-Tenga en cuenta que existen límites en cuanto al número de discos que puede agregar para los distintos tipos de máquinas virtuales. Estos límites se detallan en [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Necesitará 4 discos de datos conectados para seguir el ejemplo de RAID que se describe en este artículo, aunque puede optar por configurar RAID con menos discos.
+Tenga en cuenta que existen límites en cuanto al número de discos que puede agregar para los distintos tipos de máquinas virtuales. Estos límites se detallan en [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Necesitará 4 discos de datos conectados para seguir el ejemplo de RAID que se describe en este artículo, aunque puede optar por configurar RAID con menos discos.  
 
-En este artículo se da por supuesto que ya ha creado una máquina virtual Linux y que MYSQL está instalado y configurado. Para obtener más información acerca de cómo empezar, consulte Instalación de MySQL en Azure.
+En este artículo se da por supuesto que ya ha creado una máquina virtual Linux y que MYSQL está instalado y configurado. Para obtener más información acerca de cómo empezar, consulte Instalación de MySQL en Azure.  
   
 ###Configuración de RAID en Azure
-Los siguientes pasos muestran cómo crear RAID en Azure mediante el Portal de administración de Windows Azure. También puede configurar RAID mediante scripts de Windows PowerShell. En este ejemplo, configuraremos RAID 0 con 4 discos.
+Los siguientes pasos muestran cómo crear RAID en Azure mediante el Portal de administración de Windows Azure. También puede configurar RAID mediante scripts de Windows PowerShell. En este ejemplo, configuraremos RAID 0 con 4 discos.  
 
 ####Paso 1: Agregación de un disco de datos a la máquina virtual  
 
-En la página de máquinas virtuales del Portal de administración de Azure, haga clic en la máquina virtual a la que desea agregar un disco de datos. En este ejemplo, la máquina virtual es mysqlnode1.
+En la página de máquinas virtuales del Portal de administración de Azure, haga clic en la máquina virtual a la que desea agregar un disco de datos. En este ejemplo, la máquina virtual es mysqlnode1.  
 
 ![][1]
 
-En la página de la máquina virtual, haga clic en **Panel**.
+En la página de la máquina virtual, haga clic en **Panel**.  
 
 ![][2]
  
@@ -55,11 +55,11 @@ A continuación, haga clic en **Conectar disco vacío**.
 
 ![][4]
  
-Para discos de datos, **Preferencia de caché de Host** debe establecerse en **Ninguna**.
+Para discos de datos, **Preferencia de caché de Host** debe establecerse en **Ninguna**.  
 
-Esta acción agregará un disco vacío a la máquina virtual. Repita este paso tres veces más para que disponer de 4 discos de datos para RAID.
+Esta acción agregará un disco vacío a la máquina virtual. Repita este paso tres veces más para que disponer de 4 discos de datos para RAID.  
 
-Puede ver las unidades agregadas en la máquina virtual examinando el registro de mensajes del kernel. Por ejemplo, para ver esto en Ubuntu, use el comando siguiente:
+Puede ver las unidades agregadas en la máquina virtual examinando el registro de mensajes del kernel. Por ejemplo, para ver esto en Ubuntu, use el comando siguiente:  
 
 	sudo grep SCSI /var/log/dmesg
 
@@ -70,7 +70,7 @@ Siga las instrucciones de este artículo para obtener información detallada ace
 
 >[AZURE.NOTE] Si usa el sistema de archivos XFS, siga los pasos siguientes después de haber creado RAID.
 
-Para instalar XFS en Debian, Ubuntu o Linux Mint, use el comando siguiente:
+Para instalar XFS en Debian, Ubuntu o Linux Mint, use el comando siguiente:  
 
 	apt-get -y install xfsprogs  
 
@@ -80,23 +80,23 @@ Para instalar XFS en Fedora, CentOS o RHEL, use el comando siguiente:
 
 
 ####Paso 3: Configuración de una nueva ruta de acceso de almacenamiento
-Use el comando siguiente:
+Use el comando siguiente:  
 
 	root@mysqlnode1:~# mkdir -p /RAID0/mysql
 
 ####Paso 4: Copia de los datos originales en la nueva ruta de acceso de almacenamiento
-Use el comando siguiente:
+Use el comando siguiente:  
 
 	root@mysqlnode1:~# cp -rp /var/lib/mysql/* /RAID0/mysql/
 
 ####Paso 5: Modificación de permisos para que MySQL pueda tener acceso (lectura y escritura) al disco de datos
-Use el comando siguiente:
+Use el comando siguiente:  
 
 	root@mysqlnode1:~# chown -R mysql.mysql /RAID0/mysql && chmod -R 755 /RAID0/mysql
 
 
 ##Ajuste el algoritmo de programación de E/S de disco
-Linux implementa cuatro tipos de algoritmos de programación de E/S:
+Linux implementa cuatro tipos de algoritmos de programación de E/S:  
 
 -	Algoritmo NOOP (sin operación)
 -	Algoritmo de fecha límite (fecha límite)
@@ -111,10 +111,10 @@ Desde el kernel 2.5, el algoritmo de programación de E/S predeterminado es el a
 
 En el ejemplo siguiente se muestra cómo comprobar y establecer el programador predeterminado con el algoritmo NOOP.  
 
-Para la familia de distribución Debian:
+Para la familia de distribución Debian:  
 
 ###Paso 1. Visualizar el programador de E/S actual
-Use el comando siguiente:
+Use el comando siguiente:  
 
 	root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler 
 
@@ -131,9 +131,9 @@ Use los comandos siguientes:
 	root@mysqlnode1:~# sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash elevator=noop"/g' /etc/default/grub
 	root@mysqlnode1:~# update-grub
 
->[AZURE.NOTE] Establecer este valor solo para /dev/sda no es útil. Debe establecerse en todos los discos de datos en los que reside la base de datos.
+>[AZURE.NOTE] Establecer este valor solo para /dev/sda no es útil. Debe establecerse en todos los discos de datos en los que reside la base de datos.  
 
-Debería mostrarse el resultado siguiente, que indica que grub.cfg se ha vuelto a compilar correctamente y que se ha actualizado el programador predeterminado a NOOP.
+Debería mostrarse el resultado siguiente, que indica que grub.cfg se ha vuelto a compilar correctamente y que se ha actualizado el programador predeterminado a NOOP.  
 
 	Generating grub configuration file ...
 	Found linux image: /boot/vmlinuz-3.13.0-34-generic
@@ -144,16 +144,16 @@ Debería mostrarse el resultado siguiente, que indica que grub.cfg se ha vuelto 
 	Found memtest86+ image: /memtest86+.bin
 	done
 
-Para la familia de distribución Redhat, solo necesita el siguiente comando:
+Para la familia de distribución Redhat, solo necesita el siguiente comando:   
 
 	echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ##Configurar las opciones de las operaciones de archivos de sistema
-Una práctica recomendada consiste en deshabilitar la característica de registro atime en el sistema de archivos. Atime representa la última hora de acceso al archivo. Cada vez que se tiene acceso a un archivo, el sistema de archivos registra la marca de tiempo en el registro. Sin embargo, esta información no suele usarse. Por lo tanto, se puede deshabilitar si no es necesaria. Esto reducirá el tiempo total de acceso al disco.
+Una práctica recomendada consiste en deshabilitar la característica de registro atime en el sistema de archivos. Atime representa la última hora de acceso al archivo. Cada vez que se tiene acceso a un archivo, el sistema de archivos registra la marca de tiempo en el registro. Sin embargo, esta información no suele usarse. Por lo tanto, se puede deshabilitar si no es necesaria. Esto reducirá el tiempo total de acceso al disco.  
  
-Para deshabilitar el registro de atime, deberá modificar el archivo /etc/ fstab de la configuración del sistema y agregar la opción **noatime**.
+Para deshabilitar el registro de atime, deberá modificar el archivo /etc/ fstab de la configuración del sistema y agregar la opción **noatime**.  
 
-Por ejemplo, edite el archivo vim /etc/fstab agregando la opción noatime tal como se muestra a continuación.
+Por ejemplo, edite el archivo vim /etc/fstab agregando la opción noatime tal como se muestra a continuación.  
 
 	# CLOUD_IMG: This file was created/modified by the Cloud Image build process
 	UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -161,11 +161,11 @@ Por ejemplo, edite el archivo vim /etc/fstab agregando la opción noatime tal co
 	UUID="431b1e78-8226-43ec-9460-514a9adf060e"     /RAID0   xfs   defaults,nobootwait, noatime 0 0
 	/dev/sdb1       /mnt    auto    defaults,nobootwait,comment=cloudconfig 0       2
 
-A continuación, vuelva a montar el sistema de archivos con el comando siguiente:
+A continuación, vuelva a montar el sistema de archivos con el comando siguiente:  
 
 	mount -o remount /RAID0
 
-Pruebe el resultado modificado. Tenga en cuenta que cuando se modifica el archivo de prueba, la hora de acceso no se modifica.
+Pruebe el resultado modificado. Tenga en cuenta que cuando se modifica el archivo de prueba, la hora de acceso no se modifica.  
 
 Antes del ejemplo:		
 
@@ -179,7 +179,7 @@ Después del ejemplo:
 MySQL es una base de datos de alta simultaneidad. El número predeterminado de identificadores simultáneos es de 1024 para Linux. Esta cantidad no siempre es suficiente. **Siga los pasos siguientes para aumentar los identificadores simultáneos máximos del sistema para permitir una elevada concurrencia de MySQL**.
 
 ###Paso 1: Modificación del archivo limits.conf
-Agregue las cuatro líneas siguientes al archivo /etc/security/limits.conf para incrementar los identificadores simultáneos máximos permitidos. Tenga en cuenta que 65536 es el número máximo que puede admitir el sistema.
+Agregue las cuatro líneas siguientes al archivo /etc/security/limits.conf para incrementar los identificadores simultáneos máximos permitidos. Tenga en cuenta que 65536 es el número máximo que puede admitir el sistema.   
 
 	* soft nofile 65536
 	* hard nofile 65536
@@ -187,28 +187,28 @@ Agregue las cuatro líneas siguientes al archivo /etc/security/limits.conf para 
 	* hard nproc 65536
 
 ###Paso 2: Actualización del sistema con los nuevos límites
-Ejecute los comandos siguientes:
+Ejecute los comandos siguientes:  
 
 	ulimit -SHn 65536
 	ulimit -SHu 65536 
 
 ###Paso 3: Asegurarse de que los límites se actualizan durante el arranque
-Escriba los siguientes comandos de inicio en el archivo /etc/rc.local para que surtan efecto durante cada tiempo de arranque.
+Escriba los siguientes comandos de inicio en el archivo /etc/rc.local para que surtan efecto durante cada tiempo de arranque.  
 
 	echo “ulimit -SHn 65536” >>/etc/rc.local
 	echo “ulimit -SHu 65536” >>/etc/rc.local
 
 ##Optimización de la base de datos de MySQL 
-Puede usar la misma estrategia de optimización del rendimiento para configurar MySQL en Azure como en un equipo local.
+Puede usar la misma estrategia de optimización del rendimiento para configurar MySQL en Azure como en un equipo local.  
 
-Las principales reglas de optimización de E/S son las siguientes:
+Las principales reglas de optimización de E/S son las siguientes:  
 
 -	Aumentar el tamaño de la memoria caché.
 -	Reducir el tiempo de respuesta de E/S.  
 
-Para optimizar la configuración del servidor MySQL, puede actualizar el archivo my.cnf, que es el archivo de configuración predeterminado tanto para los equipos cliente como servidor.
+Para optimizar la configuración del servidor MySQL, puede actualizar el archivo my.cnf, que es el archivo de configuración predeterminado tanto para los equipos cliente como servidor.  
 
-Los elementos de configuración siguientes son los principales factores que influyen en el rendimiento de MySQL:
+Los elementos de configuración siguientes son los principales factores que influyen en el rendimiento de MySQL:  
 
 -	**innodb_buffer_pool_size**: El grupo de búferes contiene los datos almacenados en el búfer, así como el índice. Normalmente se establece en el 70% de memoria física.
 -	**innodb_log_file_size**: Este es el tamaño de registro de rehacer. Los registros de rehacer se usan para garantizar que las operaciones de escritura son rápidas, confiables y recuperables después de un bloqueo. Se establece en 512 MB, lo que proporcionará una cantidad de espacio suficiente para registrar las operaciones de escritura.
@@ -250,7 +250,7 @@ En este ejemplo, puede ver que se ha activado la característica de consulta len
 
 ##Anexo
 
-A continuación se muestran los datos de las pruebas de rendimiento obtenidos en el entorno de laboratorio de destino. Estos datos proporcionan información general acerca de las tendencias de datos de rendimiento con distintos enfoques de optimización del rendimiento. Sin embargo, los resultados pueden variar con las distintas versiones de producto o entorno.
+A continuación se muestran los datos de las pruebas de rendimiento obtenidos en el entorno de laboratorio de destino. Estos datos proporcionan información general acerca de las tendencias de datos de rendimiento con distintos enfoques de optimización del rendimiento. Sin embargo, los resultados pueden variar con las distintas versiones de producto o entorno. 
 
 <a name="AppendixA"></a>Apéndice A:  
 **Rendimiento del disco (IOPS) con los distintos niveles de RAID** 
@@ -258,7 +258,7 @@ A continuación se muestran los datos de las pruebas de rendimiento obtenidos en
 
 ![][9]
  
-**Comandos de prueba:**
+**Comandos de prueba:**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
@@ -289,7 +289,7 @@ A continuación se muestran los datos de las pruebas de rendimiento obtenidos en
  
 ![][13]
 
-**Comandos de prueba:**
+**Comandos de prueba:**  
 
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=30G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 	fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=1G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite  
@@ -297,7 +297,9 @@ A continuación se muestran los datos de las pruebas de rendimiento obtenidos en
 Tenga en cuenta que el tamaño de archivo utilizado para esta prueba es de 30 GB y 1 GB respectivamente, con el sistema de archivos XFS RAID 0 (4 discos).
 
 
-<a name="AppendixD"></a>Apéndice D: **Comparación de rendimiento de MySQL antes y después de la optimización** (sistema de archivos XFS)
+<a name="AppendixD"></a>Apéndice D:  
+**Comparación de rendimiento de MySQL antes y después de la optimización**  
+(sistema de archivos XFS)
 
   
 ![][14]
@@ -308,18 +310,18 @@ Tenga en cuenta que el tamaño de archivo utilizado para esta prueba es de 30 G
 
 **Los valores de configuración predeterminada y de optimización son los siguientes:**
 
-|Parámetros |Valor predeterminado |optimización
+|Parámetros	|Valor predeterminado	|optimización
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |None |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5.000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8M |128M
-|**query_cache_size** |16M |0
+|**innodb_buffer_pool_size**	|None	|7G
+|**innodb_log_file_size**	|5M	|512M
+|**max_connections**	|100	|5.000
+|**innodb_file_per_table**	|0	|1
+|**innodb_flush_log_at_trx_commit**	|1 |2
+|**innodb_log_buffer_size**	|8M	|128M
+|**query_cache_size**	|16M	|0
 
 
-Consulte las instrucciones oficiales de mysql para obtener parámetros de configuración de optimización más detallados.
+Consulte las instrucciones oficiales de mysql para obtener parámetros de configuración de optimización más detallados.  
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
@@ -327,12 +329,12 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 
 **Entorno de prueba**
 
-|Hardware |Detalles
+|Hardware	|Detalles
 |-----------|-------
-|Cpu |Procesador AMD Opteron(tm) 4171 HE/4 núcleos
-|Memoria |14G
-|disk |10G/disco
-|SO |Ubuntu 14.04.1 LTS
+|Cpu	|Procesador AMD Opteron(tm) 4171 HE/4 núcleos
+|Memoria	|14G
+|disk	|10G/disco
+|SO	|Ubuntu 14.04.1 LTS
 
 
 
@@ -351,4 +353,4 @@ Consulte las instrucciones oficiales de mysql para obtener parámetros de config
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!----HONumber=58--> 
+<!-----HONumber=58--> 
