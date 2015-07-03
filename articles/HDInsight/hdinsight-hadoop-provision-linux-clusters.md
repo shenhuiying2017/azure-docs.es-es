@@ -93,20 +93,22 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 	![Proporcionar detalles del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page1.png)
 
     <table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Nombre del clúster</td>
-		<td><p>Dé un nombre al clúster. </p>
-			<ul>
-			<li>El nombre del Sistema de nombres de dominio (DNS) debe comenzar y terminar con un carácter alfanumérico y puede contener guiones.</li>
-			<li>El campo debe ser una cadena con una longitud comprendida entre 3 y 63 caracteres.</li>
-			</ul></td></tr>
-	<tr><td>Tipo de clúster</td>
-		<td>Seleccione <strong>Hadoop</strong>.</td></tr>
-	<tr><td>Sistema operativo</td>
-		<td>Seleccione <b>Ubuntu 12.04 LTS Preview</b> para aprovisionar un clúster de HDInsight en Linux. Para aprovisionar un clúster de Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Windows en HDInsight</a>.</td></tr>
-	<tr><td>Versión de HDInsight</td>
-		<td>Seleccione la versión. Para HDInsight en Linux, el valor predeterminado es la versión 3.2 de HDInsight, que usa Hadoop 2.6.</td></tr>
-	</table>Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Nombre del clúster</td>
+			<td><p>Dé un nombre al clúster. </p>
+				<ul>
+				<li>El nombre del Sistema de nombres de dominio (DNS) debe comenzar y terminar con un carácter alfanumérico y puede contener guiones.</li>
+				<li>El campo debe ser una cadena con una longitud comprendida entre 3 y 63 caracteres.</li>
+				</ul></td></tr>
+		<tr><td>Tipo de clúster</td>
+			<td>Seleccione <strong>Hadoop</strong>.</td></tr>
+		<tr><td>Sistema operativo</td>
+			<td>Seleccione <b>Ubuntu 12.04 LTS Preview</b> para aprovisionar un clúster de HDInsight en Linux. Para aprovisionar un clúster de Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Windows en HDInsight</a>.</td></tr>
+		<tr><td>Versión de HDInsight</td>
+			<td>Seleccione la versión. Para HDInsight en Linux, el valor predeterminado es la versión 3.2 de HDInsight, que usa Hadoop 2.6.</td></tr>
+		</table>
+
+	Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
 
 4. En la página **Configurar clúster**, escriba o seleccione los valores siguientes:
 
@@ -167,29 +169,31 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     ![Proporcionar la cuenta de almacenamiento del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page5.png)
 
 	<table border='1'>
-	<tr><th>Propiedad</th><th>Valor</th></tr>
-	<tr><td>Cuenta de almacenamiento</td>
-		<td>Especifique la cuenta de almacenamiento de Azure que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Puede elegir una de las tres opciones siguientes:
-		<ul>
-			<li><strong>Usar almacenamiento existente</strong></li>
-			<li><strong>Crear nuevo almacenamiento</strong></li>
-			<li><strong>Usar almacenamiento de otra suscripción</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>Nombre de cuenta</td>
+		<tr><th>Propiedad</th><th>Valor</th></tr>
+		<tr><td>Cuenta de almacenamiento</td>
+			<td>Especifique la cuenta de almacenamiento de Azure que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Puede elegir una de las tres opciones siguientes:
+			<ul>
+				<li><strong>Usar almacenamiento existente</strong></li>
+				<li><strong>Crear nuevo almacenamiento</strong></li>
+				<li><strong>Usar almacenamiento de otra suscripción</strong></li>
+			</ul>
+			</td></tr>
+		<tr><td>Nombre de cuenta</td>
 		<td><ul>
-			<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
-			<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
-		</ul></td></tr>
-	<tr><td>Clave de cuenta</td>
-		<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
-	<tr><td>Contenedor predeterminado</td>
-		<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
-        <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
-    </td></tr>
-	<tr><td>Cuentas de almacenamiento adicionales</td>
-		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
-</table>Haga clic en la flecha derecha.
+				<li>Si decidió utilizar almacenamiento existente, en <strong>Nombre de cuenta</strong>, seleccione una cuenta de almacenamiento existente. En la lista desplegable solamente aparecen las cuentas de almacenamiento ubicadas en el mismo centro de datos en el que eligió aprovisionar el clúster.</li>
+				<li>Si eligió la opción <strong>Crear nuevo almacenamiento</strong> o  <strong>Usar almacenamiento de otra suscripción</strong>, debe proporcionar el nombre de la cuenta de almacenamiento.</li>
+			</ul></td></tr>
+		<tr><td>Clave de cuenta</td>
+			<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
+		<tr><td>Contenedor predeterminado</td>
+			<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
+            <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
+        </td></tr>
+		<tr><td>Cuentas de almacenamiento adicionales</td>
+			<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
+	</table>
+
+	Haga clic en la flecha derecha.
 
 7. Si ha elegido configurar almacenamiento adicional para el clúster, escriba la información de la cuenta de almacenamiento adicional en la página **Cuenta de almacenamiento**:
 

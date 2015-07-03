@@ -98,7 +98,8 @@ Este paso dará como resultado información similar a la siguiente:
 		StartDate             : 12/01/2012 08:00:00 a.m.
 		EndDate               : 12/01/2013 08:00:00 a.m.
 		Usage                 : Verify 
-> [AZURE.NOTE]debe guardar esta salida, en especial la clave simétrica generada. La clave solo se revelará durante la creación de la entidad de servicio y no podrá recuperarla en el futuro. Los otros valores son necesarios para utilizar la API Graph para leer y escribir información en el directorio.
+> [AZURE.NOTE]
+> Debe guardar esta salida, en especial la clave simétrica generada. La clave solo se revelará durante la creación de la entidad de servicio y no podrá recuperarla en el futuro. Los otros valores son necesarios para utilizar la API Graph para leer y escribir información en el directorio.
 
 6. El paso final define la URL de respuesta para su aplicación. La URL de respuesta es donde se envían las respuestas después de los intentos de autenticación. Escriba los siguientes comandos y presione Entrar:
 
@@ -125,7 +126,7 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]Los valores **audienceuris**  y **realm** deben ir precedidos por "spn:".
+	> [AZURE.NOTE] Los valores **audienceuris**  y **realm** deben ir precedidos por "spn:".
 
 4. En Eclipse, haga clic con el botón derecho en el proyecto **phpSample** y luego haga clic en **New** (Nuevo) y, a continuación, en **PHP File** (Archivo PHP).
 
@@ -202,4 +203,4 @@ Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el in
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [Código de ejemplo PHP para Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
 
-<!---HONumber=58--> 
+<!-----HONumber=58--> 

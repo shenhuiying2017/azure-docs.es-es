@@ -46,11 +46,14 @@ Si ya dispone de una aplicación web en el Servicio de aplicaciones de Azure con
 1. En la lista de complementos, haga clic en el complemento MongoLab y luego en **Información de conexión**. 
 	![BotónConnectionInfo][button-connectioninfo]
 
-1. Copie MONGOLAB_URI en el Portapapeles. ![ConnectionInfoScreen][screen-connectioninfo] **Este URI contiene el nombre de usuario y la contraseña de su base de datos. Trátelo como información confidencial y no lo comparta.**
+1. Copie MONGOLAB_URI en el Portapapeles.  
+	![ConnectionInfoScreen][screen-connectioninfo]  
+	**Este URI contiene el nombre de usuario y la contraseña de su base de datos. Trátelo como información confidencial y no lo comparta.**
 
-1. Agregue el valor a la lista Cadenas de conexión en el menú Configuración de su aplicación web de Azure: ![WebSiteConnectionStrings][focus-website-connectinfo]
+1. Agregue el valor a la lista Cadenas de conexión en el menú Configuración de su aplicación web de Azure:  
+	![WebSiteConnectionStrings][focus-website-connectinfo]
 
-1. En **Name** (Nombre), escriba MONGOLAB_URI.
+1. En **Name** (Nombre), escriba MONGOLAB\_URI.
 
 1. En **Value** (Valor), pegue la cadena de conexión que se obtuvo en la sección anterior.
 
@@ -67,7 +70,7 @@ Si ya dispone de una aplicación web en el Servicio de aplicaciones de Azure con
         MongoUrl url = new MongoUrl(connectionString);
         MongoClient client = new MongoClient(url);
 
-> **Nota:** Azure agrega el prefijo **CUSTOMCONNSTR_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a **CUSTOMCONNSTR_MONGOLAB_URI.** en vez de a **MONGOLAB_URI**.
+> **Nota:** Azure agrega el prefijo **CUSTOMCONNSTR\_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a **CUSTOMCONNSTR\_MONGOLAB\_URI.** en vez de a **MONGOLAB\_URI**.
 
 Ahora, continuemos con el tutorial completo...
 
@@ -86,7 +89,8 @@ Este desarrollo lo realizará en Visual Studio Express 2013 para Web.
 ### Creación del proyecto
 Para empezar, la aplicación de ejemplo usará una plantilla de Visual Studio. Asegúrese de usar .NET Framework 4.5.
 
-1. Seleccione **File > New Project** (Archivo > Nuevo proyecto). Aparecerá el cuadro de diálogo New Project (Nuevo proyecto): ![NuevoProyecto][dialog-mongolab-csharp-newproject]
+1. Seleccione **File > New Project** (Archivo > Nuevo proyecto). Aparecerá el cuadro de diálogo New Project (Nuevo proyecto):  
+	![NuevoProyecto][dialog-mongolab-csharp-newproject]
 
 1. Seleccione **Installed > Templates > Visual C# > Web** (Instalado > Plantillas > Visual C# > Web).
 
@@ -96,7 +100,8 @@ Para empezar, la aplicación de ejemplo usará una plantilla de Visual Studio. A
 
 1. Escriba _mongoNotes_ como **Project Name** (Nombre de proyecto). Si elige otro nombre, tendrá que modificar el código proporcionado a lo largo del tutorial.
 
-1. Seleccione **Tools > Library Package Manager > Package Manager Console** (Herramientas > Administrador de paquetes de la biblioteca > Consola del administrador de paquetes). En la consola del administrador de paquetes, escriba **Install-Package mongocsharpdriver** y pulse **Entrar**. ![PMConsole][focus-mongolab-csharp-pmconsole] El controlador C# de MongoDB se integra con el proyecto y la línea siguiente se agrega automáticamente al archivo _packages.config_:
+1. Seleccione **Tools > Library Package Manager > Package Manager Console** (Herramientas > Administrador de paquetes de la biblioteca > Consola del administrador de paquetes). En la consola del administrador de paquetes, escriba **Install-Package mongocsharpdriver** y pulse **Entrar**.  
+	![PMConsole][focus-mongolab-csharp-pmconsole] El controlador C# de MongoDB se integra con el proyecto y la línea siguiente se agrega automáticamente al archivo _packages.config_:
 
         < package id="mongocsharpdriver" version="1.9.2" targetFramework="net45" / >
 
@@ -423,17 +428,21 @@ Ahora que desarrolló la aplicación, es el momento de crear una aplicación web
 ### Creación de una aplicación web y obtención del archivo de configuración de publicación
 Crear una aplicación web en el Servicio de aplicaciones de Azure es muy sencillo, especialmente porque Azure genera automáticamente un perfil de publicación para Visual Studio.
 
-1. En el portal de Azure, haga clic en **Nuevo**. ![Nuevo][button-new]
+1. En el portal de Azure, haga clic en **Nuevo**.  
+	![Nuevo][button-new]
 
-1. Seleccione **Proceso > Aplicación web > Creación rápida**. <!-- ![CreateWebApp][screen-mongolab-newwebsite] -->
+1. Seleccione **Proceso > Aplicación web > Creación rápida**.  
+	<!-- ![CreateWebApp][screen-mongolab-newwebsite] -->
 
 1. Escriba un prefijo de dirección URL. Elija el nombre que prefiera, pero tenga en cuenta que debe ser exclusivo (puede que "mongoNotes" no esté disponible).
 
 1. Haga clic en **Crear aplicación web**.
 
-1. Cuando concluya la creación de la aplicación web, haga clic en el nombre de la aplicación web en la lista de aplicaciones Web. Aparecerá el panel de la aplicación web. ![WebAppDashboard][screen-mongolab-websitedashboard]
+1. Cuando concluya la creación de la aplicación web, haga clic en el nombre de la aplicación web en la lista de aplicaciones Web. Aparecerá el panel de la aplicación web.  
+	![WebAppDashboard][screen-mongolab-websitedashboard]
 
-1. Haga clic en **Descargar perfil de publicación** en **vista rápida** y guarde el archivo .PublishSettings en el directorio que quiera. ![DescargarPerfilPublicación][button-website-downloadpublishprofile]
+1. Haga clic en **Descargar perfil de publicación** en **vista rápida** y guarde el archivo .PublishSettings en el directorio que quiera.  
+![DescargarPerfilPublicación][button-website-downloadpublishprofile]
 
 También puede configurar una aplicación web directamente desde Visual Studio. Al vincular la cuenta de Azure con Visual Studio, siga las indicaciones para configurar una aplicación web desde ahí. Cuando haya terminado, solo tiene que hacer clic con el botón secundario en el nombre del proyecto en el Explorador de soluciones para realizar la implementación en Azure. Aún así, tiene que configurar la cadena de conexión de MongoLab, como se detalla en los pasos siguientes.
 
@@ -446,7 +455,8 @@ También puede configurar una aplicación web directamente desde Visual Studio. 
 [AZURE.INCLUDE [howto-save-connectioninfo-mongolab](../../includes/howto-save-connectioninfo-mongolab.md)]
 
 ### Publicación de la aplicación web
-1. En Visual Studio, haga clic con el botón secundario en el proyecto **mongoNotes** en el Explorador de soluciones y seleccione **Publicar**. Aparecerá el cuadro de diálogo de publicación: <!-- ![Publish][dialog-mongolab-vspublish] -->
+1. En Visual Studio, haga clic con el botón secundario en el proyecto **mongoNotes** en el Explorador de soluciones y seleccione **Publicar**. Aparecerá el cuadro de diálogo de publicación:  
+	<!-- ![Publish][dialog-mongolab-vspublish] -->
 
 1. Haga clic en **Importar** y seleccione el archivo .PublishSettings del directorio de descarga elegido. Este archivo rellena automáticamente los valores del cuadro de diálogo Publicar.
 
@@ -454,7 +464,8 @@ También puede configurar una aplicación web directamente desde Visual Studio. 
 
 1. Si la validación es correcta, haga clic en **Publicar**. Cuando haya terminado la publicación, se abrirá una nueva pestaña de explorador y aparecerá la aplicación web.
 
-1. Realice algunas anotaciones de texto, haga clic en **Crear** y vea los resultados. ![HolaMongoAzure][screen-mongolab-sampleapp]
+1. Realice algunas anotaciones de texto, haga clic en **Crear** y vea los resultados.  
+	![HolaMongoAzure][screen-mongolab-sampleapp]
 
 <a name="manage"></a>
 ## Administración de la base de datos
@@ -487,4 +498,4 @@ También puede configurar una aplicación web directamente desde Visual Studio. 
 [manage]: #manage
 
 
-<!--HONumber=54--> 
+<!---HONumber=54--> 
