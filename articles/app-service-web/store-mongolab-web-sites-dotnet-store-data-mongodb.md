@@ -37,14 +37,14 @@ En cualquier momento de este tutorial puede enviar un correo electrónico a [sup
 ## Inicio rápido
 Si ya dispone de una aplicación web en el Servicio de aplicaciones de Azure con la que desea trabajar o está algo familiarizado con Azure Marketplace, use esta sección para empezar a trabajar rápidamente. De lo contrario, vaya a la sección [Aprovisionamiento de la base de datos][provision] a continuación.
  
-1. Abra Azure Marketplace haciendo clic en **Nuevo** > **Markeplace**. 
+1. Abra Azure Marketplace haciendo clic en **Nuevo** > **Markeplace**.  
 	<!-- ![Store][button-store] -->
 
-1. Compre el complemento MongoLab. 
+1. Compre el complemento MongoLab.  
 	![MongoLab][entry-mongolab]
 
-1. En la lista de complementos, haga clic en el complemento MongoLab y luego en **Información de conexión**. 
-	![BotónConnectionInfo][button-connectioninfo]
+1. En la lista de complementos, haga clic en el complemento MongoLab y luego en **Información de conexión**.  
+	![BotónConnectionInfo][button-connectioninfo]  
 
 1. Copie MONGOLAB_URI en el Portapapeles.  
 	![ConnectionInfoScreen][screen-connectioninfo]  
@@ -89,12 +89,12 @@ Este desarrollo lo realizará en Visual Studio Express 2013 para Web.
 ### Creación del proyecto
 Para empezar, la aplicación de ejemplo usará una plantilla de Visual Studio. Asegúrese de usar .NET Framework 4.5.
 
-1. Seleccione **File > New Project** (Archivo > Nuevo proyecto). Aparecerá el cuadro de diálogo New Project (Nuevo proyecto):  
+1. Seleccione **File > New Project** (Archivo > Nuevo proyecto). Aparecerá el cuadro de diálogo New Project (Nuevo proyecto):    
 	![NuevoProyecto][dialog-mongolab-csharp-newproject]
 
 1. Seleccione **Installed > Templates > Visual C# > Web** (Instalado > Plantillas > Visual C# > Web).
 
-1. Seleccione **.NET Framework 4.5** en el menú desplegable de versiones de .NET.
+1. Seleccione **.NET Framework 4.5** en el menú desplegable de versiones de .NET.  
 
 1. Seleccione **MVC Application** (Aplicación de MVC).
 
@@ -498,4 +498,4 @@ También puede configurar una aplicación web directamente desde Visual Studio. 
 [manage]: #manage
 
 
-<!---HONumber=54--> 
+<!----HONumber=54--> 
