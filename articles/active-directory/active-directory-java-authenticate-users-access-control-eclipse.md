@@ -117,9 +117,9 @@ En esta tarea, configurará ACS para reconocer la aplicación web de Java como u
         App**.
     2.  En **Modo**, seleccione **Especificar la configuración manualmente**.
     3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**.
-        ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator] 
+        ![Relying party realm for use in compute emulator][relying_party_realm_emulator] 
     4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp**
-        ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator]
+        ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  Acepte los valores predeterminados en el resto de los campos.
 
 4.  Haga clic en **Guardar**.
@@ -314,4 +314,4 @@ En este punto, su certificado se incluiría en la implementación. Observe que, 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!----HONumber=58_postMigration-->
+<!-----HONumber=58_postMigration-->
