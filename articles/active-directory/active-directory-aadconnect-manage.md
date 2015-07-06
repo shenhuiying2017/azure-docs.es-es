@@ -57,7 +57,7 @@ En Azure AD Connect, puede configurar y ajustar el flujo de objetos y atributos 
 
 En la siguiente captura de pantalla verá todas las reglas de sincronización creadas para su configuración al instalar Azure AD Connect con la instalación rápida. Cada línea de la tabla es una regla de sincronización. A la izquierda, en Tipos de regla, se muestran los dos tipos diferentes: entrantes y salientes. La perspectiva entrante y saliente corresponde al punto de vista del metaverso. Es decir, aportamos información desde nuestros directorios en el metaverso. La perspectiva de salida hace referencia a las reglas por las que se envía información y atributos en dirección a nuestros directorios, como Active Directory local o Azure AD. 
 
-<center>![Editor de reglas de sincronización](./media/active-directory-aadconnect-whats-next/Synch_Rule.png)
+<center>![Editor de reglas de sincronización](./media/active-directory-aadconnect-manage/Synch_Rule.png)
 </center>
 
 Para crear una nueva regla, tendría que seleccionar Agregar nueva regla y, a continuación, configurar la regla. Por ejemplo, supongamos que deseamos crear una regla de unión por la que cualquier usuario de nuestro directorio local se uniría al objeto de metaverso que tiene el mismo número de teléfono. Para ello, cree la nueva regla y especifique el sistema conectado (en nuestro caso contoso.com), el tipo de objeto del sistema conectado, el usuario, el tipo de objeto de metaverso, la persona y el tipo de vínculo de la unión.
@@ -93,4 +93,4 @@ Algunos de los documentos que se crearon para Sincronización de Azure AD siguen
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!----HONumber=58_postMigration-->
+<!-----HONumber=58_postMigration-->
