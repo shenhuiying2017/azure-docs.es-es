@@ -1,3 +1,5 @@
-### Azure Resource Manager and Azure Service Management
+### Administración de recursos de Azure y Administrador de servicios de Azure
  
-This article is for a Resource Manager-based Azure resource, which Microsoft recommends over the use of Azure Service Management. For an explanation of the advantages of Resource Manager, see [Azure Compute, Network & Storage Providers under Azure Resource Manager](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md). To do the equivalent task with Azure Service Management, see the following article:
+Este artículo es para un recurso de Azure basado en el Administrador de recursos que Microsoft recomienda en lugar de la administración de servicios de Azure. Para obtener una explicación de las ventajas del Administrador de recursos, consulte [Cálculo de Azure, proveedores de redes y almacenamiento en Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md). Para realizar la tarea equivalente con el Administrador de servicios de Azure, consulte el artículo siguiente:
+
+<!---HONumber=62-->

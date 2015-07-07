@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Utilización de claves SSH con Hadoop en HDInsight basado en Linux desde Windows | Azure"
-   description="Aprenda a crear y usar claves SSH para autenticarse en clústeres de HDInsight basado en Linux."
+   pageTitle="Utilización de claves SSH con Hadoop en clústeres basados en Linux desde Windows | Microsoft Azure"
+   description="Aprenda a crear y usar claves SSH para autenticarse en clústeres de HDInsight basado en Linux. Conecte clústeres desde clientes basados en Windows mediante el cliente SSH PuTTY."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -28,7 +28,7 @@ Los clústeres de HDInsight de Azure basado en Linux proporcionan la opción de 
 
 ##Requisitos previos
 
-* **PuTTY** y **PuTTYGen** para clientes Windows. Estas utilidades se encuentran disponibles en <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>.
+* **PuTTY** y **PuTTYGen** para clientes Windows. Estas utilidades se encuentran disponibles en <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
 * Un explorador web moderno que sea compatible con HTML5.
 
@@ -124,7 +124,7 @@ No es posible tener acceso a los nodos de trabajo directamente desde fuera del c
 
 Si proporcionó una clave SSH cuando creó la cuenta de usuario, debe realizar los siguientes pasos para usar la clave privada cuando realice la autenticación del clúster si desea conectarse a los nodos de trabajo.
 
-1. Instale Pageant desde <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>. Esta utilidad se usa para almacenar en caché claves SSH para PuTTY.
+1. Instale Pageant desde <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>. Esta utilidad se usa para almacenar en caché claves SSH para PuTTY.
 
 2. Ejecute Pageant. Se minimizará a un icono en la bandeja de estado. Haga clic con el botón secundario en el icono y seleccione **Add Key** (Agregar clave).
 
@@ -277,5 +277,6 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -22,38 +22,45 @@ Aplicaciones de API forma parte del conjunto de aplicaciones [Servicio de aplica
 
 ![](./media/app-service-api-apps-why-best-platform/appservicesuite.png)
 
-La parte Aplicaciones de API de este conjunto ofrece una plataforma y un ecosistema enriquecidos para la compilación, el uso y la distribución de las API tanto en la nube como de forma local.
+La parte Aplicaciones de API de este conjunto ofrece una plataforma y un ecosistema enriquecidos para la compilación, el hospedaje, el uso y la distribución de las API tanto en la nube como de forma local.
 
->[AZURE.NOTE]Aplicaciones de API se encuentra actualmente en versión de vista previa pública. Se basa en [Aplicaciones web del Servicio de aplicaciones](../app-service-web/app-service-web-overview.md), un servicio de disponibilidad general (GA) diseñado para crear y hospedar aplicaciones críticas seguras a escala global. Si busca un servicio de disponibilidad general para crear una API en la actualidad, Aplicaciones web es una opción ideal. Cuando Aplicaciones de API pase a tener disponibilidad general, proporcionaremos una ruta de acceso para usar las aplicaciones web existentes y aprovechar las características de Aplicaciones de API.
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) es un servicio independiente que ofrece características como la consolidación de extremos y la limitación. Administración de API se puede usar con Aplicaciones de API.
+>
+>Aplicaciones de API se encuentra actualmente en versión de vista previa pública. Se basa en [Aplicaciones web del Servicio de aplicaciones](../app-service-web/app-service-web-overview.md), un servicio de disponibilidad general (GA) diseñado para crear y hospedar aplicaciones críticas seguras a escala global. Si busca un servicio de disponibilidad general para crear una API en la actualidad, Aplicaciones web es una opción ideal. Cuando Aplicaciones de API pase a tener disponibilidad general, proporcionaremos una ruta de acceso para usar las aplicaciones web existentes y aprovechar las características de Aplicaciones de API.
 
 ## ¿Por qué las Aplicaciones de API?
 
 Una aplicación de API es una [aplicación web del Servicio de aplicaciones](../app-service-web/app-service-web-overview.md) con características adicionales que mejoran la experiencia de desarrollo, implementación, publicación, consumo, administración y monetización de las API web de RESTful.
 
-Esto significa que las aplicaciones de API comparten con las aplicaciones web todas las características de hospedaje web de la plataforma Servicio de aplicaciones de Azure:
+### Características de las aplicaciones web para los servicios web
+
+Una aplicación web se puede usar para hospedar un servicio web y obtener así todas las características de hospedaje web de la plataforma Servicio de aplicaciones de Azure:
 
 - Revisiones automáticas del SO
 - Seguridad de nivel empresarial
 - Alta disponibilidad
 - Ajuste de escala automático y equilibrio de carga
 - [WebJobs](../app-service-web/websites-webjobs-resources.md) para procesamiento en segundo plano
-- Implementación rápida y fácil con numerosas opciones de entrega continua: para obtener información sobre la gama de opciones de implementación disponibles para las aplicaciones de API, consulte [Implementar una aplicación web en el servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md). 
+- Implementación rápida y fácil y [numerosas opciones de entrega continua](../app-service-web/web-sites-deploy.md).
+- Acceso a los datos locales mediante [conexiones híbridas](../integration-hybrid-connection-overview.md) y una [red virtual](../app-service-web/web-sites-integrate-with-vnet.md).
 
-Las características adicionales ofrecidas por la plataforma Aplicaciones de API facilitan el desarrollo, el hospedaje y el consumo de las API:
+### Las características de Aplicaciones de API están ahora disponibles en versión de vista previa.
 
-- **Traiga su API tal cual**: use ASP.NET, Java, PHP, Node.js o Python para las API. Estas pueden aprovechar las ventajas de la plataforma Aplicaciones de API sin cambio alguno.
+Si usa Aplicaciones de API en lugar de Aplicaciones Web para hospedar los servicios web, el Servicio de aplicaciones ofrece características adicionales:
 
-- **Control de acceso simple**: configure las API para la autenticación de Azure Active Directory o de servicios de terceros, como Facebook y Twitter, sin realizar cambios en el código. Use una sintaxis simplificada para el código de autorización. Para obtener más información, consulte [Protección de una aplicación de API](app-service-api-dotnet-add-authentication.md).
+- **Fácil consumo**: la compatibilidad integrada de [Swagger](http://swagger.io/) permite que una gran variedad de clientes pueda consumir las API de forma sencilla. El SDK de Aplicaciones de API puede generar código de cliente para las API en diversos lenguajes, como C#, Java y Javascript.
+
+- **Control de acceso simple**: los servicios de autenticación integrados admiten Azure Active Directory o servicios de terceros como Facebook y Twitter. Puede proteger una aplicación de API contra el acceso no autenticado sin realizar ningún cambio en el código. Si está familiarizado con los servicios de autenticación proporcionados por [Servicios móviles de Azure](../mobile-services-windows-dotnet-how-to-use-client-library.md#authentication), las aplicaciones de API se basan en ese marco de trabajo y lo amplían a los servicios web hospedados por Aplicaciones de API. El SDK del Servicio de aplicaciones también permite usar una sintaxis simplificada para el código de autorización. Para obtener más información, consulte [Protección de una aplicación de API](app-service-api-dotnet-add-authentication.md).
 
 - **Fácil conexión con las plataformas SaaS**: las [aplicaciones de API de conectores](../app-service-logic/app-service-logic-what-are-biztalk-api-apps.md) de Azure Marketplace las proporcionan tanto Microsoft como otros fabricantes para simplificar el código que se escribe para interactuar con SalesForce, Office 365, Twitter, Facebook, Dropbox y muchos más.
 
-- **Acceso a datos locales**: las Aplicaciones de API pueden exponer las API que consumen datos de su propio centro de datos mediante [conexiones híbridas](../integration-hybrid-connection-overview.md) y [VNET](../app-service-web/web-sites-integrate-with-vnet.md).
-
-- **Fácil consumo**: use el soporte integrado de [Swagger](http://swagger.io/) para permitir que una gran variedad de clientes puedan consumir las API de forma sencilla. También puede usar el SDK de Aplicaciones de API a fin de generar código de cliente para las API en diversos lenguajes, como C#, Java y Javascript.
-
-- **Integración con aplicaciones lógicas**: las aplicaciones lógicas del Servicio de aplicaciones pueden consumir las aplicaciones de API que cree.
+- **Integración con aplicaciones lógicas**: las [aplicaciones lógicas del Servicio de aplicaciones](../app-service-logic/app-service-logic-what-are-logic-apps.md) pueden consumir las aplicaciones de API que cree.
 
 - **Integración con visual Studio**: existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de [creación](app-service-dotnet-create-api-app.md), [implementación](app-service-dotnet-deploy-api-app.md), [depuración](app-service-dotnet-remotely-debug-api-app) y administración de las aplicaciones de API.
+
+La API existente puede incorporarse tal cual: no es necesario realizar ningún cambio en el código de las API existentes para aprovechar todas estas características, solo tiene que implementar el código en una aplicación de API. Para las API, puede usar ASP.NET, Java, PHP, Node.js o Python.
+
+### Características de Aplicaciones de API disponibles en un futuro
 
 En un futuro próximo, la plataforma Aplicaciones de API facilitará el uso compartido del código mediante la creación de un ecosistema de API enriquecido:
 
@@ -77,9 +84,10 @@ Muchas de estas características, como el catálogo público y las actualizacion
 
 Para empezar a trabajar con Aplicaciones de API, siga el tutorial [Creación de una aplicación de API](app-service-dotnet-create-api-app.md).
 
-Para ver una lista de problemas conocidos de las aplicaciones de API, consulte [esta publicación del foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Para ver una lista de problemas conocidos de las aplicaciones de API, consulte [esta publicación del foro de MSDN](https://social.msdn.microsoft.com/Forums/es-es/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

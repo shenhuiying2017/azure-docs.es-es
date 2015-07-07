@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso de un conector SaaS desde el código" 
+	pageTitle="Implementación y configuración de una aplicación de API de conector SaaS" 
 	description="Obtenga información sobre cómo configurar un conector SaaS que vaya a instalar en su suscripción de Azure desde Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# Uso de un conector SaaS desde el código
+# Implementación y configuración de una aplicación de API de conector SaaS en el Servicio de aplicaciones de Azure
 
 ## Información general
 
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo instalar, configurar y probar un [conector de 
 
 Por ejemplo, si desea codificar solicitudes HTTP para leer y escribir archivos en la cuenta de Dropbox, el proceso de autenticación para trabajar directamente con Dropbox es complicado. Un conector de Dropbox se encarga del complejo proceso de autenticación para que el usuario pueda centrarse en escribir el código específico para la tarea en cuestión.
 
-> [AZURE.WARNING]Las instrucciones aquí descritas ***no* deben seguirse si desea usar un conector SaaS desde una aplicación lógica**. Consulte [Creación de una nueva aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) para obtener más información sobre cómo usar los conectores SaaS dentro de las aplicaciones lógicas. Este artículo se aplica específicamente si desea usar *código* para llamar al conector.
+> [AZURE.NOTE]Las instrucciones aquí descritas no serán necesarias si desea usar un conector SaaS desde una aplicación lógica. Para obtener información sobre cómo usar conectores de SaaS dentro de las aplicaciones lógicas, consulte [Creación de una nueva aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
  
 Este tutorial usa un conector de DropBox como ejemplo y le guía a través de los pasos siguientes:
 
@@ -276,4 +276,6 @@ Hemos visto cómo instalar, configurar y probar un conector SaaS. Para obtener m
 [Portal de vista previa de Azure]: https://portal.azure.com/
 [Portal del vista previa de Azure]: https://portal.azure.com/
 [portal de Azure]: https://manage.windowsazure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

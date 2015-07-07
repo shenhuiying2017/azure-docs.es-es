@@ -1,0 +1,101 @@
+<properties 
+	pageTitle="Diagnóstico de problemas con dependencias en Application Insights" 
+	description="Búsqueda de errores y rendimientos reducidos provocados por las dependencias" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
+	manager="ronmart"/>
+
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/16/2015" 
+	ms.author="awills"/>
+ 
+# Diagnóstico de problemas con dependencias en Application Insights
+
+
+Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. En Application Insights para Visual Studio, puede ver fácilmente cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia.
+
+## Dónde puede usarla
+
+La supervisión de dependencia lista para su uso sin configuraciones adicionales está disponible para:
+
+* Servicios y aplicaciones web ASP.NET que se ejecutan en un servidor IIS o en Azure.
+
+Para otros tipos, como aplicaciones de dispositivo o aplicaciones web de Java, puede escribir su propio monitor mediante la API de TrackDependency.
+
+El monitor de dependencia listo para su uso sin configuraciones adicionales actualmente llama a estos tipos de dependencias:
+
+* Bases de datos SQL
+* Servicios wcf y web ASP.NET
+* Llamadas HTTP locales o remotas
+* DocumentDb, tabla, almacenamiento de blobs y cola de Azure
+
+De nuevo, puede escribir sus propias llamadas de SDK para supervisar otras dependencias.
+
+## Configuración de la supervisión de dependencia
+
+Para obtener la supervisión de dependencia, debe:
+
+* Utilizar el [Monitor de estado](app-insights-monitor-performance-live-website-now.md) en el servidor IIS y utilizarlo para habilitar la supervisión
+* Agregar la [extensión de Application Insights](../insights-perf-analytics.md) a su máquina virtual o aplicación web de Azure.
+
+(En el caso de una máquina virtual de Azure, se puede instalar la extensión del panel de control de Azure o instalar el Monitor de estado exactamente igual que haría en cualquier equipo).
+
+Puede realizar los pasos anteriores para una aplicación web ya implementada. Para obtener la supervisión de dependencia estándar, no tiene que agregar Application Insights al proyecto de origen.
+
+## Diagnóstico de problemas de rendimiento de dependencia
+
+Para evaluar el rendimiento de las solicitudes en el servidor:
+
+![En la página de información general de la aplicación en Application Insights, haga clic en el icono de rendimiento.](./media/app-insights-dependencies/01-performance.png)
+
+Desplácese hacia abajo para buscar en la cuadrícula de solicitudes:
+
+![Lista de solicitudes con promedios y recuentos](./media/app-insights-dependencies/02-reqs.png)
+
+La primera tarda mucho tiempo. Veamos si podemos averiguar dónde se está invirtiendo el tiempo.
+
+Haga clic en esa fila para ver los eventos de solicitud individuales:
+
+
+![Lista de casos de solicitudes](./media/app-insights-dependencies/03-instances.png)
+
+Haga clic en cualquier instancia de ejecución prolongada para inspeccionarla con mayor profundidad.
+
+> [AZURE.NOTE]Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
+
+Desplácese hacia abajo hasta las llamadas de dependencia remotas relacionadas con esta solicitud:
+
+![Búsqueda de llamadas a dependencias remotas, identificación de duración inusual.](./media/app-insights-dependencies/04-dependencies.png)
+
+Parece que la mayoría del tiempo que se ha invertido en atender a esta solicitud se ha empleado en una llamada a un servicio local.
+
+Seleccione esa fila para obtener más información:
+
+
+![Haga clic en esa dependencia remota para identificar la causa.](./media/app-insights-dependencies/05-detail.png)
+
+El detalle incluye suficiente información para diagnosticar el problema.
+
+
+
+## Errores
+
+Si hay solicitudes con error, haga clic en el gráfico.
+
+![Haga clic en el gráfico de las solicitudes con error.](./media/app-insights-dependencies/06-fail.png)
+
+Haga clic en un tipo de solicitud y una instancia de la solicitud para buscar una llamada con errores a una dependencia remota.
+
+
+![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/app-insights-dependencies/07-faildetail.png)
+
+
+<!--Link references-->
+
+<!---HONumber=62-->

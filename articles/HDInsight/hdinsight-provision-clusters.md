@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Aprovisionamiento de clústeres de Hadoop en HDInsight | Azure" 
-   description="Obtenga información sobre cómo aprovisionar clústeres de HDInsight de Azure mediante el portal de Azure, Azure PowerShell, una línea de comandos o el SDK de .NET de HDInsight" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
+<properties
+   pageTitle="Aprovisionamiento personalizado de clústeres de Hadoop en HDInsight | Microsoft Azure"
+   description="Obtenga información sobre cómo aprovisionar clústeres de manera personalizada para HDInsight de Azure mediante el portal de Azure, Azure PowerShell, una línea de comandos o el SDK de .NET."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,17 +12,17 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
+   ms.workload="big-data"
    ms.date="04/21/2015"
    ms.author="nitinme"/>
 
 #Aprovisionar clústeres de Hadoop en HDInsight usando opciones personalizadas
 
-Aprenda las diferentes formas de aprovisionar clústeres de Hadoop de forma personalizada en HDInsight de Azure usando el Portal de administración de Azure, Azure PowerShell, herramientas de la línea de comandos o el SDK de .NET de HDInsight. Para obtener instrucciones sobre el aprovisionamiento clústeres de HBase y clústeres de Storm, vea [Aprovisionar clúster de HBase en HDInsight](../hdinsight-hbase-get-started.md) e [Introducción al uso de Storm en HDInsight](../hdinsight-storm-getting-started.md). Consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510237">¿Cuál es la diferencia entre Hadoop y HBase?</a> para comprender por qué debería elegir uno en lugar del otro.
+Aprenda las diferentes formas de aprovisionar clústeres de Hadoop de forma personalizada en HDInsight de Azure usando el portal de Azure, Azure PowerShell, CLI de Azure o el SDK de .NET de HDInsight. Para obtener instrucciones sobre el aprovisionamiento clústeres de HBase y clústeres de Storm, vea [Aprovisionar clúster de HBase en HDInsight](../hdinsight-hbase-get-started.md) e [Introducción al uso de Storm en HDInsight](../hdinsight-storm-getting-started.md). Consulte <a href="http://go.microsoft.com/fwlink/?LinkId=510237">¿Cuál es la diferencia entre Hadoop y HBase?</a> para comprender por qué debería elegir uno en lugar del otro.
 
 ## ¿Qué es un clúster de HDInsight?
 
-¿Se ha preguntado alguna vez por qué mencionamos clústeres cada vez que hablamos de Hadoop o Big Data? El motivo es porque Hadoop permite el procesamiento distribuido de datos grandes y el despliegue a través de diferentes nodos de un clúster. El clúster tiene una arquitectura maestro/esclavo con un maestro (también llamado nodo principal o nodo de nombres) y cualquier número de esclavos (también llamado nodo de datos). Para obtener más información, consulte [Apache Hadoop][apache-hadoop].
+¿Se ha preguntado alguna vez por qué mencionamos los clústeres cada vez que hablamos de Hadoop o Big Data? El motivo es porque Hadoop permite el procesamiento distribuido de datos grandes y el despliegue a través de diferentes nodos de un clúster. El clúster tiene una arquitectura maestro/esclavo con un maestro (también llamado nodo principal o nodo de nombres) y cualquier número de esclavos (también llamado nodo de datos). Para obtener más información, consulte [Apache Hadoop][apache-hadoop].
 
 ![Clúster de HDInsight][img-hdi-cluster]
 
@@ -63,7 +63,7 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 [Red virtual de Azure](http://azure.microsoft.com/documentation/services/virtual-network/) permite crear una red segura y persistente que contenga los recursos que necesita para la solución. Una red virtual permite hacer lo siguiente:
 
-* Conectar recursos en la nube en una red privada (solo en la nube).
+* Conectar recursos en la nube en una red privada (solo en la nube)
 
 	![Diagrama de la configuración solo en la nube](./media/hdinsight-provision-clusters/hdinsight-vnet-cloud-only.png)
 
@@ -126,9 +126,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 <tr><td>Región/red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que creó en el último procedimiento. HDInsight requiere que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p><p>Las regiones disponibles son: <strong>Asia oriental</strong>, <strong>sudeste de Asia</strong>, <strong>norte de Europa</strong>, <strong>oeste de Europa</strong>, <strong>este de EE.&#160;UU.</strong>, <strong>oeste de EE.&#160;UU.</strong>, <strong>centro y norte de EE.&#160;UU.</strong>, <strong>centro y sur de EE.&#160;UU</strong>.<br/>Si ha creado una red virtual de Azure, puede seleccionar la red que configurará para su uso por parte del clúster de HDInsight.</p><p>Para obtener más información sobre la creación de una red virtual de Azure, consulte <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tareas de configuración de la red virtual</a>.</p></td></tr>
 <tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
 <tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-</table>
-
-	>[AZURE.NOTE]En función de la elección de las máquinas virtuales, su costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+</table>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 
 5. En la página **Configurar usuario de clúster** proporcione los siguientes valores:
@@ -141,25 +139,25 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 		<td>Especifique el nombre del usuario del clúster de HDInsight.</td></tr>
 	<tr><td>Contraseña HTTP/Confirmar contraseña</td>
 		<td>Especifique la contraseña del usuario del clúster de HDInsight.</td></tr>
-	<tr><td>Habilitar Escritorio remoto para clúster</td>
-		<td>Active esta casilla para especificar un nombre de usuario, una contraseña y una fecha de caducidad para un usuario de escritorio remoto que puede conectarse en remoto a los nodos del clúster, cuando esté aprovisionado. También puede habilitar el escritorio remoto más adelante, cuando el clúster esté aprovisionado. Para obtener instrucciones, vea <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.</td></tr>
+	<tr><td>Habilitar Escritorio remoto para un clúster</td>
+		<td>Active esta casilla para especificar un nombre de usuario, una contraseña y una fecha de caducidad para un usuario de Escritorio remoto que puede conectarse en remoto a los nodos del clúster, cuando esté aprovisionado. También puede habilitar Escritorio remoto más adelante, cuando el clúster esté aprovisionado. Para obtener instrucciones, vea <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.</td></tr>
 	<tr><td>Especificar la tienda de metadatos de Hive/Oozie</td>
-		<td>Active esta casilla para especificar la base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
-	</td></tr>		
+		<td>Active esta casilla para especificar una base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
+	</td></tr>
 </table>Haga clic en la flecha derecha.
 
 6. En la página **Configurar la tienda de metadatos de Hive/Oozie** proporcione los siguientes valores:
 
     ![Proporcionar usuario del clúster de HDInsight de Hadoop](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page4.png)
 
-	Especifique una base de datos SQL de Azure que se usará como tienda de metadatos para Hive/Oozie. Puede especificar la misma base de datos para las tiendas de metadatos de Hive y Oozie. Esta base de datos SQL debe estar en el mismo centro de datos que el clúster de HDInsight. El cuadro de lista solo incluye las bases de datos SQL del mismo centro de datos que ha especificado en la página <strong>Detalles del clúster</strong>. Especifique también el nombre de usuario y la contraseña para conectarse a la base de datos SQL de Azure seleccionada.
+	Especifique una base de datos SQL de Azure que se usará como tienda de metadatos para Hive/Oozie. Puede especificar la misma base de datos para las tiendas de metadatos de Hive y de Oozie. Esta base de datos SQL debe estar en el mismo centro de datos que el clúster de HDInsight. El cuadro de lista solo incluye las bases de datos SQL del mismo centro de datos que ha especificado en la página <strong>Detalles del clúster</strong>. Especifique también el nombre de usuario y la contraseña para conectarse a la base de datos SQL de Azure seleccionada.
 
-    >[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
+    >[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
     Haga clic en la flecha derecha.
 
 
-7. Proporcione los siguientes valores en la página **Cuenta de almacenamiento**:
+7. En la página **Cuenta de almacenamiento**, proporcione los siguientes valores:
 
     ![Proporcionar la cuenta de almacenamiento del clúster de HDInsight de Hadoop](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page5.png)
 
@@ -181,7 +179,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 	<tr><td>Clave de cuenta</td>
 		<td>Si eligió la opción <strong>Usar almacenamiento de otra suscripción</strong>, especifique la clave de cuenta para esa cuenta de almacenamiento.</td></tr>
 	<tr><td>Contenedor predeterminado</td>
-		<td><p>Especifica el contenedor predeterminado de la cuenta de almacenamiento que se usará como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
+		<td><p>Especifique el contenedor predeterminado en la cuenta de almacenamiento que se utiliza como sistema de archivos predeterminado para el clúster de HDInsight. Si eligió <strong>Usar almacenamiento existente</strong> para el campo <strong>Cuenta de almacenamiento</strong> y no existen contenedores en esa cuenta, el contenedor se creará de forma predeterminada con el mismo nombre que el del clúster. Si ya existe un contenedor con el nombre del clúster, se anexará un número de secuencia al nombre del contenedor. Por ejemplo, mycontainer1, mycontainer2 y así sucesivamente. Sin embargo, si la cuenta de almacenamiento existente tiene un contenedor con un nombre diferente al del clúster especificado, también puede usar ese contenedor.</p>
         <p>Si eligió crear un almacenamiento nuevo o usar almacenamiento de otra suscripción de Azure, debe especificar el nombre del contenedor predeterminado.</p>
     </td></tr>
 	<tr><td>Cuentas de almacenamiento adicionales</td>
@@ -197,7 +195,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     > [AZURE.NOTE]Cuando haya elegido una cuenta de almacenamiento de Azure para su clúster de HDInsight, no podrá eliminar la cuenta, ni cambiarla por otra diferente.
 
 8. En la página **Acciones de scripts**, haga clic en **agregar acción de script** para proporcionar información detallada sobre el script personalizado que desea ejecutar para personalizar un clúster durante su creación. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script](hdinsight-hadoop-customize-cluster.md).
-	
+
 	![Configurar la acción de script para personalizar un clúster de HDInsight](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page7.png)
 
 	<table border='1'>
@@ -224,12 +222,12 @@ Los siguientes procedimientos son necesarios para aprovisionar un clúster de HD
 - Creación de un clúster de HDInsight
 
 Puede usar la consola de Windows PowerShell o el entorno de scripting integrado (ISE) de Windows PowerShell para ejecutar los scripts.
- 
+
 HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es preciso tener una cuenta de almacenamiento de Azure y un contenedor de almacenamiento para crear un clúster de HDInsight. Dicha cuenta debe ubicarse en el mismo centro de datos que el clúster de HDInsight.
 
 **Para conectarse a su cuenta de Azure**
 
-		Add-AzureAccount 
+		Add-AzureAccount
 
 Se le pedirá que escriba las credenciales de la cuenta de Azure.
 
@@ -277,10 +275,10 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
 		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
         $hadoopUserName = "<HadoopUserName>"              # User name for the Hadoop user. You will use this account to connect to the cluster and run jobs.
-        $hadoopUserPassword = "<HadoopUserPassword>"    
+        $hadoopUserPassword = "<HadoopUserPassword>"
 
         $secPassword = ConvertTo-SecureString $hadoopUserPassword -AsPlainText -Force
-        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)            
+        $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$secPassword)
 
 		# Get the storage primary key based on the account name
 		Select-AzureSubscription $subscriptionName
@@ -288,7 +286,7 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 		$containerName = $clusterName				# Azure Blob container that is used as the default file system for the HDInsight cluster
 
         # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location} 
+        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
@@ -348,7 +346,7 @@ Durante el aprovisionamiento de un clúster, puede usar las demás opciones de c
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore |
 		        New-AzureHDInsightCluster -Name $clusterName -Location $location -VirtualNetworkId $vnetID -SubnetName $subNetName
 
-	>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
+	>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
 **Para enumerar los clústeres de HDInsight**
 
@@ -357,35 +355,35 @@ Durante el aprovisionamiento de un clúster, puede usar las demás opciones de c
 		Get-AzureHDInsightCluster -Name <ClusterName>
 
 
-##<a id="cli"></a> Uso de la línea de comandos multiplataforma
+##<a id="cli"></a> Uso de la CLI de Azure
 
-> [AZURE.NOTE]Desde el 29/8/2014, no se puede usar la interfaz de línea de comandos multiplataforma (CLI) para asociar un clúster con una red virtual de Azure.
+> [AZURE.NOTE]Desde el 29/8/2014, no se puede usar la CLI de Azure para asociar un clúster con una red virtual de Azure.
 
-Otra opción para aprovisionar un clúster de HDInsight es la interfaz de línea de comandos entre plataformas. La herramienta de línea de comandos se implementa en Node.js. Se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. Puede instalar la CLI desde las siguientes ubicaciones:
+Otra opción para aprovisionar un clúster de HDInsight es la CLI de Azure. CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. Puede instalar la CLI desde las siguientes ubicaciones:
 
 - **SDK de Node.js**: <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
-- **CLI entre plataformas**: <a href="https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
+- **CLI de Azure**: <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
+Para obtener información general acerca de cómo usar CLI de Azure, vea [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
 
-Las instrucciones que aparecen a continuación le guían en la instalación de la línea de comandos multiplataforma en Linux y Windows y, a continuación, sobre cómo usar la línea de comandos para aprovisionar un clúster.
+Las instrucciones que aparecen a continuación le guían sobre cómo instalar CLI de Azure en Linux y Windows y, a continuación, sobre cómo usar la línea de comandos para aprovisionar un clúster.
 
 - [Configurar la CLI de Azure para Linux](#clilin)
 - [Configurar la CLI de Azure para Windows](#cliwin)
 - [Aprovisionamiento de clústeres de HDInsight mediante la CLI de Azure](#cliprovision)
 
-#### <a id="clilin"></a>Configurar una la línea de comandos multiplataforma para Linux
+#### <a id="clilin"></a>Configurar CLI de Azure para Linux
 
-Realice los siguientes procedimientos para configurar su equipo con Linux para que use las herramientas de la línea de comandos de Azure:
+Realice los siguientes procedimientos para configurar su equipo con Linux para que use la interfaz de la línea de comandos (CLI de Azure):
 
-- Instalar una línea de comandos entre plataformas mediante el Administrador de paquetes de Node.js (NPM)
+- Instalar CLI de Azure mediante el uso del Administrador de paquetes de Node.js (NPM)
 - Conexión a su suscripción de Azure
 
-**Para instalar la interfaz de línea de comandos con NPM**
+**Para instalar CLI de Azure mediante NPM**
 
 1.	Abra una ventana del terminal en el equipo con Linux y ejecute el siguiente comando:
 
-		sudo npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		sudo npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
 2.	Ejecute el siguiente comando para comprobar la instalación:
 
@@ -400,13 +398,13 @@ Realice los siguientes procedimientos para configurar su equipo con Linux para q
 
 **Para conectarse a su suscripción de Azure**
 
-Antes de usar la interfaz de línea de comandos, debe configurar la conectividad entre su estación de trabajo y Azure. La interfaz de línea de comandos usa la información de su suscripción de Azure para conectarse a la cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la interfaz de línea de comandos usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
+Antes de usar CLI de Azure, debe configurar la conectividad entre su estación de trabajo y Azure. Su información de suscripción de Azure se usa por la CLI de Azure para la conexión a su cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que CLI de Azure usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
 
 > [AZURE.NOTE]El archivo de configuración de publicación contiene información confidencial. Microsoft recomienda eliminar el archivo o tomar medidas adicionales para cifrar la carpeta del usuario que contiene el archivo. En Windows, modifique las propiedades de la carpeta o use el Cifrado de unidad BitLocker.
 
 
 1.	Abra una ventana del terminal.
-2.	Ejecute el siguiente comando para iniciar sesión en su suscripción de Azure.
+2.	Ejecute el siguiente comando para iniciar sesión en su suscripción de Azure:
 
 		azure account download
 
@@ -420,26 +418,26 @@ Antes de usar la interfaz de línea de comandos, debe configurar la conectividad
 		azure account import <path/to/the/file>
 
 
-#### <a id="cliwin"></a>Configuración de una línea de comandos multiplataforma para Windows
+#### <a id="cliwin"></a>Configurar CLI de Azure para Windows
 
-Realice los siguientes procedimientos para configurar su equipo con Windows para que use las herramientas de la línea de comandos de Azure:
+Realice los siguientes procedimientos para configurar su equipo con Windows para que use CLI de Azure:
 
-- Instale la línea de comandos multiplataforma (con NPM o Windows Installer).
+- Instalar CLI de Azure (mediante NPM o Windows Installer)
 - Descarga e importación de la configuración de publicación de la cuenta de Azure
 
 
-La interfaz de línea de comandos se puede instalar mediante NPM o Windows Installer. Microsoft recomienda realizar la instalación usando solamente una de las dos opciones.
+CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft recomienda realizar la instalación usando solamente una de las dos opciones.
 
-**Para instalar la interfaz de línea de comandos con NPM**
+**Para instalar CLI de Azure mediante NPM**
 
 1.	Vaya a **www.nodejs.org**.
-2.	Haga clic en **INSTALL** y siga las instrucciones usando la configuración predeterminada.
-3.	Abra **Command Prompt** (Símbolo del sistema) (o *símbolo del sistema de Azure*, o *símbolo del sistema de desarrollador para VS2012*) en la estación de trabajo.
+2.	Haga clic en **INSTALL** (INSTALAR) y siga las instrucciones, usando la configuración predeterminada.
+3.	Abra **Command Prompt** (Símbolo del sistema) (o *Azure Command Prompt* (Símbolo del sistema de Azure) o *Developer Command Prompt for VS2012 (Símbolo del sistema para desarrolladores de VS2012)*) desde su estación de trabajo.
 4.	Ejecute el comando siguiente en la ventana del símbolo del sistema:
 
-		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
+		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> o <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
 
 5.	Ejecute el siguiente comando para comprobar la instalación:
 
@@ -452,13 +450,13 @@ La interfaz de línea de comandos se puede instalar mediante NPM o Windows Insta
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**Para instalar la interfaz de línea de comandos con Windows Installer**
+**Para instalar CLI de Azure mediante Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos multiplataforma** y siga el asistente del instalador de plataforma web.
+1.	Vaya a **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
 
-Antes de usar la interfaz de línea de comandos, debe configurar la conectividad entre su estación de trabajo y Azure. La interfaz de línea de comandos usa la información de su suscripción de Azure para conectarse a la cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la interfaz de línea de comandos usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
+Antes de usar CLI de Azure, debe configurar la conectividad entre su estación de trabajo y Azure. Su información de suscripción de Azure se usa por la CLI de Azure para la conexión a su cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que CLI de Azure usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
 
 > [AZURE.NOTE]El archivo de configuración de publicación contiene información confidencial. Microsoft recomienda eliminar el archivo o tomar medidas adicionales para cifrar la carpeta del usuario que contiene el archivo. En Windows, modifique las propiedades de la carpeta o use BitLocker.
 
@@ -526,7 +524,7 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 
 **Para aprovisionar un clúster de HDInsight con un archivo de configuración**
 
-Normalmente, se aprovisiona un clúster de HDInsight, se ejecutan los trabajos y, a continuación, se elimina el clúster para reducir los costes. La interfaz de línea de comandos le da la opción de guardar las configuraciones en un archivo para que pueda volver a usarlas cada vez que aprovisione un clúster.
+Normalmente, se aprovisiona un clúster de HDInsight, se ejecutan los trabajos y, a continuación, se elimina el clúster para reducir los costes. CLI de Azure le da la opción de guardar las configuraciones en un archivo para que pueda volver a usarlas cada vez que aprovisione un clúster.
 
 - En la ventana del símbolo del sistema, ejecute los comandos siguientes:
 
@@ -552,7 +550,7 @@ Normalmente, se aprovisiona un clúster de HDInsight, se ejecutan los trabajos y
 		#Run this command to create a cluster by using the config file
 		azure hdinsight cluster create --config <file>
 
-	>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
+	>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
 
 	![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
@@ -621,7 +619,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 4. Haga clic en **Aceptar** para crear el proyecto.
 
-5. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y, a continuación, haga clic en la **Consola del administrador de paquetes**.
+5. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y, a continuación, en la **Consola del administrador de paquetes**.
 
 6. Ejecute el siguiente comando en la consola para instalar los paquetes:
 
@@ -701,7 +699,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 * [Uso de Sqoop con HDInsight](hdinsight-use-sqoop.md): aprenda copiar datos entre HDInsight y Base de datos SQL o SQL Server
 * [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md): aprenda a trabajar con HDInsight mediante PowerShell
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md): aprenda a enviar trabajos a HDInsight mediante programación
-* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]\: descubra el SDK de HDInsight
+* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]: descubra el SDK de HDInsight
 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
@@ -714,7 +712,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: https://msdn.microsoft.com/library/dn858087.aspx
 [hdinsight-storm-get-started]: ../hdinsight-storm-getting-started.md
 
 [azure-management-portal]: https://manage.windowsazure.com/
@@ -730,7 +728,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-customcreatecluster]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.png
 [image-hdi-customcreatecluster-clusteruser]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.ClusterUser.png
@@ -753,6 +751,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
-[89e2276a]: hdinsight-use-sqoop.md "Uso de Sqoop con HDInsight"
+  [89e2276a]: hdinsight-use-sqoop.md "Uso de Sqoop con HDInsight"
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

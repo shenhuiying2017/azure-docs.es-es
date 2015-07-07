@@ -28,7 +28,7 @@ Las aplicaciones lógicas se pueden desencadenar en función de una variedad de 
 
 Como parte de la configuración del paquete del conector, el usuario puede especificar entidades que el conector puede administrar y las acciones y los parámetros de entrada y salida se completarán de forma dinámica. A continuación se muestran las distintas acciones disponibles en el conector de Salesforce:
  
-- Crear entidad: use esta acción para crear una nueva entidad de Salesforce como Cuenta y Caso.
+- Crear entidad: use esta acción para crear una nueva entidad de Salesforce como Cuenta, Caso o un Objeto personalizado
 
 - Actualizar entidad: use esta acción para actualizar una entidad de Salesforce existente.
 
@@ -134,5 +134,6 @@ Vamos a crear una aplicación lógica simple que cree una cuenta en Salesforces 
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -8,4 +8,4 @@ Si no cuenta con Visual Studio instalado, se instalará Visual Studio Express pa
 
 [SDK de Azure para Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!--HONumber=54-->
+<!---HONumber=62-->

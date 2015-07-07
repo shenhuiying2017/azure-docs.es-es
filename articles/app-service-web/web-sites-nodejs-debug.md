@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure" 
+<properties
+	pageTitle="Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure"
 	description="Aprenda a depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure."
-	tags="azure-portal" 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	tags="azure-portal"
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="mwasson"/>
 
 # Cómo depurar una aplicación web de Node.js en el Servicio de aplicaciones de Azure
@@ -73,7 +73,7 @@ Para tener acceso a la información de diagnóstico a través de FTP, visite el 
 
 La URL de FTP devuelta en el panel es para el directorio **LogFiles**, que contendrá los siguientes subdirectorios:
 
-* [Deployment Method]\: si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
+* [Deployment Method]: Si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
 
 * nodejs: La información de Stdout y stderr capturada desde todas las instancias de su aplicación (cuando loggingEnabled es verdadero).
 
@@ -89,7 +89,7 @@ De esta manera se descargará un archivo **diagnostics.zip** en el directorio ac
 
 * LogFiles
 
-	* [Deployment Method]\: si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
+	* [Deployment method]: Si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
 
 	* nodejs: La información de Stdout y stderr capturada desde todas las instancias de su aplicación (cuando loggingEnabled es verdadero).
 
@@ -118,10 +118,11 @@ Para obtener información sobre la especificación de una versión de Node.js pa
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
-[Uso de las herramientas de línea de comandos de Azure]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
 [Uso de módulos Node.js con aplicaciones de Azure]: ../nodejs-use-node-modules-azure-apps.md
 [Especificación de una versión de Node.js en una aplicación de Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

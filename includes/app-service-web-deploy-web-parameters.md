@@ -1,15 +1,12 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the 
-environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed. 
+Con el Administrador de recursos de Azure, puede definir parámetros para los valores que quiera especificar al implementar la plantilla. La plantilla incluye una sección denominada Parámetros que contiene todos los valores de parámetro. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-When defining parameters, use the **allowedValues** field to specify which values a user can provide during deployment. Use the **defaultValue** field to assign a value to the parameter, if no value is provided 
-during deployment.
+Al definir parámetros, use el campo **allowedValues** para especificar los valores que un usuario puede proporcionar durante la implementación. Use el campo **defaultValue** para asignar un valor al parámetro, si no se proporciona ningún valor durante la implementación.
 
-We will describe each parameter in the template.
+Vamos a describir cada parámetro de la plantilla.
 
 ### siteName
 
-The name of the web app that you wish to create.
+El nombre de la aplicación web que desea crear.
 
     "siteName":{
       "type":"string"
@@ -17,7 +14,7 @@ The name of the web app that you wish to create.
 
 ### hostingPlanName
 
-The name of the App Service plan to use for hosting the web app.
+El nombre del plan del Servicio de aplicaciones que se va a crear para hospedar la aplicación web.
     
     "hostingPlanName":{
       "type":"string"
@@ -25,7 +22,7 @@ The name of the App Service plan to use for hosting the web app.
 
 ### siteLocation
 
-The location to use for creating the web app and hosting plan. It must be one of the Azure locations that support web apps.
+La ubicación que se usará para crear la aplicación web y hospedar el plan. Debe ser una de las ubicaciones de Azure que admitan aplicaciones web.
 
     "siteLocation":{
       "type":"string"
@@ -33,7 +30,7 @@ The location to use for creating the web app and hosting plan. It must be one of
 
 ### sku
 
-The pricing tier for the hosting plan.
+El nivel de precios del plan de hospedaje.
 
     "sku":{
       "type":"string",
@@ -46,11 +43,11 @@ The pricing tier for the hosting plan.
       "defaultValue":"Free"
     }
 
-The template defines the values that are permitted for this parameter (Free, Shared, Basic, or Standard), and assigns a default value (Free) if no value is specified.
+La plantilla define los valores permitidos para este parámetro (Gratis, Compartido, Básico o Estándar) y asigna un valor predeterminado (Gratis) si no se especifica ningún valor.
 
 ### workerSize
 
-The instance size of the hosting plan (small, medium, or large).
+El tamaño de la instancia del plan de hospedaje (pequeño, mediano o grande).
 
     "workerSize":{
       "type":"string",
@@ -62,4 +59,6 @@ The instance size of the hosting plan (small, medium, or large).
       "defaultValue":"0"
     }
     
-The template defines the values that are permitted for this parameter (0, 1, or 2), and assigns a default value (0) if no value is specified. The values correspond to small, medium and large.
+La plantilla define los valores que se permiten para este parámetro (0, 1 o 2) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los valores corresponden a pequeño, mediano y grande.
+
+<!---HONumber=62-->

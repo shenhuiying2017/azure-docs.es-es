@@ -1,45 +1,46 @@
-<properties 
-	pageTitle="Administración de clústeres de Hadoop en HDInsight usando el portal de Azure | Microsoft Azure" 
-	description="Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Administración de clústeres de Hadoop en HDInsight usando el portal de Azure | Microsoft Azure"
+	description="Vea cómo administrar el servicio HDInsight. Cree un clúster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure
 
-Con la ayuda del Portal de Azure, puede aprovisionar clústeres de Hadoop en HDInsight, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
+Con el [portal de Azure](https://manage.windowsazure.com), puede aprovisionar clústeres de Hadoop en HDInsight de Azure, cambiar la contraseña de usuario de Hadoop y habilitar el Protocolo de escritorio remoto (RDP) para que pueda tener acceso a la consola de comandos de Hadoop en el clúster.
 
 ## Otras herramientas de administración de HDInsight
 También hay otras herramientas disponibles para administrar HDInsight además del Portal de Azure.
 
 - Para obtener más información sobre la administración de HDInsight con PowerShell de Azure, consulte [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md).
 
-- Para obtener más información acerca de la administración de HDInsight con las herramientas de línea de comandos entre plataformas, consulte [Administración de HDInsight mediante la interfaz de la línea de comandos entre plataformas](hdinsight-administer-use-command-line.md).
+- Para obtener más información sobre la administración de HDInsight con la CLI de Azure, consulte [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md).
 
 ##Requisitos previos
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- **Suscripción de Azure**: Azure es una plataforma basada en suscripción. Para obtener información acerca de cómo obtener una suscripción, consulte [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - **Cuenta de Almacenamiento de Azure**: un clúster de HDInsight usa contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Para obtener más información acerca de cómo el almacenamiento de blobs de Azure ofrece una experiencia perfecta con los clústeres de HDInsight, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage.md). Para obtener información acerca de la creación de una cuenta de Almacenamiento de Azure, consulte [Creación de una cuenta de Almacenamiento](../storage-create-storage-account.md).
+
 
 ##Aprovisionamiento de clústeres de HDInsight
 
 Puede aprovisionar clústeres de HDInsight desde el Portal de Azure mediante la opción Creación rápida o Creación personalizada. Vea los vínculos siguientes para obtener instrucciones:
 
 - [Aprovisionamiento de un clúster mediante Creación rápida](../hdinsight-get-started.md#provision)
-- [Aprovisionamiento de un clúster mediante Creación personalizada](hdinsight-provision-clusters.md#portal) 
+- [Aprovisionamiento de un clúster mediante Creación personalizada](hdinsight-provision-clusters.md#portal)
 
 [AZURE.INCLUDE [data center list](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
@@ -50,11 +51,11 @@ HDInsight trabaja con una amplia gama de componentes de Hadoop. Para ver la list
 
 - Use Generar script de acción para ejecutar scripts que pueden personalizar un clúster para cambiar la configuración del clúster o para instalar los componentes personalizados, como Giraph o Solr. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante Generar acción de script](hdinsight-hadoop-customize-cluster.md).
 - Use los parámetros de personalización de clústeres en .NET SDK de HDInsight o PowerShell de Azure durante el aprovisionamiento de clústeres. Estos cambios de configuración se conservan durante toda la vida del clúster y no se ven afectados por el restablecimiento de imágenes de nodos del clúster que la plataforma Azure realiza periódicamente para su mantenimiento. Para obtener más información acerca del uso de los parámetros de personalización del clúster, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
-- Algunos de los componentes nativos de Java, como Mahout y Cascading, se pueden ejecutar en el clúster como archivos JAR. Estos archivos JAR se pueden distribuir al almacenamiento de blobs de Azure y enviarse a los clústeres de HDInsight usando los mecanismos de envío de trabajo de Hadoop. Para obtener más información, consulte [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md). 
+- Algunos de los componentes nativos de Java, como Mahout y Cascading, se pueden ejecutar en el clúster como archivos JAR. Estos archivos JAR se pueden distribuir al almacenamiento de blobs de Azure y enviarse a los clústeres de HDInsight usando los mecanismos de envío de trabajo de Hadoop. Para obtener más información, consulte [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md).
 
 
 	>[AZURE.NOTE]Si tiene problemas con la implementación de los archivos JAR en los clústeres de HDInsight o con la llamada de los archivos JAR en los clústeres de HDInsight, póngase en contacto con [Soporte técnico de Microsoft](http://azure.microsoft.com/support/options/).
-	
+
 	> La presentación en cascada no se admite en HDInsight, y no puede optar a recibir soporte técnico de Microsoft. Para ver las listas de los componentes compatibles, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight](hdinsight-component-versioning.md).
 
 
@@ -87,7 +88,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 3. Haga clic en el clúster de HDInsight al que desea conectarse.
 4. Desde la parte superior de la página, haga clic en **CONFIGURACIÓN**.
 5. Desde la parte inferior de la página, haga clic en **HABILITAR DE FORMA REMOTA**.
-6. En el asistente para **Configurar Escritorio remoto**, escriba un nombre de usuario y una contraseña para el Escritorio remoto. Tenga en cuenta que el nombre de usuario debe ser diferente al usado para crear el clúster (**admin** de forma predeterminada con la opción Creación rápida). Escriba una fecha de caducidad en la casilla **CADUCA EL**. Tenga en cuenta que la fecha de caducidad debe estar en el futuro y no después de una semana desde el presente. La hora del día de la caducidad se supone de manera predeterminada en la medianoche de la fecha especificada. A continuación, haga clic en el icono de comprobación.
+6. En el asistente para **Configurar Escritorio remoto**, escriba un nombre de usuario y una contraseña para el Escritorio remoto. Tenga en cuenta que el nombre de usuario debe ser diferente al usado para crear el clúster (**admin** de forma predeterminada con la opción Creación rápida). Escriba una fecha de caducidad en la casilla **CADUCA EL**. Tenga en cuenta que la fecha de caducidad debe estar en el futuro, 90 días como máximo a partir de ahora. La hora del día de la caducidad se supone de manera predeterminada en la medianoche de la fecha especificada. A continuación, haga clic en el icono de comprobación.
 
 	![HDI.UsuarioCrearRDP][image-hdi-create-rpd-user]
 
@@ -97,7 +98,7 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 
 
 > [AZURE.NOTE]Una vez RDP está habilitado para un clúster, debe actualizar la página antes de poder conectarse al clúster.
- 
+
 **Para conectarse a un clúster con RDP**
 
 1. Inicie sesión en el [Portal de Azure](https://manage.windowsazure.com/).
@@ -113,7 +114,7 @@ Si desea realizar operaciones en el clúster usando .NET SDK, debe crear un cert
 **Para crear un certificado autofirmado**
 
 1. Cree el certificado autofirmado que se usa para autentica las solicitudes. Puede usar Internet Information Services (IIS) o [makecert](http://go.microsoft.com/fwlink/?LinkId=534000) para crear el certificado.
- 
+
 2. Vaya a la ubicación del certificado, haga clic con el botón secundario en él, después haga clic en **Instalar certificado** y, por último, instale el certificado en el almacén personal del equipo. Edite las propiedades del certificado para asignarle un nombre descriptivo.
 
 3. Importe el certificado en el Portal de Azure. Desde el portal, haga clic en **CONFIGURACIÓN** en la parte inferior izquierda de la página y después haga clic en **CERTIFICADOS DE ADMINISTRACIÓN**. En la parte inferior de la página, haga clic en **CARGAR** y siga las instrucciones para cargar el archivo .cer que creó en el paso anterior.
@@ -167,7 +168,7 @@ Para conectarse al clúster mediante el Escritorio remoto y usar la línea de co
 6. Escriba las credenciales y, a continuación, haga clic en **Aceptar**. Use el nombre de usuario y la contraseña que configuró al crear el clúster.
 7. Haga clic en **Sí**.
 8. En el escritorio, haga doble clic en **Línea de comandos de Hadoop**.
-		
+
 	![HDI.HadoopCommandLine][image-hadoopcommandline]
 
 
@@ -178,7 +179,7 @@ En la captura de pantalla anterior, el nombre de la carpeta tiene el número de 
 	cd %hadoop_home%
 	cd %hive_home%
 	cd %pig_home%
-	cd %sqoop_home%   
+	cd %sqoop_home%
 	cd %hcatalog_home%
 
 ##Escalado de clústeres
@@ -188,7 +189,7 @@ Consulte [Escalado de clústeres de Hadoop en HDInsight](hdinsight-hadoop-cluste
 En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Portal de Azure y a abrir la herramienta de línea de comandos de Hadoop. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight con PowerShell de Azure](hdinsight-administer-use-powershell.md)
-* [Administración de HDInsight mediante la interfaz de línea de comandos multiplataforma](hdinsight-administer-use-command-line.md)
+* [Administración de HDInsight con la CLI de Azure](hdinsight-administer-use-command-line.md)
 * [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md)
 * [Envío de trabajos de Hadoop mediante programación](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Introducción a HDInsight de Azure](../hdinsight-get-started.md)
@@ -199,5 +200,6 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
 [image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Línea de comandos de Hadoop"
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

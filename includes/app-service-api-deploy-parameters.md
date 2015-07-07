@@ -1,12 +1,10 @@
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called Parameters that contains all of the parameter values.
-You should define a parameter for those values that will vary based on the project you are deploying or based on the 
-environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deploy. 
+Con el Administrador de recursos de Azure, puede definir parámetros para los valores que quiera especificar al implementar la plantilla. La plantilla incluye una sección denominada Parámetros que contiene todos los valores de los parámetros. Debe definir un parámetro para los valores que variarán según el proyecto que vaya a implementar o según el entorno en el que vaya a realizar la implementación. No defina parámetros para valores que vayan a permanecer igual. Cada valor de parámetro se usa en la plantilla para definir los recursos que se implementan.
 
-We will describe each parameter in the template.
+Vamos a describir cada parámetro de la plantilla.
 
 ### gatewayName
 
-The name of the gateway you wish to create. The API app gets registered to this gateway.
+El nombre de la puerta de enlace que desea crear. La aplicación de API se registra en esta puerta de enlace.
 
     "gatewayName": {
       "type": "string"
@@ -14,7 +12,7 @@ The name of the gateway you wish to create. The API app gets registered to this 
 
 ### apiAppName
 
-The name of the API app to create.
+El nombre de la aplicación de API que se va a crear.
     
     "apiAppName": {
       "type": "string"
@@ -22,7 +20,7 @@ The name of the API app to create.
 
 ### apiAppSecret
 
-The secret for the API app. This value must be a base64-encoded string.
+El secreto de la aplicación de API. Este valor debe ser una cadena codificada en base64.
 
     "apiAppSecret": {
       "type": "securestring"
@@ -30,9 +28,10 @@ The secret for the API app. This value must be a base64-encoded string.
 
 ### location
 
-The location for the new API app.
+La ubicación de la nueva aplicación de API.
 
     "location": {
       "type": "string"
     }
 
+<!---HONumber=62-->

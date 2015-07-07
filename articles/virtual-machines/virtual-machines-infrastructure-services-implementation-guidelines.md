@@ -13,28 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="06/09/2015" 
 	ms.author="josephd"/>
 
 # Directrices de implementación de los servicios de infraestructura de Azure
  
-Estas directrices se centran en las decisiones y las tareas de diseño esenciales para determinar la variedad de recursos que están implicados en la mayoría de las implementaciones de los servicios de infraestructura de Azure.
+Azure es una excelente plataforma para implementar las configuraciones de desarrollo y pruebas o prueba de concepto, ya que requiere muy poca inversión para probar un determinado enfoque para la implementación de las soluciones. Sin embargo, debe ser capaz de distinguir las prácticas fáciles para un entorno de desarrollo y pruebas de las prácticas más difíciles y detalladas para una implementación completamente funcional y lista para la producción de una carga de trabajo de TI.
 
-Azure es una plataforma excelente para implementar la configuración de prueba de concepto, ya que requiere muy poca inversión para probar un determinado enfoque para la implementación de soluciones. Sin embargo, debe ser capaz de distinguir las prácticas fáciles para una prueba de concepto de las prácticas más difíciles y detalladas para una implementación completamente funcional y lista para la producción de una carga de trabajo de TI.
+Esta guía identifica muchas áreas en las que la planificación es la clave del éxito de una carga de trabajo de TI en Azure. Además, proporciona un orden para la creación de los recursos necesarios. Aunque hay cierta flexibilidad, Microsoft recomienda que se aplique este orden para la planificación y la toma de decisiones.
 
-Esta guía identifica muchas áreas en las que la planificación es la clave del éxito de una carga de trabajo o infraestructura de TI en Azure. Además, ayuda a la implementación de soluciones en la plataforma de Azure, ya que establece un orden para la creación de los recursos necesarios. Aunque hay cierta flexibilidad, Microsoft recomienda que se aplique este orden para la planificación y la toma de decisiones.
+Este artículo está adaptado del contenido de la entrada de blog [Azure Implementation Guidelines](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) (Directrices de implementación de Azure). Gracias a Santiago Cánepa (Director de desarrollo de aplicaciones para Microsoft), Hugo Salcedo (Director de desarrollo de aplicaciones de Microsoft) y Greg Hinkel (antiguo Director de desarrollo de aplicaciones para Microsoft) por su material original.
 
-1.	Convenciones de nomenclatura
-2.	Suscripciones y cuentas 
-3.	Almacenamiento
-4.	Redes virtuales
-5.	Servicios en la nube
-6.	Conjuntos de disponibilidad
-7.	Máquinas virtuales
-
-El hecho de establecer una buena convención de nomenclatura y seguir un orden determinado y sistemático para crear los recursos en Azure reduce inmensamente la carga administrativa y aumenta las probabilidades de éxito de todos los proyectos de implementación.
-
-> [AZURE.NOTE]Los grupos de afinidad no se describen, puesto que ya no se usan. Para obtener más información, consulte [Redes virtuales regionales y grupos de afinidad](https://msdn.microsoft.com/library/azure/jj156085.aspx).
+> [AZURE.NOTE]Los grupos de afinidad han quedado en desuso y su uso no se describe aquí. Para obtener más información, consulte [Redes virtuales regionales y grupos de afinidad](https://msdn.microsoft.com/library/azure/jj156085.aspx).
 
 ## 1. Convenciones de nomenclatura
 
@@ -93,7 +83,7 @@ Los nombres deben ser lo más descriptivos posible, para asegurarse de que el no
 
 ### Nombres de equipo
 
-Cuando los administradores crean una máquina virtual, Microsoft Azure les pedirá que proporcionen un nombre de máquina virtual. Microsoft Azure usará el nombre de la máquina virtual como nombre del recurso de la máquina virtual de Azure. Azure usará el mismo nombre como nombre de equipo para el sistema operativo instalado en la máquina virtual. Sin embargo, estos nombres podrían no ser siempre el mismo.
+Cuando los administradores crean una máquina virtual, Microsoft Azure les pedirá que proporcionen un nombre de máquina virtual. Microsoft Azure usará el nombre de la máquina virtual como nombre del recurso de la máquina virtual de Azure. Azure usará el mismo nombre como nombre de equipo para el sistema operativo instalado en la máquina virtual. Sin embargo, estos nombres podrían no ser siempre iguales.
 
 En los casos en que se crea una máquina virtual a partir de un archivo .VHD que ya contiene un sistema operativo, el nombre de la máquina virtual de Microsoft Azure puede diferir del nombre de equipo del sistema operativo de la máquina virtual. Esta situación se desaconseja, ya que puede agregar cierta dificultad a la administración de máquinas virtuales. Asegúrese siempre de que el nombre de recurso de la máquina virtual de Azure es el mismo nombre que el nombre de equipo asignado al sistema operativo de la máquina virtual.
 
@@ -125,7 +115,7 @@ Tarea:
 
 - Defina las convenciones de nomenclatura en términos de afijos, jerarquía, valores de cadena y otras directivas de los recursos de Azure.
 
-## 2. Suscripciones y cuentas 
+## 2. Suscripciones y cuentas
 
 Para trabajar con Azure, necesita una o más suscripciones a Azure. Los recursos, como servicios en la nube o máquinas virtuales, existen en el contexto de las suscripciones.
 
@@ -331,11 +321,11 @@ Decisión:
 Tareas:
 
 - Defina el nombre de cada máquina virtual usando su convención de nomenclatura.
-- Cree las máquinas virtuales con el Portal de vista previa de Azure, el Portal de administración de Azure, o el cmdlet **New-AzureVM** de PowerShell.
+- Cree las máquinas virtuales con el Portal de vista previa de Azure, el Portal de administración de Azure, el cmdlet **New-AzureVM** de PowerShell, la CLI de Azure o las plantillas del Administrador de recursos.
 
 ## Ejemplo de carga de trabajo de TI: el motor de análisis financiero de Contoso
 
-Contoso Corporation ha desarrollado un motor de análisis financiero de última generación con algoritmos patentados de vanguardia para ayudar en futuras  transacciones comerciales. Su objetivo consiste en poner este motor a disposición de los clientes como un conjunto de servidores en Azure, que constan de:
+Contoso Corporation ha desarrollado un motor de análisis financiero de última generación con algoritmos patentados de vanguardia para ayudar en futuras transacciones comerciales. Su objetivo consiste en poner este motor a disposición de los clientes como un conjunto de servidores en Azure, que constan de:
 
 - Dos (más en un futuro) servidores web basados en IIS que ejecutan servicios web personalizados en un nivel web.
 - Dos (más en un futuro) servidores de aplicaciones basados en IIS que realizan los cálculos en un nivel de aplicación.
@@ -363,7 +353,7 @@ Todo lo anterior seguirá estas convenciones de nomenclatura de Contoso:
 - Los servicios en la nube usan contoso-azfae-use-cs-[descripción]. Tenga en cuenta que se agregó ccontoso al prefijo para proporcionar exclusividad.
 - Las redes virtuales usan AZFAE-USE-VN[número].
 - Los conjuntos de disponibilidad usan azfae-use-as-[rol].
-- Los nombres de máquinas virtuales usan azfae-use-vm-[nombre de máquina virtual].
+- Los nombres de máquinas virtuales usan zfae-use-vm-[nombrevm].
 
 ### Suscripciones y cuentas de Azure
 
@@ -552,4 +542,10 @@ Estos comandos de Azure PowerShell crean las máquinas virtuales en esta configu
 
 [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../storage-scalability-targets.md)
 
-<!--HONumber=54--> 
+[Marco de integración de plataformas en la nube (patrones de arquitectura de Azure)](../azure-architectures-cpif-overview.md)
+
+[Diagrama de arquitectura de referencia de extensión del centro de datos](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
+
+ 
+
+<!---HONumber=62-->

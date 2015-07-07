@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Conexión de Excel a Hadoop con Power Query | Microsoft Azure" 
-	description="Vea cómo aprovechar las ventajas de los componentes de inteligencia empresarial y usar Power Query para Excel a fin de acceder a los datos almacenados en Hadoop en HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Conexión de Excel a Hadoop con Power Query | Microsoft Azure"
+	description="Vea cómo aprovechar las ventajas de los componentes de inteligencia empresarial y usar Power Query para Excel a fin de acceder a los datos almacenados en Hadoop en HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/08/2015"
 	ms.author="bradsev"/>
 
 
@@ -21,13 +21,15 @@
 
 Una de las características clave de la solución para Big Data de Microsoft es la integración de los componentes de Microsoft Business Intelligence (BI) con los clústeres de Hadoop en Azure HDInsight. Un ejemplo importante de esta integración es la capacidad de conectar Excel a la cuenta de almacenamiento de Azure que contiene los datos asociados a su clúster de Hadoop usando el complemento de Microsoft Power Query para Excel. En este artículo se describen las pautas para configurar y usar Power Query para consultar los datos asociados con un clúster de Hadoop administrado con HDInsight.
 
+> [AZURE.NOTE]Aunque los pasos descritos en este artículo se pueden usar con un clúster de HDInsight basado en Linux o Windows, Windows es necesario para la estación de trabajo del cliente.
+
 ## Requisitos previos
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- Un clúster de HDInsight. Para configurarlo, consulte [Introducción a HDInsight de Azure][hdinsight-get-started].
-- Un equipo que ejecute Windows 7, Windows Server 2008 R2 o un sistema operativo posterior.
-- Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone, u Office 2010 Professional Plus.
+- **Un clúster de HDInsight**. Para configurarlo, consulte [Introducción a HDInsight de Azure][hdinsight-get-started].
+- **Una estación de trabajo** que ejecute Windows 7, Windows Server 2008 R2 o un sistema operativo posterior.
+- **Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone u Office 2010 Professional Plus**.
 
 
 ## <a id="InstallPowerQuery"></a>Instalación de Microsoft Power Query para Excel
@@ -82,5 +84,6 @@ En este artículo, ha aprendido a usar Power Query para recuperar datos de HDIns
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportedTable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

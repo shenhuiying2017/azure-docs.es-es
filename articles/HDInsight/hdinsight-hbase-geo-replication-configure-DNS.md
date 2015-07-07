@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configuración de DNS entre dos redes virtuales de Azure | Azure" 
-   description="Aprenda a configurar las conexiones VPN entre dos redes virtuales Azure,  la resolución de nombres de dominio entre dos redes virtuales y la replicación geográfica de HBase." 
-   services="hdinsight" 
+   pageTitle="Configuración de DNS entre dos redes virtuales de Azure | Microsoft Azure" 
+   description="Aprenda a configurar las conexiones VPN y la resolución de nombres de dominio entre dos redes virtuales, y cómo configurar la replicación geográfica de HBase." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -40,9 +40,9 @@ El siguiente diagrama muestra las dos redes virtuales que creó en [Configuraci�
 ##Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una estación de trabajo con Azure PowerShell instalado y configurado**. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install].
+- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 	Antes de ejecutar scripts de PowerShell, asegúrese de estar conectado a su suscripción de Azure mediante el siguiente cmdlet:
 
@@ -52,9 +52,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
-- **Dos redes virtuales de Azure con conectividad VPN**. Para obtener instrucciones, consulte [Configuración de una conexión VPN entre dos redes virtuales de Azure][hdinsight-hbase-replication-vnet].
+- **Dos redes virtuales de Azure con conectividad VPN**. Para obtener instrucciones, consulte [Configuración de una conexión VPN entre dos redes virtuales de Azure][hdinsight-hbase-geo-replication-vnet].
 
->[AZURE.NOTE]Los nombres de servicio de Azure y los nombres de máquina virtual deben ser únicos. El nombre utilizado en este tutorial es Contoso-[nombre de servicio o de máquina virtual de Azure]-[EU/US]. Por ejemplo, Contoso-VNet-EU es la red virtual de Azure del centro de datos Norte de Europa; Contoso-DNS-US es la máquina virtual del servidor DNS del centro de datos Este de EE. UU. Debe proponer sus propios nombres.
+>[AZURE.NOTE]Los nombres de servicio de Azure y los nombres de máquina virtual deben ser únicos. El nombre usado en este tutorial es Contoso-[Servicio de Azure/nombre de máquina virtual]-[EU/US]. Por ejemplo, Contoso-VNet-EU es la red virtual de Azure del centro de datos Norte de Europa; Contoso-DNS-US es la máquina virtual del servidor DNS del centro de datos Este de EE. UU. Debe proponer sus propios nombres.
  
  
 ##Creación de máquinas virtuales de Azure que se van a usar como servidores DNS
@@ -73,9 +73,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 	- **SUBREDES DE LA RED VIRTUAL**: Subnet-1
 	- **CUENTA DE ALMACENAMIENTO**: use una cuenta de almacenamiento generada automáticamente
 	
-		The cloud service name will be the same as the virtual machine name. In this case, that is Contoso-DNS-EU. For subsequent virtual machines, I can choose to use the same cloud service.  All the virtual machines under the same cloud service share the same virtual network and domain suffix.
+		El nombre del servicio en la nube será el mismo que el nombre de la máquina virtual. En este caso, es Contoso-DNS-EU. Para las máquinas virtuales posteriores, puedo elegir usar el mismo servicio en la nube. Todas las máquinas virtuales que se encuentran en el mismo servicio en la nube comparten la misma red virtual y sufijo de dominio.
 
-		The storage account is used to store the virtual machine image file. 
+		La cuenta de almacenamiento se usa para almacenar el archivo de imagen de la máquina virtual. 
 	- **EXTREMOS**: (desplácese hacia abajo y seleccione **DNS**) 
 
 Después de crear la máquina virtual, descubra la IP interna y externa.
@@ -116,7 +116,7 @@ Los servidores DNS requieren direcciones IP estáticas. Este paso no puede reali
 	Es posible que tenga que actualizar ServiceName y Nombre para que coincidan con los nombres que tenga.
 
 
-##Adición de las dos máquinas virtuales al rol de servidor DNS 
+##Adición de las dos máquinas virtuales al rol de servidor DNS
 
 **Para agregar el rol de servidor DNS para Contoso-DNS-EU**
 
@@ -134,7 +134,7 @@ Los servidores DNS requieren direcciones IP estáticas. Este paso no puede reali
 9.	Haga clic en **Agregar características** y, a continuación, en **Continuar**.
 10.	Haga clic en **Siguiente** tres veces y, a continuación, haga clic en **Instalar**. 
 
-**Para agregar el rol de servidor DNS para  Contoso-DNS-US**
+**Para agregar el rol de servidor DNS para Contoso-DNS-US**
 
 - Repita los pasos para agregar el rol de DNS para **Contoso-DNS-US**.
 
@@ -216,7 +216,8 @@ En este tutorial ha aprendido cómo configurar una resolución de nombre en las 
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[powershell-install]: ../install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

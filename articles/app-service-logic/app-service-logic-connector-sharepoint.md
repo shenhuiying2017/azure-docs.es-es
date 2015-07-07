@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Uso del conector de SharePoint en una aplicación lógica" 
-   description="Uso del conector de SharePoint en una aplicación lógica" 
+   pageTitle="Creación de un conector de SharePoint para usarlo en la aplicación lógica" 
+   description="Creación de un conector de SharePoint; Uso del conector de SharePoint en una aplicación lógica" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="anuragdalmia" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="06/17/2015"
    ms.author="vagarw"/>
 
 # Uso del conector de SharePoint en una aplicación lógica
@@ -22,94 +22,44 @@ Las aplicaciones lógicas se pueden desencadenar en función de una variedad de 
 
 La aplicación de galería del conector de SharePoint Server y el conector de SharePoint Online proporciona desencadenadores y acciones como mecanismos para interactuar con SharePoint.
 
-## Creación de un conector de SharePoint Online para la aplicación lógica
+## Creación de un conector de SharePoint Online
 
-Para usar el conector de SharePoint Online, deberá crear primero una instancia de la aplicación de API del conector de SharePoint Online. Se puede hacer de la forma siguiente:
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
-1. Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior derecha del Portal de Azure.
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. Seleccione **Aplicaciones de API** y busque "Conector de SharePoint Online".
+3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
+4. Escriba la siguiente configuración del paquete:
 
-2. Vaya a "Web y móvil > Aplicaciones de API" y busque "Conector de SharePoint Online".
+	Nombre | Obligatorio | Descripción
+--- | --- | ---
+Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 
-3. Configure el conector de SharePoint Online y haga clic en Crear. A continuación, figuran los parámetros que deberá proporcionar para crear el conector:
+5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][1]
 
-	<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Dirección URL del sitio</td>
-    <td>Sí</td>
-    <td>Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo: https://microsoft.sharepoint.com/teams/wabstest </td>
-  </tr>
-  <tr>
-    <td>Biblioteca de documentos/Lista de URL relacionadas</td>
-    <td>Sí</td>
-    <td>Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo: Listas/Tareas, Documentos compartidos'.</td>
-  </tr>
-</table>![][1]
+Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Online.
 
+## Creación de un conector de SharePoint Server
 
-4. Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Online.
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
-## Creación de un conector de SharePoint Server para la aplicación lógica
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. Seleccione **Aplicaciones de API** y busque "Conector de SharePoint Server".
+3. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
+4. Escriba la siguiente configuración del paquete:
 
-Para usar el conector de SharePoint Server, deberá crear primero una instancia de la aplicación de API del conector de SharePoint Server. Se puede hacer de la forma siguiente:
+	Nombre | Obligatorio | Descripción
+--- | --- | ---
+Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*. Modo de autenticación | Sí | Especifique el modo de autenticación para conectarse al sitio de SharePoint. Las opciones incluyen:<ul><li>Default</li><li>WindowsAuthentication</li><li>FormBasedAuthentication</li></ul><br/><br/>Si selecciona Default, se usan las credenciales con las que se ejecuta el conector de SharePoint; no se necesitan ni el nombre de usuario ni la contraseña. El nombre de usuario y la contraseña son necesarios para otros tipos de autenticación.<br/><br/>**Nota** No se admite la autenticación anónima.
+User Name | No | Especifique un nombre de usuario válido para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.
+Password | No | Especifique una contraseña válida para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.
+Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
+Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-1. Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior derecha del Portal de Azure.
+5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][2]
 
-2. Vaya a "Web y móvil > Aplicaciones de API" y busque "Conector de SharePoint Server".
+Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Server.
 
-3. Configure el conector de SharePoint Server y haga clic en Crear. A continuación, figuran los parámetros que deberá proporcionar para crear el conector:
-
-	<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Dirección URL del sitio</td>
-    <td>Sí</td>
-    <td>Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo: https://microsoft.sharepoint.com/teams/wabstest </td>
-  </tr>
-  <tr>
-    <td>Modo de autenticación</td>
-    <td>Sí</td>
-    <td>Especifique el modo de autenticación para conectarse al sitio de SharePoint. Los valores permitidos son los siguientes:<br><br>
-		Valor predeterminado<br>			
-		WindowsAuthentication<br>
-		FormBasedAuthentication.<br><br>
-
-Si se elige Credenciales predeterminadas, se utilizarán las credenciales predeterminadas con las que se está ejecutando SharePoint Microservice (el nombre de usuario y la contraseña no serán necesarios). Los campos Nombre de usuario y Contraseña son obligatorios para otros tipos de autenticación. <br><br>Nota: no se admite la autenticación anónima.</td>
-  </tr>
-  <tr>
-    <td>User Name</td>
-    <td>No</td>
-    <td>Especifique un nombre de usuario válido para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.</td>
-  </tr>
-  <tr>
-    <td>Password</td>
-    <td>No</td>
-    <td>Especifique una contraseña válida para conectarse al sitio de SharePoint, en caso de que el modo de autenticación no sea el predeterminado.</td>
-  </tr>
-  <tr>
-    <td>Biblioteca de documentos/Lista de URL relacionadas</td>
-    <td>Sí</td>
-    <td>Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo: Listas/Tareas, Documentos compartidos'.</td>
-  </tr>
-  <tr>
-    <td>Cadena de conexión del bus de servicio</td>
-    <td>No</td>
-    <td>Debe ser una cadena de conexión del espacio de nombres del bus de servicio que sea válida.<br><br>
-
-Deberá instalar un agente de escucha en un servidor que pueda acceder a SharePoint Server. <br>Puede ir a la página de resumen de la aplicación de API y hacer clic en «Conexión híbrida» para instalar el agente.</td>
-  </tr>
-</table>![][2]
-
-4. Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Server.
-5. Deberá instalar un agente de escucha en un servidor que pueda acceder a SharePoint Server. Puede ir a la página de resumen de la aplicación de API y hacer clic en «Conexión híbrida» para instalar el agente.
 
 ## Uso del conector de SharePoint en una aplicación lógica
 
@@ -117,821 +67,402 @@ Una vez creada la aplicación de API, puede usar el conector de SharePoint como 
 
 1. Cree una aplicación lógica nueva y elija el mismo grupo de recursos que tiene el conector de SharePoint.
 
-2. Abra "Desencadenadores y acciones" para abrir el diseñador de aplicaciones lógicas y configure el flujo. El conector de SharePoint aparecerá en la sección "Usados recientemente" en la galería del lado derecho. Selecciónelo.
+2. Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configure el flujo. El conector de SharePoint aparece en la sección "Usados recientemente" en la galería del lado derecho. Selecciónelo.
 
-3. Si se elige el conector de SharePoint al inicio de la aplicación lógica, este actúa como desencadenador y, además, las acciones se podrían realizar en la cuenta de SharePoint mediante el conector.
+3. Si se selecciona el conector de SharePoint al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de SharePoint mediante el conector.
 
-4. Se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre si se usa el conector SharePoint Online. Para iniciar la autorización, haga clic en Autorizar en el conector de SharePoint.
+4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:<br/> ![][3]
 
-	![][3]
+5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta en la que desea realizar las operaciones: <br/> ![][4]
 
-5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta de SharePoint en la que desea realizar las operaciones.
+6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre: <br/> ![][5]
 
-	![][4]
-6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre. 
+7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra una lista de acciones y puede elegir la operación apropiada que se desea realizar: <br/> ![][6] <br/> **Dirección URL relativa configurada para la biblioteca de documentos** <br/> ![][7] <br/> **Dirección URL relativa configurada para la lista de documentos** <br/>
 
-	![][5]
-
-7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores, Además, se muestra la lista de acciones para que pueda elegir la operación que desee realizar.
-
-	![][6]
-
-	<b>Dirección URL relativa configurada para la biblioteca de documentos</b><br><br>
-
-	![][7]
-
-	<b>Dirección URL relativa configurada para la lista de documentos</b>
-
-	<b>Nota:</b> para los siguientes desencadenadores, se supone que el usuario especificó ’Documentos compartidos, Listas/Tareas’ en la configuración del paquete del conector, donde ’Documentos compartidos’ es una biblioteca de documentos y ’Listas/Tareas’ es una lista.
+> [AZURE.NOTE]Para los siguientes desencadenadores, se supone que ha especificado “Documentos compartidos, Listas/Tareas” en la configuración del paquete del conector, donde “Documentos compartidos” es una biblioteca de documentos y “Listas/Tareas” es una lista.
 
 ##  Desencadenadores
 Utilice desencadenadores si desea iniciar una aplicación lógica.
 
-**Nota**: los desencadenadores se eliminarán los archivos después de leerlos. Para conservar estos archivos, proporcione un valor para la ubicación de archivado.
+> [AZURE.NOTE]Los desencadenadores eliminan los archivos después de leerlos. Para conservar estos archivos, proporcione un valor para la ubicación de archivado.
 
 ### 1. Nuevo documento en los documentos compartidos (JSON)
 Este desencadenador se activa cuando hay un documento disponible en ’Documentos compartidos’.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Nombre de vista</td>
-    <td>No</td>
-    <td>Especifique una vista válida para filtrar los documentos que se deben seleccionar. Ejemplo: 'Pedidos aprobados'. Para procesar todos los documentos existentes, deje este campo en blanco. </td>
-  </tr>
-  <tr>
-    <td>Ubicación del archivo</td>
-    <td>No</td>
-    <td>Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los documentos procesados. </td>
-  </tr>
-  <tr>
-    <td>Sobrescribir en archivo</td>
-    <td>No</td>
-    <td>Active esta opción para sobrescribir un archivo en la ruta de los archivos, en caso de que ya exista. </td>
-  </tr>
-  <tr>
-    <td>Consulta Caml</td>
-    <td>No, avanzado</td>
-    <td>Especifique una consulta Caml válida para filtrar documentos. Ejemplo: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco. 
+Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los documentos procesados.
+Sobrescribir en archivo | No | Active esta opción para sobrescribir un archivo en la ruta de los archivos, en caso de que ya exista.
+Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
-**Salidas:** <table> <tr> <td><b>Nombre</b></td> <td><b>Descripción</b></td> </tr> <tr> <td>Nombre</td> <td>Nombre del documento.</td> </tr> <tr> <td>Contenido</td> <td>Contenido del documento.</td> </tr> <tr> <td>ContentTransferEncoding</td> <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</ </tr> </table>
+#### Salida
+
+Nombre | Descripción
+--- | --- 
+Nombre | Nombre del documento.
+Contenido | Contenido del documento.
+ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
+
+**Nota**: todas las columnas del elemento de documento se muestran en la salida “Avanzadas”.
 
 
-Nota: todas las columnas del elemento de documento se muestran en la salida ’Avanzadas’.
-
-
-###2. Nuevo elemento en las tareas (JSON)
+### 2. Nuevo elemento en las tareas (JSON)
 Este desencadenador se activa cuando se agrega un nuevo elemento a la lista ’Tareas’.
 
-**Entradas:** <table> <tr> <td><b>Nombre</b></td> <td><b>Obligatorio</b></td> <td><b>Descripción</b></td> </tr> <tr> <td>Nombre de vista</td> <td>No</td> <td>Especifique una vista válida utilizada para filtrar elementos en la lista. Ejemplo: 'Pedidos aprobados'. Para procesar todos los nuevos elementos, deje este campo en blanco. </td> </tr> <tr> <td>Ubicación de archivo</td> <td>No</td> <td>Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados. </td> </tr> <tr> <td>Consulta Caml</td> <td>No, Avanzadas</td> <td>Especifique una consulta Caml válida para filtrar los elementos de la lista. Ejemplo: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td> </tr> </table>
+#### Entrada
+
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los nuevos elementos, deje este campo en blanco. 
+Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados.
+Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+
+#### Salida
+
+Nombre | Descripción
+--- | --- 
+Las columnas de la lista se rellenan dinámicamente y se muestran en los parámetros de salida. | &nbsp;
 
 
-**Salidas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Las columnas de la lista se rellenan dinámicamente y se muestran en los parámetros de salida.</td>
-    <td>&#160;</td>
-  </tr>
-
-</table>
-
-
-###3. Nuevo documento en los documentos compartidos (XML)
+### 3. Nuevo documento en los documentos compartidos (XML)
 
 Este desencadenador se activa cuando hay un documento disponible en ’Documentos compartidos’. El nuevo documento se devuelve como un mensaje XML.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Nombre de vista</td>
-    <td>No</td>
-    <td>Especifique una vista válida para filtrar los documentos que se deben seleccionar. Ejemplo: 'Pedidos aprobados'. Para procesar todos los documentos existentes, deje este campo en blanco. </td>
-  </tr>
-  <tr>
-    <td>Ubicación del archivo</td>
-    <td>No</td>
-    <td>Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los documentos procesados. </td>
-  </tr>
-  <tr>
-    <td>Sobrescribir en archivo</td>
-    <td>No</td>
-    <td>Active esta opción para sobrescribir un archivo en la ruta de los archivos, en caso de que ya exista. </td>
-  </tr>
-  <tr>
-    <td>Consulta Caml</td>
-    <td>No, avanzado</td>
-    <td>Especifique una consulta Caml válida para filtrar documentos. Ejemplo: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco. 
+Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los documentos de lista procesados.
+Sobrescribir en archivo | No | Active esta opción para sobrescribir un archivo en la ruta de los archivos, en caso de que ya exista.
+Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Contenido</td>
-    <td>Contenido del documento.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+Contenido | Contenido del documento.
+ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
 
 
-###4. Nuevo elemento en las tareas (XML)
+### 4. Nuevo elemento en las tareas (XML)
 
 Este desencadenador se activa cuando se agrega un nuevo elemento a la lista ’Tareas’. El nuevo elemento de lista se devuelve como un mensaje XML.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Nombre de vista</td>
-    <td>No</td>
-    <td>Especifique una vista válida utilizada para filtrar elementos en la lista. Ejemplo: 'Pedidos aprobados'. Para procesar todos los nuevos elementos, deje este campo en blanco. </td>
-  </tr>
-  <tr>
-    <td>Ubicación del archivo</td>
-    <td>No</td>
-    <td>Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados. </td>
-  </tr>
-  <tr>
-    <td>Consulta Caml</td>
-    <td>No, avanzado</td>
-    <td>Especifique una consulta Caml válida para filtrar los elementos de la lista. Ejemplo: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Ejemplo: 'Pedidos aprobados'. Para procesar todos los nuevos elementos, deje este campo en blanco. 
+Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados.
+Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar los elementos de lista. Por ejemplo, escriba `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+
+#### Salida
+
+Nombre | Descripción
+--- | --- 
+Contenido | Contenido del documento.
+ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
 
 
-**Salidas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Contenido</td>
-    <td>Contenido del documento.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</td>
-  </tr>
-</table>
-
-
-##  Acciones
+## Acciones
 Para las acciones siguientes, se supone que el usuario especificó ’Documentos compartidos, Listas/Tareas’ en la configuración del paquete del conector, donde ’Documentos compartidos’ es una biblioteca de documentos y ’Listas/Tareas’ es una lista.
 
-###1. Elemento cargado en los documentos compartidos (JSON)
+### 1. Elemento cargado en los documentos compartidos (JSON)
 
 Esta acción carga un nuevo documento en ’Documentos compartidos’. La entrada es un objeto JSON bien definido con todos los campos de columna de la biblioteca de documentos.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
- </tr>
-  <tr>
-    <td>Nombre</td>
-    <td>Sí</td>
-    <td>Nombre del documento.</td>
-  </tr>
-  <tr>
-    <td>Contenido</td>
-    <td>Sí</td>
-    <td>Contenido del documento.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Sí</td>
-    <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Forzar sobrescritura</td>
-    <td>Sí</td>
-    <td>Si se establece como TRUE y existe un documento con el nombre especificado, este se sobrescribirá.</td>
-  </tr>
-  <tr>
-    <td>ReqParam1*</td>
-    <td>Sí</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un documento a la biblioteca de documentos.</td>
-  </tr>
-  <tr>
-    <td>ReqParam2*</td>
-    <td>Sí</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un documento a la biblioteca de documentos.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam1*</td>
-    <td>No. Avanzado</td>
-    <td>Se trata de uno de los parámetros opcionales para agregar un documento a la biblioteca de documentos.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam2*</td>
-    <td>No. Avanzado</td>
-    <td>Se trata de uno de los parámetros opcionales para agregar un documento a la biblioteca de documentos.</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre | Sí | Nombre del documento.
+Contenido | Sí | Contenido del documento.
+ContentTransferEncoding | Sí | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
+Forzar sobrescritura | Sí | Si se establece como TRUE y existe un documento con el nombre especificado, este se sobrescribirá.
+ReqParam1* | Sí | Se trata de uno de los parámetros necesarios para agregar un documento a la biblioteca de documentos.
+ReqParam2* | Sí | Se trata de uno de los parámetros necesarios para agregar un documento a la biblioteca de documentos.
+OptionalParam1* | No. Avanzado | Se trata de uno de los parámetros opcionales para agregar un documento a la biblioteca de documentos.
+OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros opcionales para agregar un documento a la biblioteca de documentos.
 
-<b>Nota</b>: todos los parámetros de la biblioteca de documentos se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
+**Nota**: todos los parámetros de la biblioteca de documentos se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Id. de elemento del documento agregado a la biblioteca de documentos.</td>
-  </tr>
-  <tr>
-    <td>Estado</td>
-    <td>Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+ItemId | Id. de elemento del documento agregado a la biblioteca de documentos.
+Estado | Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).
+ 
 
-
- 
-
-###2. Obtención de elementos desde los documentos compartidos (JSON)
+### 2. Obtención de elementos desde los documentos compartidos (JSON)
 Esta acción obtiene el documento de la biblioteca de documentos con la URL relativa (estructura de carpetas) del documento.
 
+#### Entrada
 
-**Entradas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Dirección URL relativa del documento</td>
-    <td>No</td>
-    <td>Especifique la dirección URL del documento, relativa a 'Documentos compartidos'. Ejemplo: myspec1,myfolder/orders</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Dirección URL relativa del documento | No | Especifique la dirección URL del documento, relativa a “Documentos compartidos”. Por ejemplo, escriba: *myspec1,myfolder/orders*.
 
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Contenido</td>
-    <td>Contenido del documento</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Estado</td>
-    <td>Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-  <tr>
-    <td>Param1*</td>
-    <td>Se trata de uno de los parámetros de un documento en la biblioteca de documentos.</td>
-  </tr>
-  <tr>
-    <td>Param2*</td>
-    <td>Se trata de uno de los parámetros de un documento en la biblioteca de documentos.</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+Contenido | Contenido del documento 
+ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
+Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
+Param1* | Se trata de uno de los parámetros de un documento en la biblioteca de documentos.
+Param2* | Se trata de uno de los parámetros de un documento en la biblioteca de documentos.
 
-<b>Nota</b>: todos los parámetros de la biblioteca de documentos se rellenan de forma dinámica. Y se encuentran en la sección avanzada.
+**Nota**: todos los parámetros de la biblioteca de documentos se rellenan de forma dinámica. Y se encuentran en la sección avanzada.
 
- 
+ 
 
-###3. Eliminación de elementos de los documentos compartidos
+### 3. Eliminación de elementos de los documentos compartidos
 
 Esta acción elimina el documento de la biblioteca de documentos con la URL relativa (estructura de carpetas) del documento.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Dirección URL relativa del documento</td>
-    <td>No</td>
-    <td>Especifique la dirección URL del documento, relativa a 'Documentos compartidos'. Ejemplo: myspec1,myfolder/orders</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Dirección URL relativa del documento | No | Especifique la dirección URL del documento, relativa a “Documentos compartidos”. Por ejemplo, escriba: *myspec1,myfolder/orders*.
+
+#### Salida
+
+Nombre | Descripción
+--- | --- 
+Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
 
 
-**Salidas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Estado</td>
-    <td>Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
-
-
-###4. Inserción de elementos en las tareas (JSON)
+### 4. Inserción de elementos en las tareas (JSON)
 
 Esta acción agrega un elemento a la lista de elementos.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ReqParam1*</td>
-    <td>Sí</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-  <tr>
-    <td>ReqParam2*</td>
-    <td>Sí</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam1*</td>
-    <td>No. Avanzado</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam2*</td>
-    <td>No. Avanzado</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+ReqParam1* | Sí | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+ReqParam2* | Sí | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+OptionalParam1* | No. Avanzado | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+
+**Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
+
+ 
+#### Salida
+
+Nombre | Descripción
+--- | --- 
+ItemId | Id. de elemento del elemento de la lista agregado.
+Estado | Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
-<b>Nota</b>: todos los parámetros de la ’Lista’ se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
-
-**Salidas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Id. de elemento del elemento de la lista agregado.</td>
-  </tr>
-  <tr>
-    <td>Estado</td>
-    <td>Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
-
-
-###5. Actualización de un elemento en las tareas (JSON)
+### 5. Actualización de un elemento en las tareas (JSON)
 
 Esta acción actualiza un elemento de la lista de elementos.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Sí</td>
-    <td>Id. de elemento del elemento de la lista.</td>
-  </tr>
-  <tr>
-    <td>ReqParam1*</td>
-    <td>No</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-  <tr>
-    <td>ReqParam2*</td>
-    <td>No</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam1*</td>
-    <td>No. Avanzado</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-  <tr>
-    <td>OptionalParam2*</td>
-    <td>No. Avanzado</td>
-    <td>Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+ItemId | Sí | Id. de elemento del elemento de la lista.
+ReqParam1* | No | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+ReqParam2* | No | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+OptionalParam1* | No. Avanzado | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
+OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros necesarios para agregar un elemento a la lista.
 
-<b>Nota</b>: todos los parámetros de la ’Lista’ se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
+**Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la actualización del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+Estado | Si la actualización del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
-###6. Obtención de elementos desde las tareas (JSON)
+### 6. Obtención de elementos desde las tareas (JSON)
 
 Esta acción recupera un elemento de la lista de elementos.
 
+#### Entrada
 
-**Entradas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Sí</td>
-    <td>Id. de elemento del elemento de la lista.</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+ItemId | Sí | Id. de elemento del elemento de la lista.
 
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Column1*</td>
-    <td>Se trata de uno de los parámetros en la lista.</td>
-  </tr>
-  <tr>
-    <td>Column2*</td>
-    <td>Se trata de uno de los parámetros en la lista.</td>
-  </tr>
-  <tr>
-    <td>Estado</td>
-    <td>Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+Column1* | Se trata de uno de los parámetros en la lista.
+Column2* | Se trata de uno de los parámetros en la lista.
+Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
 
-<b>Nota:</b> las columnas de la lista se rellenan dinámicamente y se muestran en los parámetros de salida.
+**Nota**: las columnas de la lista se rellenan de forma dinámica y se muestran en los parámetros de salida.
 
 
-###7. Eliminación de un elemento desde las tareas
+### 7. Eliminación de un elemento desde las tareas
 
 Esta acción elimina un elemento de la lista de elementos.
 
-**Entradas:**
+ 
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Sí</td>
-    <td>Id. de elemento del elemento de la lista.</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+ItemId | Sí | Id. de elemento del elemento de la lista.
 
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la eliminación del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+Estado | Si la eliminación del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
-###8. Enumeración de elementos en los documentos compartidos (JSON)
+### 8. Enumeración de elementos en los documentos compartidos (JSON)
 
 Esta acción enumera todos los documentos incluidos en una biblioteca de documentos. Puede utilizar una vista o una consulta Caml para filtrar los documentos.
 
-**Entradas:**
+ 
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Nombre de vista</td>
-    <td>No</td>
-    <td>Especifique una vista válida para filtrar los documentos que se deben seleccionar. Ejemplo: 'Pedidos aprobados'. Para procesar todos los documentos existentes, deje este campo en blanco. </td>
-  </tr>
-  <tr>
-    <td>Consulta Caml</td>
-    <td>No</td>
-    <td>Especifique una consulta Caml válida para filtrar documentos. Ejemplo: <Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where></td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre de vista | No | Especifique una vista válida para filtrar los documentos que se deben seleccionar. Por ejemplo, escriba “Pedidos aprobados”. Para procesar todos los documentos existentes, deje este campo en blanco. 
+Consulta Caml | No | Especifique una consulta Caml válida para filtrar documentos. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+
+#### Salida
+
+Nombre | Descripción
+--- | --- 
+Documentos | Conjunto de todos los documentos. Cada documento tiene los siguientes campos: <ul><li>Documentos </li><li>Nombre</li><li>Id. de elemento</li><li>URL completa del elemento</li><li>Avanzado</li><li>URL de edición de elemento</li><li>Nombre de lista</li><li>URL completa de la lista</li></ul>
+Estado | Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
-**Salidas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Documentos</td>
-    <td>Conjunto de todos los documentos. Cada documento tiene los siguientes campos. <br><br>
-	Documentos []<br>
-	Nombre<br>
-	Id. de elemento<br>
-	URL completa del elemento<br>
-	Avanzado<br>
-	URL de edición de elemento<br>
-	Nombre de lista<br>
-	URL completa de la lista<br>
-	</td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
-
-
-###9. Elemento cargado en los documentos compartidos (XML)
+### 9. Elemento cargado en los documentos compartidos (XML)
 
 Esta acción carga un nuevo documento en ’Documentos compartidos’. El documento de entrada debe ser una carga XML. La respuesta de la acción será una carga XML.
+ 
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Nombre</td>
-    <td>Sí</td>
-    <td>Nombre del documento.</td>
-  </tr>
-  <tr>
-    <td>Contenido</td>
-    <td>Sí</td>
-    <td>Contenido del documento.</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Sí</td>
-    <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Forzar sobrescritura</td>
-    <td>Sí</td>
-    <td>Si se establece como TRUE y existe un documento con el nombre especificado, este se sobrescribirá.</td>
-  </tr>
-</table>
- 
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Nombre | Sí | Nombre del documento.
+Contenido | Sí | Contenido del documento.
+ContentTransferEncoding | Sí | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
+Forzar sobrescritura | Sí | Si se establece como TRUE y existe un documento con el nombre especificado, este se sobrescribe.
+ 
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>XML de salida</td>
-    <td>Respuesta de la acción de carga en formato XML.</td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | --- 
+XML de salida | Respuesta de la acción de carga en formato XML.
+Estado | Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).
 
-###10. Obtención de elementos desde los documentos compartidos (XML)
+### 10. Obtención de elementos desde los documentos compartidos (XML)
 
 Esta acción obtiene el documento de la biblioteca de documentos con la URL relativa (estructura de carpetas) del documento.
 
-**Entradas:**
+ 
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Dirección URL relativa del documento</td>
-    <td>No</td>
-    <td>Especifique la dirección URL del documento, relativa a 'Documentos compartidos'. Ejemplo: myspec1,myfolder/orders</td>
-  </tr>
-  <tr>
-    <td>Tipo de archivo</td>
-    <td>Sí</td>
-    <td>Especifique si el archivo es binario o de texto.</td>
-  </tr>
-</table>
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+Dirección URL relativa del documento | No | Especifique la dirección URL del documento, relativa a “Documentos compartidos”. Por ejemplo, escriba: *myspec1,myfolder/orders*.
+Tipo de archivo | Sí | Especifique si el archivo es binario o de texto.
 
+#### Salida
 
-**Salidas:**
+Nombre | Descripción
+--- | --- 
+XML de salida | Contenido del documento
+ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
+Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>XML de salida</td>
-    <td>Contenido del documento</td>
-  </tr>
-  <tr>
-    <td>ContentTransferEncoding</td>
-    <td>Codificación de transferencia de contenido del mensaje. ("none"|”base64”)</td>
-  </tr>
-  <tr>
-    <td>Estado</td>
-    <td>Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
-
-###11. Inserción de elementos en las tareas (XML)
+### 11. Inserción de elementos en las tareas (XML)
 
 Esta acción agrega un elemento a la lista de elementos. La entrada se espera que sea una carga XML.
 
-**Entradas:**
+#### Entrada
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>XML de entrada</td>
-    <td>Sí</td>
-    <td>El mensaje XML que contiene los valores de los campos de elemento de lista que se va a insertar. Puede utilizar la aplicación de API de transformación para generar el mensaje XML.</td>
-  </tr>
-</table>
-<b>Nota</b>: todos los parámetros de la ’Lista’ se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+XML de entrada | Sí | El mensaje XML que contiene los valores de los campos de elemento de lista que se va a insertar. Puede utilizar la aplicación de API de transformación para generar el mensaje XML.
 
-**Salidas:**
+**Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Id. de elemento del elemento de la lista agregado.</td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+ 
+#### Salida
+
+Nombre | Descripción
+--- | ---
+ItemId | Id. de elemento del elemento de la lista agregado.
+Estado | Si la inserción del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
-###12. Actualización de un elemento en las tareas (XML)
+### 12. Actualización de un elemento en las tareas (XML)
 
 Esta acción actualiza un elemento de la lista de elementos. La entrada se espera que sea una carga XML.
 
+#### Entrada
 
-**Entradas:**
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+ItemID | Sí | Id. de elemento del elemento de la lista.
+XML de entrada | Sí | El mensaje XML que contiene los valores de los campos de elemento de lista que se va a insertar. Puede utilizar la aplicación de API de transformación para generar el mensaje XML.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Sí</td>
-    <td>Id. de elemento del elemento de la lista.</td>
-  </tr>
-  <tr>
-    <td>XML de entrada</td>
-    <td>Sí</td>
-    <td>El mensaje XML que contiene los valores de los campos de elemento de lista que se va a insertar. Puede utilizar la aplicación de API de transformación para generar el mensaje XML.</td>
-  </tr>
-</table>
+**Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
+ 
+#### Salida
 
-<b>Nota</b>: todos los parámetros de la ’Lista’ se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
-
-**Salidas:**
-
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la actualización del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | ---
+Estado | Si la actualización del elemento de lista es correcta, se devuelve el código de estado 200 (correcto).
 
 
-###13. Obtención de elementos desde las tareas (XML)
+### 13. Obtención de elementos desde las tareas (XML)
 
 Esta acción recupera un elemento de la lista de elementos.
 
+#### Entrada
 
-**Entradas:**
+Nombre | Obligatorio | Descripción
+--- | --- | ---
+ItemID | Sí | Id. de elemento del elemento de la lista.
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Obligatorio</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>ItemId</td>
-    <td>Sí</td>
-    <td>Id. de elemento del elemento de la lista.</td>
-  </tr>
-</table>
 
-**Salidas:**
+#### Salida
 
-<table>
-  <tr>
-    <td><b>Name</b></td>
-    <td><b>Descripción</b></td>
-  </tr>
-  <tr>
-    <td>XML de salida</td>
-    <td>El mensaje XML que contiene los valores de los campos de elemento de lista seleccionado. </td>
-  </tr>
-  <tr>
-    <td>Estado  </td>
-    <td>Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).</td>
-  </tr>
-</table>
+Nombre | Descripción
+--- | ---
+XML de salida | El mensaje XML que contiene los valores de los campos de elemento de lista seleccionado.
+Estado | Si la ejecución de la acción es correcta, se devuelve el código de estado 200 (correcto).
 
+
+## Configuración híbrida (opcional)
+
+> [AZURE.NOTE]Este paso solo es necesario si está utilizando SharePoint local detrás del firewall.
+
+El Servicio de aplicaciones utiliza el Administrador de configuración híbrida para conectarse de forma segura al sistema local. Si el conector usa SharePoint Server en un entorno local, se necesita el Administrador de conexiones híbridas.
+
+Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md).
+
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -941,5 +472,6 @@ Esta acción recupera un elemento de la lista de elementos.
 [5]: ./media/app-service-logic-connector-sharepoint/image_4.jpg
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

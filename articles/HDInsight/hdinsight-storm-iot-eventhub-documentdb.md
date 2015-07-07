@@ -1,7 +1,7 @@
 <properties
- pageTitle="Procesar datos de sensor del vehículo con Centros de eventos de Azure y Apache Storm en HDInsight"
- description="Aprenda a procesar datos del sensor de vehículo de Centros de eventos de Azure con Apache Storm en HDInsight. Durante el procesamiento, los datos se enriquecen buscando información sobre el modelo del vehículo desde DocumentDB. Finalmente, los datos se escriben en Almacenamiento de Azure."
- services="hdinsight"
+ pageTitle="Procesamiento de datos del sensor de vehículo con Apache Storm en HDInsight | Microsoft Azure"
+ description="Aprenda a procesar datos del sensor de vehículo de Centros de eventos con Apache Storm en HDInsight. Agregue datos de modelo de DocumentDB y almacene el resultado en el almacenamiento."
+ services="hdinsight,documentdb,notification-hubs"
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
@@ -16,11 +16,11 @@ ms.workload="big-data"
 ms.date="04/28/2015"
 ms.author="larryfr"/>
 
-#Procesar datos de sensor de los Centros de eventos de Azure con Apache Storm en HDInsight
+#Procese datos del sensor de vehículo de Centros de eventos de Azure con Apache Storm en HDInsight
 
 Aprenda a procesar datos del sensor de vehículo de Centros de eventos de Azure con Apache Storm en HDInsight. Este ejemplo lee datos de sensor de los Centros de eventos de Azure, enriquece los datos haciendo referencia a datos almacenados en Azure DocumentDB y, finalmente, almacena los datos en Almacenamiento de Azure mediante el sistema de archivos de Hadoop (HDFS).
 
-![diagrama de arquitectura](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
+![Diagrama de arquitectura de Internet de las cosas (IoT) y HDInsight](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ##Información general
 
@@ -57,6 +57,6 @@ Una solución completa y automatizada para este escenario está disponible como 
 ## Pasos siguientes
 
 Para más topologías de ejemplo de Storm, vea [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

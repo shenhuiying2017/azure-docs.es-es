@@ -20,7 +20,7 @@
 # Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows
 Este artículo muestra los comandos equivalentes de la interfaz de línea de comandos de Azure (CLI de Azure) para crear y administrar máquinas virtuales de Azure en los modos Administración de servicios (asm) y Administrador de recursos (arm). Utilícelo como una guía para migrar los scripts de un modo de comando a otro.
 
-* Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure para Mac, Linux y Windows](../xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure para Mac, Linux y Windows](../xplat-cli-connect.md). Cuando use los comandos del modo arm asegúrese de conectarse con el método de inicio de sesión.
+* Si aún no ha instalado la CLI de Azure y se ha conectado a su suscripción, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) y [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md). Cuando use los comandos del modo arm asegúrese de conectarse con el método de inicio de sesión.
 
 * Para comenzar con el modo arm en los modos de comando de CLI de Azure y de modificador, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md).
 
@@ -61,7 +61,7 @@ Visualización de una imagen de máquina virtual | `azure vm image show [options
 ## Pasos siguientes
 
 * Para obtener más información acerca del uso de la CLI de Azure para trabajar con recursos en modo arm, consulte [Uso de la interfaz de la línea de comandos de Azure con el Administrador de recursos](xplat-cli-azure-resource-manager.md) y [Administración del control de acceso basado en rol con la interfaz de línea de comandos de Azure](../role-based-access-control-xplat-cli.md).
-* Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure para Mac, Linux y Windows](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure para Mac, Linux y Windows con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
-
-<!--HONumber=52-->
+* Para obtener ejemplos adicionales de los comandos CLI, consulte [Uso de la interfaz de la línea de comandos de Azure](../virtual-machines-command-line-tools.md) y [Uso de la CLI de Azure con el Administrador de recursos de Azure](azure-cli-arm-commands.md).
  
+
+<!---HONumber=62-->

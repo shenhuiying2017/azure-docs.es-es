@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Introducción al almacén de claves de Azure | Descripción general" 
-	description="Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="cabailey" 
+<properties
+	pageTitle="Introducción al almacén de claves de Azure | Descripción general"
+	description="Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure."
+	services="key-vault"
+	documentationCenter=""
+	authors="cabailey"
 	manager="mbaldwin"/>
 
-<tags 
-	ms.service="key-vault" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="key-vault"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="hero-article" 
+	ms.date="05/04/2015"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -28,7 +28,7 @@ Use este tutorial para empezar a trabajar con el Almacén de claves de Azure, ac
 
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
-## Requisitos previos 
+## Requisitos previos
 
 Para realizar este tutorial, necesitará lo siguiente:
 
@@ -92,7 +92,7 @@ Utilice el cmdlet [New-AzureKeyVault](https://msdn.microsoft.com/library/azure/d
 
 Por ejemplo, si utiliza el nombre del almacén de **ContosoKeyVault**, el nombre del grupo de recursos **ContosoResourceGroup** y la ubicación **East Asia**, deberá escribir:
 
-    New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' 
+    New-AzureKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia'
 
 El resultado de este cmdlet muestra las propiedades del Almacén de claves que acaba de crear. Las dos propiedades más importantes son:
 
@@ -108,7 +108,7 @@ Si desea que el Almacén de claves de Azure cree una clave protegida mediante so
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
 
-Sin embargo, si ya tiene una clave protegida mediante software en un archivo .PFX guardada en la unidad C:\\ en un archivo denominado softkey.pfx que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para establecer la variable **securepfxpwd** para una contraseña de **123** para el archivo .PFX:
+Sin embargo, si ya tiene una clave protegida mediante software en un archivo .PFX guardada en la unidad C:\ en un archivo denominado softkey.pfx que desea cargar en el Almacén de claves de Azure, escriba lo siguiente para establecer la variable **securepfxpwd** para una contraseña de **123** para el archivo .PFX:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -117,7 +117,7 @@ A continuación, escriba lo siguiente para importar la clave desde el archivo .P
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Por ejemplo, **https://ContosoKeyVault.vault.azure.net/Keys/ContosoFirstKey/a10f5336-9d93-44a3-9e26-e86e3488b768** .
+Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Por ejemplo, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** .
 
 Para mostrar el URI para esta clave, escriba:
 
@@ -131,7 +131,7 @@ A continuación, escriba lo siguiente:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Por ejemplo, **https://ContosoVault.vault.azure.net/Secrets/778c3e43-3fdb-4cdf-b58e-7f501eb41d68** .
+Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Por ejemplo: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
 
 Para mostrar el URI para este secreto, escriba:
 
@@ -168,7 +168,7 @@ Para registrar la aplicación en Azure Active Directory:
 5.	En la página **Proporcione información sobre su aplicación**, especifique un nombre para la aplicación y elija **Aplicación web y/o API** (valor predeterminado). Haga clic en el icono Siguiente.
 6.	En la página **Propiedades de la aplicación**, especifique **URL de inicio de sesión** y **URI de Id. de aplicación ** para la aplicación web. Si la aplicación no tiene estos valores, puede inventárselos en este paso (por ejemplo, podría especificar http://test1.contoso.com para ambos). No importa si estos sitios existen; lo importante es que el URI del identificador de la aplicación de cada aplicación sea diferente en cada aplicación del directorio. El directorio utiliza esta cadena para identificar la aplicación.
 7.	Haga clic en el icono Completar para guardar los cambios en el Asistente.
-8.	En la página de inicio rápido, haga clic en **Configurar**. 
+8.	En la página de inicio rápido, haga clic en **Configurar**.
 9.	Desplácese hasta la sección **Claves**, especifique la duración y, a continuación, haga clic en **Guardar**. La página se actualiza y muestra ahora un valor de clave. Debe configurar la aplicación con este valor de clave y el valor del **identificador del cliente**. (Las instrucciones para realizar esta configuración serán específicas para la aplicación).
 10.	Copie el valor del identificador del cliente en esta página. Lo utilizará en el paso siguiente para definir los permisos del almacén.
 
@@ -239,10 +239,11 @@ Estos son otros comandos que pueden resultar útiles para administrar el Almacé
 
 ## <a id="next"></a>Pasos siguientes ##
 
+Para obtener un tutorial sobre el uso de Almacén de claves de Azure en una aplicación web, consulte [Usar Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md)
+
 Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de claves de Azure, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
 Para conocer las referencias de programación, consulte [API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) y [Referencia de API de cliente de C# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+ 
 
-
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

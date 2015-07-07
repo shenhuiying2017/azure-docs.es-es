@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Protección de una aplicación web en el Servicio de aplicaciones de Azure" 
-	description="Aprenda a proteger una aplicación web de Azure." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Protección de una aplicación web en el Servicio de aplicaciones de Azure"
+	description="Aprenda a proteger una aplicación web de Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
 
@@ -27,11 +27,11 @@ Uno de los retos que plantea el desarrollo de una aplicación web es cómo propo
 
 Si utiliza el nombre de dominio ***.azurewebsites.net** que se crea para su aplicación web, puede usar de inmediato HTTPS, ya que se proporciona un certificado SSL para todos los nombres de dominio ***.azurewebsites.net**. Si el sitio utiliza un [nombre de dominio personalizado](web-sites-custom-domain-name.md), puede cargar un certificado SSL para [habilitar HTTPS](web-sites-configure-ssl-certificate.md) para el dominio personalizado.
 
-##<a name="develop"></a> Desarrollo seguro 
+##<a name="develop"></a> Desarrollo seguro
 
 ### Perfiles de publicación y configuración de publicación
 
-Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tareas mediante herramientas como **Visual Studio**, **Web Matrix**, **Azure PowerShell** o la **Interfaz de línea de comandos entre plataformas de Azure**, puede utilizar un archivo de *configuración de publicación* o un *perfil de publicación*. Ambos le autentican en Azure, y deberían estar protegidos para evitar el acceso no autorizado.
+Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tareas mediante herramientas como **Visual Studio**, **Web Matrix**, **Azure PowerShell** o la **Interfaz de la línea de comandos de Azure (CLI de Azure)**, puede utilizar un archivo de *configuración de publicación* o un *perfil de publicación*. Ambos le autentican en Azure, y deberían estar protegidos para evitar el acceso no autorizado.
 
 * Un archivo de **configuración de publicación** contiene
 
@@ -45,14 +45,14 @@ Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tare
 
 Si utiliza una herramienta que emplea configuración de publicación o perfil de publicación, importe el archivo que contiene la configuración o el perfil de publicación en dicha herramienta y, a continuación, **elimine** el archivo. Si debe conservar el archivo, por ejemplo para compartirlo con otros que trabajan en el proyecto, almacénelo en una ubicación segura, como un directorio **cifrado** con permisos restringidos.
 
-Además, debería asegurarse de que se protegen las credenciales importadas. Por ejemplo, tanto **Azure PowerShell** como la **Interfaz de línea de comandos entre plataformas de Azure** almacenan la información importada en su **directorio particular** (*\~* en Linux o sistemas OS X y */usuarios/sunombredeusuario* en sistemas Windows.) Para conseguir una seguridad adicional, **cifre** estas ubicaciones mediante herramientas de cifrado disponibles para su sistema operativo.
+Además, debería asegurarse de que se protegen las credenciales importadas. Por ejemplo, tanto **Azure PowerShell** como la **Interfaz de la línea de comandos de Azure (CLI de Azure)** almacenan la información importada en su **directorio particular** (*~* en Linux o sistemas OS X y */usuarios/sunombredeusuario* en sistemas Windows.) Para conseguir una seguridad adicional, **cifre** estas ubicaciones mediante herramientas de cifrado disponibles para su sistema operativo.
 
 ### Valores de configuración y cadenas de conexión
 Es habitual almacenar cadenas de conexión, credenciales de autenticación y otra información de tipo confidencial en archivos de configuración. Lamentablemente, estos archivos pueden resultar expuestos en su sitio web o podrían aparecer en búsquedas de un repositorio público, con lo que la información podría quedar al descubierto.
 
 El Servicio de aplicaciones de Azure le permite almacenar la información de configuración como parte del entorno de tiempo de ejecución de aplicaciones web en forma de **configuración de aplicación** y **cadenas de conexión**. Estos valores se exponen a su aplicación en el tiempo de ejecución a través de *variables de entorno* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución.
 
-**Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) o utilidades como PowerShell o la Interfaz de línea de comandos entre plataformas de Azure.
+**Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) o utilidades como PowerShell o la CLI de Azure.
 
 Para obtener más información sobre configuración de aplicación y cadenas de conexión, consulte [Configuración de aplicaciones web](web-sites-configure.md).
 
@@ -76,5 +76,6 @@ Para obtener información sobre información de registro para aplicaciones web, 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

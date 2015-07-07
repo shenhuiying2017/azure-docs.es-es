@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Application Insights para aplicaciones de Windows Phone y de la Tienda  Windows" 
+	pageTitle="Application Insights para aplicaciones de Windows Phone y de la Tienda Windows" 
 	description="Analice el uso y el rendimiento de la aplicación de su dispositivo Windows con Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/12/2015" 
 	ms.author="awills"/>
 
-# Application Insights para aplicaciones de Windows Phone y de la Tienda  Windows
+# Application Insights para aplicaciones de Windows Phone y de la Tienda Windows
 
 *Application Insights se encuentra en su versión de vista previa.*
 
@@ -64,10 +64,8 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Seleccione la versión más reciente del paquete apropiado, una de las siguientes:
-   * Application Insights para aplicaciones de Windows: *para aplicaciones de la Tienda Windows*
-   * Application Insights para aplicaciones de Windows Phone
-   * Application Insights para aplicaciones web: *úselo para una aplicación de escritorio* 
+3. Seleccione **Application Insights para aplicaciones de Windows**.
+
 4. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
 
     `<InstrumentationKey>`* la clave que copió *`</InstrumentationKey>`
@@ -108,7 +106,14 @@ Haga clic en un gráfico para ver su contenido con mayor detalle.
 
 [Publique la aplicación](http://dev.windows.com/publish) y vea cómo se acumulan los datos a medida que los usuarios la descargan y la usan.
 
-## <a name="ide"></a>La manera automatizada
+## Pasos siguientes
+
+* [Detección y diagnóstico de bloqueos en la aplicación][windowsCrash]
+* [Más información sobre las métricas][metrics]
+* [Más información sobre Búsqueda de diagnóstico][diagnostic]
+
+
+## <a name="ide"></a>Instalación automatizada
 
 Si prefiere usar Visual Studio para completar los pasos de instalación, puede hacerlo con Windows Phone, la Tienda Windows y muchos otros tipos de aplicaciones.
 
@@ -131,11 +136,13 @@ Agregue Application Insights desde el Explorador de soluciones.
 
 ## <a name="usage"></a>Pasos siguientes
 
-[Seguimiento del uso de una aplicación][windowsUsage]
 
 [Detección y diagnóstico de bloqueos en la aplicación][windowsCrash]
 
 [Captura y búsqueda de registros de diagnóstico][diagnostic]
+
+
+[Seguimiento del uso de la aplicación][windowsUsage]
 
 [Uso de la API para enviar telemetría personalizada][api]
 
@@ -148,11 +155,13 @@ Agregue Application Insights desde el Explorador de soluciones.
 [api]: app-insights-api-custom-events-metrics.md
 [azure]: ../insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [roles]: app-insights-resources-roles-access-control.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

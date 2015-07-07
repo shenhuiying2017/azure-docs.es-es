@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Uso de conectores" 
-   description="Uso de conectores" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Uso de conectores"
+   description="Uso de conectores"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
+   ms.workload="integration"
    ms.date="03/20/2015"
    ms.author="prkumar"/>
 
@@ -35,7 +35,6 @@ Servicios de aplicaciones de Azure proporciona una serie de conectores listos pa
 * [Conector de HTTP]
 * [Conector de Office 365]
 * [Conector de OneDrive]
-* [Conector de Oracle]
 * [Conector de POP3]
 * [Conector de QuickBooks]
 * [Conector de Salesforce]
@@ -53,18 +52,18 @@ Servicios de aplicaciones de Azure proporciona una serie de conectores listos pa
 ##Conectores y aplicaciones de API Premium##
 * Conector AS2
 * BizTalk EDIFACT
-* Codificador de archivos sin formato de BizTalk
+* [Codificador de archivos sin formato de BizTalk]
 * Servicio de transformación de BizTalk
-* Reglas de BizTalk
+* [Reglas de BizTalk]
 * BizTalk X12
-* Extractor XPath de BizTalk
-* Validador XML de BizTalk
+* [Extractor XPath de BizTalk]
+* [Validador XML de BizTalk]
 * Conector de DB2
 * Conector de Informix
-* Conector de base de datos de Oracle
+* [Conector de Oracle]
 * Conector de MQ
 * [Conector de SAP]
- 
+
 Para obtener más información, consulte la referencia de las API de conectores [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
 ##Aplicaciones lógicas y conectores##
@@ -108,6 +107,10 @@ Los conectores también pueden utilizarse como acciones que forman parte de una 
 [Conector de OneDrive]: app-service-logic-connector-onedrive.md
 [Conector de archivos]: app-service-logic-connector-file.md
 [Conector de Slack]: app-service-logic-connector-slack.md
+[Codificador de archivos sin formato de BizTalk]: app-service-logic-flatfile-encoder.md
+[Extractor XPath de BizTalk]: app-service-logic-xpath-extract.md
+[Validador XML de BizTalk]: app-service-logic-xml-validator.md
+[Reglas de BizTalk]: app-service-logic-use-biztalk-rules.md
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

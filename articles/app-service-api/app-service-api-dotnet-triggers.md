@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/09/2015" 
 	ms.author="guayan;tarcher"/>
 
 # Desencadenadores de aplicación de API del Servicio de aplicaciones de Azure
@@ -22,11 +22,7 @@
 
 En este artículo, se explica cómo implementar desencadenadores de aplicación de API y consumirlos desde una aplicación lógica.
 
-Si no está familiarizado con el mundo de las aplicaciones de API, le presentamos algunos artículos para comenzar.
-
-1. [Creación de una aplicación de API](app-service-dotnet-create-api-app.md): permite crear una aplicación de API desde cero o convertir un proyecto de API web existente en una aplicación de API. 
-2. [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md): permite implementar una aplicación de API en la suscripción de Azure.
-3. [Depuración de una aplicación de API](../app-service-dotnet-remotely-debug-api-app.md): use Visual Studio para depurar de forma remota una aplicación de API que se ejecuta en Azure.
+Si no está familiarizado con las [aplicaciones de API](app-service-api-apps-why-best-platform.md) del el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md), le recomendamos que lea la serie formada por varias partes en [Creación de aplicaciones de API](app-service-dotnet-create-api-app.md).
 
 Además, todos los fragmentos de código de este tema proceden del [ejemplo de código de la aplicación de API de FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
 
@@ -343,6 +339,6 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
             }
         }
     }
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

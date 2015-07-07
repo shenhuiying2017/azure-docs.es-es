@@ -18,7 +18,7 @@
 
 # Funcionalidad del sistema operativo en Aplicaciones web del Servicio de aplicaciones de Azure #
 
-En este artículo se describe la funcionalidad del sistema operativo de línea de base común que está disponible para todas las aplicaciones que se ejecutan en Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos. 
+En este artículo se describe la funcionalidad del sistema operativo de línea de base común que está disponible para todas las aplicaciones que se ejecutan en Aplicaciones web del [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Esta funcionalidad incluye archivo, red, acceso de registro, registros de diagnóstico y eventos.
 
 <a id="tiers"></a>
 ## Niveles de plan del Servicio de aplicaciones
@@ -49,11 +49,11 @@ Principalmente, Aplicaciones web es un servicio que se ejecuta en la parte super
 <a id="NetworkDrives"></a>
 ### Unidades de red (también conocidas como recursos compartidos UNC)
 
-Uno de los aspectos exclusivos de Aplicaciones web que hace que el mantenimiento y la implementación de aplicaciones web sean sencillos es que todo el contenido del usuario se almacena en un conjunto de recursos compartidos UNC. Este modelo se asigna perfectamente al patrón común de almacenamiento de contenido usado en entornos locales de hospedaje web que disponen de varios servidores con equilibrio de carga. 
+Uno de los aspectos exclusivos de Aplicaciones web que hace que el mantenimiento y la implementación de aplicaciones web sean sencillos es que todo el contenido del usuario se almacena en un conjunto de recursos compartidos UNC. Este modelo se asigna perfectamente al patrón común de almacenamiento de contenido usado en entornos locales de hospedaje web que disponen de varios servidores con equilibrio de carga.
 
-En Aplicaciones web existen varios recursos compartidos UNC creados en cada centro de datos. Un porcentaje del contenido de usuario para todos los clientes en cada centro de datos se asigna a cada recurso compartido UNC. Además, todo el contenido del archivo para una suscripción de cliente única se coloca siempre en el mismo recurso compartido UNC. 
+En Aplicaciones web existen varios recursos compartidos UNC creados en cada centro de datos. Un porcentaje del contenido de usuario para todos los clientes en cada centro de datos se asigna a cada recurso compartido UNC. Además, todo el contenido del archivo para una suscripción de cliente única se coloca siempre en el mismo recurso compartido UNC.
 
-Tenga en cuenta que según la forma en la que funcionen los servicios en la nube, la máquina virtual específica responsable del hospedaje de un recurso UNC cambiará con el tiempo. Se garantiza que distintas máquinas virtuales realizarán el montaje de los recursos compartidos UNC, ya que estos aumentan y disminuyen durante el curso normal de operaciones en la nube. Por este motivo, las aplicaciones web nunca realizan suposiciones de forma rígida sobre que la información de la máquina en una ruta de acceso del UNC permanezca estable con el tiempo. En su lugar, deben usar la *faux* ruta de acceso absoluta **D:\home\site** que proporciona Aplicaciones web. Esta ruta de acceso absoluta faux proporciona un método portátil independiente del usuario y la aplicación para hacer referencia a la propia aplicación de alguien. Si usa **D:\home\site**, puede transferir archivos compartidos de una aplicación a otra sin tener que configurar una nueva ruta de acceso absoluta para cada transferencia.
+Tenga en cuenta que según la forma en la que funcionen los servicios en la nube, la máquina virtual específica responsable del hospedaje de un recurso UNC cambiará con el tiempo. Se garantiza que distintas máquinas virtuales realizarán el montaje de los recursos compartidos UNC, ya que estos aumentan y disminuyen durante el curso normal de operaciones en la nube. Por este motivo, las aplicaciones web nunca realizan suposiciones de forma rígida sobre que la información de la máquina en una ruta de acceso del UNC permanezca estable con el tiempo. En su lugar, deben usar la ruta de acceso absoluta *faux* adecuada **D:\home\site** que proporciona Aplicaciones web. Esta ruta de acceso absoluta faux proporciona un método portátil independiente del usuario y la aplicación para hacer referencia a la propia aplicación de alguien. Si usa **D:\home\site**, puede transferir archivos compartidos de una aplicación a otra sin tener que configurar una nueva ruta de acceso absoluta para cada transferencia.
 
 <a id="TypesOfFileAccess"></a>
 ### Tipos de acceso a archivo concedidos a una aplicación web
@@ -64,12 +64,12 @@ En las unidades locales conectadas a una máquina virtual que ejecute una aplica
 
 Los dos ejemplos de cómo Aplicaciones web Azure usa el almacenamiento local temporal son el directorio para los archivos temporales ASP.NET y el directorio para archivos comprimidos IIS. El sistema de compilación ASP.NET usa el directorio de archivos temporales ASP.NET como ubicación temporal de la memoria caché de compilación. IIS usa el directorio de archivos temporales comprimidos IIS para almacenar los resultados comprimidos de la respuesta. Ambos tipos de uso de archivo (al igual que otros) se reasignan en Aplicaciones web según el almacenamiento local temporal de la aplicación. Esta reasignación garantiza que la funcionalidad continúa según lo esperado.
 
-Cada aplicación de Aplicaciones web se ejecuta como una identidad de proceso de trabajo con privilegios reducidos, exclusiva y aleatoria denominada "identidad de grupo de aplicaciones", que se describe a continuación: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). El código de la aplicación usa esta identidad para el acceso básico de solo lectura para la unidad del sistema operativo (la unidad D:). Esto significa que el código de aplicación puede enumerar estructuras de directorio comunes y leer archivos comunes en la unidad del sistema operativo. Aunque esto puede parecer ser un tipo de nivel amplio de acceso, puede obtenerse acceso a los mismos directorios y archivos cuando realiza el aprovisionamiento de un rol de trabajo en un servicio hospedado de Azure y lee el contenido de la unidad. 
+Cada aplicación de Aplicaciones web se ejecuta como una identidad de proceso de trabajo con privilegios reducidos, exclusiva y aleatoria denominada "identidad de grupo de aplicaciones", que se describe a continuación: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). El código de la aplicación usa esta identidad para el acceso básico de solo lectura para la unidad del sistema operativo (la unidad D:). Esto significa que el código de aplicación puede enumerar estructuras de directorio comunes y leer archivos comunes en la unidad del sistema operativo. Aunque esto puede parecer ser un tipo de nivel amplio de acceso, puede obtenerse acceso a los mismos directorios y archivos cuando realiza el aprovisionamiento de un rol de trabajo en un servicio hospedado de Azure y lee el contenido de la unidad.
 
 <a name="multipleinstances"></a>
 ### Acceso al archivo en varias instancias
 
-El directorio particular incluye el contenido de una aplicación y las aplicaciones web pueden escribir en él. Si una aplicación web se ejecuta en varias instancias, el directorio particular se comparte entre todas las instancias de manera que todas las instancias ven el mismo directorio. Por lo tanto, por ejemplo, si una aplicación web guarda los archivos cargados en el directorio particular, esos archivos se encuentran inmediatamente disponibles para todas las instancias. 
+El directorio particular incluye el contenido de una aplicación y las aplicaciones web pueden escribir en él. Si una aplicación web se ejecuta en varias instancias, el directorio particular se comparte entre todas las instancias de manera que todas las instancias ven el mismo directorio. Por lo tanto, por ejemplo, si una aplicación web guarda los archivos cargados en el directorio particular, esos archivos se encuentran inmediatamente disponibles para todas las instancias.
 
 <a id="NetworkAccess"></a>
 ## Acceso de red
@@ -91,7 +91,7 @@ Las aplicaciones web pueden dividir y ejecutar código arbitrario. Una aplicaci�
 
 <a id="Diagnostics"></a>
 ## Eventos y registros de diagnóstico
-La información de registro es otro conjunto de datos a los que las aplicaciones web intentan obtener acceso. Los tipos de información de registro disponibles para el código que se ejecuta en Aplicaciones web incluyen la información de registro y diagnóstico que genera una aplicación web que también puede obtener acceso de manera sencilla a una aplicación web. 
+La información de registro es otro conjunto de datos a los que las aplicaciones web intentan obtener acceso. Los tipos de información de registro disponibles para el código que se ejecuta en Aplicaciones web incluyen la información de registro y diagnóstico que genera una aplicación web que también puede obtener acceso de manera sencilla a una aplicación web.
 
 Por ejemplo, los registros HTTP de W3C generados por una aplicación web activa se encuentran disponibles en un directorio de registro en la ubicación de recursos compartidos de red para la aplicación web o están disponibles en el almacenamiento de blobs si un cliente ha configurado el registro de W3C en el almacenamiento. La última opción permite que se recopile una gran cantidad de registros sin que exista el riesgo de exceder los límites de almacenamiento de archivos asociados a un recurso compartido de red.
 
@@ -103,13 +103,12 @@ Las zonas de seguimiento y registro de diagnóstico que no están disponibles pa
 ## Acceso al registro
 Las aplicaciones disponen de acceso de solo lectura a la mayoría (no a todos) de los registros de la máquina virtual que están ejecutando. En la práctica, esto significa que las aplicaciones web pueden disponer de acceso a las claves de registro que permiten solo acceso de lectura al grupo de usuarios local. Un área de registro no compatible actualmente para el acceso de lectura y escritura es el subárbol HKEY_CURRENT_USER.
 
-El acceso de escritura al registro está bloqueado, incluido el acceso a las claves de registro por usuario. Desde una perspectiva de la aplicación, el acceso de escritura al registro no debe basarse nunca en un entorno en la nube, puesto que las aplicaciones pueden migrarse (y realizarse) en distintas máquinas virtuales. El único almacenamiento persistente en el que se puede escribir y que puede depender de la aplicación web es la estructura de directorios de contenido por aplicación web almacenada en recursos compartidos UNC de Aplicaciones web. 
+El acceso de escritura al registro está bloqueado, incluido el acceso a las claves de registro por usuario. Desde una perspectiva de la aplicación, el acceso de escritura al registro no debe basarse nunca en un entorno en la nube, puesto que las aplicaciones pueden migrarse (y realizarse) en distintas máquinas virtuales. El único almacenamiento persistente en el que se puede escribir y que puede depender de la aplicación web es la estructura de directorios de contenido por aplicación web almacenada en recursos compartidos UNC de Aplicaciones web.
 
->[AZURE.NOTE] Si quiere empezar a trabajar con el servicio de aplicaciones de Azure antes de contratar una cuenta de Azure, vaya a [Probar el servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde puede crear inmediatamente una aplicación web inicial de corta duración en el servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-## Lo que ha cambiado
-* Para obtener una guía para cambiar de sitios web al servicio de aplicaciones, consulte: [El Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía para cambiar del portal antiguo al nuevo portal, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+ 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

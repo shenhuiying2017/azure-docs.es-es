@@ -1,42 +1,47 @@
-<properties 
-	pageTitle="Creación de una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure" 
-	description="Aprenda a crear una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure con Visual Studio 2013." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="bradygaster" 
-	manager="wpickett" 
+<properties
+	pageTitle="Creación de una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure"
+	description="Aprenda a crear una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure con Visual Studio 2013."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="bradygaster"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="bradyg;tarcher"/>
 
 # Creación de una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure
 
+> [AZURE.SELECTOR]
+- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
+- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+
 ## Información general
 
-En este tutorial se muestra cómo crear un proyecto de API web ASP.NET desde cero y cómo configurarlo para implementarlo en la nube como [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Si ya tiene un proyecto de API web y desea convertirlo en aplicación de API, consulte el artículo [Configuración de un proyecto de API web como aplicación de API](./app-service-dotnet-create-api-app-visual-studio). En los tutoriales posteriores de la serie se muestra cómo [implementar](app-service-dotnet-deploy-api-app.md) y [depurar](../app-service-dotnet-remotely-debug-api-app.md) el proyecto de aplicación de API creado en este tutorial.
+En este tutorial se explica cómo crear un proyecto de API web ASP.NET con una plantilla de Visual Studio 2013 que lo configura para implementarlo en la nube como [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md). Para obtener información sobre cómo configurar un proyecto de API web existente para implementarlo como una aplicación de API, consulte [Configuración de un proyecto Web API como una aplicación de API](app-service-dotnet-create-api-app-visual-studio.md).
 
-Para obtener información sobre las aplicaciones de API, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
+En los tutoriales posteriores de la serie se muestra cómo [implementar](app-service-dotnet-deploy-api-app.md) y [depurar](../app-service-dotnet-remotely-debug-api-app.md) el proyecto de aplicación de API creado en este tutorial.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
 Este tutorial requiere la versión 2.5.1 o posterior del SDK de Azure para .NET.
 
-## Creación de un proyecto de aplicación de API 
-
-En esta sección se muestra cómo usar la plantilla de proyecto de aplicación de API de Azure para crear una aplicación de API desde cero. Para aprender a configurar un proyecto de API web existente como aplicación de API, vaya a la [sección siguiente](#configure-a-web-api-project-as-an-api-app).
+## Creación de un proyecto de aplicación de API
 
 1. Abra Visual Studio 2013.
 
 2. Seleccione **Archivo > Nuevo proyecto**.
 
 3. Seleccione la plantilla **Aplicación Web ASP.NET**.
+
+4. Asegúrese de que la casilla **Agregar Application Insights al proyecto** está desactivada.
 
 4. Asigne al proyecto el nombre *ContactsList*.
 
@@ -61,5 +66,6 @@ Visual Studio crea un proyecto de API web configurado para implementarlo como ap
 ## Pasos siguientes
 
 La aplicación de API ya está lista para implementarse. Para ello, puede seguir el tutorial [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

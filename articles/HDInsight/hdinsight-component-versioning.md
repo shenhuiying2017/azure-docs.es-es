@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Novedades en las versiones de clúster de Hadoop de HDInsight | Microsoft Azure" 
-	description="HDInsight es compatible con varias versiones de clúster de Hadoop que se pueden implementar en cualquier momento. Vea las versiones de distribución de Hadoop y HortonWorks Data Platform (HDP) que se admiten." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="bradsev" 
+<properties
+	pageTitle="Novedades en las versiones de clúster de Hadoop de HDInsight | Microsoft Azure"
+	description="HDInsight es compatible con varias versiones de clúster de Hadoop que se pueden implementar. Vea las versiones de distribución de Hadoop y HortonWorks Data Platform (HDP) que se admiten."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="bradsev"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/18/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/18/2015"
 	ms.author="bradsev"/>
 
 
@@ -42,7 +42,7 @@ HDInsight de Azure es compatible con varias versiones de clústeres de Hadoop qu
 
 **Obtención de información sobre las versiones actuales de componentes**
 
-Las versiones de los componentes asociados a las versiones de clúster de HDInsight pueden cambiar en futuras actualizaciones de HDInsight. Una forma de determinar los componentes disponibles y comprobar las versiones que se están usando para un clúster es usar la API REST de Ambari. El comando **GetComponentInformation** se puede usar para recuperar información acerca de un componente del servicio. Para obtener más información, consulte la [documentación de Ambari][ambari-docs]. Otra forma de obtener esta información es iniciar sesión en un clúster mediante el Escritorio remoto y examinar directamente el contenido del directorio "C:\\apps\\dist".
+Las versiones de los componentes asociados a las versiones de clúster de HDInsight pueden cambiar en futuras actualizaciones de HDInsight. Una forma de determinar los componentes disponibles y comprobar las versiones que se están usando para un clúster es usar la API REST de Ambari. El comando **GetComponentInformation** se puede usar para recuperar información acerca de un componente del servicio. Para obtener más información, consulte la [documentación de Ambari][ambari-docs]. Otra forma de obtener esta información es iniciar sesión en un clúster mediante el Escritorio remoto y examinar directamente el contenido del directorio "C:\apps\dist".
 
 
 **Notas de la versión**
@@ -60,7 +60,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 
 - **Storm** : Storm en HDInsight de Azure ya está disponible con carácter general y ofrece una manera rápida y fácil de implementar análisis en tiempo real con solo unos cuantos clics y en pocos minutos. Apache Storm en HDInsight de Azure es un proyecto de código abierto en el ecosistema de Apache Hadoop que proporciona acceso a una plataforma de análisis capaz de procesar millones de eventos de forma confiable. Ahora los usuarios de Hadoop pueden obtener información a medida que ocurren los eventos, además de información de eventos anteriores. Microsoft también proporciona integración con Visual Studio, lo que facilita la interacción de los desarrolladores con Storm. Ahora puede desarrollar, implementar y depurar topologías de Storm desde Visual Studio.
 
-- **HDInsight en Linux (vista previa)**: HDInsight de Azure ofrece la opción de aprovisionar clústeres de Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede aprovisionar un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el Portal de Azure, la interfaz de línea de comandos (CLI) multiplataforma de Azure o .NET SDK de HDInsight (solo Windows).
+- **HDInsight en Linux (vista previa)**: HDInsight de Azure ofrece la opción de aprovisionar clústeres de Hadoop que se ejecutan en máquinas virtuales (VM) de Linux (Ubuntu). Puede usar esta opción si conoce Linux o Unix, si realiza una migración desde una solución de Hadoop basada en Linux existente o si desea una integración simple con los componentes del ecosistema de Hadoop creados para Linux. Puede aprovisionar un clúster de HDInsight en Linux desde un equipo cliente que ejecuta Windows o Linux mediante el portal de Azure, la CLI de Azure o SDK de .NET de HDInsight (solo Windows).
 
 - **Tamaños de máquinas virtuales adicionales**: los clústeres de HDInsight ahora están disponibles en varios tamaños y tipos de máquinas virtuales. Los clústeres de HDInsight ahora pueden usar los tamaños A2 a A7 creados para fines generales; nodos de la serie D que cuentan con unidades de estado sólido (SSD) y procesadores un 60 por ciento más rápidos; y tamaños A8 y A9 con compatibilidad InfiniBand para una red rápida. Los clientes de Apache HBase en HDInsight de Azure se pueden beneficiar de las configuraciones de memoria más grandes de la serie D para aumentar el rendimiento. Los clientes de Apache Storm en HDInsight de Azure también pueden beneficiarse de la memoria adicional para cargar grandes conjuntos de datos de referencia, así como de CPU más rápidas, para obtener un mayor rendimiento.
 
@@ -70,7 +70,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 
 - **HBase**: HBase es una base de datos NoSQL de baja latencia que permite el procesamiento de transacciones en línea de Big Data. HBase se ofrece como un clúster administrado integrado en el entorno de Azure. Los clústeres están configurados para almacenar datos directamente en el almacenamiento de blobs de Azure, que proporciona una latencia baja y una mayor elasticidad de las opciones de rendimiento o coste. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop.
 
-- **Apache Phoenix**: Apache Phoenix es una capa de consulta de Lenguaje de consulta estructurado (SQL) a través de HBase. Admite un subconjunto limitado de especificación de lenguaje de consulta SQL que incluye compatibilidad con índices secundarios. Se entrega como un controlador de Conectividad de base de datos Java (JDBC) incrustado en el cliente que dirige a consultas de latencia baja a sobre de datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y llamadas de coprocesadores y produce conjuntos de resultados JDBC regulares.  Apache Phoenix es una capa de base de datos relacional sobre HBase. Se entrega como un controlador JDBC incrustado en el cliente que dirige a consultas de latencia baja sobre datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y orquesta la ejecución de esos análisis para producir conjuntos de resultados JDBC regulares.
+- **Apache Phoenix**: Apache Phoenix es una capa de consulta de Lenguaje de consulta estructurado (SQL) a través de HBase. Admite un subconjunto limitado de especificación de lenguaje de consulta SQL que incluye compatibilidad con índices secundarios. Se entrega como un controlador de Conectividad de base de datos Java (JDBC) incrustado en el cliente que dirige a consultas de latencia baja a sobre de datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y llamadas de coprocesadores y produce conjuntos de resultados JDBC regulares. Apache Phoenix es una capa de base de datos relacional sobre HBase. Se entrega como un controlador JDBC incrustado en el cliente que dirige a consultas de latencia baja sobre datos de HBase. Apache Phoenix toma su consulta SQL, la compila en una serie de análisis de HBase y orquesta la ejecución de esos análisis para producir conjuntos de resultados JDBC regulares.
 
 - **Panel de clúster**: una nueva aplicación web que se implementa en el clúster de HDInsight. Úsela para ejecutar consultas de Hive, comprobar registros de trabajos y examinar el almacenamiento de blobs de Azure. La dirección URL usada para obtener acceso a la aplicación web es <*NombreDeClúster*>.azurehdinsight.net.
 
@@ -78,7 +78,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 
 - **YARN**: marco de administración de aplicaciones nuevo, de uso general y distribuido que ha reemplazado al marco Apache Hadoop MapReduce para el procesamiento de datos en los clústeres de Hadoop. De hecho, sirve como sistema operativo de Hadoop y consigue que Hadoop pase de ser una plataforma de datos para el procesamiento por lotes y para un único usuario a una plataforma multiuso que permite el procesamiento por lotes, interactivo, en línea y por secuencia. Este nuevo marco de administración mejora la escalabilidad y el uso de clústeres de acuerdo con criterios como las garantías de capacidad, la legitimidad y los contratos de nivel de servicio (SLA).
 
-- **Tez (solo HDInsight 3.1 y versiones  posteriores)**: marco con fines generales y personalizable que crea tareas de procesamiento de datos simplificadas en cargas de trabajo a pequeña y gran escala en Hadoop. Proporciona la capacidad de ejecutar un gráfico acíclico dirigido (DAG) de tareas para un solo trabajo, de forma que los proyectos del ecosistema Apache Hadoop, como Apache Hive y Apache Pig, puedan cumplir los requisitos de tiempos de respuesta para la interacción con humanos y de rendimiento extremo a escala de petabytes. Tenga en cuenta que Hive 0.13 permite ejecutar consultas de Hive en Tez, en lugar de MapReduce.
+- **Tez (solo HDInsight 3.1 y versiones posteriores)**: marco con fines generales y personalizable que crea tareas de procesamiento de datos simplificadas en cargas de trabajo a pequeña y gran escala en Hadoop. Proporciona la capacidad de ejecutar un gráfico acíclico dirigido (DAG) de tareas para un solo trabajo, de forma que los proyectos del ecosistema Apache Hadoop, como Apache Hive y Apache Pig, puedan cumplir los requisitos de tiempos de respuesta para la interacción con humanos y de rendimiento extremo a escala de petabytes. Tenga en cuenta que Hive 0.13 permite ejecutar consultas de Hive en Tez, en lugar de MapReduce.
 
 - **Alta disponibilidad (HA)**: se ha agregado un segundo nodo principal a los clústeres de Hadoop desarrollados por HDInsight para aumentar la disponibilidad del servicio. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. HDInsight elimina este único punto de error al agregar un segundo nodo principal. El cambio a una nueva configuración de clúster de alta disponibilidad no modifica el precio del clúster, a menos que los clientes aprovisionen los clústeres con un nodo principal extragrande en lugar del nodo de tamaño grande predeterminado.
 
@@ -95,7 +95,7 @@ Algunas de las características más destacadas de la plataforma de HDInsight in
 En la siguiente tabla se enumeran las versiones de HDInsight que está disponibles actualmente, las versiones correspondientes de la distribución Hortonworks Data Platform que usan y sus fechas de lanzamiento. Si se conocen, también se proporcionan también las fechas de expiración y desuso. Tenga en cuenta lo siguiente:
 
 * Los clústeres de alta disponibilidad con dos nodos principales se implementan de forma predeterminada para los clústeres de HDInsight 2.1 y versiones posteriores. No están disponibles para los clústeres de HDInsight 1.6.
-* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx)  y en el SDK de .NET hasta la fecha de desuso. 
+* Cuando expira el soporte técnico de una versión concreta, es posible que no esté disponible en el Portal de Azure. En la tabla siguiente se indica qué versiones están disponibles en el Portal de Azure. Las versiones de clúster seguirán estando disponibles usando el parámetro `Version` en el comando [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) y en el SDK de .NET hasta la fecha de desuso.
 
 <table border="1"> <tr><th>Versión de HDInsight</th><th>Versión de HDP</a><th>Alta disponibilidad</th></th><th>Fecha de lanzamiento</th><th>Disponible en el Portal de Azure</th><th>Fecha de expiración de soporte técnico</th><th>Fecha de desuso</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>Sí</td><td>18/02/2015</td><td>Sí</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>Sí</td><td>24/06/2014</td><td>Sí</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td>Sí</td><td>11/02/2014</td><td>Sí</td><td>17/09/2014</td><td>30/06/2015</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>Sí</td><td>28/10/2013</td><td>No</td><td>12/05/2014</td><td>31/05/2015</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>No</td><td>28/10/2013</td><td>No</td><td>26/04/2014</td><td>31/05/2015</td></tr> </table><br>
 
@@ -151,5 +151,6 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

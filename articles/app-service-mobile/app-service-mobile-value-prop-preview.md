@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"></a>¿Qué son las aplicaciones móviles?
 
->[AZURE.NOTE]**La documentación de Servicios móviles se encuentra [aquí.](http://azure.microsoft.com/documentation/services/mobile-services/)**
+>[AZURE.NOTE]**La documentación de Servicios móviles se encuentra [aquí](http://azure.microsoft.com/documentation/services/mobile-services/).**
 
 El Servicio de aplicaciones de Azure es una plataforma totalmente administrada como una oferta de servicio (PaaS) para desarrolladores profesionales que ofrece un amplio conjunto de capacidades para la web, dispositivos móviles y escenarios de integración. Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una plataforma de desarrollo de aplicaciones móviles altamente escalable y disponible globalmente para desarrolladores empresariales e integradores de sistemas que proporciona un amplio conjunto de funcionalidades a las aplicaciones móviles.
 
@@ -35,7 +35,7 @@ Las *aplicaciones móviles* del *Servicio de aplicaciones de Azure* ofrecen una 
 
 ## Conceptos de aplicaciones móviles
 - **Inicio de sesión único**: realice la selección de entre una lista creciente de proveedores de identidad, incluidos la cuenta Microsoft, Facebook, Google, Twitter y Azure Active Directory, y aproveche las aplicaciones móviles para agregar autenticación a la aplicación en cuestión de minutos.
-- **Sincronización sin conexión**: las aplicaciones móviles facilitan la tarea de compilar aplicaciones con capacidad de respuesta y resistentes que permiten a los empleados trabajar sin conexión cuando no está disponible la conectividad y sincronizar con los sistemas de back-end de la empresa cuando los dispositivos vuelven a estar en línea. La capacidad de sincronización sin conexión es compatible con todas las plataformas cliente y funciona con cualquier origen de datos, incluidos SQL, Almacenamiento de tablas, Mongo o Base de datos de documentos, y cualquier API de SaaS como Office 365, Salesforce, Dynamics o bases de datos locales. 
+- **Sincronización sin conexión**: las aplicaciones móviles facilitan la tarea de compilar aplicaciones con capacidad de respuesta y resistentes que permiten a los empleados trabajar sin conexión cuando no está disponible la conectividad y sincronizar con los sistemas de back-end de la empresa cuando los dispositivos vuelven a estar en línea. La capacidad de sincronización sin conexión es compatible con todas las plataformas cliente y funciona con cualquier origen de datos, incluidos SQL, Almacenamiento de tablas, Mongo o Base de datos de documentos, y cualquier API de SaaS como Office 365, Salesforce, Dynamics o bases de datos locales.
 - **Notificaciones push**: las aplicaciones móviles ofrecen un motor de notificaciones push móviles masivamente escalable capaz de enviar millones de notificaciones de push personalizadas a segmentos dinámicos de audiencia con dispositivos iOS, Android, Windows o Kindle en cuestión de segundos. Puede enlazar fácilmente los Centros de notificaciones con cualquier back-end de aplicación existente si ese back-end se hospeda localmente o en la nube.
 - **Ajuste de escala automático**: Servicio de aplicaciones le permite escalar vertical u horizontalmente de forma rápida para administrar cualquier carga entrante del cliente. Seleccione manualmente el número y tamaño de las máquinas virtuales o configure la escala automática para escalar el back-end de aplicación móvil basado en la carga o en la programación.
 
@@ -54,6 +54,6 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

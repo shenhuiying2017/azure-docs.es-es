@@ -10,19 +10,19 @@ También hay varios tipos de registros, cada uno con sus propias funciones y lim
 
 ###Registro de dirección (registro D)
 
-El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como **\*.contoso.com**, a una dirección IP. En el caso de una aplicación web del Servicio de aplicaciones, la IP virtual del servicio o una dirección IP específica que haya adquirido para su aplicación web.
+El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un nombre de dominio con comodín* como ***.contoso.com**, a una dirección IP. En el caso de una aplicación web del Servicio de aplicaciones, la IP virtual del servicio o una dirección IP específica que haya adquirido para su aplicación web.
 
 Las principales ventajas de un registro D sobre un registro CNAME son:
 
 * Puede asignar un dominio raíz, como **contoso.com**, a una dirección IP; muchos registradores solo lo permiten con los registros D.
 
-* Puede disponer de una entrada que utilice un carácter comodín, como **\*.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **blogs.contoso.com** o **www.contso.com**.
+* Puede disponer de una entrada que utilice un carácter comodín, como ***.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **blogs.contoso.com** o **www.contso.com**.
 
 > [AZURE.NOTE]Dado que cada registro D se asigna a una dirección IP estática, no puede resolver automáticamente los cambios que se produzcan en la dirección IP de la aplicación web. Al configurar las opciones del nombre de dominio personalizado para la aplicación web se proporciona una dirección IP que se puede usar con los registros D; sin embargo, este valor puede cambiar si la aplicación web se elimina y se vuelve a crear, o si se cambia el nodo de plan del Servicio de aplicaciones de nuevo a **Gratuito**.
 
 ###Registro de alias (registro CNAME)
 
-Un registro CNAME asigna un nombre DNS  *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de las Aplicaciones web del Servicio de aplicaciones, el nombre de dominio canónico es el nombre de dominio **&lt;nombredeaplicacionweb>.azurewebsites.net** de su aplicación web. Una vez creado, el CNAME crea un alias para el nombre de dominio **&lt;nombredeaplicacionweb>.azurewebsites.net**. La entrada de CNAME se resolverá automáticamente en la dirección IP del servicio del nombre de dominio **&lt;nombredeaplicacionweb>.azurewebsites.net**, por lo que si la dirección IP de la aplicación web cambia, no es preciso realizar ninguna acción.
+Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de las Aplicaciones web del Servicio de aplicaciones, el nombre de dominio canónico es el nombre de dominio **&lt;nombredeaplicacionweb>.azurewebsites.net** de su aplicación web. Una vez creado, el CNAME crea un alias para el nombre de dominio **&lt;nombredeaplicacionweb>.azurewebsites.net**. La entrada de CNAME se resolverá automáticamente en la dirección IP del servicio del nombre de dominio **&lt;nombredeaplicacionweb>.azurewebsites.net**, por lo que si la dirección IP de la aplicación web cambia, no es preciso realizar ninguna acción.
 
 > [AZURE.NOTE]Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com**, no nombres de raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, <a href="http://en.wikipedia.org/wiki/CNAME_record">la entrada de Wikipedia sobre el registro CNAME</a> o el documento <a href="http://tools.ietf.org/html/rfc1035">Nombres de dominio IETF: implementación y especificación (en inglés)</a>.
 
@@ -50,5 +50,4 @@ Para encontrar la dirección IP, así como el nombre **awverify** y los nombres 
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-
-<!--HONumber=54-->
+<!---HONumber=62-->

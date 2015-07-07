@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="05/28/2015" 
 	ms.author="mwasson"/>
 
 
@@ -41,11 +41,11 @@ La hoja **Configuración de la aplicación** tiene configuraciones agrupadas en 
 
 Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan las opciones .NET, PHP y Python.
 
-**Plataforma**. Seleccione si su aplicación web se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
+<a name="platform"></a> **Plataforma**. Seleccione si su aplicación web se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
 
 **Sockets web**. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR](http://www.asp.net/signalr) o [socket.io](web-sites-nodejs-chat-app-socketio.md).
 
-**Siempre disponible**. De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En el modo básico o estándar puede habilitar **Siempre disponible** para mantener el sitio cargado continuamente. Cuando tenga trabajos web continuos en ejecución en la aplicación, debe habilitar la opción  **Siempre disponible** de lo contrario es posible que los trabajos no se realicen de manera fiable
+<a name="alwayson"></a> **Siempre activado**. De forma predeterminada, las aplicaciones web se descargan si están inactivas durante algún tiempo. Esto permite que el sistema conserve recursos. En el modo básico o estándar puede habilitar **Siempre disponible** para mantener el sitio cargado continuamente. Cuando tenga trabajos web continuos en ejecución en la aplicación, debe habilitar la opción **Siempre disponible** de lo contrario es posible que los trabajos no se realicen de manera fiable
 
 **Versión de canalización administrada**. Configura el [modo de canalización](http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application) IIS. Deje este valor en Integrado (el valor predeterminado) a no ser que tenga una aplicación web heredada que requiera una versión anterior de IIS.
 
@@ -78,7 +78,7 @@ En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán dis
 - Base de datos SQL: SQLAZURECONNSTR_
 - Personalizado: CUSTOMCONNSTR_
 
-Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de  `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
+Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de `connectionstring1`, se obtendrá acceso a ella a través de la variable de entorno `MYSQLCONNSTR_connectionString1`.
 
 ### Documentos predeterminados
 
@@ -128,7 +128,7 @@ Para ver los archivos de registro, debe crear las credenciales FTP, de la forma 
 ![](./media/web-sites-configure/configure03.png)
 
 
-El nombre de usuario de FTP completo es *app* en el que app es el nombre de su aplicación web. El nombre de usuario se indica en la tarjeta única de la aplicación web, en  **Essentials**
+El nombre de usuario de FTP completo es *app* en el que app es el nombre de su aplicación web. El nombre de usuario se indica en la tarjeta única de la aplicación web, en **Essentials**
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -148,7 +148,7 @@ Para ver los nombres de dominios, haga clic en **Toda la configuración** > **Do
 
 ### Implementaciones
 
-- Configure la implementación continua. Consulte [Uso de Git para implementar aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md)
+- Configure la implementación continua. Consulte [Uso de Git para implementar Aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 - Ranuras de implementación. Consulte [Implementación en entornos de ensayo para las aplicaciones Web en el Servicio de aplicaciones de Azure](web-sites-staged-publishing.md)
 
 Para ver las ranuras de implementación, haga clic en **Toda la configuración** > **Ranuras de implementación**.
@@ -172,5 +172,6 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

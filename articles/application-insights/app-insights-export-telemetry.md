@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,15 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="06/13/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
 
 ¿Desea hacer algún análisis personalizado en la telemetría? ¿O tal vez desee una alerta por correo electrónico en eventos con propiedades específicas? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.
 
+La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](http://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="setup"></a> Configuración de exportación continua
+## <a name="setup"></a> Configuración de la Exportación continua
 
 En la hoja de información general del portal de Application Insights, abra Exportación continua:
 
@@ -45,6 +46,7 @@ Si desea cambiar los tipos de evento más tarde, simplemente edite la exportaci�
 Para detener la secuencia, haga clic en Deshabilitar. Al hacer clic en Habilitar de nuevo, la secuencia se reinicia con nuevos datos. No obtendrá los datos que llegaron al portal mientras estaba deshabilitada la exportación.
 
 Para detener la secuencia de forma permanente, elimine la exportación. Al realizar esta acción no se eliminan los datos del almacenamiento.
+
 #### ¿No puede agregar o cambiar una exportación?
 
 * Para agregar o cambiar las exportaciones, necesita derechos de propietario, colaborador o colaborador de Application Insights. [Más información acerca de los roles][roles].
@@ -58,7 +60,7 @@ Los datos exportados son la telemetría sin procesar que recibimos de la aplicac
 
 Las métricas calculadas no se incluyen. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
 
-## <a name="get"></a> ¿Cómo los obtiene?
+## <a name="get"></a> Inspección de los datos
 
 Al abrir el almacén de blobs con una herramienta como el [Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx), verá un contenedor con un conjunto de archivos blob. El URI de cada archivo es-id/telemetry-type/date/time.
 
@@ -66,18 +68,11 @@ Al abrir el almacén de blobs con una herramienta como el [Explorador de servido
 
 La fecha y hora son UTC e indican cuándo se depositó la telemetría en el almacén, no la hora en que se generó. De modo que si escribe código para descargar los datos, se puede mover linealmente a través de los datos.
 
-Para descargar estos datos mediante programación, use la [API de REST de almacén de blobs](../storage-dotnet-how-to-use-blobs.md#configure-access) o [cmdlets de PowerShell de Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx).
-
-O bien, considere la posibilidad de [DataFactory](http://azure.microsoft.com/services/data-factory/), donde puede configurar canalizaciones para administrar los datos a escala.
-
-Comenzamos a escribir un nuevo blob cada hora (si se reciben eventos). Por lo que siempre debe procesar hasta la hora anterior, pero espere a que finalice la hora actual.
-
-[Código de ejemplo][exportcode]
 
 
-## <a name="format"></a> ¿Qué aspecto tienen los datos?
+## <a name="format"></a> Formato de datos
 
-* Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'.
+* Cada blob es un archivo de texto que contiene varias filas separadas por' \n'.
 * Cada fila es un documento JSON sin formato. Si desea centrarse en él, pruebe un visor como el Bloc de notas ++ con el complemento de JSON:
 
 ![Visualización de la telemetría con una herramienta apropiada](./media/app-insights-export-telemetry/06-json.png)
@@ -90,7 +85,7 @@ Las duraciones de tiempo son tics, donde 10 000 tics = 1 ms. Por ejemplo, estos 
 
 
 
-## ¿Cómo se procesa?
+## Procesamiento de los datos
 
 En una pequeña escala, puede escribir código para separar sus datos, leerlos en una hoja de cálculo, etc. Por ejemplo:
 
@@ -111,8 +106,17 @@ En una pequeña escala, puede escribir código para separar sus datos, leerlos e
       }
     }
 
+Para obtener un ejemplo de código más grande, consulte el [uso de un rol de trabajo][exportasa].
 
-O bien, puede moverlos a una base de datos SQL; consulte el [código de ejemplo][exportcode].
+#### Exportación a SQL
+
+Otra opción consiste en trasladar los datos a una base de datos SQL, donde puede realizar análisis más eficaces.
+
+Contamos con ejemplos que muestran dos métodos alternativos al traslado de los datos desde el almacenamiento de blobs a una base de datos:
+
+* [Exportación a SQL con un rol de trabajo][exportcode]
+* [Exportación a SQL con el Análisis de transmisiones][exportasa]
+
 
 En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HDInsight](http://azure.microsoft.com/services/hdinsight/) en la nube. HDInsight ofrece diversas tecnologías para administrar y analizar Big Data.
 
@@ -129,10 +133,6 @@ Abra la hoja Exportación continua y edite la exportación. Modifique el destino
 
 La exportación continua se reiniciará.
 
-
-## Código de ejemplo
-
-[Movimiento de los datos exportados a una base de datos SQL][exportcode]
 
 ## Preguntas y respuestas
 
@@ -170,7 +170,9 @@ La exportación continua se reiniciará.
 <!--Link references-->
 
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[exportasa]: app-insights-code-sample-export-sql-stream-analytics.md
 [roles]: app-insights-resources-roles-access-control.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

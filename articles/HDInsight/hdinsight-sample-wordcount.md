@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ejecución de un ejemplo de recuento de palabras de MapReduce de Hadoop en HDInsight | Azure"
+	pageTitle="Ejemplo de recuento de palabras de MapReduce de Hadoop en HDInsight | Microsoft Azure"
 	description="Ejecución de un ejemplo de recuento de palabras de MapReduce en un clúster de Hadoop en HDInsight. El programa, escrito en Java, cuenta las apariciones de palabras en un archivo de texto."
 	editor="cgronlun"
 	manager="paulettm"
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="06/15/2015" 
 	ms.author="bradsev"/>
 
-#Ejecución de un ejemplo de recuento de palabras de MapReduce en un clúster de Hadoop en HDInsight
+#Ejecución de un ejemplo de recuento de palabras de MapReduce escrito en Java en un clúster de Hadoop en HDInsight
 
 En este tutorial se muestra cómo ejecutar un ejemplo de recuento de palabras de MapReduce en un clúster de Hadoop en HDInsight. El programa está escrito en Java. Cuenta las repeticiones de palabras en un archivo de texto y, después, genera un nuevo archivo de texto que contiene cada palabra emparejada con su frecuencia de repetición. El archivo de texto analizado en esta muestra es la edición de Los cuadernos de Leonardo Da Vinci para el libro electrónico del proyecto Gutenberg.
 
+> [AZURE.NOTE]Los pasos de este documento requieren un cliente de Windows. Para conocer los pasos sobre cómo utilizar el ejemplo de recuento de palabras de un cliente de Linux, OS X o Unix, con un clúster de HDInsight basado en Linux, consulte [Uso de MapReduce con Hadoop en HDInsight con SSH](hdinsight-hadoop-use-mapreduce-ssh.md) o [Uso de MapReduce con Hadoop en HDInsight con Curl](hdinsight-hadoop-use-mapreduce-curl.md).
 
 **Aprenderá a:**
 
@@ -29,13 +30,15 @@ En este tutorial se muestra cómo ejecutar un ejemplo de recuento de palabras de
 
 **Requisitos previos**:
 
-- Debe tener una cuenta de Azure. Si desea conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- Debe haber aprovisionado un clúster de HDInsight. Para obtener instrucciones sobre las diversas formas de creación de dichos clústeres, consulte [Introducción a Azure HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
+- **Un clúster de HDInsight**. Para obtener instrucciones sobre las diversas formas de creación de dichos clústeres, consulte [Introducción a Azure HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
 
-- Debe tener instalado Azure PowerShell y haberlo configurado para su uso con su cuenta. Para obtener instrucciones sobre cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
+- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y uso de Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-<h2><a id="run-sample"></a>Ejecución del ejemplo con Azure PowerShell</h2>
+
+
+## <a id="run-sample"></a>Ejecución del ejemplo con Azure PowerShell</h2>
 
 **Para enviar el trabajo de MapReduce**
 
@@ -95,7 +98,7 @@ En este tutorial se muestra cómo ejecutar un ejemplo de recuento de palabras de
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	La carpeta *example/data/WordCountOutput* es la carpeta de salida especificada al ejecutar el trabajo de MapReduce. *part-r-00000* es el nombre de archivo predeterminado para el resultado del trabajo de MapReduce. El archivo se descargará en la misma estructura de carpetas en la carpeta local. Por ejemplo, en la captura de pantalla siguiente, la carpeta actual es la carpeta raíz C. El archivo se descargará en la carpeta *C:\\example\\data\\WordCountOutput*.
+	La carpeta *example/data/WordCountOutput* es la carpeta de salida especificada al ejecutar el trabajo de MapReduce. *part-r-00000* es el nombre de archivo predeterminado para el resultado del trabajo de MapReduce. El archivo se descargará en la misma estructura de carpetas en la carpeta local. Por ejemplo, en la captura de pantalla siguiente, la carpeta actual es la carpeta raíz C. El archivo se descargará en la carpeta *C:\example\data\WordCountOutput*.
 
 5. Ejecute el siguiente comando para imprimir el archivo de salida del trabajo de MapReduce:
 
@@ -110,7 +113,7 @@ La salida del script de WordCount debe aparecer en la ventana Comandos:
 
 Tenga en cuenta que los archivos de salida de un trabajo de MapReduce son inmutables. Por lo tanto, si vuelve a ejecutar este ejemplo, debe cambiar el nombre del archivo de salida.
 
-<h2><a id="java-code"></a>El código Java del programa de MapReduce de WordCount</h2>
+## <a id="java-code"></a>El código Java del programa de MapReduce de WordCount</h2>
 
 
 
@@ -186,7 +189,7 @@ Tenga en cuenta que los archivos de salida de un trabajo de MapReduce son inmuta
 
 En este tutorial, ha visto cómo ejecutar un programa de MapReduce que cuenta las ocurrencias de palabras en un archivo de texto con HDInsight mediante el uso de Azure PowerShell.
 
-<h2><a id="next-steps"></a>Pasos siguientes</h2>
+## <a id="next-steps"></a>Pasos siguientes</h2>
 
 Para ver tutoriales que ejecutan otras muestras y ofrecen instrucciones sobre el uso de Pig, Hive y trabajos de MapReduce en HDInsight de Azure con Azure PowerShell, consulte:
 
@@ -210,8 +213,9 @@ Para ver tutoriales que ejecutan otras muestras y ofrecen instrucciones sobre el
 
 [hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

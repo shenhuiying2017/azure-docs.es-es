@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Implementación de una plantilla mediante la CLI de Azure para Mac, Linux y Windows"
+   pageTitle="Implementación de una plantilla mediante la CLI de Azure para Mac, Linux y Windows | Microsoft Azure"
    description="Describe los pasos básicos para implementar o actualizar cualquier plantilla."
    services="virtual-machines"
    documentationCenter=""
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/21/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Implementación de una plantilla mediante la CLI de Azure para Mac, Linux y Windows
 
@@ -30,11 +30,11 @@ Los pasos siguientes le permitirán implementar una plantilla de Azure, incluso 
 Descargue el archivo de azuredeploy-parameters.json si existe uno para la plantilla que desea implementar.
 
     curl -O https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy-parameters.json
-    
+
 ## Escriba la información de implementación del grupo de recursos.
-    
+
 Abra este archivo con su editor favorito. Verá que necesita especificar un valor para varias de las claves, especialmente **adminUsername**, **adminPassword** (recuerde las reglas de complejidad) y el nombre de la cuenta de almacenamiento y los nombres DNS que desee.
-    
+
     {
       "newStorageAccountName": {
         "value": "uniquestorageaccountname"
@@ -70,19 +70,19 @@ Abra este archivo con su editor favorito. Verá que necesita especificar un valo
         "value": "myNic"
       }
     }
-    
+
 Agregue nuevos valores (Azure creará un nuevo almacenamiento y recursos de DNS si puede) o utilice los recursos que ya ha creado. El archivo siguiente azuredeploy-parameters.json muestra un ejemplo:
 
 
 
 
-la dirección url siguiente toma el archivo de parámetros de azuredeploy-parameters.json "vacío", que funcionará si utiliza el método interactivo. Si usa un enfoque de archivos de parámetros descargados y personalizados, deberá usar en cambio la opción  --template-file <template-file>. También tengo scripts escritos que extraen secciones individuales de cualquier parte de estos archivos, dependiendo de lo que desee hacer. Puede que desee mencionar que para realizar análisis de json prefieren jq: curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/bin/jq
+la dirección url siguiente toma el archivo de parámetros de azuredeploy-parameters.json "vacío", que funcionará si utiliza el método interactivo. Si usa un enfoque de archivos de parámetros descargados y personalizados, deberá usar en cambio la opción --template-file <template-file>. También tengo scripts escritos que extraen secciones individuales de cualquier parte de estos archivos, dependiendo de lo que desee hacer. Puede que desee mencionar que para realizar análisis de json prefieren jq: curl http://stedolan.github.io/jq/download/linux64/jq -o /usr/bin/jq
 
 
 ### Implementación de los archivos de plantilla y parámetros
 
 
-[AZURE.NOTE] Verá que es posible que algunas plantillas no tienen ningún archivo azuredeploy-parameters.json correspondiente.
+[AZURE.NOTE]Verá que es posible que algunas plantillas no tienen ningún archivo azuredeploy-parameters.json correspondiente.
 
 Parámetros para establecer, o bien pueden formar ya una parte de la plantilla, dependiendo de las plantillas que esté utilizando. En estos casos, es posible
 
@@ -105,6 +105,6 @@ Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia C
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

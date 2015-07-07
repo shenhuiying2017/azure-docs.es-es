@@ -192,16 +192,16 @@ Si ya no necesita una ranura de implementación, se puede eliminar usando el cmd
 
 ----------
 
-<!-- ======== XPLAT-CLI =========== -->
+<!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
-## Comandos de la interfaz de la línea de comandos de Azure de varias plataformas (xplat-cli) para espacios de implementación
+## Comandos de la interfaz de la línea de comandos de Azure (CLI de Azure) para ranuras de implementación
 
-La interfaz de la línea de comandos de Azure de varias plataformas (xplat-cli) proporciona comandos de varias plataformas para trabajar con Azure, incluida la compatibilidad para administrar espacios de implementación en Aplicaciones web.
+La CLI de Azure proporciona comandos de varias plataformas para trabajar con Azure, incluida la compatibilidad para administrar ranuras de implementación en Aplicaciones web.
 
-- Para obtener instrucciones acerca de cómo instalar y configurar la xplat-cli, incluida la información acerca de cómo conectar la xplat-cli a su suscripción de Azure, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](../xplat-cli.md).
+- Para obtener instrucciones acerca de cómo instalar y configurar la CLI de Azure, incluyendo la información acerca de cómo conectar la CLI de Azure a su suscripción de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli.md).
 
--  Para mostrar los comandos disponibles para el Servicio de aplicaciones de Azure en la xplat-cli, llame a `azure site -h`.
+-  Para mostrar los comandos disponibles para el Servicio de aplicaciones de Azure en la CLI de Azure, llame a `azure site -h`.
 
 ----------
 ### azure site list
@@ -233,7 +233,7 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 
 ----------
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Pasos siguientes ##
 [Aplicación web del Servicio de aplicaciones de Azure: bloquear acceso web a ranuras de implementación que no son de producción](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
@@ -258,6 +258,6 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [Autoswap1]: ./media/web-sites-staged-publishing/AutoSwap01.png
 [Autoswap2]: ./media/web-sites-staged-publishing/AutoSwap02.png
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
-
-<!--HONumber=54-->
  
+
+<!---HONumber=62-->

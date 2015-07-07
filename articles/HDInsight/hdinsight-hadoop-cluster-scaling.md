@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Escalado de clúster en HDInsight | Azure"
-   description="Cambie la cantidad de nodos de datos de un clúster que se ejecuta en HDInsight sin la necesidad de eliminar y volver a crear el clúster."
+   pageTitle="Escalar clústeres de Hadoop, HBase o Apache Storm en HDInsight | Microsoft Azure"
+   description="Cambie el número de nodos de datos de un clúster de Hadoop, Apache Storm o HBase que se ejecuta en HDInsight sin tener que eliminar y volver a crear el clúster."
    services="hdinsight"
    documentationCenter=""
    authors="mumian"
@@ -16,7 +16,7 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-#Escalado de clúster en HDInsight
+#Escale clústeres de Hadoop, HBase o Apache Storm para cambiar su número de nodos de datos en HDInsight 
 
 La característica de escalado de clúster permite cambiar la cantidad de nodos de datos que usa un clúster en ejecución en HDInsight de Azure sin necesidad de eliminar el clúster y volver a crearlo. La operación se puede realizar con Azure PowerShell, el SDK de HDInsight o desde el portal de Azure.
 
@@ -24,7 +24,7 @@ La característica de escalado de clúster permite cambiar la cantidad de nodos 
 Esta sección describe el impacto que tiene cambiar la cantidad de nodos de datos para cada tipo de clúster compatible con HDInsight:
 
 * Hadoop
-* Storm
+* Apache Storm
 * HBase 
 
 ## Hadoop 
@@ -143,5 +143,6 @@ El siguiente es un código de ejemplo que muestra cómo usar la versión asincr�
 
 
 Consulte el tema [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](hdinsight-provision-clusters.md) para obtener más información sobre el uso del SDK .NET de HDInsight.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

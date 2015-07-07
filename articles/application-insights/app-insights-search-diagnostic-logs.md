@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Buscar registros de diagnóstico" 
-	description="Busque registros generados con Seguimiento, NLog o Log4Net." 
+	pageTitle="Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights" 
+	description="Diagnostique los problemas de las aplicaciones web de ASP.NET mediante la búsqueda de solicitudes, excepciones y registros generados con Trace, NLog o Log4Net." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,33 +12,114 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Búsqueda de diagnóstico en Application Insights
+# Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights
 
-Uno de los métodos de depuración más tradicionales consiste en insertar líneas de código que emiten un registro de seguimiento. [Application Insights][start] puede capturar los registros de servidor web y le ayuda a buscarlos y filtrarlos. Si ya usa log4Net, NLog o System.Diagnostics.Trace, puede capturar los registros con nuestro adaptador. O bien, puede usar los métodos TrackTrace y TrackException integrados en el SDK de Application Insights.
+[Application Insights][start] incluye la eficaz herramienta [Búsqueda de diagnóstico][diagnostic], que permite explorar y obtener detalles de los datos de telemetría enviados por el SDK de Application Insights desde su aplicación. El SDK envía numerosos eventos, como las vistas de página de usuario, de forma automática.
 
-Los resultados de búsqueda también pueden incluir la vista de página normal y solicitar los eventos que se utilizan para generar los informes de [uso][usage] y [rendimiento][perf], junto con las [llamadas a TrackEvent personalizadas][track] que ha escrito.
+También puede escribir código para enviar seguimientos, informes de excepciones y eventos personalizados. Además, si ya usa un marco de registro como log4J, log4net, NLog o System.Diagnostics.Trace, puede capturar esos registros e incluirlos en la búsqueda. Esto permite poner los seguimientos del registro en correlación con las acciones del usuario, las excepciones y otros eventos de forma más fácil.
+
+## <a name="send"></a>Antes de escribir telemetría personalizada
+
+Si aún no ha [configurado Application Insights para su proyecto][start], hágalo ahora.
+
+Al ejecutar la aplicación, esta enviará algunos datos de telemetría que se mostrarán en Búsqueda de diagnóstico, incluidas las solicitudes recibidas por el servidor, las vistas de página registradas en el cliente, las vistas de página y las excepciones no detectadas.
+
+Abra Búsqueda de diagnóstico para ver los datos de telemetría que el SDK envía automáticamente.
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-45diagnostic.png)
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
+
+Los detalles varían de un tipo de aplicación a otro. Puede hacer clic en cualquier parte de un evento individual para obtener más detalles.
+
+##<a name="events"></a>Eventos personalizados
+
+Los eventos personalizados se muestran tanto en la [Búsqueda de diagnóstico][diagnostic] como en el [Explorador de métricas][metrics]. Puede enviarlos desde dispositivos, páginas web y aplicaciones de servidor. Se pueden usar con fines de diagnóstico y para [entender los patrones de uso][track].
+
+Un evento personalizado tiene un nombre y también puede incluir propiedades por las que se puede filtrar, junto con medidas numéricas.
+
+JavaScript en el cliente
+
+    appInsights.trackEvent("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric measurements:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+C# en el servidor
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var measurements = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements);
 
 
-2. [¿Instalar un adaptador para el marco de registro?](#capture)
-+ [Insertar llamadas de registro de diagnóstico](#pepper)
-+ [Excepciones](#exceptions)
-+ [Visualización de datos de registro](#view)
-+ [Búsqueda de datos de registro](#search)
-+ [Solución de problemas](#questions)
-+ [Pasos siguientes](#next)
+VB en el servidor
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim measurements = New Dictionary (Of String, Double)
+    measurements.Add("Score", currentGame.Score)
+    measurements.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, measurements)
+
+### Ejecución de la aplicación y visualización de los resultados
+
+Abra Búsqueda de diagnóstico.
+
+Seleccione Evento personalizado y elija un nombre de evento concreto.
+
+![](./media/app-insights-search-diagnostic-logs/appinsights-332filterCustom.png)
 
 
+Especifique un término de búsqueda en un valor de propiedad para filtrar los datos aún más.
 
-## <a name="capture"></a> ¿Instalar un adaptador para el marco de registro?
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-5.png)
 
-Si aún no ha [instalado Application Insights en su proyecto][start], hágalo ahora.
+Profundice en un evento individual para ver sus propiedades detalladas.
 
-Si usará las llamadas integradas del SDK Track*() de Application Insights, no necesita un adaptador, [Vaya a la sección siguiente](#pepper).
+![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-Para buscar los registros generados con log4Net, NLog o System.Diagnostics.Trace, instale el adaptador adecuado:
+##<a name="pages"></a> Vistas de página
+
+La telemetría de vista de página se envía mediante la llamada trackPageView() en [el fragmento de código de JavaScript que el usuario inserta en las páginas web][usage]. Su objetivo principal es contribuir a los recuentos de vistas de página que aparecen en la página de información general.
+
+Normalmente se le llama una vez en cada página HTML, pero puede insertar más llamadas: por ejemplo, si tiene una aplicación de una sola página y desea registrar una página nueva cada vez que el usuario obtiene más datos.
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
+
+A veces resulta útil asociar propiedades que pueda usar como filtros en la búsqueda de diagnóstico:
+
+    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
+     {Game: currentGame.name, Difficulty: currentGame.difficulty});
+
+
+##<a name="trace"></a> Telemetría de seguimiento
+
+La telemetría de seguimiento es código que el usuario inserta de forma específica para crear registros de diagnóstico.
+
+Por ejemplo, puede insertar llamadas como esta:
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow response - database01");
+
+
+####  Instalación de un adaptador para el marco de registro
+
+También puede buscar los registros generados con un marco de registro: log4Net, NLog o System.Diagnostics.Trace.
 
 1. Si planea usar log4Net o NLog, instálelo en su proyecto. 
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes de NuGet**.
@@ -52,16 +134,9 @@ Para buscar los registros generados con log4Net, NLog o System.Diagnostics.Trace
 
 El paquete de NuGet instala los ensamblados necesarios y también modifica el archivo web.config o app.config.
 
-## <a name="pepper"></a>3. Inserción de llamadas de registro de diagnóstico
+#### <a name="pepper"></a>Inserción de llamadas de registro de diagnóstico
 
-Inserte las llamadas de registro de eventos utilizando el marco de registro elegido. 
-
-Por ejemplo, si utiliza el SDK de Application Insights, puede insertar:
-
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
-
-O bien, si utiliza System.Diagnostics.Trace:
+Si usa System.Diagnostics.Trace, una llamada típica sería:
 
     System.Diagnostics.Trace.TraceWarning("Slow response - database01");
 
@@ -69,13 +144,19 @@ Si prefiere log4net o NLog:
 
     logger.Warn("Slow response - database01");
 
-Ejecute la aplicación en modo de depuración o impleméntela en su servidor web.
+Ejecute la aplicación en modo de depuración o impleméntela.
+
+Los mensajes aparecerán en Búsqueda de diagnóstico cuando se selecciona el filtro de seguimiento.
 
 ### <a name="exceptions"></a>Excepciones
 
-Para enviar las excepciones al registro:
+La obtención de informes de excepciones en Application Insights supone una experiencia de gran eficacia, sobre todo porque permite navegar entre las solicitudes con error y las excepciones y leer la pila de excepciones.
 
-JavaScript en el cliente
+En algunos casos, será necesario [insertar algunas líneas de código][exceptions] para asegurarse de que las excepciones se detecten automáticamente.
+
+También puede escribir código explícito para enviar datos de telemetría de las excepciones:
+
+JavaScript
 
     try 
     { ...
@@ -87,7 +168,7 @@ JavaScript en el cliente
          State: currentGame.State.ToString()});
     }
 
-C# en el servidor
+C#
 
     var telemetry = new TelemetryClient();
     ...
@@ -107,7 +188,7 @@ C# en el servidor
        telemetry.TrackException(ex, properties, measurements);
     }
 
-VB en el servidor
+VB
 
     Dim telemetry = New TelemetryClient
     ...
@@ -127,182 +208,68 @@ VB en el servidor
 
 Los parámetros de las propiedades y las medidas son opcionales, pero son útiles para filtrar y agregar información adicional. Por ejemplo, si tiene una aplicación que se puede ejecutar varios juegos, podría buscar todos los informes de excepción relacionados con un juego en particular. Puede agregar tantos elementos como desee para cada diccionario.
 
-## <a name="view"></a>4. Visualización de datos de registro
+#### Visualización de excepciones
+
+En la hoja de información general se muestra un resumen de las excepciones y puede hacer clic en cualquier parte de este para ver más detalles. Por ejemplo:
 
 
-1. En Application Insights, abra la búsqueda de diagnóstico.
+![](./media/app-insights-search-diagnostic-logs/appinsights-039-1exceptions.png)
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-30openDiagnostics.png)
-   
-2. Establezca el filtro para los tipos de eventos que desea ver.
+Haga clic en cualquier tipo de excepción para ver instancias específicas:
 
-    ![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-331filterTrace.png)
+![](./media/app-insights-search-diagnostic-logs/appinsights-333facets.png)
 
+También puede abrir la Búsqueda de diagnóstico directamente, filtrar por las excepciones y elegir el tipo de excepción que desea ver.
 
-Los tipos de evento son:
+### Notificación de excepciones no controladas
 
-* **Seguimiento**: buscar registros de diagnóstico que se han capturado desde el servidor web. Esto incluye log4Net, NLog, System.Diagnostic.Trace y llamadas a ApplicationInsights TrackTrace.
-* **Solicitud**: buscar solicitudes HTTP recibidas por el componente de servidor de la aplicación web, incluidas las solicitudes de página, las solicitudes de datos, las imágenes, etc. Los eventos que verá se corresponden con la telemetría enviada por el SDK del servidor de Application Insights, que se utiliza para crear el informe de recuento de solicitudes.
-* **Vista de página**: buscar eventos de vista de página. Estos eventos se envían por el cliente web y se utilizan para crear informes de la vista de página. (Si no ve nada aquí, configure la [supervisión de cliente de web][usage]).
-* **Evento personalizado**: si inserta llamadas a TrackEvent() y TrackMetric() para [supervisar el uso][track], puede buscarlas aquí.
+Application Insights notifica las excepciones no controladas siempre que sea posible, ya sea de los dispositivos, los [exploradores web][usage] o los servidores web e independientemente de que estén instrumentadas por el [Monitor de estado][redfield] o el [SDK de Application Insights][greenbrown].
 
-Seleccione cualquier evento de registro para ver sus detalles. 
+Sin embargo, no siempre puede realizar esta acción, ya que .NET Framework captura las excepciones. Por lo tanto, para asegurarse de ver todas las excepciones, tendrá que escribir un pequeño controlador de excepciones. El procedimiento más adecuado en cada caso varía en función de la tecnología. Consulte [Telemetría de excepción para ASP.NET][exceptions] para obtener más información.
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-32detail.png)
+### Correlación con una compilación
 
-Puede usar cadenas sin formato (sin caracteres comodines) para filtrar los datos de campos dentro de un elemento.
+Cuando se leen registros de diagnóstico, es probable que el código fuente haya cambiado desde que se implementó el código activo.
 
-Los campos disponibles dependen del marco de registro y los parámetros utilizados en la llamada.
+Por lo tanto, resulta útil incluir información de la compilación (como la dirección URL de la versión actual) en una propiedad junto con cada excepción o seguimiento.
 
+En lugar de agregar la propiedad por separado a cada llamada de excepción, puede establecer la información en el contexto predeterminado.
 
-## <a name="search"></a>5. Búsqueda de los datos
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
 
-Establezca un intervalo de tiempo y busque los términos. Las búsquedas en un intervalo más breve son más rápidas. 
+En el inicializador de la aplicación como Global.asax.cs:
 
-![Open diagnostic search](./media/app-insights-search-diagnostic-logs/appinsights-311search.png)
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
 
-Tenga en cuenta que está buscando términos, no subcadenas. Los términos son cadenas alfanuméricas incluyendo algunos signos de puntuación, como '.' y '_'. Por ejemplo:
+###<a name="requests"></a> Solicitudes de servidor web
 
-<table>
-  <tr><th>término</th><th>NO coincide con</th><th>pero estos coinciden con</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>Nuevo retraso</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
-</table>
+La telemetría de las solicitudes se envía automáticamente al [instalar el monitor de estado en el servidor web][redfield] o al [agregar Application Insights al proyecto web][greenbrown]. También se inserta automáticamente en los gráficos de tiempo de solicitud y respuesta del explorador de métricas y en la página de información general.
 
-A continuación se muestran las expresiones de búsqueda que puede utilizar:
-
-<table>
-                    <tr>
-                      <th>
-                        <p>Consulta de ejemplo</p>
-                      </th>
-                      <th>
-                        <p>Efecto</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">lento</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Busca todos los eventos del intervalo de datos cuyos campos incluyen el término "lento"</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">base de datos??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Coincide con base de datos01, base de datosAB, ...</p>
-                        <p>? no se permite al comienzo de un término de búsqueda.</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">base de datos*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Coincide con base de datos, base de datos01, base de datosNNNN</p>
-                        <p>* no se permite al comienzo de un término de búsqueda.</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">manzana AND plátano</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Buscar eventos que contienen ambos términos. Utilizar "AND" en mayúsculas, no "and".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">manzana OR plátano</span>
-                        </p>
-                        <p>
-                          <span class="code">manzana plátano</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Buscar eventos que contienen cualquiera de los dos términos. Usar "OR" no "or".</p>
-                        <p>Forma breve.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">manzana NOT plátano</span>
-                        </p>
-                        <p>
-                          <span class="code">manzana -plátano</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Encontrar eventos que contienen un término pero no el otro.</p>
-                        <p>Forma breve.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>manz* AND plátano NOT (uvas OR pera)</p>
-                        <p>
-                          <span class="code">manz* AND plátano -(uvas pera)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Operadores lógicos y corchetes.</p>
-                        <p>Forma más breve.</p>
-                      </td>
-                    </tr>
-       <!-- -- fielded search feature not ready yet --
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">mensaje:lento</span>
-                        </p>
-                        <p>
-                          <span class="code">ipaddress:(10.0.0.* OR 192.168.0.*)</span>
-                        </p>
-                        <p>
-                          <span class="code">properties.logEventInfo.level:Error</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Coincidir con el campo especificado. De manera predeterminada, se buscan todos los campos. Para ver qué campos están disponibles, seleccione un evento para consultarlo con detalle.</p>
-                      </td>
-                    </tr>
- -->
-</table>
-
+Si desea enviar eventos adicionales, puede usar la API de TrackRequest().
 
 ## <a name="questions"></a>Preguntas y respuestas
 
-### <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía"
+### <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
 
 Parece que ha instalado el paquete de NuGet del adaptador de registro sin tener que instalar Application Insights.
 
-En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y elija **Actualizar Application Insights**. Aparecerá un cuadro de diálogo que le invita a iniciar sesión en Azure; cree un recurso de Application Insights o vuelva a utilizar uno existente. Esto debería solucionarlo.
+En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y elija **Actualizar Application Insights**. Aparecerá un cuadro de diálogo que le invita a iniciar sesión en Azure y a crear un recurso de Application Insights, o a volver a utilizar uno existente. Esto debería solucionarlo.
 
 ### <a name="limits"></a>¿Qué cantidad de datos se conserva?
 
 Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan durante siete días.
-
-### <a name="cani"></a>¿Puedo hacer lo siguiente?
-
-- Establecer alertas en los eventos y excepciones
-- Exportar registros para realizar un análisis pormenorizado
-- Buscar propiedades específicas
-
-Todavía no, pero todas estas características se encuentran entre las tareas pendientes.
 
 ## <a name="add"></a>Pasos siguientes
 
@@ -313,13 +280,19 @@ Todavía no, pero todas estas características se encuentran entre las tareas pe
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

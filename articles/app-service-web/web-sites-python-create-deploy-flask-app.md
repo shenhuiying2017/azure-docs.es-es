@@ -1,9 +1,8 @@
 <properties 
-	pageTitle="Sitios web de Python con Flask: tutorial de Azure" 
-	description="Un tutorial que le introduce a la ejecución de un sitio web de Python en Azure." 
+	pageTitle="Creación de aplicaciones web con Flask en Azure" 
+	description="Un tutorial que indica cómo ejecutar una aplicación web de Python en Azure." 
 	services="app-service\web" 
 	documentationCenter="python" 
-	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/15/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# Creación de sitios web con Flask
+# Creación de aplicaciones web con Flask en Azure
 
-En este tutorial se describe cómo empezar a ejecutar Python en Sitios web Azure.  Estos sitios ofrecen hospedaje gratuito limitado y una implementación rápida. Además, permiten usar Python.  A medida que su aplicación crece, puede cambiar a un tipo de hospedaje de pago e integrar el resto de los servicios de Azure.
+En este tutorial, se describe cómo empezar a ejecutar Python en [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Aplicaciones web ofrece hospedaje gratuito limitado y una implementación rápida. Además, ahora también se puede usar Python. A medida que su aplicación crece, puede cambiar a un tipo de hospedaje de pago e integrar el resto de los servicios de Azure.
 
-Creará una aplicación con el marco web de Flask (consulte las versiones alternativas de este tutorial para [Django](web-sites-python-create-deploy-django-app.md) y [Bottle](web-sites-python-create-deploy-bottle-app.md)).  Creará el sitio web en la galería de Azure, configurará la implementación Git y clonará el repositorio en modo local.  A continuación, ejecutará la aplicación localmente, realizará cambios, los confirmará y los insertará en Azure.  El tutorial muestra cómo llevarlo a cabo en Windows o Mac/Linux.
+Creará una aplicación con el marco web de Flask (consulte las versiones alternativas de este tutorial para [Django](web-sites-python-create-deploy-django-app.md) y [Bottle](web-sites-python-create-deploy-bottle-app.md)). Creará el sitio web en la galería de Azure, configurará la implementación Git y clonará el repositorio en modo local. A continuación, ejecutará la aplicación localmente, realizará cambios, los confirmará y los insertará en Azure. El tutorial muestra cómo llevarlo a cabo en Windows o Mac/Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Requisitos previos
 
@@ -35,52 +35,33 @@ Creará una aplicación con el marco web de Flask (consulte las versiones altern
 - Python 2.7 o 3.4
 - setuptools, pip, virtualenv (solo en Python 2.7)
 - Git
-- [Python Tools 2.1 para Visual Studio][] (opcional)
+- [Python Tools 2.1 para Visual Studio](optional)
 
-**Nota**: la publicación TFS no se admite actualmente para los proyectos de Python.
+**Nota:** la publicación TFS no se admite actualmente para los proyectos de Python.
 
 ### Windows
 
-Si aún no tiene Python 2.7 o 3.4 instalado (32 bits), se recomienda instalar [Azure SDK para Python 2.7][] o [Azure SDK para Python 3.4][] mediante el instalador de plataforma web.  Se instala la versión de 32 bits de Python, setuptools, pip, virtualenv, etc. (Python de 32 bits es lo que se instala en los equipos host de Azure).  También puede obtener Python en [python.org][].
+Si aún no tiene Python 2.7 o 3.4 instalado (32 bits), se recomienda instalar [Azure SDK para Python 2.7] o [Azure SDK para Python 3.4] mediante el instalador de plataforma web. Se instala la versión de 32 bits de Python, setuptools, pip, virtualenv, etc. (Python de 32 bits es lo que se instala en los equipos host de Azure). También puede obtener Python en [python.org].
 
-Para Git recomendamos [Git para Windows][] o [GitHub para Windows][].  Si utiliza Visual Studio, puede utilizar la compatibilidad integrada con Git.
+Para Git, recomendamos [Git para Windows] o [GitHub para Windows]. Si utiliza Visual Studio, puede utilizar la compatibilidad integrada con Git.
 
-También se recomienda instalar [Python Tools 2.1 para Visual Studio][].  Esto es opcional, pero si tiene [Visual Studio][], incluidas las versiones gratuitas Visual Studio Community 2013 o Visual Studio Express 2013 para web, obtendrá un excelente IDE de Python.
+También se recomienda instalar [Python Tools 2.1 para Visual Studio]. Esto es opcional, pero si tiene [Visual Studio], incluidas las versiones gratuitas Visual Studio Community 2013 o Visual Studio Express 2013 para web, obtendrá un excelente IDE de Python.
 
 ### Mac o Linux:
 
 Debe tener Python y Git instalados, pero asegúrese de que tiene Python 2.7 o 3.4.
 
 
-## Creación de sitios web en el portal
+## Creación de una aplicación web en el Portal de Azure
 
-El primer paso para crear la aplicación consiste en crear el sitio web a través del Portal de administración de Azure.  Para ello, deberá iniciar sesión en el portal y hacer clic en el botón **NUEVO** de la esquina inferior izquierda. Aparecerá una ventana. Haga clic en **PROCESO**, **SITIO WEB** y, a continuación, **DE LA GALERÍA**.
+El primer paso para crear la aplicación consiste en crear la aplicación web a través del [Portal de Azure](https://portal.azure.com).
 
-![](./media/web-sites-python-create-deploy-flask-app/portal-create-site.png)
-
-Aparecerá una ventana con las aplicaciones disponibles de la galería. Haga clic en la categoría **MARCOS DE LA APLICACIÓN** de la izquierda y seleccione **Flask**.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-gallery-flask.png)
-
-En la página siguiente, escriba un nombre y una región para el sitio y haga clic en el botón Completar.
-
-El sitio se configurará rápidamente. Puede hacer clic en el botón **EXAMINAR** en la barra de herramientas de la parte inferior y verá la nueva aplicación Flask que se ejecuta en Azure.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-website-flask.png)
- 
-A continuación, se agregará compatibilidad para publicar a través de Git.  Para ello, elija **Configurar implementación desde control de código fuente**.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-site-created.png)
-
-En el cuadro de diálogo **Configurar implementación**, desplácese hacia abajo y seleccione la opción **Repositorio de Git local**. Haga clic en la flecha derecha para continuar.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-setup-deployment.png)
-
-Una vez configurada la publicación Git, aparecerá brevemente una página donde se le informa de que el repositorio se está creando. Cuando esté listo, verá instrucciones sobre cómo conectarse.  
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-repo-created.png)
-
-Seguiremos estas instrucciones en las secciones siguientes.
+1. Inicie sesión en el Portal de Azure, haga clic en el botón **Nuevo** situado en la esquina inferior izquierda. 
+2. Elija **Web + móvil ** > **Azure Marketplace** > **Aplicaciones web**.
+3. En el cuadro de búsqueda, escriba "python".
+4. En los resultados de búsqueda, seleccione **Flask**, a continuación, haga clic en **Crear**.
+5. Configure la nueva aplicación Flask, por ejemplo, la creación de un nuevo plan para el Servicio de aplicaciones y un nuevo grupo de recursos para él. A continuación, haga clic en **Crear**.
+6. Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones de [Implementación continua con GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
 
 ## Información general de la aplicación
@@ -99,7 +80,7 @@ A continuación se muestra información general de los archivos que encontrará 
     \FlaskWebProject\templates\index.html
     \FlaskWebProject\templates\layout.html
 
-Orígenes principales de la aplicación.  Consta de tres páginas (índice, acerca de, contacto) con un diseño principal.  El contenido estático y los scripts incluyen bootstrap, jquery, modernizr y respond.
+Orígenes principales de la aplicación. Consta de tres páginas (índice, acerca de, contacto) con un diseño principal. El contenido estático y los scripts incluyen bootstrap, jquery, modernizr y respond.
 
     \runserver.py
 
@@ -121,7 +102,7 @@ Paquetes externos necesarios para esta aplicación. El script de implementación
     \web.2.7.config
     \web.3.4.config
 
-Archivos de configuración de IIS.  El script de implementación utilizará el web.x.y.config adecuado y lo copiará como web.config.
+Archivos de configuración de IIS. El script de implementación utilizará el web.x.y.config adecuado y lo copiará como web.config.
 
 ### Archivos opcionales - Implementación de personalización
 
@@ -133,30 +114,28 @@ Archivos de configuración de IIS.  El script de implementación utilizará el w
 
 ### Archivos adicionales en el servidor
 
-Algunos archivos existen en el servidor pero no se agregan al repositorio de Git.  Estos se crean mediante el script de implementación.
+Algunos archivos existen en el servidor pero no se agregan al repositorio de Git. Estos se crean mediante el script de implementación.
 
     \web.config
 
-Archivo de configuración de IIS.  Se crea desde web.x.y.config en cada implementación.
+Archivo de configuración de IIS. Se crea desde web.x.y.config en cada implementación.
 
     \env\
 
-Entorno virtual de Python.  Se crea durante la implementación si aún no existe un entorno virtual compatible en el sitio.  En los paquetes que aparecen en requirements.txt se instala pip, pero pip omitirá la instalación si los paquetes ya están instalados.
+Entorno virtual de Python. Se crea durante la implementación si aún no existe un entorno virtual compatible en la aplicación. En los paquetes que aparecen en requirements.txt se instala pip, pero pip omitirá la instalación si los paquetes ya están instalados.
 
-En las tres secciones siguientes se describe cómo continuar con el desarrollo de sitios web en tres entornos diferentes:
+En las tres secciones siguientes se describe cómo continuar con el desarrollo de aplicaciones web en tres entornos diferentes:
 
 - Windows, con Python Tools para Visual Studio
 - Windows, con línea de comandos
 - Mac/Linux, con línea de comandos
 
 
-## Desarrollo de sitios web - Windows - Python Tools para Visual Studio
+## Desarrollo de aplicaciones web: Windows, Python Tools para Visual Studio
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure.
-
-![](./media/web-sites-python-create-deploy-flask-app/ptvs-git-clone.png)
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
 Abra el archivo de la solución (.sln) que se incluye en la raíz del repositorio.
 
@@ -164,17 +143,17 @@ Abra el archivo de la solución (.sln) que se incluye en la raíz del repositori
 
 ### Creación de un entorno virtual
 
-Ahora vamos a crear un entorno virtual para el desarrollo local.  Haga clic con el botón secundario en **Entornos de Python** y seleccione **Agregar entorno virtual...**.
+Ahora vamos a crear un entorno virtual para el desarrollo local. Haga clic con el botón secundario en **Entornos de Python** y elija **Agregar entorno virtual...**
 
-- Asegúrese de que el nombre del entorno es `env`.
+- Asegúrese de que el nombre del entorno sea `env`.
 
-- Seleccione el intérprete base.  Asegúrese de utilizar la misma versión de Python seleccionada para el sitio (en runtime.txt o en la página de configuración del sitio).
+- Seleccione el intérprete base. Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja **Configuración de la aplicación** de la aplicación web en el Portal de Azure).
 
 - Asegúrese de que esté activada la opción para descargar e instalar paquetes.
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-add-virtual-env-27.png)
 
-Haga clic en **Crear**.  Esto creará el entorno virtual e instalará las dependencias mostradas en requirements.txt.
+Haga clic en **Crear**. Esto creará el entorno virtual e instalará las dependencias mostradas en requirements.txt.
 
 ### Ejecución con el servidor de desarrollo
 
@@ -182,7 +161,7 @@ Presione F5 para iniciar la depuración y el explorador web abrirá automáticam
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-Puede establecer puntos de interrupción en los orígenes, utilizar las ventanas Inspección, entre otros. Consulte la [Documentación de PTVS][] para obtener más información sobre las distintas características.
+Puede establecer puntos de interrupción en los orígenes, utilizar las ventanas Inspección, etc. Consulte la [documentación de PTVS] para obtener más información sobre las distintas características.
 
 ### Realización de cambios
 
@@ -196,34 +175,34 @@ Una vez probados los cambios, confírmelos en el repositorio de Git:
 
 La aplicación puede tener otras dependencias, aparte de Python y Flask.
 
-Puede instalar paquetes adicionales con pip.  Para instalar un paquete, haga clic con el botón secundario en el entorno virtual y seleccione **Instalar paquete de Python**.
+Puede instalar paquetes adicionales con pip. Para instalar un paquete, haga clic con el botón secundario en el entorno virtual y elija **Instalar paquete de Python**.
 
 Por ejemplo, para instalar el SDK de Azure para Python, que proporciona acceso al almacenamiento de Azure, al bus de servicio y a otros servicios de Azure, escriba `azure`:
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-install-package-dialog.png)
 
-Haga clic con el botón secundario en el entorno virtual y seleccione **Generar requirements.txt** actualizar requirements.txt.
+Haga clic con el botón secundario en el entorno virtual y elija **Generar requirements.txt** para actualizar requirements.txt.
 
 A continuación, confirme los cambios de requirements.txt en el repositorio de Git.
 
 ### Implementación en Azure
 
-Para desencadenar una implementación, haga clic en **Sincronizar** o **Insertar**.  La sincronización realiza una inserción y una extracción.
+Para desencadenar una implementación, haga clic en **Sincronizar** o **Insertar**. La sincronización realiza una inserción y una extracción.
 
 ![](./media/web-sites-python-create-deploy-flask-app/ptvs-git-push.png)
 
 La primera implementación tardará algún tiempo, ya que crea un entorno virtual, paquetes de instalación, etc.
 
-Visual Studio no muestra el progreso de la implementación.  Si desea revisar la salida, consulte la sección [Solución de problemas - Implementación](#troubleshooting-deployment).
+Visual Studio no muestra el progreso de la implementación. Si desea revisar la salida, consulte la sección [Solución de problemas - Implementación](#troubleshooting-deployment).
 
 Vaya a la dirección URL de Azure para ver los cambios.
 
 
-## Desarrollo de sitios web - Windows - Línea de comandos
+## Desarrollo de aplicaciones web - Windows - Línea de comandos
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto.
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -231,9 +210,9 @@ En primer lugar, clone el repositorio mediante la dirección URL proporcionada e
 
 ### Creación de un entorno virtual
 
-Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio).  Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
+Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio). Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
 
-Asegúrese de utilizar la misma versión de Python seleccionada para el sitio (en runtime.txt o en la página de configuración del sitio).
+Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja **Configuración de la aplicación** de la aplicación web en el Portal de Azure).
 
 Para Python 2.7:
 
@@ -274,7 +253,7 @@ Una vez probados los cambios, confírmelos en el repositorio de Git:
 
 La aplicación puede tener otras dependencias, aparte de Python y Flask.
 
-Puede instalar paquetes adicionales con pip.  Por ejemplo, para instalar el SDK de Azure para Python, que proporciona acceso al almacenamiento de Azure, al bus de servicio y a otros servicios de Azure, escriba:
+Puede instalar paquetes adicionales con pip. Por ejemplo, para instalar el SDK de Azure para Python, que proporciona acceso al almacenamiento de Azure, al bus de servicio y a otros servicios de Azure, escriba:
 
     env\scripts\pip install azure
 
@@ -298,11 +277,11 @@ Verá la salida del script de implementación, incluida la creación del entorno
 Vaya a la dirección URL de Azure para ver los cambios.
 
 
-## Desarrollo de sitios web - Mac/Linux - Línea de comandos
+## Desarrollo de aplicaciones web: Mac/Linux - Línea de comandos
 
 ### Clonación del repositorio
 
-En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto.
+En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para obtener más información, consulte [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -310,9 +289,9 @@ En primer lugar, clone el repositorio mediante la dirección URL proporcionada e
 
 ### Creación de un entorno virtual
 
-Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio).  Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
+Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio). Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
 
-Asegúrese de utilizar la misma versión de Python seleccionada para el sitio (en runtime.txt o en la página de configuración del sitio).
+Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja **Configuración de la aplicación** de la aplicación web en el Portal de Azure).
 
 Para Python 2.7:
 
@@ -353,7 +332,7 @@ Una vez probados los cambios, confírmelos en el repositorio de Git:
 
 La aplicación puede tener otras dependencias, aparte de Python y Flask.
 
-Puede instalar paquetes adicionales con pip.  Por ejemplo, para instalar el SDK de Azure para Python, que proporciona acceso al almacenamiento de Azure, al bus de servicio y a otros servicios de Azure, escriba:
+Puede instalar paquetes adicionales con pip. Por ejemplo, para instalar el SDK de Azure para Python, que proporciona acceso al almacenamiento de Azure, al bus de servicio y a otros servicios de Azure, escriba:
 
     env/bin/pip install azure
 
@@ -377,11 +356,6 @@ Verá la salida del script de implementación, incluida la creación del entorno
 Vaya a la dirección URL de Azure para ver los cambios.
 
 
-## Troubleshooting - Deployment
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../../includes/web-sites-python-troubleshooting-deployment.md)]
-
-
 ## Solución de problemas - Instalación de un paquete
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -394,20 +368,24 @@ Vaya a la dirección URL de Azure para ver los cambios.
 
 ## Pasos siguientes
 
-Siga estos vínculos para obtener más información acerca de Flask y Python Tools para Visual Studio: 
+Siga estos vínculos para obtener más información acerca de Flask y Python Tools para Visual Studio:
  
-- [Documentación de Flask][]
-- [Documentación sobre Python Tools para Visual Studio][]
+- [Documentación de Flask]
+- [Documentación sobre Python Tools para Visual Studio]
 
 Para obtener información sobre el uso de Almacenamiento de tablas de Azure y MongoDB:
 
-- [Flask y MongoDB en Azure con Python Tools 2.1 para Visual Studio][]
-- [Flask y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio][]
+- [Flask y MongoDB en Azure con Python Tools 2.1 para Visual Studio]
+- [Flask y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]
+
+## Lo que ha cambiado
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
-[Flask y MongoDB en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
-[Flask y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
+[Flask y MongoDB en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
+[Flask y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
 
 <!--External Link references-->
 [Azure SDK para Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -415,12 +393,12 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 [python.org]: http://www.python.org/
 [Git para Windows]: http://msysgit.github.io/
 [GitHub para Windows]: https://windows.github.com/
-[Python Tools para Visual Studio]: http://aka.ms/ptvs
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Visual Studio]: http://www.visualstudio.com/
-[Documentación de PTVS]: http://pytools.codeplex.com/documentation
-[Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation 
-[Documentación de Flask]: http://flask.pocoo.org/ 
+[documentación de PTVS]: http://pytools.codeplex.com/documentation
+[Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
+[Documentación de Flask]: http://flask.pocoo.org/
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

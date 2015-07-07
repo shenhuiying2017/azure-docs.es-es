@@ -71,7 +71,7 @@ Se aceptan los siguientes tipos de archivo:
 	
 > [AZURE.NOTE]Si la aplicación web se ejecuta en más de una instancia, se ejecutará un trabajo web continuamente en todas las instancias. Los Trabajos web a petición o programados se ejecutan en una única instancia seleccionada por Microsoft Azure para el equilibrio de carga.
 	
-> En WebJobs continuos, se recomienda que habilite **Siempre disponible** en su aplicación web. La característica Siempre disponible, disponible en modo básico y estándar, impide que se descarguen las aplicaciones web, aunque hayan estado inactivos durante algún tiempo. Si la aplicación web siempre está cargada, el trabajo web que se ejecuta continuamente puede ejecutarse de forma más confiable.
+> Para que los WebJobs continuos sigan ejecutándose en todas las instancias y de forma confiable, habilite la configuración Siempre activado* de la aplicación web, en caso contrario, es posible que dejen de funcionar cuando el sitio host SCM esté inactivo durante demasiado tiempo.
 
 ## <a name="CreateScheduled"></a>Creación de un trabajo web programado
 
@@ -208,5 +208,6 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [LinkToScheduler]: ./media/web-sites-create-web-jobs/31LinkToScheduler.png
 [SchedulerPortal]: ./media/web-sites-create-web-jobs/32SchedulerPortal.png
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

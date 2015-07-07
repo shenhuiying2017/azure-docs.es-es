@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Usar la acción de script en HDInsight para instalar Giraph en el clúster de Hadoop| Azure" 
-	description="Obtenga información acerca de cómo personalizar el clúster de HDInsight para instalar Giraph. Va a utilizar una opción de configuración de la acción de script para usar un script para instalar Giraph" 
+	pageTitle="Instalar y usar Giraph en clústeres de Hadoop en HDInsight | Microsoft Azure" 
+	description="Obtenga información acerca de cómo personalizar el clúster de HDInsight con Giraph. Va a usar una opción de configuración de la acción de script para usar un script para instalar Giraph." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -16,7 +16,7 @@
 	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
-# Instalación y uso de Giraph en clústeres de Hadoop de HDInsight
+# Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
 
 Puede instalar Giraph en cualquier tipo de clúster de Hadoop en HDInsight de Azure mediante la personalización de clústeres de **acción de script**. La acción de script le permite ejecutar scripts para personalizar un clúster, conforme se crea el clúster. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
@@ -71,7 +71,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 	Cargue el archivo tiny_graph.txt en el almacenamiento principal del clúster de HDInsight. Para obtener instrucciones sobre cómo cargar datos, consulte [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md).
 
-	Estos datos describen una relación entre los objetos de un gráfico dirigido, con el formato [source_id, source_value,[[dest_id], [edge_value], ...]]. Cada línea representa una relación entre un objeto **source_id** y uno más objetos **dest_id**. El valor **edge_value** (o peso) se puede considerar como la fuerza o la distancia de la conexión entre **source_id** y **dest_id**.
+	Estos datos describen una relación entre los objetos de un gráfico dirigido, con el formato [source_id, source_value,[[dest_id], [edge_value],...]]. Cada línea representa una relación entre un objeto **source_id** y uno más objetos **dest_id**. El valor **edge_value** (o peso) se puede considerar como la fuerza o la distancia de la conexión entre **source_id** y **dest_id**.
 
 	Extrapolados, y usando el valor (o peso) como la distancia entre los objetos, los datos anteriores podrían parecerse a estos:
 
@@ -79,7 +79,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 	
 
-4. Ejecute el ejemplo SimpleShortestPathsComputation. Utilice los siguientes cmdlets de PowerShell de Azure para ejecutar el ejemplo mediante el archivo tiny_graph.txt como entrada. Para ello, será necesario que haya instalado y configurado [Azure PowerShell][powershell-install-configure].
+4. Ejecute el ejemplo SimpleShortestPathsComputation. Utilice los siguientes cmdlets de PowerShell de Azure para ejecutar el ejemplo mediante el archivo tiny_graph.txt como entrada. Para ello, será necesario que haya instalado y configurado [Azure PowerShell][powershell-install].
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -150,7 +150,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 ## <a name="usingPS"></a>Instalación de Giraph en clústeres de Hadoop para HDInsight mediante Azure PowerShell
 
-En esta sección se utiliza el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts mediante la acción de script a fin de personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell de Azure. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de Azure PowerShell para HDInsight, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
+En esta sección se utiliza el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts mediante la acción de script a fin de personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell de Azure. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de Azure PowerShell para HDInsight, consulte [Instalación y configuración de Azure PowerShell][powershell-install].
 
 Lleve a cabo los siguiente pasos:
 
@@ -329,7 +329,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 **Para ejecutar la aplicación**
 
-Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \\bin\\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
+Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \bin\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -346,9 +346,11 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
+[powershell-install]: ../powershell-install-configure.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

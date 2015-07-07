@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso de la acción de script para instalar Solr en un clúster de Hadoop | Microsoft Azure" 
-	description="Obtenga información acerca de cómo personalizar el clúster de HDInsight para instalar Solr. Va a utilizar una opción de configuración de la acción de script para usar un script para instalar Solr." 
+	description="Obtenga información para personalizar el clúster de HDInsight con Solr. Va a usar una opción de configuración de la acción de script para emplear un script para instalar Solr." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -62,7 +62,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 
 1. **Use el protocolo de Escritorio remoto (RDP) para conectarse de manera remota con el clúster de HDInsight con Solr instalado**. En el portal de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, conéctese de manera remota con el clúster. Para obtener instrucciones, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
-2. **Indexe Solr mediante la carga de archivos de datos**. Al indizar Solr, colocar en él aquellos documentos que tenga que buscar. Para indexar Solr, use RDP para conectarse de manera remota al clúster, navegue al escritorio, abra la línea de comandos de Hadoop y vaya a **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**. Ejecute el siguiente comando:
+2. **Indexe Solr mediante la carga de archivos de datos**. Al indizar Solr, colocar en él aquellos documentos que tenga que buscar. Para indexar Solr, use RDP para conectarse de manera remota al clúster, navegue al escritorio, abra la línea de comandos de Hadoop y vaya a **C:\apps\dist\solr-4.7.2\example\exampledocs**. Ejecute el siguiente comando:
 	
 		java -jar post.jar solr.xml monitor.xml
 
@@ -154,7 +154,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 			  <str name="status">OK</str>
 			</response>
 
-	2. En la sesión remota, vaya a {SOLR_HOME}{Collection}\\data. Para el clúster creado con el script de ejemplo, debiera ser **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**. En esta ubicación, verá una carpeta de instantáneas creada con un nombre similar a **snapshot.*marca de tiempo***.
+	2. En la sesión remota, vaya a {SOLR_HOME}{Collection}\data. Para el clúster creado con el script de ejemplo, debiera ser **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**. En esta ubicación, verá una carpeta de instantáneas creada con un nombre similar a **snapshot.*marca de tiempo***.
 	
 	3. Comprima la carpeta de instantáneas y cárguela al almacenamiento de blobs de Azure. En la línea de comandos de Hadoop, use el comando siguiente para ir a la ubicación de la carpeta de instantáneas:
 
@@ -344,7 +344,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 **Para ejecutar la aplicación**
 
-Abra una consola de Windows PowerShell o de Azure PowerShell, navegue a la ubicación donde guardó el proyecto de Visual Studio, luego al directorio \\bin\\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
+Abra una consola de Windows PowerShell o de Azure PowerShell, navegue a la ubicación donde guardó el proyecto de Visual Studio, luego al directorio \bin\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
 
 	.\CreateSolrCluster <cluster-name>
 
@@ -363,5 +363,6 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure" 
-	description="Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+<properties
+	pageTitle="Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure"
+	description="Obtenga información acerca de cómo habilitar el registro de diagnóstico y agregar la instrumentación a su aplicación, así como la manera de acceder a la información registrada por Azure."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/29/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/29/2015"
 	ms.author="cephalin"/>
 
 # Habilitación del registro de diagnóstico para aplicaciones web en el Servicio de aplicaciones de Azure
@@ -22,7 +22,7 @@
 
 Azure integra diagnósticos para ayudar a depurar una aplicación web hospedada en un [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-> [AZURE.NOTE]En este artículo se usa el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos multiplataforma de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE]En este artículo se usa el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell y la interfaz de la línea de comandos de Azure (CLI de Azure) para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Azure en Visual Studio](../troubleshoot-web-sites-in-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Diagnóstico del servidor web y diagnóstico de aplicaciones
 
@@ -66,7 +66,7 @@ Si habilita los **diagnósticos del sitio**,debe seleccionar **almacenamiento** 
 A continuación se indica la configuración disponible al habilitar **Diagnóstico de aplicaciones**:
 
 * **Nivel de registro**: le permite filtrar la información capturada como **informativo**, **advertencia** o **error**. Si establece esta opción en **detallado**, registrará toda la información generada por la aplicación. El **nivel de registro** puede establecerse de manera diferente para el registro del **sistema de archivos**, **almacenamiento de tablas** y **almacenamiento de blobs**.
-* **Sistema de archivos**: almacena la información de diagnóstico de aplicaciones en el sistema de archivos de la aplicación web. Es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP con la utilización de Azure PowerShell o de las herramientas de línea de comandos de Azure.
+* **Sistema de archivos**: almacena la información de diagnóstico de aplicaciones en el sistema de archivos de la aplicación web. Es posible obtener acceso a estos archivos por FTP, o bien se pueden descargar como un archivo ZIP con la utilización de Azure PowerShell o de la interfaz de la línea de comandos de Azure (CLI de Azure).
 * **Almacenamiento de tablas**: almacena la información de diagnóstico de aplicaciones en el nombre de la tabla y en la cuenta de almacenamiento de Azure.
 * **Almacenamiento de blobs**: almacena la información de diagnóstico de aplicaciones en el contenedor de blobs y en la cuenta de almacenamiento de Azure.
 * **Período de retención**: de manera predeterminada, los registros no se eliminan automáticamente del **almacenamiento de blobs**. Seleccione **Establecer retención** y escriba el número de días durante los cuales desea que se conserven los registros si desea que estos se eliminen automáticamente.
@@ -77,7 +77,7 @@ A continuación se indica la configuración disponible al habilitar **Diagnósti
 
 ##<a name="download"></a> Descarga de registros
 
-Se puede obtener acceso a la información de diagnóstico almacenada en el sistema de archivos de la aplicación web directamente mediante FTP. No obstante, también se puede descargar como un archivo ZIP con Azure PowerShell o mediante las herramientas de línea de comandos de Azure.
+Se puede obtener acceso a la información de diagnóstico almacenada en el sistema de archivos de la aplicación web directamente mediante FTP. No obstante, también se puede descargar como un archivo ZIP con Azure PowerShell o mediante la interfaz de la línea de comandos de Azure.
 
 La estructura de directorios en que se almacenan los registros es la siguiente:
 
@@ -107,21 +107,21 @@ Este comando guardará los registros de la aplicación web que especifica el par
 
 > [AZURE.NOTE]Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-### Descarga con las herramientas de línea de comandos de Azure
+### Descarga con la interfaz de la línea de comandos de Azure
 
-Para descargar los archivos de registro mediante las herramientas de línea de comandos de Azure, abra una sesión nueva del símbolo del sistema, PowerShell, Bash o Terminal y escriba el siguiente comando:
+Para descargar los archivos de registro mediante la interfaz de la línea de comandos de Azure, abra una sesión nueva del símbolo del sistema, PowerShell, Bash o Terminal y escriba el siguiente comando:
 
 	azure site log download webappname
 
 Este comando guardará los registros en la aplicación web denominada "webappname" en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
-> [AZURE.NOTE]Si no tiene instaladas las herramientas de línea de comandos de Azure o no las ha configurado para que usen la suscripción a Azure, consulte [Uso de las herramientas de línea de comandos de Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure (CLI de Azure) o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo usar la CLI de Azure](../xplat-cli.md).
 
 ## Visualización de registros en Application Insights
 
 Visual Studio Application Insights proporciona herramientas para filtrar y buscar registros y para correlacionar los registros con solicitudes y otros eventos.
 
-1. Incorporación del SDK de Application Insights al proyecto de Visual Studio 
+1. Incorporación del SDK de Application Insights al proyecto de Visual Studio
  * En el Explorador de soluciones, haga clic con el botón secundario en el proyecto y elija Agregar Application Insights. Se le guiará a través de pasos que incluyen la creación de un recurso de Application Insights. [Más información](../application-insights/app-insights-start-monitoring-app-health-usage.md)
 2. Agregue el paquete del agente de escucha.
  * Haga clic con el botón secundario en el proyecto y elija Administrar paquetes de NuGet. Seleccione `Microsoft.ApplicationInsights.TraceListener` [Más información](../application-insights/app-insights-asp-net-trace-logs.md).
@@ -132,11 +132,11 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 
 ##<a name="streamlogs"></a> Registros
 
-Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o las herramientas de línea de comandos de Azure.
+Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Para ello, puede transmitir la información de registro al entorno de desarrollo con Azure PowerShell o la interfaz de la línea de comandos de Azure.
 
 > [AZURE.NOTE]Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
 
-> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles**.
+> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\home\LogFiles**.
 
 ### Transmisión con Azure PowerShell
 
@@ -158,7 +158,7 @@ Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 
 > [AZURE.NOTE]Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-### Transmisión con las herramientas de línea de comandos de Azure
+### Transmisión con la interfaz de la línea de comandos de Azure
 
 Para transmitir información de registro, abra una nueva sesión del símbolo del sistema, PowerShell, Bash o Terminal y escriba el siguiente comando:
 
@@ -174,7 +174,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Si no tiene instaladas las herramientas de línea de comandos de Azure o no las ha configurado para que usen la suscripción a Azure, consulte [Uso de las herramientas de línea de comandos de Azure](../xplat-cli.md).
+> [AZURE.NOTE]Si no tiene instalada la interfaz de la línea de comandos de Azure o si no la ha configurado para que use la suscripción de Azure, consulte [Cómo utilizar la interfaz de línea de comandos de Azure](../xplat-cli.md).
 
 ##<a name="understandlogs"></a> Información sobre los registros de diagnóstico
 
@@ -335,5 +335,6 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="06/02/2015" 
 	ms.author="cephalin"/>
 
 # Conexión a un servidor SQL local desde una aplicación web en el Servicio de aplicaciones de Azure mediante Conexiones híbridas
@@ -23,8 +23,8 @@ Conexiones híbridas puede conectar Aplicaciones web del [Servicio de aplicacion
 En este tutorial aprenderemos a crear un aplicación web del Servicio de aplicaciones en el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), a conectar la aplicación web a una base de datos de SQL Server local usando la nueva característica Conexión híbrida, a crear una aplicación ASP.NET simple que usará la conexión híbrida y a implementar la aplicación en la aplicación web del Servicio de aplicaciones. La aplicación web completada en Azure almacena credenciales de usuario en una base de datos de miembros de pertenencia local. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o ASP.NET.
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-
-> [AZURE.NOTE]La parte de Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de vista previa de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+>
+>La parte de Aplicaciones web de la característica Conexiones híbridas solo está disponible en el [Portal de vista previa de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Requisitos previos ##
 
@@ -178,33 +178,7 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 <a name="InstallHCM"></a>
 ## D. Instalación del Administrador de conexiones híbridas local para realizar la conexión ##
 
-1. En la hoja **Conexiones híbridas**, haga clic en la conexión híbrida que acaba de crear y, a continuación, en **Configuración del agente de escucha**.
-	
-	![Click Listener Setup][ClickListenerSetup]
-	
-4. Se abre la hoja **Propiedades de conexión híbrida**. En **Administrador de conexiones híbridas local**, elija **Haga clic aquí para instalar**.
-	
-	![Click here to install][ClickToInstallHCM]
-	
-5. En el cuadro de diálogo de advertencia de seguridad Ejecución de la aplicación, elija **Ejecutar** para continuar.
-	
-	![Choose Run to continue][ApplicationRunWarning]
-	
-6.	En el cuadro de diálogo **Control de cuentas de usuario**, elija **Sí**.
-	
-	![Choose Yes][UAC]
-	
-7. El Administrador de conexiones híbridas se descarga y se instala.
-	
-	![Instalación][HCMInstalling]
-	
-8. Cuando finalice la instalación, haga clic en **Cerrar**.
-	
-	![Click Close][HCMInstallComplete]
-	
-	En la hoja **Conexiones híbridas**, la columna **Estado** ahora muestra **Conectado**.
-	
-	![Connected Status][HCStatusConnected]
+[AZURE.INCLUDE [app-service-hybrid-connections-manager-install](../../includes/app-service-hybrid-connections-manager-install.md)]
 
 Ahora que la infraestructura de la conexión híbrida se ha completado, creará una aplicación web que la use.
 
@@ -244,7 +218,7 @@ En este paso editará la cadena de conexión que indica a la aplicación dónde 
 	
 	Cuando escriba la cadena de conexión, tenga en cuenta lo siguiente:
 	
-	- Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, consulte [Cómo configurar SQL Server para que escuche en un puerto específico](http://support.microsoft.com/kb/823938). De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite. 
+	- Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, consulte [Cómo configurar SQL Server para que escuche en un puerto específico](http://support.microsoft.com/kb/823938). De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite. 
 	
 	- Es recomendable que especifique el puerto (1433 de forma predeterminada, como se muestra en el ejemplo) en la cadena de conexión de forma que pueda asegurarse de que su servidor SQL Server local tiene la funcionalidad TCP habilitada y usa el puerto correcto.
 	
@@ -275,7 +249,7 @@ Ahora está preparado para continuar con el paso siguiente, que consiste en publ
 <a name="PubNTest"></a>
 ## F. Publicación de la aplicación web en Azure y prueba de la misma ##
 
-Ahora publicará la aplicación en su aplicación web del Servicio de aplicaciones y después la probará para ver cómo se usa la conexión híbrida que configuró anteriormente para conectar la aplicación web a la base de datos en la máquina local. 
+Ahora publicará la aplicación en su aplicación web del Servicio de aplicaciones y después la probará para ver cómo se usa la conexión híbrida que configuró anteriormente para conectar la aplicación web a la base de datos en la máquina local.
 
 ### Publicación de la aplicación ###
 
@@ -402,5 +376,6 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 [HCTestRegisterRelecloud]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F09HCTestRegisterRelecloud.png
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

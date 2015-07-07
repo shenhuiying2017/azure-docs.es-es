@@ -2,8 +2,9 @@
 	pageTitle="Supervisar el estado y el uso de su aplicación con Application Insights" 
 	description="Introducción a Application Insights. Analice el uso, la disponibilidad y el rendimiento de sus aplicaciones web de Microsoft Azure o local." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/11/2014" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
 # Supervisar el rendimiento de aplicaciones web
@@ -21,57 +22,32 @@
 
 Asegúrese de que la aplicación tendrá un rendimiento correcto y descubra rápidamente los posibles errores. [Application Insights][start] le comunicará todas las excepciones y los problemas de rendimiento y le ayudará a diagnosticar las causas principales.
 
-Application Insights puede supervisar aplicaciones web ASP.NET hospedadas en máquinas virtuales o locales, o en sitios web de Microsoft Azure. 
+Application Insights puede supervisar las aplicaciones web ASP.NET y los servicios WCF, hospedados en máquinas virtuales o locales, así como sitios web de Microsoft Azure.
 
-* [Configuración de la supervisión de rendimiento](#setup)
-* [Consulta de los datos](#view)
-* [¿Qué significa todo esto?](#metrics)
-* [Problemas de diagnóstico](#diagnosis)
-* [Pasos siguientes](#next)
 
-## <a name="setup"></a>Configurar la supervisión de rendimiento
+## <a name="setup"></a>Configuración de la supervisión de rendimiento
 
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
-* [Agregar Application Insights a un proyecto de aplicación en Visual Studio][greenbrown]: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
+* [Agregar Application Insights a un proyecto en Visual Studio][greenbrown]: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
 * [Supervisar el rendimiento de un sitio web activo ahora][redfield]: este procedimiento no precisa actualizar el proyecto de aplicación ni volver a implementar el sitio web.
-* [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring.md)  ya puede ver las métricas en la supervisión del sitio web. 
+* [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring.md) ya puede ver las métricas en el modo Supervisión de dicho sitio. 
+
+Con cualquiera de estos métodos puede ver los datos rápidamente en la hoja de información general en Application Insights.
 
 
-## <a name="view"></a>Ver informes
+## <a name="view"></a>Exploración de métricas
 
-Ejecute la aplicación con F5 y pruébela. Abra varias páginas.
-
-En Visual Studio, aparecerá un recuento de los eventos que se han recibido.
-
-![](./media/app-insights-web-monitor-performance/appinsights-09eventcount.png)
+Haga clic en cualquier elemento para ver su contenido con mayor detalle y los resultados durante más tiempo. Por ejemplo, haga clic en el mosaico Solicitudes y seleccione un intervalo de tiempo:
 
 
-Abra Application Insights desde un proyecto.
-
-![Right-click your project and open the Azure portal](./media/app-insights-web-monitor-performance/appinsights-04-openPortal.png)
-
-
-Busque los datos en los mosaicos de **Estado de la aplicación**. Al principio, solo aparecerán uno o dos puntos. Por ejemplo:
-
-![Click through to more data](./media/app-insights-web-monitor-performance/appinsights-41firstHealth.png)
-
-Si se trabaja en modo de depuración, la telemetría se agiliza a través de la canalización y los datos aparecen en cuestión de segundos. Cuando se implementa una aplicación, los datos se acumulan a menor velocidad.
-
-Si no puede ver los datos en un primer momento, espere un minuto y haga clic en Actualizar.
-
-### Explorar las métricas
-
-Haga clic en un mosaico para ver su contenido con mayor detalle y los resultados durante más tiempo. Por ejemplo, haga clic en el mosaico Solicitudes y seleccione un intervalo de tiempo:
-
-
-![Click through to more data and select a time range](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
+![Haga clic en las distintas opciones para obtener más datos y seleccionar un intervalo de tiempo](./media/app-insights-web-monitor-performance/appinsights-48metrics.png)
 
 Haga clic en un gráfico para elegir las métricas mostradas o para agregar un nuevo gráfico y seleccionar sus métricas:
 
-![Click a graph to choose metrics](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
+![Haga clic en un gráfico para elegir las métricas](./media/app-insights-web-monitor-performance/appinsights-61perfchoices.png)
 
-> [AZURE.NOTE] **Desactive todas las métricas** para ver una selección completa de las opciones disponibles. Las métricas se organizan en grupos. Cuando se selecciona un miembro de un grupo, solo aparecen los demás miembros de dicho grupo.
+> [AZURE.NOTE]**Desactive todas las métricas** para ver una selección completa de las opciones disponibles. Las métricas se organizan en grupos. Cuando se selecciona un miembro de un grupo, solo aparecen los demás miembros de dicho grupo.
 
 
 ## <a name="metrics"></a>¿Qué significa todo esto? Informes y mosaicos de rendimiento
@@ -113,7 +89,7 @@ Muestra las solicitudes que pueden precisar un ajuste de rendimiento.
 
 Un recuento de las solicitudes que inician excepciones no detectadas.
 
-Haga clic en el mosaico para ver los detalles de errores específicos y seleccione una solicitud individual para revisarla de forma más exhaustiva. 
+Haga clic en el mosaico para ver los detalles de errores específicos y seleccione una solicitud individual para revisarla de forma más exhaustiva.
 
 Solo se conserva una muestra representativa de los errores para su inspección individual.
 
@@ -121,10 +97,40 @@ Solo se conserva una muestra representativa de los errores para su inspección i
 
 Si desea ver las demás métricas que puede mostrar, haga clic en un gráfico y desactive todas las métricas para ver el conjunto completo de opciones disponibles. Haga clic en (i) para ver la definición de cada métrica.
 
-![Deselect all metrics to see the whole set](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
+![Cancele todas las métricas para ver el conjunto completo](./media/app-insights-web-monitor-performance/appinsights-62allchoices.png)
 
 
 Si selecciona una métrica, se deshabilitarán las demás que no pueden aparecer en el mismo gráfico.
+
+## Recopilación de más contadores de rendimiento
+
+Algunas de las métricas entre las que puede elegir son [contadores de rendimiento](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows proporciona una amplia variedad de ellos, pero también puede definir los suyos propios.
+
+Si los contadores que desea no están en la lista, puede agregarlos al conjunto que recopila el SDK. Abra ApplicationInsights.config y edite la directiva del recopilador de rendimiento:
+
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+      <Counters>
+        <Add PerformanceCounter="\Objects\Processes"/>
+        <Add PerformanceCounter="\Sales(electronics)# Items Sold" ReportAs="Item sales"/>
+      </Counters>
+    </Add>
+
+El formato es `\Category(instance)\Counter"` o, para las categorías que no tienen instancias, simplemente `\Category\Counter`.
+
+`ReportAs` se requiere para los nombres de contadores que contengan caracteres que no sean: letras, paréntesis, barras diagonales, guiones, subrayados, espacios y puntos.
+
+Si especifica una instancia, se recopilará como propiedad "CounterInstanceName" de la métrica notificada.
+
+Si lo prefiere, puede escribir código que realice la misma acción:
+
+    var perfCollector = new PerformanceCollectorModule();
+    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
+    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+      @"\Sales(electronics)# Items Sold", "Items sold"));
+    perfCollector.Initialize(TelemetryConfiguration.Active);
+    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+
+
 
 ## Establecer alertas
 
@@ -136,9 +142,9 @@ Establezca el recurso antes de las demás propiedades. No elija los recursos de 
 
 Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
 
-*No puedo ver el botón Agregar alerta.* - Probablemente se deba a que tiene acceso de solo lectura. 
+*No puedo ver el botón Agregar alerta*: ¿es una cuenta de grupo a la que tiene acceso de solo lectura? Consulte con el administrador de cuenta.
 
-## <a name="diagnosis"></a>Problemas de diagnóstico
+## <a name="diagnosis"></a>Diagnóstico de problemas
 
 Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
@@ -154,16 +160,22 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 [Seguimiento de uso][usage]: averigüe cuántas personas usan una aplicación.
 
-[Solución de problemas][qna]: preguntas y respuestas.
+[Solución de problemas][qna]: junto con preguntas y respuestas.
 
+## Vídeo
 
+[AZURE.VIDEO performance-monitoring-application-insights]
 
-[AZURE.INCLUDE [app-insights-learn-more](../../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[usage]: app-insights-web-track-usage.md
 
-
-
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=62-->

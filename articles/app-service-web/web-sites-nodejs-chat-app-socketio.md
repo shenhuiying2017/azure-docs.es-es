@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Creación de una aplicación de chat Node.js con Socket.IO en el Servicio de aplicaciones de Azure" 
-	description="Este tutorial muestra el uso de socket.io en una aplicación web node.js hospedada en Azure." 
-	services="app-service\web" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+<properties
+	pageTitle="Creación de una aplicación de chat Node.js con Socket.IO en el Servicio de aplicaciones de Azure"
+	description="Este tutorial muestra el uso de socket.io en una aplicación web node.js hospedada en Azure."
+	services="app-service\web"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/24/2015" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
 
@@ -33,7 +33,7 @@ Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO Gi
 1.  Descargue una [versión archivada ZIP o GZ][release] del proyecto Socket.IO (la versión 1.3.5 se ha utilizado para este documento).
 
 
-3.  Extraiga el archivo y copie el directorio **examples\\chat** en una ubicación nueva. Por ejemplo, **\\node\\chat**.
+3.  Extraiga el archivo y copie el directorio **examples\chat** en una ubicación nueva. Por ejemplo, **\node\chat**.
 
 ## Modificación de app.js e instalación de módulos
 
@@ -57,7 +57,7 @@ Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO Gi
 		  "socket.io": "1.3.5"
 		}
 
-4. En la línea de comandos, cambie al directorio **\\node\\chat** y use npm para instalar los módulos necesarios para esta aplicación:
+4. En la línea de comandos, cambie al directorio **\node\chat** y use npm para instalar los módulos necesarios para esta aplicación:
 
         npm install
 
@@ -69,14 +69,14 @@ Siga estos pasos para crear una aplicación web de Azure, habilite la publicaci�
 
 > [AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure￼</a>.
 
-1. Instale la interfaz de línea de comandos entre plataformas de Azure (xplat-cli) y conéctese a su suscripción de Azure. Consulte [Instalación y configuración de la interfaz de la línea de comandos multiplataforma de Azure](xplat-cli).
+1. Instale la interfaz de la línea de comandos de Azure (CLI de Azure) y conéctese a su suscripción de Azure. Consulte [Instalación y configuración de la interfaz de la CLI de Azure](xplat-cli).
 
-2. Si esta es la primera vez que configura un repositorio en Azure, tendrá que crear unas credenciales de inicio de sesión. En xplat-cli, escriba el siguiente comando:
+2. Si esta es la primera vez que configura un repositorio en Azure, tendrá que crear unas credenciales de inicio de sesión. En la CLI de Azure, escriba el siguiente comando:
 
-		azure site deployment user set [username] [password] 
+		azure site deployment user set [username] [password]
 
 
-3. Cambie al directorio **\\node\\chat** y use el siguiente comando para crear una nueva aplicación web de Azure y un repositorio de Git local. Este comando también crea un Git remoto llamado "azure".
+3. Cambie al directorio **\node\chat** y use el siguiente comando para crear una nueva aplicación web de Azure y un repositorio de Git local. Este comando también crea un Git remoto llamado "azure".
 
 		azure site create mysitename --git
 
@@ -101,10 +101,10 @@ Siga estos pasos para crear una aplicación web de Azure, habilite la publicaci�
 
 	Si se solicita, escriba el nombre de la aplicación web.
 
-	>[AZURE.NOTE]El comando "azure site set -w" solo funcionará con la versión 0.7.4 o superior de la interfaz de línea de comandos multiplataforma de Azure. También puede habilitar la compatibilidad con WebSocket usando el [Portal de Azure](https://portal.azure.com).
+	>[AZURE.NOTE]El comando "azure site set -w" solo funcionará con la versión 0.7.4 o superior de la interfaz de la línea de comandos de Azure. También puede habilitar la compatibilidad con WebSocket usando el [Portal de Azure](https://portal.azure.com).
 	>
 	>Para habilitar WebSockets con el Portal de Azure, haga clic en la aplicación web en la hoja Aplicaciones web, haga clic en **Toda la configuración** > **Configuración de la aplicación**. En **Web Sockets**, haga clic en **Activado**. A continuación, haga clic en **Guardar**.
-	
+
 5. Para ver la aplicación web en Azure, use el siguiente comando para iniciar su explorador web y desplazarse a la aplicación web hospedada:
 
 		azure site browse
@@ -125,7 +125,7 @@ Realice los pasos de [Creación de una memoria caché en Caché en Redis de Azur
 
 ###Agregue los módulos redis y socket.io-redis
 
-1. En una línea de comandos, cambie al directorio __\\node\\chat__ y use el siguiente comando.
+1. En una línea de comandos, cambie al directorio __\node\chat__ y use el siguiente comando.
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -135,7 +135,7 @@ Realice los pasos de [Creación de una memoria caché en Caché en Redis de Azur
 
 		var pub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
 		var sub = require('redis').createClient(6379,'redishostname', {auth_pass: 'rediskey', return_buffers: true});
-		
+
 		var redis = require('socket.io-redis');
 		io.adapter(redis({pubClient: pub, subClient: sub}));
 
@@ -144,14 +144,14 @@ Realice los pasos de [Creación de una memoria caché en Caché en Redis de Azur
 	Esto creará un cliente de publicación y suscripción a la caché de Redis creada anteriormente. Entonces los clientes se utilizarán con el adaptador para configurar Socket.IO y utilizar la caché de Redis para pasar mensajes y eventos entre instancias de la aplicación.
 
 	> [AZURE.NOTE]Aunque el adaptador __socket.io-redis__ se puede comunicar directamente con Redis, la versión actual no es compatible con la autenticación que requiere Caché en Redis de Azure. Por tanto, la conexión inicial se crea con el módulo __redis__, a continuación el cliente se pasa al adaptador __socket.io-redis__.
-	> 
+	>
 	> Aunque la caché de Redis de Azure es compatible con las conexiones seguras que utilizan el puerto 6380, los módulos usados en este ejemplo no son compatibles con las conexiones seguras a partir del 14/07/2014. El código anterior utiliza el puerto predeterminado no seguro 6380.
 
 3. Guarde el __app.js__ modificado
 
 ###Confirmar cambios y volver a implementar
 
-En la línea de comandos del directorio __\\node\\chat__, utilice los siguientes comandos para confirmar los cambios y volver a implementar la aplicación.
+En la línea de comandos del directorio __\node\chat__, utilice los siguientes comandos para confirmar los cambios y volver a implementar la aplicación.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -215,10 +215,10 @@ Si los exploradores de los clientes siguen recurriendo al sondeo largo en lugar 
 		<!--
 		     This configuration file is required if iisnode is used to run node processes behind
 		     IIS or IIS Express.  For more information, visit:
-		
+
 		     https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config
 		-->
-		
+
 		<configuration>
 		  <system.webServer>
 		    <!-- Visit http://blogs.msdn.com/b/windowsazure/archive/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites.aspx for more information on WebSocket support -->
@@ -233,12 +233,12 @@ Si los exploradores de los clientes siguen recurriendo al sondeo largo en lugar 
 		        <rule name="NodeInspector" patternSyntax="ECMAScript" stopProcessing="true">
 		          <match url="^app.js/debug[/]?" />
 		        </rule>
-		
+
 		        <!-- First we consider whether the incoming URL matches a physical file in the /public folder -->
 		        <rule name="StaticContent">
 		          <action type="Rewrite" url="public{REQUEST_URI}"/>
 		        </rule>
-		
+
 		        <!-- All other URLs are mapped to the node.js web app entry point -->
 		        <rule name="DynamicContent">
 		          <conditions>
@@ -253,7 +253,7 @@ Si los exploradores de los clientes siguen recurriendo al sondeo largo en lugar 
 		        * watchedFiles: semi-colon separated list of files that will be watched for changes to restart the server
 		        * node_env: will be propagated to node as NODE_ENV environment variable
 		        * debuggingEnabled - controls whether the built-in debugger is enabled
-		
+
 		      See https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config for a full list of options
 		    -->
 		    <!--<iisnode watchedFiles="web.config;*.js"/>-->
@@ -281,5 +281,6 @@ En este tutorial aprendió a crear una aplicación de chat hospedada en una apli
 [chat-example-view]: ./media/web-sites-nodejs-chat-app-socketio/socketio-2.png
 [npm-output]: ./media/web-sites-nodejs-chat-app-socketio/socketio-7.png
 [pricing]: /pricing/details/web-sites/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

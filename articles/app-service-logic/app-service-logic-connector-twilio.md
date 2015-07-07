@@ -19,7 +19,7 @@
 
 # Uso del conector de Twilio en la aplicación lógica #
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. 
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
 
 El conector de Twilio permite enviar y recibir SMS en su cuenta de Twilio. También permite recuperar números de teléfono y datos de uso.
 
@@ -27,19 +27,10 @@ El conector de Twilio permite enviar y recibir SMS en su cuenta de Twilio. Tambi
 Para usar el conector de Twilio, deberá crear primero una instancia de la aplicación de API del conector de Twilio. Se puede hacer de la forma siguiente:
 
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior izquierda del Portal de Azure.
-2.	Vaya a "Web y móvil > Aplicaciones de API" y busque "Conector de Twilio".
+2.	Vaya a “Aplicaciones de API” y busque “Conector Twilio”.
 3.	Configure el conector de Twilio de la siguiente forma:
  
-	![][1]
-	- **Ubicación** - elija la ubicación geográfica en la que desea implementar el conector.
-	- **Suscripción** - elija una suscripción en la que desee crear este conector.
-	- **Grupo de recursos** - seleccione o cree un grupo de recursos en el que vaya a estar el conector.
-	- **Plan de hospedaje web** - seleccione o cree un plan de hospedaje web.
-	- **Nivel de precios** - elija un nivel de precios para el conector.
-	- **Nombre** - asigne un nombre al conector de Twilio
-	- **Configuración del paquete**
-		- **SID de la cuenta** - El identificador único de la cuenta. El SID de la cuenta para su cuenta se puede recuperar desde https://www.twilio.com/user/account/settings 
-		- **Token de autorización** - Token de autorización asociado a la cuenta. El token de autorización para la cuenta se puede recuperar desde https://www.twilio.com/user/account/settings
+	![][1] - **Ubicación**: elija la ubicación geográfica en que desearía implementar el conector. - **Suscripción**: elija una suscripción en que desea crear este conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos en que debe residir el conector. - **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web. - **Nivel de precios**: elija un nivel de precios para el conector. - **Nombre**: asigne un nombre al conector de Twilio. - **Configuración del paquete** - **SID de la cuenta**: el identificador exclusivo de la cuenta. El SID de la cuenta puede obtenerse desde <https://www.twilio.com/user/account/settings> - **Token de autorización**: token de autorización asociado con la cuenta. El token de autorización para la cuenta se puede recuperar desde <https://www.twilio.com/user/account/settings>
 
 
 4.	Haga clic en Crear. Se creará un nuevo conector de Twilio.
@@ -60,22 +51,21 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Twilio 
 4. Puede quitar la aplicación de la API del conector de Twilio en el editor haciendo clic en "Conector de Twilio".
  
 5.	Ahora puede usar el conector de Twilio en el flujo. Puede usar la acción "Enviar mensaje" en el flujo para enviar un mensaje. Configure las propiedades de entrada para la acción "Enviar mensaje" de la siguiente manera:
-	- **Desde número de teléfono** - Escriba un número de teléfono de Twilio habilitado para el tipo de mensaje que desee enviar. Solo los números de teléfono o códigos breves adquiridos a través de Twilio funcionarán con este conector.
-	- **Al número de teléfono** - El número de teléfono de destino. El formato aceptado es: +, seguido por el código de país y, a continuación, el número de teléfono. Por ejemplo, +16175551212. Si omite el +, Twilio utilizará el código de país que escribió en  'Desde' número.
-	- **Texto** - El texto del mensaje que desea enviar.
+	- **Desde número de teléfono**: escriba un número de teléfono de Twilio habilitado para el tipo de mensaje que desee enviar. Solo los números de teléfono o códigos breves adquiridos a través de Twilio funcionarán con este conector.
+	- **A número de teléfono**: el número de teléfono de destino. Formato aceptado: +, seguido por el código de país y, a continuación, el número de teléfono. Por ejemplo, +16175551212. Si omite el +, Twilio utilizará el código de país que escribió en “Desde” número.
+	- **Texto**: el texto del mensaje que desea enviar.
  
-	![][5]
-	![][6] 
+	![][5] ![][6]
 
 
 
-<!--Image references-->
+	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twilio/img1.PNG
 [2]: ./media/app-service-logic-connector-twilio/img2.PNG
 [3]: ./media/app-service-logic-connector-twilio/img3.png
 [4]: ./media/app-service-logic-connector-twilio/img4.png
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

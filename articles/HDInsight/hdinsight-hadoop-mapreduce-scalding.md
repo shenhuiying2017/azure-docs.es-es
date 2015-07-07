@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Desarrollo de trabajos de MapReduce de Scalding con Maven"
-	description="Obtenga información sobre cómo usar Maven para crear un trabajo de MapReduce de Scalding y, a continuación, implemente y ejecute el trabajo en un Hadoop en un clúster de HDInsight."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/> 
-
+ pageTitle="Desarrollo de trabajos de MapReduce de Scalding con Maven | Microsoft Azure"
+ description="Obtenga información sobre cómo usar Maven para crear un trabajo de MapReduce de Scalding y, a continuación, implemente y ejecute el trabajo en un Hadoop en un clúster de HDInsight."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"/>
 <tags
-	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="04/17/2015"
-	ms.author="larryfr"/>
+ ms.service="hdinsight"
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="04/17/2015"
+ ms.author="larryfr"/>
 
 # Desarrollo de trabajos de MapReduce de Scalding con Hadoop Apache en HDInsight
 
@@ -24,13 +23,12 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
 ## Requisitos previos
 
-* Una suscripción de Azure
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Un clúster de Hadoop en HDInsight basado en Windows o Linux**. Vea [Aprovisionamiento de Handoop basado en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o [Aprovisionamiento de Handoop basado en Windows en HDInsight](hdinsight-provision-clusters.md) para obtener más información.
 
-* Para un Handoop basado en Windows o Linux, consulte [Aprovisionamiento de Handoop basado en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o [Aprovisionamiento de Handoop basado en Windows en HDInsight](hdinsight-provision-clusters.md) para obtener más información.
+* **[Maven](http://maven.apache.org/)**
 
-* [Maven](http://maven.apache.org/)
-
-* [JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior
+* **[JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior**
 
 ## Cree y compile el proyecto.
 
@@ -38,7 +36,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
 
-    Este comando creará un nuevo directorio denominado **scaldingwordcount** y creará  el scaffolding para una aplicación de Scala.
+    Este comando creará un nuevo directorio denominado **scaldingwordcount** y creará el scaffolding para una aplicación de Scala.
 
 2. En el directorio **scaldingwordcount**, abra el archivo **pom.xml** y reemplace el contenido por lo siguiente:
 
@@ -77,7 +75,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
             </dependency>
           </dependencies>
           <build>
-            <sourceDirectory>src/main/scala</sourceDirectory
+            <sourceDirectory>src/main/scala</sourceDirectory>
             <plugins>
               <plugin>
                 <groupId>org.scala-tools</groupId>
@@ -109,7 +107,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
                       <excludes>
                         <exclude>META-INF/*.SF</exclude>
                         <exclude>META-INF/*.DSA</exclude>
-                        <exclude>META-INF/*.RSA</exclude>y
+                        <exclude>META-INF/*.RSA</exclude>
                       </excludes>
                     </filter>
                   </filters>
@@ -146,9 +144,9 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
     * **maven-shade-plugin**: complemento para crear productos sombreados (fat). Este complemento aplica filtros y transformaciones; específicamente:
 
-        * **filtros**: los filtros aplicados modifican la metainformación con el archivo jar. Para evitar excepciones de firma en tiempo de ejecución, lo que excluye varios archivos de firma que se pueden incluir con dependencias.
+        * **filtros**: los filtros aplicados modifican la información de metadatos incluida con el archivo jar. Para evitar las excepciones de firma en tiempo de ejecución, se excluyen los diversos archivos de firma que se pueden incluir con dependencias.
 
-        * **ejecuciones**: la configuración de ejecución de fase del paquete especifica la clase **com.twitter.scalding.Tool** como la clase principal para dicho paquete. Sin ella, necesitaría especificar com.twitter.scalding.Tool, así como la clase que contiene la aplicación lógica, cuando se ejecuta el trabajo con el comando de Haddop.
+        * **executions**: la configuración de ejecución de la fase del paquete especifica la clase **com.twitter.scalding.Tool** como la clase principal para el paquete. Sin esto, necesitaría especificar com.twitter.scalding.Tool, así como la clase que contiene la lógica de la aplicación cuando se ejecuta el trabajo con el comando de hadoop.
 
 3. Elimine el directorio **src/test**, ya que no creará pruebas en este ejemplo.
 
@@ -170,7 +168,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
           }
         }
 
@@ -290,6 +288,6 @@ Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, us
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

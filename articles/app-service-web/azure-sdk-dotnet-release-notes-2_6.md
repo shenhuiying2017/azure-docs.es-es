@@ -91,7 +91,16 @@ La cuenta de almacenamiento de diagnósticos ahora se puede especificar en el ar
  
 ##Problemas conocidos
 
-Recopilar registros de diagnósticos en el emulador requiere un sistema operativo de 64 bits. Los registros de diagnósticos no se recopilarán cuando se ejecuten en un sistema operativo de 32 bits. Esto no afecta ninguna otra funcionalidad del emulador.
+- Recopilar registros de diagnósticos en el emulador requiere un sistema operativo de 64 bits. Los registros de diagnósticos no se recopilarán cuando se ejecuten en un sistema operativo de 32 bits. Esto no afecta ninguna otra funcionalidad del emulador. 
 
-<!--HONumber=52-->
+- La versión del SDK 2.6 de Azure del 29 de abril de 2015 presentaba dos problemas:
+
+	- No se podía cargar la aplicación universal en Visual Studio 2015 cuando el SDK 2.6 de Azure se instalaba en el equipo.
+	- La depuración de un proyecto de servicios en la nube daba error en Visual Studio 2013 y Visual Studio 2015 y Visual Studio dejaba de responder y se bloqueaba al tiempo que mostraba un cuadro de diálogo con el mensaje "Configurando diagnósticos para el emulador".
+	
+	Se publicó una actualización del SDK 2.6 de Azure el 18 de mayo de 2015. La versión actualizada es 2.6.30508.1601, y contiene correcciones para los dos problemas descritos anteriormente. Puede identificar la compilación del SDK en el Panel de Control -> Programas y características -> Microsoft Azure Tools para Microsoft Visual Studio 2013 – v 2.6. La columna Versión mostrará el número de compilación.
+
+	Si todavía sigue experimentando los problemas mencionados anteriormente, instale la versión más reciente del SDK 2.6 de Azure para [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+
+<!---HONumber=62-->

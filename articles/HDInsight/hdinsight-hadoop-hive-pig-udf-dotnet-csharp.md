@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Uso de C# con Hive y Pig en HDInsight de Azure"
-	description="Vea cómo utilizar funciones definidas por el usuario (UDF) de C# desde el streaming de Hive y Pig en HDInsight de Azure."
+	pageTitle="Uso de C# con Hive y Pig en Hadoop en HDInsight | Microsoft Azure"
+	description="Vea cómo usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en HDInsight de Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -17,7 +17,7 @@
 	ms.author="larryfr"/>
 
 
-#Uso de C# con Hive y Pig en HDInsight
+#Usar funciones definidas por el usuario de C# con el streaming de Hive y Pig en Hadoop de HDInsight 
 
 Hive y Pig resultan excelentes para trabajar con datos en Azure HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Hive y Pig permiten efectuar llamadas a código externo a través de funciones definidas por el usuario (UDF) o de streaming.
 
@@ -122,7 +122,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
 6. Haga doble clic en **Contenedor predeterminado** para el clúster. Se abrirá una nueva ventana en la que se muestra el contenido del contenedor predeterminado.
 
-7. Haga clic en el icono de carga y, a continuación, vaya a la carpeta **bin\\debug** del proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
+7. Haga clic en el icono de carga y, a continuación, vaya a la carpeta **bin\debug** del proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
 
 	![icono para cargar](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -239,5 +239,6 @@ Para conocer otras formas de usar Pig y Hive y para obtener información acerca 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,24 +1,24 @@
-<properties 
-   pageTitle="Información sobre Hadoop en HDInsight mediante la Galería de ejemplos | Microsoft Azure" 
-   description="La Galería de introducción de HDInsight proporciona una manera rápida de conocer Hadoop ejecutando aplicaciones de ejemplo en HDInsight. Algunos ejemplos tienen datos de ejemplo o puede proporcionar los suyos propios." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
+<properties
+   pageTitle="Información sobre Hadoop en HDInsight mediante la Galería de ejemplos | Microsoft Azure"
+   description="Aprenda Hadoop rápidamente ejecutando aplicaciones de ejemplo desde la Galería de introducción de HDInsight. Use datos de ejemplo o proporcione los suyos propios."
+   services="hdinsight"
+   documentationCenter=""
+   authors="mumian"
+   manager="paulettm"
    editor="cgronlun"/>
 
-<tags 
-   ms.service="hdinsight" 
-   ms.workload="big-data" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="03/31/2015" 
+<tags
+   ms.service="hdinsight"
+   ms.workload="big-data"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="get-started-article" 
+   ms.date="03/31/2015"
    ms.author="jgao"/>
 
 # Información sobre Hadoop con la Galería de introducción de HDInsight
 
-La Galería de introducción de HDInsight proporciona una manera fácil y rápida de conocer Hadoop ejecutando aplicaciones de ejemplo en HDInsight. Algunos ejemplos incluyen datos de muestra. Puede proporcionar sus propios datos para el resto de los ejemplos. Actualmente, existen los siguientes seis ejemplos  (pero pronto habrá más):
+La Galería de introducción de HDInsight proporciona una manera fácil y rápida de conocer Hadoop ejecutando aplicaciones de ejemplo en HDInsight. Algunos ejemplos incluyen datos de muestra. Puede proporcionar sus propios datos para el resto de los ejemplos. Actualmente, existen los siguientes seis ejemplos (pero pronto habrá más):
 
 - Soluciones con los datos de Azure
 	- Análisis de registro del sitio web de Microsoft Azure
@@ -39,7 +39,7 @@ El clip de vídeo siguiente muestra cómo ejecutar la muestra de análisis de te
 **Para ejecutar un ejemplo de la Galería de introducción, siga estos pasos:**
 
 1.	Inicie sesión en el [Portal de Azure][azure.portal].
-2.	Haga clic en **HDInsight** en el panel izquierdo. Verá una lista de los clústeres de HDInsight existentes, incluidos los clústeres de Hadoop, Storm y HBase. 
+2.	Haga clic en **HDInsight** en el panel izquierdo. Verá una lista de los clústeres de HDInsight existentes, incluidos los clústeres de Hadoop, Storm y HBase.
 3.	Haga clic en el clúster en el que desea ejecutar la muestra.
 4.	En la parte inferior de la página, haga clic en **CONSOLA DE CONSULTAS**.
 5.	Escriba el nombre de usuario y la contraseña de Hadoop para el clúster.
@@ -62,4 +62,6 @@ Otras formas de aprender HDInsight son:
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://manage.windowsazure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

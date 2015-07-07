@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="05/11/2015"
    ms.author="rajram"/>
    
 #Conector de blobs de almacenamiento de Azure
@@ -22,22 +22,11 @@
 El conector de blobs de almacenamiento de Azure permite cargar, descargar y eliminar blobs de un contenedor de blobs.
 
 ##Creación de un nuevo conector de blobs de almacenamiento de Azure
-Para crear un nuevo conector de almacenamiento de Azure, siga los pasos que se mencionan a continuación.
-<ul>
-<li>Iniciar el portal de Azure <li> Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace.
-</ul>
+Para crear un nuevo conector de almacenamiento de Azure, siga los pasos que se mencionan a continuación. <ul> <li>Iniciar el portal de Azure <li> Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace.</ul>
 
-![Inicio de Azure Marketplace][1]<br>
-<ul>
-<li>Haga clic en Aplicaciones de API
-<li>Busque <i>Blob</i> y seleccione el conector de blobs de almacenamiento de Azure
-</ul>
+![Inicio de Azure Marketplace][1]<br> <ul> <li>Haga clic en Aplicaciones de API <li>Busque <i>Blob</i> y seleccione el conector de blobs de almacenamiento de Azure</ul>
 
-![Selección del conector del blobs de almacenamiento de Azure][2]
-<br>
-<ul>
-<li>Haga clic en Crear <li>En la hoja del conector de blobs de almacenamiento de Azure que se abre, proporcione los siguientes datos.
-</ul>
+![Selección del conector del blobs de almacenamiento de Azure][2] <br> <ul> <li>Haga clic en Crear <li>En la hoja del conector de blobs de almacenamiento de Azure que se abre, proporcione los siguientes datos.</ul>
 
 ![Creación del conector del blobs de almacenamiento de Azure][3]
 
@@ -70,7 +59,7 @@ En el panel derecho, haga clic en el conector de blobs de almacenamiento de Azur
 
 ![Lista de acciones de blobs de almacenamiento de Azure][10]
 
-El conector de blobs de almacenamiento de Azure admite las siguientes siguientes:
+El conector de blobs de almacenamiento de Azure admite seis acciones. siguientes:
 
 - **Obtener blob**: obtenga un blob específico del contenedor.
 - **Cargar blob**: cargue un blob nuevo o actualice uno existente.
@@ -117,5 +106,6 @@ Puede establecerlo en cualquier valor que desee. Esto es solo un ejemplo. La exp
 [9]: ./media/app-service-logic-connector-azurestorageblob/ConfiguredBlobAvailableTrigger.PNG
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

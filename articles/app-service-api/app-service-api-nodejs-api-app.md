@@ -1,10 +1,10 @@
-<properties 
-	pageTitle="Build and deploy a Node.js API app in Azure App Service" 
-	description="Learn how to create a Node.js API app package and deploy it to Azure App Service." 
-	services="app-service\api" 	
-	documentationCenter="nodejs" 
-	authors="pkefal" 
-	manager="", 
+<properties
+	pageTitle="Compilación e implementación de una aplicación de API de Node.js en el Servicio de aplicaciones de Azure"
+	description="Aprenda a crear un paquete de aplicación de API de Node.js y a implementarlo en el Servicio de aplicaciones de Azure."
+	services="app-service\api"
+	documentationCenter="nodejs"
+	authors="pkefal"
+	manager=""
 	editor=""/>
 
 <tags
@@ -23,6 +23,8 @@ Este tutorial muestra la forma de crear una aplicación de [Node.js](http://node
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![][sample-api-app-page]
+
+> [AZURE.NOTE]También puede usar Visual Studio Code para compilar e implementar una aplicación de API Node.js en un Servicio de aplicaciones de Azure. Para obtener más información sobre Visual Studio Code y Node.js, consulte [Visual Studio Code](http://code.visualstudio.com/Docs/) y [Desarrollo de aplicaciones de nodo](http://code.visualstudio.com//Docs/nodejs).
 
 ## Creación de una aplicación de API en el Portal de vista previa de Azure
 
@@ -189,7 +191,7 @@ En esta sección, se crea un repositorio Git local e inserta desde ese repositor
 
 		remote: Deployment successful.
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
-		* [new branch master] -> master
+	 	* [new branch]      master -> master
 
 ## Visualización de la definición de la API en el portal de vista previa de Azure
 
@@ -219,8 +221,6 @@ En el portal de vista previa de Azure, vaya a la hoja **Host de aplicación API*
 
 El explorador muestra la página principal que vio anteriormente cuando ejecutó localmente la aplicación de ejemplo.
 
-## Metadatos de la aplicación de API
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Pasos siguientes
@@ -243,6 +243,6 @@ Ha implementado una aplicación web de Node.js que usa el back-end de una aplica
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

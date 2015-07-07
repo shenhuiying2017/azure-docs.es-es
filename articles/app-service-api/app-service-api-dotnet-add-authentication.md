@@ -20,7 +20,7 @@
 
 ## Información general
 
-En el tutorial [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md) se ha implementado una aplicación de API con nivel de acceso **Disponible para cualquier persona**. En este tutorial se muestra cómo proteger una aplicación de API para que solo los usuarios autenticados puedan tener acceso a ella.
+En este tutorial se muestra cómo proteger una aplicación de API para que solo los usuarios autenticados puedan tener acceso a ella. El tutorial también muestra el código que puede utilizar en una aplicación de API de ASP.NET para recuperar información sobre el usuario que ha iniciado la sesión.
 
 Realizará los pasos siguientes:
 
@@ -29,6 +29,7 @@ Realizará los pasos siguientes:
 - Volver a llamar a la aplicación de API para comprobar que rechaza las solicitudes no autenticadas.
 - Iniciar sesión en el proveedor configurado.
 - Volver a llamar a la aplicación de API para comprobar que el acceso autenticado funciona.
+- Escribir y probar el código que recupera notificaciones para el usuario que ha iniciado la sesión.
 
 ## Requisitos previos
 
@@ -158,7 +159,13 @@ En el portal de Azure, la pestaña **Configurar** de la aplicación que ha cread
 
 	![Dirección URL de la puerta de enlace](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	El valor [providername] es "microsoftaccount", "facebook", "twitter", "google" o "aad".
+	[providername] debe ser uno de los siguientes valores:
+	
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+	* "aad"
 
 	A continuación se muestra una URL de inicio de sesión de ejemplo para Azure Active Directory:
 
@@ -230,6 +237,74 @@ Estas instrucciones muestran cómo utilizar la herramienta Postman en el explora
 
 	![Respuesta 403 - Prohibido](./media/app-service-api-dotnet-add-authentication/403forbidden.png)
 
+## Obtención de información sobre el usuario que ha iniciado sesión
+
+En esta sección, se cambiar el código de la aplicación de API de ContactsList para que recupere y devuelva la dirección de correo electrónico y el nombre del usuario que ha iniciado la sesión.
+
+1. En Visual Studio, abra el proyecto de aplicación de API que implementó en [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md) al que ha estado llamando este tutorial.
+
+3. Abra el archivo apiapp.json y agregue una línea que indica que la aplicación de API usa la autenticación de Azure Active Directory.
+
+		"authentication": [{"type": "aad"}]
+
+	El archivo final apiapp.json tendrá un aspecto similar al siguiente:
+
+		{
+		    "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
+		    "id": "ContactsList",
+		    "namespace": "microsoft.com",
+		    "gateway": "2015-01-14",
+		    "version": "1.0.0",
+		    "title": "ContactsList",
+		    "summary": "",
+		    "author": "",
+		    "endpoints": {
+		        "apiDefinition": "/swagger/docs/v1",
+		        "status": null
+		    },
+		    "authentication": [{"type": "aad"}]
+		}
+
+	Este tutorial utiliza Azure Active Directory como ejemplo. Para otros proveedores, se usa el identificador apropiado. Estos son los valores válidos de proveedor:
+
+	* "aad"
+	* "microsoftaccount"
+	* "google"
+	* "twitter"
+	* "facebook". 
+
+2. En el archivo *ContactsController.cs*, reemplace el código del método `Get` con el código siguiente.
+
+		var runtime = Runtime.FromAppSettings(Request);
+		var user = runtime.CurrentUser;
+		TokenResult token = await user.GetRawTokenAsync("aad");
+		var name = (string)token.Claims["name"];
+		var email = (string)token.Claims["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"];
+		return new Contact[]
+		{
+		    new Contact { Id = 1, EmailAddress = email, Name = name }
+		};
+
+	En lugar de los tres contactos de ejemplo, el código devuelve información de contacto para el usuario que ha iniciado la sesión.
+
+	En el código de ejemplo, se usa Azure Active Directory. Para otros proveedores, usaría el identificador de notificaciones y el nombre de token adecuados, tal como se muestra en el paso anterior.
+
+	Para obtener información acerca de las notificaciones de Azure Active Directory que están disponibles, consulte [Tipo de notificaciones y tokens admitidos](https://msdn.microsoft.com/library/dn195587.aspx).
+
+3. Agregue la instrucción using para `Microsoft.Azure.AppService.ApiApps.Service`.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+3. Vuelva a implementar el proyecto.
+
+	Visual Studio recordará la configuración de cuando se implementó el proyecto al realizar el tutorial de [implementación](app-service-dotnet-deploy-api-app.md). Haga clic en con el botón derecho en el proyecto, haga clic en **Publicar** y, de nuevo en **Publicar** en el cuadro de diálogo **Publicar web**.
+
+6. Siga el procedimiento que hizo anteriormente para enviar una solicitud Get a la aplicación de API protegida.
+
+	El mensaje de respuesta muestra el nombre y el identificador de la identidad utilizada para iniciar sesión.
+
+	![Mensaje de respuesta con el usuario con sesión iniciada](./media/app-service-api-dotnet-add-authentication/chromegetuserinfo.png)
+
 ## Pasos siguientes
 
 Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active Directory o la autenticación de proveedor social. Para obtener más información, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
@@ -239,4 +314,6 @@ Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active
 [Portal del vista previa de Azure]: https://portal.azure.com/
 
 
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

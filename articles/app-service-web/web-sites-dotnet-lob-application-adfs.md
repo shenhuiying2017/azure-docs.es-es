@@ -18,12 +18,12 @@
 
 # Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de AD FS
 
-En este artículo, aprenderá a crear una aplicación de línea de negocio de ASP.NET MVC en [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714)usando [Servicios de federación de Active Directory (ADFS)](http://technet.microsoft.com/library/hh831502.aspx) como el proveedor de identidades. Este escenario puede funcionar cuando desea crear aplicaciones de línea de negocio en Aplicaciones web del Servicio de aplicaciones de Azure, pero su organización requiere que todos los datos se almacenen en el sitio.
+En este artículo, aprenderá a crear una aplicación de línea de negocio de ASP.NET MVC en [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) mediante el uso de [Servicios de federación de Active Directory (ADFS)](http://technet.microsoft.com/library/hh831502.aspx) locales como el proveedor de identidades. Este escenario puede funcionar cuando desea crear aplicaciones de línea de negocio en Aplicaciones web del Servicio de aplicaciones de Azure, pero su organización requiere que todos los datos se almacenen en el sitio.
 
->[AZURE.NOTE] Para obtener información general de las distintas opciones de autorización y autenticación empresarial para Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Usar Active Directory para la autenticación en el Servicio de aplicaciones de Azure](web-sites-authentication-authorization.md).
+>[AZURE.NOTE]Para obtener información general de las distintas opciones de autorización y autenticación empresarial para Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Usar Active Directory para la autenticación en el Servicio de aplicaciones de Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
-## Qué va a crear ##
+## Lo que va a crear ##
 
 Creará una aplicación ASP.NET básica en Aplicaciones web del Servicio de aplicaciones de Azure con las siguientes características:
 
@@ -36,7 +36,7 @@ Creará una aplicación ASP.NET básica en Aplicaciones web del Servicio de apli
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE] Si quiere empezar a trabajar con el servicio de aplicaciones de Azure antes de contratar una cuenta de Azure, vaya a [Probar el servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde puede crear inmediatamente una aplicación web inicial de corta duración en el servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Necesita lo siguiente para completar este tutorial:
 
@@ -46,7 +46,7 @@ Necesita lo siguiente para completar este tutorial:
 - [SDK de Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o posterior
 
 <a name="bkmk_sample"></a>
-## Usar la aplicación de muestra para la plantilla de línea de negocio ##
+## Usar la aplicación de ejemplo para la plantilla de línea de negocio ##
 
 La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet), la crea el equipo de Azure Active Directory. Debido a que AD FS es compatible con WS-Federation, puede usarla como una plantilla para crear nuevas aplicaciones de línea de negocio con facilidad. Tiene las siguientes características:
 
@@ -59,7 +59,7 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 
 2.	Clone o descargue la solución de muestra de [WebApp-WSFederation-DotNet](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) en su directorio local.
 
-	> [AZURE.NOTE] Las instrucciones de [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) muestran cómo configurar la aplicación con Azure Active Directory, pero en este tutorial lo configurará con AD FS, por lo que, en su lugar, debe seguir los pasos siguientes.
+	> [AZURE.NOTE]Las instrucciones de [README.md](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet/blob/master/README.md) muestran cómo configurar la aplicación con Azure Active Directory, pero en este tutorial lo configurará con AD FS, por lo que, en su lugar, debe seguir los pasos siguientes.
 
 3.	Abra la solución y, a continuación, Controllers\AccountController.cs en el **Explorador de soluciones**.
 
@@ -79,34 +79,32 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 	-	Identificador del usuario de confianza: `https://contoso.com/MyLOBApp`
 	-	Dirección de metadatos: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-5.	En App_Start\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:  
+5.	En App_Start\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:
 	<pre class="prettyprint">
-	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-    </pre>
+<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+</pre>
 
-6.	Ahora realizará los cambios correspondientes en Web.config. Abra Web.config y modifique la configuración de la aplicación como se resalta a continuación:  
+6.	Ahora realizará los cambios correspondientes en Web.config. Abra Web.config y modifique la configuración de la aplicación como se resalta a continuación:
 	<pre class="prettyprint">
-	&lt;appSettings&gt;
-	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
-	  &lt;add key="webpages:Enabled" value="false" /&gt;
-	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
-	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
+&lt;appSettings>
+  &lt;add key="webpages:Version" value="3.0.0.0" />
+  &lt;add key="webpages:Enabled" value="false" />
+  &lt;add key="ClientValidationEnabled" value="true" />
+  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-	&lt;/appSettings&gt;
-	</pre>
-
-	Rellene los valores de clave en función de su entorno respectivo.
+&lt;/appSettings>
+</pre>Rellene los valores de clave en función de su entorno respectivo.
 
 7.	Compile la aplicación para asegurarse de que no hay ningún error.
 
@@ -117,7 +115,7 @@ Eso es todo. Ahora la aplicación de muestra está lista para trabajar con AD FS
 
 Aquí publicará la aplicación en una aplicación web en Aplicaciones web del Servicio de aplicaciones, a la vez que conserva el entorno de depuración. Tenga en cuenta que va a publicar la aplicación antes de que tenga una relación de confianza para usuario autenticado con AD FS, por lo que la autenticación no funciona todavía. Sin embargo, si lo hace ahora puede tener la dirección URL de la aplicación web que también usará para configurar la confianza para usuario autenticado más tarde.
 
-1. Haga clic con el botón secundario en el proyecto y seleccione **Publicar**.
+1. Haga clic con el botón derecho en el proyecto y seleccione **Publicar**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/01-publish-website.png)
 
@@ -133,11 +131,11 @@ Aquí publicará la aplicación en una aplicación web en Aplicaciones web del S
 
 	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
-11. En Visual Studio, abra **Web.Release.config** en el proyecto. Inserte el siguiente código XML en la etiqueta "<configuration>" y reemplace el valor de la clave por la dirección URL de la aplicación web de publicación.  
+11. En Visual Studio, abra **Web.Release.config** en el proyecto. Inserte el siguiente código XML en la etiqueta `<configuration>` y reemplace el valor de la clave por la dirección URL de la aplicación web de publicación.
 	<pre class="prettyprint">
-&lt;appSettings&gt;
-   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" /&gt;
-&lt;/appSettings&gt;</pre>
+&lt;appSettings>
+   &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+&lt;/appSettings></pre>
 
 Cuando haya terminado, tendrá dos identificadores de usuario de confianza configurados en el proyecto, uno para el entorno de depuración en Visual Studio y otro para el sitio web publicado en Azure. Configurará una relación de confianza para usuario autenticado para cada uno de los dos entornos de AD FS. Durante la depuración, la configuración de la aplicación del archivo Web.config se usa para que su configuración de **Debug** funcione con AD FS, y cuando se publique (de forma predeterminada, se publica la configuración de **Release**), se carga un archivo Web.config transformado que incorpora los cambios de la configuración de la aplicación en Web.Release.config.
 
@@ -148,14 +146,14 @@ Si desea asociar la aplicación web publicada en Azure al depurador (es decir, d
 
 Ahora debe configurar una relación de confianza para usuario autenticado en la administración de AD FS para que su aplicación de muestra se pueda autenticar realmente con AD FS. Deberá configurar dos relaciones de confianza para usuarios autenticados independientes, una para su entorno de depuración y otra para su aplicación web publicada.
 
-> [AZURE.NOTE] Asegúrese de repetir los pasos siguientes para ambos entornos.
+> [AZURE.NOTE]Asegúrese de repetir los pasos siguientes para ambos entornos.
 
 4.	En su servidor de AD FS, inicie sesión con credenciales que tengan derechos de administración para AD FS.
-5.	Abra Administración de AD FS. Haga clic en **AD FS\Trusted Relationships\Relying Party Trusts** y seleccione **Agregar relación de confianza para usuario autenticado**.
+5.	Abra Administración de AD FS. Haga clic con el botón derecho en **AD FS\Trusted Relationships\Relying Party Trusts** y seleccione **Agregar relación de confianza para usuario de confianza**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/1-add-rptrust.png)
 
-5.	En la página **Seleccionar origen de datos**, seleccione **Especificar datos acerca del usuario de confianza manualmente**. 
+5.	En la página **Seleccionar origen de datos**, seleccione **Especificar datos acerca del usuario de confianza manualmente**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/2-enter-rp-manually.png)
 
@@ -163,33 +161,33 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 7.	En la página **Elegir protocolo**, haga clic en **Siguiente**.
 8.	En la página **Configurar certificado**, haga clic en **Siguiente**.
 
-	> [AZURE.NOTE] Puesto que ya debería estar usando HTTPS, los tokens cifrados son opcionales. Si desea realmente cifrar tokens desde AD FS en este página, debe agregar también lógica de descifrado de tokens en su código. Para obtener más información, consulte [Configurar manualmente middleware de WS-Federation de OWIN y aceptar tokens cifrados](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
+	> [AZURE.NOTE]Puesto que ya debería estar usando HTTPS, los tokens cifrados son opcionales. Si desea realmente cifrar tokens desde AD FS en este página, debe agregar también lógica de descifrado de tokens en su código. Para obtener más información, consulte [Configurar manualmente middleware de WS-Federation de OWIN y aceptar tokens cifrados](http://chris.59north.com/post/2014/08/21/Manually-configuring-OWIN-WS-Federation-middleware-and-accepting-encrypted-tokens.aspx).
   
-5.	Antes de pasar al siguiente paso, necesita algo de información de su proyecto de Visual Studio. En las propiedades del proyecto, observe la **Dirección URL de SSL** de la aplicación. 
+5.	Antes de pasar al siguiente paso, necesita algo de información de su proyecto de Visual Studio. En las propiedades del proyecto, observe la **Dirección URL de SSL** de la aplicación.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/3-ssl-url.png)
 
-6.	De nuevo en la administración de AD FS, en la página **Configurar URL** del **Asistente para agregar relación de confianza para usuario autenticado**, seleccione **Habilitar la compatibilidad para el protocolo WS-Federation Passive** y escriba la dirección URL de SSL del proyecto de Visual Studio que anotó en el paso anterior. A continuación, haga clic en **Siguiente**.
+6.	De nuevo en la administración de AD FS, en la página **Configurar URL** del **Asistente para agregar relación de confianza para usuario de confianza**, seleccione **Habilitar la compatibilidad para el protocolo WS-Federation Passive** y escriba la dirección URL de SSL del proyecto de Visual Studio que anotó en el paso anterior. A continuación, haga clic en **Siguiente**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/4-configure-url.png)
 
-	> [AZURE.NOTE] La dirección URL especifica dónde enviar al cliente después de que la autenticación se realice correctamente. Para el entorno de depuración, debe ser <code>https://localhost:&lt;puerto&gt;/</code>. En el caso de la aplicación web publicada, debe ser la dirección URL de la aplicación web.
+	> [AZURE.NOTE]La dirección URL especifica dónde enviar al cliente después de que la autenticación se realice correctamente. Para el entorno de depuración, debe ser <code>https://localhost:&lt;port&gt;/</code>. En el caso de la aplicación web publicada, debe ser la dirección URL de la aplicación web.
 
 7.	En la página **Configurar identificadores**, compruebe que la dirección URL de SSL del proyecto ya aparece en la lista y haga clic en **Siguiente**. Haga clic en **Siguiente** hasta el final del asistente con las selecciones predeterminadas.
 
-	> [AZURE.NOTE] En App_Start\Startup.Auth.cs del proyecto de Visual Studio, este identificador se compara con el valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante la autenticación federada. De forma predeterminada, se agrega la dirección URL de la aplicación del paso anterior como un identificador de usuario de confianza.
+	> [AZURE.NOTE]En App_Start\Startup.Auth.cs del proyecto de Visual Studio, este identificador se compara con el valor de <code>WsFederationAuthenticationOptions.Wtrealm</code> durante la autenticación federada. De forma predeterminada, se agrega la dirección URL de la aplicación del paso anterior como un identificador de usuario de confianza.
 
 8.	Ahora ha terminado de configurar la aplicación de usuario de confianza para su proyecto en AD FS. A continuación, configurará esta aplicación para enviar las notificaciones necesarias para la aplicación. El cuadro de diálogo **Editar reglas de notificación** se abre de forma predeterminada al final del Asistente para que pueda empezar inmediatamente. Vamos a configurar al menos las siguientes notificaciones (con esquemas entre paréntesis):
 
-	-	Nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name): se usa por ASP.NET para hacer uso de `User.Identity.Name`.
-	-	Nombre principal del usuario(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn): se usa para identificar de manera única a los usuarios de la organización.
+	-	Nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name): usado por ASP.NET para hidratar `User.Identity.Name`.
+	-	Nombre principal del usuario (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn): se usa para identificar de manera única a los usuarios de la organización.
 	-	Pertenencias a grupos como roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role): se pueden utilizar con la decoración `[Authorize(Roles="role1, role2,...")]` para autorizar a los controladores/acciones. En realidad, puede que este no sea el enfoque de mayor rendimiento para la autorización de roles, especialmente si sus usuarios de AD pertenecen con regularidad a cientos de grupos de seguridad, lo que se traduce en cientos de notificaciones de rol en el token de SAML. Un método alternativo consiste en enviar una notificación de rol única condicionalmente en función de la pertenencia del usuario a un grupo concreto. Sin embargo, lo mantendremos sencillo para este tutorial.
-	-	Id. de nombre(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier): se puede usar para la validación de antifalsificación. Para obtener más información sobre cómo hacerla funcionar con validación de antifalsificación, consulte la sección **Agregar funcionalidad de línea de negocio a la aplicación de muestra** de [Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
+	-	Id. de nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier): se puede usar para la validación de antifalsificación. Para obtener más información sobre cómo hacerla funcionar con validación de antifalsificación, consulte la sección **Agregar funcionalidad de línea de negocio a la aplicación de muestra** de [Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
-	> [AZURE.NOTE] Los tipos de notificación que necesita configurar para su aplicación dependen de las necesidades de su aplicación. Para ver la lista de notificaciones admitidas por las aplicaciones de Azure Active Directory (es decir, relaciones de confianza para usuarios autenticados), por ejemplo, consulte [Tipos de notificaciones y tokens admitidos](http://msdn.microsoft.com/library/azure/dn195587.aspx).
+	> [AZURE.NOTE]Los tipos de notificación que necesita configurar para su aplicación dependen de las necesidades de su aplicación. Para ver la lista de notificaciones admitidas por las aplicaciones de Azure Active Directory (es decir, relaciones de confianza para usuarios autenticados), por ejemplo, consulte [Tipos de notificaciones y tokens admitidos](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
 8.	En el cuadro de diálogo Editar reglas de notificación, haga clic en **Agregar regla**.
-9.	Configurar las notificaciones de nombre, UPN y rol, como se muestran a continuación y haga clic en **Finalizar**.
+9.	Configure las notificaciones de nombre, UPN y rol, como se muestra a continuación y haga clic en **Finalizar**.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/5-ldap-claims.png)
 
@@ -199,20 +197,18 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 10.	Seleccione **Enviar notificaciones con una regla personalizada** y haga clic en **Siguiente**.
 11.	Pegue el siguiente lenguaje de regla en el cuadro **Regla personalizada**, asigne el nombre **Por identificador de sesión** a la regla y haga clic en **Finalizar**.  
 	<pre class="prettyprint">
-	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-		add(
-			store = "_OpaqueIdStore",
-			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-			query = "{0};{1};{2};{3};{4}",
-			param = "useEntropy",
-			param = c1.Value,
-			param = c1.OriginalIssuer,
-			param = "",
-			param = c2.Value);
-	</pre>
-
-	Su regla personalizada debe tener un aspecto similar al siguiente:
+c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+	=> add(
+		store = "_OpaqueIdStore",
+		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+		query = "{0};{1};{2};{3};{4}",
+		param = "useEntropy",
+		param = c1.Value,
+		param = c1.OriginalIssuer,
+		param = "",
+		param = c2.Value);
+</pre>Su regla personalizada debe tener un aspecto similar al siguiente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -228,7 +224,7 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 
 	![](./media/web-sites-dotnet-lob-application-adfs/8-all-claim-rules.png)
 
-	> [AZURE.NOTE] Nuevamente, asegúrese de repetir estos pasos tanto para el entorno de depuración como para la aplicación web publicada.
+	> [AZURE.NOTE]Nuevamente, asegúrese de repetir estos pasos tanto para el entorno de depuración como para la aplicación web publicada.
 
 <a name="bkmk_test"></a>
 ## Probar la autenticación federada para la aplicación
@@ -237,13 +233,13 @@ Está preparado para probar la lógica de autenticación de la aplicación con A
 
 ![](./media/web-sites-dotnet-lob-application-adfs/10-test-user-and-group.png)
 
-Para probar la autenticación en el depurador, todo lo que tiene que hacer ahora es escribir "F5". Si desea probar la autenticación de prueba en la aplicación web publicada, navegue hasta la dirección URL.
+Para probar la autenticación en el depurador, todo lo que tiene que hacer ahora es escribir `F5`. Si desea probar la autenticación de prueba en la aplicación web publicada, navegue hasta la dirección URL.
 
 Cuando se cargue la aplicación web, haga clic en **Iniciar sesión**. Ahora debería obtener un cuadro de diálogo de inicio de sesión o la página de inicio de sesión atendida por AD FS, en función del método de autenticación seleccionado por AD FS. Esto es lo que aparece en Internet Explorer 11.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/9-test-debugging.png)
 
-Cuando inicie sesión con un usuario en el dominio de AD de la implementación de AD FS, debería ver la página principal de nuevo con **¡Hola, < nombre de usuario >!* en la esquina. Esto es lo que vemos.
+Cuando inicie sesión con un usuario en el dominio de AD de la implementación de AD FS, debería ver la página principal de nuevo con **Hello, <User Name>!** en la esquina. Esto es lo que vemos.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/11-test-debugging-success.png)
 
@@ -255,7 +251,7 @@ Hasta ahora, ha llevado a cabo correctamente lo siguiente:
 
 Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vistazo a Views\Shared_LoginPartial.cshtml, verá que usa `User.Identity.Name` para mostrar el nombre del usuario. Como se mencionó anteriormente, ASP.NET hidrata esta propiedad con la notificación del nombre de usuario autenticado, si está disponible en el token de SAML. Para ver todas las notificaciones que se envían por AD FS, coloque un punto de interrupción en Controllers\HomeController.cs, en el método de acción de índice. Cuando se autentique el usuario, inspeccione la colección `System.Security.Claims.Current.Claims`.
 
-![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png) 
+![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
 <a name="bkmk_authorize"></a>
 ## Autorizar a los usuarios para acciones o controladores concretos
@@ -265,40 +261,31 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
 1. Abra Controllers\HomeController.cs.
 2. Decore los métodos de acción `About` y `Contact` similares a los siguientes, con las pertenencias a grupos de seguridad que su usuario autenticado tiene.  
 	<pre class="prettyprint">
-    <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About()
-    {
-        ViewBag.Message = "Your application description page.";
+<mark>[Authorize(Roles="Grupo de prueba")]</mark>
+public ActionResult About()
+{
+    ViewBag.Message = "Su página de descripción de la aplicación.";
 
-        return View();
-    }
+    return View();
+}
 
-    <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()
-    {
-        ViewBag.Message = "Your contact page.";
+<mark>[Authorize(Roles="Admins. del dominio")]</mark>
+public ActionResult Contact()
+{
+    ViewBag.Message = "Su página de contacto.";
 
-        return View();
-    }
-	</pre>
+    return View();
+}
+</pre>Puesto que he agregado **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
 
-	Puesto que he agregado **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
-
-3. Para iniciar el depurador, escriba "F5" e inicie sesión y, a continuación, haga clic en **Acerca de**. Ahora debería ver la página "~/About/Index" correctamente, si el usuario autenticado tiene autorización para esa acción.
+3. Para iniciar el depurador, escriba `F5` e inicie sesión y, a continuación, haga clic en **Acerca de**. Ahora debería ver la página `~/About/Index` correctamente, si el usuario autenticado tiene autorización para esa acción.
 4. Ahora haga clic en **Contacto**, lo que en mi caso no debería autorizar a **Usuario de prueba** para la acción. Sin embargo, el explorador se redirige a AD FS, que finalmente muestra este mensaje:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Si investiga este error en el Visor de eventos del servidor de AD FS, verá este mensaje de excepción:  
-	<pre class="prettyprint">
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
-	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
-	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
-	</pre>
+	Si investiga este error en el Visor de eventos del servidor de AD FS, verá este mensaje de excepción: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
 
-	El motivo de que esto suceda es que, de forma predeterminada, MVC devuelve un mensaje 401 No autorizado cuando los roles de un usuario no están autorizados. Esto desencadena una solicitud de reautenticación para su proveedor de identidades (AD FS). Puesto que el usuario ya está autenticado, AD FS vuelve a la misma página, que a continuación emite otro mensaje 401, creando un bucle de redirección. Ahora reemplazará el método de AuthorizeAttribute `HandleUnauthorizedRequest` con una lógica sencilla para mostrar algo que tenga sentido, en lugar de continuar el bucle de redirección.
+	El motivo de que esto suceda es que, de forma predeterminada, MVC devuelve un mensaje 401 No autorizado cuando los roles de un usuario no están autorizados. Esto desencadena una solicitud de reautenticación para su proveedor de identidades (AD FS). Puesto que el usuario ya está autenticado, AD FS vuelve a la misma página, que a continuación emite otro mensaje 401, creando un bucle de redirección. Ahora reemplazará el método `HandleUnauthorizedRequest` de AuthorizeAttribute con una lógica sencilla para mostrar algo que tenga sentido, en lugar de continuar el bucle de redirección.
 
 5. Cree un archivo en el proyecto llamado AuthorizeAttribute.cs y pegue el código siguiente en él.
 
@@ -327,7 +314,7 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
 
 	El código de reemplazo envía un mensaje HTTP 403 (Prohibido) en lugar de HTTP 401 (No autorizado) en los casos autenticado pero no autorizados.
 
-6. Ejecute nuevamente el depurador con "F5". Si se hace clic en **Contacto** aparece ahora un mensaje de error más informativo (aunque poco atractivo):
+6. Ejecute nuevamente el depurador con `F5`. Si se hace clic en **Contacto** aparece ahora un mensaje de error más informativo (aunque poco atractivo):
 
 	![](./media/web-sites-dotnet-lob-application-adfs/14-unauthorized-forbidden.png)
 
@@ -336,9 +323,9 @@ Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en l
 <a name="bkmk_data"></a>
 ## Conectarse a datos locales
 
-Un motivo por el que desearía implementar su aplicación de línea de negocio con AD FS en lugar de Azure Active Directory son los problemas de cumplimiento a la hora de mantener los datos de la organización remotos. Esto también puede significar que la aplicación web en Azure debe tener acceso a bases de datos locales, ya que no se le permite usar [Base de datos SQL](/services/sql-database/) como la capa de datos para las aplicaciones web.
+Un motivo por el que desearía implementar su aplicación de línea de negocio con AD FS en lugar de Azure Active Directory son los problemas de cumplimiento a la hora de mantener los datos de la organización remotos. Esto también puede significar que su aplicación web de Azure deba acceder a bases de datos remotas, ya que no se le permite usar [Base de datos SQL](/services/sql-database/) como la capa de datos para sus aplicaciones web.
 
-Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases de datos locales con dos enfoques: [conexiones híbridas](../integration-hybrid-connection-overview.md) y [conexiones virtuales](web-sites-integrate-with-vnet.md). Para obtener más información, consulte [Uso de integración VNET y conexiones híbridas con Aplicaciones web del Servicio de aplicaciones de Azure](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases de datos locales con dos enfoques: [Conexiones híbridas](../integration-hybrid-connection-overview.md) y [Redes virtuales](web-sites-integrate-with-vnet.md). Para obtener más información, consulte [Uso de integración VNET y conexiones híbridas con Aplicaciones web del Servicio de aplicaciones de Azure](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Recursos adicionales
@@ -346,15 +333,14 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
 - [Protección de la aplicación con SSL y el atributo Authorize](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
 - [Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure](web-sites-authentication-authorization.md)
 - [Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
-- [Usar la opción de organización profesional local (ADFS) con ASP.NET en Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
+- [Usar la opción de autenticación de organización profesional local (ADFS) con ASP.NET en Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [El blog de Vittorio Bertocci](http://blogs.msdn.com/b/vbertocci/)
 - [Migrar un proyecto web de VS2013 de WIF a Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
 - [Información general de Servicios de federación de Active Directory](http://technet.microsoft.com/library/hh831502.aspx)
 - [Especificación de WS-Federation 1.1](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)
 
-## Lo que ha cambiado
-* Para obtener una guía para cambiar de sitios web al servicio de aplicaciones, consulte: [El servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía para cambiar del portal antiguo al nuevo portal, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+ 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

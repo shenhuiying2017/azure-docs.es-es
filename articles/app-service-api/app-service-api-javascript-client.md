@@ -20,7 +20,7 @@
 
 ## Información general
 
-Este artículo muestra cómo crear un cliente HTML y JavaScript para una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](/documentation/services/app-service/). Este artículo supone que tiene un conocimiento práctico de HTML y JavaScript, y se centrará en el uso del marco JavaScript [AngularJS](https://angularjs.org/)  para realizar llamadas de REST a la aplicación de API.
+Este artículo muestra cómo crear un cliente HTML y JavaScript para una [aplicación de API](app-service-api-apps-why-best-platform.md) en el [Servicio de aplicaciones de Azure](/documentation/services/app-service/). En este artículo, se presupone que tiene conocimientos prácticos de HTML y JavaScript, y que usa el marco JavaScript [AngularJS](https://angularjs.org/) para realizar llamadas de REST a la aplicación de API.
 
 Estos son artículos que debe recorrer antes de este para adquirir conocimientos previos.
 
@@ -28,7 +28,7 @@ Estos son artículos que debe recorrer antes de este para adquirir conocimientos
 2. En [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md), se implementa la aplicación de API en la suscripción de Azure.
 3. En [Depuración de una aplicación de API](../app-service-dotnet-remotely-debug-api-app.md), se usa Visual Studio para depurar el código de forma remota mientras se ejecuta en Azure.
 
-Este artículo parte de estos artículos anteriores para demostrar el uso que pueden hacer de JavaScript las aplicaciones HTML para obtener acceso a sus aplicaciones de API de back-end.
+Este artículo se basa en estos artículos anteriores al demostrar el uso que pueden hacer de JavaScript las aplicaciones HTML para obtener acceso a sus aplicaciones de API de back-end.
 
 ## Habilitación de CORS
 
@@ -36,7 +36,7 @@ Normalmente, CORS (uso compartido de recursos entre orígenes) es necesario en l
 
 ### Habilitación de CORS para puertas de enlace de aplicación de API
 
-Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting*  **MS_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
+Es posible configurar puertas de enlace de aplicación de API para habilitar CORS mediante el portal de vista previa de Azure. Agregando el *appSetting* **MS_CrossDomainOrigins** puede especificar qué direcciones URL pueden llamar a la aplicación de API. Esta sección explicará cómo utilizar este *appSetting* para habilitar CORS en el nivel de puerta de enlace de API.
 
 1. Navegue hasta la hoja del portal de vista previa de Azure para la aplicación de API en la que quiere habilitar CORS. Una vez allí, haga clic en el icono *Puerta de enlace* de la aplicación de API. 
 
@@ -70,7 +70,7 @@ El valor de configuración **MS_CrossDomainOrigins** de la aplicación se descri
 
 ### Habilitación de CORS en código de API web
 
-El proceso de habilitación CORS en API web  se documenta en profundidad en el artículo de ASP.NET [Habilitación de solicitudes entre orígenes en API web 2 de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api). Para las aplicaciones de API compiladas con la API web de ASP.NET, el proceso es exactamente el mismo (se resume a continuación). Omita esta sección si ya ha habilitado CORS, ya que la aplicación de API ya debe estar configurada correctamente.
+El proceso de habilitación CORS en API web se documenta en profundidad en el artículo de ASP.NET [Habilitación de solicitudes entre orígenes en API web 2 de ASP.NET](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api). Para las aplicaciones de API compiladas con la API web de ASP.NET, el proceso es exactamente el mismo (se resume a continuación). Omita esta sección si ya ha habilitado CORS, ya que la aplicación de API ya debe estar configurada correctamente.
 
 1. La funcionalidad de CORS se proporciona por parte del paquete de NuGet [Microsoft.AspNet.WebApi.Cors](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Cors/). Para instalarlo, abra la **Consola del administrador de paquetes** y ejecute el siguiente script de PowerShell. 
 
@@ -80,7 +80,7 @@ El proceso de habilitación CORS en API web  se documenta en profundidad en el a
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/01-cors-installed.png)
 
-1. Abra el archivo la *App_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig**  en el archivo.
+1. Abra el archivo la *App_Start/WebApiConfig.cs*. Agregue la línea de código siguiente al método **Register** de la clase **WebApiConfig** en el archivo.
 
 		config.EnableCors();
 
@@ -143,7 +143,7 @@ El proceso de habilitación CORS en API web  se documenta en profundidad en el a
 
 En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar AngularJS en ella y enlazar un front-end HTML sencillo a la aplicación de API. Implementará la aplicación web que se utiliza en el Servicio de aplicaciones de Azure. La aplicación web HTML se enlazará y mostrará los datos recuperados desde la aplicación de API, y pondrá a disposición de los usuarios una sencilla interfaz de usuario para la API de contactos.
 
-1. Haga clic con el botón derecho en la solución y seleccione **Agregar > Nuevo proyecto**.
+1. Haga clic en la solución que creó anteriormente en [Creación de una aplicación de API](app-service-dotnet-create-api-app.md) y, a continuación, seleccione **Agregar -> Nuevo proyecto**.
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -231,16 +231,16 @@ En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar
             </thead>
             <tbody>
                 <tr ng-repeat="con in contacts">
-                    <td>{{con.Id}}</td>
-                    <td>{{con.Name}}</td>
-                    <td>{{con.EmailAddress}}</td>
+                    <td>[[con.Id]]</td>
+                    <td>[[con.Name</td>
+                    <td>[[con.EmailAddress]]</td>
                     <td></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <th>Create a new Contact</th>
-                    <th colspan="2">API Status: {{status}}</th>
+                    <th colspan="2">API Status: [[status]]</th>
                     <th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
                 </tr>
                 <tr>
@@ -252,15 +252,17 @@ En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar
             </tfoot>
         </table>
 
-1. Haga clic en el archivo *index.html* y seleccione el elemento del menú **Establecer como página de inicio**. Depure el proyecto web para que se abra en el explorador predeterminado.
+1. En los elementos `tbody` y `tfoot`, sustituya cada [ por { y cada ] por }. (Este sitio no puede mostrar actualmente expresiones con llaves en los bloques de código).
 
-	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/08-run-the-web-app.png)
+2. Haga clic con el botón derecho en el archivo *index.html* y haga clic en **Establecer como página de inicio**.
 
-1. Tome nota de los elementos handlebars de plantilla en la salida de HTML. Podrá enlazar esos elementos HTML utilizando AngularJS en el paso siguiente.
+3. Haga clic con el botón derecho en el archivo *index.html* y haga clic en **Ver en el explorador**.
+
+	Observe los elementos handlebars de plantilla en la salida de HTML. Podrá enlazar esos elementos HTML utilizando AngularJS en el paso siguiente.
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/09-template-ui.png)
 
-1. Agregue el código JavaScript siguiente al archivo *index.html*  para llamar a la API y enlazar los datos de la UI de HTML a la salida de la API.
+1. Agregue el código JavaScript siguiente al archivo *index.html* para llamar a la API y enlazar los datos de la UI de HTML a la salida de la API.
 
 		/* client javascript code here */
         angular.module('myApp', []).controller('contactListCtrl', function ($scope, $http) {
@@ -308,13 +310,15 @@ En esta sección, podrá crear una nueva aplicación web vacía, instalar y usar
             $scope.refresh();
         });
 
-	> **Nota**: el número de puerto puede variar; por tanto, si el proyecto de API se ejecuta en un puerto diferente, simplemente cambie el valor de JavaScript anterior para que refleje su propio entorno.
+1, en el código que acaba de agregar a index.html, reemplace el número de puerto en la dirección URL base (`http://localhost:1578`) por el número de puerto real para el proyecto de API.
 
-1. Asegúrese de que también se ejecuta el proyecto de aplicación de API; de lo contrario, el HTML de JavaScript no funcionará correctamente. Haga clic con el botón derecho en la solución y seleccione **Propiedades**. A continuación, establezca ambos proyectos web en **Iniciar sin depurar**, y haga que el proyecto de API se ejecute primero.
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+
+1. Asegúrese de que también se ejecute el proyecto de aplicación de API cuando ejecute el cliente HTML. De lo contrario, el HTML de JavaScript no funcionará correctamente. Haga clic con el botón derecho en la solución y seleccione **Propiedades**. A continuación, establezca ambos proyectos web en **Iniciar sin depurar**, y haga que el proyecto de API se ejecute primero. 
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
-1. Depure la solución y verá que el cliente HTML/JavaScript puede conectarse al proyecto de aplicación de API y mostrar sus datos.
+1. Ejecute la solución y el cliente HTML/JavaScript se conectará al proyecto de aplicación de API y mostrará sus datos.
 
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/11-web-client-running.png)
 
@@ -331,6 +335,8 @@ En esta sección implementará al cliente HTML/JavaScript como una aplicación w
 1. Pegue la dirección URL de la aplicación de API para sobrescribir el valor anterior de la propiedad **$scope.baseUrl** en el código de JavaScript.
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
+
+	Observe que la dirección URL incluye HTTPS. El uso de HTTPS no es opcional. Las aplicaciones de API no son compatibles con HTTP.
 
 1. Haga clic con el botón derecho en el proyecto web HTML/JavaScript y seleccione el elemento del menú contextual **Publicar**.
 
@@ -360,5 +366,8 @@ En esta sección implementará al cliente HTML/JavaScript como una aplicación w
 	![apiapp.json y metadatos en el Explorador de soluciones](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
 ## Resumen 
-Este ejemplo muestra cómo puede utilizar AngularJS como plataforma de JavaScript para tener acceso a los back-end de aplicación de API. Puede cambiar la funcionalidad de acceso de REST para utilizar cualquier otro marco JavaScript. <!--HONumber=52-->
+Este ejemplo muestra cómo puede utilizar AngularJS como plataforma de JavaScript para tener acceso a los back-end de aplicación de API. Puede cambiar la funcionalidad de acceso de REST para utilizar cualquier otro marco JavaScript.
+
  
+
+<!---HONumber=62-->

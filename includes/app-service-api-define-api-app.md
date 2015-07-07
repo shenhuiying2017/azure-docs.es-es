@@ -69,6 +69,8 @@ De forma predeterminada, los proyectos de aplicaciones de API se habilitan con l
 
 Sin embargo, la plantilla de proyecto nuevo de la aplicación de API de Azure deshabilita la página de prueba de la API. Si para crear el proyecto de aplicación de API ha usado la plantilla de proyecto Aplicación de API, debe realizar los pasos siguientes para habilitar la página de prueba.
 
+**Nota:** si implementa la aplicación de API como *public anonymous* y con Swagger UI activado, cualquier persona podrá usar dicha Swagger UI para detectar las API y hacer llamadas a ellas.
+
 1. Abra el archivo *App_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
@@ -95,4 +97,4 @@ Para ver la página de prueba de la API, realice los pasos siguientes.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!--HONumber=54-->
+<!---HONumber=62-->

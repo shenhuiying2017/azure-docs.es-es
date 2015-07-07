@@ -1,6 +1,6 @@
 <properties
    pageTitle="Consulta de Hive con herramientas de Hadoop para Visual Studio | Microsoft Azure"
-   description="Obtenga información acerca de cómo utilizar Hive con HDInsight a través de Visual Studio."
+   description="Obtenga información acerca de cómo usar Hadoop en HDInsight con las herramientas de Hadoop de Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -133,5 +133,6 @@ Para obtener más información acerca de las herramientas de HDInsight para Visu
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

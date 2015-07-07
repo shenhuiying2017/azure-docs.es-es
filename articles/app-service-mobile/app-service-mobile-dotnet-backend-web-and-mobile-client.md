@@ -2,7 +2,7 @@
 	pageTitle="Creación de una aplicación con un cliente móvil y con un cliente web en el Servicio de aplicaciones de Azure"
 	description="Creación de una aplicación multicanal y con un cliente de sitio web y un cliente móvil en el Servicio de aplicaciones de Azure."
 	services="app-service\mobile"
-	documentationCenter=".net" 
+	documentationCenter=".net"
 	authors="lindydonna"
 	manager="dwrede"
 	editor=""/>
@@ -12,10 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="NA"
 	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="03/10/2015"
 	ms.author="donnam"/>
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
+# Creación de una aplicación con un cliente móvil y con un cliente web en el Servicio de aplicaciones de Azure
 
-<!--HONumber=49--> 
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
+ 
+
+<!---HONumber=62-->

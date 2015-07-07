@@ -54,7 +54,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 3. Elija la opción **Copias de seguridad** en la hoja **Configuración**. Se mostrará la hoja **Copias de seguridad**.
 	
-4. En la hoja  **Copias de seguridad**, elija el destino de la copia de seguridad, para ello seleccione la **Cuenta de almacenamiento** y el **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación web de la que quiere tener una copia de seguridad.
+4. En la hoja **Copias de seguridad**, elija el destino de la copia de seguridad, para ello seleccione la **Cuenta de almacenamiento** y el **Contenedor**. La cuenta de almacenamiento debe pertenecer a la misma suscripción que la aplicación web de la que quiere tener una copia de seguridad.
 	
 	![Selección de la cuenta de almacenamiento][ChooseStorageAccount]
 	
@@ -98,6 +98,84 @@ Puede realizar una copia de seguridad manual en cualquier momento.
 	
 	![Botón Save][SaveIcon]
 
+<a name="notes"></a>
+## Notas
+
+* Asegúrese de que configura las cadenas de conexión para cada una de las bases de datos correctamente en la hoja **Configuración de la aplicación web** en **Configuración** de la aplicación web para que la característica de copia de seguridad y restauración pueda incluir las bases de datos.
+* Aunque puede realizar una copia de seguridad que incluya más de una aplicación web en la misma cuenta de almacenamiento, se recomienda crear una cuenta de almacenamiento independiente para cada aplicación web con el fin de facilitar el mantenimiento.
+
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+
+<a name="partialbackups"></a>
+## Realizar una copia de seguridad de una parte del sitio
+
+A veces no desea copias de seguridad de todo el contenido de su sitio, especialmente si estas se realizan con regularidad, o si su sitio tiene más de 10 GB de contenido (que es la cantidad máxima para hacer una copia de una vez).
+
+Por ejemplo, no es probable que quiera realizar copias de seguridad de los archivos de registro. O si [configura para realizar copias de seguridad semanales](https://azure.microsoft.com/es-es/documentation/articles/web-sites-backup/#configure-automated-backups) no le interesa llenar la cuenta de almacenamiento con contenido estático que nunca cambia como imágenes o blogs antiguos.
+
+Las copias de seguridad parciales le permitirá elegir exactamente de qué archivos desea realizar la copia de seguridad.
+
+###Especifique los archivos de los que no desee hacer copia de seguridad
+Puede crear una lista de archivos y carpetas para excluir de la copia de seguridad.
+
+Guarde la lista en un archivo de texto llamado _backup.filter en la carpeta wwwroot de su sitio. Es una manera fácil de tener acceso a ella a través de la [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) en `http://{yoursite}.scm.azurewebsites.net/DebugConsole`. 
+
+Las instrucciones a continuación van a utilizar la consola Kudu para crear el _archivo backup.filter, pero se puede utilizar el método de implementación preferido para poner el archivo en esta ubicación.
+
+###¿Qué debe hacer?
+Tengo un sitio que contiene archivos de registro e imágenes estáticas de los últimos años que nunca van a cambiar.
+
+Ya tengo una copia de seguridad completa del sitio que incluye las imágenes antiguas. Ahora me gustaría hacer una copia de seguridad del sitio todos los días, pero no quiero pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
+
+![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
+	
+Los pasos siguientes muestran cómo podría excluir esos archivos de la copia de seguridad.
+
+####Identifique las carpetas y los archivos de los que no desee hacer copia de seguridad
+Es fácil. Ya sé que no quiero copia de seguridad de los archivos de registro, o sea quiero excluirlos `D:\home\site\wwwroot\Logs`.
+
+Hay otra carpeta de archivos de registro que tienen todas las aplicaciones web de Azure en `D:\home\LogFiles`. Vamos a excluir eso también.
+
+Tampoco quiero hacer copia de seguridad una y otra vez de las imágenes de años anteriores. Así que vamos a agregar `D:\home\site\wwwroot\Images\2013` y `D:\home\site\wwwroot\Images\2014` también a la lista.
+
+Por último, no vamos a copiar el archivo brand.png en la carpeta Imágenes, solo para mostrar que podemos colocar en la lista archivos individuales. Se encuentra en `D:\home\site\wwwroot\Images\brand.png`
+
+Esto nos deja con las siguientes carpetas de las que no queremos copia de seguridad:
+
+* D:\home\site\wwwroot\Logs
+* D:\home\LogFiles
+* D:\home\site\wwwroot\Images\2013
+* D:\home\site\wwwroot\Images\2014
+* D:\home\site\wwwroot\Images\brand.png
+
+#### Crear la lista de exclusión
+Guarde la lista de archivos y carpetas de los que no desea copia de seguridad en un archivo especial denominado _backup.filter. Cree el archivo y colóquelo en `D:\home\site\wwwroot_backup.filter`.
+
+Ponga en la lista todos los archivos y carpetas de los que no desee hacer copia de seguridad en el _archivo backup.filter. Agregue la ruta de acceso completa (en relación a D:\home) de la carpeta o archivo que desea excluir de la copia de seguridad, una ruta por línea.
+
+Así para mi sitio, `D:\home\site\wwwroot\Logs` se convierte en `\site\wwwroot\Logs`, `D:\home\LogFiles` se convierte en `\LogFiles`, y así sucesivamente, dando como resultado el siguiente contenido para mi _backup.filter:
+
+    \site\wwwroot\Logs
+    \LogFiles
+    \site\wwwroot\Images\2013
+    \site\wwwroot\Images\2014
+    \site\wwwroot\Images\brand.png
+
+Tenga en cuenta el inicio `` al principio de cada línea. Es importante.
+
+###Ejecución de la copia de seguridad
+Ahora puede ejecutar copias de seguridad de la misma forma que lo haría normalmente. [Manualmente](https://azure.microsoft.com/es-es/documentation/articles/web-sites-backup/#create-a-manual-backup), [automáticamente](https://azure.microsoft.com/es-es/documentation/articles/web-sites-backup/#configure-automated-backups), de cualquier manera está bien.
+
+Los archivos y carpetas que se encuentran bajo los filtros que aparecen en _backup.filter se excluirán de la copia de seguridad. Esto significa que ahora los archivos de registro y los archivos de imagen de 2013 y 2014 ya no se copiarán.
+
+###Restaurar la copia de un sitio
+La restauración de las copias de seguridad parciales del sitio se realizan de la misma manera que se hace para [restaurar una copia de seguridad regular](https://azure.microsoft.com/es-es/documentation/articles/web-sites-restore/). Hará lo correcto.
+
+####Los detalles técnicos
+En el caso de las copias de seguridad completas (no parciales) normalmente todo el contenido del sitio se reemplaza con lo que haya en la copia de seguridad. Si un archivo está en el sitio pero no en la copia de seguridad, se elimina.
+
+Pero al restaurar copias de seguridad parciales, cualquier contenido que se encuentra en una de las carpetas en la lista de exclusión (como `D:\home\site\wwwroot\images\2014` para mi sitio), se dejará tal cual. Y si hay archivos individuales también en la lista, también se dejarán como están durante la restauración.
+
 <a name="aboutbackups"></a>
 ## Cómo se almacenan las copias de seguridad
 
@@ -113,13 +191,43 @@ Para obtener información sobre cómo restaurar una aplicación web (incluidas l
 
 > [AZURE.NOTE]La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
 
-<a name="notes"></a>
-## Notas
+<a name="bestpractices"></a>
+##Prácticas recomendadas
+¿Qué puede hacer cuando se produce un desastre y tiene que restaurar el sitio? Asegúrese de que está preparado con antelación.
 
-* Asegúrese de que configura las cadenas de conexión para cada una de las bases de datos correctamente en la hoja **Configuración de la aplicación web** en  **Configuración** de la aplicación web para que la característica de copia de seguridad y restauración pueda incluir las bases de datos.
-* Aunque puede realizar una copia de seguridad que incluya más de una aplicación web en la misma cuenta de almacenamiento, se recomienda crear una cuenta de almacenamiento independiente para cada aplicación web con el fin de facilitar el mantenimiento.
+Puede tener copias de seguridad parciales, pero tenga por lo menos una copia de seguridad completa del sitio para que todo el contenido esté asegurado (esto es planificar para un supuesto de que ocurra lo peor). Luego, cuando tenga que restaurar las copias de seguridad, empiece con la copia de seguridad completa del sitio y, a continuación, restaure la última copia de seguridad parcial encima de la completa.
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+Esta es la razón: le permite usar los [espacios de implementación](https://azure.microsoft.com/es-es/documentation/articles/web-sites-staged-publishing/) para probar el sitio restaurado. Puede incluso probar el proceso de restauración sin tocar su sitio de producción. Y poder probar el proceso de restauración es una [opción muy buena](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/). Nunca se sabe cuándo podría encontrarse con algún problemilla, como me pasó a mi cuando intenté restaurar mi blog y acabé perdiendo la mitad de su contenido.
+
+###Una pesadilla
+
+Mi blog funciona con la plataforma de blogs [Ghost](https://ghost.org/). Como todo buen responsable desarrollador, hice una copia de seguridad de mi sitio y todo quedo estupendamente. Un día me llegó un mensaje que indicaba que había una nueva versión de Ghost y que podía actualizar mi blog con ella. Estupendo.
+
+Cree otra copia de seguridad de mi sitio para las publicaciones más recientes del blog y procedí a actualizar Ghost.
+
+En mi sitio de producción.
+
+Un tremendo error.
+
+Se produjo un problema con la actualización, la pantalla principal apareció en blanco. "No pasa nada" pensé, "no tengo más que restaurar la copia de seguridad que acabo de realizar".
+
+Restauré la actualización, y todo volvió a su sitio.. excepto las publicaciones del blog.
+
+¿¿¿QUÉ???
+
+Resulta que en las [notas de la actualización de Ghost](http://support.ghost.org/how-to-upgrade/) hay una advertencia:
+
+![Puede realizar una copia de la base de datos de contenido o datos, pero no debe hacerlo mientras Ghost está en ejecución. Deténgalo primero][GhostUpgradeWarning]
+
+Si se intenta realizar una copia de seguridad de los datos mientras se está ejecutando Ghost... no se hace copia de seguridad de los datos.
+
+¡Vaya!
+
+Si hubiera probado la restauración en un espacio de prueba primero, habría visto este problema y no hubiera perdido todas las publicaciones.
+
+Así es la vida. Estas cosas le pasan hasta a [los mejores](http://blog.codinghorror.com/international-backup-awareness-day/).
+
+Pruebe las copias de seguridad.
 
 <a name="nextsteps"></a>
 ## Pasos siguientes
@@ -154,5 +262,9 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [StartDate]: ./media/web-sites-backup/08StartDate.png
 [StartTime]: ./media/web-sites-backup/09StartTime.png
 [SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
+[ImagesFolder]: ./media/web-sites-backup/11Images.png
+[LogsFolder]: ./media/web-sites-backup/12Logs.png
+[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -105,7 +105,7 @@ Se puede crear un conector con el Portal de Azure.
 
 Veamos cómo se crea paso a paso un conector SMTP mediante Azure Marketplace.
 
-1. Inicie sesión en el [Portal](https://manage.windowsazure.com) de Microsoft Azure.
+1. Inicie sesión en el [Portal de vista previa de Microsoft Azure](https://portal.azure.com).
 2. Elija **NUEVO** > **Web + móvil** > **Azure Marketplace**.
 3. En el cuadro **Buscar**, escriba el **protocolo** y, a continuación, presione **Intro**. También puede seleccionar el valor adecuado en la lista. Una vez seleccionado, se abrirá una ventana o una hoja. Seleccione **Crear**. 
 4. Especifique las siguientes propiedades:
@@ -130,7 +130,7 @@ Servicio de aplicaciones de Microsoft Azure expone diferentes tipos de aplicaci�
 
 Para utilizar los conectores dentro de su aplicación *lógica*, elija un conector preconfigurado en la lista, agréguelo a su flujo de trabajo de diseño y efectúe los cambios de configuración necesarios. Ya está listo para usarlo.
 
-Para seguir estos pasos, necesitará una aplicación web, móvil o lógica. Consulte <> para ver los pasos específicos. Una vez que la aplicación esté disponible, agregue los conectores. Este es el procedimiento:
+Para seguir estos pasos, necesitará una aplicación web, móvil o lógica. Una vez que la aplicación esté disponible, agregue los conectores. Este es el procedimiento:
 
 Use los pasos siguientes para agregar un conector a una aplicación lógica:
 
@@ -142,18 +142,19 @@ Use los pasos siguientes para agregar un conector a una aplicación lógica:
 3. En **Galería**, elija el conector. Se agregará a la aplicación.
 4. Configure el conector:
 5. Cada conector tiene propiedades que son específicas para el servicio y el entorno al que se está conectando. Especifique los detalles de las propiedades. Tenga en cuenta que algunas propiedades son opcionales.
-6. Seleccione  **Aceptar** para guardar los cambios.
+6. Seleccione **Aceptar** para guardar los cambios.
 
 
 ## Seguridad
 Los conectores utilizan OAuth o nombres de usuario y contraseñas.
 
 ## Lea acerca de las aplicaciones lógicas y las aplicaciones web
-[¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md) | [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-app-azure-portal.md) |
+[¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md) | [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md) |
 
 
 ## Más conectores
 
 [Conectores de integración de BizTalk](app-service-logic-integration-connectors.md) | [Conectores de empresa](app-service-logic-enterprise-connectors.md) | [Conectores de negocio a negocio](app-service-logic-b2b-connectors.md) | [Conectores sociales](app-service-logic-social-connectors.md) | [Conectores de aplicaciones y datos](app-service-logic-data-connectors.md) | [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

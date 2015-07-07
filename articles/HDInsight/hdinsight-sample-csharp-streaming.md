@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Ejemplo de Hadoop de recuento de palabras por streaming de C# en HDInsight | Azure"
+	pageTitle="Ejemplo de Hadoop de recuento de palabras por streaming de C# | Microsoft Azure"
 	description="Cómo escribir programas de MapReduce en C # que usen la interfaz de streaming de Hadoop y cómo ejecutarlos en HDInsight con cmdlets de PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
@@ -44,11 +44,10 @@ Para obtener más información sobre la interfaz de streaming de Hadoop, consult
 
 Antes de empezar, debe disponer de lo siguiente:
 
-- Una cuenta de Azure. Si desea conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **un clúster de HDInsight**. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
+- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y uso de Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
-- Un clúster de HDInsight aprovisionado. Para obtener instrucciones sobre las distintas formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md).
-
-- Azure PowerShell. Debe configurarse para su uso con su cuenta. Para obtener instrucciones sobre cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 
 
 ## <a id="run-sample"></a>Ejecución de la muestra con Azure PowerShell
@@ -98,7 +97,9 @@ Antes de empezar, debe disponer de lo siguiente:
 
 	Tenga en cuenta que los archivos de salida de un trabajo de MapReduce son inmutables. Por lo tanto, si vuelve a ejecutar esta muestra, debe cambiar el nombre del archivo de salida.
 
-##<a id="java-code"></a>El código de C# para streaming de Hadoop
+
+## <a id="java-code"></a>El código de C# para streaming de Hadoop
+
 
 El programa de MapReduce utiliza la aplicación cat.exe como una interfaz de asignación para transmitir el texto en la consola y la aplicación wc.exe como la interfaz de reducción para contar el número de palabras que se transmiten desde un documento. Tanto el asignador como el reductor leen caracteres, línea por línea, a partir de la secuencia de entrada estándar (stdin) y escriben en la secuencia de salida estándar (stdout).
 
@@ -164,11 +165,13 @@ El código del asignador en el archivo cat.cs usa un objeto [StreamReader][strea
 
 El código reductor en el archivo wc.cs usa un objeto [StreamReader][streamreader] para leer caracteres de la secuencia de entrada estándar que han sido de salida por el asignador cat.exe. A medida que lee los caracteres con el método [Console.Writeline][console-writeline], cuenta las palabras contando espacios y caracteres de fin de línea al final de cada palabra. A continuación, escribe el total en la secuencia de salida estándar con el método [Console.Writeline][console-writeline].
 
-##<a id="summary"></a>Resumen
+
+## <a id="summary"></a>Resumen
 
 En este tutorial, ha visto la manera de implementar un trabajo de MapReduce en HDInsight con la ayuda del streaming de Hadoop.
 
-##<a id="next-steps"></a>Pasos siguientes
+## <a id="next-steps"></a>Pasos siguientes
+
 
 Para ver tutoriales que ejecutan otras muestras y ofrecen instrucciones sobre la ejecución de Pig, Hive y los trabajos de MapReduce en HDInsight de Azure con Azure PowerShell, consulte los siguientes artículos:
 
@@ -199,5 +202,6 @@ Para ver tutoriales que ejecutan otras muestras y ofrecen instrucciones sobre la
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

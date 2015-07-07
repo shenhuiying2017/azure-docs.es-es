@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
 # Uso de las características de aplicaciones lógicas
@@ -40,7 +40,7 @@ La repetición toma una lista de elementos y ejecuta la acción para cada elemen
 
 3. Haga clic en el icono de engranaje y seleccione **Repetir en una lista**.
  
-2. Junto al cuadro **Repetir**, haga clic en  `...` y seleccione **Cuerpo**. Esto escribirá:
+2. Junto al cuadro **Repetir**, haga clic en `...` y seleccione **Cuerpo**. Esto escribirá:
 
     	@body('twitterconnector')
 
@@ -89,15 +89,17 @@ Lo siguiente actualiza la aplicación lógica existente para que use parámetros
 		    "defaultValue" : "MicrosoftAzure"
 	    }
     
-2. Desplácese a la acción `twitterconnector`, busque el valor de consulta y reemplácelo por `@concat('#', parameters('topic'))`. La función **concat** combina dos o más cadenas.
+2. Desplácese a la acción `twitterconnector`, busque el valor de consulta y reemplácelo por `#@{parameters('topic')}`. También podría usar la función **concat** para unir dos o más cadenas, por ejemplo: `@concat('#',parameters('topic'))` es idéntica a la anterior.
  
 3. Por último, vaya a la acción `dropboxconnector` y agregue el parámetro de tema, como sigue:
 
-    	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
+    	/tweets/@{parameters('topic')}/@{repeatItem().TweetID}.txt
 
 Los parámetros son una buena forma de extraer valores que probablemente cambie mucho. Son especialmente útiles cuando necesite reemplazar parámetros en entornos diferentes. Para obtener más información sobre cómo invalidar los parámetros basados en el entorno, consulte nuestra [documentación de API de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
 Ahora, al hacer clic en **Guardar**, cada hora recibirá los nuevos tweets que tengan más de 5 retweets en una carpeta llamada **tweets** en su Dropbox.
+
+Para obtener más información acerca de las definiciones de aplicación lógica, consulte [Creación de definiciones de aplicación lógica](app-service-logic-author-definitions.md).
 
 ## Inicio de un flujo de trabajo de aplicación lógica
 Hay varias opciones para iniciar el flujo de trabajo definido en la aplicación lógica. Un flujo de trabajo siempre se puede iniciar a petición en el [Portal de Azure].
@@ -117,7 +119,7 @@ Puede usar esta devolución de llamada para invocar una aplicación lógica desd
             "outputs" : { "property" : "value" }
         }
 
-Puede pasar salidas al flujo de trabajo y hacer referencia a ellas en el flujo de trabajo. Por ejemplo, con el desencadenador anterior, si incluye `@triggers().outputs.property`, obtendrá  `value`.
+Puede pasar salidas al flujo de trabajo y hacer referencia a ellas en el flujo de trabajo. Por ejemplo, con el desencadenador anterior, si incluye `@triggers().outputs.property`, obtendrá `value`.
 
 Para obtener más información, consulte la [documentación de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
 
@@ -130,4 +132,5 @@ Para iniciar la aplicación lógica a petición, haga clic en el botón **Ejecut
 [Create a new logic app]: app-service-logic-create-a-logic-app.md
 [Creación de una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Portal de Azure]: https://portal.azure.com
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

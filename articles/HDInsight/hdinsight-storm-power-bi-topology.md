@@ -1,6 +1,6 @@
 <properties
- pageTitle="Escribir datos en Power BI desde Apache Storm"
- description="Un ejemplo de cómo escribir datos en Power BI desde una topología de C# que se ejecuta en un clúster de Apache Storm en HDInsight. Después de escribir los datos, aprenderá a crear un informe y un panel en tiempo real con Power BI."
+ pageTitle="Escribir datos en Power BI desde Apache Storm | Microsoft Azure"
+ description="Escriba datos en Power BI desde una topología de C# que se ejecuta en un clúster de Apache Storm en HDInsight. Además, cree un informe y un panel en tiempo real con Power BI."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"
@@ -16,7 +16,7 @@
  ms.date="04/28/2015"
  ms.author="larryfr"/>
 
-# Uso de Power BI (vista previa) para visualizar datos de una topología de Storm
+# Uso de Power BI (vista previa) para visualizar datos de una topología de Apache Storm
 
 La vista previa de Power BI permite mostrar visualmente los datos como informes o paneles. Con la API de REST de Power BI puede usar fácilmente datos de una topología que se ejecuta en clúster de Apache Storm en HDInsight en Power BI.
 
@@ -24,7 +24,7 @@ En este documento, aprenderá a usar Power BI para crear un informe y un panel a
 
 ## Requisitos previos
 
-* Una suscripción de Microsoft Azure válida
+- Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Un usuario de Azure Active Directory con acceso a [Power BI](https://powerbi.com)
 
@@ -34,7 +34,7 @@ En este documento, aprenderá a usar Power BI para crear un informe y un panel a
 
     * Visual Studio 2013 con [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) o [Visual Studio Community 2013](http://go.microsoft.com/fwlink/?linkid=517284&clcid=0x409)
 
-    * Visual Studio 2015  [CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+    * Visual Studio 2015 [CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
 * Herramientas de HDInsight para Visual Studio: vea [Introducción al uso de Herramientas de HDInsight para Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) para obtener información acerca de la instalación.
 
@@ -54,15 +54,15 @@ Los siguientes archivos de este proyecto implementan la funcionalidad específic
 
 ## Registro de una aplicación de Power BI
 
-1. Siga los pasos de la [guía rápida de Power BI](https://msdn.microsoft.com/en-US/library/dn931989.aspx) para suscribirse a Power BI.
+1. Siga los pasos de la [guía rápida de Power BI](https://msdn.microsoft.com/es-es/library/dn931989.aspx) para suscribirse a Power BI.
 
-2. Siga los pasos de [Registro de una aplicación](https://msdn.microsoft.com/en-US/library/dn877542.aspx) para crear un registro de aplicación. Se utilizará al obtener acceso a la API de REST de Power BI.
+2. Siga los pasos de [Registro de una aplicación](https://msdn.microsoft.com/es-es/library/dn877542.aspx) para crear un registro de aplicación. Se utilizará al obtener acceso a la API de REST de Power BI.
 
     > [AZURE.IMPORTANT]Guarde el **identificador de cliente** para el registro de la aplicación.
 
 ## Descarga del ejemplo
 
-Descargue el [ejemplo de Power BI de Storm en C# de HDInsight ]] (https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para descargarlo, bifúrquelo o clónelo mediante [git](http://git-scm.com/), o use el vínculo **Descargar** para descargar un archivo .zip del archivo.
+Descargue el [ejemplo de Power BI de Storm en C# de HDInsight ](https://github.com/Blackmist/hdinsight-csharp-storm-powerbi). Para descargarlo, bifúrquelo o clónelo mediante [git](http://git-scm.com/), o use el vínculo **Descargar** para descargar un archivo .zip del archivo.
 
 ## Configuración del ejemplo
 
@@ -137,6 +137,6 @@ La topología continuará ejecutándose hasta que la detenga o elimine el clúst
 En este documento aprendió a enviar datos de una topología de Storm a Power BI mediante REST. Para obtener información sobre cómo trabajar con otras tecnologías de Azure, vea lo siguiente:
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

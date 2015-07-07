@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configuración de la replicación de HBase entre dos centros de datos de Azure | Azure" 
-   description="Aprenda a configurar las conexiones VPN entre dos redes virtuales Azure,  la resolución de nombres de dominio entre dos redes virtuales y la replicación geográfica de HBase." 
-   services="hdinsight" 
+   pageTitle="Configuración de la replicación de HBase entre dos centros de datos | Microsoft Azure" 
+   description="Aprenda a configurar la replicación de HBase entre dos centros de datos y sobre los casos de uso para la replicación de clúster." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -30,7 +30,7 @@ Aprenda a configurar la replicación de HBase entre dos centros de datos. Alguno
 - Distribución de datos geográficos
 - Ingesta de datos en línea combinados con análisis de datos sin conexión
 
-La replicación de clúster usa una metodología de inserción de origen. Un clúster de HBase puede ser un origen, un destino, o puede cumplir ambos roles a la vez. La replicación es asincrónica y el objetivo de la replicación es la coherencia eventual. Cuando el origen recibe una edición en una familia de columna con la replicación habilitada, esa edición se propaga a todos los clústeres de destino. Cuando se replican datos de un clúster a otro, se realiza un seguimiento del clúster de origen y todos los clústeres que ya han consumido los datos para evitar bucles de replicación.  Para obtener más información, en este tutorial, configurará una replicación de origen y destino. Para otras topologías de clúster, consulte [Guía de referencia de HBase Apache ](http://hbase.apache.org/book.html#_cluster_replication).
+La replicación de clúster usa una metodología de inserción de origen. Un clúster de HBase puede ser un origen, un destino, o puede cumplir ambos roles a la vez. La replicación es asincrónica y el objetivo de la replicación es la coherencia eventual. Cuando el origen recibe una edición en una familia de columna con la replicación habilitada, esa edición se propaga a todos los clústeres de destino. Cuando se replican datos de un clúster a otro, se realiza un seguimiento del clúster de origen y todos los clústeres que ya han consumido los datos para evitar bucles de replicación. Para obtener más información, en este tutorial, configurará una replicación de origen y destino. Para otras topologías de clúster, consulte [Guía de referencia de HBase Apache ](http://hbase.apache.org/book.html#_cluster_replication).
 
 Se trata de la tercera parte de la serie:
 
@@ -42,12 +42,13 @@ El siguiente diagrama muestra las dos redes virtuales y la conectividad de red q
 
 ![Diagrama de red virtual de replicación de HBase para HDInsight][img-vnet-diagram]
 
-##<a id="prerequisites"></a>Requisitos previos
+## <a id="prerequisites"></a>Requisitos previos
+
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
+- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **Una estación de trabajo con Azure PowerShell instalado y configurado**. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install]. Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Uso del cmdlet Set-ExecutionPolicy][2].
+- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte Uso del cmdlet Set-ExecutionPolicy.
 
 - **Red virtual dos de Azure con conectividad VPN y con DNS configurado**. Para obtener instrucciones, consulte [Configuración de una conexión VPN entre dos redes virtuales de Azure][hdinsight-hbase-replication-vnet] y [Configuración DNS entre dos redes virtuales de Azure][hdinsight-hbase-replication-dns].
 
@@ -62,7 +63,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
 
-##Aprovisionamiento de clústeres de HBase en HDInsight
+## Aprovisionamiento de clústeres de HBase en HDInsight
 
 En [Configuración de una conexión VPN entre dos redes virtuales de Azure][hdinsight-hbase-replication-vnet], ha creado una red virtual en un centro de datos de Europa y una red virtual en un centro de datos de Estados Unidos. La red virtual dos está conectada a través de VPN. En esta sesión, se realizará el aprovisionamiento de un clúster de HBase en cada una de las redes virtuales. Más adelante en este tutorial, hará que uno de los clústeres de HBase replique el otro clúster de HBase.
 
@@ -147,7 +148,7 @@ El portal de Azure no es compatible con el aprovisionamiento de clústeres de HD
 
 
 
-# Configuración del reenviador condicional de DNS
+## Configuración del reenviador condicional de DNS
 
 En [Configuración de DNS para las redes virtuales][hdinsight-hbase-replication-dns], ha configurado los servidores DNS para las dos redes. Los clústeres de HBase tienen sufijos de dominio diferentes. Por lo tanto, tendrá que configurar reenviadores condicionales DNS adicionales.
 
@@ -193,7 +194,7 @@ Para configurar el reenviador condicional, necesitará saber los sufijos de domi
 
 >[AZURE.IMPORTANT]DNS debe funcionar para poder continuar con los pasos siguientes.
 
-##Habilitación de la replicación entre las tablas de HBase
+## Habilitación de la replicación entre las tablas de HBase
 
 Ahora, puede crear una tabla de HBase de ejemplo, habilitar la replicación y, a continuación, realizar la prueba con algunos datos. La tabla de ejemplo que se va a utilizar tiene dos familias de columnas: Personal y Office.
 
@@ -204,7 +205,7 @@ Cree tablas de HBase con los mismos nombres y familias de columna en los clúste
 **Para crear una tabla de HBase en Contoso-HBase-EU**
 
 1. Cambie a la ventana de RPD de **Contoso-HBase-EU**.
-2. En el escritorio, haga clic en **Línea de comandos de Hadoop**.
+2. En el escritorio, haga clic en **Línea de comandos Hadoop**.
 2. Cambie la carpeta al directorio principal de HBase:
 
 		cd %HBASE_HOME%\bin
@@ -261,7 +262,7 @@ El contenido del archivo:
 Puede cargar el mismo archivo de datos en el clúster de HBase e importar los datos desde ahí.
 
 1. Cambie a la ventana de RPD de **Contoso-HBase-EU**.
-2. En el escritorio, haga clic en  **Línea de comandos Hadoop**.
+2. En el escritorio, haga clic en **Línea de comandos Hadoop**.
 3. Cambie la carpeta al directorio principal de HBase:
 
 		cd %HBASE_HOME%\bin
@@ -273,14 +274,14 @@ Puede cargar el mismo archivo de datos en el clúster de HBase e importar los da
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
 
-##Compruebe que la replicación de datos se está llevando a cabo.
+## Compruebe que la replicación de datos se está llevando a cabo.
 
 Puede comprobar que la replicación se está llevando a cabo mediante la exploración de las tablas desde ambos clústeres con los siguientes comandos de shell de HBase:
 
 		Scan 'Contacts'
 
 
-##Pasos siguientes
+## Pasos siguientes
 
 En este tutorial, ha aprendido cómo configurar la replicación de HBase entre dos centros de datos. Para obtener más información acerca de HDInsight y HBase, consulte:
 
@@ -298,7 +299,7 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-
+[powershell-install]: ../install-configure-powershell.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -309,5 +310,5 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

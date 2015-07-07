@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari | Azure" 
-	description="Use las API de Apache Ambari para el aprovisionamiento, la administración y la supervisión de clústeres de Hadoop. Las API y herramientas de operador de Ambari son muy intuitivas y ocultan la complejidad de Hadoop." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	editor="cgronlun" 
+<properties
+	pageTitle="Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari | Microsoft Azure"
+	description="Use las API de Apache Ambari para el aprovisionamiento, la administración y la supervisión de clústeres de Hadoop. Las API y herramientas de operador intuitivas ocultan la complejidad de Hadoop."
+	services="hdinsight"
+	documentationCenter=""
+	authors="mumian"
+	editor="cgronlun"
 	manager="paulettm"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/31/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/08/2015"
 	ms.author="jgao"/>
 
 # Supervisión de clústeres de Hadoop en HDInsight con la API de Ambari
- 
+
 Aprenda a supervisar los clústeres de HDInsight de las versiones 3.1 y 2.1 con las API de Ambari.
 
-
+> [AZURE.NOTE]La información de este artículo es principalmente para los clústeres de HDInsight basados en Windows, que proporcionan una versión de solo lectura de la API de REST de Ambari. Para los clústeres basados en Linux, vea [Administrar clústeres de Hadoop mediante Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a id="whatisambari"></a> ¿Qué es Ambari?
 
@@ -34,7 +34,8 @@ HDInsight actualmente solo es compatible con la característica de supervisión 
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una estación de trabajo** con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install]. Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Para obtener más información, consulte [Ejecutar scripts de Windows PowerShell][powershell-script].
+- **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+
 
 - (Opcional) [cURL][curl]. Para instalarlo, consulte [Descargas y versiones de cURL][curl-download].
 
@@ -62,15 +63,15 @@ El siguiente es un script de Azure PowerShell para obtener la información del s
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
 	$clusterPassword = "<HDInsightClusterPassword>"
-	
+
 	$ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
 	$uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/yarn/components/resourcemanager"
-	
+
 	$passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
 	$creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
-	
-	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus 
-	
+
+	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
+
 	$response.metrics.'yarn.queueMetrics'
 
 El siguiente es un script de Azure PowerShell para obtener la información del seguimiento de trabajos de MapReduce *en un clúster de HDInsight 2.1*:
@@ -78,15 +79,15 @@ El siguiente es un script de Azure PowerShell para obtener la información del s
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
 	$clusterPassword = "<HDInsightClusterPassword>"
-	
+
 	$ambariUri = "https://$clusterName.azurehdinsight.net:443/ambari"
 	$uriJobTracker = "$ambariUri/api/v1/clusters/$clusterName.azurehdinsight.net/services/mapreduce/components/jobtracker"
-	
+
 	$passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
 	$creds = New-Object System.Management.Automation.PSCredential ($clusterUsername, $passwd)
-	
-	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus 
-	
+
+	$response = Invoke-RestMethod -Method Get -Uri $uriJobTracker -Credential $creds -OutVariable $OozieServerStatus
+
 	$response.metrics.'mapred.JobTracker'
 
 La salida es la siguiente:
@@ -100,7 +101,7 @@ El siguiente es un ejemplo de cómo obtener información de clústeres con cURL:
 	curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
 La salida es la siguiente:
-	
+
 	{"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
 	 "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
 	 "services"[
@@ -133,7 +134,7 @@ En la siguiente lista se enumeran algunas de las llamadas a API desde la supervi
 <tr><td>Obtener componentes de servicio</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components</tt></td><td>HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker</td></tr>
 <tr><td>Obtener información de componente.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components/&lt;ComponentName></tt></td><td>ServiceComponentInfo, componentes de host, métricas</td></tr>
 <tr><td>Obtener hosts</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
-<tr><td>Obtener información sobre host.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName> 
+<tr><td>Obtener información sobre host.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>
 </td><td></td></tr>
 <tr><td>Obtener componentes de host</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components </tt></td><td>namenode, resourcemanager</td></tr>
 <tr><td>Obtener información de componente de host</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components/&lt;ComponentName> </tt></td><td>HostRoles, componente, host, métricas</td></tr>
@@ -142,7 +143,7 @@ En la siguiente lista se enumeran algunas de las llamadas a API desde la supervi
 </table>
 
 
-##<a id="nextsteps"></a>Pasos siguientes 
+##<a id="nextsteps"></a>Pasos siguientes
 
 Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtener más información, consulte:
 
@@ -162,8 +163,8 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 
 [microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
-[Powershell-install]: ../install-configure-powershell.md
-[Powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-install]: ../install-configure-powershell.md
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 [hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
@@ -173,6 +174,6 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Configuración de un proyecto Web API como una aplicación de API
@@ -33,8 +33,13 @@ Este tutorial requiere la versión 2.5.1 o posterior de SDK de Azure para .NET.
 Esta sección muestra cómo configurar un proyecto de Web API existente como aplicación de API. Comenzará utilizando la plantilla de proyecto Web API para crear un proyecto Web API y, a continuación, lo configurará como una aplicación de API.
 
 1. Abra Visual Studio 2013.
-2. Seleccione **Archivo > Nuevo proyecto**. 
-3. Seleccione la plantilla **Aplicación Web ASP.NET**.  
+
+2. Seleccione **Archivo > Nuevo proyecto**.
+
+3. Seleccione la plantilla **Aplicación Web ASP.NET**.
+
+4. Asegúrese de que la casilla **Agregar Application Insights al proyecto** está desactivada.
+
 4. Asigne al proyecto el nombre *ContactsList*.
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/01-filenew-v3.png)
@@ -76,5 +81,6 @@ Esta sección muestra cómo configurar un proyecto de Web API existente como apl
 ## Pasos siguientes
 
 La aplicación de API ya está lista para implementarse. Para ello, puede seguir el tutorial [Implementación de una aplicación de API](app-service-dotnet-deploy-api-app.md).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

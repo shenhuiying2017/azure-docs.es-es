@@ -67,9 +67,11 @@ En esta sección, verá los pasos necesarios para implementar una aplicación de
 
 	![Implementación de la aplicación de API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-La ventana **Actividad del Servicio de aplicaciones de Azure** muestra el progreso de la implementación.
+	La ventana **Actividad del Servicio de aplicaciones de Azure** muestra el progreso de la implementación.
 
-![Notificación de estado de la ventana de actividad del Servicio de aplicaciones de Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+	![Notificación de estado de la ventana de actividad del Servicio de aplicaciones de Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+	Durante este proceso de implementación, Visual Studio reinicia automáticamente la *puerta de enlace*. La puerta de enlace es una aplicación web que controla las funciones administrativas de todas las aplicaciones de API en un grupo de recursos, y debe reiniciarse para que reconozca los cambios de la API en una aplicación de API. Si utiliza otro método para implementar una aplicación de API y la implementación cambia la API, tendrá que reiniciar manualmente la puerta de enlace. Para obtener información sobre cómo reiniciar la puerta de enlace en el portal, consulte [Administración de una aplicación de API](app-service-api-manage-in-portal.md).
 
 ## Visualización de aplicaciones en el Portal de vista previa de Azure
 
@@ -125,5 +127,6 @@ En esta sección, se desplazará al portal para ver la configuración básica di
 ## Pasos siguientes
 
 Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan la iteración y la implementación rápida y prueban que la API funcione correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

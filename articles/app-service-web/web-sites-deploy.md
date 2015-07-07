@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="05/21/2015"
 	ms.author="tdykstra"/>
 
 #Implementar una aplicación web en el servicio de aplicaciones de Azure
 
 ## Información general
 
-Existen varias opciones para implementar su propio contenido en  [Aplicaciones web del servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este tema se proporciona información general abreviada de cada opción y vínculos para obtener más información.
+Existen varias opciones para implementar su propio contenido en [Aplicaciones web del servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). En este tema se proporciona información general abreviada de cada opción y vínculos para obtener más información.
 
 
 ###<a name="cloud"></a>Implementación desde un sistema de control de código fuente hospedado en la nube
@@ -67,8 +67,13 @@ Azure simplifica las tareas de administración de sitios que probablemente tenga
 * [Scripts de FTP](#ftp2)
 * [Windows PowerShell](#powershell)
 * [API de administración de .NET](#api)
-* [Línea de comandos entre plataformas (xplat-cli)](#cli)
+* [Interfaz de la línea de comandos de Azure (CLI de Azure)](#cli)
 * [Línea de comandos de Web Deploy](#webdeploy)
+ 
+###<a name="octopus"></a>Octopus Deploy (Implementación de Octopus)
+
+[Octopus Deploy](http://en.wikipedia.org/wiki/Octopus_Deploy) (Implementación de Octopus) se puede usar con Aplicaciones web del Servicio de aplicaciones. Para obtener más información, consulte [Deploy ASP.NET applications to Azure Web Sites](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites) (Implementación de aplicaciones ASP.NET en Sitios web de Azure).
+
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -86,7 +91,7 @@ Para obtener más información, consulte los siguientes recursos:
 Para obtener más información, consulte los siguientes recursos:
 
 * [Publicación desde el control de código fuente en aplicaciones web con Git](web-sites-publish-source-control.md). Cómo usar Git para publicar directamente desde su equipo local en aplicaciones web (en Azure, este método de publicación se denomina Git local). También muestra cómo habilitar la implementación continua de repositorios Git desde GitHub, CodePlex o BitBucket.
-* [Implementación en aplicaciones web con GitHub con Kudu](/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman y David Ebbo que muestra cómo implementar una aplicación web directamente desde GitHub en aplicaciones web.
+* [Implementación en aplicaciones web con GitHub con Kudu](http://azure.microsoft.com/documentation/videos/deploying-to-azure-from-github/). Vídeo de Scott Hanselman y David Ebbo que muestra cómo implementar una aplicación web directamente desde GitHub en aplicaciones web.
 * [Implementación en Azure Button para aplicaciones web](http://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/). Blog sobre un método para desencadenar la implementación desde un repositorio Git.
 * [Foro de Azure para Git, Mercurial y Dropbox](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit).
 
@@ -152,7 +157,7 @@ Para obtener más información, consulte los siguientes recursos:
 * [Implementación de dos sitios web en Azure desde un repositorio Git](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx). Publicación en el blog de Scott Hanselman.
 
 
-##<a name=msbuild></a>MSBuild
+##<a name="msbuild"></a>MSBuild
 
 Si usa el [IDE de Visual Studio](#vs) para desarrollo, puede utilizar [MSBuild](http://msbuildbook.com/) para automatizar todo lo que puede hacer en el IDE. Puede configurar MSBuild para usar [Web Deploy](#webdeploy) o [FTP/FTPS](#ftp) para copiar archivos. Web Deploy también puede automatizar muchas otras tareas relacionadas con la implementación, como implementar bases de datos.
 
@@ -186,13 +191,13 @@ Para obtener más información, consulte el siguiente recurso:
 
 * [Automatización de todo con las bibliotecas de administración de Azure y .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx). Introducción a la API de administración .NET y vínculos a más documentación.
 
-##<a name="cli"></a>Línea de comandos entre plataformas (xplat-cli)
+##<a name="cli"></a>Interfaz de la línea de comandos de Azure (CLI de Azure)
 
-Puede usar la línea de comandos en máquinas Mac o Linux para implementar mediante FTP. Si lo hace, también puede tener acceso a la API de administración REST de Azure con la interfaz de línea de comandos entre plataformas de Azure (xpat-cli). La xpat-cli también se puede usar en máquinas Windows.
+Puede usar la línea de comandos en máquinas Windows, Mac o Linux para implementar mediante FTP. Si lo hace, también puede tener acceso a la API de administración REST de Azure con la CLI de Azure.
 
 Para obtener más información, consulte el siguiente recurso:
 
-* [Herramientas de línea de comandos](/downloads/#cmd-line-tools). Página de portal en Azure.com para obtener información sobre la herramienta de línea de comandos.
+* [Herramientas de línea de comandos de Azure](/downloads/#cmd-line-tools). Página de portal en Azure.com para obtener información sobre la herramienta de línea de comandos.
 
 ##<a name="webdeploy"></a>Línea de comandos de Web Deploy
 
@@ -219,5 +224,6 @@ Para obtener información sobre otros temas de implementación, consulte la secc
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
