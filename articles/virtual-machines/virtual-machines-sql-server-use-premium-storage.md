@@ -396,7 +396,7 @@ Debe aprovisionar tiempo donde se pueda realizar una conmutación por error manu
 1. Copie las de copias de seguridad completas y restáurelas con **NORECOVERY**.
 1. Copie los objetos dependientes “fuera de la base de datos de usuario”, como los inicios de sesión, etc.
 1. Cree un equilibrador de carga interno nuevo (ILB) o use un equilibrador de carga externo (ELB) y, a continuación, configure los extremos de carga equilibrada en ambos nodos nuevos.
-> [AZURE.NOTE]
+> [AZURE.NOTE] Compruebe que todos los nodos tienen la configuración de extremo correcta antes de continuar
 
 1. Detenga el acceso de usuario/aplicación al servidor SQL Server (si usa grupos de almacenamiento).
 1. Detenga los servicios del motor de SQL Server en todos los nodos (si usa grupos de almacenamiento).
