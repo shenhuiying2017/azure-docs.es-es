@@ -385,12 +385,12 @@ La definición de la siguiente red está diseñada para reconocer los números y
 -	La red tiene una tercera capa oculta (Hid3) que está totalmente conectada a la segunda capa oculta (Conv2).
 -	La capa de salida (Digit) está conectada solo a la tercera capa oculta (Hid3). La palabra clave **all** indica que la capa de salida está conectada por completo a Hid3.
 -	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
--	El número de ponderaciones por kernel es 1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300.
+-	El número de ponderaciones por kernel es 1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300.
 -	Puede calcular los nodos en cada capa oculta del modo siguiente:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: **MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
+-	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: **MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
 -	Dado que **Sharing**[d] es falso solo para d == 0, el número de los kernel es **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
