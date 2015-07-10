@@ -35,7 +35,9 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 --- | --- | ---
 Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][1]
+5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente:
+<br/>
+![][1]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Online.
 
@@ -56,7 +58,9 @@ Password | No | Especifique una contraseña válida para conectarse al sitio de 
 Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][2]
+5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente:
+<br/>
+![][2]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Server.
 
@@ -71,13 +75,28 @@ Una vez creada la aplicación de API, puede usar el conector de SharePoint como 
 
 3. Si se selecciona el conector de SharePoint al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de SharePoint mediante el conector.
 
-4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:<br/> ![][3]
+4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:
+<br/>
+![][3]
 
-5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta en la que desea realizar las operaciones: <br/> ![][4]
+5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta en la que desea realizar las operaciones:
+<br/>
+![][4]
 
-6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre: <br/> ![][5]
+6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre:
+<br/>
+![][5]
 
-7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra una lista de acciones y puede elegir la operación apropiada que se desea realizar: <br/> ![][6] <br/> **Dirección URL relativa configurada para la biblioteca de documentos** <br/> ![][7] <br/> **Dirección URL relativa configurada para la lista de documentos** <br/>
+7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra una lista de acciones y puede elegir la operación apropiada que se desea realizar:
+<br/>
+![][6]
+<br/>
+**Dirección URL relativa configurada para la biblioteca de documentos**
+<br/>
+![][7]
+<br/>
+**Dirección URL relativa configurada para la lista de documentos**
+<br/>
 
 > [AZURE.NOTE]Para los siguientes desencadenadores, se supone que ha especificado “Documentos compartidos, Listas/Tareas” en la configuración del paquete del conector, donde “Documentos compartidos” es una biblioteca de documentos y “Listas/Tareas” es una lista.
 
@@ -474,4 +493,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

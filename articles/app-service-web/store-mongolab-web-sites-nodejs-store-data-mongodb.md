@@ -49,13 +49,16 @@ Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comen
 
 1. Abra Azure Marketplace haciendo clic en **Nuevo** > **Markeplace**.  
 <!-- ![Store][button-store] -->
-2. Haga clic en el complemento **MongoLab**. ![MongoLab][entry-mongolab]
+2. Haga clic en el complemento **MongoLab**.  
+![MongoLab][entry-mongolab]
 3. En la lista de complementos, haga clic en el complemento **MongoLab** y luego en **Información de conexión**. ![BotónConnectionInfo][button-connectioninfo]  
-4. Copie **MONGOLAB_URI** en el Portapapeles. ![ConnectionInfoScreen][screen-connectioninfo]
+4. Copie **MONGOLAB_URI** en el Portapapeles.  
+![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]El URI contiene el nombre del usuario de la base de datos y la contraseña. Déle el mismo tratamiento que a la información confidencial y no lo comparta.
 
-5. Agregue el valor a la lista **Cadenas de conexión** en el menú **Configuración** de su aplicación web de Azure: ![WebAppConnectionStrings][focus-website-connectinfo]
+5. Agregue el valor a la lista **Cadenas de conexión** en el menú **Configuración** de su aplicación web de Azure:  
+![WebAppConnectionStrings][focus-website-connectinfo]
 6. En **Name** (Nombre), escriba **MONGOLAB_URI**.
 7. En **Value** (Valor), pegue la cadena de conexión que se obtuvo en la sección anterior.
 8. Seleccione **Custom** (Personalizado) en la lista desplegable Type (Tipo), en lugar del valor predeterminado **SQLAzure**.
@@ -445,7 +448,8 @@ Antes de usar la CLI de Azure, primero debe descargar un archivo que contenga in
 
 Crear una aplicación web en el Servicio de aplicaciones de Azure es muy sencillo. Si se trata de su primera aplicación web de Azure, debe usar el portal. Si ya tiene al menos un sitio web, vaya al paso 7.
 
-1. En el portal de Azure, haga clic en **Nuevo**. ![Nuevo][button-new]
+1. En el portal de Azure, haga clic en **Nuevo**.
+![Nuevo][button-new]
 2. Seleccione **Proceso > Aplicación web > Creación rápida**.
 <!-- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Escriba un prefijo de dirección URL. Seleccione un nombre de su preferencia, pero tenga en cuenta que debe ser único ('mymongoapp' probablemente no estará disponible).
@@ -570,4 +574,4 @@ Ejecute `azure site browse` en el directorio del proyecto para abrir automática
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

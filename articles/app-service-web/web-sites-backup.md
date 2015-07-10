@@ -127,7 +127,8 @@ Tengo un sitio que contiene archivos de registro e imágenes estáticas de los �
 
 Ya tengo una copia de seguridad completa del sitio que incluye las imágenes antiguas. Ahora me gustaría hacer una copia de seguridad del sitio todos los días, pero no quiero pagar para almacenar los archivos de registro o los archivos de imagen estática que no van a cambiar.
 
-![Carpeta de registros][LogsFolder] ![Carpeta de imágenes][ImagesFolder]
+![Carpeta de registros][LogsFolder]
+![Carpeta de imágenes][ImagesFolder]
 	
 Los pasos siguientes muestran cómo podría excluir esos archivos de la copia de seguridad.
 
@@ -267,4 +268,4 @@ Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
