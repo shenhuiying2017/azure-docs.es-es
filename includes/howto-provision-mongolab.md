@@ -8,7 +8,7 @@ Puede suscribirse a una base de datos MongoDB completamente administrada y hospe
 1. Seleccione MongoLab. Puede encontrarnos en la categoría **Servicios de aplicaciones** y también en **Todo**.  
 ![MongoLab][entry-mongolab]
 1. Haga clic en **Siguiente**.  
-![Pasos siguientes][button-next]
+![Pasos siguientes][button-next]  
 Se mostrará la entrada de la tienda de MongoLab.  
 ![NewMongoLab][screen-newmongolab]
 1. Seleccione la opción de **Suscripción** que desee.
@@ -19,7 +19,8 @@ Se mostrará la entrada de la tienda de MongoLab.
 1. Revise la información de la compra en la tienda y, a continuación, haga clic en **Comprar** para confirmar.  
 ![Pasos siguientes][button-purchase]  
 1. El botón de progreso de la barra de herramientas proporciona el estado de aprovisionamiento.  
-![ProgressButton][button-progress] Se mostrará un mensaje de confirmación de que la operación se ha realizado con éxito cuando se complete el aprovisionamiento.  
+![ProgressButton][button-progress]  
+Se mostrará un mensaje de confirmación de que la operación se ha realizado con éxito cuando se complete el aprovisionamiento.  
 ![SuccessMessage][message-success]
 
 ¡Enhorabuena! MongoLab acaba de realizar el aprovisionamiento de una base de datos MongoDB en la región de Azure seleccionada. Ahora dispondrá de acceso a nuestra interfaz de usuario de administración y de soporte técnico ininterrumpido.
@@ -33,4 +34,4 @@ Se mostrará la entrada de la tienda de MongoLab.
 [screen-newmongolab]: ./media/howto-provision-mongolab/screen-newmongolab.png
 [message-success]: ./media/howto-provision-mongolab/message-provisionsuccess.png
 
-<!-----HONumber=62-->
+<!------HONumber=62-->
