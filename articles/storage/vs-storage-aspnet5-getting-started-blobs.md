@@ -148,7 +148,8 @@ Para eliminar un blob, primero obtenga una referencia al blob y, a continuación
 	// Delete the blob.
 	await blockBlob.DeleteAsync();
 
-[Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
+[Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
+ Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
  
 
 <!---HONumber=58_postMigration-->
