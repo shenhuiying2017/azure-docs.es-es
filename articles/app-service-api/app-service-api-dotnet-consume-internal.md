@@ -261,5 +261,5 @@ El SDK del Servicio de aplicaciones depende de las definiciones de API de Swagge
 En este artículo se ha mostrado cómo consumir una aplicación de API interna de un cliente. NET. Para obtener información sobre cómo consumir aplicaciones de API establecidas en los niveles de acceso **Público (anónimo)** o **Público (autenticado)**, consulte [Consumo de una aplicación de API desde un cliente .NET en el Servicio de aplicaciones de Azure](app-service-api-dotnet-consume.md).
 
 Para obtener más ejemplos de código que llama a una aplicación de API de clientes. NET, descargue la aplicación de ejemplo [Tarjetas de Azure](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

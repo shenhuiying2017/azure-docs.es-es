@@ -2,7 +2,7 @@
 
 Para poder autenticar usuarios, debe registrar la aplicación con un proveedor de identidades. A continuación, debe registrar el secreto de cliente generado por el proveedor con el servicio de la aplicación.
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Examinar**, **Grupo de recursos** y, a continuación, seleccione el grupo de recursos de la aplicación móvil.
+1. Inicie sesión en el [Portal de vista previa de Azure], haga clic en **Examinar**, **Grupo de recursos** y luego seleccione el grupo de recursos de su aplicación móvil.
 
 2. Seleccione la puerta de enlace y tome nota del valor **URL** en **Propiedades**. Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
@@ -21,6 +21,6 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 4. (Opcional) Repita el paso anterior para configurar cualquier otro proveedor de identidad que desee que su aplicación admita. 
 
 <!-- URLs. -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!--HONumber=54-->
+<!---HONumber=62-->

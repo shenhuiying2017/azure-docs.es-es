@@ -118,8 +118,8 @@ Las tablas, los tipos definidos por el usuario y procedimientos almacenados se u
  
 	Este script requiere tener instalada en el equipo la utilidad sqlcmd. Si tiene SQL Server instalado, ya la tiene. De lo contrario, [descargue][sqlcmd-install] e instale la utilidad.
 	
-	También puede usar los archivos de la carpeta C:\ADFWalkthrough\Scripts para cargar los scripts de pig y hive, y los archivos de muestra en el contenedor adfwalkthrough del almacenamiento de blobs y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
-
+	Si lo prefiere, puede utilizar los archivos de la carpeta: C:\ADFWalkthrough\Scripts cargar los scripts pig y hive y los archivos de ejemplo en el contenedor adfwalkthrough, en el almacenamiento de blobs, y crear la tabla MarketingCampaignEffectiveness en la base de datos SQL de Azure MarketingCamapaigns.
+   
 2. Confirme que el equipo local tiene acceso a la base de datos SQL de Azure. Para permitir el acceso, use el **Portal de administración de Azure** o **sp_set_firewall_rule** en la base de datos maestra para crear una regla de firewall para la dirección IP del equipo. Puede tardar hasta cinco minutos que este cambio surta efecto. Consulte [Definición de reglas de firewall para SQL Azure][azure-sql-firewall].
 4. En Azure PowerShell, vaya a la ubicación donde ha extraído los ejemplos (por ejemplo, **C:\ADFWalkthrough**).
 5. Ejecute **uploadSampleDataAndScripts.ps1** 
@@ -525,4 +525,4 @@ Practique el [tutorial Uso de orígenes de datos locales][tutorial-onpremises] p
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

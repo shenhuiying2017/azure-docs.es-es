@@ -20,7 +20,7 @@
 
 Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
 
-El conector de archivos permite cargar, descargar y eliminar archivos del sistema de archivos en un equipo host. Usa el Administrador de conexiones híbridas para la conectividad híbrida a la máquina host.
+El conector de archivos permite cargar, descargar y eliminar archivos del sistema de archivos en un equipo host. Usa el administrador de conexiones híbridas para la conectividad híbrida al equipo host.
 
 ## Creación de un conector de archivos para la aplicación lógica ##
 Para usar el conector de archivos, deberá crear primero una instancia de la aplicación de API del conector de archivos. Se puede hacer de la forma siguiente:

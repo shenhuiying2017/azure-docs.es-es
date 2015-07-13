@@ -147,6 +147,9 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/SinglePageApp-Ang
 
 [Llamar a una API web CORS desde una SPA >>](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)
 
-Para acceder a recursos adicionales, consulte: - [Ejemplos de Azure AD en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
-
-<!---HONumber=58--> 
+Para acceder a recursos adicionales, consulte:
+ - [Ejemplos de Azure AD en GitHub >>](https://github.com/AzureAdSamples)
+ - [CloudIdentity.com >>](https://cloudidentity.com)
+ - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
+<!--HONumber=62-->

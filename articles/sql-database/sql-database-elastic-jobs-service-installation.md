@@ -61,5 +61,6 @@ Si se proporcionaron nuevas credenciales al instalar trabajos de bases de datos 
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

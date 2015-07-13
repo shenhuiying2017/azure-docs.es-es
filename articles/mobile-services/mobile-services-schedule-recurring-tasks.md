@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
@@ -28,11 +28,7 @@ Este tema le muestra cómo usar la funcionalidad del programador de trabajos en 
 + Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
 + Procesamiento o cambio de tamaño de imágenes almacenadas.
 
-Este tutorial le guiará por los siguientes pasos relativos al uso del programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
-
-+ [Registro para obtener acceso a Twitter y almacenamiento de credenciales]
-+ [Creación de la nueva tabla de actualizaciones]
-+ [Creación de un nuevo trabajo programado]
+Este tutorial le mostrará cómo usar el programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
 
 ##<a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
 
@@ -136,7 +132,7 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
    	Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
-    >[AZURE.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Realización de inserciones masivas</a>.
+    >[AZURE.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte [Realización de inserciones masivas](mobile-services-how-to-use-server-scripts.md#bulk-inserts).
 
 6. Haga clic en **Ejecutar una vez** para probar el script.
 
@@ -150,29 +146,17 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
 Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio móvil. Este trabajo se ejecutará como programado hasta que lo deshabilite o modifique.
 
-## <a name="nextsteps"> </a>Pasos siguientes
+## <a name="nextsteps"> </a>Otras referencias
 
 * [Referencia del script del servidor de Servicios móviles] <br/>Obtenga más información acerca del registro y uso de scripts de servidor.
 
 <!-- Anchors. -->
-[Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
-[Creación de la nueva tabla de actualizaciones]: #create-table
-[Creación de un nuevo trabajo programado]: #add-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
-[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
-[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
-[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
 [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -181,5 +165,6 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

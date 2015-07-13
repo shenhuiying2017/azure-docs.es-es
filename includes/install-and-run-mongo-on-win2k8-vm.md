@@ -18,7 +18,7 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Wi
 		C:> cd \MongoDB\bin
 		C:\my_mongo_dir\bin> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	Todos los mensajes de registro se dirigirán al archivo *F:\\MongoLogs\\mongolog.log* mientras el servidor mongod.exe se inicia y preasigna los archivos de diario. MongoDB puede tardar unos minutos en preasignar los archivos de diario e iniciar la escucha de las conexiones.
+	Todos los mensajes de registro se dirigirán al archivo *F:\MongoLogs\mongolog.log* mientras el servidor mongod.exe se inicia y preasigna los archivos de diario. MongoDB puede tardar unos minutos en preasignar los archivos de diario e iniciar la escucha de las conexiones.
 
 8. Para iniciar el shell administrativo de MongoDB, abra otra ventana de comandos desde **Inicio** y escriba lo siguiente:
 
@@ -93,4 +93,4 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Wi
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

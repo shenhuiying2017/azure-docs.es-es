@@ -24,7 +24,7 @@ Las aplicaciones lógicas se pueden desencadenar en función de una variedad de 
 
 
 
-La aplicación de galería de Box proporciona acciones como mecanismos para interactuar con el cuadro:
+La aplicación de la galería Box proporciona acciones en forma de mecanismos para la interacción con Box:
 
 
 
@@ -45,7 +45,7 @@ La aplicación de galería de Box proporciona acciones como mecanismos para inte
 	  </tr>
 	</table>
 
-	>[AZURE.NOTE] No devuelve ningún contenido del archivo.
+	>[AZURE.NOTE]No devuelve ningún contenido del archivo.
 
 
 
@@ -68,7 +68,7 @@ La aplicación de galería de Box proporciona acciones como mecanismos para inte
 	    <td>No</td>
 	  </tr>
 	</table>
-	>[AZURE.NOTE] Esta operación no eliminará el archivo después de su lectura.
+	>[AZURE.NOTE]Esta operación no eliminará el archivo después de su lectura.
 
 
 
@@ -78,7 +78,7 @@ La aplicación de galería de Box proporciona acciones como mecanismos para inte
 	  <tr>
 	    <td><b>Nombre de parámetro</b></td>
 	    <td><b>Descripción</b></td>
-    <td><b>Obligatorio</b></td>
+	    <td><b>Obligatorio</b></td>
 	  </tr>
 	  <tr>
 	    <td>Ruta de acceso de archivo</td>
@@ -166,4 +166,4 @@ Una vez creada la aplicación de API, puede usar el conector de Box como acción
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!----HONumber=62-->
+<!--HONumber=62-->

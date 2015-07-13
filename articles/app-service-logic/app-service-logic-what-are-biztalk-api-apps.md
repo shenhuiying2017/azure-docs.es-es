@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/08/2015" 
 	ms.author="mandia"/>
 
 # Qué son los conectores y las aplicaciones de API de BizTalk
@@ -40,12 +40,12 @@ Los conectores Premium amplían el alcance de los Servicios de aplicaciones aún
 ## Servicios EDI y EAI
 La creación de aplicaciones críticas para la empresa requiere más que solo conectividad. Basado en la plataforma de integración líder del sector de Microsoft - BizTalk Server - las Aplicaciones de API de BizTalk proporcionan capacidades de integración avanzadas que se acoplarán a las aplicaciones web, móviles y lógica fácilmente. Algunas de estas capacidades de integración incluyen validación, extracción, transformación, codificadores, administración de socios comerciales y la compatibilidad con los formatos EDI como X12, EDIFACT y AS2.
 
-
 ## Reglas
 Las reglas de negocio encapsulan las directivas y decisiones que controlan los procesos de negocio. Normalmente, las reglas son dinámicas y cambian con el tiempo por diferentes motivos, incluidos los planes de negocios, normas y muchas otras razones. Reglas de BizTalk en Servicios de aplicaciones le permite separar estas directivas desde el código de aplicación y hacer que el proceso de cambio sea más rápido y sencillo.
 
 
 ## Lista de conectores y aplicaciones de API
 Consulte [Lista de conectores y aplicaciones de API](app-service-logic-connectors-list.md) para obtener una lista completa de conectores y aplicaciones de API incluidas en cada categoría, incluidos los conectores estándar, EAI de BizTalk, conectores de Premium, etc.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

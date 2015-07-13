@@ -1,4 +1,4 @@
-﻿
+
 1. En el Explorador de paquetes de Eclipse, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación.
 
 		import java.util.concurrent.ExecutionException;
@@ -11,10 +11,9 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
-2. Agregue el método siguiente a la clase **ToDoActivity**: 
+2. Agregue el método siguiente a la clase **TodoActivity**:
 	
-	private void authenticate() {
-	    // Login using the Google provider.
+	private void authenticate() { // Iniciar sesión usando el proveedor de Google.
 	    
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
@@ -36,15 +35,15 @@
 
 	De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Google. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
 
-    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Google, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
+    > [AZURE.NOTE]Si usa un proveedor de identidades que no sea Google, cambie el valor pasado a **login** a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
 
-3. En el método **onCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto  `MobileServiceClient`.
+3. En el método **onCreate**, agregue la siguiente línea de código después del código que crea una instancia del objeto `MobileServiceClient`.
 
 		authenticate();
 
 	De este modo se llama al proceso de autenticación.
 
-4. Mueva el código restante situado detrás de "authenticate();" del método **onCreate** a un nuevo método **createTable**cuyo aspecto es el siguiente:
+4. Mueva el código restante situado detrás de `authenticate();` del método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
 
 		private void createTable() {
 	
@@ -62,9 +61,8 @@
 			refreshItemsFromTable();
 		}
 
-9. En el menú **Run (Ejecutar)**, haga clic en **Run (Ejecutar)** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
+9. En el menú **Ejecutar**, haga clic en **Ejecutar** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido.
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

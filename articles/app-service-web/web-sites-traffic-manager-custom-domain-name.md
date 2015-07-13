@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuración de un nombre de dominio personalizado para una aplicación web en el Servicio de aplicaciones de Azure que usa el Administrador de tráfico" 
+	pageTitle="Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure que usa el Administrador de tráfico" 
 	description="Use un nombre de dominio personalizado para un una aplicación web en el Servicio de aplicaciones de Azure que incluya el Administrador de tráfico para el equilibrio de carga." 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="05/12/2015" 
 	ms.author="mwasson"/>
 
-#Configuración de un nombre de dominio personalizado para una aplicación web en el Servicio de aplicaciones de Azure que usa el Administrador de tráfico
+#Configuración de un nombre de dominio personalizado para una aplicación web en Servicio de aplicaciones de Azure utilizando el Administrador de tráfico
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 

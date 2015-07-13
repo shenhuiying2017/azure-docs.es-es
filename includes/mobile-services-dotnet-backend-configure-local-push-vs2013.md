@@ -14,4 +14,5 @@ Tiene la posibilidad de probar las notificaciones de inserción con su servicio 
 	Esta es la dirección URL del host local del proyecto back-end de .NET. Usará esta dirección para probar la aplicación en el servicio móvil que se ejecuta en el PC local.
 
 Ahora, el proyecto de servicio móvil está configurado para conectarse al centro de notificaciones en Azure cuando se ejecuta localmente. Es importante usar el mismo nombre de centro de notificaciones y la misma cadena de conexión del portal porque esta configuración de proyecto que hay en Web.config se reemplaza por la configuración del portal cuando se ejecuta en Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

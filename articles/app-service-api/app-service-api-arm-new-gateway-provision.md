@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/23/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación de API con una nueva puerta de enlace
@@ -22,7 +22,9 @@ En este tema, aprenderá a crear una plantilla de Administrador de recursos de A
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-Para la plantilla completa, consulte [Aplicación de API con una plantilla de puerta de enlace nueva](https://github.com/tfitzmac/AppServiceTemplates/blob/master/new-gateway-new-plan-new-apiapp.json).
+Para obtener más información acerca de la implementación de aplicaciones, consulte [Implementación de una aplicación compleja de forma predecible en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Para la plantilla completa, consulte [Aplicación de API con una plantilla de puerta de enlace nueva](../../templates/app-service-api-arm-new-gateway-provision/).
 
 ## Lo que implementará
 

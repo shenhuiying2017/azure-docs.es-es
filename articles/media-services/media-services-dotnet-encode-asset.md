@@ -3,7 +3,7 @@
 	description="Aprenda a usar el codificador multimedia de Azure para codificar contenido multimedia en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 #Codificación de un recurso mediante el Codificador multimedia de Azure
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md). 
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
 ##Información general
 
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia.
 
-Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para ver los tipos de valores preestablecidos disponibles, vea Valores preestablecidos de tarea para los Servicios multimedia de Azure. Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
+Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para ver los tipos de valores preestablecidos disponibles, consulte [Valores preestablecidos de tarea para los Servicios multimedia de Azure](https://msdn.microsoft.com/library/azure/dn619392.aspx). Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx).
+Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx). Para aprovechar al máximo el empaquetado dinámico, primero debe obtener al menos una unidad de streaming a petición para el extremo de streaming desde el que va a entregar el contenido. Para obtener más información, consulte [Escalación de Servicios multimedia](media-services-manage-origins.md#scale_streaming_endpoints).
 
-Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, vea [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
+Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ##Creación de un trabajo con una sola tarea de codificación 
 
@@ -37,7 +37,7 @@ Al codificar con el Codificador multimedia de Azure, puede usar los valores pree
 
 ###Uso del SDK de Servicios multimedia para .NET  
 
-El método siguiente **EncodeToAdaptiveBitrateMP4Set** crea un trabajo de codificación y agrega una sola tarea de codificación al trabajo. La tarea usa el "Codificador multimedia de Azure" para codificar a "H264 Adaptive Bitrate MP4 Set 720p". 
+El método siguiente **EncodeToAdaptiveBitrateMP4Set** crea un trabajo de codificación y agrega una sola tarea de codificación al trabajo. La tarea usa el "Codificador multimedia de Azure" para codificar a "H264 Adaptive Bitrate MP4 Set 720p".
 
     static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
     {
@@ -142,7 +142,7 @@ El método siguiente **EncodeToAdaptiveBitrateMP4Set** crea un trabajo de codifi
 
 En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie de tareas de procesamiento. En Servicios multimedia, puede crear una serie de tareas encadenadas. Cada tarea realiza distintos pasos de procesamiento diferentes y puede usar diferentes procesadores multimedia. Las tareas encadenadas pueden entregar un recurso de una tarea a otra, realizando una secuencia lineal de tareas en el recurso. Sin embargo, no es necesario que las tareas realizadas en un trabajo estén en una secuencia. Al crear una tarea encadenada, los objetos **ITask** encadenados se crean en un solo objeto **IJob**.
 
->[AZURE.NOTE] Actualmente hay un límite de 30 tareas por trabajo. Si necesita encadenar más de 30 tareas, cree más de un trabajo para incluir las tareas.
+>[AZURE.NOTE]Actualmente hay un límite de 30 tareas por trabajo. Si necesita encadenar más de 30 tareas, cree más de un trabajo para incluir las tareas.
 
 El método **CreateChainedTaskEncodingJob** siguiente crea un trabajo que contiene dos tareas encadenadas. En consecuencia, el método devuelve un trabajo que contiene dos recursos de salida.
 
@@ -210,12 +210,12 @@ El método **CreateChainedTaskEncodingJob** siguiente crea un trabajo que contie
 ##Pasos siguientes
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Valores preestablecidos del codificador]: http://msdn.microsoft.com/library/dn619392.aspx
-[Obtención de una instancia de procesador multimedia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Instrucciones acerca de cómo: de un recurso cifrado]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Instrucciones acerca de cómo: de un recurso mediante descarga]:http://go.microsoft.com/fwlink/?LinkId=301734
-[Comprobación del progreso del trabajo]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Valores predefinidos de tarea para Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+[Encoder Preset]: http://msdn.microsoft.com/library/dn619392.aspx
+[How to: Get a Media Processor Instance]: http://go.microsoft.com/fwlink/?LinkId=301732
+[How to: Upload an Encrypted Asset]: http://go.microsoft.com/fwlink/?LinkId=301733
+[How to: Deliver an Asset by Download]: http://go.microsoft.com/fwlink/?LinkId=301734
+[How to Check Job Progress]: http://go.microsoft.com/fwlink/?LinkId=301737
+[Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -30,4 +30,5 @@ El servicio móvil está ahora configurado en AAD para recibir inicios de sesió
 
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-<!--HONumber=54-->
+
+<!---HONumber=62-->

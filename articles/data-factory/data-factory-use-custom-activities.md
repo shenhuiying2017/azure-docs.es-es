@@ -36,18 +36,18 @@ Para crear una actividad personalizada:
 
 4. Actualice la clase para implementar la interfaz **IDotNetActivity**.
 	<ol type='a'>
-		<li>
-			Derive la clase desde  <b>IDotNetActivity</b>.
-			<br/>
-			Ejemplo: <br/>
-			clase pública <b>MyDotNetActivity : IDotNetActivity</b>
-		</li>
+	<li>
+		Derive la clase desde  <b>IDotNetActivity</b>.
+		<br/>
+		Ejemplo: <br/>
+		clase pública <b>MyDotNetActivity : IDotNetActivity</b>
+	</li>
 
-		<li>
-			Implemente el método <b>Execute</b> de la interfaz <b>IDotNetActivity</b>
-		</li>
+	<li>
+		Implemente el método <b>Execute</b> de la interfaz <b>IDotNetActivity</b>
+	</li>
 
-	</ol>
+</ol>
 5. Compile el proyecto.
 
 
@@ -58,17 +58,13 @@ Para usar la actividad personalizada en una canalización:
 2.	**Cargue el archivo comprimido** como un blob en su **almacenamiento de blobs de Azure**. 
 3.	Actualice el archivo **JSON de la canalización** para hacer referencia al archivo comprimido, la DLL de actividad personalizada, la clase de actividad y el blob que contiene el archivo comprimido en el archivo JSON de la canalización. En el archivo JSON:
 	<ol type ="a">
-		<li>El <b>tipo de actividad</b> debe establecerse en <b>DotNetActivity</b>.</li>
-		<li><b>AssemblyName</b> es el nombre del archivo DLL de salida del proyecto de Visual Studio.</li>
-		<li><b>EntryPoint</b> especifica el <b>espacio de nombres</b> y el <b>nombre</b> de la <b>clase</b> que implementa la interfaz <b>IDotNetActivity</b>.</li>
-		<li><b>PackageLinkedService</b> es el servicio vinculado que hace referencia al blob que contiene el archivo comprimido. </li>
-		<li><b>PackageFile</b>  especifica la ubicación y el nombre del archivo comprimido que se ha cargado en el almacenamiento de blobs de Azure.</li>
-		<li><b>LinkedServiceName</b> es el nombre del servicio vinculado que vincula un clúster de HDInsight (a petición o suyo propio) a una factoría de datos. La actividad personalizada se ejecuta como un trabajo de solo asignación del clúster de HDInsight especificado.</li>
-	</ol>
-
-	
-
-	**Ejemplo JSON parcial**
+	<li>El <b>tipo de actividad</b> debe establecerse en <b>DotNetActivity</b>.</li>
+	<li><b>AssemblyName</b> es el nombre del archivo DLL de salida del proyecto de Visual Studio.</li>
+	<li><b>EntryPoint</b> especifica el <b>espacio de nombres</b> y el <b>nombre</b> de la <b>clase</b> que implementa la interfaz <b>IDotNetActivity</b>.</li>
+	<li><b>PackageLinkedService</b> es el servicio vinculado que hace referencia al blob que contiene el archivo comprimido. </li>
+	<li><b>PackageFile</b>  especifica la ubicación y el nombre del archivo comprimido que se ha cargado en el almacenamiento de blobs de Azure.</li>
+	<li><b>LinkedServiceName</b> es el nombre del servicio vinculado que vincula un clúster de HDInsight (a petición o suyo propio) a una factoría de datos. La actividad personalizada se ejecuta como un trabajo de solo asignación del clúster de HDInsight especificado.</li>
+</ol>**Ejemplo JSON parcial**
 
 		"Name": "MyDotNetActivity",
     	"Type": "DotNetActivity",
@@ -525,5 +521,6 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
+ 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

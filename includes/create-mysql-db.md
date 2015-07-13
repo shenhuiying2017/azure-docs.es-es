@@ -1,14 +1,8 @@
-#Creación una base de datos MySQL en Azure
-
 Esta guía le mostrará cómo usar [ClearDB] para la creación de una base de datos MySQL desde la [Tienda de Azure] y cómo crear una base de datos MySQL como un recurso vinculado cuando cree un [Sitio web Azure][waws]. [ClearDB] es un proveedor de base de datos como servicio tolerante a errores que le permite ejecutar y administrar bases de datos MySQL en centros de datos de Azure y conectarse a ellos desde cualquier aplicación.
-
-##Tabla de contenido
-* [Creación de una base de datos MySQL desde la Tienda de Azure](#CreateFromStore)
-* [Creación de una base de datos MySQL como recurso vinculado para Sitio web Azure](#CreateForWebSite)
 
 > [AZURE.NOTE]Cuando cree una base de datos MySQL como parte del proceso de creación del sitio web, solo se le permitirá crear una base de datos gratuita. Si crea una base de datos MySQL desde la Tienda de Azure, podrá crear una base de datos gratuita o seleccionar opciones de pago.
 
-<h2><a id="CreateFromStore"></a>Creación de una base de datos MySQL desde la Tienda de Azure</h2>
+## Creación de una base de datos MySQL desde la Tienda de Azure
 
 Para crear una base de datos MySQL desde la [Tienda de Azure], haga lo siguiente:
 
@@ -38,7 +32,7 @@ Para crear una base de datos MySQL desde la [Tienda de Azure], haga lo siguiente
 	![Información de la conexión MySql](./media/create-mysql-db/mysql-conn-info.png)
 
 
-<h2><a id="CreateForWebSite"></a>Creación de una base de datos MySQL como recurso vinculado para Sitio web Azure</h2>
+## Creación de una base de datos MySQL como recurso vinculado para el sitio web de Azure
 
 Para crear una base de datos MySQL como un recurso vinculado cuando crea un [Sitio web Azure][waws], haga lo siguiente:
 
@@ -79,4 +73,4 @@ Para crear una base de datos MySQL como un recurso vinculado cuando crea un [Sit
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!--HONumber=52-->
+<!---HONumber=62-->

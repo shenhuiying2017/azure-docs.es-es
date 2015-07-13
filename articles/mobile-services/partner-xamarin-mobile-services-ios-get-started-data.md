@@ -28,7 +28,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 1. [Descarga del proyecto de la aplicación Xamarin.iOS][GitHub]
 2. [Creación del servicio móvil]
-3. [Incorporación de una tabla de datos para almacenamiento]
+3. [Agregar una tabla de datos para almacenamiento]
 4. [Actualización de la aplicación para usar Servicios móviles]
 5. [Prueba de la aplicación en Servicios móviles]
 
@@ -58,11 +58,11 @@ Este tutorial se basa en la [aplicación GetStartedWithData][GitHub], que es una
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-## <a name="add-table"></a>Incorporación de una nueva tabla al servicio móvil
+## <a name="add-table"></a>Agregar una tabla nueva al servicio móvil
 
 Para poder almacenar datos de aplicaciones en el nuevo servicio móvil, primero debe crear una tabla en la instancia de Base de datos SQL asociada.
 
-1. En el Portal de administración, haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
+1. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
 2. Haga clic en la pestaña **Datos** y luego en **+Crear**.
 
@@ -100,7 +100,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 3. En el Portal de administración, haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
-4. Haga clic en la pestaña **Panel** y anote la **Dirección URL del sitio**; después, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+4. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![][8]
 
@@ -173,9 +173,9 @@ Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para
 
    	Esto envía un elemento nuevo como inserción al servicio móvil.
 
-3. En el [Portal de administración], haga clic en **Servicios móviles** y luego en su servicio móvil.
+3. En el [Portal de administración], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
-4. Haga clic en la pestaña **Datos** y luego en **Examinar**.
+4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
 
    	![][9]
 
@@ -192,7 +192,7 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 
 A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
-* [Validación y modificación de datos con scripts] <br/>Obtenga más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde la aplicación.
+* [Validación y modificación de datos con scripts] <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
 * [Limitación de consultas con paginación] <br/>Aprenda a usar la paginación en consultas para controlar la cantidad de datos que se gestionan en una única solicitud.
 
@@ -206,7 +206,7 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 
 [Get the Windows Store app]: #download-app
 [Creación del servicio móvil]: #create-service
-[Incorporación de una tabla de datos para almacenamiento]: #add-table
+[Agregar una tabla de datos para almacenamiento]: #add-table
 [Actualización de la aplicación para usar Servicios móviles]: #update-app
 [Prueba de la aplicación en Servicios móviles]: #test-app
 [Next Steps]: #next-steps
@@ -240,5 +240,6 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

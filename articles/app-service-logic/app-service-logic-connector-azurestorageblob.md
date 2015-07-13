@@ -16,12 +16,12 @@
    ms.date="05/11/2015"
    ms.author="rajram"/>
    
-#Conector de blobs de almacenamiento de Azure
+# Conector de blobs de almacenamiento de Azure
 
-##Información general
+## Información general
 El conector de blobs de almacenamiento de Azure permite cargar, descargar y eliminar blobs de un contenedor de blobs.
 
-##Creación de un nuevo conector de blobs de almacenamiento de Azure
+## Creación de un nuevo conector de blobs de almacenamiento de Azure
 Para crear un nuevo conector de almacenamiento de Azure, siga los pasos que se mencionan a continuación. <ul> <li>Iniciar el portal de Azure <li> Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace.</ul>
 
 ![Inicio de Azure Marketplace][1]<br> <ul> <li>Haga clic en Aplicaciones de API <li>Busque <i>Blob</i> y seleccione el conector de blobs de almacenamiento de Azure</ul>
@@ -41,7 +41,7 @@ Para crear un nuevo conector de almacenamiento de Azure, siga los pasos que se m
 	- **Clave de acceso**: especifique una clave de acceso de la cuenta de almacenamiento principal o secundaria. Deje este campo vacío si se utiliza un token SAS para autenticación.
 - Haga clic en Crear. Se creará un nuevo conector de blobs de almacenamiento de Azure.
 
-##Uso del conector de blobs de almacenamiento de Azure en la aplicación lógica
+## Uso del conector de blobs de almacenamiento de Azure en la aplicación lógica
 Cuando se haya creado el conector de blobs de almacenamiento de Azure, se puede consumir desde el flujo.
 
 Cree un nuevo flujo a través de +Nuevo -> Web+Móvil -> LogicApp. Proporcione los metadatos para el flujo incluyendo el grupo de recursos.
@@ -54,7 +54,7 @@ Haga clic en *Desencadenadores y acciones*. Se abrirá el diseñador de flujos.
 
 El conector de blobs de almacenamiento de Azure puede usarse como acción.
 
-###Acciones
+### Acciones
 En el panel derecho, haga clic en el conector de blobs de almacenamiento de Azure. El conector enumera las acciones admitidas.
 
 ![Lista de acciones de blobs de almacenamiento de Azure][10]
@@ -83,7 +83,7 @@ Proporcione las entradas y haga clic en la marca de graduación para completar l
 
 Tenga en cuenta que la acción Cargar blob del blob de almacenamiento de Azure configurada muestra ambos parámetros de entrada, así como parámetros de salida.
 
-####Uso de las salidas de las acciones anteriores como entrada para las acciones de blobs de almacenamiento de Azure
+#### Uso de las salidas de las acciones anteriores como entrada para las acciones de blobs de almacenamiento de Azure
 Tenga en cuenta que en la captura de pantalla configurada, el valor de Contenido se establece en una expresión.
 
 	@triggers().outputs.body.Content
@@ -107,5 +107,4 @@ Puede establecerlo en cualquier valor que desee. Esto es solo un ejemplo. La exp
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

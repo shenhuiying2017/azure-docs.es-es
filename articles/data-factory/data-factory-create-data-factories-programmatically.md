@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de la factoría de datos" 
-	description="Aprenda a crear, supervisar y administrar los generadores de datos de Azure mediante el SDK del generador de datos mediante programación." 
+	description="Conozca cómo puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de Factoría de datos." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -18,36 +18,36 @@
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
 ## Información general
-Puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de .NET de la factoría de datos. Este artículo contiene un tutorial que puede seguir para crear una aplicación de consola .NET de ejemplo que crea y controla una factoría de datos. Consulte [referencia de biblioteca de clases de generador de datos][adf-class-library-reference] para obtener detalles sobre el SDK de .NET del generador de datos.
+Puede crear, supervisar y administrar factorías de datos de Azure mediante programación con el SDK de .NET de la factoría de datos. Este artículo contiene un tutorial que puede seguir para crear una aplicación de consola .NET de ejemplo que crea y controla una factoría de datos. Vea la [Referencia de la biblioteca de clases de Factoría de datos][adf-class-library-reference] para obtener más información sobre el SDK de .NET de la factoría de datos.
 
 
 
 ## Requisitos previos
 
 - Visual Studio 2012 o 2013
-- Descargue e instale [Azure .NET SDK][azure-developer-center]
+- Descargue e instale el [SDK de .NET de Azure][azure-developer-center].
 - Descargue e instale paquetes de NuGet para la factoría de datos de Azure. Las instrucciones están en el tutorial.
 
 ## Tutorial
 1. Con Visual Studio 2012 o 2013, cree una aplicación de consola .NET de C#.
 	<ol type="a">
-	<li>Iniciar <b>Visual Studio 2012</b> o <b>Visual Studio 2013</b>.</li>
-	<li>Haga clic en <b>archivo</b>, seleccione <b>nuevo</b>, y haga clic en <b>proyecto</b>.</li> 
-	<li>Expanda <b>plantillas</b>, y seleccione <b>Visual C#</b>. En este tutorial, se usa C# pero puede usar cualquier lenguaje .NET.</li> 
-	<li>Seleccione <b>aplicación de consola</b> en la lista de tipos de proyecto de la derecha.</li>
+	<li>Inicie <b>Visual Studio 2012</b> r <b>Visual Studio 2013</b>.</li>
+	<li>Haga clic en <b>Archivo</b>, seleccione <b>Nuevo</b> y, luego, haga clic en <b>Proyecto</b>.</li> 
+	<li>Expanda <b>Plantillas</b> y seleccione <b>Visual C#</b>. En este tutorial, se usa C# pero puede usar cualquier lenguaje .NET.</li> 
+	<li>Seleccione <b>Aplicación de consola</b> en la lista de tipos de proyecto de la derecha.</li>
 	<li>Escriba <b>DataFactoryAPITestApp</b> para el <b>nombre</b>.</li> 
-	<li>Seleccione <b>C:\ADFGetStarted</b> para el <b>ubicación</b>.</li>
+	<li>Seleccione <b>C:\ADFGetStarted</b> para la <b>ubicación</b>.</li>
 	<li>Haga clic en <b>Aceptar</b> para crear el proyecto.</li>
 </ol>
-2. Haga clic en <b>herramientas</b>, elija <b>el Administrador de paquetes de NuGet</b>, y haga clic en <b>Package Manager Console</b>.
-3.	En el <b>Package Manager Console</b>, ejecute los siguientes comandos uno por uno.</b>. 
+2. Haga clic en <b>Herramientas</b>, seleccione <b>Administrador de paquetes de NuGet</b> y haga clic en <b>Consola del Administrador de paquetes</b>.
+3.	En la ventana <b>Consola del administrador de paquetes</b>, ejecute los siguientes comandos uno a uno.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
 		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-6. Agregue el siguiente **appSetttings** sección a la **App.config** archivo. Los utiliza el método auxiliar: **GetAuthorizationHeader**. 
+6. Agregue la siguiente sección **appSetttings** al archivo **App.config**. Estos se usan por el método auxiliar: **GetAuthorizationHeader**. 
 
-	Reemplace los valores para **SubscriptionId** y **ActiveDirectoryTenantId** por sus identificadores de inquilino y de suscripción de Azure. Puede obtener estos valores ejecutando **Get-AzureAccount** de Azure PowerShell (puede que necesite iniciar sesión en primer lugar usando Add-AzureAccount).
+	Reemplace los valores para **SubscriptionId** y **ActiveDirectoryTenantId** por sus identificadores de inquilino y de suscripción de Azure. Puede obtener estos valores ejecutando**Get-AzureAccount** desde el PowerShell de Azure (puede que necesite iniciar sesión primero usando Add-AzureAccount).
  
 		<appSettings>
 		    <!--CSM Prod related values-->
@@ -60,7 +60,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
     		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
 		</appSettings>
-6. Agregue el siguiente **con** las instrucciones en el archivo de origen (Program.cs) en el proyecto.
+6. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
 		using System.Threading;
 		using System.Configuration;
@@ -70,7 +70,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure; 
-6. Agregue el código siguiente que crea una instancia de **DataPipelineManagementClient** clase a la **principal** método. Usará este objeto para crear una factoría de datos, un servicio vinculado, tablas de entrada y salida, y una canalización. También lo utilizará para supervisar los segmentos de una tabla en tiempo de ejecución.    
+6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Usará este objeto para crear una factoría de datos, un servicio vinculado, tablas de entrada y salida, y una canalización. También lo utilizará para supervisar los segmentos de una tabla en tiempo de ejecución.    
 
         // create data pipeline management client
         string resourceGroupName = "ADF";
@@ -84,7 +84,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
-7. Agregue el siguiente código crea un **factoría de datos** a la **principal** método.
+7. Agregue el siguiente código que crea una **factoría de datos** en el método **Main**.
 
         // create a data factory
         Console.WriteLine("Creating a data factory");
@@ -99,8 +99,8 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 }
             }
         );
-8. Agregue el siguiente código crea un **vinculado servicio** a la **principal** método.
-	> [AZURE.NOTE]**nombre de cuenta****clave de cuenta****ConnectionString** 
+8. Agregue el siguiente código que crea un **servicio vinculado** al método **Main**.
+	> [AZURE.NOTE]**account name****account key****ConnectionString** 
 
 		// create a linked service
         Console.WriteLine("Creating a linked service");
@@ -117,11 +117,11 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 }
             }
         );
-9. Agregue el siguiente código crea **tablas de entrada y salidas** a la **principal** método. 
+9. Agregue el siguiente código que crea **tablas de entrada y salida** en el método **Principal**. 
 
-	Tenga en cuenta que el **FolderPath** para el blob de entrada está establecido en **adftutorial /** donde **adftutorial** es el nombre del contenedor en el almacenamiento de blobs. Si este contenedor no existe en el almacenamiento de blobs de Azure, cree un contenedor con este nombre: **adftutorial** y cargar un archivo de texto en el contenedor.
+	Tenga en cuenta que la **FolderPath** para el blob de entrada se establece en **adftutorial/** donde **adftutorial** es el nombre del contenedor en el almacenamiento de blobs. Si este contenedor no existe en el almacenamiento de blobs de Azure, cree un contenedor con este nombre: **adftutorial** y cargue un archivo de texto al contenedor.
 	
-	Tenga en cuenta que el elemento FolderPath para el blob de salida se establece en: **adftutorial/apifactoryoutput / {segmentar}** donde **sector** se calcula dinámicamente según el valor de **SliceStart** (fecha y hora de cada sector de inicio).
+	Tenga en cuenta que la FolderPath para el blob de salida se establece en: **adftutorial/apifactoryoutput/{Segmento}** donde **Segmento** se calcula dinámicamente en función del valor de **SliceStart** (fecha y hora de inicio de cada segmento).
 
  
         // create input and output tables
@@ -195,7 +195,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                     }
                 }
             });
-10. Agregue el siguiente código **crea y activa una canalización** a la **principal** método. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como un receptor. 
+10. Agregue el siguiente código que **crea y activa una canalización** al método **Principal**. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como receptor. 
 
         // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -267,7 +267,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 }
             });
 
-11. Agregue el siguiente método auxiliar utilizado por el **principal** método para el **programa** clase. Este método abre un cuadro de diálogo que le permite proporcionar **nombre de usuario** y **contraseña** que usar para iniciar sesión en el portal de Azure.
+11. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que se usa para iniciar sesión en el portal de Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -303,7 +303,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. Agregue el código siguiente a la **principal** método para obtener el estado de un segmento de datos de la tabla de salida. Solo se espera un segmento en este ejemplo.
+13. Agregue el código siguiente al método **Main** para obtener el estado de un segmento de datos de la tabla de salida. Solo se espera un segmento en este ejemplo.
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -334,7 +334,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
             }
         }
 
-14. Agregue el código siguiente para obtener ejecutar detalles de un segmento del segmento de datos a la **principal** método.
+14. Agregue el código siguiente para obtener detalles de ejecución para un segmento de datos en el método **Main**.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -356,25 +356,25 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         Console.ReadKey();
     }
 
-15. Compile la aplicación de la consola. Haga clic en **crear** en el menú y haga clic en **Generar solución**.
+15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**.
 16. Confirme que hay al menos un archivo en el contenedor de adftutorial del almacenamiento de blobs de Azure. En caso contrario, cree el archivo Emp.txt en el Bloc de notas con el siguiente contenido y cárguelo en el contenedor de adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Ejecutar el ejemplo, haga clic en **Depurar** -> **Iniciar depuración** en el menú.
-18. Usar el Portal de vista previa de Azure para comprobar que el generador de datos: **APITutorialFactory** se crea con los siguientes artefactos: 
-	- Vincular servicio: **LinkedService_AzureStorage** 
+17. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración en el menú**.
+18. Usar el Portal de vista previa de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos: 
+	- Servicio vinculado: **LinkedService_AzureStorage** 
 	- Tablas: **TableBlobSource** y **TableBlobDestination**.
 	- Canalización: **PipelineBlobSample** 
-18. Compruebe que se crea un archivo de salida en el **apifactoryoutput** carpeta en el **adftutorial** contenedor.
+18. Compruebe que se crea un archivo de salida en la carpeta **apifactoryoutput** en el contenedor de **adftutorial**.
 
 
 ## Otras referencias
 
 Artículo | Descripción
 ------ | ---------------
-[Referencia del programador de generador de datos de Azure][developer-reference] | La referencia del programador tiene el contenido de referencia completa de la biblioteca de clases. NET, los cmdlets, script JSON, funciones, etc.... 
+[Referencia para desarrolladores de Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para la biblioteca de clase .NET, cmdlets, scripts JSON, funciones, etc. 
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -386,5 +386,6 @@ Artículo | Descripción
  
 [adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
 [azure-developer-center]: http://azure.microsoft.com/downloads/
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

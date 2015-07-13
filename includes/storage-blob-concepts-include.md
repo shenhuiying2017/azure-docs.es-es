@@ -23,12 +23,11 @@ El servicio BLOB contiene los componentes siguientes:
 -   **Blob:** archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para obtener más información sobre los blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 -   **Formato de dirección URL:** los blobs son direccionables con el siguiente formato de dirección URL: http://`<storage
-    account>`.blob.core.windows.net/`<container>`/`<blob>\`
+    account>`.blob.core.windows.net/`<container>`/`<blob>`
       
     En el diagrama anterior se usó la siguiente dirección URL de ejemplo para dirigir uno de los blobs: `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

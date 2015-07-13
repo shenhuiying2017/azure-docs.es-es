@@ -101,4 +101,6 @@ La imagen siguiente muestra un ejemplo de cómo usar una credencial en un runboo
 
 - [Vínculos en creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

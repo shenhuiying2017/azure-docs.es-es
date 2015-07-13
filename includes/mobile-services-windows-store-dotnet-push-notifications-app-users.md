@@ -56,4 +56,5 @@ En este método, agregó un código de registro desde el tutorial directamente e
             App.InitNotificationsAsync();
             RefreshTodoItems();
         }
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -18,7 +18,7 @@
 
 # Administración de una aplicación web en Servicio de aplicaciones de Azure
 
-Este tema contiene vínculos a recursos para administrar una aplicación web en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). La administración incluye todas las tareas que hacen que una aplicación web funcione sin problemas. 
+Este tema contiene vínculos a recursos para administrar una aplicación web en [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714). La administración incluye todas las tareas que hacen que una aplicación web funcione sin problemas.
 
 A lo largo de la vida de una aplicación web, llevará a cabo distintas tareas de administración, desde la implementación inicial hasta el funcionamiento normal, pasando por el mantenimiento y las actualizaciones.
 
@@ -100,4 +100,7 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running
 [When you update your website]: #when-you-update-your-website
-<!--HONumber=54--> 
+
+  
+
+<!---HONumber=62-->

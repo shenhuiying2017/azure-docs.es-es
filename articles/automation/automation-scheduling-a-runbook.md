@@ -94,6 +94,6 @@ Los comandos de ejemplo siguientes muestran cómo deshabilitar una programación
 ## Artículos relacionados
 
 - [Recursos de programación en Automatización de Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
-- [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md)
+- [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

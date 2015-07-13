@@ -82,4 +82,5 @@ Las máquinas virtuales tienen estos recursos relacionados: * nombres de dominio
     * Las reglas de alertas
     
 Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

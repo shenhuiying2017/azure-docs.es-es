@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Crear un contenedor de volúmenes"
-   description="Se describe cómo crear un contenedor de volúmenes en un dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Para crear un contenedor de volúmenes
 
@@ -31,4 +15,4 @@
 
   El contenedor de volúmenes recién creado se mostrará en la página **Contenedores de volúmenes**.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

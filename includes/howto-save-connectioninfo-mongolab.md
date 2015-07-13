@@ -2,20 +2,16 @@ Aunque es posible pegar un URI de MongoLAB en el código, recomendamos configura
 
 
 1. En el Portal de Azure, seleccione **Aplicaciones web**.
-1. Haga clic en el nombre de la aplicación web en la lista de aplicaciones web.  
-![WebAppEntry][entry-website] Aparecerá el panel de la aplicación web.
+1. Haga clic en el nombre de la aplicación web en la lista de aplicaciones web. ![WebAppEntry][entry-website] Aparecerá el panel de la aplicación web.
 
-1. Haga clic en **Configurar** en la barra de menús.  
-![WebAppDashboardConfig][focus-mongolab-websitedashboard-config]
+1. Haga clic en **Configurar** en la barra de menús. ![WebAppDashboardConfig][focus-mongolab-websitedashboard-config]
 
-1. Desplácese hacia abajo hasta la sección Cadenas de conexión.  
-![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
+1. Desplácese hacia abajo hasta la sección Cadenas de conexión. ![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
 
 1. Para **Nombre**, escriba MONGOLAB_URI.
 1. Para **Value**, pegue la cadena de conexión que se obtuvo en la sección anterior.
 1. Seleccione **Personalizado** en la lista desplegable **Tipo** (en lugar del valor predeterminado **SQLAzure**).
-1. Haga clic en **Guardar** en la barra de herramientas.  
-![SaveWebApp][button-website-save]
+1. Haga clic en **Guardar** en la barra de herramientas. ![SaveWebApp][button-website-save]
 
 **Nota:** Azure agrega el prefijo **CUSTOMCONNSTR_** a esta variable, y este es el motivo por el que el código anterior hace referencia a **CUSTOMCONNSTR_MONGOLAB_URI**.
 
@@ -24,4 +20,4 @@ Aunque es posible pegar un URI de MongoLAB en el código, recomendamos configura
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
 
-<!----HONumber=62-->
+<!---HONumber=62-->

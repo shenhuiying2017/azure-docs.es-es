@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 # Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Administración de API de Azure
@@ -38,7 +38,7 @@ Todas las tareas que se realizan en los recursos mediante el Administrador de re
 
 El primer paso es crear una aplicación de Azure Active Directory. Inicie sesión en el [portal de administración](http://manage.windowsazure.com/) mediante la suscripción que contiene la instancia del servicio Administración de API y navegue hasta la pestaña **Aplicaciones** para el Azure Active Directory predeterminado.
 
->[AZURE.NOTE]Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta. Para obtener información sobre cómo localizar el directorio predeterminado, consulte [Buscar el directorio predeterminado en el Portal de Azure](resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta. Para obtener información sobre cómo localizar el directorio predeterminado, consulte [Buscar el directorio predeterminado en el Portal de Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Creación de una aplicación de Azure Active Directory][api-management-add-aad-application]
 
@@ -156,7 +156,7 @@ En el cuerpo de la solicitud, especifique la ubicación del archivo de copia de 
 	    backupName : {backup blob name}  
 	}'
 
-Establezca el valor del encabezado de solicitud `Content-Type` en `application\json`.
+Establezca el valor del encabezado de solicitud `Content-Type` en `application/json`.
 
 La restauración es una operación de larga duración que puede tardar 30 minutos o más en completarse. Si la solicitud es correcta y el proceso de restauración se inicia, recibirá un código de estado de respuesta `202 Accepted` con el encabezado `Location`. Realice solicitudes "GET" en la URL del encabezado `Location` para averiguar el estado de la operación. Mientras se realiza la restauración, recibirá el código de estado "202 Aceptado". El código de respuesta `200 OK` indica que la operación de restauración se ha completado correctamente.
 
@@ -189,4 +189,4 @@ Consulte los siguientes blogs de Microsoft para dos tutoriales diferentes del pr
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

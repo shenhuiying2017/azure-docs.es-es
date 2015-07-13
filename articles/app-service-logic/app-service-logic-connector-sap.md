@@ -93,5 +93,6 @@ Complete la aplicación lógica para definir el proceso empresarial y, a continu
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

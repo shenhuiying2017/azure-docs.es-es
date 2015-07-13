@@ -50,7 +50,7 @@ Para agregar parámetros al flujo de trabajo, use la palabra clave **Param**, ta
 
 ### Nomenclatura
 
-El nombre del flujo de trabajo debe cumplir el formato verbo-nombre estándar con Windows PowerShell. Puede consultar [Verbos aprobados para los comandos de Windows PowerShell](http://msdn.microsoft.com/library/windows/desktop/ms714428(v=vs.85).aspx) para obtener una lista de los verbos aprobados que hay que usar. El nombre del flujo de trabajo debe coincidir con el nombre del runbook de Automatización. Si se va a importar el runbook, el nombre de archivo debe coincidir con el nombre del flujo de trabajo y debe terminar en. ps1.
+El nombre del flujo de trabajo debe cumplir el formato verbo-nombre estándar con Windows PowerShell. Puede consultar [Verbos aprobados para comandos de Windows PowerShell](http://msdn.microsoft.com/library/windows/desktop/ms714428(v=vs.85).aspx) para obtener una lista de verbos aprobados que se pueden usar. El nombre del flujo de trabajo debe coincidir con el nombre del runbook de Automatización. Si se va a importar el runbook, el nombre de archivo debe coincidir con el nombre del flujo de trabajo y debe terminar en. ps1.
 
 ### Limitaciones
 
@@ -165,6 +165,6 @@ Para obtener más información acerca del uso de InlineScript, consulte [Ejecuci
 
 ## Artículos relacionados
 
-- [Creación o importación de un runbook](http://technet.microsoft.com/library/dn919921.aspx)
+- [Creación o importación de un runbook](http://technet.microsoft.com/library/dn919921.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

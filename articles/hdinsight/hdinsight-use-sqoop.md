@@ -24,7 +24,7 @@ Aprenda a usar Azure PowerShell y el SDK .NET de HDInsight desde una estación d
 
 > [AZURE.NOTE]Los pasos descritos en este artículo pueden utilizarse con cualquier un clúster de HDInsight basado en Windows o Linux ; sin embargo, estos pasos sólo funcionarán desde un cliente Windows.
 >
-> Si utilizando un cliente Linux, OS X o Unix, y un servidor HDInsight basado en Linux, consulte [Uso de Sqoop con Hadoop en HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
+> Si utiliza un cliente Linux, OS X o Unix, y un servidor HDInsight basado en Linux, consulte [Uso de Sqoop con Hadoop en HDInsight (SSH)](hdinsight-use-sqoop-mac-linux.md)
 
 ##¿Qué es Sqoop?
 
@@ -38,7 +38,7 @@ Para ver las versiones de Sqoop compatibles con los clústeres de HDInsight, con
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una estación de trabajo con Azure PowerShell**. Consulte [Install and use Azure PowerShell (Instalación y uso de Azure PowerShell)](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Ejecución de scripts de Windows PowerShell][powershell-script].
+- **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y uso de Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/). Para ejecutar scripts de Azure PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Ejecución de scripts de Windows PowerShell][powershell-script].
 
 - **Clúster de Azure HDInsight**: para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesita los datos siguientes:
 
@@ -57,7 +57,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 <tr><td>Nombre de inicio de sesión de la base de datos SQL de Azure</td><td>$sqlDatabaseLogin</td><td></td><td>El nombre de inicio de sesión de la base de datos SQL de Azure.</td></tr>
 <tr><td>Contraseña de inicio de sesión de la base de datos SQL de Azure</td><td>$sqlDatabasePassword</td><td></td><td>La contraseña de inicio de sesión de la base de datos SQL de Azure.</td></tr>
 <tr><td>Nombre de la base de datos SQL de Azure</td><td>$sqlDatabaseName</td><td></td><td>Base de datos SQL de Azure a la que Sqoop exportará datos o desde la que los importará. </td></tr>
-</table> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
+</table>> [AZURE.NOTE]De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos SQL de Azure y la configuración de las reglas de firewall, consulte [Creación y configuración de una base de datos SQL][sqldatabase-create-configue].
 
 * **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
 
@@ -645,4 +645,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

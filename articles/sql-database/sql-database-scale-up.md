@@ -31,6 +31,8 @@ Al moverse entre los niveles de servicio, tenga en cuenta lo siguiente: - Antes 
 
 - Para degradar una base de datos, esta no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino. Para obtener más información sobre el tamaño permitido para cada nivel de servicio, consulte la tabla de niveles de servicio y tamaños de bases de datos, que encontrará en esta misma sección.
 
+- Al actualizar una base de datos con [Replicación geográfica estándar](https://msdn.microsoft.com/library/azure/dn758204.aspx) o [Replicación geográfica activa](https://msdn.microsoft.com/library/azure/dn741339.aspx) habilitado, primero debe actualizar sus bases de datos secundarias en el nivel de rendimiento deseado antes de actualizar la base de datos principal.
+
 - Al realizar una degradación desde un nivel de servicio Premium, primero es preciso finalizar todas las relaciones de Replicación geográfica. Puede seguir los pasos que se describen en el tema [Terminar una relación de copia continua](https://msdn.microsoft.com/library/azure/dn741323.aspx) para detener el proceso de replicación entre la base de datos principal y las bases de datos secundarias activas.
 
 - Las ofertas del servicio de restauración son diferentes para los distintos niveles de servicio. Si cambia a un nivel inferior, puede perder la capacidad de restaurar a un momento dado o tener un período de retención de copias de seguridad más breve. Para obtener más información, consulte [Copia de seguridad y restauración de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/jj650016.aspx).
@@ -58,7 +60,7 @@ Para actualizar una base de datos utilice cualquiera de los métodos siguientes.
 
 
 ### Uso de Azure PowerShell
-1. Use Set-AzureSqlDatabase para especificar el nivel de rendimiento, el tamaño máximo de la base de datos y el nivel de servicio de la base de datos.  Para obtener una lista de los tamaños de base de datos que admiten los distintos niveles de servicio, consulte Niveles de servicio de Base de datos SQL de Azure (ediciones).
+1. Use Set-AzureSqlDatabase para especificar el nivel de rendimiento, el tamaño máximo de la base de datos y el nivel de servicio de la base de datos. Para obtener una lista de los tamaños de base de datos que admiten los distintos niveles de servicio, consulte Niveles de servicio de Base de datos SQL de Azure (ediciones).
 2. Establezca el contexto del servidor con el cmdlet New-AzureSqlDatabaseServerContext. La sintaxis de ejemplo se proporciona en la sección Uso de comandos de PowerShell de Azure.
 3. Obtenga un identificador de la base de datos y el nivel de rendimiento de destino. Especifique el nivel de rendimiento con Set-AzureSqlDatabase – ServiceObjective
 
@@ -86,12 +88,12 @@ Utilice uno de los métodos siguientes para degradar una base de datos a un nive
 6. Si corresponde, en la página **Confirmación**, lea la información proporcionada y seleccione la casilla para confirmar el cambio.
 
 ### Uso de Azure PowerShell
-1. Use Set-AzureSqlDatabase para especificar el nivel de servicio, el nivel de rendimiento  y el tamaño máximo de la base de datos
+1. Use Set-AzureSqlDatabase para especificar el nivel de servicio, el nivel de rendimiento y el tamaño máximo de la base de datos
 2. Establezca el contexto de servidor mediante New-AzureSqlDatabaseServerContext con la sintaxis de ejemplo proporcionada en la sección Usar comandos de Azure PowerShell.
 3. Haga lo siguiente:
  - Obtenga un identificador para la base de datos.
  - Obtenga un identificador para el nivel de rendimiento.
- - Especifique el nivel de servicio, el nivel de rendimiento  y el tamaño máximo de la base de datos con Set-AzureSqlDatabase –ServiceObjective.
+ - Especifique el nivel de servicio, el nivel de rendimiento y el tamaño máximo de la base de datos con Set-AzureSqlDatabase –ServiceObjective.
 
 **Ejemplo de uso**
 
@@ -193,7 +195,7 @@ Puede comprobar el estado de la base de datos durante la actualización o degrad
 
 
 ##Uso de comandos de Azure PowerShell
-En  esta sección se indican los requisitos previos para utilizar los comandos de Azure PowerShell.
+En esta sección se indican los requisitos previos para utilizar los comandos de Azure PowerShell.
 
 **Requisitos previos**
 
@@ -225,5 +227,6 @@ Cree el contexto de servidor con **New-AzureSqlDatabaseServerContext**.
 [New-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391027)
 
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

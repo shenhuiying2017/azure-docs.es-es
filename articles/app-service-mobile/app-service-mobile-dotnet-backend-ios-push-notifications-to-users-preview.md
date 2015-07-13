@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo enviar notificaciones push a todos los dispositivos de un usuario específico."
 	services="app-service\mobile" 
 	documentationCenter="ios" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # Envío de notificaciones entre plataformas a un usuario específico
@@ -34,7 +34,7 @@ Antes de iniciar este tutorial, debe haber completado estos tutoriales del Servi
 
 ##<a name="client"></a>Actualización del cliente para registrarlo para plantillas con el fin de controlar las inserciones multiplataforma
 
-1. Mueva los fragmentos de registro de APN en  **QSAppDelegate.m** **application:didFinishLaunchingWithOptions** a la llamada a **loginWithProvider** en **QSTodoListViewController.m** para que tenga lugar una vez completada la autenticación:
+1. Mueva los fragmentos de registro de APN en **QSAppDelegate.m** **application:didFinishLaunchingWithOptions** a la llamada a **loginWithProvider** en **QSTodoListViewController.m** para que tenga lugar una vez completada la autenticación:
 
         [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
             [self refresh];
@@ -104,5 +104,6 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [Introducción a la autenticación]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [Introducción a las notificaciones de inserción]: app-service-mobile-dotnet-backend-ios-get-started-push-preview.md
 [plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

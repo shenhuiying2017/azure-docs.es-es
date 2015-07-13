@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas (vista previa)"
-	description="Creación de un único grupo de recursos para compartir en un grupo de bases de datos SQL de Azure"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+<properties 
+	pageTitle="Creación y administración de un grupo de bases de datos SQL elásticas (vista previa)" 
+	description="Creación de un único grupo de recursos para compartir en un grupo de bases de datos SQL de Azure" 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
-<tags
+<tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/29/2015"
-	ms.author="sstein"
+	ms.date="06/24/2015" 
+	ms.author="sstein" 
 	ms.workload="data-management" 
-	ms.topic="get-started-article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -26,11 +26,11 @@
 Este artículo muestra cómo crear un grupo elástico con el [Portal de Azure](https://portal.azure.com).
 
 Los grupos elásticos simplifican el proceso de creación, mantenimiento y administración del rendimiento y el coste de numerosas bases de datos.
-
+ 
 
 > [AZURE.NOTE]Los grupos elásticos están actualmente en vista previa y solo estarán disponibles en servidores con bases de datos SQL V12.
 
-
+ 
 
 
 ## Requisitos previos
@@ -73,14 +73,14 @@ El nivel de precios de un grupo elástico se parece al nivel de servicio de la b
 
 ### Adición de bases de datos
 
-En cualquier momento, puede seleccionar las bases de datos específicas que desea incluir en el grupo. Cuando cree un nuevo grupo, Azure recomendará y marcará las bases de datos más indicadas para su inclusión en el grupo. Azure evalúa el historial de uso de las bases de datos y recomienda un grupo elástico cuando sea más rentable que el uso de niveles de rendimiento para bases de datos únicas. Si se recomienda un grupo elástico, Azure proporciona la cantidad recomendada de DTU del grupo, la configuración de DTU mín./máx. para cada base de datos del grupo y una lista de bases de datos recomendadas. Para que la base de datos se considere candidata a un grupo elástico, debe existir al menos durante 14 días y no debe estar en el nivel de precios de Premium (la versión preliminar pública está limitada solo a Estándar, por lo tanto, las bases de datos Premium no se consideran viables). Puede agregar todas las bases de datos disponibles en el servidor, o bien puede activar o desactivar las bases de datos de la lista inicial como desee.
+En cualquier momento, puede seleccionar las bases de datos específicas que desea incluir en el grupo. Cuando cree un nuevo grupo, Azure recomendará y marcará las bases de datos más indicadas para su inclusión en el grupo. Puede agregar todas las bases de datos disponibles en el servidor, o bien puede activar o desactivar las bases de datos de la lista inicial como desee.
 
    ![Adición de bases de datos][5]
 
 Cuando selecciona una base de datos para agregarla a un grupo, deben cumplirse las condiciones siguientes:
 
 - El grupo debe tener espacio para la base de datos (no puede contener el número máximo de bases de datos). Más específicamente, el grupo debe tener suficiente DTU disponibles para cubrir el número de DTU por base de datos garantizado (por ejemplo, si el número de DTU garantizado para el grupo es de 400 y se garantizan 10 DTU, el número máximo de bases de datos que se permiten en el grupo es de 40 (400 DTU/10 DTU garantizados por base de datos = 40 bases de datos como máximo).
-- Las características actuales que utiliza la base de datos deben estar disponibles en el grupo.
+- Las características actuales que utiliza la base de datos deben estar disponibles en el grupo. 
 
 
 ### Configuración del rendimiento
@@ -93,7 +93,7 @@ Existen tres parámetros que puede establecer y que definen el rendimiento del g
 
 | Parámetro de rendimiento | Descripción |
 | :--- | :--- |
-| **POOL DTU/GB**: número de DTU garantizados para el grupo. | El número de DTU garantizados para el grupo es el número garantizado de DTU disponibles y compartidos en el grupo. <br> Actualmente, puede establecer este valor en 200, 400, 800 o 1200. <br> El número específico de DTU garantizados para un grupo debe aprovisionarse teniendo en cuenta el historial de uso de DTU del grupo. De manera alternativa, este valor se puede establecer según la cantidad de DTU garantizados por base de datos según el uso de bases de datos activas al mismo tiempo. El número de DTU garantizados del grupo también guarda relación con la cantidad de almacenamiento disponible para el grupo, ya que por cada DTU asignado al grupo se obtiene 1 GB de almacenamiento de base de datos (1 DTU = 1 GB de almacenamiento). <br> **¿Con qué valor debo establecer el número de DTU garantizados del grupo?** <br>Como mínimo, debe establecer el número de DTU garantizados del grupo con un valor equivalente a la operación siguiente: ([n.º de bases de datos] x [promedio de uso de DTU por base de datos]). |
+| **POOL DTU/GB**: número de DTU garantizados para el grupo. | El número de DTU garantizados para el grupo es el número garantizado de DTU disponibles y compartidos en el grupo. <br> Actualmente, puede establecer este valor en 100, 200, 400, 800 o 1200. <br> El número específico de DTU garantizados para un grupo debe aprovisionarse teniendo en cuenta el historial de uso de DTU del grupo. De manera alternativa, este valor se puede establecer según la cantidad de DTU garantizados por base de datos según el uso de bases de datos activas al mismo tiempo. El número de DTU garantizados del grupo también guarda relación con la cantidad de almacenamiento disponible para el grupo, ya que por cada DTU asignado al grupo se obtiene 1 GB de almacenamiento de base de datos (1 DTU = 1 GB de almacenamiento). <br> **¿Con qué valor debo establecer el número de DTU garantizados del grupo?** <br>Como mínimo, debe establecer el número de DTU garantizados del grupo con un valor equivalente a la operación siguiente: ([n.º de bases de datos] x [promedio de uso de DTU por base de datos]). |
 | **DTU MIN**: número de DTU garantizados para cada base de datos | El número mínimo de DTU garantizado por base de datos es el número de DTU que tiene garantizado cada base de datos del grupo. Actualmente, se puede establecer este valor en 0, 10, 20 o 50 DTU. O bien, puede elegir no ofrecer ningún número de DTU garantizado a las bases de datos del grupo (DTU MIN = 0). <br>**¿Con qué valor debo establecer el número de DTU garantizados para cada base de datos?** <br> Como mínimo, debe establecer el número de DTU garantizados de cada base de datos (DTU MIN) con un valor equivalente al ([promedio de utilización de cada base de datos)]. El número de DTU garantizados por cada base de datos es un ajuste global que establece el número de DTU garantizados de todas las bases de datos del grupo. |
 | **DTU MAX**: capacidad de DTU por cada base de datos | El valor DTU MAX de cada base de datos es el número máximo de DTU que puede tener cada una de las bases de datos del grupo. Establezca la capacidad de DTU de cada base de datos con un valor lo suficientemente alto como para soportar los altos y bajos de demanda de las bases de datos. Puede establecer la capacidad con el valor límite del sistema, que dependerá del nivel de precios del grupo (100 DTU para el nivel Standard). La capacidad específica debe soportar los picos de utilización de las bases de datos del grupo. Se admite un cierto grado de exceso de asignación de recursos, ya que el grupo suele basarse en patrones de uso en frío y caliente de las bases de datos, cuando en realidad los picos de demanda no tienen lugar en todas las bases de datos a la vez.<br> **¿Con qué valor debo establecer la capacidad de DTU para cada base de datos?** <br> Establezca el valor de DTU MAX o de capacidad de DTU por cada base de datos en ([pico de demanda de las bases de datos)]. Por ejemplo, suponga que el pico de utilización de cada base de datos es de 50 DTU y solo el 20% de las 100 bases de datos del grupo registran simultáneamente un pico de rendimiento. Si la capacidad de DTU de cada base de datos se establece en 50 DTU, deberá asignar una cantidad de recursos 5 veces mayor y establecer el número de DTU garantizados para el grupo en 1000 DTU. También debe tener en cuenta que la capacidad de DTU no es una garantía de recursos para las bases de datos, sino que es un valor máximo que puede llegar a alcanzarse si está disponible. |
 
@@ -161,6 +161,5 @@ Para obtener más información, vea [Información general sobre los trabajos de 
 [6]: ./media/sql-database-elastic-pool-portal/metric.png
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

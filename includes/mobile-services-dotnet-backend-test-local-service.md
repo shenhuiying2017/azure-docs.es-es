@@ -4,7 +4,6 @@ El proyecto de servicio móvil le permite ejecutar su nuevo servicio móvil loca
 
 1. En el equipo Windows, descargue su proyecto de servidor personalizado, extráigalo y luego ábralo en Visual Studio.
 
-2. Presione la tecla **F5** para recompilar el proyecto e iniciar el servicio móvil de manera local. Una vez que se inicia el servicio móvil correctamente, aparece una página web.
+2. Presione la tecla **F5** para recompilar el proyecto e iniciar el servicio móvil localmente. Una vez que se inicia el servicio móvil correctamente, aparece una página web.
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

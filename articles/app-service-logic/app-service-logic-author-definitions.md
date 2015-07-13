@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de definiciones de aplicaciones lógicas" 
+	pageTitle="Creación de definiciones de aplicación lógica" 
 	description="Obtenga información sobre cómo escribir la definición de JSON para aplicaciones lógicas." 
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
@@ -16,7 +16,7 @@
 	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 	
-#Creación de definiciones de aplicaciones lógicas
+#Creación de definiciones de aplicación lógica
 En este tema se explica cómo usar definiciones de [aplicaciones lógicas de servicios de aplicaciones](app-service-logic-what-are-logic-apps.md), que es un lenguaje JSON declarativo simple. Si no lo ha hecho todavía, consulte primero [Creación de una aplicación lógica nueva](../app-service-create-a-logic-app.md). También puede leer el [material de referencia completo del lenguaje de definición en MSDN](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
 ## Varios pasos que se repiten en una lista
@@ -287,7 +287,7 @@ Normalmente desea poder escribir un *paso de corrección*; cierta lógica que se
 }
 ```
 
-Estoy utilizando dos condiciones porque en el primer paso estoy repetición de una lista. Si tiene una sola acción, sólo necesitaría una condición (la primera). Observe también que puede utilizar las *entradas* para la acción que genera el error en el paso de corrección; aquí paso la dirección URL del error al segundo paso.
+Estoy utilizando dos condiciones porque en el primer paso estoy repetición de una lista. Si tiene una sola acción, sólo necesitaría una condición (la primera). Tenga en cuenta también que puede usar las *entradas* a la acción incorrecta en el paso de solución (aquí se pasa la URL con error al segundo paso).
 
 ![Corrección](./media/app-service-logic-author-definitions/remediation.png)
 
@@ -687,5 +687,4 @@ A continuación, en la solicitud `PUT` real para la aplicación lógica, puede p
 ``` 
 
 En cada entorno puede proporcionar un valor diferente para el parámetro `connection`. Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
-
-<!---HONumber=62-->
+<!--HONumber=62-->

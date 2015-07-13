@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -218,7 +218,7 @@ Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, nec
 
 	![Seleccionar base de datos][select-database]
 
-2. En el resumen de base de datos, seleccione **Propiedades**.
+2. En el resumen de base de datos, elija **Propiedades**.
 
     ![Seleccionar propiedades][select-properties]
 	
@@ -287,5 +287,6 @@ Después de cargar `index.php` y `createtable.php` , vaya a **http://[site name]
 [connection-string-info]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
 [management-portal]: https://portal.azure.com
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

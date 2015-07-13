@@ -90,4 +90,5 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 3. Reinicie la aplicación dos veces.
 
 	Tenga en cuenta que cuando se inicia la primera vez, se requiere de nuevo un inicio de sesión con el proveedor. Sin embargo, la segunda vez se usan las credenciales almacenadas en caché y se omite el inicio de sesión.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

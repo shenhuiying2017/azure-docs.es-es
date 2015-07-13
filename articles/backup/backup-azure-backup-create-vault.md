@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Copia de seguridad de Microsoft Azure: crear un almacén de copia de seguridad y especificar la redundancia de almacenamiento"
-	description="Aprenda a crear un almacén de copia de seguridad y especificar las opciones de redundancia de almacenamiento en la Copia de seguridad de Microsoft Azure."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Copia de seguridad de Microsoft Azure: crear un almacén de copia de seguridad y especificar la redundancia de almacenamiento"
+   description="Aprenda a crear un almacén de copia de seguridad y especificar las opciones de redundancia de almacenamiento en la Copia de seguridad de Microsoft Azure."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -62,5 +62,6 @@ Si está usando Azure como un extremo de almacenamiento de copia de seguridad te
 [3]: ./media/backup-azure-backup-create-vault/backupvaultstatus1.png
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

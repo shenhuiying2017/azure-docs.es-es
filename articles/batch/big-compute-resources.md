@@ -13,14 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="06/24/2015"
    ms.author="danlep"/>
 
 # Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)
 Se trata de una guía sobre recursos técnicos que le ayudará a ejecutar cargas de trabajo de HPC, por lotes y en paralelo a gran escala en Azure. Amplíe sus cargas de trabajo de HPC o de lotes existentes a la nube de Azure, o cree nuevas soluciones de Big Compute en Azure mediante una gama de los servicios de Azure.
 
 ## Opciones de soluciones
-
 
 Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoque correcto para sus necesidades empresariales y de carga de trabajo.
 
@@ -31,7 +30,7 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 ## Azure Batch
 
-[Batch](http://azure.microsoft.com/services/batch/) (Preview) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
+[Batch](http://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
 
 * Suscríbase a la [Preview](http://azure.microsoft.com/services/preview/)
 
@@ -47,7 +46,7 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 
 ## Soluciones de clúster de HPC
 
-Migre o amplíe su clúster de Windows HPC existente para ejecutar sus cargas de trabajo intensivas de proceso de Azure.
+Implemente o amplíe su clúster de Windows o Linux HPC existente para ejecutar sus cargas de trabajo intensivas de proceso.
 
 ### Microsoft HPC Pack
 
@@ -60,6 +59,13 @@ Migre o amplíe su clúster de Windows HPC existente para ejecutar sus cargas de
 * [Tutorial: Configurar un clúster híbrido con HPC Pack en Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Foros de Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
+
+### Soluciones de clúster de Linux
+Use estas plantillas de Administrador de recursos de Azure para implementar clústeres de HPC de Linux.
+
+* [Establecimiento de un clúster SLURM](http://azure.microsoft.com/documentation/templates/slurm/) y [una entrada de blog](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+
+* [Establecimiento de un clúster de par](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -75,8 +81,7 @@ Migre o amplíe su clúster de Windows HPC existente para ejecutar sus cargas de
 
 ## Instancias intensivas de proceso
 
-Azure ofrece un [intervalo de tamaños](https://msdn.microsoft.com/library/azure/dn197896.aspx), incluidas las [instancias A8, A9, A10 y A11](https://msdn.microsoft.com/library/azure/dn689095.aspx), para ejecutar sus cargas de trabajo de Batch y HPC.
-
+Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-size-specs.md), incluidas las [instancias A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) de proceso intensivo, para ejecutar sus cargas de trabajo de Batch y HPC.
 
 * [Instancias A8 y A9: inicio rápido de HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -113,4 +118,4 @@ Azure ofrece un [intervalo de tamaños](https://msdn.microsoft.com/library/azure
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

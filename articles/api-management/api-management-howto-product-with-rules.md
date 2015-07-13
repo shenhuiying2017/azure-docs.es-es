@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="06/18/2015"
 	ms.author="sdanie"/>
 
 # Protección de su API con límites de frecuencia mediante Administración de API de Azure
 
 Esta guía muestra lo fácil que es agregar protección para la API de back-end mediante la configuración de directivas de cuota y límite de frecuencia con Administración de API de Azure.
-
-Para obtener más información y una demostración de la configuración de cuotas y límites de frecuencia, vea el siguiente vídeo.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
 
 En este tutorial creará un producto de API "Prueba gratuita" que permite a los desarrolladores realizar hasta 10 llamadas por minuto y hasta un máximo de 200 llamadas por semana a la API. A continuación, publicará la API y probará la directiva de límite de frecuencia.
 
@@ -48,7 +44,7 @@ Haga clic en **Agregar producto** para mostrar la ventana emergente **Agregar nu
 
 Escriba **Prueba gratuita** en el cuadro de texto **Título**.
 
-Escriba **Los suscriptores podrán realizar 10 llamadas/minuto hasta un máximo de 200 llamadas/semana; después, el acceso se denegará.** en el cuadro de texto **Descripción**.
+Escriba **Los suscriptores podrán realizar 10 llamadas/minuto hasta un máximo de 200 llamadas/semana después el acceso se denegará.** en el cuadro de texto **Descripción**.
 
 Los productos de Administración de API pueden tener el estado **Abierto** o **Protegido**. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Asegúrese de que está activa la opción **Requerir suscripción** para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
 
@@ -112,7 +108,7 @@ Una vez posicionado el cursor en el elemento de directiva **entrante**, haga cli
 	</api>
 	</rate-limit>
 
-**Limitar frecuencia de llamadas** se puede usar a nivel de producto y también a nivel de API y de nombre de operación individual. En este tutorial solamente se usan directivas de nivel de producto; por tanto, elimine los elementos **api** y **operation** del elemento**rate-limit**, de manera que solo permanezca el elemento externo **rate-limit**, tal y como se muestra en el siguiente ejemplo.
+**Limitar frecuencia de llamadas** se puede usar a nivel de producto y también a nivel de API y de nombre de operación individual. En este tutorial solamente se usan directivas de nivel de producto; por tanto, elimine los elementos **api** y **operation** del elemento **rate-limit**, de manera que solo permanezca el elemento externo **rate-limit**, tal y como se muestra en el siguiente ejemplo.
 
 	<rate-limit calls="number" renewal-period="seconds">
 	</rate-limit>
@@ -240,6 +236,9 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 ## <a name="next-steps"> </a>Pasos siguientes
 
 -	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
+-	Vea una demostración de la configuración de cuotas y límites de frecuencia en el siguiente vídeo.
+
+> [AZURE.VIDEO rate-limits-and-quotas]
 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
@@ -293,5 +292,4 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Limitar frecuencia de llamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

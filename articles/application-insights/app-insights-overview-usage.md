@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Análisis de uso con Application Insights" 
-	description="Información general del análisis de uso con Application Insights" 
-	services="application-insights" 
+<properties
+	pageTitle="Análisis de uso con Application Insights"
+	description="Información general del análisis de uso con Application Insights"
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="kamrani"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/03/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/03/2015"
 	ms.author="awills"/>
- 
+
 # Análisis de uso con Application Insights
 
 Saber cómo se usa la aplicación permite centrarse en el trabajo de desarrollo en los escenarios que son más importantes, así como obtener información sobre los objetivos que resulten más fáciles o más difíciles de lograr.
@@ -22,11 +22,11 @@ Saber cómo se usa la aplicación permite centrarse en el trabajo de desarrollo 
 Application Insights puede proporcionar una visión clara del uso de la aplicación, lo que ayuda a mejorar la experiencia del usuario y a cumplir sus objetivos empresariales.
 
 ## Análisis de fábrica
- 
+
 Agregue [Application Insights][start] al proyecto y sin mayor esfuerzo obtendrá gráficos que muestran cuántos usuarios tiene y mucho más.
 
 ![En Azure, seleccione Examinar > Application Insights > su proyecto y desplácese hacia abajo.](./media/app-insights-overview-usage/01-overview.png)
- 
+
 Pase el puntero por la parte en blanco sobre un gráfico para ver los recuentos en un momento determinado. De lo contrario, los números muestran el valor agregado en el período, como un promedio, un total o un recuento de usuarios diferentes durante el período.
 
 En aplicaciones web, se cuentan los usuarios mediante el uso de cookies. Una persona que utiliza varios exploradores, que borra las cookies o que utiliza la característica de privacidad se contará varias veces.
@@ -36,7 +36,7 @@ Se considera una sesión web después de 30 minutos de inactividad. Se considera
 Haga clic en cualquier gráfico para ver su contenido con más detalle. Por ejemplo:
 
 ![En la hoja de información general, haga clic en el gráfico de sesiones](./media/app-insights-overview-usage/02-sessions.png)
- 
+
 (Este ejemplo es de un sitio web, pero los gráficos son similares para las aplicaciones que se ejecutan en dispositivos).
 
 Compárelo con el de la semana anterior para ver si ha cambiado algo:
@@ -51,14 +51,14 @@ Agrupe (segmente) los datos por una propiedad, como Explorador, Sistema operativ
 
 ![Seleccione un gráfico que muestre una sola métrica, cambie a Agrupación y elija una propiedad.](./media/app-insights-overview-usage/03-browsers.png)
 
- 
+
 ## Uso de las páginas
 
 Haga clic en el gráfico de las vistas de páginas para obtener una versión más ampliada junto con un desglose de las páginas más populares:
 
 
 ![En la hoja de información general, haga clic en el gráfico de vistas de páginas.](./media/app-insights-overview-usage/05-games.png)
- 
+
 El ejemplo anterior es de un sitio web de juegos. De él se puede deducir al instante:
 
 * El uso no ha mejorado durante la semana anterior. ¿Quizás debemos pensar en la optimización de motor de búsqueda?
@@ -83,7 +83,7 @@ Puede usar la telemetría de muchas maneras para entender cómo se utiliza la ap
 
 (C#)
 
-    var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
+    var tc = new Microsoft.ApplicationInsights.TelemetryClient();
     tc.TrackEvent("GameEnd");
 
 (VB)
@@ -112,29 +112,29 @@ Los eventos personalizados recibidos de la aplicación se enumeran por nombre en
 
 
 ![En la hoja de información general, haga clic en uno de los tipos de eventos personalizados.](./media/app-insights-overview-usage/07-clickEvent.png)
- 
+
 Haga clic en el evento de interés y seleccione una aparición específica reciente:
 
 
 ![En la lista bajo el gráfico de resumen haga clic en un evento.](./media/app-insights-overview-usage/08-searchEvents.png)
- 
+
 Echemos un vistazo a toda la telemetría de la sesión en la que se produjo un evento NoGame determinado.
 
 
 ![Haga clic en 'Toda la telemetría de la sesión'.](./media/app-insights-overview-usage/09-relatedTelemetry.png)
- 
+
 No había ninguna excepción, por lo que no se le impidió al usuario jugar debido a un error.
- 
+
 Podemos filtrar todos los tipos de telemetría excepto las vistas de páginas para esta sesión:
 
 
 ![](./media/app-insights-overview-usage/10-filter.png)
- 
+
 Y ahora podemos comprobar que este usuario se ha conectado simplemente para comprobar los últimos resultados. Tal vez haya que desarrollar un caso de usuario que facilite esta comprobación. (Y debemos implementar un evento personalizado para informar cuando se produzca este caso específico).
 
 ## Filtrar, buscar y segmentar los datos con propiedades
 Puede adjuntar etiquetas arbitrarias y valores numéricos a los eventos.
- 
+
 
 JavaScript en el cliente
 
@@ -148,7 +148,7 @@ JavaScript en el cliente
 C# en el servidor
 
     // Set up some properties:
-    var properties = new Dictionary <string, string> 
+    var properties = new Dictionary <string, string>
         {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
     var measurements = new Dictionary <string, double>
         {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
@@ -174,15 +174,15 @@ Asocie propiedades a vistas de página de la misma manera:
 
 JavaScript en el cliente
 
-    appInsights.trackPageView("Win", 
-        {Game: currentGame.Name}, 
+    appInsights.trackPageView("Win",
+        {Game: currentGame.Name},
         {Score: currentGame.Score});
 
 En Búsqueda de diagnóstico, vea las propiedades haciendo clic a través de una única repetición de un evento.
 
 
 ![En la lista de eventos, abra un evento y, a continuación, haga clic en '...' para ver más propiedades.](./media/app-insights-overview-usage/11-details.png)
- 
+
 Utilice el campo de búsqueda para ver las apariciones del evento con un valor de propiedad concreto.
 
 
@@ -243,18 +243,19 @@ En el inicializador de la aplicación como Global.asax.cs:
 Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo de desarrollo, no solo en algo que se cree que puede ayudar a solucionar problemas. A continuación se incluyen algunas sugerencias:
 
 * Determine la métrica clave de la aplicación. ¿Desea tantos usuarios como sea posible o preferiría un pequeño conjunto de usuarios satisfechos? ¿Desea potenciar al máximo las visitas o las ventas?
-* Planee la medición de cada caso. Cuando esboza un nuevo caso de usuario o característica o planea actualizar uno existente, siempre piensa cómo medirá el éxito del cambio. Antes de que se inicie la codificación, pregunte "¿Qué efecto tendrá en nuestras estadísticas, si funciona? ¿Debemos realizar el seguimiento cualquier evento nuevo?" Y, por supuesto, cuando se activa la característica, asegúrese de mirar el análisis y actuar en los resultados. 
+* Planee la medición de cada caso. Cuando esboza un nuevo caso de usuario o característica o planea actualizar uno existente, siempre piensa cómo medirá el éxito del cambio. Antes de que se inicie la codificación, pregunte "¿Qué efecto tendrá en nuestras estadísticas, si funciona? ¿Debemos realizar el seguimiento cualquier evento nuevo?" Y, por supuesto, cuando se activa la característica, asegúrese de mirar el análisis y actuar en los resultados.
 * Relacione otras métricas con la métrica clave. Por ejemplo, si agrega una característica "Favoritos", le gustaría saber con qué frecuencia los usuarios agregan favoritos. Pero quizás sea más interesante saber con qué frecuencia vuelven a sus favoritos. Y lo más importante, los clientes que usan favoritos ¿compran al final más de su producto?
 * Pruebas de valor controlado. Configure un modificador de característica que permite que una nueva característica sea visible solo para algunos usuarios. Use Application Insights para ver si se utiliza la nueva característica de la manera que había previsto. Realice ajustes y publíquelos para una audiencia más amplia.
 * Hable con los usuarios. El análisis no es suficiente por sí solo, pero es una herramienta complementaria para mantener una excelente relación con el cliente.
 
 
+## Vídeo
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
 
 [start]: app-insights-get-started.md
-
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

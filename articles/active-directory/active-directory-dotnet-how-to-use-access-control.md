@@ -180,7 +180,7 @@ En esta tarea, integrará su aplicación web ASP.NET con ACS.
 
 	![][19]
 
-7.  En Visual Studio, pegue la clave en el campo **Especificar la clave de administración para el espacio de nombres** y haga clic en  **Guardar clave de administración** y, a continuación, haga clic en **Aceptar**.
+7.  En Visual Studio, pegue la clave en el campo **Especificar la clave de administración para el espacio de nombres** y haga clic en **Guardar clave de administración** y, a continuación, haga clic en **Aceptar**.
 
 	![][20]
 
@@ -295,7 +295,7 @@ Puede revisar y cambiar estas opciones de configuración en el portal de adminis
 
 	![][8]
 
-3.	Seleccione un espacio de nombres de Access Control y luego haga clic en  **Administrar**. Esta acción abre el portal de administración de ACS.
+3.	Seleccione un espacio de nombres de Access Control y luego haga clic en **Administrar**. Esta acción abre el portal de administración de ACS.
 
 	![][9]
 
@@ -401,5 +401,5 @@ Para seguir explorando la funcionalidad de ACS y experimentar con más escenario
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

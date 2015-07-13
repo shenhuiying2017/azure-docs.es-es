@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Realizar una copia de seguridad"
-   description="Se describe cómo definir una directiva de copia de seguridad de StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 ### Para realizar una copia de seguridad
 
@@ -40,4 +24,4 @@
 
 Ahora ya acabó de configurar el dispositivo.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

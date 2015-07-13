@@ -1,37 +1,25 @@
 ## <a name="what-is"></a>Qué es Servicios móviles
 
-Servicios móviles es una oferta de servicio de Azure diseñada para facilitar la creación de aplicaciones móviles altamente funcionales usando Azure. Servicios móviles reúne un conjunto de servicios de Azure que habilitan las capacidades back-end para sus aplicaciones. Servicios móviles ofrece las siguientes posibilidades en Azure para dar brindar apoyo a sus aplicaciones:
+Servicios móviles de Azure es una plataforma para el desarrollo de aplicaciones móviles altamente escalable que le permite agregar funcionalidad mejorada a las aplicaciones para dispositivos móviles mediante el uso de Azure.
 
-+ Aprovisionamiento y administración sencillos de las tablas para almacenar datos de aplicaciones. 
-+ Integración con los servicios de notificación para entregar notificaciones de inserción a su aplicación.
-+ Integración con proveedores de identidad conocidos para la autenticación.
-+ Control detallado sobre la autorización del acceso a las tablas.
-+ Lógica de negocios personalizada en el servidor.
-+ Integración con otros servicios en la nube.
-+ Compatibilidad con la escalación de una instancia de servicio móvil.
-+ Supervisión y registro del servicio.
+Con Servicios móviles puede:
 
-Servicios móviles proporciona una biblioteca de clientes para cada plataforma compatible, lo que facilita aún más el desarrollo de aplicaciones en su plataforma que utiliza Servicios móviles.
++ **Compilar aplicaciones nativas y multiplataforma**: conecte sus aplicaciones Xamarin o Cordova (Phonegap) de iOS, Android, Windows o multiplataforma con su servicio móvil de backend mediante el uso de SDK nativos.  
++ **Enviar notificaciones push a sus usuarios**: envíe notificaciones push a los usuarios de su aplicación.
++ **Autenticar sus usuarios**: aproveche proveedores de identidades conocidos, como Facebook y Twitter, para autenticar a los usuarios de su aplicación.
++ **Almacenar datos en la nube**: almacene datos de usuario en una Base de datos SQL (de manera predeterminada) o en Mongo DB, DocumentDB, tablas de Azure o blobs de Azure. 
++ **Compilar aplicaciones de uso sin conexión con sincronización**: haga que sus aplicaciones funcionen sin conexión y use Servicios móviles para sincronizar datos en segundo plano.
++ **Supervisar y escalar las aplicaciones**: supervise el uso de las aplicaciones y escale el backend a medida que aumenta la demanda. 
 
-## <a name="concepts"> </a>Conceptos
+## <a name="concepts"> </a>Conceptos de Servicios móviles
 
 A continuación se presentan características y conceptos importantes en los Servicios móviles:
 
-<!--![1][1]-->
-
-+ **.NET backend:** este tipo de servicio móvil se implementa como un proyecto ASP.NET Web API. El código de back-end se implementa como controladores de WebAPI.
-+ **Clave de aplicación:** un valor único generado por Servicios móviles, distribuido con su aplicación y que se presenta en las solicitudes generadas por los clientes. Aun cuando es útil para limitar el acceso a su servicio móvil desde clientes aleatorios, esta clave no es segura y no debe usarse para autenticar a los usuarios de su aplicación.    
-+ **Token de acceso:** el token de acceso que generan los servicios móviles cuando se autentica un usuario.
-+ **Proveedor de identidades:** un servicio externo, como Facebook, Twitter, Google, Cuenta Microsoft o Azure Active Directory, que se usa para autenticar a los usuarios de su servicio móvil.
-+ **Backend JavaScript:** este tipo de servicio móvil se implementa como un servicio node.js. El código de back-end se escribe como JavaScript.
-+ **Permisos:** el nivel de autenticación mínimo necesario para invocar una operación de tabla o API personalizada.  
++ **Clave de aplicación:** un valor único que se usa para limitar el acceso de clientes aleatorios a su servicio móvil; esta "clave" no es un token de seguridad y no se usa para autenticar usuarios de la aplicación.    
++ **Backend:** la instancia de servicio móvil que admite su aplicación. Un servicio móvil se implementa como un proyecto ASP.NET Web API (*back-end de .NET* ) o como un proyecto de Node.js (*back-end de JavaScript*).
++ **Proveedor de identidades:** un servicio externo, con la confianza de Servicios móviles, que autentica los usuarios de su aplicación. Los proveedores compatibles incluyen: Facebook, Twitter, Google, cuenta de Microsoft y Azure Active Directory. 
 + **Notificación de inserción:** mensaje iniciado por el servicio que se envía a un dispositivo o usuario registrados mediante los centros de notificación de Azure.
 + **Escala:** la capacidad de agregar, por un coste adicional, más potencia de procesamiento, rendimiento y almacenamiento a medida que su aplicación se hace más conocida.
 + **Trabajo programado:** código personalizado que se ejecuta en una programación predeterminada o a petición.
-+ **Script del servidor:** código de lógica de negocios personalizado en un servicio móvil back-end de JavaScript. Este código se registra en una operación de tabla (leer, insertar, actualizar, eliminar), una API personalizada o un proyecto programado.
-+ **Tabla:** los datos de usuario se almacenan en tablas en una Base de datos SQL. Puede crear estas tablas en el Portal de administración.
 
-
-<!-- Images. -->
-
-<!--HONumber=54-->
+<!---HONumber=62-->

@@ -16,7 +16,7 @@
    ms.date="06/01/2015"
    ms.author="mbaldwin"/>
 
-# Tipos de notificaciones y tokens admitidos
+#  Tipos de notificaciones y tokens admitidos
 
 Este tema está diseñado para ayudarle a entender y evaluar las notificaciones en los tokens SAML 2.0 y tokens web JSON (JWT) que emite Azure Active Directory (Azure AD).
 
@@ -24,11 +24,11 @@ El tema empieza con una descripción de cada notificación de token y muestra un
 
 Azure agrega notificaciones a los tokens con el tiempo para permitir escenarios nuevos. Normalmente, presentamos estas notificaciones en estado de vista previa y, a continuación, las convertimos para que sean totalmente compatibles tras un período de prueba. Para prepararse para los cambios de notificación, las aplicaciones que aceptan tokens de Azure AD deben omitir notificaciones de token desconocidas para que las notificaciones nuevas no interrumpan la aplicación. Las aplicaciones que usan notificaciones que se encuentran en estado de vista previa no deberían depender de estas notificaciones y no deberían generar excepciones si la notificación no aparece en el token. Si la aplicación necesita notificaciones que no están disponibles en los tokens SAML o JWT que emite Azure AD, consulte la sección Adiciones de la Comunidad que se encuentra en la parte inferior de esta página para sugerir y debatir sobre nuevos tipos de notificación.
 
-## Referencia de notificaciones de token
+##  Referencia de notificaciones de token
 
 En esta sección se enumeran y describen las notificaciones en tokens que devuelve Azure AD. Incluye la versión SAML y la versión JWT de la notificación, así como una descripción de la notificación y su uso. Las notificaciones se muestran en orden alfabético.
 
-### Identificador de aplicación
+###  Identificador de aplicación
 
 La notificación de id. de aplicación identifica la aplicación que usa el token de acceso a un recurso. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD.
 
@@ -38,7 +38,7 @@ En un token JWT, el id. de aplicación aparece en una notificación appid.
 
     "appid":"15CB020F-3984-482A-864D-1D92265E8268"
 
-### Público
+###  Público
 La audiencia de token es el destinatario previsto del token. La aplicación que recibe el token debe comprobar que el valor de la audiencia sea correcto y rechazar cualquier token destinado a una audiencia diferente.
 
 El valor de la audiencia es una cadena, por lo general, la dirección base del recurso al que se tiene acceso, por ejemplo, "https://contoso.com". En los tokens de Azure AD, la audiencia es el URI de id. de aplicación de la aplicación que solicitó el token. Cuando la aplicación (que es la audiencia) tiene más de un URI de id. de aplicación, el URI de id. de aplicación que se incluye en la notificación de la audiencia del token coincide con el URI de id. de aplicación que se encuentra en la solicitud de token. En un token SAML, la notificación de la audiencia se define en el elemento Audience del elemento AudienceRestriction.
@@ -51,7 +51,7 @@ En un token JWT, la audiencia aparece en una notificación aud.
 
     "aud":"https://contoso.com"
 
-### Referencia de clase de contexto de autenticación de aplicación
+###  Referencia de clase de contexto de autenticación de aplicación
 
 La notificación de la referencia de clase de contexto de autenticación de aplicación indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se usan el id. de cliente y el secreto de cliente, el valor es 1.
 
@@ -59,14 +59,14 @@ En un token JWT, el valor de referencia de clase de contexto de autenticación a
 
     "appidacr": "0"
 
-### Referencia de clase de contexto de autenticación
+###  Referencia de clase de contexto de autenticación
 La notificación de la referencia de clase de contexto de autenticación indica cómo se autenticó el firmante, en lugar del cliente, como es el caso en la notificación de la referencia de clase de contexto de autenticación de aplicación. Un valor de "0" indica que la autenticación del usuario final no ha cumplido los requisitos de ISO/IEC 29115.
 
 - En un token JWT, el valor de referencia de clase de contexto de autenticación aparece en una notificación acr (valor de ACR específico del usuario).
 
     "acr": "0"
 
-### Instante de autenticación
+###  Instante de autenticación
 
 La notificación del instante de autenticación registra la fecha y hora en que se produjo la autenticación.
 
@@ -76,7 +76,7 @@ En un token SAML, el instante de autenticación aparece en el atributo AuthnInst
 
 Azure AD no tiene una notificación equivalente en tokens JWT.
 
-### Método de autenticación
+###  Método de autenticación
 
 La notificación del método de autenticación le indica cómo se autenticó el firmante del token. En este ejemplo, el proveedor de identidades usa una contraseña para autenticar al usuario. http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password
 
@@ -88,7 +88,7 @@ En un token JWT, el valor del método de autenticación aparece dentro de la not
 
     “amr”: ["pwd"]
 
-###Nombre
+### Nombre
 
 La notificación de nombre o "nombre dado" proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario de Azure AD.
 
@@ -101,7 +101,7 @@ En un token JWT, el nombre aparece en la notificación given_name.
 
     "given_name": "Frank"
 
-### Grupos
+###  Grupos
 
 La notificación de grupos proporciona id. de objeto que representan la pertenencia a grupos del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad "groupMembershipClaims" del manifiesto de aplicación. Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. En cualquier configuración, la notificación de grupos representa la pertenencia a grupos transitiva del firmante.
 
@@ -114,7 +114,7 @@ En un token SAML, la notificación de grupos aparece en la notificación de grup
 
     “groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]
 
-### Proveedor de identidades
+###  Proveedor de identidades
 
 La notificación del proveedor de identidades registra el proveedor de identidades que autenticó al firmante del token. Este valor es idéntico al valor de la notificación del emisor, a menos que la cuenta de usuario esté en un inquilino diferente que el emisor.
 
@@ -127,7 +127,7 @@ En un token JWT, el proveedor de identidades aparece en una notificación idp.
 
     "idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”
 
-### IssuedAt
+###  IssuedAt
 
 La notificación IssuedAt almacena la hora a la que se emitió el token. A menudo se usa para medir la actualización de tokens. En un token SAML, el valor IssuedAt aparece en la aserción IssueInstant.
 
@@ -137,7 +137,7 @@ En un token JWT, el valor IssuedAt aparece en la notificación iat. El valor se 
 
     "iat": 1390234181
 
-### Emisor
+###  Emisor
 
 La notificación del emisor identifica el servicio de token de seguridad (STS) que construye y devuelve el token y el inquilino de directorio de Azure AD Directory. En los tokens que devuelve Azure AD, el emisor es sts.windows.net. El GUID en el valor de notificación del emisor es el id. de inquilino del directorio de Azure AD. El id. de inquilino es un identificador inmutable y confiable del directorio.
 
@@ -149,7 +149,7 @@ En un token JWT, el emisor aparece en una notificación iss.
 
     "iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”
 
-### Apellido
+###  Apellido
 
 La notificación de apellido proporciona el apellido del usuario según se define en el objeto de usuario de Azure AD. En un token SAML, el apellido aparece en una notificación en el elemento surname SAML Attribute.
 
@@ -160,7 +160,7 @@ En un token JWT, el apellido aparece en la notificación family_name.
 
     "family_name": "Miller"
 
-### Nombre
+###  Nombre
 
 La notificación de nombre proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único dentro de un inquilino y está diseñado para usarse solo con fines de visualización. En un token SAML, el nombre aparece en el atributo Name.
 
@@ -171,7 +171,7 @@ En una notificación JWT, el nombre aparece en la notificación unique_name.
 
     "unique_name": "frankm@contoso.com"
 
-### Id. de objeto
+###  Id. de objeto
 
 La notificación de id. de objeto contiene un identificador único de un objeto en Azure AD. Este valor es inmutable y no se puede reasignar o volver a usar, por lo que puede usarlo para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando se usa el token para tener acceso a un recurso. Use el id. de objeto para identificar un objeto en las consultas a Azure AD. En un token SAML, el id. de objeto aparece en el atributo objectidentifier.
 
@@ -182,7 +182,7 @@ En un token JWT, el id. de objeto aparece en una notificación oid.
 
     "oid":"528b2ac2-aa9c-45e1-88d4-959b53bc7dd0"
 
-### Roles
+###  Roles
 
 La notificación de roles proporciona cadenas descriptivas que representan asignaciones de roles de aplicación del firmante en Azure AD y se puede usar para exigir el control de acceso basado en roles. Los roles de aplicación se definen por aplicación mediante la propiedad "appRoles" del manifiesto de aplicación. La propiedad "value" de cada rol de aplicación es el valor que aparece en la notificación de roles. Los roles incluidos en la notificación de roles representan todos los roles de aplicación que se han concedido al firmante directa e indirectamente a través de la pertenencia a grupos. En un token SAML, la notificación de roles aparece en el atributo de roles.
 
@@ -193,7 +193,7 @@ En un token JWT, la notificación de roles aparece en el atributo de roles.
 
     “roles”: ["Admin", … ]
 
-### Scope
+###  Scope
 
 El ámbito del token indica los permisos de suplantación concedidos a la aplicación cliente. El permiso predeterminado es user_impersonation. El propietario del recurso protegido puede registrar valores adicionales en Azure AD.
 
@@ -201,7 +201,7 @@ En un token JWT, el ámbito del token se especifica en una notificación scp.
 
     "scp": "user_impersonation"
 
-### Asunto
+###  Asunto
 
 El firmante del token es la entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar o volver a usar, por lo que se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando se usa el token para tener acceso a un recurso. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general.
 
@@ -218,7 +218,7 @@ En un token JWT, el firmante aparece en una notificación sub.
 
     "sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"
 
-### Id. de inquilino
+###  Id. de inquilino
 El id. de inquilino es un identificador inmutable, no reutilizable que identifica al inquilino de directorio que emitió el token. Puede usar este valor para tener acceso a recursos de directorio específicos del inquilino en una aplicación multiempresa. Por ejemplo, puede usar este valor para identificar al inquilino en una llamada a API Graph.
 
 En un token SAML, el id. de inquilino aparece en una notificación en el elemento tenantid SAML Attribute.
@@ -230,7 +230,7 @@ En un token JWT, el Id. de inquilino aparece en una notificación tid.
 
     "tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"
 
-### Vigencia del token
+###  Vigencia del token
 La notificación de vigencia del token define el intervalo de tiempo dentro del cual un token es válido. El servicio que valida el token debe comprobar que la fecha actual está dentro de la vigencia del token. De lo contrario, debe rechazar el token. El servicio puede proporcionar una asignación de hasta cinco minutos más allá del intervalo de vigencia del token para tener en cuenta las diferencias en la hora del reloj ("desfase temporal") entre Azure AD y el servicio.
 
 En un token SAML, la notificación de vigencia del token se define en el elemento Conditions mediante los atributos NotBefore y NotOnOrAfter.
@@ -245,19 +245,19 @@ En un token JWT, la vigencia del token se define mediante notificaciones nbf (no
     "nbf":1363289634,
     "exp":1363293234
 
-### Nombre principal de usuario
+###  Nombre principal de usuario
 La notificación de nombre principal de usuario almacena el nombre de usuario de la entidad de seguridad del usuario.
 
 En un token JWT, el nombre principal de usuario aparece en una notificación upn.
 
     "upn": frankm@contoso.com
 
-### Versión
+###  Versión
 La notificación de versión almacena el número de versión del token. En un token JWT, la versión aparece en una notificación ver.
 
     "ver": "1.0"
 
-## Tokens de ejemplo
+##  Tokens de ejemplo
 
 Esta sección muestra ejemplos de tokens SAML y JWT que Azure AD devuelve. Estos ejemplos le permiten ver las notificaciones en contexto. Token SAML
 
@@ -363,7 +363,7 @@ Este es un ejemplo de token SAML típico.
 	  <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
 	</t:RequestSecurityTokenResponse>
 
-### Token JWT: suplantación de usuario
+###  Token JWT: suplantación de usuario
 
 Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de suplantación de usuario. Además de las notificaciones, el token incluye un número de versión en **ver** y **appidacr**, la referencia de clase de contexto de autenticación, que indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se ha usado el id. de cliente o el secreto de cliente, el valor es 1.
 
@@ -408,9 +408,8 @@ Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de
      acr: "1"
     }.
 
-##Otras referencias
+## Otras referencias
 
 [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

@@ -15,7 +15,7 @@
 	ms.date="04/17/2015" 
 	ms.author="awills"/>
  
-# Definición de alertas en Application Insights
+#  Definición de alertas en Application Insights
 
 [Visual Studio Application Insights][start] pueden alertarle de los cambios en las métricas de rendimiento o de uso de la aplicación.
 
@@ -28,7 +28,7 @@ Hay dos tipos de alertas:
 
 Hay una [página aparte sobre las pruebas web][availability], por lo que aquí nos centraremos en las alertas de métricas.
 
-## Alertas de métricas
+##  Alertas de métricas
 
 Si aún no ha configurado Application Insights para su aplicación, [hágalo primero][start].
 
@@ -42,7 +42,7 @@ Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el 
 
 *No veo el botón Agregar alerta.* ¿Está usando una cuenta de organización? Puede establecer alertas si tiene acceso de propietario o colaborador a este recurso de aplicación. Eche un vistazo a Configuración -> Usuarios. [Más información sobre el control de acceso][roles].
 
-## Visualización de alertas
+##  Visualización de alertas
 
 Las alertas se le envían por correo electrónico.
 
@@ -54,11 +54,11 @@ También aparecen en el registro de eventos de operaciones:
 
 * No. Estos eventos operativos son simplemente un registro de cosas que han ocurrido en este recurso de aplicación. 
 
-## Alertas de disponibilidad
+##  Alertas de disponibilidad
 
 Puede configurar pruebas web que prueben cualquier sitio web desde diferentes puntos alrededor del mundo. [Más información][availability].
 
-## ¿Qué alertas es conveniente establecer?
+##  ¿Qué alertas es conveniente establecer?
 
 Depende de la aplicación. Para empezar, es mejor no establecer demasiadas métricas. Observe durante un tiempo sus gráficos de métrica mientras se ejecuta la aplicación para hacerse una idea de cómo se comporta normalmente. Esto le ayudará a encontrar maneras de mejorar su rendimiento. A continuación, configure alertas para que le avisen cuando las métricas salgan de la zona normal.
 
@@ -78,4 +78,5 @@ Las alertas más populares son:
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

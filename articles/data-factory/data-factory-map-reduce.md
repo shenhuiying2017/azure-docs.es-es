@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Invocar programa MapReduce desde la factoría de datos de Azure" 
-	description="Obtenga información acerca de cómo procesar datos mediante la ejecución de programas de MapReduce en un clúster de HDInsight de Azure de un generador de datos de Azure." 
+	description="Obtenga información sobre cómo procesar datos mediante la ejecución de programas MapReduce en un clúster de HDInsight de Azure desde una factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -17,23 +17,23 @@
 	ms.author="spelluru"/>
 
 # Invocar programas MapReduce desde la factoría de datos de Azure
-Este artículo describe cómo invocar un **MapReduce** programa desde una canalización del generador de datos de Azure mediante el uso de la **HDInsight actividad** con **MapReduce transformación**.
+En este artículo se describe cómo invocar un programa **MapReduce** desde una canalización de la factoría de datos de Azure mediante el uso de la **actividad de HDInsight** con la **transformación de MapReduce**.
 
 ## Introducción 
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe el uso de la transformación de MapReduce de la actividad de HDInsight.
  
-Consulte [usar Pig y Hive con el generador de datos][data-factory-pig-hive-activities] para obtener más información acerca de cómo ejecutar Pig y Hive scripts en HDInsight de un clúster de una canalización del generador de datos de Azure mediante Pig y Hive transformaciones de la actividad de HDInsight.
+Vea [Uso de Pig y Hive con la Factoría de datos][data-factory-pig-hive-activities] para obtener detalles acerca la ejecución de scripts de Pig/Hive en un clúster de HDInsight desde una canalización de la factoría de datos de Azure mediante transformaciones de Pig/Hive de la actividad de HDInsight.
 
 ## JSON para actividades de HDInsight mediante la transformación de MapReduce 
 
 En la definición de JSON para la actividad de HDInsight:
  
-1. Establecer el **tipo** de la **actividad** a **HDInsightActivity**.
-2. Establecer el **tipo** de la **transformación** a **MapReduce**.
-3. Especifique el nombre de la clase para **className** propiedad.
-4. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo **jarFilePath** propiedad.
-5. Especificar el servicio vinculado que hace referencia al almacenamiento de blobs de Azure que contiene el archivo JAR de **jarLinkedService** propiedad.   
-6. Especifique los argumentos para el programa de MapReduce en el **argumentos** sección. 
+1. Establezca el **tipo** de la **actividad** en **HDInsightActivity**.
+2. Establezca el **tipo** de la **transformación** en **MapReduce**.
+3. Especifique el nombre de la clase para la propiedad **className**.
+4. Especifique la ruta de acceso al archivo JAR incluyendo el nombre de archivo de la propiedad **jarFilePath**.
+5. Especifique el servicio vinculado que hace referencia al almacenamiento de blobs de Azure que contiene el archivo JAR de la propiedad **jarLinkedService**.   
+6. Especifique los argumentos para el programa de MapReduce en la sección **argumentos**. 
 
    
  
@@ -90,14 +90,14 @@ En la definición de JSON para la actividad de HDInsight:
 Puede utilizar la transformación de MapReduce para ejecutar cualquier archivo jar de MapReduce en un clúster de HDInsight. En la siguiente definición de JSON de ejemplo de una canalización, la actividad de HDInsight se configura para ejecutar un archivo JAR de Mahout.
 
 ## Muestra
-Puede descargar un ejemplo para usar la actividad de HDInsight con la transformación de MapReduce desde: [ejemplos de generador de datos en GitHub][data-factory-samples].
+Puede descargar un ejemplo para usar la actividad de HDInsight con la transformación de MapReduce desde: [Ejemplos de la factoría de datos en GitHub][data-factory-samples].
 
 ## Otras referencias
 
 Artículo | Descripción
 ------ | ---------------
-[Tutorial: Mover y procesar los archivos de registro mediante el generador de datos][adf-tutorial] | Este artículo proporciona un tutorial de end-to-end que muestra cómo implementar un verdadero casi escenario mediante el generador de datos de Azure para transformar los datos de archivos de registro en perspectivas. En este tutorial, usará tanto Pig y Hive transformaciones para procesar los datos. 
-[Referencia del programador de generador de datos de Azure][developer-reference] | La referencia del programador tiene el contenido de referencia completa de cmdlets, script JSON, funciones, etc.... 
+[Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial] | En este artículo se proporciona un tutorial completo en el que se muestra cómo implementar un escenario prácticamente real mediante la Factoría de datos de Azure para transformar los datos de archivos de registro en información. En este tutorial, usará las transformaciones de Pig y Hive para procesar los datos. 
+[Referencia para desarrolladores de la Factoría de datos de Azure][developer-reference] | La Referencia para desarrolladores incluye contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
 
 
 [data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
@@ -121,5 +121,6 @@ Artículo | Descripción
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

@@ -100,7 +100,7 @@ La siguiente imagen muestra las relaciones entre las diversas entidades de Copia
 
 7. Al hacer clic en el almacén de copia de seguridad, se dirige a la página **Inicio rápido**, donde se muestran las instrucciones para la copia de seguridad de máquinas virtuales de Azure. ![Instrucciones de copia de seguridad de máquina virtual en la página del panel](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Lea más sobre cómo [establecer la opción de redundancia de almacenamiento en el almacén de copia de seguridad][vault-storage-redundancy].
+    >[AZURE.NOTE]Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Obtenga más información sobre la [configuración de la opción de redundancia de almacenamiento en el almacén de copia de seguridad][redundancia de almacenamiento del almacén].
 
 ### 2. Agente de máquina virtual de Azure
 Antes de empezar a realizar copias de seguridad de la máquina virtual de Azure, asegúrese de que el agente de VM de Azure está instalado correctamente en la máquina virtual. Para realizar la copia de seguridad de la máquina virtual, el servicio de Copia de seguridad de Azure instala una extensión para el agente de máquina virtual. Puesto que el agente de VM es un componente opcional en el momento que se crea la máquina virtual, deberá asegurarse de que está activada la casilla para el agente de VM antes de que se aprovisione la máquina virtual.
@@ -133,4 +133,7 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 
 + Supervisar los trabajos de copia de seguridad
 
-<!---HONumber=GIT-SubDir--> 
+
+ 
+
+<!---HONumber=62-->

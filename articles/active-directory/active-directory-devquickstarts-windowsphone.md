@@ -33,7 +33,7 @@ Para los clientes nativos .NET que necesitan tener acceso a recursos protegidos,
 Para crear la aplicación de trabajo completa, deberá:
 
 2. Registrar la aplicación con Azure AD.
-3. Instalar y configurar ADAL.
+3. Instalar y configurar ADAL
 5. Usar ADAL para obtener tokens de Azure AD.
 
 Para empezar, [descargue el proyecto del esquema](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip). Cualquiera de los dos es una solución de Visual Studio 2013. También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
@@ -43,16 +43,17 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
 
 -	Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
 -	En el panel de navegación izquierdo, haga clic en **Active Directory**.
--	Seleccione un inquilino en el que registrar la aplicación.
+-	Seleccione el inquilino en el que va a registrar la aplicación.
 -	Haga clic en la pestaña **Aplicaciones** y en **Agregar** en el cajón inferior.
--	Siga las indicaciones y cree una nueva **Aplicación de cliente nativo**.
-    -	El **nombre** de la aplicación describirá su aplicación a los usuarios finales
+-	Siga las indicaciones y cree una nueva **Aplicación de cliente nativa**.
+    -	El **nombre** de la aplicación servirá de descripción de la aplicación para los usuarios finales.
     -	El **URI de redirección** es una combinación de esquema y cadena que utilizará Azure AD para devolver las respuestas de los tokens. Escriba un valor de marcador de posición por ahora, por ejemplo, `http://DirectorySearcher`. Reemplazaremos este valor más adelante.
 -	Una vez que haya completado el registro, AAD asignará a su aplicación un identificador de cliente único. Necesitará este valor en las secciones siguientes, de modo que cópielo desde la pestaña **Configurar**.
 - También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso de **acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
 
 ## *2. Instalación y configuración de ADAL*
-Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación. Comience agregando ADAL al proyecto del buscador de directorios con la Consola del Administrador de paquetes.
+Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación.
+-	Comience agregando ADAL al proyecto de DirectorySearcher con la consola del Administrador de paquetes.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -75,7 +76,7 @@ ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-
 - En la pestaña **Configurar** de la aplicación en el Portal de administración de Azure, reemplace el valor de **RedirectUri** por este valor.  
 
 ## *3. Uso de ADAL para obtener tokens de AAD*
-El principio básico inherente a ADAL es que cada vez que la aplicación necesita un token de acceso, simplemente llama a  `authContext.AcquireToken(…)` y ADAL se encarga del resto.
+El principio básico inherente a ADAL es que cada vez que la aplicación necesita un token de acceso, simplemente llama a `authContext.AcquireToken(…)` y ADAL se encarga del resto.
 
 -	El primer paso consiste en inicializar `AuthenticationContext` de la aplicación: clase principal de ADAL. Este es el lugar en el que pasa a ADAL las coordenadas que necesita para comunicarse con Azure AD e indicarle cómo almacenar en caché los tokens.
 
@@ -89,7 +90,7 @@ public MainPage()
 }
 ```
 
-- Ahora busque el método `Search(...)`, que se invoca cuando el usuario hace clic en el botón de búsqueda en la interfaz de usuario de la aplicación. Este método realiza una solicitud GET en API de gráficos de Azure AD a la consulta para los usuarios cuyo UPN comienza con el término de búsqueda determinada. Sin embargo, para realizar una consulta a la API Graph, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud, que es donde entra ADAL.
+- Ahora busque el método `Search(...)`, que se invoca cuando el usuario hace clic en el botón de búsqueda en la interfaz de usuario de la aplicación. Este método realiza una solicitud GET a la API Graph de Azure AD para realizar una consulta sobre los usuarios cuyo UPN comienza con el término de búsqueda especificado. Sin embargo, para realizar una consulta a la API Graph, tiene que incluir un access_token en el encabezado `Authorization` de la solicitud, que es donde entra ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -162,12 +163,15 @@ private void SignOut()
 
 ¡Enhorabuena! Ahora tiene una aplicación de Windows Phone en funcionamiento que tiene la capacidad de autenticar usuarios, realizar llamadas seguras a las API Web que usan OAuth 2.0 e y obtener información básica sobre el usuario. Si no lo ha hecho ya, ahora es el momento de completar el inquilino con algunos usuarios. Ejecute la aplicación DirectorySearcher e inicie sesión con uno de esos usuarios. Busque otros usuarios según su UPN. Cierre la aplicación y vuelva a ejecutarla. Observe cómo la sesión del usuario permanece intacta. Cierre la sesión y vuelva a iniciarla como otro usuario.
 
-ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación. Hace el trabajo sucio por usted: administración en caché, compatibilidad con protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de tokens expirados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireToken*(…)`.
+ADAL facilita la incorporación de todas estas características comunes de identidad en la aplicación. Se encarga de todo el trabajo duro: administración de la caché, compatibilidad con el protocolo OAuth, presentación del usuario con una interfaz de usuario de inicio de sesión, actualización de los tokens caducados, etc. Todo lo que necesita saber es una única llamada de API, `authContext.AcquireToken*(…)`.
 
 Como referencia, se proporciona el ejemplo finalizado (sin sus valores de configuración) [aquí](https://github.com/AzureADQuickStarts/NativeClient-WindowsPhone/archive/complete.zip). Ahora puede trasladarse a escenarios de identidad adicionales. Es posible que desee probar:
 
 [Protección de una API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obtener recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
-
-<!---HONumber=58--> 
+Para obtener recursos adicionales, consulte:
+ - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
+ - [CloudIdentity.com >>](https://cloudidentity.com)
+ - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
+<!--HONumber=62-->

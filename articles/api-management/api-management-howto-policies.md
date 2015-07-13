@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="06/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,9 +25,7 @@ Consulte la [Referencia de directivas][] para obtener una lista de declaraciones
 
 Las directivas se aplican en el proxy que se encuentra entre el consumidor de la API y la API administrada. El proxy recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][], [Expresiones de directiva][] y el vídeo siguiente.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][] y [Expresiones de directiva][].
 
 ## <a name="scopes"> </a>Configuración de directivas
 Las directivas se pueden configurar globalmente o en el ámbito de un [producto][], una [API][] o una [operación][]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
@@ -105,6 +103,12 @@ Por ejemplo, si tiene una directiva de nivel global y una directiva configurada 
 En la definición de directiva del ejemplo anterior, la declaración entre dominios se ejecutaría antes de las directivas superiores que, a su vez, irían seguidas de la directiva de búsqueda y reemplazo.
 
 Nota: una directiva global no tiene una directiva principal y el uso del elemento `<base>` en ella no surte efecto.
+
+## Pasos siguientes
+
+Visualice el siguiente vídeo acerca de expresiones de directivas.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Referencia de directivas]: api-management-policy-reference.md
 [producto]: api-management-howto-add-products.md

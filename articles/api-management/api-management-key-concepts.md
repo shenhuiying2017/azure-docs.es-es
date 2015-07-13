@@ -16,7 +16,7 @@
 	ms.date="06/19/2015" 
 	ms.author="sdanie"/>
 
-#¿Qué es Administración de API?
+# ¿Qué es Administración de API?
 
 La Administración de API ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos para liberar el potencial de sus datos y servicios. Todas y cada una de las empresas pretenden extender sus operaciones como una plataforma digital creando nuevos canales, buscando nuevos clientes y estrechando la relación con los existentes. Administración de API proporciona las capacidades esenciales para garantizar un programa API exitoso a través de compromisos con desarrolladores, conocimiento de los negocios, análisis, seguridad y protección.
 
@@ -113,5 +113,4 @@ Puede personalizar el aspecto y apariencia del portal para desarrolladores agreg
 
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

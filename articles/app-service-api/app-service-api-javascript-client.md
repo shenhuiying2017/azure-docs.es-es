@@ -369,5 +369,4 @@ En esta sección implementará al cliente HTML/JavaScript como una aplicación w
 Este ejemplo muestra cómo puede utilizar AngularJS como plataforma de JavaScript para tener acceso a los back-end de aplicación de API. Puede cambiar la funcionalidad de acceso de REST para utilizar cualquier otro marco JavaScript.
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

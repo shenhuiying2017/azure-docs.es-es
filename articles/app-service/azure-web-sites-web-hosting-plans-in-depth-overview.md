@@ -78,7 +78,7 @@ Tenga en cuenta que cada plan tiene su propio nivel de precios. Cuando mueve un 
 
 Existen tres formas de escalar un plan:
 
-- Cambie el **nivel de precios** del plan. Por ejemplo, un plan del nivel **Básico** puede convertirse al nivel **Estándar** o  **Premium** y todas las aplicaciones asociadas a dicho plan podrán aprovechar las características que se ofrecen en el nuevo nivel de servicio.
+- Cambie el **nivel de precios** del plan. Por ejemplo, un plan del nivel **Básico** puede convertirse al nivel **Estándar** o **Premium** y todas las aplicaciones asociadas a dicho plan podrán aprovechar las características que se ofrecen en el nuevo nivel de servicio.
 - Cambiar el **tamaño de instancia** de un plan. Por ejemplo, un plan de nivel **Básico** que use instancias **pequeñas** puede cambiarse para usar instancias **grandes**. Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el tamaño de instancia más grande.
 - Cambio del **recuento de instancias** del plan. Por ejemplo, un plan **Estándar** escalado a 3 instancias puede escalarse hasta 10 instancias y un plan **Premium** (vista previa) puede escalarse hasta 20 instancias (con algunas restricciones). Todas las aplicaciones asociadas a dicho plan podrán aprovechar la memoria y los recursos de CPU adicionales que ofrece el mayor recuento de instancias.
 
@@ -94,5 +94,6 @@ Los planes del Servicio de aplicaciones representan un conjunto de característi
 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

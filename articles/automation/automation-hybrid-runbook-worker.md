@@ -136,4 +136,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

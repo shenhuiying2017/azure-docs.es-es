@@ -6,4 +6,4 @@ Si no cuenta con Visual Studio instalado, se instalará Visual Studio Express pa
 
 >[AZURE.NOTE] Según la cantidad de dependencias de SDK que tenga ya en la máquina, la instalación del SDK puede tardar un período largo, desde unos minutos a media hora o más.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

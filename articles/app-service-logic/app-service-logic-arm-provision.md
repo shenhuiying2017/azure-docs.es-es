@@ -38,7 +38,7 @@ Con esta plantilla, implementará una aplicación lógica.
 
      "testUri": {
         "type": "string",
-        "defaultValue": "http://azure.microsoft.com/status/feed/"
+        "defaultValue": "http://azure.microsoft.com/es-es/status/feed/"
       }
     
 ## Recursos para implementar
@@ -135,5 +135,4 @@ Esta definición determinada se ejecutará una vez cada hora y hará ping en la 
 
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

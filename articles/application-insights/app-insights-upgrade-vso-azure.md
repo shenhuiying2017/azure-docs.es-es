@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
 # Actualización desde la versión anterior de Visual Studio Online de Application Insights
@@ -32,26 +32,38 @@ O bien examine el proyecto en el Explorador de soluciones de Visual Studio y en 
 1. Abra el proyecto en Visual Studio 2013 Update 3 o una versión posterior.
 2. Elimine ApplicationInsights.config. 
 3. Quite los paquetes de NuGet de Application Insights del proyecto. Para ello, haga clic con el botón secundario en el proyecto en el Explorador de soluciones y seleccione Administrar paquetes de NuGet.
+
+    ![](./media/app-insights-upgrade-vso-azure/nuget.png)
+4. Elimine la carpeta AppInsightsAgent y los archivos que contiene.
+
+    ![](./media/app-insights-upgrade-vso-azure/folder.png)
+
+5. Quite todos los valores y nombres de configuración de Microsoft.AppInsights de ServiceDefinition.csdef y ServiceConfiguration.csfg.
+
+    ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK: haga clic con el botón secundario y seleccione [Agregar Application Insights][greenbrown]. Se agrega el SDK al proyecto y también se crea un nuevo recurso de Application Insights en Azure.
 5. Registro: si el código incluye llamadas a la API antigua como LogEvent(), las descubrirá al intentar compilar la solución. Actualícelas para [usar la nueva API][track].
-6. Páginas web: si el proyecto incluye páginas web, reemplace los scripts en las secciones <head>. Normalmente solo hay una copia en una página maestra, como Views\\Shared\_Layout.cshtml. [Obtenga el script nuevo desde la hoja Inicio rápido del recurso de Application Insights en Azure][usage]. Si las páginas web incluyen llamadas de telemetría en el cuerpo, como logEvent o logPage, [actualícelas para usar la nueva API][track].
+6. Páginas web: si el proyecto incluye páginas web, reemplace los scripts en las secciones <head>. Normalmente solo hay una copia en una página maestra, como Views\Shared_Layout.cshtml. [Obtenga el script nuevo desde la hoja Inicio rápido del recurso de Application Insights en Azure][usage]. Si las páginas web incluyen llamadas de telemetría en el cuerpo, como logEvent o logPage, [actualícelas para usar la nueva API][api].
 7. Monitor de servidor: si la aplicación es un servicio que se ejecuta en IIS, desinstale Microsoft Monitoring Agent desde el servidor y, a continuación, [instale el Monitor de estado de Application Insights][redfield].
 8. Pruebas web: si utilizaba las pruebas de disponibilidad de web, [vuelva a crearlas en el nuevo portal][availability], con sus alertas.
 9. Alertas: configure las [alertas sobre métricas][alerts] en el portal de Azure.
-10. Contadores de rendimiento: si usa contadores de rendimiento, puede escribir su propio código para muestrear los contadores periódicamente y enviarlos mediante [TrackMetric()][track].
+
 
 ## Si tiene un servicio web de Java...
 
 1. En el equipo servidor, deshabilite al agente anterior quitando las referencias al agente de APM del archivo de inicio del servicio web. En un servidor TomCat, edite Catalina.bat. En un servidor JBoss, edite Run.bat. 
 2. Reinicie el servicio web.
-3. En el portal de Microsoft Azure, [agregue un nuevo recurso de Application Insights][java]. En el equipo de desarrollo, agregue [el SDK de Java][java] al proyecto web. Ahora puede [enviar telemetría personalizada][track] desde el código del servidor.
+3. En el portal de Microsoft Azure, [agregue un nuevo recurso de Application Insights][java]. En el equipo de desarrollo, agregue [el SDK de Java][java] al proyecto web.
 4. Reemplace los scripts en las secciones <head> de las páginas web. (Puede haber solo una copia en un comando include del servidor). [Obtenga el script nuevo desde la hoja Inicio rápido del recurso nuevo de Application Insights en Azure][usage]. Si las páginas web incluyen llamadas de telemetría en el cuerpo, como logEvent o logPage, [actualícelas para usar la nueva API][track].
+8. Pruebas web: si utilizaba las pruebas de disponibilidad de web, [vuelva a crearlas en el nuevo portal][availability], con sus alertas.
+9. Alertas: configure las [alertas sobre métricas][alerts] en el portal de Azure.
 
 
 
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
+[api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
@@ -59,5 +71,5 @@ O bien examine el proyecto en el Explorador de soluciones de Visual Studio y en 
 [track]: app-insights-custom-events-metrics-api.md
 [usage]: app-insights-web-track-usage.md
 
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

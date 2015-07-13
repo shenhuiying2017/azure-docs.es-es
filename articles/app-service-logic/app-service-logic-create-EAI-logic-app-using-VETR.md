@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/23/2015"
+   ms.date="06/24/2015"
    ms.author="rajram"/>
 
 
@@ -42,7 +42,7 @@ Las siguientes aplicaciones de API de BizTalk ayudan a crear este patrón:
 ## Construcción del patrón VETR básico
 ### Conceptos básicos
 
-En el Portal de administración de Azure, haga clic en el botón  **+Nuevo** en la parte inferior izquierda de la pantalla y, después, haga clic en Aplicación lógica. Elija un nombre, una ubicación, una suscripción, un grupo de recursos y una ubicación que funcionen. Los grupos de recursos actúan como contenedores para las aplicaciones y todos los recursos de la aplicación van al mismo grupo de recursos.
+En el Portal de administración de Azure, haga clic en el botón **+Nuevo** en la parte inferior izquierda de la pantalla y, después, haga clic en Aplicación lógica. Elija un nombre, una ubicación, una suscripción, un grupo de recursos y una ubicación que funcionen. Los grupos de recursos actúan como contenedores para las aplicaciones y todos los recursos de la aplicación van al mismo grupo de recursos.
 
 A continuación, vamos a agregar desencadenadores y acciones.
 
@@ -50,7 +50,7 @@ A continuación, vamos a agregar desencadenadores y acciones.
 ## Adición de un desencadenador HTTP
 
 1. Seleccione **Agente de escucha HTTP** desde la galería para crear un nuevo agente de escucha. Llámelo **HTTP1**.
-2. Deje la opción **¿Enviar respuesta automáticamente?** como false. Configure la acción del desencadenador estableciendo _Método HTTP_ en  _EXPONER_ y _Dirección URL relativa_ en _/OneWayPipeline_.
+2. Deje la opción **¿Enviar respuesta automáticamente?** como false. Configure la acción del desencadenador estableciendo _Método HTTP_ en _EXPONER_ y _Dirección URL relativa_ en _/OneWayPipeline_.
 
 ![Desencadenador HTTP][2]
 
@@ -71,7 +71,7 @@ Ahora, la acción de validación es la primera acción después del agente de es
 Vamos a configurar transformaciones para normalizar los datos de entrada.
 
 1. Agregue **Transformar** desde la galería. 
-2. Para configurar una transformación para transformar los mensajes XML de entrada, seleccione la acción **Transformar** como la acción que se ejecutará cuando esta API se llame y seleccione ```triggers(‘httplistener’).outputs.Content``` como el valor de  _inputXml_. Map es un parámetro opcional, ya que los datos de entrada se hacen corresponder con todas las transformaciones configuradas y se aplican solo aquellos que coincidan con el esquema.
+2. Para configurar una transformación para transformar los mensajes XML de entrada, seleccione la acción **Transformar** como la acción que se ejecutará cuando esta API se llame y seleccione ```triggers(‘httplistener’).outputs.Content``` como el valor de _inputXml_. Map es un parámetro opcional, ya que los datos de entrada se hacen corresponder con todas las transformaciones configuradas y se aplican solo aquellos que coincidan con el esquema.
 3. Por último, la transformación se ejecuta solamente si la validación se realiza correctamente. Para configurar esta condición, seleccione el icono de engranaje situado en la parte superior para _agregar una condición que debe cumplirse_. Establezca la condición en ```equals(actions('xmlvalidator').status,'Succeeded')```
 
 
@@ -107,5 +107,6 @@ Cada vez que alguien envía un mensaje al extremo HTTP, desencadena la aplicaci�
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

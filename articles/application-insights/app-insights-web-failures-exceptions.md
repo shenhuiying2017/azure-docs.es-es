@@ -26,7 +26,8 @@ Agregue el SDK para el proyecto de aplicación. Al lanzar y ejecutar la aplicaci
 * [Agregar Application Insights a aplicaciones ASP.NET][greenbrown]
 * [Agregar Application Insights a aplicaciones Java][java]
 
-Si las páginas web tienen scripts importantes, puede que también quiera * [Agregar Application Insights a páginas web][track].
+Si las páginas web tienen scripts importantes, puede que también quiera 
+* [Agregar Application Insights a páginas web][track].
 
 
 ## Búsqueda de diagnóstico
@@ -289,5 +290,4 @@ Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan dura
 [usage]: app-insights-web-track-usage.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

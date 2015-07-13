@@ -31,4 +31,5 @@
     Este código enviará una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el Portal de administración.
 
 3. Vuelva a publicar el proyecto de servicio móvil en Azure.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

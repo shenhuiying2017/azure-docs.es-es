@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Publicación con Git (PHP) | Azure" 
+	pageTitle="Publicación con Git (PHP) - Azure" 
 	keywords="publishing Git Azure, publish web app Azure" 
 	description="Aprenda a usar Git para publicar una aplicación web de Azure y, a continuación, habilitar la implementación continua desde GitHub y CodePlex." 
 	services="app-service\web" 
@@ -18,5 +18,6 @@
 	ms.author="cephalin"/>
 
 [AZURE.INCLUDE [publishing-with-git](../../includes/publishing-with-git.md)]
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

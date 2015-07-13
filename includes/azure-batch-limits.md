@@ -22,4 +22,4 @@
 </table>
 <sup>1</sup> Se puede aumentar el número de núcleos por cada cuenta de lotes, pero no se ha especificado el número máximo. Póngase en contacto con atención al cliente para obtener información sobre las opciones de aumento.
 
-<!---HONumber=58-->
+<!---HONumber=62-->

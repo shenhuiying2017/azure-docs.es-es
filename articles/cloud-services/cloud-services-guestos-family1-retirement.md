@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="02/27/2015"
+   ms.date="06/16/2015"
    ms.author="adegeo"/>
 
 
@@ -22,7 +22,7 @@
 
 La retirada de la familia 1 del SO se anunció por primera vez el 1 de junio de 2013.
 
-**2 de septiembre de 2014** La familia 1.x del sistema operativo invitado (SO invitado) de Azure, basada en el sistema operativo Windows Server 2008, se retiró oficialmente. Todos los intentos para implementar nuevos servicios o actualizar los ya existentes mediante la familia 1 generarán un mensaje de error que informa de que la familia 1 del SO invitado se ha retirado. 
+**2 de septiembre de 2014** La familia 1.x del sistema operativo invitado (SO invitado) de Azure, basada en el sistema operativo Windows Server 2008, se retiró oficialmente. Todos los intentos para implementar nuevos servicios o actualizar los ya existentes mediante la familia 1 generarán un mensaje de error que informa de que la familia 1 del SO invitado se ha retirado.
 
 **3 de noviembre de 2014** El soporte extendido para la familia 1 del SO invitado finaliza y se retira completamente. Todos los servicios todavía en la familia 1 se verá afectados. Podemos detener dichos servicios en cualquier momento. No existen garantías de que los servicios continúen ejecutándose a menos que los actualice manualmente.
 
@@ -39,7 +39,7 @@ Si se observa cualquiera de las situaciones siguientes,sus servicios en la nube 
 2. No se especifica ningún valor explícitamente para osFamily en el archivo ServiceConfiguration.cscfg del servicio en la nube. Actualmente, el sistema usa el valor predeterminado de "1" en este caso.
 3. El Portal de administración de Azure indica el valor de la familia del sistema operativo invitado como "Windows Server 2008". Consulte [este tema](https://msdn.microsoft.com/library/azure/gg456325.aspx) para localizar este valor.
 
-Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el script siguiente en Azure PowerShell, aunque debe [configurar Azure PowerShell](../install-configure-powershell.md) primero. Para obtener más detalles acerca del script, consulte [Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+Para determinar la familia de SO que ejecuta cada servicio en la nube, puede ejecutar el script siguiente en Azure PowerShell, aunque debe [configurar Azure PowerShell](../install-configure-powershell.md) antes. Para obtener más detalles acerca del script, consulte [Final de la vida de la familia 1 del SO invitado de Azure: junio de 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -51,7 +51,7 @@ foreach($subscription in Get-AzureSubscription) {
 }
 ```
 
-Los servicios en la nube se verán afectados por la retirada de la familia 1 del SO si la columna osFamily del resultado del script está vacía o contiene un "1". 
+Los servicios en la nube se verán afectados por la retirada de la familia 1 del SO si la columna osFamily del resultado del script está vacía o contiene un "1".
 
 ## Recomendaciones en caso de verse afectado
 
@@ -60,13 +60,13 @@ Se recomienda migrar los roles de los servicios en la nube a una de las familias
 **Familia 4.x del SO invitado**: Windows Server 2012 R2 *(recomendado)*
 
 1. Asegúrese de que la aplicación use el SDK 2.1 o posterior con .NET Framework 4.0, 4.5 o 4.5.1.
-2. Establezca el atributo osFamily en "4" en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
+2. Establezca el atributo osFamily en “4” en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
 
 
 **Familia 3.x del SO invitado**: Windows Server 2012
 
 1. Asegúrese de que la aplicación use el SDK 1.8 o posterior con .NET Framework 4.0 o 4.5. 
-2. Establezca el atributo osFamily en "3" en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
+2. Establezca el atributo osFamily en “3” en el archivo ServiceConfiguration.cscfg y vuelva a implementar el servicio en la nube.
 
 
 **Familia 2.x del SO invitado**: Windows Server 2008 R2
@@ -76,7 +76,6 @@ Se recomienda migrar los roles de los servicios en la nube a una de las familias
 
 
 ## El soporte extendido para la familia 1 del SO invitado finalizó el 3 de noviembre de 2014.
-Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 tan pronto como sea posible para evitar la interrupción del servicio. 
+Los servicios en la nube de la familia 1 del SO invitado ya no son compatibles. Migre la familia 1 tan pronto como sea posible para evitar la interrupción del servicio.
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

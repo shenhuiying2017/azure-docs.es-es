@@ -48,5 +48,6 @@ Hay dos funciones adicionales que no se pueden usar actualmente en la interfaz d
 1. **Historial del desencadenador**: los desencadenadores de sondeo comprueban la API cada ciertos intervalos, pero no inician necesariamente una ejecución, según la respuesta (por ejemplo, `200` implica realizar una ejecución y `202` significa no realizarla). El historial del desencadenador permite ver todas las llamadas que se producen, pero que no ejecutan aplicación lógica (las respuestas `202`).
 
 2. **Versiones anteriores**: al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hará referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

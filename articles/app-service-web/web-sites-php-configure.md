@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="06/24/2015"
 	ms.author="tomfitz"/>
 
 #Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure
@@ -40,36 +40,36 @@ Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están h
 3. Haga clic en el botón **Guardar**, situado en la parte superior de la hoja **Configuración de aplicaciones web**.
 
 	![Guardar la configuración][save-button]
-	
+
 ### Azure PowerShell (Windows)
 
 1. Abrir Windows PowerShell
 2. Escriba `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` y presione Entrar.
 3. La versión de PHP ya está configurada.
-	
+
 	![Configuración de la versión PHP con Azure PowerShell][SETPHPVERPS]
 4. Para confirmar esta configuración, escriba `Get-AzureWebiste -Name <site-name>` y presione Entrar.
-	
+
 	![Comprobar la versión de PHP con Azure PowerShell][GETPHPVERPS]
 
 ### Interfaz de línea de comandos de Azure (Linux, Mac, Windows)
 
->[Azure.Note]La interfaz de línea de comandos de Azure requiere que **Node.js** esté instalado en el equipo.
+Para usar la interfaz de línea de comandos de Azure, debe tener **Node.js** instalado en el equipo.
 
 1. Abra el Terminal.
 2. Escriba `azure site set --php-version [5.4 | 5.5] [site-name]` y presione Entrar.
 3. La versión de PHP ya está configurada.
-	
-	![Configuración de la versión PHP con interfaz de línea de comandos de Azure][SETPHPVERXPLAT]
+
+	![Configuración de la versión PHP con interfaz de línea de comandos de Azure][SETPHPVERCLI]
 4. Para confirmar esta configuración, escriba `azure site show [site-name]` y presione Entrar.
-	
-	![Comprobar la versión de PHP con interfaz de línea de comandos de Azure][GETPHPVERXPLAT]
+
+	![Comprobar la versión de PHP con interfaz de línea de comandos de Azure][GETPHPVERCLI]
 
 ## Cómo: Cambiar las configuraciones de PHP integradas
 
 En todos los tiempos de ejecución de PHP integrados es posible cambiar las opciones de configuración siguiendo los pasos que se indican a continuación. (Para obtener información acerca de las directivas, consulte la [lista de directivas de php.ini ]).
 
-### Cambiar la configuración de PHP_INI_USER, PHP_INI_PERDIR,  PHP_INI_ALL
+### Cambiar la configuración de PHP_INI_USER, PHP_INI_PERDIR, PHP_INI_ALL
 
 1. Agregue un archivo [.user.ini] al directorio raíz.
 2. Agregue la configuración al archivo `.user.ini` usando la misma sintaxis que usaría en un archivo `php.ini`. Por ejemplo, si desea activar la configuración `display_errors` y configurar `upload_max_filesize` como 10M, el archivo `.user.ini` debería contener este texto:
@@ -120,7 +120,7 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 	![Configuración de aplicaciones web][settings-button]
 
 5. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y desplácese a la sección **Configuración de aplicaciones**.
-6. En la sección **Configuración de aplicaciones**, cree una clave **PHP_EXTENSIONS**. El valor de esta clave es una ruta de acceso relativa a la raíz del sitio web: **bin\\your-ext-file**.
+6. En la sección **Configuración de aplicaciones**, cree una clave **PHP_EXTENSIONS**. El valor de esta clave es una ruta de acceso relativa a la raíz del sitio web: **bin\your-ext-file**.
 
 	![Habilitar extensiones en app settings][php-extensions]
 
@@ -151,7 +151,7 @@ En lugar del tiempo de ejecución de PHP, Aplicaciones web del Servicio de aplic
 
 	![Guardar la configuración][save-button]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -171,9 +171,10 @@ En lugar del tiempo de ejecución de PHP, Aplicaciones web del Servicio de aplic
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
 [http://windows.php.net/download/]: http://windows.php.net/download/
 [http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
-[SETPHPVERXPLAT]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
-[GETPHPVERXPLAT]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
+[SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
+[GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,25 +1,25 @@
-<properties 
+<properties
 	pageTitle="Configuración de la autenticación mediante Facebook para la aplicación de Servicios de aplicaciones"
-	description="Obtenga información acerca de cómo configurar la autenticación mediante Facebook para la aplicación de Servicios de aplicaciones." 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	authors="mattchenderson,ggailey777" 
-	manager="dwrede" 
+	description="Obtenga información acerca de cómo configurar la autenticación mediante Facebook para la aplicación de Servicios de aplicaciones."
+	services="app-service\mobile"
+	documentationCenter=""
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de Facebook
 
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Facebook como proveedor de autenticación.
-	
+
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a [facebook.com].
 
 ## <a name="register"> </a>Registro de la aplicación con Facebook
@@ -75,4 +75,6 @@ De este modo ya estará listo para usar Facebook para realizar la autenticación
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de administración de Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

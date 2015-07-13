@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #Uso del Portal de administración para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
@@ -34,9 +38,9 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 1. Cree e inicie un canal.
 
-1. Recupere la URL de introducción de canales.
+1. Recupere la URL de ingesta de canales.
 
-	El codificador en directo usa la URL de introducción para enviar la secuencia al canal.
+	El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
 1. Recupere la URL de vista previa de canal. 
 
 	Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
@@ -103,7 +107,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 2.	Seleccione la página CANALES.
 3.	Seleccione +Agregar para agregar un nuevo canal.
 
-Elija los tipos de codificación **Estándar**. Este tipo especifica que desea crear un canal que está habilitado para la codificación en directo. Lo que significa que la secuencia entrante de velocidad de bits única se envía al canal y se codifica en una secuencia de velocidad de bits múltiple mediante la configuración del codificador directo especificado. Para obtener más información, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md) 
+Elija los tipos de codificación **Estándar**. Este tipo especifica que desea crear un canal que está habilitado para la codificación en directo. Lo que significa que la secuencia entrante de velocidad de bits única se envía al canal y se codifica en una secuencia de velocidad de bits múltiple mediante la configuración del codificador directo especificado. Para obtener más información, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md)
 
 ![standard0][standard0]
 
@@ -113,7 +117,7 @@ Para el tipo de codificación **Estándar**, las opciones del protocolo de intro
 - RTMP de velocidad de bits única
 - RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
 
-Para obtener una explicación detallada sobre cada protocolo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md) 
+Para obtener una explicación detallada sobre cada protocolo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md)
 
 ![standard1][standard1]
 
@@ -218,7 +222,7 @@ Si cambia a la página **CONTENIDO**, verá los recursos que se crearon para los
 
 Para proporcionar al usuario una dirección URL que pueda utilizar para transmitir por streaming el contenido, primero tendrá que "publicar" el recurso (tal como se describió en la sección anterior) mediante la creación de un localizador (cuando se publica un recurso mediante el Portal, los localizadores se crean automáticamente). Los localizadores proporcionan acceso a los archivos contenidos en el recurso.
 
-Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\\programa.
+Dependiendo del protocolo de streaming que desee utilizar para reproducir el contenido, tendrá que modificar la dirección URL que obtiene del vínculo **URL DE PUBLICACIÓN** del canal\programa.
 
 El empaquetado dinámico se encargará de empaquetar la secuencia en vivo en el protocolo especificado.
 
@@ -254,5 +258,5 @@ Si se realizan eventos de streaming y desea limpiar los recursos aprovisionados 
 [standard3]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard3.png
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
-<!--HONumber=52-->
- 
+
+<!---HONumber=62-->

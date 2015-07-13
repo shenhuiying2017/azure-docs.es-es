@@ -199,7 +199,7 @@ Reemplace el contenido de WorkerRole.cs por el código siguiente. La clase Sampl
 
 	![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 
-3.	Asocie WadConfig.xsd al archivo de configuración. Asegúrese de que la ventana del editor de WadExample es la ventana activa. Presione  **F4** para abrir la ventana **Propiedades**. Haga clic en la propiedad **Esquemas** de la ventana **Propiedades**. Haga clic en **…** en la propiedad **Esquemas**. Haga clic en **Agregar…** y vaya a la ubicación en la que ha guardado el archivo XSD y seleccione el archivo WadConfig.xsd. Haga clic en **Aceptar**.
+3.	Asocie WadConfig.xsd al archivo de configuración. Asegúrese de que la ventana del editor de WadExample es la ventana activa. Presione **F4** para abrir la ventana **Propiedades**. Haga clic en la propiedad **Esquemas** de la ventana **Propiedades**. Haga clic en **…** en la propiedad **Esquemas**. Haga clic en **Agregar…** y vaya a la ubicación en la que ha guardado el archivo XSD y seleccione el archivo WadConfig.xsd. Haga clic en **Aceptar**.
 4.	Reemplace el contenido del archivo de configuración WadExample.xml por el siguiente archivo XM y guarde el archivo. Este archivo de configuración define un par de contadores de rendimiento para recopilar: uno para la utilización de la CPU y el otro para la utilización de memoria. A continuación, la configuración define los cuatro eventos correspondientes a los métodos de la clase SampleEventSourceWriter.
 
 		<?xml version="1.0" encoding="utf-8"?>
@@ -207,7 +207,7 @@ Reemplace el contenido de WorkerRole.cs por el código siguiente. La clase Sampl
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -259,7 +259,7 @@ En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studi
 ### Paso 2: crear la aplicación
 1.	En el equipo del desarrollador, inicie Visual Studio 2013.
 2.	Cree una aplicación de consola de Visual C# nueva dirigida a .NET Framework 4.5. Asigne al proyecto el nombre "WadExampleVM". ![CloudServices_diag_new_project](./media/cloud-services-dotnet-diagnostics/NewProject.png)
-3.	Reemplace el contenido de Program.cs por el código siguiente. La clase  **SampleEventSourceWriter**, implementa cuatro métodos de registro: **SendEnums**, **MessageMethod**, **SetOther** y **HighFreq**. El primer parámetro del método WriteEvent define el identificador para el evento correspondiente. El método Run implementa un bucle infinito que llama a cada uno de los métodos de registro implementados en la clase **SampleEventSourceWriter** cada 10 segundos.
+3.	Reemplace el contenido de Program.cs por el código siguiente. La clase **SampleEventSourceWriter**, implementa cuatro métodos de registro: **SendEnums**, **MessageMethod**, **SetOther** y **HighFreq**. El primer parámetro del método WriteEvent define el identificador para el evento correspondiente. El método Run implementa un bucle infinito que llama a cada uno de los métodos de registro implementados en la clase **SampleEventSourceWriter** cada 10 segundos.
 
 		using System;
 		using System.Diagnostics;
@@ -332,7 +332,7 @@ En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studi
 
 ### Paso 3: implementar la aplicación
 1.	Haga clic con el botón derecho en el proyecto **WadExampleVM** del **Explorador de soluciones** y seleccione **Abrir carpeta en el Explorador de archivos**.
-2.	Vaya a la carpeta *bin\\Debug* y copie todos los archivos (WadExampleVM.*)
+2.	Vaya a la carpeta *bin\Debug* y copie todos los archivos (WadExampleVM.*)
 3.	En el **Explorador de servidores**, haga clic con el botón derecho en la máquina virtual y elija **Conectar utilizando Escritorio remoto**.
 4.	Una vez conectado a la máquina virtual, cree una carpeta con el nombre WadExampleVM y pegue los archivos de la aplicación en la carpeta.
 5.	Inicie la aplicación WadExampleVM.exe. Debe ver una ventana de la consola en blanco.
@@ -351,7 +351,7 @@ En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studi
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -397,7 +397,7 @@ El archivo de configuración de Diagnósticos define valores que se usan para in
 ### Diagnósticos de Azure no se inicia
 Diagnósticos está formado por dos componentes: un complemento de agente invitado y el agente de supervisión. Los archivos de registro para el complemento del agente invitado se ubican en el archivo:
 
-*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
+*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
 
 El complemento devuelve los códigos de error siguientes:
 
@@ -531,7 +531,7 @@ Tenga en cuenta las siguientes preguntas más frecuentes y sus respuestas:
 
 **P.** ¡Cómo actualizado mi solución de Visual Studio de Diagnósticos de Azure 1.0 a Diagnósticos de Azure 1.1?
 
-**R.** La actualización de la solución de Visual Studio de Diagnósticos 1.0 a  Diagnósticos 1.1 (o posterior) es un proceso manual: - Deshabilite Diagnósticos en la solución de Visual Studio para impedir que Diagnósticos 1.0 se implemente con su rol - Si el código usa el agente de escucha de seguimiento, deberá modificar el código para usar .NET EventSource. Diagnósticos 1.1 y las versiones posteriores no admiten el agente de escucha de seguimiento. -Modifique el proceso de implementación para instalar la extensión de Diagnósticos 1.1
+**R.** La actualización de la solución de Visual Studio de Diagnósticos 1.0 a Diagnósticos 1.1 (o posterior) es un proceso manual: - Deshabilite Diagnósticos en la solución de Visual Studio para impedir que Diagnósticos 1.0 se implemente con su rol - Si el código usa el agente de escucha de seguimiento, deberá modificar el código para usar .NET EventSource. Diagnósticos 1.1 y las versiones posteriores no admiten el agente de escucha de seguimiento. -Modifique el proceso de implementación para instalar la extensión de Diagnósticos 1.1
 
 **P.** Si ya tengo instalada la extensión de Diagnósticos 1.1 en mi rol o máquina virtual, ¿cómo actualizo a Diagnósticos 1.2 o 1.3?
 
@@ -764,6 +764,7 @@ En la tabla siguiente se comparan las características compatibles con las versi
 [Comparación de versiones de Diagnósticos de Azure]: #comparing
 [Additional Resources]: #additional
 [clase EventSource]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+  
 [Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure]: http://msdn.microsoft.com/library/windowsazure/dn186185.aspx
 [Depuración de una aplicación de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx
 [Recopilación de datos de registro mediante Diagnósticos de Azure]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
@@ -775,5 +776,6 @@ En la tabla siguiente se comparan las características compatibles con las versi
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495270.aspx
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

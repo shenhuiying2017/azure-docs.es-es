@@ -36,7 +36,7 @@ Puede hospedar la aplicación GetStartedWithData en cualquier servidor web. Sin 
 
 	+  **En Windows**: IIS Express. IIS Express lo instala el [instalador de plataforma web de Microsoft].   
 	+  **En MacOS X**: Python, que ya debería estar instalado.
-	+  **En Linux**: Python. Debe instalar la [última versión de Python] (información en inglés). 
+	+  **En Linux**: Python. Debe instalar la [última versión de Python]. 
 	
 	Puede usar cualquier servidor web para hospedar la aplicación, aunque estos son los servidores web que admiten los scripts descargados.
 
@@ -211,7 +211,7 @@ Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para
 
 4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
   
-   	Observe que la tabla **TodoItem** ahora contiene datos con valores de identificador generados por Servicios móviles, y que se agregaron automáticamente columnas a la tabla para que coincida con la clase TodoItem de la aplicación.
+   	Observe que la tabla **TodoItem** ahora contiene datos con valores de identificador generados por Servicios móviles, y que se agregaron automáticamente columnas a la tabla para coincidir con la clase TodoItem en la aplicación.
 
 5. En la aplicación, marque uno de los elementos de la lista, vuelva a la pestaña Examinar del portal y haga clic en **Actualizar**.
 
@@ -255,5 +255,6 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

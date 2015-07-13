@@ -48,12 +48,16 @@ Primeros pasos:
 
     Si no aparece el tipo de aplicación, eche un vistazo a la página [Introducción][start].
 
-4. En este ejemplo, estamos supervisando una aplicación web, por lo que podemos usar las herramientas de Azure en Visual Studio para instalar el SDK. Le indicamos el nombre de nuestro recurso de Application Insights:
+4. En este ejemplo, estamos supervisando una aplicación web, por lo que podemos usar las herramientas de Azure en Visual Studio para instalar el SDK. Indique el nombre de su recurso de Application Insights:
 
-    ![En Visual Studio, en el cuadro de diálogo Nuevo proyecto, active Agregar Application Insights y, en Enviar telemetría a, opte por crear una nueva aplicación o utilizar una existente.](./media/app-insights-code-sample-export-sql-stream-analytics/030-new-project.png)
+    ![En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto y elija Agregar Application Insights. Al enviar la telemetría, opte por crear un recurso nuevo o utilizar uno existente.](./media/app-insights-code-sample-export-sql-stream-analytics/appinsights-d012-addbrown.png)
+
+5. Publique la aplicación y vea los datos de telemetría que aparecen en el recurso de Application Insights.
 
 
 ## Creación de almacenamiento en Azure
+
+La exportación continua siempre envía los datos a una cuenta de almacenamiento de Azure, por lo que necesitará crear primero el almacenamiento.
 
 1. Cree una cuenta de almacenamiento en su suscripción en el [portal de Azure][portal].
 
@@ -95,7 +99,7 @@ Y además, los datos se exportarán al almacenamiento, donde puede inspeccionar 
 
 ![En Visual Studio, abra Explorador de servidores, Azure, Almacenamiento.](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
 
-Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos escribir algún código para leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en escribir código para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
+Los eventos se escriben en archivos de blob en formato JSON. Cada archivo puede contener uno o varios eventos. Así, es probable que queramos leer los datos de eventos y filtrar por los campos que deseemos. Se pueden realizar multitud de acciones con los datos, pero nuestro plan de hoy consiste en usar Stream Analytics para trasladar los datos a una base de datos SQL. De este modo, será más sencillo ejecutar muchas consultas interesantes.
 
 ## Creación de una Base de datos SQL de Azure
 
@@ -300,5 +304,4 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 [start]: app-insights-get-started.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

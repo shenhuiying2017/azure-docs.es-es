@@ -110,7 +110,7 @@ Suponiendo que el nombre de dominio personalizado es 'contoso.com', esto crearí
 
 >[AZURE.NOTE]Puede utilizar DNS de Azure para hospedar los registros de dominio necesarios para la aplicación web. Para configurar el dominio personalizado y crear los registros, en DNS de Azure, consulte [Creación de registros de DNS personalizados para una aplicación web](../dns-web-sites-custom-domain).
 
-<a name="awverify" />
+<a name="awverify" /></a>
 ## Creación de un registro awverify (solo registros A)
 
 Si crea un registro A, la aplicación web también requiere un registro CNAME especial, que se usa para comprobar es propietario del dominio que está intentando utilizar. Este registro CNAME debe tener el formato siguiente.
@@ -129,7 +129,7 @@ Los visitantes de su aplicación web no verán el subdominio awverify, este solo
 
 ## Pasos siguientes
 
-Para obtener más información, consulte: [Introducción a DNS de Azure](http://azure.microsoft.com/documentation/articles/dns-getstarted-create-dnszone) y [Delegación de dominios en DNS de Azure](http://azure.microsoft.com/documentation/articles/dns-domain-delegation)
+Para obtener más información, consulte: [Introducción a DNS de Azure](http://azure.microsoft.com/es-es/documentation/articles/dns-getstarted-create-dnszone) y [Delegación de dominios en DNS de Azure](http://azure.microsoft.com/es-es/documentation/articles/dns-domain-delegation)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)

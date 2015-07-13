@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.date="06/01/2015" 
+	ms.author="ricksal"/>
 
 # Llamada a una API personalizada desde el cliente
 
@@ -23,14 +23,14 @@
 
 En este tema se muestra cómo realizar una llamada a una API personalizada desde una aplicación Android. Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una operación de inserción, actualización, eliminación o lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
 
-La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola solicitud POST que establece la marca  *completed* en  `true` para todos los elementos de la tabla del servicio móvil. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
+La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola solicitud POST que establece la marca *completed* en `true` para todos los elementos de la tabla del servicio móvil. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles] o de [Introducción a los datos]. 
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles] o de [Introducción a los datos].
 
 
->[AZURE.NOTE] Si desea ver el código fuente de la aplicación final, vaya <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">aquí</a>.
+>[AZURE.NOTE]Si desea ver el código fuente de la aplicación final, vaya <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">aquí</a>.
 
-## Requisitos previos
+##Requisitos previos
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
@@ -39,37 +39,35 @@ Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
 
-[AZURE.INCLUDE [mobile-services-android-call-custom-api](mobile-services-android-call-custom-api.md)]
+[AZURE.INCLUDE [mobile-services-android-call-custom-api](../../includes/mobile-services-android-call-custom-api.md)]
 
 
 ## Pasos siguientes
 
-Ahora que ha creado una API personalizada y la llamó desde su aplicación de Android, considere la posibilidad de profundizar más sobre los siguientes temas de servicios móviles:
+En este tema se ha explicado cómo usar el método **invokeApi** para llamar a una API personalizada bastante sencilla desde su aplicación de Android. Para obtener más información acerca del método **invokeApi**, consulte la publicación [API personalizada en Servicios móviles de Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
+También, considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
+* [Referencia del script del servidor de Servicios móviles] <br/>Obtenga más información sobre la creación de API personalizadas.
 
-* [Referencia del script del servidor de servicios móviles]
-  <br/>Obtenga más información sobre cómo crear API personalizadas.
-
-* [Almacenamiento de scripts de servidor en control de fuente]
-  <br/> Aprenda a usar la característica de control de código fuente para desarrollar y publicar código script de API personalizadas de manera más fácil y segura.
+* [Almacenamiento de scripts de servidor en control de código fuente] <br/>Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
 
 <!-- Anchors. -->
-[Definición de la API personalizada]: #define-custom-api
-[Actualización de la aplicación para llamar a la API personalizada]: #update-app
-[Prueba de la aplicación]: #test-app
-[Pasos siguientes]: #next-steps
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
 
 <!-- URLs. -->
-[SDK de Android para Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introducción a los Servicios móviles]: /documentation/articles/mobile-services-android-get-started/
-[Introducción a los datos]: /documentation/articles/mobile-services-android-get-started-data/
-[Introducción a la autenticación]: /documentation/articles/mobile-services-android-get-started-users/
-[Introducción a las notificaciones de inserción]: /documentation/articles/mobile-services-android-get-started-push/
+[Mobile Services Android SDK]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Introducción a los Servicios móviles]: mobile-services-android-get-started.md
+[Introducción a los datos]: mobile-services-android-get-started-data.md
+[Get started with authentication]: mobile-services-android-get-started-users.md
+[Get started with push notifications]: ../mobile-services-android-get-started-push.md
 
-[Almacenamiento de scripts de servidor en control de fuente]: /documentation/articles/mobile-services-store-scripts-source-control
-
-<!--HONumber=47-->
+[Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
  
+
+<!---HONumber=62-->

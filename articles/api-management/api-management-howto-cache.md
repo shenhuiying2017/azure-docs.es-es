@@ -16,18 +16,18 @@
 	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
-# Incorporación del almacenamiento en caché para mejorar el rendimiento en Administración de API de Azure
+#  Incorporación del almacenamiento en caché para mejorar el rendimiento en Administración de API de Azure
 
 En Administración de API, las operaciones se pueden configurar para el almacenamiento en caché de respuestas. El almacenamiento en caché de respuestas puede reducir significativamente la latencia de la API, el consumo de ancho de banda y la carga del servicio web en cuanto a datos que no cambian con frecuencia.
 
 En esta guía se muestra cómo agregar el almacenamiento en caché de respuestas para la API y cómo configurar directivas para las operaciones de Api eco de ejemplo. Después, puede llamar a la operación desde el portal para desarrolladores para comprobar el almacenamiento en caché en acción.
 
 
-## Requisitos previos
+##  Requisitos previos
 
 Para seguir los pasos de esta guía, debe tener una instancia del servicio Administración de API con una API y un producto configurados. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a Administración de API de Azure][].
 
-## <a name="configure-caching"> </a>Configuración de una operación para almacenamiento en caché
+##  <a name="configure-caching"> </a>Configuración de una operación para almacenamiento en caché
 
 En este paso, se revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API eco de ejemplo.
 
@@ -57,7 +57,7 @@ Cada respuesta de operación incluye una clave basada en los valores de los camp
 
 Con la configuración de almacenamiento en caché de este ejemplo, la primera solicitud para la operación **Recurso GET (en caché)** devolverá una respuesta del servicio back-end. Esta respuesta se almacenará en caché, con clave especificada mediante encabezados y parámetros de la cadena de consulta. Las siguientes llamadas a la operación, con parámetros coincidentes, devolverán la respuesta almacenada en caché hasta que el intervalo de duración en la caché haya expirado.
 
-## <a name="caching-policies"> </a>Revisión de las directivas de almacenamiento en caché
+##  <a name="caching-policies"> </a>Revisión de las directivas de almacenamiento en caché
 
 En este paso, revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API eco de ejemplo.
 
@@ -90,7 +90,7 @@ La definición de directiva para esta operación incluye las directivas que defi
 
 >Los cambios efectuados en las directivas de almacenamiento en caché en el editor de directivas se reflejarán en la pestaña **Caching** de una operación, y viceversa.
 
-## <a name="test-operation"> </a>Llamada a una operación y prueba del almacenamiento en caché
+##  <a name="test-operation"> </a>Llamada a una operación y prueba del almacenamiento en caché
 
 Para ver cómo funciona el almacenamiento en caché, podemos llamar a la operación desde el portal para desarrolladores. Haga clic en **Portal para desarrolladores** en el menú superior derecho.
 
@@ -126,7 +126,7 @@ Escriba **25** en el campo **param2** y haga clic en **HTTP Get**.
 
 Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. Debido a que los resultados de la operación incluyen una clave especificada mediante la cadena de consulta, no se devolvió la anterior respuesta almacenada en caché.
 
-## <a name="next-steps"> </a>Pasos siguientes
+##  <a name="next-steps"> </a>Pasos siguientes
 
 -	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
 -	Para obtener más información sobre las directivas de almacenamiento en caché, consulte [Directivas de almacenamiento en caché][] en la [Referencia de la directiva de Administración de API][].
@@ -161,4 +161,4 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

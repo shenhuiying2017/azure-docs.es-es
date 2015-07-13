@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo enviar notificaciones push a todos los dispositivos de un usuario específico."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/17/2015"
+	ms.date="06/23/2015"
 	ms.author="yuaxu"/>
 
 # Envío de notificaciones entre plataformas a un usuario específico
@@ -55,7 +55,7 @@ Antes de iniciar este tutorial, debe haber completado estos tutoriales del Servi
             await App.MobileService.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
-    También deseará transferir algunas instrucciones using a  **MainPage.cs**.
+    También deseará transferir algunas instrucciones using a **MainPage.cs**.
 
 2. Use este método justo después de la llamada a **AuthenticateAsync** en **ButtonLogin_Click**.
 
@@ -66,7 +66,7 @@ Ahora la aplicación está configurada para registrar el dispositivo de usuario 
 
 ##<a name="backend"></a>Actualización del servidor back-end de servicio para enviar notificaciones a un usuario específico
 
-1. En Visual Studio, actualice la definición del método `PostTodoItem` con el código siguiente:  
+1. En Visual Studio, actualice la definición del método `PostTodoItem` por el código siguiente:  
 
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
@@ -105,5 +105,6 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [Introducción a la autenticación]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Introducción a las notificaciones de inserción]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
 [plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

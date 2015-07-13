@@ -35,7 +35,7 @@ Esta tarea incluye los siguientes pasos:
 
 <h2><a id="step1"></a>Paso 1: ensayo de una aplicación</h2>
 
-Esta tarea trata cómo realizar el ensayo de una aplicación con  **PowerShell de Microsoft Azure**.
+Esta tarea trata cómo realizar el ensayo de una aplicación con **PowerShell de Microsoft Azure**.
 
 1.  Para publicar un servicio, simplemente pase el parámetro **-Slot** al cmdlet **Publish-AzureServiceProject**.
 
@@ -78,15 +78,16 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
 - [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]
 - [Información general de administración de implementaciones en Azure]
 
-[Paso 1: realizar el ensayo de una aplicación]: #step1
-[Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-[Paso 2: implementar una aplicación en producción mediante el intercambio de VIP]: #step2
-[Portal de administración de Azure]: http://manage.windowsazure.com
+  [Paso 1: realizar el ensayo de una aplicación]: #step1
+  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
+  [Paso 2: implementar una aplicación en producción mediante el intercambio de VIP]: #step2
+  [Portal de administración de Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-[Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-[Información general de administración de implementaciones en Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+  [Implementación de una actualización de servicio en producción intercambiando las VIP en Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
+  [Información general de administración de implementaciones en Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

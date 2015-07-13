@@ -22,7 +22,7 @@ The **Azure Data Factory** service is a fully managed service for composing data
 -->
 
 
-El **factoría de datos de Azure** es un servicio totalmente administrado para crear servicios de movimiento de datos, procesamiento de datos y almacenamiento de datos en las canalizaciones de producción de datos optimizadas, escalables y confiables. El servicio Factoría de datos le permite:
+El servicio **Factoría de datos de Azure** es un servicio completamente administrado para crear servicios de almacenamiento de datos, procesamiento de datos y movimiento en canalizaciones de producción de datos confiable, escalable y simplificado. El servicio Factoría de datos le permite:
 
 - Crear flujos de trabajo de datos (canalizaciones) que unen, agregan y transforman datos locales, basados en la nube y almacenes de datos de Internet. 
 - Transformar datos estructurados, semiestructurados y no estructurados de diversos orígenes de datos en información de confianza.
@@ -30,10 +30,10 @@ El **factoría de datos de Azure** es un servicio totalmente administrado para c
 - Configurar procesamiento de datos complejos mediante scripting de JSON simple.
 - Supervisar y administrar canalizaciones de un vistazo con una experiencia visual enriquecida que se ofrece a través del Portal de vista previa de Azure.  
 
-El vídeo siguiente proporciona una breve descripción de servicio del generador de datos de Azure.
+En el vídeo siguiente se ofrece una breve descripción del servicio de la factoría de datos de Azure.
 
 
-- [Vídeo: Introducción a generador de datos de Azure](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
+- [Vídeo: Introducción a la factoría de datos de Azure](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
 
 
 <!--
@@ -49,16 +49,16 @@ Tradicionalmente, los proyectos de integración de datos han girado en torno a l
 
 El panorama actual de los datos para las empresas continúa creciendo exponencialmente en volumen, variedad y complejidad. Es más diverso que nunca con datos locales y que nacen en la nube de diferentes formatos y velocidades. El procesamiento de datos debe producirse en varias ubicaciones geográficas e incluye una combinación de software de código abierto, soluciones comerciales y servicios de procesamiento personalizados que son caros y difíciles de integrar y mantener. La agilidad necesaria para adaptarse al panorama cambiante actual de Big Data es una oportunidad de combinar el EDW tradicional con las capacidades que se requieren en un sistema de producción de la información moderno.
 
-![Procesamiento diversos hoy horizontal][image-data-factory-introduction-todays-diverse-processing-landspace]
+![Panorama de procesamiento diverso actual][image-data-factory-introduction-todays-diverse-processing-landspace]
 
-El **factoría de datos de Azure** service es la plataforma de composición para trabajo en EDWs tradicionales y el panorama cambiante de datos para permitir que las empresas aprovechen todos los datos que está a su disposición para tomar decisiones basadas en datos. Permite a las empresas acoplar esta diversidad al proporcionar una plataforma para componer el procesamiento, almacenamiento y movimiento de los datos en canalizaciones de producción de información y administrar los activos de datos de confianza.
+El servicio **Factoría de datos de Azure** es la plataforma de composición para trabajar con los EDW tradicionales y el panorama cambiante de datos al permitir que las empresas aprovechen todos los datos que están a su disposición para tomar decisiones basadas en datos. Permite a las empresas acoplar esta diversidad al proporcionar una plataforma para componer el procesamiento, almacenamiento y movimiento de los datos en canalizaciones de producción de información y administrar los activos de datos de confianza.
 
 El servicio Factoría de datos de Azure le permite:
 
-- **Trabajar fácilmente con los sistemas de almacenamiento y procesamiento de datos diversos.** El servicio de Factoría de datos permite crear canalizaciones de producción de información que mueven y procesan los datos de forma local (por ejemplo, SQL Server) y orígenes de datos en la nube como Base de datos de SQL Azure, tabla de Azure y blobs. 
+- **Trabajar fácilmente con diversos sistemas de almacenamiento y procesamiento de los datos.** El servicio de Factoría de datos permite crear canalizaciones de producción de información que mueven y procesan los datos de forma local (por ejemplo, SQL Server) y orígenes de datos en la nube como Base de datos de SQL Azure, tabla de Azure y blobs. 
 - **Transformar datos en información de confianza.** El servicio Factoría de datos es compatible con procesamiento Hive, Pig y C#, junto con las características de procesamiento clave como la administración automática de clúster de Hadoop (HDInsight), los reintentos para errores transitorios, las directivas de tiempo de espera configurables y las alertas.  
 - **Supervisar las canalizaciones de datos en un solo lugar.** El servicio Factoría de datos proporciona una vista completa y confiable de los servicios de movimiento de datos, procesamiento y almacenamiento. Le ayuda a evaluar el estado de la canalización de datos de un extremo a otro rápidamente, a identificar problemas y a tomar medidas correctivas si es necesario. Visualmente, puede realizar el seguimiento del linaje de datos y las relaciones entre los datos a través de cualquiera de los orígenes y consultar una contabilización histórica completa de ejecución del trabajo, estado del sistema y dependencias desde un solo panel de supervisión.
-- **Obtener la información necesaria de datos transformados** el generador de datos servicio le permite crear canalizaciones de datos que generan datos de confianza, que pueden ser utilizados por herramientas analíticas y de inteligencia de negocios y otras aplicaciones.
+- **Obtener abundante información de los datos transformados** El servicio Factoría de datos servicio le permite crear canalizaciones de datos que generan datos de confianza, que se pueden usan por herramientas analíticas y de inteligencia empresarial, y otras aplicaciones.
 
 <!--
 Today, to take advantage of the benefits of Data Factory, developers interact directly with individual data pipelines, storage services, and compute services.  As the Data Factory service evolves over time, we will introduce additional storage and processing services, and new mechanisms of grouping compute and storage services and data pipelines together into ‘Hubs’.  We describe Hubs here in our introduction, as this nascent concept appears throughout the service as a precursor for future releases.
@@ -76,8 +76,8 @@ El siguiente diagrama ilustra el modelo de aplicaciones que admite el servicio d
 
 Hay tres etapas de producción de información en una factoría de datos de Azure:
 
-- **Conectar & recopilar**. En esta etapa, se importan datos de diversos orígenes de datos en los centros de datos. Una canalización de una factoría de datos puede tener una o más actividades. Utilice uno o varios **copia** las actividades en una canalización de datos para recopilar datos de origen de los almacenes de datos a un almacén de datos de destino con en un centro de datos para su posterior procesamiento. Un clúster de HDInsight (proceso) y su almacenamiento de blobs de Azure asociado (almacenamiento) juntos forman un centro de datos, un centro de datos de HDInsight. Para utilizar un centro de datos de HDInsight, copie todos los datos de origen en un almacén de blobs de Azure asociado a HDInsight, para que los datos se procesen por el clúster de HDInsight. Una canalización se ejecuta en un recurso de proceso de un centro de datos, como un clúster de HDInsight.      
-- **Transformar y enriquecer**. En esta etapa, se procesan los datos recopilados. Por ejemplo, un **actividad HDInsight** en una canalización, puede procesar los datos almacenados en el almacén de blobs de Azure asociada mediante la realización de transformaciones mediante secuencias de comandos de Hive y Pig para generar información de confianza. Las canalizaciones pueden encadenarse (como se muestra en el diagrama) por lo que los conjuntos de datos de salida de una canalización puede ser conjuntos de datos de entrada para otra canalización en el mismo centro de datos o en otro centro de datos.  
+- **Conectar y recopilar**. En esta etapa, se importan datos de diversos orígenes de datos en los centros de datos. Una canalización de una factoría de datos puede tener una o más actividades. Utilice una o varias actividades de **copia** en una canalización de datos para recopilar datos de los almacenes de datos de origen a un almacén de datos de destino con un centro de datos para su posterior procesamiento. Un clúster de HDInsight (proceso) y su almacenamiento de blobs de Azure asociado (almacenamiento) juntos forman un centro de datos, un centro de datos de HDInsight. Para utilizar un centro de datos de HDInsight, copie todos los datos de origen en un almacén de blobs de Azure asociado a HDInsight, para que los datos se procesen por el clúster de HDInsight. Una canalización se ejecuta en un recurso de proceso de un centro de datos, como un clúster de HDInsight.      
+- **Transformar y enriquecer**. En esta etapa, se procesan los datos recopilados. Por ejemplo, una **actividad de HDInsight** en una canalización puede procesar los datos almacenados en el almacén de blobs de Azure asociado mediante la realización de transformaciones con scripts de Hive y Pig para generar información de confianza. Las canalizaciones pueden encadenarse (como se muestra en el diagrama) por lo que los conjuntos de datos de salida de una canalización puede ser conjuntos de datos de entrada para otra canalización en el mismo centro de datos o en otro centro de datos.  
 - **Publicar**. En esta etapa, los datos se publican para su consumo por parte de herramientas de BI, herramientas de análisis y otras aplicaciones. Por ejemplo, una actividad de copia en la canalización puede copiar datos de salida desde el procesamiento realizado en la fase de transformación y enriquecimiento a un almacén de datos (por ejemplo: SQL Server local) sobre el cual se pueden crear soluciones de inteligencia empresarial.   
 
 <!--
@@ -93,13 +93,13 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 
 ##Pasos siguientes
-1. [Comenzar con el generador de datos][datafactory-getstarted]. Este artículo ofrece un completo tutorial que le muestra cómo crear una factoría de datos de Azure de ejemplo que copia datos desde un blob de Azure hasta una base de datos SQL de Azure.
-2. [Tutorial: mover y procesar los archivos de registro mediante el generador de datos][adf-tutorial]. Este artículo proporciona un **-to-end tutorial** que muestra cómo implementar un **escenario real** mediante el generador de datos de Azure para transformar los datos de archivos de registro en perspectivas.
+1. [Introducción a la Factoría de datos][datafactory-getstarted]. Este artículo ofrece un completo tutorial que le muestra cómo crear una factoría de datos de Azure de ejemplo que copia datos desde un blob de Azure hasta una base de datos SQL de Azure.
+2. [Tutorial: desplazamiento y procesamiento de archivos de registro mediante la Factoría de datos][adf-tutorial]. En este artículo se proporciona un **tutorial completo** en el que se muestra cómo implementar un **escenario real** mediante la factoría de datos de Azure para transformar los datos de archivos de registro en información.
 
 ## Otras referencias
-- [Factoría de datos - terminología][adf-terminology]. En este artículo se presenta la terminología utilizada en la creación de generadores de datos mediante el servicio de generador de datos de Azure 
-- [Factoría de datos - preguntas más frecuentes][adf-faq]. Este artículo proporciona una lista de las preguntas y respuestas más frecuentes.
-- [Escenarios habituales para usar el generador de datos de Azure][adf-common-scenarios]. En este artículo se describen algunos escenarios habituales para usar el servicio de Factoría de datos de Azure. 
+- [Factoría de datos: terminología][adf-terminology]. En este artículo se presenta la terminología que se usa al crear factorías de datos con el servicio Factoría de datos de Azure. 
+- [Factoría de datos: preguntas más frecuentes][adf-faq]. Este artículo proporciona una lista de las preguntas y respuestas más frecuentes.
+- [ habituales para usar la Factoría de datos de Azure][adf-common-scenarios]. En este artículo se describen algunos escenarios habituales para usar el servicio de Factoría de datos de Azure. 
 
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
@@ -136,4 +136,8 @@ Finally, **pipelines** can be chained (as shown in the diagram) such that the ou
 
 [image-data-factory-data-flow]: ./media/data-factory-introduction/DataFactoryDataFlow.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

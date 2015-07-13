@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="sdanie"/>
 
 # Referencia de la directiva de Administración de API de Azure
 
 Esta sección proporciona un índice de las directivas en la [Referencia de la directiva de Administración de API de Azure][]. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API][].
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][], [Expresiones de directiva][] y el vídeo siguiente.
-
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][] y [Expresiones de directiva][].
 
 ## Índice de referencia de directiva
 
@@ -56,6 +54,11 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 	-	[Establecer el parámetro de cadena de consulta][]: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
 	-	[URL de reescritura][]: convierte una URL de solicitud de su forma pública a la forma esperada por el servicio web.
 
+## Pasos siguientes
+
+Para obtener más información acerca de las expresiones de directivas, vea el siguiente vídeo.
+
+> [AZURE.VIDEO policy-expressions-in-azure-api-management]
 
 [Directivas de restricción de acceso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Activar encabezado HTTP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
@@ -101,5 +104,4 @@ Las expresiones de directiva pueden utilizarse como valores de atributos o valor
 [Expresiones de directiva]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Aplicaciones web de Python con Bottle en Azure" 
-	description="Un tutorial que indica cómo ejecutar una aplicación web de Python en Aplicacicones web del Servicio de aplicaciones de Azure." 
+	description="Un tutorial que indica cómo ejecutar una aplicación web de Python en Aplicaciones web del Servicio de aplicaciones de Azure." 
 	services="app-service\web" 
 	documentationCenter="python" 
 	tags="python"
@@ -61,7 +61,7 @@ El primer paso para crear la aplicación consiste en crear la aplicación web a 
 2. Elija **Web + móvil ** > **Azure Marketplace** > **Aplicaciones web**.
 3. En el cuadro de búsqueda, escriba "python".
 4. En los resultados de búsqueda, seleccione **Bottle** y, a continuación, haga clic en **Crear**.
-5. Configure la nueva aplicación Bottle, por ejemplo, la creación de un nuevo plan para el Servicio de aplicaciones y un nuevo grupo de recursos para él. A continuación, haga clic en **Crear**.
+5. Configure la nueva aplicación Flask, por ejemplo, la creación de un nuevo plan para el Servicio de aplicaciones y un nuevo grupo de recursos para él. A continuación, haga clic en **Crear**.
 6. Configure la publicación de Git para la aplicación web recién creada siguiendo las instrucciones de [Implementación continua con GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md).
  
 ## Información general de la aplicación
@@ -130,7 +130,7 @@ En las tres secciones siguientes se describe cómo continuar con el desarrollo d
 - Mac/Linux, con línea de comandos
 
 
-## Desarrollo de aplicaciones web: Windows, Python Tools para Visual Studio
+## Web de desarrollo de aplicaciones - Windows - Herramientas de Python para Visual Studio
 
 ### Clonación del repositorio
 
@@ -211,7 +211,7 @@ En primer lugar, clone el repositorio mediante la dirección URL proporcionada e
 
 Vamos a crear un nuevo entorno virtual para fines de desarrollo (no lo agregue al repositorio). Los entornos virtuales de Python no son reubicables, por lo que cada desarrollador que trabaja en la aplicación creará su propio entorno localmente.
 
-Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja Configuración de la aplicación de la aplicación web en el Portal de vista previa de Azure).
+Asegúrese de utilizar la misma versión de Python que la seleccionada para la aplicación web (en runtime.txt o en la hoja Configuración de la aplicación para la aplicación web en el Portal de vista previa de Azure).
 
 Para Python 2.7:
 
@@ -374,8 +374,8 @@ Siga estos vínculos para obtener más información acerca de Bottle y Python To
 
 Para obtener información sobre el uso de Almacenamiento de tablas de Azure y MongoDB:
 
-- [Bottle y MongoDB en Azure con Python Tools 2.1 para Visual Studio]
-- [Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]
+- [Bottle y MongoDB en Azure con Herramientas de Python 2.1 para Visual Studio]
+- [Bottle y Almacenamiento de tablas de Azure en Azure con Herramientas de Python 2.1 para Visual Studio]
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -383,8 +383,8 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 
 
 <!--Link references-->
-[Bottle y MongoDB en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
-[Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
+[Bottle y MongoDB en Azure con Herramientas de Python 2.1 para Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle y Almacenamiento de tablas de Azure en Azure con Herramientas de Python 2.1 para Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
 
 <!--External Link references-->
 [Azure SDK para Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281

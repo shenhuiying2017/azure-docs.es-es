@@ -112,7 +112,7 @@ Solo los administradores globales pueden:
 * Agregar aplicaciones desde la Galería de la aplicación de Azure AD (aplicaciones de terceros integradas previamente)
 * Publicar una aplicación con el proxy de aplicación de Azure AD.
 
-Todos los usuarios en el directorio tienen derechos de agregar las aplicaciones que desarrollan y pueden decidir qué aplicaciones comparten/proporcionan acceso  a sus datos de la organización. *Recuerde que el registro/inicio de sesión del usuario en una aplicación y la garantía de permisos puede provocar que se cree una entidad de seguridad de servicio.*
+Todos los usuarios en el directorio tienen derechos de agregar las aplicaciones que desarrollan y pueden decidir qué aplicaciones comparten/proporcionan acceso a sus datos de la organización. *Recuerde que el registro/inicio de sesión del usuario en una aplicación y la garantía de permisos puede provocar que se cree una entidad de seguridad de servicio.*
 
 Esto puede parecer al principio complicado, pero tenga en cuenta lo siguiente:
 
@@ -145,5 +145,5 @@ Obtenga más información sobre cómo agregar aplicaciones a Azure AD y cómo co
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

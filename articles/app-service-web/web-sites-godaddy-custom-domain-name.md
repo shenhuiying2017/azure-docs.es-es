@@ -23,7 +23,7 @@
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-> [AZURE.NOTE]Si ha adquirido el dominio a través de Aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final del artículo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar dominio para Aplicaciones web</a>.
+> [AZURE.NOTE]Si ha adquirido el dominio a través de las aplicaciones web del Servicio de aplicaciones de Azure, consulte el paso final del artículo <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Comprar dominio para Aplicaciones web</a>.
 
 [AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 

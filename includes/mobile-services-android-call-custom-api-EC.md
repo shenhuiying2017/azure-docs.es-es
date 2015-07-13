@@ -1,9 +1,9 @@
-﻿
+
 ##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\layout\activity_to_do.xml* en su proyecto de inicio rápido y busque el elemento **LinearLayout** que contiene el elemento **Button** llamado  `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
+1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\layout\activity_to_do.xml* en su proyecto de inicio rápido, busque el elemento **LinearLayout** que contiene el elemento **Button** llamado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
 
-2. En el segundo **LinearLayout**, elimine el elemento **EditText** y agregue el siguiente código inmediatamente después del elemento **Button** existente: 
+2. En el segundo **LinearLayout**, elimine el elemento **EditText** y agregue el siguiente código inmediatamente después del elemento **Button** existente:
 
         <Button
             android:id="@+id/buttonCompleteItem"
@@ -42,7 +42,7 @@
 
 
 
-5. En el Explorador de paquetes, haga clic con el botón secundario en el nombre del proyecto en la carpeta *src* (`com.example.{el nombre de sus proyectos}`), elija **Nuevo** y, a continuación, **Clase**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
+5. En el Explorador de paquetes, haga clic con el botón derecho en el nombre del proyecto en la carpeta *src* (`com.example.{your projects name}`), seleccione **Nuevo** y, a continuación, **Clase**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -59,7 +59,7 @@
 			}
 		}
 
-	Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada. 
+	Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada.
 
 6. Busque el método **refreshItemsFromTable** en el archivo **ToDoActivity.java** y asegúrese de que la primera línea de código en el bloque `try` tiene el siguiente aspecto:
 
@@ -112,5 +112,4 @@
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
 
-
-<!--HONumber=52-->
+<!---HONumber=62-->

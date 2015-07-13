@@ -1,29 +1,31 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Maximum Limit</th>
+   <th align="left" valign="middle">Recurso</th>
+   <th align="left" valign="middle">Límite predeterminado</th>
+   <th align="left" valign="middle">Límite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Web/worker roles per deployment<sup>1</sup></a></p></td>
-   <td valign="middle"><p>25</p></td>
-   <td valign="middle"><p>25</p></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Instance Input Endpoints</a> per deployment</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Roles web y de trabajo por implementación<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Input Endpoints</a> per deployment</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Extremos de entrada de instancia</a> por implementación</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Internal Endpoints</a> per deployment</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Extremos de entrada</a> por implementación</p></td>
+   <td valign="middle"><p>25</p></td>
+   <td valign="middle"><p>25</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Extremos internos</a> por implementación</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 </table>
 
-<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling).
+<sup>1</sup>Cada servicio en la nube con roles web y de trabajo puede tener dos implementaciones, una para producción y otra para ensayo. Tenga en cuenta también que este límite hace referencia al número de roles (configuración) y no al número de instancias por rol (escalado).
+
+<!---HONumber=62-->

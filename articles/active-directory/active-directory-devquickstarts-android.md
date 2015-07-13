@@ -112,18 +112,18 @@ Ahora tiene varias opciones para usar esta biblioteca en el proyecto Android:
 * Puede usar el código fuente para importar esta biblioteca en Eclipse y vincularla a la aplicación.
 * Si utiliza Studio Android, puede usar el formato de paquete *aar* y hacer referencia a los archivos binarios.
 
-####Opción 1: origen a través de ZIP
+#### Opción 1: origen a través de ZIP
 
 Para descargar una copia del código fuente, haga clic en "Descargar ZIP" en el lado derecho de la página o haga clic [aquí](https://github.com/AzureAD/azure-activedirectory-library-for-android/archive/v1.0.9.tar.gz).
 
-####Opción 2: origen a través de Git
+#### Opción 2: origen a través de Git
 
 Para obtener el código fuente del SDK a través de Git, simplemente escriba:
 
     git clone git@github.com:AzureAD/azure-activedirectory-library-for-android.git
     cd ./azure-activedirectory-library-for-android/src
 
-####Opción 3: binarios a través de Gradle
+#### Opción 3: binarios a través de Gradle
 
 Puede obtener los archivos binarios desde el repositorio central de Maven. El paquete AAR puede incluirse de la siguiente forma en el proyecto en AndroidStudio:
 
@@ -145,7 +145,7 @@ dependencies {
 }
 ```
 
-####Opción 4: aar a través de Maven
+#### Opción 4: aar a través de Maven
 
 Si utiliza el complemento m2e en Eclipse, puede especificar la dependencia en el archivo pom.xml:
 
@@ -159,7 +159,7 @@ Si utiliza el complemento m2e en Eclipse, puede especificar la dependencia en el
 ```
 
 
-####Opción 5: paquete jar dentro de la carpeta libs
+#### Opción 5: paquete jar dentro de la carpeta libs
 Puede obtener el archivo jar desde el repositorio de Maven y colocarlo en la carpeta *libs* del proyecto. También deberá copiar los recursos necesarios en el proyecto, ya que los paquetes jar no los incluyen.
 
 
@@ -268,8 +268,7 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**:
-  la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
+11. **Agente**: la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);
@@ -282,7 +281,6 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
  ```java
  String brokerAccount =  mContext.getBrokerUser();
  ```
-
  Si la cuenta es válida, se devolverá el usuario del agente.
 
  El manifiesto de aplicación debe tener permisos para usar cuentas del administrador de cuentas: http://developer.android.com/reference/android/accounts/AccountManager.html
@@ -316,7 +314,7 @@ ADAL proporciona memoria caché predeterminada en SharedPrefrecens con algunas c
 ```Java
  ITokenCacheStore cache = mContext.getCache();
 ```
-También puede proporcionar la implementación de la memoria caché, si desea personalizarla.
+También puede proporcionar la implementación de la memoria caché, si desea personalizarla. 
 ```Java
 mContext = new AuthenticationContext(MainActivity.this, authority, true, yourCache);
 ```
@@ -364,7 +362,7 @@ Puede configurar la biblioteca para que genere mensajes de registro que podrá u
      }
  }
  ```
- Los mensajes pueden escribirse en un archivo de registro personalizado, tal como se muestra a continuación. Por desgracia, no hay ninguna manera estándar de obtener los registros de un dispositivo. Hay algunos servicios que pueden ayudar con esta tarea. También puede "inventar" sus propios métodos, como enviar el archivo a un servidor.
+Los mensajes pueden escribirse en un archivo de registro personalizado, tal como se muestra a continuación. Por desgracia, no hay ninguna manera estándar de obtener los registros de un dispositivo. Hay algunos servicios que pueden ayudar con esta tarea. También puede "inventar" sus propios métodos, como enviar el archivo a un servidor.
 
 ```Java
 private syncronized void writeToLogFile(Context ctx, String msg) {
@@ -390,7 +388,8 @@ El nivel de registro se define de la siguiente forma:
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
  ```
 
- Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
+ Todos los mensajes de registro se envían a logcat, además de las devoluciones de llamada de registro personalizadas. 
+Un registro de logcat se puede obtener en formato de archivo de la siguiente forma:
 
  ```
   adb logcat > "C:\logmsg\logfile.txt"
@@ -420,14 +419,14 @@ La clase AuthenticationParameters proporciona funcionalidad para obtener el auth
 
 ### Cookies de sesión en WebView
 
-Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente:
+Android WebView no elimina las cookies de sesión después de cerrar la aplicación. Se puede controlar con el código de ejemplo siguiente: 
 ```java
 CookieSyncManager.createInstance(getApplicationContext());
 CookieManager cookieManager = CookieManager.getInstance();
 cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
 ```
-Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+ Más información sobre las cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
 
 ### Reemplazos de recursos
 
@@ -449,5 +448,5 @@ La aplicación debe sobrescribirlas si desea ver las cadenas traducidas.
 
 ### Cuadro de diálogo NTLM
 La versión 1.1.0 de ADAL admite el cuadro de diálogo NTLM que se procesa a través del evento onReceivedHttpAuthRequest desde WebViewClient. El diseño del cuadro de diálogo y las cadenas se pueden personalizar. ### Paso 5: descargue el código de ejemplo de cliente nativo de iOS
-
-<!---HONumber=58_postMigration-->
+ 
+<!--HONumber=62-->

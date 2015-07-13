@@ -28,9 +28,9 @@ Existen muchas otras formas de implementar aplicaciones de API. Una aplicación 
 
 El hecho de que las aplicaciones de API se basen en aplicaciones web también significa que puede implementar el código escrito para plataformas que no sean ASP.NET en las aplicaciones de API. Para obtener un ejemplo que usa Git para implementar código de Node.js en una aplicación de API, consulte [Creación de una aplicación de API Node.js en el Servicio de aplicaciones de Azure](app-service-api-nodejs-api-app.md).
  
-## Implementación de aplicaciones de API 
+## <a id="provision"></a>Creación de la aplicación de API en Azure 
 
-En esta sección, verá los pasos necesarios para implementar una aplicación de API en una suscripción de Azure.
+En esta sección, use el asistente **Publicar web** de Visual Studio para crear una nueva aplicación de API de Azure.
 
 1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto (no la solución) y en **Publicar...**. 
 
@@ -63,7 +63,11 @@ En esta sección, verá los pasos necesarios para implementar una aplicación de
 
 	![Notificación de estado mediante la ventana de actividad del Servicio de aplicaciones de Azure](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-7. Una vez que se ha aprovisionado la aplicación de API, haga clic con el botón secundario en el proyecto en el **Explorador de soluciones** y seleccione **Publicar** para volver a abrir el cuadro de diálogo de publicación. El perfil de publicación que creó en el paso anterior debe estar preseleccionado. Haga clic en **Publicar** para comenzar el proceso de implementación.
+## <a id="deploy"></a>Implemente el código en la nueva aplicación de API
+
+En esta sección, se usa el mismo asistente **Publicar web** para implementar el código.
+
+7. Haga clic con el botón secundario en el proyecto en el **Explorador de soluciones** y seleccione **Publicar** para volver a abrir el cuadro de diálogo de publicación. El perfil de publicación que creó en el paso anterior debe estar preseleccionado. Haga clic en **Publicar** para comenzar el proceso de implementación. 
 
 	![Implementación de la aplicación de API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 

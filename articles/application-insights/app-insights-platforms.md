@@ -72,5 +72,4 @@ Si no hay todavía un SDK para el lenguaje o plataforma, quizás desee crear uno
 [Aplicaciones de la Tienda Windows con JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx)
 
 <!--Link references-->
-
-<!---HONumber=62-->
+<!--HONumber=62-->

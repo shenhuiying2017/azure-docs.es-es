@@ -16,7 +16,7 @@
 	ms.date="05/04/2015" 
 	ms.author="Justinha"/>
 
-# Administración de identidades con privilegios de Azure AD
+#  Administración de identidades con privilegios de Azure AD
 
 Administración de identidades con privilegios de AD Azure le permite administrar, controlar y supervisar las identidades con privilegios y su acceso a recursos en Azure AD y en otros servicios en línea de Microsoft como Office 365 o Microsoft Intune.
 
@@ -37,11 +37,11 @@ En esta vista previa, Administración de identidades con privilegios de Azure AD
 - Administrador de usuarios 
 - Administrador de contraseñas 
 
-## Acceso de administrador justo a tiempo 
+##  Acceso de administrador justo a tiempo 
 
 Históricamente, se podía asignar a un usuario un rol de administrador a través del Portal de administración de Azure o Windows PowerShell. Por lo tanto, ese usuario se convertía en **administrador permanente**, siempre activo en su rol asignado. Esta vista previa agrega compatibilidad con un **administrador temporal**, que es un usuario que necesita completar un proceso de activación para el rol asignado. El proceso de activación cambia la asignación del usuario a un rol en Azure AD de inactiva a activa.
 
-## Habilitación de Administración de identidades con privilegios para el directorio
+##  Habilitación de Administración de identidades con privilegios para el directorio
 
 Puede empezar a usar Administración de identidades con privilegios de Azure AD a través del [Portal de Microsoft Azure](https://portal.azure.com/). De momento, Administración de identidades con privilegios de Azure AD solo aparece en el Portal de Microsoft Azure. Debe ser administrador global para habilitar Administración de identidades con privilegios de Azure AD para un directorio.
 
@@ -49,7 +49,7 @@ Puede empezar a usar Administración de identidades con privilegios de Azure AD 
 
 Después de inicializar esta extensión, se convertirá automáticamente en el primer **administrador de seguridad** del directorio. Solo un administrador de seguridad puede tener acceso a esta extensión para administrar el acceso de otros administradores. Durante la inicialización, se agregará un icono de Administración de identidades con privilegios de Azure AD al panel de inicio del Portal de vista previa de Azure.
 
-## Panel de Administración de identidades con privilegios 
+##  Panel de Administración de identidades con privilegios 
 
 Administrador de identidades con privilegios de Azure AD proporciona un panel que ofrece información importante como:
 
@@ -59,13 +59,13 @@ Administrador de identidades con privilegios de Azure AD proporciona un panel qu
 
 ![][2]
 
-## Administración de roles con privilegios 
+##  Administración de roles con privilegios 
 
 Con Administración de identidades con privilegios de Azure AD, puede administrar los administradores agregando o quitando administradores permanentes o temporales en cada rol.
 
 ![][3]
 
-## Configuración de las opciones de activación de rol 
+##  Configuración de las opciones de activación de rol 
 
 Mediante la opción de configuración de activación de rol, puede configurar propiedades de activación de rol temporal como:
 
@@ -75,7 +75,7 @@ Mediante la opción de configuración de activación de rol, puede configurar pr
 
 ![][4]
 
-## Activación de rol  
+##  Activación de rol  
 
 Para activar un rol, un administrador temporal debe solicitar una "activación" controlada por tiempo para el rol. Se puede solicitar la activación mediante la opción **Activar mi rol** en Administración de identidades con privilegios de Azure AD.
 
@@ -87,15 +87,16 @@ La activación del rol está controlada por tiempo. En la configuración Activac
 
 ![][5]
 
-## Historial de activaciones de rol
+##  Historial de activaciones de rol
 
 Mediante Administración de identidades con privilegios de Azure AD, también puede realizar un seguimiento de los cambios en las asignaciones de rol con privilegios y el historial de activaciones de rol. Esto puede realizarse mediante las opciones de registro de auditoría:
 
 ![][6]
 
-## Pasos siguientes
+##  Pasos siguientes
 
-[Blog de Microsoft Azure](http://azure.microsoft.com/blog/) [Control de acceso basado en roles](../role-based-access-control-configure.md)
+[Blog de Microsoft Azure](http://azure.microsoft.com/blog/) 
+[Control de acceso basado en roles](../role-based-access-control-configure.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-privileged-identity-management-configure/Search_PIM.png
@@ -106,5 +107,4 @@ Mediante Administración de identidades con privilegios de Azure AD, también pu
 [6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

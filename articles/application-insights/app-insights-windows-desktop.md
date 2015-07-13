@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights para servicios y aplicaciones de escritorio de Windows" 
-	description="Analice el uso y el rendimiento de la aplicación Windows con Application Insights." 
+	description="Analice el uso y el rendimiento de la aplicación de escritorio de Windows con Application Insights." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
 
 # Application Insights en servicios y aplicaciones de escritorio de Windows
@@ -33,6 +33,7 @@ El SDK principal de Application Insights ofrece soporte para los servicios y las
 
     ![Haga clic en Nuevo, Application Insights.](./media/app-insights-windows-desktop/01-new.png)
 
+    (Su elección del tipo de aplicación establece el contenido de la hoja de información general así como de las propiedades disponibles en el [explorador de métricas][metrics]).
 
 2.  Realice una copia de la clave de instrumentación.
 
@@ -45,11 +46,11 @@ El SDK principal de Application Insights ofrece soporte para los servicios y las
 
 2. Instale el paquete de la API de Application Insights.
 
-    ![Seleccione **En línea**, **Incluir versión preliminar** y busque "Application Insights".](./media/app-insights-windows-desktop/04-ai-nuget.png)
+    ![Busque "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
 3. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
 
-    &lt;InstrumentationKey&gt;*la clave que copió*&lt;/InstrumentationKey&gt;
+    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
 
     Asimismo, puede lograr el mismo efecto con este código:
     
@@ -60,7 +61,7 @@ El SDK principal de Application Insights ofrece soporte para los servicios y las
 
 Cree una instancia `TelemetryClient` y después [utilícela para enviar telemetría][api].
 
-Utilice `TelemetryClient.Flush` para enviar los mensajes antes de cerrar la aplicación. (Este procedimiento no se recomienda en otros tipos de aplicación).
+Utilice `TelemetryClient.Flush()` para enviar los mensajes antes de cerrar la aplicación. El SDK básico utiliza un búfer en memoria. El método de vaciado se asegurará de que se vacíe este búfer para que no se produzcan pérdidas de datos en el cierre de los procesos. (Este procedimiento no se recomienda en otros tipos de aplicaciones. Los SDK de las plataformas implementan este comportamiento automáticamente).
 
 Por ejemplo, en una aplicación de Windows Forms, podría escribir:
 
@@ -107,9 +108,10 @@ Utilice cualquiera de las [API de Application Insights][api] para enviar telemet
 
 #### Inicializadores de contexto
 
-Como alternativa al establecimiento de los datos de sesión en cada instancia de TelemetryClient, puede usar un inicializador de contexto:
+Para ver los recuentos de usuarios y sesiones, puede establecer los valores en cada instancia `TelemetryClient`. Como alternativa, puede utilizar un inicializador de contexto para realizar esta adición para todos los clientes:
 
 ```C#
+
     class UserSessionInitializer: IContextInitializer
     {
         public void Initialize(TelemetryContext context)
@@ -127,6 +129,7 @@ Como alternativa al establecimiento de los datos de sesión en cada instancia de
             TelemetryConfiguration.Active.ContextInitializers.Add(
                 new UserSessionInitializer());
             ...
+
 ```
 
 
@@ -174,5 +177,4 @@ Si ha utilizado TrackMetric o el parámetro de mediciones de TrackEvent, abra el
 [api]: app-insights-api-custom-events-metrics.md
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

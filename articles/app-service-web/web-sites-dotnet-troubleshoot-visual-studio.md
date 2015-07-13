@@ -269,7 +269,7 @@ Si la función [escribió registros](websites-dotnet-webjobs-sdk-storage-queues-
 
 * Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
 
-* Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
+* Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/es-es/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Información general de registros de diagnóstico
 
@@ -756,7 +756,7 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 
 ### Depuración de Servicios en la nube
 
-Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web, consulte [Depuración de servicio en la nube](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
+Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web, consulte [Depuración de servicio en la nube](http://msdn.microsoft.com/es-es/library/windowsazure/ee405479.aspx).
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 

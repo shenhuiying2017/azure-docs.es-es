@@ -76,8 +76,8 @@ Puede crear factorías de datos mediante uno de los sistemas siguientes:
 - **Biblioteca de clases .NET**. Se pueden crear factorías de datos mediante programación con el SDK de .NET de Factoría de datos. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET][create-factory-using-dotnet-sdk] para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Factoría de datos][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.  
 - **API de REST**. También puede utilizar la API de REST expuesta por el servicio Factoría de datos de Azure para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de la Factoría de datos][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de la Factoría de datos. 
 
-### P: ¿Se puede cambiar el nombre de las factorías de datos?
-No. Al igual que otros recursos de Azure, los nombres de las factorías de datos de Azure no se pueden cambiar.
+### P: ¿Se puede cambiar el nombre de una Factorías de datos?
+No. Al igual que otros recursos de Azure, el nombre de una Factorías de datos de Azure no se puede cambiar.
 
 ## Actividades: preguntas más frecuentes
 ### P: ¿Cuáles son los orígenes de datos y las actividades admitidos?
@@ -97,9 +97,9 @@ No. Al igual que otros recursos de Azure, los nombres de las factorías de datos
 - **Actividades compatibles:** 
 	- Copiar actividad (local a nube y nube a local)
 	- Actividad de HDInsight (Pig, Hive, MapReduce, transformaciones de streaming de Hadoop)
-	- Actividad de puntuación por lotes de Azure Machine Learning
+	- Actividad de puntuación por lotes de Aprendizaje automático de Azure
 	- Actividad de procedimiento almacenado de SQL de Azure
-	- Actividades .NET personalizadas
+	- Actividades .NET personalizadas.
 
 ### ¿Cuándo se ejecuta una actividad?
 La configuración de **disponibilidad** en la tabla de datos de salida determina cuándo se ejecuta la actividad. La actividad comprueba si todas las dependencias de datos de entrada se han satisfecho (es decir, estado **Listo**) antes de ejecutarse.
@@ -217,4 +217,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

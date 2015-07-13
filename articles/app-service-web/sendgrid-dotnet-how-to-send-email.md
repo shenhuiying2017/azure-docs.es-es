@@ -215,22 +215,29 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 *   Documentación sobre la API de SendGrid: <https://sendgrid.com/docs>
 *   Oferta especial de SendGrid para clientes de Azure: [https://sendgrid.com](https://sendgrid.com)
 
-[Pasos siguientes]: #nextsteps
-[What is the SendGrid Email Service?]: #whatis
-[Create a SendGrid Account]: #createaccount
-[Reference the SendGrid .NET Class Library]: #reference
-[How to: Create an Email]: #createemail
-[How to: Send an Email]: #sendemail
-[How to: Add an Attachment]: #addattachment
-[How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
-[How to: Use Additional SendGrid Services]: #useservices
-[special offer]: https://www.sendgrid.com/windowsazure.html
-[SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
-[sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
-[SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
-[Configuración de aplicaciones]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-[Documentación sobre la API de SendGrid]: https://sendgrid.com/docs
-[servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
-[entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
+  [Pasos siguientes]: #nextsteps
+  [What is the SendGrid Email Service?]: #whatis
+  [Create a SendGrid Account]: #createaccount
+  [Reference the SendGrid .NET Class Library]: #reference
+  [How to: Create an Email]: #createemail
+  [How to: Send an Email]: #sendemail
+  [How to: Add an Attachment]: #addattachment
+  [How to: Use Filters to Enable Footers, Tracking, and Analytics]: #usefilters
+  [How to: Use Additional SendGrid Services]: #useservices
+  
+  
+  [special offer]: https://www.sendgrid.com/windowsazure.html
+  
+  
+  
+  [SendGrid-NuGet-package]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
+  [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp
+  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [Configuración de aplicaciones]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [Documentación sobre la API de SendGrid]: https://sendgrid.com/docs
+  
+  [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
+  [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

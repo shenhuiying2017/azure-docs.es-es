@@ -30,7 +30,7 @@ Para usar el conector de Chatter, deberá crear primero una instancia de la apli
 2.	Vaya a "Web y móvil > Aplicaciones de API" y busque "Conector de Chatter".
 3.	Configure el conector de Chatter de la siguiente forma:
 
-	![][1] - **Ubicación**: elija la ubicación geográfica en que desearía implementar el conector. - **Suscripción**: elija una suscripción en que desea crear este conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos en que debe residir el conector. - **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web. - **Nivel de precios**: elija un nivel de precios para el conector. - **Nombre**: asigne un nombre al conector de Chatter.
+	![][1] - **Ubicación**: elija la ubicación geográfica donde desea implementar el conector - **Suscripción**: elija una suscripción en la que desea crear este conector - **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector - **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web - **Nivel de precios**: elija un nivel de precios para el conector - **Nombre**: signe un nombre al conector de Chatter.
 
 4.	Haga clic en Crear. Se creará un nuevo conector de Chatter.
 5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de Chatter.

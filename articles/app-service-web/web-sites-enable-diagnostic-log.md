@@ -38,7 +38,7 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 
 ### Diagnósticos de aplicaciones
 
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de aplicaciones. Por ejemplo:
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/es-es/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de aplicaciones. Por ejemplo:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 

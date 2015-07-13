@@ -33,14 +33,14 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede ayudar Automatización de Azure a administrar Aplicaciones web de Azure?
 
-Aplicaciones web puede administrarse en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en las [herramientas de PowerShell de Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de Aplicación web disponibles directamente para que pueda realizar todas las tareas de administración de Aplicación web dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+Las aplicaciones web se pueden administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en las [herramientas de Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de Aplicación web disponibles directamente para que pueda realizar todas las tareas de administración de Aplicación web dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 
 ## Pasos siguientes
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Aplicaciones web de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-* Vea el [Tutorial de introducción de Automatización de Azure](../automation-create-runbook-from-samples.md)
+* Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -1,59 +1,43 @@
-<properties 
-   pageTitle="Option 1: Use Windows PowerShell for StorSimple to install Update 1"
-   description="Explains how to use Windows PowerShell for StorSimple to install StorSimple 8000 Series Update 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="v-sharos" />
 
-#### To install Update 1 from Windows PowerShell for StorSimple
+#### Para instalar la Actualización 1 desde Windows PowerShell para StorSimple
 
-1. Perform the following steps to download the software update.
+1. Realice los pasos siguientes para descargar la actualización de software.
 
-    1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
-    2. If you are a first-time user, you will be prompted to install a Microsoft Update Catalog. Click **Install**.
+    1. Inicie Internet Explorer y vaya a [http://catalog.update.microsoft.com/v7/site/Home.aspx](http://catalog.update.microsoft.com/v7/site/Home.aspx).
+    2. Si es la primera vez que es usuario de esta página, se le pedirá que instale un catálogo de Microsoft Update. Haga clic en **Instalar**.
     
-        ![Install catalog](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
+        ![Instalación del catálogo](./media/storsimple-install-update-option-1/HCS_InstallCatalog-include.png)
 
-    3. You will see a catalog search screen. Enter **3063418** in the search box, and click **Search**.
+    3. Verá una pantalla de búsqueda de catálogo. Escriba **3063418** en el cuadro de búsqueda y haga clic en **Buscar**.
 
-        ![Search catalog](./media/storsimple-install-update-option-1/HCS_SearchCatalog-include.png)
+        ![Búsqueda de catálogo](./media/storsimple-install-update-option-1/HCS_SearchCatalog-include.png)
 
-    4. You will see the **StorSimple Update 1.0 Appliance Update** bundle. Click **Add**. The update will be added to the basket. 
+    4. Verá **StorSimple Update 1.0 Appliance Update bundle**. Haga clic en **Agregar**. La actualización se agregará a la cesta.
 
-        ![Update bundle](./media/storsimple-install-update-option-1/HCS_UpdateBundle-include.png) 
+        ![Actualización de agrupación](./media/storsimple-install-update-option-1/HCS_UpdateBundle-include.png)
 
-    5. Click **View Basket**.
+    5. Haga clic en **Ver cesta**.
  
-        ![View basket](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png) 
+        ![Visualización de cesta](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Click **Download**. Specify or Browse to a local location where you want the download to appear. The update (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) will be downloaded in a StorSimple Update 1.0 Appliance Update bundle (KB3063418)” folder to the chosen location. The folder can also be copied to a network share that is reachable from the device.
+    6. Haga clic en **Descargar**. Especifique o seleccione una ubicación local en la que desea que aparezca la descarga. Se descargará la actualización (all hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) en una carpeta StorSimple Update 1.0 Appliance Update bundle (KB3063418)” en la ubicación elegida. La carpeta también se puede copiar en un recurso compartido de red que sea accesible desde el dispositivo.
         
-2. To install the software update, access the Windows PowerShell interface on your StorSimple device serial console. Follow the detailed instructions in [Use PuTTy to connect to the serial console](#use-putty-to-connect-to-the-serial-console).
+2. Para instalar la actualización de software, acceda a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Siga las instrucciones detalladas en [Uso de PuTTy para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-serial-console).
 
-3. At the command prompt, press Enter.
+3. En el símbolo del sistema, presione Entrar.
 
-4. Select **Option 1** to log on to the device with full access.
+4. Seleccione **Opción 1** para iniciar sesión en el dispositivo con acceso completo.
 
-5. To install the update package, at the command prompt, type:
+5. Para instalar el paquete de actualización, en el símbolo del sistema, escriba:
 
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
 
-    The credential parameter is used only if you are accessing an authenticated share.
+    El parámetro credential se usa únicamente si tiene acceso a un recurso compartido autenticado.
 
-    Sample output is shown below.
+    A continuación se muestra la salida de ejemplo.
 
         ````
-        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -65,11 +49,11 @@
 
         ````
  
-6. Type **Y** when prompted to confirm the hotfix installation.
+6. Escriba **Y** cuando se le solicite que confirme la instalación de la revisión.
 
-7. Monitor the update by using the Get-HcsUpdateStatus cmdlet.
+7. Supervise la actualización mediante el cmdlet Get-HcsUpdateStatus.
 
-    The following sample output shows the update in progress.
+    La siguiente salida de ejemplo muestra la actualización en curso.
 
         ````
         Controller0>Get-HcsUpdateStatus
@@ -80,7 +64,7 @@
         Controller1Events   : 
         ````
  
-     The following sample output indicates that the update is finished.
+     La siguiente salida de ejemplo indica que ha finalizado la actualización.
 
         ````
         Controller1>Get-HcsUpdateStatus
@@ -93,22 +77,24 @@
 
         ````
  
-8. After the software update is complete, navigate to the Maintenance page in the Management Portal. Scan for available updates. You should see that more software updates are available.
+8. Una vez completada la actualización de software, vaya a la página Mantenimiento en el Portal de administración. Busque las actualizaciones disponibles. Verá que hay disponibles más actualizaciones de software.
 
-9. Click **Install updates** to apply all the available software updates from the portal. 
+9. Haga clic en **Instalar actualizaciones** para solicitar todas las actualizaciones de software disponible desde el portal.
 
-10. After the software updates are complete, verify the system software, driver, and firmware versions. Type the following command:
+10. Una vez completadas las actualizaciones de software, compruebe las versiones de software, controladores y firmware del sistema. Escriba el siguiente comando:
 
     `Get-HcsSystem`
 
-    You should see the following versions:
+    Verá las versiones siguientes:
 
     - HcsSoftwareVersion: 6.3.9600.17491
     - CisAgentVersion: 1.0.9037.0
     - MdsAgentVersion: 26.0.4696.1433 
  
-11. To verify that the firmware was updated correctly, type:
+11. Para comprobar que el firmware se ha actualizado correctamente, escriba:
 
     `Start-HcsFirmwareCheck`
 
-    The firmware status should be **UpToDate**.
+    El estado de firmware debe ser **UpToDate**.
+
+<!---HONumber=62-->

@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="02/24/2015"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="chrande"/>
 
 
@@ -46,15 +46,15 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 2. En la parte superior de la hoja, haga clic en **Agregar cliente** y expanda **Windows (C#)**.
 
-   ![Pasos de inicio rápido para aplicaciones móviles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
+    ![Pasos de inicio rápido para aplicaciones móviles](./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/windows-quickstart.png)
 
-   Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación de la Tienda Windows conectada al back-end de aplicaciones móviles.
+    Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación de la Tienda Windows conectada al back-end de aplicaciones móviles.
 
 3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o la máquina virtual.
 
 4. En **Descargar y ejecutar la aplicación y el servicio localmente**, seleccione un idioma para la aplicación de la Tienda Windows y, a continuación, haga clic en **Descargar**.
 
-   De esta forma, se descarga una solución que contiene proyectos tanto para el back-end de aplicaciones móviles como para la aplicación _To do list_ de ejemplo conectada a su back-end de aplicaciones móviles. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+    De esta forma, se descarga una solución que contiene proyectos tanto para el back-end de aplicaciones móviles como para la aplicación _To do list_ de ejemplo conectada a su back-end de aplicaciones móviles. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
 ## Prueba de la aplicación móvil
 
@@ -86,6 +86,6 @@ Ahora que el back-end de aplicaciones móviles se ha publicado y el cliente est�
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

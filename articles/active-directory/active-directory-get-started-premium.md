@@ -21,7 +21,8 @@
 
 Azure Active Directory viene en tres ediciones: Premium, Básico y Gratis. La edición Gratis se incluye con una suscripción de Azure u Office 365. Las ediciones Básico y Premium están disponibles a través de un [contrato Enterprise de Microsoft](https://www.microsoft.com/es-es/licensing/licensing-programs/enterprise.aspx) o el programa [Licencias por volumen abiertas](https://www.microsoft.com/es-es/licensing/licensing-programs/open-license.aspx). Los suscriptores de Azure y Office 365 también pueden comprar Active Directory Premium en línea. [Inicie sesión aquí](https://portal.office.com/Commerce/Catalog.aspx) para comprarlo.
 
-> [AZURE.NOTE]Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
+> [AZURE.NOTE]
+Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 Azure Active Directory Premium también se incluye en **Enterprise Mobility Suite**. Enterprise Mobility Suite es una manera rentable de que las organizaciones usen Microsoft Intune, Azure Rights Management y los servicios de Active Directory Premium de servicios juntos en un plan de licencias. Para obtener más información, consulte el sitio web de [Enterprise Mobility Suite](https://www.microsoft.com/es-es/server-cloud/enterprise-mobility/overview.aspx).
 
@@ -49,7 +50,7 @@ Una vez que haya terminado con el proceso de suscripción o de inicio de sesión
 
 ## Paso 3: Activación de acceso de Azure Active Directory
 
-Una vez que se aprovisionen las licencias en el directorio, recibirá un correo electrónico de bienvenida (consulte a continuación) que confirme que puede comenzar a administrar las características y licencias de Azure Active Directory Premium o Enterprise Mobility Suite. Si ha usado Microsoft Azure antes, puede continuar con http://manage.windowsazure.com para asignar las licencias nuevas (consulte el Paso 4 a continuación para obtener más información). Si es nuevo en Microsoft Azure, al seleccionar el vínculo de inicio de sesión en el correo electrónico o ir a la página de [acceso de la activación de Azure Active Directory](https://account.windowsazure.com/signup?offer=MS-AZR-0110P), se le dirigirá por una  serie de pasos que le ayudarán a obtener acceso a su directorio a través del Portal de administración de Azure.
+Una vez que se aprovisionen las licencias en el directorio, recibirá un correo electrónico de bienvenida (consulte a continuación) que confirme que puede comenzar a administrar las características y licencias de Azure Active Directory Premium o Enterprise Mobility Suite. Si ha usado Microsoft Azure antes, puede continuar con http://manage.windowsazure.com para asignar las licencias nuevas (consulte el Paso 4 a continuación para obtener más información). Si es nuevo en Microsoft Azure, al seleccionar el vínculo de inicio de sesión en el correo electrónico o ir a la página de [acceso de la activación de Azure Active Directory](https://account.windowsazure.com/signup?offer=MS-AZR-0110P), se le dirigirá por una serie de pasos que le ayudarán a obtener acceso a su directorio a través del Portal de administración de Azure.
 
 ![][4]
 
@@ -122,4 +123,6 @@ La disponibilidad de servicios y características de un servicio en la nube de M
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=58--> 
+
+ 
+<!--HONumber=62-->

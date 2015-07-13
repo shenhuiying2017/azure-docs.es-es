@@ -220,4 +220,6 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Cuando se incorpora una máquina virtual de Azure para la administración con DSC de Automatización de Azure mediante el uso de `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, si el registro muestra el error **No se especificó el nombre del equipo, y el directorio de configuración no tiene ningún archivo de configuración**, se trata de una falsa alarma y el registro de la máquina virtual se realizó correctamente. Para comprobar si el registro se realizó de manera correcta, puede usar el cmdlet `Get-AzureAutomationDscNode`.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=62-->

@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Opcional: configurar una cuenta de almacenamiento nueva para el servicio"
-   description="Explica cómo configurar una cuenta de almacenamiento para el servicio de Administrador de StorSimple ejecutando la Actualización 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/18/2015"
-   ms.author="alkohli" />
 
 #### Para agregar una cuenta de almacenamiento en StorSimple 8000 Series Update 1.0
 
@@ -50,7 +34,7 @@
 	  		
  - Si ha seleccionado **Openstack** como el proveedor de servicios en la nube, proporcione un **Nombre de host**, una **Clave de acceso** y una **Clave secreta**.
 
-        > [AZURE.NOTE] Es posible usar un nombre descriptivo en todos los proveedores de servicios en la nube, excepto en Azure. Puede usar varios nombres descriptivos y crear más de una cuenta de almacenamiento mediante el mismo conjunto de credenciales.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -62,4 +46,4 @@
 
 7. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la nueva cuenta de almacenamiento. Haga clic en **Aceptar** cuando se le pida confirmación.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

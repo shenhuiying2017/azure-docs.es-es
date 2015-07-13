@@ -1,28 +1,28 @@
-## How to deploy with PowerShell
+## Implementación con PowerShell
 
-1. Login to your Azure account.
+1. Inicie sesión en su cuenta de Azure.
 
           Add-AzureAccount
 
-   After providing your credentials, the command returns information about your account.
+   Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
           Id                             Type       ...
           --                             ----    
           example@contoso.com            User       ...   
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment. 
+2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación. 
 
           Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
-3. Switch to the Azure Resource Manager module.
+3. Cambie al módulo Administrador de recursos de Azure.
 
           Switch-AzureMode AzureResourceManager
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution.
+4. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución.
 
         New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
 
-   A summary of the new resource group is returned.
+   Se devuelve un resumen del grupo de recursos nuevo.
 
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -34,24 +34,24 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. To create a new deployment for your resource group, run the **New-AzureResourceGroupDeployment** command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
+5. Para crear una implementación nueva para el grupo de recursos, ejecute el comando **New-AzureResourceGroupDeployment** y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario. 
    
-   You have the following options for providing parameter values: 
+   Tiene las opciones siguientes para proporcionar valores de parámetro:
    
-   - Use inline parameters.
+   - Use parámetros en línea.
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
-   - Use a parameter object.
+   - Use un objeto de parámetro.
 
             $parameters = @{"<ParameterName>"="<Parameter Value>"}
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
-   - Using a parameter file.
+   - Uso de un archivo de parámetro.
 
             New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
-  When the resource group has been deployed, you will see a summary of the deployment.
+  Una vez implementado el grupo de recursos, verá un resumen de la implementación.
 
              DeploymentName    : ExampleDeployment
              ResourceGroupName : ExampleResourceGroup
@@ -60,10 +60,12 @@
              Mode              : Incremental
              ...
 
-6. To get information about deployment failures.
+6. Para obtener información acerca de los errores de la implementación.
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
-7. To get detailed information about deployment failures.
+7. Para obtener información detallada acerca de los errores de la implementación.
 
         Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+
+<!---HONumber=62-->

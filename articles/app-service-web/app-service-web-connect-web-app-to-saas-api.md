@@ -30,7 +30,7 @@ Este tutorial se basa en las series de tutoriales de aplicaciones de API:
 
 ## Hacer que la aplicación de API sea de acceso público
 
-En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), seleccione la aplicación de API. Haga clic en el botón **Configuración** de la barra de comandos. En la hoja **Configuración de la aplicación**, cambie el valor de  **Nivel de acceso** a **Público (anónimo)**.
+En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), seleccione la aplicación de API. Haga clic en el botón **Configuración** de la barra de comandos. En la hoja **Configuración de la aplicación**, cambie el valor de **Nivel de acceso** a **Público (anónimo)**.
 
 ![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
@@ -69,11 +69,19 @@ En el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=5
 
 	![Actualizaciones de código de HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
-1. Actualización de la vista `Contact` para reflejar la lista dinámica de contactos con el código siguiente: <pre>// Adición a la parte superior del archivo de vista @model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Reemplazo de las direcciones de correo electrónico predeterminadas por lo siguiente &lt;h3&gt;Public Contacts&lt;/h3&gt; &lt;ul&gt; @foreach (var contact in Model) { &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt; } &lt;/ul&gt; </pre>
+1. Actualice la vista `Contact` para que refleje la lista dinámica de contactos con el código siguiente:
+	<pre>// Add to the very top of the view file
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	![Actualizaciones de código de Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+// Replace the default email addresses with the following
+&lt;h3>Public Contacts&lt;/h3>
+&lt;ul>
+    @foreach (var contact in Model)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
+</pre>![Actualizaciones de código de Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Implementación de la aplicación web en Aplicaciones web del Servicio de aplicaciones
 
@@ -84,5 +92,6 @@ Siga las instrucciones disponibles en [Implementación de una aplicación web de
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

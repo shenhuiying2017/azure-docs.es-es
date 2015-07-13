@@ -1,6 +1,6 @@
 <properties 	
-	pageTitle="Generador de datos de Azure - ejemplos" 
-	description="Proporciona detalles acerca de los ejemplos que se incluyen con el servicio de generador de datos de Azure." 
+	pageTitle="Factoría de datos de Azure: ejemplos" 
+	description="Proporciona detalles sobre ejemplos que se distribuyen con el servicio Factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,44 +16,44 @@
 	ms.date="04/25/2015" 
 	ms.author="spelluru"/>
 
-# Generador de datos de Azure - ejemplos
+# Factoría de datos de Azure: ejemplos
 
-## Ejemplos de Portal de Azure
-Rápidamente implementar, revisar y probar un ejemplo de generador de datos de Azure utilizando el **ejemplo canalizaciones** blade en el Portal de Azure.
+## Ejemplos en el Portal de Azure
+Puede implementar, revisar y probar rápidamente un ejemplo de Factoría de datos de Azure con la hoja **Canalizaciones de ejemplo** en el Portal de Azure.
 
-1. Cree un nuevo generador de datos o abra un generador de datos existente. Consulte [Introducción a la factoría de datos de Azure][data-factory-get-started] para conocer los pasos crear un generador de datos.
-2. En el **factoría de datos** blade para el generador de datos, haga clic en el **canalizaciones de ejemplo** en mosaico.
+1. Cree una factoría de datos nueva o abra una ya existente. Consulte [Introducción a Factoría de datos de Azure][data-factory-get-started] para ver los pasos crear una factoría de datos.
+2. En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icono **Canalizaciones de ejemplo**.
 
-	![Mosaico de canalizaciones de ejemplo](./media/data-factory-samples/SamplePipelinesTile.png)
+	![Icono Canalizaciones de ejemplo](./media/data-factory-samples/SamplePipelinesTile.png)
 
-2. En el **ejemplo canalizaciones** blade, haga clic en el **ejemplo** que desea implementar.
+2. En la hoja **Canalizaciones de ejemplo**, haga clic en el **ejemplo** que quiere implementar.
 	
-	![Módulo de canalizaciones de ejemplo](./media/data-factory-samples/SampleTile.png)
+	![Hoja Canalizaciones de ejemplo](./media/data-factory-samples/SampleTile.png)
 
-3. Especificar opciones de configuración para el ejemplo. Por ejemplo, la clave de nombre y la cuenta de la cuenta de almacenamiento de Azure, el nombre del servidor de SQL Azure, base de datos, Id. de usuario y contraseña, etc....
+3. Especifique las opciones de configuración para el ejemplo. Por ejemplo, el nombre de la cuenta de almacenamiento de Azure y la clave de la cuenta, el nombre del servidor de SQL Azure, la base de datos, el id. de usuario y la contraseña, etc.
 
-	![Módulo de ejemplo](./media/data-factory-samples/SampleBlade.png)
+	![Hoja de ejemplo](./media/data-factory-samples/SampleBlade.png)
 
-4. Cuando haya terminado con la especificación de las opciones de configuración, haga clic en **crear** que crea e implementa las canalizaciones de ejemplo y los servicios y las tablas vinculadas utilizadas las canalizaciones.
-5. Verá el estado de implementación en el mosaico de ejemplo hizo anteriormente en el **ejemplo canalizaciones** blade.
+4. Cuando haya terminado de especificar las opciones de configuración, haga clic en **Crear** para crear o implementar las canalizaciones de ejemplo y los servicios o las tablas vinculados que usan las canalizaciones.
+5. Verá el estado de implementación en el icono de ejemplo en el que hizo clic anteriormente en la hoja **Canalizaciones de ejemplo canalizaciones**.
 
-	![Estado de implementación](./media/data-factory-samples/DeploymentStatus.png)
+	![Estado de la implementación](./media/data-factory-samples/DeploymentStatus.png)
 
-6. Cuando vea el **se implementó correctamente** mensajes en el mosaico del ejemplo, cierre el **ejemplo canalizaciones** blade.
-5. En **factoría de datos** blade, verá que las canalizaciones, conjuntos de datos y servicios vinculados se agregan a su generador de datos.  
+6. Cuando vea el mensaje **La implementación se realizó correctamente** en el icono del ejemplo, cierre la hoja **Canalizaciones de ejemplo**.
+5. En la hoja **FACTORÍA DE DATOS**, verá que los servicios vinculados, los conjuntos de datos y las canalizaciones se han agregado a la factoría de datos.  
 
-	![Módulo de generador de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)
+	![Hoja de la Factoría de datos](./media/data-factory-samples/DataFactoryBladeAfter.png)
    
 
-En la tabla siguiente proporciona una descripción breve de los ejemplos disponibles en la **canalizaciones de ejemplo** en mosaico.
+La tabla siguiente incluye una descripción breve de los ejemplos disponibles en el icono **Canalizaciones de ejemplo**.
 
-Nombre de ejemplo | description
+Nombre del ejemplo | description
 ----------- | -----------
-Generación de perfiles de cliente de juegos | Contoso es una empresa de juegos que cree juegos para múltiples plataformas: equipos personales (PC), dispositivos de mano y consolas de juegos. Cada uno de estos juegos produce miles de registros. Objetivo de Contoso es recopilar y analizar los registros generados por estos juegos para obtener información de uso, identificar las oportunidades de ventas y ventas cruzadas, desarrollar nuevas características atractivas etc.... para mejorar el negocio y ofrecer la mejor experiencia a los clientes. Este ejemplo recopila registros de ejemplo, los procesos y enriquece a ellos con datos de referencia y transforma los datos para evaluar la eficacia de una campaña de marketing que Contoso ha lanzado recientemente.
+Generación de perfiles de clientes de juegos | Contoso es una empresa de juegos que crea juegos para varias plataformas: consolas de juegos, dispositivos portátiles y PC. Cada uno de estos juegos produce miles de registros. El objetivo de Contoso es recopilar y analizar los registros generados por estos juegos para obtener información de uso, identificar las oportunidades de venta mejorada y venta cruzada, desarrollar características nuevas y atractivas, etc. para mejorar el negocio y ofrecer una experiencia mejor a los clientes. En este ejemplo se recopilan registros de ejemplo que se procesan y se enriquecen con datos de referencia, y se transforman los datos para evaluar la eficacia de una campaña de marketing que Contoso ha lanzado recientemente.
  
 ## Ejemplos en GitHub
-El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a rápidamente despegue con servicio de generador de datos de Azure (o) modificar las secuencias de comandos y usarla en la propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
+El [repositorio de GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) contiene varios ejemplos que le ayudarán a arrancar rápidamente el servicio Factoría de datos de Azure (o) modificar los scripts y usarlos en su propia aplicación. La carpeta Samples\JSON contiene fragmentos de JSON para escenarios comunes.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

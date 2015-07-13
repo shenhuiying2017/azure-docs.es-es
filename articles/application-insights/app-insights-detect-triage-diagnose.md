@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Detección, evaluación de errores y diagnóstico" 
-	description="Analice los bloqueos y detecte y diagnostique problemas de rendimiento en sus aplicaciones." 
-	authors="alancameronwills" 
-	services="application-insights" 
+<properties
+	pageTitle="Detección, evaluación de errores y diagnóstico"
+	description="Analice los bloqueos y detecte y diagnostique problemas de rendimiento en sus aplicaciones."
+	authors="alancameronwills"
+	services="application-insights"
     documentationCenter=""
 	manager="keboyd"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/02/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="04/02/2015"
 	ms.author="awills"/>
 
 # Detección, evaluación de errores y diagnóstico con Application Insights
@@ -45,12 +45,12 @@ Application Insights funciona para aplicaciones de dispositivos y aplicaciones w
 
 
 
-## Detección de disponibilidad insuficiente 
+## Detección de disponibilidad insuficiente
 
 
 Marcela Markova es especialista en pruebas del equipo OBS y es responsable de supervisar el rendimiento en línea. Para tal fin, prepara varias [pruebas web][availability]:
 
-* Primero, una prueba con una sola dirección URL para la página de aterrizaje principal de la aplicación. http://fabrikambank.com/onlinebanking/. Establece los criterios de código HTTP 200 y el texto 'Welcome!'. Si se produce un error en esta prueba, es que sucede algo grave con la red o los servidores o quizás sea un problema de implementación. (O bien, alguien ha cambiado el mensaje Welcome! en la página sin que ella lo sepa). 
+* Primero, una prueba con una sola dirección URL para la página de aterrizaje principal de la aplicación. http://fabrikambank.com/onlinebanking/. Establece los criterios de código HTTP 200 y el texto 'Welcome!'. Si se produce un error en esta prueba, es que sucede algo grave con la red o los servidores o quizás sea un problema de implementación. (O bien, alguien ha cambiado el mensaje Welcome! en la página sin que ella lo sepa).
 
 
 * Una prueba de varios paso más profunda, que inicia una sesión y obtiene una lista de cuentas actuales, y donde se comprueban algunos detalles importantes en cada página. Esta prueba comprueba que funciona el vínculo a la base de datos de cuentas. Marcela usa un identificador de cliente ficticio: se mantienen algunos de ellos con fines de prueba.
@@ -67,7 +67,7 @@ Los errores se muestran como puntos rojos en el gráfico de información general
 Pero lo más importante, se enviará por correo electrónico una alerta sobre cualquier error al equipo de desarrollo. De esa manera, estarán informados antes casi que todos los clientes.
 
 
-## Supervisión de las métricas de rendimiento. 
+## Supervisión de las métricas de rendimiento.
 
 
 En la misma página de información general que el gráfico de disponibilidad, hay un gráfico que muestra diversas [métricas clave][perf].
@@ -88,7 +88,7 @@ A Marcela le gusta mirar estos gráficos de vez en cuando. El fondo constante de
 Así que establece dos [alertas][metrics]: una para tiempos de respuesta superiores a un umbral típico y otro para una tasa de solicitudes con error mayor que el fondo actual.
 
 
-Junto con la alerta de disponibilidad, estas le proporcionan la seguridad de que tendrá información al respecto tan pronto ocurra algo inusual. 
+Junto con la alerta de disponibilidad, estas le proporcionan la seguridad de que tendrá información al respecto tan pronto ocurra algo inusual.
 
 
 También es posible establecer alertas para una amplia variedad de otras métricas. Por ejemplo, puede recibir mensajes de correo electrónico si el recuento de excepciones se vuelve alto, o si la memoria disponible baja, o si se produce un pico en las solicitudes de cliente.
@@ -107,13 +107,13 @@ Las excepciones se notifican a Application Insights llamando a [TrackException()
 
     var telemetry = new TelemetryClient();
     ...
-    try 
+    try
     { ...
     }
     catch (Exception ex)
     {
        // Set up some properties:
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
          {{"Game", currentGame.Name}};
 
        var measurements = new Dictionary <string, double>
@@ -131,7 +131,7 @@ De hecho, su estrategia es incluso más amplia que eso: envían telemetría en t
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)
     {
-       var properties = new Dictionary <string, string> 
+       var properties = new Dictionary <string, string>
             {{ "Code", returnCode, ... }};
        var measurements = new Dictionary <string, double>
          {{"Value", transferAmount}};
@@ -144,7 +144,7 @@ Las excepciones y los eventos se muestran en la hoja [Búsqueda de diagnóstico]
 
 ![En la búsqueda de diagnóstico, utilice filtros para mostrar determinados tipos de datos.](./media/app-insights-detect-triage-diagnose/appinsights-333facets.png)
 
-## Supervisión de eventos correctos 
+## Supervisión de eventos correctos
 
 
 Al equipo de desarrollo de Fabrikam le gusta realizar el seguimiento tanto de las cosas buenas como de las malas. En parte porque es conveniente saber cuántas cosas buenas ocurren y dónde, y en segundo lugar porque cuando dejan de ocurrir de repente cosas buenas, es muy desagradable.
@@ -171,7 +171,7 @@ Marcela no se sienta de brazos cruzados a esperar las alertas. Poco después de 
 Para evaluar el efecto sobre el rendimiento de cada implementación, normalmente compara cada semana con la última. Si hay un empeoramiento repentino, lo notifica a los desarrolladores pertinentes.
 
 
-## Evaluación de errores 
+## Evaluación de errores
 
 
 Evaluar la gravedad y la extensión de un problema es el primer paso tras la detección. ¿Debemos llamar al equipo a medianoche? ¿O puede dejarse hasta el siguiente hueco conveniente en el trabajo pendiente? Hay algunas cuestiones importantes en la evaluación de errores.
@@ -197,7 +197,7 @@ En el caso de respuesta lenta, compare la tabla de solicitudes de respuesta más
 ¿Qué importancia tiene el escenario bloqueado? ¿Se trata de un problema funcional que bloquea un caso de usuario determinado?, ¿tiene mucha importancia? Si los clientes no pueden pagar sus facturas, esto es grave; si no pueden cambiar sus preferencias de color de pantalla, quizás pueda esperar. Los detalles del evento o excepción, o la identidad de la página lenta, le indican dónde tienen problemas los clientes.
 
 
-## Diagnóstico 
+## Diagnóstico
 
 
 El diagnóstico no es exactamente lo mismo que la depuración. Antes de iniciar el seguimiento a través del código, debe tener una idea aproximada de por qué, dónde y cuándo se está produciendo el problema.
@@ -223,7 +223,7 @@ Algunos problemas de dependencia lenta son problemas de ubicación geográfica. 
 Fabrikam tenía un problema intermitente con las transferencias entre cuentas, pero solo con determinados tipos de cuenta. Para entender mejor lo que estaba ocurriendo, insertaron llamadas a TrackTrace() en los puntos clave del código y asociaron el tipo de cuenta como una propiedad para cada llamada. De esta forma fue fácil filtrar solo esos seguimientos en la búsqueda de diagnóstico. También asociaron valores de parámetros como propiedades y medidas a las llamadas de seguimiento.
 
 
-## Lidiar con él 
+## Lidiar con él
 
 
 Una vez que ha diagnosticado el problema, puede elaborar un plan para corregirlo. Es posible que necesite revertir un cambio reciente, o quizás solo pueda seguir adelante y corregirlo. Una vez que se realiza la corrección, Application Insights le indicará si se ha realizado correctamente.
@@ -231,7 +231,7 @@ Una vez que ha diagnosticado el problema, puede elaborar un plan para corregirlo
 
 El equipo de desarrollo de Fabrikam Bank adopta un enfoque más estructurado para medir el rendimiento de lo que solían hacer antes del uso de Application Insights.
 
-* Establecen objetivos de rendimiento en términos de medidas específicas en la página de información general de Application Insights. 
+* Establecen objetivos de rendimiento en términos de medidas específicas en la página de información general de Application Insights.
 
 * Diseñan las medidas de rendimiento en la aplicación desde el principio, por ejemplo, las métricas que miden el progreso del usuario a través de 'embudos'.
 
@@ -248,7 +248,7 @@ Así es como un equipo usa Application Insights no solo para solucionar problema
 
 ## Vídeo
 
-[AZURE.VIDEO app-insights-performance-monitoring]
+[AZURE.VIDEO performance-monitoring-application-insights]
 
 <!--Link references-->
 
@@ -258,6 +258,5 @@ Así es como un equipo usa Application Insights no solo para solucionar problema
 [metrics]: app-insights-metrics-explorer.md
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
-
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

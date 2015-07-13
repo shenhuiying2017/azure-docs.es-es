@@ -1,28 +1,30 @@
 
-1. On the on-premises machine, log on to the [Azure Management Portal](http://manager.windowsazure.com) (this is the old portal).
+1. En la máquina local, inicie sesión en el [Portal de administración de Azure](http://manager.windowsazure.com) (el portal antiguo).
 
-2. At the bottom of the navigation pane, select **+NEW** > **App Services** > **BizTalk Service** > **Custom Create**.
+2. En la parte inferior del panel de navegación, seleccione **+NUEVO** > **Servicios de aplicaciones** > **Servicios de BizTalk** > **Creación personalizada**.
 
-3. Provide a **BizTalk Service Name** and select an **Edition**. 
+3. Proporcione un **Nombre del servicio de BizTalk** y seleccione una **Edición**.
 
-	This tutorial uses **mobile1**. You will need to supply a unique name for your new BizTalk Service.
+	Este tutorial usa **móvil1**. Deberá especificar un nombre exclusivo para su nuevo servicio de BizTalk.
 
-4. Once the BizTalk Service has been created, select the **Hybrid Connections** tab, then click **Add**.
+4. Después de crear el servicio de BizTalk, seleccione la pestaña **Conexiones híbridas** y luego haga clic en **Agregar**.
 
 	![Add Hybrid Connection](./media/hybrid-connections-create-new/3.png)
 
-	This creates a new hybrid connection.
+	De esta forma, se creará una nueva conexión híbrida.
 
-5. Provide a **Name** and **Host Name** for your hybrid connection and set **Port** to `1433`. 
+5. Proporcione un **Nombre** y un **Nombre de host** para su conexión híbrida y establezca el **Puerto** en `1433`.
   
 	![Configure Hybrid Connection](./media/hybrid-connections-create-new/4.png)
 
-	The host name is the name of the on-premises server. This configures the hybrid connection to access SQL Server running on port 1433. If you are using a named SQL Server instance, instead use the static port you defined earlier.
+	El nombre de host es el nombre del servidor local. De esta manera se configura la conexión híbrida para el acceso a SQL Server que se ejecuta en el puerto 1433. Si utiliza una instancia con nombre de SQL Server, en su lugar, utilice el puerto estático que se definió anteriormente.
 
-6. After the new connection is created, the status of the of the new connection shows **On-premises setup incomplete**.
+6. Una vez creada la nueva conexión, El estado de la nueva conexión muestra **Instalación local incompleta**.
 
-7. Navigate back to your mobile service, click **Configure**, scroll down to **Hybrid connections** and click **Add hybrid connection**, then select the hybrid connection that you just created and click **OK**.
+7. Vuelva a su servicio móvil, haga clic en **Configurar**, desplácese hacia abajo a **Conexiones híbridas** y haga clic en **Agregar conexión híbrida**; a continuación, seleccione la conexión híbrida que acaba de crear y haga clic en **Aceptar**.
 
-    This enables your mobile service to use your new hybrid connection.
+    Esto permite al servicio móvil usar la nueva conexión híbrida.
 
-Next, you'll need to install the Hybrid Connection Manager on the on-premises computer.
+Ahora, será necesario instalar el Administrador de conexiones híbridas en el equipo local.
+
+<!---HONumber=62-->

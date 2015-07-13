@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio de importación y exportación de Azure"
-	description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio de importación y exportación de Azure"
+   description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/07/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/07/2015"
+   ms.author="prvijay"/>
 
 # Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure
 
@@ -133,5 +132,6 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 [7]: ./media/backup-azure-backup-import-export/complete.png
 [8]: ./media/backup-azure-backup-import-export/dpmoffline.png
 [9]: ./media/backup-azure-backup-import-export/dpmbackupnow.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

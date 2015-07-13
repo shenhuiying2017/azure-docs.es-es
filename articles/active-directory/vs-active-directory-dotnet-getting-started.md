@@ -3,24 +3,24 @@
 	description="Cómo empezar a usar Azure Active Directory en Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
- 
+  
 <tags 
 	ms.service="active-directory" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
 # Introducción a Azure Active Directory (proyectos .NET)
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-active-directory-dotnet-getting-started.md)
-> - [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
  
 #####Requerimiento de autenticación para obtener acceso a los controladores 
 
@@ -28,7 +28,7 @@ Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize
  
 #####Incorporación de controles SignIn / SignOut 
 
-Para agregar controles SignIn/SignOut a su vista, puede utiliza la vista parcial **_LoginPartial.cshtml** para agregar la funcionalidad a una de sus vistas. Aquí se presenta un ejemplo de la funcionalidad agregada a la vista estándar **_Layout.cshtml**. Observe el último elemento de la sección div con la clase navbar-collapse:
+Para agregar controles SignIn/SignOut a su vista, puede utiliza la vista parcial **__LoginPartial.cshtml** para agregar la funcionalidad a una de sus vistas. Aquí se presenta un ejemplo de la funcionalidad agregada a la vista estándar **_Layout.cshtml**. Observe el último elemento de la sección div con la clase navbar-collapse:
 
 <PRE class="prettyprint">
     &lt;!DOCTYPE html&gt; 
@@ -77,4 +77,4 @@ Para agregar controles SignIn/SignOut a su vista, puede utiliza la vista parcial
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!--HONumber=49--> 
+<!---HONumber=62-->

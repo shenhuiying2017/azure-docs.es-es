@@ -487,7 +487,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida**:
 
 
-		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida:**
 
 
-		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
 4. En Azure PowerSell, cambie a la carpeta **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
 
-		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

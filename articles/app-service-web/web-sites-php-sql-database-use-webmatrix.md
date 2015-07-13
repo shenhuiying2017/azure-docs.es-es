@@ -110,7 +110,7 @@ Para conectarse a la instancia de Base de datos SQL vinculada a la aplicación w
 En los siguientes pasos desarrollará la aplicación Tasklist mediante la adición de archivos que descargó anteriormente y la realización de algunas modificaciones. Sin embargo, puede agregar sus propios archivos existentes o crear archivos nuevos.
 
 1. Inicie [Microsoft WebMatrix](http://www.microsoft.com/web/webmatrix/). Si no la ha instalado todavía, hágalo ahora.
-2. Si esta es la primera vez que utiliza WebMatrix 3, se le solicitará que inicie sesión en Azure. De lo contrario, puede hacer clic en el botón **Sign In** (Inicio de sesión) y elegir **Add Account** (Agregar cuenta). Elija **Sign in** (Inicio de sesión) con su cuenta Microsoft.
+2. Si esta es la primera vez que utiliza WebMatrix 3, se le solicitará que inicie sesión en Azure. De lo contrario, puede hacer clic en el botón **Iniciar sesión** y seleccionar **Agregar cuenta** Seleccione **Iniciar sesión** con su cuenta Microsoft.
 
 	![Add account](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-add-account.png)
 
@@ -246,5 +246,6 @@ Ha aprendido a crear e implementar una aplicación web desde WebMatrix en Aplica
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

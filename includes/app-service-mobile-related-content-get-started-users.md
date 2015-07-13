@@ -6,4 +6,4 @@ Agregue la autenticación a su aplicación móvil: [iOS][ios-get-started-users],
 [xamarin-android-get-started-users]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md
 [ios-get-started-users]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!--HONumber=54-->
+<!---HONumber=62-->

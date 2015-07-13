@@ -174,7 +174,8 @@ Las cadenas de conexión también se definen como un recurso anidado.
 
 En el elemento `properties` para `config/connectionstrings`, cada cadena de conexión también se define como un par nombre-valor, con el formato específico de `“<name>” : {“value”: “…”, “type”: “…”}`. Para el elemento `type`, los valores posibles son `MySql`, `SQLServer`, `SQLAzure` y `Custom`.
 
->[AZURE.TIP]Para obtener una lista definitiva de los tipos de cadena de conexión, ejecute el siguiente comando de PowerShell de Azure: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP]Para obtener una lista definitiva de los tipos de cadena de conexión, ejecute el siguiente comando de PowerShell de Azure: 
+	[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
     
 ##### Control de código fuente #####
 
@@ -299,5 +300,4 @@ En las operaciones de desarrollo, la repetibilidad y previsibilidad son claves p
 
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

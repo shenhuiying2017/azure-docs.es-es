@@ -37,8 +37,8 @@ En este artículo se proporcionan instrucciones sobre diferentes formas de aprov
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Claves de shell seguro (SSH)**. Si desea realizar una conexión remota a un clúster de Linux mediante SSH con una clave en lugar de una contraseña, el uso de una clave es el método recomendado, debido a que es más seguro. Para obtener instrucciones sobre cómo generar claves SSH, consulte los siguientes artículos:
+- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Claves de Shell seguro (SSH)**. Si desea realizar una conexión remota a un clúster de Linux mediante SSH con una clave en lugar de una contraseña, el uso de una clave es el método recomendado, debido a que es más seguro. Para obtener instrucciones sobre cómo generar claves SSH, consulte los siguientes artículos:
 	-  Desde un equipo con Linux: [Utilización de SSH con HDInsight basado en Linux (Hadoop) desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 	-  Desde un equipo con Windows: [Utilización de SSH con HDInsight basado en Linux (Hadoop) desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -106,22 +106,19 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 		<td>Seleccione <b>Ubuntu 12.04 LTS Preview</b> para aprovisionar un clúster de HDInsight en Linux. Para aprovisionar un clúster de Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Windows en HDInsight</a>.</td></tr>
 	<tr><td>Versión de HDInsight</td>
 		<td>Seleccione la versión. Para HDInsight en Linux, el valor predeterminado es la versión 3.2 de HDInsight, que usa Hadoop 2.6.</td></tr>
-		</table>
-
-	Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
+	</table>Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
 
 4. En la página **Configurar clúster**, escriba o seleccione los valores siguientes:
 
 	![Proporcionar detalles del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>Nombre</th><th>Valor</th></tr>
-	<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
-	<tr><td>Región/Red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que almacenó anteriormente. Los clústeres de HDInsight requieren que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p></td></tr>
-	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
-	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-	</table>
-	>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+<tr><th>Nombre</th><th>Valor</th></tr>
+<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
+<tr><td>Región/Red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que almacenó anteriormente. Los clústeres de HDInsight requieren que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p></td></tr>
+<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
+<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
+</table>>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 
 5. En la página **Configurar usuario de clúster** proporcione los siguientes valores:
@@ -145,8 +142,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 	<tr><td>Especificación de la tienda de metadatos de Hive/Oozie</td>
 		<td>Active esta casilla para especificar una base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
 	</td></tr>
-	</table>
-	>[AZURE.NOTE]Se recomienda usar autenticación con clave pública SSH con SSH, dado que es más segura que la autenticación con contraseña.
+	</table>> [AZURE.NOTE]Se recomienda usar autenticación con clave pública SSH con SSH, dado que es más segura que la autenticación con contraseña.
 
 	Haga clic en la flecha derecha.
 
@@ -189,9 +185,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     </td></tr>
 	<tr><td>Cuentas de almacenamiento adicionales</td>
 		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
-	</table>
-
-	Haga clic en la flecha derecha.
+</table>Haga clic en la flecha derecha.
 
 7. Si ha elegido configurar almacenamiento adicional para el clúster, escriba la información de la cuenta de almacenamiento adicional en la página **Cuenta de almacenamiento**:
 
@@ -205,14 +199,14 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 
  	Una vez que especifique la cuenta de almacenamiento adicional, haga clic en la marca de verificación para comenzar a aprovisionar el clúster.
 
-###<a id="cli"></a> Uso de la Interfaz de línea de comandos de Azure (CLI de Azure)
+###<a id="cli"></a> Uso de la interfaz de la línea de comandos de Azure (CLI de Azure)
 
-Otra opción para aprovisionar un clúster de HDInsight es la CLI de Azure. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. Puede instalar la CLI de Azure desde las siguientes ubicaciones:
+Otra opción para aprovisionar un clúster de HDInsight es la CLI de Azure. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. La CLI de Azure se puede instalar desde las siguientes ubicaciones:
 
 - **SDK de Node.js**: <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **CLI de Azure para Mac, Linux y Windows**: <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Para obtener información general acerca de cómo usar la CLI de Azure, vea [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
+Para obtener información general acerca de cómo usar la CLI de Azure, consulte [CLI de Azure para Mac, Linux y Windows](../xplat-cli.md).
 
 Las instrucciones que aparecen a continuación le guían en la instalación de la CLI de Azure en Linux y Windows y, a continuación, sobre cómo usar la línea de comandos para aprovisionar un clúster.
 
@@ -222,10 +216,10 @@ Las instrucciones que aparecen a continuación le guían en la instalación de l
 
 #### <a id="clilin"></a>Configurar la CLI de Azure para Linux
 
-Realice los siguientes procedimientos para configurar su equipo con Linux para que use la interfaz de la línea de comandos (CLI de Azure):
+Realice los siguientes procedimientos para configurar un equipo con Linux para que use la interfaz de la línea de comandos de Azure (CLI de Azure):
 
 - Instalar la CLI de Azure mediante el uso del Administrador de paquetes de Node.js (NPM)
-- Conexión a su suscripción de Azure
+- Conectarse a su suscripción de Azure
 
 **Instalar la CLI de Azure mediante NPM**
 
@@ -246,7 +240,7 @@ Realice los siguientes procedimientos para configurar su equipo con Linux para q
 
 **Para conectarse a su suscripción de Azure**
 
-Antes de usar la CLI de Azure, debe configurar la conectividad entre su estación de trabajo y Azure. Su información de suscripción de Azure se usa por la CLI de Azure para la conexión a su cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la CLI de Azure usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
+Antes de usar la CLI de Azure, debe configurar la conectividad entre la estación de trabajo y Azure. La CLI de Azure usa la información de su suscripción de Azure para conectarse a su cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la CLI de Azure usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
 
 
 > [AZURE.NOTE]El archivo de configuración de publicación contiene información confidencial. Microsoft recomienda eliminar el archivo o tomar medidas adicionales para cifrar la carpeta del usuario que contiene el archivo. En Windows, modifique las propiedades de la carpeta o use el Cifrado de unidad BitLocker.
@@ -268,17 +262,17 @@ Antes de usar la CLI de Azure, debe configurar la conectividad entre su estació
 		azure account import <path/to/the/file>
 
 
-#### <a id="cliwin"></a>Configurar la CLI de Azure para Windows
+#### <a id="cliwin"></a>Configuración de la línea de comandos multiplataforma para Windows
 
 Realice los siguientes procedimientos para configurar su equipo con Windows para que use la interfaz de la línea de comandos de Azure (CLI de Azure).
 
-- Instalar la CLI de Azure mediante NPM o Windows Installer
+- Instalación de la interfaz de la línea de comandos con NPM o Windows Installer
 - Descarga e importación de la configuración de publicación de la cuenta de Azure
 
 
-CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft recomienda realizar la instalación usando solamente una de las dos opciones.
+La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft recomienda realizar la instalación usando solamente una de las dos opciones.
 
-**Para instalar la CLI de Azure mediante NPM**
+**Para instalar la CLI de Azure con NPM**
 
 1.	Vaya a **www.nodejs.org**.
 2.	Haga clic en **INSTALL** (INSTALAR) y siga las instrucciones, usando la configuración predeterminada.
@@ -301,14 +295,13 @@ CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft recom
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**Para instalar CLI de Azure mediante Windows Installer**
+**Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**. 
-2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
+1.	Vaya a **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
 
-Antes de usar la CLI de Azure, debe configurar la conectividad entre su estación de trabajo y Azure. Su información de suscripción de Azure se usa por la CLI de Azure para la conexión a su cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la CLI de Azure usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
+Antes de usar la CLI de Azure, debe configurar la conectividad entre la estación de trabajo y Azure. La CLI de Azure usa la información de su suscripción de Azure para conectarse a su cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la CLI de Azure usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
 
 
 > [AZURE.NOTE]El archivo de configuración de publicación contiene información confidencial. Microsoft recomienda eliminar el archivo o tomar medidas adicionales para cifrar la carpeta del usuario que contiene el archivo. En Windows, modifique las propiedades de la carpeta o use BitLocker.

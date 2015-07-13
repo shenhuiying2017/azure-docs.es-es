@@ -153,6 +153,6 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 	Si el segundo comando genera un error, compruebe la sintaxis correcta del archivo /etc/fstab.
 
 
-	>[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+	>[AZURE.NOTE]Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de las distribuciones proporcionan las opciones de fstab `nofail` o `nobootwait` que permitirán que el sistema se inicie, incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
-<!---HONumber=58-->
+<!---HONumber=62-->

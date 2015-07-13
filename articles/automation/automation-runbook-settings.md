@@ -58,6 +58,6 @@ Los siguientes comandos de ejemplo muestran cómo establecer las propiedades de 
 
 ## Artículos relacionados
 - [Salida y mensajes de los runbooks](../automation-runbook-output-and-messages) 
-- [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx)
+- [Creación o importación de un runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

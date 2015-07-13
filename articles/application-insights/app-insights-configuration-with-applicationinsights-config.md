@@ -98,7 +98,13 @@ El número de elementos de telemetría que pueden almacenarse en el almacenamien
 -	Máx: 1000
 -	Valor predeterminado: 500
 
-    <ApplicationInsights> ... <Channel> <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity> </Channel> ... </ApplicationInsights>
+    <ApplicationInsights>
+      ...
+      <Channel>
+      <MaxTelemetryBufferCapacity>100</MaxTelemetryBufferCapacity>
+      </Channel>
+      ...
+      </ApplicationInsights>
 
 #### FlushIntervalInSeconds 
 
@@ -108,7 +114,13 @@ Determina la frecuencia con que los datos almacenados en el almacenamiento en me
 -	Máx: 300
 -	Valor predeterminado: 5
 
-    <ApplicationInsights> ... <Channel> <FlushIntervalInSeconds>100</FlushIntervalInSeconds> </Channel> ... </ApplicationInsights>
+    <ApplicationInsights>
+      ...
+      <Channel>
+      <FlushIntervalInSeconds>100</FlushIntervalInSeconds>
+      </Channel>
+      ...
+      </ApplicationInsights>
 
 #### MaxTransmissionStorageCapacityInMB
 
@@ -118,7 +130,12 @@ Determina el tamaño máximo en MB que se asigna al almacenamiento persistente e
 -	Máx: 100
 -	Valor predeterminado: 10
 
-    <ApplicationInsights> ... <Channel> <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB> </Channel> ... </ApplicationInsights>
+    <ApplicationInsights>
+      ... <Channel>
+      <MaxTransmissionStorageCapacityInMB>50</MaxTransmissionStorageCapacityInMB>
+      </Channel>
+      ...
+      </ApplicationInsights>
 
 
 ## Inicializadores de contexto
@@ -273,5 +290,4 @@ Para obtener una nueva clave, [cree un nuevo recurso en el portal de Application
 [start]: app-insights-get-started.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

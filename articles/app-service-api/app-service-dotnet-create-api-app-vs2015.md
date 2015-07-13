@@ -71,7 +71,7 @@ El runtime del Servicio de aplicaciones para aplicaciones de API lo proporciona 
 
 1. Haga clic en **Herramientas > Administrador de paquetes de Nuget > Consola del administrador de paquetes**.
 
-2. En la **Consola del Administrador de paquetes ** (PMC), escriba los siguientes comandos.
+2. En la **Consola del Administrador de paquetes** (PMC), escriba los siguientes comandos.
 
 		install-package Microsoft.Azure.AppService.ApiApps.Service
 		install-package Swashbuckle
@@ -122,7 +122,16 @@ En los pasos siguientes se agrega código para un método HTTP Get simple que de
 
 1. Cree la carpeta *Models* en la carpeta del proyecto, en caso de que no exista.
 
-2. En la carpeta *Models*, agregue un archivo de clase denominado *Contact.cs*, y reemplace el contenido del archivo por el siguiente código. namespace ContactsList.Models { public class Contact { public int Id { get; set; } public string Name { get; set; } public string EmailAddress { get; set; } } }
+2. En la carpeta *Models*, agregue un archivo de clase denominado *Contact.cs*, y reemplace el contenido del archivo por el siguiente código. 
+		namespace ContactsList.Models
+		{
+			public class Contact
+			{
+				public int Id { get; set; }
+				public string Name { get; set; }
+				public string EmailAddress { get; set; }
+			}
+		}
 
 5. Haga clic con el botón secundario en la carpeta **Controladores** y seleccione **Agregar > Controlador**.
 
@@ -296,5 +305,4 @@ En esta sección, se navega al portal para ver la definición de la API de la ap
 
 Ahora ha creado e implementado una aplicación de API con Visual Studio 2015 RC. Para obtener más documentación sobre las aplicaciones de API, vea las entradas del panel de navegación que se muestra en el lado izquierdo de la página (para ventanas de explorador anchas) o en la parte superior de la página (para ventanas de explorador estrechas). Actualmente, la mayor parte de la documentación sobre aplicaciones de API se refiere a Visual Studio 2013, pero gran parte de ella puede usarse con VS 2015 porque la interfaz de usuario, el código que se escribe y la interfaz de usuario del portal son iguales.
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

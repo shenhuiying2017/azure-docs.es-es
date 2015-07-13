@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Eliminación de una directiva de copia de seguridad de StorSimple"
-   description="Explica cómo puede usar el servicio del Administrador de StorSimple para eliminar una directiva de copia de seguridad."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Para eliminar una directiva de copia de seguridad de StorSimple
 
@@ -26,4 +10,4 @@
 La página **Directivas de copia de seguridad** se actualizará para mostrar la nueva lista de directivas.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

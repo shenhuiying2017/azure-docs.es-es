@@ -145,7 +145,7 @@ Puede agregar una definición de actividad a una canalización JSON haciendo cli
 
 ![Agregar opciones de actividad][add-activity-options]
 
-Si desea copiar datos de una base de datos SQL de Azure en el almacenamiento de blobs de Azure y procesar los datos en el almacenamiento de blobs mediante script de Pig en un clúster de HDInsight, primero agregue una **actividad de copia** y, a continuación, agregue una **actividad de Pig** a la canalización. Esto crea dos secciones dentro de la sección [actividades] de la canalización JSON. La actividad de Pig es la actividad de HDInsight con transformación de Pig.
+Si desea copiar datos de una base de datos SQL de Azure en el almacenamiento de blobs de Azure y procesar los datos en el almacenamiento de blobs mediante script de Pig en un clúster de HDInsight, primero agregue una **actividad de copia** y, a continuación, agregue una **actividad de Pig** a la canalización. Esto crea dos secciones en la sección de actividades de la canalización JSON. La actividad de Pig es la actividad de HDInsight con transformación de Pig.
 
 	"activities": [
     	{
@@ -221,4 +221,4 @@ Consulte el tema [Introducción a la Factoría de datos de Azure][data-factory-g
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

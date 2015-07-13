@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a Automatización de Azure" 
-	description="Vea cómo importar y ejecutar un trabajo de automatización en Azure." 
-	services="automation" 
-	documentationCenter="" 
-	authors="bwren" 
-	manager="stevenka" 
+<properties
+	pageTitle="Introducción a la automatización de Azure"
+	description="Vea cómo importar y ejecutar un trabajo de automatización en Azure."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
 	editor=""/>
 
-<tags 
-	ms.service="automation" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="automation"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
 
@@ -49,13 +49,13 @@ Una cuenta de Automatización es un contenedor para los recursos de Automatizaci
 La [Galería de runbooks](http://aka.ms/runbookgallery) incluye runbooks de ejemplo que se pueden importar directamente en una cuenta de Automatización de Azure, lo que le permite aprovechar el trabajo de otros usuarios de PowerShell y de Automatización de Azure. En este paso, usará la galería para importar el runbook de ejemplo "Hello World".
 
 4.	En la página **Automatización**, haga clic en la nueva cuenta que acaba de crear.
- 
+
 	![Nueva cuenta](./media/automation-create-runbook-from-samples/automation_03_NewAutoAcct.png)
 
 5.	Haga clic en **RUNBOOKS**.
 
 	![Pestaña Runbooks](./media/automation-create-runbook-from-samples/automation_04_RunbooksTab.png)
-  
+
 6.	Haga clic en **Nuevo** > **Runbook** > **Desde la galería**.
 
 	![Galería de runbooks](./media/automation-create-runbook-from-samples/automation_05_ImportGallery.png)
@@ -72,7 +72,7 @@ La [Galería de runbooks](http://aka.ms/runbookgallery) incluye runbooks de ejem
 
 	![Detalles del runbook](./media/automation-create-runbook-from-samples/automation_08_RunbookDetails.png)
 
-## <a name="publishrunbook"></a>Publicación del runbook 
+## <a name="publishrunbook"></a>Publicación del runbook
 
 El runbook se importa por primera vez en el modo Borrador. Esto significa que puede continuar trabajando en él antes de autorizarlo como una nueva versión que se puede ejecutar. Puesto que este runbook de ejemplo no requiere configuración adicional, lo publicará ahora como está. Para obtener más información, vea [Publicación de un Runbook](http://aka.ms/runbookauthor/azure/publishrunbook).
 
@@ -85,13 +85,13 @@ El runbook se importa por primera vez en el modo Borrador. Esto significa que pu
 	Puede modificar el contenido de un runbook en el modo Borrador. Para este runbook, no tiene que realizar modificaciones.
 
 	![Borrador de autor](./media/automation-create-runbook-from-samples/automation_08_AuthorDraft.png)
- 
+
 10.	Haga clic en **PUBLICAR** para promocionar el runbook, marcándolo como preparado para que esté listo para el uso de producción.
 
 	![Publicar](./media/automation-create-runbook-from-samples/automation_085_Publish.png)
-   
+
 11.	Cuando se le pida confirmación, haga clic en **Sí**.
- 
+
 	![Solicitud de guardado y publicación](./media/automation-create-runbook-from-samples/automation_09_SavePubPrompt.png)
 
 ## <a name="startrunbook"></a>Inicio del runbook
@@ -101,22 +101,22 @@ Con el runbook importado y publicado, ahora puede ejecutarlo y, a continuación,
 12.	Con el runbook **Write-HelloWorld** abierto, haga clic en **INICIAR**.
 
 	![Publicado](./media/automation-create-runbook-from-samples/automation_10_PublishStart.png)
- 
+
 13.	En la página **Especificar los valores de parámetros del runbook**, escriba un valor para **Nombre** que se usará como parámetro de entrada para el script Write-HelloWorld.ps1 y, a continuación, haga clic en la marca de verificación.
 
 	![Parámetros de runbook](./media/automation-create-runbook-from-samples/automation_11_RunbookParams.png)
-  
+
 14.	Haga clic en **JOBS** para comprobar el estado del trabajo de runbook que acaba de iniciar y, a continuación, haga clic en la marca de tiempo en la columna **INICIO DEL TRABAJO** para ver el resumen del trabajo.
 
 	![Estado de runbook](./media/automation-create-runbook-from-samples/automation_12_RunbookStatus.png)
 
 15.	En la página **RESUMEN** puede ver el resumen, los parámetros de entrada y la salida del trabajo.
- 
+
 	![Resumen de Runbook](./media/automation-create-runbook-from-samples/automation_13_RunbookSummary_callouts.png)
 
 ¡Enhorabuena! Ha finalizado el tutorial.
 
-## <a name="nextsteps"></a>Pasos siguientes 
+## <a name="nextsteps"></a>Pasos siguientes
 1. El runbook simple de este tutorial **no administra los servicios de Azure**. La mayoría de los runbooks usarán [cmdlets de Azure](http://msdn.microsoft.com/library/jj156055.aspx) a tal efecto, lo que requiere autenticación para la suscripción de Azure. Siga las instrucciones de [Configuración de Azure para la administración de runbooks](http://aka.ms/azureautomationauthentication) para configurar su suscripción de Azure para trabajar con estos cmdlets.  
 2. Consulte los [recursos](#resources) enumerados a continuación para obtener más información acerca de las capacidades de Automatización de Azure.
 3. Suscríbase al [blog de Automatización de Azure](http://azure.microsoft.com/blog/tag/azure-automation) para mantenerse al día con las novedades del equipo de Automatización de Azure.
@@ -125,7 +125,7 @@ Con el runbook importado y publicado, ahora puede ejecutarlo y, a continuación,
 
 Hay una amplia gama de recursos disponibles para aprender mucho más acerca de Automatización de Azure y crear sus propios runbooks.
 
-- La [biblioteca de Automatización de Azure](http://go.microsoft.com/fwlink/p/?LinkId=392860) proporciona documentación completa sobre la configuración y administración de Automatización de Azure y para crear sus propios runbooks. 
+- La [biblioteca de Automatización de Azure](http://go.microsoft.com/fwlink/p/?LinkId=392860) proporciona documentación completa sobre la configuración y administración de Automatización de Azure y para crear sus propios runbooks.
 - Los [cmdlets de Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) proporcionan información para automatizar operaciones de Azure mediante Windows PowerShell. Los runbooks usan estos cmdlets para trabajar con recursos de Azure.
 - El [blog de Automatización de Azure](http://azure.microsoft.com/blog/tag/azure-automation) proporciona la información más reciente sobre Automatización de Azure de Microsoft.
 - El [foro de automatización](http://go.microsoft.com/fwlink/p/?LinkId=390561) le permite publicar preguntas acerca de Automatización de Azure que serán atendidas por Microsoft y la comunidad de automatización.
@@ -134,11 +134,11 @@ Hay una amplia gama de recursos disponibles para aprender mucho más acerca de A
 ## Runbooks de utilidades y ejemplos
 
 Microsoft y la comunidad de Automatización de Azure proporcionan runbooks de ejemplos, que pueden ayudarle a empezar a crear sus propias soluciones, y runbooks de utilidades, que puede usar como bloques de creación para tareas de automatización más grandes. Puede descargar estos runbooks desde el [Centro de scripts](http://go.microsoft.com/fwlink/p/?LinkId=393029) o importarlos directamente a Automatización de Azure usando la [Galería de runbooks](http://aka.ms/runbookgallery).
-  
+
 
 ## Comentarios
 
-<strong>¡Envíenos sus comentarios!</strong> Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). ¡Gracias! 
-
-<!---HONumber=52-->
+<strong>¡Envíenos sus comentarios!</strong> Si está buscando una solución de runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el centro de scripts. Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [Voz del usuario](http://feedback.windowsazure.com/forums/34192--general-feedback). Gracias.
  
+
+<!---HONumber=62-->

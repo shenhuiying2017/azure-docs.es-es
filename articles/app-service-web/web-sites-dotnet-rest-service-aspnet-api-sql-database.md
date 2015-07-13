@@ -75,10 +75,10 @@ Si tiene un servidor de base de datos, úselo para crear una nueva base de datos
 ### Establecimiento del encabezado y pie de página
 
 
-1. En el **Explorador de soluciones**, expanda la carpeta *Views\\Shared* y abra el archivo *_Layout.cshtml*. 
+1. En el **Explorador de soluciones**, expanda la carpeta *Views\Shared* y abra el archivo *_Layout.cshtml*. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Reemplace el contenido del archivo *Views\\Shared_Layout.cshtml* por el código siguiente:
+1. Reemplace el contenido del archivo *Views\Shared_Layout.cshtml* por el código siguiente:
 
 
 		<!DOCTYPE html>
@@ -205,7 +205,7 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
  ![Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rrAC.PNG)
 
-6. Asigne al controlador el nombre de  **HomeController**. Seleccione **Contact** como su clase de modelo. Haga clic en el botón **Nuevo contexto de datos** y acepte el valor predeterminado "ContactManager.Models.ContactManagerContext" para **Nuevo tipo de contexto de datos**. Haga clic en **Agregar**.
+6. Asigne al controlador el nombre de **HomeController**. Seleccione **Contact** como su clase de modelo. Haga clic en el botón **Nuevo contexto de datos** y acepte el valor predeterminado "ContactManager.Models.ContactManagerContext" para **Nuevo tipo de contexto de datos**. Haga clic en **Agregar**.
 
 	![Cuadro de diálogo Agregar controlador](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.PNG)
 
@@ -235,7 +235,7 @@ La siguiente tarea consiste en habilitar la característica [Migraciones de Code
 
 	En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down** (que se utiliza cuando se desea volver al estado anterior) la anula.
 
-3. Abra el archivo *Migrations\\Configuration.cs*.
+3. Abra el archivo *Migrations\Configuration.cs*.
 
 4. Agregue los siguientes espacios de nombres.
 
@@ -318,7 +318,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 <h2><a name="bkmk_addview"></a>Edición de la vista</h2>
 
-1. Abra el archivo *Views\\Home\\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
+1. Abra el archivo *Views\Home\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
 
 
 2. Reemplace el contenido del archivo por el código siguiente.
@@ -475,7 +475,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 	Utilizaremos la hoja de estilos para el diseño, los colores y el estilo utilizados en la aplicación del administrador de contactos.
 
-6. Abra el archivo *App_Start\\BundleConfig.cs*.
+6. Abra el archivo *App_Start\BundleConfig.cs*.
 
 
 7. Agregue el código siguiente para registrar el complemento [Knockout](http://knockoutjs.com/index.html "KO").
@@ -522,7 +522,7 @@ Por:
 
 	![Página de índice con elementos de lista de tareas pendientes][addwebapi004]
 
-3. En el explorador, anexe  **/api/contacts** a la dirección URL.
+3. En el explorador, anexe **/api/contacts** a la dirección URL.
 
 	La dirección URL resultante será similar a http://localhost:1234/api/contacts. La API web de RESTful que ha agregado devuelve los contactos almacenados. Firefox y Chrome mostrarán los datos en formato XML.
 
@@ -550,7 +550,7 @@ Un ataque XSRF es distinto de un ataque de suplantación de identidad (phishing)
 
 Para obtener más información, consulte [Proyecto de seguridad de aplicación web abierta](https://www.owasp.org/index.php/Main_Page) (OWASP) [XSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)).
 
-1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto **ContactManager**, haga clic en **Agregar** y luego en **Clase**.
+1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **ContactManager**, haga clic en **Agregar** y luego en **Clase**.
 
 2. Asigne al archivo el nombre *ValidateHttpAntiForgeryTokenAttribute.cs* y agregue el código siguiente:
 
@@ -630,7 +630,7 @@ Para obtener más información, consulte [Proyecto de seguridad de aplicación w
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Actualice la sección *Scripts* del archivo *Views\\Home\\Index.cshtml* para incluir código y obtener los tokens de XSRF.
+1. Actualice la sección *Scripts* del archivo *Views\Home\Index.cshtml* para incluir código y obtener los tokens de XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -809,5 +809,6 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [ValidateConnection]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/ValidateConnection.png
 [WebPIAzureSdk20NetVS12]: ./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/WebPIAzureSdk20NetVS12.png
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

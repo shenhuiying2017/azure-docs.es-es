@@ -73,7 +73,7 @@ Este tutorial ofrece instrucciones paso a paso para usar una actividad de HDInsi
 
 
 ### Creación de un servicio vinculado para un clúster de HDInsight
-El servicio Factoría de datos de Azure admite la creación de un clúster a petición y usarlo para procesar la entrada para generar datos de salida. También puede utilizar su propio clúster para realizar la misma tarea. El servicio Factoría de datos de Azure crea y administra el clúster de HDInsight a petición para procesar los datos. Consulte [Azure HDInsight On-Demand Linked Service](https://msdn.microsoft.com/library/dn893526.aspx) (Servicio vinculado a petición de Azure HDInsight) para obtener más información acerca del servicio vinculado a petición de HDInsight. Para los fines de este ejemplo, vamos a usar un clúster a petición. Tenga en cuenta que se tardan más de 15 minutos en crear el clúster de HDInsight a petición y que solo se le cobrará el tiempo cuando el clúster HDInsight esté activo y ejecutando trabajos.
+El servicio Factoría de datos de Azure admite la creación de un clúster a petición y usarlo para procesar la entrada para generar datos de salida. También puede utilizar su propio clúster para realizar la misma tarea. El servicio Factoría de datos de Azure crea y administra el clúster de HDInsight a petición para procesar los datos. Para obtener más información acerca del servicio vinculado a petición de HDInsight, Consulte [Servicio vinculado a petición de Azure HDInsight](https://msdn.microsoft.com/library/dn893526.aspx). Para los fines de este ejemplo, vamos a usar un clúster a petición. Tenga en cuenta que se tardan más de 15 minutos en crear el clúster de HDInsight a petición y que solo se le cobrará el tiempo cuando el clúster de HDInsight esté activo y ejecutando trabajos.
 
 #### Para utilizar un clúster de HDInsight a petición
 1. Haga clic en **Nuevo proceso** en la barra de comandos y seleccione **Clúster de HDInsight a petición** en el menú.
@@ -353,4 +353,4 @@ Artículo | Descripción
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

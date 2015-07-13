@@ -107,7 +107,7 @@ La solicitud puede contener las siguientes propiedades:
 - `container`: 
 	- La propiedad `name` obligatoria especifica la tabla o vista (para el origen de datos de SQL Azure) o una colección (para el origen de datos DocumentDB) que se indexarán. 
 	- Los orígenes de datos de DocumentDB también admiten una propiedad `query` opcional que le permite especificar una consulta que convierte un diseño del documento JSON arbitrario en un esquema sin formato que Búsqueda de Azure puede indexar.   
-- Los `dataChangeDetectionPolicy` y `dataDeletionDetectionPolicy` opcionales se describen a continuación.
+- Los elementos `dataChangeDetectionPolicy` y `dataDeletionDetectionPolicy` opcionales se describen a continuación.
 
 <a name="DataChangeDetectionPolicies"></a> **Directivas de detección de cambios de datos**
 
@@ -135,7 +135,7 @@ Esta directiva se puede especificar del modo siguiente:
 
 ***Directiva de detección de cambios integrados de SQL***
 
-Si la base de datos SQL admite el [seguimiento de cambios integrados de SQL](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx), se recomienda usar la directiva de seguimiento de cambios integrada de SQL. Esta directiva habilita el seguimiento de cambios más eficaz y también permite que la Búsqueda de Azure identifique las filas eliminadas sin tener que disponer de una columna de "eliminación temporal" explícita en su esquema.
+Si la base de datos SQL admite el [seguimiento de cambios integrados de SQL] (http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx)), se recomienda usar la directiva de seguimiento de cambios integrada de SQL. Esta directiva habilita el seguimiento de cambios más eficaz y también permite que la Búsqueda de Azure identifique las filas eliminadas sin tener que disponer de una columna de "eliminación temporal" explícita en su esquema.
 
 El seguimiento de cambios integrado de SQL se admite a partir de las siguientes versiones de la base de datos de SQL: - SQL Server 2008 R2, si está usando máquinas virtuales de IaaS SQL. - Base de datos SQL de Azure V12, si está usando SQL Azure.
 
@@ -210,7 +210,7 @@ La operación **Enumerar orígenes de datos** devuelve una lista de los orígene
 
 **Respuesta**
 
-Para obtener una solicitud correcta: 200 Correcto.
+Para obtener una solicitud correcta: "200 Correcto".
 
 A continuación se proporciona un cuerpo de respuesta de ejemplo:
 
@@ -320,7 +320,7 @@ La sintaxis para estructurar la carga de la solicitud es la siguiente. En este t
 
 Un indizador puede especificar opcionalmente una programación. Si existe una programación, el indizador se ejecutará de forma periódica de acuerdo con la misma. Una programación tiene los siguientes atributos:
 
-- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M`para cada 15 minutos, `PT2H` para cada 2 horas. 
+- `interval`: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
 - `startTime`: obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indexador.
 
@@ -376,7 +376,7 @@ La operación **Enumerar indexadores** devuelve una lista de los índices que se
 
 **Respuesta**
 
-Para obtener una solicitud correcta: 200 Correcto.
+Para obtener una solicitud correcta: "200 Correcto".
 
 A continuación se proporciona un cuerpo de respuesta de ejemplo:
 
@@ -641,7 +641,7 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 <td></td>
 </tr>
 <tr>
-<td>matrices de tipos primitivos, por ejemplo ["a", "b", "c"]</td>
+<td>Matrices de tipos primitivos, por ejemplo "a", "b", "c"</td>
 <td>Collection(Edm.String)</td>
 <td></td>
 </tr>
@@ -656,4 +656,5 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 <td>No se admite; actualmente Búsqueda de Azure solo admite tipos primitivos y colecciones de cadenas</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

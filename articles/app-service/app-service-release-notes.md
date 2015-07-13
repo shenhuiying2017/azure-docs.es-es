@@ -66,5 +66,6 @@ A continuación se muestran características nuevas y actualizaciones en el SDK 
 - Las plantillas de proyecto de la aplicación de la API solo están disponibles en C#.
 - El consumo de la aplicación de la API a través del menú contextual "Agregar cliente de aplicación de la API de Azure" solo es compatible en C#.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

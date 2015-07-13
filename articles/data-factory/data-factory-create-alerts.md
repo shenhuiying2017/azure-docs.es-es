@@ -107,7 +107,7 @@ Para recuperar la lista de implementaciones del grupo de recursos de Azure imple
 	Parameters        :
 	Outputs           :
 
-## <a name="AvailableOperationsStatuses"></a>Nombres de operaciones y  valores de estado disponibles
+## <a name="AvailableOperationsStatuses"></a>Nombres de operaciones y valores de estado disponibles
 
 <table>
 <th align="left">Nombre de la operación</th>
@@ -170,5 +170,6 @@ Para recuperar la lista de implementaciones del grupo de recursos de Azure imple
 Ejecute el siguiente comando para ver los eventos generados:
 
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

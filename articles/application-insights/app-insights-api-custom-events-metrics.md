@@ -746,5 +746,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 [windows]: app-insights-windows-get-started.md
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

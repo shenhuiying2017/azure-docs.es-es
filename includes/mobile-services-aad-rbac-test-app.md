@@ -1,5 +1,5 @@
-﻿
-Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de un cliente de la Tienda Windows, pero puede probar esto en cualquiera de las otras plataformas compatibles con Servicios móviles de Azure. 
+
+Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de un cliente de la Tienda Windows, pero puede probar esto en cualquiera de las otras plataformas compatibles con Servicios móviles de Azure.
 
 1. En Visual Studio, ejecute la aplicación de cliente para tratar de autenticar con la cuenta de usuario que creamos con el nombre de David. 
 
@@ -9,7 +9,7 @@ Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de 
 
     ![](./media/mobile-services-aad-rbac-test-app/unauthorized.png)
 
-3. En Visual Studio, ejecute de nuevo la aplicación de cliente. Esta vez autenticaremos con la cuenta de usuario que creamos con el nombre de Roberto.
+3. En Visual Studio, ejecute de nuevo la aplicación cliente. Esta vez autenticaremos con la cuenta de usuario que creamos con el nombre de Roberto.
 
     ![](./media/mobile-services-aad-rbac-test-app/bob-login.png)
 
@@ -17,7 +17,4 @@ Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de 
 
     ![](./media/mobile-services-aad-rbac-test-app/success.png)
 
-
-
-
-<!--HONumber=49-->
+<!---HONumber=62-->

@@ -15,13 +15,13 @@
 	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights
+#  Registros, excepciones y diagnósticos personalizados para ASP.NET en Application Insights
 
 [Application Insights][start] incluye la eficaz herramienta [Búsqueda de diagnóstico][diagnostic], que permite explorar y obtener detalles de los datos de telemetría enviados por el SDK de Application Insights desde su aplicación. El SDK envía numerosos eventos, como las vistas de página de usuario, de forma automática.
 
 También puede escribir código para enviar seguimientos, informes de excepciones y eventos personalizados. Además, si ya usa un marco de registro como log4J, log4net, NLog o System.Diagnostics.Trace, puede capturar esos registros e incluirlos en la búsqueda. Esto permite poner los seguimientos del registro en correlación con las acciones del usuario, las excepciones y otros eventos de forma más fácil.
 
-## <a name="send"></a>Antes de escribir telemetría personalizada
+##  <a name="send"></a>Antes de escribir telemetría personalizada
 
 Si aún no ha [configurado Application Insights para su proyecto][start], hágalo ahora.
 
@@ -35,7 +35,7 @@ Abra Búsqueda de diagnóstico para ver los datos de telemetría que el SDK env�
 
 Los detalles varían de un tipo de aplicación a otro. Puede hacer clic en cualquier parte de un evento individual para obtener más detalles.
 
-##<a name="events"></a>Eventos personalizados
+## <a name="events"></a>Eventos personalizados
 
 Los eventos personalizados se muestran tanto en la [Búsqueda de diagnóstico][diagnostic] como en el [Explorador de métricas][metrics]. Puede enviarlos desde dispositivos, páginas web y aplicaciones de servidor. Se pueden usar con fines de diagnóstico y para [entender los patrones de uso][track].
 
@@ -76,7 +76,7 @@ VB en el servidor
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
 
-### Ejecución de la aplicación y visualización de los resultados
+###  Ejecución de la aplicación y visualización de los resultados
 
 Abra Búsqueda de diagnóstico.
 
@@ -93,7 +93,7 @@ Profundice en un evento individual para ver sus propiedades detalladas.
 
 ![](./media/app-insights-search-diagnostic-logs/appinsights-23-customevents-4.png)
 
-##<a name="pages"></a> Vistas de página
+## <a name="pages"></a> Vistas de página
 
 La telemetría de vista de página se envía mediante la llamada trackPageView() en [el fragmento de código de JavaScript que el usuario inserta en las páginas web][usage]. Su objetivo principal es contribuir a los recuentos de vistas de página que aparecen en la página de información general.
 
@@ -107,7 +107,7 @@ A veces resulta útil asociar propiedades que pueda usar como filtros en la bús
      {Game: currentGame.name, Difficulty: currentGame.difficulty});
 
 
-##<a name="trace"></a> Telemetría de seguimiento
+## <a name="trace"></a> Telemetría de seguimiento
 
 La telemetría de seguimiento es código que el usuario inserta de forma específica para crear registros de diagnóstico.
 
@@ -117,7 +117,7 @@ Por ejemplo, puede insertar llamadas como esta:
     telemetry.TrackTrace("Slow response - database01");
 
 
-####  Instalación de un adaptador para el marco de registro
+####   Instalación de un adaptador para el marco de registro
 
 También puede buscar los registros generados con un marco de registro: log4Net, NLog o System.Diagnostics.Trace.
 
@@ -134,7 +134,7 @@ También puede buscar los registros generados con un marco de registro: log4Net,
 
 El paquete de NuGet instala los ensamblados necesarios y también modifica el archivo web.config o app.config.
 
-#### <a name="pepper"></a>Inserción de llamadas de registro de diagnóstico
+####  <a name="pepper"></a>Inserción de llamadas de registro de diagnóstico
 
 Si usa System.Diagnostics.Trace, una llamada típica sería:
 
@@ -148,7 +148,7 @@ Ejecute la aplicación en modo de depuración o impleméntela.
 
 Los mensajes aparecerán en Búsqueda de diagnóstico cuando se selecciona el filtro de seguimiento.
 
-### <a name="exceptions"></a>Excepciones
+###  <a name="exceptions"></a>Excepciones
 
 La obtención de informes de excepciones en Application Insights supone una experiencia de gran eficacia, sobre todo porque permite navegar entre las solicitudes con error y las excepciones y leer la pila de excepciones.
 
@@ -208,7 +208,7 @@ VB
 
 Los parámetros de las propiedades y las medidas son opcionales, pero son útiles para filtrar y agregar información adicional. Por ejemplo, si tiene una aplicación que se puede ejecutar varios juegos, podría buscar todos los informes de excepción relacionados con un juego en particular. Puede agregar tantos elementos como desee para cada diccionario.
 
-#### Visualización de excepciones
+####  Visualización de excepciones
 
 En la hoja de información general se muestra un resumen de las excepciones y puede hacer clic en cualquier parte de este para ver más detalles. Por ejemplo:
 
@@ -221,13 +221,13 @@ Haga clic en cualquier tipo de excepción para ver instancias específicas:
 
 También puede abrir la Búsqueda de diagnóstico directamente, filtrar por las excepciones y elegir el tipo de excepción que desea ver.
 
-### Notificación de excepciones no controladas
+###  Notificación de excepciones no controladas
 
 Application Insights notifica las excepciones no controladas siempre que sea posible, ya sea de los dispositivos, los [exploradores web][usage] o los servidores web e independientemente de que estén instrumentadas por el [Monitor de estado][redfield] o el [SDK de Application Insights][greenbrown].
 
 Sin embargo, no siempre puede realizar esta acción, ya que .NET Framework captura las excepciones. Por lo tanto, para asegurarse de ver todas las excepciones, tendrá que escribir un pequeño controlador de excepciones. El procedimiento más adecuado en cada caso varía en función de la tecnología. Consulte [Telemetría de excepción para ASP.NET][exceptions] para obtener más información.
 
-### Correlación con una compilación
+###  Correlación con una compilación
 
 Cuando se leen registros de diagnóstico, es probable que el código fuente haya cambiado desde que se implementó el código activo.
 
@@ -253,25 +253,25 @@ En el inicializador de la aplicación como Global.asax.cs:
         .Add(new MyTelemetryInitializer());
     }
 
-###<a name="requests"></a> Solicitudes de servidor web
+### <a name="requests"></a> Solicitudes de servidor web
 
 La telemetría de las solicitudes se envía automáticamente al [instalar el monitor de estado en el servidor web][redfield] o al [agregar Application Insights al proyecto web][greenbrown]. También se inserta automáticamente en los gráficos de tiempo de solicitud y respuesta del explorador de métricas y en la página de información general.
 
 Si desea enviar eventos adicionales, puede usar la API de TrackRequest().
 
-## <a name="questions"></a>Preguntas y respuestas
+##  <a name="questions"></a>Preguntas y respuestas
 
-### <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
+###  <a name="emptykey"></a>Aparece el mensaje de error "La clave de instrumentación no puede estar vacía".
 
 Parece que ha instalado el paquete de NuGet del adaptador de registro sin tener que instalar Application Insights.
 
 En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y elija **Actualizar Application Insights**. Aparecerá un cuadro de diálogo que le invita a iniciar sesión en Azure y a crear un recurso de Application Insights, o a volver a utilizar uno existente. Esto debería solucionarlo.
 
-### <a name="limits"></a>¿Qué cantidad de datos se conserva?
+###  <a name="limits"></a>¿Qué cantidad de datos se conserva?
 
 Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan durante siete días.
 
-## <a name="add"></a>Pasos siguientes
+##  <a name="add"></a>Pasos siguientes
 
 * [Configuración de pruebas de disponibilidad y de capacidad de respuesta][availability]
 * [Solución de problemas][qna]
@@ -294,5 +294,4 @@ Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan dura
 [usage]: app-insights-web-track-usage.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

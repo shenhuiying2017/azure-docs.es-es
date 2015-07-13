@@ -26,11 +26,11 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o simulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.</p>
@@ -50,7 +50,7 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Agregue un método  **Authenticate** a **QSTodoService** con la siguiente definición:
+2. Agregue un método **Authenticate** a **QSTodoService** con la siguiente definición:
 
         public async Task Authenticate(UIViewController view)
         {
@@ -64,9 +64,9 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
             }
         }
 
-> [AZURE.NOTE]Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes:  _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
+> [AZURE.NOTE]Si usa un proveedor de identidades que no sea una cuenta de Facebook, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs**. Modifique la definición del método de  **ViewDidLoad** para quitar la llamada a **RefreshAsync()** cerca del final:
+3. Abra **QSTodoListViewController.cs**. Modifique la definición del método de **ViewDidLoad** para quitar la llamada a **RefreshAsync()** cerca del final:
 
 		public override async void ViewDidLoad ()
 		{
@@ -107,5 +107,6 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 [Creación de una aplicación Xamarin.iOS]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

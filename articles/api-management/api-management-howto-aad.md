@@ -3,7 +3,7 @@
 	description="Obtenga información sobre cómo autorizar a los usuarios para que usen Azure Active Directory en Administración de API." 
 	services="api-management" 
 	documentationCenter="API Management" 
-	authors="sdanie" 
+	authors="steved0x" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-# Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory en Administración de API de Azure
+#  Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory en Administración de API de Azure
 
 
-## Información general
+##  Información general
 En esta guía se muestra cómo habilitar el acceso al portal para desarrolladores de todos los usuarios en uno o más directorios de Azure Active Directory. También se muestra cómo administrar los grupos de usuarios de Azure Active Directory mediante la adición de grupos externos que contienen los usuarios de un directorio de Azure Active Directory.
 
 >Para completar los pasos descritos en esta guía, debe tener un directorio de Azure Active Directory en el que crear una aplicación.
 
-## Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory
+##  Procedimiento para autorizar a las cuentas de desarrollador para que usen Azure Active Directory
 
 Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
@@ -114,7 +114,7 @@ Una vez especificada la configuración deseada, haga clic en **Guardar**.
 
 Después de guardar los cambios, los usuarios del directorio de Azure Active Directory especificado pueden iniciar sesión en el portal para desarrolladores mediante los pasos descritos en [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory][].
 
-## Adición de un grupo externo de Azure Active Directory
+##  Adición de un grupo externo de Azure Active Directory
 
 Tras habilitar el acceso para usuarios en un directorio de Azure Active Directory, puede agregar grupos de Azure Active Directory a Administración de API para administrar más fácilmente la asociación de los desarrolladores del grupo a los productos deseados.
 
@@ -154,7 +154,7 @@ Desde aquí puede editar el **Nombre** y la **Descripción** del grupo.
 
 Los usuarios del directorio de Azure Active Directory configurado pueden iniciar sesión en el portal para desarrolladores, además de ver y suscribirse a los grupos para los que tienen visibilidad mediante las instrucciones de la sección siguiente.
 
-## Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory
+##  Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory
 
 Para iniciar sesión en el portal para desarrolladores con la cuenta de Azure Active Directory configurada en las secciones anteriores, abra una nueva ventana del explorador mediante la **URL de inicio de sesión** de la configuración de la aplicación de Active Directory y haga clic en **Azure Active Directory**.
 
@@ -207,7 +207,7 @@ Ahora el usuario ha iniciado sesión en el portal para desarrolladores para la i
 
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
+[Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
@@ -229,4 +229,4 @@ Ahora el usuario ha iniciado sesión en el portal para desarrolladores para la i
 [Inicio de sesión en el portal para desarrolladores con una cuenta de Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
 
-<!--HONumber=54--> 
+<!--HONumber=62-->

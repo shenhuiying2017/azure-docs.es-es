@@ -23,7 +23,7 @@ En esta guía se describe cómo ejecutar tareas comunes de administración de se
 ## <a name="WhatIs"> </a>Qué es la administración de servicios
 La API de administración de servicios proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][management-portal]. El SDK de Azure para Python le permite administrar los servicios en la nube y las cuentas de almacenamiento.
 
-Para usar la API de administración de servicios, necesita [crear una cuenta de Azure](http://www.windowsazure.com/pricing/free-trial/).
+Para usar la API de administración de servicios, necesita [crear una cuenta de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Conceptos
 El SDK de Azure para Python ajusta la [API de administración de servicios de Azure][svc-mgmt-rest-api], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
@@ -42,7 +42,7 @@ Para crear el certificado `.cer`, ejecute este comando:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Administración de certificados en Azure](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obtener más información acerca de los certificados de Azure, consulte [Administración de certificados en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Cargar" de la pestaña "Configuración" del [portal de administración][management-portal]; además, deberá anotar dónde ha guardado el archivo `.pem`.
 
@@ -64,7 +64,7 @@ Puede crear un certificado de administración autofirmado en la máquina con `ma
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Creación y carga de un certificado de administración para Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx).
+El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Creación y carga de un certificado de administración para Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx).
 
 Después de haber creado el certificado, necesitará cargar el archivo `.cer` en Azure mediante la acción "Cargar" de la pestaña "Configuración" del [portal de administración][management-portal].
 
@@ -74,7 +74,7 @@ Tras haber obtenido el identificador de la suscripción, haber creado un certifi
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
+	certificate_path = 'CURRENT_USER\my\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -443,5 +443,6 @@ Ahora que ha aprendido los conceptos básicos de la administración de servicios
 [Azure Service Configuration Schema (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [Cloud Services]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

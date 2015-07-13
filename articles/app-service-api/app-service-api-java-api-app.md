@@ -269,5 +269,4 @@ Puede probar esta aplicación de API de ejemplo en [Servicio de TryApp](http://t
 [api-definition-click]: ./media/app-service-api-java-api-app/apidef.png
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

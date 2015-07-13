@@ -90,5 +90,6 @@ Va a crear una aplicación web de Orchard CMS que utiliza una plantilla predeter
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

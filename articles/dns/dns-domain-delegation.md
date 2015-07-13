@@ -28,7 +28,7 @@ DNS de Azure es un servicio de hospedaje para dominios DNS. Para que las consult
 
 Un dominio es un nombre exclusivo dentro del sistema de nombres de dominio, como por ejemplo “contoso.com”. Un registrador de dominios es una empresa que puede ofrecer nombres de dominio de Internet. Verificará si el dominio de Internet deseado se encuentra disponible para que pueda adquirirlo. Tras haber registrado el nombre de dominio, será el titular legal de dicho nombre. Si ya dispone de un dominio de Internet, utilizará al registrador de dominios actual para delegar en DNS de Azure.
 
->[AZURE.NOTE]Para obtener más información sobre quién posee un nombre de dominio determinado o cómo adquirir un dominio, póngase en contacto con los registradores de dominios para buscar y adquirir su dominio.
+>[AZURE.NOTE]Para obtener más información sobre quién posee un nombre de dominio determinado, o para obtener información sobre cómo comprar un dominio, consulte [Administración de dominios de Internet en Azure AD](https://msdn.microsoft.com/library/azure/hh969248.aspx).
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Por ejemplo, el dominio “contoso.com” puede contener una serie de registros DNS como “mail.contoso.com” (para un servidor de correo) y “www.contoso.com” (para un sitio web).
 
@@ -72,8 +72,8 @@ Para configurar la delegación, necesita saber los nombres del servidor de nombr
 
 Mediante Azure PowerShell, los registros NS autoritativos pueden recuperarse como se explica a continuación (el nombre de registro “@” se usa para hacer referencia a los registros que se encuentran en la cúspide de la zona):
 
-	PS C:> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -93,7 +93,7 @@ Cuando finalice la delegación, puede verificar la resolución de nombres funcio
 
 Tenga en cuenta que no es necesario especificar los servidores de nombres DNS de Azure, ya que el proceso de resolución DNS normal encontrará los servidores de nombres automáticamente si la delegación se ha configurado correctamente.
 
-	PS C:> nslookup –type=SOA contoso.com
+	PS C:\> nslookup –type=SOA contoso.com
 
 	Server: ns1-04.azure-dns.com
 	Address: 208.76.47.4
@@ -119,22 +119,22 @@ La única diferencia es que en el paso 3 los registros NS deben crearse en la zo
 
 En el siguiente ejemplo de PowerShell se muestra. En primer lugar, se crean las zonas principal y secundaria (dichas zonas pueden estar en el mismo grupo de recursos o grupos diferentes):
 
-	PS C:> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 A continuación, se recuperan los registros NS autoritativos de la zona secundaria:
 
-	PS C:> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Por último, se crea el conjunto de registros NS correspondiente en la zona principal para completar la delegación (tenga en cuenta que el nombre del conjunto de registros de la zona principal coincide con el nombre de la zona secundaria, en este caso "asociados"):
 
-	PS C:> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-	PS C:> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Como al delegar mediante un registrador, es posible comprobar que todo esté configurado correctamente mediante la búsqueda del registro SOA de la zona secundaria:
 
-	PS C:> nslookup –type=SOA partners.contoso.com
+	PS C:\> nslookup –type=SOA partners.contoso.com
 	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
@@ -161,4 +161,4 @@ Como al delegar mediante un registrador, es posible comprobar que todo esté con
 [Referencia de la API de REST a DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

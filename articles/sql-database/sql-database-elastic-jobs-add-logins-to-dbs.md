@@ -46,4 +46,4 @@ Ejecute el trabajo en el grupo de bases de datos elásticas. Vea [Creación y ad
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

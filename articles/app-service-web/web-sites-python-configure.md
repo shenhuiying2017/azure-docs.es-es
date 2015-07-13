@@ -22,7 +22,7 @@
 
 # Configuración de Python con Aplicaciones web del Servicio de aplicaciones de Azure
 
-En este tutorial se describen las opciones para crear y configurar una aplicación Python básica compatible con la Interfaz de puerta de enlace de servicio web (WSGI) en [Aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este tutorial describen las opciones para crear y configurar una aplicación básica de interfaz de puerta de enlace de servidor web (WSGI) compatible con Python en [aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 Describe características adicionales de implementación de Git como, por ejemplo, el entorno virtual y la instalación del paquete mediante requirements.txt.
 
@@ -217,9 +217,9 @@ Ejemplo `web.config` para Python 3.4:
 
 Los archivos estáticos los administra el servidor web directamente, sin pasar por el código de Python, para obtener un rendimiento mejorado.
 
-En los ejemplos anteriores, la ubicación de los archivos estáticos en disco debe coincidir con la ubicación de la dirección URL. Esto significa que una solicitud de `http://pythonapp.azurewebsites.net/static/site.css` servirá el archivo en el disco en `\static\site.css`.
+En los ejemplos anteriores, la ubicación de los archivos estáticos en disco debe coincidir con la ubicación de la dirección URL. Esto significa que una solicitud de `http://pythonapp.azurewebsites.net/static/site.css` servirá el archivo en disco en `\static\site.css`.
 
-Es posible configurar la regla `Static Files` para servir archivos desde una ubicación del disco distinta de la ubicación que consta en la dirección URL. En la siguiente definición de regla, una solicitud de `http://pythonapp.azurewebsites.net/static/site.css` servirá el archivo en disco en `\FlaskWebProject\static\site.css`, en lugar de `\static\site.css`.
+Es posible configurar la regla `Static Files` para servir archivos desde una ubicación de disco distinta de la ubicación en la dirección URL. En la siguiente definición de regla, una solicitud de `http://pythonapp.azurewebsites.net/static/site.css` servirá el archivo en disco en `\FlaskWebProject\static\site.css`, en lugar de `\static\site.css`.
 
     <rule name="Static Files" stopProcessing="true">
       <match url="^/static/.*" ignoreCase="true" />

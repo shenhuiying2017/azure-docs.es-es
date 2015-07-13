@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Generador de datos de Azure - terminología" 
-	description="En este artículo se presenta la terminología utilizada en la creación de generadores de datos mediante el servicio de generador de datos de Azure" 
+	pageTitle="Factoría de datos de Azure: terminología" 
+	description="En este artículo se presenta la terminología que se usa al crear factorías de datos con el servicio Factoría de datos de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -16,54 +16,54 @@
 	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
-#Generador de datos de Azure - terminología
+#Factoría de datos de Azure: terminología
 
 ## Factoría de datos
-Un **Generador de datos de Azure** tiene uno o más canalizaciones que procesan los datos en almacenes de datos vinculado (base de datos de SQL Azure, el almacenamiento de Azure local SQL Server etc.) mediante el uso de los servicios de proceso vinculado como HDInsight de Azure. Una factoría de datos de Azure no contiene datos en ella misma; en su lugar, los datos se almacenan en los almacenes de datos mencionados anteriormente.
+Una **factoría de datos de Azure** tiene una o más canalizaciones que procesan los datos en almacenes de datos vinculados (Almacenamiento de Azure, Base de datos SQL de Azure, SQL Server local, etc.) mediante servicios de proceso vinculados como HDInsight de Azure. Una factoría de datos de Azure no contiene datos en ella misma; en su lugar, los datos se almacenan en los almacenes de datos mencionados anteriormente.
 
 ## Servicios vinculados
-Un **vinculado servicio** es un servicio que está vinculado a un generador de datos de Azure. Un servicio vinculado puede ser uno de los siguientes:
+Un **servicio vinculado** es un servicio que está vinculado a una factoría de datos de Azure. Un servicio vinculado puede ser uno de los siguientes:
 
-- Un **almacenamiento de datos** servicio como el almacenamiento de Azure, base de datos de SQL Azure o base de datos de SQL Server local. Un almacén de datos es un contenedor de conjuntos de datos de entrada y salida.    
-- Un **compute** servicio como HDInsight de Azure, aprendizaje automático de Azure y Azure lote. Un servicio de proceso procesa los datos de entrada y genera los datos de salida.  
+- Un servicio de **almacenamiento de datos**, como Almacenamiento de Azure, Base de datos SQL de Azure o una base de datos de SQL Server local. Un almacén de datos es un contenedor de conjuntos de datos de entrada y salida.    
+- Un servicio de **proceso**, como HDInsight de Azure, Aprendizaje automático de Azure Batch. Un servicio de proceso procesa los datos de entrada y genera los datos de salida.  
 
 ## Conjunto de datos
-Un **conjunto de datos** es una vista de datos con nombre. Los datos que se describen pueden variar desde bytes simples, pasando por datos semiestructurados, como archivos CSV, hasta tablas relacionales o incluso modelos. Un generador de datos **tabla** es un conjunto de datos que tiene un esquema y es rectangular. Después de crear un servicio vinculado en un almacén de datos que hace referencia a un almacén de datos, puede definir conjuntos de datos que representan datos de entrada y salida que se almacenan en el almacén de datos.
+Un **conjunto de datos** es una vista de datos con nombre. Los datos que se describen pueden variar desde bytes simples, pasando por datos semiestructurados, como archivos CSV, hasta tablas relacionales o incluso modelos. Una **tabla** de Factoría de datos es un conjunto de datos que tiene un esquema y es rectangular. Después de crear un servicio vinculado en un almacén de datos que hace referencia a un almacén de datos, puede definir conjuntos de datos que representan datos de entrada y salida que se almacenan en el almacén de datos.
 
 
 ##Canalización
-Un **canalización** en un Azure factoría de datos procesa los datos en servicios de almacenamiento vinculada mediante el uso de los servicios de proceso vinculado. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. Por ejemplo, un **copia actividad** copia datos de un almacenamiento de origen a un almacenamiento de destino y **HDInsight actividad** utilizar un clúster de HDInsight de Azure para procesar datos mediante consultas de Hive o scripts de Pig. Una factoría de datos puede tener una o más canalizaciones.
+Una **canalización** en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. Por ejemplo, una **actividad de copia** copia los datos de un almacenamiento de origen en un almacenamiento de destino y **una actividad de HDInsight** usa un clúster de HDInsight de Azure para procesar los datos mediante consultas de Hive o scripts de Pig. Una factoría de datos puede tener una o más canalizaciones.
 
 Los pasos típicos para crear una instancia de la Factoría de datos de Azure son:
 
-1. Crear un **factoría de datos**.
-2. Crear un **vinculado servicio** para datos de cada almacén o servicio de proceso.
-3. Crear la entrada y salida **conjuntos de datos**.
-4. Crear un **canalización**. 
+1. Crear una **factoría de datos**.
+2. Crear un **servicio vinculado** para cada almacén de datos o servicio de proceso.
+3. Crear **conjuntos de datos** de entrada y salida.
+4. Crear una **canalización**. 
 
 ##Actividad
-Un paso del procesamiento de datos en una canalización que toma uno o más conjuntos de datos de entrada y produce uno o más conjuntos de datos de salida. Las actividades se ejecutan en un entorno de ejecución (por ejemplo: clúster de HDInsight de Azure) y leer o escribir datos en un almacén de datos asociado y vinculado con el generador de datos de Azure.
+Un paso del procesamiento de datos en una canalización que toma uno o más conjuntos de datos de entrada y produce uno o más conjuntos de datos de salida. Las actividades se ejecutan en un entorno de ejecución (por ejemplo, un clúster de HDInsight de Azure) y leen o escriben datos en un almacén de datos asociado o vinculado a la factoría de datos de Azure.
 
 El servicio de Factoría de datos de Azure admite las siguientes actividades en una canalización:
 
-- **Copia actividad** copia los datos de un almacén de datos a otro almacén de datos. Consulte [copiar los datos con el generador de datos de Azure][copy-data-with-adf] para obtener más información acerca de los datos que almacena la actividad de copia admite. 
-- **HDInsight actividad** procesa los datos mediante la ejecución de secuencias de comandos de Hive y Pig o programas de MapReduce en un clúster de HDInsight. Consulte [usar Pig y Hive con el generador de datos][use-pig-hive] y [invocar programas MapReduce de generador de datos][run-map-reduce] para obtener más información. 
-- **Azure máquina aprendizaje por lotes de puntuación actividad** invoca el lote de aprendizaje automático de Azure, API de puntuación. Consulte [canalizaciones predictivo crear mediante el generador de datos de Azure y Azure Machine Learning][azure-ml-adf] para obtener más información. 
-- **Actividad de procedimiento almacenado** invoca un procedimiento almacenado en una base de datos de SQL Azure. Consulte la [actividad de procedimiento almacenado][msdn-stored-procedure-activity] en MSDN Library para obtener detalles.   
+- La **actividad de copia** copia los datos de un almacén de datos en otro almacén de datos. Consulte [Copia de datos con la Factoría de datos de Azure][copy-data-with-adf] para obtener información sobre cuáles son los almacenes de datos que admite la actividad de copia. 
+- La **actividad de HDInsight** procesa datos ejecutando scripts de Hive o Pig o programas de MapReduce en un clúster de HDInsight. Consulte [Uso de Pig y Hive con Factoría de datos][use-pig-hive] e [Invocación de programas de MapReduce desde Factoría de datos][run-map-reduce] para obtener más información. 
+- La **actividad de puntuación por lotes de Aprendizaje automático de Azure** invoca la API de puntuación por lotes de Aprendizaje automático de Azure. Consulte [Creación de canalizaciones predictivas mediante la Factoría de datos de Azure y el Aprendizaje automático de Azure][azure-ml-adf] para obtener más información. 
+- La **actividad de procedimiento almacenado** invoca un procedimiento almacenado en una base de datos SQL de Azure. Consulte la [actividad de procedimiento almacenado][msdn-stored-procedure-activity] en MSDN Library para obtener información detallada.   
 
 ##Segmento
-Una tabla de una factoría de datos de Azure se compone de segmentos. El ancho de un segmento se determina por la programación: cada hora o diariamente. Cuando la programación es "cada hora", se produce un segmento cada hora con la hora de inicio y la hora de finalización de una canalización. Por ejemplo, si la fecha y hora de inicio de la canalización es 03/03/2015 06:00:00 (6 A.M.) y la fecha y hora de finalización es 03-03 de 2015 09:00:00 (9 AM en el mismo día), tres datos producidos segmentos, un segmento para cada intervalo de 1 hora: 6-7 A.M., 7 y 8 A.M. y 8-9 AM.
+Una tabla de una factoría de datos de Azure se compone de segmentos. El ancho de un segmento se determina por la programación: cada hora o diariamente. Cuando la programación es "cada hora", se produce un segmento cada hora con la hora de inicio y la hora de finalización de una canalización. Por ejemplo, si la fecha y hora de inicio de la canalización es 03/03/2015 06:00:00 (6 a.m.) y la fecha y hora de finalización es 03/03/2015 09:00:00 (9 a.m. del mismo día), se generan tres segmentos de datos, uno para cada intervalo de 1 hora: 6-7 a.m., 7-8 a.m. y 8-9 a.m.
 
-Sectores ofrecen la posibilidad de trabajar con un subconjunto de datos globales para una ventana de tiempo específico (por ejemplo: el segmento que se genera para la duración (horas): 1:00 P.M. a 2:00 P.M.).
+Los segmentos ofrecen la posibilidad de trabajar con un subconjunto de datos globales durante un período de tiempo específico (por ejemplo, el segmento que se genera para la duración (hora): de las 13:00 a las 14:00 h).
 
 ## Ejecución de la actividad en un segmento
-El **ejecutar** o una actividad de ejecución es una unidad de procesamiento de un sector. Podría haber una o varias ejecuciones de un segmento en caso de reintentos o si vuelve a ejecutar el segmento en caso de error. Un segmento se identifica mediante su hora de inicio.
+La **ejecución** o la ejecución de una actividad es una unidad de procesamiento de un segmento. Podría haber una o varias ejecuciones de un segmento en caso de reintentos o si vuelve a ejecutar el segmento en caso de error. Un segmento se identifica mediante su hora de inicio.
 
 ##Data Management Gateway
-Microsoft **Data Management Gateway** es un software que se conecta a orígenes de datos locales para servicios para su uso en la nube. Debe tener al menos una puerta de enlace instalada en su entorno corporativo y registrarla con el portal de la Factoría de datos de Azure antes de agregar orígenes de datos locales como servicios vinculados.
+**Data Management Gateway** de Microsoft es un software que conecta orígenes de datos locales a servicios en la nube para su consumo. Debe tener al menos una puerta de enlace instalada en su entorno corporativo y registrarla con el portal de la Factoría de datos de Azure antes de agregar orígenes de datos locales como servicios vinculados.
  
 ##Centro de datos
-Un **concentrador de datos** es un contenedor lógico para los servicios de almacenamiento y cálculo de datos. Por ejemplo, un clúster de Hadoop con HDFS como almacenamiento y Hive o Pig como proceso (procesamiento) es un centro de datos. De forma similar, un almacenamiento de datos empresariales (EDW) se puede modelar como un centro de datos (base de datos como almacenamiento, procedimientos almacenados o herramienta ETL como servicios de proceso). Las canalizaciones utilizan almacenes de datos y se ejecutan en recursos de proceso en un centro de datos. En este momento solo se admite el centro de HDInsight.
+Un **centro de datos** es un contenedor de servicios de almacenamiento y proceso de datos. Por ejemplo, un clúster de Hadoop con HDFS como almacenamiento y Hive o Pig como proceso (procesamiento) es un centro de datos. De forma similar, un almacenamiento de datos empresariales (EDW) se puede modelar como un centro de datos (base de datos como almacenamiento, procedimientos almacenados o herramienta ETL como servicios de proceso). Las canalizaciones utilizan almacenes de datos y se ejecutan en recursos de proceso en un centro de datos. En este momento solo se admite el centro de HDInsight.
 
 El centro de datos permite la división de una factoría de datos en agrupaciones específicas lógicas o de dominio, como el "centro de Azure del oeste de EE. UU." que administra todos los servicios vinculados (almacenes de datos y proceso) y las canalizaciones centradas en el centro de datos del oeste de EE. UU., o el "centro de EDW de ventas" que administra todos los servicios vinculados y las canalizaciones relacionadas con el llenado y el procesamiento de datos para el almacén de datos empresariales de ventas.
 
@@ -71,8 +71,8 @@ Una característica importante de los centros es que una canalización se ejecut
 
 ## Otras referencias
 
-1. [Introducción al generador de datos de Azure][adf-intro]. Este artículo proporciona información general sobre el servicio Factoría de datos de Azure, el valor que proporciona y los escenarios que admite.
-2. [Comenzar con el generador de datos][datafactory-getstarted]. Este artículo ofrece un completo tutorial que le muestra cómo crear una factoría de datos de Azure de ejemplo que copia datos desde un blob de Azure hasta una base de datos SQL de Azure.
+1. [Introducción a la Factoría de datos de Azure][adf-intro]. Este artículo proporciona información general sobre el servicio Factoría de datos de Azure, el valor que proporciona y los escenarios que admite.
+2. [Introducción a la Factoría de datos][datafactory-getstarted]. Este artículo ofrece un completo tutorial que le muestra cómo crear una factoría de datos de Azure de ejemplo que copia datos desde un blob de Azure hasta una base de datos SQL de Azure.
 
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
@@ -109,4 +109,8 @@ Una característica importante de los centros es que una canalización se ejecut
 
 [image-data-factory-data-flow]: ./media/data-factory-introduction/DataFactoryDataFlow.png
 
-<!---HONumber=GIT-SubDir--> 
+
+
+ 
+
+<!---HONumber=62-->

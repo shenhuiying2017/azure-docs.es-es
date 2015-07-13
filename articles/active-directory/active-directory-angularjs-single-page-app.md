@@ -178,5 +178,5 @@ Estos son algunos otros recursos que le pueden ayudar a usar Azure AD para agreg
 
 + [Ejemplos de código de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn646737.aspx)
 + [Escenarios de autenticación para Azure AD](https://msdn.microsoft.com/library/azure/dn499820.aspx)
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

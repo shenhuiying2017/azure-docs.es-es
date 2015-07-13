@@ -47,7 +47,7 @@ Siga estos pasos para crear una aplicación web en el Servicio de aplicaciones d
 
 ## Creación de un sitio con una plantilla integrada para Azure
 
-1. En la pantalla de inicio, haga clic en el botón **New** y seleccione **Template Gallery** para crear un sitio nuevo a partir de la Galería de plantillas:
+1. En la pantalla de inicio, haga clic en el botón **Nuevo** y seleccione **Galería de plantillas** para crear un sitio nuevo a partir de la Galería de plantillas:
 
 	![Sitio nuevo desde la galería de plantillas][sitefromtemplate]
 
@@ -124,5 +124,6 @@ Si tiene problemas con la aplicación después de la implementación en Azure, c
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

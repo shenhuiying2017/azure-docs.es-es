@@ -1,33 +1,71 @@
-<properties pageTitle="Azure Active Directory Connect" description="El asistente de Azure Active Directory Connect es la única herramienta y experiencia guiada para la conexión de su Windows Server Active Directory local con Azure Active Directory guiada" services="active-directory" documentationCenter="" authors="Gayana" manager="terrylan" editor="" />
+<properties 
+	pageTitle="Habilitación del directorio para la administración híbrida con Azure AD Connect." 
+	description="Aquí se describe qué es Azure AD Connect y por qué debería usarlo." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="swadhwa" 
+	editor="curtand"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/27/2015" ms.author="gabag" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/22/2015" 
+	ms.author="billmath"/>
 
-<h1 id="vnettut1">Azure Active Directory Connect</h1>
+# Habilitación del directorio para la administración híbrida con Azure AD Connect
 
-El asistente de Azure Active Directory Connect es la única herramienta y experiencia guiada para la conexión de sus directorios locales con Azure Active Directory.  El asistente implementa y configura todos los componentes necesarios para preparar la integración de directorios, incluidos los servicios de sincronización, la sincronización de contraseñas o los Servicios de federación de Active Directory (ADFS) y los requisitos previos, como el módulo de Azure AD PowerShell.
-
->[AZURE.NOTE] **Azure Active Directory Connect incluye funcionalidad publicada anteriormente como la sincronización de directorios y la sincronización de AAD. Estas herramientas no se volverán a publicar individualmente.** 
-
-> **Azure Active Directory Connect ahora es su tienda integrada para la sincronización, inicio de sesión y todos los demás aspectos de su integración de Azure AD local.**
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../active-directory-aadconnect/" title="¿Qué es?" class="current">¿Qué es?</a> <a href="../active-directory-aadconnect-how-it-works/" title="¿Cómo funciona?">¿Cómo funciona?</a> <a href="../active-directory-aadconnect-get-started/" title="Introducción">Introducción</a> <a href="../active-directory-aadconnect-whats-next/" title="¿Qué sigue?">¿Qué sigue?</a> <a href="../active-directory-aadconnect-learn-more/" title="Más información">Más información</a>
+</div>
 
 
-Si actualmente está evaluando o utilizando la herramienta de sincronización de Azure Active Directory (DirSync), Azure Active Directory Synchronization Services (sincronización de AAD) o Forefront Identity Manager 2010 R2, consulte [Herramientas de integración de directorios](http://msdn.microsoft.com/library/azure/dn757582.aspx "Directory Integration Tools") para obtener más información.
+Hoy en día, los usuarios desean tener acceso a las aplicaciones tanto a nivel local como en la nube. Desean poder hacerlo desde cualquier dispositivo, ya sea un equipo portátil, un teléfono inteligente o una tableta. Para que esto ocurra, usted y su organización deben poder proporcionar una forma para que los usuarios tengan acceso a estas aplicaciones; sin embargo pasar completamente a la nube no es siempre una opción.
+
+<center>![What is Azure AD Connect](./media/active-directory-aadconnect/arch.png)</center>
+
+Con la introducción de Azure Active Directory Connect, proporcionar acceso a estas aplicaciones y pasar a la nube nunca ha sido tan fácil. Azure AD Connect ofrece las siguientes ventajas:
+
+- Los usuarios pueden iniciar sesión con una identidad común en la nube y localmente. No es necesario recordar varias contraseñas o cuentas y los administradores no tienen que preocuparse por la sobrecarga adicional que pueden suponer varias cuentas.
+- Una única herramienta y experiencia guiada para la conexión de sus directorios locales con Azure Active Directory. Una vez instalado, el asistente implementa y configura todos los componentes necesarios para preparar la integración y ejecución de directorios, incluidos los servicios de sincronización, la sincronización de contraseñas o AD FS y los requisitos previos, como el módulo de Azure AD PowerShell.
 
 
-##  Vista previa pública de Azure Active Directory Connect 
 
-La vista previa pública actual de Azure Active Directory Connect ofrece una experiencia guiada para la integración de uno o varios bosques de Windows Server Active Directory con Azure AD. 
+<center>![What is Azure AD Connect](./media/active-directory-aadconnect/azuread.png)</center>
 
-[Descargue la vista previa pública de Azure AD Connect](http://connect.microsoft.com/site1164/program8612 "Azure Active Directory Connect") 
 
-Con esta versión de vista previa de Azure Active Directory Connect puede hacer lo siguiente: 
 
-- Elegir una configuración rápida para configuración de manera rápida y sencilla de un solo bosque en 4 pasos
-- Elegir una configuración personalizada para configurar varios bosques o seleccionar AD FS para la experiencia de inicio de sesión único (SSO)
-- Configurar opciones de sincronización adicionales como el modo híbrido de Exchange, la reescritura de contraseña y el atributo de identificador alternativo
 
-##  Recursos adicionales
-[Documentación de Azure Active Directory](http://azure.microsoft.com/documentation/services/active-directory/)
+## ¿Por qué usar Azure AD Connect? 
 
-<!--HONumber=47-->
+la integración de directorios locales con Azure AD hace que los usuarios sean más productivos proporcionando una identidad común para tener acceso a recursos de nube y locales. Con esta integración, los usuarios y las organizaciones pueden aprovechar lo siguiente:
+	
+* Las organizaciones pueden proporcionar a los usuarios una identidad híbrida común entre servicios en la nube o locales al aprovechar Windows Server Active Directory y, a continuación, conectarse a Active Directory de Azure. 
+* Los administradores pueden proporcionar acceso condicional basado en el recurso de la aplicación, dispositivo e identidad de usuario, ubicación de red y autenticación multifactor.
+* Los usuarios pueden aprovechar su identidad común mediante cuentas de Azure AD a Office 365, Intune, aplicaciones SaaS y aplicaciones de otros fabricantes.  
+* Los desarrolladores pueden crear aplicaciones que aprovechan el modelo de identidad común, la integración de aplicaciones en Active Directory local o en Azure para aplicaciones basadas en la nube
+
+Azure AD Connect facilita esta integración y simplifica la administración de su infraestructura de identidad en la nube y local.
+
+
+
+----------------------------------------------------------------------------------------------------------
+## Descarga de Azure AD Connect
+
+Para empezar a utilizar Azure AD Connect puede descargar la versión más reciente mediante [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
  
+
+<!---HONumber=62-->

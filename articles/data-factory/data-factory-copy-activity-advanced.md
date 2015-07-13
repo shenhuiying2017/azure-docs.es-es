@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="06/15/2015" 
 	ms.author="spelluru"/>
 
 # Escenarios avanzados para usar la actividad de copia en la Factoría de datos de Azure 
@@ -22,7 +22,7 @@ Puede usar la **actividad de copia** en una canalización para copiar datos de u
 
 
 ## Filtrado de columnas mediante la definición de estructuras
-Según el tipo de tabla, es posible especificar un subconjunto de  columnas del origen especificando menos columnas en la definición de **Structure** de la definición de la tabla que las que hay en el origen de datos subyacente. La tabla siguiente proporciona información acerca de la lógica de filtrado de columnas para diferentes tipos de tabla.
+Según el tipo de tabla, es posible especificar un subconjunto de columnas del origen especificando menos columnas en la definición de **Structure** de la definición de la tabla que las que hay en el origen de datos subyacente. La tabla siguiente proporciona información acerca de la lógica de filtrado de columnas para diferentes tipos de tabla.
 
 <table>
 
@@ -236,7 +236,6 @@ Los tipos de datos especificados en la sección Structure de la definición de l
 		<ul>
 			<li> <b>TextFormat:</b>: todos los tipos de columna se tratan como cadena y todos los nombres de columna se establecen como "Prop_&lt;0-N>"</li> 
 			<li><b>AvroFormat:</b> usa los nombres y tipos de columna integrados en el archivo Avro.</li> 
-			<li><b>JsonFormat:</b>: todos los tipos de columna se tratan como una cadena y se usan los nombres de columna integrados en el archivo Json.</li>
 		</ul>
 		</td>
 	</tr>
@@ -320,7 +319,7 @@ Al copiar datos en SQL Server o en Base de datos SQL de Azure, se puede configur
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla][table-valued-parameters].
 
 ## Especificación de la codificación para archivos de texto
-Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos de texto de hora de Blob de Azure siguen otras codificaciones por motivos históricos. La propiedad **encodingName** le permite especificar la codificación por nombre de la página de código para las tablas de tipo TextFormat. Para obtener la lista de nombres de codificación válidos, vea: Propiedad Encoding.EncodingName. Por ejemplo: windows-1250 o shift_jis. El valor predeterminado es: UTF-8. Consulte [Clase de codificación](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) para obtener nombres de codificación válidos.
+Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos de texto de hora de Blob de Azure siguen otras codificaciones por motivos históricos. La propiedad **encodingName** le permite especificar la codificación por nombre de la página de código para las tablas de tipo TextFormat. Para obtener la lista de nombres de codificación válidos, vea: Propiedad Encoding.EncodingName. Por ejemplo: windows-1250 o shift_jis. El valor predeterminado es: UTF-8. Consulte [Clase de codificación](https://msdn.microsoft.com/library/system.text.encoding.aspx) para obtener nombres de codificación válidos.
 
 ## Otras referencias
 
@@ -341,10 +340,11 @@ Aunque la codificación UTF-8 es bastante popular, con frecuencia los archivos d
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx
+[azure-table-data-type]: https://msdn.microsoft.com/es-es/library/azure/dd179338.aspx
 
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

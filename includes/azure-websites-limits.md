@@ -170,9 +170,9 @@
 
 <sup>2</sup>Los sitios de los niveles Básico y Estándar se ejecutan en máquinas dedicadas. El número real de sitios que puede hospedar en estas máquinas depende de la actividad de los sitios, el tamaño de las instancias de la máquina y el correspondiente uso de los recursos.
 
-<sup>3</sup>A excepción del nivel Gratis, los límites de los Planes de hospedaje web se especifican por grupo de recursos. Para obtener más información sobre la creación y la administración de grupos de recursos, vea [Uso del grupo de recursos para administrar los recursos de Azure][useresourcegroups].
+<sup>3</sup>A excepción del nivel Gratis, los límites de los Planes de hospedaje web se especifican por grupo de recursos. Para obtener más información sobre la creación y la administración de grupos de recursos, consulte [Información general del Administrador de recursos de Azure](../articles/resource-group-overview.md).
 
-<sup>4</sup>Las instancias dedicadas pueden ser de tamaño Pequeño, Medio o Grande. Vea la página [Precios de Sitios web Azure ][websitespricing]para más información. Hay instancias adicionales disponibles mediante la apertura de una solicitud de soporte.
+<sup>4</sup>Las instancias dedicadas pueden ser de tamaño Pequeño, Medio o Grande. Vea la página [Precios de Sitios web Azure ](http://azure.microsoft.com/pricing/details/web-sites/)para más información. Hay instancias adicionales disponibles mediante la apertura de una solicitud de soporte.
 
 <sup>5</sup>Todos los sitios web comparten los mismos recursos de almacenamiento para el contenido del sitio. Por tanto, el límite de almacenamiento es el tamaño total de todos los sitios y no de cada uno de los sitios web. Se pueden aumentar los límites de almacenamiento mediante la apertura de una solicitud de soporte.
 
@@ -182,12 +182,8 @@
 
 <sup>8</sup>Este valor representa las conexiones web socket simultáneas por instancia de sitio web. Por ejemplo, si escaló horizontalmente un sitio web Básico a dos instancias, tendría efectivamente 700 conexiones simultáneas (350 x 2).
 
-<sup>9</sup>Para el nivel Básico, se aplican [los precios de SSL estándar][sslpricing].
+<sup>9</sup>Para el nivel Básico, se aplican [los precios de SSL estándar](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections).
 
 <sup>10</sup>Ejecute scripts o ejecutables personalizados a demanda, según una programación o de manera continua como tarea en segundo plano dentro de su instancia de Sitios web. Siempre disponible se requiere para la ejecución continua de Trabajos web. Se requiere el Programador de Azure de nivel Gratis o Estándar para Trabajos web programados.
 
-  [useresourcegroups]: http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/
-  [websitespricing]: http://azure.microsoft.com/pricing/details/web-sites/
-  [sslpricing]: http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections
-
-<!---HONumber=58-->
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -116,7 +116,7 @@ El ejemplo de la panadería incluye un formulario de pedido simulado que envía 
         }*/
 
 
-5. Agregue código para usar SendGrid para enviar correos electrónicos en lugar de correo electrónico web. Agregue el código siguiente en lugar del código que ha eliminado en el paso anterior.
+5. Agregue código para usar SendGrid para enviar correos electrónicos en lugar de correo electrónico web. Agregue el código siguiente en lugar del código que ha eliminado en el paso anterior. Asegúrese de agregar el nombre de usuario y la contraseña de SendGrid al crear NetworkCredential.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,14 +130,14 @@ El ejemplo de la panadería incluye un formulario de pedido simulado que envía 
             myMessage.Text = body;
 
             // Create credentials, specifying your user name and password.
-            var credentials = new NetworkCredential("[your user name", "[your password]");
+            var credentials = new NetworkCredential("[your user name]", "[your password]");
 
             // Create an Web transport for sending email.
             var transportWeb = new Web(credentials);
 
             // Send the email.
             try {
-                transportWeb.Deliver(myMessage);
+                transportWeb.DeliverAsync(myMessage);
                 Response.Redirect("~/OrderSuccess");
             } catch {
                 ModelState.AddFormError("There was an error and your order could not be processed at this time");
@@ -248,5 +248,6 @@ Puede usar WebMatrix para modificar el sitio y volver a publicarlo en su instanc
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

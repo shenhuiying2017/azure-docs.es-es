@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Configurar y registrar el dispositivo"
-   description="Explica cómo usar Windows PowerShell para StorSimple para configurar y registrar su dispositivo ejecutando la Actualización 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/26/2015"
-   ms.author="alkohli" />
-
 
 ### Para configurar y registrar el dispositivo
 
@@ -42,7 +25,7 @@
    - Puerta de enlace
    - Dirección IP para el servidor DNS principal
     
-		Tenga en cuenta que el sistema valida la configuración de red después de cada paso del proceso.
+		Note that the system is validating network settings after each step in the process.
    
       >[AZURE.NOTE]Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «Compruebe la conectividad de red para Data 0», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
 
@@ -75,10 +58,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Si el dispositivo continúa desconectado pasados unos minutos, necesitará asegurarse de que configuró la red de Firewall tal y como se describe en los [requisitos de red del dispositivo StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Si es incompatible con HTTP 1.1, asegúrese de que el puerto 9354 está abierto para las comunicaciones de salida. Este puerto se usa para que el administrador StorSimple y su dispositivo StorSimple puedan comunicarse.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

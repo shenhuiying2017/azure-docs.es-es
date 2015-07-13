@@ -1,35 +1,36 @@
 
 
->[AZURE.NOTE]To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE]Para llevar a cabo este procedimiento, debe tener una cuenta de Google asociada a una dirección de correo electrónico comprobada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 
-1. Navigate to the <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a> website, sign-in with your Google account credentials, and then click **Create Project**.
+1. Diríjase al sitio web <a href="http://cloud.google.com/console" target="_blank">Google Cloud Console</a>, inicie sesión con las credenciales de su cuenta de Google y, a continuación, haga clic en **Create Project**.
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)   
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
-	>[AZURE.NOTE]When you already have an existing project, you are directed to the <strong>Projects</strong> page after login. To create a new project from the Dashboard, expand <strong>API Project</strong>, click <strong>Create...</strong> under <strong>Other projects</strong>, then enter a project name and click <strong>Create project</strong>.
+	>[AZURE.NOTE]Si ya tiene un proyecto existente, se le dirigirá a la página <strong>Projects</strong> (Proyectos) después de iniciar sesión. Para crear un proyecto nuevo desde el panel, expanda <strong>API Project</strong> (Proyecto de API), haga clic en <strong>Create...</strong> (Crear) en <strong>Other projects</strong> (Otros proyectos) y, a continuación, escriba un nombre de proyecto y haga clic en <strong>Create project</strong> (Crear proyecto).
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. Escriba un nombre de proyecto, acepte los términos del servicio y haga clic en **Create** (Crear). Si se solicita, ejecute la comprobación de SMS y haga clic de nuevo en **Crear**.
 
-3. Make a note of the project number in the **Projects** section. 
+3. Tome nota del número del proyecto que aparece en la sección **Projects**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	Más adelante en este tutorial, configurará este valor como la variable PROJECT_ID en el cliente.
 
-4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+4. En la columna izquierda, expanda **API y autenticación**, haga clic en **API** y, a continuación, desplácese hacia abajo y haga clic en el botón de alternancia para habilitar **Servicio de mensajería en la nube de Google para Android** y acepte las condiciones del servicio.
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Click **Credentials**, and then click **Create new Key** 
+5. Haga clic en **Credentials** y, a continuación, en **Create new Key**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. En **Create a new key**, haga clic en **Server key**. En la siguiente ventana, haga clic en **Create**.
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Make a note of the **API KEY** value.
+7. Anote el valor de **API KEY** (Clave de API).
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png) 
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	Usará este valor de clave de API para permitir que Azure lleve a cabo la autenticación con GCM y envíe notificaciones de inserción en nombre de su aplicación.
 
+<!---HONumber=62-->

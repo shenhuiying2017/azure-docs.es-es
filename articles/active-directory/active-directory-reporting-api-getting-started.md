@@ -17,7 +17,7 @@
    ms.author="yossib"/>
 
 
-# Introducción a la API de informes de Azure AD
+#  Introducción a la API de informes de Azure AD
 
 Azure Active Directory proporciona una variedad de informes de actividad, seguridad y auditoría. Estos datos se pueden consumir a través del Portal de Azure, pero también pueden ser muy útiles en muchas otras aplicaciones, como los sistemas SIEM y herramientas de auditoría y de inteligencia empresarial.
 
@@ -27,12 +27,12 @@ Este artículo le guiará a través del proceso de llamada a las API de informes
 
 Para usar este ejemplo, será necesario [Azure Active Directory](active-directory-whatis.md)
 
-## Creación de una aplicación de Azure AD para tener acceso a la API
+##  Creación de una aplicación de Azure AD para tener acceso a la API
 
 La API de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) para autorizar el acceso a las API web. Para tener acceso a información desde su directorio, debe crear una aplicación en Active Directory y concederle los permisos adecuados para tener acceso a los datos de AAD.
 
 
-### Creación de una aplicación
+###  Creación de una aplicación
 - Vaya al [Portal de administración de Azure](https://manage.windowsazure.com/).
 - Vaya al directorio.
 - Vaya a las aplicaciones.
@@ -45,7 +45,7 @@ La API de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn64
 	- **URI de id. de aplicación**: ```http://localhost```.
 	- Haga clic en la marca de verificación para terminar de agregar la aplicación.
 
-### Conceder a la aplicación permiso para usar la API
+###  Conceder a la aplicación permiso para usar la API
 - Vaya a la pestaña Aplicaciones.
 - Vaya a la aplicación recién creada.
 - Haga clic en la pestaña **Configurar**.
@@ -54,17 +54,17 @@ La API de informes utiliza [OAuth](https://msdn.microsoft.com/library/azure/dn64
 - Haga clic en **Guardar** en la parte inferior.
 
 
-### Obtención del id. de directorio, el id. de cliente y el secreto de cliente
+###  Obtención del id. de directorio, el id. de cliente y el secreto de cliente
 
 Los pasos siguientes le guiarán para obtener el id. de cliente y el secreto de cliente de la aplicación. También necesitará saber el nombre del inquilino, que puede ser su *. onmicrosoft.com o un nombre de dominio personalizado. Cópielos en un lugar independiente; los usará para modificar el script.
 
-#### Id. de cliente de la aplicación
+####  Id. de cliente de la aplicación
 - Vaya a la pestaña Aplicaciones.
 - Vaya a la aplicación recién creada.
 - Vaya a la pestaña **Configurar**.
 - El id. de cliente de la aplicación aparece en el campo **Id. de cliente**.
 
-#### Secreto de cliente de la aplicación
+####  Secreto de cliente de la aplicación
 - Vaya a la pestaña Aplicaciones.
 - Vaya a la aplicación recién creada.
 - Vaya a la pestaña Configurar.
@@ -72,7 +72,7 @@ Los pasos siguientes le guiarán para obtener el id. de cliente y el secreto de 
 - La clave se mostrará al realizar la operación de guardar. Asegúrese de copiarla y pegarla en una ubicación segura, porque no hay manera de recuperarla más adelante.
 
 
-## Modificación del script
+##  Modificación del script
 Para editar el script de PowerShell para trabajar con su directorio, reemplace $ClientID, $ClientSecret y $tenantdomain con los valores correctos de "Delegación de acceso en Azure AD".
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
@@ -126,15 +126,15 @@ Para editar el script de PowerShell para trabajar con su directorio, reemplace $
         }
 
 
-## Ejecución del script
+##  Ejecución del script
 Una vez que termine de editar el script, ejecútelo y compruebe que se devuelven los datos esperados.
 
-El script devuelve listas de todos los informes disponibles y devuelve los resultados del informe AccountProvisioningEvents en la ventana de PowerShell en formato JSON. También crea archivos con la misma salida en JSON, texto y XML. Puede comentar la experiencia de modificar el script para devolver datos de otros informes y  puede comentar los formatos de salida  que no necesita.
+El script devuelve listas de todos los informes disponibles y devuelve los resultados del informe AccountProvisioningEvents en la ventana de PowerShell en formato JSON. También crea archivos con la misma salida en JSON, texto y XML. Puede comentar la experiencia de modificar el script para devolver datos de otros informes y puede comentar los formatos de salida que no necesita.
 
 
-## Pasos siguientes
+##  Pasos siguientes
 - ¿Tiene curiosidad sobre qué informes de actividad, auditoría y seguridad están disponibles? Consulte [Informes de actividad, auditoría y seguridad de Azure AD](active-directory-view-access-usage-reports.md).
 - Consulte [Eventos del informe de auditoría de Azure AD](active-directory-reporting-audit-events.md) para obtener más detalles sobre el informe de auditoría.
 - Consulte [Informes y eventos de Azure AD (vista previa)](https://msdn.microsoft.com/library/azure/mt126081.aspx) para obtener más detalles sobre el servicio REST de API Graph.
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

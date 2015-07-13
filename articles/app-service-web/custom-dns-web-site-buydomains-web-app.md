@@ -93,5 +93,6 @@ Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su apl
 	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

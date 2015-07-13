@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -80,7 +80,7 @@ Se agregan métricas diferentes de distintas maneras:
 
 Para averiguar si el valor es una suma, promedio o es un valor único, haga clic en el gráfico y desplácese hacia abajo hasta el valor seleccionado. También puede obtener una breve descripción de la métrica.
 
-![Desplace el ratón sobre (i)](./media/app-insights-metrics-explorer/06-total.png)
+![Desplace el mouse sobre (i)](./media/app-insights-metrics-explorer/06-total.png)
  
 
 
@@ -158,7 +158,28 @@ Para recibir notificaciones por correo electrónico de los valores no habituales
 
 ![En el Explorador de métricas, elija Reglas de alertas, Agregar alerta](./media/app-insights-metrics-explorer/appinsights-413setMetricAlert.png)
 
-[Más información][alerts].
+[Obtenga más información sobre alertas][alerts].
+
+## Exportación a Excel
+
+Puede exportar a un archivo de Excel los datos de métricas que se muestran en el Explorador de métricas. Entre los datos exportados, se incluyen datos de todos los gráficos y tablas, tal como se muestra en el portal.
+
+
+![En el Explorador de métricas, elija Reglas de alertas, Agregar alerta](./media/app-insights-metrics-explorer/31-export.png)
+
+Los datos para cada tabla o gráfico se exportan a una hoja independiente en el archivo de Excel.
+
+Lo que se muestra es lo que se exporta. Cambie los filtros o el intervalo de tiempo si desea modificar el intervalo de los datos exportados. Para las tablas, si se muestra el comando para **cargar más datos**, puede hacer clic en él antes de hacer clic en el botón de exportación para que se exporten más datos.
+
+*Actualmente, la función de exportación funciona solo para Internet Explorer y Chrome. Estamos trabajando para incluir compatibilidad con otros exploradores.*
+
+Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la función de [exportación continua](app-insights-export-telemetry.md).
+
+
+## Pasos siguientes
+
+* [Supervisión del uso con Application Insights](app-insights-overview-usage.md)
+* [Uso de la Búsqueda de diagnóstico](app-insights-diagnostic-search.md)
 
 
 <!--Link references-->
@@ -167,5 +188,5 @@ Para recibir notificaciones por correo electrónico de los valores no habituales
 [start]: app-insights-get-started.md
 [track]: app-insights-custom-events-metrics-api.md
 
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

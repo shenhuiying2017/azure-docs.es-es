@@ -92,8 +92,10 @@ El siguiente fragmento de código es un ejemplo de cómo se debe implementar un 
 Para probar este desencadenador de sondeo, siga estos pasos:
 
 1. Implemente la aplicación de API con una configuración de autenticación de **anónimo público**.
-2. Ejecute la operación **touch** para tocar un archivo. La siguiente imagen muestra una solicitud de ejemplo a través de Postman. ![Llamada a la operación Touch mediante Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Efectúe una llamada al desencadenador de sondeo con el parámetro **triggerState** establecido en una marca de tiempo anterior al paso 2. La siguiente imagen muestra la solicitud de ejemplo a través de Postman. ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
+2. Ejecute la operación **touch** para tocar un archivo. La siguiente imagen muestra una solicitud de ejemplo a través de Postman.
+   ![Llamada a la operación Touch mediante Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+3. Efectúe una llamada al desencadenador de sondeo con el parámetro **triggerState** establecido en una marca de tiempo anterior al paso 2. La siguiente imagen muestra la solicitud de ejemplo a través de Postman.
+   ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### Desencadenador de inserción
 
@@ -196,9 +198,12 @@ Para probar este desencadenador de sondeo, siga estos pasos:
 
 1. Implemente la aplicación de API con una configuración de autenticación de **anónimo público**.
 2. Vaya a [http://requestb.in/](http://requestb.in/) para crear un RequestBin que servirá como dirección URL de devolución de llamada.
-3. Ejecute una llamada al desencadenador de inserción con un GUID como **triggerId** y la dirección URL de RequestBin como **callbackUrl**. ![Llamada al desencadenador de inserción mediante Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Ejecute la operación **touch** para tocar un archivo. La siguiente imagen muestra una solicitud de ejemplo a través de Postman. ![Llamada a la operación Touch mediante Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Compruebe el RequestBin para confirmar que la devolución de llamada del desencadenador de inserción se realiza con una salida de propiedad. ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
+3. Ejecute una llamada al desencadenador de inserción con un GUID como **triggerId** y la dirección URL de RequestBin como **callbackUrl**.
+   ![Llamada al desencadenador de inserción mediante Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
+4. Ejecute la operación **touch** para tocar un archivo. La siguiente imagen muestra una solicitud de ejemplo a través de Postman.
+   ![Llamada a la operación Touch mediante Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
+5. Compruebe el RequestBin para confirmar que la devolución de llamada del desencadenador de inserción se realiza con una salida de propiedad.
+   ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### Descripción de los desencadenadores en la definición de la API
 
@@ -340,5 +345,4 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
         }
     }
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

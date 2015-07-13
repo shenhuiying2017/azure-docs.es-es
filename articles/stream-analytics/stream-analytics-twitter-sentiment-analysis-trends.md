@@ -1,29 +1,32 @@
 <properties
-   pageTitle="Analizar opiniones y tendencias en Twitter en tiempo real | Microsoft Azure"
-   description="Aprenda a usar Análisis de transmisiones para analizar opiniones y tendencias en Twitter en tiempo real. Este tutorial incluye los pasos desde la generación de eventos a los datos en un panel dinámico."
-   services="stream-analytics"
-   documentationCenter=""
-   authors="jeffstokes72"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Análisis en tiempo real de opinión de Twitter con Análisis de transmisiones | Microsoft Azure"
+	description="Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="stream-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/28/2015"
-   ms.author="jeffstok"/>
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/28/2015"
+	ms.author="jeffstok"/>
 
 
-# Análisis de los medios sociales: análisis de opinión de Twitter en tiempo real
+# Análisis de los medios sociales: análisis en tiempo real de la opinión en Twitter en Análisis de transmisiones de Azure
 
-En este tutorial, aprenderá a crear una solución mediante la incorporación de eventos de Twitter a centros de eventos, la escritura de consultas de Análisis de transmisiones para analizar los datos y, a continuación, el almacenamiento de los resultados o mediante un panel para ofrecer perspectivas en tiempo real.
+En este tutorial, aprenderá a crear una solución de análisis de opinión mediante la incorporación en tiempo real de eventos de Twitter a centros de eventos, la escritura de consultas de Análisis de transmisiones para analizar los datos y, a continuación, el almacenamiento de los resultados o el uso de un panel para ofrecer detalles en tiempo real.
+
+Las herramientas de análisis de los medios sociales ayudan a las organizaciones a comprender las tendencias, es decir, los temas y actitudes que cuentan con un gran volumen de publicaciones en las redes sociales. Los análisis de opinión, o minería de opinión, utilizan las herramientas de análisis de medios sociales para determinar las actitudes hacia un producto, una idea, etc.
 
 ## Escenario
 
-Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan perspectivas de las redes sociales en temas relevantes para sus lectores al realizar análisis en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave.
+Un sitio web multimedia de noticias está interesado en obtener una ventaja sobre sus competidores al proporcionar contenido del sitio inmediatamente relevante para sus lectores. Utilizan análisis de las redes sociales en temas relevantes para sus lectores mediante la elaboración de análisis de opinión en tiempo real de los datos de Twitter. En concreto, para identificar qué temas son tendencias en tiempo real en Twitter, necesitan el análisis en tiempo real del volumen de tweets y la opinión sobre los temas clave.
 
 ## Requisitos previos
 1.	Se requiere una cuenta de Twitter para este tutorial.  
@@ -41,8 +44,7 @@ Siga estos pasos para crear un centro de eventos.
 4.	En **DIRECTIVAS DE ACCESO COMPARTIDO**, cree una nueva directiva con permisos para **ADMINISTRAR**.
 
 
-
-  ![Directivas de acceso compartido en las que puede crear una nueva directiva con permisos para Administrar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
+  	![Directivas de acceso compartido en las que puede crear una nueva directiva con permisos para Administrar.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-ananlytics-shared-access-policies.png)
 
 5.	Haga clic en **GUARDAR** en la parte inferior de la página.
 6.	Vaya a **PANEL** y haga clic en **INFORMACIÓN DE CONEXIÓN** en la parte inferior de la página y copie y guarde la información de conexión. (Utilice el icono de copia que aparece bajo el icono de búsqueda).
@@ -58,17 +60,17 @@ Siga estos pasos para configurar la aplicación:
 
 	[Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
-	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.
+	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.  
 3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo App.config con la cadena de conexión del centro de eventos y el nombre.
 4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter_keywords en el archivo App.config, si lo desea.
 5.	Compile la solución
 6.	Inicie la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
 
-	![Valores de SentimentScore enviados a un centro de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
+	![Análisis de opinión: valores de SentimentScore enviados a un centro de eventos.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-sentiment-output-to-event-hub.png)
 
 ## Creación de un Análisis de transmisiones
 
-Ahora que tenemos una secuencia de eventos Tweet, podemos configurar un trabajo de Análisis de transmisiones para analizar estos eventos en tiempo real.
+Ahora que tenemos un flujo de eventos Tweet en tiempo real de Twitter, podemos configurar un trabajo de Análisis de transmisiones para analizar estos eventos en tiempo real.
 
 ### Aprovisionamiento de un trabajo de Stream Analytics
 
@@ -79,8 +81,7 @@ Ahora que tenemos una secuencia de eventos Tweet, podemos configurar un trabajo 
 	* **REGIÓN**: seleccione la región donde desea ejecutar el trabajo. Considere la posibilidad de colocar el trabajo y el centro de eventos en la misma región para garantizar un mejor rendimiento y asegurarse de no pagar la transferencia de datos entre regiones.
 	* **CUENTA DE ALMACENAMIENTO**: elija la cuenta de almacenamiento que desea usar para almacenar los datos de supervisión de todos los trabajos de Análisis de transmisiones que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear uno nuevo.
 
-3.	Haga clic en **ANÁLISIS DE TRANSMISIONES** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones.
-	![Icono de servicio de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
+3.	Haga clic en **ANÁLISIS DE TRANSMISIONES** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones. ![Icono de servicio de Análisis de transmisiones](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-service-icon.png)
 
 4.	Se mostrará el nuevo trabajo con el estado **CREADO**. Tenga en cuenta que el botón **INICIO** en la parte inferior de la página está deshabilitado. Debe configurar la entrada, la salida y la consulta del trabajo antes de iniciar el trabajo.
 
@@ -91,10 +92,9 @@ Ahora que tenemos una secuencia de eventos Tweet, podemos configurar un trabajo 
 3.	Seleccione **CENTRO DE EVENTOS** y, a continuación, haga clic con el botón secundario.
 4.	Escriba o seleccione los valores siguientes en la tercera página:
 
-	* **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como TwitterStream. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante.
-	**CENTRO DE EVENTOS**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
+	* **ALIAS DE ENTRADA**: escriba un nombre descriptivo para esta entrada del trabajo, como TwitterStream. Tenga en cuenta que va a utilizar este nombre en la consulta más adelante. **CENTRO DE EVENTOS**: si el centro de eventos que ha creado está en la misma suscripción que el trabajo de Análisis de transmisiones, seleccione el espacio de nombres en el que está el centro de eventos.
 
-		Si el centro de eventos está en una suscripción diferente, seleccione **"Usar eventos concentrador de otra suscripción**, y escriba manualmente la información de **Espacio de nombres de servicio de Bus**, **Nombre de centro de eventos**, **Nombre de directiva de centro de eventos**, **Clave de directiva de centro de eventos** y **Recuento de particiones de centro de eventos**.
+		Si el centro de eventos está en otra suscripción, seleccione **Usar centro de eventos de otra suscripción** y escriba manualmente la información de **ESPACIO DE NOMBRES DE BUS DE SERVICIO**, **NOMBRE DE CENTRO DE EVENTOS**, **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**, **CLAVE DE DIRECTIVA DE CENTRO DE EVENTOS** y **RECUENTO DE PARTICIONES DE CENTRO DE EVENTOS**.
 
 	* **NOMBRE DE CENTRO DE EVENTOS**: seleccione el nombre del centro de eventos
 	* **NOMBRE DE DIRECTIVA DE CENTRO DE EVENTOS**: seleccione la directiva del centro de eventos que creó anteriormente en este tutorial.
@@ -217,14 +217,14 @@ Puesto que se ha especificado una entrada, consulta y salida de trabajo, estamos
 2.	En el cuadro de diálogo que aparece, seleccione **HORA DE INICIO DEL TRABAJO** y, a continuación, haga clic en el botón de marca de verificación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
 
 
-## Visualización de la salida
+## Consulta de la salida del análisis de opinión
 
-Utilice una herramienta como [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o [Explorer Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede ampliar la aplicación para incluir un panel personalizado sobre la salida, como el que aparece a continuación con [Power BI](https://powerbi.com/).
+Cuando el trabajo se esté ejecutando y esté procesando el flujo de Twitter en tiempo real, elija cómo desea ver la salida del análisis de opinión. Utilice una herramienta como [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o [Explorer Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver la salida del trabajo en tiempo real. Desde aquí, puede ampliar la aplicación para incluir un panel personalizado sobre la salida, como el que aparece a continuación con [Power BI](https://powerbi.com/).
 
-![Análisis de transmisiones de salida en un panel de Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+![Análisis de los medios sociales: salida del análisis de opinión (minería de opinión) de Análisis de transmisiones en un panel de Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -234,6 +234,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

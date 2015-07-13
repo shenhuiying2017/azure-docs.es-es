@@ -89,5 +89,5 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 </table>
 
 Para obtener más información, visite [Documentación del Servicio de aplicaciones](http://azure.microsoft.com/documentation/services/app-service/).
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

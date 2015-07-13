@@ -18,7 +18,7 @@
 	ms.author="Justinha"/>
 
 
-# Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
+#  Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
 
 En este tema se muestra la creación de un nuevo entorno de Windows Server Active Directory en una red virtual de Azure en una máquina virtual (VM) de una [red virtual de Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx). En este caso, la red virtual de Azure no está conectada a una red de un entorno local.
 
@@ -28,13 +28,13 @@ Es posible que también le interesen los siguientes temas relacionados:
 - De manera opcional, puede [configurar una VPN de sitio a sitio](https://msdn.microsoft.com/library/azure/dn133795.aspx) y, a continuación, instalar un bosque nuevo o extender un bosque de entorno local hasta una red virtual de Azure. Para seguir esos pasos, consulte [Instalación de un controlador de dominio réplica de Active Directory en una red virtual de Azure](../virtual-networks-install-replica-active-directory-domain-controller.md).
 -  Para obtener una orientación en cuanto a conceptos sobre la instalación de los Servicios de dominio de Active Directory (AD DS) en una red virtual de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-## Diagrama del escenario
+##  Diagrama del escenario
 
 En este escenario, los usuarios externos necesitan tener acceso a las aplicaciones que se ejecutan en servidores unidos a un dominio. Las máquinas virtuales que ejecutan los servidores de aplicaciones y las máquinas virtuales que ejecutan los controladores de dominio se instalan en su propio servicio en la nube en una red virtual de Azure. También se incluyen dentro de un conjunto de disponibilidad para mayor tolerancia a errores.
 
 ![][1]
 
-## ¿En qué se diferencia del entorno local?
+##  ¿En qué se diferencia del entorno local?
 
 No existe mucha diferencia entre instalar un controlador de dominio en Azure y una instalación en el entorno local. Las principales diferencias se mencionan en la siguiente tabla.
 
@@ -42,11 +42,11 @@ Para configurar... | Local | Red virtual
 ------------- | -------------  | ------------
 **Dirección IP para el controlador de dominio** | Asigne la dirección IP estática en las propiedades del adaptador de red. | Ejecute el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática.
 **Resolución de clientes DNS** | Establezca la dirección de servidor DNS preferida y alternativa en las propiedades del adaptador de red de los miembros del dominio. | Establezca la dirección del servidor DNS en las propiedades de la red virtual.
-**Almacenamiento de base de datos de Active Directory** | Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:\. | Debe cambiar la ubicación de almacenamiento predeterminada de C:\.
+**Almacenamiento de base de datos de Active Directory** | Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:. | Debe cambiar la ubicación de almacenamiento predeterminada de C:.
 
 
 
-## Creación de una red virtual de Azure
+##  Creación de una red virtual de Azure
 
 1. Inicie sesión en el portal clásico de Azure.
 2. Cree una red virtual. Haga clic en **Redes** > **Crear una red virtual**. Use los valores de la tabla siguiente para completar el asistente. 
@@ -59,7 +59,7 @@ Para configurar... | Local | Red virtual
 
 
 
-## Crear máquinas virtuales para ejecutar el controlador de dominio y los roles de servidor DNS
+##  Crear máquinas virtuales para ejecutar el controlador de dominio y los roles de servidor DNS
  
 Repita los pasos siguientes para crear máquinas virtuales para hospedar el rol de controlador de dominio según sea necesario. Debe implementar al menos dos controladores de dominio virtuales para proporcionar redundancia y tolerancia a errores. Si la red virtual de Azure incluye al menos dos controladores de dominio que están configurados de manera similar (es decir, son ambos catálogos globales, servidor DNS de ejecución y no contienen ningún rol FSMO, etc.), a continuación, coloque las máquinas virtuales que ejecutan los controladores de dominio en un conjunto de disponibilidad para aumentar la tolerancia a errores.
 
@@ -81,13 +81,13 @@ Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfa
 
 Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configuración de una dirección IP interna estática para una máquina virtual](https://msdn.microsoft.com/library/azure/dn630228.aspx).
 
-## Instalación de Windows Server Active Directory
+##  Instalación de Windows Server Active Directory
 
 Utilice la misma rutina para [instalar AD DS](https://technet.microsoft.com/library/jj574166.aspx) que usa localmente (es decir, puede usar la interfaz de usuario, un archivo de respuesta o Windows PowerShell). Necesita proporcionar credenciales de Administrador para instalar un bosque nuevo. Para especificar la ubicación de la base de datos de Active Directory, los registros y SYSVOL, cambie la ubicación de almacenamiento predeterminada desde la unidad del sistema operativo hasta el disco de datos adicional que acopló a la VM.
 
 Después de finalizada la instalación del controlador de dominio, vuelva a conectarse a la VM e inicie sesión en el controlador de dominio. Recuerde especificar las credenciales del dominio.
 
-## Restablezca el servidor DNS para la red virtual de Azure
+##  Restablezca el servidor DNS para la red virtual de Azure
 
 1. Restablezca la configuración del reenviador DNS en el nuevo servidor DC/DNS. 
   1. En el administrador del servidor, haga clic en **Herramientas** > **DNS**. 
@@ -99,7 +99,7 @@ Después de finalizada la instalación del controlador de dominio, vuelva a cone
   2. Seleccione la VM y haga clic en **Restablecer** para activar la VM y definir la configuración del solucionador de DNS con la dirección IP del servidor DNS nuevo. 
 
 
-## Cree máquinas virtuales para miembros de dominio
+##  Cree máquinas virtuales para miembros de dominio
 
 1. Repita los pasos siguientes para crear VM que se ejecuten como servidores de aplicaciones. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
 
@@ -116,7 +116,7 @@ Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfa
 Para obtener más información acerca del uso de Windows PowerShell, consulte [Empezar a usar Cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) y [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
 
-## Otras referencias
+##  Otras referencias
 
 -  [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
@@ -138,5 +138,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

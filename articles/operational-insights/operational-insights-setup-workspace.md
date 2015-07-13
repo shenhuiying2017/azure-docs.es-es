@@ -1,22 +1,22 @@
-<properties 
-    pageTitle="Configurar el área de trabajo y administrar la configuración" 
-    description="Obtenga información acerca de cómo configurar el área de trabajo y administrar la configuración de Visión operativa de Microsoft Azure" 
-    services="operational-insights" 
-    documentationCenter="" 
-    authors="bandersmsft" 
-    manager="jwhit" 
+<properties
+    pageTitle="Configurar el área de trabajo y administrar la configuración"
+    description="Obtenga información acerca de cómo configurar el área de trabajo y administrar la configuración de Visión operativa de Microsoft Azure"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
     editor=""/>
 
-<tags 
-    ms.service="operational-insights" 
-    ms.workload="operational-insights" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="04/30/2015" 
+<tags
+    ms.service="operational-insights"
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="06/09/2015"
     ms.author="banders"/>
 
-# Configurar el área de trabajo y administrar la configuración 
+# Configurar el área de trabajo y administrar la configuración
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
@@ -24,23 +24,19 @@ Para crear una nueva área de trabajo de Visión operativa de Microsoft Azure, e
 
 Después de crear el área de trabajo, puede realizar otras tareas a través del área de trabajo, tales como administrar Visión operativa, ver los datos de uso en el panel, seleccionar las cuentas de almacenamiento y conectar directamente agentes o conectarse a System Center Operations Manager. También puede administrar la configuración de cada área de trabajo.
 
-Para obtener más información sobre cómo crear un área de trabajo con Azure, vea el vídeo siguiente:
-
-> [AZURE.VIDEO creating-a-workspace-for-azure-customers-opinsights]
-
 
 ## ¿Cuántas áreas de trabajo necesito?
 Un área de trabajo se ve como un recurso de Azure en el Portal de administración de Azure.
 
-Puede crear un área de trabajo nueva o vincular un área de trabajo existente de vista previa que puede haber abierto anteriormente para su uso con System Center Operations Manager, pero que todavía no ha asociado a una suscripción de Azure (necesaria para la facturación). Un área de trabajo representa el nivel en el que los datos se recopilan, agregan, analizan y presentan en el portal de Visión operativa. Puede tener varias áreas de trabajo para separar los datos de diferentes entornos y sistemas; cada grupo de administración de Operations Manager (y todos sus agentes) o los agentes/máquinas virtuales individuales solo pueden conectarse a una sola área de trabajo.
+Puede crear un área de trabajo nueva o vincular un área de trabajo existente que puede haber abierto anteriormente para su uso con System Center Operations Manager, pero que todavía no ha asociado a una suscripción de Azure (necesaria para la facturación). Un área de trabajo representa el nivel en el que los datos se recopilan, agregan, analizan y presentan en el portal de Visión operativa. Puede tener varias áreas de trabajo para separar los datos de diferentes entornos y sistemas; cada grupo de administración de Operations Manager (y todos sus agentes) o los agentes/máquinas virtuales individuales solo pueden conectarse a una sola área de trabajo.
 
 Cada área de trabajo puede tener varias cuentas de usuario asociadas y cada una de ellas (cuenta de Microsoft o cuenta profesional) puede tener acceso a varias áreas de trabajo de Visión operativa. De forma predeterminada, la cuenta de Microsoft o cuenta profesional que se usa para crear el área de trabajo se convierte en el administrador del área de trabajo. Después, el administrador puede invitar a cuentas de Microsoft adicionales o seleccionar usuarios de su Azure Active Directory.
 
-##<a id="linkworkspace"></a>Vincular un área de trabajo existente a una suscripción de Azure
+## Vincular un área de trabajo existente a una suscripción de Azure
 
 Es posible crear un área de trabajo desde [opinsights.azure.com](http://opinsights.azure.com). Sin embargo, existen ciertos límites en estas áreas de trabajo, el más notable es el límite de 500 MB/día para cargar datos si usa una cuenta gratuita. Para realizar cambios en esta área de trabajo deberá **vincular el área de trabajo existente a una suscripción de Azure**.
 
->[AZURE.IMPORTANT]Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular. En otras palabras, la cuenta que usa para acceder al portal de Azure debe ser **la misma** que la cuenta que usa para tener acceso al área de trabajo de Visión operativa. Si no es el caso, consulte [Agregar un usuario a un área de trabajo existente](#addusertoexistingworkspace).
+>[AZURE.IMPORTANT]Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular. En otras palabras, la cuenta que usa para acceder al portal de Azure debe ser **la misma** que la cuenta que usa para tener acceso al área de trabajo de Visión operativa. Si no es el caso, consulte [Agregar un usuario a un área de trabajo existente](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
 1. Inicie sesión en el Portal de administración de Azure.
 2. En la parte inferior izquierda del portal, haga clic en **+ Nuevo**.
@@ -48,14 +44,15 @@ Es posible crear un área de trabajo desde [opinsights.azure.com](http://opinsig
 4. Haga clic en **Creación rápida**.
 5. En la lista **Cuenta**, debería ver una lista de las áreas de trabajo existentes que *todavía no* se vincularon a la suscripción de Azure. Seleccione una cuenta.
 
-	>[AZURE.NOTE][Agregar un usuario a un área de trabajo existente](#addusertoexistingworkspace)![vincular cuenta](./media/operational-insights-setup-workspace/link-account.png)<p>
-6. Rellene los campos restantes y, luego, seleccione **Crear área de trabajo**.
+  >[AZURE.NOTE]Si no ve el área de trabajo que desee vincular aquí, significa que su suscripción de Azure no tiene acceso al área de trabajo de Visión operativa. Debe conceder acceso a esta cuenta desde dentro de su área de trabajo de Visión operativa. Si ello, consulte [Agregar un usuario a un área de trabajo existente](#add-a-user-to-an-existing-workspace).
+
+  ![vincular cuenta](./media/operational-insights-setup-workspace/link-account.png) <p> 6. Rellene los campos restantes y, luego, seleccione **Crear área de trabajo**.
 
 ## Actualizar el área de trabajo a un plan de pago
 
 Existen tres planes diferentes para el área de trabajo de Visión operativa: **gratis**, **estándar** y **premium**. Si dispone de una plan *gratis*, puede haber alcanzado su límite de datos de 500 MB. Necesitará actualizar el área de trabajo a un '**plan pago por uso**' para recopilar datos una vez alcanzado el límite. Puede convertir el tipo de plan en cualquier momento. Para obtener más información acerca de Visión operativa, consulte [Detalles de precios](http://azure.microsoft.com/pricing/operational-insights/).
 
->[AZURE.IMPORTANT]Los planes de área de trabajo solo pueden cambiarse si están *vinculados* a una suscripción de Azure. Si creó el área de trabajo en Azure o si *ya* vinculó el área de trabajo, puede ignorar este mensaje. Si creó el área de trabajo desde [opinsights.azure.com](http://opinsights.azure.com), deberá seguir los pasos descritos en [Vincular un área de trabajo existente a una suscripción de Azure](#linkworkspace).
+>[AZURE.IMPORTANT]Los planes de área de trabajo solo pueden cambiarse si están *vinculados* a una suscripción de Azure. Si creó el área de trabajo en Azure o si *ya* vinculó el área de trabajo, puede ignorar este mensaje. Si creó el área de trabajo desde [opinsights.azure.com](http://opinsights.azure.com), deberá seguir los pasos descritos en [Vincular un área de trabajo existente a una suscripción de Azure](#link-an-existing-workspace-to-an-Azure-subscription).
 
 ### Cambiar el tipo de plan
 
@@ -75,13 +72,12 @@ Por último, elija el plan al que quiere actualizar y haga clic en **GUARDAR**. 
 
 Si usted es el administrador de un área de trabajo de Visión operativa de Microsoft Azure, puede cambiar el nombre del área de trabajo.
 
-###Para cambiar el nombre del área de trabajo
+### Para cambiar el nombre del área de trabajo
 
-1. Haga clic en el nombre del área de trabajo. <p> ![nombre de área de trabajo](./media/operational-insights-setup-workspace/settings01.png) <p>
-2. Haga clic en el icono de configurar. <p> ![icono de configurar](./media/operational-insights-setup-workspace/settings02.png) <p>
-3. En la página **Configuración** de Visión operativa, en la sección **Administrar cuentas de usuario**, haga clic en **Administrar usuarios**. <p> ![administrar usuarios](./media/operational-insights-setup-workspace/settings03.png) <p>
+1. Haga clic en el nombre del área de trabajo. ![nombre de área de trabajo](./media/operational-insights-setup-workspace/settings01.png)
+2. Haga clic en el icono de configurar. ![icono de configurar](./media/operational-insights-setup-workspace/settings02.png)
+3. En la página **Configuración** de Visión operativa, en la sección **Administrar cuentas de usuario**, haga clic en **Administrar usuarios**. ![administrar usuarios](./media/operational-insights-setup-workspace/settings03.png)
 4. En el portal de Visión operativa, en la página **Configuración**, escriba el nombre nuevo en el campo **Nombre del área de trabajo**.
-
 5. Haga clic en **Guardar**.
 
 ## Cambiar la información de usuario
@@ -109,7 +105,7 @@ De forma predeterminada, todos los usuarios que están asociados a un área de t
 
 2. Haga clic en **Guardar**.
 
-##<a id="addusertoexistingworkspace"></a>Agregar un usuario a un área de trabajo existente
+## Agregar un usuario a un área de trabajo existente
 
 
 Use los pasos siguientes para agregar un usuario o grupo a un área de trabajo de Visión operativa. El usuario o grupo será capaz de ver y actuar en todas las alertas asociadas a esta área de trabajo.
@@ -119,33 +115,27 @@ Use los pasos siguientes para agregar un usuario o grupo a un área de trabajo d
 ### Para agregar un usuario a un área de trabajo existente
 1. Haga clic en el nombre del área de trabajo.
 2. Haga clic en el icono de configurar.
-3. En la página **Configuración** de Visión operativa, en la sección **Administrar cuentas de usuario**, haga clic en **Administrar usuarios**. <p> ![administrar usuarios](./media/operational-insights-setup-workspace/settings04.png) <p>
-4. En la ventana **Administrar usuarios**, haga clic en **Agregar**. <p> ![página de configuración](./media/operational-insights-setup-workspace/manage-users01.png) <p>
-5. Si su cuenta de Visión operativa está asociada con Azure Active Directory, especifique **Cuenta profesional**.
-
-    >[AZURE.NOTE]<p>![agregar tipo de cuenta de usuario](./media/operational-insights-setup-workspace/manage-users02.png)<p>
-6. Escriba la nueva información de usuario para la cuenta de Microsoft o la cuenta profesional. Si va a agregar una cuenta profesional, puede escribir parte del nombre del usuario o del grupo o el alias de correo electrónico y, luego, haga clic en **Comprobar nombres** para buscar el usuario o grupo específico.
- 
-    >[AZURE.NOTE]Para obtener los mejores resultados de rendimiento, limite el número de grupos de Active Directory asociados a una sola cuenta de Visión operativa a dos: uno para administradores y otro para usuarios. Usar más grupos podría afectar al rendimiento de Visión operativa.
-
-7. Seleccione el rol para este nuevo usuario: **administrador** o **usuario**. <p> ![agregar rol de usuario del área de trabajo](./media/operational-insights-setup-workspace/manage-users03.png) <p>
+3. En la página **Configuración** de Visión operativa, en la sección **Administrar cuentas de usuario**, haga clic en **Administrar usuarios**. ![administrar usuarios](./media/operational-insights-setup-workspace/settings04.png)
+4. En la ventana **Administrar usuarios**, haga clic en **Agregar**. ![página de configuración](./media/operational-insights-setup-workspace/manage-users01.png)
+5. Si su cuenta de Visión operativa está asociada con Azure Active Directory, especifique **Cuenta profesional**. >[AZURE.NOTE]No verá este paso si su cuenta de Visión operativa solo usa cuentas de Microsoft. ![agregar tipo de cuenta de usuario](./media/operational-insights-setup-workspace/manage-users02.png)
+6. Escriba la nueva información de usuario para la cuenta de Microsoft o la cuenta profesional. Si va a agregar una cuenta profesional, puede escribir parte del nombre del usuario o del grupo o el alias de correo electrónico y, luego, haga clic en **Comprobar nombres** para buscar el usuario o grupo específico. >[AZURE.NOTE]Para obtener los mejores resultados de rendimiento, limite el número de grupos de Active Directory asociados a una sola cuenta de Visión operativa a dos: uno para administradores y otro para usuarios. Usar más grupos podría afectar al rendimiento de Visión operativa.
+7. Seleccione el rol para este nuevo usuario: **administrador** o **usuario**. ![agregar rol de usuario del área de trabajo](./media/operational-insights-setup-workspace/manage-users03.png)
 8. Haga clic en **Aceptar**.
-    
-    Si va a agregar una cuenta de Microsoft, se envía una invitación para unir la cuenta al correo electrónico que proporcionó. Una vez que el usuario sigue las instrucciones de la invitación para unirse a Visión operativa, el usuario podrá ver las alertas y la información de cuenta para esta cuenta Visión operativa y podrá ver la información de usuario en la ventana **Administrar usuarios**.
- 
-    Si va a agregar una cuenta profesional, el usuario podrá acceder a Visión operativa inmediatamente. <p> ![invitación](./media/operational-insights-setup-workspace/manage-users04.png) <p>
+
+  Si va a agregar una cuenta de Microsoft, se envía una invitación para unir la cuenta al correo electrónico que proporcionó. Una vez que el usuario sigue las instrucciones de la invitación para unirse a Visión operativa, el usuario podrá ver las alertas y la información de cuenta para esta cuenta Visión operativa y podrá ver la información de usuario en la ventana **Administrar usuarios**. Si va a agregar una cuenta profesional, el usuario podrá acceder a Visión operativa inmediatamente. ![invitación](./media/operational-insights-setup-workspace/manage-users04.png)
+
+
 ## Agregar una organización de Azure Active Directory a un área de trabajo existente
 
 Puede asociar el área de trabajo de Visión operativa a un dominio de Azure Active Directory. Esto le permite agregar usuarios desde Active Directory directamente al área de trabajo de Visión operativa, sin necesidad de una cuenta independiente de Microsoft.
 
 ### Para agregar una organización de Azure Active Directory a un área de trabajo existente
 
-1. En la página Configuración de Visión operativa, haga clic en **Agregar organización**. <p> ![invitación](./media/operational-insights-setup-workspace/add-org.png) <p>
+1. En la página Configuración de Visión operativa, haga clic en **Agregar organización**. ![invitación](./media/operational-insights-setup-workspace/add-org.png)
 2. Revise la información acerca de las cuentas profesionales y, luego, haga clic en **Siguiente**.
-
 3. Escriba la información de identidad del administrador del dominio de Azure Active Directory y, luego, haga clic en **Iniciar sesión**.
+4. Haga clic en **Conceder acceso** para permitir que Visión operativa pueda usar la información de identidad en el dominio de Active Directory. ![vinculados](./media/operational-insights-setup-workspace/ad-existing01.png)
 
-4. Haga clic en **Conceder acceso** para permitir que Visión operativa pueda usar la información de identidad en el dominio de Active Directory. <p> ![vinculados](./media/operational-insights-setup-workspace/ad-existing01.png)
 
 ## Editar la cuenta de un usuario existente
 
@@ -189,6 +179,6 @@ Si es administrador, y hay varios usuarios asociados con el área de trabajo, se
 2. Seleccione uno de los motivos para cerrar el área de trabajo o escriba un motivo distinto en el cuadro de texto.
 
 3. Haga clic en **Cerrar área de trabajo**.
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=62-->

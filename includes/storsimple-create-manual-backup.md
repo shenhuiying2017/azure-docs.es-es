@@ -1,11 +1,3 @@
-<properties pageTitle="Creación de una copia de seguridad manual" description="Se explica cómo iniciar un trabajo de copia de seguridad manual a petición." services="storsimple" documentationCenter="NA" authors="SharS" manager="adinah" edito**r="tysonn" /> <tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
 #### Creación de una copia de seguridad manual
 
@@ -29,4 +21,4 @@
 
   La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

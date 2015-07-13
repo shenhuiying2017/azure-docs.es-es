@@ -90,7 +90,8 @@ El portal de administración de Azure, el centro de administración de Office 36
 
 Estos portales de cuentas y los cmdlets asociados de PowerShell de Azure AD que se utilizan para administrar usuarios y grupos se crean sobre la plataforma de Azure AD.
 
-Al realizar un cambio en los datos de su organización mediante cualquiera de los portales (o cmdlets) manteniendo la sesión iniciada en el contexto de uno de estos servicios, el cambio se mostrará también en los demás portales la próxima vez que inicie sesión en el contexto de dicho servicio, ya que estos datos se comparten entre los servicios en la nube de Microsoft a los que esté suscrito. Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloqueará el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si fuera a usar esa misma cuenta de usuario en el contexto del portal de cuentas de Microsoft Intune, vería que el usuario está bloqueado.
+Al realizar un cambio en los datos de su organización mediante cualquiera de los portales (o cmdlets) manteniendo la sesión iniciada en el contexto de uno de estos servicios, el cambio se mostrará también en los demás portales la próxima vez que inicie sesión en el contexto de dicho servicio, ya que estos datos se comparten entre los servicios en la nube de Microsoft a los que esté suscrito.
+Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloqueará el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si fuera a usar esa misma cuenta de usuario en el contexto del portal de cuentas de Microsoft Intune, vería que el usuario está bloqueado.
 
 ## ¿Cómo puedo agregar y administrar varios directorios?
 
@@ -98,17 +99,17 @@ Puede agregar un directorio de Azure AD en el Portal de administración de Azure
 
 Puede administrar cada directorio como un recurso totalmente independiente: cada directorio es un par con características completas y lógicamente independiente de otros directorios que administre; no existe ninguna relación principal-secundario entre los directorios. Esta independencia entre directorios incluye la independencia de recursos, la independencia administrativa y la independencia de sincronización.
 
-- **Independencia de recursos**. Si crea o elimina un recurso en un directorio, esto no tiene efecto en ningún recurso de los demás directorios, con la excepción parcial de los usuarios externos, según se describe más adelante. Si utiliza un dominio personalizado “contoso.com” con un directorio, este no se puede utilizar con ningún otro directorio.  
-- **Independencia administrativa**. Si un usuario no administrador del directorio "Contoso", crea un directorio de prueba "Prueba". En ese caso:  
+- **Independencia de recursos**. Si crea o elimina un recurso en un directorio, esto no tiene efecto en ningún recurso de los demás directorios, con la excepción parcial de los usuarios externos, según se describe más adelante. Si utiliza un dominio personalizado “contoso.com” con un directorio, este no se puede utilizar con ningún otro directorio. 
+- **Independencia administrativa**. Si un usuario no administrador del directorio "Contoso", crea un directorio de prueba "Prueba". En ese caso: 
     - ◦ La herramienta de sincronización de directorios, para sincronizar datos con un único bosque de AD. 
     - ◦ Los administradores del directorio "Contoso" no tienen privilegios administrativos directos en el directorio "Prueba", a menos que el administrador de "Prueba" les otorgue estos privilegios específicamente. Los administradores de "Contoso" pueden controlar el acceso al directorio "Prueba" en virtud del control que tengan de la cuenta de usuario que creó "Prueba". 
 
-    Y si cambia (agrega o quita) un rol de administrador de un usuario en un directorio, el cambio no afecta a ningún rol de administrador que ese usuario pueda tener en otro directorio. 
+    Y si cambia (agrega o quita) un rol de administrador de un usuario en un directorio, el cambio no afecta a ningún rol de administrador que ese usuario pueda tener en otro directorio.
 
 
-- **Independencia de sincronización**. Puede configurar cada Azure AD de manera independiente para que los datos se sincronicen desde una sola instancia de: 
+- **Independencia de sincronización**. Puede configurar cada Azure AD de manera independiente para que los datos se sincronicen desde una sola instancia de:
     - La herramienta de sincronización de directorios, para sincronizar los datos con un único bosque de AD.
-    - El conector de Azure Active Directory para Forefront Identity Manager, para sincronizar datos con uno o varios bosques locales u orígenes de datos distintos de AD.  
+    - El conector de Azure Active Directory para Forefront Identity Manager, para sincronizar datos con uno o varios bosques locales u orígenes de datos distintos de AD. 
 
 También tenga en cuenta que, a diferencia de otros recursos de Azure, los directorios no son recursos secundarios de una suscripción a Azure. Así, si cancela su suscripción a Azure o deja que esta caduque, aún podrá tener acceso a los datos de su directorio mediante Azure AD PowerShell, la API Graph de Azure u otras interfaces, como el Centro de administración de Office 365. También puede asociar otra suscripción con el directorio.
 
@@ -145,4 +146,6 @@ Se comprueban las condiciones siguientes:
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=58--> 
+
+ 
+<!--HONumber=62-->

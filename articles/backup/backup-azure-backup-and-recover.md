@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración de un equipo cliente de Windows o de un servidor de Windows"
-	description="Aprenda cómo realizar la copia de seguridad y restauración de un equipo cliente de Windows o de un servidor de Windows. El artículo también describe la recuperación del servidor alternativo."
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración de un equipo cliente de Windows o de un servidor de Windows"
+   description="Aprenda cómo realizar la copia de seguridad y restauración de un equipo cliente de Windows o de un servidor de Windows. El artículo también describe la recuperación del servidor alternativo."
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -112,5 +112,6 @@ Una vez proporcionada la entrada, haga clic en el botón **Recuperar**, que dese
 [16]: ./media/backup-azure-backup-and-recover/searchitems.png
 [17]: ./media/backup-azure-backup-and-recover/restorelocation.png
 [18]: ./media/backup-azure-backup-and-recover/encryption.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

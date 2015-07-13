@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Agregación de directivas de copia de seguridad de StorSimple"
-   description="Explica cómo puede usar el servicio del Administrador de StorSimple para crear una directiva de copia de seguridad."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/22/2015"
-   ms.author="alkohli" />
 
 #### Para agregar una directiva de copia de seguridad de StorSimple
 
@@ -30,4 +14,4 @@
 La directiva recién agregada se mostrará en la vista tabular en la página **Directivas de copia de seguridad**.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

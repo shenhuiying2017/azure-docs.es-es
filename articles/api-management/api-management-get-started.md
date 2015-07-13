@@ -16,13 +16,13 @@
 	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
-# Administración de su primera API en Administración de API de Azure
+#  Administración de su primera API en Administración de API de Azure
 
-## <a name="overview"> </a>Información general
+##  <a name="overview"> </a>Información general
 
 En esta guía se muestra cómo empezar a usar rápidamente la Administración de API y hacer la primera llamada API.
 
-## <a name="concepts"> </a>¿Qué es la Administración de API de Azure?
+##  <a name="concepts"> </a>¿Qué es la Administración de API de Azure?
 
 La Administración de API de Azure le permite tomar cualquier back-end e iniciar un programa de API completo basado en él.
 
@@ -57,7 +57,7 @@ El sistema consta de los siguientes componentes:
 	* obtener acceso a análisis sobre su propio uso
 
 
-## <a name="create-service-instance"> </a>Creación de una instancia de Administración de API
+##  <a name="create-service-instance"> </a>Creación de una instancia de Administración de API
 
 > Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
 
@@ -87,7 +87,7 @@ Haga clic en la casilla para crear su instancia de servicio.
 
 Una vez creada la instancia de servicio, el paso siguiente es crear o importar una API.
 
-## <a name="create-api"> </a>Importación de una API
+##  <a name="create-api"> </a>Importación de una API
 
 Una API consta de un conjunto de operaciones que se pueden invocar desde una aplicación cliente. Las operaciones API se realizan con proxy en servicios web existentes.
 
@@ -107,7 +107,8 @@ Para importar la API de la calculadora, haga clic en **API** en el menú **Admin
 
 Siga los pasos siguientes para configurar la API de la calculadora.
 
-1. Haga clic en **A partir de URL**, escriba **http://calcapi.cloudapp.net/calcapi.json** en el cuadro de texto **Dirección URL del documento de especificación** y haga clic en el botón de radio **Swagger**. 2. Escriba **calc** en el cuadro de texto **Sufijo de la dirección URL de la API web**.
+1. Haga clic en **A partir de URL**, escriba **http://calcapi.cloudapp.net/calcapi.json** en el cuadro de texto **Dirección URL del documento de especificación** y haga clic en el botón de radio **Swagger**. 
+2. Escriba **calc** en el cuadro de texto **Sufijo de la dirección URL de la API web**.
 3. Haga clic en el cuadro **Productos (opcional)** y elija **Starter**.
 4. Haga clic en **Guardar** para importar la API.
 
@@ -126,7 +127,7 @@ En este tutorial, se agregó la API de Basic Calculator al producto Starter cuan
 
 Para realizar llamadas a una API, los desarrolladores deben suscribirse primero a un producto que les proporcione acceso a ella. Los desarrolladores pueden suscribirse a productos en el portal para desarrolladores; asimismo, los administradores pueden suscribir a los desarrolladores a productos en el portal para editores. Usted es un administrador, ya que creó la instancia de Administración de API en los pasos anteriores del tutorial, por lo que ya está suscrito a todos los productos de manera predeterminada.
 
-## <a name="call-operation"> </a>Llamada a una operación desde el portal para desarrolladores
+##  <a name="call-operation"> </a>Llamada a una operación desde el portal para desarrolladores
 
 Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso del tutorial llamará a la operación **Agregar dos enteros** de la API de **Basic Calculator**. Haga clic en el **portal para desarrolladores** en el menú que se encuentra en la parte superior derecha del portal para editores.
 
@@ -150,7 +151,7 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 
 ![Response][api-management-invoke-get-response]
 
-## <a name="view-analytics"> </a>Visualización de análisis
+##  <a name="view-analytics"> </a>Visualización de análisis
 
 Para ver un análisis de **Basic Calculator**, vuelva al portal para editores seleccionando **Administrar** en el menú situado en la parte superior derecha del portal para desarrolladores.
 
@@ -181,7 +182,7 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
 -	**Mantenimiento** se centra en los códigos de estado, las tasas de éxito de caché, los tiempos de respuesta y los tiempos de respuesta de la API y del servicio.
 -	**Actividad** proporciona informes que detallan la actividad específica por desarrollador, producto, API y operación.
 
-## <a name="next-steps"> </a>Pasos siguientes
+##  <a name="next-steps"> </a>Pasos siguientes
 
 -	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
 
@@ -242,5 +243,4 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
 [api-management-]: ./media/api-management-get-started/api-management-.png
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

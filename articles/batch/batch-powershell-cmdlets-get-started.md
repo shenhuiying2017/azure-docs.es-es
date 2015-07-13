@@ -164,4 +164,4 @@ Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

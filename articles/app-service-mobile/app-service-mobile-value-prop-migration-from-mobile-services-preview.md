@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="02/20/2015"
 	ms.author="kirillg"/>
 
@@ -24,18 +24,18 @@ Servicios móviles existentes es seguro y seguirá siendo compatible. Sin embarg
 - Oferta más simple, más fácil y más rentable para las aplicaciones que incluyen clientes móviles y web
 - Nuevas características de host como trabajos web, CNAME personalizado y una mejor supervisión
 - Integración inmediata con Office 365, Dynamics CRM, Salesforce y otras API de SaaS fundamentales.
-- Compatibilidad con el código de back-end de Java y PHP, además de Node.js y .NET 
+- Compatibilidad con el código de back-end de Java y PHP, además de Node.js y .NET
 - Integración inmediata con Administrador de tráfico
 - Conectividad a los recursos locales y VPN mediante una red virtual además de las conexiones híbridas
 - Supervisión y solución de problemas para su aplicación mediante NewRelic o AppInsights, así como alertas
-- Espectro más completo de los recursos de procesos subyacentes, por ejemplo, los tamaños de máquina virtual 
+- Espectro más completo de los recursos de procesos subyacentes, por ejemplo, los tamaños de máquina virtual
 - Escalado automático integrado, equilibrio de carga y supervisión del rendimiento
-- Capacidades de prueba en producción, reversión, copia de seguridad y almacenamiento provisional incorporadas 
+- Capacidades de prueba en producción, reversión, copia de seguridad y almacenamiento provisional incorporadas
 
 ## Nuevas características de hospedaje
 En *Servicio de aplicaciones de Azure*, el código de back-end de la *aplicación móvil* se ejecuta en el mismo contenedor que la aplicación web y la aplicación de la API. De esta forma, puede beneficiarse de todas las características de este contenedor, incluidas la que no están actualmente en Servicios móviles:
 
-- adición de lógica de back-end de ejecución continua a través de Trabajos web 
+- adición de lógica de back-end de ejecución continua a través de Trabajos web
 - garantía de que el código de back-end siempre está ejecutándose
 - uso de CNames para proporcionar nombres descriptivos y estables en los extremos de back-end móvil
 - escala geográfica de la aplicación con Administrador de tráfico
@@ -65,8 +65,6 @@ Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ens
 
 
 En el momento en el que la característica *Aplicación móvil del Servicio de aplicaciones de Azure * se encuentre disponible de forma general, proporcionaremos una experiencia de migración continua para los Servicios móviles existentes para el Servicio de aplicaciones que elija para la migración. Mientras tanto, puede empezar a explorar *Servicio de aplicaciones* y a aprovechar *Servicio de aplicaciones* para el servicio móvil existente siguiendo este [tutorial](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md).
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Cómo agregar unidades de codificación" 
-	description="Información sobre cómo agregar unidades de codificación con .NET" 
+	description="Información sobre cómo agregar unidades de codificación con .NET"  
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -45,20 +45,29 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 
 De manera predeterminada las cuentas de Servicios multimedia pueden escalar hasta 25 unidades reservadas de codificación y 5 de streaming a petición. Si desea solicitar un límite mayor, abra una incidencia de soporte técnico.
 
-Para abrir una incidencia de soporte técnico, haga lo siguiente: 
+###Abrir una incidencia de soporte técnico
 
-1. Inicie sesión en su cuenta de Azure en [Portal de administración](http://manage.windowsazure.com).
-2. Vaya a [Soporte técnico](http://www.windowsazure.com/support/contact/).
-3. Haga clic en "Obtener soporte".
-4. Seleccione su suscripción.
-5. En el tipo de soporte, seleccione "Técnico".
-6. Haga clic en "Crear incidencia".
-7. Seleccione "Servicios multimedia de Microsoft Azure" en la lista de productos que se muestran en la página siguiente.
-8. Seleccione "Media Processing" como "Problem type" y, a continuación, seleccione "Reservation Units" en categoría.
-9. Haga clic en Continue.
-10. Siga las instrucciones de la página siguiente y, a continuación, especifique los detalles sobre cuántas unidades reservadas de streaming a petición o de codificación necesita.
-11. Haga clic en Submit para abrir la incidencia.
+Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
+1. Haga clic en [Obtener soporte técnico](https://manage.windowsazure.com/?getsupport=true). Si no ha iniciado sesión, se le solicitará que especifique sus credenciales.
 
+1. Seleccione su suscripción.
+ 
+1. En el tipo de soporte, seleccione "Técnico".
+ 
+1. Haga clic en "Crear incidencia".
+ 
+1. Seleccione "Servicios multimedia de Microsoft Azure" en la lista de productos que se muestran en la página siguiente.
+ 
+1. Seleccione un "Tipo de problema" que sea pertinente en relación con su problema.
+ 
+1. Haga clic en Continue.
+ 
+1. Siga las instrucciones que aparecen en la página siguiente y, a continuación, escriba los detalles de su problema.
+ 
+1. Haga clic en Submit para abrir la incidencia.
+ 
 
-<!--HONumber=52--> 
+ 
+
+<!---HONumber=62-->

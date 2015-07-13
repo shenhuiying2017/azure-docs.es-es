@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
 # Application Insights para aplicaciones de Windows Phone y de la Tienda Windows
@@ -60,15 +60,15 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
 
     ![](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Seleccione **En línea**, **Incluir versión preliminar** y busque "Application Insights".
+2. Busque "Application Insights".
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. Seleccione **Application Insights para aplicaciones de Windows**.
+3. Seleccione **Application Insights para aplicaciones de Windows .NET**.
 
 4. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
 
-    `<InstrumentationKey>`* la clave que copió *`</InstrumentationKey>`
+    `<InstrumentationKey>`*la clave que copió*`</InstrumentationKey>`
 
 **Aplicaciones universales de Windows**: repita los pasos para el proyecto de Windows Phone y de la Tienda Windows.
 
@@ -133,6 +133,12 @@ Agregue Application Insights desde el Explorador de soluciones.
 
 ![](./media/app-insights-windows-get-started/appinsights-d22-add.png)
 
+## Para actualizar a una nueva versión del SDK
+
+Cuando se [lanza una nueva versión de SDK](app-insights-release-notes-windows.md):
+* Haga clic con el botón derecho en el proyecto y elija Administrar paquetes de NuGet. 
+* Seleccione los paquetes instalados de Application Insights y elija la acción de actualización.
+
 
 ## <a name="usage"></a>Pasos siguientes
 
@@ -163,5 +169,4 @@ Agregue Application Insights desde el Explorador de soluciones.
 [windowsUsage]: app-insights-windows-usage.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

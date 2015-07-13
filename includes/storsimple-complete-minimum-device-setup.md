@@ -1,21 +1,5 @@
-<properties 
-   pageTitle="Completar la instalación mínima del dispositivo"
-   description="Se describe cómo completar la configuración mínima del dispositivo StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
 
-### Para completar la instalación mínima del dispositivo StorSimple
+#### Para completar la instalación mínima del dispositivo StorSimple
 
 1. Seleccione el dispositivo y haga clic en **Inicio rápido**. Haga clic en **Completar la instalación del dispositivo** para iniciar el Asistente para configurar dispositivos.
 
@@ -39,4 +23,4 @@
 
  >[AZURE.NOTE]Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar**.
 
-<!--HONumber=52-->
+<!---HONumber=62-->

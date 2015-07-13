@@ -11,7 +11,7 @@ Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La sig
 
 ![Blog de WordPress][13]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Creación de una aplicación web en el portal
 
@@ -78,4 +78,4 @@ Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La sig
 [resourcegroup]: ./media/website-from-gallery/showgroup.png
 [browse]: ./media/website-from-gallery/browse.png
 
-<!--HONumber=54-->
+<!---HONumber=62-->

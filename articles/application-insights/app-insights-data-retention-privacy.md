@@ -235,5 +235,4 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 [windows]: app-insights-windows-get-started.md
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

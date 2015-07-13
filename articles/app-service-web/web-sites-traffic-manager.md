@@ -63,5 +63,6 @@ Para obtener información sobre cómo configurar el Administrador de tráfico de
 Para obtener información detallada acerca del equilibrio de carga en el Administrador de tráfico de Azure, consulte [Métodos de equilibrio de carga del Administrador de tráfico](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Para obtener más información sobre el uso de Traffic Manager con Sitios web de Azure, consulte las publicaciones del blog [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) y [Azure Traffic Manager can now integrate with Azure Web Sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

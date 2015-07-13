@@ -29,4 +29,6 @@
 15.  En **Agente de máquina virtual**, revise las extensiones disponibles. Estas extensiones proporcionan varias características que facilitan el uso y la administración de una máquina virtual. Para obtener más información, consulte [Extensiones de máquina virtual de Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493).
 
 
-Una vez que Azure crea la máquina virtual y el servicio en la nube, el Portal de administración muestra la máquina virtual nueva en **Máquinas virtuales** y el servicio en la nube en **Servicios en la nube**. Tanto la máquina virtual como el servicio en la nube se inician automáticamente. <!--HONumber=52-->
+Una vez que Azure crea la máquina virtual y el servicio en la nube, el Portal de administración muestra la máquina virtual nueva en **Máquinas virtuales** y el servicio en la nube en **Servicios en la nube**. Tanto la máquina virtual como el servicio en la nube se inician automáticamente.
+
+<!---HONumber=62-->

@@ -59,7 +59,7 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 5. Escriba valores para la nueva aplicación web.
 
-    ![Creación de una aplicación web][new-web-app]
+    ![Crear una aplicación web][new-web-app]
 
 6. Especifique los valores para la nueva base de datos, incluida la aceptación de los términos legales.
 
@@ -89,11 +89,11 @@ Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, nec
 
 1. En el grupo de recursos, haga clic en la base de datos:
 
-	![Selección de una base de datos][select-database]
+	![Seleccionar base de datos][select-database]
 
 2. En el resumen de base de datos, elija **Propiedades**.
 
-    ![Selección de propiedades][select-properties]
+    ![Seleccionar propiedades][select-properties]
 
 2. Anote los valores de `Database`, `Host`, `User Id` y `Password`.
 
@@ -258,7 +258,7 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 
 	![Sitio web PHP de Azure][running-app]
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -294,5 +294,6 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -28,7 +28,7 @@ Una instalación básica de WordPress solamente tiene dos requisitos.
 
     > [AZURE.NOTE]ClearDB proporciona varias configuraciones de MySQL, cada una de ellas con diferentes características de rendimiento. Consulte la [Tienda de Azure][cdbnstore] para obtener información sobre las ofertas proporcionadas a través de dicha tienda o los [precios de ClearDB](http://www.cleardb.com/pricing.view) para conocer las ofertas directamente desde ClearDB.
 
-* **PHP 5.2.4 o superior**: Servicio de aplicaciones de Azure proporciona actualmente las [versiones 5.3, 5.4 y 5.5 de PHP][phpwebsite].
+* **PHP 5.2.4 o superior**: el servicio de aplicaciones de Azure proporciona actualmente las [versiones 5.3, 5.4 y 5.5 de PHP][phpwebsite].
 
 	> [AZURE.NOTE]Le recomendamos ejecutar siempre la versión más reciente de PHP para asegurarse de que dispone de las correcciones de seguridad más actuales.
 
@@ -59,7 +59,7 @@ Si el sitio va a aceptar cargas u hospedar archivos multimedia, use almacenamien
 
 De forma predeterminada, el almacenamiento de blobs se distribuye geográficamente entre regiones, por lo que no tiene que preocuparse por la replicación de archivos entre todos los sitios. También puede habilitar la [Red de entrega de contenido (CDN)][cdn] de Azure para almacenamientos de blobs, que distribuye archivos a los nodos extremo más próximos a los visitantes.
 
-###Planeación
+###Planificación
 
 ####Requisitos adicionales
 
@@ -104,7 +104,7 @@ Existen dos métodos para migrar un sitio de WordPress existente a Servicio de a
 
 ### Creación de un sitio de WordPress
 
-1. Use [Azure Marketplace][cdbnstore] para crear una base de datos MySQL del tamaño que identificó en la sección [Arquitectura y planeación](#planning), en las regiones en las que hospedará el sitio.
+1. Use [Azure Marketplace][cdbnstore] para crear una base de datos MySQL del tamaño que identificó en la sección [Arquitectura y planificación](#planning), en las regiones en las que hospedará el sitio.
 
 2. Siga los pasos en [Crear una aplicación web de WordPress en Servicio de aplicaciones de Azure][createwordpress] para crear una aplicación web de WordPress nueva. Cuando cree la aplicación web, seleccione **Usar una Base de datos MySQL existente** y seleccione la base de datos que se creó en el paso 1.
 
@@ -112,7 +112,7 @@ Si está migrando un sitio de WordPress existente, consulte [Migración de un si
 
 ### Migración de un sitio de WordPress existente a Azure
 
-Como se menciono en la sección [Arquitectura y planeación](#planning), hay dos formas de migrar un sitio de WordPress.
+Como se mencionó en la sección [Arquitectura y planificación](#planning), hay dos formas de migrar un sitio de WordPress.
 
 * **exportación e importación**, para sitios sin mucha personalización o donde solamente se desea mover el contenido.
 

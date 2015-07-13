@@ -26,7 +26,7 @@ La configuración requiere algunos pasos sencillos:
 
 - Escritura de seguimientos en el código.
 - Habilitación de diagnóstico de aplicaciones desde el Portal de vista previa de Azure.
-- Clic en los registros de streaming en el icono de la aplicación web
+- Haga clic en los registros de streaming en el icono de la aplicación web
 
 ### Cómo escribir los seguimientos en el código ###
 

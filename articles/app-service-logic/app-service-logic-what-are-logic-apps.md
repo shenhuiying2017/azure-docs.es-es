@@ -20,7 +20,7 @@
 
 Servicio de aplicaciones de Azure cuenta con una administración PaaS (plataforma como servicio) completa para los desarrolladores que hace que sea más fácil crear aplicaciones web, móviles y de integración. Las aplicaciones lógicas forman parte de este conjunto y permiten a cualquier usuario técnico o el desarrollador automatizar la ejecución de procesos de negocio y flujo de trabajo a través de un diseñador visual fácil de usar.
 
-Lo mejor de todo, las aplicaciones lógicas pueden combinarse con  [conectores][connectors] de nuestro Marketplace para ayudar a resolver incluso escenarios de integración complicados de forma fácil.
+Lo mejor de todo, las aplicaciones lógicas pueden combinarse con [conectores][connectors] de nuestro Marketplace para ayudar a resolver incluso escenarios de integración complicados de forma fácil.
 
 ![Diseñador de aplicación de flujo](./media/app-service-logic-what-are-logic-apps/Designer.png)
 
@@ -67,5 +67,6 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [tpm]: app-service-logic-create-a-trading-partner-agreement
 [rules]: app-service-logic-use-biztalk-rules
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

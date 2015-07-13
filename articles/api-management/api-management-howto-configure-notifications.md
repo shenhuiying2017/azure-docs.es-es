@@ -16,11 +16,11 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-# Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
+#  Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
 
 Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de Administración de API. Este tema muestra cómo configurar notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
-## <a name="publisher-notifications"> </a>Configuración de notificaciones del publicador
+##  <a name="publisher-notifications"> </a>Configuración de notificaciones del publicador
 
 Para configurar las notificaciones, haga clic en **Administrar** en el Portal de Azure para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
@@ -56,7 +56,7 @@ Después de configurar los destinatarios de las notificaciones, haga clic en **G
 
 >Si hay cambios sin guardar y sale de la pestaña **Notificaciones del publicador**, el portal de Administración de API le alertará.
 
-## <a name="email-templates"> </a>Configuración de plantillas de correo electrónico
+##  <a name="email-templates"> </a>Configuración de plantillas de correo electrónico
 
 Administración de API proporciona plantillas de correo electrónico para los mensajes de correo electrónico que se envían durante la administración y el uso del servicio. Se incluyen las siguientes plantillas de correo electrónico.
 
@@ -113,5 +113,4 @@ Haga clic en **Vista previa** o en **Enviar una prueba** para ver el aspecto que
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

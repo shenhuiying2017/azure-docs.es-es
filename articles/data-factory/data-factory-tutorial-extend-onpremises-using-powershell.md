@@ -51,7 +51,7 @@ Debe tener al menos una puerta de enlace instalada en su entorno corporativo, as
 
 Si tiene una puerta de enlace de datos existente que puede utilizar, omita este paso.
 
-1.	Cree una puerta de enlace de datos lógica. En el **Portal de vista previa de Azure**, haga clic en **servicios vinculados** en el **factoría de datos** blade.
+1.	Cree una puerta de enlace de datos lógica. En el **Portal de vista previa de Azure**, haga clic en **Servicios vinculados** en la hoja **FACTORÍA DE DATOS**.
 2.	Haga clic en **Agregar (+) puerta de enlace de datos** en la barra de comandos.  
 3.	En la hoja **Nueva puerta de enlace de datos**, haga clic en **CREAR**.
 4.	En la hoja **Crear**, escriba **MyGateway** como **nombre** de la puerta de enlace de datos.
@@ -97,46 +97,46 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 
 ### Creación del servicio vinculado
 
-1.	En el **Portal de vista previa de Azure**, haga clic en **servicios vinculados** en mosaico en el **factoría de datos** módulo para **LogProcessingFactory**.
-2.	En el **servicios vinculados** blade, haga clic en **Añadir (+) en el almacén de datos**.
-3.	En el **nuevo almacén de datos** blade, escriba **OnPremSqlLinkedService** para el **nombre**. 
-4.	Haga clic en **tipo (configuración necesaria)** y seleccione **SQL Server**. Debería ver el **puerta de enlace de datos**, **Server**, **base de datos**, y **CREDENCIALES** configuración en el **nuevo almacén de datos** blade ahora. 
-5.	Haga clic en **puerta de enlace de datos (configurar opciones necesarias)** y seleccione **MyGateway** que haya creado anteriormente. 
-6.	Escriba **nombre** del servidor de base de datos que hospeda la **MarketingCampaigns** base de datos. 
+1.	En el **Portal de vista previa de Azure**, haga clic en el icono **Servicios vinculados** en la hoja **FACTORÍA DE DATOS** para **LogProcessingFactory**.
+2.	En la hoja **Servicios vinculados**, haga clic en **Agregar (+) almacén de datos**.
+3.	En la hoja **Nuevo almacén de datos**, escriba **OnPremSqlLinkedService** para el **nombre**. 
+4.	Haga clic en **Tipo (configuración obligatoria)** y seleccione **SQL Server**. Debería ver las opciones de configuración **PUERTA DE ENLACE DE DATOS**, **Servidor**, **Base de datos** y **CREDENCIALES** en la hoja **Nuevo almacén de datos**. 
+5.	Haga clic en **PUERTA DE ENLACE DE DATOS (configure las opciones obligatorias)** y seleccione el **MyGateway** que ha creado antes. 
+6.	Escriba el **nombre** del servidor de base de datos que hospeda la base de datos **MarketingCampaigns**. 
 7.	Escriba **MarketingCampaigns** para la base de datos. 
 8.	Haga clic en **CREDENCIALES**. 
-9.	En el **credenciales** blade, haga clic en **haga clic aquí para establecer las credenciales de forma segura**.
-10.	Instala una aplicación de un solo clic por primera vez y se inicia el **establecer credenciales **cuadro de diálogo. 11.	En el **establecer credenciales** diálogo cuadro, escriba **nombre de usuario** y **contraseña**, y haga clic en **Aceptar**. Espere hasta que se cierre el cuadro de diálogo. 
-12.	Haga clic en **Aceptar** en el **nuevo almacén de datos** blade. 
-13.	En el **servicios vinculados** blade, confirme que **OnPremSqlLinkedService** aparece en la lista y la **estado** del servicio vinculado es **buena**.
+9.	En la hoja **Credenciales**, haga clic en la opción **Haga clic aquí para establecer las credenciales de forma segura**.
+10.	Se instala una aplicación de un clic por primera vez y se inicia el cuadro de diálogo **Establecer credenciales**.11.	En el cuadro de diálogo **Establecer credenciales**, escriba los valores de **Nombre de usuario** y **Contraseña**, y haga clic en **Aceptar**. Espere hasta que se cierre el cuadro de diálogo. 
+12.	Haga clic en **Aceptar** en la hoja **Nuevo almacén de datos**. 
+13.	En la hoja **Servicios vinculados**, confirme que **OnPremSqlLinkedService** aparece en la lista y que el **estado** del servicio vinculado es **Bueno**.
 
 ## <a name="OnPremStep3"></a> Paso 3: crear la tabla y la canalización
 
 ### Creación de la tabla lógica local
 
-1.	En **Azure PowerShell**, cambie a la **C:\ADFWalkthrough\OnPremises** carpeta. 
-2.	Use el cmdlet **nueva AzureDataFactoryTable** para crear las tablas de manera para **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+1.	En **Azure PowerShell**, cambie a la carpeta **C:\ADFWalkthrough\OnPremises**. 
+2.	Use el cmdlet **New-AzureDataFactoryTable** para crear las tablas para **MarketingCampaignEffectivenessOnPremSQLTable.json** de la manera siguiente.
 
 			
 		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Creación del proceso para copiar los datos del blob de Azure a SQL Server
 
-1.	Use el cmdlet **nueva AzureDataFactoryPipeline** para crear la canalización de manera para **EgressDataToOnPremPipeline.json**.
+1.	Use el cmdlet **New-AzureDataFactoryPipeline** para crear la canalización para **EgressDataToOnPremPipeline.json** de la manera siguiente.
 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Use el cmdlet **AzureDataFactoryPipelineActivePeriod Set** para especificar el período activo para **EgressDataToOnPremPipeline**.
+2. Use el cmdlet **Set-AzureDataFactoryPipelineActivePeriod** para especificar el período activo para **EgressDataToOnPremPipeline**.
 
 			
 		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
-	Presione **'Y'** para continuar.
+	Presione **‘Y’** para continuar.
 	
 ## <a name="OnPremStep4"></a> Paso 4: supervisar la canalización y ver el resultado
 
-Ahora puede usar los mismos pasos que se introdujo en [paso 6: supervisión de las tablas y las canalizaciones](#MainStep6) para supervisar la nueva canalización y los segmentos de datos para la nueva tabla ADF local.
+Ahora puede seguir los mismos pasos de la sección [Paso 6: Supervisión de tablas y canalizaciones](#MainStep6) para supervisar la nueva canalización y los segmentos de datos para la nueva tabla de ADF local.
  
 Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffectivenessOnPremSQLTable** pasa a Listo, significa que la canalización ha completado la ejecución del segmento. Para ver los resultados, consulte la tabla **MarketingCampaignEffectiveness** en la base de datos **MarketingCampaigns** en su SQL Server.
  
@@ -168,4 +168,6 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

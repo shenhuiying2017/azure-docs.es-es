@@ -170,5 +170,4 @@ Vuelva al [Portal de Azure][portal] y busque el recurso de Application Insights.
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
-
-<!---HONumber=58--> 
+<!--HONumber=62-->

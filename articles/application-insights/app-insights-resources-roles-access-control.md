@@ -15,14 +15,14 @@
 	ms.date="04/21/2015" 
 	ms.author="awills"/>
  
-# Recursos, roles y control de acceso en Application Insights
+#  Recursos, roles y control de acceso en Application Insights
 
 Puede controlar quién tiene acceso de lectura y actualización a sus datos en Visual Studio [Application Insights][start], mediante el uso del [control de acceso basado en rol de Microsoft Azure](../role-based-access-control-configure.md).
 
 > [AZURE.IMPORTANT]Asigne acceso a los usuarios para el **grupo de recursos o la suscripción** a los que pertenece el recurso de aplicación, no para el propio recurso. Asigne el rol de **colaborador de componentes de Application Insights**. De esta forma, se garantiza el control de acceso uniforme a las alertas y las pruebas web junto con su recurso de aplicación. [Más información](#access).
 
 
-## Recursos, grupos y suscripciones
+##  Recursos, grupos y suscripciones
 
 En primer lugar, vamos a ver algunas definiciones:
 
@@ -44,7 +44,7 @@ En primer lugar, vamos a ver algunas definiciones:
 * [**Cuenta Microsoft**][account]: el nombre de usuario y la contraseña que usa para iniciar sesión en las suscripciones de Microsoft Azure y en XBox Live, Outlook.com y otros servicios de Microsoft.
 
 
-## <a name="access"></a> Control de acceso para el grupo de recursos
+##  <a name="access"></a> Control de acceso para el grupo de recursos
 
 Es importante comprender que, además del recurso que ha creado para su aplicación, también hay recursos ocultos independientes para las alertas y las pruebas web. Estos están conectados al mismo [grupo de recursos](#resource-group) que la aplicación. También podría haber colocado ahí otros servicios de Azure, como sitios web o almacenamiento.
 
@@ -55,13 +55,13 @@ Para controlar el acceso a estos recursos, se recomienda por lo tanto lo siguien
 * Controlar el acceso en el nivel de **grupo de recursos o suscripción**.
 * Asignar el rol de **colaborador de componentes de Application Insights** a los usuarios. Esto les permite editar pruebas web, alertas y recursos de Application Insights, sin proporcionar acceso a otros servicios en el grupo. 
 
-## Para proporcionar acceso a otro usuario, siga estos pasos:
+##  Para proporcionar acceso a otro usuario, siga estos pasos:
 
 Debe tener derechos de propietario a la suscripción o al grupo de recursos.
 
 El usuario debe disponer de una [cuenta Microsoft][account]. Puede proporcionar acceso individual y también a grupos de usuarios definidos en Active Directory de Azure.
 
-#### Desplácese al grupo de recursos.
+####  Desplácese al grupo de recursos.
 
 Agregue ahí el usuario.
 
@@ -69,7 +69,7 @@ Agregue ahí el usuario.
 
 O bien, puede ascender otro nivel y agregar el usuario a la suscripción.
 
-#### Seleccione un rol.
+####  Seleccione un rol.
 
 ![Seleccione un rol para el nuevo usuario.](./media/app-insights-resources-roles-access-control/03-role.png)
 
@@ -87,7 +87,7 @@ La "edición" incluye la creación, la eliminación y la actualización:
 * Alertas
 * Exportación continua
 
-#### Seleccione el usuario.
+####  Seleccione el usuario.
 
 
 ![Escriba la dirección de correo electrónico de un nuevo usuario. Seleccione el usuario.](./media/app-insights-resources-roles-access-control/04-user.png)
@@ -96,7 +96,7 @@ Si el usuario de su elección no está en el directorio, puede invitar a cualqui
 
 
 
-## Usuarios y roles
+##  Usuarios y roles
 
 * [Control de acceso basado en rol de Azure](../role-based-access-control-configure.md)
 
@@ -109,4 +109,5 @@ Si el usuario de su elección no está en el directorio, puede invitar a cualqui
 [portal]: http://portal.azure.com/
 [start]: app-insights-get-started.md
 
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

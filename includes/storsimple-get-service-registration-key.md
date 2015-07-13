@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Obtener la clave de registro del servicio"
-   description="Se explica cómo obtener la clave de registro que se usa para registrar todos los dispositivos StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/01/2015"
-   ms.author="v-sharos" />
-
 
 #### Para obtener la clave de registro del servicio de StorSimple
 

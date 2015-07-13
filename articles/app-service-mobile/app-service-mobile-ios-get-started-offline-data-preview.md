@@ -96,12 +96,12 @@ Esta sección le guía a través del código relacionado con la sincronización 
 
     El método `pullWithQuery` le permite especificar una consulta para filtrar los registros que desea recuperar. En este ejemplo, la consulta recupera simplemente todos los registros en la tabla `TodoItem` remota.
 
-    El segundo parámetro  para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo del registro `UpdatedAt` (llamada  `ms_updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
+    El segundo parámetro para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo del registro `UpdatedAt` (llamada `ms_updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
 
 <!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
-5. En la clase  `QSTodoService`, se llama al método `syncData` después de las operaciones que modifican datos, `addItem` y `completeItem`. También se le llama desde `QSTodoListViewController.refresh`, de modo que el usuario obtiene los datos más recientes cada vez que realizan los gestos de actualización. La aplicación también lleva a cabo una sincronización en el inicio, ya que `QSTodoListViewController.init` llama a `refresh`.
+5. En la clase `QSTodoService`, se llama al método `syncData` después de las operaciones que modifican datos, `addItem` y `completeItem`. También se le llama desde `QSTodoListViewController.refresh`, de modo que el usuario obtiene los datos más recientes cada vez que realizan los gestos de actualización. La aplicación también lleva a cabo una sincronización en el inicio, ya que `QSTodoListViewController.init` llama a `refresh`.
 
     Dado que se llama a `syncData` cada vez que se modifican datos, esta aplicación supone que el usuario está en línea siempre que se editan datos. En otra sección, actualizaremos la aplicación para que los usuarios puedan editar incluso cuando estén sin conexión.
 
@@ -212,7 +212,7 @@ En esta sección, desactivará el Wi-Fi en el simulador para crear un escenario 
 
 Para admitir la característica de sincronización sin conexión, usamos la interfaz `MSSyncTable` e inicializamos `MSClient.syncContext` con un almacén local. En este caso, el almacén local era una base de datos Core Data.
 
-Cuando se utiliza un almacén local Core Data, debe definir varias tablas con las [propiedades del sistema de corrección][Review the Core Data model].
+Cuando se usa un almacén local Core Data, debe definir varias tablas con las [propiedades del sistema correctas][ Revisión del modelo Core Data].
 
 Las operaciones CRUD normales para Aplicaciones móviles funcionan como si la aplicación siguiera conectada, pero todas las operaciones se producen en el almacén local.
 
@@ -275,6 +275,7 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/es-es/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

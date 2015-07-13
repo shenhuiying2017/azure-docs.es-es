@@ -56,10 +56,12 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<th>Base de datos SQL de Azure</th>
 		<th>SQL Server local</th>
 		<th>SQL Server en IaaS</th>
+		<th>DocumentDB de Azure</th>
 	</tr>	
 
 	<tr>
 		<td><b>Blob de Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -74,10 +76,12 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td>X</td>
 	</tr>	
 
 	<tr>
 		<td><b>Base de datos SQL de Azure</b></td>
+		<td>X</td>
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
@@ -93,6 +97,7 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
@@ -102,11 +107,13 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td>X</td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<td><b>Sistema de archivos local</b></td>
 		<td>X</td>
+		<td></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -120,13 +127,85 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td></td>
 		<td></td>
 		<td></td>
+		<td></td>
 	</tr>
 
+	<tr>
+		<td><b>Sistema de archivos local</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos MySQL local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos DB2 local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos Teradata local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos Sybase local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos PostgreSQL local</b></td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>DocumentDB de Azure</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 
 </table>
 
+Para obtener información más detallada, consulte el tema [Orígenes y receptores compatibles](https://msdn.microsoft.com/library/dn894007.aspx) en MSDN Library.
+
 ### SQL en infraestructura como servicio (IaaS)
-También se admite SQL Server en IaaS como origen y receptor. Data Management Gateway es necesario al crear un servicio vinculado a SQL Server en IaaS. Considere la posibilidad de instalar la puerta de enlace de administración de datos en una máquina virtual que no sea un hospedaje SQL Server para evitar la degradación del rendimiento debido a que SQL Server y la puerta de enlace que compiten por los recursos. Para obtener detalles acerca de Data Management Gateway, vea [Habilitación de las canalizaciones para tener acceso a datos locales][use-onpremises-datasources].
+También se admite SQL Server en IaaS como origen y receptor. Data Management Gateway es necesario al crear un servicio vinculado a SQL Server en IaaS. Considere la posibilidad de instalar Data Management Gateway en una máquina virtual que no sea la que hospeda SQL Server para evitar la degradación del rendimiento debido a que tanto SQL Server como la puerta de enlace compiten por los recursos. Para obtener detalles acerca de Data Management Gateway, vea [Habilitación de las canalizaciones para tener acceso a datos locales][use-onpremises-datasources].
 
 1.	Máquina virtual con nombre DNS público y puerto público estático: asignación de puerto privado
 2.	Máquina virtual con el nombre DNS público sin exponer el extremo SQL.
@@ -146,7 +225,7 @@ La actividad de copia contiene los siguientes componentes:
 Una actividad de copia puede tener una **tabla de entrada** y otra **tabla de salida**.
 
 ## <a name="CopyActivityJSONSchema"></a>JSON para la actividad de copia
-Una canalización consta de una o varias actividades. Las actividades de las canalizaciones se definen en la sección **actividades[]**. El código JSON de una canalización es el siguiente:
+Una canalización consta de una o varias actividades. Las actividades de las canalizaciones se definen en la sección de **actividades**. El código JSON de una canalización es el siguiente:
          
 	{
 		"name": "PipelineName",
@@ -364,7 +443,7 @@ Para los almacenes de datos que ofrecen conexión HTTPS, elija la conexión HTTP
 
 Para **Base de datos SQL de Azure**, solicite explícitamente una conexión cifrada y no confíe en los certificados de servidor para evitar el ataque de tipo "Man in the middle". Para ello, use **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, vea [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Para bases de datos tradicionales como **SQL Server**, especialmente cuando las instancias están en una Máquina Virtual de Azure, habilite la opción de conexión cifrada mediante la configuración de un certificado firmado, con **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, consulte [Habilitar conexiones cifradas en el motor de base de datos](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) y [sintaxis de la cadena de conexión.](https://msdn.microsoft.com/library/ms254500.aspx).
+Para bases de datos tradicionales como **SQL Server**, especialmente cuando las instancias están en una Máquina Virtual de Azure, habilite la opción de conexión cifrada mediante la configuración de un certificado firmado, con **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, consulte [Habilitar conexiones cifradas en el motor de base de datos](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) y [Sintaxis de cadena de conexión.](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Escenarios avanzados
 - **Filtrado de columnas mediante la definición de estructuras**. Según el tipo de tabla, es posible especificar un subconjunto de las columnas del origen especificando menos columnas en la definición de **estructura** de la definición de la tabla que las que hay en el origen de datos subyacente.
@@ -405,5 +484,6 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-copy-actvity]: ./media/data-factory-copy-activity/VPNTopology.png
 [image-data-factory-column-mapping-1]: ./media/data-factory-copy-activity/ColumnMappingSample1.png
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

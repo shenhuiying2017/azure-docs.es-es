@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="02/22/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Adición de notificaciones push a su aplicación Xamarin iOS
@@ -79,11 +79,11 @@ Para poder enviar notificaciones push a un dispositivo iOS desde la aplicación 
 
     ![][106]
    
-    Al hacer clic en el id. de la aplicación aparecerán los detalles de la misma y su id. Haga clic en el botón **Configuración**.
+    Al hacer clic en el id. de la aplicación aparecerán los detalles de la misma y su id. Haga clic en el botón **Settings** (Configuración).
    
     ![][107]
    
-4. Desplácese a la parte inferior de la pantalla y haga clic en el botón **Crear certificado...** en la sección **Certificado SSL de inserción de desarrollo**.
+4. Desplácese a la parte inferior de la pantalla y haga clic en el botón **Create Certificate...** (Crear certificado...) en la sección **Development Push SSL Certificate** (Certificado SSL de inserción de desarrollo).
 
     ![][108]
 
@@ -95,7 +95,7 @@ Para poder enviar notificaciones push a un dispositivo iOS desde la aplicación 
 
     ![][110]
   
-6. Una vez que el portal haya creado el certificado, haga clic en el botón **Descargar** y en **Listo**.
+6. Una vez que el portal haya creado el certificado, haga clic en el botón **Download** (Descargar) y en **Done** (Listo).
  
     ![][111]
 
@@ -334,5 +334,6 @@ Ha completado correctamente este tutorial.
 [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -20,7 +20,7 @@
 
 Para aumentar el rendimiento y la capacidad de las aplicaciones de Microsoft Azure, puede usar el [Portal de Azure](https://portal.azure.com/) para escalar el plan del Servicio de aplicaciones de **Gratis** a **Compartido**, **Básico**, **Estándar** o **Premium**.
 
-El nivel de servicio tiene su plan de servicio de la aplicación se basa en el [*nivel de precios* para el plan](/pricing/details/app-service/). Los niveles de servicio superiores, como **Estándar** y **Premium** ofrecen una mayor robustez y flexibilidad a la hora de determinar cómo se utilizan los recursos en Azure. Cambiar el nivel de precios afecta al número de núcleos y a la cantidad de memoria  que tiene su servicio, y esto se conoce como *Escalado verticalmente* (o *Reducción vertical*).
+El nivel de servicio tiene su plan de servicio de la aplicación se basa en el [*nivel de precios* para el plan](/pricing/details/app-service/). Los niveles de servicio superiores, como **Estándar** y **Premium** ofrecen una mayor robustez y flexibilidad a la hora de determinar cómo se utilizan los recursos en Azure. Cambiar el nivel de precios afecta al número de núcleos y a la cantidad de memoria que tiene su servicio, y esto se conoce como *Escalado verticalmente* (o *Reducción vertical*).
 
 Además de escalar verticalmente el nivel de precio, puede aumentar el número de instancias que tiene el servicio. Esto se conoce como *Reducción vertical* o *Reducción horizontal*. Vea el artículo sobre [Escalación del recuento de instancias de forma manual o automática](../insights-how-to-scale.md) para obtener más información sobre *Reducción vertical* y *Reducción horizontal*.
 
@@ -86,7 +86,7 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 <a name="Next Steps"></a>
 ## Pasos siguientes
 
-- Para comenzar con Azure, vea [Evaluación gratuita de Microsoft Azure](/pricing/free-trial/).
+- Para comenzar con Azure, consulte [Evaluación gratuita de Microsoft Azure](/pricing/free-trial/).
 - Para obtener información sobre el precio, soporte técnico y contrato de nivel de servicio, consulte los siguientes vínculos.
 	
 	[Detalles de precios de Transferencias de datos](/pricing/details/data-transfers/)
@@ -125,5 +125,6 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

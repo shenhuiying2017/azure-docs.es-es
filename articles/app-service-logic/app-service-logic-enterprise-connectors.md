@@ -70,7 +70,7 @@ Los pasos siguientes crean un conector empresarial mediante la hoja del conector
 
 	Propiedad | Descripción
 --- | ---
-Nombre | Escriba cualquier nombre para el conector. Por ejemplo, denomínelo *SAPConnector*, *SalesForceGetAccounts* o  *QuickBooksGetItems*.
+Nombre | Escriba cualquier nombre para el conector. Por ejemplo, denomínelo *SAPConnector*, *SalesForceGetAccounts* o *QuickBooksGetItems*.
 Configuración del paquete | Especifique la configuración del sistema empresarial, como *Nombre de usuario de SAP* o *Dirección URL del servidor de SugarCRM*. Vea [Propiedades específicas del sistema empresarial](#AddProperties) en este tema. 
 Plan de servicio de aplicación | Muestra el plan de pagos. Puede cambiarlo si necesita más o menos recursos.
 Nivel de precios | Propiedad de solo lectura que muestra la categoría de precio de su suscripción de Azure. 
@@ -125,7 +125,7 @@ Dentro de la aplicación, con el simple hecho de seleccionar el conector desde l
 
 Los siguientes pasos agregan un conector empresarial a aplicaciones lógicas, aplicaciones móviles o aplicaciones web:
 
-1. En el Panel de inicio del Portal de Azure (página principal), vaya a  **Marketplace** y busque las aplicaciones lógicas, móviles o web.
+1. En el Panel de inicio del Portal de Azure (página principal), vaya a **Marketplace** y busque las aplicaciones lógicas, móviles o web.
 
 	Si va a crear una nueva aplicación, busque aplicaciones lógicas, aplicaciones móviles o aplicaciones web. Seleccione la aplicación en la nueva hoja, seleccione **Crear**. En [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md) se muestran los pasos.
 
@@ -136,7 +136,7 @@ Los siguientes pasos agregan un conector empresarial a aplicaciones lógicas, ap
 
 
 ## Seguridad
-Algunos de los conectores empresariales tienen seguridad OAuth. Al agregar el conector a la aplicación, se  **autoriza** al conector mediante la conexión al sistema empresarial con su cuenta de inicio de sesión y acepta los términos. Al hacerlo, la aplicación y el conector usan la cuenta de inicio de sesión para autenticarse con el sistema.
+Algunos de los conectores empresariales tienen seguridad OAuth. Al agregar el conector a la aplicación, se **autoriza** al conector mediante la conexión al sistema empresarial con su cuenta de inicio de sesión y acepta los términos. Al hacerlo, la aplicación y el conector usan la cuenta de inicio de sesión para autenticarse con el sistema.
 
 
 ### Acceso a un conector con API de REST
@@ -147,10 +147,11 @@ Algunos de los conectores empresariales tienen seguridad OAuth. Al agregar el co
 
 
 ## Lea acerca de las aplicaciones lógicas y las aplicaciones web
-[¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)<br/> [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-app-azure-portal.md)
+[¿Qué son Aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)<br/> [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md)
 
 
 
 ## Más conectores
 [Conectores de integración de BizTalk](app-service-logic-integration-connectors.md)<br/> [Conectores negocio a negocio](app-service-logic-b2b-connectors.md)<br/> [ Conectores sociales](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md)<br/> [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

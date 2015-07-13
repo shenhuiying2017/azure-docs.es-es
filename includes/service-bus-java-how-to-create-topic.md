@@ -1,88 +1,54 @@
-## What are Service Bus Topics and Subscriptions?
+## Qué son los temas y las suscripciones del Bus de servicio
 
-Service Bus topics and subscriptions support a *publish/subscribe*
-messaging communication model. When using topics and subscriptions,
-components of a distributed application do not communicate directly with
-each other; instead they exchange messages via a topic, which acts as an
-intermediary.
+Las suscripciones y los temas del Bus de servicio son compatibles con el modelo de comunicación de mensajería de *publicación/suscripción*. Cuando se usan temas y suscripciones, los componentes de una aplicación distribuida no se comunican directamente entre sí, sino que intercambian mensajes a través de un tema, que actúa como un intermediario.
 
 ![TopicConcepts](./media/service-bus-java-how-to-create-topic/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a
-single consumer, topics and subscriptions provide a "one-to-many" form
-of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a
-topic, it is then made available to each subscription to handle/process
-independently.
+A diferencia de las colas del Bus de servicio, en las que un solo destinatario procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación de uno a varios mediante un patrón de publicación/suscripción. Es posible registrar varias suscripciones en un tema. Cuando un mensaje se envía a un tema, pasa a estar disponible para cada suscripción para la administración o el procesamiento de manera independiente.
 
-A subscription to a topic resembles a virtual queue that receives copies of
-the messages that were sent to the topic. You can optionally register
-filter rules for a topic on a per-subscription basis, which allows you
-to filter/restrict which messages to a topic are received by which topic
-subscriptions.
+Una suscripción a un tema se asemeja a una cola virtual que recibe copias de los mensajes que se enviaron al tema. Opcionalmente, puede registrar reglas de filtros para un tema por suscripción, lo que le permite filtrar/restringir qué mensajes para un tema reciben las suscripciones a un tema.
 
-Service Bus topics and subscriptions enable you to scale to process a
-very large number of messages across a very large number of users and
-applications.
+Las suscripciones y temas del Bus de servicio le permiten escalar para realizar el procesamiento de un número bastante elevado de mensajes en una serie muy amplia de usuarios y aplicaciones.
 
-## Create a service namespace
+## Creación de un espacio de nombres de servicio
 
-To begin using Service Bus topics and subscriptions in Azure,
-you must first create a service namespace. A service namespace provides
-a scoping container for addressing Service Bus resources within your
-application.
+Para comenzar a usar suscripciones y temas del Bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del Bus de servicio en la aplicación.
 
-To create a service namespace:
+Para crear un nombre de espacio de servicio:
 
-1.  Log on to the [Azure Management Portal][].
+1.  Inicie sesión en el [Portal de administración de Azure][].
 
-2.  In the left navigation pane of the Management Portal, click
-    **Service Bus**.
+2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **us de servicio**.
 
-3.  In the lower pane of the Management Portal, click **Create**.
-    ![][0]
+3.  En el panel inferior del Portal de administración, haga clic en **Crear**. ![][0]
 
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.
-    ![][2]
+4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![][2]
 
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
+5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
-	IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
+	IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
-    namespace and enables it. You might have to wait several minutes as
-    the system provisions resources for your account.
+6. 	Deje los demás campos en el cuadro de diálogo con los valores predeterminados (**Mensajería** y **Nivel estándar**) y, a continuación, haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
 	![][6]
 
 
-## Obtain the default management credentials for the namespace
+## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
-In order to perform management operations, such as creating a topic or
-subscription on the new namespace, you must obtain the management
-credentials for the namespace. You can obtain these credentials from the Azure management portal.
+Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales desde el Portal de administración de Azure.
 
-### To obtain management credentials from the portal
+### Para obtener las credenciales de administración desde el portal
 
-1.  In the left navigation pane, click the **Service Bus** node to
-    display the list of available namespaces:
-    ![][0]
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![][0]
 
-2.  Click on the namespace you just created from the list shown:
-    ![][3]
+2.  Haga clic en el espacio de nombres que acaba de crear en la lista mostrada: ![][3]
 
-3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
+3.  Haga clic en **Configurar** para ver las directivas de acceso compartido para el espacio de nombres. ![](./media/service-bus-java-how-to-create-topic/sb-queues-14.png)
 
-4.  Make a note of the primary key, or copy it to the clipboard.
+4.  Anote la clave principal o cópiela en el Portapapeles.
 
 
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Portal de administración de Azure]: http://manage.windowsazure.com
   [0]: ./media/service-bus-java-how-to-create-topic/sb-queues-13.png
   [2]: ./media/service-bus-java-how-to-create-topic/sb-queues-04.png
   [3]: ./media/service-bus-java-how-to-create-topic/sb-queues-09.png
@@ -90,3 +56,5 @@ credentials for the namespace. You can obtain these credentials from the Azure m
 
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
+
+<!---HONumber=62-->

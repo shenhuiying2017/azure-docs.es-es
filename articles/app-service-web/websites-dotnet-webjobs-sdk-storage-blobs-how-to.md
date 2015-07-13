@@ -20,7 +20,7 @@
 
 ## Información general
 
-Esta guía proporciona muestras de código de C# que muestran la manera de desencadenar un proceso cuando se crea o actualiza un blob de Azure. Las muestras de código usan el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
+Esta guía proporciona muestras de código de C# que muestran la manera de desencadenar un proceso cuando se crea o actualiza un blob de Azure. Los ejemplos de código usan el [SDK de WebJobs](websites-dotnet-webjobs-sdk.md) versión 1.x.
 
 En el caso de ejemplos de código que muestran cómo crear blobs, consulte [Cómo usar el almacenamiento en cola de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md).
 		

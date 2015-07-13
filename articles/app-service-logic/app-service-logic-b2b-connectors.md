@@ -194,13 +194,22 @@ En los siguientes pasos se agregan las aplicaciones de API B2B a las aplicacione
 
 ## Más recursos B2B
 
-[Creación de un proceso B2B](app-service-logic-create-a-b2b-process.md)<br/> [Creación de un acuerdo entre socios comerciales](app-service-logic-create-a-trading-partner-agreement.md)<br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+[Creación de un proceso B2B](app-service-logic-create-a-b2b-process.md)<br/>
+[Creación de un acuerdo entre socios comerciales](app-service-logic-create-a-trading-partner-agreement.md)<br/>
+[¿Qué son los conectores y las aplicaciones de la API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## Lea acerca de las aplicaciones lógicas y las aplicaciones web
-[¿Qué son Aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)<br/> [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-app-azure-portal.md)
+[¿Qué son Aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)<br/>
+[Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md)
 
 
 ## Más conectores
-[Conectores de integración de BizTalk](app-service-logic-integration-connectors.md)<br/> [Conectores empresariales](app-service-logic-enterprise-connectors.md)<br/> [Conectores sociales](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md)<br/> [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y Aplicaciones de API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
-<!--HONumber=54--> 
+[Conectores de integración de BizTalk](app-service-logic-integration-connectors.md)<br/>
+[Conectores empresariales](app-service-logic-enterprise-connectors.md)<br/>
+[Conectores sociales](app-service-logic-social-connectors.md)<br/>
+[Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/>
+[Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md)<br/>
+[Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/>
+[¿Qué son los conectores y Aplicaciones de API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
+<!--HONumber=62-->

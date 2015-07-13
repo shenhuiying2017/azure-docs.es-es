@@ -109,7 +109,7 @@ Tras crear una aplicación de API de reglas de BizTalk, el siguiente paso sería
   1.	Nombre: solo se esperan caracteres alfanuméricos sin caracteres especiales. Aparte, debe ser único en su lista de definiciones de vocabulario existente.
   2.	Descripción: es un campo opcional.
   3.	Tipo: se admiten dos tipos. En este ejemplo, elija Literal
-  4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de dato de la definición. Actualmente se pueden seleccionar cuatro tipos: i. Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo") ii. Booleano: puede tener el valor verdadero o falso iii. Número: puede ser cualquier número decimal iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/yyyy hh:mm:ss AM\\PM v. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. El usuario puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave to (a). Por ejemplo, el usuario puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
+  4.	Tipo de entrada: aquí los usuarios pueden seleccionar el tipo de dato de la definición. Actualmente se pueden seleccionar cuatro tipos: i. Cadena: estos valores deben escribirse entre comillas dobles ("cadena de ejemplo") ii. Booleano: puede tener el valor verdadero o falso iii. Número: puede ser cualquier número decimal iv. DateTime: esto significa que la definición es de tipo fecha. Los datos se deben escribir con el formato: mm/dd/yyyy hh:mm:ss AM\PM v. Entrada: aquí se escribe el valor de su definición. Los valores aquí especificados deben ajustarse al tipo de dato elegido. El usuario puede escribir un solo valor, un conjunto de valores separados por coma o un intervalo de valores mediante la palabra clave to (a). Por ejemplo, el usuario puede escribir un valor único 1; un conjunto 1, 2, 3; o un intervalo de 1 a 5. Tenga en cuenta que el intervalo solo se permite para números.
 
 ![Texto alternativo][5]
 ##Definición de XML
@@ -200,5 +200,6 @@ Una de las principales ventajas del uso de reglas de negocios es que los cambios
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

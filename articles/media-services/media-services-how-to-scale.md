@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/24/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,7 +21,7 @@
 
 ##Información general
 
-Puede escalar **Servicios multimedia** mediante la especificación del número de **unidades reservadas de streaming** y **unidades reservadas de codificación** con las que desea aprovisionar la cuenta. 
+Puede escalar **Servicios multimedia** mediante la especificación del número de **unidades reservadas de streaming** y **unidades reservadas de codificación** con las que desea aprovisionar la cuenta.
 
 También puede escalar la cuenta de Servicios multimedia agregándole cuentas de almacenamiento. Cada cuenta de almacenamiento está limitada a 500 TB. Para ampliar el almacenamiento más allá del límite predeterminado, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia.
 
@@ -29,11 +29,11 @@ Este tema contiene vínculos a temas relevantes.
 
 ##<a id="streaming_endpoins"></a>Unidades reservadas de streaming
 
-Para obtener más información, consulte [Escalado de unidades de streaming](media-services-manage-origins.md#scale_streaming_endpoints).
+Para obtener más información, consulte [Escalado de unidades de streaming](media-services-manage-origins.md#scale_streaming_endpoints)
 
 ##<a id="encoding_reserved_units"></a>Unidades reservadas de codificación
 
-Para obtener información acerca de cómo ampliar unidades de codificación, vea los siguientes temas **Portal** y **.NET**.
+Para obtener información acerca de cómo ampliar unidades de codificación, consulte los siguientes temas **Portal** y **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
 
@@ -45,6 +45,6 @@ Para obtener más información, consulte [Administración de recursos de Servici
 
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

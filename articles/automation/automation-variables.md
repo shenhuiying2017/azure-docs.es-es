@@ -29,7 +29,7 @@ Las variables de Automatización se conservan para que sigan estando disponibles
 
 Cuando se crea una variable, puede especificar que se almacene cifrada. Cuando se cifra una variable, se almacena de forma segura en Automatización de Azure y su valor no se puede recuperar del cmdlet [Get-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913772.aspx) que se incluye como parte del módulo Azure PowerShell. Es la única manera de que se puede recuperar un valor cifrado desde la actividad **Get-AutomationVariable** en un runbook.
 
->[AZURE.NOTE]Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure utilizando una clave única que se genera para cada cuenta de automatización. Esta clave se cifra por un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
+>[AZURE.NOTE]Los recursos protegidos en Automatización de Azure incluyen credenciales, certificados, conexiones y variables cifradas. Estos recursos se cifran y se almacenan en Automatización de Azure con una clave única que se genera para cada cuenta de automatización. Esta clave se cifra mediante un certificado maestro y se almacena en Automatización de Azure. Antes de almacenar un recurso seguro, la clave de la cuenta de automatización se descifra con el certificado maestro y, a continuación, se utiliza para cifrar el recurso.
 
 ## Tipos de variables
 
@@ -186,5 +186,6 @@ La imagen siguiente muestra cómo filtrar los objetos almacenados en una variabl
 ## Artículos relacionados
 
 - [Vínculos de creación gráfica](automation-graphical-authoring-intro.md#links-and-workflow)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

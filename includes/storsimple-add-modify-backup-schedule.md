@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Agregación o modificación de una programación de copia de seguridad de StorSimple"
-   description="Explica cómo puede usar el servicio del Administrador de StorSimple para crear y editar módulos de copia de seguridad."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
 
 #### Para agregar o modificar una programación de copia de seguridad de StorSimple
 
@@ -44,4 +28,4 @@
 La página **Directivas de copia de seguridad** se actualizará para guardar los cambios en la directiva.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

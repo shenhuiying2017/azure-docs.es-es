@@ -110,7 +110,7 @@ Una vez completada la implementación, el portal mostrará la hoja correspondien
 [Documentación de Aplicaciones web del Servicio de aplicaciones](/documentation/services/websites/)
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal al de vista previa, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
@@ -133,5 +133,6 @@ Una vez completada la implementación, el portal mostrará la hoja correspondien
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -34,6 +34,6 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar.
 
 ## Artículos relacionados
-- [Copia de seguridad de Automatización de Azure](https://msdn.microsoft.com/library/dn643635.aspx)
+- [Copia de seguridad de Automatización de Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -22,15 +22,13 @@
 
 En primer lugar, vamos a configurar una red virtual (VNET) en Azure. A continuación, agregaremos un controlador de dominio de Active Directory (hospedado en una máquina virtual de Azure) a la red virtual. Después, agregaremos los roles de servicios en la nube existentes a la red virtual creada previamente y, a continuación, los conectaremos al controlador de dominio.
 
-Antes de empezar, debemos tener en cuenta un par de cosas:
-1.	En este tutorial se usa Powershell, por lo que debe asegurarse de tener Azure Powershell instalado y listo para usar. Para obtener ayuda con la configuración de Azure Powershell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).
-2.	El controlador de dominio de AD y las instancias de rol web o de trabajo deben estar en la red virtual.
+Antes de empezar, debemos tener en cuenta un par de cosas: 1. En este tutorial se usa Powershell, por lo que debe asegurarse de tener Azure Powershell instalado y listo para usar. Para obtener ayuda con la configuración de Azure Powershell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). 2. El controlador de dominio de AD y las instancias de rol web o de trabajo deben estar en la red virtual.
 
 Siga esta guía paso a paso y, en caso de que surja algún problema, deje un comentario a continuación. Nos pondremos en contacto con usted (siempre leemos los comentarios).
 
 ## Creación de una red virtual
 
-Puede crear una red virtual en Azure mediante el Portal de Azure o Powershell. En este tutorial, usaremos Powershell. Para crear una red virtual mediante el Portal de Azure, consulte [Creación de una red virtual](../create-virtual-network.md).
+Puede crear una red virtual en Azure mediante el Portal de Azure o Powershell. En este tutorial, usaremos Powershell. Para crear una red virtual mediante el Portal de Azure, consulte[ Creación de una red virtual](../create-virtual-network.md).
 
     #Create Virtual Network
 
@@ -67,11 +65,11 @@ Para ello, cree una máquina virtual a través de Powershell mediante los comand
 
     $vnetname = '<your-vnet-name>'
     $subnetname = '<your-subnet-name>'
-    $vmsvc1 = '<your-hosted-service>'
-    $vm1 = '<your-vm-name>'
-    $username = '<your-username>'
-    $password = '<your-password>'
-    $ affgrp = '<your- affgrp>'
+    $vmsvc1 = ‘<your-hosted-service>’
+    $vm1 = ‘<your-vm-name>’
+    $username = ‘<your-username>’
+    $password = ‘<your-password>’
+    $ affgrp = ‘<your- affgrp>’
 
     #Create a VM and add it to the Virtual Network
 
@@ -119,7 +117,7 @@ A continuación, deberá agregar la implementación del servicio en la nube a la
       </NetworkConfiguration>
     </ServiceConfiguration>
 
-A continuación, compile el proyecto de servicios en la nube e impleméntelo en Azure. Para obtener ayuda con la implementación del paquete de servicios en la nube en Azure, consulte [Creación e implementación de un servicio en la nube](cloud-services-how-to-create-deploy.md#deploy)
+A continuación, compile el proyecto de servicios en la nube e impleméntelo en Azure. Para obtener ayuda con la implementación del paquete de servicios en la nube en Azure, consulte [Creación e implementación de un servicio en la nube](cloud-services-how-to-create-deploy.md#deploy).
 
 ## Conexión del rol web o de trabajo al dominio personalizado con la extensión de dominio de AD
 
@@ -127,8 +125,8 @@ Una vez implementado el proyecto de servicio en la nube en Azure, conecte las in
 
     #Initialize domain variables
 
-    $domain = '<your-domain-name>';
-    $dmuser = '$domain<your-username>';
+    $domain = ‘<your-domain-name>’;
+    $dmuser = ‘$domain<your-username>’;
     $dmpswd = '<your-domain-password>';
     $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force;
     $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd);
@@ -147,6 +145,6 @@ Ahora, los servicios en la nube deben estar unidos al controlador de dominio per
 También nos gustaría que nos enviara comentarios donde indique si le resultaría útil tener una extensión que promueva una máquina virtual a un controlador de dominio. En caso de ser así, infórmenos al respecto en la sección de comentarios.
 
 Esperamos que le haya resultado útil.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas"
-	description="Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas"
+   description="Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
 
@@ -33,7 +32,7 @@ La programación de copia de seguridad indica la frecuencia de la operación de 
 
 ![Programación diaria][1]
 
-Los clientes también pueden programar una copia de seguridad semanal, por ejemplo, la configuración en la pantalla siguiente indica que las copias de seguridad se realizarán alternando entre cada domingo y  miércoles a las 9:30 am y la 01:00 am. <br/>
+Los clientes también pueden programar una copia de seguridad semanal, por ejemplo, la configuración en la pantalla siguiente indica que las copias de seguridad se realizarán alternando entre cada domingo y miércoles a las 9:30 am y la 01:00 am. <br/>
 
 ![Programación semanal][2]
 
@@ -77,5 +76,6 @@ Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más
 [3]: ./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png
 [4]: ./media/backup-azure-backup-cloud-as-tape/samplescreen.png
 [5]: ./media/backup-azure-backup-cloud-as-tape/modify.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

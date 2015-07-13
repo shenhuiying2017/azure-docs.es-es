@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/04/2015" 
 	ms.author="spelluru"/>
 
 
@@ -129,7 +129,7 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[AZURE.NOTE]Tenga en cuenta que las horas de inicio y finalización están establecidas en 01/05/2014 y 05/05/2014, dado que los datos de ejemplo de este tutorial van del 01/05/2014 al 05/05/2014.
+	Tenga en cuenta que las horas de **inicio** y **finalización** están establecidas en 01/05/2014 y 05/05/2014, ya que los datos de ejemplo de este tutorial van del 01/05/2014 al 05/05/2014.
  
 3. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización. Confirme que aparece el mensaje **LA CANALIZACIÓN SE HA CREADO CORRECTAMENTE** en la barra de título del Editor.
 	
@@ -167,4 +167,6 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
 
-<!---HONumber=GIT-SubDir--> 
+ 
+
+<!---HONumber=62-->

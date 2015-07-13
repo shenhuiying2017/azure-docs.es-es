@@ -18,7 +18,7 @@
 
 # Instalación de .NET en un rol de servicio en la nube 
 
-En este artículo se describe cómo instalar .NET Framework en el rol web y el rol de trabajo de servicio en la nube. Puede usar estos pasos para instalar una versión de .NET Framework que no se encuentra en el sistema operativo invitado de Azure de manera predeterminada. Para obtener la información más reciente sobre las versiones de sistema operativo invitado, consulte [Versiones de SO invitado de Azure y matriz de compatibilidad de SDK](cloud-services-guestos-update-matrix.md).
+En este artículo se describe cómo instalar .NET Framework en el rol web y el rol de trabajo de servicio en la nube. Puede utilizar estos pasos para instalar .NET Framework 4.5.2 en la familia de SO invitado de Azure 4. Para obtener la información más reciente sobre las versiones de sistema operativo invitado, consulte [Versiones de SO invitado de Azure y matriz de compatibilidad de SDK](cloud-services-guestos-update-matrix.md).
 
 El proceso de instalación de .NET en el rol web y el rol de trabajo implica incluir el paquete del instalador de .NET como parte del proyecto en la nube e iniciar el instalador como parte de las tareas de inicio del rol.
 
@@ -115,6 +115,6 @@ Cuando implemente el servicio, se ejecutarán las tareas de inicio e instalarán
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

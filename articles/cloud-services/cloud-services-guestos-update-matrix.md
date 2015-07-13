@@ -3,8 +3,8 @@
    description="Noticias sobre los lanzamientos más recientes y compatibilidad con el SO invitado de Servicios en la nube de Azure." 
    services="cloud-services" 
    documentationCenter="na" 
-   authors="Thraka" 
-   manager="timlt" 
+   authors="yuemlu" 
+   manager="markkie" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+   ms.date="05/20/2015"
+   ms.author="yuemlu"/>
 
 # Matriz de compatibilidad del SDK y lanzamientos del SO invitado de Azure.
 Proporciona información actualizada sobre los lanzamientos del SO invitado de Azure más recientes para Servicios en la nube. Esta información le ayudará a planear su ruta de actualización antes de que se deshabilite un SO invitado.
@@ -28,6 +28,14 @@ Proporciona información actualizada sobre los lanzamientos del SO invitado de A
 
 
 ## Actualizaciones de noticias
+
+###### **15 de junio de 2015**
+La implementación del SO invitado de junio comienza hoy, 15 de junio de 2015, y está previsto que se lance el 9 de julio de 2015.
+
+Las versiones del SO invitado 4.20, 3.27 y 2.39 se lanzaron el 12 de junio de 2015.
+
+###### **20 de mayo de 2015:**
+La implementación del SO invitado de mayo comienza hoy, 20 de mayo de 2015, y está previsto que se lance el 12 de junio de 2015.
 
 ###### **17 de abril de 2015**
 Las versiones del SO invitado 4.19, 3.26 y 2.38 se han lanzado hoy.
@@ -64,16 +72,6 @@ Como [se ha anunciado anteriormente][ssl3 announcement], la actualización de se
 ###### **16 de diciembre de 2014. Actualizado el 7 de enero de 2015**
 El lanzamiento del SO invitado de diciembre está previsto para iniciarse a partir del 9 de enero de 2015.
 
-
-###### **11 de noviembre de 2014**
-
-El lanzamiento de noviembre (4.14, 3.21 y 2.33) se implementó el 11 de noviembre. Esta actualización se desplazó a una fecha anterior porque incluye la actualización de MSRC [Boletín de seguridad de Microsoft MS14-066: crítico][MS14-066]. Los roles de web y de trabajo en la actualización automática deben reiniciarse una vez en los próximos días y recibir esta corrección.
-
-###### **10 de noviembre de 2014**
-La fecha de deshabilitación del lanzamiento de octubre (4.13, 3.20 y 2.32) se ha actualizado en función de los comentarios de los clientes. La fecha de deshabilitación siempre será al menos dos meses a partir de la fecha de lanzamiento.
-
-###### **4 de noviembre de 2014**
-El lanzamiento de octubre (4.13, 3.20 y 2.32) se implementó el 4 de noviembre de 2014. Incluye la revisión de MSRC que provocó problemas con las versiones de agosto y septiembre. Para solucionar este problema, el lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalados pero deshabilitados. Los scripts que intenten instalar .NET 3.5 o 3.5.1 volverán a rehabilitarlos de manera efectiva y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación completa creado por la revisión de MSRC.
 
 
 
@@ -113,8 +111,10 @@ Admite .NET 4.0, 4.5, 4.5.1, 4.5.2 (Nota 2)
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 4.21 | WA-GUEST-OS-4.21_201506-01 | Proyectado 9 de julio de 2015 | Se actualizará cuando se lance 4.23 | TBD |
+| 4.20 | WA-GUEST-OS-4.20_201505-02 | 12 de junio de 2015 | Se actualizará cuando se lance 4.22 | TBD |
 | 4.19 | WA-GUEST-OS-4.19_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 4.21 | TBD |
-| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 4.20 | TBD |
+| 4.18 | WA-GUEST-OS-4.18_201503-01 | 2 de abril de 2015 | 12 de julio de 2015 | TBD |
 | 4.17 | WA-GUEST-OS-4.17_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
 | 4.16 | WA-GUEST-OS-4.16_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
 | 4.15 | WA-GUEST-OS-4.15_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
@@ -134,8 +134,10 @@ Admite .NET 4.0, 4.5
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 3.28 | WA-GUEST-OS-3.28_201506-01 | Proyectado 9 de julio de 2015 | Se actualizará cuando se lance 3.30 | TBD |
+| 3.27 | WA-GUEST-OS-3.27_201505-02 | 12 de junio de 2015 | Se actualizará cuando se lance 3.29 | TBD |
 | 3.26 | WA-GUEST-OS-3.26_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 3.28 | TBD |
-| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 3.27 | TBD |
+| 3.25 | WA-GUEST-OS-3.25_201503-01 | 2 de abril de 2015 | 12 de julio de 2015 | TBD |
 | 3.24 | WA-GUEST-OS-3.24_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
 | 3.23 | WA-GUEST-OS-3.23_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
 | 3.22 | WA-GUEST-OS-3.22_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
@@ -156,8 +158,10 @@ Admite .NET 3.5, 4.0
 
 | Versión de SO invitado | Cadena de configuración | Fecha de lanzamiento | Fecha de deshabilitación | Fecha de expiración |
 | ---------------- | -------------------------- | ---------------------- | ------------ | --- |
+| 2.40 | WA-GUEST-OS-2.40_201506-01 | Proyectado 9 de julio de 2015 | Se actualizará cuando se lance 2.42 | TBD |
+| 2.39 | WA-GUEST-OS-2.39_201505-02 | 12 de junio de 2015 | Se actualizará cuando se lance 2.41 | TBD |
 | 2.38 | WA-GUEST-OS-2.38_201504-01 | 17 de abril de 2015 | Se actualizará cuando se lance 2.40 | TBD |
-| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 de abril de 2015 | Se actualizará cuando se lance 2.39 | TBD |
+| 2.37 | WA-GUEST-OS-2.37_201503-01 | 2 de abril de 2015 | 12 de julio de 2015 | TBD |
 | 2.36 | WA-GUEST-OS-2.36_201502-01 | 9 de marzo de 2015 | 17 de mayo de 2015 | TBD |
 | 2.35 | WA-GUEST-OS-2.35_201501-01 | 29 de enero de 2015 | 2 de mayo de 2015 | TBD |
 | 2.34 | WA-GUEST-OS-2.34_201412-01 | 14 de enero de 2015 | 9 de abril de 2015 | TBD |
@@ -181,7 +185,7 @@ Los lanzamientos de agosto y septiembre de 2014 se implementaron parcialmente de
 #### Nota 2
 En la fecha de 19 de septiembre de 2014, .NET 4.5.2 no se había probado específicamente en el SO invitado de Azure. Pero el SO invitado es esencialmente equivalente a Windows Server. Por consiguiente, las mismas reglas de compatibilidad que se aplican a los productos de Windows Server se aplican a las familias del SO invitado equivalente. Si se produce una excepción a esta directiva, póngase en contacto con el [soporte técnico de Azure][azuresupport]. Microsoft hará un esfuerzo comercialmente razonable para resolver el problema. [Paquete de instalación manual para .NET 4.5.2][net install pkg].
 
-### Actualizaciones de MSRC incluidas en el SO invitado
+## Actualizaciones de MSRC incluidas en el SO invitado
 La lista de revisiones que se incluyen con cada lanzamiento del SO invitado mensual está disponible [aquí][patches].
 
 ## Compatibilidad con SDK
@@ -215,11 +219,21 @@ La directiva de compatibilidad y retirada del SO invitado se explica [aquí][ret
  
 ## Archivo de noticias
 
+###### **11 de noviembre de 2014**
+
+El lanzamiento de noviembre (4.14, 3.21 y 2.33) se implementó el 11 de noviembre. Esta actualización se desplazó a una fecha anterior porque incluye la actualización de MSRC [Boletín de seguridad de Microsoft MS14-066: crítico][MS14-066]. Los roles de web y de trabajo en la actualización automática deben reiniciarse una vez en los próximos días y recibir esta corrección.
+
+###### **10 de noviembre de 2014**
+La fecha de deshabilitación del lanzamiento de octubre (4.13, 3.20 y 2.32) se ha actualizado en función de los comentarios de los clientes. La fecha de deshabilitación siempre será al menos dos meses a partir de la fecha de lanzamiento.
+
+###### **4 de noviembre de 2014**
+El lanzamiento de octubre (4.13, 3.20 y 2.32) se implementó el 4 de noviembre de 2014. Incluye la revisión de MSRC que provocó problemas con las versiones de agosto y septiembre. Para solucionar este problema, el lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalados pero deshabilitados. Los scripts que intenten instalar .NET 3.5 o 3.5.1 volverán a rehabilitarlos de manera efectiva y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación completa creado por la revisión de MSRC.
+
 **20 de octubre de 2014. Actualizado el 4 de noviembre de 2014** - El lanzamiento de septiembre (4.12, 3.19, 2.31 y 1.39) se implementó parcialmente debido a que la misma [revisión de MSRC MS14-046][MS14-046] provocaba errores para aquellos que intentaban instalar .NET 3.5 o 3.5.1 en la familia 3 o 4. .NET 3.5.x no es compatible oficialmente con ninguna de estas familias, pero Microsoft responde al cambio de comportamiento porque las instalaciones de algunos clientes dependen de esta versión y el cambio no se anunció. Las fechas de deshabilitación de los SO invitados anteriores (junio y julio) se retrasarán en consecuencia para que al menos dos SO invitados lanzados sean compatibles y estén disponibles. En el lanzamiento de octubre de 2014 se incluyó una solución para el problema de instalación de .NET.
 
 El lanzamiento de octubre incluye .NET 3.5 y 3.5.1 preinstalado (pero está deshabilitado) y también incluye la revisión de MSRC indicada anteriormente. Los scripts que intenten instalar .NET 3.5 o 3.5.1 lo volverán a habilitar y devolverán el mensaje de "correcta" para la instalación de .NET, además de evitar el problema de instalación creado por la revisión de MSRC.
 
-Debido a la implementación parcial de los dos últimos lanzamientos, los usuarios que elijan la actualización automática o hayan implementado nuevas instalaciones pueden estar en  cualquiera de estos lanzamientos del SO invitado. La siguiente tabla enumera qué lanzamientos del SO invitado permiten instalar .NET 3.5 o 3.5.1 en la familia 3 y 4. Actualmente, si un lanzamiento permite la instalación, significa que no tiene instalada la revisión de MSRC MS14-046.
+Debido a la implementación parcial de los dos últimos lanzamientos, los usuarios que elijan la actualización automática o hayan implementado nuevas instalaciones pueden estar en cualquiera de estos lanzamientos del SO invitado. La siguiente tabla enumera qué lanzamientos del SO invitado permiten instalar .NET 3.5 o 3.5.1 en la familia 3 y 4. Actualmente, si un lanzamiento permite la instalación, significa que no tiene instalada la revisión de MSRC MS14-046.
 
 | Versión del SO. | Puede instalar .NET 3.5 | Incluye la revisión de MSRC [MS14-046][] |
 | --- | --- | --- |
@@ -283,6 +297,8 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 | 2.20 | WA-GUEST-OS-2.20_201310-01 | 29 de octubre de 2013 | N/D | 14 de mayo de 2014 |
 | 2.19 rel3 | WA-GUEST-OS-2.19_201309-03 | 9 de octubre de 2013 | N/D | 14 de mayo de 2014 |
 | 2.19 rel1 | WA-GUEST-OS-2.19_201309-01 | 23 de septiembre de 2013 | N/D | 14 de mayo de 2014 |
+
+
 [Configuración de actualización del SO invitado de Azure]: https://msdn.microsoft.com/library/azure/ff729420.aspx
 [rss]: http://sxp.microsoft.com/feeds/3.0/msdntn/WindowsAzureOSUpdates
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -301,5 +317,6 @@ Debido a la implementación parcial de los dos últimos lanzamientos, los usuari
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

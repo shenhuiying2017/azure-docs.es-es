@@ -1,6 +1,3 @@
-<properties writer="kathydav" editor="tysonn" manager="timlt" />
-
-
 
 # Desconexión de un disco de datos de una máquina virtual 
 
@@ -38,4 +35,4 @@ El disco permanece en el almacenamiento pero ya no está acoplado a una máquina
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

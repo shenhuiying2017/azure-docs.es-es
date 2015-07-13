@@ -1,4 +1,3 @@
-<properties authors="kathydav" editor="tysonn" manager="jeffreyg" />
 
 #Creación de una máquina virtual personalizada
 
@@ -53,7 +52,7 @@ Una máquina virtual *personalizada* se refiere a una máquina virtual creada co
 17. Haga clic en la flecha para crear la máquina virtual.
 
 
-	![Custom virtual machine creation successful](./media/howto-custom-create-vm/VMSuccessWindows.png)
+	![Creación correcta de la máquina virtual personalizada](./media/howto-custom-create-vm/VMSuccessWindows.png)
 
 ##Pasos siguientes##
 Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el portal se muestre el estado como en ejecución, podrá iniciar sesión en la máquina virtual. Si desea instrucciones, consulte uno de los artículos siguientes:
@@ -61,6 +60,4 @@ Una vez creada una máquina virtual, esta arrancará automáticamente. Cuando el
 - [Inicio de sesión en una máquina virtual con Linux](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Inicio de sesión en una máquina virtual con Windows Server](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

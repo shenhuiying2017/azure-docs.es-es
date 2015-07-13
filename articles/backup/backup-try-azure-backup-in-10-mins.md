@@ -20,11 +20,11 @@
 Es muy fácil configurar la Copia de seguridad de Azure, y los siguientes vídeos de procedimientos le ayudarán a empezar.
 
 ## Paso 1: obtener una suscripción de Azure
-+ Si no tiene una suscripción de Azure, puede comenzar con una oferta de prueba gratuita que permite el acceso a cualquier servicio de Azure. Visite el siguiente vínculo [http://azure.microsoft.com/es-es/pricing/free-trial/](http://azure.microsoft.com/es-es/pricing/free-trial) para obtener más información.
++ Si no tiene una suscripción de Azure, puede comenzar con una oferta de prueba gratuita que permite el acceso a cualquier servicio de Azure. Visite el siguiente vínculo [http://azure.microsoft.com/es-es/pricing/free-trial/](http://azure.microsoft.com/en-in/pricing/free-trial) para obtener más información.
 + Puede omitir este paso si tiene una suscripción de Azure.
 
 ## Paso 2: configurar el servicio de Copia de seguridad de Azure
-Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/es-es/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/](http://azure.microsoft.com/es-es/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) (en inglés) para:
+Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/](http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure/) (en inglés) para:
 
 +	Creación de un almacén de copia de seguridad
 
@@ -35,7 +35,7 @@ Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/es-es/docume
 > [AZURE.VIDEO getting-started-with-azure-backup-1-of-3-set-up-a-backup-vault-on-azure]
 
 ## Paso 3: preparar la máquina local
-Vaya a través de los pasos mencionados en el vídeo en [http://azure.microsoft.com/es-es/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/](http://azure.microsoft.com/es-es/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) (en inglés) para:
+Vaya a través de los pasos mencionados en el vídeo en [http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/](http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup/) (en inglés) para:
 
 + Instalar al agente de Copia de seguridad de Azure en su servidor/cliente de Windows o el servidor DPM.
 
@@ -45,7 +45,7 @@ Vaya a través de los pasos mencionados en el vídeo en [http://azure.microsoft.
 > [AZURE.VIDEO getting-started-with-azure-backup-2-of-3-prepare-your-production-server-for-azure-backup]
 
 ## Paso 4: crear copias de seguridad y restaurar datos
-Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/es-es/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/](http://azure.microsoft.com/es-es/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) (en inglés) para:
+Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/](http://azure.microsoft.com/en-in/documentation/videos/getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server/) (en inglés) para:
 
 + Realizar la copia de seguridad de los datos de un servidor
 
@@ -58,4 +58,4 @@ Siga los pasos mencionados en el vídeo [http://azure.microsoft.com/es-es/docume
 + Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

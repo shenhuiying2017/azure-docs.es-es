@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a la autenticación de las aplicaciones móviles en iOS" 
-	description="Obtenga información acerca de cómo utilizar las aplicaciones móviles para autenticar usuarios de su aplicación iOS en una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
-	services="app-service\mobile" 
-	documentationCenter="ios" 
-	authors="mattchenderson,krisragh" 
-	manager="dwrede" 
+<properties
+	pageTitle="Introducción a la autenticación de las aplicaciones móviles en iOS"
+	description="Obtenga información acerca de cómo utilizar las aplicaciones móviles para autenticar usuarios de su aplicación iOS en una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft."
+	services="app-service\mobile"
+	documentationCenter="ios"
+	authors="mattchenderson" 
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="03/22/2015" 
+<tags
+	ms.service="app-service"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="mahender"/>
 
 # Incorporación de la autenticación a la aplicación iOS
@@ -26,15 +26,15 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 
-[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)] 
+[AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 ##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 <ol start="7">
 <li><p>En Xcode, abra el proyecto. Presione el botón <b>Ejecutar</b> para iniciar la aplicación. Compruebe que se produce una excepción con el código de estado 401 (No autorizado) después de iniciarse la aplicación.</p>
-   
+
    	<p>Esto se produce porque la aplicación intenta obtener acceso a su Código de aplicación móvil como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
 </ol>
 
@@ -54,4 +54,6 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Creación de una aplicación iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

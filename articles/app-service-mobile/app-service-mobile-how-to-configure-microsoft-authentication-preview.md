@@ -1,19 +1,19 @@
-<properties 
+<properties
 	pageTitle="Configuración de la autenticación mediante la cuenta Microsoft para la aplicación de Servicios de aplicaciones"
-	description="Obtenga información acerca de cómo configurar la autenticación mediante la cuenta Microsoft para la aplicación de Servicios de aplicaciones." 
-	authors="mattchenderson,ggailey777" 
-	services="app-service\mobile" 
-	documentationCenter="" 
-	manager="dwrede" 
+	description="Obtenga información acerca de cómo configurar la autenticación mediante la cuenta Microsoft para la aplicación de Servicios de aplicaciones."
+	authors="mattchenderson" 
+	services="app-service\mobile"
+	documentationCenter=""
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="02/19/2015" 
+<tags
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="05/26/2015"
 	ms.author="mahender"/>
 
 # Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft
@@ -22,7 +22,7 @@ En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para
 
 ## <a name="register"> </a>Registro de la aplicación con la cuenta Microsoft
 
-1. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede. 
+1. Vaya a la página [Mis aplicaciones] del Centro para desarrolladores de la cuenta Microsoft e inicie sesión con su cuenta Microsoft, si procede.
 
 2. Haga clic en **Crear aplicación** y, a continuación, escriba el **nombre de la aplicación** y haga clic en **Acepto**.
 
@@ -64,4 +64,6 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Portal de administración de Azure]: https://portal.azure.com/
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=62-->

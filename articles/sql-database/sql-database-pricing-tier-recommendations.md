@@ -45,7 +45,7 @@ Según el uso de la base de datos, se pueden encontrar dos categorías de recome
 
 ## Obtención de recomendaciones de nivel de precios
 
-Para obtener recomendaciones sobre los niveles de precios, seleccione  una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**.
+Para obtener recomendaciones sobre los niveles de precios, seleccione una base de datos Web o Business existente y haga clic en el icono **Nivel de precios**.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Haga clic en **EXAMINAR** en el menú de la izquierda.
@@ -87,4 +87,7 @@ Dependiendo de los detalles de la base de datos específica, la realización de 
 [4]: ./media/sql-database-pricing-tier-recommendations/choose-pricing-tier.png
 [5]: ./media/sql-database-pricing-tier-recommendations/usage-details.png
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=62-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="06/18/2015" 
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones push a la aplicación Tienda Windows
@@ -30,7 +30,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 4. [Incorporación de notificaciones de inserción a la aplicación](#add-push)
 5. [Prueba de las notificaciones push en su aplicación](#test)
 
-Este tutorial se basa en el inicio rápido de aplicaciones móviles del Servicio de aplicaciones. Antes de iniciar este tutorial, debe completar primero [Introducción a las aplicaciones móviles del Servicio de aplicaciones].
+Este tutorial se basa en el inicio rápido de aplicaciones móviles del Servicio de aplicaciones. Antes de comenzar este tutorial, primero debe realizar el tutorial [Introducción a las aplicaciones móviles del Servicio de aplicaciones].
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -106,7 +106,7 @@ Tras habilitar las notificaciones push en la aplicación, debe actualizar el bac
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
 
-4. Agregue el siguiente fragmento al método `PostTodoItem` después de la llamada **InsertAsync**:
+4. Agregue el siguiente fragmento al método `PostTodoItem` después de la llamada **InsertAsync**
 
         // get Notification Hubs credentials associated with this Mobile App
         string notificationHubName = this.Services.Settings.NotificationHubName;
@@ -190,4 +190,5 @@ La carpeta ahora ya está lista para recibir notificaciones.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

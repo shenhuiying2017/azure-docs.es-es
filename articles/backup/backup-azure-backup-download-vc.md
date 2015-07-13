@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Descargar credenciales del almacén en la Copia de seguridad de Azure"
-	description="Aprenda a usar las credenciales de almacén para autenticar su máquina con el almacén de copia de seguridad y el servicio de Copia de seguridad de Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Descargar credenciales del almacén en la Copia de seguridad de Azure"
+   description="Aprenda a usar las credenciales de almacén para autenticar su máquina con el almacén de copia de seguridad y el servicio de Copia de seguridad de Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="03/27/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="03/27/2015"
+   ms.author="prvijay"/>
 
 # Uso de las credenciales de almacén para autenticarse con el servicio de Copia de seguridad de Azure
 
@@ -52,5 +51,6 @@ El archivo de credenciales de almacén se descarga a través de un canal seguro 
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-vc/quickview.png
 [2]: ./media/backup-azure-backup-download-vc/downloadvc.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

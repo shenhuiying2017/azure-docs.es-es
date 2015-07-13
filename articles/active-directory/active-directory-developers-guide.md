@@ -51,7 +51,7 @@ Estos tutoriales están adaptados para varias plataformas y le permiten comenzar
 - [Cordova](active-directory-devquickstarts-cordova.md)
 
 
-####Guías de inicio rápido de API web o aplicación web
+#### Guías de inicio rápido de API web o aplicación web
 
 - [Aplicación web .NET](active-directory-devquickstarts-webapp-dotnet.md)
 - [API web .NET](active-directory-devquickstarts-webapi-dotnet.md)
@@ -73,7 +73,7 @@ En estos artículos, se describe cómo realizar tareas específicas con Azure Ac
 
 Estos artículos proporcionan información básica sobre las API de la biblioteca de autenticación y REST, los protocolos, los errores, los ejemplos de código y los extremos.
 
-###  Soporte técnico
+### Soporte técnico
 - **[Dónde obtener soporte técnico](http://stackoverflow.com/questions/tagged/azure-active-directory)**: busque soluciones de Azure AD en Stack Overflow mediante las etiquetas [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) y [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Código
@@ -131,5 +131,4 @@ Estas presentaciones de información general sobre el desarrollo de aplicaciones
 - **[Identidad en la nube](http://www.cloudidentity.net)**: reflexiones de un PM de Azure sobre la administración de las identidades como servicio.
 
 - **[Azure AD en Twitter](https://twitter.com/azuread)**: anuncios sobre Azure AD en 140 caracteres o menos.
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

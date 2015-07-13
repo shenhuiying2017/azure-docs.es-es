@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Introducción al Análisis de transmisiones: detección de fraudes en tiempo real | Microsoft Azure"
-	description="Aprenda a usar Análisis de transmisiones para crear una solución de detección de fraudes en tiempo real sobre datos de telecomunicaciones generados."
+	description="Aprenda a crear una solución para la detección de fraudes en tiempo real con Análisis de transmisiones. Use un centro de eventos para el procesamiento de eventos en tiempo real."
+	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -10,7 +11,7 @@
 <tags
 	ms.service="stream-analytics"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
 	ms.date="04/28/2015"
@@ -20,21 +21,24 @@
 
 # Introducción al uso de Análisis de transmisiones de Azure: detección de fraudes en tiempo real
 
+Aprenda a crear una solución de extremo a extremo para la detección de fraudes en tiempo real con Análisis de transmisiones. Lleve eventos al centro de eventos de Azure, escriba consultas de Análisis de transmisiones para agregación o alertas y envíe los resultados a un receptor de salida para obtener información detallada sobre los datos con procesamiento en tiempo real.
+
 Análisis de transmisiones de Azure es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través el streaming de datos en la nube. Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md).
 
-Aprenda a crear una solución de extremo a extremo para la detección de fraudes en tiempo real con Análisis de transmisiones. Lleve eventos a los Centros de eventos de Azure, escriba consultas de Análisis de transmisiones sobre agregación o alertas y envíe los resultados a un receptor de salida para obtener información detallada sobre los datos en tiempo real.
 
-##Escenario: Fraude de telecomunicaciones y SIM
+## Escenario: telecomunicaciones y detección de fraudes de SIM en tiempo real
 
-Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. Desean reducir estos datos hasta un volumen manejable y obtener información detallada sobre el uso del cliente por tiempo y regiones geográficas. También están muy interesados en la detección del fraude de SIM (varias llamadas procedentes de la misma identidad aproximadamente al mismo tiempo, pero en ubicaciones geográficamente diferentes) en tiempo real para que puedan responder fácilmente notificando a los clientes o cerrando el servicio. Se trata escenarios convencionales como Internet de las cosas (IoT) en los que se genera gran cantidad de datos de telemetría o de sensor, y clientes que quieren que se agreguen o se avise de las anomalías.
+Una empresa de telecomunicaciones tiene un gran volumen de datos en llamadas entrantes. Desean obtener lo siguiente a partir de sus datos: * Reducir estos datos hasta un volumen manejable y obtener información detallada sobre el uso del cliente por tiempo y regiones geográficas. * Detectar el fraude de SIM (varias procedentes de la misma identidad aproximadamente al mismo tiempo, pero en ubicaciones geográficamente diferentes) en tiempo real para que puedan responder fácilmente notificando a los clientes o cerrando el servicio.
 
-##Requisitos previos
+En escenarios convencionales de Internet de las cosas (IoT) se genera gran cantidad de datos de telemetría o de sensor, y los clientes quieren que se agreguen o se avise de las anomalías en tiempo real.
+
+## Requisitos previos
 
 Este tutorial aprovecha un generador de eventos situado en GitHub. Descárguelo [aquí](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator) y siga los pasos de este tutorial para configurar la solución.
 
 ## Creación de una entrada de Centro de eventos y un grupo de consumidores
 
-La aplicación de ejemplo generará eventos y los insertará en una instancia de Centros de eventos. Los Centros de eventos de Bus de servicio son el método preferido de introducción de eventos en Análisis de transmisiones; puede obtener más información sobre Centros de eventos en [Documentación sobre Bus de servicio de Azure](/documentation/services/service-bus/).
+La aplicación de ejemplo generará eventos y los insertará en una instancia de Centros de eventos para el procesamiento en tiempo real. Los Centros de eventos de Bus de servicio son el método preferido de introducción de eventos en Análisis de transmisiones; puede obtener más información sobre Centros de eventos en [Documentación sobre Bus de servicio de Azure](/documentation/services/service-bus/).
 
 Siga estos pasos para crear un Centro de eventos.
 
@@ -50,7 +54,7 @@ Siga estos pasos para crear un Centro de eventos.
 
 ## Configuración e inicio de la aplicación del generador de eventos
 
-Proporcionamos una aplicación cliente que generará los metadatos de llamada entrante de ejemplo y los insertará en el Centro de eventos. Siga los pasos siguientes para configurar esta aplicación.
+Proporcionamos una aplicación cliente que generará los metadatos de llamada entrante de ejemplo y los insertará en el Centro de eventos. Siga los pasos que se indican a continuación para configurar esta aplicación.
 
 1.	Descargue la solución TelcoGenerator de [https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TelcoGenerator).
 2.	Reemplace los valores de Microsoft.ServiceBus.ConnectionString y EventHubName en el archivo App.config con la cadena de conexión del Centro de eventos y el nombre.
@@ -63,7 +67,7 @@ En el ejemplo siguiente se generarán 1.000 eventos con una probabilidad de frau
 
     TelcoDataGen.exe 1000 .2 2
 
-Podrá ver los registros que se envían al Centro de eventos. Aquí se definen algunos campos clave que se van a usar en esta aplicación:
+Podrá ver los registros que se envían al Centro de eventos. Aquí se definen algunos campos clave que se van a usar en esta aplicación de detección de fraudes en tiempo real:
 
 | Registro | Definición |
 | ------------- | ------------- |
@@ -76,7 +80,7 @@ Podrá ver los registros que se envían al Centro de eventos. Aquí se definen a
 
 
 ## Creación de un Análisis de transmisiones
-Ahora que tenemos un streaming de eventos de telecomunicaciones, podemos configurar un trabajo de Análisis de transmisiones para analizar estos eventos en tiempo real.
+Ahora que tenemos un flujo de eventos de telecomunicaciones, podemos configurar un trabajo de Análisis de transmisiones para analizar estos eventos en tiempo real.
 
 ### Aprovisionamiento de un trabajo de Stream Analytics
 
@@ -120,7 +124,7 @@ Ahora que tenemos un streaming de eventos de telecomunicaciones, podemos configu
 
 ### Especificación de la consulta de trabajo
 
-Análisis de transmisiones admite un modelo de consulta declarativa simple para describir las transformaciones. Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial le ayudará a crear y probar varias consultas sobre el streaming de datos de llamada.
+Análisis de secuencias admite un modelo de consulta declarativo sencillo para describir las transformaciones para el procesamiento en tiempo real. Para obtener más información sobre el lenguaje, consulte la [Referencia de lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). Este tutorial le ayudará a crear y probar varias consultas sobre el streaming de datos de llamada en tiempo real.
 
 #### Opcional: Datos de entrada de ejemplo
 Para validar la consulta con datos de trabajo reales, puede usar la característica **Datos de ejemplo** para extraer los eventos del streaming y crear un archivo .JSON de los eventos para las pruebas. Los pasos siguientes muestran cómo hacerlo y también hemos proporcionado un archivo de ejemplo [Telco.json](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json) con fines de prueba.
@@ -180,9 +184,9 @@ Para comparar la cantidad de llamadas entrantes por región se aprovechará una 
 
 	![Resultados de la consulta para Timestand By](./media/stream-analytics-get-started/stream-ananlytics-query-editor-rerun.png)
 
-### Identificación de fraude SIM con una autocombinación
+### Detección de fraudes de SIM con una autocombinación
 
-Para identificar un uso posiblemente fraudulento buscaremos las llamadas que se originan en el mismo usuario en pero diferentes ubicaciones en menos de cinco segundos. Vamos a [Unir](https://msdn.microsoft.com/library/azure/dn835026.aspx) el streaming de eventos de llamada consigo mismo para comprobar estos casos.
+Para identificar un uso posiblemente fraudulento buscaremos las llamadas que se originan en el mismo usuario pero en diferentes ubicaciones en menos de cinco segundos. Vamos a [combinar](https://msdn.microsoft.com/library/azure/dn835026.aspx) el streaming de eventos de llamada consigo mismo para buscar estos casos.
 
 1.	Cambie la consulta en el editor de código a:
 
@@ -228,21 +232,21 @@ Si todavía no tiene un contenedor para el almacenamiento de blobs, siga estos p
 
 6.	Haga clic en el botón de comprobación para agregar este origen y comprobar que Análisis de transmisiones puede conectarse correctamente a la cuenta de almacenamiento.
 
-## Iniciar trabajo
+## Inicio del trabajo para el procesamiento en tiempo real
 
-Puesto que se ha especificado una entrada, consulta y salida de trabajo, estamos preparados iniciar el trabajo de Análisis de transmisiones.
+Puesto que ya se han especificado la entrada, la consulta y la salida del trabajo, estamos preparados para iniciar el trabajo de Análisis de transmisiones para la detección de fraudes en tiempo real.
 
 1.	Desde **PANEL** del trabajo, haga clic en **INICIAR** en la parte inferior de la página.
 2.	En el cuadro de diálogo que aparece, seleccione **Hora de inicio del trabajo** y haga clic en el botón de marca de verificación en la parte inferior del cuadro de diálogo. El estado del trabajo cambiará a **Iniciando** y en breve pasará a **En ejecución**.
 
-## Visualización de la salida
+## Consulta de la salida de la detección de fraudes
 
-Use una herramienta como [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o [Explorador de Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver eventos fraudulentos, a medida que se escriben en la salida en tiempo real.
+Use una herramienta como [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o [Explorador de Azure](http://www.cerebrata.com/products/azure-explorer/introduction) para ver eventos fraudulentos a medida que se escriben en la salida en tiempo real.
 
-![Eventos fraudulentos vistos en tiempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+![Detección de fraudes: eventos fraudulentos vistos en tiempo real](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -251,6 +255,7 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
+- [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

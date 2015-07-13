@@ -32,7 +32,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 Los siguientes pasos le ayudarán a crear el proyecto de servicio en la nube que hospedará la aplicación de Socket.IO.
 
-1. Desde el **menú Inicio** o la **pantalla Inicio**, busque **PowerShell de Azure**. Finalmente, haga clic en el botón secundario en **PowerShell de Azure** y seleccione **Ejecutar como administrador**.
+1. Desde el **menú Inicio** o la **pantalla Inicio**, busque **PowerShell de Azure**. Finalmente, haga clic con el botón secundario en **PowerShell de Azure** y seleccione **Ejecutar como administrador**.
 
 	![Icono de Azure PowerShell][powershell-menu]
 
@@ -40,7 +40,7 @@ Los siguientes pasos le ayudarán a crear el proyecto de servicio en la nube que
 
 
 
-2. Cambie los directorios por el directorio **c:\\\\node** y, a continuación, escriba los siguientes comandos para crear una solución nueva llamada **chatapp** y un rol de trabajo con el nombre **WorkerRole1**:
+2. Cambie los directorios por el directorio **c:\\node** y, a continuación, escriba los siguientes comandos para crear una solución nueva llamada **chatapp** y un rol de trabajo con el nombre **WorkerRole1**:
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -57,13 +57,13 @@ Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO Gi
 
     ![Ventana de explorador con https://github.com/LearnBoost/socket.io/tree/master/examples/chat, y el icono de descarga ZIP resaltado][chat-example-view]
 
-3.  Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\\\chat**. Copie el contenido de este directorio al directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1** creado anteriormente.
+3.  Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\chat**. Copie el contenido de este directorio al directorio **C:\\node\\chatapp\\WorkerRole1** creado anteriormente.
 
-    ![Explorador que muestra el contenido del directorio examples\\chat extraído del archivo][chat-contents]
+    ![Explorador que muestra el contenido del directorio examples\chat extraído del archivo][chat-contents]
 
-    Los elementos resaltados en la captura de pantalla anterior son los archivos que se copiaron del directorio **examples\\\\chat**.
+    Los elementos resaltados en la captura de pantalla anterior son los archivos que se copiaron del directorio **examples\\chat**.
 
-4.  En el directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1**, elimine el archivo **server.js** y, a continuación, cambie el nombre del archivo **app.js** a **server.js**. De esta manera se quita el archivo predeterminado **server.js** que se creó anteriormente a través del cmdlet **Add-AzureNodeWorkerRole** y se reemplaza por el archivo de aplicación del ejemplo de chat.
+4.  En el directorio **C:\\node\\chatapp\\WorkerRole1**, elimine el archivo **server.js** y, a continuación, cambie el nombre del archivo **app.js** a **server.js**. De esta manera se quita el archivo predeterminado **server.js** que se creó anteriormente a través del cmdlet **Add-AzureNodeWorkerRole** y se reemplaza por el archivo de aplicación del ejemplo de chat.
 
 ### Modificar el archivo server.js e instalar los módulos
 
@@ -89,7 +89,7 @@ Antes de probar la aplicación en el emulador de Azure, se deben realizar alguna
 
 Después de guardar los cambios en server.js, use los siguientes pasos para instalar los módulos necesarios y, a continuación, pruebe la aplicación en el emulador de Azure:
 
-1.  Mediante **PowerShell de Azure**, cambie los directorios al directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1** y use el siguiente comando para instalar los módulos necesarios para esta aplicación:
+1.  Mediante **PowerShell de Azure**, cambie los directorios al directorio **C:\\node\\chatapp\\WorkerRole1** y use el siguiente comando para instalar los módulos necesarios para esta aplicación:
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
@@ -135,23 +135,27 @@ Su aplicación se está ejecutando ahora en Azure y puede retransmitir los mensa
 
 En este tutorial aprendió a crear una aplicación de chat básica hospedada en un Servicio en la nube de Azure. Para aprender a hospedar esta aplicación en un sitio web de Azure, vea [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure][chatwebsite].
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+  [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
-[Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
-[completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
-[Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
-[Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[repositorio de Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[Azure Considerations]: #windowsazureconsiderations
-[Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
-[Summary and Next Steps]: #summary
-[powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
+  [Azure SLA]: http://www.windowsazure.com/support/sla/
+  [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
+  [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/
+  [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [repositorio de Socket.IO GitHub]: https://github.com/LearnBoost/socket.io/tree/0.9.14
+  [Azure Considerations]: #windowsazureconsiderations
+  [Hosting the Chat Example in a Worker Role]: #hostingthechatexampleinawebrole
+  [Summary and Next Steps]: #summary
+  [powershell-menu]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
 
-[chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
-[chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
-[chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
-[The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
-[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+  [chat example]: https://github.com/LearnBoost/socket.io/tree/master/examples/chat
+  [chat-example-view]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
+  
+  
+  [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
+  [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
+  [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+  
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

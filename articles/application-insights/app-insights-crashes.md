@@ -98,5 +98,4 @@ Si compila en la configuración de lanzamiento, los eventos se almacenan en el d
 [windows]: app-insights-windows-get-started.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

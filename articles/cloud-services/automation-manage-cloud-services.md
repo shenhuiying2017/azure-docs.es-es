@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
@@ -33,14 +33,14 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede ayudar el servicio Automatización de Azure a administrar los servicios en la nube de Azure?
 
-Los servicios en la nube de Azure se pueden administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en las [herramientas de Azure PowerShell ](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de servicios en la nube disponibles directamente para que pueda realizar todas las tareas de administración de servicios en la nube dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+Los servicios en la nube de Azure se pueden administrar en Automatización de Azure mediante el uso de cmdlets de PowerShell que están disponibles en las [herramientas de Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de servicios en la nube disponibles directamente para que pueda realizar todas las tareas de administración de servicios en la nube dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 
 ## Pasos siguientes
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar servicios en la nube de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-Vea el [Tutorial de introducción  de Automatización de Azure](../automation/automation-create-runbook-from-samples.md)
+Consulte el [Tutorial de introducción](../automation/automation-create-runbook-from-samples.md) de Automatización de Azure.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

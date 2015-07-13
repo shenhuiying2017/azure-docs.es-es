@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -70,7 +70,7 @@ Después de realizar las actualizaciones, necesitará cerrar la sesión y volver
 
 Debería aparecer ahora un menú adicional en la barra de administración con la etiqueta **Mis sitios**. Este menú le permite controlar su red nueva a través del panel **Administrador de red**.
 
-# Incorporación de dominios personalizados
+## Incorporación de dominios personalizados
 
 El complemento [WordPress MU Domain Mapping][wordpress-plugin-wordpress-mu-domain-mapping] facilita enormemente la incorporación de dominios personalizados a cualquier sitio de su red. Para que el complemento funcione correctamente, necesita realizar cierta configuración adicional en el Portal y también en el registrador de su dominio.
 
@@ -152,5 +152,6 @@ Aplicaciones web de Azure permite agregar un número ilimitado de dominios a un 
 
 [wordpress-manage-domains]: ./media/web-sites-php-convert-wordpress-multisite/wordpress-manage-domains.png
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

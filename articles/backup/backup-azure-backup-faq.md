@@ -1,15 +1,15 @@
 <properties
-	pageTitle="Copia de seguridad de Azure - Preguntas más frecuentes"
-	description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
+   pageTitle="Copia de seguridad de Azure - Preguntas más frecuentes"
+   description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 
 <tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
+   ms.service="backup"
+   ms.workload="storage-backup-recovery"
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
@@ -17,7 +17,7 @@
 	 ms.author="prvijay"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
-A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre la Copia de seguridad de Azure, vaya al [Foro de discusión](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazureonlinebackup) y envíe sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
+A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre la Copia de seguridad de Azure, vaya al [Foro de discusión](https://social.msdn.microsoft.com/forums/azure/es-es/home?forum=windowsazureonlinebackup) y envíe sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
 
 ## Instalación y configuración
 
@@ -114,7 +114,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P4. ¿Hay alguna diferencia entre la directiva de retención de DPM y la de Copia de seguridad de Azure (es decir, en Windows Server sin DPM)?**<br/> R4. No, tienen las mismas capacidades. Puede especificar directivas de retención diaria, semanal, mensual y anual.
 
-**P5. ¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar  semanal y diariamente, pero no anual y mensualmente)?**<br/> R5. Tiene todo el conjunto de mecanismos para tener acceso a las directivas que mejor definen sus requisitos de cumplimiento y retención.
+**P5. ¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?**<br/> R5. Tiene todo el conjunto de mecanismos para tener acceso a las directivas que mejor definen sus requisitos de cumplimiento y retención.
 
 **P6. ¿Puedo "programar una copia de seguridad" a las 6 p.m. y especificar "directivas de retención" en un momento diferente?**<br/> R6. No. Las directivas de retención pueden aplicarse solo en puntos de copia de seguridad. En la imagen siguiente, la directiva de retención se está configurando en las copias de seguridad realizadas a las 12 a.m. y a las 6 p.m. <br/>
 
@@ -122,7 +122,7 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P7. ¿Se transfiere una copia incremental para las directivas de retención programadas?** <br/> R7. No, la copia incremental se envía en el momento mencionado en la página de programación de copia de seguridad. Los puntos que se pueden retener se determinan en función de la directiva de retención.
 
-**P8. Si se conserva la copia de seguridad durante un período prolongado, ¿se tarda mucho tiempo en recuperar los datos (por ejemplo ,el punto más antiguo)?** <br/> R8. No,  el tiempo necesario para la recuperación del último punto o del punto más antiguo es el mismo. Cada punto de recuperación se comporta como un punto completo.
+**P8. Si se conserva la copia de seguridad durante un período prolongado, ¿se tarda mucho tiempo en recuperar los datos (por ejemplo ,el punto más antiguo)?** <br/> R8. No, el tiempo necesario para la recuperación del último punto o del punto más antiguo es el mismo. Cada punto de recuperación se comporta como un punto completo.
 
 **P9. Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?**<br/> R9. Los productos de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Sin embargo, son ineficaces en cuanto a almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales son eficaces en cuanto a almacenamiento, pero requieren la restauración de una cadena de datos que influye en el tiempo de recuperación. La arquitectura de almacenamiento único de la Copia de seguridad de Azure ofrece lo mejor de ambas opciones, al almacenar datos de forma óptima para restauraciones más rápidas e incurrir en costes de almacenamiento bajo. Este enfoque le asegura que su ancho de banda (de entrada y salida) se use de forma eficaz, el almacenamiento se conserve al mínimo y el tiempo dedicado a la recuperación se reduzca al mínimo.
 
@@ -152,5 +152,6 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 <!--Image references-->
 [1]: ./media/backup-azure-backup-faq/Schedule.png
 [2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

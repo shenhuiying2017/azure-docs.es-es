@@ -11,7 +11,7 @@ ms.workload="mobile"
 ms.tgt_pltfrm="mobile-ios" 
 ms.devlang="objective-c" 
 ms.topic="article" 
-ms.date="02/20/2015" 
+ms.date="05/19/2015" 
 ms.author="mahender" />
 
 # Incorporación del inicio de sesión único de Azure Active Directory a la aplicación iOS
@@ -35,7 +35,7 @@ Este tutorial requiere lo siguiente:
 
 ## <a name="require-authentication"></a>Configuración de la aplicación para que requiera autenticación
 
-[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-adal"></a>Incorporación de una referencia a la biblioteca de autenticación de Active Directory
 
@@ -114,6 +114,7 @@ Ahora podrá hacer referencia a la biblioteca de autenticación de Active Direct
 [Configuración de la aplicación móvil con Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
-[Introducción a las aplicaciones móviles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ [Introducción a las aplicaciones móviles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

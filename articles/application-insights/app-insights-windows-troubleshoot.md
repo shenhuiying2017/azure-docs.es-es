@@ -119,5 +119,4 @@ Consulte [Privacidad y retención de los datos][data].
 [windows]: app-insights-windows-get-started.md
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

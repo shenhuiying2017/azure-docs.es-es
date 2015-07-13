@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="06/24/2015"
 	ms.author="danlep"/>
 
 
@@ -26,7 +26,7 @@ Este tutorial muestra un enfoque, en ocasiones denominado clúster "ráfaga en l
 
 En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para obtener más información, así como pasos para implementar un clúster híbrido HPC Pack a mayor escala en un entorno de producción, consulte la [información detallada](http://go.microsoft.com/fwlink/p/?LinkID=200493). Si desea configurar un clúster de HPC Pack completamente en Azure, consulte [Microsoft HPC Pack en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?linkid=330375).
 
->[AZURE.NOTE]Azure ofrece una [serie de tamaños](http://go.microsoft.com/fwlink/p/?LinkId=389844) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Para obtener más información, consulte [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](http://go.microsoft.com/fwlink/p/?Linkid=328042).
+>[AZURE.NOTE]Azure ofrece una [serie de tamaños](../virtual-machines/virtual-machines-size-specs.md) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Consulte [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
 ## Requisitos previos
 
@@ -44,7 +44,7 @@ Además, necesitará satisfacer los siguientes requisitos previos para este tuto
 
 	* Compruebe que estén instaladas las actualizaciones importantes y esenciales.
 
-* Archivos de instalación para HPC Pack 2012 R2, disponibles de forma gratuita. La versión más reciente es HPC Pack 2012 R2 actualización 1. [Descargue](http://go.microsoft.com/fwlink/p/?linkid=328024) el paquete de instalación completo y copie los archivos en el equipo del nodo principal o en una ubicación de red. Elija los archivos de instalación que tengan el mismo idioma que su instalación de Windows Server.
+* Archivos de instalación para HPC Pack 2012 R2, disponibles de forma gratuita. [Descargue](http://go.microsoft.com/fwlink/p/?linkid=328024) la versión más reciente y copie los archivos en el equipo del nodo principal o en una ubicación de red. Elija los archivos de instalación que tengan el mismo idioma que su instalación de Windows Server.
 
 * Una cuenta de dominio con permisos de administrador local en el nodo principal.
 
@@ -106,7 +106,7 @@ HPC Pack instala un certificado autofirmado en el nodo principal, llamado Defaul
 
 	![Configuración del certificado][upload_cert1]
 
-4. Busque el archivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer en el nodo principal. A continuación, haga clic en el botón **Comprobar**.
+4. Busque el archivo C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer en el nodo principal. A continuación, haga clic en el botón **Comprobar**.
 
 	![Carga del certificado][install_hpc10]
 
@@ -307,8 +307,7 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 * [HPC Pack 2012 R2 y HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Irrupción en Azure con Microsoft HPC Pack](http://go.microsoft.com/fwlink/p/?LinkID=200493)
 * [Microsoft HPC Pack en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
-* [Big Compute de Azure: HPC y Lote](http://azure.microsoft.com/solutions/big-compute/)
-* [Big Compute de Azure: documentación técnica de HPC y Lote](http://msdn.microsoft.com/library/azure/dn482128.aspx)
+* [Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)](big-compute-resources.md)
 
 
 [Overview]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/hybrid_cluster_overview.png
@@ -348,4 +347,4 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

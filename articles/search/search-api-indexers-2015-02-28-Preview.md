@@ -237,7 +237,7 @@ La operación **Enumerar orígenes de datos** devuelve una lista de los orígene
     GET https://[service name].search.windows.net/datasources?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -276,7 +276,7 @@ La operación **Obtener origen de datos** permite obtener la definición del ori
     GET https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -313,7 +313,7 @@ La operación **Eliminar origen de datos** elimina un origen de datos del servic
 
 **NOTA** Si algún indexador hace referencia al origen de datos que está eliminando, la operación de eliminación continuará. Sin embargo, los indexadores pasarán a un estado de error en su siguiente ejecución.
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -336,7 +336,7 @@ Como alternativa, puede usar PUT y especificar el nombre del origen de datos en 
 
 **Nota**: El número máximo de indexadores permitido varía según el nivel de precios. El servicio gratuito permite hasta tres indexadores. El servicio estándar permite 50 indexadores. Consulte [Límites y restricciones para obtener detalles](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -430,7 +430,7 @@ Puede actualizar un indexador existente mediante una solicitud HTTP PUT. Especif
     Content-Type: application/json
     api-key: [admin key]
 
-`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
+`api-version` es obligatorio. La versión actual es `2015-02-28`. [Versiones de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx) contiene detalles y más información sobre versiones alternativas.
 
 El `api-key` debe ser una clave de administración (en lugar de una clave de consulta). Consulte la sección de autenticación en [API de REST de servicio de búsqueda](https://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información acerca de las claves. [Crear un servicio de búsqueda en el portal](search-create-service-portal.md) explica cómo obtener la dirección URL del servicio y las propiedades de clave usadas en la solicitud.
 
@@ -774,4 +774,5 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 <td>No se admite; actualmente Búsqueda de Azure solo admite tipos primitivos y colecciones de cadenas</td>
 </tr>
 </table>
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

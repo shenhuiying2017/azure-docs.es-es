@@ -56,5 +56,6 @@ Para obtener información general acerca del servicio de trabajo elástico, vea 
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

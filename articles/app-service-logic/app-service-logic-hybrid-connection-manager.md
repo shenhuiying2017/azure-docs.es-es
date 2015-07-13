@@ -66,7 +66,7 @@ Cuando se crea una conexión híbrida, se crea un sitio web en el servidor IIS l
 Puerto TCP | Porqué
 --- | ---
  | No se requiere ningún puerto TCP entrante.
-9350 - 9354 | Estos puertos se usan para la transmisión de datos. El administrador de retransmisiones de bus de servicio sondea el puerto 9350 para determinar si hay conectividad TCP disponible. Si está disponible, asume que el puerto 9352 está también disponible. El tráfico de datos pasa por el puerto 9352. <br/><br/>Permitir conexiones salientes a estos puertos.
+9350 - 9354 | Estos puertos se usan para la transmisión de datos. El administrador de retransmisiones de bus de servicio sondea el puerto 9350 para determinar si la conectividad TCP está disponible. Si lo está, asume que el puerto 9352 está también disponible. El tráfico de datos pasa por el puerto 9352. <br/><br/>Permitir conexiones salientes a estos puertos.
 5671 | Cuando se usa el puerto 9352 para el tráfico de datos, el puerto 5671 se utiliza como canal de control. <br/><br/>Permitir conexiones salientes a este puerto. 
 80, 443 | Si los puertos 9352 y 5671 no se pueden usar, *entonces* los puertos 80 y 443 son los puertos de reserva usados para la transmisión de datos y el canal de control.<br/><br/>Permitir conexiones salientes a estos puertos.
 Puerto del sistema local | En el sistema local, abra el puerto usado por el sistema. Por ejemplo, SQL Server usa normalmente el puerto 1433. Abra este puerto TCP.

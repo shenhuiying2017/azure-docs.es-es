@@ -16,13 +16,13 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-# Creación de API en Administración de API de Azure
+#  Creación de API en Administración de API de Azure
 
 En Administración de API, una API representa un conjunto de operaciones que puede invocarse por las aplicaciones cliente. Se crean nuevas API en el portal del publicador y luego se agregan las operaciones deseadas. Una vez agregadas las operaciones, la API se agrega a un producto y se puede publicar. Una vez publicada una API, pueden usarla quienes estén suscritos a ella, así como los desarrolladores.
 
 Esta guía muestra el primer paso del proceso: cómo crear y configurar una nueva API en Administración de API. Para obtener más información sobre cómo agregar operaciones y publicar un producto, consulte [Incorporación de operaciones a una API][] y [Creación y publicación de un producto][].
 
-## <a name="create-new-api"> </a>Creación de una API
+##  <a name="create-new-api"> </a>Creación de una API
 
 Las API se crean y se configuran en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
 
@@ -49,7 +49,7 @@ Una vez configurados los tres valores, haga clic en **Guardar**. Una vez creada 
 
 ![API summary][api-management-api-summary]
 
-## <a name="configure-api-settings"> </a>Definición de la configuración de la API
+##  <a name="configure-api-settings"> </a>Definición de la configuración de la API
 
 Puede usar la pestaña **Configuración** para comprobar y editar la configuración de una API. **Título de la API web**, **URL de servicio Web** y **Sufijo de URL de la API de web** se establecen inicialmente al crear la API y se pueden modificar aquí. **Descripción** proporciona una descripción opcional y **Esquema de URL de la API web** determina qué protocolos se pueden usar para tener acceso a la API.
 
@@ -63,7 +63,7 @@ La pestaña **Seguridad** también se puede usar para configurar la **Autorizaci
 
 Haga clic en **Guardar** para guardar los cambios que efectúe en la configuración de la API.
 
-## <a name="next-steps"> </a>Pasos siguientes
+##  <a name="next-steps"> </a>Pasos siguientes
 
 Una vez creada una API y definida la configuración, los pasos siguientes permiten agregar las operaciones a la API, agregar la API a un producto y publicarlo para ponerlo a disposición de los desarrolladores. Para obtener más información, consulte las dos guías siguientes.
 
@@ -95,5 +95,4 @@ Una vez creada una API y definida la configuración, los pasos siguientes permit
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
 [Cómo asegurar servicios back-end con la autenticación mutua de certificados en Administración de API de Azure]: api-management-howto-mutual-certificates.md
 [Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure]: api-management-howto-oauth2.md
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

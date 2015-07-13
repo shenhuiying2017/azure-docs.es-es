@@ -1,20 +1,3 @@
-<properties 
-   pageTitle="Crear un nuevo servicio de Administrador de StorSimple"
-   description="Se describe cómo crear una nueva instancia del servicio de Administrador de StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
-
 
 #### Para crear un nuevo servicio
 

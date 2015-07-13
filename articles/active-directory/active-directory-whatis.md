@@ -17,11 +17,15 @@
 	ms.author="curtand"/>
 
 
-# ¿Qué es Azure Active Directory?
+#  ¿Qué es Azure Active Directory?
 
 
-###Otros artículos sobre este tema
-[¿Qué es Azure AD?](active-directory-whatis.md)<br> [¿Cómo funciona?](active-directory-works.md)<br> [Introducción](active-directory-get-started.md)<br> [Pasos siguientes](active-directory-next-steps.md)<br> [Más información](active-directory-learn-map.md)
+### Otros artículos sobre este tema
+[¿Qué es Azure AD?](active-directory-whatis.md)<br> 
+[¿Cómo funciona?](active-directory-works.md)<br> 
+[Introducción](active-directory-get-started.md)<br> 
+[Pasos siguientes](active-directory-next-steps.md)<br> 
+[Más información](active-directory-learn-map.md)
 
 Azure Active Directory (Azure AD) proporciona una manera fácil para la empresa de administrar la identidad y acceso, tanto en la nube y como local. Los usuarios pueden utilizar una cuenta profesional o educativa para inicio de sesión único en cualquier aplicación web de nube y local, con su dispositivo favorito, como iOS, Mac OS X, Android y dispositivos de Windows. Su organización puede proteger aplicaciones y datos confidenciales tanto a nivel local y en la nube con la autenticación multifactor integrada, lo que garantiza el acceso local y remoto seguro. También puede ampliar los directorios locales para que los trabajadores de información puedan utilizar una sola cuenta de organización para tener acceso de forma segura y coherente a los recursos corporativos. Azure AD también ofrece informes completos, análisis y capacidades de autoservicio para reducir los costos y mejorar la seguridad. Y con escala de empresa y el SLA de Azure AD, su negocio seguirá ejecutándose en todo momento.
 
@@ -31,7 +35,7 @@ Azure Active Directory (Azure AD) proporciona una manera fácil para la empresa 
 > [AZURE.NOTE]Para usar Azure Active Directory, necesita una cuenta de Azure. Si aún no tiene ninguna, puede [registrarse para obtener una cuenta de Azure gratuita](http://azure.microsoft.com/pricing/free-trial/).
 
 
-## ¿Qué puede hacer Azure Active Directory por mí?
+##  ¿Qué puede hacer Azure Active Directory por mí?
 Siga los vínculos para obtener más información sobre las capacidades de Azure Active Directory.
 
 
@@ -44,12 +48,11 @@ Siga los vínculos para obtener más información sobre las capacidades de Azure
 - [Administración de acceso](https://msdn.microsoft.com/library/azure/dn906873.aspx)
 
 
-## Recursos adicionales
+##  Recursos adicionales
 
 * [Registro en Azure como una organización](sign-up-organization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-whatis/Azure_Active_Directory.png
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

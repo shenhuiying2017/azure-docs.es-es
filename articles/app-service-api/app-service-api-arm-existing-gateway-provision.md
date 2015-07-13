@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación de API con una puerta de enlace existente
@@ -22,7 +22,9 @@ En este tema, aprenderá a crear una plantilla del Administrador de recursos de 
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-Para la plantilla completa, consulte [Aplicación de API con una plantilla de puerta de enlace existente](https://github.com/tfitzmac/AppServiceTemplates/blob/master/existing-gateway-existing-plan-new-apiapp.json).
+Para obtener más información acerca de la implementación de aplicaciones, consulte [Implementación de una aplicación compleja de forma predecible en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+
+Para la plantilla completa, consulte [Aplicación de API con una plantilla de puerta de enlace existente](../../templates/app-service-api-arm-existing-gateway-provision/).
 
 ## Lo que implementará
 
@@ -67,7 +69,7 @@ El valor se usa a continuación como **variables('packageId')**.
 
 Crea una aplicación web que hospeda la aplicación de API.
 
-Observe que **kind** está establecido en **apiApp**, lo que notifica al portal de Azure que esta aplicación web hospeda una puerta de enlace. El portal ocultará la aplicación web desde la hoja de la aplicación web del explorador. La aplicación incluye una extensión para instalar el paquete de la aplicación de API vacío predeterminado. Se establece un vínculo entre la aplicación de API y la aplicación web de hospedaje. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API.
+Observe que **kind** está establecido en **apiApp** lo que notifica al portal de Azure que esta aplicación web hospeda una puerta de enlace. El portal ocultará la aplicación web desde la hoja de la aplicación web del explorador. La aplicación incluye una extensión para instalar el paquete de la aplicación de API vacío predeterminado. Se establece un vínculo entre la aplicación de API y la aplicación web de hospedaje. La sección de configuración de la aplicación incluye los valores necesarios para hospedar la aplicación de API.
 
     {
       "type": "Microsoft.Web/sites",
@@ -185,4 +187,4 @@ Observe que los nombres de la aplicación web de hospedaje y la puerta de enlace
 
  
 
-<!---HONumber=62-->
+<!--HONumber=62-->

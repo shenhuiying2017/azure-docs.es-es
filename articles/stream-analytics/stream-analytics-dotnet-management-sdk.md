@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Uso de SDK de .NET de administración de Análisis de transmisiones de Azure | Azure" 
-	description="Obtenga información sobre cómo usar el SDK de .NET de administración de Análisis de transmisiones" 
+	pageTitle="Obtenga información acerca de cómo usar el SDK de .NET de administración de Análisis de transmisiones | Microsoft Azure" 
+	description="Introducción al uso del SDK de .NET de administración de Análisis de transmisiones Obtenga información acerca de cómo configurar y ejecutar trabajos de análisis: crear un proyecto, entradas, salidas y transformaciones." 
+	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,17 +14,17 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="06/17/2015" 
+	ms.author="jeffstok"/>
 
 
-# Uso del SDK de .NET de administración de Análisis de transmisiones de Azure
+# Configuración y ejecución de trabajos de análisis mediante el SDK de .NET de administración de Análisis de transmisiones de Azure
 
-[Este tema es la documentación preliminar y está sujeto a cambios en las futuras versiones.] 
+Puede aprender a configurar y ejecutar trabajos de análisis mediante el SDK de .NET de administración de Análisis de transmisiones de Azure. Configure un proyecto, cree orígenes de entrada y salida, transformaciones, e inicie y detenga trabajos. En los trabajos de análisis puede transmitir datos desde el almacenamiento de blobs o desde un centro de eventos.
 
-Análisis de transmisiones de Azure es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través de la transmisión de datos en la nube. En la versión preliminar, Análisis de transmisiones permite a los clientes configurar trabajos de streaming para analizar las secuencias de datos y realizar análisis casi en tiempo real.  
+Análisis de transmisiones de Azure es un servicio totalmente administrado que proporciona un procesamiento completo de eventos de baja latencia, alta disponibilidad y escalable a través de la transmisión de datos en la nube. Análisis de transmisiones permite a los clientes configurar trabajos de streaming para analizar flujos de datos y realizar análisis casi en tiempo real.
 
-Este artículo muestra cómo usar el SDK de .NET de administración de Análisis de transmisiones de Azure.
+Para la referencia de API de .NET, consulte [SDK de .NET de administración de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn889315.aspx).
 
 
 ## Requisitos previos
@@ -31,26 +32,28 @@ Antes de empezar este artículo, debe tener lo siguiente:
 
 - Instale Visual Studio 2012 o 2013.
 - Descargue e instale el [SDK de .NET de Azure](http://azure.microsoft.com/downloads/). 
-- Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md);  
+- Cree un grupo de recursos de Azure en su suscripción. A continuación se muestra un ejemplo de script de Azure PowerShell. Para obtener información sobre Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).  
 
 
-		# Configure la sesión de Azure PowerShell para tener acceso al administrador de recursos de Azure
+		# Configure the Azure PowerShell session to access Azure Resource Manager
 		Switch-AzureMode AzureResourceManager
 
-		# Inicie sesión en su cuenta de Azure
+		# Log in to your Azure account
 		Add-AzureAccount
 
-		# Seleccione la suscripción de Azure que desea usar para crear el grupo de recursos
-		Select-AzureSubscription -SubscriptionName <nombre de suscripción>
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
 
-		# Cree un grupo de recursos de Azure	
-		New-AzureResourceGroup -Name <EL NOMBRE DEL GRUPO DE RECURSOS> -Location <UBICACIÓN>
+		# Create an Azure resource group	
+		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
 
 
 -	Configure un origen de entrada y un destino de salida para usar. Consulte [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md) para configurar una entrada y/o salida de ejemplo que se utilizarán en este artículo.
 
 
 ## Configuración de un proyecto
+
+Para crear un trabajo de análisis, configure en primer lugar el proyecto.
 
 1. Cree una aplicación de consola .NET de Visual Studio C#.
 2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Análisis de transmisiones de Azure. El segundo es el cliente de Azure Active Directory que se usará para autenticación.
@@ -67,16 +70,16 @@ Antes de empezar este artículo, debe tener lo siguiente:
 		  <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 		  <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		  <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		  <add key="SubscriptionId" value="<SU SUSCRIPCIÓN DE AZURE>" />
-		  <add key="ActiveDirectoryTenantId" value="<SU ID DE INQUILINO>" />
+		  <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION>" />
+		  <add key="ActiveDirectoryTenantId" value="<YOU TENANT ID>" />
 		</appSettings>
 
 
-	Reemplace los valores para **SubscriptionId** y **ActiveDirectoryTenantId** por sus id. de inquilino y suscripción de Azure. Para obtener estos valores, ejecute el siguiente cmdlet de Azure PowerShell:
+	Reemplace los valores para **SubscriptionId** y **ActiveDirectoryTenantId** por sus identificadores de inquilino y de suscripción de Azure. Para obtener estos valores, ejecute el siguiente cmdlet de Azure PowerShell:
 
 		Get-AzureAccount
 
-5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) del proyecto:
+5. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto:
 
 		using System;
 		using System.Configuration;
@@ -121,46 +124,46 @@ Antes de empezar este artículo, debe tener lo siguiente:
 		        return result.AccessToken;
 		    }
 		
-		    throw new InvalidOperationException("Error al adquirir el token");
+		    throw new InvalidOperationException("Failed to acquire token");
 		}  
 
 
 ## Cree un cliente de administración de Análisis de transmisiones
 
-Un objeto **StreamAnalyticsManagementClient** le permite administrar el trabajo y los componentes del trabajo, como la entrada, la salida y la transformación. 
+Un objeto **StreamAnalyticsManagementClient** le permite administrar el trabajo y los componentes del trabajo, como la entrada, la salida y la transformación.
 
-Agregue el siguiente código al comienzo del método **Main**: 
+Agregue el siguiente código al comienzo del método **Main**:
 
-	string resourceGroupName = "<EL NOMBRE DEL GRUPO DE RECURSOS DE AZURE>";
-	string streamAnalyticsJobName = "<EL NOMBRE DE TRABAJO DE ANÁLISIS DE TRANSMISIONES>";
-	string streamAnalyticsInputName = "<EL NOMBRE DE ENTRADA DEL TRABAJO>";
-	string streamAnalyticsOutputName = "<EL NOMBRE DE SALIDA DEL TRABAJO>";
-	string streamAnalyticsTransformationName = "<EL NOMBRE DE TRANSFORMACIÓN DEL TRABAJO>";
+	string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
+	string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
+	string streamAnalyticsInputName = "<YOUR JOB INPUT NAME>";
+	string streamAnalyticsOutputName = "<YOUR JOB OUTPUT NAME>";
+	string streamAnalyticsTransformationName = "<YOUR JOB TRANSFORMATION NAME>";
 	
-	// Obtenga el token de autenticación
+	// Get authentication token
 	TokenCloudCredentials aadTokenCredentials =
 	    new TokenCloudCredentials(
 	        ConfigurationManager.AppSettings["SubscriptionId"],
 	        GetAuthorizationHeader());
 	
-	// Cree el cliente de administración de Análisis de transmisiones
+	// Create Stream Analytics management client
 	StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
-El valor de la variable **resourceGroupName** debe ser el mismo nombre del grupo de recursos que creó o eligió en los pasos de requisitos previos.
+El valor de la variable **resourceGroupName** debe ser el mismo que el nombre del grupo de recursos que creó o eligió en los pasos de requisitos previos.
 
-Las secciones restantes de este artículo supone que este código se encuentra al comienzo del método **Main**.
+Las secciones restantes de este artículo suponen que este código se encuentra al comienzo del método **Main**.
 
 ## Creación de un trabajo de Análisis de transmisiones
 
 El siguiente código crea un trabajo de Análisis de transmisiones bajo el grupo de recursos que ha definido. Agregará una entrada, salida y transformación al trabajo más adelante.
 
-	// Cree un trabajo de Análisis de transmisiones
+	// Create a Stream Analytics job
 	JobCreateOrUpdateParameters jobCreateParameters = new JobCreateOrUpdateParameters()
 	{
 	    Job = new Job()
 	    {
 	        Name = streamAnalyticsJobName,
-	        Location = "<UBICACIÓN>",
+	        Location = "<LOCATION>",
 	        Properties = new JobProperties()
 	        {
 	            EventsOutOfOrderPolicy = EventsOutOfOrderPolicy.Adjust,
@@ -179,7 +182,7 @@ El siguiente código crea un trabajo de Análisis de transmisiones bajo el grupo
 
 El código siguiente crea un origen de entrada de Análisis de transmisiones con el tipo de origen de entrada de blob y la serialización de CSV. Para crear un origen de entrada de centro de eventos, use **EventHubStreamInputDataSource** en lugar de **BlobStreamInputDataSource**. De manera similar, puede personalizar el tipo de serialización del origen de entrada.
 
-	// Cree un origen de entrada de Análisis de transmisiones
+	// Create a Stream Analytics input source
 	InputCreateOrUpdateParameters jobInputCreateParameters = new InputCreateOrUpdateParameters()
 	{
 	    Input = new Input()
@@ -203,8 +206,8 @@ El código siguiente crea un origen de entrada de Análisis de transmisiones con
 	                    {
 	                        new StorageAccount()
 	                        {
-	                            AccountName = "<EL NOMBRE DE LA CUENTA DE ALMACENAMIENTO>",
-	                            AccountKey = "<LA CLAVE DE LA CUENTA DE ALMACENAMIENTO>"
+	                            AccountName = "<YOUR STORAGE ACCOUNT NAME>",
+	                            AccountKey = "<YOUR STORAGE ACCOUNT KEY>"
 	                        }
 	                    },
 	                    Container = "samples",
@@ -218,14 +221,14 @@ El código siguiente crea un origen de entrada de Análisis de transmisiones con
 	InputCreateOrUpdateResponse inputCreateResponse = 
 		client.Inputs.CreateOrUpdate(resourceGroupName, streamAnalyticsJobName, jobInputCreateParameters);
 
-Los orígenes de entrada están vinculados a un trabajo específico. Para usar el mismo origen de entrada para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
+Los orígenes de entrada, ya sean desde el almacenamiento de blobs o un centro de eventos, están vinculados a un trabajo específico. Para usar el mismo origen de entrada para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
 
 
 ## Prueba del origen de entrada de Análisis de transmisiones
 
 El método **TestConnection** prueba si el trabajo de Análisis de transmisiones puede conectarse al origen de entrada así como otros aspectos específicos para el tipo de origen de entrada. Por ejemplo, en el origen de entrada de blob que creó en un paso anterior, el método comprobará que el par de claves y el nombre de cuenta de almacenamiento se pueden usar para conectarse a la cuenta de almacenamiento, así como para comprobar que existe el contenedor especificado.
 
-	// Pruebe la conexión de origen de entrada
+	// Test input source connection
 	DataSourceTestConnectionResponse inputTestResponse = 
 		client.Inputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsInputName);
 
@@ -235,7 +238,7 @@ La creación de un destino de salida es muy similar a crear un origen de entrada
 
 El siguiente código crea un destino de salida (Base de datos SQL de Azure). Puede personalizar el tipo de datos y/o el tipo de serialización del destino de salida.
 
-	// Cree un destino de salida de Análisis de transmisiones
+	// Create a Stream Analytics output target
 	OutputCreateOrUpdateParameters jobOutputCreateParameters = new OutputCreateOrUpdateParameters()
 	{
 	    Output = new Output()
@@ -247,11 +250,11 @@ El siguiente código crea un destino de salida (Base de datos SQL de Azure). Pue
 	            {
 	                Properties = new SqlAzureOutputDataSourceProperties()
 	                {
-	                    Server = "<EL NOMBRE DEL SERVIDOR DE BASE DE DATOS>",
-	                    Database = "<EL NOMBRE DE LA BASE DE DATOS>",
-	                    User = "<EL INICIO DE SESIÓN EN LA BASE DE DATOS>",
-	                    Password = "<LA CONTRASEÑA DE INICIO DE SESIÓN EN LA BASE DE DATOS>",
-	                    Table = "<EL NOMBRE DE TABLA DE LA BASE DE DATOS>"
+	                    Server = "<YOUR DATABASE SERVER NAME>",
+	                    Database = "<YOUR DATABASE NAME>",
+	                    User = "<YOUR DATABASE LOGIN>",
+	                    Password = "<YOUR DATABASE LOGIN PASSWORD>",
+	                    Table = "<YOUR DATABASE TABLE NAME>"
 	                }
 	            }
 	        }
@@ -265,16 +268,16 @@ El siguiente código crea un destino de salida (Base de datos SQL de Azure). Pue
 
 Un destino de salida de Análisis de transmisiones también tiene el método **TestConnection** para probar conexiones.
 
-	// Pruebe la conexión de destino de salida
+	// Test output target connection
 	DataSourceTestConnectionResponse outputTestResponse = 
 		client.Outputs.TestConnection(resourceGroupName, streamAnalyticsJobName, streamAnalyticsOutputName);
 
 ## Creación de una transformación de Análisis de transmisiones
 
-El siguiente código crea una transformación de Análisis de transmisiones con la consulta "select * from Input" y especifica para asignar una unidad de streaming para el trabajo de Análisis de transmisiones. Para obtener más información sobre cómo ajustar las unidades de streaming, consulte [Escalar trabajos de Análisis de transmisiones](stream-analytics-scale-jobs.md).
+El siguiente código crea una transformación de Análisis de transmisiones con la consulta "select * from Input" y especifica para asignar una unidad de streaming para el trabajo de Análisis de transmisiones. Para obtener más información sobre el ajuste de las unidades de streaming, consulte [Escalación de trabajos de Análisis de transmisiones](stream-analytics-scale-jobs.md).
 
 
-	// Cree una transformación de Análisis de transmisiones
+	// Create a Stream Analytics transformation
 	TransformationCreateOrUpdateParameters transformationCreateParameters = new TransformationCreateOrUpdateParameters()
 	{
 	    Transformation = new Transformation()
@@ -294,11 +297,11 @@ El siguiente código crea una transformación de Análisis de transmisiones con 
 Al igual que la entrada y la salida, una transformación también está vinculada al trabajo de Análisis de transmisiones específico bajo el que se creó.
 
 ## Inicio de un trabajo de Análisis de transmisiones
-Después de crear un trabajo de Análisis de transmisiones y sus entradas, salidas y transformaciones, puede iniciar el trabajo si llama al método **Start**. 
+Después de crear un trabajo de Análisis de transmisiones y sus entradas, salidas y transformaciones, puede iniciar el trabajo si llama al método **Start**.
 
 El siguiente código de ejemplo inicia un trabajo de Análisis de transmisiones con una hora de inicio de salida personalizada definida para el 12 de diciembre de 2012, 12:12:12 UTC:
 
-	// Inicie un trabajo de Análisis de transmisiones
+	// Start a Stream Analytics job
 	JobStartParameters jobStartParameters = new JobStartParameters
 	{
 	    OutputStartMode = OutputStartMode.CustomTime,
@@ -312,25 +315,30 @@ El siguiente código de ejemplo inicia un trabajo de Análisis de transmisiones 
 ## Detención de un trabajo de Análisis de transmisiones
 Puede detener un trabajo de Análisis de transmisiones en ejecución si llama al método **Stop**.
 
-	// Detenga un trabajo de Análisis de transmisiones
+	// Stop a Stream Analytics job
 	LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
 ## Eliminación de un trabajo de Análisis de transmisiones
 El método **Delete** eliminará el trabajo, además de los subrecursos subyacentes, incluidas las entradas, salidas y transformaciones del trabajo.
 
-	// Elimine un trabajo de Análisis de transmisiones
+	// Delete a Stream Analytics job
 	LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
+
+
+## Obtención de soporte técnico
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
 
-- [Introducción a Análisis de transmisiones de Azure][stream.analytics.introduction]
-- [Introducción al uso de Análisis de transmisiones de Azure][stream.analytics.get.started]
-- [Escalar trabajos de Análisis de transmisiones de Azure][stream.analytics.scale.jobs]
-- [Limitaciones y problemas conocidos de Análisis de transmisiones de Azure][stream.analytics.limitations]
-- [Referencia de lenguaje de consulta de Análisis de transmisiones de Azure][stream.analytics.query.language.reference]
-- [Referencia de API de REST de administración de Análisis de transmisiones de Azure][stream.analytics.rest.api.reference] 
+Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecutar trabajos de análisis. Para obtener más información, consulte:
 
+- [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+- [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+- [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+- [SDK de .NET de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn889315.aspx)
+- [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 <!--Image references-->
@@ -353,9 +361,8 @@ El método **Delete** eliminará el trabajo, además de los subrecursos subyacen
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

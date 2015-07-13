@@ -204,5 +204,4 @@ En este artículo se ha mostrado cómo usar una aplicación API desde un cliente
 
 Para obtener más ejemplos de código que llama a una aplicación de API de clientes. NET, descargue la aplicación de ejemplo [Tarjetas de Azure](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample).
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

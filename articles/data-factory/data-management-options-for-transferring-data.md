@@ -18,7 +18,7 @@
 
 # Opciones para transferir datos almacenados a la nube de Azure
 
-En este artículo, se proporcionan instrucciones sobre cómo elegir la opción adecuada para transferir datos desde una implementación local u otros orígenes de nube a Microsoft Azure a fin de someterlos a un análisis de datos avanzado. Transferir grandes cantidades de datos puede requerir mucho tiempo y exigir una seguridad adecuada. 
+En este artículo, se proporcionan instrucciones sobre cómo elegir la opción adecuada para transferir datos desde una implementación local u otros orígenes de nube a Microsoft Azure a fin de someterlos a un análisis de datos avanzado. Transferir grandes cantidades de datos puede requerir mucho tiempo y exigir una seguridad adecuada.
 
 En este artículo:
 
@@ -35,7 +35,7 @@ En este artículo:
 
 ## Servicio de importación/exportación de Azure para el almacenamiento de blobs
 
-Puede utilizar el servicio de importación y exportación de Azure para transferir grandes cantidades de datos de archivo desde o hasta el almacenamiento de blobs de Azure en situaciones en las que el proceso de carga o descarga mediante la red sea prohibitivamente caro o no sea viable. Los conjuntos de datos grandes tardan mucho tiempo en cargarse o descargarse a través de la red. Por ejemplo, 10 TB tardan 1 mes si se usa T3 (44,7 Mbps). Con el servicio de importación y exportación de Microsoft Azure, los clientes pueden enviar el disco duro para reducir el tiempo de carga o descarga de datos. Planee varios días, incluido el envío. 
+Puede utilizar el servicio de importación y exportación de Azure para transferir grandes cantidades de datos de archivo desde o hasta el almacenamiento de blobs de Azure en situaciones en las que el proceso de carga o descarga mediante la red sea prohibitivamente caro o no sea viable. Los conjuntos de datos grandes tardan mucho tiempo en cargarse o descargarse a través de la red. Por ejemplo, 10 TB tardan 1 mes si se usa T3 (44,7 Mbps). Con el servicio de importación y exportación de Microsoft Azure, los clientes pueden enviar el disco duro para reducir el tiempo de carga o descarga de datos. Planee varios días, incluido el envío.
 
 Para transferir un gran conjunto de datos de archivo al almacenamiento de blobs, puede enviar uno o varios discos duros que contengan los datos a un centro de datos de Azure, en el que se cargarán sus datos en la cuenta de almacenamiento. De forma similar, para exportar datos desde el almacenamiento de blobs, puede enviar discos duros vacíos a un centro de datos de Azure, en el que los datos de blobs de su cuenta de almacenamiento se copiarán en sus discos duros, y, a continuación, se le devolverán. Antes de enviar una unidad que contiene datos, deberá cifrar los datos de la unidad; cuando el servicio de importación y exportación exporte sus datos para enviárselos, los datos se cifrarán igualmente antes del envío.
 
@@ -44,9 +44,9 @@ Para obtener más información, consulte [Uso del servicio de importación y exp
 
 ## Utilidad AZCopy
 
-AzCopy es una utilidad de línea de comandos diseñada para realizar operaciones de alto rendimiento de carga, descarga y copia de datos a y desde Almacenamiento de blobs, archivos y tablas de Microsoft Azure. Esta utilidad es adecuada para movimientos de datos puntuales entre el equipo local y el almacenamiento de Azure, en caso de que la transferencia de datos a través de la red sea viable. Consulte [Introducción a la utilidad de línea de comandos AzCopy][azcopy].
+AzCopy es una utilidad de línea de comandos diseñada para realizar operaciones de alto rendimiento de carga, descarga y copia de datos a y desde Almacenamiento de blobs, archivos y tablas de Microsoft Azure. Esta utilidad es adecuada para movimientos de datos puntuales entre el equipo local y el almacenamiento de Azure, en caso de que la transferencia de datos a través de la red sea viable. Consulte [Introducción a la utilidad de línea de comandos AzCopy][azcopy]
 
-> [AZURE.NOTE] Usuarios de Linux: [descargue ACP, AzCopy para Linux](http://www.paratools.com/acp)
+> [AZURE.NOTE]Usuarios de Linux: [descargue ACP, AzCopy para Linux](http://www.paratools.com/acp)
 
 
 ## Azure PowerShell
@@ -55,7 +55,7 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 
 Consulte también:
 
-* [Carga de datos en el almacenamiento de blobs usando Azure PowerShell][upload]
+* [Carga de datos en el almacenamiento de blobs mediante Azure PowerShell][upload]
 * [Instalación y configuración de Azure PowerShell][install]
 
 
@@ -65,9 +65,9 @@ La Factoría de datos de Azure es un servicio totalmente administrado para la co
 
 Los desarrolladores pueden crear flujos de trabajo orientados a datos que combinan, agregan y transforman datos semiestructurados, desestructurados y estructurados procedentes de sus servicios locales, (mediante Data Management Gateway) basados en la nube y de Internet, además de configurar procesamientos de datos complejos a través de scripting de JSON simple. Los datos resultantes pueden guardarse en el almacenamiento de Azure o en Base de datos SQL de Azure para someterlos a análisis avanzados.
 
-En concreto, un desarrollador puede organizar actividades de copia periódicas entre varios orígenes y destinos mostrados en la sección "[Entradas y salidas admitidas](data-factory-copy-activity.md#SupportedSourcesAndSinks)" de [Copia de datos con la Factoría de datos de Azure](data-factory-copy-activity.md), que también incluye propiedades para diferentes tipos de almacenes de datos, asignación de columnas, formatos de serialización y control de tipos.
+En concreto, un desarrollador puede organizar las actividades de copia regulares entre varios orígenes y destinos que se muestran en la sección "[Orígenes y receptores compatibles](data-factory-copy-activity.md#SupportedSourcesAndSinks)" de [Copia de datos con la Factoría de datos de Azure (actividad de copia)](data-factory-copy-activity.md), que también incluye propiedades para diferentes tipos de almacenes de datos, asignación de columnas, formatos de serialización y tratamiento de tipos.
 
-El servicio puede controlar los errores con reinicio automático y permitir la conversión de formato al mover datos de un formato a otro. Para definir una actividad de copia, consulte [Introducción a la Factoría de datos de Azure][start]. Los procedimientos de instalación de gateway y registro de almacén de datos se describen en [Habilitación de canalizaciones para trabajar con datos locales][pipelines]. 
+El servicio puede controlar los errores con reinicio automático y permitir la conversión de formato al mover datos de un formato a otro. Para definir una actividad de copia, consulte [Introducción a la Factoría de datos de Azure][start]. Los procedimientos de instalación de una puerta de enlace y de registro del almacén de datos se describen en [Habilitación de canalizaciones para trabajar con datos locales][pipelines].
 
 Consulte también:
 
@@ -80,13 +80,13 @@ Hay muchas herramientas disponibles para migrar correctamente SQL Server local y
 * Puede migrar el esquema y los datos de una Base de datos SQL de Azure existente; para ello, debe exportar la base de datos, almacenar el archivo de exportación en una cuenta de almacenamiento de blob de Azure y, a continuación, efectuar la importación como una nueva Base de datos SQL de Azure. El archivo que se crea cuando se realiza esta exportación se denomina "archivo BACPAC". Para obtener más información, consulte [Procedimiento: uso del servicio de importación y exportación en Base de datos SQL de Azure][sql-import].
 * La característica de copia de base de datos crea una nueva base de datos en Azure que es una copia transaccional y coherente de una Base de datos SQL de Azure existente. Para obtener más información, consulte [Copiar bases de datos en Base de datos SQL de Azure][sql-copy].
 * Los servicios SQL Server Integration Services (SSIS) se pueden usar cuando se necesitan transformaciones complejas de datos. Puede usar SSIS para mover datos hacia y desde Base de datos SQL de Azure. Para obtener más información, consulte [Procedimiento: Usar Integration Services para migrar una base de datos a Base de datos SQL de Azure][integrate] y [SSIS para Azure y movimientos de datos híbridos][SSIS].
-* La importación de SQL Server y el Asistente para exportación es una forma sencilla de crear un paquete SSIS para migrar datos. Después de configurar el origen y el destino, puede especificar transformaciones de datos básicas. Estos paquetes se pueden guardar, modificar, ejecutar y programar como un trabajo. Para obtener más información, consulte [Procedimiento: Usar el Asistente para importación y exportación para migrar una base de datos a Base de datos SQL de Azure][wizard].
+* El Asistente para importación y exportación de SQL Server es una forma sencilla de crear un paquete SSIS para migrar datos. Después de configurar el origen y el destino, puede especificar transformaciones de datos básicas. Estos paquetes se pueden guardar, modificar, ejecutar y programar como un trabajo. Para obtener más información, consulte [Procedimiento: Usar el Asistente para importación y exportación para migrar una base de datos a Base de datos SQL de Azure][wizard].
 * El Asistente para migración de Base de datos SQL es una herramienta que ayuda a migrar el esquema y los datos entre el SQL Server local y Base de datos SQL de Azure, así como entre los servidores de Base de datos SQL de Azure. La herramienta también analiza los archivos de seguimiento y los scripts para detectar problemas de compatibilidad con Base de datos SQL de Azure. Para obtener más información, consulte [Procedimiento: uso del Asistente para migración de Base de datos SQL][use-wizard].
 * La utilidad bcp puede usarse para importar grandes cantidades de filas nuevas en tablas de SQL Server o para exportar datos de tablas en archivos de datos. Para obtener más información, consulte [Procedimiento: cómo usar bcp para migrar una base de datos a Base de datos SQL de Azure][bcp].
 
 Consulte también:
 
-* [Migrar bases de datos a Base de datos SQL de Azure][migrate]
+* [Migrar bases de datos a bases de datos SQL de Azure][migrate]
  
 
 ## Vista previa de SQL Azure Data Sync
@@ -107,13 +107,13 @@ Consulte:
 
 * [Información sobre el servicio de Centro de eventos](/services/event-hubs/)
 * [Información general de los centros de eventos][overview]
-* [Introducción a Azure Stream Analytics][stream]
+* [Introducción al Análisis de transmisiones de Azure][stream]
 
 ## Otras opciones para transferir datos
 
 Las conexiones híbridas ofrecen un modo sencillo y práctico de conectar sitios web y servicios móviles de Azure a recursos locales. Los desarrolladores pueden crear sitios web para mover datos desde el entorno local a Azure. Consulte [Introducción a las conexiones híbridas][hybrid] para obtener más información.
 
-Con [Red virtual](/services/virtual-network/), puede utilizar herramientas de integración de datos que se ejecutan en la máquina virtual de Azure para conectarse de forma segura a bases de datos SQL Server locales en su centro de datos in situ. Solo las máquinas virtuales y los servicios incluidos en la misma red virtual pueden identificarse o conectarse entre sí. Si lo prefiere, puede incluso crear una conexión directa [ExpressRoute](/services/expressroute/) con Azure a través de su proveedor de servicios de red o el proveedor de Exchange y omitir por completo la red pública Internet.
+Con [Red virtual](/services/virtual-network/), puede utilizar las herramientas de integración de datos que se ejecutan en la máquina virtual de Azure para conectarse de forma segura a bases de datos SQL Server locales en su centro de datos in situ. Solo las máquinas virtuales y los servicios incluidos en la misma red virtual pueden identificarse o conectarse entre sí. Si lo prefiere, puede incluso crear una conexión directa [ExpressRoute](/services/expressroute/) con Azure a través de su proveedor de servicios de red o el proveedor de Exchange, y omitir la red pública Internet.
 
 [Azure Marketplace](?../source=datamarket.md) ofrece soluciones de socios que permiten mover datos a Azure, por ejemplo, mediante el protocolo Storm Managed File Transfer.
 
@@ -121,7 +121,7 @@ Con [Red virtual](/services/virtual-network/), puede utilizar herramientas de in
 
 ### Árbol de decisión
 
-![Ayuda para decidir qué opción de transferencia de datos a la nube debe elegir.][decision]
+![Ayuda para decidir la opción de transferencia de datos a la nube que se elige.][decision]
 
 Notas sobre el árbol de decisión:
 
@@ -146,7 +146,7 @@ Notas sobre el árbol de decisión:
 <li><a href="/documentation/articles/storage-use-azcopy/">AzCopy</a></li>
 <li><a href="http://www.paratools.com/acp" target="_blank">acp</a></li>
 <li><a href="/documentation/articles/install-configure-powershell/">Azure PowerShell</a></li>
-<li><a href="/documentation/articles/storage-import-export-service/">Importaciones/exportaciones de Azure</a></li>
+<li><a href="/documentation/articles/storage-import-export-service/">Importación/Exportación de Azure</a></li>
 </ul>
 </td>
 <td><p>N/D</p>
@@ -220,7 +220,7 @@ Notas sobre el árbol de decisión:
 <tr>
 <td><p>De archivo a almacenamiento de Azure</p>
 </td>
-<td><p><a href="/documentation/articles/storage-import-export-service/">Importaciones/exportaciones de Azure</a></p>
+<td><p><a href="/documentation/articles/storage-import-export-service/">Importación/Exportación de Azure</a></p>
 </td>
 <td><p>N/D</p>
 </td>
@@ -233,15 +233,15 @@ Notas sobre el árbol de decisión:
 
 
 <!--Anchors-->
-[Servicio de importación/exportación de Azure para el almacenamiento de blobs]: #blob
-[Utilidad AZCopy]: #azcopy-utility
+[Azure Import/Export service for Blob storage]: #blob
+[AZCopy utility]: #azcopy-utility
 [Azure PowerShell]: #ps
-[Factoría de datos de Azure (vista previa)]: #data-factory
-[Herramientas de migración de Base de datos SQL de Azure]: #tools
-[Vista previa de SQL Azure Data Sync]: #data-sync
-[Centros de eventos de Azure]: #event-hubs
-[Otras opciones para transferir datos]: #other
-[Elección de la opción de transferencia de datos adecuada]: #choose
+[Azure Data Factory (preview)]: #data-factory
+[Azure SQL Database migration tools]: #tools
+[Azure SQL Data Sync (preview)]: #data-sync
+[Azure Event Hubs]: #event-hubs
+[Other options for data transfer]: #other
+[Choose the right data transfer option]: #choose
 
 <!--Image references-->
 [decision]: ./media/data-management-options-for-transferring-data/data-transfer-decision-tree.png
@@ -268,6 +268,6 @@ Notas sobre el árbol de decisión:
 [stream]: ../stream-analytics-introduction.md
 [sync]: http://msdn.microsoft.com/library/azure/hh456371.aspx
 [hybrid]: ../integration-hybrid-connection-overview.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

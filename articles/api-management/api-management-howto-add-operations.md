@@ -16,11 +16,11 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-# Incorporación de operaciones a una API en Administración de API de Azure
+#  Incorporación de operaciones a una API en Administración de API de Azure
 
 Es necesario agregar operaciones para poder utilizar una API en Administración de API. En esta guía se muestra cómo agregar y configurar diferentes tipos de operaciones a una API en Administración de API.
 
-## <a name="add-operation"> </a>Agregar una operación
+##  <a name="add-operation"> </a>Agregar una operación
 
 Las operaciones se agregan y se configuran para una API en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API.
 
@@ -57,7 +57,7 @@ Los usuarios que llamen a la operación usarán el formato `/customers?customeri
 
 La descripción de la operación se puede especificar como texto sin formato o HTML en el cuadro de texto **Descripción**.
 
-## <a name="operation-caching"> </a>Almacenamiento en caché de operaciones
+##  <a name="operation-caching"> </a>Almacenamiento en caché de operaciones
 
 El almacenamiento en caché de respuestas reduce la latencia que perciben los consumidores de la API, rebaja el consumo de ancho de banda y disminuye la carga en el servicio web HTTP que implementa la API.
 
@@ -72,7 +72,7 @@ Se usan claves de caché para diferenciar entre respuestas de forma que la respu
 >Para obtener más información sobre el almacenamiento en caché y las directivas de almacenamiento en caché, consulte [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure][].
 
 
-## <a name="request-parameters"> </a>Parámetros de solicitud
+##  <a name="request-parameters"> </a>Parámetros de solicitud
 
 Los parámetros de la operación se administran en la pestaña Parámetros. Los parámetros especificados en **Modelo de URL** en la pestaña **Firma** se agregan automáticamente y solo pueden cambiarse modificando la plantilla de URL. Se pueden introducir manualmente parámetros adicionales.
 
@@ -86,7 +86,7 @@ Para agregar un nuevo parámetro de consulta, haga clic en **Agregar parámetro 
 
 ![Request parameters][api-management-request-parameters]
 
-## <a name="request-body"> </a>Cuerpo de la solicitud
+##  <a name="request-body"> </a>Cuerpo de la solicitud
 
 Si la operación lo permite (por ejemplo, PUT, POST) y requiere un cuerpo, puede proporcionar un ejemplo del mismo en todos los formatos de representación compatibles (por ejemplo, json, XML).
 
@@ -100,7 +100,7 @@ Haga clic en **Agregar representación**, comience a escribir el nombre del tipo
 
 Además de las representaciones, también puede especificar una descripción opcional de texto en el cuadro de texto **Descripción**.
 
-## <a name="responses"> </a>Respuestas
+##  <a name="responses"> </a>Respuestas
 
 Es recomendable proporcionar ejemplos de respuestas para todos los códigos de estado que puede producir la operación. Cada código de estado puede tener más de un ejemplo de cuerpo de respuesta, uno para cada tipo de contenido admitido.
 
@@ -121,7 +121,7 @@ Si lo desea, agregue una descripción opcional en el cuadro de texto **Descripci
 Una vez configurada la operación, haga clic en **Guardar**.
 
 
-## <a name="next-steps"> </a>Pasos siguientes
+##  <a name="next-steps"> </a>Pasos siguientes
 
 Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API al producto y publicarlo para que los desarrolladores pueden llamar a las operaciones.
 
@@ -163,5 +163,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [How to add operations to an API]: api-management-howto-add-operations.md
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

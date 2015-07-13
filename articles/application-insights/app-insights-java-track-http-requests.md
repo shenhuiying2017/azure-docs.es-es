@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="05/26/2015" 
 	ms.author="awills"/>
  
 # Seguimiento de las solicitudes HTTP en una aplicación web de Java
@@ -88,8 +88,11 @@ Busque y abra el archivo ApplicationInsights.xml en el proyecto y combine el sig
 Si no hay ningún elemento < TelemetryInitializers> en este archivo, agregue uno bajo el elemento <ApplicationInsights>.
 
     <TelemetryInitializers>
-      <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-      <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add  type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+     <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
     </TelemetryInitializers>
 
 
@@ -109,7 +112,7 @@ Haga clic en cualquier gráfico para ver métricas más detalladas.
 ![](./media/app-insights-java-track-http-requests/6-barchart.png)
 
 
-[Más información acerca del Explorador de métricas.][metrics]
+[Más información acerca de las métricas][metrics]
 
  
 
@@ -134,5 +137,5 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

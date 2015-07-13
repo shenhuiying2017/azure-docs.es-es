@@ -1,5 +1,5 @@
-﻿
-1. Haga clic con el botón secundario en el proyecto de la Tienda Windows, haga clic en **Establecer como proyecto de inicio** y luego presione la tecla F5 para ejecutar la aplicación de la Tienda Windows.
+
+1. Haga clic con el botón derecho en el proyecto de la Tienda Windows, haga clic en **Establecer como proyecto de inicio** y luego presione la tecla F5 para ejecutar la aplicación de la Tienda Windows.
 	
 	Cuando la aplicación se inicia, el dispositivo se registra para recibir notificaciones push.
 
@@ -19,5 +19,4 @@
 
    	![](./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
-
-<!--HONumber=49-->
+<!---HONumber=62-->

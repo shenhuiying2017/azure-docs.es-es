@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -244,5 +244,4 @@ Ha implementado una aplicación web de Node.js que usa el back-end de una aplica
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

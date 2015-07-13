@@ -441,7 +441,7 @@ Un uso típico consiste en identificar telemetría procedente de distintas versi
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
 
 
-En el cliente web de JavaScript no hay actualmente ninguna forma de establecer propiedades predeterminadas.
+En el cliente web de JavaScript, no hay actualmente ninguna forma de establecer propiedades predeterminadas.
 
 ## <a name="dynamic-ikey"></a> Copia de la clave de instrumentación
 
@@ -629,5 +629,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 [windows]: app-insights-windows-get-started.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

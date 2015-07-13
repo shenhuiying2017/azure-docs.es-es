@@ -28,7 +28,7 @@ Si bien puede observar los cambios de personalización de marca en el portal ant
 
 En el portal antiguo, todos los servicios de Azure se indican a la izquierda. La navegación en este sigue una estructura de árbol, donde se empieza a partir del servicio y se navega a cada elemento. Esta estructura funciona bien para administrar componentes independientes. Si embargo, las aplicaciones integradas en Azure constituyen una colección de servicios interconectados y la estructura de árbol no es la ideal para trabajar con este tipo de colecciones.
 
-El nuevo portal facilita la compilación de aplicaciones completas con componentes de varios servicios. El nuevo portal de Azure se organiza en *viajes*. Un  *viaje* es una serie de  *hojas*, que funcionan como contenedores de los distintos componentes. Por ejemplo, configurar el ajuste de escala automático para una aplicación web es un *viaje* que requiere varias hojas, como se muestra en el ejemplo siguiente: la hoja **sitio-web** (dicho título aún no se ha actualizado para usar la nueva terminología), la hoja **Configuración** y la hoja **Escala**. En el ejemplo, el ajuste de escala automático se configura para que dependa del uso de la CPU, por lo que también hay una hoja llamada **Porcentaje de CPU**. Los componentes incluidos en las *hojas* se llaman *partes* y parecen iconos.
+El nuevo portal facilita la compilación de aplicaciones completas con componentes de varios servicios. El nuevo portal de Azure se organiza en *viajes*. Un *viaje* es una serie de *hojas*, que funcionan como contenedores de los distintos componentes. Por ejemplo, configurar el ajuste de escala automático para una aplicación web es un *viaje* que requiere varias hojas, como se muestra en el ejemplo siguiente: la hoja **sitio-web** (dicho título aún no se ha actualizado para usar la nueva terminología), la hoja **Configuración** y la hoja **Escala**. En el ejemplo, el ajuste de escala automático se configura para que dependa del uso de la CPU, por lo que también hay una hoja llamada **Porcentaje de CPU**. Los componentes incluidos en las *hojas* se llaman *partes* y parecen iconos.
 
 ![](./media/app-service-web-app-azure-portal/AutoScaling.png)
 
@@ -84,5 +84,6 @@ Aparte de la marca, algunos elementos más del portal se han cambiado de nombre 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el nuevo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

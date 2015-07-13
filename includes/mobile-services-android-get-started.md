@@ -23,7 +23,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	> [AZURE.IMPORTANT]Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 
-7. En la aplicación, escriba un texto significativo, como _Realice el tutorial_ y luego haga clic en **Agregar**.
+7. En la aplicación, escriba un texto significativo, como _Realizar el tutorial_ y haga clic en **Add** (Agregar).
 
    	![][10]
 
@@ -60,4 +60,5 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
-<!--HONumber=54-->
+
+<!---HONumber=62-->

@@ -93,5 +93,4 @@ Después de haber instalado correctamente Azure AD Connect, para comprobar que l
 Ahora que ha instalado Azure AD Connect puede usar el vínculo [aquí](active-directory-aadconnect-whats-next.md) para empezar a utilizar tareas posteriores a la instalación, como asignar licencias de Azure AD Premium o Enterprise Mobility a los usuarios o configurar opciones adicionales.
 
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

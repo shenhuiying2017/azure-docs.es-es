@@ -1,4 +1,3 @@
-<properties title="Create a Virtual Machine Running Windows Server" pageTitle="Creación de una máquina virtual con Windows Server" description="Describe cómo crear una máquina virtual de Windows, agregar un disco de datos e iniciar una sesión de forma remota." metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" videoId="" scriptId="" />
 
 # Creación de una máquina virtual que ejecuta Windows Server #
 
@@ -27,7 +26,7 @@ En esta sección se muestra cómo iniciar sesión en una máquina virtual para p
 
 1. Inicie sesión en el [Portal de administración](http://manage.windowsazure.com).
 
-2. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual  **MyTestVM**.
+2. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual **MyTestVM**.
 
 	![Seleccione MyTestVM](./media/CreateVirtualMachineWindowsTutorial/selectvm.png)
 
@@ -127,6 +126,4 @@ Para obtener más información sobre la configuración de máquinas virtuales de
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-
-
-<!--HONumber=52-->
+<!---HONumber=62-->

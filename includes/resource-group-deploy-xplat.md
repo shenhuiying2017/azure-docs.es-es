@@ -1,31 +1,31 @@
-## How to deploy with Azure CLI
+## Implementación con la CLI de Azure
 
-1. Login to your Azure account.
+1. Inicie sesión en su cuenta de Azure.
 
         azure login
 
-  After providing your credentials, the command returns the result of your login.
+  Después de proporcionar las credenciales, el comando devuelve el resultado del inicio de sesión.
 
         ...
         info:    login command OK
 
-2. If you have multiple subscriptions, provide the subscription id you wish to use for deployment.
+2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación.
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Switch to Azure Resource Manager module
+3. Cambie al módulo de Administrador de recursos de Azure.
 
         azure config mode arm
 
-   You will receive confirmation of the new mode.
+   Recibirá una confirmación del modo nuevo.
 
         info:     New mode is arm
 
-4. If you do not have an existing resource group, create a new resource group. Provide the name of the resource group and location that you need for your solution.
+4. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución.
 
         azure group create -n ExampleResourceGroup -l "West US"
 
-   A summary of the new resource group is returned.
+   Se devuelve un resumen del grupo de recursos nuevo.
 
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -39,23 +39,23 @@
         data:
         info:    group create command OK
 
-5. To create a new deployment for your resource group, run the following command and provide the necessary parameters. The parameters will include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario.
+5. Para crear una implementación nueva para el grupo de recursos, ejecute el siguiente comando y proporcione los parámetros necesarios. Los parámetros incluirán un nombre para la implementación, el nombre del grupo de recursos, la ruta de acceso o dirección URL a la plantilla que creó y cualquier otro parámetro necesario para el escenario.
 
-   You have the following options for providing parameter values:
+   Tiene las opciones siguientes para proporcionar valores de parámetro:
 
-   - Use inline parameters and a local template.
+   - Use parámetros en línea y una plantilla local.
 
              azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
 
-   - Use inline parameters and a link to a template.
+   - Use parámetros en línea y un vínculo a una plantilla.
 
              azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
 
-   - Use a parameter file.
+   - Use un archivo de parámetro.
 
              azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
-  When the resource group has been deployed, you will see a summary of the deployment.
+  Una vez implementado el grupo de recursos, verá un resumen de la implementación.
 
          info:    Executing command group deployment create
          + Initializing template configurations and parameters
@@ -64,10 +64,12 @@
          info:    group deployment create command OK
 
 
-6. To get information about your latest deployment.
+6. Para obtener información acerca de la implementación más reciente.
 
          azure group log show -l ExampleResourceGroup
 
-7. To get detailed information about deployment failures.
+7. Para obtener información detallada acerca de los errores de la implementación.
 
          azure group log show -l -v ExampleResourceGroup
+
+<!---HONumber=62-->

@@ -4,7 +4,7 @@
    services="cloud-services" 
    documentationCenter=".net" 
    authors="cawaMS" 
-   manager="manager-alias" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/20/2015"
+   ms.date="05/29/2015"
    ms.author="cawa"/>
 
 # Uso de Visual Studio para crear un contenedor de servicios en la nube
 
-Para ver el **Explorador de servidores** en Visual Studio, elija **Ver** y **Explorador de servidores**en la barra de menús. 
+Para ver el **Explorador de servidores** en Visual Studio, en la barra de menús elija **Ver**, **Explorador de servidores**.
 
 1.  Expanda el nodo **Azure**.
 
 2.  Si el usuario no ha iniciado sesión, aparecerá automáticamente un cuadro de diálogo de inicio de sesión. Siga las instrucciones para iniciar sesión en la suscripción de Azure.
 
-3.  Haga clic con el botón derecho en el nodo **Servicio en la nube** y elija **Crear servicio en la nube...**.
+3.  Haga clic con el botón derecho en el nodo **Servicio en la nube** y elija **Crear servicio en la nube…**.
 
 4.  Aparece el cuadro de diálogo **Crear servicio en la nube**. Rellene los campos **Suscripción**, **Nombre** y **Región o grupo de afinidad** y haga clic en el botón **Crear** para crear un contenedor vacío de servicios en la nube.
 
 ## Pasos siguientes
 
 Ahora que tiene un contenedor de servicios en la nube, puede [crear e implementar](cloud-services-how-to-create-deploy.md) un servicio en la nube.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

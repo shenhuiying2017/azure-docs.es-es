@@ -131,7 +131,7 @@ Aquí publicará la aplicación en una aplicación web en Aplicaciones web del S
 
 	![](./media/web-sites-dotnet-lob-application-adfs/03-destination-url.png)
 
-11. En Visual Studio, abra **Web.Release.config** en el proyecto. Inserte el siguiente código XML en la etiqueta `<configuration>` y reemplace el valor de la clave por la dirección URL de la aplicación web de publicación.
+11. En Visual Studio, abra **Web.Release.config** en el proyecto. Introduzca el siguiente código XML en la etiqueta `<configuration>` y reemplace el valor de la clave por la dirección URL de la aplicación web de publicación.
 	<pre class="prettyprint">
 &lt;appSettings>
    &lt;add key="ida:RPIdentifier" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
@@ -181,8 +181,8 @@ Ahora debe configurar una relación de confianza para usuario autenticado en la 
 
 	-	Nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name): usado por ASP.NET para hidratar `User.Identity.Name`.
 	-	Nombre principal del usuario (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn): se usa para identificar de manera única a los usuarios de la organización.
-	-	Pertenencias a grupos como roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role): se pueden utilizar con la decoración `[Authorize(Roles="role1, role2,...")]` para autorizar a los controladores/acciones. En realidad, puede que este no sea el enfoque de mayor rendimiento para la autorización de roles, especialmente si sus usuarios de AD pertenecen con regularidad a cientos de grupos de seguridad, lo que se traduce en cientos de notificaciones de rol en el token de SAML. Un método alternativo consiste en enviar una notificación de rol única condicionalmente en función de la pertenencia del usuario a un grupo concreto. Sin embargo, lo mantendremos sencillo para este tutorial.
-	-	Id. de nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier): se puede usar para la validación de antifalsificación. Para obtener más información sobre cómo hacerla funcionar con validación de antifalsificación, consulte la sección **Agregar funcionalidad de línea de negocio a la aplicación de muestra** de [Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
+	-	Pertenencias a grupos como roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role): se pueden utilizar con la representación `[Authorize(Roles="role1, role2,...")]` para autorizar a los controladores/acciones. En realidad, puede que este no sea el enfoque de mayor rendimiento para la autorización de roles, especialmente si sus usuarios de AD pertenecen con regularidad a cientos de grupos de seguridad, lo que se traduce en cientos de notificaciones de rol en el token de SAML. Un método alternativo consiste en enviar una notificación de rol única condicionalmente en función de la pertenencia del usuario a un grupo concreto. Sin embargo, lo mantendremos sencillo para este tutorial.
+	-	Id. de nombre (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier): se puede usar para la validación de antifalsificación. Para obtener más información sobre cómo hacerla funcionar con validación de antifalsificación, consulte la sección **Agregar funcionalidad de línea de negocio a la aplicación de ejemplo** de [Crear una aplicación web de .NET MVC en Servicio de aplicaciones de Azure con autenticación de Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md#bkmk_crud).
 
 	> [AZURE.NOTE]Los tipos de notificación que necesita configurar para su aplicación dependen de las necesidades de su aplicación. Para ver la lista de notificaciones admitidas por las aplicaciones de Azure Active Directory (es decir, relaciones de confianza para usuarios autenticados), por ejemplo, consulte [Tipos de notificaciones y tokens admitidos](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
@@ -256,10 +256,10 @@ Si falta la notificación de nombre, habría visto **Hello, !**. Si echa un vist
 <a name="bkmk_authorize"></a>
 ## Autorizar a los usuarios para acciones o controladores concretos
 
-Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en la configuración de relación de confianza para usuario autenticado, ahora puede usarlas directamente en la decoración `[Authorize(Roles="...")]` para controladores y acciones. En una aplicación de línea de negocio con el patrón Create-Read-Update-Delete (CRUD), puede autorizar a roles específicos para acceder a cada acción. Por ahora, solo probará esta característica en el controlador principal existente.
+Puesto que ha incluido las pertenencias a grupos como notificaciones de rol en la configuración de relación de confianza para usuario autenticado, ahora puede usarlas directamente en la representación `[Authorize(Roles="...")]` para controladores y acciones. En una aplicación de línea de negocio con el patrón Create-Read-Update-Delete (CRUD), puede autorizar a roles específicos para acceder a cada acción. Por ahora, solo probará esta característica en el controlador principal existente.
 
 1. Abra Controllers\HomeController.cs.
-2. Decore los métodos de acción `About` y `Contact` similares a los siguientes, con las pertenencias a grupos de seguridad que su usuario autenticado tiene.  
+2. Represente los métodos de acción `About` y `Contact` similares a los siguientes, con las pertenencias a grupos de seguridad que su usuario autenticado tiene.  
 	<pre class="prettyprint">
 <mark>[Authorize(Roles="Grupo de prueba")]</mark>
 public ActionResult About()

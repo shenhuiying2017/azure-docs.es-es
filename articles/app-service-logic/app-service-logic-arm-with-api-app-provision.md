@@ -389,5 +389,4 @@ Observe que la aplicación lógica utiliza el token para llamar a la puerta de e
 
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

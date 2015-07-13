@@ -15,9 +15,9 @@
 	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
-<h1>Caso práctico para desarrolladores de Búsqueda de Azure</h1>
+# Caso práctico para desarrolladores de Búsqueda de Azure
 
-<font size="5">¿Cómo crea [WhatToPedia.com](http://whattopedia.com/) un portal infomedia en Microsoft Azure</font>
+## ¿Cómo crea [WhatToPedia.com](http://whattopedia.com/) un portal infomedia en Microsoft Azure
 
  ![][6] &nbsp;&nbsp;&nbsp; <font size="9">La gran idea</font>
 
@@ -419,5 +419,6 @@ El código siguiente genera el indexador mencionado en la sección sobre la crea
 [Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Personalización del portal de desarrolladores en Administración de API de Azure"
-	description="Personalización del portal de desarrolladores en Administración de API de Azure"
+	description="Personalización del portal de desarrolladores en Administración de API de Azure."
 	services="api-management"
 	documentationCenter=""
 	authors="steved0x"
@@ -16,11 +16,11 @@
 	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
-# Personalización del portal de desarrolladores en Administración de API de Azure
+#  Personalización del portal de desarrolladores en Administración de API de Azure
 
 En esta guía se muestra cómo modificar la apariencia del portal de desarrolladores en Administración de API a fin de unificarlo con su imagen de marca.
 
-## <a name="change-page-headers"> </a>Cambio del texto/logotipo en los encabezados de las páginas
+##  <a name="change-page-headers"> </a>Cambio del texto/logotipo en los encabezados de las páginas
 
 Uno de los aspectos más importantes de la personalización del portal es la sustitución del texto que aparece en la parte superior de todas las páginas por el logotipo o el nombre de su empresa.
 
@@ -38,7 +38,7 @@ Ya debería aparecer el nuevo encabezado en todas las páginas del portal de des
 
 > Para abrir el portal para desarrolladores desde el portal para editores, haga clic en **Portal para desarrolladores** en la barra superior.
 
-## <a name="change-headers-styling"> </a>Cambio del estilo de los encabezados
+##  <a name="change-headers-styling"> </a>Cambio del estilo de los encabezados
 
 Los colores, las fuentes, los tamaños, los espacios y otros elementos relacionados con el estilo de cualquier página del portal vienen definidos por las reglas de estilo. Para editar los estilos, haga clic en **Apariencia** en el menú **Portal para desarrolladores **del portal para editores. A continuación, haga clic en **Iniciar personalización** para empezar a usar el editor de estilo.
 
@@ -64,7 +64,7 @@ Cuando haya terminado de hacer cambios en los estilos del elemento seleccionado,
 
 > Para cambiar las reglas de estilo aplicables a cualquier otro elemento de la página, use el mismo proceso que ha seguido para el encabezado: haga clic en **Seleccionar un elemento** en el editor de estilo, seleccione el elemento en que esté interesado y empiece a modificar los valores de las reglas de estilo que aparecen en pantalla.
 
-## <a name="edit-page-contents"> </a>Edición de los contenidos de una página
+##  <a name="edit-page-contents"> </a>Edición de los contenidos de una página
 
 El portal de desarrolladores consta de páginas generadas automáticamente como API, Productos, Aplicaciones, Emisiones y contenido escrito a mano. Como se basa en un sistema de administración de contenido, puede crear contenido de este tipo a medida que sea necesario.
 
@@ -76,7 +76,7 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 
 > La página principal utiliza un diseño especial que permite mostrar un banner en la parte superior. Este banner no se puede editar en la sección Contenido. Para editarlo, haga clic en **Widgets** en el menú **Portal para desarrolladores**, seleccione a continuación **Página principal** en el menú desplegable **Capa actual** y por último abra el elemento **Banner** en la sección Destacados. Los contenidos de este widget se pueden editar del mismo modo que cualquier otra página.
 
-## <a name="next-steps"> </a>Pasos siguientes
+##  <a name="next-steps"> </a>Pasos siguientes
 
 -	Consulte el resto de temas del tutorial [Introducción a la configuración de API avanzada][].
 
@@ -99,4 +99,4 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 [bootstrap]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=62-->
+<!--HONumber=62-->

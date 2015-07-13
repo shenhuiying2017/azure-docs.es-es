@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Creación de una directiva de copia de seguridad de StorSimple personalizada"
-   description="Explica cómo puede usar el servicio del Administrador de StorSimple para crear una directiva de copia de seguridad personalizada."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/14/2015"
-   ms.author="v-sharos" />
 
 #### Para crear una directiva de copia de seguridad personalizada
 
@@ -55,4 +39,4 @@
 
     ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

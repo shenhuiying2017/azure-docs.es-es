@@ -17,7 +17,7 @@
 	ms.date="04/27/2015" 
 	ms.author="Justinha"/>
 
-# Administración de grupos en Azure AD
+#  Administración de grupos en Azure AD
 
 Un grupo es una colección de usuarios y grupos que se pueden administrar como una sola unidad. Los usuarios y grupos que pertenecen a un grupo determinado se conocen como miembros del grupo. Usar grupos puede simplificar la administración mediante la asignación de un conjunto común de permisos y derechos a varias cuentas a la vez, en lugar de asignar permisos y derechos a cada cuenta individual.
 
@@ -35,10 +35,10 @@ Si ha habilitado la administración de grupos de autoservicio para los usuarios 
 
 > [AZURE.NOTE]Para poder asignar un grupo a una aplicación, debe utilizar Azure AD Premium. Si dispone de Azure AD Premium, también puede utilizar grupos para asignar el acceso a aplicaciones de SaaS que se integran con Azure AD. Para obtener más información, consulte Asignación de acceso de un grupo a la aplicación SaaS en Azure AD.
 
-## Pasos siguientes
+##  Pasos siguientes
 
 - [Administración de Azure AD](active-directory-administer.md)
 - [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 - [Administración de contraseñas en Azure AD](active-directory-manage-passwords.md)
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

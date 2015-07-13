@@ -1,20 +1,19 @@
 <properties
-	pageTitle="Descargar, instalar y registrar el agente de Copia de seguridad de Azure"
-	description="Aprenda cómo y dónde descargar el agente de Copia de seguridad de Azure, los pasos de instalación y cómo registrar el agente de Copia de seguridad de Azure mediante las credenciales de almacén"
-	services="backup"
-	documentationCenter=""
-	authors="prvijay"
-	manager="shreeshd"
-	editor=""/>
-
+   pageTitle="Descargar, instalar y registrar el agente de Copia de seguridad de Azure"
+   description="Aprenda cómo y dónde descargar el agente de Copia de seguridad de Azure, los pasos de instalación y cómo registrar el agente de Copia de seguridad de Azure mediante las credenciales de almacén"
+   services="backup"
+   documentationCenter=""
+   authors="prvijay"
+   manager="shreeshd"
+   editor=""/>
 <tags
-	ms.service="backup"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage-backup-recovery"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="04/08/2015"
+   ms.author="prvijay"/>
 
 # Descargar, instalar y registrar el agente de Copia de seguridad de Azure
 
@@ -57,5 +56,6 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 [4]: ./media/backup-azure-backup-download-register/vc.png
 [5]: ./media/backup-azure-backup-download-register/encryption.png
 [6]: ./media/backup-azure-backup-download-register/change.png
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

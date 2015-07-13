@@ -19,7 +19,7 @@
 
 # Anuncio de la aplicación en la galería de aplicaciones de Azure Active Directory
 
-Para anunciar una aplicación compatible con inicio de sesión único con Azure Active Directory en la [galería de Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/) y en  Azure Marketplace, el equipo de Azure AD tendrá que comprobar la integración. Esto requiere que envíe la información siguiente a <waadpartners@microsoft.com>:
+Para anunciar una aplicación compatible con inicio de sesión único con Azure Active Directory en la [galería de Azure AD](http://azure.microsoft.com/marketplace/active-directory/all/) y en Azure Marketplace, el equipo de Azure AD tendrá que comprobar la integración. Esto requiere que envíe la información siguiente a <waadpartners@microsoft.com>:
 
 - El nombre de usuario y la contraseña de una cuenta de usuario de prueba en una instancia de prueba de Azure Active Directory que pueda iniciar sesión en la aplicación
 - La dirección URL o las instrucciones que expliquen cómo puede iniciar sesión en la aplicación dicho usuario de prueba
@@ -47,7 +47,7 @@ Una vez completada la prueba, la aplicación puede anunciarse en la galería de 
 >
 > Identificador de cliente de la aplicación, como se muestra en los detalles de la aplicación en https://manage.windowsazure.com:
 >
-> Dirección URL de  suscripción a una aplicación donde van los clientes para suscribirse o adquirir la aplicación:
+> Dirección URL de suscripción a una aplicación donde van los clientes para suscribirse o adquirir la aplicación:
 >
 > Elija hasta tres categorías donde desea que se anuncie la aplicación (para ver las categorías disponibles, consulte [Azure Active Directory Marketplace](http://go.microsoft.com/fwlink/?LinkId=327881)):
 >
@@ -56,5 +56,5 @@ Una vez completada la prueba, la aplicación puede anunciarse en la galería de 
 > Adjunte un icono grande de la aplicación (archivo PNG, 215 px por 215 px, color de fondo sólido):
 >
 > Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
-
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

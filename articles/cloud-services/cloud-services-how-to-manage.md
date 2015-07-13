@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -144,7 +144,7 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 	![Menú para eliminar](./media/cloud-services-how-to-manage/CloudServices_DeleteMenu.png)
 
 
-3. Para eliminar una implementación, haga clic en **Eliminar implementación de producción
+3. Para eliminar una implementación, haga clic en **Eliminar implementación de producción  
 ** o **Eliminar implementación de ensayo**. Luego, haga clic en **Sí** en la solicitud de confirmación.
 
 4. Si piensa eliminar el servicio de nube, repita el paso 3, si es necesario, para eliminar la otra implementación.
@@ -153,5 +153,6 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 > [AZURE.NOTE]Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información acerca de dónde buscar las tablas de métricas, vea "Acceso a datos de supervisión detallada fuera del Portal de administración" en <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Supervisión de servicios en la nube</a>.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

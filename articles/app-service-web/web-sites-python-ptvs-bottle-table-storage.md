@@ -111,7 +111,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 
 Es fácil ver y editar tablas de almacenamiento con el Explorador de servidores en Visual Studio. En esta sección, vamos a utilizar el Explorador de servidores para ver el contenido de las tablas de la aplicación de sondeos.
 
-> [AZURE.NOTE]Para esto es necesario que estén instaladas las Herramientas de Microsoft Azure, que se encuentran disponibles como parte del [SDK de Azure para .NET].
+> [AZURE.NOTE]Para esto es necesario instalar Microsoft Azure Tools, que están disponibles como parte de [Azure SDK para .NET].
 
 1.  Abra el **Explorador de servidores**. Expanda **Azure**, **Almacenamiento**, la cuenta de almacenamiento y, a continuación, **Tablas**.
 
@@ -199,7 +199,7 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 <!--External Link references-->
 [Examinar]: https://portal.azure.com
 [Portal de Azure]: https://portal.azure.com
-[SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
+[Azure SDK para .NET]: http://azure.microsoft.com/downloads/
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189

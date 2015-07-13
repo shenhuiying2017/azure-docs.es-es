@@ -95,5 +95,5 @@ Si compila en la configuración de lanzamiento, los eventos se almacenan en el d
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
-
-<!--HONumber=54--> 
+ 
+<!--HONumber=62-->

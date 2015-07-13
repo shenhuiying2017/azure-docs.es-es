@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Escalado de Servicios móviles respaldados por Base de datos SQL de Azure - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo diagnosticar y corregir problemas de escalabilidad en los servicios móviles con copia de seguridad por la base de datos SQL" 
 	services="mobile-services" 
@@ -474,5 +474,6 @@ Para analizar el plan de consulta en el **Portal de administración de Base de d
 
 <!-- BLOG LINKS -->
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

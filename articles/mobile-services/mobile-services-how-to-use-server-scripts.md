@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="06/05/2015" 
 	ms.author="ricksal"/>
 
 
@@ -73,7 +73,7 @@ Una función de script de tabla siempre cuenta con tres argumentos.
 
 - El segundo argumento es siempre un [objeto user][User object] que representa al usuario que envió la solicitud.
 
-- El tercer argumento es siempre un [objeto request][Request object] mediante el que puede controlar la ejecución de la operación solicitada y la respuesta enviada al cliente.
+- El tercer argumento es siempre un [objeto request][request object] mediante el que puede controlar la ejecución de la operación solicitada y la respuesta enviada al cliente.
 
 A continuación se muestran las firmas canónicas de funciones principales para las operaciones de tabla:
 
@@ -96,7 +96,7 @@ Puede definir los scripts del servidor que están registrados en una operación 
 	
 	Para saber cómo realizar esto, vea [Validación y modificación de datos en los Servicios móviles mediante los scripts de servidor].
 
-+ Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo llamado <em>`<table>`</em>.<em>`<operation>`</em>.js en la subcarpeta .\\service\\table de su repositorio git, donde <em>`<table>`</em> es el nombre de la tabla y <em>`<operation>`</em> es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
++ Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo llamado <em>`<table>`</em>.<em>`<operation>`</em>.js en la subcarpeta .\service\table de su repositorio git, donde <em>`<table>`</em> es el nombre de la tabla y <em>`<operation>`</em> es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
@@ -228,7 +228,7 @@ Cuando una aplicación proporciona un valor para un identificador, Servicios mó
 El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes conjuntos:
 
 + Caracteres de control: [0x0000-0x001F] y [0x007F-0x009F]. Para obtener más información, consulte [Códigos de control ASCII C0 y C1](http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set).
-+  Caracteres imprimibles: **"**(0 x 0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **`** (0x0060)
++  Caracteres imprimibles: **"**(0 x 0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **** (0x005C), **`** (0x0060)
 +  Los identificadores "." y ".."
 
 También puede utilizar identificadores enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` usando la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](../virtual-machines-command-line-tools.md#Mobile_Tables).
@@ -343,7 +343,7 @@ Puede definir los scripts del servidor que están registrados en métodos HTTP e
 	
 	Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permisos. Para ver cómo se creó esta API personalizada, vea [Llamada a una API personalizada desde el cliente].
 
-+ Mediante el control de código fuente. Una vez habilitado el control de código fuente, simplemente cree un archivo denominado <em>`<custom_api>`</em>.js en la subcarpeta .\\service\\api de su repositorio git, donde <em>`<custom_api>`</em> es el nombre de la API personalizada que se registra. El script contienen una función _exported_ para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
++ Mediante el control de código fuente. Una vez habilitado el control de código fuente, simplemente cree un archivo denominado <em>`<custom_api>`</em>.js en la subcarpeta .\service\api de su repositorio git, donde <em>`<custom_api>`</em> es el nombre de la API personalizada que se registra. El script contienen una función _exported_ para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
@@ -462,7 +462,7 @@ Puede definir trabajos programados de una de las siguientes formas:
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
->[AZURE.NOTE]Cuando tenga con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\\service\\scheduler del repositorio git. Para obtener más información, consulte [Compartir código mediante el uso del control de código fuente].
+>[AZURE.NOTE]Cuando tenga con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\service\scheduler del repositorio git. Para obtener más información, consulte [Compartir código mediante el uso del control de código fuente].
 
 ##<a name="shared-code"></a>Control de código fuente, código compartido y funciones auxiliares
 
@@ -1077,5 +1077,6 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Configuración de aplicación]: http://msdn.microsoft.com/library/dn529070.aspx
 [config module]: http://msdn.microsoft.com/library/dn508125.aspx
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
+ 
 
-<!---HONumber=54--> 
+<!---HONumber=62-->

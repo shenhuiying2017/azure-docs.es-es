@@ -69,4 +69,5 @@
 	Esto envía una actualización de elemento al servicio móvil.
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
-<!--HONumber=54-->
+
+<!---HONumber=62-->

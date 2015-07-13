@@ -64,4 +64,5 @@ Finalmente, después de configurar la aplicación, puede realizar la implementac
 En el futuro puede revisar la aplicación lógica en el control de código fuente y usar Visual Studio para implementar versiones nuevas. Tenga en cuenta que si modifica directamente la definición en el Portal de Azure, la próxima vez que realice la implementación desde Visual Studio, estos cambios se invalidarán.
 
 Si no desea usar Visual Studio, pero desea tener herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) para automatizar directamente las implementaciones.
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

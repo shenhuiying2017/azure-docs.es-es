@@ -148,7 +148,7 @@ El servicio web de Automatización de Azure proporciona una funcionalidad especi
 
 ### Valores con nombre
 
-Si el parámetro es de tipo de datos [objeto], puede utilizar el siguiente formato JSON para enviarlo a una lista de valores con nombre: *{"Nombre1":Valor1, "Nombre2":Valor2, "Nombre3":Valor3}*. Estos valores deben ser tipos simples. El runbook recibirá el parámetro como un [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) con propiedades que se corresponden a cada valor con nombre.
+Si el parámetro tiene el tipo de datos [object], puede usar entonces el siguiente formato JSON para enviarle una lista de valores con nombre: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. Estos valores deben ser tipos simples. El runbook recibirá el parámetro como un [PSCustomObject](http://msdn.microsoft.com/library/azure/system.management.automation.pscustomobject(v=vs.85).aspx) con propiedades que se corresponden a cada valor con nombre.
 
 Considere el siguiente runbook de prueba que acepta un parámetro denominado user.
 
@@ -178,7 +178,7 @@ Esta acción devuelve la siguiente salida:
 
 ### Matrices
 
-Si el parámetro es una matriz como [matriz] o [cadena[]], puede utilizar el siguiente formato JSON para enviarlo a una lista de valores: *[Value1,Value2,Value3]*. Estos valores deben ser tipos simples.
+Si el parámetro es una matriz como [array] o [string], puede usar entonces el siguiente formato JSON para enviarle una lista de valores: *[Value1,Value2,Value3]*. Estos valores deben ser tipos simples.
 
 Considere el siguiente runbook de prueba que acepta un parámetro denominado *user*.
 
@@ -230,6 +230,6 @@ Suponiendo que el nombre de usuario de la credencial era *jsmith*, esto da como 
 
 ## Artículos relacionados
 
-- [Inicio de un runbook desde otro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
+- [Inicio de un runbook desde otro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=58--> 
+<!---HONumber=62-->

@@ -24,7 +24,7 @@ Obtenga una introducción a Hadoop, su ecosistema y Big Data en HDInsight de Azu
 
 ## Hadoop en HDInsight
 
-Azure HDInsight implementa y aprovisiona clústeres de Apache Hadoop en la nube con el fin de proporcionar un marco de software diseñado para realizar tareas de administración, análisis y generación de informes en relación con grandes volúmenes de datos con alta confiabilidad y disponibilidad. HDInsight utiliza la distribución **Hortonworks Data Platform (HDP)** de Hadoop. Hadoop a menudo hace referencia a todo el ecosistema de Hadoop de componentes, que incluye clústeres de Storm y HBase, así como otras tecnologías bajo el paraguas de Hadoop. Vea [Información general sobre el ecosistema de Hadoop en HDInsight](#overview) a continuación para obtener detalles.
+Azure HDInsight implementa y aprovisiona clústeres de Apache Hadoop en la nube con el fin de proporcionar un marco de software diseñado para realizar tareas de administración, análisis y generación de informes en relación con grandes volúmenes de datos con alta confiabilidad y disponibilidad. HDInsight utiliza la distribución **Hortonworks Data Platform (HDP)** de Hadoop. Hadoop a menudo hace referencia a todo el ecosistema de Hadoop de componentes, que incluye clústeres de Storm y HBase, así como otras tecnologías bajo el paraguas de Hadoop. Para obtener información detallada, consulte [Información general sobre el ecosistema de Hadoop en HDInsight](#overview).
 
 
 ## ¿Qué son grandes volúmenes de datos?
@@ -39,7 +39,7 @@ Para que Big Data proporcione conocimientos o información de inteligencia proce
 
 HDInsight es una implementación en la nube en Microsoft Azure del componente tecnológico de Apache Hadoop en rápida expansión que constituye la solución imprescindible para el análisis de Big Data. Incluye implementaciones de Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari, entre otros. HDInsight se integra también con herramientas de Business Intelligence (BI) como, por ejemplo, Excel, SQL Server Analysis Services y SQL Server Reporting Services.
 
-### Herramientas de Linux y Windows
+### Clústeres de Linux y Windows
 
 HDInsight de Azure implementa y aprovisiona clústeres de Hadoop en la nube, mediante el uso de **Linux** o **Windows** como el SO subyacente.
 
@@ -47,13 +47,13 @@ HDInsight de Azure implementa y aprovisiona clústeres de Hadoop en la nube, med
 
 * **HDInsight en Windows**: un clúster de Hadoop en Windows Server. Utilícelo si conoce Windows, si realiza una migración desde una solución de Hadoop basada en Windows existente o si desea una integración con .NET u otras funcionalidades de Windows.
 
-En la siguiente tabla se compara las dos:
+En la siguiente tabla se comparan los dos:
 
 Categoría | Hadoop en Linux | Hadoop en Windows
 ---------| -------------------| --------------------
 **SO del clúster** | Ubuntu 12.04 Long Term Support (LTS) | Windows Server 2012 R2
 **Tipo de clúster** | Hadoop | Hadoop, HBase, Storm
-**Implementación** | Portal de administración de Azure, CLI de Azure, PowerShell de Azure | Portal de administración de Azure, CLI de Azure, PowerShell de Azure, SDK de .NET de HDInsight
+**Implementación** | Portal de administración de Azure, CLI de Azure, Azure PowerShell | Portal de administración de Azure, CLI de Azure, Azure PowerShell, SDK de .NET de HDInsight
 **Interfaz de usuario del clúster** | Ambari | Panel del clúster
 **Acceso remoto** | Shell seguro (SSH) | Protocolo de escritorio remoto (RDP)
 
@@ -63,11 +63,11 @@ Categoría | Hadoop en Linux | Hadoop en Windows
 
 HDInsight proporciona configuraciones de clúster para cargas de trabajo específicas: Hadoop, HBase o Storm. O bien, puede <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">personalizar clústeres con acciones de scripts</a>.
 
-* **Hadoop** (la carga de trabajo "Query"): proporciona almacenamiento de datos confiables con [HDFS](#HDFS) y un modelo de programación de [MapReduce](#mapreduce) simple para procesar y analizar datos en paralelo.
+* **Hadoop** (la carga de trabajo "Query"): proporciona almacenamiento de datos confiable con [HDFS](#HDFS) y un modelo de programación de [MapReduce](#mapreduce) simple para procesar y analizar datos en paralelo.
 
-* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** (la carga de trabajo "NoSQL"): una base de datos no solo SQL creada en Hadoop que proporciona un acceso aleatorio y una sólida coherencia para grandes cantidades de datos no estructurados y semiestructurados; potencialmente, miles de millones de filas multiplicadas por millones de columnas. Consulte [Información general de HBase en HDInsight](hdinsight-hbase-overview.md).
+* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** (la carga de trabajo "NoSQL"): una base de datos NoSQL compilada en Hadoop que proporciona acceso aleatorio y una sólida coherencia para grandes cantidades de datos no estructurados y semiestructurados (potencialmente, miles de millones de filas multiplicadas por millones de columnas). Consulte [Información general de HBase en HDInsight](hdinsight-hbase-overview.md).
 
-* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (la carga de trabajo "Stream"): es un sistema distribuido de cálculo en tiempo real para el procesamiento rápido de grandes secuencias de datos. Storm se ofrece como clúster administrado en HDInsight. Consulte [Análisis de datos de sensor en tiempo real con Storm y Hadoop](hdinsight-storm-sensor-data-analysis.md).
+* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>** (la carga de trabajo "Stream"): un sistema distribuido de cálculo en tiempo real para el procesamiento rápido de grandes secuencias de datos. Storm se ofrece como clúster administrado en HDInsight. Consulte [Análisis de datos de sensor en tiempo real con Storm y Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
 
 ## ¿Cuáles son los componentes de Hadoop?
@@ -78,7 +78,7 @@ Además de las configuraciones generales mencionadas, los clústeres de HDInsigh
 
 * **[Avro](#avro)** (biblioteca de Microsoft .NET para Avro): serialización de datos para el entorno de Microsoft .NET.
 
-* **[Hive y HCatalog](#hive)**: lenguaje de consulta estructurado (SQL), como consultas, y una capa de administración de almacenamiento y de tablas.
+* **[Hive y HCatalog](#hive)**: consultas tipo SQL (lenguaje de consulta estructurado) y una capa de administración de almacenamiento y de tablas.
 
 * **[Mahout](#mahout)**: aprendizaje automático.
 
@@ -92,7 +92,7 @@ Además de las configuraciones generales mencionadas, los clústeres de HDInsigh
 
 * **[Sqoop](#sqoop)**: importación y exportación de datos.
 
-* **[Tez](#tez)**: permite a los procesos intensivos de datos ejecutarse de forma eficaz a escala.
+* **[Tez](#tez)**: permite a los procesos con muchos datos ejecutarse de forma eficaz a escala.
 
 * **[ZooKeeper](#zookeeper)**: coordinación de procesos en sistemas distribuidos.
 
@@ -115,7 +115,7 @@ El sistema de archivos distribuido de Hadoop (HDFS) es un sistema de archivos di
 
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a> es el software de almacenamiento de datos basado en Hadoop que le permite consultar y administrar grandes conjuntos de datos en almacenamiento distribuido con un lenguaje de tipo SQL denominado HiveQL. Hive, al igual que Pig, es una abstracción situada en un nivel superior a MapReduce y, al ejecutarse, traduce las consultas a una serie de trabajos de MapReduce. Hive se encuentra conceptualmente más cerca de un sistema de administración de bases de datos relacionales que Pig y, por lo tanto, es más adecuado para su uso con datos más estructurados. Para los datos no estructurados, Pig es una mejor opción. Consulte [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md).
 
-<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> es una capa de administración de almacenamiento y tablas para Hadoop que presenta a los usuarios una vista relacional de los datos. En HCatalog, puede leer y escribir archivos en cualquier formato para el que se puede crear un SerDe de Hive (serializador-deserializador).
+<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a> es una capa de administración de almacenamiento y tablas para Hadoop que presenta a los usuarios una vista relacional de los datos. En HCatalog, se pueden leer y escribir archivos en cualquier formato para el que se pueda escribir un SerDe de Hive (serializador-deserializador).
 
 ### <a name="mahout"></a>Mahout
 
@@ -129,10 +129,10 @@ Apache YARN es la última generación de MapReduce (MapReduce 2.0 o MRv2) que di
 Para obtener más información sobre MapReduce, consulte <a target="_blank" href="http://wiki.apache.org/hadoop/MapReduce">MapReduce</a> en el sitio Wiki de Hadoop. Para obtener información sobre YARN, consulte <a target="_blank" href="http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html">MapReduce de última generación de Apache Hadoop (YARN)</a>.
 
 ### <a name="oozie"></a>Oozie
-<a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java. Vea [Uso del coordinador de Oozie de tiempo con Hadoop](hdinsight-use-oozie-coordinator-time.md).
+<a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a> es un sistema de coordinación de flujos de trabajo que administra trabajos de Hadoop. Se integra con la pila de Hadoop y es compatible con los trabajos de Hadoop para MapReduce, Pig, Hive y Sqoop. También puede usarse para programar trabajos específicos de un sistema, como scripts de shell o programas Java. Consulte [Uso del coordinador de Oozie de tiempo con Hadoop en HDInsight](hdinsight-use-oozie-coordinator-time.md).
 
 ### <a name="phoenix"></a>Phoenix
-<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> es una capa de base de datos relacional sobre HBase. Phoenix incluye un controlador JDBC que permite a los usuarios consultar y administrar tablas SQL directamente. Phoenix traduce consultas y otras instrucciones en llamadas nativas de la API NoSQL nativas en lugar de usar MapReduce, lo que permite aplicaciones más rápidas además de los almacenes NoSQL. Vea [Usar Apache Phoenix y SQuirreL con clústeres de HBase](hdinsight-hbase-phoenix-squirrel.md).
+<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a> es una capa de base de datos relacional sobre HBase. Phoenix incluye un controlador JDBC que permite a los usuarios consultar y administrar tablas SQL directamente. Phoenix traduce consultas y otras instrucciones en llamadas nativas de la API NoSQL nativas en lugar de usar MapReduce, lo que permite aplicaciones más rápidas además de los almacenes NoSQL. Consulte [Usar Apache Phoenix y SQuirreL con clústeres de HBase](hdinsight-hbase-phoenix-squirrel.md).
 
 
 ### <a name="pig"></a>Pig
@@ -142,7 +142,7 @@ Para obtener más información sobre MapReduce, consulte <a target="_blank" href
 <a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> es una herramienta que transfiere grandes cantidades de datos entre Hadoop y bases de datos relacionales, como SQL, u otros almacenes de datos estructurados, de la manera más eficiente posible. Consulte [Uso de Sqoop con Hadoop](hdinsight-use-sqoop.md).
 
 ### <a name="tez"></a>Tez
-<a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> es un marco de aplicación basado en Hadoop YARN que ejecuta gráficos complejos y acíclicos general de procesamiento de datos generales. Es un sucesor más flexible y eficaz al marco de MapReduce que permite procesos intensivos de datos, como Hive, para ejecutar de manera más eficaz a escala. Vea ["Usar Apache Tez para un rendimiento mejorado" en Usar Hive y HiveQL](hdinsight-use-hive.md#usetez).
+<a  target="_blank" href="http://tez.apache.org/">Apache Tez</a> es un marco de aplicación basado en Hadoop YARN que ejecuta gráficos complejos y acíclicos general de procesamiento de datos generales. Es un sucesor más flexible y eficaz al marco de MapReduce que permite procesos intensivos de datos, como Hive, para ejecutar de manera más eficaz a escala. Consulte ["Usar Apache Tez para un rendimiento mejorado" en Usar Hive y HiveQL](hdinsight-use-hive.md#usetez).
 
 
 ### <a name="zookeeper"></a>ZooKeeper

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="sutalasi"/>
 
 
@@ -40,7 +40,7 @@ Datos de sondeo | <ul><li>Insertar en tabla</li><li>Actualizar tabla</li><li>Sel
 
 ## Creación de un conector de base de datos de Oracle
 
-Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector con Azure Marketplace:
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
 
 1. En el panel de inicio de Azure, seleccione **Marketplace**.
 2. Seleccione **Aplicaciones de API** y busque "Conector de base de datos de Oracle".
@@ -99,9 +99,9 @@ El Servicio de aplicaciones utiliza el Administrador de configuración híbrida 
 Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md).
 
 ## Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](app-service-api-manage-in-portal.md).
 
 
 <!--Image references-->
@@ -111,6 +111,7 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-oracle/LogicApp3.png
 [8]: ./media/app-service-logic-connector-oracle/LogicApp4.png
 [9]: ./media/app-service-logic-connector-oracle/LogicApp5.png
+[10]: ./media/app-service-logic-connector-oracle/LogicApp6.png
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 

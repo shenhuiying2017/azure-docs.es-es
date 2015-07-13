@@ -33,7 +33,7 @@ El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o 
 > [AZURE.NOTE]Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su sitio web. Se proporciona una dirección IP para que se use con registros D cuando establezca la configuración del nombre de dominio personalizado para su sitio web; sin embargo, este valor podría cambiar si elimina y vuelve a crear su sitio web o cambia el modo del sitio web para que vuelva a ser gratuito.
 
 > [AZURE.NOTE]Los registros D no se pueden utilizar para el equilibrio de carga con el Administrador de tráfico. Para obtener más información, consulte [Control del tráfico de Sitios web Azure con el Administrador de tráfico de Azure][trafficmanager].
- 
+
 <a name="bkmk_configsharedmode"></a><h2>Configuración de los sitios web para el modo compartido o estándar</h2>
 
 La configuración de un nombre de dominio personalizado en un sitio web solo está disponible para los modos estándar y compartido para los Sitios web Azure. Antes de cambiar un sitio web del modo gratuito al modo estándar o compartido, primero debe quitar los límites de gasto del sitio vigentes para la suscripción del sitio web. Para obtener más información acerca de los precios de los modos estándar y compartido, consulte la [Información sobre el precio][PricingDetails].
@@ -47,7 +47,7 @@ La configuración de un nombre de dominio personalizado en un sitio web solo est
 
 	![][standardmode2]
 
-	
+
 4. En la sección **general**, defina el modo del sitio web; para ello, haga clic en **COMPARTIDO**.
 
 	![][standardmode3]
@@ -57,9 +57,7 @@ La configuración de un nombre de dominio personalizado en un sitio web solo est
 5. Haga clic en **Guardar**.
 6. Cuando se le solicite aumentar el coste para el modo compartido (o para el modo estándar, si fue ese el que seleccionó), haga clic en **Sí** si está de acuerdo.
 
-	<!--![][standardmode4]-->
-
-	**Nota**<br /> Si recibe un error del tipo "Error al configurar escala del sitio web 'nombre del sitio web'", puede usar el botón de detalles para obtener más información.
+	<!--![][standardmode4]-->**Nota**<br /> Si recibe un error del tipo "Error al configurar escala del sitio web 'nombre del sitio web'", puede usar el botón de detalles para obtener más información.
 
 <a name="trafficmanager"></a><h2>(Opcional) Incorporación de sus sitios web al Administrador de tráfico</h2>
 
@@ -108,7 +106,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure](/manage/install-and-configure-cli/) y, a continuación, use el siguiente comando:
+	* Instale y configure la [Interfaz de la línea de comandos de Azure](/manage/install-and-configure-cli/) y, a continuación, use el siguiente comando:
 
 			azure site domain list yoursitename
 
@@ -143,11 +141,11 @@ Los visitantes de **www.contoso.com** no verán nunca el verdadero host (contoso
 
 ###Incorporación del nombre de dominio a su sitio web
 
-Una vez que se haya propagado el registro CNAME para el nombre de dominio, debe asociarlo a su sitio web. Puede agregar el nombre de dominio personalizado definido por el registro CNAME a su sitio web mediante la Interfaz de la línea de comandos entre plataformas de Azure o con el Portal de administración de Azure.
+Una vez que se haya propagado el registro CNAME para el nombre de dominio, debe asociarlo a su sitio web. Puede agregar el nombre de dominio personalizado definido por el registro CNAME a su sitio web mediante la Interfaz de la línea de comandos de Azure (CLI de Azure) o con el Portal de administración de Azure.
 
 **Para agregar un nombre de dominio con las herramientas de la línea de comandos**
 
-Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure](/manage/install-and-configure-cli/) y, a continuación, use el siguiente comando:
+Instale y configure la [Interfaz de la línea de comandos de Azure](/manage/install-and-configure-cli/) y, a continuación, use el siguiente comando:
 
 	azure site domain add customdomain yoursitename
 
@@ -199,24 +197,22 @@ Para crear un registro D, primero debe buscar la dirección IP de su sitio web. 
 
 	1. Seleccione o especifique el dominio o subdominio que usará el registro D. Por ejemplo, seleccione **www** si desea crear un alias para **www.customdomain.com**. Si desea crear una entrada de comodín para todos los subdominios, especifique '__*__'. De esta forma, se incluirán todos los subdominios como **mail.customdomain.com**, **login.customdomain.com** y **www.customdomain.com**.
 
-		If you want to create an A record for the root domain, it may be listed as the '**@**' symbol in your registrar's DNS tools.
+		Si desea crear un registro D para el dominio raíz, debe aparecer como símbolo '**@** en las herramientas DNS del registrador.
 
 	2. Especifique la dirección IP del servicio en la nube en el campo proporcionado. De esta forma, se asocia la entrada del dominio utilizada en el registro D a la dirección IP de la implementación del servicio en la nube.
 
-		For example, the following A record forwards all traffic from **contoso.com** to **137.135.70.239**, the IP address of our deployed application:
+		Por ejemplo, el siguiente registro D desvía todo el tráfico de **contoso.com** a **137.135.70.239**, la dirección IP de nuestra aplicación implementada:
 
 		<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-		<tr>
-		<td><strong>Host name/Subdomain</strong></td>
-		<td><strong>IP address</strong></td>
-		</tr>
-		<tr>
-		<td>@</td>
-		<td>137.135.70.239</td>
-		</tr>
-		</table>
-
-		This example demonstrates creating an A record for the root domain. If you wish to create a wildcard entry to cover all subdomains, you would enter '__*__' as the subdomain.
+<tr>
+<td><strong>Nombre de host/subdominio</strong></td>
+<td><strong>Dirección IP</strong></td>
+</tr>
+<tr>
+<td>@</td>
+<td>137.135.70.239</td>
+</tr>
+</table>En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '__*__' como subdominio.
 
 7. A continuación, cree un registro CNAME que cuente con un alias de **awverify**, y un dominio canónico de **awverify.mysite.azurewebsites.net** obtenido anteriormente.
 
@@ -239,11 +235,11 @@ Para crear un registro D, primero debe buscar la dirección IP de su sitio web. 
 
 ###Incorporación del nombre de dominio a su sitio web
 
-Una vez que se haya propagado el registro CNAME de **awverify** para el nombre de dominio, puede asociar el dominio personalizado definido por el registro D al sitio web. Puede agregar el nombre de dominio personalizado definido por el registro D a su sitio web mediante la Interfaz de la línea de comandos entre plataformas de Azure o con el Portal de administración de Azure.
+Una vez que se haya propagado el registro CNAME de **awverify** para el nombre de dominio, puede asociar el dominio personalizado definido por el registro D al sitio web. Puede agregar el nombre de dominio personalizado definido por el registro D a su sitio web mediante la CLI de Azure o con el Portal de administración de Azure.
 
-**Para agregar un nombre de dominio con las herramientas de la línea de comandos**
+**Para agregar un nombre de dominio con la Interfaz de la línea de comandos de Azure (CLI de Azure)**
 
-Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure](/manage/install-and-configure-cli/) y, a continuación, use el siguiente comando:
+Instale y configure la [CLI de Azure](/manage/install-and-configure-cli/) y, a continuación, use el siguiente comando:
 
 	azure site domain add customdomain yoursitename
 
@@ -315,4 +311,4 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!--HONumber=52-->
+<!---HONumber=62-->

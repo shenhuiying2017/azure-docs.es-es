@@ -21,9 +21,12 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Si crea una aplicación que proporciona acceso a recursos protegidos, deberá saber cómo proteger dichos recursos frente a accesos injustificados. Azure AD facilita la protección de una API web mediante tokens de acceso portadores de OAuth 2.0 con solo unas pocas líneas de código.
+Si crea una aplicación que proporciona acceso a recursos protegidos, deberá saber cómo proteger dichos recursos frente a accesos injustificados. 
+Azure AD facilita la protección de una API web mediante tokens de acceso portadores de OAuth 2.0 con solo unas pocas líneas de código.
 
-En las aplicaciones web Asp.NET, puede realizar esto con la implementación del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí, usaremos OWIN para crear una API web "Lista de tareas pendientes" que: -Designe las API protegidas. -Valide que las llamadas de API web contienen un token de acceso válido.
+En las aplicaciones web Asp.NET, puede realizar esto con la implementación del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí, usaremos OWIN para crear una API web "Lista de tareas pendientes" que:
+ - Designe las API protegidas.
+ - Valide que las llamadas de API web contienen un token de acceso válido.
 
 Para llevar a cabo esta tarea, deberá hacer lo siguiente:
 
@@ -38,8 +41,8 @@ Para empezar, [descargue el esquema de la aplicación](https://github.com/AzureA
 Para proteger su aplicación, primero deberá crear una aplicación en el inquilino y proporcionar a Azure AD algunos elementos de información clave.
 
 -	Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com)
--	En el panel de navegación izquierdo, haga clic en **Active Directory**
--	Seleccione un inquilino en el que registrar la aplicación.
+-	En el panel de navegación izquierdo, haga clic en **Active Directory**.
+-	Seleccione el inquilino en el que va a registrar la aplicación.
 -	Haga clic en la pestaña **Aplicaciones** y en **Agregar** en el cajón inferior.
 -	Siga las indicaciones y cree una nueva **Aplicación web y/o API web**.
     -	El **nombre** de la aplicación describirá su aplicación a los usuarios finales. Escriba "Servicio de lista de tareas pendientes".
@@ -138,6 +141,9 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 
 [Crear un cliente nativo de .NET con Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
-Para obtener recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
-
-<!---HONumber=58--> 
+Para obtener recursos adicionales, consulte:
+ - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
+ - [CloudIdentity.com >>](https://cloudidentity.com)
+ - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
+<!--HONumber=62-->

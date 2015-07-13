@@ -47,18 +47,18 @@ Para configurar Aplicaciones Web para que use **iojs.exe**, en lugar de una vers
 
 En este artículo ha aprendido a usar io.js con Aplicaciones web del Servicio de aplicaciones utilizando tanto los scripts de implementación que se proporcionan como la instalación.
 
-> [AZURE.NOTE] io.js está en pleno desarrollo y se actualiza con más frecuencia que Node.js. Es posible que varios módulos Node.js no funcionen con io.js (para solucionar el problema, consulte [io.js en GitHub]).
+> [AZURE.NOTE]io.js está en pleno desarrollo y se actualiza con más frecuencia que Node.js. Es posible que varios módulos Node.js no funcionen con io.js (para solucionar el problema, consulte [io.js en GitHub]).
 
 ## ¿Qué ha cambiado?
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No se requiere tarjeta de crédito; sin compromisos.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 [io.js]: https://iojs.org
 [distribución de io.js]: https://iojs.org/dist/
 [io.js en GitHub]: https://github.com/iojs/io.js
 [script de implementación de io.js]: https://github.com/felixrieseberg/iojs-azure
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

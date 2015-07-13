@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Conexión con la cuenta de Servicios multimedia mediante la API de REST" 
-	description="En este tema se muestra cómo conectarse a los Servicios multimedia con la API de REST." 
+	description="En este tema se muestra cómo conectarse a Servicios multimedia con la API de REST." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -19,32 +19,31 @@
 
 # Conexión con la cuenta de Servicios multimedia mediante la API de REST
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md). 
+Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 En este tema se describe cómo obtener una conexión mediante programación a los Servicios multimedia de Microsoft Azure al programar con la API de REST de Servicios multimedia.
 
-Al obtener acceso a los Servicios multimedia de Microsoft Azure, se necesitan dos cosas: un token de acceso proporcionado por los Servicios de control de acceso (ACS) de Azure y el propio URI de Servicios multimedia. Puede usar los métodos que desee para crear estas solicitudes siempre que especifique los valores de encabezado adecuados y pase el token de acceso correctamente al llamar a los Servicios multimedia.
+Hay dos elementos necesarios al obtener acceso a Servicios multimedia de Microsoft Azure: un token de acceso proporcionado por los Servicios de control de acceso (ACS) de Azure y el propio URI de Servicios multimedia. Puede usar los métodos que desee para crear estas solicitudes siempre que especifique los valores de encabezado adecuados y pase el token de acceso correctamente al llamar a Servicios multimedia.
 
-En los pasos siguientes se describe el flujo de trabajo más común al usar la API de REST de Servicios multimedia para conectarse a los Servicios multimedia:
+En los pasos siguientes se describe el flujo de trabajo más común al usar la API de REST de Servicios multimedia para conectarse a Servicios multimedia:
 
 1. Obtención de un token de acceso 
 2. Conexión al URI de Servicios multimedia 
 
-	>[AZURE.NOTE] Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI.
-	Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
+	>[AZURE.NOTE]Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI. Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
 
-3. Registre las llamadas de API posteriores en la nueva dirección URL. 
+3. Registre las llamadas de API posteriores en la nueva dirección URL.
 
 	Por ejemplo, si después de intentar conectarse, obtiene lo siguiente:
 
 		HTTP/1.1 301 Moved Permanently
-		Ubicación: https://wamsbayclus001rest-hs.cloudapp.net/api/
+		Location: https://wamsbayclus001rest-hs.cloudapp.net/api/
 
-	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/..
+	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
 ##Obtención de un token de acceso
 
-Para obtener acceso a los Servicios multimedia directamente a través de la API de REST, recupere un token de acceso de ACS y úselo en todas las solicitudes HTTP que realice en el servicio. Este token es similar a otros tokens proporcionados por ACS basados en notificaciones de acceso proporcionadas en el encabezado de una solicitud HTTP y que usan el protocolo OAuth v2. No es necesario ningún otro requisito previo antes de conectarse directamente a los Servicios multimedia.
+Para obtener acceso a Servicios multimedia directamente a través de la API de REST, recupere un token de acceso de ACS y úselo en todas las solicitudes HTTP que realice en el servicio. Este token es similar a otros tokens proporcionados por ACS basados en notificaciones de acceso proporcionadas en el encabezado de una solicitud HTTP y que usan el protocolo OAuth v2. No es necesario ningún otro requisito previo antes de conectarse directamente a Servicios multimedia.
 
 En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP que se usan para recuperar un token.
 
@@ -61,14 +60,14 @@ En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP q
 	
 **Cuerpo**:
 
-Debe probar los valores client_id y client_secret en el cuerpo de esta solicitud; client_id y client_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Los Servicios multimedia le proporcionan estos valores al configurar su cuenta. 
+Debe probar los valores client_id y client_secret en el cuerpo de esta solicitud; client_id y client_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
 
 Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL (consulte [Percent-Encoding](http://tools.ietf.org/html/rfc3986#section-2.1) cuando se usa como el valor client_secret en la solicitud de token de acceso.
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Por ejemplo: 
+Por ejemplo:
 
 	grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -94,8 +93,7 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 	}
 	
 
->[AZURE.NOTE]
-Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
+>[AZURE.NOTE]Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
 Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
@@ -103,9 +101,9 @@ Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice l
 
 El URI raíz de Servicios multimedia es https://media.windows.net/. Inicialmente, debe conectarse a este URI y, si obtiene una redirección 301 como respuesta, debe realizar las llamadas posteriores al nuevo URI. Además, no use ninguna lógica de redirección automática/seguimiento en las solicitudes. Los verbos HTTP y los cuerpos de solicitud no se enviarán al nuevo URI.
 
-Tenga en cuenta que el URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/ , donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Servicios multimedia.
+Tenga en cuenta que el URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/, donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Servicios multimedia.
 
-En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios multimedia (https://media.windows.net/). La solicitud obtiene una redirección 301 como respuesta. La solicitud posterior usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
+En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios multimedia (https://media.windows.net/)). La solicitud obtiene una redirección 301 como respuesta. La solicitud posterior usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/)).
 
 **Solicitud HTTP**:
 	
@@ -161,7 +159,7 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 	 
 
 
->[AZURE.NOTE] Una vez que obtenga el nuevo URI, ese será el URI que debe usarse para comunicarse con los Servicios multimedia. 
+>[AZURE.NOTE]Una vez que obtenga el nuevo URI, ese será el URI que debe usarse para comunicarse con Servicios multimedia.
 
 
 <!-- Anchors. -->
@@ -169,5 +167,4 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 
 <!-- URLs. -->
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

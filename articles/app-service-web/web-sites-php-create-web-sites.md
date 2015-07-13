@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Creación de una aplicación web de PHP en el Servicio de aplicaciones de Azure"
-	description="Aprenda a crear una aplicación web de PHP en el Servicio de aplicaciones de Azure"
+	pageTitle="Creación de una aplicación web de PHP en Servicio de aplicaciones de Azure"
+	description="Aprenda a crear una aplicación web de PHP en Servicio de aplicaciones de Azure"
 	documentationCenter="php"
 	services="app-service\web"
 	editor="mollybos"
@@ -16,24 +16,24 @@
 	ms.date="04/29/2015"
 	ms.author="tomfitz"/>
 
-# Creación de una aplicación web de PHP en el Servicio de aplicaciones de Azure
+# Creación de una aplicación web de PHP en Servicio de aplicaciones de Azure
 
 ## Información general
-En este artículo aprenderá a crear una aplicación web de PHP en el [Servicio de aplicaciones de Azure] mediante el [Portal de vista previa de Azure](https://portal.azure.com), la [CLI de Azure][Azure CLI] o los [cmdlets de PowerShell de Azure][powershell-cmdlets].
+En este artículo aprenderá a crear una aplicación web de PHP en [Servicio de aplicaciones de Azure] mediante el [Portal de vista previa de Azure](https://portal.azure.com), la [CLI de Azure][Azure CLI] o los [cmdlets de PowerShell de Azure][powershell-cmdlets].
 
-En general, crear una aplicación web de PHP es igual que crear *cualquier* aplicación web en el Servicio de aplicaciones de Azure. De manera predeterminada, PHP está habilitado para todas las aplicaciones web. Para obtener información acerca de la configuración de PHP (o sobre proporcionar su propio tiempo de ejecución de PHP personalizado), consulte [Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure].
+En general, crear una aplicación web de PHP es igual que crear *cualquier* aplicación web en Servicio de aplicaciones de Azure. De manera predeterminada, PHP está habilitado para todas las aplicaciones web. Para obtener información acerca de la configuración de PHP (o sobre proporcionar su propio tiempo de ejecución de PHP personalizado), consulte [Configuración de PHP en Aplicaciones web de Servicio de aplicaciones de Azure].
 
-Cada opción que se describe a continuación muestra cómo crear una aplicación web en un entorno de hospedaje compartido sin coste alguno, pero con algunas limitaciones en el uso de CPU y el uso de ancho de banda. Para obtener más información, vea [Precios del Servicio de aplicaciones]. Para obtener información sobre cómo actualizar y escalar la aplicación web en el Servicio de aplicaciones, consulte [Escalación de una aplicación web en el Servicio de aplicaciones de Azure].
+Cada opción que se describe a continuación muestra cómo crear una aplicación web en un entorno de hospedaje compartido sin coste alguno, pero con algunas limitaciones en el uso de CPU y el uso de ancho de banda. Para obtener más información, vea [Precios de Servicio de aplicaciones]. Para obtener información sobre cómo actualizar y escalar la aplicación web en Servicio de aplicaciones, consulte [Escalación de una aplicación web en Servicio de aplicaciones de Azure].
 
->[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba de Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Creación de una aplicación web de PHP con el Portal de vista previa de Azure
 
 Al crear una aplicación web de PHP en el Portal de vista previa de Azure, tiene tres opciones:
 
 - **Creación rápida**: consulte [Creación de una aplicación web con el Portal de vista previa de Azure](../web-sites-create-deploy.md#createawebsiteportal).
-- **Creación con base de datos**: consulte [Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git]
-- **En Marketplace**: consulte [Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure]
+- **Creación con base de datos**: consulte [Creación de una aplicación web PHP-MySQL en Servicio de aplicaciones de Azure e implementación mediante Git]
+- **En Marketplace**: consulte [Creación de una aplicación web de WordPress en Servicio de aplicaciones de Azure]
 
 ## Creación de una aplicación web de PHP con la CLI de Azure
 
@@ -61,7 +61,7 @@ Para crear una aplicación web PHP con los cmdlets de Azure PowerShell, haga lo 
 
 1. Instale los cmdlets de Azure PowerShell siguiendo las instrucciones que encontrará en: [Introducción a Azure PowerShell](/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
 
-1. Descargue e importe su archivo de configuración de publicación siguiendo las instrucciones que encontrará en: [Cómo: Importar configuración de publicación](/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
+1. Descargue e importe su archivo de configuración de publicación siguiendo las instrucciones que encontrará en: [Cómo importar la configuración de publicación](/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
 
 1. Abra el símbolo del sistema de PowerShell y ejecute el siguiente comando:
 
@@ -77,14 +77,14 @@ Tenga en cuenta que puede ejecutar el comando `New-AzureWebsite` con cualquiera 
 
 ## Pasos siguientes
 
-Ahora que creó una aplicación web PHP en el Servicio de aplicaciones de Azure, puede administrar, configurar, supervisar, implementar y escalar la aplicación. Para obtener más información, consulte los vínculos siguientes:
+Ahora que creó una aplicación web PHP en Servicio de aplicaciones de Azure, puede administrar, configurar, supervisar, implementar y escalar la aplicación. Para obtener más información, consulte los vínculos siguientes:
 
 * [Configuración de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-configure.md)
-* [Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure]
+* [Configuración de PHP en Aplicaciones web de Servicio de aplicaciones de Azure]
 * [Administración de aplicaciones web mediante el Portal de Azure](web-sites-manage.md)
-* [Supervisión de Aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-monitor.md)
-* [Escalación de una aplicación web en el Servicio de aplicaciones de Azure]
-* [Implementación continua mediante GIT en el Servicio de aplicaciones de Azure](web-sites-publish-source-control.md)
+* [Supervisión de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-monitor.md)
+* [Escalación de una aplicación web en Servicio de aplicaciones de Azure]
+* [Implementación continua mediante GIT en Servicio de aplicaciones de Azure](web-sites-publish-source-control.md)
 
 Para conocer tutoriales integrales, visite la página [Tutoriales del Centro para desarrolladores de PHP](/develop/php/tutorials/).
 
@@ -96,11 +96,11 @@ Para conocer tutoriales integrales, visite la página [Tutoriales del Centro par
 [Azure Portal]: http://go.microsoft.com/fwlink/?LinkId=529715
 [Azure CLI]: ../xplat-cli.md
 [powershell-cmdlets]: ../powershell-install-configure.md
-[Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure]: web-sites-php-configure.md
-[Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git]: web-sites-php-mysql-deploy-use-git.md
-[Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure]: web-sites-php-web-site-gallery.md
-[Precios del Servicio de aplicaciones]: /pricing/details/app-service/
-[Escalación de una aplicación web en el Servicio de aplicaciones de Azure]: web-sites-scale.md
+[Configuración de PHP en Aplicaciones web de Servicio de aplicaciones de Azure]: web-sites-php-configure.md
+[Creación de una aplicación web PHP-MySQL en Servicio de aplicaciones de Azure e implementación mediante Git]: web-sites-php-mysql-deploy-use-git.md
+[Creación de una aplicación web de WordPress en Servicio de aplicaciones de Azure]: web-sites-php-web-site-gallery.md
+[Precios de Servicio de aplicaciones]: /pricing/details/app-service/
+[Escalación de una aplicación web en Servicio de aplicaciones de Azure]: web-sites-scale.md
  
 
 <!---HONumber=62-->

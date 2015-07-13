@@ -30,4 +30,12 @@ La configuración es muy sencilla y obtendrá resultados en cuestión de minutos
 * [Aplicación web en IIS en máquina virtual de Azure](../insights-perf-analytics.md)
 * [Aplicación fuera de Azure](app-insights-get-started.md)
 
-<!---HONumber=58--> 
+
+
+
+
+
+
+
+ 
+<!--HONumber=62-->

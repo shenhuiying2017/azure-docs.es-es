@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="06/23/2015" 
 	ms.author="mahender"/>
 
 # Migración desde Servicios móviles de Azure a una Aplicación móvil del Servicio de aplicaciones de Azure
@@ -114,4 +114,5 @@ Una vez que los clientes han tenido la oportunidad de recibir estas actualizacio
 [Programador de Azure]: /es-es/documentation/services/scheduler/
 [trabajo web]: ../app-service-web/websites-webjobs-resources.md
 [Envío de notificaciones push multiplataforma]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

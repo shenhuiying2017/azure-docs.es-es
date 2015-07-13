@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
 #Comprobación del progreso del trabajo
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
-Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede comprobar el progreso [definiendo un controlador de eventos StateChanged](#statechange_event_handler) o [utilizando el almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de servicios multimedia](#check_progress_with_queues). Ambos métodos se describen en este tema. 
+Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede comprobar el progreso [definiendo un controlador de eventos StateChanged](#statechange_event_handler) o [utilizando el almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de servicios multimedia](#check_progress_with_queues). Ambos métodos se describen en este tema.
 
 ##<a id="statechange_event_handler"></a>Definición de controlador de eventos de StateChanged para supervisar el progreso del trabajo
 
@@ -105,11 +105,11 @@ El siguiente ejemplo de código define el controlador de eventos StateChanged. E
 
 ##<a id="check_progress_with_queues"></a>Uso del almacenamiento de la cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia
 
-Servicios multimedia de Microsoft Azure tiene la capacidad de entregar mensajes de notificación al [almacenamiento en cola de Azure](../storage-dotnet-how-to-use-queues.md#what-is) cuando se procesan trabajos multimedia. Este tema muestra cómo obtener estos mensajes de notificación del almacenamiento en cola.
+Servicios multimedia de Microsoft Azure tiene la capacidad de entregar mensajes de notificación al [almacenamiento en cola de Azure](../storage-dotnet-how-to-use-queues.md#what-is) cuando se procesar trabajos multimedia. Este tema muestra cómo obtener estos mensajes de notificación del almacenamiento en cola.
 
-Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería en cola de Azure es fiable y altamente escalable. El almacenamiento en cola de sondeo es preferible a otros métodos. 
+Se puede obtener acceso a los mensajes entregados al almacenamiento de cola desde cualquier lugar del mundo. La arquitectura de mensajería en cola de Azure es fiable y altamente escalable. El almacenamiento en cola de sondeo es preferible a otros métodos.
 
-Un escenario común para escuchar notificaciones de Servicios multimedia es si va a desarrollar un sistema de administración de contenido que necesita realizar alguna tarea adicional después de que se complete un trabajo de codificación (por ejemplo, la activación del siguiente paso del flujo de trabajo o la publicación de contenido). 
+Un escenario común para escuchar notificaciones de Servicios multimedia es si va a desarrollar un sistema de administración de contenido que necesita realizar alguna tarea adicional después de que se complete un trabajo de codificación (por ejemplo, la activación del siguiente paso del flujo de trabajo o la publicación de contenido).
 
 ###Consideraciones
 
@@ -138,7 +138,7 @@ El ejemplo de código de esta sección realiza lo siguiente:
 
 >[AZURE.NOTE]La manera recomendada de supervisar el estado de un trabajo es escuchar los mensajes de notificación, tal como se muestra en el ejemplo siguiente.
 >
->Como alternativa, puede comprobar el estado de un trabajo mediante el uso de la propiedad **IJob.State**.  Tenga en cuenta que es posible que llegue un mensaje de notificación sobre la finalización de un trabajo antes de que el estado en **IJob** se establezca en **Finalizado**. La propiedad **IJob.State** reflejará el estado exacto con un ligero retraso.
+>Como alternativa, puede comprobar el estado de un trabajo mediante el uso de la propiedad **IJob.State**. Tenga en cuenta que es posible que llegue un mensaje de notificación sobre la finalización de un trabajo antes de que el estado en **IJob** se establezca en **Finalizado**. La propiedad **IJob.State** reflejará el estado exacto con un ligero retraso.
 
 	
 	using System;
@@ -425,6 +425,6 @@ El ejemplo anterior genera el siguiente resultado. Los valores variarán.
 	job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected 
 	State: Finished
 	
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

@@ -1,14 +1,14 @@
-﻿El primer paso consiste en crear una nueva cuenta para utilizar en el tutorial. Puede utilizar el plan Sandbox GRATUITO, es perfecto para este tutorial.
+El primer paso consiste en crear una nueva cuenta para utilizar en el tutorial. Puede utilizar el plan Sandbox GRATUITO, es perfecto para este tutorial.
 
 ### Para registrarse y obtener una cuenta Pusher
 
 1. Inicie sesión en el [Portal de administración de Azure][].
 
-2. En el panel inferior del portal de administración, haga clic en **New**.
+2. En el panel inferior del portal de administración, haga clic en **Nuevo**.
 
 	![command-bar-new][command-bar-new]
 
-3. Haga clic en **Store**.
+3. Haga clic en **Tienda**.
 
 	![pusher-store][pusher-store]
 
@@ -20,11 +20,11 @@
 
 	![store-screen-1][store-screen-1]
 
-8. Elija un valor para la región; por ejemplo, Oeste de EE. UU. 
+8. Elija un valor para la región; por ejemplo, Oeste de EE. UU.
 
 9. Haga clic en la flecha derecha.
 
-10. En la pestaña **Revisar compra**, revise la información del plan y de precios, y consulte los términos legales. Si acepta los términos, haga clic en la marca de verificación. Después de hacer clic en la marca de verificación, la cuenta Pusher comenzará el proceso de aprovisionamiento. 
+10. En la pestaña **Revisar compra**, revise la información del plan y de precios, y consulte los términos legales. Si acepta los términos, haga clic en la marca de verificación. Después de hacer clic en la marca de verificación, la cuenta Pusher comenzará el proceso de aprovisionamiento.
 
 	![store-screen-2][store-screen-2]
 
@@ -32,7 +32,7 @@
 
 	![store-screen-3][store-screen-3]
 
-Su cuenta Pusher se aprovisiona inmediatamente y verá el mensaje **La compra del complemento Pusher se realizó correctamente**. La cuenta se ha creado y ahora ya está preparado para utilizar el servicio Pusher.
+Su cuenta Pusher se aprovisiona inmediatamente y verá el mensaje** La compra del complemento Pusher se realizó correctamente**. La cuenta se ha creado y ahora ya está preparado para utilizar el servicio Pusher.
 
 Para modificar el plan de suscripción o ver la configuración de contacto de Pusher, haga clic en el nombre de su servicio Pusher para abrir el panel de complementos Pusher.
 
@@ -42,11 +42,11 @@ Cuando se utiliza Pusher, tendrá que proporcionar la configuración de conexió
 
 ### Para encontrar la configuración de conexión de Pusher ###
 
-1. Haga clic en **Información de la conexión**.
+1. Haga clic en **Información de conexión**.
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. En el cuadro de diálogo  *Connection info*, verá el identificador de aplicación, la clave y el secreto Copie estos valores, ya que los usará más adelante en este tutorial.
+2. En el cuadro de diálogo *Información de conexión* verá el identificador de aplicación, la clave y el secreto. Copie estos valores, ya que los usará más adelante en este tutorial.
 
 	![pusher-connection-info][pusher-connection-info]
 
@@ -68,5 +68,4 @@ Para obtener más información sobre cómo comenzar con Pusher, consulte [Descri
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [Descripción de Pusher]: http://pusher.com/docs
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

@@ -376,7 +376,7 @@ Siga estos vínculos para obtener más información acerca de Flask y Python Too
 Para obtener información sobre el uso de Almacenamiento de tablas de Azure y MongoDB:
 
 - [Flask y MongoDB en Azure con Python Tools 2.1 para Visual Studio]
-- [Flask y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]
+- [Flask y Almacenamiento de tablas de Azure con las Herramientas de Python 2.1 para Visual Studio]
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -385,7 +385,7 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 
 <!--Link references-->
 [Flask y MongoDB en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
-[Flask y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
+[Flask y Almacenamiento de tablas de Azure con las Herramientas de Python 2.1 para Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
 
 <!--External Link references-->
 [Azure SDK para Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281

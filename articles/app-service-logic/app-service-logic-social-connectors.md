@@ -102,7 +102,17 @@ Se pueden crear conectores con el Portal de Azure.
 
 1. En el Portal de Azure, elija **NUEVO** > **Web + móvil** > **Azure Marketplace**.
 2. **Busque** el conector o selecciónelo en la lista. Una vez seleccionado, se abrirá una ventana o una hoja. Seleccione **Crear**. 
-3. Introduzca las siguientes propiedades para el conector: <table> <tr><th>Propiedad</th> <th>Descripción</th> </tr> <tr><td>Nombre</td> <td>Escriba un nombre para la aplicación de API. Por ejemplo, puede asignarle el nombre RulesDiscountTaxCode o APIAppValidateXML</td> </tr> <tr><td>Plan de servicio de aplicación</td><td>Muestra el plan de pagos. Puede cambiarlo si necesita más o menos recursos</th> </td> <tr><td>Nivel de precios</td> <td>Propiedad de solo lectura que muestra la categoría de precios dentro de la suscripción de Azure.</td> </tr> <tr><td>Grupo de recursos</td> <td>Cree uno nuevo o utilice un grupo ya existente. Uso de grupos de recursos explica esta propiedad</td> </tr> <tr><td>Suscripción</td> <td>Propiedad de solo lectura que muestra la suscripción actual</td> </tr> <tr><td>Ubicación</td> <td>Ubicación geográfica que hospeda el servicio de Azure </td></tr> <tr><td>Agregar al Panel de inicio</td> <td>Seleccione esta opción para agregar la aplicación de la API a su Panel de inicio (la página principal)</td></tr> </table> 
+3. Introduzca las siguientes propiedades para el conector: 
+	<table>
+    <tr><th>Propiedad</th> <th>Descripción</th> </tr>
+    <tr><td>Nombre</td> <td>Escriba un nombre para la aplicación de API. Por ejemplo, puede asignarle el nombre RulesDiscountTaxCode o APIAppValidateXML.</td> </tr>
+    <tr><td>Plan de servicio de aplicación</td> <td>Muestra el plan de pagos. Puede modificarlo en función de los recursos que necesite.</th> </td>
+    <tr><td>Nivel de precios</td> <td>Propiedad de solo lectura que muestra la categoría de precio de su suscripción de Azure.</td> </tr>
+    <tr><td>El grupos de recursos</td> <td>Cree uno nuevo o utilice un grupo ya existente. Al usar grupos de recursos, se explica esta propiedad.</td> </tr>
+    <tr><td>La suscripción</td> <td>Propiedad de solo lectura que muestra la suscripción actual</td> </tr>
+    <tr><td>Ubicación</td> <td>La ubicación geográfica en la que se hospeda el servicio de Azure. </td></tr>
+    <tr><td>Agregar al Panel de inicio</td> <td>Elija esta opción para agregar la aplicación de la API al Panel de inicio (la página principal).</td></tr>
+</table>
 4. Seleccione **Crear**. Se creará el conector. La operación puede tardar varios minutos en completarse y la pantalla de inicio se mostrará durante la creación del conector. Use el elemento de menú Notificaciones situado a la izquierda para supervisar el estado del conector.
 
 Ahora que ha creado su primer conector, considere la posibilidad de crear una aplicación web, móvil o lógica con él.
@@ -124,7 +134,7 @@ Use los pasos siguientes para agregar un conector a una aplicación lógica:
 
 1. En el panel de inicio del Portal de Azure (página principal), vaya a **Marketplace** y busque las aplicaciones lógicas, móviles o web. 
 
-	Si está creando una nueva aplicación, busque la aplicación lógica, la aplicación móvil o la aplicación web. Seleccione la aplicación en la nueva hoja, seleccione  **Crear**. En [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md) se muestran los pasos.
+	Si está creando una nueva aplicación, busque la aplicación lógica, la aplicación móvil o la aplicación web. Seleccione la aplicación en la nueva hoja, seleccione **Crear**. En [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md) se muestran los pasos.
 
 2. Abra su aplicación y seleccione **Desencadenadores y acciones**.
 3. En **Galería**, elija el conector. Se agregará a la aplicación.
@@ -137,11 +147,12 @@ Use los pasos siguientes para agregar un conector a una aplicación lógica:
 Los conectores utilizan OAuth o nombres de usuario y contraseñas.
 
 ## Lea acerca de las aplicaciones lógicas y las aplicaciones web
-[¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md) | [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-app-azure-portal.md) |
+[¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md) | [Sitios web y aplicaciones web en el Servicio de aplicaciones de Azure](../app-service-web/app-service-web-overview.md) |
 
 
 ## Más conectores
 
 [Conectores de integración de BizTalk](app-service-logic-integration-connectors.md) | [Conectores empresariales](app-service-logic-enterprise-connectors.md) |[Conectores de negocio a negocio](app-service-logic-b2b-connectors.md) | [Conectores de protocolo](app-service-logic-protocol-connectors.md) | [Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md)| [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

@@ -19,5 +19,5 @@
 ## Plantillas de BizTalk y Aplicaciones lógicas
 
 ### Esta documentación se incluirá próximamente.
-
-<!--HONumber=49--> 
+ 
+<!--HONumber=62-->

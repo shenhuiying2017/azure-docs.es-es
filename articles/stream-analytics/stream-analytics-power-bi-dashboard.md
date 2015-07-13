@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Panel Power BI de Análisis de transmisiones | Azure" 
-	description="Obtenga información acerca de cómo rellenar un panel de Power BI dinámico con los datos de un trabajo de Análisis de transmisiones." 
+	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure" 
+	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones." 
+	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,17 +14,23 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="05/12/2015" 
 	ms.author="jeffstok"/>
 	
-#Análisis de transmisiones de Azure y Power BI: panel dinámico en tiempo real de los datos de Análisis de transmisiones
+# Análisis de transmisiones de Azure y Power BI: panel dinámico para análisis en tiempo real de los datos de streaming
 
-Un caso de uso común de Análisis de transmisiones de Azure es analizar grandes volúmenes de datos de transmisión en tiempo real y obtener la información en un panel dinámico (es decir, un panel que se actualiza en tiempo real sin tener que actualizar el explorador del usuario). [Microsoft Power BI](https://powerbi.com/) es perfecto para crear el panel dinámico en muy poco tiempo. [Aquí se proporciona un ejemplo de vídeo para ilustrar el escenario](https://www.youtube.com/watch?v=SGUpT-a99MA). En este artículo, aprenderá a usar Power BI como una salida para el trabajo de Análisis de transmisiones de Azure. Nota: normalmente, Análisis de transmisiones de Azure está disponible; sin embargo, en este momento la salida de Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
+Análisis de transmisiones de Azure permite aprovechar una de las principales herramientas de inteligencia empresarial, Microsoft Power BI. Aprenda a usar Análisis de secuencias de Azure para analizar grandes volúmenes de datos de streaming y obtener información detallada en un panel de Power BI en tiempo real.
+
+Utilice [Microsoft Power BI](https://powerbi.com/) para crear rápidamente un panel dinámico. [Vea un vídeo que ilustra el escenario](https://www.youtube.com/watch?v=SGUpT-a99MA).
+
+En este artículo, aprenderá a crear sus propias herramientas de inteligencia empresarial personalizadas utilizando Power BI como salida para los trabajos de análisis de transmisiones de Azure.
+
+> [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
 
 ##Requisitos previos
 
-* Cuenta de Microsoft Azure con Id. org. (Power BI solo funciona con Id. org.). Id. org. es la dirección de correo electrónico de su trabajo o empresa; por ejemplo, xyz@mycompany.com. Los mensajes de correo electrónico personales, como xyz@hotmail.com, no son Id. org. [Puede obtener más información acerca de la identificación de la organización](https://www.arin.net/resources/request/org.html) ).
-* Una secuencia de entrada para un trabajo ASA (Análisis de transmisiones de Azure) desde el que consumir datos de transmisiones. En este punto, ASA acepta la entrada de un centro de eventos de Azure o el almacén de blobs de Azure.  
+* Cuenta de Microsoft Azure con Id. org. (Power BI solo funciona con Id. org.). Id. org. es la dirección de correo electrónico de su trabajo o empresa; por ejemplo, xyz@mycompany.com. Los mensajes de correo electrónico personales, como xyz@hotmail.com, no son Id. org. Puede obtener más información acerca del identificador de organización [aquí](https://msdn.microsoft.com/subscriptions/dn531048.aspx); también existe un documento de preguntas más frecuentes que se puede descargar desde [aquí](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409).
+* Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.  
 
 ##Creación de un trabajo de Análisis de transmisiones de Azure
 
@@ -32,7 +39,7 @@ En el [Portal de Azure](https://manage.windowsazure.com), haga clic en **Nuevo, 
 Especifique los valores siguientes y haga clic en **Creación de un Análisis de transmisiones**:
 
 * **Nombre del trabajo**: escriba un nombre del trabajo. Por ejemplo, **DeviceTemperatures**.
-* **Región**: seleccione la región donde desea que esté el trabajo. Considere la posibilidad de colocar el trabajo y el centro de eventos en la misma región para garantizar un rendimiento óptimo y evitar incurrir en costos de transferencia de datos entre  regiones.
+* **Región**: seleccione la región donde desea que esté el trabajo. Considere la posibilidad de colocar el trabajo y el centro de eventos en la misma región para garantizar un rendimiento óptimo y evitar incurrir en costos de transferencia de datos entre regiones.
 * **Cuenta de almacenamiento**: elija la cuenta de almacenamiento que desea usar para almacenar los datos de supervisión de todos los trabajos de Análisis de transmisiones que se ejecutan en esta región. Tiene la opción de elegir una cuenta de almacenamiento existente o crear una nueva.
 
 Haga clic en **Análisis de transmisiones** en el panel izquierdo para ver una lista de los trabajos de Análisis de transmisiones.
@@ -72,14 +79,14 @@ Para este tutorial, se supone que está utilizando el centro de eventos como una
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]Nota: el resultado de Power BI solo está disponible para cuentas de Azure que usan Id. org. Si no está utilizando ningún Id. org. para su cuenta de Azure (por ejemplo, su live id / cuenta personal de Microsoft), no verá una opción de salida de Power BI.
+> [AZURE.NOTE]La salida de Power BI solo está disponible para cuentas de Azure que usan identificadores de organización. Si no está utilizando ningún Id. org. para su cuenta de Azure (por ejemplo, su live id / cuenta personal de Microsoft), no verá una opción de salida de Power BI.
 
 2.  Seleccione **Power BI** y, a continuación, haga clic con el botón secundario.
 3.  Verá una pantalla similar a la siguiente:
 
 ![graphic3][graphic3]
 
-4.  En este paso, debe tener cuidado de utilizar el mismo Id. org. que utiliza para su trabajo ASA. En este punto, el resultado de Power BI tiene que utilizar el mismo Id. org. que usa su trabajo ASA. Si ya tiene una cuenta de Power BI con el mismo Id. org., seleccione "Autorizar ahora". Si no es así, elija "Regístrese ahora" y utilice el mismo Id. org. como su cuenta de Azure al registrarse para Power BI. [Aquí hay un buen blog que recorre los detalles de registro de Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  En este paso, debe tener cuidado de utilizar el mismo identificador de organización que utiliza para el trabajo de Análisis de transmisiones. En este punto, la salida de Power BI tiene que utilizar el mismo identificador de organización que usa el trabajo de Análisis de transmisiones. Si ya tiene una cuenta de Power BI con el mismo Id. org., seleccione "Autorizar ahora". Si no es así, elija "Regístrese ahora" y utilice el mismo Id. org. como su cuenta de Azure al registrarse para Power BI. [Aquí hay un buen blog que recorre los detalles de registro de Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
 5.  A continuación verá una pantalla similar a la siguiente:
 
 ![graphic4][graphic4]
@@ -88,13 +95,13 @@ Proporcione valores como sigue:
 
 * **Alias de salida**: puede colocar cualquier alias de salida a la que es fácil que haga referencia. Este alias de salida es especialmente útil si decide tener varias salidas para su trabajo. En ese caso, debe hacer referencia a esta salida de la consulta. Por ejemplo, vamos a usar el valor de alias de salida = "OutPbi".
 * **Nombre del conjunto de datos**: proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. Por ejemplo, vamos a usar "pbidemo".
-*	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos ASA solo puede tener una tabla en un conjunto de datos.
+*	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos.
 
->	[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Haga clic en **Aceptar**, **Probar conexión**; ahora la configuración de la salida ha finalizado.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ##Escritura de una consulta
@@ -120,7 +127,7 @@ Inicie su trabajo. Valide que el centro de eventos recibe eventos y la consulta 
 
 ##Creación del panel en Power BI
 
-Vaya a [Powerbi.com](https://powerbi.com) e inicie sesión con su Id. org Si la consulta de trabajo ASA genera salidas, verá que ya se ha creado el conjunto de datos:
+Vaya a [Powerbi.com](https://powerbi.com) e inicie sesión con su Id. org Si la consulta del trabajo de Análisis de transmisiones genera resultados, verá que ya se ha creado el conjunto de datos:
 
 ![graphic5][graphic5]
 
@@ -130,7 +137,7 @@ Para crear el panel, vaya a la opción Paneles y cree un nuevo panel.
 
 En este ejemplo vamos a llamarlo "Panel de demostración".
 
-Ahora haga clic en el conjunto de datos creado por el ASA (pbidemo en nuestro ejemplo actual). Se le llevará a una página para crear un gráfico encima de este conjunto de datos. El siguiente solo es un ejemplo de los informes que puede crear:
+Ahora haga clic en el conjunto de datos creado por el trabajo de Análisis de transmisiones (pbidemo en nuestro ejemplo actual). Se le llevará a una página para crear un gráfico encima de este conjunto de datos. El siguiente solo es un ejemplo de los informes que puede crear:
 
 Seleccione los campos Σ temp y time. Pasarán automáticamente al valor y el eje del gráfico:
 
@@ -150,12 +157,12 @@ Ahora obtendrá un gráfico de líneas de la media a lo largo del tiempo. Con la
 
 Ahora cuando vea el panel con este informe anclado, verá la actualización de informes en tiempo real. Pruebe a cambiar los datos de sus eventos: temperatura máxima o algo similar y verá su efecto en tiempo real reflejado en el panel.
 
-Tenga en cuenta que este tutorial muestra cómo crear un tipo de gráfico para un conjunto de datos. Sin embargo, las posibilidades de Power BI son ilimitadas. Para obtener otro ejemplo de un panel de Power BI, vea el vídeo [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
+Tenga en cuenta que este tutorial muestra cómo crear un tipo de gráfico para un conjunto de datos. Power BI puede ayudarle a crear otras herramientas de inteligencia empresarial de cliente para su organización. Para obtener otro ejemplo de un panel de Power BI, vea el vídeo [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s).
 
 Otro recurso útil para obtener más información acerca de la creación de paneles con Power BI es [Vista previa de los paneles de Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -176,6 +183,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=62-->

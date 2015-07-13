@@ -39,7 +39,7 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Cambie los directorios al directorio **c:\\node** y, a continuación, escriba los siguientes comandos para crear una nueva solución llamada **expressapp** y un rol web llamado **WebRole1**:
+2. Cambie los directorios al directorio **c:\node** y, a continuación, escriba los siguientes comandos para crear una nueva solución llamada **expressapp** y un rol web llamado **WebRole1**:
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -86,7 +86,7 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 
 		var app = require('./app');
 
-	Este cambio es necesario porque el archivo se movió (anteriormente  **bin/www**) al mismo directorio que el archivo de aplicación que se requiere. Después de realizar este cambio, guarde el archivo **server.js**.
+	Este cambio es necesario porque el archivo se movió (anteriormente **bin/www**) al mismo directorio que el archivo de aplicación que se requiere. Después de realizar este cambio, guarde el archivo **server.js**.
 
 8.  Utilice el siguiente comando para ejecutar la aplicación en el emulador de Azure:
 
@@ -129,9 +129,10 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 ![Un explorador web que muestra la página de Express. La URL indica que la página ya está hospedada en Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-[Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
-[Express]: http://expressjs.com/
-[http://jade-lang.com]: http://jade-lang.com
+  [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
+  [Express]: http://expressjs.com/
+  [http://jade-lang.com]: http://jade-lang.com
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

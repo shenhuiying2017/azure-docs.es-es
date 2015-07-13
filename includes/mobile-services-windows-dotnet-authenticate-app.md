@@ -1,4 +1,4 @@
-﻿
+
 1. Abra el archivo de proyecto MainPage.xaml.cs y agregue la siguiente instrucción using:
 
         using Windows.UI.Popups;
@@ -39,9 +39,8 @@
             RefreshTodoItems();
         }
 		
-4. Presione la tecla F5 para ejecutar la aplicación e iniciar sesión en la aplicación con el proveedor de identidades seleccionado. 
+4. Presione la tecla F5 para ejecutar la aplicación e iniciar sesión en la aplicación con el proveedor de identidades seleccionado.
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-
-<!--HONumber=42-->
+<!---HONumber=62-->

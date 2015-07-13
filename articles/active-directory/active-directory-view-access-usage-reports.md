@@ -16,7 +16,7 @@
 	ms.date="06/23/2015"
 	ms.author="kenhoff;Justinha"/>
 
-# Visualización de los informes de acceso y uso
+#  Visualización de los informes de acceso y uso
 
 Puede usar los informes de acceso y uso de Active Directory de Azure para proporcionar visibilidad sobre la integridad y la seguridad del directorio de su organización. Con esta información, un administrador de directorios puede determinar mejor dónde puede haber posibles riesgos de seguridad de modo que pueda planear adecuadamente la mitigación de estos riesgos.
 
@@ -33,7 +33,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 - Algunos informes de uso de recursos y de anomalías avanzados solo están disponibles cuando se habilita [Azure Active Directory Premium](active-directory-get-started-premium.md). Los informes avanzados le ayudan a mejorar la seguridad de acceso, responder a amenazas potenciales y obtener acceso a análisis sobre el uso de aplicaciones y el acceso a dispositivos.
 - Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-## Descripciones de los informes
+##  Descripciones de los informes
 
 |	Informe |	Descripción |
 |	------												|	-----																						|
@@ -58,7 +58,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	Uso de dispositivos RMS |	Enumera los dispositivos utilizados para obtener acceso a los archivos protegidos mediante RMS |
 |	Uso de aplicaciones habilitadas para RMS |	Permite usar aplicaciones habilitadas para RMS |
 
-## Ediciones de los informes
+##  Ediciones de los informes
 
 |	Informe |	Gratuito |	Básica |	Premium |
 |	------												|	----	|	-----	|	--------	|
@@ -83,9 +83,9 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 |	Uso de dispositivos RMS | | |	Solo RMS |
 |	Uso de aplicaciones habilitadas para RMS | | |	Solo RMS |
 
-## Detalles de los informes
+##  Detalles de los informes
 
-### Inicios de sesión desde orígenes desconocidos
+###  Inicios de sesión desde orígenes desconocidos
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -93,7 +93,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 ![Inicios de sesión desde orígenes desconocidos](./media/active-directory-view-access-usage-reports/signInsFromUnknownSources.PNG)]
 
-### Inicios de sesión tras varios errores
+###  Inicios de sesión tras varios errores
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -102,7 +102,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Inicios de sesión tras varios errores](./media/active-directory-view-access-usage-reports/signInsAfterMultipleFailures.PNG)]
 
 
-### Inicios de sesión desde varias ubicaciones geográficas
+###  Inicios de sesión desde varias ubicaciones geográficas
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -111,7 +111,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Inicios de sesión desde varias ubicaciones geográficas](./media/active-directory-view-access-usage-reports/signInsFromMultipleGeographies.PNG)]
 
 
-### Inicios de sesión desde direcciones IP con actividad sospechosa
+###  Inicios de sesión desde direcciones IP con actividad sospechosa
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -120,7 +120,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Inicios de sesión desde direcciones IP con actividad sospechosa](./media/active-directory-view-access-usage-reports/signInsFromIPAddressesWithSuspiciousActivity.PNG)]
 
 
-### Actividad de inicio de sesión erróneo.
+###  Actividad de inicio de sesión erróneo.
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -128,7 +128,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 
 
 
-### Inicios de sesión desde dispositivos posiblemente infectados
+###  Inicios de sesión desde dispositivos posiblemente infectados
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -137,7 +137,7 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Inicios de sesión desde dispositivos posiblemente infectados](./media/active-directory-view-access-usage-reports/signInsFromPossiblyInfectedDevices.PNG)]
 
 
-### Usuarios con actividad de inicio de sesión erróneo.
+###  Usuarios con actividad de inicio de sesión erróneo.
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -146,9 +146,9 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Usuarios con actividad de inicio de sesión erróneo.](./media/active-directory-view-access-usage-reports/usersWithAnomalousSignInActivity.PNG)]
 
 
-## Informes de aplicaciones integradas
+##  Informes de aplicaciones integradas
 
-### Uso de la aplicación: resumen
+###  Uso de la aplicación: resumen
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -157,21 +157,21 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Resumen de uso de la aplicación](./media/active-directory-view-access-usage-reports/applicationUsage.PNG)]
 
 
-### Uso de la aplicación: detallado
+###  Uso de la aplicación: detallado
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
 | Use este informe cuando quiera ver cuánto se está usando una aplicación SaaS específica. Este informe se basa en el número de veces que los usuarios hacen clic en la aplicación en el Panel de acceso. | Directorio > pestaña Informes |
 
-### Panel de la aplicación
+###  Panel de la aplicación
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
 | Este informe indica los inicios de sesión acumulados en la aplicación por los usuarios de su organización en un intervalo de tiempo seleccionado. El gráfico de la página Panel le ayudará a identificar las tendencias de uso de la aplicación. | Directorio > Aplicación > pestaña Panel |
 
-## Informes de errores
+##  Informes de errores
 
-### Errores de aprovisionamiento de cuentas
+###  Errores de aprovisionamiento de cuentas
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -180,21 +180,21 @@ En el Portal de administración de Azure, los informes se clasifican de la maner
 ![Errores de aprovisionamiento de cuentas](./media/active-directory-view-access-usage-reports/accountProvisioningErrors.PNG)]
 
 
-## Informes específicos del usuario
+##  Informes específicos del usuario
 
-### Dispositivos
+###  Dispositivos
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
 | Use este informe si desea ver la dirección IP y la ubicación geográfica de los dispositivos que un usuario específico ha usado para tener acceso a Active Directory de Azure. | Directorio > Usuarios > <i>Usuario</i> > pestaña Dispositivos |
 
-### Actividad
+###  Actividad
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
 | Muestra la actividad de inicio de sesión de un usuario. El informe incluye información como la aplicación en la que se ha iniciado sesión, el dispositivo usado, la dirección IP y la ubicación. No recopilamos el historial de los usuarios que inician sesión con una cuenta de Microsoft. | Directorio > Usuarios > <i>Usuario</i> > pestaña Actividad |
 
-#### Eventos de inicio de sesión incluidos en el informe de actividad
+####  Eventos de inicio de sesión incluidos en el informe de actividad
 
 Solo determinados tipos de eventos de inicio de sesión aparecerán en el informe de actividad del usuario.
 
@@ -212,9 +212,9 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 
 > Nota: para reducir la cantidad de ruido en este informe, no se muestran los inicios de sesión en la aplicación nativa [Lync/Skype para empresas](http://products.office.com/es-es/skype-for-business/online-meetings) y el [Asistente para el inicio de sesión de Microsoft Online Services](http://community.office365.com/es-es/w/sso/534.aspx).
 
-## Registros de actividad
+##  Registros de actividad
 
-### Informe de auditoría
+###  Informe de auditoría
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -223,7 +223,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 ![Informe de auditoría](./media/active-directory-view-access-usage-reports/auditReport.PNG)]
 
 
-### Informe de actividad de grupos
+###  Informe de actividad de grupos
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -232,7 +232,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 ![Actividad de los grupos de autoservicio](./media/active-directory-view-access-usage-reports/selfServiceGroupsActivity.PNG)]
 
 
-### Informe de actividad de registro de restablecimiento de contraseña
+###  Informe de actividad de registro de restablecimiento de contraseña
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -241,7 +241,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 ![Actividad de registro de restablecimiento de contraseñas](./media/active-directory-view-access-usage-reports/passwordResetRegistrationActivity.PNG)]
 
 
-### Actividad de restablecimiento de contraseña
+###  Actividad de restablecimiento de contraseña
 
 | Descripción | Ubicación del informe |
 | :-------------     | :-------        |
@@ -250,7 +250,7 @@ Solo determinados tipos de eventos de inicio de sesión aparecerán en el inform
 ![Actividad de restablecimiento de contraseña](./media/active-directory-view-access-usage-reports/passwordResetActivity.PNG)]
 
 
-## Aspectos que se deben tener en cuenta si sospecha de una infracción de seguridad
+##  Aspectos que se deben tener en cuenta si sospecha de una infracción de seguridad
 
 Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tipo de actividad de usuario sospechosa puede dar lugar a una infracción de seguridad de los datos del directorio en la nube, considere la posibilidad de realizar una o varias de las acciones siguientes:
 
@@ -258,7 +258,7 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
 - Restablezca la contraseña del usuario.
 - [Habilite Multi-factor Authentication](http://go.microsoft.com/fwlink/?linkid=335774) para obtener seguridad adicional
 
-## Visualización o descarga de un informe
+##  Visualización o descarga de un informe
 
 1. En el Portal de administración de Azure, haga clic en **Active Directory**, haga clic en el nombre del directorio de la organización y, a continuación, haga clic en **Informes**.
 2. En la página Informes, haga clic en el informe que desea ver o descargar.
@@ -274,17 +274,17 @@ Si sospecha que una cuenta de usuario puede estar en peligro o que cualquier tip
 5. Si corresponde, haga clic en **Descargar** para descargar el informe en un archivo comprimido en formato de valores separados por comas (CSV) para verlo sin conexión o con fines de archivo.
 	- Hasta 75000 eventos se incluirán en el archivo descargado.
 
-## Ignorar un evento
+##  Ignorar un evento
 
 Si está viendo informes de anomalías, observará que puede ignorar varios eventos que se muestran en informes relacionados. Para ignorar un evento, resáltelo en el informe y, a continuación, haga clic en **Ignorar**. El botón **Ignorar** quitará de forma permanente el evento resaltado del informe y solo lo pueden usar administradores globales con licencia.
 
-## Notificaciones de correo electrónico automáticas
+##  Notificaciones de correo electrónico automáticas
 
-### Qué informes generan notificaciones de correo electrónico
+###  Qué informes generan notificaciones de correo electrónico
 
 En este momento, solo el informe de inicio actividad de inicio de sesión erróneo y el informe de usuarios con actividad de inicio de sesión erróneo usan el sistema de notificación de correo electrónico.
 
-### ¿Qué desencadena el envío de la notificación de correo electrónico?
+###  ¿Qué desencadena el envío de la notificación de correo electrónico?
 
 De forma predeterminada, Azure Active Directory se establece para enviar automáticamente notificaciones de correo electrónico a todos los administradores globales. El correo electrónico se envía en las siguientes condiciones para cada informe.
 
@@ -307,11 +307,11 @@ El correo electrónico se envía si se cumple alguna de las condiciones anterior
 
 Los inicios de sesión erróneos son aquellos que nuestros algoritmos de aprendizaje automático han identificado como "erróneos" debido a ubicaciones de inicio de sesión inesperadas, la hora del día y las ubicaciones o una combinación de ambas cosas. Esto puede indicar que un hacker ha intentado iniciar sesión con esta cuenta. Puede encontrar más información sobre el informe en la tabla anterior.
 
-### ¿Quién recibe las notificaciones de correo electrónico?
+###  ¿Quién recibe las notificaciones de correo electrónico?
 
 El correo electrónico se envía a todos los administradores globales a los que se ha asignado una licencia de Active Directory Premium. Para asegurarnos de que se entrega, también lo enviamos a la dirección de correo electrónico alternativa de los administradores. Los administradores deben incluir aad-alerts-noreply@mail.windowsazure.com en su lista de remitentes seguros para no perder el correo electrónico.
 
-### ¿Con qué frecuencia se envían los correos electrónicos?
+###  ¿Con qué frecuencia se envían los correos electrónicos?
 
 Una vez que se envía un correo electrónico, el siguiente se enviará solo cuando se detecten 10 o más eventos de inicio de sesión erróneo en el período de 30 días tras el envío de dicho correo electrónico. ¿Cómo puedo tener acceso al informe mencionado en el correo electrónico?
 
@@ -320,13 +320,13 @@ Al hacer clic en el vínculo, se le redirigirá a la página del informe en el P
 - Administrador o coadministrador de su suscripción de Azure
 - Administrador global en el directorio y tener asignada una licencia de Active Directory Premium. Para obtener más información, consulte Ediciones de Azure Active Directory.
 
-### ¿Puedo desactivar los correos electrónicos?
+###  ¿Puedo desactivar los correos electrónicos?
 
 Sí, para desactivar las notificaciones relacionadas con inicios de sesión erróneos dentro del Portal de administración de Azure, haga clic en **Configurar**, y, a continuación, seleccione **Deshabilitadas** en la sección **Notificaciones**.
 
-## Pasos siguientes
+##  Pasos siguientes
 
 - [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Incorporación de la información de marca de empresa a sus páginas de inicio de sesión y del panel de acceso](active-directory-add-company-branding.md)
 
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

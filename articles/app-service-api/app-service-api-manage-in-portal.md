@@ -82,7 +82,7 @@ Las hojas de la puerta de enlace y del host de puerta de enlace comparten la int
 
 La hoja de **host de puerta de enlace** se utiliza para todas las tareas que haría para cualquier aplicación web. Para obtener más información, consulte [Administración de aplicaciones web en el portal](web-sites-manage.md).
 
-## Cómo desplazarse a las hojas de puerta de enlace y la aplicación de API 
+## <a id="navigate"></a>Cómo desplazarse a las hojas de puerta de enlace y la aplicación de API 
 
 Una manera de obtener acceso a la hoja de **aplicación de API** es a través de la característica de exploración del portal de Azure. En la página principal del portal, haga clic en **Examinar > Aplicaciones de API** para ver todas las aplicaciones de API que se pueden administrar.
 

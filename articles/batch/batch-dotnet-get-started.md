@@ -602,4 +602,4 @@ Un trabajo describe una carga de trabajo que se ejecutará y debe incluir toda l
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

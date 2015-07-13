@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/16/2015"
 	ms.author="adegeo"/>
 
 
@@ -149,14 +149,15 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
 
 * [Configuración de un certificado SSL en un extremo HTTPS][]
 
-[Creación de un certificado para un rol]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-[Asociación de un certificado con un servicio]: http://msdn.microsoft.com/library/azure/gg465718.aspx
-[Portal de administración de Azure]: http://manage.windowsazure.com
-[0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
-[1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
-[2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
-[3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
-[4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-[Configuración de un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+  [Creación de un certificado para un rol]: http://msdn.microsoft.com/library/azure/gg432987.aspx
+  [Asociación de un certificado con un servicio]: http://msdn.microsoft.com/library/azure/gg465718.aspx
+  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
+  [Configuración de un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

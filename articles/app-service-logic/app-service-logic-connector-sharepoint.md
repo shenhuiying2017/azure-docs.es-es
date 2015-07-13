@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="06/17/2015"
+   ms.date="06/22/2015"
    ms.author="vagarw"/>
 
 # Uso del conector de SharePoint en una aplicación lógica
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de Microsoft SharePoint permite conectarse a Microsoft SharePoint Server y SharePoint Online con objeto de administrar documentos y elementos de lista. Puede realizar diversas acciones tales como crear, actualizar, obtener y eliminar documentos y elementos de lista. Si SharePoint Server está instalado localmente, puede proporcionar la cadena de conexión del bus de servicio como parte de la configuración del conector e instalar el agente de escucha local para conectarse al servidor.
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. El conector de Microsoft SharePoint permite conectarse a Microsoft SharePoint Server y SharePoint Online y administrar documentos y elementos de lista. Puede realizar diversas acciones tales como crear, actualizar, obtener y eliminar documentos y elementos de lista. Cuando se usa el servidor local de SharePoint, puede proporcionar la cadena de conexión del bus de servicio como parte de la configuración del conector e instalar el agente de escucha local para conectarse al servidor.
 
 La aplicación de galería del conector de SharePoint Server y el conector de SharePoint Online proporciona desencadenadores y acciones como mecanismos para interactuar con SharePoint.
 
@@ -35,9 +35,7 @@ Un conector puede crearse dentro de una aplicación lógica o directamente desde
 --- | --- | ---
 Dirección URL del sitio | Sí | Especifique la dirección URL completa del sitio web de SharePoint. Por ejemplo, escriba: *https://microsoft.sharepoint.com/teams/wabstest*. Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente:
-<br/>
-![][1]
+5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][1]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Online.
 
@@ -58,9 +56,7 @@ Password | No | Especifique una contraseña válida para conectarse al sitio de 
 Biblioteca de documentos/Lista de URL relacionadas | Sí | Especifique las direcciones URL de las URL de listas/bibliotecas de documentos relacionadas con la dirección URL del sitio de SharePoint que puede modificar el conector. Por ejemplo, escriba: *Listas/Tareas, Documentos compartidos*.
 Cadena de conexión del bus de servicio | No | Si se conecta en un entorno local, escriba la cadena de conexión de Retransmisión de bus de servicio.<br/><br/>[Uso del Administrador de conexiones híbridas](app-service-logic-hybrid-connection-manager.md)<br/>[Precios de Bus de servicio](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente:
-<br/>
-![][2]
+5. Cuando haya terminado, la configuración del paquete tiene un aspecto similar al siguiente: <br/> ![][2]
 
 Una vez hecho esto, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SharePoint Server.
 
@@ -71,32 +67,17 @@ Una vez creada la aplicación de API, puede usar el conector de SharePoint como 
 
 1. Cree una aplicación lógica nueva y elija el mismo grupo de recursos que tiene el conector de SharePoint.
 
-2. Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configure el flujo. El conector de SharePoint aparece en la sección "Usados recientemente" en la galería del lado derecho. Selecciónelo.
+2. Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo. El conector de SharePoint aparece en la sección "Usados recientemente" en la galería del lado derecho. Selecciónelo.
 
 3. Si se selecciona el conector de SharePoint al principio de la aplicación lógica, actúa como desencadenador. De lo contrario, podrían realizarse acciones en la cuenta de SharePoint mediante el conector.
 
-4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:
-<br/>
-![][3]
+4. Al usar el conector de SharePoint Online, se debe autenticar y autorizar las aplicaciones lógicas para realizar operaciones en su nombre. Para iniciar la autorización, haga clic en **Autorizar** en el conector de SharePoint:<br/> ![][3]
 
-5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta en la que desea realizar las operaciones:
-<br/>
-![][4]
+5. Al hacer clic en Autorizar, se abre el cuadro de diálogo de autenticación de SharePoint. Proporcione los detalles de inicio de sesión de la cuenta en la que desea realizar las operaciones: <br/> ![][4]
 
-6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre:
-<br/>
-![][5]
+6. Conceda acceso a su cuenta a las aplicaciones lógicas para llevar a cabo la operación en su nombre: <br/> ![][5]
 
-7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra una lista de acciones y puede elegir la operación apropiada que se desea realizar:
-<br/>
-![][6]
-<br/>
-**Dirección URL relativa configurada para la biblioteca de documentos**
-<br/>
-![][7]
-<br/>
-**Dirección URL relativa configurada para la lista de documentos**
-<br/>
+7. Si el conector de SharePoint está configurado como desencadenador, se muestran los desencadenadores. De lo contrario, se muestra una lista de acciones y puede elegir la operación apropiada que se desea realizar: <br/> ![][6] <br/> **Dirección URL relativa configurada para la biblioteca de documentos** <br/> ![][7] <br/> **Dirección URL relativa configurada para la lista de documentos**
 
 > [AZURE.NOTE]Para los siguientes desencadenadores, se supone que ha especificado “Documentos compartidos, Listas/Tareas” en la configuración del paquete del conector, donde “Documentos compartidos” es una biblioteca de documentos y “Listas/Tareas” es una lista.
 
@@ -177,7 +158,7 @@ Nombre | Obligatorio | Descripción
 --- | --- | ---
 Nombre de vista | No | Especifique una vista válida utilizada para filtrar elementos en la lista. Ejemplo: 'Pedidos aprobados'. Para procesar todos los nuevos elementos, deje este campo en blanco. 
 Ubicación del archivo | No | Especifique una dirección URL de carpeta válida, relativa al sitio de SharePoint, donde se archivan los elementos de lista procesados.
-Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar los elementos de lista. Por ejemplo, escriba `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
+Consulta Caml | No, avanzado | Especifique una consulta Caml válida para filtrar los elementos de lista. Por ejemplo, escriba: `<Where><Geq><FieldRef Name='ID'/><Value Type='Number'>10</Value></Geq></Where>`
 
 #### Salida
 
@@ -187,8 +168,8 @@ Contenido | Contenido del documento.
 ContentTransferEncoding | Codificación de transferencia de contenido del mensaje. ("none"o ”base64”)
 
 
-## Acciones
-Para las acciones siguientes, se supone que el usuario especificó ’Documentos compartidos, Listas/Tareas’ en la configuración del paquete del conector, donde ’Documentos compartidos’ es una biblioteca de documentos y ’Listas/Tareas’ es una lista.
+##  Acciones
+Para las siguientes acciones, se supone que ha especificado “Documentos compartidos, Listas/Tareas” en la configuración del paquete del conector, donde “Documentos compartidos” es una biblioteca de documentos y “Listas/Tareas” es una lista.
 
 ### 1. Elemento cargado en los documentos compartidos (JSON)
 
@@ -209,13 +190,14 @@ OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros opcionales p
 
 **Nota**: todos los parámetros de la biblioteca de documentos se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
-
 #### Salida
 
 Nombre | Descripción
 --- | --- 
 ItemId | Id. de elemento del documento agregado a la biblioteca de documentos.
 Estado | Si la carga del documento es correcta, se devuelve el código de estado 200 (correcto).
+
+
  
 
 ### 2. Obtención de elementos desde los documentos compartidos (JSON)
@@ -226,7 +208,6 @@ Esta acción obtiene el documento de la biblioteca de documentos con la URL rela
 Nombre | Obligatorio | Descripción
 --- | --- | ---
 Dirección URL relativa del documento | No | Especifique la dirección URL del documento, relativa a “Documentos compartidos”. Por ejemplo, escriba: *myspec1,myfolder/orders*.
-
 
 #### Salida
 
@@ -274,7 +255,6 @@ OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros necesarios p
 
 **Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
- 
 #### Salida
 
 Nombre | Descripción
@@ -299,7 +279,6 @@ OptionalParam2* | No. Avanzado | Se trata de uno de los parámetros necesarios p
 
 **Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
-
 #### Salida
 
 Nombre | Descripción
@@ -317,7 +296,6 @@ Nombre | Obligatorio | Descripción
 --- | --- | ---
 ItemId | Sí | Id. de elemento del elemento de la lista.
 
-
 #### Salida
 
 Nombre | Descripción
@@ -333,13 +311,11 @@ Estado | Si la ejecución de la acción es correcta, se devuelve el código de e
 
 Esta acción elimina un elemento de la lista de elementos.
 
- 
 #### Entrada
 
 Nombre | Obligatorio | Descripción
 --- | --- | ---
 ItemId | Sí | Id. de elemento del elemento de la lista.
-
 
 #### Salida
 
@@ -352,7 +328,6 @@ Estado | Si la eliminación del elemento de lista es correcta, se devuelve el c�
 
 Esta acción enumera todos los documentos incluidos en una biblioteca de documentos. Puede utilizar una vista o una consulta Caml para filtrar los documentos.
 
- 
 #### Entrada
 
 Nombre | Obligatorio | Descripción
@@ -372,7 +347,6 @@ Estado | Si la inserción del elemento de lista es correcta, se devuelve el cód
 
 Esta acción carga un nuevo documento en ’Documentos compartidos’. El documento de entrada debe ser una carga XML. La respuesta de la acción será una carga XML.
  
-
 #### Entrada
 
 Nombre | Obligatorio | Descripción
@@ -382,7 +356,6 @@ Contenido | Sí | Contenido del documento.
 ContentTransferEncoding | Sí | Codificación de transferencia de contenido del mensaje. ("none" o ”base64”)
 Forzar sobrescritura | Sí | Si se establece como TRUE y existe un documento con el nombre especificado, este se sobrescribe.
  
-
 #### Salida
 
 Nombre | Descripción
@@ -394,7 +367,6 @@ Estado | Si la carga del documento es correcta, se devuelve el código de estado
 
 Esta acción obtiene el documento de la biblioteca de documentos con la URL relativa (estructura de carpetas) del documento.
 
- 
 #### Entrada
 
 Nombre | Obligatorio | Descripción
@@ -422,7 +394,6 @@ XML de entrada | Sí | El mensaje XML que contiene los valores de los campos de 
 
 **Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
 
- 
 #### Salida
 
 Nombre | Descripción
@@ -443,7 +414,7 @@ ItemID | Sí | Id. de elemento del elemento de la lista.
 XML de entrada | Sí | El mensaje XML que contiene los valores de los campos de elemento de lista que se va a insertar. Puede utilizar la aplicación de API de transformación para generar el mensaje XML.
 
 **Nota**: todos los parámetros de la “Lista” se rellenan de forma dinámica. Los parámetros obligatorios están visibles, mientras que los parámetros opcionales se encuentran en la sección avanzada.
- 
+
 #### Salida
 
 Nombre | Descripción
@@ -460,7 +431,6 @@ Esta acción recupera un elemento de la lista de elementos.
 Nombre | Obligatorio | Descripción
 --- | --- | ---
 ItemID | Sí | Id. de elemento del elemento de la lista.
-
 
 #### Salida
 
@@ -481,7 +451,7 @@ Consulte [Uso del Administrador de conexiones híbridas](app-service-logic-hybri
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](../app-service-api/app-service-api-manage-in-portal.md).
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de conectores y aplicaciones de API](app-service-api-manage-in-portal.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -493,4 +463,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
  
 
-<!----HONumber=62-->
+<!---HONumber=62-->

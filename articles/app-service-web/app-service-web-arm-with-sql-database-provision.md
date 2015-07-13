@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación web con una base de datos SQL
@@ -22,7 +22,9 @@ En este tema, aprenderá a crear una plantilla de Administrador de recursos de A
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-Para la plantilla completa, consulte [Aplicación web con plantilla de Base de datos SQL](https://github.com/tfitzmac/AppServiceTemplates/blob/master/webandsql.json).
+Para obtener más información acerca de la implementación de aplicaciones, consulte [Implementación de una aplicación compleja de forma predecible en Azure](app-service-deploy-complex-application-predictably.md).
+
+Para la plantilla completa, consulte [Aplicación web con plantilla de Base de datos SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
 
 ## Lo que implementará
 
@@ -176,7 +178,7 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
       },
       "properties": {
         "name": "[parameters('siteName')]",
-        "serverFarm": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
       "resources": [
         {
@@ -187,7 +189,7 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
           "properties": {
               "DefaultConnection":{
               "value":"[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('serverName'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('serverName'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": 2 //SQL
+              "type": 2 
             },
           }
         }

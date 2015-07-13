@@ -14,8 +14,9 @@
 	ms.date="04/27/2015" 
 	ms.author="awills"/>
  
-# Notas de la versión del SDK de Application Insights para JavaScript
+#  Notas de la versión del SDK de Application Insights para JavaScript
 
 [Uso del SDK para JavaScript](app-insights-javascript.md)
 
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

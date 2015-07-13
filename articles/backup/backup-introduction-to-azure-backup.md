@@ -64,5 +64,6 @@ Combinada con SCDPM, la Copia de seguridad de Azure puede realizar copia de segu
 ## Pasos siguientes
 + La pregunta frecuente sobre el servicio de Copia de seguridad de Azure aparece [aquí](backup-azure-backup-faq.md).
 + Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
+ 
 
-<!---HONumber=GIT-SubDir--> 
+<!---HONumber=62-->

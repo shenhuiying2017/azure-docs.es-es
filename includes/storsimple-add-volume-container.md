@@ -1,38 +1,24 @@
-<properties 
-   pageTitle="Add a volume container"
-   description="Explains how you can use the StorSimple Manager service volume containers page to add a volume container."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="05/13/2015"
-   ms.author="v-sharos" />
 
-#### To add a volume container
+#### Para agregar un contenedor de volúmenes
 
-1. On the **Devices** page, select the device, double-click it, and then click the **Volume containers** tab.
+1. En la página **Dispositivos**, seleccione el dispositivo, haga doble clic en él y, a continuación, haga clic en la pestaña **Contenedores de volúmenes**.
 
-2. Click **Add** at the bottom of the page. In the **Create volume container** dialog box, do the following:
+2. Haga clic en **Agregar** en la parte inferior de la página. En el cuadro de diálogo **Crear contenedor de volúmenes**, realice lo siguiente:
 
-  1. Supply a unique **Name** for your volume container. This name can contain a maximum of 32 characters.
-  2. Select a **Storage Account** to be associated with this volume container. You can choose from an existing storage account within the same subscription or select **Add more** to select a storage account from another subscription. You can also choose the storage account that was first generated when the service was created.
-  3. Specify bandwidth as **Unlimited** if you want to consume all available bandwidth, or **Custom** to employ bandwidth controls. For a custom bandwidth, supply a value between 1 and 1000 Mbps. To allocate bandwidth based on a schedule, you can **Select a bandwidth template**.
-  4. We recommend that you keep **Enable Cloud Storage Encryption** selected to encrypt the data that is going to the cloud. Disable encryption only if you are employing other means to encrypt your data.
-  5. Provide a **Cloud Storage Encryption Key** that contains between 8 and 32 characters. The device uses this key to access the encrypted data. In the **Confirm Cloud Storage Encryption Key** field, enter the cloud storage encryption key again to confirm it.
-  6. Click the arrow to proceed to the next page.
+  1. Proporcione un **Nombre** único para el contenedor de volúmenes. Este nombre puede contener 32 caracteres como máximo.
+  2. Seleccione una **Cuenta de almacenamiento** para asociarla a este contenedor de volúmenes. Puede elegir entre una cuenta de almacenamiento existente dentro de la misma suscripción o seleccionar **Agregar más** para seleccionar una cuenta de almacenamiento de otra suscripción. También puede elegir la cuenta de almacenamiento que se generó primero cuando se creó el servicio.
+  3. Especifique el ancho de banda como **Ilimitado** si desea consumir todo el ancho de banda disponible, o **Personalizado** para emplear controles de ancho de banda. Si elige el ancho de banda personalizado, proporcione un valor entre 1 y 1000 Mbps. Para asignar el ancho de banda en función de una programación, puede **Seleccionar una plantilla de ancho de banda**.
+  4. Se recomienda que mantenga seleccionada la opción **Habilitar cifrado de almacenamiento en la nube** para cifrar los datos que se van a la nube. Deshabilite el cifrado solo si emplea otros métodos para cifrar los datos.
+  5. Proporcione una **Clave de cifrado de almacenamiento en la nube** que contenga entre 8 y 32 caracteres. El dispositivo usa esta clave para tener acceso a los datos cifrados. En el campo **Confirmar clave de cifrado de almacenamiento en la nube**, escriba de nuevo la clave de cifrado de almacenamiento en la nube para confirmarla.
+  6. Haga clic en la flecha para ir a la página siguiente.
 
-    ![Create volume container with bandwidth template 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png) 
+    ![Creación de un contenedor de volúmenes con la plantilla de ancho de banda 1](./media/storsimple-add-volume-container/HCS_CreateVCBT1-include.png)
 
-3. If you specified **Select a bandwidth template**, choose from the drop-down list of existing bandwidth templates. Review the schedule settings and click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
+3. Si especificó **Seleccionar una plantilla de ancho de banda**, elija en la lista desplegable de plantillas de ancho de banda existentes. Revise la configuración de programación y haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png).
 
-    ![Create volume container with bandwidth template 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png) 
+    ![Creación de un contenedor de volúmenes con la plantilla de ancho de banda 2](./media/storsimple-add-volume-container/HCS_CreateVCBT2-include.png)
 
-The volume container will be saved and the newly created volume container will be listed on the **Volume container** page.
+El contenedor de volúmenes se guardará y el contenedor de volúmenes recién creado se mostrará en la página **Contenedor de volúmenes**.
  
+
+<!---HONumber=62-->

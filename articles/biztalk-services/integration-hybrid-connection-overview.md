@@ -13,36 +13,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
 
-
 # Introducción a las conexiones híbridas
-En este tema se presentan las conexiones híbridas, se muestran las configuraciones admitidas y se indican los puertos TCP requeridos. Concretamente:
+En este tema se presentan las conexiones híbridas, se muestran las configuraciones admitidas y se indican los puertos TCP requeridos.
 
-- [¿Qué es una conexión híbrida?](#HCOverview)
-- [Configuraciones admitidas](#KnownIssues)
-- [Seguridad y puertos](#HCSecurity)
 
-##<a name="HCOverview"></a>¿Qué es una conexión híbrida?
+## ¿Qué es una conexión híbrida?
 
-Las conexiones híbridas ofrecen un modo sencillo y práctico de conectar sitios web y servicios móviles de Azure a recursos locales. Las conexiones híbridas son una característica de los servicios de BizTalk de Azure:
+Las conexiones híbridas son una característica de los servicios de BizTalk de Azure: Las conexiones híbridas ofrecen un modo sencillo y práctico de conectar Aplicaciones web de Azure (antes sitios web) y Aplicaciones móviles de Azure (antes Servicios móviles) a recursos locales protegidos por un firewall.
 
-![Hybrid Connections][HCImage]
+![conexiones híbridas][HCImage]
 
 Las ventajas de las conexiones híbridas incluyen:
 
-- Los sitios web y los servicios móviles pueden acceder a los datos y servicios locales existentes de forma segura.
-- Varios sitios web o servicios móviles pueden compartir una conexión híbrida para acceder a un recurso local. 
+- Las Aplicaciones web y las Aplicaciones móviles pueden acceder a los datos y servicios locales existentes de forma segura.
+- Varias Aplicaciones web y Aplicaciones móviles pueden compartir una conexión híbrida para acceder a un recurso local. 
 - Se requieren puertos TCP mínimos para acceder a la red.
 - Las aplicaciones que usan conexiones híbridas solo acceden al recurso local específico que se publica a través de la conexión híbrida.
 - Pueden conectarse a cualquier recurso local que use un puerto TCP estático, como SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados.
 
-> [WACOM.NOTE] Los servicios basados en TCP que usan puertos dinámicos (como modo pasivo FTP o modo pasivo extendido) no se admiten actualmente.
+	> [AZURE.NOTE]Los servicios basados en TCP que usan puertos dinámicos (como modo pasivo FTP o modo pasivo extendido) no se admiten actualmente.
 
-- Se pueden usar con todos los marcos de trabajo compatibles con Sitios web Azure (.NET, PHP, Java, Python, Node.js) y Servicios móviles de Azure (Node.js, .NET).
-- Los sitios web y los servicios móviles pueden acceder a recursos locales exactamente de la misma manera que si el sitio web o el servicio móvil estuviera situado en la red local. Por ejemplo, la misma cadena de conexión usada en el entorno local se puede utilizar en Azure.
+- Se pueden usar con todos los marcos compatibles con Aplicaciones web de Azure (.NET, PHP, Java, Python, Node.js) y Aplicaciones móviles de Azure (Node.js, .NET).
+- Las Aplicaciones web y las Aplicaciones móviles pueden acceder a los recursos locales igual que si la aplicación web o móvil se encontrara en la red local. Por ejemplo, la misma cadena de conexión usada en el entorno local se puede utilizar en Azure.
 
 
 Las conexiones híbridas también ofrecen a los administradores de empresa control y visibilidad sobre los recursos corporativos a los que acceden las aplicaciones híbridas, por ejemplo:
@@ -51,7 +47,7 @@ Las conexiones híbridas también ofrecen a los administradores de empresa contr
 - Los registros de eventos y de auditoría de la red corporativa proporcionan visibilidad sobre los recursos a los que acceden las conexiones híbridas.
 
 
-##<a name="KnownIssues"></a>Configuraciones admitidas
+## Configuraciones admitidas
 
 Las conexiones híbridas admiten las siguientes combinaciones de aplicaciones y marcos de trabajo:
 
@@ -65,71 +61,46 @@ A la hora de usar conexiones híbridas para acceder a SQL Server local, tenga en
 
 - Las instancias con nombre de SQL Express se deben configurar para usar puertos estáticos. De forma predeterminada, las instancias con nombre de SQL Express usan puertos dinámicos.
 - Las instancias predeterminadas de SQL Express usan un puerto estático, pero TCP debe estar habilitado. De forma predeterminada, TCP no está habilitado.
-- Al usar la organización en clústeres o los grupos de disponibilidad, no se admite actualmente el modo MultiSubnetFailover=true.
-- El modo ApplicationIntent=ReadOnly no se admite actualmente.
+- Si se usan la agrupación en clústeres o los grupos de disponibilidad, el modo `MultiSubnetFailover=true` no se admite.
+- Actualmente, el modo `ApplicationIntent=ReadOnly` no se admite.
 - Puede que se requiera la autenticación de SQL como método de autorización completo que se admite en la aplicación de Azure y en el servidor SQL local.
 
 
-##<a name="HCSecurity"></a>Seguridad y puertos
+## Seguridad y puertos
 
-Las conexiones híbridas emplean la autorización de firma de acceso compartido (SAS) para proteger las conexiones entre las aplicaciones de Azure y el Administrador de conexiones híbridas y la conexión híbrida. Se crean claves de conexión diferentes para la aplicación y el Administrador de conexiones híbridas local. Estas claves de conexión se pueden sustituir y revocar de manera independiente.
+Las conexiones híbridas emplean la autorización de firma de acceso compartido (SAS) para proteger las conexiones entre las aplicaciones de Azure y el administrador de conexiones híbridas local y la conexión híbrida. Se crean claves de conexión diferentes para la aplicación y el Administrador de conexiones híbridas local. Estas claves de conexión se pueden sustituir y revocar de manera independiente.
 
-Las conexiones híbridas proporcionan una distribución adecuada y segura de las claves a las aplicaciones y el Administrador de conexiones híbridas local. 
+Las conexiones híbridas proporcionan una distribución adecuada y segura de las claves a las aplicaciones y al administrador de conexiones híbridas local.
 
-Consulte [Creación y administración de conexiones híbridas](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage). 
+Consulte [Creación y administración de conexiones híbridas](integration-hybrid-connection-create-manage.md).
 
 **La autorización de la aplicación es independiente de la conexión híbrida**. Se puede usar cualquier método de autorización adecuado. El método de autorización depende de los métodos de autorización completos que se admitan en la nube de Azure y de los componentes locales. Por ejemplo, su aplicación de Azure accede a un servidor SQL local. En este escenario, la autorización de SQL puede ser el método de autorización que se admita completamente.
 
-####Puertos TCP
-Las conexiones híbridas requieren únicamente conectividad TCP o HTTP de su red privada. No es necesario abrir los puertos de firewall ni cambiar la configuración del perímetro de red para permitir la conectividad entrante a la red.
+#### Puertos TCP
+Las conexiones híbridas requieren únicamente conectividad TCP o HTTP saliente de su red privada. No es necesario abrir los puertos de firewall ni cambiar la configuración del perímetro de red para permitir la conectividad entrante a la red.
 
 Los siguientes puertos TCP se usan en las conexiones híbridas:
 
-<table border="1">
-    <tr>
-       <th><strong>Port</strong></th>
-        <th>Porqué</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td>Puerto HTTP; usado para la validación del certificado.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td>Puerto HTTPS</td>
-    </tr>
-	<tr>
-        <td>5671</td>
-        <td>Usado para conectarse a Azure. Si el puerto TCP 5671 no está disponible, se usa el puerto TCP 443.</td>
-	</tr>
-	<tr>
-        <td>9352</td>
-        <td>Se usa para insertar y extraer datos. Si el puerto TCP 9352 no está disponible, se usa el puerto TCP 443.</td>
-	</tr>
-</table>
+Port | Por qué es necesario
+--- | ---
+9350 - 9354 | Estos puertos se usan para la transmisión de datos. El administrador de retransmisiones de bus de servicio sondea el puerto 9350 para determinar si la conectividad TCP está disponible. Si lo está, asume que el puerto 9352 está también disponible. El tráfico de datos pasa por el puerto 9352. <br/><br/>Permitir conexiones salientes a estos puertos.
+5671 | Cuando se usa el puerto 9352 para el tráfico de datos, el puerto 5671 se utiliza como canal de control. <br/><br/>Permitir conexiones salientes a este puerto. 
+80, 443 | Si los puertos 9352 y 5671 no se pueden usar, *los puertos* 80 y 443 son los puertos de reserva que se usan para la transmisión de datos y el canal de control.<br/><br/>Permitir conexiones salientes a estos puertos. <br/><br/>**Nota** No es aconsejable usar estos puertos de reserva en lugar de los restantes puertos TCP. HTTP/WebSocket se utiliza como protocolo, en lugar del TCP nativo, para los canales de datos. Podría provocar un rendimiento menor.
+
 
 
 ## Pasos siguientes
 
-- [Creación y administración de conexiones híbridas](http://azure.microsoft.com/documentation/articles/integration-hybrid-connection-create-manage)
-- [Conexión de un sitio web de Azure a un recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538)
-- [Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure](http://go.microsoft.com/fwlink/?LinkID=397979)
-- [Servicios móviles de Azure y conexiones híbridas](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started)
+[Creación y administración de conexiones híbridas](integration-hybrid-connection-create-manage.md)<br/> [Conexión de un sitio web de Azure a un recurso local](../web-sites-hybrid-connection-get-started.md)<br/> [Conexión a SQL Server local desde una aplicación web de Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Servicios móviles de Azure y conexiones híbridas](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## Otras referencias
 
-- [API REST para administrar los servicios de BizTalk en Windows Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
-- [Servicios de BizTalk: Gráfico de ediciones](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Creación un servicio de BizTalk mediante el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Servicios de BizTalk: Pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+[API de REST para administrar servicios de BizTalk en Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md)<br/> [Creación un servicio de BizTalk mediante el Portal de administración de Azure](biztalk-provision-services.md)<br/> [Servicios de BizTalk: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
- 
+<!---HONumber=62-->

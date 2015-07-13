@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/26/2015" 
 	ms.author="sethm"/>
 
 
@@ -32,7 +32,7 @@ En esta guía de instrucciones se explica cómo utilizar las funciones de mensaj
 
 ##Introducción al Bus de servicio
 
-En esta guía se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
+En esta guía se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](service-bus-dotnet-how-to-use-queues.md).
 
 **Nota**: para crear la cola, deshabilite la creación de particiones, ya que las colas y los temas con particiones aún no son compatibles con AMQP. Para obtener más información, consulte [Creación de particiones de entidades de mensajería](http://msdn.microsoft.com/library/azure/dn520246.aspx).
 
@@ -50,7 +50,7 @@ Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de 
 ##Codificación de las aplicaciones Java
 
 ### Interfaz de denominación y directorio Java (JNDI)
-JMS usa la interfaz de denominación y directorio Java (JNDI) para crear una separación entre los nombres lógicos y los físicos. Usando JNDI se resuelven dos tipos de objetos JMS: ConnectionFactory y Destination. JNDI usa un modelo de proveedor al que se pueden acoplar diferentes servicios de directorio para controlar labores de resolución de nombres. La biblioteca Apache Qpid JMS AMQP 1.0 se presenta con un proveedor JNDI basado en archivo de propiedades sencillas que se configura usando un archivo de propiedades cuyo formato es el siguiente:
+JMS usa la interfaz de denominación y directorio Java (JNDI) para crear una separación entre los nombres lógicos y los físicos. Se resuelven dos tipos de objetos JMS usando JNDI: ConnectionFactory y Destination. JNDI usa un modelo de proveedor al que se pueden acoplar diferentes servicios de directorio para controlar labores de resolución de nombres. La biblioteca Apache Qpid JMS AMQP 1.0 se presenta con un proveedor JNDI basado en archivo de propiedades sencillas que se configura usando un archivo de propiedades cuyo formato es el siguiente:
 
 	# servicebus.properties - sample JNDI configuration
 	
@@ -149,11 +149,11 @@ Donde [jndi_name] y [physical_name] tienen los significados siguientes:
   </tr>
 </table>
 
-**Nota**: al recibir de una suscripción al tema del Bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
+**Nota**: al recibir de una suscripción al tema del Bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx) del Bus de servicio proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
 
 ### Escritura de la aplicación JMS
 
-No hay API especiales ni opciones obligatorias al usar JMS con el Bus de servicio. Sin embargo, hay una serie de restricciones que se tratarán más adelante. Como con cualquier otra aplicación JMS, el primer requisito necesario es configurar el entorno JNDI para poder resolver **ConnectionFactory** y los destinos.
+No existen API especiales ni opciones obligatorias al usar JMS con el Bus de servicio. Sin embargo, hay algunas restricciones que se tratarán más adelante. Como con cualquier otra aplicación JMS, el primer requisito necesario es configurar el entorno JNDI para poder resolver **ConnectionFactory** y los destinos.
 
 <p><strong>Configuración de JNDI InitialContext</strong></p>
 
@@ -284,16 +284,16 @@ Al ejecutar la aplicación se obtienen resultados del tipo:
 
 Esta guía le ha mostrado cómo enviar y recibir mensajes con el Bus de servicio como origen y destino usando JMS. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
 
-Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0](http://aka.ms/lym3vk), es posible intercambiar mensajes entre .NET y Java. 
+Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con el Bus de servicio .NET y AMQP 1.0](http://aka.ms/lym3vk), es posible intercambiar mensajes entre .NET y Java.
 
-Para obtener más información acerca de la mensajería entre distintas plataformas mediante el Bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
+Para obtener más información acerca de la mensajería entre distintas plataformas mediante el Bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 ### De JMS a .NET
 
 Para comprobar cómo funciona la mensajería de JMS a .NET:
 
 * Inicie la aplicación de ejemplo .NET sin ningún argumento de línea de comandos.
-* Inicie la aplicación de ejemplo Java con el argumento de línea de comandos "sendonly". De esta manera, la aplicación no recibirá mensajes de la cola, sino que solo los enviará.
+* Inicie la aplicación de ejemplo Java con el argumento de línea de comandos “sendonly”. De esta manera, la aplicación no recibirá mensajes de la cola, sino que solo los enviará.
 * Presione **Entrar** unas cuantas veces en la consola de la aplicación Java para enviar los mensajes.
 * Estos mensajes los recibe la aplicación .NET.
 
@@ -348,8 +348,8 @@ Para comprobar cómo funciona la mensajería de .NET a JMS:
 Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de servicio, a saber:
 
 * Solo se permite un elemento **MessageProducer** o **MessageConsumer** por cada **sesión**. Si tiene que crear varios elementos **MessageProducers** o **MessageConsumers** en una aplicación, cree una **sesión** dedicada para cada uno de ellos.
-* Actualmente no se admiten las suscripciones a temas volátiles. Tampoco se admiten
-* **MessageSelectors**.
+* Actualmente no se admiten las suscripciones a temas volátiles.
+* Por el momento no se admiten **MessageSelectors**.
 * Actualmente no se admiten destinos temporales, como **TemporaryQueue** y **TemporaryTopic**, junto con las API **QueueRequestor** y **TopicRequestor** que los usan.
 * No se admiten las sesiones de transacción ni las transacciones distribuidas.
 
@@ -357,15 +357,15 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de se
 
 En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.
 
-También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx).
+También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 ##Más información
 
 * [Compatibilidad de AMQP 1.0 en el Bus de servicio de Azure](http://aka.ms/pgr3dp)
-* [Uso de AMQP 1.0 con la API .NET del Bus de servicio](http://aka.ms/lym3vk)
+* [Uso de AMQP 1.0 con la API .NET del bus de servicio](http://aka.ms/lym3vk)
 * [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Utilización de las colas del Bus de servicio](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=62-->

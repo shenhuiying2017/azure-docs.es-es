@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="05/18/2015" 
 	ms.author="rasquill"/>
 
 
@@ -48,7 +48,7 @@ El bloque usa dos tipos de reglas para definir el comportamiento de autoescala p
 
 -   **Reglas de restricción:** para establecer los límites superior e inferior en la cantidad de instancias (por ejemplo, supongamos que cada mañana, entre las 8:00 y las 10:00, quiere como mínimo cuatro y como máximo seis instancias) debe usar una **regla de restricción**. En el diagrama, las líneas roja y azul representan reglas de restricción. Por ejemplo, en el punto **A** del diagrama, la cantidad mínima de instancias de rol asciende de dos a cuatro, a fin de acomodar el aumento anticipado en la carga de trabajo de la aplicación en este momento. En el punto **B** del diagrama, se evita que la cantidad de instancias de rol aumente por encima de cinco a fin de controlar los costes de ejecución de la aplicación.
 
--   **Reglas reactivas:** para permitir que la cantidad de instancias de rol cambie en respuesta a cambios impredecibles en la demanda, puede usar las  **reglas reactivas**. En el punto  **C** del diagrama, el bloque reduce automáticamente la cantidad de instancias de rol, de cuatro a tres, en respuesta a una reducción en la carga de trabajo. En el punto **D**, el bloque detecta un aumento en la carga de trabajo y aumenta automáticamente la cantidad de instancias de rol que se ejecutan de tres a cuatro.
+-   **Reglas reactivas:** para permitir que la cantidad de instancias de rol cambie en respuesta a cambios impredecibles en la demanda, puede usar las **reglas reactivas**. En el punto **C** del diagrama, el bloque reduce automáticamente la cantidad de instancias de rol, de cuatro a tres, en respuesta a una reducción en la carga de trabajo. En el punto **D**, el bloque detecta un aumento en la carga de trabajo y aumenta automáticamente la cantidad de instancias de rol que se ejecutan de tres a cuatro.
 
 El bloque almacena su configuración en dos almacenes:
 
@@ -139,9 +139,9 @@ Debe reemplazar los valores de los corchetes por valores específicos para su en
 
 Inicie sesión en el Portal de administración.
 
--   **[subscriptionname]\:** elija un nombre descriptivo para referirse a la suscripción de Azure que contiene la aplicación en la cual desea usar la autoescala.
+-   **[subscriptionname]**: elija un nombre descriptivo para referirse a la suscripción de Azure que contiene la aplicación en la cual desea usar la autoescala.
 
--   **[subscriptionid]\:**el identificador único de la suscripción de Azure que contiene la aplicación en la cual desea usar la autoescala.
+-   **[subscriptionid]**:el identificador único de la suscripción de Azure que contiene la aplicación en la cual desea usar la autoescala.
 
     1.  En el Portal de administración de Azure, haga clic en **Servicios en la nube**.
 
@@ -150,7 +150,7 @@ Inicie sesión en el Portal de administración.
         ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling05.png)
 
   
-	-   **[hostedservicednsprefix]\:** el prefijo DNS del servicio hospedado en el que desea usar la autoescala.
+	-   **[hostedservicednsprefix]**: el prefijo DNS del servicio hospedado en el que desea usar la autoescala.
 
     1.  En el Portal de administración de Azure, haga clic en **Servicios en la nube**.
 
@@ -158,7 +158,7 @@ Inicie sesión en el Portal de administración.
 
         ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling06.png)
  
-	-   **[targetrolename]\:** el nombre del rol de destino de las reglas de autoescala.
+	-   **[targetrolename]**: el nombre del rol de destino de las reglas de autoescala.
 
     1.  En el Portal de administración de Azure, haga clic en **Servicios en la nube**.
 
@@ -167,7 +167,7 @@ Inicie sesión en el Portal de administración.
         ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling07.png)
 
 
-	-   **[storageaccountname]** y **[storageaccountkey]\:** el nombre de la cuenta de almacenamiento de Azure que se usa para la aplicación de Azure de destino.
+	-   **[storageaccountname]** y **[storageaccountkey]**: el nombre de la cuenta de almacenamiento de Azure que se usa para la aplicación de Azure de destino.
 
     1.  En el Portal de administración de Azure, haga clic en **Almacenamiento**.
 
@@ -178,7 +178,7 @@ Inicie sesión en el Portal de administración.
         ![imagen](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]\:** la **huella digital** del certificado de administración que el bloque usará para proteger las solicitudes de escalado de la aplicación de destino.
+	-   **[managementcertificatethumbprint]**: la **huella digital** del certificado de administración que el bloque usará para proteger las solicitudes de escalado de la aplicación de destino.
 
     1.  En el Portal de administración de Azure, haga clic en **Configuración**.
 
@@ -236,7 +236,7 @@ El siguiente código de ejemplo muestra un conjunto de reglas de ejemplo en un a
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -353,31 +353,32 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
 -   [Reducción de los costes de hospedaje de Azure debido a Sage con autoescala][]
 -   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure][]
 
-[Paquete de integración de Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
-[Pasos siguientes]: #NextSteps
-[¿Qué es el bloque de autoescala de la aplicación?]: #WhatIs
-[Conceptos]: #Concepts
-[Recopilación de datos del contador de rendimiento de la aplicación de Azure de destino]: #PerfCounter
-[Configuración de una aplicación host para el bloque de autoescala de la aplicación]: #CreateHost
-[Creación de instantáneas y ejecución de la autoescala]: #Instantiate
-[Definición de un modelo de servicio]: #DefineServiceModel
-[Definición del modelo de servicio]: #DefineServiceModel
-[Definición de las reglas de autoescala]: #DefineAutoscalingRules
-[Configuración del bloque de autoescala de la aplicación]: #Configure
-[Uso de contadores de rendimiento en Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
-[NuGet]: http://nuget.org/
-[Portal de administración de Azure]: http://manage.windowsazure.com
-[Almacenamiento de sus datos de información del servicio]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
-[Hospedaje del bloque de autoescala de la aplicación en un rol de trabajo]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
-[Implementación del comportamiento de limitación]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
-[Descripción de los rangos de reglas y la reconciliación]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
-[Extensión y modificación del bloque de autoescala de la aplicación]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
-[Uso del estabilizador de optimización para evitar una oscilación de alta frecuencia y optimizar los costes]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
-[Uso de notificaciones y escalado manual]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
-[Definición de los grupos de escala]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
-[Uso de WASABiCmdlets para manipular el bloque mediante Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
-[Guía del desarrollador para el paquete de integración de Enterprise Library 5.0 para Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
-[Reducción de los costes de hospedaje de Azure debido a Sage con autoescala]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
-[Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+  [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
+  [Pasos siguientes]: #NextSteps
+  [¿Qué es el bloque de autoescala de la aplicación?]: #WhatIs
+  [Conceptos]: #Concepts
+  [Recopilación de datos del contador de rendimiento de la aplicación de Azure de destino]: #PerfCounter
+  [Configuración de una aplicación host para el bloque de autoescala de la aplicación]: #CreateHost
+  [Creación de instantáneas y ejecución de la autoescala]: #Instantiate
+  [Definición de un modelo de servicio]: #DefineServiceModel
+  [Definición del modelo de servicio]: #DefineServiceModel
+  [Definición de las reglas de autoescala]: #DefineAutoscalingRules
+  [Configuración del bloque de autoescala de la aplicación]: #Configure
+  [Uso de contadores de rendimiento en Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [NuGet]: http://nuget.org/
+  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Almacenamiento de sus datos de información del servicio]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
+  [Hospedaje del bloque de autoescala de la aplicación en un rol de trabajo]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [Implementación del comportamiento de limitación]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [Descripción de los rangos de reglas y la reconciliación]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [Extensión y modificación del bloque de autoescala de la aplicación]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [Uso del estabilizador de optimización para evitar una oscilación de alta frecuencia y optimizar los costes]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [Uso de notificaciones y escalado manual]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [Definición de los grupos de escala]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [Uso de WASABiCmdlets para manipular el bloque mediante Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Guía del desarrollador para el paquete de integración de Enterprise Library 5.0 para Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [Reducción de los costes de hospedaje de Azure debido a Sage con autoescala]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

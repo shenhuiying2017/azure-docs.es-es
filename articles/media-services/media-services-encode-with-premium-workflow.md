@@ -13,36 +13,36 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium (vista previa pública)
 
-**Nota** El procesador multimedia de flujo de trabajo del Codificador multimedia Premium que se trata en este tema no está disponible en China.
+**Nota** El procesador multimedia del flujo de trabajo del Codificador multimedia Premium que se trata en este tema no está disponible en China.
 
 ##Información general
 
-Servicios multimedia de Microsoft Azure presenta la vista previa del procesador multimedia de **Flujo de trabajo del Codificador multimedia Premium**. Este procesador ofrece funciones de codificación avanzadas para sus flujos de trabajo de Premium a petición. 
+Servicios multimedia de Microsoft Azure presenta la vista previa del procesador multimedia de **Flujo de trabajo del Codificador multimedia Premium**. Este procesador ofrece funciones de codificación avanzadas para sus flujos de trabajo de Premium a petición.
 
-Los siguientes temas describen los detalles relacionados con el **flujo de trabajo del Codificador multimedia Premium**: 
+Los siguientes temas describen los detalles relacionados con el **flujo de trabajo del Codificador multimedia Premium**:
 
-- [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md) - Trata los formatos de archivo y códecs admitidos por el **flujo de trabajo del Codificador multimedia Premium**.
+- [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md): trata los formatos de archivo y los códecs que admite el **flujo de trabajo del Codificador multimedia Premium**.
 
-- En la sección [Comparación de códecs](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **flujo de trabajo del Codificador multimedia Premium** y del **Codificador multimedia de Azure**.
+- En la sección [Comparación de codificadores](media-services-encode-asset.md#compare_encoders) se comparan las funciones de codificación del **flujo de trabajo del Codificador multimedia Premium** y del **Codificador multimedia de Azure**.
 
 En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
 
 ##Codificación
 
-Las tareas de codificación para el **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean mediante la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
+Las tareas de codificación del **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
 
-También puede obtener los archivos de flujo de trabajo predeterminados [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
+Los archivos de flujo de trabajo predeterminados también se pueden obtener [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
 
 Los archivos de flujo de trabajo deben cargarse en su cuenta de Servicios multimedia como un recurso, y el recurso se debe transferir a la tarea de codificación.
 
-En el ejemplo siguiente se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium**. 
+En el ejemplo siguiente se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium**.
 
-Hay que seguir estos pasos: 
+Hay que seguir estos pasos:
  
 1. Crear un recurso y cargar un archivo de flujo de trabajo. 
 2. Crear un recurso y cargar un archivo multimedia de origen.
@@ -54,8 +54,7 @@ Hay que seguir estos pasos:
 
 	b. 2.º: el recurso de vídeo.
 	
-	**Nota**: El recurso de flujo de trabajo debe agregarse a la tarea antes del recurso multimedia. 
-La cadena de configuración para esta tarea debe estar vacía. 
+	**Nota**: el recurso de flujo de trabajo debe agregarse a la tarea antes que el recurso multimedia. La cadena de configuración para esta tarea debe estar vacía.
 
 6. Envíe el trabajo de codificación.
 
@@ -144,39 +143,39 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 	        {
 	            // Declare a new job.
 	            IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-	            // Obtener una referencia de procesador de multimedia y pasarla al nombre del 
-	            // procesador que va a usar para la tarea específica.
+	            // Get a media processor reference, and pass to it the name of the 
+	            // processor to use for the specific task.
 	            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 	
-	            // Crear una tarea con los detalles de codificación, usando un valor predefinido de cadena.
+	            // Create a task with the encoding details, using a string preset.
 	            ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
 	                processor,
 	                "",
 	                TaskOptions.None);
 	
-	            // Especificar el recurso de entrada que se va a codificar.
+	            // Specify the input asset to be encoded.
 	            task.InputAssets.Add(workflow);
-	            task.InputAssets.Add(video); // agregamos un recurso
-	            // Agregar un recurso de salida que va a contener los resultados del trabajo. 
-	            // Esta salida se especifica como AssetCreationOptions.None, which 
-	            // significa que el recurso de salida no está cifrado. 
+	            task.InputAssets.Add(video); // we add one asset
+	            // Add an output asset to contain the results of the job. 
+	            // This output is specified as AssetCreationOptions.None, which 
+	            // means the output asset is not encrypted. 
 	            task.OutputAssets.AddNew("Output asset",
 	                AssetCreationOptions.None);
 	
-	            // Usar el siguiente controlador de eventos para comprobar el progreso del trabajo.  
+	            // Use the following event handler to check job progress.  
 	            job.StateChanged += new
 	                    EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	            // Iniciar el trabajo.
+	            // Launch the job.
 	            job.Submit();
 	
-	            // Comprobar la ejecución del trabajo y esperar a que finalice. 
+	            // Check job execution and wait for job to finish. 
 	            Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	            progressJobTask.Wait();
 	
-	            // Si el estado del trabajo es Error, el método de administración de 
-	            // eventos para el progreso del trabajo debe registrar los errores.  En este caso comprobamos 
-	            // el estado del error y la salida, si es necesario.
+	            // If job state is Error the event handling 
+	            // method for job progress should log errors.  Here we check 
+	            // for error state and exit if needed.
 	            if (job.State == JobState.Error)
 	            {
 	                throw new Exception("\nExiting method due to job error.");
@@ -266,5 +265,4 @@ El siguiente ejemplo es un ejemplo completo. Para obtener información sobre có
 
 Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

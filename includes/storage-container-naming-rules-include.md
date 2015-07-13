@@ -1,6 +1,8 @@
-Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+Cada blob del almacenamiento de Azure debe residir en un contenedor. El contenedor forma parte del nombre del blob. Por ejemplo, `mycontainer` es el nombre del contenedor de estos URI de blob de ejemplo:
 
 	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
 	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
  
-> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. If you include an upper-case letter in a container name, or otherwise violate the container naming rules, you may receive a 400 error (Bad Request). For rules on naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+> [AZURE.IMPORTANT]Tenga en cuenta que el nombre de un contenedor siempre debe estar en minúsculas. Si se incluye una letra mayúscula en un nombre de contenedor o se infringe de algún otro modo las reglas de nomenclatura de contenedores, recibirá un error 400 (solicitud incorrecta). Para obtener más información sobre la nomenclatura de contendores, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+
+<!---HONumber=62-->

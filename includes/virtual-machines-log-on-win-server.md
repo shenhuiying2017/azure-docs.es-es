@@ -1,4 +1,3 @@
-<properties services="virtual-machines" title="How to Log on to a Virtual Machine Running Windows Server" authors="KBDAzure" solutions="" manager="timlt" editor="tysonn" />
 
 1. Si aún no lo ha hecho, inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
 
@@ -28,4 +27,4 @@ Haga clic en **Sí** para comprobar la identidad de la máquina virtual.
 
 Ahora puede trabajar con la máquina virtual de forma remota.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

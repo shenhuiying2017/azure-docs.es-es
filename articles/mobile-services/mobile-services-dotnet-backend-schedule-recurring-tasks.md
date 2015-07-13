@@ -4,17 +4,16 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="2/26/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
@@ -29,14 +28,7 @@ Este tema le muestra cómo usar la funcionalidad del programador de trabajos en 
 + Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
 + Procesamiento o cambio de tamaño de imágenes almacenadas.
 
-Este tutorial le guiará por los siguientes pasos relativos al uso del programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
-
-1. [Registro para obtener acceso a Twitter y almacenamiento de credenciales]
-2. [Descarga e instalación de la biblioteca LINQ en Twitter]
-3. [Creación de la nueva tabla de actualizaciones]
-4. [Creación de un nuevo trabajo programado]
-5. [Prueba local del trabajo programado]
-6. [Publicación del servicio y registro del trabajo]
+Este tutorial le guiará en el uso del programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
 
 >[AZURE.NOTE]Este tutorial usa la biblioteca de terceros LINQ to Twitter a fin de simplificar el acceso de OAuth 2.0 a las API de Twitter v1.1 . Para completar el tutorial, debe descargar e instalar el paquete de NuGet LINQ to Twitter. Para obtener más información, consulte el [proyecto de CodePlex de LINQ to Twitter].
 
@@ -283,12 +275,12 @@ El trabajo debe registrarse en la pestaña **Programador** para que los Servicio
 Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio móvil. Este trabajo se ejecutará como programado hasta que lo deshabilite o modifique.
 
 <!-- Anchors. -->
-[Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
-[Descarga e instalación de la biblioteca LINQ en Twitter]: #install-linq2twitter
-[Creación de la nueva tabla de actualizaciones]: #create-table
-[Creación de un nuevo trabajo programado]: #add-job
-[Prueba local del trabajo programado]: #run-job-locally
-[Publicación del servicio y registro del trabajo]: #register-job
+[Register for Twitter access and store credentials]: #get-oauth-credentials
+[Download and install the LINQ to Twitter library]: #install-linq2twitter
+[Create the new Updates table]: #create-table
+[Create a new scheduled job]: #add-job
+[Test the scheduled job locally]: #run-job-locally
+[Publish the service and register the job]: #register-job
 [Next steps]: #next-steps
 
 <!-- Images. -->
@@ -308,4 +300,5 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-<!--HONumber=54--> 
+
+<!---HONumber=62-->

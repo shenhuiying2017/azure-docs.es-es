@@ -363,7 +363,7 @@ En esta sección se describe cómo mostrar objetos de datos devueltos mediante e
 	   alert("Error: " + err);
 	});
 
-En una aplicación de la Tienda Windows, los resultados de una consulta se pueden usar para crear un objeto [WinJS.Binding.List], que puede enlazarse como el origen de datos de un objeto [ListView]. Para obtener más información, consulte [Enlace de datos (aplicaciones de la Tienda Windows con JavaScript y HTML)].
+En una aplicación de la Tienda Windows, los resultados de una consulta se pueden usar para crear un objeto WinJS.Binding.List, que puede enlazarse como el origen de datos de un objeto [ListView]. Para obtener más información, consulte [Enlace de datos (aplicaciones de la Tienda Windows con JavaScript y HTML)].
 
 ##<a name="#custom-api"></a>Llamada a una API personalizada
 
@@ -444,7 +444,7 @@ Al usar las API de Facebook o Google para la autenticación de cliente, el ejemp
 	     alert("Error: " + err);
 	});
 
-En este ejemplo se asume que el token proporcionado por el SDK del proveedor correspondiente se almacena en la variable `token`. En este momento Twitter no se puede usar para la autenticación de cliente.
+En este ejemplo se asume que el token proporcionado por el SDK del proveedor correspondiente se almacena en la variable `token`. En este momento Twitter no se puede usar para la autenticación de cliente. En este momento Microsoft Azure Active Directory no puede utilizarse con servidores back-end de JavaScript para la autenticación de cliente.
 
 ###Almacenamiento en caché del token de autenticación
 En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar [sessionStorage] o [localStorage] para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y para que compruebe las veces posteriores si ya dispone de la identidad de usuario en la memoria caché. Si la caché está vacía o se produce un error en la llamada (lo que significa que el inicio de sesión actual ha caducado), será necesario pasar por el proceso de inicio de sesión.
@@ -606,5 +606,6 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [referencia de opciones de consulta del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 [Llamar a una API personalizada desde el cliente]: mobile-services-html-call-custom-api.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

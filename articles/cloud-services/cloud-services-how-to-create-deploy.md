@@ -140,4 +140,4 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=62-->

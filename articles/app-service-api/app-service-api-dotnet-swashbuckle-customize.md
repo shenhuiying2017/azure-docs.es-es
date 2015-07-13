@@ -249,5 +249,4 @@ El código de esta demostración se puede encontrar en [este repositorio de GitH
 
 En este artículo se ha mostrado cómo personalizar la forma en que Swashbuckle genera identificadores de operación y códigos de respuesta válidos. Para obtener más información, consulte [Swashbuckle en GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
-
-<!---HONumber=58_postMigration-->
+<!--HONumber=62-->

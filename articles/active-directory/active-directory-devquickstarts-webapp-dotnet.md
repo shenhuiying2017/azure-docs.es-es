@@ -20,7 +20,10 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Asp.NET, puede realizar esto con la implementación de Microsoft del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí usaremos OWIN para: - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad. -Mostrar alguna información sobre el usuario. - Cerrar sesión para el usuario de la aplicación.
+Azure AD facilita la externalización de la administración de identidad de su aplicación web, proporcionando un inicio y cierre de sesión únicos con solo unas pocas líneas de código. En las aplicaciones web Asp.NET, puede realizar esto con la implementación de Microsoft del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí usaremos OWIN para:
+ - Iniciar sesión para el usuario en la aplicación con Azure AD como proveedor de identidad.
+ - Mostrar alguna información sobre el usuario.
+ - Cerrar sesión para el usuario de la aplicación.
 
 Para ello, deberá hacer lo siguiente:
 
@@ -173,6 +176,9 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Protección de una API web con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obtener recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
-
-<!---HONumber=58--> 
+Para obtener recursos adicionales, consulte:
+ - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
+ - [CloudIdentity.com >>](https://cloudidentity.com)
+ - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+ 
+<!--HONumber=62-->

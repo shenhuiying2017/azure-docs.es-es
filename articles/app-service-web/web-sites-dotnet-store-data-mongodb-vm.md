@@ -101,7 +101,7 @@ Para instalar el controlador C# de MongoDB:
 4. Haga clic en **Cerrar** una vez que se haya instalado el controlador. ![Se ha instalado el controlador C# de MongoDB][MongoDBCsharpDriverInstalled]
 
 
-El controlador C# de MongoDB está ahora instalado. Las referencias a las bibliotecas  **MongoDB.Driver.dll** y **MongoDB.Bson.dll** se han agregado al proyecto.
+El controlador C# de MongoDB está ahora instalado. Las referencias a las bibliotecas **MongoDB.Driver.dll** y **MongoDB.Bson.dll** se han agregado al proyecto.
 
 ![Referencias del controlador C# de MongoDB][MongoDBCSharpDriverReferences]
 
@@ -245,7 +245,7 @@ En el **Explorador de soluciones**, haga clic con el botón secundario en el pro
 	}
 
 ## Adición de un controlador ##
-Abra el archivo *Controllers\\HomeController.cs* en el **Explorador de soluciones** y reemplace el código existente por lo siguiente:
+Abra el archivo *Controllers\HomeController.cs* en el **Explorador de soluciones** y reemplace el código existente por lo siguiente:
 
 	using System;
 	using System.Collections.Generic;
@@ -326,11 +326,11 @@ Abra el archivo *Controllers\\HomeController.cs* en el **Explorador de solucione
 	}
 
 ## Configuración de estilos ##
-Para cambiar el título en la parte superior de la página, abra el archivo *Views\\Shared\_Layout.cshtml** en el **Explorador de soluciones** y reemplace "Application name" en el encabezado de la barra de exploración por "My Task List Application" de manera que tenga la siguiente apariencia:
+Para cambiar el título en la parte superior de la página, abra el archivo *Views\Shared_Layout.cshtml** en el **Explorador de soluciones** y reemplace "Application name" en el encabezado de la barra de exploración por "My Task List Application" de manera que tenga la siguiente apariencia:
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Para configurar el menú Task List, abra el archivo *\\Views\\Home\\Index.cshtml* y reemplace el código existente por el siguiente código:
+Para configurar el menú Task List, abra el archivo *\Views\Home\Index.cshtml* y reemplace el código existente por el siguiente código:
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -367,7 +367,7 @@ Para configurar el menú Task List, abra el archivo *\\Views\\Home\\Index.cshtml
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\\Home* y utilice la opción **Agregar** para agregar una vista en **Vista**. Póngale a la vista el nombre  *Create*. Reemplace el código por lo siguiente:
+Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\Home* y utilice la opción **Agregar** para agregar una vista en **Vista**. Póngale a la vista el nombre *Create*. Reemplace el código por lo siguiente:
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -429,7 +429,7 @@ Si el extremo de la máquina virtual especifica un puerto externo distinto para 
 
  	private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
-Para obtener más información sobre las cadenas de conexión de MongoDB, consulte  [Conexiones][MongoConnectionStrings].
+Para obtener más información sobre las cadenas de conexión de MongoDB, consulte [Conexiones][MongoConnectionStrings].
 
 ## Prueba de la implementación local ##
 
@@ -497,5 +497,6 @@ Para obtener más información sobre el desarrollo de aplicaciones C# en relaci�
 [Create and run the My Task List ASP.NET application on your development computer]: #createapp
 [Create an Azure web site]: #createwebsite
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

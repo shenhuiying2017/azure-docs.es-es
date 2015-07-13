@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Limitación de los umbrales en Servicios de BizTalk | Azure" 
+	pageTitle="Más información acerca de la limitación en Servicios de BizTalk | Azure" 
 	description="Obtenga información acerca de los umbrales de limitación y comportamientos en tiempo de ejecución resultantes para los Servicios de BizTalk. La limitación se basa en el uso de la memoria y el número de mensajes. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="06/07/2015" 
 	ms.author="mandia"/>
 
 
 
 
 
-# Servicios de BizTalk: Limitaciones
+# Servicios de BizTalk: limitaciones
 
-Servicios de BizTalk de Azure implementa limitaciones del servicio según dos condiciones: uso de memoria y el número de mensajes simultáneos que se procesan. En este tema se enumeran los umbrales de limitación y se describe el comportamiento del tiempo de ejecución cuando se produce una condición de limitación.
+Los servicios de BizTalk de Azure implementan limitaciones del servicio según dos condiciones: uso de memoria y el número de mensajes simultáneos que se procesan. En este tema se enumeran los umbrales de limitación y se describe el comportamiento del tiempo de ejecución cuando se produce una condición de limitación.
 
 ## Umbrales de limitación
 
 La siguiente tabla muestra los orígenes y umbrales de limitación:
-
 
 <table border="1">
 
@@ -62,11 +61,8 @@ Los servicios de BizTalk de Azure realizan un seguimiento del estado de las limi
 
 Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocurre lo siguiente:
 
-- La limitación es por instancia de rol. Por ejemplo:<br/>
-RoleInstanceA se está limitando. RoleInstanceB no se está limitando. En esta situación, los mensajes en RoleInstanceB se procesan según lo esperado. Los mensajes en RoleInstanceA se descartan y producen el siguiente error:<br/><br/>
-El servidor está ocupado. Vuelva a intentarlo.<br/><br/>
-- Ningún origen de extracción sondea ni descarga un mensaje. Por ejemplo:<br/>
-Una canalización extrae los mensajes desde un origen FTP externo. La instancia de rol que realiza la extracción entra en un estado de limitación. En esta situación, la canalización deja de descargar mensajes adicionales hasta que la instancia de rol detiene la limitación.
+- La limitación es por instancia de rol. Por ejemplo,<br/> RoleInstanceA se está limitando. RoleInstanceB no se está limitando. En esta situación, los mensajes en RoleInstanceB se procesan según lo esperado. Los mensajes en RoleInstanceA se descartan y producen el siguiente error:<br/><br/> **El servidor está ocupado. Vuelva a intentarlo.**<br/><br/>
+- Ningún origen de extracción sondea ni descarga un mensaje. Por ejemplo,<br/> una canalización extrae los mensajes desde un origen FTP externo. La instancia de rol que realiza la extracción entra en un estado de limitación. En esta situación, la canalización deja de descargar mensajes adicionales hasta que la instancia de rol detiene la limitación.
 - Se envía una respuesta al cliente para que el cliente pueda volver a enviar el mensaje.
 - Debe esperar a que se resuelva la limitación. Específicamente, debe esperar hasta que se alcance el umbral bajo.
 
@@ -78,20 +74,18 @@ Una canalización extrae los mensajes desde un origen FTP externo. La instancia 
 
 ## Otros temas acerca de los servicios de BizTalk de Azure
 
--  [Instalación del SDK de los servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+-  [Instalación del SDK de Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 -  [Tutoriales: Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 -  [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 -  [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## Otras referencias
-- [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-- [Servicios de BizTalk: Gráfico del estado de aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [Servicios de BizTalk: Pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-- [Servicios de BizTalk: Copia de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [Servicios de BizTalk: Nombre de emisor y clave de emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+- [Servicios de BizTalk: gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+- [Servicios de BizTalk: aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+- [Servicios de BizTalk: gráfico del estado de aprovisionamiento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+- [Servicios de BizTalk: pestañas Panel, Monitor y Escala](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+- [Servicios de BizTalk: copias de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+- [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
+
+<!---HONumber=62-->

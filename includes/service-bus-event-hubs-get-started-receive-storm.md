@@ -2,29 +2,29 @@
 
 [**Apache Storm**](https://storm.incubator.apache.org) es un sistema de cálculo distribuido en tiempo real que simplifica el procesamiento confiable de flujos de datos sin enlazar. Esta sección muestra cómo utilizar un emisor de Storm para Centros de eventos a fin de recibir eventos de los Centros de eventos. Con Apache Storm, se pueden dividir los eventos en varios procesos hospedados en distintos nodos. La integración de los Centros de eventos con Storm simplifica el consumo de eventos al comprobar de forma transparente el progreso mediante la instalación de Zookeeper de Storm, la administración de puntos de comprobación persistentes y las recepciones en paralelo de los Centros de eventos.
 
-Para obtener más información sobre los patrones de recepción de los Centros de eventos, consulte [Información general de los Centros de eventos].
+Para obtener más información sobre los patrones de recepción de los Centros de eventos, consulte Información general de los [Centros de eventos].
 
 Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor de Centros de eventos que ya se encuentra disponible.
 
-1. Siga el procedimiento [HDInsight Storm - Introducción](../articles/hdinsight-storm-getting-started.md) para crear un nuevo clúster de HDInsight y conectarse a él a través del Escritorio remoto.
+1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](../articles/hdinsight-storm-getting-started.md) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
 
-2. Copie el archivo  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` en su entorno de desarrollo local. Contiene events-storm-spout.
+2. Copie el archivo `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` en su entorno de desarrollo local. Contiene events-storm-spout.
 
 3. Utilice el comando siguiente para instalar el paquete en el almacén Maven local. Esto permite agregarlo como referencia en el proyecto de Storm en un paso posterior.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. En Eclipse,  cree un nuevo proyecto (haga clic en **File** (Archivo), **New** (Nuevo) y **Project** (Proyecto)).
+4. En Eclipse, cree un proyecto Maven nuevo (haga clic en **Archivo**, **Nuevo** y, a continuación, en **Proyecto**).
 
    	![][12]
 
-5. Seleccione **Use default Workspace location** (Usar ubicación del área de trabajo predeterminada) y haga clic en **Next** (Siguiente).
+5. Seleccione **Usar ubicación del área de trabajo predeterminada** y, a continuación, haga clic en **Siguiente**
 
-6. Seleccione el prototipo **maven-archetype-quickstart** y haga clic en **Next** (Siguiente).
+6. Seleccione el arquetipo **maven-archetype-quickstart** y, a continuación, haga clic en **Siguiente**
 
-7. Escriba un **GroupId** (Id. de  grupo) y **ArtifactId** (Id. de artefacto) y luego haga clic en **Finish** (Finalizar).
+7. Inserte un **GroupId** y **ArtifactId** y, a continuación, haga clic en **Finalizar**
 
-8. En **pom.xml**, agregue las siguientes dependencias al nodo `<dependency>`.
+8. En **pom.xml**, agregue las siguientes dependencias en el nodo `<dependency>`.
 
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -54,7 +54,7 @@ Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor d
 			<scope>provided</scope>
 		</dependency>
 
-9. En la carpeta **src**, cree un archivo llamado **Config.properties** y copie el contenido siguiente, sustituyendo estos valores:
+9. En la carpeta **src**, cree un archivo llamado **Config.properties** y copie el siguiente contenido, sustituyendo los valores siguientes:
 
 		eventhubspout.username = ReceiveRule
 
@@ -220,9 +220,9 @@ Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor d
 	Esta clase crea un nuevo emisor de Centros de eventos, utilizando las propiedades del archivo de configuración para crear una instancia. Es importante tener en cuenta que este ejemplo crea tantas tareas de emisor como número de particiones hay en el Centro de eventos, para poder usar el paralelismo máximo permitido por ese Centro de eventos.
 
 <!-- Links -->
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 [HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Tutorial de análisis de sensores de HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[tutorial de análisis de sensores de HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
@@ -230,5 +230,4 @@ Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-
-<!--HONumber=52--> 
+<!---HONumber=62-->

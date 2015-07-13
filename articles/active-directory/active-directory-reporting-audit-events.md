@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Eventos del Informe de auditoría de Azure Active Directory" 
-   description="Eventos auditados que están disponibles para ver y descargar desde Azure Active Directory" 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="kenhoff" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Eventos del Informe de auditoría de Azure Active Directory"
+   description="Eventos auditados que están disponibles para ver y descargar desde Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,24 +12,30 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/13/2015"
+   ms.workload="identity"
+   ms.date="06/18/2015"
    ms.author="kenhoff"/>
 
-# Eventos del Informe de auditoría de Azure Active Directory
+#  Eventos del Informe de auditoría de Azure Active Directory
 
-El Informe de auditoría de Azure Active Directory ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio). Los informes proporcionan el registro de auditoría para el nombre del evento, el actor que realizó la acción, el recurso de destino que se ve afectado por el cambio y la fecha y hora (en UTC). Los clientes pueden recuperar la lista de eventos de auditoría para su Azure Active Directory a través del [Portal de administración de Azure](https://manage.windowsazure.com/).
+El Informe de auditoría de Azure Active Directory ayuda a los clientes a identificar las acciones con privilegios que se produjeron en su Azure Active Directory. Las acciones con privilegios incluyen cambios de elevación (por ejemplo, creación de roles o restablecimientos de contraseña), cambios de configuraciones de directiva (por ejemplo, directivas de contraseña) o cambios de configuración de directorio (por ejemplo, cambios en la configuración de la federación de dominio). Los informes proporcionan el registro de auditoría para el nombre del evento, el actor que realizó la acción, el recurso de destino que se ve afectado por el cambio y la fecha y hora (en UTC). Los clientes pueden recuperar la lista de eventos de auditoría para su Azure Active Directory a través del [Portal de administración de Azure](https://manage.windowsazure.com/), como se describe en [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md).
 
-## Propiedades que se incluyen con cada evento de auditoría
+##  Retención de informes de auditoría
+
+Los eventos del informe de auditoría de Azure AD se conservan durante 180 días. Para obtener más información acerca de la retención de los informes, consulte [Directivas de retención de informes de Azure Active Directory](active-directory-reporting-retention.md).
+
+Para los clientes interesados en almacenar eventos de auditoría durante períodos de retención más largos, se puede utilizar la API de informes para extraer periódicamente los eventos de auditoría en un almacén de datos independiente. Consulte [Introducción a la API de informes](active-directory-reporting-api-getting-started.md) para obtener más información.
+
+##  Propiedades que se incluyen con cada evento de auditoría
 
 | Propiedad | Descripción |
-| ------	| ------								|		
+| ------	| ------								|
 | Fecha y hora | La fecha y la hora en que se produjo el evento de auditoría |
 | Actor | El usuario o la entidad de servicio que realizó la acción |
 | Acción | La acción que se realizó |
 | Destino | El usuario o la entidad de servicio en que se realizó la acción |
 
-## Lista de eventos del informe de auditoría
+##  Lista de eventos del informe de auditoría
 
 <!--- audit event descriptions should be in the past tense --->
 
@@ -44,7 +50,7 @@ El Informe de auditoría de Azure Active Directory ayuda a los clientes a identi
 | Actualizar usuario | Actualizó un usuario en el directorio. |
 | Agregar miembro de rol a Rol | Agregó un usuario a un rol del directorio. |
 | Quitar miembro de rol de Rol | Quitó un usuario de un rol del directorio. |
-| Establecer la información de contacto de la compañía | Establecer preferencias de contacto a nivel de compañía. Incluye direcciones de correo electrónico para marketing, así como  notificaciones técnicas sobre Microsoft Online Services. |
+| Establecer la información de contacto de la compañía | Establecer preferencias de contacto a nivel de compañía. Incluye direcciones de correo electrónico para marketing, así como notificaciones técnicas sobre Microsoft Online Services. |
 | Agregar asociado a la compañía | Agregó un asociado al directorio. |
 | Quitar asociado de la compañía | Quitó un asociado del directorio. |
 | Agregar entidad de servicio | Agregó una entidad de servicio al directorio. |
@@ -53,7 +59,7 @@ El Informe de auditoría de Azure Active Directory ayuda a los clientes a identi
 | Quitar credenciales de la entidad de servicio | Quitó las credenciales de una entidad de servicio. |
 | Agregar dominio a la compañía | Agregó un dominio al directorio. |
 | Quitar dominio de la compañía | Quitó un dominio del directorio. |
-|   Actualizar dominio | Actualizó un dominio en el directorio. |
+| Actualizar dominio | Actualizó un dominio en el directorio. |
 | Establecer la autenticación de dominio | Cambió la configuración de dominio predeterminada para la compañía. |
 | Establecer la configuración de la federación en el dominio | Actualizó la configuración de la federación para un dominio. |
 | Comprobar dominio | Comprobó un dominio en el directorio. |
@@ -66,7 +72,7 @@ El Informe de auditoría de Azure Active Directory ayuda a los clientes a identi
 | Establecer información sobre la compañía | Actualizó la información a nivel de la compañía. Consulte el cmdlet [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) de PowerShell para obtener más información. |
 | Establecer el cambio forzado de la contraseña de usuario | Estableció la propiedad que fuerza a un usuario a cambiar su contraseña en el inicio de sesión. |
 
-<!--- 
+<!---
 
 List of events that still need descriptions:
 
@@ -76,7 +82,7 @@ Promote tenant to partner
 
 --->
 
-### Atributos de usuario que se incluyen en el evento de auditoría Actualizar usuario
+###  Atributos de usuario que se incluyen en el evento de auditoría Actualizar usuario
 
 El evento de auditoría "Actualizar usuario" incluye información adicional sobre los atributos de usuario que se actualizaron. Para cada atributo, se incluye el valor anterior y el valor nuevo.
 
@@ -89,11 +95,12 @@ El evento de auditoría "Actualizar usuario" incluye información adicional sobr
 | Móvil | Teléfono móvil del usuario. |
 | OtherMail | Dirección de correo electrónico alternativa del usuario. |
 | OtherMobile | Teléfono móvil alternativo del usuario. |
-| StrongAuthenticationMethod | Una lista de métodos de comprobación configurados por el usuario para  Multi-Factor Authentication, como la llamada de voz, los SMS o el código de comprobación de una aplicación móvil. |
+| StrongAuthenticationMethod | Una lista de métodos de comprobación configurados por el usuario para Multi-Factor Authentication, como la llamada de voz, los SMS o el código de comprobación de una aplicación móvil. |
 | StrongAuthenticationRequirement | Si Multi-Factor Authentication se exige, habilita o deshabilita para este usuario. |
 | StrongAuthenticationUserDetails | Número de teléfono, número de teléfono alternativo y dirección de correo electrónico del usuario que se usan para Multi-Factor Authentication y para la comprobación de restablecimiento de contraseña. |
 | TelephoneNumber | Número de teléfono del usuario. |
 
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
+ 
 
-<!---HONumber=58--> 
+<!--HONumber=62-->

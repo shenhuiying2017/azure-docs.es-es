@@ -21,7 +21,22 @@
 
 [Ver plataformas][platforms]
 
-## Agregar el SDK
+## ¿Es gratis?
+
+* Sí, si elige el [nivel de precios](app-insights-pricing.md) gratuito. Podrá disfrutar de la mayoría de las características y de una amplia cuota de datos. 
+* Debe proporcionar los datos de su tarjeta de crédito para registrarse con Microsoft Azure, pero no se realizará ningún cargo a menos que use otro servicio de Azure que sea de pago o que decida actualizar explícitamente a un nivel de pago.
+* Si su aplicación envía una cantidad de datos superior a la cuota mensual establecida para el nivel gratuito, la aplicación dejará de estar registrada. Si esto sucede, puede optar por comenzar a pagar o esperar hasta que la cuota se restablezca al final del mes.
+* Los datos básicos de uso y de sesión no están sujetos a ninguna cuota.
+* También hay una prueba gratuita de 30 días que le permitirá disfrutar de las características Premium sin tener que pagar.
+* Cada recurso de la aplicación tiene una cuota independiente. El nivel de precios se establece con independencia de cualquier otro recurso.
+
+#### ¿Qué obtengo si opto por la versión de pago?
+
+* Una mayor [cuota mensual de datos](http://azure.microsoft.com/pricing/details/application-insights/).
+* En caso de que se supere la cuota mensual, tendrá la opción de pagar para seguir recopilando datos. Si los datos superan la cuota, se le cobrará por Mb.
+* [Exportación continua](app-insights-export-telemetry.md)
+
+## Adición del SDK
 
 #### <a name="q01"></a>No veo ninguna opción para agregar Application Insights a mi proyecto en Visual Studio
 
@@ -89,7 +104,9 @@ Para ello, siga estos pasos:
 
 1. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y elija Descargar el proyecto.
 2. Vuelva a hacer clic con el botón derecho en el proyecto y elija Editar *suProyecto.csproj*. 
-3. Vaya a la parte inferior del archivo del proyecto y quite los elementos BCL de destino similares a: ``` <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+3. Vaya a la parte inferior del archivo del proyecto y quite los elementos BCL de destino similares a: 
+	```
+	<Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
 	  
 	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
 	  
@@ -97,9 +114,15 @@ Para ello, siga estos pasos:
 	    
 	    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
 	    
-	</Target> ```
-4. Guarde el archivo .
+	  </Target>
+	  ```
+4. Guarde el archivo.
 5. Haga clic con el botón derecho en el proyecto y elija Volver a cargar *suProyecto.csproj*
+
+## ¿Cómo se puede actualizar desde versiones anteriores de SDK?
+
+Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecuado para el tipo de aplicación.
+
 
 ## No aparecen datos
 
@@ -121,7 +144,7 @@ Para ello, siga estos pasos:
 
 #### <a name="q08"></a>¿Puedo usar Application Insights para supervisar un servidor web de intranet?
 
-Sí, puede supervisar el estado y el uso si el servidor puede enviar datos a la red pública de internet.
+Sí, puede supervisar el estado y el uso si el servidor puede enviar datos a la red pública de Internet.
 
 Pero si desea ejecutar pruebas web para su servicio, debe estar accesible desde la red pública de Internet en el puerto 80.
 
@@ -197,6 +220,9 @@ Consulte [Privacidad y retención de los datos][data].
 
 Si el servicio web se ejecuta en una máquina virtual de Azure, también puede [obtener diagnósticos][azurediagnostic] aquí.
 
+## Automatización
+
+Puede [escribir un script de PowerShell](app-insights-powershell-script-create-resource.md) para crear un recurso de Application Insights.
 
 
 <!--Link references-->
@@ -208,5 +234,4 @@ Si el servicio web se ejecuta en una máquina virtual de Azure, también puede [
 [windows]: app-insights-windows-get-started.md
 
  
-
-<!---HONumber=62-->
+<!--HONumber=62-->

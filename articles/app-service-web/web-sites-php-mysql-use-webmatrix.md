@@ -81,7 +81,7 @@ Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
 5. Escriba valores para la nueva aplicación web.
 
-    ![Creación de una aplicación web](./media/web-sites-php-mysql-use-webmatrix/create_wa.png)
+    ![Crear una aplicación web](./media/web-sites-php-mysql-use-webmatrix/create_wa.png)
 
 6. Especifique los valores para la nueva base de datos, incluida la aceptación de los términos legales.
 
@@ -99,7 +99,7 @@ Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, nec
 
 2. En el resumen de base de datos, elija **Propiedades**.
 
-    ![Selección de propiedades](./media/web-sites-php-mysql-use-webmatrix/select_properties.png)
+    ![Seleccionar propiedades](./media/web-sites-php-mysql-use-webmatrix/select_properties.png)
 
 2. Anote los valores de `Database`, `Host`, `User Id` y `Password`.
 
@@ -110,7 +110,7 @@ Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, nec
 En los siguientes pasos desarrollará la aplicación Tasklist mediante la adición de archivos que descargó anteriormente y la realización de algunas modificaciones. Sin embargo, puede agregar sus propios archivos existentes o crear archivos nuevos.
 
 1. Inicie [Microsoft WebMatrix](http://www.microsoft.com/web/webmatrix/). Si no la ha instalado todavía, hágalo ahora.
-2. Si esta es la primera vez que utiliza WebMatrix 3, se le solicitará que inicie sesión en Azure. De lo contrario, puede hacer clic en el botón **Sign In** (Inicio de sesión) y elegir **Add Account** (Agregar cuenta). Elija **Sign in** (Inicio de sesión) con su cuenta Microsoft.
+2. Si esta es la primera vez que utiliza WebMatrix 3, se le solicitará que inicie sesión en Azure. De lo contrario, puede hacer clic en el botón **Iniciar sesión** y seleccionar **Agregar cuenta** Seleccione **Iniciar sesión** con su cuenta Microsoft.
 
 	![Add account](./media/web-sites-php-mysql-use-webmatrix/webmatrix-add-account.png)
 
@@ -150,7 +150,7 @@ En los siguientes pasos desarrollará la aplicación Tasklist mediante la adici�
 
 	Guarde el archivo `taskmodel.php`.
 
-8. Para que la aplicación se ejecute, tiene que crearse la tabla `items`. Haga clic con el botón secundario en el archivo `createtable.php` y elija **Iniciar en el explorador**. De esta forma, se iniciará `createtable.php` en el explorador y se ejecutará el código que crea la tabla `items` en la base de datos `tasklist`.
+8. Para que la aplicación se ejecute, tiene que crear la tabla `items`. Haga clic con el botón secundario en el `createtable.php`archivo y elija **Iniciar en el explorador**. De esta forma, se iniciará `createtable.php` en el explorador y se ejecutará el código que crea la tabla `items` en la base de datos `tasklist`.
 
 	![WebMatrix: inicio de createtable.php en el explorador][edit_run]
 
@@ -261,5 +261,6 @@ Puede modificar fácilmente la aplicación si edita la copia local del sitio des
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->

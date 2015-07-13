@@ -17,52 +17,52 @@
 	ms.author="Justinha"/>
 
 
-# ¿Qué es la suscripción de autoservicio de Azure?
+#  ¿Qué es la suscripción de autoservicio de Azure?
 
 En este tema se explica el proceso de suscripción de autoservicio (conocido también como suscripción viral) y cómo adquirir un nombre de dominio DNS.
 
-## Razones para usar la suscripción de autoservicio
+##  Razones para usar la suscripción de autoservicio
 
 - Permita que los usuarios tengan acceso a los servicios que desean más rápido.
 - Cree ofertas (virales) basadas en correo electrónico para un servicio.
 - Cree flujos de suscripción basados en correo electrónico que permitan a los usuarios crear identidades rápidamente con sus alias de correo electrónico del trabajo fáciles de recordar.
 - Los inquilinos de Azure no administrados pueden crecer y convertirse en inquilinos administrados más adelante y reutilizarse para otros servicios. 
 
-## Términos y definiciones
+##  Términos y definiciones
 
 + **Suscripción de autoservicio**: método por el que un usuario se suscribe a un servicio en la nube y por el que se le crea automáticamente una identidad en Azure Active Directory basado en su dominio de correo electrónico. 
 + **Inquilino de Azure no administrado**: directorio donde se crea la identidad. Un inquilino no administrado es un directorio que no tiene administrador global. 
 + **Usuario comprobado por correo electrónico**: tipo de cuenta de usuario en Azure AD. Un usuario que tiene una identidad que se crean automáticamente después de suscribirse a una oferta de autoservicio se conoce como usuario comprobado por correo electrónico. Un usuario comprobado por correo electrónico es un miembro regular de un directorio etiquetado con creationmethod = EmailVerified.
 
-## Experiencia del cliente
+##  Experiencia del cliente
 
-### Experiencia del usuario
+###  Experiencia del usuario
 
 Por ejemplo, supongamos que un usuario cuyo correo electrónico es Dan@BellowsCollege.com recibe archivos confidenciales por correo electrónico. Los archivos se han protegido con Azure Rights Management (Azure RMS). Pero la organización de Dan, Bellows College, no se ha suscrito a Azure RMS ni ha implementado Active Directory RMS. En este caso, Dan puede suscribirse a una suscripción gratuita de RMS para usuarios a fin de leer los archivos protegidos.
 
 Si Dan es el primer usuario con una dirección de correo electrónico de BellowsCollege.com en suscribirse a esta oferta de autoservicio, se creará un inquilino no administrado para BellowsCollege.com en Azure AD. Si otros usuarios del dominio BellowsCollege.com se suscriben a esta oferta o a una oferta de autoservicio similar, también se crearán para ellos cuentas de usuario comprobado por correo electrónico en el mismo inquilino no administrado en Azure.
 
-### Experiencia del administrador
+###  Experiencia del administrador
 
 Un administrador que posee el nombre de dominio DNS de un inquilino de Azure no administrado puede adquirir o fusionar el inquilino después de demostrar la propiedad. En las secciones siguientes se explica con más detalle la experiencia del administrador, pero a continuación se incluye un resumen:
 
 - Al adquirir un inquilino de Azure no administrado, se convierte en administrador global del inquilino no administrado. Esto se denomina a veces adquisición interna. 
 - Al fusionar un inquilino de Azure no administrado, agregue el nombre de dominio DNS del inquilino no administrado a su inquilino de Azure administrado. Se creará una asignación de usuarios a recursos para que los usuarios puedan seguir teniendo acceso a los servicios sin interrupción. Esto se denomina a veces adquisición externa. 
 
-### ¿Qué se crea en Microsoft Azure Directory?
+###  ¿Qué se crea en Microsoft Azure Directory?
 
-#### Inquilino
+####  Inquilino
 
 - Se crea un inquilino de Azure para el dominio, un inquilino por dominio.
 - El directorio del inquilino de Azure no tiene administrador global.
 
-#### Usuarios
+####  Usuarios
 
 - Para cada usuario que se suscribe , se crea un objeto en el inquilino de Azure.
 - Cada objeto de usuario se marca como viral.
 - Cada usuario tiene acceso al servicio al que se ha suscrito.
 
-### ¿Cómo puedo reclamar un inquilino de Azure de autoservicio para un dominio de mi propiedad?
+###  ¿Cómo puedo reclamar un inquilino de Azure de autoservicio para un dominio de mi propiedad?
 
 Puede reclamar un inquilino de Azure de autoservicio realizando la validación del dominio. La validación del dominio demuestra que es el propietario del dominio mediante la creación de registros DNS.
 
@@ -73,22 +73,22 @@ Hay dos formas de realizar una adquisición de DNS de un inquilino de Azure:
 
 Pude que le interese validar un dominio que posee porque va a adquirir un inquilino no administrado después de que un usuario realice una suscripción de autoservicio, o bien puede que quiera agregar un dominio nuevo a un inquilino administrado existente. Por ejemplo, tiene un dominio denominado contoso.com y desea agregar un nuevo dominio denominado contoso.co.uk o contoso.uk.
 
-## ¿Qué es la adquisición de un dominio?  
+##  ¿Qué es la adquisición de un dominio?  
 
 En esta sección se describe cómo validar la propiedad de su dominio.
 
-### ¿Qué es la validación de dominios y por qué se usa?
+###  ¿Qué es la validación de dominios y por qué se usa?
 
 Para realizar operaciones en un inquilino, Azure AD necesita que valide la propiedad del dominio DNS. La validación del dominio permite reclamar el inquilino y ascender el inquilino de autoservicio a un inquilino administrado o fusionar el inquilino de autoservicio en un inquilino administrado existente.
 
-## Ejemplos de validación de dominio
+##  Ejemplos de validación de dominio
 
 Hay dos formas de realizar una adquisición de DNS de un inquilino:
 
 + adquisición interna (por ejemplo, un administrador detecta un inquilino no administrado de autoservicio y desea convertirlo en inquilino administrado)
 + adquisición externa (por ejemplo, el administrador intenta agregar un nuevo dominio a un inquilino administrado).
 
-### Adquisición interna: ascienda un inquilino no administrado de autoservicio a un inquilino administrado
+###  Adquisición interna: ascienda un inquilino no administrado de autoservicio a un inquilino administrado
 
 Cuando realiza una adquisición interna, el inquilino pasa de ser un inquilino no administrado a un inquilino administrado. Debe completar la validación del nombre de dominio DNS, donde crea un registro MX o un registro TXT en la zona DNS. Esa acción:
 
@@ -98,7 +98,7 @@ Cuando realiza una adquisición interna, el inquilino pasa de ser un inquilino n
 
 Supongamos que un administrador de TI de Bellows College detecta que los usuarios de la escuela se han suscrito a ofertas de autoservicio. Como propietario registrado del nombre DNS BellowsCollege.com, el administrador de TI puede validar la propiedad del nombre DNS en Azure y adquirir el inquilino no administrado. A continuación, el inquilino se convierte en un inquilino administrado y al administrador de TI se le asigna el rol de administrador global para el directorio BellowsCollege.com.
 
-### Adquisición externa: fusione un inquilino de autoservicio en un inquilino administrado existente
+###  Adquisición externa: fusione un inquilino de autoservicio en un inquilino administrado existente
 
 En una adquisición externa, ya tiene un inquilino administrado y desea que todos los usuarios y grupos de un inquilino no administrado se unan a ese inquilino administrado en lugar de poseer dos inquilinos independientes.
 
@@ -110,11 +110,11 @@ Usted no desea administrar dos inquilinos independientes, por lo que fusiona el 
 	
 La adquisición externa sigue el mismo proceso de validación de DNS que la adquisición interna. La diferencia es que se reasignan los usuarios y servicios al inquilino administrado de TI.
 	
-#### ¿Cuál es el impacto de realizar una adquisición externa?
+####  ¿Cuál es el impacto de realizar una adquisición externa?
 
 Con una adquisición externa, se crea una asignación de usuarios a recursos para que los usuarios sigan teniendo acceso a los servicios sin interrupción. Muchas aplicaciones, como RMS para usuarios, administran la asignación de usuarios a los recursos bien y los usuarios pueden seguir teniendo acceso a los servicios sin cambios. Si una aplicación no administra la asignación de usuarios a recursos de forma eficaz, es posible que se bloquee la adquisición externa explícitamente para evitar una experiencia deficiente de los usuarios.
 
-#### Admisión de la adquisición del inquilino por servicio
+####  Admisión de la adquisición del inquilino por servicio
 
 Actualmente, los servicios siguientes admiten la adquisición:
 
@@ -130,13 +130,13 @@ Los siguientes servicios no la admiten y requieren una acción adicional del adm
 - SharePoint/OneDrive
 
 
-## Realización de una adquisición de nombre de dominio DNS
+##  Realización de una adquisición de nombre de dominio DNS
 
 Tiene unas cuantas opciones para realizar una validación de dominio (y realizar una adquisición si lo desea):
 
 1.  Portal de administración de Azure
 
-	Una adquisición se desencadena  agregando un dominio. Si ya existe un inquilino para el dominio, tendrá la opción de realizar una adquisición externa.
+	Una adquisición se desencadena agregando un dominio. Si ya existe un inquilino para el dominio, tendrá la opción de realizar una adquisición externa.
 
 	Inicio de sesión en el portal de Azure con credenciales Vaya al inquilino existente y a **Agregar dominio**.
 
@@ -193,7 +193,7 @@ Por ejemplo:
 
 Un desafío correcto le devuelve el mensaje sin errores.
 
-## ¿Cómo controlo la configuración de autoservicio?
+##  ¿Cómo controlo la configuración de autoservicio?
 
 Actualmente, los administradores tienen dos controles de autoservicio . Pueden controlar:
 
@@ -201,7 +201,7 @@ Actualmente, los administradores tienen dos controles de autoservicio . Pueden c
 - Si los usuarios pueden concederse o no licencias para aplicaciones y servicios.
 
 
-### ¿Cómo puedo controlar estas capacidades?
+###  ¿Cómo puedo controlar estas capacidades?
 
 Un administrador puede configurar estas capacidades con estos parámetros Set-MsolCompanySettings de cmdlet de Azure AD:
 
@@ -209,7 +209,7 @@ Un administrador puede configurar estas capacidades con estos parámetros Set-Ms
 + **AllowAdHocSubscriptions** controla la capacidad de los usuarios de realizar suscripciones de autoservicio. Si establece el parámetro en $false, ningún usuario puede realizar suscripciones de autoservicio. 
 
 
-### ¿Cómo funciona los controles conjuntamente?
+###  ¿Cómo funciona los controles conjuntamente?
 
 Estos dos parámetros se pueden usar juntos para definir un control más preciso de la suscripción de autoservicio. Por ejemplo, el comando siguiente permitirá a los usuarios realizar suscripciones de autoservicio pero solo si estos usuarios ya tienen una cuenta en Azure AD (en otras palabras, los usuarios que necesitan crear una cuenta comprobada por correo electrónico no pueden realizar suscripciones de autoservicio):
 
@@ -221,7 +221,7 @@ En el siguiente diagrama se explican las distintas combinaciones de estos parám
 
 Para obtener más información y ejemplos de cómo usar estos parámetros, consulte [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
 
-## Otras referencias
+##  Otras referencias
 
 -  [Instalación y configuración de Azure PowerShell](../powershell-install-configure/)
 
@@ -234,4 +234,5 @@ Para obtener más información y ejemplos de cómo usar estos parámetros, consu
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=58--> 
+ 
+<!--HONumber=62-->

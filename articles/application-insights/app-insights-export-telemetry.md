@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -20,6 +20,8 @@
 ¿Desea hacer algún análisis personalizado en la telemetría? ¿O tal vez desee una alerta por correo electrónico en eventos con propiedades específicas? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir cualquier código necesario para procesarlos.
 
 La Exportación continua está disponible durante el período de evaluación gratuita y en los [planes de precios Estándar y Premium](http://azure.microsoft.com/pricing/details/application-insights/).
+
+(Si desea hacer una [exportación puntual](app-insights-metrics-explorer.md#export-to-excel) de lo que ve en una hoja de búsqueda o de métricas, haga clic en Exportar en la parte superior de la hoja).
 
 ## <a name="setup"></a> Configuración de la Exportación continua
 
@@ -138,7 +140,7 @@ La exportación continua se reiniciará.
 
 * *Lo único que quiero es una descarga única de un gráfico.*  
  
-    Estamos trabajando en eso aparte.
+    Sí, puede hacerlo. En la parte superior de la hoja, haga clic en [Exportar datos](app-insights-metrics-explorer.md#export-to-excel).
 
 * *Configuro una exportación, pero no hay ningún dato en el almacén.*
 
@@ -152,7 +154,7 @@ La exportación continua se reiniciará.
 
 * *¿Puedo exportar directamente a mi propio almacén local?*
 
-    Lamentablemente, no. Nuestro motor de exportación debe depender de una gran garganta abierta para insertar los datos.
+    Lamentablemente, no. Nuestro motor de exportación actualmente solo funciona con el almacenamiento de Azure.
 
 * *¿Hay ningún límite para la cantidad de datos que puedo colocar en mi almacén?*
 
@@ -175,4 +177,4 @@ La exportación continua se reiniciará.
 
  
 
-<!---HONumber=62-->
+<!--HONumber=62-->

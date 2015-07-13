@@ -37,9 +37,9 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 ![página de inicio de sesión][rxb]
 
->[AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede <a href="/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activar los beneficios de suscripción a MSDN</a> o bien <a href="/es-es/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">registrarse para obtener una evaluación gratuita</a>.
+>[AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede <a href="/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activar los beneficios de suscripción a MSDN</a> o <a href="/es-es/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">registrarse para obtener una evaluación gratuita</a>.
 
->Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 Para configurar el entorno de desarrollo, debe instalar [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) o superior y la versión más reciente del [SDK de Azure para Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Este artículo se escribió para Visual Studio Update 4 y SDK 2.5.1.
 
@@ -78,11 +78,11 @@ Para configurar el entorno de desarrollo, debe instalar [Visual Studio 2013 Upda
 ### Establecimiento del encabezado y pie de página
 
 
-1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\\Shared*.
+1. En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\Shared*.
 
 	![_Layout.cshtm en el Explorador de soluciones][newapp004]
 
-1. Reemplace el marcado en el archivo  *Layout.cshtml* con el código siguiente. Los cambios se resaltan a continuación.
+1. Reemplace el marcado en el archivo *Layout.cshtml* con el código siguiente. Los cambios se resaltan a continuación.
 
 <pre>
 			&lt;!DOCTYPE html>
@@ -149,7 +149,7 @@ Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a 
  
 1. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **Contact Manager** y elija **Propiedades**.
 1. En el panel izquierdo, haga clic en **Web**.
-1. Cambie la **URL del proyecto** por la **dirección URL de SSL**  y guarde la página (Control S).
+1. Cambie la **URL del proyecto** por la **dirección URL de SSL** y guarde la página (Control S).
 
 	![habilitar SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr1.png)
  
@@ -204,7 +204,7 @@ A continuación, actualizará la aplicación para agregar la capacidad para most
 
 Se empieza por crear un modelo de datos sencillo en código.
 
-1. En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta Modelos y, a continuación, en **Agregar** y, por último, en **Clase**
+1. En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta Models, a continuación en **Agregar** y, por último, en **Clase**.
 
 	![Agregar clase en el menú contextual de la carpeta Models](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr5.png)
 
@@ -264,7 +264,7 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 
 1. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet ** y, a continuación, **Consola del Administrador de paquetes **. ![Package Manager Console en el menú Herramientas](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
-2. En la ventana  **Consola del Administrador de paquetes **, escriba el siguiente comando:
+2. En la ventana **Consola del Administrador de paquetes **, escriba el siguiente comando:
 
 		enable-migrations
 	El comando **enable-migrations** crea una carpeta *Migrations* y guarda en ella un archivo *Configuration.cs* que puede editar para inicializar la base de datos y configurar las migraciones.
@@ -274,8 +274,8 @@ La siguiente tarea consiste en habilitar la función [Migraciones de Code First]
 		add-migration Initial
 
 
-	El comando  **add-migration Initial** genera un archivo llamado **&lt;date_stamp&gt;Initial** en la carpeta *Migrations* que crea la base de datos. El primer parámetro (**Initial**) es arbitrario y se utiliza para crear el nombre del archivo. Puede ver los archivos de las nuevas clases en el **Explorador de soluciones**. En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down**  (que se utiliza cuando se desea volver al estado anterior) la anula.
-3. Abra el archivo *Migrations\\Configuration.cs*. 
+	El comando **add-migration Initial** genera un archivo llamado **&lt;date_stamp&gt;Initial** en la carpeta *Migrations* que crea la base de datos. El primer parámetro (**Initial**) es arbitrario y se utiliza para crear el nombre del archivo. Puede ver los archivos de las nuevas clases en el **Explorador de soluciones**. En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down** (que se utiliza cuando se desea volver al estado anterior) la anula.
+3. Abra el archivo *Migrations\Configuration.cs*. 
 4. Agregue el siguiente espacio de nombres. 
 
     	 using ContactManager.Models;
@@ -365,7 +365,7 @@ Siga las instrucciones en el tutorial [Aplicación MVC 5 con inicio de sesión O
 ## Uso de la API de suscripción
 En esta sección, agregará un usuario local y el rol *canEdit* a la base de datos de suscripciones. Únicamente los usuarios incluidos en el rol *canEdit* podrán editar los datos. Es recomendable nombrar los roles en función de las acciones que pueden realizar, por lo que el nombre *canEdit* es más aconsejable que *admin*. A medida que la aplicación evoluciona, puede agregar nuevos roles del tipo *canDeleteMembers*, en lugar del escasamente descriptivo *superAdmin*.
 
-1. Abra el archivo *migrations\\configuration.cs* y agregue las siguientes instrucciones `using`:
+1. Abra el archivo *migrations\configuration.cs* y agregue las siguientes instrucciones `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -392,58 +392,30 @@ En esta sección, agregará un usuario local y el rol *canEdit* a la base de dat
             return ir.Succeeded;
          }
 
-1. Llame al nuevo método desde el método **Seed**: <pre> protected override void Seed(ContactManager.Models.ApplicationDbContext context) { <mark>AddUserAndRole(context);</mark> context.Contacts.AddOrUpdate(p => p.Name, // Code removed for brevity } </pre> <span></span> Las siguientes imágenes muestran los cambios en el método *Seed*:
+1. Llame al nuevo método desde el método **Seed**:
+	<pre>
+    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+    {
+        <mark>AddUserAndRole(context);</mark>
+        context.Contacts.AddOrUpdate(p => p.Name,
+            // Código quitado para reducir el espacio
+    }
+</pre>
+<span></span> Las imágenes siguientes muestran los cambios en el método *Seed*:
 
 	![imagen de código](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-   Este código crea un nuevo rol denominado *canEdit*, crea un nuevo usuario local *user1@contoso.com* y agrega *user1@contoso.com* al rol *canEdit*. Para obtener más información, consulte mis  [tutoriales de ASP.NET Identity](http://www.asp.net/identity/overview/features-api).
+   Este código crea un nuevo rol denominado *canEdit*, crea un nuevo usuario local *user1@contoso.com* y agrega *user1@contoso.com* al rol *canEdit*. Para obtener más información, consulte mis [tutoriales de ASP.NET Identity](http://www.asp.net/identity/overview/features-api).
 
 ## Uso de código temporal para agregar a los nuevos usuarios que inician sesión a través de redes sociales al rol canEdit  ##
-En esta sección, modificará temporalmente el método **ExternalLoginConfirmation** del controlador de cuentas para agregar a los nuevos usuarios que se registran con un proveedor de OAuth en el rol *canEdit*. Modificaremos temporalmente el método **ExternalLoginConfirmation** para agregar automáticamente a los nuevos usuarios a un rol administrativo. Hasta que ofrezcamos una herramienta para agregar y administrar roles, utilizaremos el código de registro automático temporal que aparece a continuación. En el futuro, esperamos ofrecer una herramienta similar a [WSAT](http://msdn.microsoft.com/library/ms228053.aspx) que le permita crear y editar cuentas y roles de usuario.
+En esta sección, modificará temporalmente el método **ExternalLoginConfirmation** del controlador de cuentas para agregar a los nuevos usuarios que se registran con un proveedor de OAuth en el rol *canEdit*. Modificaremos temporalmente el método **ExternalLoginConfirmation** para agregar automáticamente a los nuevos usuarios a un rol administrativo. Hasta que ofrezcamos una herramienta para agregar y administrar roles, utilizaremos el código de registro automático temporal que aparece a continuación. En el futuro, esperamos ofrecer una herramienta similar a [WSAT](http://msdn.microsoft.com/es-es/library/ms228053.aspx) que le permita crear y editar cuentas y roles de usuario.
 
-1. Abra el archivo **Controllers\\AccountController.cs** y desplácese hasta el método **ExternalLoginConfirmation**.
+1. Abra el archivo **Controllers\AccountController.cs** y desplácese hasta el método **ExternalLoginConfirmation**.
 1. Agregue la siguiente llamada a **AddToRoleAsync** justo antes de la llamada a **SignInAsync**.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   El código anterior, agrega el usuario recién registrado al rol "canEdit", que les proporciona acceso a los métodos de acción que cambian datos (edit). 
-	<pre> 
-		// POST: /Account/ExternalLoginConfirmation
-	      [HttpPost]
-	      [AllowAnonymous]
-	      [ValidateAntiForgeryToken]
-	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-	      {
-	         if (User.Identity.IsAuthenticated)
-	         {
-	            return RedirectToAction("Index", "Manage");
-	         }
-	         if (ModelState.IsValid)
-	         {
-	            // Get the information about the user from the external login provider
-	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-	            if (info == null)
-	            {
-	               return View("ExternalLoginFailure");
-	            }
-	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-	            var result = await UserManager.CreateAsync(user);
-	            if (result.Succeeded)
-	            {
-	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
-	               if (result.Succeeded)
-	               {
-	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
-	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-	                  return RedirectToLocal(returnUrl);
-	               }
-	            }
-	            AddErrors(result);
-	         }
-	         ViewBag.ReturnUrl = returnUrl;
-	         return View(model);
-	      }
-	</pre>
+   El código anterior agrega el usuario recién registrado al rol "canEdit", que les proporciona acceso a los métodos de acción que cambian datos (edit). <pre> // POST: /Account/ExternalLoginConfirmation [HttpPost] [AllowAnonymous] [ValidateAntiForgeryToken] public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) { if (User.Identity.IsAuthenticated) { return RedirectToAction("Index", "Manage"); } if (ModelState.IsValid) { // Get the information about the user from the external login provider var info = await AuthenticationManager.GetExternalLoginInfoAsync(); if (info == null) { return View("ExternalLoginFailure"); } var user = new ApplicationUser { UserName = model.Email, Email = model.Email }; var result = await UserManager.CreateAsync(user); if (result.Succeeded) { result = await UserManager.AddLoginAsync(user.Id, info.Login); if (result.Succeeded) { <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark> await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false); return RedirectToLocal(returnUrl); } } AddErrors(result); } ViewBag.ReturnUrl = returnUrl; return View(model); } </pre>
 
 Más adelante en este tutorial implementará la aplicación en Azure, donde iniciará sesión con Google u otro proveedor de autenticación de terceros. De este modo, la cuenta recién registrada se agregará al rol *canEdit*. Cualquiera que encuentre la URL de la aplicación web y tenga un identificador de Google podrá registrarse y actualizar su base de datos. Para evitar que otros usuarios hagan esto, puede detener el sitio. Podrá comprobar quién está incluido en el rol *canEdit* examinando la base de datos.
 
@@ -457,17 +429,17 @@ Ejecute el comando **Update-Database**, que a su vez ejecutará el método **See
 
 En esta sección, aplicará el atributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) para restringir el acceso a los métodos de acción. Los usuarios anónimos solo podrán ver el método de acción **Index** del controlador principal. Los usuarios registrados podrán ver los datos de contacto (páginas **Index** y **Details** del controlador Cm) y las páginas About y Contact. Únicamente los usuarios incluidos en el rol *canEdit* podrán obtener acceso a los métodos de acción que cambian datos.
 
-1. Agregue el filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) y el filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a la aplicación. Otra opción es agregar el atributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) y [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a cada controlador, pero por motivos de seguridad es recomendable aplicarlos a toda la aplicación. De esta manera, todos los controladores y métodos de acción nuevos que agregue estarán automáticamente protegidos, sin necesidad de aplicar los atributos otra vez. Para obtener más información, consulte [Protección de su aplicación ASP.NET MVC y el nuevo atributo AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Abra el archivo *App_Start\\FilterConfig.cs* y reemplace el método *RegisterGlobalFilters* por lo siguiente (que agrega dos filtros): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. Agregue el filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) y el filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a la aplicación. Otra opción es agregar el atributo [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) y [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) a cada controlador, pero por motivos de seguridad es recomendable aplicarlos a toda la aplicación. De esta manera, todos los controladores y métodos de acción nuevos que agregue estarán automáticamente protegidos, sin necesidad de aplicar los atributos otra vez. Para obtener más información, consulte [Protección de su aplicación ASP.NET MVC y el nuevo atributo AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx). Abra el archivo *App_Start\FilterConfig.cs* y reemplace el método *RegisterGlobalFilters* por lo siguiente (que agrega dos filtros): <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
 
 
 
 
 	El filtro [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) aplicado en el código anterior evitará que los usuarios anónimos obtengan acceso a los métodos de la aplicación. Utilizará el atributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) para cancelar el requisito de autorización en un par de métodos, de tal forma que los usuarios anónimos puedan iniciar sesión y ver la página principal. El atributo [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) requerirá que todo acceso a la aplicación web se realice a través de HTTPS.
 
-1. Agregue el atributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) al método **Index** del controlador principal. El atributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) permite ofrecer una la lista blanca a los métodos que desee excluir de la autorización. <pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
+1. Agregue el atributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) al método **Index** del controlador principal. El atributo [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) permite incluir en la lista blanca los métodos que desee excluir de la autorización. <pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
 
 2. Realice una búsqueda global de *AllowAnonymous*; como puede ver, se utiliza en los métodos de inicio de sesión y registro del controlador de cuentas.
-1. En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. Una parte del código final se muestra a continuación: <pre>GET: Cm/Create <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create() { return View(new Contact { Address = "123 N 456 W", City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT", Zip = "59405"}); } // POST: Cm/Create //  Para protegerse contra ataques de sobrepublicación, habilite las propiedades específicas que desee vincular, para / / obtener más información, consulte http://go.microsoft.com/fwlink/?LinkId=317598. [HttpPost][ValidateAntiForgeryToken] <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact) { if (ModelState.IsValid) { db.Contacts.Add(contact); db.SaveChanges(); return RedirectToAction("Index"); } return View(contact); } // GET: Cm/Edit/5 <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Edit(int? id) { if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); } Contact contact = db.Contacts.Find(id); if (contact == null) { return HttpNotFound(); } return View(contact); } </pre>
+1. En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. A continuación, se muestra un fragmento del código final: <pre> // GET: Cm/Create <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create() { return View(new Contact { Address = "123 N 456 W", City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT", Zip = "59405"}); } // POST: Cm/Create // To protect from overposting attacks, please enable the specific properties you want to bind to, for // more details see http://go.microsoft.com/fwlink/?LinkId=317598. [HttpPost] [ValidateAntiForgeryToken] <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact) { if (ModelState.IsValid) { db.Contacts.Add(contact); db.SaveChanges(); return RedirectToAction("Index"); } return View(contact); } // GET: Cm/Edit/5 <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Edit(int? id) { if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); } Contact contact = db.Contacts.Find(id); if (contact == null) { return HttpNotFound(); } return View(contact); } </pre>
 
 1. Si todavía tiene abierta una sesión anterior, haga clic en el enlace **Cerrar sesión**.
 1. Haga clic en los enlaces **Acerca de** o **Contacto**. Se le redirigirá a la página de inicio de sesión porque los usuarios anónimos no pueden ver estas páginas. 
@@ -487,7 +459,7 @@ En esta sección, aplicará el atributo [Authorize](http://msdn.microsoft.com/li
 
 	Se abre el asistente para **publicación web**.
 
-1. Haga clic en la pestaña  **Configuración** a la izquierda del cuadro de diálogo  **Publicación web**. Haga clic en el icono **v** para seleccionar la **cadena de conexión remota** de **ApplicationDbContext** y seleccione **ContactManagerNN_db**.
+1. Haga clic en la pestaña **Configuración** a la izquierda del cuadro de diálogo **Publicación web**. Haga clic en el icono **v** para seleccionar la **cadena de conexión remota** de **ApplicationDbContext** y seleccione **ContactManagerNN_db**.
 
    
 	![configuración](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
@@ -497,7 +469,7 @@ En esta sección, aplicará el atributo [Authorize](http://msdn.microsoft.com/li
 	![configuración](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. Haga clic en **Publicar**.
-1. Inicie sesión como  *user1@contoso.com* (con la contraseña "P_assw0rd1") y compruebe que puede editar los datos. 1. Cierre sesión.
+1. Inicie sesión como *user1@contoso.com* (con la contraseña "P_assw0rd1") y compruebe que puede editar los datos. 1. Cierre sesión.
 1. Vaya a la [consola de desarrolladores de Google](https://console.developers.google.com/) y, en la pestaña **Credenciales**, actualice los URI de redirección y los orígenes de JavaScript para usar la dirección URL de Azure.
 1. Inicie sesión utilizando Google o Facebook. De este modo, se agregará la cuenta de Google o Facebook al rol **canEdit**. Si recibe un error HTTP 400 con el mensaje *El URI de redirección de la solicitud: https://contactmanager{my https://contactmanager {mi versión}.azurewebsites.net/signin-google no coincide con una redirección URI registrada.*, tendrá que esperar hasta que se propaguen los cambios realizados. Si recibe este error después de transcurridos unos minutos, compruebe que los URI son correctos.
 
@@ -588,7 +560,7 @@ Para habilitar los botones de inicio de sesión de redes sociales que aparecen e
 
 El excelente tutorial [Introducción a EF y MVC](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) de Tom Dykstra le proporcionará información más avanzada acerca de la programación con MVC y EF.
 
-Este tutorial y la aplicación de ejemplo fueron desarrollados por  [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con la colaboración de Tom Dykstra y Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
+Este tutorial y la aplicación de ejemplo fueron desarrollados por [Rick Anderson](http://blogs.msdn.com/b/rickandy/) (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con la colaboración de Tom Dykstra y Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
 
 ***Es importante que haga comentarios*** sobre lo que le gustó o lo que le gustaría que mejorásemos, no solo en relación al tutorial en sí, sino a los productos sobre los que trata. Sus comentarios nos ayudarán a clasificar las mejoras por orden de prioridad. También puede solicitar y votar nuevos temas en [Mostrarme cómo con el código](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
@@ -653,5 +625,6 @@ Este tutorial y la aplicación de ejemplo fueron desarrollados por  [Rick Anders
 [Next steps]: #nextsteps
 
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=62-->
