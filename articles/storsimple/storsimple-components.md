@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="02/17/2015"
-   ms.author="v-sharos@microsoft.com"/>
+   ms.date="06/11/2015"
+   ms.author="v-sharos"/>
 
 
 # ¿Cuáles son los componentes de StorSimple? 
 
-Bienvenido a Microsoft Azure StorSimple, una solución de almacenamiento integrada que administra tareas de almacenamiento entre dispositivos locales y el almacenamiento en la nube de Microsoft Azure.  StorSimple está diseñado para reducir los costes de almacenamiento, simplificar la administración del almacenamiento, mejorar la funcionalidad y eficacia de la recuperación ante desastres y proporcionar movilidad de datos.
+Bienvenido a Microsoft Azure StorSimple, una solución de almacenamiento integrada que administra tareas de almacenamiento entre dispositivos locales y el almacenamiento en la nube de Microsoft Azure. StorSimple está diseñado para reducir los costes de almacenamiento, simplificar la administración del almacenamiento, mejorar la funcionalidad y eficacia de la recuperación ante desastres y proporcionar movilidad de datos.
 
-Las secciones siguientes describen los componentes de Microsoft Azure StorSimple y explican la manera en que la solución ordena los datos, asigna el almacenamiento y facilita la administración del almacenamiento y la protección de los datos. 
+Las secciones siguientes describen los componentes de Microsoft Azure StorSimple y explican la manera en que la solución ordena los datos, asigna el almacenamiento y facilita la administración del almacenamiento y la protección de los datos.
 
-> [AZURE.NOTE] La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos de la serie 8000 de StorSimple. Para obtener información acerca de los dispositivos de la serie 7000, visite: [Ayuda de StorSimple](http://onlinehelp.storsimple.com/).
+> [AZURE.NOTE]La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure se aplica solo a los dispositivos de la serie 8000 de StorSimple. Para obtener información acerca de los dispositivos de la serie 7000, visite: [StorSimple Help](http://onlinehelp.storsimple.com/)
 
 ## Dispositivo de StorSimple
 
-El dispositivo de Microsoft Azure StorSimple es una matriz de almacenamiento híbrida local que proporciona almacenamiento principal y acceso de iSCSI a los datos almacenados en otro lugar. Administra la comunicación con el almacenamiento en la nube y ayuda a garantizar la seguridad y confidencialidad de todos los datos que están almacenados en la solución de Microsoft Azure StorSimple.
+El dispositivo de Microsoft Azure StorSimple es una matriz de almacenamiento híbrida local que proporciona almacenamiento principal y acceso iSCSI a los datos almacenados en él. Administra la comunicación con el almacenamiento en la nube y ayuda a garantizar la seguridad y confidencialidad de todos los datos que están almacenados en la solución de Microsoft Azure StorSimple.
 
 El dispositivo de StorSimple incluye unidades de estado sólido (SSD) y discos duros (HDD), además de compatibilidad para agrupación en clústeres y conmutación automática por error. Contiene un procesador compartido, almacenamiento compartido y dos controladores reflejados. Cada controlador proporciona lo siguiente:
 
@@ -38,15 +38,15 @@ El dispositivo de StorSimple incluye unidades de estado sólido (SSD) y discos d
 - Actualización compatible con clústeres para administrar actualizaciones de software en servidores en un clúster de conmutación por error para que las actualizaciones tengan un efecto mínimo o nulo en la disponibilidad de servicio
 - Servicio de clúster, que funciona como un clúster back-end, proporciona alta disponibilidad y minimiza todos los efectos adversos que podrían producirse si un HDD o una SSD presentan errores o quedan sin conexión
 
-En cualquier punto del tiempo solo hay un controlador activo. Si se produce un error en el controlador activo, el segundo controlador se activa de manera automática. 
+En cualquier punto del tiempo solo hay un controlador activo. Si se produce un error en el controlador activo, el segundo controlador se activa de manera automática.
 
 Para obtener más información, consulte [Dispositivos de StorSimple](https://msdn.microsoft.com/library/azure/dn772363.aspx).
 
 ## Dispositivo virtual de StorSimple
 
-Puede usar StorSimple para crear un dispositivo virtual que replica la arquitectura y las funcionalidades del dispositivo de almacenamiento híbrido real. 
+Puede usar StorSimple para crear un dispositivo virtual que replica la arquitectura y las funcionalidades del dispositivo de almacenamiento híbrido real.
 
-El dispositivo virtual de StorSimple (también conocido como la aplicación virtual de StorSimple) se ejecuta en un solo nodo en una máquina virtual de Azure. (Un dispositivo virtual solo se puede crear en una máquina virtual de Azure. No puede crear uno en un dispositivo de StorSimple o en un servidor local). Un dispositivo virtual de StorSimple difiere de un dispositivo de StorSimple físico en lo siguiente: 
+El dispositivo virtual de StorSimple (también conocido como la aplicación virtual de StorSimple) se ejecuta en un solo nodo en una máquina virtual de Azure. (Un dispositivo virtual solo se puede crear en una máquina virtual de Azure. No puede crear uno en un dispositivo de StorSimple o en un servidor local). Un dispositivo virtual de StorSimple difiere de un dispositivo de StorSimple físico en lo siguiente:
 
 - El dispositivo virtual solo tiene una interfaz, mientras que el dispositivo físico tiene seis interfaces de red. 
 - El dispositivo virtual se registra durante la configuración del dispositivo y no como una tarea independiente.
@@ -68,25 +68,25 @@ Además del dispositivo virtual y del dispositivo dedicado de StorSimple, Micros
 
 ### Organización automática del almacenamiento en niveles
 
-Microsoft Azure StorSimple ordena automáticamente los datos en niveles lógicos según su uso actual, su antigüedad y la relación con otros datos. Los datos más activos se almacenan de manera local, mientra que los datos menos activos y los datos inactivos se migran automáticamente a la nube. El siguiente diagrama ilustra este enfoque de almacenamiento.
+Microsoft Azure StorSimple ordena automáticamente los datos en niveles lógicos según su uso actual, su antigüedad y la relación con otros datos. Los datos más activos se almacenan de manera local, mientra que los datos menos activos y los datos inactivos se migran automáticamente a la nube. La ilustración 1 muestra este enfoque de almacenamiento.
  
-![StorSimple storage tiers](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
+![Niveles de almacenamiento de StorSimple](./media/storsimple-components/hcs-data-services-storsimple-components-tiers.png)
 
-**Niveles de almacenamiento de StorSimple**
+**Figura 1: Almacenamiento de StorSimple**
 
-Para habilitar el acceso rápido, StorSimple almacena datos muy activos (datos activos) en SSD en el dispositivo StorSimple. Almacena datos que se usan de manera ocasional (datos semiactivos) en discos duros en el dispositivo o en los servidores del centro de datos. Mueve a la nube datos inactivos, datos de copia de seguridad y datos retenidos para fines de archivo o de cumplimiento. 
+Para habilitar el acceso rápido, StorSimple almacena datos muy activos (datos activos) en SSD en el dispositivo StorSimple. Almacena datos que se usan de manera ocasional (datos semiactivos) en discos duros en el dispositivo o en los servidores del centro de datos. Mueve a la nube datos inactivos, datos de copia de seguridad y datos retenidos para fines de archivo o de cumplimiento.
 
 StorSimple ajusta y reordena las asignaciones de datos y almacenamiento a medida que cambian los patrones de uso. Por ejemplo, cierta información puede volverse menos activo con el tiempo. A medida que se vuelve cada vez menos activa, migra de SSD a HDD y, a continuación, a la nube. Si esos mismos datos vuelven a activarse, se migran de vuelta al dispositivo de almacenamiento.
 
 ### Aprovisionamiento fino
 
-El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes. 
+El aprovisionamiento fino es una tecnología de virtualización en que el almacenamiento disponible parece superar los recursos físicos. En lugar de reservar almacenamiento suficiente por adelantado, StorSimple utiliza el aprovisionamiento fino para asignar solo el espacio suficiente para cumplir con los requisitos actuales. La naturaleza elástica del almacenamiento en la nube facilita este enfoque porque StorSimple puede aumentar o disminuir el almacenamiento en la nube para cumplir con las exigencias cambiantes.
 
 ### Desduplicación y compresión
 
 Microsoft Azure StorSimple utiliza la desduplicación y la compresión de datos para reducir aún más los requisitos de almacenamiento.
 
-La desduplicación disminuye la cantidad general de datos almacenados al eliminar la redundancia en el conjunto de datos almacenados. A medida que cambia la información, StorSimple omite los datos no modificados y solo captura los cambios. Además, StorSimple reduce la cantidad de datos almacenados al identificar y eliminar información innecesaria. 
+La desduplicación disminuye la cantidad general de datos almacenados al eliminar la redundancia en el conjunto de datos almacenados. A medida que cambia la información, StorSimple omite los datos no modificados y solo captura los cambios. Además, StorSimple reduce la cantidad de datos almacenados al identificar y eliminar información innecesaria.
 
 ## Windows PowerShell para StorSimple
 
@@ -98,7 +98,7 @@ Windows PowerShell para StorSimple proporciona una interfaz de línea de comando
 - Solucionar problemas del dispositivo mediante el acceso a la sesión de soporte.
 - Cambiar el estado del dispositivo.
 
-Puede tener acceso a Windows PowerShell para StorSimple desde una consola serial (en un equipo host conectado directamente al dispositivo) o de manera remota mediante el uso de la comunicación remota de Windows PowerShell. Observe que algunas tareas de Windows PowerShell para StorSimple, como el registro inicial del dispositivo, solo se pueden realizar en la consola serial. 
+Puede tener acceso a Windows PowerShell para StorSimple desde una consola serial (en un equipo host conectado directamente al dispositivo) o de manera remota mediante el uso de la comunicación remota de Windows PowerShell. Observe que algunas tareas de Windows PowerShell para StorSimple, como el registro inicial del dispositivo, solo se pueden realizar en la consola serial.
 
 Para obtener más información, consulte [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
 
@@ -128,11 +128,11 @@ StorSimple Snapshot Manager es un complemento de Microsoft Management Console (M
 - Administrar directivas de copia de seguridad para que se creen copias de seguridad de los datos según una programación predeterminada y se almacenen en una ubicación designada (localmente o en la nube).
 - Restaurar volúmenes y archivos individuales.
 
-Las copias de seguridad se capturan como instantáneas, las que solo registran los cambios desde que se capturó la última instantánea y requieren mucho menos espacio de almacenamiento que las copias de seguridad completas. Puede crear programaciones de copia de seguridad o crear copias de seguridad inmediatas, según sea necesario. De manera adicional, puede usar StorSimple Snapshot Manager para establecer directivas de retención que controlan la cantidad de instantáneas que se guardarán. Si más adelante necesita restaurar datos desde una copia de seguridad, StorSimple Snapshot Manager le permite seleccionar desde el catálogo de instantáneas locales o en la nube. 
+Las copias de seguridad se capturan como instantáneas, las que solo registran los cambios desde que se capturó la última instantánea y requieren mucho menos espacio de almacenamiento que las copias de seguridad completas. Puede crear programaciones de copia de seguridad o crear copias de seguridad inmediatas, según sea necesario. De manera adicional, puede usar StorSimple Snapshot Manager para establecer directivas de retención que controlan la cantidad de instantáneas que se guardarán. Si más adelante necesita restaurar datos desde una copia de seguridad, StorSimple Snapshot Manager le permite seleccionar desde el catálogo de instantáneas locales o en la nube.
 
 Si se produce un desastre o si debe restaurar datos por cualquier otro motivo, StorSimple Snapshot Manager los restaura de manera incremental según sea necesario. La restauración de los datos no requiere que apague todo el sistema mientras restaura un archivo, reemplaza equipo o mueve operaciones a otro sitio.
 
-Para obtener más información, consulte [StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/dn772365.aspx).
+Para obtener más información, consulte [Snapshot Manager de StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
 ## Adaptador de StorSimple para SharePoint
 
@@ -140,7 +140,7 @@ Microsoft Azure StorSimple incluye el adaptador de StorSimple para SharePoint, u
 
 El adaptador de StorSimple para SharePoint se administra desde el Portal de administración central de SharePoint. Por consiguiente, la administración de SharePoint sigue siendo centralizada y todo el almacenamiento pareciera encontrarse en la granja de SharePoint.
 
-Para obtener más información, consulte [Adaptador de StorSimple para SharePoint](https://msdn.microsoft.com/library/azure/dn757737.aspx). 
+Para obtener más información, consulte [Adaptador de StorSimple para SharePoint](https://msdn.microsoft.com/library/azure/dn757737.aspx).
 
 
 ## Pasos siguientes
@@ -150,6 +150,6 @@ Revise las [notas de la versión de StorSimple](https://msdn.microsoft.com/libra
 
 
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

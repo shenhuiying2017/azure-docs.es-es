@@ -61,4 +61,4 @@ El tamaño de la instancia del plan de hospedaje (pequeño, mediano o grande).
     
 La plantilla define los valores que se permiten para este parámetro (0, 1 o 2) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los valores corresponden a pequeño, mediano y grande.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="05/20/2015" 
 	ms.author="kathydav"/>
 
 #Chef y Máquinas virtuales de Azure
 
-Chef proporciona un sistema de automatización para crear, implementar y administrar su infraestructura. Los recursos se administran utilizando recetas, que son definiciones reutilizables que proporcionan instrucciones para tareas como, por ejemplo, configurar un servidor web.   
+Chef proporciona un sistema de automatización para crear, implementar y administrar su infraestructura. Los recursos se administran utilizando recetas, que son definiciones reutilizables que proporcionan instrucciones para tareas como, por ejemplo, configurar un servidor web.
 
-Chef es un sistema cliente-servidor. Para conocer las opciones que tiene a su disposición para utilizar un servidor Chef, consulte [Elección de su instalación](http://www.getchef.com/chef/choose-your-version/). Necesitará información acerca del servidor Chef para configurar el cliente. 
+Chef es un sistema cliente-servidor. Para conocer las opciones que tiene a su disposición para usar un servidor Chef, consulte [Elección de su instalación](http://www.getchef.com/chef/choose-your-version/). Necesitará información acerca del servidor Chef para configurar el cliente.
 
 Para instalar el cliente de Chef en una máquina virtual de Azure, puede seguir una de las opciones siguientes:
 
@@ -40,11 +40,11 @@ Para instalar el cliente de Chef en una máquina virtual de Azure, puede seguir 
 
 <!--Link references-->
 [Chef y Microsoft Azure]: http://www.getchef.com/solutions/azure/
-[Inicio de sesión en una máquina virtual con Windows Server]: ../virtual-machines-log-on-windows-server/
-[Inicio de sesión en una máquina virtual con Linux]: ../virtual-machines-linux-how-to-log-on
+[Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-log-on-windows-server.md
+[Inicio de sesión en una máquina virtual con Linux]: virtual-machines-linux-how-to-log-on.md
 [Administración de extensiones]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO1-->

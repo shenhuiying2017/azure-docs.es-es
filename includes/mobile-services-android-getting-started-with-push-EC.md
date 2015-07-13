@@ -129,4 +129,4 @@
 <!-- URLs. -->
 [SDK de Android para Servicio móviles]: http://aka.ms/Iajk6q
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -17,9 +17,9 @@
 	ms.date="05/07/2015" 
 	ms.author="paulettm"/>
 
-#Preguntas más frecuentes (P+F) de Aprendizaje automático de Azure: facturación, capacidades, limitaciones y compatibilidad
+#Preguntas más frecuentes de Aprendizaje automático de Azure: facturación, capacidades, limitaciones y compatibilidad
 
-Las preguntas más frecuentes son preguntas y respuestas sobre Aprendizaje automático de Azure, un servicio de nube para soluciones de funcionamiento y modelado de predicción a través de servicios web. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad.
+Las preguntas más frecuentes son preguntas y respuestas sobre Aprendizaje automático de Azure, un servicio en la nube para soluciones de funcionamiento y modelado de predicción a través de servicios web. Estas preguntas más frecuentes cubre las preguntas acerca de cómo utilizar el servicio, incluido el modelo de facturación, las capacidades, las limitaciones y la compatibilidad.
  
 ##Preguntas generales
 
@@ -93,8 +93,7 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
-<!--
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. <!--
 <SEE CLOUD DS PROCESS>
 -->
 
@@ -305,4 +304,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

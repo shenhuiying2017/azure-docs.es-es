@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/02/2015" 
 	ms.author="wesmc"/>
 # Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">C# de Tienda Windows</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 ##Información general
@@ -108,7 +108,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 
 	De este modo se configura el token del dispositivo para la solicitud.
 
-	> [AZURE.NOTE] En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó al completar el tutorial [Introducción a los Centros de notificaciones],(/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") debe convertir en comentario o quitar esa llamada.
+	> [AZURE.NOTE]En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), debe convertir la llamada en comentario o borrarla.
 
 10.	En el archivo PushToUserAppDelegate.m, agregue el siguiente método de controlador:
 
@@ -232,7 +232,8 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 <!-- URLs. -->
 [Notificación a los usuarios con los Centros de notificaciones]: /manage/services/notification-hubs/notify-users-aspnet
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

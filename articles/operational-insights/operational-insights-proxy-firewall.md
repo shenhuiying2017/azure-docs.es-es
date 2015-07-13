@@ -27,7 +27,8 @@ Para que Microsoft Monitoring Agent se conecte y se registre con el servicio de 
 
 |**Recurso del agente**|**Puertos**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|Puerto 443|
+|*.ods.opinsights.azure.com|Port 443|
+|*.oms.opinsights.azure.com|Puerto 443|
 |ods.systemcenteradvisor.com|Puerto 443|
 |*.blob.core.windows.net/*|Puerto 443|
 
@@ -85,7 +86,11 @@ Para que el grupo de administración de Operations Manager se conecte y se regis
 
 |**Recurso del servidor de administración**|**Puertos**|
 |--------------|-----|
-|*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|Puerto 443|
+|*.ods.opinsights.azure.com|Port 443|
+|service.systemcenteradvisor.com|Port 443|
+|scadvisor.accesscontrol.windows.net|Port 443|
+|scadvisorservice.accesscontrol.windows.net|Port 443|
+|*.blob.core.windows.net/*|Puerto 443|
 |data.systemcenteradvisor.com|Puerto 443|
 |ods.systemcenteradvisor.com|Puerto 443|
 |*.systemcenteradvisor.com|Port 443|
@@ -93,8 +98,10 @@ Para que el grupo de administración de Operations Manager se conecte y se regis
 
 |**Recurso de la consola de Operations Manager y Visión operativa**|**Puertos**|
 |---|---|
-|*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|Puerto 80 y 443|
-|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
+|*.systemcenteradvisor.com|Port 80 and 443|
+|*.live.com|Puerto 80 y 443|
+|*.microsoftonline.com|Port 80 and 443|
+|login.windows.net|Port 80 and 443|
 
 
 Utilice los procedimientos siguientes para registrar el grupo de administración de Operations Manager con el servicio de Visión operativa. Si tiene problemas de comunicación entre el grupo de administración y el servicio de Visión operativa, use los procedimientos de validación para solucionar los problemas de transmisión de datos al servicio de Visión operativa.
@@ -169,5 +176,6 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 3. Agregue todos los contadores que comienzan con **HTTP**.![agregar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Si la configuración de Operations Manager es correcta, verá actividad para los contadores de Administración de Servicio de mantenimiento para eventos y otros elementos de datos, según los módulos de administración que agregó en Visión operativa y la directiva de recopilación de registros configurada.![Monitor rendimiento mostrando actividad](./media/operational-insights-proxy-firewall/sendingdata2.png)
  
+<!--BugFixing Comment-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

@@ -2,6 +2,7 @@
 	pageTitle="Autorización de usuarios del lado servidor en Servicios móviles con el back-end de JavaScript | Centro de desarrollo móvil"
 	description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure"
 	services="mobile-services"
+	documentationCenter=""
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="javascript"
+	ms.date="05/20/2015"
 	ms.author="krisragh"/>
 
 # Autorización de usuarios del lado servidor en Servicios móviles
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-En este tema se muestra cómo usar scripts del lado servidor para autorizar a los usuarios. En este tutorial, registrará scripts con Servicios móviles de Azure, filtrará consultas según el identificador de usuario y proporcionará a los usuarios acceso solamente a sus propios datos.
+En este tema se muestra cómo usar scripts del lado servidor para autorizar a los usuarios. En este tutorial, registrará scripts con Servicios móviles de Azure, filtrará consultas según el identificador de usuario y proporcionará a los usuarios acceso solamente a sus propios datos. Filtrar los resultados de consulta de un usuario por el identificador de usuario es la forma más básica de autorización. Según cada escenario específico, también conviene crear tablas de usuarios o de roles para realizar un seguimiento de la información de autorización de usuario más detallada, como los extremos a los que un usuario determinado tiene permiso de acceso.
 
 Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutorial [Agregar autenticación a la aplicación de Servicios móviles existente]. Complete primero [Agregar autenticación a la aplicación de Servicios móviles existente].
 
@@ -28,29 +30,23 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego haga clic en el servicio móvil. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
-2. Haga clic en **Script** y, a continuación, seleccione la operación **Insert**.
-
-   	![][2]
-
-3. Sustituya el script existente por la siguiente función y luego haga clic en **Guardar**. Este script agrega el identificador de usuario del usuario autenticado al elemento antes de la inserción.
+2. Haga clic en **Script**, seleccione la operación **Insertar**, sustituya el script existente por la siguiente función y haga clic en **Guardar**.
 
         function insert(item, user, request) {
           item.userId = user.userId;
           request.execute();
         }
 
+	Este script agrega el identificador de usuario del usuario autenticado al elemento antes de la inserción.
 
-    > [AZURE.NOTE] [Dynamic schema must be enabled](https://msdn.microsoft.com/library/azure/jj193175.aspx) para que funcione. Esta configuración está habilitada de forma predeterminada para nuevos servicios móviles.
+    >[AZURE.NOTE]Asegúrese de que el [esquema dinámico](https://msdn.microsoft.com/library/azure/jj193175.aspx) esté habilitado. De lo contrario, la columna *userId* no se agrega automáticamente. Esta configuración está habilitada de forma predeterminada para un nuevo servicio móvil.
 
-5. Del mismo modo, reemplace la operación **Read** existente con la siguiente función. Este script filtra los objetos TodoItem devueltos de manera que un usuario solo recibe los elementos que inserte.
+3. Del mismo modo, reemplace la operación **Read** existente con la siguiente función. Este script filtra los objetos TodoItem devueltos de manera que un usuario solo recibe los elementos que inserte.
 
         function read(query, user, request) {
            query.where({ userId: user.userId });
            request.execute();
         }
-
-
-
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
@@ -63,21 +59,15 @@ Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutoria
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
-[1]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
-[2]: ./media/mobile-services-javascript-backend-service-side-authorization/mobile-insert-script-users.png
-[3]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
 
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-with-data-ios
 [Agregar autenticación a la aplicación de Servicios móviles existente]: /develop/mobile/tutorials/get-started-with-users-ios
-[Add Push Notifications to Existing App]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

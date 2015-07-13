@@ -25,4 +25,4 @@ Ahora ha creado un servicio móvil que pueden usar sus aplicaciones móviles.
 <!-- URLs. -->
 [Portal de administración]: https://manage.windowsazure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

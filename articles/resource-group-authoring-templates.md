@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz;ilygre"/>
+   ms.date="06/22/2015"
+   ms.author="tomfitz"/>
 
 # Crear plantillas del Administrador de recursos de Azure
 
@@ -397,9 +397,9 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 
 ## Pasos siguientes
 - [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resource-group-template-deploy.md)
+- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
+- [Implementación predecible de una aplicación compleja en Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 
-<!---HONumber=58-->
-
+<!---HONumber=July15_HO1-->

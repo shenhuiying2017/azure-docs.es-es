@@ -1,60 +1,86 @@
 
 <properties 
-    pageTitle="Solución de problemas con las colecciones híbridas: creación"
+    pageTitle="Solución de problemas de creación de colecciones híbridas de RemoteApp"
     description="Obtenga información sobre cómo solucionar problemas con la creación de las colecciones híbridas de RemoteApp" 
     services="remoteapp" 
-    solutions=""
-    documentationCenter="" 
+    solutions="" documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
-    ms.author="vikbucha" />
+    ms.date="06/30/2015" 
+    ms.author="elizapo" />
 
 
 
-# Solución de problemas con las colecciones híbridas: creación
+# Solución de problemas de creación de colecciones híbridas de Azure RemoteApp
 
-Antes de que pueda solucionar problemas que se producen durante la creación de colecciones híbridas, es importante comprender cómo se crean las colecciones híbridas. Una colección híbrida requiere que las instancias de RemoteApp estén unidas a un dominio; esto se hace durante la creación de la colección.  Cuando se inicia el proceso de creación de la colección, en la red virtual se crean copias de las imágenes de plantilla que cargó y se unen a un dominio a través del túnel VPN de sitio a sitio al dominio resuelto por el registro de IP de DNS especificado durante la creación de la red virtual.
+Una colección híbrida se hospeda en y almacena los datos en la nube de Azure, pero también permite a los usuarios acceder a datos y recursos almacenados en la red local. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus credenciales corporativas sincronizadas o federadas con Azure Active Directory. Puede implementar una colección híbrida que use una red virtual de Azure existente o bien puede crear una nueva red virtual. Se recomienda crear o utilizar una subred de red virtual con un rango de CIDR lo suficientemente grande como para cubrir el crecimiento futuro esperado para Azure RemoteApp.
 
-Errores comunes vistos en el Portal de administración de Azure:
+¿Todavía no ha creado la colección? Consulte los pasos en [Creación de una colección híbrida](remoteapp-create-hybrid-deployment.md).
 
-	DNS server could not be reached
+Si tiene problemas al crear la colección, o si la colección no funciona del modo esperado, consulte la siguiente información.
 
-	Could not join the domain. Unable to reach the domain.
+## ¿La red virtual utiliza tunelización forzada? ##
+Actualmente RemoteApp no admite el uso de redes virtuales en las que esté habilitada la tunelización forzada. Si necesita esta función, póngase en contacto con el equipo de RemoteApp para solicitar soporte técnico.
 
-Si ve alguno de los errores mencionados, revise lo siguiente:
+Una vez aprobada la solicitud, asegúrese de que estén abiertos los puertos siguientes en la subred que eligió para Azure RemoteApp y las máquinas virtuales de la subred. Las máquinas virtuales de las subredes también deben poder obtener acceso a las direcciones URL que se mencionan en la sección acerca de los grupos de seguridad de red.
 
-- Compruebe que las configuraciones de IP de DNS son válidas
-- Asegúrese de que los registros de IP de DNS son registros de IP pública o forman parte del "espacio de direcciones locales" que especificó durante la creación de la red virtual.
-- Compruebe que el túnel de la red virtual esté activo o conectado 
-- Asegúrese de que el lado local de la conexión VPN no esté bloqueando el tráfico de la red. Para comprobarlo, observe los registros del software o del dispositivo de VPN local.
-- Asegúrese de que el dominio que especificó durante la creación de la colección esté activo y en ejecución.
+Salientes - TCP: 443, TCP: 10101-10175
 
-	ProvisioningTimeout
+## ¿La red virtual tiene grupos de seguridad de red definidos? ##
+Si ha definido grupos de seguridad de red en la subred que utiliza para la colección, asegúrese de que se puede acceder a las direcciones URL siguientes desde la subred:
 
+	https://management.remoteapp.windowsazure.com  
+	https://opsapi.mohoro.com  
+	https://telemetry.remoteapp.windowsazure.com  
+	https://*.remoteapp.windowsazure.com  
+	https://login.windows.net (if you have Active Directory)  
+	https://login.microsoftonline.com  
+	Azure storage *.remoteapp.windowsazure.com  
+	*.core.windows.net  
+	https://www.remoteapp.windowsazure.com  
+	https://www.remoteapp.windowsazure.com  
 
-Si ve este error, revise lo siguiente:
+Abra los puertos siguientes en la subred de red virtual:
 
-- Asegúrese de que el lado local de la conexión VPN no esté bloqueando el tráfico de la red. Para comprobarlo, observe los registros del software o del dispositivo de VPN local.
-- Asegúrese de que la imagen de plantilla de RemoteApp que cargó esté preparada correctamente con sysprep. Puede revisar aquí los requisitos de imagen de RemoteApp.: http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/ 
-- Intente crear una máquina virtual con la imagen de plantilla que cargó y asegúrese de que arranca y se ejecuta de manera correcta (a) en un servidor Hyper-V local o (b) al crear una máquina virtual de IAAS de Azure en la suscripción de Azure. Si no es posible crear la máquina virtual o si esta no se inicia, normalmente se debe a que la imagen de plantilla no se preparó correctamente y será necesario corregirla.
+Entrantes - TCP: 3030, TCP: 443 Saliente - TCP: 443
 
-	DomainJoinFailed_InvalidUserNameOrPassword
+Puede agregar grupos de seguridad de red adicionales a las red virtuales que implemente en la subred para disponer de un control más estricto.
 
-	DomainJoinFailed_InvalidParameter
+## ¿Utiliza sus propios servidores DNS? ¿Son accesibles desde la subred de red virtual? ##
+En las colecciones híbridas utiliza sus propios servidores DNS. Los especifica en el esquema de configuración de red o a través del Portal de administración al crear la red virtual. Los servidores DNS se utilizan en el orden en que se especifican en forma de conmutación por error (como oposición a round robin).
 
-Si ve alguno de los errores mencionados, revise lo siguiente:
+Asegúrese de que los servidores DNS de la colección son accesibles y están disponibles en la subred de red virtual especificada para esta colección.
 
-- Compruebe que las credenciales escritas para la unión a un dominio son válidas.
-- Compruebe que las credenciales de unión a un dominio son correctas o que se cuenta con los permisos de unión a un dominio adecuados.
-- Compruebe que la unidad organizativa tenga el formato correcto y que exista en Active Directory.
+Por ejemplo:
 
+	<VirtualNetworkConfiguration>
+    <Dns>
+      <DnsServers>
+        <DnsServer name="" IPAddress=""/>
+      </DnsServers>
+    </Dns>
+	</VirtualNetworkConfiguration>
 
-<!--HONumber=52--> 
+![Definir el DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
+
+Para obtener más información, consulte [Resolución de nombres con su propio servidor DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
+
+## ¿Utiliza un controlador de dominio de Active Directory en la colección? ##
+Actualmente solo se puede asociar un dominio de Active Directory con Azure RemoteApp. La colección híbrida solo admite cuentas de Azure Active Directory que se hayan sincronizado con la herramienta DirSync desde una implementación de Windows Server Active Directory; en concreto, sincronizadas con la opción Sincronización de contraseña o bien con la opción de federación de Servicios de federación de Active Directory (AD FS) configurada. Deberá crear un dominio personalizado que coincida con el sufijo UPN del dominio del dominio local para, a continuación, configurar la integración de directorio.
+
+Consulte [Configuración de Active Directory para Azure RemoteApp](remoteapp-ad.md) para obtener información.
+
+Asegúrese de que los detalles de dominio proporcionados son válidos y de que se puede acceder al controlador de dominio desde la máquina virtual creada en la subred que se utiliza para Azure RemoteApp. Asegúrese también de que las credenciales de cuenta de servicio suministradas tienen permisos para agregar equipos al dominio proporcionado y de que el nombre de AD indicado se puede resolver a partir del DNS proporcionado en la red virtual.
+
+## ¿Qué nombre de dominio especificó al crear la colección? ##
+
+El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
+
+<!---HONumber=July15_HO1-->

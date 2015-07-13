@@ -1,4 +1,3 @@
-
 # Desconexión de un disco de datos de una máquina virtual 
 
 Cuando ya no necesite un disco de datos que se encuentra conectado a una máquina virtual, puede desconectarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
@@ -35,4 +34,4 @@ El disco permanece en el almacenamiento pero ya no está acoplado a una máquina
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

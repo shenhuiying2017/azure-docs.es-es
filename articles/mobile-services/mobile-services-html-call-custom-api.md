@@ -3,18 +3,17 @@
 	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación de HTML que utiliza Servicios móviles de Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ggailey777" 
-	writer="jparrel" 
+	authors="bureado"  
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Llamada a una API personalizada desde una aplicación HTML
@@ -25,19 +24,13 @@ En este tema se muestra cómo realizar una llamada a una API personalizada desde
 
 La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completada en `true` para todos los elementos todo en la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles] o de [Introducción a los datos]. Para hacer esto, debe completar los siguientes pasos:
-
-1. [Definición de la API personalizada]
-2. [Actualización de la aplicación para llamar a la API personalizada]
-3. [Prueba de la aplicación] 
-
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Introducción a los datos].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente].
 
 ## <a name="define-custom-api"></a>Definición de la API personalizada
 
 [AZURE.INCLUDE [mobile-services-create-custom-api](../../includes/mobile-services-create-custom-api.md)]
 
-<h2><a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada</h2>
+##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
 1. Mediante el editor de texto, abra el archivo index.html, busque el elemento **button** llamado `buttonRefresh` y agregue el siguiente elemento nuevo justo después de él: 
 
@@ -79,19 +72,24 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 ## Pasos siguientes
 
-Ahora que ha creado una API personalizada y la llamó desde su aplicación HTML, considere la posibilidad de profundizar más sobre los siguientes temas de Servicios móviles:
+En este tema se ha explicado cómo usar la función **invokeApi** para llamar a una API personalizada bastante sencilla desde su aplicación de HTML/JavaScript. Para obtener más información acerca de la función **invokeApi**, consulte la publicación [API personalizada en Servicios móviles de Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+
+También, considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
 * [Referencia del script del servidor de Servicios móviles] <br/>Obtenga más información sobre la creación de API personalizadas.
 
+* [Almacenamiento de scripts de servidor en control de código fuente] <br/>Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
+
 <!-- Anchors. -->
-[Definición de la API personalizada]: #define-custom-api
-[Actualización de la aplicación para llamar a la API personalizada]: #update-app
-[Prueba de la aplicación]: #test-app
+[Define the custom API]: #define-custom-api
+[Update the app to call the custom API]: #update-app
+[Test the app]: #test-app
 [Next Steps]: #next-steps
 
 <!-- URLs. -->
 [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
 [Introducción a los Servicios móviles]: mobile-services-html-get-started.md
-[Introducción a los datos]: mobile-services-html-get-started-data.md
-<!--HONumber=54--> 
+[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-html-get-started-data.md
+[Almacenamiento de scripts de servidor en control de código fuente]: mobile-services-store-scripts-source-control.md
+
+<!---HONumber=July15_HO1-->

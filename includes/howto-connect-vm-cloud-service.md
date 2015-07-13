@@ -1,4 +1,3 @@
-
 Las máquinas virtuales siempre se colocan en un servicio en la nube, que actúa como contenedor y proporciona un único nombre DNS público, una dirección IP pública y un conjunto de extremos para tener acceso a la máquina virtual a través de Internet. El servicio en la nube opcionalmente puede estar en una red virtual.
 
 Si no es un servicio en la nube en una red virtual, se denomina un servicio en la nube *independiente*. Las máquinas virtuales de dicho servicio en la nube solo pueden comunicarse con otras máquinas virtuales mediante el uso de nombres DNS públicos de las otras máquinas virtuales, y ese tráfico viajará a través de Internet. Si un servicio en la nube está en una red virtual, las máquinas virtuales de ese servicio en la nube pueden comunicarse con todas las otras máquinas virtuales de la red virtual sin enviar tráfico a través de Internet.
@@ -49,4 +48,4 @@ Después de haber creado una máquina virtual, es conveniente agregar un disco d
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

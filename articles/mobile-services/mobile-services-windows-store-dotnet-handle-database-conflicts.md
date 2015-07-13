@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Control de conflictos de escritura de bases de datos
@@ -31,7 +31,7 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido para
 
 Este tutorial requiere lo siguiente:
 
-+ Microsoft Visual Studio 2012 Express para Windows o posterior.
++ Microsoft Visual Studio 2013 o posterior.
 + Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles]. 
 + [Cuenta de Azure]
 + Paquete de NuGet de Servicios móviles de Azure 1.1.0 o posterior. Para obtener la última versión, siga los pasos a continuación:
@@ -66,12 +66,7 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
 		</ListView>
 
 
-3. En MainPage.xaml.cs, agregue la siguiente directiva `using` en la parte superior de la página.
-
-		using System.Threading.Tasks;
-
-
-4. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs. Agregue el controlador de eventos a la MainPage para el evento `LostFocus` de TextBox como se muestra a continuación.
+4. En el Explorador de soluciones de Visual Studio, abra MainPage.cs en el proyecto compartido. Agregue el controlador de eventos a la MainPage para el evento `LostFocus` de TextBox como se muestra a continuación.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -86,7 +81,7 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
             }
         }
 
-4. En MainPage.xaml.cs, agregue la definición para el método `UpdateToDoItem()` de MainPage con referencia en el controlador de eventos, como se muestra a continuación.
+4. En MainPage.cs para el proyecto compartido, agregue la definición para el método `UpdateToDoItem()` de MainPage con referencia en el controlador de eventos, como se muestra a continuación.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -112,8 +107,8 @@ Ahora la aplicación escribe los cambios del texto en cada elemento devuelto a l
 
 En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El [control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
 
-1. En MainPage.xaml.cs, actualice la definición de clase de **TodoItem** con el siguiente código para incluir la propiedad del sistema **__version** que permite la compatibilidad para la detección de conflictos de escritura: 
-		
+1. Abra TodoItem.cs en el proyecto compartido y actualice la definición de clase `TodoItem` con el código siguiente para que incluya la propiedad del sistema `__version` que permite la compatibilidad de la detección de conflictos de escritura.
+
 		public class TodoItem
 		{
 			public string Id { get; set; }			
@@ -133,7 +128,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
 
 
-2. Al agregar la propiedad `Version` a la clase `TodoItem`, la aplicación recibirá una notificación con una excepción `MobileServicePreconditionFailedException` durante una actualización si el registro ha cambiado desde la última consulta. Esta excepción incluye la última versión del elemento desde el servidor. En MainPage.xaml.cs, agregue el siguiente código para controlar la excepción en el método `UpdateToDoItem()`.
+2. Al agregar la propiedad `Version` a la clase `TodoItem`, la aplicación recibirá una notificación con una excepción `MobileServicePreconditionFailedException` durante una actualización si el registro ha cambiado desde la última consulta. Esta excepción incluye la última versión del elemento desde el servidor. En MainPage.cs para el proyecto compartido, agregue el siguiente código para controlar la excepción en el método `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -167,7 +162,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. En MainPage.xaml.cs, agregue la definición para el método `ResolveConflict()` al que se hace referencia en `UpdateToDoItem()`. Tenga en cuenta que, para resolver el conflicto, debe configurar la versión local del elemento a la versión actualizada desde el servidor antes de confirmar la decisión del usuario. De lo contrario, experimentará continuamente el conflicto.
+3. En MainPage.cs, agregue la definición para el método `ResolveConflict()` al que se hace referencia en `UpdateToDoItem()`. Tenga en cuenta que, para resolver el conflicto, debe configurar la versión local del elemento a la versión actualizada desde el servidor antes de confirmar la decisión del usuario. De lo contrario, experimentará continuamente el conflicto.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
@@ -369,5 +364,6 @@ Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows pa
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

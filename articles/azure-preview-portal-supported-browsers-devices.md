@@ -17,7 +17,7 @@
 	ms.date="11/16/2014" 
 	ms.author="justbe"/>
 
-# Exploradores y dispositivos compatibles
+#Exploradores y dispositivos compatibles
 El Portal de Microsoft Azure Preview se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
 
 ### Dispositivos compatibles
@@ -33,5 +33,4 @@ Son compatibles las últimas versiones de los siguientes exploradores:
 
 *No son compatibles Safari 6 y versiones anteriores. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

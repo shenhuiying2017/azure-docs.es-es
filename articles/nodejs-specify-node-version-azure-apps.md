@@ -1,21 +1,6 @@
-<properties 
-	pageTitle="Especificación de una versión de Node.js" 
-	description="" 
-	services="" 
-	documentationCenter="nodejs" 
-	title="Specifying a Node.js version in an Azure application" 
-	authors="larryfr" 
-	manager="wpickett" 
-	editor="mollybos" />
+<properties pageTitle="Especificación de una versión de Node.js" description="Aprenda a especificar la versión de Node.js que usan Sitios web Azure y Servicios en la nube" services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags 
-	ms.service="na" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr" />
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
 
 
 
@@ -25,17 +10,18 @@
 
 Cuando hospeda una aplicación de Node.js, es posible que desee asegurarse de que su aplicación utiliza una versión específica de Node.js. Hay muchas maneras de hacer esto con las aplicaciones hospedadas en Azure.
 
-## Versiones predeterminadas
+##Versiones predeterminadas
 
-Actualmente Azure proporciona las versiones 0.6.17, 0.6.20 y 0.8.4 de Node.js. A menos que se especifique lo contrario, 0.6.20 es la versión predeterminada que se utilizará.
+Las versiones de Node.js que Azure proporciona se actualizan constantemente. A menos que se especifique lo contrario, se usará la versión disponible más reciente. Actualmente se incluyen las siguientes versiones:
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si hospeda su aplicación en un servicio en la nube de Azure (rol web o de trabajo) y es primera vez que ha implementado la aplicación, Azure intentará utilizar la misma versión de Node.js que ha instalado en su entorno de desarrollo si coincide con una de las versiones predeterminadas disponibles en Azure.</p>
-</div>
+- 0.12.x: 0.12.0
+- 0.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5
+- 0.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2
+- 0.6.x: 0.6.20, 0.6.17
 
+> [AZURE.NOTE]Si hospeda su aplicación en un servicio en la nube de Azure (rol web o de trabajo) y es primera vez que ha implementado la aplicación, Azure intentará utilizar la misma versión de Node.js que ha instalado en su entorno de desarrollo si coincide con una de las versiones predeterminadas disponibles en Azure.
 
-## Control de versiones con package.json
+##Control de versiones con package.json
 
 Puede especificar la versión de Node.js que se va a utilizar si agrega lo siguiente a su archivo **package.json**:
 
@@ -47,15 +33,18 @@ Donde *version* es el número específico de la versión que se utilizará. Pued
 
 Como 0.6.22 no es una de las versiones disponibles en el entorno de hospedaje, se utilizará en su lugar la versión superior de la serie 0.8 que se encuentra disponible, es decir, 0.8.4.
 
-## Control de versiones de Servicios en la nube con PowerShell
+##Control de versiones de sitios web con configuración de aplicaciones
+Si hospeda la aplicación en un sitio web, puede definir la variable de entorno **WEBSITE_NODE_DEFAULT_VERSION** en la versión deseada.
 
-Si hospeda la aplicación en un servicio en la nube y la aplicación se implementa con Azure PowerShell, puede reemplazar la versión predeterminada de Node.js mediante el uso del cmdlet de **Set-AzureServiceProjectRole**. Por ejemplo:
+##Control de versiones de Servicios en la nube con PowerShell
+
+Si hospeda la aplicación en un servicio en la nube y la aplicación se implementa con Azure PowerShell, puede reemplazar la versión predeterminada de Node.js mediante el uso del cmdlet **Set-AzureServiceProjectRole** de PowerShell. Por ejemplo:
 
 	Set-AzureServiceProjectRole WebRole1 node 0.8.4
 
 También puede utilizar **Get-AzureServiceProjectRoleRuntime** para recuperar una lista de las versiones disponibles de Node.js para las aplicaciones hospedadas como Servicio en la nube.
 
-## Uso de una versión personalizada con Sitios web Azure
+##Uso de una versión personalizada con Sitios web Azure
 
 A pesar de que Azure proporciona varias versiones predeterminadas de Node.js, es posible que desee utilizar una versión que no se brinda de manera predeterminada. Si su aplicación está hospedada como un sitio web de Azure, puede hacer esto con el archivo **iisnode.yml**. Los siguientes pasos describen el proceso de usar una versión personalizada de Node.js con un sitio web Azure:
 
@@ -95,15 +84,13 @@ A pesar de que Azure proporciona varias versiones predeterminadas de Node.js, es
 
 	Cuando se haya publicado la aplicación, abra el sitio web en un explorador. Debe aparecer un mensaje que diga "Hello from Azure running node version: v0.8.1".
 
-## Pasos siguientes
+##Pasos siguientes
 
-Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicación, obtenga más información acerca del [funcionamiento con módulos], la [compilación e implementación de un sitio web Node.js] y el [Uso de las herramientas de línea de comandos de Azure para Mac y Linux].
+Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicación, obtenga más información acerca del [funcionamiento con módulos], la [compilación e implementación de un sitio web Node.js] y [Uso de las herramientas de línea de comandos de Azure para Mac y Linux].
 
-[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: /es-es/documentation/articles/xplat-cli/
-[Herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
-[funcionamiento con módulos]: /es-es/documentation/articles/nodejs-use-node-modules-azure-apps/
-[compilación e implementación de un sitio web de Node.js]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+[Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: xplat-cli.md
+[herramientas de línea de comandos de Azure]: xplat-cli.md
+[funcionamiento con módulos]: nodejs-use-node-modules-azure-apps.md
+[compilación e implementación de un sitio web Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!---HONumber=July15_HO1-->

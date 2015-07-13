@@ -61,4 +61,4 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

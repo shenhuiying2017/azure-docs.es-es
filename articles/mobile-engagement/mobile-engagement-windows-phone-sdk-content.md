@@ -11,7 +11,7 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="C#" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
@@ -35,5 +35,6 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 - `EngagementIconCloseDark.png`: el icono "Cerrar" de la notificación de Cobertura de Engagement para el tema oscuro de Windows Phone.
 
 - `EngagementConfiguration.xml`: el archivo de configuración de Mobile Engagement, donde puede personalizar la configuración de Engagement (cadena de conexión, bloqueo de informes, etc.).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

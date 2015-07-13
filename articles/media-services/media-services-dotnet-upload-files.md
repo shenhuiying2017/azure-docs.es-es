@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,38 +21,35 @@
 #Cargar archivos en una cuenta de Servicios multimedia mediante .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md). 
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
-En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
+En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
 Los archivos del recurso se denominan **archivos de recursos**. La instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
 
-Al crear recursos, puede especificar las siguientes opciones de cifrado. 
+Al crear recursos, puede especificar las siguientes opciones de cifrado.
 
-- **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento.
-Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
+- **Ninguno**: no se utiliza cifrado. Este es el valor predeterminado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
 - **CommonEncryption**: utilice esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
 - **EnvelopeEncrypted**: utilice esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 - **StorageEncrypted**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 
 	Los Servicios multimedia proporcionan cifrado de almacenamiento en disco para sus recursos, no por cable como el administrador de derechos digitales (DRM).
 
-	Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, vea [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
+	Si el recurso tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncypted**, deberá asociar el recurso con una **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](media-services-dotnet-create-contentkey.md). 
+Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o una opción **EnvelopeEncypted**, deberá asociar el recurso con una **ContentKey**. Para obtener más información, consulte [Creación de una ContentKey](media-services-dotnet-create-contentkey.md).
 
-Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted****ContentKey** para el recurso.
+Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted** **ContentKey** para el recurso.
 
->[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+>[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
 
-## Cargar archivos con el SDK de Servicios multimedia para .NET  
-
  
-### Cargar un solo archivo
+## Carga de un solo archivo con el SDK .NET de Servicios multimedia 
 
-El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas siguientes: 
+El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas siguientes:
 
 - Crea un activo vacío.
 - Crea una instancia de AssetFile que necesitamos asociar con el recurso.
@@ -94,7 +91,7 @@ El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas sigu
             return inputAsset;
 		}
 
-###Cargar varios archivos
+##Carga de varios archivos con el SDK .NET de Servicios multimedia 
 
 El código siguiente muestra cómo crear un activo y cargar varios archivos.
 
@@ -106,13 +103,13 @@ El código hace lo siguiente:
  	
 - 	Crea una instancia de **Locator** que proporciona acceso al recurso.
  	
-- 	Crea una instancia de **BlobTransferClient**. Este tipo representa a un cliente que funciona en los blobs de Azure. En este ejemplo, usamos al cliente para supervisar el progreso de carga. 
+- 	Crea una instancia de **BlobTransferClient**. Este tipo representa a un cliente que funciona en los blobs de Azure. En este ejemplo, usamos al cliente para supervisar el progreso de carga.
  	
 - 	Enumera los archivos en el directorio especificado y crea una instancia de **AssetFile** para cada archivo.
  	
-- 	Carga los archivos en los Servicios multimedia con el método **UploadAsync**. 
+- 	Carga los archivos en los Servicios multimedia con el método **UploadAsync**.
  	
->[AZURE.NOTE] Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
+>[AZURE.NOTE]Use el método UploadAsync para asegurarse de que las llamadas no provocan un bloqueo y los archivos se cargan en paralelo.
  	
  	
 	static public IAsset CreateAssetAndUploadMultipleFiles(AssetCreationOptions assetCreationOptions, string folderPath)
@@ -177,11 +174,11 @@ Al cargar un número elevado de recursos, tenga en cuenta lo siguiente.
 
 - Cree un nuevo objeto **CloudMediaContext** por subproceso. La clase **CloudMediaContext** no es segura para subprocesos.
  
-- Aumente NumberOfConcurrentTransfers desde el valor predeterminado de 2 a un valor superior como 5. La configuración de esta propiedad afecta a todas las instancias de **CloudMediaContext**. 
+- Aumente NumberOfConcurrentTransfers desde el valor predeterminado de 2 a un valor superior como 5. La configuración de esta propiedad afecta a todas las instancias de **CloudMediaContext**.
  
 - Mantenga ParallelTransferThreadCount en el valor predeterminado de 10.
  
-###Ingesta de recursos en masa 
+##<a id="ingest_in_bulk"></a>Ingesta de activos en bloque con SDK .NET de Servicios multimedia 
 
 La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Servicios multimedia de Microsoft Azure ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Servicios multimedia de Microsoft Azure completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
 
@@ -192,14 +189,13 @@ Para crear un nuevo IngestManifest, llame al método Create expuesto por la cole
 
 Cree los recursos que se asociarán con el IngestManifest en masa. Configure las opciones de cifrado deseadas en el recurso para la ingesta en masa.
 
-	// Crear los recursos que se van a asociar a este manifiesto de ingesta en masa
+	// Create the assets that will be associated with this bulk ingest manifest
 	IAsset destAsset1 = _context.Assets.Create(name + "_asset_1", AssetCreationOptions.None);
 	IAsset destAsset2 = _context.Assets.Create(name + "_asset_2", AssetCreationOptions.None);
 
-Un IngestManifestAsset permite asociar un recurso con un IngestManifest en masa para la ingesta en masa. También asocia los AssetFiles que conformarán cada recurso. 
-Para crear un IngestManifestAsset, use el método Create en el contexto del servidor.
+Un IngestManifestAsset permite asociar un recurso con un IngestManifest en masa para la ingesta en masa. También asocia los AssetFiles que conformarán cada recurso. Para crear un IngestManifestAsset, use el método Create en el contexto del servidor.
 
-En el ejemplo siguiente se agregan dos nuevos IngestManifestAssets que asocian los dos recursos creados anteriormente al manifesto de ingesta en masa. Además, cada IngestManifestAsset asociad un conjunto de archivos que se cargarán para cada recurso durante la ingesta en masa.  
+En el ejemplo siguiente se agregan dos nuevos IngestManifestAssets que asocian los dos recursos creados anteriormente al manifesto de ingesta en masa. Además, cada IngestManifestAsset asociad un conjunto de archivos que se cargarán para cada recurso durante la ingesta en masa.
 
 	string filename1 = _singleInputMp4Path;
 	string filename2 = _primaryFilePath;
@@ -218,7 +214,7 @@ Puede usar cualquier aplicación cliente de alta velocidad capaz de cargar los a
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('\\');
+	        string[] splitfilename = filename.Split('');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -242,7 +238,7 @@ El código para cargar los archivos de recursos para el ejemplo usado en este te
 
 Puede determinar el progreso del proceso de ingesta en masa de todos los recursos asociados con un **IngestManifest** mediante el sondeo de la propiedad Statistics de **IngestManifest**. Para actualizar la información de progreso, debe usar un **CloudMediaContext** nuevo cada vez que sondee la propiedad Statistics.
 
-En el ejemplo siguiente se muestra cómo sondear un IngestManifest por su **Id**.
+En el ejemplo siguiente se muestra cómo sondear un **IngestManifest** por su Id.
 	
 	static void MonitorBulkManifest(string manifestID)
 	{
@@ -298,7 +294,7 @@ En el ejemplo siguiente se muestra cómo cargar un solo archivo con extensiones 
 	    return inputAsset;
 	}
 
-En el ejemplo siguiente se llama a la función UploadFile y se especifica el cifrado de almacenamiento como la opción de creación de recursos.  
+En el ejemplo siguiente se llama a la función UploadFile y se especifica el cifrado de almacenamiento como la opción de creación de recursos.
 
 
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
@@ -308,6 +304,6 @@ En el ejemplo siguiente se llama a la función UploadFile y se especifica el cif
 Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador multimedia][].
 
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

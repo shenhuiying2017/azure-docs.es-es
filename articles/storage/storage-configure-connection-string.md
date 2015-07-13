@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Configurar las cadenas de conexión de Azure" 
-	description="Aprenda a configurar cadenas de conexión en una cuenta de almacenamiento en Azure." 
+	pageTitle="Configurar una cadena de conexión a Almacenamiento de Azure | Microsoft Azure" 
+	description="Obtenga información acerca de cómo configurar una cadena de conexión para una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso mediante programación a los recursos en una cuenta de almacenamiento. La cadena de conexión puede encapsular su clave de acceso de cuenta para una cuenta de la que es propietario, o puede incluir una firma de acceso compartido para tener acceso a los recursos en una cuenta sin la clave de acceso." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,30 +13,45 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="06/15/2015" 
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
 
 ## Información general
 
-Una cadena de conexión incluye la información necesaria para tener acceso a su cuenta de almacenamiento de Azure de manera programática. Puede configurar una cadena de conexión para conectarse a Almacenamiento de Azure de las maneras siguientes:
+Una cadena de conexión incluye la información necesaria para tener acceso a Almacenamiento de Azure de manera programática. La aplicación utiliza la cadena de conexión para proporcionar a Almacenamiento de Azure la información necesaria para autenticar el acceso.
+
+Puede configurar una cadena de conexión de las maneras siguientes:
 
 - Conéctese al emulador de almacenamiento de Azure mientras comprueba localmente el servicio o aplicación.
+- Conéctese a una cuenta de almacenamiento en Azure mediante los extremos predeterminados para los servicios de almacenamiento o mediante los extremos específicos que haya definido.
+- Obtenga acceso a recursos en una cuenta de almacenamiento a través de una firma de acceso compartido (SAS).
 
-- Conéctese a una cuenta de almacenamiento en Azure mediante los extremos predeterminados para los servicios de almacenamiento.
+## Almacenamiento de la cadena de conexión
 
-- Conéctese a una cuenta de almacenamiento en Azure mediante los extremos explícitos para los servicios de almacenamiento.
+La aplicación deberá almacenar la cadena de conexión para autenticar el acceso a Almacenamiento de Azure cuando se está ejecutando. Tiene diversas opciones para almacenar la cadena de conexión:
 
-Si su aplicación es un servicio en la nube que se ejecuta en Azure, normalmente guardará la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Si su aplicación se ejecuta en otro entorno (por ejemplo, en el escritorio), normalmente guardará la cadena de conexión en un archivo app.config o en otro archivo de configuración. Puede usar la clase `CloudConfigurationManager` de Azure para tener acceso a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecuta.
+- Para una aplicación que se ejecuta en el escritorio o en un dispositivo, puede almacenar la cadena de conexión en un archivo app.config o en otro archivo de configuración. Si está utilizando un archivo app.config, agregue la cadena de conexión a la sección **AppSettings**.
+- Para una aplicación que se ejecute en un servicio en la nube de Azure, puede guardar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
+
+Almacenar la cadena de conexión dentro de un archivo de configuración facilita la actualización de la cadena de conexión para cambiar entre el emulador de almacenamiento y una cuenta de almacenamiento de Azure en la nube. Solo necesitará modificar la cadena de conexión para apuntar a la cuenta de almacenamiento.
+
+Puede usar la clase [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.windowsazure.cloudconfigurationmanager.aspx) de Azure para obtener acceso a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
 
 ## Creación de una cadena de conexión para el emulador de almacenamiento
 
-El emulador de almacenamiento es una cuenta local con un nombre y una clave conocidos. Dado que el nombre y la clave son los mismos para todos los usuarios, puede usar un formato de cadena de método abreviado para hacer referencia al emulador de almacenamiento en una cadena de conexión. Establezca el valor de la cadena de conexión en `UseDevelopmentStorage=true`.
+La cuenta del emulador de almacenamiento es una cuenta local con un nombre y una clave conocidos. Puede utilizar un formato de cadena de método abreviado, `UseDevelopmentStorage=true`, para hacer referencia al emulador de almacenamiento desde dentro de una cadena de conexión. Por ejemplo, una cadena de conexión al emulador de almacenamiento en un archivo app.config tendrá un aspecto similar al siguiente:
+
+    <appSettings>
+      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+    </appSettings>
 
 También puede especificar que se use un proxy HTTP cuando se está probando el servicio con el emulador de almacenamiento. Esto puede ser útil para observar solicitudes y respuestas HTTP mientras está depurando operaciones con los servicios de almacenamiento. Para especificar un proxy, agregue la opción `DevelopmentStorageProxyUri` a la cadena de conexión y establezca su valor en el URI del proxy. Por ejemplo, esta es una cadena de conexión que apunta al emulador de almacenamiento y configura un proxy HTTP:
 
     UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+
+Consulte [Uso de Emulador de almacenamiento de Azure para desarrollo y pruebas](storage-use-emulator.md) para obtener más información sobre el emulador de almacenamiento.
 
 ## Creación de una cadena de conexión para una cuenta de Almacenamiento de Azure
 
@@ -49,9 +64,9 @@ Por ejemplo, la cadena de conexión tendrá un aspecto similar a la siguiente ca
 ```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
 ```
 
-> [AZURE.NOTE] Almacenamiento de Azure admite HTTP y HTTPS en una cadena de conexión; sin embargo, se recomienda encarecidamente utilizar HTTPS.
+> [AZURE.NOTE]Almacenamiento de Azure admite HTTP y HTTPS en una cadena de conexión; sin embargo, se recomienda encarecidamente utilizar HTTPS.
     
-## Creación de una cadena de conexión para un extremo de Almacenamiento explícito
+## Creación de una cadena de conexión para un extremo de almacenamiento explícito
 
 Puede especificar de manera explícita los extremos del servicio en la cadena de conexión si:
 
@@ -73,7 +88,7 @@ Cuando especifica de manera explícita los extremos de servicio de la cadena de 
 
 ### Especificación de un extremo de blob con un nombre de dominio personalizado 
 
-Si ha registrado un nombre de dominio personalizado para usarlo con el servicio Blob, puede interesarle configurar explícitamente el extremo el blob en la cadena de conexión. El valor final que aparece en la cadena de conexión se utiliza para construir los URI de solicitud para el servicio Blob e indica el formato de los URI que se devuelven para el código. 
+Si ha registrado un nombre de dominio personalizado para usarlo con el servicio Blob, puede interesarle configurar explícitamente el extremo el blob en la cadena de conexión. El valor final que aparece en la cadena de conexión se utiliza para construir los URI de solicitud para el servicio Blob e indica el formato de los URI que se devuelven para el código.
 
 Por ejemplo, una cadena de conexión para un extremo de blob en un dominio personalizado podría ser similar a:
 
@@ -89,7 +104,7 @@ Para crear una cadena de conexión que incluya una firma de acceso compartido, e
 
     BlobEndpoint=myBlobEndpoint; QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;SharedAccessSignature=base64Signature
 
-El extremo puede ser el extremo del servicio predeterminado o un extremo personalizado.  `base64Signature` corresponde a la parte de la firma de una firma de acceso compartido. La firma es un HMAC calculado sobre una cadena para firmar y una clave válidas con el algoritmo SHA256, el resultado es un Base64 codificado.
+El extremo puede ser el extremo del servicio predeterminado o un extremo personalizado. `base64Signature` corresponde a la parte de la firma de una firma de acceso compartido. La firma es un HMAC calculado sobre una cadena para firmar y una clave válidas con el algoritmo SHA256, el resultado es un Base64 codificado.
 
 ### Creación de una cadena de conexión con un sufijo de extremo
 
@@ -103,6 +118,6 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 
 	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

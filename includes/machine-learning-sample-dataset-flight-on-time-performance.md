@@ -1,3 +1,3 @@
 Registros de llegadas y salidas de aviones dentro de Estados Unidos desde octubre de 2011.<p> </p><b>Uso:</b> predecir retrasos en los vuelos. <p> </p><b>Investigación relacionada:</b> datos tomados del Departamento de Transporte de EE. UU. <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

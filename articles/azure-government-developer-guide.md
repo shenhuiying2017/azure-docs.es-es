@@ -19,7 +19,7 @@
 
 #  Guía para desarrolladores de Microsoft Azure Government 
 
-<p> Microsoft Azure Government es una instancia aislada físicamente y en la red de Microsoft Azure.  Esta guía para desarrolladores ofrece detalles sobre las diferencias con las que los desarrolladores de aplicaciones y administradores se encontrarían al interactuar y trabajar con estas regiones independientes de Azure.
+<p> Microsoft Azure Government es una instancia aislada físicamente y en la red de Microsoft Azure. Esta guía para desarrolladores ofrece detalles sobre las diferencias con las que los desarrolladores de aplicaciones y administradores se encontrarían al interactuar y trabajar con estas regiones independientes de Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -36,13 +36,13 @@
 
 ## <a name="Overview"></a>Información general
 
-Microsoft Azure Government es una instancia independiente del servicio de Microsoft Azure que aborda las necesidades de seguridad y cumplimiento de las agencias federales, los gobiernos locales y estatales y sus proveedores de soluciones de los Estados Unidos. Azure Government ofrece un aislamiento físico y de red de las implementaciones externas al gobierno de los Estados Unidos y protege al personal de los Estados Unidos. 
+Microsoft Azure Government es una instancia independiente del servicio de Microsoft Azure que aborda las necesidades de seguridad y cumplimiento de las agencias federales, los gobiernos locales y estatales y sus proveedores de soluciones de los Estados Unidos. Azure Government ofrece un aislamiento físico y de red de las implementaciones externas al gobierno de los Estados Unidos y protege al personal de los Estados Unidos.
 
 Microsoft proporciona varias herramientas para crear e implementar aplicaciones en la nube en el servicio de Microsoft Azure global de Microsoft (servicio "Global") y los servicios de Microsoft Azure Government.
 
-Al crear e implementar aplicaciones en los servicios de Azure Government, en lugar del servicio Global, los desarrolladores necesitan conocer las principales diferencias existentes entre los dos servicios.  Específicamente en torno a instalar y configurar su entorno de programación, configurar extremos, la escritura de aplicaciones y su implementación como servicios en Azure Government.
+Al crear e implementar aplicaciones en los servicios de Azure Government, en lugar del servicio Global, los desarrolladores necesitan conocer las principales diferencias existentes entre los dos servicios. Específicamente en torno a instalar y configurar su entorno de programación, configurar extremos, la escritura de aplicaciones y su implementación como servicios en Azure Government.
 
-La información de este documento resume esas diferencias y complementa la información disponible en el sitio de [Azure Government](http://www.azure.com/gov "Azure Government") y la [Biblioteca de documentación técnica de Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") en MSDN. La información oficial también puede estar disponible en muchas otras ubicaciones, como el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/ "Microsoft Azure, el  Trust Center")[Centro de documentación de Azure](http://azure.microsoft.com/documentation/) y los [blogs de Azure](http://azure.microsoft.com/blog/ "Azure Blogs"). 
+La información de este documento resume esas diferencias y complementa la información disponible en el sitio de [Azure Government](http://www.azure.com/gov "Azure Government") y la [Biblioteca de documentación técnica de Microsoft Azure](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") en MSDN. La información oficial también puede estar disponible en muchas otras ubicaciones, como el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/ "Centro de confianza de Microsoft Azure"), el [Centro de documentación de Azure](http://azure.microsoft.com/documentation/) y los [blogs de Azure](http://azure.microsoft.com/blog/ "Blogs de Azure").
 
 Este contenido está destinado a socios y desarrolladores que implementan Microsoft Azure Government.
 
@@ -53,23 +53,23 @@ Dado que la mayoría del contenido técnico que está disponible actualmente da 
 
 - En primer lugar, hay servicios y características diferentes. Esto significa que ciertas características que se encuentran en regiones específicas del servicio Global pueden no estar disponibles en Azure Government.
 
-- En segundo lugar, para las características que se ofrecen en Azure Government, hay diferencias de configuración desde el servicio Global.  Por lo tanto, debe revisar el código de ejemplo, las configuraciones y los pasos asegurarse de que genera y ejecuta dentro del entorno de servicios en la nube de Azure Government.
+- En segundo lugar, para las características que se ofrecen en Azure Government, hay diferencias de configuración desde el servicio Global. Por lo tanto, debe revisar el código de ejemplo, las configuraciones y los pasos asegurarse de que genera y ejecuta dentro del entorno de servicios en la nube de Azure Government.
 
 
 ## <a name="Features"></a> Características disponibles actualmente en Microsoft Azure Government
 Azure Government actualmente tiene los siguientes servicios disponibles en las regiones US GOV IOWA y US GOV VIRGINIA:
 
 - Máquinas virtuales
-- Los Servicios en la nube
+- Servicios en la nube
 - Almacenamiento
 - Active Directory
 - Programador
 - Redes virtuales
 - Base de datos SQL
 
-Hay otros servicios disponibles y se agregarán más servicios de forma continua.  Para obtener la lista más reciente de servicios, consulte la [página de regiones](http://azure.microsoft.com/regions/#services), en la que se resaltan todas las regiones disponibles y sus servicios.  
+Hay otros servicios disponibles y se agregarán más servicios de forma continua. Para obtener la lista más reciente de servicios, consulte la [página de regiones](http://azure.microsoft.com/regions/#services), en la que se resaltan todas las regiones disponibles y sus servicios.
 
-Actualmente, US GOV Iowa y US GOV Virginia son los centros de datos compatibles con Azure Government.  Consulte la página de regiones mencionada más arriba para ver los centros de datos y los servicios disponibles actualmente.
+Actualmente, US GOV Iowa y US GOV Virginia son los centros de datos compatibles con Azure Government. Consulte la página de regiones mencionada más arriba para ver los centros de datos y los servicios disponibles actualmente.
 
 ## <a name="Endpoint"></a>Asignación de extremos
 
@@ -99,7 +99,7 @@ Administración de servicios</td><td>	management.core.windows.net</td><td>	manag
 
 </td></tr>
 <tr><td>Base de datos SQL</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-</table> 
+</table>
 
 ## <a name="next"></a>Pasos siguientes
 Si desea obtener más información sobre Azure Government y sobre cómo su organización puede calificar para tener acceso, vaya a <A href="http://azure.com/gov">http://www.azure.com/gov</a>
@@ -114,8 +114,8 @@ Si desea obtener más información sobre Azure Government y sobre cómo su organ
 
 
 <!--Link references-->
-[Vínculo de 1 a otro tema de documentación de azure.microsoft.com]: ../virtual-machines-windows-tutorial/
-[Vínculo de 2 a otro tema de documentación de azure.microsoft.com]: ../web-sites-custom-domain-name/
-[Vínculo de 3 a otro tema de documentación de azure.microsoft.com]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

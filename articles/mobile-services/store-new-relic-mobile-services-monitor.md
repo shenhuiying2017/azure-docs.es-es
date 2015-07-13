@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="03/16/2015" 
@@ -152,5 +152,6 @@ A continuación, habilitará la supervisión de New Relic para el servicio móvi
 [Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-dotnet
 [New Relic Mobile]: http://newrelic.com/mobile-monitoring
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

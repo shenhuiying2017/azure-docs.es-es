@@ -74,7 +74,7 @@ El archivo zip del starter kit contiene sus claves y archivos de configuración 
 
 ##Configurar la estación de trabajo de Chef
 
-Extraiga el contenido de chef-starter.zip en  **C:\chef**
+Extraiga el contenido de chef-starter.zip en **C:\chef**
 
 Copie todos los archivos de **chef-starter\chef-repo.chef** en **c:\chef**
 
@@ -238,4 +238,4 @@ Espero que esto les haya resultado útil. Empiece hoy su viaje de su Infraestruc
 
 <!--Link references-->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

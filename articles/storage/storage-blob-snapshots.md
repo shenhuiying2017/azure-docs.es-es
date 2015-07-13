@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/27/2015" 
 	ms.author="tamram"/>
 
 # Creación de una instantánea de un blob
 
 ## Información general
 
-Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. Las instantáneas son útiles para realizar copias de seguridad de blobs. Una vez que se crea una instantánea, puede leerla, copiarla o eliminarla, pero no puede modificarla. 
+Una instantánea es una versión de solo lectura de un blob que se ha realizado en un momento dado. Las instantáneas son útiles para realizar copias de seguridad de blobs. Una vez que se crea una instantánea, puede leerla, copiarla o eliminarla, pero no puede modificarla.
 
-Las instantáneas de un blob tienen el mismo nombre que el blob de base del cual se ha realizado la instantánea, con un valor **DateTime** anexado para indicar el momento en el que se realizó la instantánea. Por ejemplo, si el URI de blob en páginas es `http://storagesample.core.blob.windows.net/mydrives/myvhd`, el URI de instantánea será similar a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Todas las instantáneas de un blob comparten el URI y se distinguen solo por el valor **DateTime** anexado.
+Las instantáneas de un blob tienen el mismo nombre que el blob de base del cual se ha realizado la instantánea, con un valor de **DateTime** anexado para indicar el momento en el que se realizó la instantánea. Por ejemplo, si el URI de blob en páginas es `http://storagesample.core.blob.windows.net/mydrives/myvhd`, el URI de instantánea será similar a `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`. Todas las instantáneas de un blob comparten el URI y se distinguen solo por el valor de **DateTime** anexado.
 
 Un blob puede tener cualquier número de instantáneas. Las instantáneas se conservan hasta que se eliminen explícitamente. Tenga en cuenta que una instantánea no puede durar más que su blob de origen. Puede enumerar las instantáneas asociadas al blob para llevar un seguimiento de las instantáneas actuales.
 
-Cuando se crea una instantánea de un blob, las propiedades del sistema se copian en la instantánea con los mismos valores. 
+Cuando se crea una instantánea de un blob, las propiedades del sistema se copian en la instantánea con los mismos valores.
 
 Las concesiones asociadas con el blob base no afectan la instantánea. No puede adquirir una concesión en una instantánea.
 
@@ -38,7 +38,7 @@ Las operaciones de copia con blobs e instantáneas siguen estas reglas:
 
 - Puede copiar una instantánea en un blob de destino con un nombre diferente. El blob resultante de destino es un blob que se puede escribir y no una instantánea.
 
-- Cuando se copia un blob de origen, las instantáneas del blob de origen no se copian en el destino. Cuando un blob de destino se sobrescribe con una copia, las instantáneas asociadas al blob de destino en el momento en que se sobrescribió bajo su nombre no se modifican. 
+- Cuando se copia un blob de origen, las instantáneas del blob de origen no se copian en el destino. Cuando un blob de destino se sobrescribe con una copia, las instantáneas asociadas al blob de destino en el momento en que se sobrescribió bajo su nombre no se modifican.
 
 - Cuando se crea una instantánea de un blob en bloques, la lista de bloques confirmados del blob también se copia en la instantánea. No se copiarán los bloques sin confirmar.
 
@@ -61,16 +61,25 @@ Las instantáneas con almacenamiento Premium, se atienen a las siguientes reglas
 
 - Para leer una instantánea, puede utilizar la operación Copy Blob para copiar una instantánea en otro blob en páginas de la cuenta. El blob de destino para la operación de copia no debe contener ninguna instantánea ya existente. Si el blob de destino tiene instantáneas, Copy Blob devuelve el código de error 409 (**SnapshotsPresent**).
 
-## Generación del URI absoluto para una instantánea 
+## Devolución del URI absoluto para una instantánea 
 
-Este ejemplo de código C# generará el URI absoluto de una instantánea a partir de su objeto de blob de base.
+Este ejemplo de código de C# crea una nueva instantánea y escribe el URI absoluto de la ubicación principal.
 
-	var snapshot = blob.CreateSnapshot();
-	var uri = Microsoft.WindowsAzure.StorageClient.Protocol.BlobRequest.Get
-    (snapshot.Uri, 
-    0, 
-    snapshot.SnapshotTime.Value, 
-    null).Address.AbsoluteUri;
+    //Create the blob service client object.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+
+    //Get a reference to a blob.
+    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+    blob.UploadText("This is a blob.");
+
+    //Create a snapshot of the blob and write out its primary URI.
+    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 ## Descripción de cómo las instantáneas pueden incrementar los costes
 
@@ -88,33 +97,32 @@ La lista siguiente incluye los puntos clave que hay que tener en cuenta a la hor
 
 - El servicio Blob de Azure no dispone de medios para determinar si dos bloques contienen datos idénticos. Cada bloque que se carga y confirma se trata como único, incluso si tiene los mismos datos y el mismo identificador de bloque. Dado que las cargas se incrementan con los bloques únicos, es importante considerar que cuando se actualiza un blob con una instantánea se generarán bloques únicos adicionales y se aplicarán cargos.
 
-> [AZURE.NOTE] Los procesos recomendados sugieren administrar las instantáneas con cuidado para evitar recargos. Se recomienda que administre las instantáneas de la siguiente manera:
+> [AZURE.NOTE]Los procesos recomendados sugieren administrar las instantáneas con cuidado para evitar recargos. Se recomienda que administre las instantáneas de la siguiente manera:
 
 > - Elimine y vuelva a crear las instantáneas asociadas a un blob siempre que lo actualice, incluso si lo hace con datos idénticos, a menos que el diseño de la aplicación requiera que se conserven las instantáneas. Si elimina y vuelve a crear las instantáneas del blob, podrá estar seguro de que el blob y las instantáneas no van a divergir.
 
-> - Si está realizando el mantenimiento de las instantáneas de un blob, evite llamar a UploadFile, UploadText, UploadStream o UploadByteArray para actualizar el blob, ya que esos métodos reemplazan todos los bloques del blob. En su lugar, actualice el menor número posible de bloques mediante los métodos PutBlock y PutBlockList.
+> - Si está realizando el mantenimiento de las instantáneas de blob, evite llamar a UploadFile, UploadText, UploadStream o UploadByteArray para actualizar el blob, ya que esos métodos reemplazan todos los bloques del blob. En su lugar, actualice el menor número posible de bloques mediante los métodos PutBlock y PutBlockList.
 
 
 ### Escenarios de facturación de instantáneas
 
 
-En las siguientes situaciones, se muestra cómo se ven incrementados los cargos para un blob en bloques y sus instantáneas. 
+En las siguientes situaciones, se muestra cómo se ven incrementados los cargos para un blob en bloques y sus instantáneas.
 
 En el escenario 1, el blob de base no se ha actualizado desde que se realizó la instantánea, así que se aplicarán cargos únicamente para los bloques 1, 2 y 3.
 
-![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
+![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 En el escenario 2, el blob de base está actualizado, pero no así la instantánea. Se ha actualizado el bloque 3 y, aunque contiene los mismos datos y el mismo identificador, no es igual que el bloque 3 de la instantánea. Como resultado, se aplicarán cargos a la cuenta por cuatro bloques.
 
-![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
+![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 En el escenario 3, el blob de base está actualizado, pero no así la instantánea. El bloque 3 se ha reemplazado por el bloque 4 en el blob de base, pero la instantánea sigue reflejando el bloque 3. Como resultado, se aplicarán cargos a la cuenta por cuatro bloques.
  
-![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
+![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 En la situación 4, el blob de base se ha actualizado totalmente y no contiene ninguno de los bloques originales. Como resultado, se aplicarán cargos a la cuenta por la totalidad de los ocho bloques únicos. Esta situación se puede dar si usa un método de actualización como UploadFile, UploadText, UploadFromStream o UploadByteArray, ya que estos métodos reemplazan todos los contenidos de un blob.
 
-![Azure Storage Resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
+![Recursos de almacenamiento de Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

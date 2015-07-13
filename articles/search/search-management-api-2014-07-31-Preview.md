@@ -1,44 +1,34 @@
-<properties 
-	pageTitle="API de REST de administración de Búsqueda de Azure versión 2014-07-31-Preview" 
-	description="API de REST de administración de Búsqueda de Azure versión 2014-07-31-Preview" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="API de REST de administración de Búsqueda de Azure versión 2014-07-31-Preview" description="API de REST de administración de Búsqueda de Azure: versión 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/11/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
 
-# API de REST de administración de Búsqueda de Azure versión 2014-07-31-Preview #
+# API de administración: versión 2014-07-31-Preview
+
+En este documento se describe la versión **2014-07-31-Preview** de la API de REST de administración de Búsqueda de Azure. Se ha reemplazado por la versión disponible con carácter general, [API de REST de administración de Búsqueda de Azure](https://msdn.microsoft.com/library/dn832684.aspx) en MSDN.
+
+## Operaciones de administración de servicio
 
 La API de REST de administración del Servicio Búsqueda de Azure proporciona acceso mediante programación a gran parte de las funciones disponibles a través del portal, permitiendo así que los administradores automaticen las operaciones siguientes:
 
 - Crear o eliminar un servicio Búsqueda de Azure.
-- Crear, modificar o recuperar `api-keys` para automatizar los cambios periódicos de las claves administrativas que se utilizan para autenticar las operaciones de datos de búsqueda. 
+- Crear, modificar o recuperar `api-keys` para automatizar los cambios periódicos de las claves administrativas que se utilizan para autenticar las operaciones de datos de búsqueda.
 - Ajustar la escala de un servicio Búsqueda de Azure en respuesta a cambios en los requisitos de almacenamiento o de volumen de la consulta.
 
 Para administrar completamente el servicio mediante programación, necesitará dos API: la API de REST de administración de Búsqueda de Azure y la [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx) común. La API del Administrador de recursos se utiliza para operaciones generales que no son específicas del servicio, como consultar datos de suscripción, enumerar ubicaciones geográficas, etcétera. Para crear y administrar los servicios Búsqueda de Azure de su suscripción, asegúrese de que la solicitud HTTP incluye el extremo del Administrador de recursos, el identificador de suscripción, el proveedor (en este caso, Búsqueda de Azure) y la operación específica del servicio de búsqueda.
 
 [Introducción a la API de REST de administración de Búsqueda de Azure](http://go.microsoft.com/fwlink/p/?linkID=516968) es un tutorial con código de ejemplo que muestra las operaciones de configuración de la aplicación y administración del servicio. La aplicación de ejemplo envía solicitudes a la API del Administrador de recursos de Azure y a la API de administración del servicio Búsqueda de Azure; así podrá hacerse una idea de cómo estructurar una aplicación coherente que se base en ambas API.
 
-### Extremo ###
+### Extremo
 
 El extremo para las operaciones de administración del servicio es la dirección URL del Administrador de recursos de Azure, `https://management.azure.com`.
 
 Tenga en cuenta que todas las llamadas a la API de administración deben incluir el identificador de suscripción y una versión de API.
 
-### Versiones ###
+### Versiones
 
 La versión actual de la API de REST de administración de Búsqueda de Azure es `api-version=2014-07-31-Preview`. Es la única versión de esta API.
 
-### Autenticación y control de acceso###
+### Autenticación y control de acceso
 
 La API de REST de administración de Búsqueda de Azure es una extensión del Administrador de recursos de Azure y comparte sus dependencias. Por lo tanto, Active Directory es un requisito previo para la administración del servicio Búsqueda de Azure. Todas las solicitudes administrativas desde el código de cliente deben autenticarse con Azure Active Directory antes de que la solicitud llegue al administrador de recursos.
 
@@ -52,7 +42,7 @@ La aplicación de ejemplo que se documenta en [Introducción a la API de REST de
 El control de acceso para el Administrador de recursos de Azure usa los roles integrados de lector, colaborador y propietario. De forma predeterminada, todos los administradores de servicios son miembros del rol de propietario. Para conocer más detalles, vea [Control de acceso basado en rol en el Portal de vista previa de Azure](../role-based-access-control-configure.md).
 
 
-### Resumen de API ##
+### Resumen de API
 
 Las operaciones incluyen las siguientes API:
 
@@ -97,7 +87,7 @@ Las operaciones incluyen las siguientes API:
     `DELETE https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/deleteQueryKey/[key]?api-version=2014-07-31-Preview`
 
 <a name="ServiceOps"></a>
-## Operaciones del servicio ##
+## Operaciones del servicio
 
 Puede aprovisionar o desaprovisionar los servicios Búsqueda de Azure enviando solicitudes HTTP según su suscripción de Azure. Entre los escenarios que posibilitan estas operaciones están la creación de herramientas de administración personalizadas y la implementación de un entorno de producción o desarrollo completo (desde la creación de servicio hasta la alimentación de un índice). Del mismo modo, los proveedores de soluciones que diseñan y venden soluciones de nube pueden desear un enfoque automatizado y repetible para aprovisionar servicios a cada cliente nuevo.
 
@@ -113,13 +103,13 @@ Las opciones relativas a los servicios incluyen las siguientes API:
 
 
 <a name="CreateService"></a>
-## Creación de servicio de búsqueda ##
+## Creación de servicio de búsqueda
 
 La operación **Creación de servicio de búsqueda** aprovisiona un nuevo servicio de búsqueda con los parámetros especificados. Esta API puede utilizarse también para actualizar una definición de servicio existente.
 
     PUT	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-### Parámetros de URI de solicitud  ###
+### Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. El `subscriptionID` del usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -130,18 +120,18 @@ La operación **Creación de servicio de búsqueda** aprovisiona un nuevo servic
 `api-version`: obligatorio. Especifica la versión del protocolo utilizada para esta solicitud. Cuando haya versiones más recientes disponibles, puede especificar la que utiliza cada solicitud para obtener comportamientos específicos de la versión.
 
 
-### Encabezados de solicitud ###
+### Encabezados de solicitud
 
 `Content-Type`: obligatorio. Defina este encabezado como application/json.
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
 
-### Cuerpo de la solicitud ###
+### Cuerpo de la solicitud
 
 { "location": "ubicación del servicio de búsqueda", "tags": { "clave": "valor", ... }, "properties": { "sku": { "nombre": "free | standard | standard2 " },"replicaCount": 1 | 2 | 3 | 4 | 5 | 6, "partitionCount": 1 | 2 | 3 | 4 | 6 | 12 } }
 
-### Parámetros del cuerpo de la solicitud ###
+### Parámetros del cuerpo de la solicitud
 
 `location`: obligatorio. Una de las regiones geográficas de Azure admitidas y registradas; por ejemplo, West US (oeste de EE. UU.), East US (este de EE. UU.), Southeast Asia (sudeste de Asia), etc. Tenga en cuenta que no se puede cambiar la ubicación de un recurso después de crearlo.
 
@@ -154,19 +144,19 @@ La operación **Creación de servicio de búsqueda** aprovisiona un nuevo servic
 `partitionCount`: opcional. El valor predeterminado es 1. Los valores válidos son 1, 2, 3, 4, 6 o 12. Válido solamente cuando `sku` es `standard`.
 
 
-### Respuesta ###
+### Respuesta 
 
 Cuando se actualiza una definición de servicio, se devuelve HTTP 200 (OK). Cuando se crea un nuevo servicio, se devuelve HTTP 201 (Created).
 
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
 
-### Cuerpo de respuesta ###
+### Cuerpo de respuesta
 
 Para HTTP 200 y 201, el cuerpo de la respuesta contiene la definición del servicio.
     
@@ -193,7 +183,7 @@ Para HTTP 200 y 201, el cuerpo de la respuesta contiene la definición del servi
     } 
 
 
-### Elementos del cuerpo de respuesta ###
+### Elementos del cuerpo de respuesta
 
 `id`: el identificador es la dirección URL (sin incluir la combinación de nombre de host) de este servicio de búsqueda.
 
@@ -235,13 +225,13 @@ Para HTTP 200 y 201, el cuerpo de la respuesta contiene la definición del servi
 El aprovisionamiento es un estado intermedio que se produce cuando se está estableciendo la capacidad de servicio. Cuando se configura la capacidad, `provisioningState` cambia a "succeeded" (correcto) o "failed" (error). Las aplicaciones cliente pueden usar la operación **Obtención de servicio de búsqueda** para sondear el estado de aprovisionamiento y ver cuando se completa una operación (el intervalo recomendado de sondeo es de 30 segundos y hasta un minuto). Si utiliza el servicio gratuito, este valor suele aparecer como "succeeded" directamente en la llamada para crear el servicio. Esto ocurre porque el servicio gratuito usa una capacidad que ya está configurada.
 
 <a name="GetService"></a>
-## Obtención de servicio de búsqueda  ##
+## Obtención de servicio de búsqueda
 
 La operación **Obtención de servicio de búsqueda** devuelve las propiedades del servicio de búsqueda especificado. Tenga en cuenta que no devuelve las claves de administración. Utilice la operación **Obtención de claves de administración** para recuperar las claves de administración.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-### URI de solicitud ###
+### URI de solicitud 
 
 `subscriptionId`: obligatorio. Identificador de suscripción para el usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -251,28 +241,28 @@ La operación **Obtención de servicio de búsqueda** devuelve las propiedades d
 
 `api-version`: obligatorio. Especifica la versión del protocolo utilizada para esta solicitud. Cuando haya versiones más recientes disponibles, puede especificar la que utiliza cada solicitud para obtener comportamientos específicos de la versión.
 
-### Encabezados de solicitud ###
+### Encabezados de solicitud 
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
 
-### Cuerpo de la solicitud ###
+### Cuerpo de la solicitud 
 
 Ninguno.
 
 
-### Código de estado de respuesta ###
+### Código de estado de respuesta 
 
 HTTP 200 (OK) si es correcto.
 
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-### Cuerpo de respuesta ###
+### Cuerpo de respuesta 
 
     {
       "id": "/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]",
@@ -296,7 +286,7 @@ HTTP 200 (OK) si es correcto.
       }
     }
 
-### Elementos del cuerpo de respuesta ###
+### Elementos del cuerpo de respuesta
 
 `id`: el identificador es la dirección URL (sin incluir la combinación de nombre de host) de este servicio de búsqueda.
 
@@ -337,13 +327,13 @@ HTTP 200 (OK) si es correcto.
 
 
 <a name="ListService"></a>
-## Enumeración de servicios de búsqueda ##
+## Enumeración de servicios de búsqueda
 
 La operación **Enumeración de servicios** devuelve una lista de todos los servicios Búsqueda de la suscripción correspondientes a un grupo de recursos específico. Esta operación devuelve definiciones de servicio, sin las claves de API de administración. Utilice la operación **Obtención de claves de administración** para recuperar las claves de administración.
 
     GET https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices?api-version=2014-07-31-Preview
     
-### Parámetros de URI de solicitud ###
+### Parámetros de URI de solicitud 
 
 `subscriptionId`: obligatorio. El `subscriptionID` del usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -351,26 +341,26 @@ La operación **Enumeración de servicios** devuelve una lista de todos los serv
 
 `api-version`: obligatorio. Especifica la versión del protocolo utilizada para esta solicitud. Cuando haya versiones más recientes disponibles, puede especificar la que utiliza cada solicitud para obtener comportamientos específicos de la versión.
 
-### Encabezados de solicitud ###
+### Encabezados de solicitud
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 El código de estado es HTTP 200 (OK) si se realiza correctamente.
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
 
-### Cuerpo de respuesta ###
+### Cuerpo de respuesta
 
 El cuerpo de respuesta es una lista de servicios, que se devuelve como una matriz JSON en la que cada servicio sigue el formato de la operación **Obtención de servicio de búsqueda**.
 
@@ -424,7 +414,7 @@ Tenga en cuenta que el campo `nextLink` siempre tiene el valor null porque la ve
 
 
 <a name="DeleteService"></a>
-## Eliminar servicio ##
+## Eliminar servicio 
 
 La operación **Eliminar servicio** elimina el servicio de búsqueda y los datos de la búsqueda, incluidos todos los índices y documentos.
     
@@ -432,7 +422,7 @@ La operación **Eliminar servicio** elimina el servicio de búsqueda y los datos
 
 **Nota:** Los administradores y desarrolladores están acostumbrados a realizar copias de seguridad de los datos de aplicación antes de eliminarlos de un servidor de producción. En Búsqueda de Azure no hay ninguna operación de copia de seguridad. Si está utilizando el índice como almacenamiento principal de la aplicación, debe utilizar una operación de Búsqueda para devolver todos los datos del índice, que se puede almacenar externamente.
 
-###Parámetros de URI de solicitud###
+###Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. Identificador de suscripción para el usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -442,30 +432,30 @@ La operación **Eliminar servicio** elimina el servicio de búsqueda y los datos
 
 `api-version`: obligatorio. Especifica la versión del protocolo utilizada para esta solicitud. Cuando haya versiones más recientes disponibles, puede especificar la que utiliza cada solicitud para obtener comportamientos específicos de la versión.
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 Con HTTP 200, el cuerpo de respuesta estará vacío. HTTP 200 (OK) es la respuesta correcta si el recurso no existe.
 
 Puede usar **Obtención de API del servicio de búsqueda** para sondear el estado del servicio de eliminación. Se recomienda utilizar intervalos de sondeo de 30 segundos a un minuto.
 
-###Encabezados de respuesta###
+###Encabezados de respuesta
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-###Cuerpo de respuesta###
+###Cuerpo de respuesta
 
 Ninguno.
 
 <a name="UpdateService"></a>
-## Actualización de servicio ##
+## Actualización de servicio
 
 La operación **Actualización de servicio** modifica la configuración del servicio de búsqueda. Son cambios válidos los cambios de etiquetas, de cantidad de particiones y de cantidad de réplicas, que agregarán o eliminarán unidades de búsqueda al servicio y afectarán a la facturación. Si intenta reducir las particiones por debajo de la cantidad necesaria para almacenar el corpus de búsqueda existente, se producirá un error que bloqueará la operación. Los cambios realizados en la topología del servicio pueden tardar un rato. Se necesita tiempo para reubicar los datos, así como para configurar o destruir clústeres en el centro de datos.
 
@@ -477,7 +467,7 @@ Como alternativa, puede usar PUT.
 
     PUT https://management.azure.com/subscriptions/[subscriptionId]/resourcegroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2014-07-31-Preview
 
-###Parámetros de URI de solicitud###
+###Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. El `subscriptionID` del usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -487,13 +477,13 @@ Como alternativa, puede usar PUT.
 
 `api-version`: obligatorio. Especifica la versión del protocolo utilizada para esta solicitud. Cuando haya versiones más recientes disponibles, puede especificar la que utiliza cada solicitud para obtener comportamientos específicos de la versión.
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `Content-Type`: obligatorio. Defina este encabezado como application/json.
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
     {
       "tags": {
@@ -506,7 +496,7 @@ Como alternativa, puede usar PUT.
      	}
     }
 
-###Parámetros del cuerpo de la solicitud###
+###Parámetros del cuerpo de la solicitud
 
 `tags`: opcional. Una lista de pares de clave y valor que describen el recurso. Estas etiquetas pueden utilizarse para visualizar y agrupar este recurso a través de grupos de recursos. Puede proporcionar un máximo de 10 etiquetas para cada recurso. Cada etiqueta debe tener una clave no superior a 128 caracteres y un valor no superior a 256 caracteres.
 
@@ -514,24 +504,24 @@ Como alternativa, puede usar PUT.
 
 `partitionCount`: opcional. El valor predeterminado es 1. Los valores válidos son 1, 2, 3, 4, 6 o 12. Válido solamente cuando `sku` es `standard`.
 
-###Respuesta###
+###Respuesta
 
 Si la operación se realiza correctamente, se devuelve HTTP 200 (OK). Puede usar **Obtención de API del servicio de búsqueda** para sondear el estado del servicio de actualización. Se recomienda utilizar intervalos de sondeo de 30 segundos a un minuto.
 
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-### Cuerpo de respuesta ###
+### Cuerpo de respuesta 
 
 El cuerpo de la respuesta contiene la definición del servicio actualizado. Para ver un ejemplo, consulte **Obtención de API del servicio de búsqueda**.
 
 
 <a name="KeyOps"></a>
-## Operaciones de claves ##
+## Operaciones de claves
 
 La autenticación en un servicio Búsqueda de Azure requiere dos fragmentos de información: una dirección URL del servicio de búsqueda y una clave de API. Las claves de API se generan cuando se crea el servicio y se pueden volver a generar a petición después de aprovisionar el servicio. Existen dos tipos de clave de API:
 
@@ -558,7 +548,7 @@ Las operaciones relacionadas con las claves incluyen las siguientes API:
 
 
 <a name="ListAdminKey"></a>
-## Enumeración de claves de administración ##
+## Enumeración de claves de administración 
 
 La operación **Enumeración de claves de administración** devuelve las claves de administración principal y secundaria para el servicio de búsqueda especificado. Dado que esta acción devuelve claves de lectura y escritura, se utiliza el método POST.
 
@@ -566,7 +556,7 @@ La operación **Enumeración de claves de administración** devuelve las claves 
 
 Las claves de administración se crean con el servicio. Siempre son dos claves, principal y secundaria. Puede volver a generar estas claves, pero no puede eliminarlas.
 
-###Parámetros de URI de solicitud###
+###Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. Identificador de suscripción para el usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -578,25 +568,25 @@ Las claves de administración se crean con el servicio. Siempre son dos claves, 
 
 `listAdminKeys`: obligatorio. Esta acción recupera las claves principal y secundaria de administración para el servicio de búsqueda.
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 Si la operación se realiza correctamente, se devuelve HTTP 200 (OK).
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-###Cuerpo de respuesta###
+###Cuerpo de respuesta
 
     {
       "primaryKey": "api key",
@@ -605,13 +595,13 @@ Si la operación se realiza correctamente, se devuelve HTTP 200 (OK).
     
 
 <a name="RegenAdminKey"></a>
-## Regeneración de claves de administración ##
+## Regeneración de claves de administración 
 
 La operación **Regeneración de claves de administración** elimina y vuelve a generar la clave principal o secundaria. Solo puede volver a generar una clave en cada ocasión. Al volver a generar las claves, piense cómo mantendrá el acceso al servicio. Existe una clave secundaria para que tenga una clave disponible durante la sustitución de la clave principal. Todos los servicios tienen siempre las dos claves. Puede volver a generar las claves, pero no puede eliminarlas ni ejecutar un servicio sin ellas.
  
     POST https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/regenerateAdminKey/[keyKind]?api-version=2014-07-31-Preview
 
-###Parámetros de URI de solicitud###
+###Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. Identificador de suscripción para el usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -628,34 +618,34 @@ La operación **Regeneración de claves de administración** elimina y vuelve a 
 - `primary`
 - `secondary`
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `Content-Type`: obligatorio. Defina este encabezado como application/json.
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 Si la operación se realiza correctamente, se devuelve HTTP 200 (OK).
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-###Cuerpo de respuesta###
+###Cuerpo de respuesta
 
     {
       "primaryKey": "api key",
       "secondaryKey": "api key"
     }
     
-###Elementos del cuerpo de respuesta###
+###Elementos del cuerpo de respuesta
 
 `primaryKey`: clave de administración principal, si se vuelve a generar.
 
@@ -664,7 +654,7 @@ Si la operación se realiza correctamente, se devuelve HTTP 200 (OK).
 
 
 <a name="CreateQueryKey"></a>
-## Creación de clave de consulta ##
+## Creación de clave de consulta
 
 La operación **Creación de clave de consulta** genera una nueva clave de consulta al servicio de búsqueda. Puede crear hasta 50 claves de consulta por servicio.
 
@@ -684,25 +674,25 @@ La operación **Creación de clave de consulta** genera una nueva clave de consu
 
 `name`: obligatorio. El nombre de la clave nueva.
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 Código de estado de respuesta es HTTP 200 (correcto) si la operación se realiza correctamente.
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-###Cuerpo de respuesta###
+###Cuerpo de respuesta
 
     {
       "name": "name of key",
@@ -710,21 +700,21 @@ Código de estado de respuesta es HTTP 200 (correcto) si la operación se realiz
     }
 
 
-###Elementos del cuerpo de respuesta###
+###Elementos del cuerpo de respuesta
 
 `name`: nombre de la clave de consulta.
 
 `key`: valor de la clave de consulta.
 
 <a name="ListQueryKey"></a>
-## Enumeración de claves de consulta ##
+## Enumeración de claves de consulta 
 
 
 La operación **Enumeración de claves de consulta** devuelve las claves de consulta para el servicio de búsqueda especificado. Las claves de consulta se utilizan para enviar llamadas a la API de consulta (sólo lectura) a un servicio de búsqueda. Puede haber hasta 50 claves de consulta por servicio.
 
     GET	https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]/listQueryKeys?api-version=2014-07-31-Preview
 
-###Parámetros de URI de solicitud###
+###Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. Identificador de suscripción para el usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -736,25 +726,25 @@ La operación **Enumeración de claves de consulta** devuelve las claves de cons
 	
 `listQueryKeys`: obligatorio. Esta acción recupera las claves de consulta del servicio de búsqueda.
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 El código de estado de respuesta es HTTP 200 (OK) si la operación se realiza correctamente.
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-###Cuerpo de respuesta###
+###Cuerpo de respuesta
 
     {
       "value": [
@@ -770,7 +760,7 @@ El código de estado de respuesta es HTTP 200 (OK) si la operación se realiza c
     "nextLink": null
     }
 
-###Elementos del cuerpo de respuesta###
+###Elementos del cuerpo de respuesta
 
 `name`: nombre de la clave de consulta.
 
@@ -778,7 +768,7 @@ El código de estado de respuesta es HTTP 200 (OK) si la operación se realiza c
 
 
 <a name="DeleteQueryKey"></a>
-## Eliminación de claves de consulta ##
+## Eliminación de claves de consulta 
 
 La operación **Eliminación de claves de consulta** operación elimina la clave de consulta especificada. Las claves de consulta son opcionales y se utilizan para las consultas de solo lectura.
 
@@ -786,7 +776,7 @@ La operación **Eliminación de claves de consulta** operación elimina la clave
 
 A diferencia de las claves de administración, las claves de consulta no se regeneran. El proceso para volver a generar la clave de consulta consiste en eliminarla y volver a crearla.
 
-###Parámetros de URI de solicitud###
+###Parámetros de URI de solicitud
 
 `subscriptionId`: obligatorio. Identificador de suscripción para el usuario de Azure. Puede obtener este valor en la API del Administrador de recursos o el portal de Azure.
 
@@ -800,28 +790,29 @@ A diferencia de las claves de administración, las claves de consulta no se rege
 
 `key`: obligatorio. La clave que se va a eliminar.
 
-###Encabezados de solicitud###
+###Encabezados de solicitud
 
 `x-ms-client-request-id`: opcional. Un valor GUID generado por el cliente que identifica esta solicitud. Si se especifica, se incluirá en la información de respuesta como una manera de asignar la solicitud.
 
-###Cuerpo de la solicitud###
+###Cuerpo de la solicitud
 
 Ninguno.
 
-###Respuesta###
+###Respuesta
 
 El código de estado de respuesta es HTTP 200 (OK) si se realiza correctamente.
 
-### Encabezados de respuesta ###
+### Encabezados de respuesta 
 
 `Content-Type`: este encabezado siempre está definido como application/json.
 
 `x-ms-request-id`: identificador único para la operación actual, generado por el servicio.
 
-###Cuerpo de respuesta###
+###Cuerpo de respuesta
 
 Ninguno.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

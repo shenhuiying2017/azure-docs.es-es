@@ -31,7 +31,7 @@ Realice los pasos siguientes para seleccionar un dispositivo y autorizarlo para 
 
 2. En el cuadro de diálogo **Cambiar clave de cifrado de datos del servicio**, seleccione un dispositivo y autorícelo para que inicie el cambio de claves de cifrado de datos del servicio. La lista desplegable tiene todos los dispositivos que se pueden autorizar.
 
-3. Haga clic en el icono de marca de verificación. ![icono de marca de verificación](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+3. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
 ### Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio
 
@@ -71,6 +71,6 @@ Realice los pasos siguientes para actualizar el cifrado de datos del servicio en
 
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 
-3. Proporcione la clave de cifrado de datos del servicio que obtuvo en [Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio](#step-2:-use-windows-powershell-to-initiate-the-service-data-encryption-key-change).
+3. Proporcione la clave de cifrado de datos del servicio que obtuvo en [Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

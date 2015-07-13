@@ -1,4 +1,4 @@
-﻿
+
 <properties 
 	pageTitle="Introducción a las notificaciones de inserción (JavaScript para Android) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación JavaScript de Android." 
@@ -15,25 +15,23 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="06/01/2015" 
 	ms.author="ricksal"/>
 
 
-# Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
+# Incorporación de notificaciones push a la aplicación Android para Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ## Resumen
 
-Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación Android usando la mensajería en la nube de Google (GCM). Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
+Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones push a su aplicación Android usando la mensajería en la nube de Google ("GCM"). Agregará notificaciones push al proyecto de inicio rápido, un requisito previo para este tutorial. Las notificaciones push se habilitan mediante el uso del Centro de notificaciones de Azure que se incluye en el servicio móvil. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
 <!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
 -->
 
-> [AZURE.NOTE]Si desea ver la versión de Eclipse de este tutorial, vaya a: [Introducción a las notificaciones de inserción (Eclipse)].
 
-
-##Requisitos previos
+## Requisitos previos
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
@@ -47,9 +45,7 @@ Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar n
 
 ##<a id="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
 
-###Comprobación de la versión del SDK de Android
 
-[AZURE.INCLUDE [Comprobar el SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 El siguiente paso es instalar los servicios de Google Play. El servicio de mensajería en la nube de Google tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, que debe cumplir la propiedad **minSdkVersion** del manifiesto.
 
@@ -77,17 +73,11 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 
 Cuando ejecute esta aplicación en el emulador, asegúrese de utilizar un dispositivo virtual Android (AVD) compatible con las API de Google.
 
-1. Reinicie Eclipse y, a continuación, en el Explorador de paquetes, haga clic con el botón secundario en el proyecto, haga clic en **Properties** (Propiedades), haga clic en **Android**, active **Google APIs** (API de Google) y, a continuación, haga clic en **OK** (Aceptar).
-
-	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-import-android-properties.png)
-
-  	Con esto, el proyecto se dirige a las API de Google.
-
-2. En **Ventana**, seleccione **Administrador de dispositivos virtuales de Android**, seleccione su dispositivo y haga clic en **Editar**.
+1. En el extremo derecho de la barra de herramientas, seleccione Administrador de dispositivos virtuales de Android, seleccione su dispositivo y haga clic en el icono de edición que se encuentra a la derecha.
 
 	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager.png)
 
-3. Seleccione **Google APIs** (API de Google) en **Target** (Destino) y, a continuación, haga clic en OK (Aceptar).
+2. Seleccione **Cambiar** en la línea descriptiva del dispositivo, seleccione **API de Google** y, a continuación, haga clic en Aceptar.
 
    	![](./media/mobile-services-javascript-backend-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png)
 
@@ -95,7 +85,7 @@ Cuando ejecute esta aplicación en el emulador, asegúrese de utilizar un dispos
 
 ###Ejecución de la prueba
 
-1. En el menú **Run** en Eclipse, haga clic en **Run** para iniciar la aplicación.
+1. En el elemento de menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación.
 
 2. En la aplicación, escriba texto significativo como _A new Mobile Services task_ y, a continuación, haga clic en el botón **Add** (Agregar).
 
@@ -105,6 +95,22 @@ Cuando ejecute esta aplicación en el emulador, asegúrese de utilizar un dispos
 
 
 Ha completado correctamente este tutorial.
+
+## Solución de problemas
+
+### Comprobación de la versión del SDK de Android
+
+[AZURE.INCLUDE [Comprobar el SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
+
+
+## Versiones anteriores del código
+
+Si desea ver la versión de Eclipse de este tutorial, vaya a [Introducción a las notificaciones push (Eclipse)].
+
+
+<!--
+To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
+-->
 
 
 ## <a name="next-steps"> </a>Pasos siguientes
@@ -127,13 +133,13 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
-* [¿Qué son los Centros de notificaciones?] <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
+* [¿Qué son los Centros de notificaciones?] <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
-* [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga orientación sobre la solución de problemas y la depuración de soluciones de los Centros de notificaciones.
+* [Depuración de aplicaciones de centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga instrucciones de resolución de problemas y depuración de soluciones de centros de notificaciones.
 
-* [Uso de la biblioteca de cliente Android para Servicios móviles] <br/>Obtenga más información sobre cómo usar Servicios móviles con Android.
+* [Cómo usar la biblioteca de cliente Android para servicios móviles] <br/>Obtenga más información acerca de cómo usar servicios móviles con Android.
 
-* [Referencia del script del servidor de Servicios móviles] <br/>Obtenga más información sobre cómo implementar lógica empresarial al servicio móvil.
+* [Referencia de script de servidor de servicios móviles] <br/>Obtenga más información acerca de cómo implementar la lógica empresarial en el servicio móvil.
 
 
 <!-- Anchors. -->
@@ -148,7 +154,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones de inserción (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[Introducción a las notificaciones push (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
@@ -160,16 +166,17 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Configuración del SDK de Google Play Services]: http://go.microsoft.com/fwlink/?LinkId=389801
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Uso de la biblioteca de cliente Android para Servicios móviles]: mobile-services-android-how-to-use-client-library.md
+[Cómo usar la biblioteca de cliente Android para servicios móviles]: mobile-services-android-how-to-use-client-library.md
 
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
-[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Referencia de script de servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
 
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

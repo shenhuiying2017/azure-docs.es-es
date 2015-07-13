@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 #Desarrollo de Servicios multimedia con .NET 
 
-En este tema se explica cómo empezar a desarrollar aplicaciones de Servicios multimedia con .NET. 
+En este tema se explica cómo empezar a desarrollar aplicaciones de Servicios multimedia con .NET.
 
-La biblioteca del **SDK de Servicios multimedia de Azure para .NET** le permite programar en los Servicios multimedia mediante. NET. Para que el desarrollo con .NET sea aún más fácil, se proporciona la biblioteca **Extensiones del SDK de Servicios multimedia de Azure para .NET**. Esta biblioteca contiene un conjunto de métodos de extensión y funciones auxiliares que simplifican el código de .NET. Las dos bibliotecas están disponibles a través de **NuGet** y **GitHub**.
+La **biblioteca del SDK de Servicios multimedia de Azure para .NET** le permite programar en los Servicios multimedia mediante. NET. Para que el desarrollo con .NET sea aún más fácil, se proporciona la biblioteca **Extensiones del SDK de Servicios multimedia de Azure para .NET**. Esta biblioteca contiene un conjunto de métodos de extensión y funciones auxiliares que simplifican el código de .NET. Las dos bibliotecas están disponibles a través de **NuGet** y **GitHub**.
  
 
 ##Requisitos previos
 
--   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Creación de una cuenta de Servicios multimedia](media-services-create-account.md).
+-   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Cómo crear una cuenta de Servicios multimedia](media-services-create-account.md).
 -   Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
--   .NET Framework 4,5.
+-   .NET Framework 4.5.
 -   Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 
   
 
 ##Creación y configuración de un proyecto de Visual Studio 
 
-En esta sección se muestra cómo crear un proyecto en Visual Studio y configurarlo para el desarrollo de Servicios multimedia.  En este caso, el proyecto es una aplicación de consola de C# Windows, pero los pasos de configuración que se muestran aquí se aplican a otros tipos de proyectos que puede crear para las aplicaciones de Servicios multimedia (por ejemplo, una aplicación de Windows Forms o una aplicación web de ASP.NET).
+En esta sección se muestra cómo crear un proyecto en Visual Studio y configurarlo para el desarrollo de Servicios multimedia. En este caso, el proyecto es una aplicación de consola de C# Windows, pero los pasos de configuración que se muestran aquí se aplican a otros tipos de proyectos que puede crear para las aplicaciones de Servicios multimedia (por ejemplo, una aplicación de Windows Forms o una aplicación web de ASP.NET).
 
-En esta sección se muestra cómo usar **NuGet** para agregar el SDK de Servicios multimedia para .NET y otras bibliotecas dependientes. 
+En esta sección se muestra cómo usar **NuGet** para agregar el SDK de Servicios multimedia para .NET y otras bibliotecas dependientes.
 
-También puede obtener los bits más recientes del SDK de Servicios multimedia para .NET desde GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) y [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilar la solución y agregar las referencias al proyecto del cliente. Tenga en cuenta que todas las dependencias necesarias se descargan y extraen automáticamente.   
+También puede obtener los bits más recientes del SDK de Servicios multimedia para .NET desde GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) y [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilar la solución y agregar las referencias al proyecto del cliente. Tenga en cuenta que todas las dependencias necesarias se descargan y extraen automáticamente.
 
 1. Cree una nueva Aplicación de consola de C# en Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Escriba el **nombre**, la **ubicación** y el **nombre de la solución** y, a continuación, haga clic en Aceptar. 
 
@@ -56,9 +56,9 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 
 	4. Para promover un entorno de desarrollo más limpio, considere la posibilidad de habilitar la restauración de paquetes de NuGet. Para obtener más información, consulte [Restauración de paquetes de NuGet](http://docs.nuget.org/consume/package-restore).
 
-3. Agregue una referencia al ensamblado **System.Configuratio**n. Este ensamblado contiene la clase System.Configuration.**ConfigurationManager** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config). 
+3. Agregue una referencia al ensamblado **System.Configuration**. Este ensamblado contiene la clase System.Configuration.**ConfigurationManager** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config).
 
-	Para agregar referencias usando el cuadro de diálogo Administrar referencias, haga lo siguiente: 
+	Para agregar referencias usando el cuadro de diálogo Administrar referencias, haga lo siguiente:
 
 	1. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto. A continuación, seleccione Agregar y Referencias.
 
@@ -68,19 +68,19 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 	3. Presione Aceptar.
 
 
-4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. 
+4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente.
 	
 	Para obtener la información de **nombre de cuenta** y **clave de cuenta**, abra el **Portal de administración de Azure**, seleccione la cuenta de Servicios multimedia y haga clic en el botón **ADMINISTRAR CLAVES**.
 
 
 	<pre><code>
-	&lt;configuration&gt;
-        &lt;appSettings&gt;
-    	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-        	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-  	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-	</code></pre>
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
+</code></pre>
 
 
 5. Sobrescriba los valores existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
@@ -95,7 +95,7 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 		using System.IO;
 		using Microsoft.WindowsAzure.MediaServices.Client;
 
-En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.    
+En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/22/2015" 
+	ms.date="05/28/2015" 
 	ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
@@ -24,17 +24,14 @@ Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que s
 
 No puede distribuir de manera segura con la aplicación cliente las credenciales que se requieren para cargar con seguridad datos al servicio de almacenamiento de blobs. En lugar de eso, debe almacenar estas credenciales en su servicio móvil y usarlas para generar una firma de acceso compartido (SAS) que se utiliza para cargar una imagen nueva. Servicios móviles devuelve de manera segura a SAS, una credencial de expiración breve (en este caso de cinco minutos), a la aplicación cliente. Luego la aplicación utiliza esta credencial temporal para cargar la imagen. En este ejemplo, las descargas del servicio BLOB son públicas.
 
-En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar el inicio rápido de Servicios móviles para cargar imágenes al servicio de almacenamiento de blobs:
+En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles.
 
-1. [Instalación de la biblioteca de clientes de almacenamiento]
-2. [Actualización del script de inserción para generar una SAS]
-3. [Actualización de la aplicación cliente para capturar imágenes]
-4. [Carga de imágenes para probar la aplicación]
+##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
 + Microsoft Visual Studio 2012 Express para Windows 8 o una versión posterior
-+ [Cuenta de almacenamiento de Azure][How To Create a Storage Account]
++ [Cuenta de almacenamiento de Azure](../storage-create-storage-account.md)
 + Una cámara u otro dispositivo de captura de imágenes conectado a su equipo.
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles].
@@ -81,10 +78,10 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
   
  
 <!-- Anchors. -->
-[Instalación de la biblioteca de clientes de almacenamiento]: #install-storage-client
-[Actualización de la aplicación cliente para capturar imágenes]: #add-select-images
-[Actualización del script de inserción para generar una SAS]: #update-scripts
-[Carga de imágenes para probar la aplicación]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Update the insert script to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -93,16 +90,17 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 
 
 <!-- URLs. -->
-[Envío de correo electrónico desde servicios móviles con SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[Envío de correo electrónico desde servicios móviles con SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
 [Programar trabajos de back-end en Servicios móviles]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
-[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Introducción a los Servicios móviles]: ../mobile-services-windows-store-get-started.md
+[Referencia del script del servidor de servicios móviles]: mobile-services-how-to-use-server-scripts.md
+[Introducción a los Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: ../storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
-[Referencia conceptual de Servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

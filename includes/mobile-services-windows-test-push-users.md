@@ -11,4 +11,4 @@
 
 	Compruebe que solo este dispositivo recibe la notificación, dado que el dispositivo anterior no estaba etiquetado con la ID del usuario actual.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -211,4 +211,4 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
 [Paso 4: Carga del archivo .vhd]: #upload
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

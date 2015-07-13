@@ -142,4 +142,4 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 [Logon]: virtual-machines-linux-how-to-log-on.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

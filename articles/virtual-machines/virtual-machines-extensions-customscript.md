@@ -16,7 +16,6 @@
    ms.date="02/19/2015"
    ms.author="kundanap"/>
 
-
 # Extensión de la secuencia de comandos personalizada para Windows
 
 Este artículo proporciona información general del uso de la extensión de la secuencia de comandos personalizada en Windows mediante los cmdlets de Powershell de Azure.
@@ -79,5 +78,6 @@ Pronto agregaremos secuencias de comandos personalizadas para uso de Linux y eje
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

@@ -4,4 +4,4 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 >[AZURE.NOTE]El SDK de Android para Servicios móviles se ha actualizado a la versión 2.0. Si ya hace tiempo que completó los dos tutoriales anteriores, debe volver a revisarlos si no usan el SDK actualizado. Para verificar qué versión del SDK utiliza la aplicación, ábralo en Eclipse e inspeccione el contenido de la carpeta **libs**. Los números de versión de los archivos jar de Servicios móviles deben ser 2.0 o posterior.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -3,8 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="flanakin" 
-	writer="" 
+	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,8 +13,8 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
-	ms.author="micflan"/>
+	ms.date="06/24/2015" 
+	ms.author="tomfitz"/>
 
 
 # Uso de etiquetas para organizar los recursos de Azure
@@ -89,6 +88,16 @@ Ancle las etiquetas más importantes en el Panel de inicio para un acceso rápid
 
 ![Anclar etiquetas al Panel de inicio](./media/resource-group-using-tags/pin-tags.png)
 
+## Etiquetado y facturación
+
+Para los servicios compatibles, puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, [las máquinas virtuales integradas con el Administrador de recursos de Azure](/virtual-machines/virtual-machines-azurerm-versus-azuresm.md) le permiten definir y aplicar etiquetas para organizar el uso de facturación en las máquinas virtuales. Si va a ejecutar varias máquinas virtuales para organizaciones diferentes, puede usar etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
+
+Puede recuperar información sobre las etiquetas a través de la [API de uso](billing-usage-rate-card-overview.md) o el archivo de valores separados por comas (CSV) de uso que puede descargar en el [portal de cuentas de Azure](https://account.windowsazure.com/) o en el [portal EA](https://ea.azure.com).
+
+Al descargar el CSV de uso correspondiente a los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**. Para obtener más información, consulte [Información sobre la factura en Microsoft Azure](billing-understand-your-bill.md).
+
+![Ver etiquetas en la facturación](./media/resource-group-using-tags/billing_csv.png)
+
 ## Pasos siguientes
 Introducción
 
@@ -112,4 +121,4 @@ Administración y auditoría del acceso
 - [Creación de una nueva entidad de servicio de Azure mediante el portal clásico de Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

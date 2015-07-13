@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Datos de ejemplo en el almacenamiento de blobs de Azure | Azure" 
-	description="Datos de ejemplo en el almacenamiento de blobs de Azure" 
-	services="machine-learning" 
+	pageTitle="Sample data in Azure Blob Storage| Microsoft Azure" 
+	description="Sample data in Azure Blob Storage" 
+	services="machine-learning,storage" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
 
-#<a name="heading"></a>Datos de ejemplo en el almacenamiento de blobs de Azure
+#<a name="heading"></a>Sample Data in Azure Blob Storage
 
-En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure mediante su descarga con programación y, a continuación, realizando un muestreo de los mismos con código Python de ejemplo. Los pasos para hacerlo son los siguientes:
+This document covers sampling data stored in Azure Blob Storage by downloading it programmatically and then sampling it with sample Python code. The steps to do so are as follows:
 
-1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
+1. Download the data from Azure blob storage using the blob service from the following sample Python code: 
 
 	    from azure.storage import BlobService
     	import tables
@@ -38,14 +38,14 @@ En este documento se tratan los datos de muestreo almacenados en el almacenamien
     	t2=time.time()
     	print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 
-2. Leer los datos en una trama de datos de Pandas desde el archivo descargado anteriormente.
+2. Read data into a Pandas data-frame from the file downloaded above.
 
 		import pandas as pd
 
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Mostrar los datos mediante `random.choice` de `numpy` como se indica a continuación:
+3. Sample the data using the `numpy`'s `random.choice` as follows:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -53,17 +53,17 @@ En este documento se tratan los datos de muestreo almacenados en el almacenamien
     	sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
     	dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-	Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del 1 por ciento, para la generación de características y exploración más a fondo.
+	Now you can work with the above data frame with the 1 Percent sample for further exploration and feature generation.
 
-##<a name="heading"></a>Conexión con Aprendizaje automático de Azure
+##<a name="heading"></a>Connecting to Azure Machine Learning
 
-Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos directamente en Aprendizaje automático de Azure:
+You can use the following sample code to down-sample the data and use it directly in Azure ML:
 
-1. Escribir la trama de datos en un archivo local
+1. Write the data frame to a local file
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Cargar el archivo local en un blob de Azure mediante el código de ejemplo siguiente:
+2. Upload the local file to an Azure blob using the following sample code:
 
 		from azure.storage import BlobService
     	import tables
@@ -85,10 +85,15 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 	    except:	        
 		    print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Leer los datos del blob de Azure con el  *Reader Module* de Aprendizaje automático de Azure, como se muestra en la captura de pantalla siguiente:
+3. Read the data from the Azure blob using Azure ML [Reader](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) as shown in the image below:
  
 ![reader blob][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
 
-<!--HONumber=49--> 
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+ 
+
+<!---HONumber=July15_HO1-->

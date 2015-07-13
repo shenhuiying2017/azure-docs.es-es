@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
 	pageTitle="Crear una cuenta de Azure" 
 	description="Crear una cuenta" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor="mollybos" 
+	editor="jimbe" 
 	services="" 
 	documentationCenter="php"/>
 
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+    ms.date="06/03/2015"
 	ms.author="tomfitz"/>
 
-[WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+# Creación de una cuenta de Azure y habilitación de la características de vista previa
 
-<!--HONumber=35.2-->
+[AZURE.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!---HONumber=July15_HO1-->

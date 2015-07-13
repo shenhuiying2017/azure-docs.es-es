@@ -13,29 +13,18 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="05/12/2015" 
 	ms.author="ricksal"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
 
+##Información general
+
 En este tema se muestra cómo usar los Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-Este tutorial le guiará a través de estos pasos:
-
-1. [Habilitación del servicio de mensajería en la nube de Google](#register)
-2. [Configuración del servicio móvil para enviar solicitudes de inserción](#configure)
-5. [Actualización del servidor para enviar notificaciones push](#update-server)
-7. [Incorporación de notificaciones de inserción a la aplicación](#update-app)
-8. [Habilitación de notificaciones de inserción para pruebas locales](#local-testing)
-9. [Prueba de la aplicación con el servicio móvil publicado](#test-app)
-
-
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Introducción a los datos] para conectar su proyecto al servicio móvil. Por este motivo, este tutorial requiere también Visual Studio 2013.
-
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Evaluación gratuita de Azure</a>.
-
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente] para conectar su proyecto al servicio móvil. Por este motivo, este tutorial requiere también Visual Studio 2013.
 
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
@@ -58,11 +47,11 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 Su servicio móvil ahora está configurado para trabajar con GCM y Centros de notificaciones.
 
 
-<h2><a name="download-the-service"></a>Descarga del servicio de forma local</h2>
+##<a name="download-the-service"></a>Descarga del servicio de forma local
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>Prueba del servicio móvil</h2>
+##<a name="test-the-service"></a>Prueba del servicio móvil
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
@@ -101,7 +90,7 @@ Su servicio móvil ahora está configurado para trabajar con GCM y Centros de no
     Este código enviará una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el Portal de administración.
 
 
-<h2><a name="publish-the-service"></a>Publicación del servicio móvil en Azure</h2>
+##<a name="publish-the-service"></a>Publicación del servicio móvil en Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
@@ -125,7 +114,7 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración de
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
-<h2><a name="test-app"></a>Prueba de la aplicación con el servicio móvil publicado</h2>
+##<a name="test-app"></a>Prueba de la aplicación con el servicio móvil publicado
 
 Puede probar la aplicación conectando directamente un teléfono Android con un cable USB o utilizando un dispositivo virtual en el emulador.
 
@@ -177,13 +166,13 @@ Ha completado correctamente este tutorial.
 -->
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
-* [Introducción a los datos] <br/>Obtenga más información sobre cómo almacenar y consultar datos con los servicios móviles.
+* [Introducción a los datos] <br/>Obtenga más información sobre cómo almacenar y consultar datos con Servicios móviles.
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
-* [¿Qué son los Centros de notificaciones?] <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
+* [¿Qué son los Centros de notificaciones?] <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
-* [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga orientación sobre la solución de problemas y la depuración de soluciones de los Centros de notificaciones.
+* [Depuración de aplicaciones de centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga instrucciones de resolución de problemas y depuración de soluciones de centros de notificaciones.
 
 * [Uso de la biblioteca de cliente Android para Servicios móviles] <br/>Obtenga más información sobre cómo usar Servicios móviles con Android.
   
@@ -230,33 +219,22 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introducción a los Servicios móviles]: mobile-services-dotnet-backend-android-get-started.md
-[Introducción a los datos]: mobile-services-dotnet-backend-android-get-started-data.md
+[Introducción a Servicios móviles]: mobile-services-dotnet-backend-android-get-started.md
+[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-android-get-started-data.md
 [Introducción a la autenticación]: mobile-services-dotnet-backend-android-get-started-users.md
-[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
 [Uso de la biblioteca de cliente Android para Servicios móviles]: mobile-services-android-how-to-use-client-library.md
 
 [Send push notifications to authenticated users]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-<<<<<<< HEAD:articles/mobile-services-dotnet-backend-android-get-started-push-EC.md
-[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
-=======
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
->>>>>>> master:articles/mobile-services/mobile-services-dotnet-backend-android-get-started-push-EC.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,10 +1,9 @@
 <properties 
-	pageTitle="Introducción a los centros de notificaciones de inserción usando servicios móviles en tiempo de ejecución de .NET" 
+	pageTitle="Use Servicios móviles de Azure y Centros de notificaciones para enviar notificaciones push a la aplicación de Windows Phone." 
 	description="Obtenga información acerca de cómo usar Centros de notificaciones con Servicios móviles de Azure y para enviar notificaciones de inserción a la aplicación de Windows Phone." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
-	writer="wesmc" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/04/2015" 
 	ms.author="wesmc"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -23,12 +22,11 @@
 
 ##Información general
 
-Este tema muestra cómo puede usar Servicios móviles de Azure con un backend .NET para enviar notificaciones de inserción a una aplicación de Windows Phone Silverlight 8. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción con Centros de notificaciones cada vez que se inserte un registro. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
+Este tema muestra cómo puede usar Servicios móviles de Azure con un back-end .NET para enviar notificaciones push a una aplicación de Windows Phone Silverlight 8 usando el Servicio de notificaciones de inserción de Microsoft (MPNS). Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción con Centros de notificaciones cada vez que se inserte un registro. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
+Este tutorial está basado en el proyecto TodoList de Servicios móviles. Antes de iniciar este tutorial, primero debe completar [Incorporación de Servicios móviles a una aplicación existente] para conectar su proyecto al servicio móvil.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de iniciar este tutorial, primero debe completar [Incorporación de Servicios móviles a una aplicación existente] para conectar su proyecto al servicio móvil.
-
->[AZURE.NOTE]Este tutorial se dirige a las aplicaciones "Silverlight" de Windows Phone 8.1. Si, en cambio, está creando una aplicación de la Tienda Windows Phone 8.1, consulte la versión [Aplicación de la Tienda Windows](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) de este tutorial. Para obtener información sobre las aplicaciones Silverlight de Windows Phone y ver una comparación con las aplicaciones de la Tienda Windows Phone, vea [Aplicaciones Silverlight de Windows Phone 8.1].
+>[AZURE.NOTE]Este tutorial se dirige a las aplicaciones Silverlight de Windows Phone 8.1. Si, en cambio, está creando una aplicación de la Tienda Windows Phone 8.1, consulte la versión [Aplicación de la Tienda Windows](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) de este tutorial. Para obtener información sobre las aplicaciones Silverlight de Windows Phone y ver una comparación con las aplicaciones de la Tienda Windows Phone, vea [Aplicaciones Silverlight de Windows Phone 8.1].
 
 ##Actualización de la aplicación para registrarse a fin de recibir notificaciones
 
@@ -140,7 +138,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 3. Haga clic en la pestaña **Inserción**, marque **Habilite las notificaciones de inserción no autenticadas** y, a continuación, haga clic en **Guardar**.
 
-   	![][4]
+   	![Pestaña Insertar de Servicios móviles](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
 	>[AZURE.NOTE]Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado haciendo clic en <strong>Upload</strong> (Cargar) y seleccionando el certificado. Para obtener más información sobre la generación del certificado, consulte <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configuración de un servicio web autenticado para enviar notificaciones de inserción para Windows Phone</a>.
 
@@ -159,11 +157,11 @@ Con esto se permite que el servicio móvil se conecte a MPNS en modo sin autenti
 
 5. En la aplicación, escriba el texto "hello push" en el cuadro de texto, haga clic en **Guardar** y luego haga clic inmediatamente en el botón Inicio o Atrás para abandonar la aplicación.
 
-   	![][2]
+   	![Insertar texto][2]
 
   	Esto envía una solicitud de inserción al servicio móvil para almacenar el elemento agregado. Observe que el dispositivo recibe una notificación del sistema que dice **hello push**.
 
-	![][5]
+	![Notificación push recibida](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]No recibirá la notificación mientras permanezca en la aplicación. Para recibir una notificación del sistema mientras la aplicación esté activa, deberá gestionar el evento [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx).
 
@@ -171,21 +169,13 @@ Con esto se permite que el servicio móvil se conecte a MPNS en modo sin autenti
 
 Este tutorial demostró los aspectos básicos de la habilitación de una aplicación de Windows Phone para usar Servicios móviles y Centros de notificaciones con el fin de usar notificaciones de inserción. Le recomendamos que después realice el siguiente tutorial, [Envío de notificaciones de inserción a usuarios autenticados], que muestra cómo enviar estas notificaciones con etiquetas desde un servicio móvil a solo un usuario autenticado.
 
-<!--+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send broadcast notifications to subscribers]
-	<br/>Learn how users can register and receive push notifications for categories they're interested in.
--->
 Considere la posibilidad de profundizar más en los siguientes temas sobre Servicios móviles y Centros de notificaciones:
 
-* [Introducción a los datos] <br/>Obtenga más información sobre cómo almacenar y consultar datos con los servicios móviles.
+* [Adición de autenticación a la aplicación] <br/>Obtenga información sobre cómo autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
-* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
+* [¿Qué son los Centros de notificaciones?] <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
-* [¿Qué son los Centros de notificaciones?] <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
-
-* [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga orientación sobre la solución de problemas y la depuración de soluciones de los Centros de notificaciones.
+* [Depuración de aplicaciones de centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga instrucciones de resolución de problemas y depuración de soluciones de centros de notificaciones.
 
 * [Referencia conceptual de Servicios móviles con .NET] <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
@@ -197,32 +187,21 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
 [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
 [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
-[4]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
-[5]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
 [Incorporación de Servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
-[Introducción a la autenticación]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Adición de autenticación a la aplicación]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
 
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
-<<<<<<< HEAD:articles/mobile-services-dotnet-backend-windows-phone-get-started-push.md
-[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
-[Send broadcast notifications to subscribers]: notification-hubs/notification-hubs-windows-phone-send-breaking-news.md
-[Send template-based notifications to subscribers]: notification-hubs-windows-phone-send-localized-breaking-news.md
-=======
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-phone-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-phone-send-localized-breaking-news.md
->>>>>>> master:articles/mobile-services/mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-html-how-to-use-client-library.md
 [Aplicaciones Silverlight de Windows Phone 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

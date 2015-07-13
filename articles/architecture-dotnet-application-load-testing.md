@@ -22,13 +22,10 @@ El servicio de prueba de carga basado en la nube puede probar la carga de sus ap
 
 <!--links-->
 
-[Azure y Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[Ejecución de pruebas de carga en entornos mixtos]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
-[Uso de pruebas de carga de Visual Studio en Roles de Azure]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
+[Azure and Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
+[Running Load Tests In Mixed Environments]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Using Visual Studio Load Tests in Azure Roles]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
-
-
-
-<!--HONumber=47-->
+<!---HONumber=July15_HO1-->

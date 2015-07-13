@@ -10,28 +10,19 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
-	ms.devlang="Java"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="3/10/2015"
+	ms.date="05/13/2015"
 	ms.author="yuaxu"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
+##Información general
+
 Este tema muestra cómo puede usar los Servicios móviles Azure para enviar notificaciones de inserción a una aplicación Xamarin.iOS 8. En este tutorial aprenderá a agregar notificaciones de inserción con el servicio de notificaciones de inserción de Apple (APNS) al proyecto [Introducción a Servicios móviles]. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
-
-Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones push:
-
-1. [Generación de la solicitud de firma de certificado]
-2. [Registro de la aplicación y habilitación de las notificaciones de inserción]
-3. [Creación de un perfil de aprovisionamiento para la aplicación]
-4. [Configuración de Servicios móviles]
-5. [Configuración de la aplicación Xamarin.iOS]
-6. [Incorporación de notificaciones de inserción a la aplicación]
-7. [Actualización de scripts para enviar notificaciones de inserción]
-8. [Inserción de datos para recibir notificaciones]
 
 Este tutorial requiere lo siguiente:
 
@@ -40,21 +31,21 @@ Este tutorial requiere lo siguiente:
 + [Xamarin.iOS Studio]
 + [Componente de Servicios móviles de Azure]
 
-   >[AZURE.NOTE]Debido a los requisitos de la configuración de las notificaciones push, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
+>[AZURE.IMPORTANT]Debido a los requisitos de APNS, debe implementar y realizar una prueba de las notificaciones push en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
-El servicio de notificaciones de inserción de Apple (APNS) usa certificados para autenticar su servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Servicio de notificaciones push de Apple].
+APNS usa certificados para autenticar el servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Servicio de notificaciones push de Apple].
 
 ## <a name="certificates"></a>Generación del archivo de solicitud de firma de certificado
 
 Primero debe generar el archivo de solicitud de firma de certificado (CSR) que Apple usa para generar un certificado firmado.
 
-1. En Utilities (Utilidades), ejecute la **herramienta de acceso a llaves**.
+1. En Utilidades, ejecute la **herramienta de acceso a llaves**.
 
 2. Haga clic en **Keychain Access** (Acceso a llaves), expanda **Certificate Assistant**, (Asistente para certificados) y, a continuación, haga clic en **Request a Certificate from a Certificate Authority...** (Solicitar un certificado de una entidad de certificación...).
 
     ![][5]
 
-3. Especifique su **User Email Address** (Dirección de correo electrónico del usuario), escriba los valores de **Common Name** (Nombre común), asegúrese de que se haya seleccionado **Saved to disk** (Se guarda en disco) y haga clic en **Continue** (Continuar).
+3. Especifique la **dirección de correo electrónico de usuario**, escriba un **valor de nombre común**, asegúrese de que se ha seleccionado la opción de **guardado en el disco** y, a continuación, haga clic en **Continuar**.
 
     ![][6]
 
@@ -74,11 +65,11 @@ Para poder enviar notificaciones de inserción a una aplicación iOS desde servi
 
     ![][102]
 
-2. Escriba un nombre para la aplicación en **Description** (Descripción) y recuerde el **Bundle Identifier** (Identificador de agrupación) único, marque la opción "Push Notifications" (Notificaciones de inserción) en la sección "App Services" (Servicios de aplicaciones) y haga clic en **Continue** (Continuar). En este ejemplo se usa el identificador **MobileServices.Quickstart** pero es posible que no pueda volver a usar ese mismo identificador, ya que los identificadores de aplicaciones deben ser exclusivos entre todos los usuarios. Por ese motivo, es recomendable que agregue su nombre completo o sus iniciales después del nombre de la aplicación.
+2. Escriba un nombre para la aplicación en **Descripción**, escriba y recuerde el **Identificador de la agrupación de trabajos**, active la opción "Notificaciones push" en la sección "Servicios de aplicaciones" y, a continuación, haga clic en **Continuar**. En este ejemplo se usa el identificador **MobileServices.Quickstart** pero es posible que no pueda volver a usar ese mismo identificador, ya que los identificadores de aplicaciones deben ser exclusivos entre todos los usuarios. Por ese motivo, es recomendable que agregue su nombre completo o sus iniciales después del nombre de la aplicación.
 
     ![][103]
 
-    De esta forma, se genera el identificador de la aplicación y se le pedirá que **envíe** la información. Haga clic en **Submit** (Enviar).
+    De esta forma, se genera el identificador de la aplicación y se solicita que **envíe la información**. Haga clic en **Enviar**.
 
     ![][104]
 
@@ -128,7 +119,7 @@ A continuación, usará este certificado para generar un archivo .p12 y cargarlo
 
 ## <a name="profile"></a>Creación de un perfil de aprovisionamiento para la aplicación
 
-1. Vuelva al <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de aprovisionamiento de iOS</a>, seleccione **Provisioning Profiles** (Perfiles de aprovisionamiento), seleccione **All** (Todo) y, a continuación, haga clic en el botón **+** para crear un nuevo perfil. De esta forma, se iniciará el asistente **Add iOS Provisioning Profile** (Agregar perfil de aprovisionamiento de iOS).
+1. Vuelva al <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">Portal de aprovisionamiento de iOS</a>, seleccione **Provisioning Profiles** (Perfiles de aprovisionamiento), seleccione **All** (Todo) y, a continuación, haga clic en el botón **+** para crear un nuevo perfil. De esta forma, se iniciará el asistente para **Agregar perfil de aprovisionamiento de iOS**.
 
     ![][112]
 
@@ -138,7 +129,7 @@ A continuación, usará este certificado para generar un archivo .p12 y cargarlo
 
     ![][113]
 
-4. En la pantalla **Select certificates** (Seleccionar certificados), seleccione el certificado creado anteriormente y haga clic en **Continue** (Continuar).
+4. En la pantalla **Seleccionar certificados**, seleccione el certificado creado anteriormente y haga clic en **Continuar**.
 
     ![][114]
 
@@ -146,7 +137,7 @@ A continuación, usará este certificado para generar un archivo .p12 y cargarlo
 
     ![][115]
 
-6. Para terminar, seleccione un nombre para el perfil en **Profile Name** (Nombre de perfil), haga clic en **Generate** (Generar) y luego en **Done** (Listo).
+6. Para terminar, seleccione un nombre para el perfil en **Nombre de perfil**, haga clic en **Generar** y haga clic en **Listo**.
 
     ![][116]
 
@@ -182,17 +173,17 @@ El servicio móvil está configurado ahora para que funcione con APNS.
 
 ## <a name="configure-app"></a>Configuración de la aplicación Xamarin.iOS
 
-1. En Xamarin.Studio, abra **Info.plist** y actualice el **Bundle Identifier** (Identificador de agrupación) con el identificador que creó anteriormente.
+1. En Xamarin.Studio, abra **Info.plist** y actualice el **identificador de agrupación de trabajos** con el identificador que ha creado anteriormente.
 
     ![][121]
 
-2. Desplácese hacia abajo hasta **Background Modes** (Modos en segundo plano) y marque las casillas **Enable Background Modes** (Habilitar modos en segundo plano) y **Remote notifications** (Notificaciones remotas).
+2. Desplácese hacia abajo hasta **Modos en segundo plano** y active la casilla **Habilitar modos en segundo plano** y la casilla **Notificaciones remotas**.
 
     ![][122]
 
-3. Haga doble clic en el proyecto en el panel de soluciones para abrir **Project Options** (Opciones de proyecto).
+3. Haga doble clic en el proyecto en el Panel de soluciones para abrir las **Opciones de proyecto**.
 
-4.  Elija **iOS Bundle Signing** (Registro de agrupación de trabajos iOS) en **Build** (Compilar) y seleccione la **Identity** (Identidad) y el **Provisioning profile** (Perfil de aprovisionamiento) correspondientes que acaba de configurar para este proyecto.
+4.  Elija **Registro de agrupación de trabajos iOS** en **Compilar** y seleccione la **identidad** y el **perfil de aprovisionamiento** correspondientes que acaba de configurar para este proyecto.
 
     ![][120]
 
@@ -296,7 +287,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
     Se muestra la función que se invoca cuando se produce una inserción en la tabla **TodoItem**.
 
-3. Reemplace la función de inserción por el siguiente código y haga clic en **Guardar**:
+3. Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Guardar**:
 
         function insert(item, user, request) {
             request.execute();
@@ -318,17 +309,17 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
 ## <a name="test"></a>Prueba de las notificaciones de inserción en su aplicación
 
-1. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. Haga clic en **OK** (Aceptar) para aceptar las notificaciones de inserción.
+1. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **OK** (Aceptar) para aceptar las notificaciones push.
 
     ![][23]
 
    >[AZURE.NOTE]Debe aceptar de forma explícita las notificaciones push desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
-2. En la aplicación, escriba un texto significativo, como _Nueva tarea de Servicios móviles_ y haga clic en el icono del signo más (**+**).
+2. En la aplicación, escriba un texto significativo, como _Una nueva tarea de Servicios móviles_ y, a continuación, haga clic en el icono del signo más (**+**).
 
     ![][24]
 
-3. Compruebe que se ha recibido la notificación y haga clic en **OK** (Aceptar) para descartarla.
+3. Compruebe que se ha recibido la notificación y, a continuación, haga clic en **Aceptar** para descartarla.
 
     ![][25]
 
@@ -339,14 +330,14 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 Ha completado correctamente este tutorial.
 
 <!-- Anchors. -->
-[Generación de la solicitud de firma de certificado]: #certificates
-[Registro de la aplicación y habilitación de las notificaciones de inserción]: #register
-[Creación de un perfil de aprovisionamiento para la aplicación]: #profile
-[Configuración de Servicios móviles]: #configure-mobileServices
-[Configuración de la aplicación Xamarin.iOS]: #configure-app
-[Actualización de scripts para enviar notificaciones de inserción]: #update-scripts
-[Incorporación de notificaciones de inserción a la aplicación]: #add-push
-[Inserción de datos para recibir notificaciones]: #test
+[Generate the certificate signing request]: #certificates
+[Register your app and enable push notifications]: #register
+[Create a provisioning profile for the app]: #profile
+[Configure Mobile Services]: #configure-mobileServices
+[Configure the Xamarin.iOS App]: #configure-app
+[Update scripts to send push notifications]: #update-scripts
+[Add push notifications to the app]: #add-push
+[Insert data to receive notifications]: #test
 
 <!-- Images. -->
 
@@ -396,12 +387,8 @@ Ha completado correctamente este tutorial.
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Servicio de notificaciones push de Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Introducción a Servicios móviles]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Introducción a Servicios móviles]: mobile-services-ios-get-started.md
+
 [Aprovisionamiento de dispositivos Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
@@ -410,5 +397,6 @@ Ha completado correctamente este tutorial.
 [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

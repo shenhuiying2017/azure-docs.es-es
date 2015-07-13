@@ -372,11 +372,11 @@ Todas las empresas necesitan hacer copias de seguridad de los datos y restaurarl
 ###Recuperación de sitios###
 
  
-Recuperación de sitios de Azure (anteriormente Administrador de recuperación de Hyper-V) puede ayudarle a proteger importantes aplicaciones coordinando la replicación y la recuperación de imágenes de Hyper-V entre sitios. Puede hacer copias de seguridad en su propio sitio secundario, un sitio de un servicio de hospedaje, o bien utilizar Azure para evitar los gastos y la complejidad de crear y administrar su propia ubicación secundaria. Azure cifra datos y comunicaciones y tiene la opción de habilitar también el cifrado de los datos en reposo.
+Azure Site Recovery (anteriormente Administrador de recuperación de Hyper-V) puede ayudarle a proteger aplicaciones importantes mediante la coordinación de la replicación y la recuperación entre sitios. Site Recovery proporciona capacidad para proteger las aplicaciones basadas en Hyper-v, VMWare o SAN en su propio sitio secundario, en el sitio del anfitrión o en Azure y evitar los gastos y la complejidad de crear y administrar su propia ubicación secundaria. Azure cifra los datos y las comunicaciones y el usuario tiene la opción de habilitar también el cifrado de los datos en reposo.
 
-Supervisa el estado de sus servicios continuamente y ayuda a automatizar la recuperación ordenada de servicios en caso de que se produzca una interrupción del sitio en el centro de datos principal. Se pueden sacar las máquinas virtuales de manera orquestada para ayudar a restaurar el servicio rápidamente, incluso para cargas de trabajo complejas de varios niveles.
+Asimismo, supervisa el estado de los servicios continuamente y ayuda a automatizar la recuperación ordenada de servicios en caso de que se produzca una interrupción del sitio en el centro de datos principal. Las máquinas virtuales se pueden preparar de manera organizada para ayudar a restaurar las aplicaciones rápidamente, incluso para cargas de trabajo complejas de varios niveles.
 
-Recuperación de sitios funciona con tecnologías existentes como Hyper-V Replica, System Center y SQL Server AlwaysOn.
+Recuperación de sitios funciona con tecnologías existentes como Hyper-V Replica, System Center y SQL Server AlwaysOn. Consulte [Información general sobre Azure Site Recovery](hyper-v-recovery-manager-overview.md) para obtener más detalles.
 
 ###Copia de seguridad de Azure###
 ![Copia de seguridad de Azure](./media/intro-to-azure/AzureBackupIntroNew.png) **Ilustración: Copia de seguridad de Azure realiza copias de seguridad de los datos desde servidores de Windows locales a la nube.**
@@ -578,4 +578,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

@@ -224,4 +224,7 @@ La preparación de una máquina virtual Oracle Linux 7 para Azure es muy similar
 
 15. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

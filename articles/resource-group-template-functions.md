@@ -1,6 +1,6 @@
 <properties
    pageTitle="Funciones de la plantilla del Administrador de recursos de Azure"
-   description="Describe las funciones que se van a utilizar en una plantilla del Administrador de recursos de Azure para implementar aplicaciones en Azure."
+   description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, cadenas de formato e información de implementación."
    services="na"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="tomfitz, ilygre"/>
+   ms.date="06/08/2015"
+   ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
 
@@ -52,9 +52,36 @@ En el ejemplo siguiente se muestra cómo combinar varios valores para devolver u
         }
     }
 
+## deployment
+
+**deployment()**
+
+Devuelve información sobre la operación de implementación actual.
+
+La información sobre la implementación se devuelve como un objeto con las siguientes propiedades:
+
+    {
+      "name": "",
+      "properties": {
+        "template": {},
+        "parameters": {},
+        "mode": "",
+        "provisioningState": ""
+      }
+    }
+
+En el ejemplo siguiente se muestra cómo se devuelve la información de implementación en la sección de salidas.
+
+    "outputs": {
+      "exampleOutput": {
+        "value": "[deployment()]",
+        "type" : "object"
+      }
+    }
+
 ## listKeys
 
-**listKeys (resourceName o resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
 Devuelve las claves de una cuenta de almacenamiento. El valor de resourceId puede especificarse mediante la [función resourceId](./#resourceid) o mediante el formato **providerNamespace/resourceType/resourceName**. Puede utilizar la función para obtener los valores de primaryKey y secondaryKey.
   
@@ -71,6 +98,28 @@ En el ejemplo siguiente se muestra cómo se devuelven las claves de una cuenta d
         "type" : "object" 
       } 
     } 
+
+## padLeft
+
+**padLeft(stringToPad, totalLength, paddingCharacter)**
+
+Devuelve una cadena alineada a la derecha agregando caracteres a la izquierda hasta alcanzar la longitud total especificada.
+  
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToPad | Sí | La cadena que se va a alinear a la derecha.
+| totalLength | Sí | El número total de caracteres de la cadena devuelta.
+| paddingCharacter | Sí | El carácter que se va a usar para el relleno a la izquierda hasta alcanza la longitud total.
+
+En el ejemplo siguiente se muestra cómo rellenar el valor del parámetro proporcionado por el usuario agregando el carácter cero hasta que la cadena llegue a 10 caracteres. Si el valor del parámetro original tiene más de 10 caracteres, no se agrega ningún carácter.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "paddedAppName": "[padLeft(parameters('appName'),10,'0')]"
+    }
+
 
 ## parameters
 
@@ -100,7 +149,7 @@ En el ejemplo siguiente se muestra un uso simplificado de la función de los par
 
 ## provider
 
-**proveedor (providerNamespace, [resourceType])**
+**provider (providerNamespace, [resourceType])**
 
 Se devuelve información acerca de un proveedor de recursos y sus tipos de recursos admitidos. Si no se proporciona el tipo, se devuelven todos los tipos admitidos.
 
@@ -128,7 +177,7 @@ En el ejemplo siguiente se muestra cómo utilizar la función de proveedor:
 
 ## reference
 
-**referencia (resourceName o resourceIdentifier, [apiVersion])**
+**reference (resourceName or resourceIdentifier, [apiVersion])**
 
 Permite que una expresión derive su valor del estado de tiempo de ejecución de otro recurso.
 
@@ -146,6 +195,27 @@ Mediante el uso de la expresión de referencia, se declara que un recurso depend
           "type": "string",
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
       }
+    }
+
+## replace
+
+**replace(originalString, oldCharacter, newCharacter)**
+
+Devuelve una nueva cadena con todas las instancias de un carácter de la cadena especificada sustituidas por otro carácter.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| originalString | Sí | La cadena que tendrá todas las instancias de un carácter sustituido por otro carácter.
+| oldCharacter | Sí | El carácter que se va a quitar de la cadena original.
+| newCharacter | Sí | El carácter que se va a agregar en lugar del carácter eliminado.
+
+En el ejemplo siguiente se muestra cómo quitar todos los guiones de la cadena proporcionada por el usuario.
+
+    "parameters": {
+        "identifier": { "type": "string" }
+    },
+    "variables": { 
+        "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
 ## resourceGroup
@@ -256,6 +326,45 @@ En el ejemplo siguiente se muestra la función de suscripción a la que se llama
       } 
     } 
 
+## toLower
+
+**toLower(stringToChange)**
+
+Convierte la cadena especificada a minúsculas.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sí | La cadena que se va a convertir a minúsculas.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario a minúsculas.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "lowerCaseAppName": "[toLower(parameters('appName'))]"
+    }
+
+## toUpper
+
+**toUpper(stringToChange)**
+
+Convierte la cadena especificada a mayúsculas.
+
+| Parámetro | Obligatorio | Descripción
+| :--------------------------------: | :------: | :----------
+| stringToChange | Sí | La cadena que se va a convertir a mayúsculas.
+
+En el siguiente ejemplo se convierte el valor del parámetro proporcionado por el usuario a mayúsculas.
+
+    "parameters": {
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "upperCaseAppName": "[toUpper(parameters('appName'))]"
+    }
+
+
 ## variables
 
 **variables (variableName)**
@@ -270,7 +379,7 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 ## Pasos siguientes
 - [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md)
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](./resouce-group-template-deploy.md)
+- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

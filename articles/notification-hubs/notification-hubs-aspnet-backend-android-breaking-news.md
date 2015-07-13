@@ -319,4 +319,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

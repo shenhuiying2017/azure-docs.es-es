@@ -1,43 +1,55 @@
-<properties 
-	pageTitle="Guía de características de Visión operativa" 
-	description="Visión operativa es un servicio de análisis que permite a los administradores de TI obtener un visión profunda en entornos locales y en la nube. Le permite interactuar con datos de máquina en tiempo real e históricos para desarrollar con rapidez una visión personalizada, y proporciona patrones desarrollados por Microsoft y la comunidad para analizar datos." 
-	services="operational-insights" 
-	documentationCenter="" 
-	authors="bandersmsft" 
-	manager="jwhit" 
+<properties
+	pageTitle="Guía de características de Visión operativa"
+	description="Visión operativa es un servicio de análisis que permite a los administradores de TI obtener un visión profunda en entornos locales y en la nube. Le permite interactuar con datos de máquina en tiempo real e históricos para desarrollar con rapidez una visión personalizada, y proporciona patrones desarrollados por Microsoft y la comunidad para analizar datos."
+	services="operational-insights"
+	documentationCenter=""
+	authors="bandersmsft"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="operational-insights" 
-	ms.workload="appservices" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/06/2014" 
+<tags
+	ms.service="operational-insights"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/11/2015"
 	ms.author="banders"/>
 
-<h1>Guía de características de Visión operativa</h1>
+# Guía de características de Visión operativa
 
-Esta guía le ayuda a comprender los problemas que Visión operativa puede ayudarle a resolver, de qué consta el entorno de Visión operativa y cómo puede crear una cuenta de Visión operativa y e iniciar sesión en el servicio.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-<h2 id="whatisaad">¿Qué es Visión operativa?</h2>
+Esta guía le ayuda a comprender los problemas que Visión operativa puede ayudarle a resolver, de qué consta el entorno de Visión operativa y cómo puede crear una cuenta de Visión operativa e iniciar sesión en el servicio.
+
+## Transformar datos de la máquina
 
 Visión operativa es un servicio de análisis que permite a los administradores de TI obtener un visión profunda en entornos locales y en la nube. Le permite interactuar con datos de máquina en tiempo real e históricos para desarrollar con rapidez una visión personalizada, y proporciona patrones desarrollados por Microsoft y la comunidad para analizar datos.
 
-Con Visión operativa, puede transformar datos de máquina en inteligencia operativa. En concreto, puede:
+Con Visión operativa, puede transformar datos de máquina en inteligencia operativa con las características siguientes.
 
-- Administrar la capacidad de su infraestructura de servidores
-- Actualizar servidores con actualizaciones del sistema
-- Comprender las relaciones entre los datos en los archivos de registro de los servidores
-- Proteger los servidores con antimalware
-- Administrar los riesgos de seguridad con control de la seguridad
-- Realizar un seguimiento de los cambios de configuración en todos los servidores
-- Optimizar SQL Server
-- Buscar registros de eventos e IIS
-- Instalar agentes en las máquinas virtuales de Microsoft Azure IaaS
-- Usar Visión operativa sin Operations Manager  
 
-<h2 id="">Entorno de Visión operativa</h2>
+|**Icono** | **Lo que debe hacer** | **Qué hace**|
+|---|---|---|
+|![](./media/operational-insights-feature-guide/cap-plan.png) | [Planificación de capacidad](operational-insights-capacity.md) | Puede utilizar la solución Planificación de capacidad en Visión operativa de Microsoft Azure para ayudarle a entender la capacidad de su infraestructura de servidor. |
+| ![](./media/operational-insights-feature-guide/update.png) | [Evaluación de la actualización del sistema](operational-insights-updates.md) | Puede usar la solución de actualizaciones del sistema de Microsoft Azure Operational Insights para ayudarle a aplicar las actualizaciones que faltan a los servidores de su infraestructura. |
+| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Administración de registros](operational-insights-search.md) | Puede usar la solución de administración de registros para recopilar eventos y registros de IIS para las búsquedas de registro en Visión operativa. |
+| ![](./media/operational-insights-feature-guide/malware.png) | [Evaluación de malware](operational-insights-antimalware.md) | Puede usar la solución Antimalware incluida en Visión operativa de Microsoft Azure para proteger los servidores de su infraestructura frente al malware. |
+| ![](./media/operational-insights-feature-guide/sec-audit.png) | [Seguridad y auditoría](operational-insights-security-audit.md) | Puede usar la solución Seguridad y auditoría para conseguir una vista completa de la postura de seguridad de TI de su organización con consultas de búsqueda integradas para problemas importantes que requieren su atención |
+| ![](./media/operational-insights-feature-guide/assessment.png) | [Evaluación de SQL y Active Directory](operational-insights-assessment.md) | Puede usar periódicamente soluciones de evaluación para evaluar el riesgo y el estado de los entornos de servidor. |
+| ![](./media/operational-insights-feature-guide/alert.png) | [Administración de alertas](operational-insights-alerts.md) | Puede utilizar la solución Administración de alertas para administrar las alertas servidores supervisados por Operations Manager. |
+
+
+También puede:
+
+- **Envío de datos de máquina al sistema con o sin usar un agente o junto con System Center Operations Manager**. Para más información, consulte:
+	- [Conexión a Visión operativa desde System Center Operations Manager](operational-insights-connect-scom.md)
+	- [Conexión de equipos directamente en Visión operativa](operational-insights-direct-agent.md)
+	- [Análisis de datos de servidores en Microsoft Azure](operational-insights-analyze-data-azure.md)
+- **Hacer todo lo anterior sobre la marcha con la aplicación móvil**
+	- Para obtener más información acerca de la aplicación de Windows Phone, consulte [Aplicación móvil de Visión operativa](http://www.windowsphone.com/es-es/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+
+## Entorno de Visión operativa
 
 El entorno de Visión operativa se compone de:
 
@@ -47,37 +59,18 @@ El entorno de Visión operativa se compone de:
 - o bien, un servicio adjunto a System Center Operations Manager, pero no es necesario
 
 
-
-
 Si ha usado la versión anterior de Visión operativa denominada System Center Advisor, podría tener software de Advisor instalado en su entorno local. Sin embargo, el software de Advisor no es compatible con Visión operativa.
 
-Mediante el software de Visión operativa como un servicio de Operations Manager consta de uno o varios grupos de administración y al menos un agente por grupo de administración. Los agentes de Operations Manager recopilan datos de los servidores y los analizan mediante módulos de inteligencia (similares a un módulo de administración de System Center Operations Manager). Los datos analizados se envían con regularidad de Operations Manager al servicio web de Visión operativa mediante un servidor proxy, omitiendo otros servidores, por lo que no hay ninguna carga adicional colocada en ellos.
+Mediante el software de Visión operativa como un servicio de Operations Manager consta de uno o varios grupos de administración y al menos un agente por grupo de administración. Los agentes de Operations Manager recopilan datos de los servidores y los analizan mediante soluciones (similares a un paquete de administración de System Center Operations Manager). Los datos se envían periódicamente de Operations Manager para el servicio web de información operativa (si fuera necesario, pasando a través de un servidor proxy), sin nada que se almacenan en cualquiera de las bases de datos de Operations Manager, así que no hay ninguna carga adicional coloca en ellos.
 
 De forma similar, los agentes instalados en equipos individuales pueden conectarse directamente al servicio web para enviar los datos recopilados para el procesamiento.
 
-Los datos de cada módulo de inteligencia se analizan y se presentan en el portal de Visión operativa. Puede ver las alertas y las orientaciones sobre correcciones asociadas, las evaluaciones de configuración, los problemas de capacidad de infraestructura, el estado de actualización del sistema, las advertencias sobre antimalware y los datos de registro. También puede realizar búsquedas detalladas.
+Los datos de cada solución se analizan y se presentan en el portal de Visión operativa. Puede ver las alertas y las orientaciones sobre correcciones asociadas, las evaluaciones de configuración, los problemas de capacidad de infraestructura, el estado de actualización del sistema, las advertencias sobre antimalware y los datos de registro. También puede realizar búsquedas de registro detalladas ad-hoc y exploraciones.
 
-<h2 id="">Crear una cuenta de Visión operativa e iniciar sesión</h2>
+![Imagen del diagrama de información general de Visión operativa](./media/operational-insights-feature-guide/environment.png)
 
-Utilice la siguiente información para configurar una cuenta para usarla con Visión operativa de Microsoft Azure e iniciar sesión en Visión operativa.
-
-
-
-<h3>Obtener una cuenta de Microsoft o de organización</h3>
-
-Si desea crear una cuenta de organización, regístrese en <a href="http://go.microsoft.com/fwlink/?LinkId=396866" target="_blank">Cuenta de Microsoft para organizaciones</a>. A continuación, necesita conceder acceso a su cuenta de organización para Visión operativa en <a href="http://aka.ms/Mr1dtz" target="_blank">Windows Azure Active Directory</a>.
-
-
-Si desea obtener una cuenta de Microsoft (anteriormente denominada "Windows Live ID"), regístrese en <a href="http://go.microsoft.com/fwlink/?LinkId=396868" target="_blank">Registro: cuenta de Microsoft</a>. Se concede acceso automático a Visión operativa con una cuenta de Microsoft.
-
-
-<h3>Iniciar sesión en Visión operativa</h3>
-
-1. Vaya a <a href="preview.opinsights.azure.com" target="_blank">Visión operativa de Microsoft Azure</a>  y elija Iniciar sesión en la parte superior de la página.
-2. Seleccione **Cuenta Microsoft** o **Cuenta de organización** e **inicie sesión** con sus credenciales.
-3. Si se le solicita, cree una cuenta de Visión operativa para asociarla con la información de inicio de sesión.
-4. Seleccione **Probar vista previa** cuando se le solicite seleccionar la versión de Visión operativa que quiere usar.
-5. Si se le solicita, escriba el código de invitación y haga clic en **Aplicar** para unirse a la vista previa. Si no tiene un código de invitación, en la parte inferior de la pantalla, escriba sus datos para obtener uno.
-
-<!--HONumber=45--> 
+### ¿Dónde está disponible Visión operativa?
+Visión operativa de Microsoft Azure se hospeda en Estados Unidos. Aunque el idioma de Visión operativa es el inglés, el servicio está disponible en otros mercados. Para obtener información, consulte [Disponibilidad internacional](http://go.microsoft.com/fwlink/?LinkId=229842).
  
+
+<!---HONumber=July15_HO1-->

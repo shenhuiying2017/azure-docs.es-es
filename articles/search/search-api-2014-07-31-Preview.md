@@ -1,38 +1,25 @@
-<properties 
-	pageTitle="API de REST del Servicio Búsqueda de Azure versión 2014-07-31-Preview" 
-	description="API de REST del Servicio Búsqueda de Azure versión 2014-07-31-Preview" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="API de REST del Servicio Búsqueda de Azure versión 2014-07-31-Preview" description="API de REST del servicio de Búsqueda de Azure: versión 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/11/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
 
-# API de REST del Servicio Búsqueda de Azure versión 2014-07-31-Preview #
+# Version de API de REST del servicio de Búsqueda de Azure: 2014-07-31-Preview
 
-En este documento se describe la versión **2014-07-31-Preview** de la API de REST del servicio de Búsqueda de Azure. Se trata de la API de REST para la vista previa de Búsqueda de Azure.
+En este documento se describe la versión **2014-07-31-preview** antigua de la API de REST del servicio Búsqueda de Azure, publicada para la versión preliminar pública de Búsqueda de Azure en agosto de 2014. La documentación de la versión actual disponible con carácter general de la API de REST de Búsqueda de Azure puede encontrarse en MSDN. Consulte [API de REST del servicio Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información.
 
-Entre otros contenidos de la API relacionados con esta versión se incluyen los siguientes:
+Si utiliza una versión preliminar de la API en el código de la aplicación, le recomendamos encarecidamente que migre a la versión disponible con carácter general. Para obtener instrucciones, consulte [Transición de versión preliminar api-version=2014* a api-version=2015*](search-transition-from-preview.md).
 
-- [Perfiles de puntuación (API de REST del servicios de Búsqueda de Azure: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview/)
+Entre otros contenidos de la API relacionados con **2014-07-31-Preview** se incluyen los siguientes:
 
-La documentación de la versión publicada de la API de REST de Búsqueda de Azure puede encontrarse en MSDN. Consulte [API de REST del servicio Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información.
+- [Perfiles de puntuación (API de REST del servicios de Búsqueda de Azure: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview.md)
 
-##Acerca de la API de REST del servicio##
+
+##Acerca de la API de REST del servicio
 
 Búsqueda de Azure es un servicio basado en la nube que puede usar para crear aplicaciones de búsqueda personalizadas. Búsqueda de Azure tiene los conceptos de *Servicios de búsqueda* e *índices*, en los que un servicio de búsqueda contiene uno o más índices. El servicio de búsqueda se identifica mediante un nombre de dominio completo (por ejemplo: `mysearchservice.search.windows.net`). Cuando el servicio se aprovisiona, se genera una clave de API, y se usa para autenticar las solicitudes al servicio de Búsqueda de Azure.
 
 Hay dos tipos de acciones que se pueden ejecutar en el servicio de Búsqueda de Azure:
 
-- **Administración de índices**: aquí se incluyen tareas administrativas que se ejecutan en un servicio de búsqueda o en un índice de búsqueda. 
+- **Administración de índices**: aquí se incluyen tareas administrativas que se ejecutan en un servicio de búsqueda o en un índice de búsqueda.
 
 - **Acciones de documentos**: estas acciones consultan y administran el corpus de un índice determinado.
 
@@ -44,26 +31,26 @@ Las API documentadas en esta sección proporcionan acceso a operaciones en los d
 
 - Todas las API deben emitirse a través de HTTPS (en el puerto predeterminado: 443).
 
-- Todas las solicitudes de API deben incluir el `api-version` parámetro de la cadena de consulta. Su valor debe establecerse en la versión del servicio actual, que se muestra en el ejemplo siguiente:
+- Todas las solicitudes de API deben incluir el parámetro de la cadena de consulta `api-version`. Su valor debe establecerse en la versión del servicio actual, que se muestra en el ejemplo siguiente:
 
-    GET /indexes?api-version=2014-07-31-Preview
+GET /indexes?api-version=2014-07-31-Preview
 
 - Opcionalmente, todas las solicitudes de API pueden establecer el `Accept` encabezado HTTP. Si no se establece, el valor predeterminado se supone que será `application/json`.
 
 Para la administración del servicio se proporciona una API independiente. Entre los ejemplos de operaciones de administración de servicios se incluye el aprovisionamiento del servicio o la capacidad de modificación. Para obtener más información acerca de esta API, consulte la API de REST de administración de Búsqueda de Azure.
 
-### Extremo ###
+### Extremo
 
 El extremo de las operaciones de servicio es la dirección URL del servicio de Búsqueda de Azure aprovisionado por usted: https://<yourService>. search.windows.net.
 
 
-### Versiones: ###
+### Versiones:
 
 Hay varias versiones de API para la Búsqueda de Azure. Si va a evaluar la Búsqueda de Azure para su uso con una aplicación de producción, es recomendable revisar la información de la versión publicada para cada conjunto de API. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener instrucciones acerca de cómo elegir una versión específica.
 
 
 <a name="Authentication"></a>
-### Autenticación y control de acceso###
+### Autenticación y control de acceso
 
 La autenticación en un servicio de Búsqueda de Azure requiere dos fragmentos de información: una dirección URL del servicio de búsqueda y un `api-key`. Los `api-keys` se generan cuando se crea el servicio y pueden regenerarse a petición después de aprovisionar el servicio. Una `api-key` es una clave de administración que concede acceso a todas las operaciones o una clave de consulta que autentica únicamente las solicitudes de consulta. Dispone de 2 de claves de administración y hasta 50 claves de consulta por cada servicio.
 
@@ -73,7 +60,7 @@ A las operaciones de datos realizadas en un extremo de servicio de búsqueda, in
 
 **Nota**: En general se considera una práctica de seguridad deficiente transmitir datos confidenciales como `api-key` en el URI de solicitud. Por este motivo, Búsqueda de Azure solo aceptará una clave de consulta como un `api-key` en la cadena de consulta, y debe evitar hacerlo a menos que el contenido del índice deba estar disponible públicamente. En su lugar, se recomienda pasar su `api-key` como un encabezado de solicitud.
 
-###Resumen de API###
+###Resumen de API
 
 La API del servicio de Búsqueda de Azure admite dos sintaxis para la búsqueda de entidades. En la siguiente lista se muestra tanto la sintaxis de OData simple y alternativa.
 
@@ -93,7 +80,7 @@ La API del servicio de Búsqueda de Azure admite dos sintaxis para la búsqueda 
 
     GET /indexes?api-version=2014-07-31-Preview
 
-[Obtener estadísticas de índice](#GetIndexStats)
+[Obtención de estadísticas de índice](#GetIndexStats)
 
     GET /indexes/[index name]/stats?api-version=2014-07-31-Preview
 
@@ -121,8 +108,9 @@ La API del servicio de Búsqueda de Azure admite dos sintaxis para la búsqueda 
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
 
-________________________________________ <a name="IndexOps"></a>
-# Operaciones de índice #
+________________________________________
+<a name="IndexOps"></a>
+## Operaciones de índice
 
 Puede crear y administrar índices en el servicio de Búsqueda de Azure a través de solicitudes HTTP sencillas (POST, GET, PUT, DELETE) en un recurso de índice determinado. Para crear un índice, primero debe PUBLICAR un documento JSON que describa el esquema de índice. El esquema define los campos de índice, sus tipos de datos y cómo pueden utilizarse (por ejemplo, en las búsquedas de texto completo, filtros, ordenación, faceting o sugerencias). También define los perfiles de puntuación y otros atributos para configurar el comportamiento del índice.
 
@@ -152,7 +140,7 @@ Para obtener una introducción de vídeo sobre la indexación en Búsqueda de Az
 
 
 <a name="CreateIndex"></a>
-## Crear índice ##
+## Crear índice
 
 Puede crear un índice nuevo dentro de un servicio de Búsqueda de Azure mediante una solicitud HTTP POST: El cuerpo de la solicitud es un documento JSON que especifica el nombre del índice, campos, atributos para controlar el comportamiento de la consulta, puntuación de resultados y opciones de CORS.
 
@@ -172,17 +160,17 @@ HTTPS es necesario para todas las solicitudes de servicio. La solicitud **Crear 
 
 El nombre del índice debe estar en minúsculas, comenzar por una letra o un número, no tener ninguna barra o punto y tener menos de 128 caracteres. Después de iniciar el nombre del índice por una letra o un número, el resto del nombre puede incluir cualquier letra, número y guiones, siempre que los guiones no aparezcan de manera consecutiva.
 
-`api-version` es obligatorio. Entre los valores válidos se incluyen `2014-07-31-Preview` o `2014-10-20-Preview`. Puede especificar cuál desea usar en cada solicitud para obtener comportamientos específicos de la versión, pero como práctica recomendada, use la misma versión en todo el código. La versión recomendada es `2014-07-31-Preview` para uso general. También puede usar `2014-10-20-Preview` para evaluar las funciones experimentales, como la compatibilidad con analizadores de lenguaje expresados a través del atributo de índice del analizador. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información acerca de las versiones de API. Consulte [Compatibilidad con idiomas](#LanguageSupport) para obtener más información acerca de los analizadores de lenguaje.
+`api-version` es obligatorio Entre los valores válidos se incluyen `2014-07-31-Preview` o `2014-10-20-Preview`. Puede especificar cuál desea usar en cada solicitud para obtener comportamientos específicos de la versión, pero como práctica recomendada, use la misma versión en todo el código. La versión recomendada es `2014-07-31-Preview` para uso general. También puede usar `2014-10-20-Preview` para evaluar las funciones experimentales, como la compatibilidad con analizadores de lenguaje expresados a través del atributo de índice del analizador. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información acerca de las versiones de API. Consulte [Compatibilidad con idiomas](#LanguageSupport) para obtener más información acerca de los analizadores de lenguaje.
 
 **Encabezados de solicitud**
 
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
 
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
-- `api-key`: obligatorio. El `api-key` se utiliza para 
+- `api-key`: obligatorio. El `api-key` se usa para 
 - autenticar la solicitud al servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta). 
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Configurar la Búsqueda de Azure en el Portal de vista previa](../search-configure.md) para obtener ayuda sobre la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 <a name="RequestData"></a> **Sintaxis del cuerpo de la solicitud**
 
@@ -354,7 +342,7 @@ A continuación se muestra la lista de analizadores admitidos junto con una brev
 	</tr>
     <tr>
 		<td>Danés</td>
-		<td>da.Lucene</td>
+		<td>da.lucene</td>
 		<td>
 		<ul>
 			<li>Aplica una lematización suave</li>
@@ -627,12 +615,12 @@ Javascript del lado cliente no puede llamar a las API de forma predeterminada de
 
 **Respuesta**
 
-Para obtener una solicitud correcta: "201 creado".
+Para obtener una solicitud correcta: "201 Creado".
 
 De forma predeterminada, el cuerpo de la respuesta contendrá el JSON de la definición del índice que se creó. Si se establece el encabezado de la solicitud `Prefer` en `return=minimal`, el cuerpo de respuesta quedará vacío y el código de estado correcto será "204 Sin contenido" en lugar de "201 creado". Esto es cierto independientemente de si se utiliza PUT o POST para crear el índice.
 
 <a name="UpdateIndex"></a>
-## Actualizar índice ##
+## Actualizar índice
 
 Puede actualizar un índice existente en Búsqueda de Azure mediante una solicitud HTTP PUT. En la vista previa pública, las actualizaciones pueden incluir agregar nuevos campos al esquema existente, modificar las opciones de CORS y modificar perfiles de puntuación (consulte [Agregar perfiles de puntuación a un índice de búsqueda](http://msdn.microsoft.com/library/azure/dn798928.aspx)). Especifique el nombre del índice que se va a actualizar en el URI de solicitud:
 
@@ -657,9 +645,9 @@ El parámetro `api-version` es obligatorio. Entre los valores válidos se incluy
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
 
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
-- `api-key`: obligatorio. `api-key` se utiliza para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Actualizar índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
+- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Actualizar índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Sintaxis del cuerpo de la solicitud**
 
@@ -732,7 +720,7 @@ Para obtener una solicitud correcta: "204 Sin contenido".
 De forma predeterminada, el cuerpo de respuesta estará vacío. No obstante, si el encabezado de la solicitud `Prefer` está establecido en `return=representation`, el cuerpo de la respuesta contendrá el JSON de la definición del índice que se actualizó. En este caso, el código de estado correcto será "200 Correcto".
 
 <a name="ListIndexes"></a>
-## Índices de la lista ##
+## Índices de la lista
 
 La operación **Índices de la lista** devuelve una lista de los índices que se encuentran actualmente en el servicio de Búsqueda de Azure.
 
@@ -749,9 +737,9 @@ El parámetro `api-version` es obligatorio. Entre los valores válidos se incluy
 
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
  
-- `api-key`: obligatorio. `api-key` se utiliza para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Índices de la lista** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
+- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Índices de la lista** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -797,7 +785,7 @@ En este caso, la respuesta del ejemplo anterior podría aparecer como sigue:
 Se trata de una técnica útil para ahorrar ancho de banda, si tiene una gran cantidad de índices en el servicio de búsqueda.
 
 <a name="GetIndex"></a>
-## Obtener índice ##
+## Obtener índice
 
 La operación **Obtener índice** obtiene la definición del índice de Búsqueda de Azure.
 
@@ -818,7 +806,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
  
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Obtener índice** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
 
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -831,7 +819,7 @@ Código de estado: al obtener una respuesta correcta, se visualiza 200 Correcto.
 Consulte el JSON de ejemplo en [creación y actualización de un índice](#CreateUpdateIndexExample) para obtener un ejemplo de la carga de respuesta.
 
 <a name="DeleteIndex"></a>
-## Eliminar índice ##
+## Eliminar índice
 
 La operación **Eliminar índice** quita un índice y los documentos asociados del servicio de Búsqueda de Azure. Puede obtener el nombre del índice del panel de servicio en el Portal de vista previa de Azure o de la API. Consulte [Índices de la lista](#ListIndexes) para obtener más información.
 
@@ -850,9 +838,9 @@ El parámetro `api-version` es obligatorio. Entre los valores válidos se incluy
 
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
  
-- `api-key`: obligatorio. `api-key` se utiliza para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Eliminar índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
+- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Eliminar índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Configurar la Búsqueda de Azure en el Portal de vista previa](../search-configure.md) para obtener ayuda sobre la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -863,7 +851,7 @@ Ninguno.
 Código de estado: al obtener una respuesta correcta, se visualiza 204 Sin contenido.
 
 <a name="GetIndexStats"></a>
-## Obtención de estadísticas de índice ##
+## Obtención de estadísticas de índice
 
 La operación **Obtener estadísticas de índice** obtiene de Búsqueda de Azure un recuento de documentos para el índice actual, más el uso del almacenamiento.
 
@@ -884,7 +872,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
  
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Obtener estadísticas de índice** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -901,8 +889,9 @@ El cuerpo de la respuesta está en el formato siguiente:
 	  "storageSize": number (size of the index in bytes)
     }
 
-________________________________________ <a name="DocOps"></a>
-# Operaciones del documento #
+________________________________________
+<a name="DocOps"></a>
+## Operaciones del documento
 
 En Búsqueda de Azure, se rellena un índice mediante los documentos JSON que se cargan en el servicio. Todos los documentos que se cargan comprenden el corpus de los datos de búsqueda. Los documentos contienen campos, algunos de los cuales se acortan en términos de búsqueda cuando se cargan. El segmento de URL `/docs` de la API de Búsqueda de Azure representa la colección de documentos en un índice. Todas las operaciones realizadas en la colección, como cargar, combinar, eliminar o consultar documentos se producen en el contexto de un índice único, por lo que las direcciones URL de estas operaciones siempre se iniciarán mediante `/indexes/[index name]/docs` para un nombre de índice especificado.
 
@@ -919,7 +908,7 @@ Para poder cargar documentos, debe haber creado el índice en el servicio. Consu
 **Nota**: La vista previa pública de Búsqueda de Azure solo admite inglés en las búsquedas de texto completo.
 
 <a name="AddOrUpdateDocuments"></a>
-## Agregar, actualizar o eliminar documentos ##
+## Agregar, actualizar o eliminar documentos
 
 Puede cargar, combinar, combinar o cargar o eliminar documentos en un índice especificado mediante HTTP POST. Para números elevados de actualizaciones, se recomienda efectuar el procesamiento por lotes de documentos (hasta 1.000 documentos por lote o aproximadamente 16 MB por lote).
 
@@ -940,9 +929,9 @@ El parámetro `api-version` es obligatorio. Entre los valores válidos se incluy
 En la lista siguiente se describen los encabezados de solicitud obligatorios y opcionales.
 
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
-- `api-key`: obligatorio. `api-key` se utiliza para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Agregar documentos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
+- `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Agregar documentos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1046,8 +1035,9 @@ Código de estado: 429 indica que se ha superado la cuota del número de documen
         }
       ]
     }
-________________________________________ <a name="SearchDocs"></a>
-## Buscar en documentos ##
+________________________________________
+<a name="SearchDocs"></a>
+## Buscar en documentos
 
 Las operaciones de **búsqueda** se emiten como solicitudes GET y especifica parámetros de consulta que ofrecen los criterios necesarios para seleccionar los documentos coincidentes.
 
@@ -1104,7 +1094,7 @@ El URI de solicitud especifica qué índice consultar para todos los documentos 
 
 `scoringParameter=[string]` (cero o más): indica el valor para cada parámetro definido en una función de puntuación (por ejemplo, `referencePointParameter`) con el formato nombre: valor. Por ejemplo, si el perfil de puntuación define una función con un parámetro denominado "mylocation" la opción de cadena de consulta sería & scoringParameter = mylocation:-122.2,44.8
 
-`api-version=[string]` (obligatorio). Entre los valores válidos se incluyen `2014-07-31-Preview` o `2014-10-20-Preview`. Puede especificar cuál desea usar en cada solicitud para obtener comportamientos específicos de la versión, pero como práctica recomendada, use la misma versión en todo el código. La versión recomendada es `2014-07-31-Preview` para uso general. O bien, use `2014-10-20-Preview` para evaluar las funciones experimentales. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información.
+`api-version=[string]` (obligatorio). Entre los valores válidos se incluyen `2014-07-31-Preview` o `2014-10-20-Preview`. Puede especificar cuál desea usar en cada solicitud para obtener comportamientos específicos de la versión, pero como práctica recomendada, use la misma versión en todo el código. La versión recomendada es `2014-07-31-Preview` para uso general. También puede usar `2014-10-20-Preview` para evaluar las funciones experimentales. Consulte [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) para obtener más información.
 
 Nota: Para esta operación, `api-version` se especifica como parámetro de consulta.
 
@@ -1114,13 +1104,13 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud de **Búsqueda** puede especificar una clave de administración o una clave de consulta para `api-key`.
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
 Ninguno.
 
-<a name="SearchResponse"></a>**Respuesta**
+<a name="SearchResponse"></a> **Respuesta**
 
 Código de estado: al obtener una respuesta correcta, se visualiza 200 Correcto.
 
@@ -1167,15 +1157,15 @@ NOTA: La precisión de los campos de fecha y hora se limita a milisegundos. Si s
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2014-07-31-Preview
 
-(3) Utilizando un filtro, restrinja los resultados de la consulta con facetas anterior después de que el usuario haga clic en la tarifa 3 y en la categoría "Motel":
+3) Utilizando un filtro, restrinja los resultados de la consulta con facetas anterior después de que el usuario haga clic en la tarifa 3 y en la categoría "Motel":
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2014-07-31-Preview
 
-(4) En una búsqueda con facetas, establezca un límite superior en términos únicos devueltos en una consulta. El valor predeterminado es 10, pero se puede aumentar o disminuir este valor utilizando el parámetro `count` en el atributo `facet`:
+4) En una búsqueda con facetas, establezca un límite superior en términos únicos devueltos en una consulta. El valor predeterminado es 10, pero se puede aumentar o disminuir este valor utilizando el parámetro `count` en el atributo `facet`:
 
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2014-07-31-Preview
 
-(5) Busque en el índice en campos específicos; por ejemplo, un campo específico del idioma:
+5) Busque en el índice en campos específicos; por ejemplo, un campo específico del idioma:
 
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2014-07-31-Preview
 
@@ -1215,7 +1205,7 @@ Tenga en cuenta que solo puede consultar un índice de cada vez. No cree varios 
 
 
 <a name="LookupAPI"></a>
-##Buscar documento##
+##Buscar documento
 
 La operación **Buscar documento** permite recuperar un documento de Búsqueda de Azure. Esto resulta útil cuando un usuario hace clic en un resultado de búsqueda específico y desea buscar detalles específicos acerca de ese documento.
 
@@ -1248,7 +1238,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Buscar documento** puede especificar una clave de administración o una clave de consulta para `api-key`.
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1273,7 +1263,7 @@ Busque el documento que tiene la clave "3" con la sintaxis de OData:
     GET /indexes('hotels')/docs('3')?api-version=2014-07-31-Preview
 
 <a name="CountDocs"></a>
-##Documentos de recuento##
+##Documentos de recuento
 
 La operación **Documentos de recuento** recupera un recuento del número de documentos en un índice de búsqueda. La sintaxis `$count` forma parte del protocolo OData.
 
@@ -1296,7 +1286,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Accept`: este valor debe establecerse en `text/plain`.
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Documentos de recuento** puede especificar una clave de administración o una clave de consulta para `api-key`.
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1309,7 +1299,7 @@ Código de estado: al obtener una respuesta correcta, se visualiza 200 Correcto.
 El cuerpo de la respuesta contiene el valor de recuento como un entero con formato de texto sin formato.
 
 <a name="Suggestions"></a>
-##Sugerencias##
+##Sugerencias
 
 La operación **Sugerencias** recupera sugerencias basadas en la entrada de búsqueda parcial. Se suele usar en los cuadros de búsqueda para proporcionar sugerencias anticipadas cuando los usuarios están introduciendo términos de búsqueda.
 
@@ -1350,7 +1340,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Sugerencias** puede especificar una clave de administración o una clave de consulta como `api-key`.
 
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1392,5 +1382,6 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -92,4 +92,4 @@
 Ahora, el servicio usa la etiqueta de identificador de usuario para enviar una notificación de inserción (con el texto del elemento insertado) a todos los registros que ha creado el usuario que inició sesión.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

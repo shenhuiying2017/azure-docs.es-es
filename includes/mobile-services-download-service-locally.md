@@ -8,4 +8,4 @@
 
 	De este modo, se descarga el proyecto de Visual Studio que implementa el servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO1-->

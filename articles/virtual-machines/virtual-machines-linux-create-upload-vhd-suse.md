@@ -29,7 +29,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 **Notas sobre la instalación de SLES/openSUSE**
 
- - [SUSE Studio](http://www.susestudio.com)  puede crear y administrar fácilmente sus imágenes de SLES / openSUSE para Hyper-V y Azure. Este es el enfoque recomendado para personalizar sus propias imágenes SUSE y openSUSE. Las siguientes imágenes oficiales de la Galería de SUSE Studio se pueden descargar o clonar en su propio SUSE Studio:
+ - [SUSE Studio](http://www.susestudio.com) puede crear y administrar fácilmente sus imágenes de SLES / openSUSE para Hyper-V y Azure. Este es el enfoque recomendado para personalizar sus propias imágenes SUSE y openSUSE. Las siguientes imágenes oficiales de la Galería de SUSE Studio se pueden descargar o clonar en su propio SUSE Studio:
 
   - [SLES 11 SP3 para Azure en la galería de SUSE Studio](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 para Azure en la galería de SUSE Studio](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
@@ -177,4 +177,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 13. Haga clic en** Acción -> Apagar** en el Administrador de Hyper-V. El VHD de Linux ya está listo para cargarse en Azure.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO1-->

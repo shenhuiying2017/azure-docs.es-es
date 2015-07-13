@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Azure" 
+	pageTitle="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Azure" 
 	description="Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL" 
-	metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab" 
+	authors="msolhab"
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,24 +14,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="msolhab" /> 
+	ms.date="05/29/2015" 
+	ms.author="msolhab" />
 
 # Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
 
-Para cargar o transferir grandes cantidades de datos a una base de datos SQL, es posible mejorar la importación de datos en la base de datos SQL y a las consultas posteriores mediante las _tablas y vistas con particiones_. En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server.
+Para cargar o transferir grandes cantidades de datos a una base de datos SQL, es posible mejorar la importación de datos en la base de datos SQL y a las consultas posteriores mediante _Tablas y vistas con particiones_. En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server.
+
 
 ## Crear una nueva base de datos y un conjunto de grupos de archivos
 
-- [Crear una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
+- [Creación de una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
 - Agregar grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones
 - Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nuevo o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
 
 - Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
 
- > [AZURE.NOTE] Especifique el grupo de archivos de destino que contendrá los datos de esta partición y los nombres de archivo de las bases de datos físicas donde se almacenarán los datos del grupo de archivos.
+ >[AZURE.NOTE]Especifique el grupo de archivos de destino que contendrá los datos de esta partición y los nombres de archivo de las bases de datos físicas donde se almacenarán los datos del grupo de archivos.
  
-En el ejemplo siguiente se crea una nueva base de datos con tres grupos de archivos distintos de los grupos principal y de registro, que contiene un archivo físico en cada uno. Los archivos de base de datos se crean en la carpeta de datos de SQL Server predeterminada, como está configurado en la instancia de SQL Server. Para obtener más información acerca de las ubicaciones de archivo predeterminadas, consulte [Ubicaciones de archivos para las instancias con nombre y predeterminadas de SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
+En el ejemplo siguiente se crea una nueva base de datos con tres grupos de archivos distintos de los grupos principal y de registro, que contiene un archivo físico en cada uno. Los archivos de base de datos se crean en la carpeta de datos de SQL Server predeterminada, como está configurado en la instancia de SQL Server. Para obtener más información acerca de las ubicaciones de archivo predeterminadas, consulte [Ubicaciones de archivos para las instancias predeterminadas y con nombre de SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
     DECLARE @data_path nvarchar(256);
     SET @data_path = (SELECT SUBSTRING(physical_name, 1, CHARINDEX(N'master.mdf', LOWER(physical_name)) - 1)
@@ -59,7 +59,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 
 **Para crear una tabla de partición, debe:**
 
-- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes (un_campo_datetime) en el año 2013:
+- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes(un_campo_datetime) en el año 2013:
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -85,7 +85,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 	    INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
 	    WHERE pfun.name = <DatetimeFieldPFN>
 
-- [Cree la tabla con particiones](https://msdn.microsoft.com/library/ms174979.aspx) según el esquema de datos y especifique el esquema de partición y el campo de restricción que se usó para crear las particiones de la tabla; por ejemplo:
+- [Crear tablas con particiones](https://msdn.microsoft.com/library/ms174979.aspx) según el esquema de datos y especifique el esquema de partición y el campo de restricción que se usó para crear las particiones de la tabla; por ejemplo:
 
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
@@ -94,13 +94,13 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 
 ## Importación masiva de datos para cada tabla de partición individual
 
-- Puede usar BCP, BULK INSERT u otros métodos como el [Asistente para la migración de SQL Server](http://sqlazuremw.codeplex.com/). En el ejemplo que se incluye, se usa el método BCP.
+- Puede usar BCP, BULK INSERT u otros métodos como el [Asistente para migración de SQL Server](http://sqlazuremw.codeplex.com/). En el ejemplo que se incluye, se usa el método BCP.
 
 - [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK_LOGGED y así minimizar la sobrecarga del inicio de sesión; por ejemplo:
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
-- Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de datos de gran tamaño en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+- Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 El siguiente script de PowerShell es un ejemplo de carga paralela de datos mediante BCP.
 
@@ -178,10 +178,11 @@ o bien,
 	    CREATE INDEX <table_idx> ON <table_name>( [include index columns here] )
 	    ON <TablePScheme>(<partition)field>)
 
- > [AZURE.NOTE] Puede crear los índices antes de importar los datos de forma masiva. La creación de índices antes de la importación masiva ralentizará la carga de datos.
+ >[AZURE.NOTE]Puede crear los índices antes de importar los datos de forma masiva. La creación de índices antes de la importación masiva ralentizará la carga de datos.
 
-### Ejemplo de ciencia de datos de Azure en acción
+### Ejemplo de Tecnología y procesos de análisis avanzado en acción
 
-Para obtener un ejemplo de tutorial completo del proceso de ciencia de datos de Azure mediante un conjunto de datos público, consulte [Ejemplo de ciencia de datos de Azure en acción](machine-learning-data-science-process-sql-walkthrough.md).
+Para obtener un ejemplo de tutorial de extremo a extremo sobre el uso de la Tecnología y procesos de análisis avanzado (ADAPT) con un conjunto de datos público, consulte [Tecnología y procesos de análisis avanzado en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

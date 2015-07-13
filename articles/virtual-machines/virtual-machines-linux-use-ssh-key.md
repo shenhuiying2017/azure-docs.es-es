@@ -174,5 +174,6 @@ Existen varias utilidades que incluyen un `openssl` para Windows. A continuació
 	![linuxputtyprivatekey](./media/virtual-machines-linux-use-ssh-key/linuxputtyprivatekey.png)
 
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

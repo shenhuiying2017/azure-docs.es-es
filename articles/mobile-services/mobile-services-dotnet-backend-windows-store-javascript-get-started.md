@@ -121,4 +121,4 @@ Para obtener más información acerca de las aplicaciones universales de Windows
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

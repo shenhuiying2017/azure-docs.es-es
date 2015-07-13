@@ -3,7 +3,6 @@
 	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
-	writer="glenga" 
 	services="mobile-services,storage" 
 	manager="dwrede" 
 	editor=""/>
@@ -11,28 +10,24 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="06/04/2015" 
 	ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
+##Información general
 Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que su aplicación cargue y almacene imágenes generadas por el usuario en el almacenamiento de Azure. Servicios móviles utiliza una Base de datos SQL para almacenar datos. Sin embargo, los datos de objetos binarios grandes (BLOB) se almacenan de manera eficiente en el servicio de almacenamiento de blobs de Azure.
 
 No puede distribuir de manera segura con la aplicación cliente las credenciales que se requieren para cargar con seguridad datos al servicio de almacenamiento de blobs. En lugar de eso, debe almacenar estas credenciales en su servicio móvil y usarlas para generar una firma de acceso compartido (SAS) que se utiliza para cargar una imagen nueva. Servicios móviles devuelve de manera segura a SAS, una credencial de expiración breve (en este caso de cinco minutos), a la aplicación cliente. Luego la aplicación utiliza esta credencial temporal para cargar la imagen. En este ejemplo, las descargas del servicio BLOB son públicas.
 
-En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar el inicio rápido de Servicios móviles para cargar imágenes al servicio de almacenamiento de blobs:
+En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles.
 
-1. [Instalación de la biblioteca de clientes de almacenamiento]
-2. [Actualización de la aplicación cliente para capturar imágenes]
-3. [Instalación del cliente de almacenamiento en el proyecto de servicio móvil]
-4. [Actualización de la definición de TodoItem en el modelo de datos]
-5. [Actualización del controlador de tablas para generar una SAS]
-6. [Carga de imágenes para probar la aplicación]
+##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
@@ -52,7 +47,7 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
 
 2. En el panel izquierdo, seleccione la categoría **En línea**, seleccione **Incluir versión preliminar**, busque **WindowsAzure.Storage-Preview**, haga clic en **Instalar** en el paquete de **almacenamiento de Azure** y, a continuación, acepte los contratos de licencia.
 
-  	![][2]
+  	![Agregar NuGet de Almacenamiento de Azure](./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png)
 
   	Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto.
 
@@ -62,16 +57,15 @@ A continuación, actualizará la aplicación de inicio rápido para capturar y c
 
  
 <!-- Anchors. -->
-[Instalación de la biblioteca de clientes de almacenamiento]: #install-storage-client
-[Actualización de la aplicación cliente para capturar imágenes]: #add-select-images
-[Instalación del cliente de almacenamiento en el proyecto de servicio móvil]: #storage-client-server
-[Actualización de la definición de TodoItem en el modelo de datos]: #update-data-model
-[Actualización del controlador de tablas para generar una SAS]: #update-scripts
-[Carga de imágenes para probar la aplicación]: #test
+[Install the Storage Client library]: #install-storage-client
+[Update the client app to capture images]: #add-select-images
+[Install the storage client in the mobile service project]: #storage-client-server
+[Update the TodoItem definition in the data model]: #update-data-model
+[Update the table controller to generate an SAS]: #update-scripts
+[Upload images to test the app]: #test
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
@@ -85,5 +79,6 @@ A continuación, actualizará la aplicación de inicio rápido para capturar y c
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Definición de la estrategia de Mobile Engagement" 
-	description="Aprenda a usar a bordo y a optimizar Mobile Engagement con análisis y notificaciones de inserción." 
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+<properties
+	pageTitle="Definición de la estrategia de Mobile Engagement"
+	description="Aprenda a usar a bordo y a optimizar Mobile Engagement con análisis y notificaciones de inserción."
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="kpiteira"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
-	ms.topic="article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="02/10/2015"
 	ms.author="kapiteir" />
 
 #Definición de la estrategia de Mobile Engagement
@@ -48,9 +48,9 @@ Una vez definidos los casos de uso y el segmento, ofrece instrucciones para defi
 En función de la integración, una vez publicadas las aplicaciones, usted, como vendedor, podrá ver sus análisis en tiempo real, segmentar la audiencia y, a continuación, comenzar a enviar la notificación de inserción inteligente orientada para atraer a los usuarios finales en la aplicación o fuera de ella.
 
 ###Casos de uso para comenzar
-1. Estrategia de bienvenida: cree varias campañas de notificación de inserción en función del comportamiento del usuario final en el momento del lanzamiento de la aplicación para volver a conseguir la participación de los usuarios el D+2/5/10/15 después de la primera sesión y aumentar la retención de la primera ejecución.	
-2. Promocione nuevo contenido (características, artículos y vídeos, productos, etc.) en función del comportamiento del usuario final para enviar la información únicamente a los usuarios finales con más probabilidades de que participen.	
-3. Valore la aplicación: céntrese en menos del 1% de la base de usuarios con más probabilidad de que asignen a la aplicación una valoración de 5 en la tienda.	
+1. Estrategia de bienvenida: cree varias campañas de notificación de inserción en función del comportamiento del usuario final en el momento del lanzamiento de la aplicación para volver a conseguir la participación de los usuarios el D+2/5/10/15 después de la primera sesión y aumentar la retención de la primera ejecución.
+2. Promocione nuevo contenido (características, artículos y vídeos, productos, etc.) en función del comportamiento del usuario final para enviar la información únicamente a los usuarios finales con más probabilidades de que participen.
+3. Valore la aplicación: céntrese en menos del 1% de la base de usuarios con más probabilidad de que asignen a la aplicación una valoración de 5 en la tienda.
 4. Aumente las suscripciones: promocione contenido valioso a los usuarios finales que aún no hayan visto para aumentar la suscripción.
 5. Tutorial: se acabaron los tutoriales obligatorios para todos los usuarios. ¿Por qué no crear tutoriales extraordinarios en la aplicación y desencadenarlos a través de mensajes en la aplicación solo si el usuario parece que no está acostumbrado a usar una característica o tiene problemas con ella?
 
@@ -91,7 +91,7 @@ Recopile información sobre si los usuarios finales han creado una cuenta en el 
 ###¿Cómo crear un plan de etiqueta eficaz?
 
 Un plan de etiqueta debe ser como una descripción de la ruta del usuario o un tipo de flujo de trabajo de la aplicación, que proporciona todas las etiquetas necesarias (datos) que deben recopilarse para disponer de suficientes análisis para comprender el comportamiento del usuario y segmentar correctamente la base de usuarios. No se trata de un proceso técnico. Por lo tanto, los vendedores son capaces de especificar los datos que desean recopilar en función de su estrategia de Mobile Engagement.
- 
+
 Como mínimo hay que etiquetar todas las pantallas (denominadas `Activities` en Mobile Engagement) de una aplicación. Esto le permitirá comprender la ruta del usuario.
 
 Una actividad puede incrustar `Events` que recopilan información de acciones como hacer clic en un botón. Esto permite recopilar la interacción dentro de la aplicación. Por lo tanto, los vendedores pueden saber qué pantallas visitan los usuarios y qué hacen.
@@ -126,5 +126,6 @@ Todo este tipo de datos puede ampliarse con parámetros (`extra-information` en 
 <!-- URLs. -->
 [Conceptos de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriales]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

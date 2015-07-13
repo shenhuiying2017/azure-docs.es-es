@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -32,11 +32,11 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 Para completar este tutorial necesita [Xamarin.iOS], XCode 6.0 e iOS 7.0 o versiones posteriores.
 
-<h2><a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles</h2>
+##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados</h2>
+##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,17 +50,17 @@ Para completar este tutorial necesita [Xamarin.iOS], XCode 6.0 e iOS 7.0 o ver
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
-<h2><a name="add-authentication"></a>Incorporación de autenticación a la aplicación</h2>
+##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
-1. Abra el archivo de proyecto **TodoService** y agregue las siguientes variables:
+1. Abra el archivo de proyecto **ToDoService** y agregue las siguientes variables
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. A continuación, agregue un nuevo método de nombre **Authenticate** a **TodoService** definido como:
+2. A continuación, agregue un método nuevo con nombre **Authenticate** a **ToDoService** definido como:
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -74,34 +74,34 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 	> [AZURE.NOTE]Si usa un proveedor de identidades que no sea una cuenta Microsoft, cambie el valor que pasó anteriormente a **LoginAsync** por uno de los siguientes: _Facebook_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Mueva la solicitud para la tabla **TodoItem** desde el constructor **TodoService** a un nuevo método llamado **CreateTable**:
+3. Mueva la solicitud para la tabla **ToDoItem** desde el constructor **ToDoService** a un nuevo método llamado **CreateTable**:
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. Cree un nuevo método público asincrónico llamado **LoginAndGetData** definido como:
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
         }
 
-5. En **TodoListViewController**, reemplace el método **ViewDidAppear** y defínalo tal como se observa a continuación. Se registra en el usuario si **TodoService** todavía no tiene control sobre el usuario:
+5. En **TodoListViewController**, reemplace el método **ViewDidAppear** y defínalo tal como se observa a continuación. Se registra en el usuario si **ToDoService** todavía no tiene control sobre el usuario:
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
@@ -149,5 +149,6 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [Azure Management Portal]: https://manage.windowsazure.com/
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

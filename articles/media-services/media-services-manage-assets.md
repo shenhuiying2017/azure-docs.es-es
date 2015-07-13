@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Administración de activos en Servicios multimedia de Azure" 
+	pageTitle="Administración de recursos en Servicios multimedia de Azure" 
 	description="Aprenda a administrar activos en Servicios multimedia. También puede administrar trabajos, tareas, directivas de acceso, localizadores y mucho más. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 #Administración de recursos en el almacenamiento
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 
 Después de crear recursos multimedia, puede obtener acceso a ellos y administrarlos en el servidor. También puede administrar otros objetos en el servidor que forman parte de Servicios multimedia, como trabajos, tareas, directivas de acceso, localizadores y otros objetos.
 
-El ejemplo siguiente muestra cómo realizar una consulta de un recurso con assetld. 
+El ejemplo siguiente muestra cómo realizar una consulta de un recurso con assetld.
 
 	static IAsset GetAsset(string assetId)
 	{
@@ -84,6 +84,6 @@ El siguiente fragmento de código elimina todos los recursos de la cuenta de Ser
 	    asset.Delete();
 	}
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

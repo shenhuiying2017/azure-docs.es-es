@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="06/05/2015" 
 	ms.author="donnam"/>
 
 
@@ -272,7 +272,7 @@ Esta aplicación está ahora disponible para recibir eventos de Pusher y para ac
 
 
 
-<h2><a name="install-scripts"></a>Instalación de los scripts de servidor</h2>
+##<a name="install-scripts"></a>Instalación de los scripts de servidor
 
 
 
@@ -385,7 +385,7 @@ Lo único que queda es la configuración de los scripts de servidor. Insertaremo
 
 
 
-<h2><a name="test-app"></a>Prueba de la aplicación</h2>
+##<a name="test-app"></a>Prueba de la aplicación
 
 
 
@@ -442,5 +442,6 @@ Para obtener más información sobre el registro y uso de scripts de servidor, c
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
 [Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO1-->

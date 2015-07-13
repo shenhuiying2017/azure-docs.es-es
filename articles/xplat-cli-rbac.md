@@ -1,68 +1,68 @@
-﻿<properties 
-	pageTitle="Administración del control de acceso basado en roles con la interfaz de la línea de comandos entre plataformas de Azure" 
-	description="Administrar el control de acceso basado en roles con la interfaz de línea de comandos entre plataformas" 
-	services="" 
-	documentationCenter="" 
-	authors="guangyang" 
-	manager="terrylan" 
-	editor="mollybos"/>
+<properties
+	pageTitle="Administración del control de acceso basado en rol con la CLI de Azure para Mac, Linux y Windows"
+	description="Administración del control de acceso basado en rol con la CLI de Azure."
+	services=""
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor="tomfitz"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/26/2014" 
-	ms.author="guayan"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/26/2015"
+	ms.author="tomfitz"/>
 
-# Administración del control de acceso basado en roles con la interfaz de la línea de comandos entre plataformas #
+# Administración del control de acceso basado en roles con la interfaz de la línea de comandos de Azure (CLI de Azure)#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/es-es/documentation/articles/xplat-cli-rbac.md" title="Cross-Platform CLI">CLI entre plataformas</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="CLI de Azure">CLI de Azure</a></div>
 
-El control de acceso basado en roles (RBAC) del portal de vista previa de Azure y la API del administrador de recursos de Azure le permite administrar el acceso a su suscripción en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
+El control de acceso basado en roles (RBAC) del portal de Azure y de la API del Administrador de recursos de Azure permite administrar el acceso a su suscripción en un nivel específico. Con esta característica, puede conceder acceso a usuarios, grupos o entidades de seguridad de servicio de Active Directory asignándoles roles en un ámbito determinado.
 
-En este tutorial, aprenderá a usar la interfaz de la línea de comandos entre plataformas (xplat-cli) de Azure para administrar RBAC. Le guía por el proceso de crear y comprobar asignaciones de roles.
+En este tutorial, aprenderá a usar la CLI de Azure para administrar RBAC. Le guía por el proceso de crear y comprobar asignaciones de roles.
 
-**Duración aproximada:** 15 minutos
+**Tiempo estimado para completar el tutorial:** 15 minutos
 
 ## Requisitos previos ##
 
-Para poder usar xplat-cli para administrar RBAC, necesita lo siguiente:
+Para poder usar la CLI de Azure para administrar RBAC, necesita lo siguiente:
 
-- La versión 0.8.8 o una posterior de la interfaz de la línea de comandos entre plataformas de Azure. Para instalar la última versión y asociarla con su suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
-- Lea también los siguientes tutoriales para aprender a configurar y usar el Administrador de recursos de Azure en la interfaz de la línea de comandos entre plataformas de Azure: [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+- CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [instalación](xplat-cli-install.md).
+- Lea también los siguientes tutoriales para aprender a configurar y usar el Administrador de recursos de Azure en la CLI de Azure: [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md)
 
 ## Apartados de este tutorial ##
 
-* [Conectarse a sus suscripciones](#connect)
+* [Conexión a las suscripciones](#connect)
 * [Comprobar asignaciones de roles existentes](#check)
 * [Crear una asignación de rol](#create)
 * [Comprobar los permisos](#verify)
 * [Pasos siguientes](#next)
 
-## <a id="connect"></a>Conectarse a sus suscripciones ##
+## <a id="connect"></a>Conexión a las suscripciones ##
 
 Como RBAC solo funciona con el Administrador de recursos de Azure, lo primero que hay que hacer es pasar al modo Administrador de recursos de Azure. Para ello, escriba:
 
     azure config mode arm
 
-Si desea obtener más información, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
+Para más información, consulte [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md).
 
 Para conectarse a sus suscripciones de Azure, escriba:
 
-    azure login -u <nombre de usuario>
+    azure login -u <username>
 
-En el símbolo de la línea de comandos, escriba la contraseña de su cuenta de Azure (solo se admiten identificadores de organización). Xplat-cli obtendrá todas las suscripciones que tenga con esta cuenta y se configurará para usar la primera como predeterminada. Con RBAC, solo podrá obtener las suscripciones donde tiene permisos por ser administrador adjunto o por tener una asignación de rol. 
+En el símbolo de la línea de comandos, escriba la contraseña de su cuenta de Azure (solo se admiten identificadores profesionales o educativos, que también se llaman **identificadores de organización**). La CLI de Azure obtendrá todas las suscripciones que tenga con esta cuenta y se configurará para usar la primera como predeterminada. Con RBAC, solo podrá obtener las suscripciones donde tiene permisos por ser administrador adjunto o por tener una asignación de rol.
 
 Si tiene varias suscripciones y quiere cambiar a otra, escriba:
 
-    # Con esto verá las suscripciones en la cuenta.
+    # This will show you the subscriptions under the account.
     azure account list
-    # Use el nombre de la suscripción para seleccionar en cuál desea trabajar.
-    azure account set <nombre de suscripción>
+    # Use the subscription name to select the one you want to work on.
+    azure account set <subscription name>
 
-Para obtener más información, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/).
+Para obtener más información, consulte los [comandos de la CLI de Azure](azure-cli-arm-commands.md).
 
 ## <a id="check"></a>Comprobar asignaciones de roles existentes ##
 
@@ -77,7 +77,7 @@ Esto devolverá todas las asignaciones de roles que haya en la suscripción. Cab
 
 También puede comprobar las asignaciones de roles existentes para una definición de rol determinada, en un ámbito concreto y para un cierto usuario. Escriba:
 
-    azure role assignment list -g group1 --mail <correo electrónico del usuario> -o Owner
+    azure role assignment list -g group1 --mail <user's email> -o Owner
 
 Esto devolverá todas las asignaciones de roles para un usuario determinado de su inquilino de AD, que tiene una asignación de rol de "Owner" para el grupo de recursos "group1". La asignación de rol puede venir de dos sitios:
 
@@ -90,7 +90,7 @@ Todos los parámetros de este cmdlet son opcionales. Puede combinarlos para comp
 
 Para crear una asignación de rol, tiene que pensar en lo siguiente:
 
-- A quién le quiere asignar el rol: puede usar los siguientes cmdlets de Azure Active Directory para ver qué usuarios, grupos y entidades de seguridad de servicio tiene en su inquilino de AD.
+- A quién quiere asignar el rol: puede usar los siguientes cmdlets de Azure Active Directory para ver qué usuarios, grupos y entidades de seguridad de servicio tiene en su inquilino de AD.
 
     `azure ad user list
     azure ad user show
@@ -100,11 +100,11 @@ Para crear una asignación de rol, tiene que pensar en lo siguiente:
     azure sp list
     azure sp show`
 
-- Qué rol quiere asignar: puede usar el siguiente cmdlet para ver las definiciones de rol admitidas.
+- Qué rol quiere asignar: puede usar el cmdlet siguiente para ver las definiciones de rol compatibles.
 
     `azure role list`
 
-- Qué ámbito quiere asignar: hay tres niveles de ámbitos
+- Qué ámbito quiere asignar: tiene tres niveles de ámbitos
 
     - La suscripción actual
     - Un grupo de recursos; para obtener una lista de grupos de recursos, escriba `azure group list`
@@ -118,7 +118,7 @@ Luego use `azure role assignment create` para crear una asignación de rol. Por 
 
 - Esto creará una asignación de rol en un nivel de grupo de recursos.
 
-    `PS C:> azure role assignment create --mail <correo electrónico del usuario> -o Contributor -g group1`
+    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - Esto creará una asignación de rol en un nivel de recursos.
 
@@ -128,8 +128,8 @@ Luego use `azure role assignment create` para crear una asignación de rol. Por 
 
 Después de comprobar que su cuenta tiene asignaciones de roles, puede ver los permisos que conceden estas asignaciones de roles ejecutando lo siguiente:
 
-    PS C:> azure group list
-    PS C:> azure resource list
+    PS C:\> azure group list
+    PS C:\> azure resource list
 
 Esos dos cmdlets solo devolverán los grupos de recursos o los recursos donde tiene permiso de lectura. También le mostrarán los permisos que tiene.
 
@@ -137,13 +137,10 @@ Si intenta ejecutar otro cmdlet, como `azure group create`, obtendrá un error d
 
 ## <a id="next"></a>Pasos siguientes ##
 
-Si quiere más información sobre cómo administrar el control de acceso basado en roles con xplat-cli y otros temas relacionados:
+Si quiere más información sobre cómo administrar el control de acceso basado en roles con CLI de Azure y otros temas relacionados:
 
-- [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](http://azure.microsoft.com/documentation/articles/xplat-cli/)
-- [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager](http://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/)
-- [Uso del grupo de recursos para administrar los recursos de Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
-- [Blog sobre Azure](http://blogs.msdn.com/windowsazure) (en inglés): obtenga información acerca de las nuevas características de Azure.
+- [Instalación y configuración de la interfaz de la línea de comandos de Azure](xplat-cli-install.md).
+- [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md)
+- [Uso de grupos de recursos para administrar los recursos de Azure](resource-groups-overview.md): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
 
-<!--HONumber=46--> 
-
-<!--HONumber=46--> 
+<!---HONumber=July15_HO1-->

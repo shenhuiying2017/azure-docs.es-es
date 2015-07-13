@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/25/2015" 
 	ms.author="juliako"/>
 
 #Comprobación del progreso del trabajo
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md). 
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
 ##Uso del Portal para comprobar el estado del trabajo
 
@@ -31,10 +31,10 @@ Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el 
 
 ##Paso siguiente
 
-Publique el contenido. Para obtener más información, consulte [Cómo: Codificación de un recurso](media-services-manage-content#publish.md). 
+Publique el contenido. Para obtener más información, consulte [Codificación de un recurso](../media-services-manage-content#publish).
 
 
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

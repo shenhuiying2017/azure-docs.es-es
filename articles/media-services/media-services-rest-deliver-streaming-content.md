@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
 
 #Entrega de contenido de streaming
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 ##Información general
 
 
-Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema de [codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Antes de crear un localizador, debe configurar la directiva de entrega de recursos, tal como se describe en [este](media-services-rest-configure-asset-delivery-policy.md) tema. 
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Antes de crear un localizador, debe configurar la directiva de entrega de recursos, tal como se describe en [este](media-services-rest-configure-asset-delivery-policy.md) tema.
 
-También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.  
+También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.
 
 En este tema se muestra cómo crear un localizador de streaming a petición para publicar el recurso y crear direcciones URL de streaming Smooth, MPEG DASH y HLS. También se muestra cómo generar direcciones URL de descarga progresiva.
 
-En la [siguiente](#types) sección se muestran los tipos de enumeración cuyos valores se usan en las llamadas REST.   
+En la sección [siguiente](#types) se muestran los tipos de enumeración cuyos valores se usan en las llamadas REST.
   
 ##Creación de un localizador de streaming a petición
 
@@ -63,7 +63,7 @@ Solicitud:
 	
 	{"Name":"access policy","DurationInMinutes":43200.0,"Permissions":1}
 	
-Response:
+Respuesta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -102,7 +102,7 @@ Solicitud:
 	
 	{"AccessPolicyId":"nb:pid:UUID:1480030d-c481-430a-9687-535c6a5cb272","AssetId":"nb:cid:UUID:cc1e445d-1500-80bd-538e-f1e4b71b465e","StartTime":"2015-02-18T06:34:47.267872Z","Type":2}
 
-Response:
+Respuesta:
 	
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -123,7 +123,7 @@ Response:
 
 ###Creación de direcciones URL de streaming
 
-Use el valor **Path** devuelto después de la creación del localizador para generar las direcciones URL Smooth, HLS y MPEG DASH. 
+Use el valor **Path** devuelto después de la creación del localizador para generar las direcciones URL Smooth, HLS y MPEG DASH.
 
 Smooth Streaming: **Path** + nombre del archivo de manifiesto + "/manifest"
 
@@ -148,7 +148,7 @@ ejemplo:
 
 ###Creación de direcciones URL de descarga progresiva
 
-Use el valor **Path** devuelto después de la creación del localizador para generar la dirección URL de descarga progresiva.   
+Use el valor **Path** devuelto después de la creación del localizador para generar la dirección URL de descarga progresiva.
 
 URL: **Path** + nombre del archivo mp4 de recursos
 
@@ -173,7 +173,6 @@ ejemplo:
         None = 0,
         Sas = 1,
         OnDemandOrigin = 2,
-    }
+    } 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

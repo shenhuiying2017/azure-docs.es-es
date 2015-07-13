@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Muestreo de datos en SQL Server en Azure | Azure" 
+	pageTitle="Muestreo de datos en SQL Server en Azure | Microsoft Azure" 
 	description="Muestreo de datos en SQL Server en Azure" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,20 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/29/2015" 
+	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Muestreo de datos en SQL Server en Azure
 
-En este documento se tratan los datos de muestreo almacenados en SQL Server en Azure de las maneras siguientes:
+Este documento trata los datos de muestreo almacenados en SQL Server en Azure con SQL y con el lenguaje de programación Python.
 
-1. [Mediante SQL](#sql)
-2. [Mediante el lenguaje de programación Python](#python) 
+>[AZURE.NOTE]En el código SQL de ejemplo en este documento se supone que los datos están en un servidor SQL Server en Azure. Si no lo está, consulte el tema [Mover datos a SQL Server en Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) en la [Guía de procesos de datos avanzados](machine-learning-data-science-advanced-data-processing.md) para obtener instrucciones para mover los datos a SQL Server en Azure.
 
-**Nota**
->En el código SQL de ejemplo en este documento se supone que los datos están en un servidor SQL Server en Azure. Si no lo están, consulte el mapa de proceso de ciencia de datos en la nube para obtener instrucciones para mover los datos a SQL Server en Azure.
-
-###<a name="SQL"></a>Mediante SQL
+##<a name="SQL"></a>Uso de SQL
 
 En esta sección se describen varios métodos con SQL para realizar un muestreo aleatorio simple con los datos de la base de datos. Elija un método basado en el tamaño de los datos y su distribución.
 
@@ -37,7 +33,7 @@ Los dos elementos siguientes muestran cómo utilizar newid en SQL Server para re
 	    select  * from <table_name> where <primary_key> in 
     	(select top 10 percent <primary_key> from <table_name> order by newid())
 
-2. Muestra más aleatoria 
+2. Muestra más aleatoria
 
 	    SELECT * FROM <table_name>
     	WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
@@ -48,17 +44,17 @@ Tablesample se puede usar para el muestreo, como se muestra a continuación. Pod
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**Nota**
+**Nota:**
 > Puede explorar y generar características de los datos muestreados almacenándolos en una nueva tabla
 
 
-####<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
+###<a name="sql-aml"></a>Conexión con Aprendizaje automático de Azure
 
 Puede utilizar directamente las consultas de ejemplo anteriores en el módulo del Lector de Aprendizaje automático de Azure para reducir los datos sobre la marcha y usarlos en un experimento de Aprendizaje automático de Azure. A continuación se muestra una captura de pantalla con el uso del módulo del lector para leer los datos de muestreo:
    
-![reader sql][1]
+![lector sql][1]
 
-###<a name="python"></a>Mediante el lenguaje de programación Python 
+##<a name="python"></a>Uso del lenguaje de programación Python 
 
 En esta sección se muestra cómo usar la biblioteca pyodbc para conectarse a una base de datos de SQL server en Python. La cadena de conexión de la base de datos se muestra a continuación: (reemplace servername, dbname, username y password por su configuración):
 
@@ -66,18 +62,18 @@ En esta sección se muestra cómo usar la biblioteca pyodbc para conectarse a un
 	import pyodbc	
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La biblioteca [Pandas](http://pandas.pydata.org/) en Python ofrece un amplio conjunto de herramientas de análisis de datos y estructuras de datos para la manipulación de datos para la programación en Python. El código siguiente lee una muestra de 0,1 % de los datos de una tabla de Base de datos SQL de Azure en datos de Pandas:
+La biblioteca [Pandas](http://pandas.pydata.org/) en Python ofrece un amplio conjunto de herramientas de análisis de datos y estructuras de datos para la manipulación de datos para la programación en Python. El código siguiente lee una muestra de 0,1 % de los datos de una tabla de Base de datos SQL de Azure en datos de Pandas:
 
 	import pandas as pd
 
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas. 
+Ahora puede trabajar con los datos de muestreo en la trama de datos de Pandas.
 
-####<a name="python-aml"></a>Conexión con Aprendizaje automático de Azure
+###<a name="python-aml"></a>Conexión con Aprendizaje automático de Azure
 
-Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Aprendizaje automático de Azure mediante *Reader Module*. Los pasos son los siguientes: 
+Puede usar el siguiente código de ejemplo para guardar los datos muestreados reducidos en un archivo y cargarlos en un blob de Azure. Los datos en el blob pueden leerse directamente en un experimento de Aprendizaje automático de Azure mediante el *módulo Lector*. Los pasos son los siguientes:
 
 1. Escribir la trama de datos de Pandas en un archivo local
 
@@ -105,16 +101,17 @@ Puede usar el siguiente código de ejemplo para guardar los datos muestreados re
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Leer datos de un blob de Azure mediante el *Reader Module* de Aprendizaje automático de Azure, como se muestra en la captura de pantalla siguiente:
+3. Leer datos de un blob de Azure mediante el *módulo Lector* de Aprendizaje automático de Azure, como se muestra en la captura de pantalla siguiente:
  
-![reader blob][2]
+![lector de blobs][2]
 
-### Ejemplo de ciencia de datos de Azure en acción
+## Ejemplo de Tecnología y procesos de análisis avanzado (ADAPT) en acción
 
-Para obtener un ejemplo de tutorial completo del proceso de ciencia de datos de Azure mediante un conjunto de datos público, consulte [Ejemplo de ciencia de datos de Azure en acción](machine-learning-data-science-process-sql-walkthrough.md).
+Para obtener un ejemplo de tutorial de extremo a extremo sobre la Tecnología y procesos de análisis avanzado (ADAPT) con un conjunto de datos público, consulte [Tecnología y procesos de análisis avanzado de Azure en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO1-->

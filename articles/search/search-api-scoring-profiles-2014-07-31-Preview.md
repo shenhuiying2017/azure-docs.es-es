@@ -1,26 +1,14 @@
-<properties 
-	pageTitle="Perfiles de puntuación (API de REST de Búsqueda de Azure: 2014-07-31-Preview)" 
-	description="Perfiles de puntuación (API de REST de Búsqueda de Azure: 2014-07-31-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
-	editor=""/>
+<properties pageTitle="Adición de perfiles de puntuación a un índice de búsqueda (API de REST versión 2014-07-31-Preview)" description="Adición de perfiles de puntuación a un índice de búsqueda: versión 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="02/12/2015" 
-	ms.author="heidist"/>
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
       
-#Perfiles de puntuación (API de REST de Búsqueda de Azure: 2014-07-31-Preview)#
+#Adición de perfiles de puntuación a un índice de búsqueda (API de REST del servicio Búsqueda de Azure, versión 2014-07-31-Preview)
 
-Puntuación hace referencia al cálculo de una puntuación de búsqueda para todos los elementos devueltos en los resultados de la búsqueda. La puntuación es un indicador de la importancia de un elemento en el contexto de la operación de búsqueda actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los elementos están ordenados de alto a bajo, según la puntuación de la búsqueda calculada para cada artículo.
+Esta documentación acerca de los perfiles de puntuación hace referencia a la API de REST del servicio de Búsqueda de Azure anterior, versión 2014-07-31-Preview, que se ha reemplazado por la versión disponible con carácter general en [Adición de perfiles de puntuación a un índice de búsqueda (MSDN)](https://msdn.microsoft.com/library/dn798928.aspx).
 
-Búsqueda de Azure usa la puntuación predeterminada para calcular una puntuación inicial, pero puede personalizar el cálculo a través de un perfil de puntuación. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo.
+**Información acerca de los perfiles de puntuación**
+
+Puntuación hace referencia al cálculo de una puntuación de búsqueda para todos los elementos devueltos en los resultados de la búsqueda. La puntuación es un indicador de la importancia de un elemento en el contexto de la operación de búsqueda actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los elementos están ordenados de alto a bajo, según la puntuación de la búsqueda calculada para cada artículo. Búsqueda de Azure usa la puntuación predeterminada para calcular una puntuación inicial, pero puede personalizar el cálculo a través de un perfil de puntuación. Los perfiles de puntuación proporcionan un mayor control sobre la clasificación de los elementos en los resultados de búsqueda. Por ejemplo, desea aumentar los elementos según su potencial de ingresos, promover elementos más recientes o quizás aumentar los elementos que han permanecido en inventario demasiado largo.
 
 Un perfil de puntuación es parte de la definición del índice que se compone de campos, funciones y parámetros.
 
@@ -51,11 +39,11 @@ Para usar este perfil de puntuación, se formula la consulta para especificar el
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)]().
 
 Haga clic en [Ejemplo](#bkmk_ex) para revisar un ejemplo más detallado de un perfil de puntuación.
 
-## ¿Qué es la puntuación predeterminada? ##
+## ¿Qué es la puntuación predeterminada?
 
 La puntuación calcula una puntuación de la búsqueda para cada elemento de un conjunto de resultados ordenado por rango. A cada elemento de un conjunto de resultados de búsqueda se le asigna una puntuación de búsqueda, a continuación, se ordena de mayor a menor. Elementos con las puntuaciones más altas se devuelven a la aplicación. De forma predeterminada, se devuelven los 50 mejores, pero puede usar el parámetro `$top` para devolver un número mayor o menor de elementos (hasta 1000 en una sola respuesta).
 
@@ -63,20 +51,19 @@ De forma predeterminada, una puntuación de búsqueda se calcula en función de 
 
 Los valores de puntuación de búsqueda pueden repetirse a lo largo de un conjunto de resultados. Por ejemplo, puede tener 10 elementos con una puntuación de 1,2, 20 elementos con una puntuación de 1,0 y 20 elementos con una puntuación de 0,5. Cuando varios resultados tienen la misma puntuación de búsqueda, el orden de estos elementos puntuados no se define y no es estable. Vuelva a ejecutar la consulta verá cómo los elementos cambian de posición. Si dos elementos disponen de la misma puntuación, no hay ninguna garantía de cuál aparecerá en primer lugar.
 
-## Cuándo usar la puntuación personalizada##
+## Cuándo usar la puntuación personalizada
 
 Debe crear uno o más perfiles de puntuación cuando el comportamiento de clasificación predeterminado no logre cumplir los objetivos de su empresa. Por ejemplo, podría decidir que la relevancia de la búsqueda debe favorecer a los elementos recién agregados. Asimismo, podría tener un campo que contenga el margen de beneficio, o algún otro campo que indique los ingresos potenciales. Aumentar los resultados que ofrecen beneficios a su empresa puede ser un factor importante a la hora de decidir usar perfiles de puntuación.
 
 El orden basado en relevancia también se implementa a través de perfiles de puntuación. Tenga en cuenta los resultados de búsqueda que ha usado en el pasado que le permiten ordenar por relevancia, fecha, clasificación o precio. En la Búsqueda de Azure, los perfiles de puntuación determinan la opción «relevancia». La definición de relevancia está controlada por usted, se afirma en los objetivos empresariales y en el tipo de experiencia de búsqueda que desee ofrecer.
 
-<a name="example"></a>
-## Ejemplo##
+## Ejemplo
 
 Tal y como se ha indicado, la puntuación personalizada se implementa mediante los perfiles de puntuación definidos en un esquema de índice.
 
 En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuación (`boostGenre`, `newAndHighlyRated`). Las consultas sobre este índice que incluyen cualquiera de los perfiles como parámetro de consulta usará el perfil para puntuar el conjunto de resultados.
 
-[Pruebe este ejemplo](search-get-started-scoring-profiles.md).
+[Pruebe este ejemplo]().
 
     {
       "name": "musicstoreindex",
@@ -135,53 +122,21 @@ En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuaci
     }
 
 
-##Flujo de trabajo##
+##Flujo de trabajo
 
 Para implementar el comportamiento personalizado de puntuación, agregue un perfil de puntuación al esquema que define el índice. Puede tener varios perfiles de puntuación en un índice, pero solo puede especificar un perfil de cada vez en una consulta concreta.
 
-Comience con la [Plantilla][#bkmk_template] incluida en este tema.
+Comience con la [Plantilla](#bkmk_template) incluida en este tema.
 
-Proporcione un nombre. Los perfiles de puntuación son opcionales, pero si agrega uno, se requerirá el nombre. Asegúrese de seguir las convenciones de nomenclatura de los campos (empieza con una letra, evita caracteres especiales y palabras reservadas). Consulte [Reglas de nomenclatura](http://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información.
+Proporcione un nombre. Los perfiles de puntuación son opcionales, pero si agrega uno, se requerirá el nombre. Asegúrese de seguir las convenciones de nomenclatura de los campos (empieza con una letra, evita caracteres especiales y palabras reservadas). Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/dn857353.aspx) para obtener más información.
 
 El cuerpo del perfil de puntuación se construye a partir de campos ponderados y funciones.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>elemento</td><td>descripción</td></tr></thead>
-<tbody>
-<tr>
-<td><b>Ponderaciones</b></td>
-<td>
-Especifique pares de nombre-valor que asignen una ponderación relativa a un campo. En el ejemplo [#bkmk_ex], los campos de título del álbum, género y nombre del artista se aumentan a 1, 5 y null respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor.
-</td>
-</tr>
-<tr>
-<td><b>Funciones</b></td><td>Usadas cuando se requieren cálculos adicionales para contextos concretos. Entre los valores válidos se incluyen `freshness`, `magnitude` o `distance`. Cada función tiene parámetros que son únicos.
-<br> - `freshness` debe usarse cuando desea aumentar por la antigüedad de un elemento. Esta función solo puede usarse con campos de fecha y hora (edm. DataTimeOffset). Tenga en cuenta el atributo `boostingDuration` solo se usa con la función de actualización.
-<br> - `magnitude` debe usarse cuando desee aumentar en función de cómo de alto o bajo resulta un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y entero.
-<br> - `distance` debe usarse cuando desea aumentar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `geo.distance`.
-<br>
-<b>Reglas para usar funciones</b>
-<br>
-Tipo de función (frescura, magnitud, distancia) deben aparecer en minúsculas.
-<br>
-Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor.
-<br>
-Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)](search-api-2014-10-20-preview.md#createindex) para obtener más información acerca de los campos que se pueden filtrar.
-<br>
-Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>elemento</td><td>descripción</td></tr></thead> <tbody <tr> <td><b>Ponderaciones</b></td> <td> Especifique pares de nombre-valor que asignen una ponderación relativa a un campo. En el [ejemplo](#bkmk_ex), los campos de título del álbum, género y nombre del artista se aumentan a 1, 5 y null respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor. </td> </tr> <tr> <td><b>Funciones</b></td><td>Usadas cuando se requieren cálculos adicionales para contextos concretos. Entre los valores válidos se incluyen `freshness`, `magnitude` o `distance`. Cada función tiene parámetros que son únicos. <br> - `freshness` debe usarse cuando desea aumentar por la antigüedad de un elemento. Esta función solo puede usarse con campos de fecha y hora (edm. DataTimeOffset). Tenga en cuenta el atributo `boostingDuration` solo se usa con la función de actualización. <br> - `magnitude` debe usarse cuando desee aumentar en función de cómo de alto o bajo resulta un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y entero. <br> - `distance` debe usarse cuando desea aumentar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `geo.distance`. <br> <b>Reglas para usar funciones</b> <br> Tipo de función (frescura, magnitud, distancia) deben aparecer en minúsculas. <br> Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor. <br> Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)]() para obtener más información acerca de los campos que se pueden filtrar. <br> Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice. <td> </tr> </tbody> </table> </font>
 
-Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice (API de Búsqueda de Azure)](search-api-2014-10-20-preview.md#createindex) y [Agregar o actualizar documentos (API de Búsqueda de Azure)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments) para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
+Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice (API de Búsqueda de Azure)]() y [Agregar o actualizar documentos (API de Búsqueda de Azure)]() para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
 
-<a name="bkmk_template"></a>
-##Plantilla##
-
+##Plantilla
 En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuación. Consulte [Referencia del atributo de índice](#bkmk_indexref) en la sección siguiente para obtener descripciones de los atributos.
 
     ...
@@ -228,8 +183,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
     "defaultScoringProfile": (optional) "...",
     ...
 
-<a name="bkmk_indexref"></a>
-##Referencia de atributos de índice##
+##Referencia de atributos de índice
 
 **Nota** Las funciones de puntuación solo pueden aplicarse a campos filtrables.
 
@@ -244,13 +198,13 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 </tr><tr>
 <td>Texto</td>	<td>Contiene la propiedad Weights.</td>
 </tr><tr>
-<td>Weights</td>	<td>Opcional. Par de nombre-valor que especifica un nombre de campo y un peso relativo. Peso relativo debe ser un número entero positivo. El valor máximo es int32.MaxValue. Puede especificar el nombre del campo sin un peso correspondiente. Weights se usa para indicar la importancia de un campo en relación con otro.</td>
+<td>Pesos</td>	<td>Opcional. Par de nombre-valor que especifica un nombre de campo y un peso relativo. Peso relativo debe ser un número entero positivo. El valor máximo es int32.MaxValue. Puede especificar el nombre del campo sin un peso correspondiente. Weights se usa para indicar la importancia de un campo en relación con otro.</td>
 <tr>
 <td>Funciones</td>	<td>Opcional. Tenga en cuenta que las funciones de puntuación solo pueden aplicarse a campos filtrables.</td>
 </tr><tr>
 <td>Tipo</td>	<td>Obligatorio para las funciones de puntuación. Indica el tipo de función que se usará. Entre los valores válidos se incluyen magnitud, índice de actualización y distancia. Puede incluir más de una función en cada perfil de puntuación. El nombre de la función debe estar en minúsculas.</td>
 </tr><tr>
-<td>Aumentar</td>	<td>Obligatorio para las funciones de puntuación. Número positivo usado como multiplicador para el resultado sin formato. No puede ser igual a 1.</td>
+<td>Potenciar</td>	<td>Obligatorio para las funciones de puntuación. Número positivo usado como multiplicador para el resultado sin formato. No puede ser igual a 1.</td>
 </tr><tr>
 <td>Nombre de campo</td>	<td>Obligatorio para las funciones de puntuación. Una función de puntuación solo puede aplicarse a los campos que forman parte de la colección de campos del índice y que son filtrables. Además, cada tipo de función introduce restricciones adicionales (índice de actualización se usa con campos de fecha y hora, magnitud con número entero o campos dobles y distancia con campos de ubicación). Solo puede especificar un campo único por cada definición de función. Por ejemplo, para usar magnitud dos veces en el mismo perfil, necesitaría incluir dos magnitudes de definiciones, una para cada campo.</td>
 </tr><tr>
@@ -278,7 +232,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 </tr><tr>
 <td>distancia</td>	<td>La función de puntuación de la distancia se usa para afectar a la puntuación de documentos en función de la cercanía o distancia respecto a una ubicación geográfica de referencia. La ubicación de referencia se proporciona como parte de la consulta en un parámetro (mediante la opción de cadena «scoringParameterquery») como argumento lon, lat.</td>
 </tr><tr>
-<td>distancia | referencePointParameter</td>	<td>Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos (API de Búsqueda de Azure)](../search-api-2014-07-31-preview.md#SearchDocs) para obtener descripciones de los parámetros de consulta.</td>
+<td>distancia | referencePointParameter</td>	<td>Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos (API de Búsqueda de Azure)]() para obtener descripciones de los parámetros de consulta.</td>
 </tr><tr>
 <td>distancia | boostingDistance</td>	<td>Número que indica la distancia en kilómetros desde la ubicación de referencia donde finaliza el intervalo de potenciación.</td>
 </tr><tr>
@@ -289,8 +243,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 </tbody>
 </table>
 
-<a name="bkmk_interpolation"></a>
-##Establecer interpolaciones##
+##Establecer interpolaciones
 
 Las interpolaciones le permiten definir la pendiente con la que la potenciación de la puntuación aumenta desde el inicio del rango hasta su final. Es posible usar las siguientes interpolaciones:
 
@@ -302,15 +255,14 @@ Las interpolaciones le permiten definir la pendiente con la que la potenciación
 
 - `Logarithmic` En comparación con una interpolación lineal que tiene una potenciación en reducción constante, Logarítmico provocará inicialmente una reducción a un ritmo superior y, a continuación, a medida que se aproxima el final del intervalo, se reduce a un intervalo muy inferior.
  
-<a name="Figure1"></a>
-![][1]
+<a name="Figure1"></a> ![](https://findable.blob.core.windows.net/docs/scoring_interpolations.png)
 
-<a name="bkmk_boostdur"></a>
-##Establecer boostingDuration##
+<a name="bkmk_boostdu"></a>
+##Establecer boostingDuration
 
 `boostingDuration` es un atributo de la función de índice de actualización. Se usa para establecer un período de caducidad después del que se detendrá la potenciación de un documento determinado. Por ejemplo, para potenciar una línea de productos o marca durante un período de promoción de 10 días, debe especificar el período de 10 días como "P10D" para dichos documentos.
 
-`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "P[nD][T[nH][nM][nS]]".
+`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "P(nD)(T(nH)(nM)(nS))".
 
 La tabla siguiente proporciona varios ejemplos.
 
@@ -333,12 +285,12 @@ La tabla siguiente proporciona varios ejemplos.
 </tbody>
 </table>
 
+Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de W3.org)]().
+
 **Consulte también**
 
-Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de W3.org)](http://www.w3.org/TR/xmlschema11-2/). [API de REST del servicio de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) en MSDN <br/> [Crear índice (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798941.aspx) en MSDN<br/> [Agregar un perfil de puntuación a un índice de búsqueda](http://msdn.microsoft.com/library/azure/dn798928.aspx) en MSDN<br/>
+Creación de índice (API de REST de servicio de Búsqueda de Azure)
 
-<!--Image references-->
-[1]: ./media/search-api-scoring-profiles-2014-07-31-Preview/scoring_interpolations.png
+ 
 
-
-<!---HONumber=54--> 
+<!---HONumber=July15_HO1-->

@@ -27,12 +27,7 @@ Esta guía explica cómo obtener acceso a los servicios Blitline y cómo enviar 
 
 ## Tabla de contenido
 
-[¿Qué es Blitline?][] 
-[¿Qué NO es Blitline?][] 
-[Creación de una cuenta Blitline][] 
-[Creación de un trabajo Blitline][] 
-[Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure][] 
-[Pasos siguientes][]
+[¿Qué es Blitline?][] [¿Qué NO es Blitline?][] [Creación de una cuenta Blitline][] [Creación de un trabajo Blitline][] [Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure][] [Pasos siguientes][]
 
 ## <a id="whatis"></a>¿Qué es Blitline?
 
@@ -145,15 +140,14 @@ Visite blitline.com para conocer toda la información sobre otras característic
 * Documentos de extremos de API de Blitline <http://www.blitline.com/docs/api>
 * Funciones de API de Blitline <http://www.blitline.com/docs/functions>
 * Ejemplos de API de Blitline <http://www.blitline.com/docs/examples>
-* Biblioteca NuGet de terceros <http://nuget.org/packages/Blitline.Net>
+* Biblioteca Nuget de terceros <http://nuget.org/packages/Blitline.Net>
 
 
-[Pasos siguientes]: #nextsteps
-[¿Qué es Blitline?]: #whatis
-[¿Qué NO es Blitline?]: #whatisnot
-[Creación de una cuenta Blitline]: #createaccount
-[Creación de un trabajo Blitline]: #createjob
-[Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure]: #saveazure
+  [Pasos siguientes]: #nextsteps
+  [¿Qué es Blitline?]: #whatis
+  [¿Qué NO es Blitline?]: #whatisnot
+  [Creación de una cuenta Blitline]: #createaccount
+  [Creación de un trabajo Blitline]: #createjob
+  [Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure]: #saveazure
 
-
-<!--HONumber=52-->
+<!---HONumber=July15_HO1-->

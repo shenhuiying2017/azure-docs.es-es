@@ -103,7 +103,7 @@ Instalación
 
 	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota. Para obtener información más detallada, consulte la documentación sobre la [configuración de extremos](virtual-machines-set-up-endpoints.md).
 
-	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. Dirija su explorador a `http://[MYSERVICE].cloudapp.net`, donde **[MYSERVICE]** es el nombre del servicio en la nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
+	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. En su explorador, vaya a `http://[MYSERVICE].cloudapp.net`, donde **[MYSERVICE]** es el nombre del servicio en la nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
 
 2. Instalación de **MySQL**
 
@@ -123,5 +123,6 @@ Suponga que desea automatizar estos pasos para implementar aplicaciones en máqu
 Existen muchos recursos para instalar una pila LAMP en Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO1-->

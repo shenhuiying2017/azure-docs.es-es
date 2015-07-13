@@ -43,4 +43,4 @@ En este tutorial ha obtenido información sobre cómo crear una máquina virtual
 [AzurePortal]: http://manage.windowsazure.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

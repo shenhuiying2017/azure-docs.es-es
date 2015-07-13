@@ -160,4 +160,4 @@ En este momento, el sitio web de Tomcat se debería ver desde un explorador exte
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO1-->

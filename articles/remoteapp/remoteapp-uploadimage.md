@@ -1,7 +1,7 @@
 
 <properties 
-    pageTitle="Carga de una imagen personalizada"
-    description="Obtenga información sobre cómo cargar una imagen personalizada para RemoteApp" 
+    pageTitle="Carga de una imagen personalizada para RemoteApp de Azure"
+    description="Obtenga información sobre cómo cargar una imagen personalizada para RemoteApp de Azure" 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="ericorman" 
@@ -13,19 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
+    ms.date="05/28/2015" 
     ms.author="ericor" />
 
 
 
-# Carga de una imagen personalizada
+# Carga de una imagen personalizada para RemoteApp de Azure
 
-Ahora que ha creado la imagen de plantilla personalizada o que la actualizado con cambios, es necesario cargar esa imagen a la biblioteca de imágenes de Azure RemoteApp. Siga estos pasos. 
+Ahora que ha creado la imagen de plantilla personalizada o que la actualizado con cambios, es necesario cargar esa imagen a la biblioteca de imágenes de Azure RemoteApp. Siga estos pasos.
 
 
 ## Antes de comenzar
 
-1.      Compruebe que la imagen personalizada cumple con los [requisitos de imagen](..\remoteapp-imagereqs) y los [requisitos de aplicación](..\remoteapp-appreqs).
+1.      Compruebe que la imagen personalizada cumple con los [requisitos de imagen](remoteapp-imagereqs.md) y los [requisitos de aplicación](remoteapp-appreqs.md).
 2.      Instale el [módulo de Azure PowerShell](../install-configure-powershell.md).
 
 ## Procedimiento paso a paso para cargar una imagen personalizada
@@ -43,13 +43,13 @@ Ahora que ha creado la imagen de plantilla personalizada o que la actualizado co
 
 11.    Si la carga no se realiza correctamente debido a una interrupción de la red o algún factor similar, siempre puede reanudar el proceso de carga que comenzó. Para reanudar una carga, ejecute nuevamente el script con la misma línea de comando.
 
-**Advertencia:** nunca modifique el script de carga. Se implementaron comprobaciones específicas para garantizar que la imagen cumple con los requisitos de imagen y los requisitos de aplicación.
+> [AZURE.WARNING]No modifique nunca el script de carga. Se han implementado comprobaciones específicas para garantizar que la imagen cumple con los requisitos de imagen y los requisitos de aplicación.
 
 ## Problemas comunes
 
-- Asegúrese de que usa Windows PowerShell y no Azure PowerShell.  Debe instalar el módulo Azure PowerShell porque se necesitan ciertos módulos durante el proceso de carga. 
+- Asegúrese de que usa Windows PowerShell y no Azure PowerShell. Debe instalar el módulo Azure PowerShell porque se necesitan ciertos módulos durante el proceso de carga. 
 - Nunca modifique el script: las validaciones existen para su comodidad.
 - Si el archivo vhd se bloquea durante la carga, cópielo o muévalo a una nueva ubicación e intente volver a cargarlo. Es posible que algunos procesos de Windows impidan la carga.  
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

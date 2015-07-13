@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="11/22/2014"
+	ms.topic="article"
+	ms.date="04/16/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 Si prefiere ver un vídeo, el clip que aparece a continuación muestra los mismos pasos que este tutorial.
 
-Vídeo: "Getting Started with Xamarin and Azure Mobile Services" con Craig Dunn, desarrollador evangelista de Xamarin  (duración: 10:05 min)
+Vídeo: "Getting Started with Xamarin and Azure Mobile Services" (Introducción a Xamarin con Servicios móviles de Azure) con Craig Dunn, desarrollador evangelista de Xamarin (duración: 10:05 min)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
 
@@ -36,13 +36,13 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Para completar este tutorial es necesario XCode y [Xamarin Studio] para OS X o el complemento Xamarin Visual Studio para Visual Studio en Windows. El ejemplo se ejecutará en iOS 5.0 y más reciente.
 
-> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-xamarin-ios%2F"%20target="_blank).
+> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-<h2>Creación de una aplicación Xamarin.iOS</h2>
+## Creación de una aplicación Xamarin.iOS
 
 Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
 
@@ -50,7 +50,7 @@ En esta sección se creará una nueva aplicación Xamarin.iOS que se conecta al 
 
 1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-2. En la pestaña de inicio rápido, haga clic en **Android** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Xamarin.iOS**.
+2. En la pestaña de inicio rápido, haga clic en **Xamarin.iOS** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Xamarin.iOS**.
 
 	![][6]
 
@@ -62,11 +62,11 @@ En esta sección se creará una nueva aplicación Xamarin.iOS que se conecta al 
 
 4. Haga clic en **Crear tabla TodoItems** para crear una tabla donde almacenar los datos de la aplicación.
 
-5. En **Download and run app** (Descargar y ejecutar la aplicación), haga clic en **Download** (Descargar).
+5. En **Descargar y ejecutar la aplicación**, haga clic en **Descargar**.
 
 	De este modo se descarga el proyecto para la aplicación de _lista de pendientes_ de muestra que está conectada al servicio móvil y que hace referencia al componente de Servicios móviles de Azure para Xamarin.iOS. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
-<h2>Ejecución de la nueva aplicación Xamarin.iOS</h2>
+## Ejecución de la nueva aplicación Xamarin.iOS
 
 La etapa final de este tutorial consiste en crear y ejecutar la aplicación nueva.
 
@@ -76,7 +76,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	![][9]
 
-2. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación en el emulador de iPhone, que es la solución predeterminada para este proyecto.
+2. Presione el botón **Ejecutar** para crear el proyecto e iniciar la aplicación en el emulador de iPhone, que es el valor predeterminado para este proyecto.
 
 3. En la aplicación, escriba un texto significativo, como _Complete el tutorial_ y, a continuación, haga clic en el icono de signo de suma (**+**).
 
@@ -84,7 +84,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-	> [AZURE.NOTE] Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# TodoService.cs.
+	> [AZURE.NOTE]Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo de C# TodoService.cs.
 
 4. De nuevo en el Portal de administración, haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItems**.
 
@@ -98,20 +98,17 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
-* [Introducción a la sincronización de datos sin conexión]
-  <br/>Descubra cómo el tutorial utiliza sincronización de datos sin conexión para hacer la aplicación sólida y con capacidad de respuesta.
+* [Introducción a la sincronización de datos sin conexión] <br/>Obtenga información sobre cómo el inicio rápido usa la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de la aplicación.
 
-* [Introducción a la autenticación]
-  <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Introducción a las notificaciones de inserción]
-  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 <!-- Anchors. -->
-[Introducción a los Servicios móviles]:#getting-started
-[Creación de un servicio móvil]:#create-new-service
-[Definición de la instancia del servicio móvil]:#define-mobile-service-instance
-[Pasos siguientes]:#next-steps
+[Getting started with Mobile Services]: #getting-started
+[Create a new mobile service]: #create-new-service
+[Define the mobile service instance]: #define-mobile-service-instance
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/partner-xamarin-mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
@@ -125,15 +122,15 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
 [Introducción a la sincronización de datos sin conexión]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
 [Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
 
 [Xamarin Studio]: http://xamarin.com/download
-[SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[Portal de administración]: https://manage.windowsazure.com/
+[Management Portal]: https://manage.windowsazure.com/
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->

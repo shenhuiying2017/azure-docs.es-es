@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/18/2014" 
+	ms.date="03/13/2015" 
 	ms.author="szark"/>
 
 
@@ -24,9 +24,9 @@ Es un escenario habitual usar el software RAID en máquinas virtuales con Linux 
 
 
 ## Conexión de discos de datos
-Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID.  Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux.  Consulte el artículo de Azure sobre la [conexión de un disco](http://azure.microsoft.com/documentation/articles/storage-windows-attach-disk/#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
+Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID. Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux. Consulte el artículo de Azure sobre la [conexión de un disco](storage-windows-attach-disk.md#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
 
->[AZURE.NOTE] El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual.  Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
+>[AZURE.NOTE]El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
 
 
 ## Instalación de la utilidad mdadm
@@ -56,15 +56,15 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		ADVERTENCIA: DOS-compatible mode is deprecated. It's strongly recommended to
+		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
-- Presione "n" en el símbolo del sistema para crear una **p**artición nueva:
+- Presione "n" en el símbolo del sistema para crear una partición **n**ueva:
 
 		Command (m for help): n
 
-- A continuación, presione "p" para crear una **p**artición principal:
+- A continuación, presione "p" para crear una partición **p**rincipal:
 
 		Command action
 			e   extended
@@ -75,17 +75,17 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 		Partition number (1-4): 1
 
-- Seleccione el punto de partida de la partición nueva o presione `<entrar>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
+- Seleccione el punto de partida de la partición nueva o presione `<enter>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O simplemente presione `<entrar>` para crear una única partición que extienda la unidad completa:
+- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O simplemente presione `<enter>` para crear una única partición que extienda la unidad completa:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- A continuación, cambie el identificador y **e**scriba la partición desde el identificador predeterminado "83" (Linux) hasta el identificador  'fd' (Linux raid auto):
+- A continuación, cambie el identificador y el **t**ipo de la partición del identificador predeterminado "83" (Linux) por el identificador "fd" (Linux raid auto):
 
 		Command (m for help): t
 		Selected partition 1
@@ -104,7 +104,7 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-En este ejemplo, después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro `--force` al comando  `mdadm`.
+En este ejemplo, después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro `--force` al comando `mdadm`.
 
 
 2. Cree el sistema de archivos en el nuevo dispositivo RAID.
@@ -122,18 +122,18 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE] Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE.
+	>[AZURE.NOTE]Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE.
 
 
 ## Incorporación del nuevo sistema de archivos a /etc/fstab
 
-**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se crea una copia de seguridad del archivo/etc/fstab antes de la edición.
+**Precaución:** la edición incorrecta del archivo /etc/fstab puede tener como resultado un sistema que no se pueda arrancar. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente ese archivo. También se recomienda realizar una copia de seguridad del archivo /etc/fstab antes de editarlo.
 
 1. Cree el punto de montaje deseado para el nuevo sistema de archivos, por ejemplo:
 
 		# sudo mkdir /data
 
-2. Al editar /etc/fstab, el **UUID** debe usarse para hacer referencia al sistema de archivos en lugar de al nombre del dispositivo.  Use la utilidad  `blkid` para determinar el UUID para el nuevo sistema de archivos:
+2. Al editar /etc/fstab, el **UUID** debe usarse para hacer referencia al sistema de archivos en lugar de al nombre del dispositivo. Use la utilidad `blkid` para determinar el UUID del nuevo sistema de archivos:
 
 		# sudo /sbin/blkid
 		...........
@@ -155,24 +155,28 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 	Si este comando genera un mensaje de error, compruebe la sintaxis del archivo /etc/fstab.
 
-	A continuación, ejecute el comando  `mount` para garantizar el montaje del sistema de archivos:
+	A continuación, ejecute el comando `mount` para garantizar el montaje del sistema de archivos:
 
 		# mount
 		.................
 		/dev/md127 on /data type ext4 (rw)
 
-5. Parámetros opcionales
+5. (Opcional) Parámetros de arranque a prueba de errores
 
-	Muchas distribuciones incluyen los parámetros de montaje  `nobootwait` o  `nofail` que pueden agregarse al archivo /etc/fstab. Estos parámetros admiten errores al montar un sistema de archivos concreto y permiten que el sistema Linux continúe iniciándose incluso aunque no pueda montar correctamente el sistema de archivos RAID. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+	**Configuración de fstab**
+
+	Muchas distribuciones incluyen los parámetros de montaje `nobootwait` o `nofail` que pueden agregarse al archivo /etc/fstab. Estos parámetros admiten errores al montar un sistema de archivos concreto y permiten que el sistema Linux continúe iniciándose incluso aunque no pueda montar correctamente el sistema de archivos RAID. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
 	Ejemplo (Ubuntu):
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,nobootwait  0  2
 
-	Además de los parámetros anteriores, el parámetro de kernel "`bootdegraded=true`" puede permitir que el sistema se inicie incluso si RAID se percibe como dañado o degradado, por ejemplo si una unidad de datos se quita accidentalmente de la máquina virtual. De manera predeterminada, esto podría resultar en un sistema no iniciable.
+	**Parámetros de inicio de Linux**
 
-	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`".  En Ubuntu, este parámetro puede agregarse a la variable  `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
+	Además de los parámetros anteriores, el parámetro de kernel `bootdegraded=true` puede permitir que el sistema se inicie incluso si RAID se percibe como dañado o degradado, por ejemplo si una unidad de datos se quita accidentalmente de la máquina virtual. De manera predeterminada, esto podría resultar en un sistema no iniciable.
 
+	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`". En Ubuntu, este parámetro puede agregarse a la variable `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
-<!--HONumber=45--> 
  
+
+<!---HONumber=July15_HO1-->

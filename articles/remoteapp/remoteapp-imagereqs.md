@@ -3,8 +3,7 @@
     pageTitle="Requisitos de imagen de RemoteApp"
     description="Obtenga información sobre los requisitos para crear imágenes que se usarán con RemoteApp" 
     services="remoteapp" 
-    solutions=""
-    documentationCenter="" 
+    solutions="" documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -14,13 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/19/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
 
 # Requisitos para imágenes de RemoteApp
-RemoteApp usa una imagen de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con los usuarios. Para crear una imagen de RemoteApp personalizada, puede comenzar con una imagen existente o [crear una nueva](remoteapp-create-custom-image.md). Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
+RemoteApp usa una imagen de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con los usuarios. Para crear una imagen de RemoteApp personalizada, puede comenzar con una imagen existente o [crear una nueva](remoteapp-create-custom-image.md).
+
+> [AZURE.TIP]¿Sabía que la suscripción de Azure RemoteApp le permite acceder a una imagen de Windows Server 2012 R2 ya generada en la galería de la máquina virtual de Azure que puede usar para crear su propia imagen de plantilla? [Compruébelo](remoteapp-image-on-azurevm.md).
+
+
+Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
 
 
 - Las aplicaciones personalizadas no almacenan datos de manera local en la imagen. Estas imágenes no tienen estado y solo deben contener aplicaciones.
@@ -33,10 +37,10 @@ RemoteApp usa una imagen de Windows Server 2012 R2 para hospedar todos los progr
 - El disco se debe inicializar usando el estilo de particiones Registro de arranque maestro (MBR, Master Boot Record). El estilo de particiones de tabla de particiones GUID (GPT) no se admite. 
 - El archivo VHD debe contener una sola instalación de Windows Server 2012 R2. Puede contener varios volúmenes, pero uno de ellos con una instalación de Windows. 
 - El rol Host de sesión de Escritorio remoto (RDSH, Remote Desktop Session Host) y la característica Experiencia de escritorio deben estar instalados.
-- El rol Agente de conexión a Escritorio remoto *no* debe estar instalado.
+- El rol Agente de conexión a Escritorio remoto *no* debe instalarse.
 - El Sistema de cifrado de archivos (EFS, Encrypting File System) debe estar instalado.
-- Se debe aplicar la herramienta SYSPREP a la imagen usando los parámetros **/oobe /generalize /shutdown** (NO USE el parámetro **/mode:vm**).
+- La imagen debe estar preparada con sysprep con los parámetros **/oobe /generalize /shutdown** (No USE el parámetro **/mode:vm**).
 - No se admite la carga de su VHD desde una cadena de instantáneas.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO1-->
