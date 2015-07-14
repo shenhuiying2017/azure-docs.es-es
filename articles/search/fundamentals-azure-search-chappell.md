@@ -40,5 +40,6 @@ Este artículo es una información general de la tecnología y de los escenarios
 **Descargas:**
 
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Introducción a Búsqueda de Azure" (en PDF)</a>
-* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducción a Búsqueda de Azure" (en Microsoft Word)</a> <!--HONumber=52-->
- 
+* <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Introducción a Búsqueda de Azure" (en Microsoft Word)</a>
+
+<!--HONumber=52-->
