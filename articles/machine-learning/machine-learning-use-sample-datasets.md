@@ -64,7 +64,7 @@ Los modelos de ejemplo de la [Galería de modelos de Aprendizaje automático de 
   <td valign=top>Experimento de ejemplo - Crédito alemán - Desarrollo</td>
   <td valign=top>Conjunto de datos UCI de tarjeta de crédito alemana</td>
   <td valign=top>
-[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
+[AZURE.INCLUDE [machine-learning-sample-dataset-german-credit-card-uci-dataset](../../includes/machine-learning-sample-dataset-german-credit-card-uci-dataset.md)]
   </td>
 </tr>
 

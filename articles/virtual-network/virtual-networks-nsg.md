@@ -118,7 +118,7 @@ Asociación de un grupo de seguridad de red a una subred: cuando un grupo de seg
 
 Asociación de un grupo de seguridad de red a una subred y una máquina virtual: es posible asociar un grupo de seguridad de red a una máquina virtual y otro grupo de seguridad de red diferente a la subred donde reside la máquina virtual. Esto está admitido y, en este caso, la máquina virtual obtiene dos capas de protección. En el tráfico entrante el paquete pasa por las reglas de acceso especificadas en la subred y,después, por las reglas de la máquina virtual y en el tráfico saliente pasa primero por las reglas especificadas en la máquina virtual, antes de pasar por las reglas especificadas en la subred, como se ilustra en el diagrama siguiente.
 
-![ACL de grupos de seguridad de red](./media/virtual-networks-nsg/IC757774.png)
+![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
 
 Cuando un grupo de seguridad de red está asociado a una máquina virtual o una subred, las reglas de control de acceso de la red pasan a ser muy explícitas. La plataforma no insertará ninguna regla implícita para permitir el tráfico a un puerto determinado. En este caso, si crea un extremo en la máquina virtual, también debe crear una regla para permitir el tráfico de Internet. Si no lo hace, la dirección VIP:<Port> no estará accesible desde fuera.
 
