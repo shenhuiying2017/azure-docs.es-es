@@ -32,7 +32,7 @@ En este tutorial se explica cómo crear una aplicación de API ASP.NET 5 con [Vi
 ## Requisitos previos  
 
 * Instalar y configurar [Visual Studio Code](http://code.visualstudio.com/Docs/setup).
-* Instalar [Node.js](http://nodejs.org/download/).<br>
+* Instalar [Node.js](http://nodejs.org/download/).<br\>
 	[Node](http://nodejs.org/) es una plataforma para crear aplicaciones de servidor rápidas y escalables mediante JavaScript. Node es el tiempo de ejecución (Node) y [npm](http://www.npmjs.com/) es el Administrador de paquetes para los módulos de Node. Utilizará npm para aplicar la técnica scaffolding a una aplicación de API ASP.NET 5 en este tutorial.
 
 ## Instalación de ASP.NET 5 y DNX
@@ -100,10 +100,10 @@ En esta sección se explica cómo aplicar la técnica scaffolding a una nueva ap
 
 	![Yoman - Generador de ASP.NET 5](./media/app-service-create-aspnet-api-app-using-vscode/01-yo-aspnet.png)
 
-5. Defina el nombre de la aplicación de API ASP.NET nueva como **ContactsList**. Este nombre se usará en el código más adelante en este tutorial. <br>
+5. Defina el nombre de la aplicación de API ASP.NET nueva como **ContactsList**. Este nombre se usará en el código más adelante en este tutorial. <br> 
 	Yoman creará una carpeta nueva con nombre **ContactsList**, además de los archivos necesarios para la aplicación nueva.
 6. Abra **Visual Studio Code**.<br>
-	Puede abrir VSCode desde la ventana Comandos; para ello, escriba **code .**.
+	 Puede abrir VSCode desde la ventana Comandos; para ello, escriba **code .**.
 7. En el menú **Archivo**, seleccione **Abrir carpeta** y seleccione la carpeta donde se encuentra la aplicación de API ASP.NET.
 
 	![Cuadro de diálogo Seleccionar carpeta](./media/app-service-create-aspnet-api-app-using-vscode/02-open-folder.png)
@@ -147,13 +147,14 @@ Ahora modificará la aplicación **ContactsList**; para ello, agregará una clas
 	}
 	</pre>
 
+
 3. Haga clic en la carpeta **Controllers** y agregue un archivo *ContactsController.cs* para que aparezca como sigue:
 
 	<pre class="prettyprint">
 	using System.Collections.Generic;
 	using Microsoft.AspNet.Mvc;
 	using ContactsList.Models;
-
+	
 	namespace ContactsList.Controllers
 	{
 	    [Route("api/[controller]")]
@@ -161,7 +162,7 @@ Ahora modificará la aplicación **ContactsList**; para ello, agregará una clas
 	    {
 	        // GET: api/Contacts
 	        [HttpGet]
-	        public IEnumerable&lt;Contact> Get()
+	        public IEnumerable&lt;Contact&gt; Get()
 	        {
 	            return new Contact[]{
 	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
@@ -178,9 +179,7 @@ Ahora modificará la aplicación **ContactsList**; para ello, agregará una clas
 
 	<pre class="prettyprint">
 	dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-	</pre>
-
-	En la ventana Comandos, aparecerá *Started*. Si en la ventana Comandos no aparece *Started*, compruebe la esquina inferior izquierda de VSCode para ver si hay errores en el proyecto.
+	</pre>En la ventana Comandos, aparecerá *Started*. Si en la ventana Comandos no aparece *Started*, compruebe la esquina inferior izquierda de VSCode para ver si hay errores en el proyecto.
 
 5. Abra un explorador y vaya a la dirección URL siguiente:
 
@@ -194,8 +193,8 @@ Ahora modificará la aplicación **ContactsList**; para ello, agregará una clas
 Los metadatos que permiten la implementación de un proyecto de API ASP.NET como aplicación de API deben estar incluidos en un archivo *apiapp.json* en la raíz del proyecto.
 
 1. En VSCode, haga clic con el botón secundario en la carpeta *wwwroot* y, a continuación, seleccione la opción **Nuevo archivo**.
-2. Asigne al nuevo archivo el nombre *apiapp.json*.<br>
-	Asegúrese de que *apiapp.json* se encuentra en la carpeta *wwwroot*.
+2. Asigne al nuevo archivo el nombre *apiapp.json*.<br\>
+	 Asegúrese de que *apiapp.json* se encuentra en la carpeta *wwwroot*.
 3. Agregue lo siguiente al archivo *apiapp.json*:
 
 	<pre class="prettyprint">
@@ -222,106 +221,106 @@ Para proporcionar un archivo de definición estática de API Swagger 2.0, debe c
 3. Agregue la siguiente sintaxis json al nuevo archivo:
 
 	<pre class="prettyprint">
-	{
-	  "swagger": "2.0",
-	  "info": {
-	    "version": "v1",
-	    "title": "ContactsList"
-	  },
-	  "host": "MUST REPLACE THIS WITH YOUR HOST URL",
-	  "schemes": [
-	    "https"
-	  ],
-	  "paths": {
-	    "/api/Contacts": {
-	      "get": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Get",
-	        "consumes": [],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "type": "array",
-	              "items": {
-	                "$ref": "#/definitions/Contact"
-	              }
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      },
-	      "post": {
-	        "tags": [
-	          "Contacts"
-	        ],
-	        "operationId": "Contacts_Post",
-	        "consumes": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml",
-	          "application/x-www-form-urlencoded"
-	        ],
-	        "produces": [
-	          "application/json",
-	          "text/json",
-	          "application/xml",
-	          "text/xml"
-	        ],
-	        "parameters": [
-	          {
-	            "name": "contact",
-	            "in": "body",
-	            "required": true,
-	            "schema": {
-	              "$ref": "#/definitions/Contact"
-	            }
-	          }
-	        ],
-	        "responses": {
-	          "200": {
-	            "description": "OK",
-	            "schema": {
-	              "$ref": "#/definitions/Object"
-	            }
-	          }
-	        },
-	        "deprecated": false
-	      }
-	    }
-	  },
-	  "definitions": {
-	    "Contact": {
-	      "type": "object",
-	      "properties": {
-	        "Id": {
-	          "format": "int32",
-	          "type": "integer"
-	        },
-	        "Name": {
-	          "type": "string"
-	        },
-	        "EmailAddress": {
-	          "type": "string"
-	        }
-	      }
-	    },
-	    "Object": {
-	      "type": "object",
-	      "properties": {}
-	    }
-	  }
-	}
-	</pre>
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "ContactsList"
+  },
+  "host": "MUST REPLACE THIS WITH YOUR HOST URL",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/api/Contacts": {
+      "get": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Get",
+        "consumes": [],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contact"
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "Contacts_Post",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json",
+          "text/json",
+          "application/xml",
+          "text/xml"
+        ],
+        "parameters": [
+          {
+            "name": "contact",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Object"
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "Id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "Name": {
+          "type": "string"
+        },
+        "EmailAddress": {
+          "type": "string"
+        }
+      }
+    },
+    "Object": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+}
+</pre>
 
 Más adelante en este tutorial, deberá reemplazar la cadena anterior de marcador de posición de dirección URL de host por la dirección URL de host de Azure que va a crear y copiar más tarde.
 
@@ -454,7 +453,8 @@ Ahora que ha implementado una API en su aplicación de API, puede ver la definic
 1. En el portal de vista previa de Azure, vaya a la hoja **Aplicación de API** para la aplicación de API que creó anteriormente y haga clic en el vínculo **Puerta de enlace**.
 2. En la hoja **PUERTA DE ENLACE**, haga clic en **Reiniciar**. Ahora puede cerrar esta hoja.
 3. En la hoja **APLICACIÓN DE API**, haga clic en **Reiniciar**. 
-4. En la hoja **APLICACIÓN DE API**, haga clic en **Definición de API**.<br> La hoja Definición de API muestra dos métodos. Si no ve los métodos GET y POST de forma inmediata, espere unos segundos para que Azure actualice la aplicación. A continuación, haga clic en **Definición de API** en la hoja **APLICACIÓN DE API**.
+4. En la hoja **APLICACIÓN DE API**, haga clic en **Definición de API**.<br>
+	La hoja Definición de API muestra dos métodos. Si no ve los métodos GET y POST de forma inmediata, espere unos segundos para que Azure actualice la aplicación. A continuación, haga clic en **Definición de API** en la hoja **APLICACIÓN DE API**.
 
 ## Ejecución de la aplicación en Azure
 En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE API** para su aplicación de API y haga clic en **Examinar**. A continuación, agregue **api/Contacts** al final de la dirección URL para ver los detalles de contacto.
@@ -463,4 +463,5 @@ En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE A
 ## Conclusión
 En este tutorial a aprendido crear una aplicación de API en Visual Studio Code. Para obtener más información sobre Visual Studio Code, consulte [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener información sobre las aplicaciones de API, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
  
-<!--HONumber=62-->
+
+<!---HONumber=62-->

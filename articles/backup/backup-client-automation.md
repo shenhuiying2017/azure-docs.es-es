@@ -35,7 +35,7 @@ Antes de instalar el agente de Copia de seguridad de Azure, necesitará tener el
 Para instalar el agente, ejecute el comando siguiente en una consola de PowerShell de Azure con privilegios elevados:
 
 ```
-PS C:\> MARSAgentInstaller.exe /q
+PS C:> MARSAgentInstaller.exe /q
 ```
 
 Esto instala el agente con todas las opciones predeterminadas. La instalación está unos minutos en segundo plano. Si no se especifica la opción */nu*, se abrirá la ventana de **Windows Update** al final de la instalación para comprobar si hay actualizaciones. Una vez instalado, el agente se mostrará en la lista de programas instalados.
@@ -56,7 +56,15 @@ Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
 | ---- | ----- | ----- |
-| /q | Instalación desatendida | - | | /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent | | /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch | | /m | Participar en Microsoft Update | - | | /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | | /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | | /ph | Dirección de host del proxy | - | | /po | Número de puerto de host del proxy | - | | /pu | Nombre de usuario de host del proxy | - | | /pw | Contraseña del proxy | - |
+| /q | Instalación desatendida | - |
+| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent | | /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch |
+| /m | Participar en Microsoft Update | - |
+| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - |
+| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - |
+| /ph | Dirección de host del proxy | - |
+| /po | Número de puerto de host del proxy | - |
+| /pu | Nombre de usuario de host del proxy | - |
+| /pw | Contraseña del proxy | - |
 
 
 ### Registro con el servicio de Copia de seguridad de Azure
@@ -68,7 +76,7 @@ Para poder registrarse con el servicio de copia de seguridad de Azure, debe aseg
 El registro de la máquina con el almacén de claves se realiza mediante el cmdlet [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx):
 
 ```
-PS C:\> Start-OBRegistration -VaultCredentials "C:\Downloads\register.vaultcredentials" -Confirm:$false
+PS C:> Start-OBRegistration -VaultCredentials "C:\Downloads\register.vaultcredentials" -Confirm:$false
 
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
@@ -88,10 +96,12 @@ También puede controlar el uso de ancho de banda con las opciones de ```work ho
 El establecimiento de los detalles de ancho de banda y del proxy se realiza mediante el cmdlet [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx):
 
 ```
-PS C:\> Set-OBMachineSetting -NoProxy
+PS C:> Set-OBMachineSetting -NoProxy
 Server properties updated successfully.
+```
 
-PS C:\> Set-OBMachineSetting -NoThrottle
+```
+PS C:> Set-OBMachineSetting -NoThrottle
 Server properties updated successfully.
 ```
 

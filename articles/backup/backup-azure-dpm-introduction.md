@@ -58,7 +58,7 @@ Para iniciar la copia de seguridad de sus máquinas virtuales de Azure, deberá 
 2. Haga clic en **Nuevo** > **Servicios de datos** > **Servicios de recuperación** > **Almacén de copia de seguridad** > **Creación rápida**. Si tiene varias suscripciones asociadas a su cuenta profesional, elija la suscripción adecuada que se asociará al almacén de copia de seguridad. En cada suscripción de Azure puede tener varios almacenes de copia de seguridad para organizar los datos que se van a proteger.
 3. En **Nombre**, escriba un nombre descriptivo para identificar el almacén. Esto debe ser único para cada suscripción.
 4. En **Región**, seleccione la región geográfica del almacén. Tenga en cuenta que el almacén debe estar en la misma región que las máquinas virtuales que desea proteger. Si tiene máquinas virtuales en diferentes regiones, cree un almacén en cada uno de ellos. No es necesario especificar cuentas de almacenamiento para almacenar datos de copia de seguridad. El almacén de copia de seguridad y el servicio Copia de seguridad de Azure lo controlan automáticamente.
-    > [AZURE.NOTE][regiones admitidas](http://azure.microsoft.com/regions/#services)
+    > [AZURE.NOTE] La copia de seguridad de máquinas virtuales con el servicio de Copia de seguridad de Azure solo se admite en [determinadas regiones](http://azure.microsoft.com/regions/#services). Consulte la lista de regiones en que se admite. Si la región que buscando no la admite actualmente, no aparecerá en la lista desplegable durante la creación del almacén.
 
 5. En **Suscripción**, escriba la suscripción de Azure con la que desea usar el almacén de copia de seguridad.
 6. Haga clic en **Crear almacén**.![Crear un almacén de copia de seguridad](./media/backup-azure-dpm-introduction/backup_vaultcreate.png)
@@ -101,7 +101,7 @@ Descargue el archivo de instalación del agente y ejecútelo en cada servidor DP
 9. En la página **Configuración de cifrado**, especifique detalles de la frase de contraseña o genere automáticamente una frase de contraseña.
 10. Haga clic en Generar frase de contraseña seguido de Copiar al Portapapeles. Recibirá un mensaje para indicar que la frase de contraseña se ha copiado en el Portapapeles. Ahora resulta muy conveniente abrir el Bloc de notas y pegar la frase de contraseña desde el Portapapeles y guardar el archivo. Imprima también el archivo y guárdelo en un lugar seguro. Haga clic en Registrar para registrar el servidor DPM en el almacén de copia de seguridad.
 
-    > [AZURE.TIP]
+    > [AZURE.TIP] En el paso Configuración de cifrado, recuerde copiar la frase de contraseña en el Portapapeles.
 11. Haga clic en **Registrar**.
 
     Una vez completado el registro, la consola de DPM muestra la disponibilidad de Copia de seguridad de Azure.
