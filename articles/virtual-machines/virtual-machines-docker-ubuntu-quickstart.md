@@ -30,7 +30,7 @@ En este tema:
 - [Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech]
 - [Conexión con SSH y a disfrutar]
 
-## <a id='logon'>Inicio de sesión en el Portal￼</a>
+## <a id='logon'>Inicio de sesión en el Portal</a>
 
 Esta parte es fácil, a menos que no disponga de una cuenta de Azure. [Obtenga una también con facilidad.](http://azure.microsoft.com/pricing/free-trial/)
 
@@ -81,4 +81,4 @@ Va a comenzar a usar [Docker].
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=July15_HO1-->
+<!-----HONumber=July15_HO1-->

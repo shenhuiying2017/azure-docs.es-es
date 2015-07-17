@@ -126,7 +126,8 @@ Elija "Almacenamiento de tabla" en la salida.
 Escriba la información de la tabla de Azure en la página siguiente. El alias de salida es el nombre que puede usar en la consulta para dirigir la salida de la consulta a esta tabla.
 
 
-![graphic14][graphic14] ![graphic15][graphic15]
+![graphic14][graphic14]
+![graphic15][graphic15]
 
 Tamaño del lote es el número de registros de una operación por lotes; déjelo como valor predeterminado si no está familiarizado de él, o bien consulte [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obtener más información
 

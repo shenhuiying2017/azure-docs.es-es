@@ -175,7 +175,7 @@ Puede especificar una regla de reescritura de URL más restrictiva a fin de limi
 <a name="caching"></a>
 ## Configuración de las opciones de almacenamiento en caché para los archivos estáticos del servicio en la nube ##
 
-Con la integración de la red CDN de Azure en el servicio en la nube, puede especificar cómo quiere que el contenido estático se almacene en la caché en el extremo de red CDN. Para ello, abra *Web.config* desde su proyecto de rol web (por ejemplo, WebRole1) y agregue un elemento `<staticContent>`￼ a `<system.webServer>`. El código XML siguiente configura la memoria caché para que expire en 3 días. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+Con la integración de la red CDN de Azure en el servicio en la nube, puede especificar cómo quiere que el contenido estático se almacene en la caché en el extremo de red CDN. Para ello, abra *Web.config* desde su proyecto de rol web (por ejemplo, WebRole1) y agregue un elemento `<staticContent>` a `<system.webServer>`. El código XML siguiente configura la memoria caché para que expire en 3 días. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
 
 Una vez realizado esto, todos los archivos estáticos del servicio en la nube observarán la misma regla en la caché de red CDN. Para un control más granular de la configuración de la caché, agregue un archivo *Web.config* a una carpeta y agregue ahí su configuración. Por ejemplo, agregue un archivo *Web.config* a la carpeta *\Content* y sustituya el contenido por el siguiente XML:
 
@@ -596,4 +596,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->

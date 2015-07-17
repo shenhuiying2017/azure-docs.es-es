@@ -40,7 +40,7 @@ En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en 
 2. Haga clic en **Nuevo**, **Proceso**, **Máquina virtual** y, a continuación, en **Desde la galería**.
 3. En el cuadro de diálogo **Selección de imagen de máquina virtual**, seleccione **JDK 7 Windows Server 2012**. Tenga en cuenta que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
 4. Haga clic en **Siguiente**.
-5. En el cuadro de diálogo <strong>￼Configuración de la máquina virtual</strong>:
+5. En el cuadro de diálogo <strong>Configuración de la máquina virtual</strong>:
     1. Especifique un nombre para la máquina virtual.
     2. Especifique el tamaño que se va a utilizar para la máquina virtual.
     3. Escriba un nombre para el administrador en el campo **Nombre de usuario**. Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual.
@@ -160,4 +160,4 @@ En este momento, el sitio web de Tomcat se debería ver desde un explorador exte
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
  
 
-<!---HONumber=July15_HO1-->
+<!----HONumber=July15_HO1-->

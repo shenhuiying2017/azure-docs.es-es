@@ -29,7 +29,13 @@ Para usar el conector Slack, deberá crear primero una instancia de la aplicaci�
 2.	Vaya a “Web y móvil > Azure Marketplace” y busque “Conector Slack”.
 3.	Configure el conector Slack de la siguiente forma:
  
-	![][1] - **Nombre**: asigne un nombre al conector Slack. - **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones. - **Nivel de precios**: elija un nivel de precios para el conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector. - **Suscripción**: elija la suscripción en la que desea crear el conector. - **Ubicación**: elija la ubicación geográfica donde desea que se implemente el conector.
+	![][1]
+	- **Nombre**: asigne un nombre al conector Slack.
+	- **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones.
+	- **Nivel de precios**: elija un nivel de precios para el conector.
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector.
+	- **Suscripción**: elija la suscripción en la que desea crear el conector.
+	- **Ubicación**: elija la ubicación geográfica donde desea que se implemente el conector.
 
 4. Haga clic en Crear. Se creará un nuevo conector Slack.
 5. Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector Slack.
@@ -46,7 +52,10 @@ Una vez creada la aplicación de la API, ahora puede usar el conector Slack como
 	![][2]
 4.	Puede quitar la aplicación de la API del conector Slack en el editor haciendo clic en “Conector Slack”. Haga clic en el botón Autorizar. Proporcione las credenciales de Microsoft (si no ha iniciado sesión automáticamente). Inicie sesión en su cuenta Slack mediante los pasos correspondientes. Hacia el final, se le pedirá que conceda al conector permiso de acceso a su cuenta Slack. Haga clic en "Autorizar"
  
-	![][3] ![][4] ![][5] ![][6]
+	![][3]
+	![][4]
+	![][5]
+	![][6]
 	
 5.	Ahora puede usar el conector Slack en el flujo. Actualmente, los desencadenadores no están disponibles en el conector Slack. Las acciones disponibles son: Publicar mensaje
  
@@ -85,4 +94,4 @@ Una vez creada la aplicación de la API, ahora puede usar el conector Slack como
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [definición de la API de Slack]: https://msdn.microsoft.com/es-es/library/dn708020.aspx
 
-<!---HONumber=62-->
+<!----HONumber=62-->

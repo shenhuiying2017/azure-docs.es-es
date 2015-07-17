@@ -58,7 +58,8 @@ Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comen
 
 	>[AZURE.NOTE]El URI contiene el nombre del usuario de la base de datos y la contraseña. Déle el mismo tratamiento que a la información confidencial y no lo comparta.
 
-5. Agregue el valor a la lista **Cadenas de conexión** en el menú **Configuración** de su aplicación web de Azure: ![WebAppConnectionStrings][focus-website-connectinfo]
+5. Agregue el valor a la lista **Cadenas de conexión** en el menú **Configuración** de su aplicación web de Azure: 
+![WebAppConnectionStrings][focus-website-connectinfo]
 6. En **Name** (Nombre), escriba **MONGOLAB_URI**.
 7. En **Value** (Valor), pegue la cadena de conexión que se obtuvo en la sección anterior.
 8. Seleccione **Custom** (Personalizado) en la lista desplegable Type (Tipo), en lugar del valor predeterminado **SQLAzure**.
@@ -448,13 +449,14 @@ Antes de usar la CLI de Azure, primero debe descargar un archivo que contenga in
 
 Crear una aplicación web en el Servicio de aplicaciones de Azure es muy sencillo. Si se trata de su primera aplicación web de Azure, debe usar el portal. Si ya tiene al menos un sitio web, vaya al paso 7.
 
-1. En el portal de Azure, haga clic en **Nuevo**. ![Nuevo][button-new]
-2. Seleccione **Proceso > Aplicación web > Creación rápida**.
-<!--- ![Create Web App][screen-mongolab-newwebsite] -->
+1. En el portal de Azure, haga clic en **Nuevo**.  
+	![Nuevo][button-new]
+2. Seleccione **Proceso > Aplicación web > Creación rápida**.  
+	<!--- ![Create Web App][screen-mongolab-newwebsite] -->
 3. Escriba un prefijo de dirección URL. Seleccione un nombre de su preferencia, pero tenga en cuenta que debe ser único ('mymongoapp' probablemente no estará disponible).
 4. Haga clic en **Crear aplicación web**.
-5. Cuando concluya la creación de la aplicación web, haga clic en el nombre de la aplicación web en la lista de aplicaciones web. Aparecerá el panel de la aplicación web.
-<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+5. Cuando concluya la creación de la aplicación web, haga clic en el nombre de la aplicación web en la lista de aplicaciones web. Aparecerá el panel de la aplicación web.  
+	<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. Haga clic en **Configurar implementación desde control de código fuente** en **vista rápida** y escriba el nombre de usuario y contraseña de git que quiera. Usará esta contraseña al realizar inserciones en su aplicación web (en el paso 9).  
 7. Si creó la aplicación web siguiendo los pasos anteriores, el proceso se completará con el siguiente comando. Sin embargo, si ya tiene más de una aplicación web, puede omitir los pasos anteriores y crear otro sitio web con este mismo comando. Desde el directorio del proyecto **tasklist**:
 
@@ -573,4 +575,4 @@ Ejecute `azure site browse` en el directorio del proyecto para abrir automática
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=62-->
+<!------HONumber=62-->

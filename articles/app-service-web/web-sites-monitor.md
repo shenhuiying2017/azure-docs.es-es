@@ -37,7 +37,7 @@
 6. Para quitar métricas de la página **Supervisar**, seleccione la métrica que desea quitar y, a continuación, haga clic en el icono **Eliminar métrica** en la parte inferior de la página.
 
 ##<a name="howtoreceivealerts"></a>Recepción de alertas de métricas de aplicaciones web
-En el modo de aplicación web **Estándar** puede recibir alertas basadas en las métricas de supervisión de su aplicación web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacerse en la sección **Supervisión** de la página **Configurar**. En la página **Configuración** del Portal de administración de Azure puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [￼Recepción notificaciones de alerta y administración de reglas de alerta en Azure￼](http://go.microsoft.com/fwlink/?LinkId=309356).
+En el modo de aplicación web **Estándar** puede recibir alertas basadas en las métricas de supervisión de su aplicación web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacerse en la sección **Supervisión** de la página **Configurar**. En la página **Configuración** del Portal de administración de Azure puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Recepción notificaciones de alerta y administración de reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
 ##<a name="howtoviewusage"></a>Visualización de cuotas de uso para una aplicación web
 
@@ -283,4 +283,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
