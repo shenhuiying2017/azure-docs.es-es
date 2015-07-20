@@ -690,5 +690,6 @@ Básicamente, se sugiere este enfoque para:
 -	Para todas las tareas de implementación posteriores (por ejemplo, instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

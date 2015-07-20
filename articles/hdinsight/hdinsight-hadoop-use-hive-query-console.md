@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Ejecución de consultas de Hive mediante la consola de consulta
@@ -34,7 +34,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 ##<a id="run"></a>Ejecución de consultas de Hive mediante la consola de consulta
 
-1. Abra el <a href="https://manage.windowsazure.com" target="_blank">Portal de Azure</a> y seleccione el clúster de HDInsight. En la parte inferior de la página, seleccione **Consola de consulta**. Cuando se le solicite, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
+1. Abra el [Portal de Azure](https://manage.windowsazure.com) y seleccione el clúster de HDInsight. En la parte inferior de la página, seleccione **Consola de consulta**. Cuando se le solicite, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
 
     > [AZURE.NOTE]También puede tener acceso a la consola de consulta escribiendo **https://CLUSTERNAME.azurehdinsight.net** en el explorador.
 
@@ -106,18 +106,18 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="CREATE ASSEMBLY en una Base de datos SQL de Azure con CSharp"
-	description="Proporciona código fuente de C# para emitir CREATE ASSEMBLY en la Base de datos SQL de Azure después de la primera codificación de un archivo DLL en una cadena que contiene un número hexadecimal largo". 
+	description="Proporciona código fuente de C# para emitir CREATE ASSEMBLY en Base de datos SQL de Azure después de la primera codificación de un archivo DLL en una cadena que contiene un número hexadecimal largo." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -26,7 +26,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 -->
 
 
-En este tema se proporciona un ejemplo de código de C# que puede usarse para emitir una instrucción [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) en la Base de datos SQL de Azure. En las bases de datos SQL, la cláusula FROM no puede aceptar el formato simple de una ruta de acceso en el equipo local que hospeda la base de datos. Una alternativa consiste en codificar los bits binarios del archivo DLL del ensamblado en una cadena larga que contenga un número hexadecimal. A continuación, proporcione la cadena como el valor en la cláusula FROM.
+En este tema se proporciona un ejemplo de código de C# que puede usarse para emitir una instrucción [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) en Base de datos SQL de Azure. En las bases de datos SQL, la cláusula FROM no puede aceptar el formato simple de una ruta de acceso en el equipo local que hospeda la base de datos. Una alternativa consiste en codificar los bits binarios del archivo DLL del ensamblado en una cadena larga que contenga un número hexadecimal. A continuación, proporcione la cadena como el valor en la cláusula FROM.
 
 
 ### Requisitos previos
@@ -38,7 +38,7 @@ Para entender este tema, ya debe conocer parcialmente lo siguiente:
 - [Funciones con valores de tabla de CLR](http://msdn.microsoft.com/library/ms131103.aspx)<br/>Explica cómo funciona la instrucción CREATE ASSEMBLY de Transact-SQL con otras instrucciones de Microsoft SQL Server local.
 
 
-## A. Técnica general
+## R: Técnica general
 
 
 1. Ejecute DROP FUNCTION y DROP ASSEMBLY, si es necesario para limpiar una ejecución anterior.
@@ -50,9 +50,7 @@ Para entender este tema, ya debe conocer parcialmente lo siguiente:
 5. Instrucción SELECT T-SQL para llamar y probar la función.
 
 
-La lista anterior no menciona...<br/>
-**execute sp_configure 'clr enabled', 1;**<br/>
-...porque no es necesario para la Base de datos SQL de Azure, aunque es necesario para Microsoft SQL Server.
+La lista anterior no menciona...<br/> **execute sp_configure 'clr enabled', 1;**<br/>...porque esto no es necesario para Base de datos SQL de Azure, aunque sí lo es necesario para Microsoft SQL Server.
 
 
 Si es necesario para nuevas ejecuciones, el código de T-SQL para quitar la función y el ensamblado es el siguiente:
@@ -62,7 +60,7 @@ Si es necesario para nuevas ejecuciones, el código de T-SQL para quitar la func
     DROP ASSEMBLY CreateAssemblyFunctions3;
 
 
-## B. DLL de ensamblado simple para la función de T-SQL para hacer referencia
+## B. B. DLL de ensamblado simple para la función de T-SQL para hacer referencia
 
 
 El ejemplo de código C# trivial de esta sección se puede compilar en un archivo DLL de ensamblado.
@@ -96,7 +94,7 @@ Este ejemplo de código contiene el método **CompareCaseSensitiveNet** al que s
 Al ejecutar el archivo ejecutable que se crea en este ejemplo de C#, se produce la siguiente secuencia:
 
 
-1. La ejecución de línea de comandos de las llamadas al archivo EXE llama al método **Main**.
+1. La ejecución de línea de comandos del archivo EXE llama al método **Main**.
 2. Main llama al método **ObtainHexStringOfAssembly**.
  - El método da como resultado una cadena SqlString que almacena el ensamblado como un número hexadecimal.
 3. Main llama al método **SubmitCreateAssemblyToAzureSqlDb**.
@@ -260,9 +258,9 @@ Al ejecutar el archivo ejecutable que se crea en este ejemplo de C#, se produce 
 Cuando se compiló y probó el código de ejemplo de la herramienta EXE, se usó lo siguiente:
 
 
-- Visual Studio 2013, actualización 4
+- Visual Studio 2013, actualización 4
  - El tipo de plantilla de proyecto era la aplicación de consola simple.
-- .NET Framework 4.5
+- .NET Framework 4.5
 
 
 Nuestro proyecto de Visual Studio hace referencia a los ensamblados siguientes para la compilación:
@@ -330,5 +328,4 @@ El bloque de código de Transact-SQL anterior finaliza con una instrucción SELE
 
 <!-- EndOfFile -->
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

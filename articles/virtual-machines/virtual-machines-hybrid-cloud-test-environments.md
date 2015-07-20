@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Entornos de prueba de nube híbrida de Azure
@@ -53,6 +53,9 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
 [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!--HONumber=52-->
+
  
+
+<!---HONumber=July15_HO2-->

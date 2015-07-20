@@ -1,24 +1,25 @@
-<properties 
+<properties
    pageTitle="Explorar datos de seguridad y auditoría de Visión operativa"
-   description="Obtenga información sobre cómo usar el módulo de inteligencia Seguridad y auditoría para conseguir una vista completa de la postura de seguridad de TI de su organización con consultas de búsqueda integradas para problemas importantes que requieren su atención"
+   description="Obtenga información acerca de cómo puede usar la solución Seguridad y auditoría para conseguir una vista completa de la postura de seguridad de TI de su organización con consultas de búsqueda integradas para problemas importantes que requieren su atención."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Explorar datos de seguridad y auditoría de Visión operativa
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-El módulo de inteligencia Seguridad y auditoría de Visión operativa proporciona una vista completa de la postura de seguridad de TI de su organización con consultas de búsqueda integradas para problemas importantes que requieren su atención.
+La solución Seguridad y auditoría de Visión operativa proporciona una vista completa de la postura de seguridad de TI de su organización con consultas de búsqueda integradas para problemas importantes que requieren su atención.
 
 En este artículo, aprenderá lo siguiente:
 
@@ -32,8 +33,8 @@ En este artículo, aprenderá lo siguiente:
 1. Inicie sesión en Visión operativa.
 2. En la página **Información general**, revise la información que se muestra en el mosaico **Auditoría y seguridad** y, luego, haga clic en él. ![Imagen de la página Información general](./media/operational-insights-security-audit/sec-audit-dash02.png)
 3. En la página **Auditoría y seguridad**, revise la información de la hoja **PROBLEMAS IMPORTANTES**. En la imagen del ejemplo, verá seis problemas importantes para hoy y dos de ayer. En este ejemplo, hay un ejecutable sospechoso. Haga clic en **Ejecutables sospechosos** en la hoja **PROBLEMAS IMPORTANTES**. ![Imagen de la página Seguridad y auditoría](./media/operational-insights-security-audit/sec-audit-dash03.png)
-4. Búsqueda muestra la consulta y los resultados de los ejecutables sospechosos en los que hizo clic. En el ejemplo, hay un resultado y se muestra el hash del archivo. Haga clic en el id. de **FILEHASH**. ![Imagen del filehash de Resultados de búsqueda](./media/operational-insights-security-audit/sec-audit-search01.png) 
-5. Búsqueda muestra información adicional sobre el archivo ejecutable, incluido su nombre de proceso y la ruta del archivo. Haga clic en **Procesar & lt; Nombre de archivo&gt;**. En el ejemplo, es HEXEDIT.EXE. ![Imagen del proceso de Resultados de búsqueda](./media/operational-insights-security-audit/sec-audit-search02.png) 
+4. Búsqueda muestra la consulta y los resultados de los ejecutables sospechosos en los que hizo clic. En el ejemplo, hay un resultado y se muestra el hash del archivo. Haga clic en el id. de **FILEHASH**. ![Imagen del filehash de Resultados de búsqueda](./media/operational-insights-security-audit/sec-audit-search01.png)
+5. Búsqueda muestra información adicional sobre el archivo ejecutable, incluido su nombre de proceso y la ruta del archivo. Haga clic en **Procesar & lt; Nombre de archivo&gt;**. En el ejemplo, es HEXEDIT.EXE. ![Imagen del proceso de Resultados de búsqueda](./media/operational-insights-security-audit/sec-audit-search02.png)
 6. Búsqueda anexa el nombre del proceso entre comillas a la consulta. "**HEXEDIT.EXE"**, en este ejemplo. ![Imagen de la Consulta de búsqueda](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. En el cuadro Consulta de búsqueda, elimine todo excepto el nombre del proceso y las comillas y, luego, haga clic en el icono Buscar. ![Imagen de la información de búsqueda detallada](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Búsqueda muestra información detallada acerca del proceso, incluidos los equipos donde ejecutó el proceso, la cuenta de usuario que ha ejecutado el proceso, y la fecha y hora en que se creó un evento para el proceso.
@@ -43,15 +44,15 @@ En este artículo, aprenderá lo siguiente:
 
 **Buscar pruebas**
 
-Al realizar un análisis forense mediante el módulo de inteligencia Seguridad y auditoría, busca las evidencias que los usuarios potencialmente maliciosos dejan atrás. Independientemente de lo que hacen los usuarios en su entorno de TI, muchas de las actividades en las que participan generan artefactos de seguridad. Tenga en cuenta que los atacantes a menudo borran los registros y suele ser el primer paso para ocultar su ruta de acceso.
+Al realizar un análisis forense mediante la solución Seguridad y auditoría, busca las evidencias que los usuarios potencialmente malintencionados dejan atrás. Independientemente de lo que hacen los usuarios en su entorno de TI, muchas de las actividades en las que participan generan artefactos de seguridad. Tenga en cuenta que los atacantes a menudo borran los registros y suele ser el primer paso para ocultar su ruta de acceso.
 
 Sin embargo, si los usuarios tienen acceso a sus propios equipos o tienen acceso de forma remota, la evidencia sobre el uso se almacena en los registros de eventos. Visión operativa recopila estos artefactos *en cuanto se producen*, antes de que cualquiera pueda alterarlos y le permite realizar diferentes tipos de análisis mediante la correlación de datos entre varios equipos.
 
 **Aprender a configurar y recopilar eventos de auditoría**
 
-Para sacar el máximo provecho al módulo de inteligencia Seguridad y auditoría, debe configurar el nivel de eventos de auditoría recopilados por su entorno de Windows que más se ajuste a sus necesidades, mediante los siguientes recursos.
+Para sacar el máximo provecho a la solución Seguridad y auditoría, debe configurar el nivel de eventos de auditoría recopilados por su entorno de Windows que más se ajuste a sus necesidades, mediante los siguientes recursos.
 
-- [Cómo configurar la directiva de seguridad](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
+- [Configuración de la directiva de seguridad](https://technet.microsoft.com/library/dn135243(v=ws.10).aspx)
 
 - [Configuración avanzada de la directiva de auditoría](https://technet.microsoft.com/library/jj852202(v=ws.10).aspx)
 
@@ -71,7 +72,7 @@ El entorno informático de Windows le ofrece la capacidad de configurar el nivel
 
 **Investigar patrones de actividad anómala.**
 
-Las infracciones de seguridad normalmente proceden de credenciales legítimas y requieren que un usuario malintencionado intente obtener privilegios elevados mediante ataques. El módulo de inteligencia Seguridad y auditoría no se centra en la detección de intrusiones, pero ayuda a investigar y detectar patrones de actividades anómalas con Problemas importantes. Por ejemplo, debería investigar las siguientes actividades anómalas y cualquier otra que aparezca en **Problemas importantes**.
+Las infracciones de seguridad normalmente proceden de credenciales legítimas y requieren que un usuario malintencionado intente obtener privilegios elevados mediante ataques. La solución Seguridad y auditoría no se centra en la detección de intrusiones, pero ayuda a investigar y detectar patrones de actividades anómalas con Problemas importantes. Por ejemplo, debería investigar las siguientes actividades anómalas y cualquier otra que aparezca en **Problemas importantes**.
 
 - inicios de sesión inusuales en un equipo de un usuario que no lo suele usar
 
@@ -87,7 +88,7 @@ Las infracciones de seguridad normalmente proceden de credenciales legítimas y 
 
 Su organización podría tener reglamentos y directivas de cumplimiento de red y equipos que debe cumplir, que requieren unos registros de auditoría amplios. Por ejemplo, si su organización es una empresa de finanzas es posible que tenga que mantener registros que demuestren, en cualquier momento dado en el tiempo, que usuario realizó una operación específica en la red. También es posible que tenga que generar informes que detallen la actividad de un usuario determinado o el servidor seleccionado a petición y volver atrás varios meses o incluso años.
 
-Puede usar el módulo de inteligencia Seguridad y auditoría para recopilar datos de auditoría del entorno de TI, si los equipos están en un entorno local o en la nube. Todos los datos de auditoría de almacenan, indizan y, con una suscripción Premium de Visión operativa, se almacenan indefinidamente. Después, puede ver los datos de auditoría, realizar búsquedas y correlacionar diferentes tipos de datos y equipos para obtener resultados detallados para cualquier intervalo de tiempo desde que se recopilaron los datos.
+Puede usar la solución Seguridad y auditoría para recopilar datos de auditoría del entorno de TI, independientemente de si los equipos están en un entorno local o en la nube. Todos los datos de auditoría se almacenan, se indizan y se conservan en cada suscripción. Con una suscripción Premium a Visión operativa, se almacena una cantidad ilimitada de datos durante un año. Después, puede ver los datos de auditoría, realizar búsquedas y correlacionar diferentes tipos de datos y equipos para obtener resultados detallados para cualquier intervalo de tiempo desde que se recopilaron los datos.
 
 **Usar Directiva de grupo para recopilar datos de auditoría**
 
@@ -97,4 +98,4 @@ Los datos de auditoría que quiere recopilar y enviar a Visión operativa se adm
 
 Además de la configuración de la directiva local, si usa AppLocker para recopilar datos de auditoría, Visión operativa recopilará los datos y, luego, podrá verlos.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

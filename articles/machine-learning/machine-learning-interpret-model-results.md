@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cómo interpretar los resultados del modelo de aprendizaje automático de Azure | Azure" 
+	pageTitle="Interpretación de los resultados del modelo de Aprendizaje automático | Microsoft Azure" 
 	description="Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación." 
 	services="machine-learning"
 	documentationCenter="" 
@@ -21,7 +21,7 @@
  
 **Descripción y visualización del resultado del 'Modelo de puntuación'** En este tema se explica cómo ver e interpretar los resultados de predicción en el estudio de aprendizaje automático de Azure. Después de entrenar un modelo y realizar predicciones sobre él ("puntuar el modelo"), deberá comprender e interpretar el resultado de predicción que ha obtenido.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Hay cuatro tipos de modelos de aprendizaje automático principales en Aprendizaje automático de Azure:
 
@@ -307,5 +307,6 @@ Figura 26: Resultado de servicio web del problema de recomendación del restaura
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

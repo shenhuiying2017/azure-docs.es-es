@@ -93,4 +93,4 @@ Ahora que está configurado su entorno de desarrollo, puede iniciar la creación
 [4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

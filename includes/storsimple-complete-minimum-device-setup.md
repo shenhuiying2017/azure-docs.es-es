@@ -23,4 +23,4 @@
 
  >[AZURE.NOTE]Puede modificar la configuración restante del dispositivo en cualquier momento accediendo a la página **Configurar**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

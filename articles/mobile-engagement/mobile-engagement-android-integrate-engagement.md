@@ -32,7 +32,7 @@ Los siguientes pasos son suficientes para activar el informe de registros necesa
 
 ##Inserción del SDK y el servicio Engagement en el proyecto de Android
 
-Obtenga `mobile-engagement-VERSION.jar` y colóquelo en la carpeta `libs` de su proyecto de Android (cree la carpeta libs si aún no existe).
+Descargue el SDK de Android [aquí](http://go.microsoft.com/?linkid=9863935&clcid=0x409) Obtenga `mobile-engagement-VERSION.jar` y colóquelos en la carpeta `libs` del proyecto Android (cree la carpeta libs si aún no existe).
 
 > [AZURE.IMPORTANT]Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clases. Puede usar el siguiente snippet de configuración:
 >
@@ -165,7 +165,7 @@ Este ejemplo es muy parecido a la clase `EngagementActivity` y sus variantes, cu
 
 ##Prueba
 
-Ahora, para comprobar su integración, lea Prueba de integración de Engagement en Android.
+Ahora, para comprobar la integración, ejecute la aplicación móvil en un dispositivo o emulador y compruebe que registra una sesión en la pestaña Monitor.
 
 Las siguientes secciones son opcionales.
 
@@ -309,5 +309,6 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 
 <!-- URLs. -->
 [API del dispositivo]: http://go.microsoft.com/?linkid=9876094
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

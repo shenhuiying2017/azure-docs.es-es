@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="Introducción a Almacenamiento de Azure" 
-	description="" 
+	description="Describe lo que ha ocurrido al crear un almacenamiento de Azure en un proyecto de Visual Studio ASP.NET 5" 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,19 +13,25 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# ¿Qué le ha ocurrido a mi proyecto?
 
 > [AZURE.SELECTOR]
-> - [Introducción](vs-storage-aspnet5-getting-started-blobs.md)
-> - [¿Qué ha ocurrido?](vs-storage-aspnet5-what-happened.md)
+> - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
 
-### <span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</span>
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
+
+###<span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</span>
 
 ##### Se han agregado referencias.
 
-El paquete NuGet de Almacenamiento de Azure se agregó al proyecto de Visual Studio.  
-Este paquete agrega las siguientes referencias. NET:
+El paquete NuGet de Almacenamiento de Azure se agregó al proyecto de Visual Studio. Este paquete agrega las siguientes referencias. NET:
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -36,13 +42,12 @@ Este paquete agrega las siguientes referencias. NET:
 - `System.Data`
 - `System.Spatial`
 
-Además, se ha agregado el paquete de NuGet **Microsoft.Framework.ConfigurationModel.Json**.
+Asimismo, se agregó el paquete de NuGet **Microsoft.Framework.Configuration.Json**.
 
-##### Se ha agregado la cadena de conexión para Almacenamiento de Azure. 
+#####Se ha agregado la cadena de conexión para Almacenamiento de Azure. 
 En el archivo config.json de su proyecto, se ha creado un elemento con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
 
 Para obtener más información, consulte [ASP.NET 5](http://www.asp.net/vnext).
-
-
-<!--HONumber=42-->
  
+
+<!---HONumber=July15_HO2-->

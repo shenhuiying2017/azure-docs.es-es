@@ -16,31 +16,31 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-# Contenido del SDK
+#Contenido del SDK
 
 En este documento se indica y describe el contenido del archivo SDK.
 
-## SDK de Engagement
+##SDK de Engagement
 
 `EngagementSDK`
 
 > El SDK de Engagement principal, que contiene encabezados, una biblioteca y una clase adicional que se proporciona como código fuente para habilitar o deshabilitar la recopilación de IDFA.
 
-## SDK de cobertura de Engagement
+##SDK de cobertura de Engagement
 
 `EngagementReach`
-	
+
 > SDK de cobertura de Engagement que contiene encabezados, biblioteca y recursos asociados.
 
-## Archivos adicionales
+##Archivos adicionales
 
-`doc/index.html` (en la carpeta  `doc`)
+`doc/index.html` (en la carpeta `doc`)
 
 > Documentación C de objetivo del SDK de Engagement y de cobertura.
 
-carpeta `src`
+Carpeta `src`
 
 > Controladores de visualización de Engagement y código fuente del SDK de cobertura (para usuarios avanzados que desean adaptar las clases de Engagement a sus necesidades).
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

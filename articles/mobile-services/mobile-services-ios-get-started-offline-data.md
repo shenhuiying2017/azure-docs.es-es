@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
@@ -226,7 +226,7 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 * [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]
 
-* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] \(Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas\)
+* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] (Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas)
 
 <!-- URLs. -->
 
@@ -272,4 +272,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

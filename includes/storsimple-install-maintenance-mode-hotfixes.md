@@ -1,4 +1,5 @@
 
+
 #### Para instalar revisiones en el modo de mantenimiento a través de Windows PowerShell para StorSimple
 
 > [AZURE.IMPORTANT]En el modo de mantenimiento, deberá aplicar la revisión primero en un controlador y, a continuación, en el otro controlador.
@@ -17,4 +18,4 @@
 
 6. Una vez aplicadas las revisiones, salga del modo de mantenimiento. Consulte [Salir del modo de mantenimiento](#exit-maintenance-mode) para obtener instrucciones.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

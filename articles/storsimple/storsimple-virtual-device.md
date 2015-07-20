@@ -1,21 +1,23 @@
-<properties 
+<properties
    pageTitle="Dispositivo virtual de StorSimple"
    description="Describe cómo crear, configurar, implementar y administrar el dispositivo virtual de StorSimple."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> 
-<tags 
+   editor="" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/06/2015"
    ms.author="alkohli" />
 
 # Dispositivo virtual de StorSimple
+
+[AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ##Información general
 El dispositivo virtual de StorSimple es una capacidad adicional que se incluye con la solución de Microsoft Azure StorSimple. El dispositivo virtual de StorSimple se ejecuta en una máquina virtual en una red virtual de Microsoft Azure y se puede usar para realizar copias de seguridad y clonar los datos de los hosts. Los temas siguientes le ayudan a conocer, configurar y usar el dispositivo virtual de StorSimple.
@@ -69,13 +71,13 @@ Las siguientes secciones le ayudará a prepararse para usar el dispositivo virtu
 
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
 
-- Para el dispositivo virtual, [configure una red virtual en Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- Puede utilizar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. 
-- Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
+- Para el dispositivo virtual, [configure una red virtual en Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+- Puede utilizar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS.
+- Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
 
 >[AZURE.IMPORTANT]**Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
 
-- Cree [máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores host) en la red virtual. Estos servidores deben cumplir los siguientes requisitos: 							
+- Cree [máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores host) en la red virtual. Estos servidores deben cumplir los siguientes requisitos:
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado
 	- Ejecutarse en la misma red virtual como el dispositivo virtual
 	- Ser capaz de conectarse al destino iSCSI del dispositivo virtual a través de la dirección IP interna del dispositivo virtual
@@ -132,7 +134,7 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple
 	c. **Subred**: la subred de la red virtual que se usa con el dispositivo virtual.
 
 	d. **Cuenta de almacenamiento para crear un dispositivo virtual**: la cuenta de almacenamiento que se usará para almacenar la imagen del dispositivo virtual durante el aprovisionamiento. Esta cuenta de almacenamiento debe estar en la misma región que el dispositivo virtual y la red virtual. No debe utilizarse para el almacenamiento de datos por el dispositivo físico o el dispositivo virtual. De forma predeterminada, para ello se creará una nueva cuenta de almacenamiento. Sin embargo, si sabe que ya tiene una cuenta de almacenamiento que es adecuada para este uso, puede seleccionarla en la lista.
-	
+
 - Haga clic en la marca de verificación para indicar que sabe que los datos almacenados en el dispositivo virtual estarán hospedados en un centro de datos de Microsoft. Cuando se utiliza solo un dispositivo físico, la clave de cifrado se mantiene con el dispositivo; por lo tanto, Microsoft no podrá descifrarla. Cuando se utiliza un dispositivo virtual, la clave de cifrado y la clave de descifrado se almacenan en Microsoft Azure. Para obtener más información, consulte [Consideraciones de seguridad para utilizar un dispositivo virtual](https://msdn.microsoft.com/library/dn772561.aspx).
 
 ### Configuración y registro del dispositivo virtual
@@ -148,7 +150,7 @@ Realice los pasos siguientes para configurar y registrar el dispositivo virtual 
 
 - Escriba la **Clave de cifrado de datos de servicio** en el espacio proporcionado.
 
-- Haga clic en la marca de verificación para finalizar la configuración inicial y el registro del dispositivo virtual. La contraseña de  Snapshot Manager y la contraseña del Administrador de dispositivos están preconfiguradas con valores predeterminados y deben cambiarse una vez registrado el dispositivo.
+- Haga clic en la marca de verificación para finalizar la configuración inicial y el registro del dispositivo virtual. La contraseña de Snapshot Manager y la contraseña del Administrador de dispositivos están preconfiguradas con valores predeterminados y deben cambiarse una vez registrado el dispositivo.
 
 ### Modificación de la configuración del dispositivo
 
@@ -189,16 +191,16 @@ Cuando se utiliza la interfaz de Windows PowerShell para tener acceso al disposi
 Realice los pasos siguientes para configurar la contraseña de administrador del dispositivo para el dispositivo virtual de StorSimple.
 
 1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
- 
+
 1. Desplácese hacia abajo a la sección **Contraseña de administrador de dispositivos**. Proporcione una contraseña de administrador que tenga entre 8 y 15 caracteres. La contraseña debe ser una combinación de caracteres en mayúsculas, minúsculas, números y caracteres especiales.
 
 1. Confirme la contraseña.
- 
+
 1. Haga clic en **Guardar** en la parte inferior de la página.
 
 Ahora debe actualizarse la contraseña del administrador de dispositivos. Utilizará esta contraseña modificada para tener acceso a la interfaz de Windows PowerShell en el dispositivo virtual.
 
-#### Configuración de la administración remota 
+#### Configuración de la administración remota
 
 El acceso remoto a su dispositivo virtual mediante la interfaz de Windows PowerShell no está habilitado de forma predeterminada. Deberá habilitar primero la administración remota en el dispositivo virtual y, a continuación, habilitarlo en el cliente que se utilizará para acceder al dispositivo virtual.
 
@@ -308,7 +310,7 @@ Cuando se ejecuta un dispositivo virtual y desea reiniciarlo, haga clic en su no
 También puede utilizar los siguientes cmdlets de Windows PowerShell para iniciar, detener y reiniciar el dispositivo virtual. Después de cada de cmdlet hay un ejemplo.
 
 `Start-AzureVMC:\PS>Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-    
+
 
 `Stop-AzureVMC:\PS>Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
@@ -365,5 +367,7 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 - Haga clic en **Máquinas virtuales** y, a continuación, seleccione el dispositivo virtual.
 
-- Haga clic en **Eliminar** y elija eliminar todos los discos de la máquina virtual. <!--HONumber=52-->
+- Haga clic en **Eliminar** y elija eliminar todos los discos de la máquina virtual.
  
+
+<!---HONumber=July15_HO2-->

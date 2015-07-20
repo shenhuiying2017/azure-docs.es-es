@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
 #Creación de claves de contenido con .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
-Los Servicios multimedia permiten crear nuevos recursos y entregar recursos cifrados. Una **clave de contenido** proporciona acceso seguro a los **recursos**s. 
+Los Servicios multimedia permiten crear nuevos recursos y entregar recursos cifrados. Una **ContentKey** proporciona acceso seguro a los **recursos**.
 
-Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-rest-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-rest-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**.
 
 Al enviar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](media-services-rest-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
-Los recursos cifrados tienen que estar asociados con **clave**s de contenido. En este artículo se describe cómo crear una clave de contenido.
+Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
-A continuación se muestran los pasos generales para generar claves de contenido que asociará a los recursos que desee cifrar. 
+A continuación se muestran los pasos generales para generar claves de contenido que asociará a los recursos que desee cifrar.
 
 1. Genere de forma aleatoria una clave AES de 16 bytes (para el cifrado común y de sobre) o una clave AES de 32 bytes (para el cifrado de almacenamiento). 
 
@@ -37,7 +37,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 2.	Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
 3.	Cifre la clave de contenido con la clave pública del certificado X.509. 
 
-	El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo en la función [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
+	El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado. Puede ver un ejemplo en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4.	Cree un valor de suma de comprobación (según el algoritmo de suma de comprobación de claves AES de PlayReady) calculado con el identificador de clave y la clave de contenido. Para obtener más información, vea la sección "Algoritmo de sumas de comprobación de claves AES de PlayReady" del documento Objeto de encabezado de PlayReady que se encuentra [aquí](http://www.microsoft.com/playready/documents/).
 
 	El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
@@ -65,11 +65,11 @@ A continuación se muestran los pasos generales para generar claves de contenido
 Tenga en cuenta que en este tema se han omitido los ejemplos que generan una clave AES, cifran la clave y calculan la suma de comprobación. Solo se proporcionan los ejemplos que muestran cómo interactuar con los Servicios multimedia.
 
 
->[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
+>[AZURE.NOTE]Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST de Servicios multimedia](media-services-rest-connect_programmatically.md). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md).
 
 ##Recuperación de ProtectionKeyId 
  
@@ -170,20 +170,10 @@ Uno de los valores que debe establecer al crear la clave de contenido es el tipo
         /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
-
-        /// <summary>
-        /// Specifies a content key for url encryption.  Only used internally.
-        /// </summary>
-        UrlEncryption = 3,
-
-        /// <summary>
-        /// Specifies a content key for Envelope encryption.  Only used internally.
-        /// </summary>
-        EnvelopeEncryption = 4
     }
 
 
-En el ejemplo siguiente se muestra cómo crear una entidad **ContentKey** con una entidad **ContentKeyType** establecida para el cifrado de almacenamiento("1") y la entidad **ProtectionKeyType** establecida en "0" para indicar que el identificador de clave de protección sea la huella digital del certificado X.509.  
+En el ejemplo siguiente se muestra cómo crear una entidad **ContentKey** con una entidad **ContentKeyType** establecida para el cifrado de almacenamiento("1") y la entidad **ProtectionKeyType** establecida en "0" para indicar que el identificador de clave de protección sea la huella digital del certificado X.509.
 
 
 Solicitud
@@ -255,7 +245,6 @@ Solicitud:
 
 Respuesta:
 
-	HTTP/1.1 204 No Content
+	HTTP/1.1 204 No Content 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -215,30 +215,30 @@ En este procedimiento se asume lo siguiente:
 3.	Pruebe la conexión ejecutando uno de los comandos siguientes:
 
 	<table border="1">
-	<tr>
-	<th>-</th>
-	<th>Cisco ASA</th>
-	<th>Cisco ISR/ASR</th>
-	<th>Juniper SSG/ISG</th>
-	<th>Juniper SRX/J</th>
-	</tr>
-	
-	<tr>
-	<td><b>SA de comprobación de modo principal</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-	</tr>
-	
-	<tr>
-	<td><b>SA de comprobación de modo rápido</b></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-	</tr>
-	</table>
+<tr>
+<th>-</th>
+<th>Cisco ASA</th>
+<th>Cisco ISR/ASR</th>
+<th>Juniper SSG/ISG</th>
+<th>Juniper SRX/J</th>
+</tr>
+
+<tr>
+<td><b>SA de comprobación de modo principal</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+</tr>
+
+<tr>
+<td><b>SA de comprobación de modo rápido</b></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+</tr>
+</table>
 
 
 ##  Pasos siguientes
@@ -271,4 +271,4 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

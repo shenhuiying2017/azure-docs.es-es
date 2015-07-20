@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Creación de una máquina virtual con varias NIC"
-   description="Cómo crear máquinas virtuales con varias NIC"
+   description="Aprenda a crear y configurar máquinas virtuales con varias tarjetas NIC"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="telmos" />
 
 # Creación de una máquina virtual con varias NIC
@@ -43,11 +43,11 @@ Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
 |Tamaño de memoria virtual (SKU estándar)|NIC (número máximo permitido por máquina virtual)|
 |---|---|
 |Todos los tamaños básicos|1|
-|A0\extra pequeño|1|
-|A1\pequeño|1|
-|A2\mediano|1|
-|A3\grande|2|
-|A4\extra grande|4|
+|A0\\extra pequeño|1|
+|A1\\pequeño|1|
+|A2\\mediano|1|
+|A3\\grande|2|
+|A4\\extra grande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -119,9 +119,11 @@ Necesitará cumplir los siguientes requisitos previos antes de poder ejecutar lo
 - Una red virtual configurada. Para obtener más información sobre redes virtuales, consulte [Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx).
 - La versión más reciente de Azure PowerShell descargada e instalada. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell).
 
-1. Seleccione una imagen de máquina virutal en la galería de imágenes de máquinas virtuales de Azure. Tenga en cuenta que las imágenes cambian con frecuencia y están disponibles por región. La imagen especificada en el ejemplo siguiente puede cambiar o puede no estar presente en su región, así que asegúrese de especificar la imagen que necesita. 
+Para crear una máquina virtual con varias tarjetas NIC, siga estos pasos:
 
-	    $image = Get-AzureVMImage `
+1. Seleccione una imagen de máquina virutal en la galería de imágenes de máquinas virtuales de Azure. Tenga en cuenta que las imágenes cambian con frecuencia y están disponibles por región. La imagen especificada en el ejemplo siguiente puede cambiar o puede no estar presente en su región, así que asegúrese de especificar la imagen que necesita. 
+	    
+		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. Creación de una configuración de máquina virtual
@@ -143,21 +145,111 @@ Necesitará cumplir los siguientes requisitos previos antes de poder ejecutar lo
 
 1. Especifique la subred y la dirección IP de la NIC predeterminada.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-			-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. Cree la máquina virtual en la red virtual.
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se especifica una red virtual denominada "MultiNIC VNet".
+>[AZURE.NOTE]La red virtual que especifique aquí debe existir previamente (tal como se indicó en los requisitos previos). En el ejemplo siguiente se muestra una red virtual denominada **MultiNIC VNet**.
 
-## Otras referencias
+## Acceso de la NIC secundaria a otras subredes
 
-[Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+El modelo actual de Azure se basa en que todas las NIC en una máquina virtual están configuradas con una puerta de enlace predeterminada. Esto permite a las NIC comunicarse con las direcciones IP fuera de su subred. En sistemas operativos que usan un modelo de enrutamiento de host no seguro, como Linux, se interrumpirá la conectividad a Internet si el tráfico de entrada y salida utiliza NIC diferentes.
 
-[Tareas de configuración de red virtual](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+Para solucionar este problema, Azure publicará una actualización en las primeras semanas de julio de 2015 en la plataforma, y que permitirá quitar la puerta de enlace predeterminada de la NIC secundaria. Esto no afectará a las máquinas virtuales existentes hasta que las reinicie. Una vez reiniciadas, se aplicará la nueva configuración y se limitará el flujo de tráfico en las NIC secundarias para que pueda permanecer dentro de la misma subred. Si los usuarios desean habilitar las NIC secundarias para hablar fuera de su propia subred, tendrán que agregar una entrada en la tabla de enrutamiento para configurar la puerta de enlace, tal y como se describe a continuación.
 
-[Publicación de blog: Varias NIC de máquina virtual y dispositivos de red virtual de Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+### Configurar las máquinas virtuales de Windows
 
-<!---HONumber=58--> 
+Suponga que tiene una máquina virtual de Windows con dos NIC, tal y como se muestra a continuación:
+
+- Dirección IP de la NIC principal: 192.168.1.4
+- Dirección IP de la NIC secundaria: 192.168.2.5
+
+La tabla de enrutamiento de IPv4 para esta máquina virtual tendría este aspecto:
+
+	IPv4 Route Table
+	===========================================================================
+	Active Routes:
+	Network Destination        Netmask          Gateway       Interface  Metric
+	          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+	        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+	        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+	  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	    168.63.129.16  255.255.255.255      192.168.1.1      192.168.1.4      6
+	      192.168.1.0    255.255.255.0         On-link       192.168.1.4    261
+	      192.168.1.4  255.255.255.255         On-link       192.168.1.4    261
+	    192.168.1.255  255.255.255.255         On-link       192.168.1.4    261
+	      192.168.2.0    255.255.255.0         On-link       192.168.2.5    261
+	      192.168.2.5  255.255.255.255         On-link       192.168.2.5    261
+	    192.168.2.255  255.255.255.255         On-link       192.168.2.5    261
+	        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+	        224.0.0.0        240.0.0.0         On-link       192.168.1.4    261
+	        224.0.0.0        240.0.0.0         On-link       192.168.2.5    261
+	  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	  255.255.255.255  255.255.255.255         On-link       192.168.1.4    261
+	  255.255.255.255  255.255.255.255         On-link       192.168.2.5    261
+	===========================================================================
+
+Tenga en cuenta que la ruta predeterminada (0.0.0.0) sólo está disponible para la NIC principal. No podrá obtener acceso a recursos externos a la subred de la NIC secundaria, tal y como se muestra a continuación:
+
+	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+	 
+	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+
+Para agregar una ruta predeterminada en la NIC secundaria, siga estos pasos:
+
+1. Desde un símbolo del sistema, ejecute el comando siguiente para identificar el número de índice de la NIC secundaria:
+
+		C:\Users\Administrator>route print
+		===========================================================================
+		Interface List
+		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
+		  1...........................Software Loopback Interface 1
+		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
+		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+		===========================================================================
+
+2. Busque la segunda entrada en la tabla con un índice de 27 (en este ejemplo).
+3. Desde el símbolo del sistema, ejecute el comando **Agregar ruta** tal y como se muestra a continuación. En este ejemplo, está especificando 192.168.2.1 como puerta de enlace predeterminada para la NIC secundaria:
+
+		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
+
+4. Para probar la conectividad, vuelva al símbolo del sistema e intente hacer ping en una subred distinta de la NIC secundaria, tal y como se muestra en el ejemplo siguiente:
+
+		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+		 
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+
+5. Asimismo, puede consultar la tabla de rutas para comprobar la ruta recién agregada, tal y como se muestra a continuación:
+
+		C:\Users\Administrator>route print
+
+		...
+
+		IPv4 Route Table
+		===========================================================================
+		Active Routes:
+		Network Destination        Netmask          Gateway       Interface  Metric
+		          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+		          0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.5   5005
+		        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+
+### Configurar máquinas virtuales de Linux
+
+En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento predeterminado está usando el enrutamiento del host no seguro, le recomendamos restrinja el flujo de tráfico de las NIC secundarias para que permanezca dentro de la misma subred. Sin embargo, si ciertos escenarios exigen que tenga conectividad fuera de la subred, los usuarios deben habilitar el enrutamiento basado en las directivas para asegurarse de que el tráfico de entrada y salida utiliza la misma NIC.
+
+## Pasos siguientes
+
+- Aprenda a usar [varias NIC de máquina virtual y aplicaciones VNet en Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+
+<!---HONumber=July15_HO2-->

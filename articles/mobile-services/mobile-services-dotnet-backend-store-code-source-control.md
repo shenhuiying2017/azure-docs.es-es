@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end de .NET" class="current">Back-end de .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end de JavaScript">Back-end de JavaScript</a>
-</div>
 
 # Almacenamiento del código del proyecto en control de código fuente
 
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+
 En este tema se muestra cómo utilizar el control de código fuente que proporcionan los servicios móviles de Azure para almacenar el proyecto de servicio de back-end. NET. Para publicar el proyecto, basta con cargarlo desde el repositorio Git local al servicio móvil de producción.
-
-El tutorial le guiará a través de los siguientes pasos:
-
-1. [Habilitación del control de código fuente en el servicio móvil].
-2. [Instalación de Git y creación del repositorio local].
-3. [Publicación del proyecto mediante Git].
 
 Para completar este tutorial, debe haber creado un servicio móvil tras completar los tutoriales [Introducción a los servicios móviles] o [Incorporación de servicios móviles a una aplicación existente].
 
-##<a name="enable-source-control"></a>Habilitación del control de código fuente en el servicio móvil.
+##<a name="enable-source-control"></a>Habilitación del control de código fuente en el servicio móvil
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../../includes/mobile-services-enable-source-control.md)]
 
@@ -93,18 +87,7 @@ Ahora que ha creado el repositorio local, puede publicar el proyecto de servicio
 
 Ahora, el proyecto de servicio móvil se mantiene en el control de código fuente y puede publicar actualizaciones del servicio mediante la simple inserción de las actualizaciones desde el repositorio local. Para obtener información sobre cómo realizar cambios en el modelo de datos en un servicio móvil de back-end de .NET que usa una base de datos de SQL, consulte [Modificación del modelo de datos de un servicio móvil back-end de .NET].
 
-## <a name="next-steps"> </a>Pasos siguientes
-
-Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el control de código fuente. Considere la posibilidad de obtener más información acerca de los servicios móviles:
-
-+ [Cómo efectuar cambios en el modelo de datos a un servicio móvil back-end de .NET] <br/> En este tema se muestra cómo utilizar Migraciones de Entity Framework Code First para realizar cambios en el modelo de datos de una base de datos SQL de Azure existente para evitar perder datos existentes. 	
-
-+ [Llamar a una API personalizada desde el cliente] <br/> Muestra cómo crear API personalizadas que se pueden llamar desde el cliente.
-
 <!-- Anchors. -->
-[Habilitación del control de código fuente en el servicio móvil]: #enable-source-control
-[Instalación de Git y creación del repositorio local]: #clone-repo
-[Publicación del proyecto mediante Git]: #deploy-scripts
 
 <!-- Images. -->
 
@@ -115,8 +98,8 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Introducción a los servicios móviles]: mobile-services-dotnet-backend-ios-get-started.md
 [Incorporación de servicios móviles a una aplicación existente]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Llamar a una API personalizada desde el cliente]: mobile-services-dotnet-backend-ios-call-custom-api.md
-[Cómo efectuar cambios en el modelo de datos a un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Modificación del modelo de datos de un servicio móvil back-end de .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

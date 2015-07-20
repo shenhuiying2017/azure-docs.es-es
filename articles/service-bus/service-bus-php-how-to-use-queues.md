@@ -13,21 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="07/06/2015" 
 	ms.author="sethm"/>
 
 # Utilización de las colas del Bus de servicio
 
-En esta guía se muestra cómo usar las colas del Bus de servicio. Los ejemplos están escritos en PHP y usan el [SDK de Azure para PHP][download-sdk]. Entre los escenarios que abarca se incluyen la **creación de colas**, el **envío y recepción de mensajes** y la **eliminación de colas**.
+En esta guía se muestra cómo usar las colas del Bus de servicio. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP](../php-download-sdk.md). Entre los escenarios que abarca se incluyen la **creación de colas**, el **envío y la recepción de mensajes** y la **eliminación de colas**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Creación de una aplicación PHP
 
-El único requisito para crear una aplicación PHP que tenga acceso al servicio BLOB de Azure es que el código haga referencia a clases del [SDK de Azure para PHP][download-sdk]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio BLOB de Azure es que el código haga referencia a clases del [SDK de Azure para PHP](../php-download-sdk.md) dentro del código. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, o bien el Bloc de notas.
 
-> [AZURE.NOTE]
-> Su instalación de PHP también debe tener la <a href="http://php.net/openssl">Extensión de OpenSSL</a> instalada y habilitada.
+> [AZURE.NOTE]La instalación de PHP debe tener también la [extensión OpenSSL](http://php.net/openssl) instalada y habilitada.
 
 En esta guía, utilizará funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
@@ -37,36 +36,34 @@ En esta guía, utilizará funciones del servicio a las que se puede llamar desde
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
-Para usar las API de la cola del Bus de servicio de Azure, necesita:
+Para usar las API de la cola del Bus de servicio de Azure, siga estos pasos:
 
-1. Hacer referencia al archivo autocargador mediante la instrucción [require_once][require_once] y
+1. Hacer referencia al archivo autocargador mediante la instrucción [require_once][require_once].
 2. Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
-> [AZURE.NOTE] 
-> En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente o como paquete PEAR, deberá hacer referencia al <code>archivo de autocargador</code> "WindowsAzure.php".
+> [AZURE.NOTE]En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente o como paquete PEAR, debe hacer referencia al archivo autocargador **WindowsAzure.php**.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
-
-En los ejemplos que aparecen a continuación, la instrucción  `require_once` aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
+En los ejemplos que aparecen a continuación, la instrucción `require_once` aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
 
 ## Configuración de una conexión del Bus de servicio de Azure
 
-Para crear una instancia de un cliente del Bus de servicio de Azure, primero debe disponer de una cadena de conexión válida con el siguiente formato:
+Para crear una instancia de un cliente del Bus de servicio, primero debe disponer de una cadena de conexión válida con el siguiente formato:
 
 	Endpoint=[yourEndpoint];SharedSecretIssuer=[Default Issuer];SharedSecretValue=[Default Key]
 
-Donde el extremo tiene generalmente el formato `https://[yourNamespace].servicebus.windows.net`.
+Donde el **extremo** tiene generalmente el formato `https://[yourNamespace].servicebus.windows.net`.
 
-Para crear un cliente de cualquier servicio de Azure necesario para utilizar la clase **ServicesBuilder**. puede:
+Para crear un cliente de cualquier servicio de Azure, debe usar la clase **ServicesBuilder**. Puede:
 
 * pasarle directamente la cadena de conexión, o bien
-* utilizar el**Administrador de configuración de nube (CCM)** (CloudConfigurationManager) para buscar la cadena de conexión en varios orígenes externos:
+* utilizar **CloudConfigurationManager (CCM)** para buscar la cadena de conexión en varios orígenes externos:
 	* De manera predeterminada, admite un origen externo: variables de entorno.
-	* para agregar nuevos orígenes, amplíe la clase **ConnectionStringSource**
+	* Para agregar nuevos orígenes, amplíe la clase **ConnectionStringSource**.
 
 En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
@@ -81,7 +78,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
 ## Creación de una cola
 
-Las operaciones de administración para las colas de bus de servicio pueden realizarse mediante la clase **ServiceBusRestProxy**. Un objeto **ServiceBusRestProxy** se construye a través del método Factory Method **ServicesBuilder::createServiceBusService** con una cadena de conexión adecuada que encapsule los permisos de token para administrarlo.
+Las operaciones de administración para las colas del Bus de servicio pueden realizarse mediante la clase **ServiceBusRestProxy**. Un objeto **ServiceBusRestProxy** se construye a través del método Factory Method **ServicesBuilder::createServiceBusService** con una cadena de conexión adecuada que encapsule los permisos de token para administrarlo.
 
 En el ejemplo siguiente se muestra cómo crear una instancia de un **ServiceBusRestProxy** y llamar a **ServiceBusRestProxy->createQueue** para crear una cola llamada `myqueue` en un espacio de nombres de servicio `MySBNamespace`:
 
@@ -109,19 +106,17 @@ En el ejemplo siguiente se muestra cómo crear una instancia de un **ServiceBusR
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE]
-> Puede usar el método <b>listQueues</b> en los objetos <b>ServiceBusRestProxy</b> para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
+> [AZURE.NOTE]Puede usar el método `listQueues` en los objetos `ServiceBusRestProxy` para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
 
 ## Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola de Bus de servicio, la aplicación llamará al método **ServiceBusRestProxy->sendQueueMessage**. El código siguiente muestra cómo enviar un mensaje a la cola `myqueue` que hemos creado anteriormente en el espacio de nombres de servicio
-`MySBNamespace`.
+Para enviar un mensaje a una cola del Bus de servicio, la aplicación llamará al método **ServiceBusRestProxy->sendQueueMessage**. El código siguiente muestra cómo enviar un mensaje a la cola `myqueue` que hemos creado anteriormente en el espacio de nombres de servicio `MySBNamespace`.
 
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\models\BrokeredMessage;
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 	// Create Service Bus REST proxy.
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
@@ -143,15 +138,15 @@ Para enviar un mensaje a una cola de Bus de servicio, la aplicación llamará al
 		echo $code.": ".$error_message."<br />";
 	}
 
-Los mensajes enviados a las colas del Bus de servicio y recibidos en ellas son instancias de la clase **BrokeredMessage**. **Los objetos BrokeredMessage** tienen un conjunto de métodos estándar (por ejemplo, **getLabel**, **getTimeToLive**, **setLabel** y **setTimeToLive**) y las propiedades que se usan para mantener las propiedades específicas de la aplicación personalizada y un cuerpo de datos de aplicaciones arbitrarias.
+Los mensajes enviados a las colas del Bus de servicio y recibidos en ellas son instancias de la clase **BrokeredMessage**. Los objetos **BrokeredMessage** tienen un conjunto de métodos estándar (por ejemplo,**getLabel**, **getTimeToLive**, **setLabel** y **setTimeToLive**) y las propiedades que se usan para mantener las propiedades específicas de la aplicación personalizada y un cuerpo de datos de aplicaciones arbitrarias.
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. Este límite superior para el tamaño de la cola es de 5 GB.
 
-## Recepción de mensajes desde una cola
+## Recepción de mensajes de una cola
 
-La forma principal de recibir mensajes desde una cola es usar un método **ServiceBusRestProxy->receiveQueueMessage**. Los mensajes pueden recibirse en dos modos diferentes: **ReceiveAndDelete** (el modo predeterminado) y **PeekLock**.
+La mejor forma de recibir mensajes desde una cola es usar un método **ServiceBusRestProxy->receiveQueueMessage**. Los mensajes se pueden recibir de dos modos distintos: **ReceiveAndDelete** (predeterminado) y **PeekLock**.
 
-Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando el Bus de servicio recibe una solicitud de lectura para un mensaje de la cola, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando el Bus de servicio recibe una solicitud de lectura de un mensaje de la cola, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
 En el modo **PeekLock**, la recepción de un mensaje se convierte en una operación de dos etapas, lo que hace posible admitir aplicaciones que no pueden tolerar la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción pasando el mensaje recibido a **ServiceBusRestProxy->deleteMessage**. Cuando el Bus de servicio ve la llamada de **deleteMessage**, marca el mensaje como consumido y lo elimina de la cola.
 
@@ -161,7 +156,7 @@ En el ejemplo que aparece a continuación, se indica cómo se puede procesar y r
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\models\ReceiveMessageOptions;
+	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 	// Create Service Bus REST proxy.
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
@@ -195,28 +190,27 @@ En el ejemplo que aparece a continuación, se indica cómo se puede procesar y r
 
 ## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
-El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces realiza la llamada al método **unlockMessage** en el mensaje recibido (en lugar del método **deleteMessage**). Esto hará que el Bus de servicio desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces realiza la llamada al método **unlockMessage** en el mensaje recibido (en lugar de al método **deleteMessage**). Esto hará que el Bus de servicio desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
 También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación se bloquee después de procesar el mensaje pero antes de emitir la solicitud **deleteMessage**, el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **At Least Once Processing**; es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces se recomienda la incorporación de lógica adicional a su aplicación para administrar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado,entonces se recomienda la incorporación de lógica adicional a la aplicación para administrar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## Pasos siguientes
 
-Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones][Colas, temas y suscripciones del Bus de servicio] de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
 
-[download-sdk]: http://go.microsoft.com/fwlink/?LinkId=252473
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
-[Portal de administración de Azure]: http://manage.windowsazure.com/
+[Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
 [Create a New Namespace screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_03_CreateNewSvcNamespace.jpg
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Colas, temas y suscripciones del Bus de servicio]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+[Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
 [require_once]: http://php.net/require_once
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

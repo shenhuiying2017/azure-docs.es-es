@@ -56,4 +56,4 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
   [34]: ./media/service-bus-java-how-to-create-queue/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

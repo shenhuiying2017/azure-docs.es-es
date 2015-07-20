@@ -84,4 +84,4 @@ Realice los pasos siguientes en el Portal de administración para crear una dire
 
 Obtenga información sobre cómo administrar las copias de seguridad de StorSimple con el [Administrador de instantáneas StorSimple](https://msdn.microsoft.com/library/azure/dn772365.aspx).
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

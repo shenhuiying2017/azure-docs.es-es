@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Análisis de datos de sensor usando Hive y Hadoop | Microsoft Azure" 
-	description="Aprenda a analizar datos de sensor usando la Consola de consultas de Hive con HDInsight (Hadoop) y a visualizar los datos en Microsoft Excel con PowerView." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Análisis de datos de sensor usando Hive y Hadoop | Microsoft Azure"
+	description="Aprenda a analizar datos de sensor usando la Consola de consultas de Hive con HDInsight (Hadoop) y a visualizar los datos en Microsoft Excel con PowerView."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015" 
 	ms.author="larryfr"/>
 
-#Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight 
+#Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight
 
 Aprenda a analizar datos de sensor usando la consola de consultas de Hive con HDInsight (Hadoop) y a visualizar los datos en Microsoft Excel con Power View.
 
@@ -53,4 +53,4 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

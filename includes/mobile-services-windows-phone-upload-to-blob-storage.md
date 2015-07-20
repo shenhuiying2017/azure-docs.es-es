@@ -3,7 +3,7 @@
 
 En esta sección se actualizará el proyecto a partir del tutorial [Introducción a Servicios móviles] para tomar fotografías y cargarlas en el almacenamiento de blobs de Azure. Para capturar la imagen, este tutorial utiliza [CameraCaptureTask] del espacio de nombres `Microsoft.Phone.Tasks`. Esta clase inicia la interfaz de usuario de la cámara en el dispositivo Windows Phone para capturar la foto y guarda la imagen automáticamente en el álbum de cámara del dispositivo Windows Phone. Si no desea que las imágenes se guarden en el álbum de cámara, utilice en su lugar la clase [PhotoCamera] en el espacio de nombres `Microsoft.Devices`.
 
-1. En el Explorador de soluciones de Visual Studio, en el proyecto, expanda **Propiedades**. A continuación, abra el archivo WMAppManifest.xml y, en la pestaña **Capacidades**, habilite la cámara haciendo clic en **ID_CAP_ISV_CAMERA**. Cierre el archivo para guardar el cambio.
+1. En el Explorador de soluciones de Visual Studio, en el proyecto, expanda **Propiedades**. A continuación, abra el archivo WMAppManifest.xml y, en la pestaña **Capacidades**, habilite la cámara haciendo clic en **ID\\_CAP\\_ISV\\_CAMERA**. Cierre el archivo para guardar el cambio.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -183,4 +183,4 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

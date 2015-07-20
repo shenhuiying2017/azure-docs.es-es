@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Uso del Portal de administración para crear canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales" 
-	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Uso del Portal de administración para crear canales que reciben secuencias en vivo de varias velocidades de bits de codificadores locales"
+	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación básica de streaming en vivo de Servicios multimedia donde un canal recibe una secuencia en vivo de velocidades de bits múltiples desde un codificador en directo local."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="get-started-article" 
+	ms.date="04/16/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@ En este tutorial, se utiliza el Portal de administración de Azure para realizar
 1.  Configurar un codificador en vivo e introducir la secuencia en vivo en el canal (se utiliza Wirecast en este paso)
 1.  Crear un programa (y un recurso)
 1.  Publicar el recurso y obtener las direcciones URL de streaming  
-1.  Reproducir el contenido 
+1.  Reproducir el contenido
 2.  Limpiar
 
 ##Requisitos previos
@@ -41,7 +41,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 - Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
 - Una cámara web y un codificador que puede enviar una secuencia en vivo con velocidad de bits múltiple.
 
-	 
+
 ##Configuración de extremos de streaming con el Portal
 
 Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
@@ -64,7 +64,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
 	La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse.
 
-	 
+
 	>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming hasta una hora.
 	>
 	> Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -91,7 +91,7 @@ Una vez creado el canal, obtendrá direcciones URL de introducción que se propo
 
 Para obtener más información sobre las URL de introducción, consulte [Uso de codificadores locales para enviar secuencias en vivo de velocidad de bits múltiple a un canal](../media-services-channels-overview.md)
 
-##Configuración de un codificador en directo y de una secuencia en vivo de introducción 
+##Configuración de un codificador en directo y de una secuencia en vivo de introducción
 
 >[AZURE.NOTE]Este paso requiere la URL de introducción del canal que se mencionó en el paso anterior.
 
@@ -131,11 +131,11 @@ Existen dos formas de iniciar un evento:
 1. En la página **CANAL**, presione **AGREGAR** para agregar un nuevo programa.
 
 	Especifique lo siguiente: nombre del programa, nombre de recurso, ventana de archivo y opción de cifrado.
-	
+
 	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
-	
+
 	Si ha dejado **Publicar este programa ahora** activado, el programa creará las direcciones URL de publicación.
-	
+
 	Puede presionar **INICIO**, cuando esté preparado para transmitir por streaming el programa.
 
 	Una vez iniciado el programa, puede presionar REPRODUCIR para empezar a reproducir el contenido.
@@ -210,5 +210,4 @@ Obtenga más información acerca de la creación de aplicaciones de streaming en
 
 <!-- Images -->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

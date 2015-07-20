@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Administrar la cuenta de almacenamiento de StorSimple
@@ -28,6 +28,8 @@ La página **Configurar** presenta todos los parámetros de servicio globales qu
 Este tutorial explica cómo usar la página **Configurar** para agregar, editar o eliminar cuentas de almacenamiento, o bien para rotar las claves de seguridad para una cuenta de almacenamiento.
 
  ![Página Configurar](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
+
+**Ilustración 1: Panel de configuración del servicio StorSimple Manager**
 
 Las cuentas de almacenamiento contienen las credenciales que usa el dispositivo para acceder a su cuenta de almacenamiento con el proveedor de servicios en la nube. En el caso de las cuentas de almacenamiento de Microsoft Azure, se trata de credenciales como el nombre de cuenta y la clave de acceso primaria.
 
@@ -60,27 +62,17 @@ Puede crear varias cuentas para un proveedor de servicios en la nube determinado
 
 Mientras se guarda la cuenta de almacenamiento, el servicio intenta comunicarse con el proveedor de servicios en la nube. Las credenciales y el material de acceso que proporcionó se autenticarán en este momento. Solo si la autenticación se realiza correctamente se crea una cuenta de almacenamiento. Si se produce un error en la autenticación, se mostrará un mensaje de error adecuado.
 
-### Para agregar una cuenta de almacenamiento
+> [AZURE.NOTE]El procedimiento para agregar una cuenta de almacenamiento varía en función de la versión de software de StorSimple que está usando. Asegúrese de seguir el procedimiento correcto para su versión de StorSimple.
 
-1. En la página de aterrizaje del servicio, seleccione el servicio y haga doble clic en él. Esto le llevará a la página **Inicio rápido**. 
-2. Acceda a la página **Configurar**.
-3. Haga clic en **Agregar/editar cuenta de almacenamiento**.
-4. En el cuadro de diálogo **Agregar/editar cuentas de almacenamiento**, haga lo siguiente:
-  1. Haga clic en **Agregar nuevo**.
-  2. Proporcione un nombre para la cuenta de almacenamiento.
-  3. Proporcione la **clave de acceso de la cuenta de almacenamiento** principal para la cuenta de almacenamiento de Microsoft Azure.
-  4. Seleccione la casilla **Habilitar modo SSL** para crear un canal seguro para la comunicación de red entre su dispositivo y la nube. Desactive la casilla **Habilitar modo SSL** solo si está trabajando dentro de una nube privada.
-  5. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png). Recibirá una notificación cuando la cuenta de almacenamiento se cree correctamente.
+[AZURE.INCLUDE [add-a-storage-account-update1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
-    ![Agregar cuenta de almacenamiento](./media/storsimple-manage-storage-accounts/HCS_AddStorageAccount.png)
-
-5. La cuenta de almacenamiento recién creada se mostrará en la página **Configurar** bajo **Cuentas de almacenamiento**. Haga clic en **Guardar** para guardar la cuenta de almacenamiento recién creada. Haga clic en **Aceptar** cuando se le pida confirmación.
+[AZURE.INCLUDE [add-a-storage-account](../../includes/storsimple-configure-new-storage-account.md)]
 
 ## Editar una cuenta de almacenamiento
 
 Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes. Si edita una cuenta de almacenamiento que está actualmente en uso, el único campo que puede modificar es la clave de acceso de la cuenta de almacenamiento. Puede proporcionar la nueva clave de acceso de almacenamiento y guardar la configuración actualizada.
 
-### Para editar una cuenta de almacenamiento
+#### Para editar una cuenta de almacenamiento
 
 1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en **Configurar**.
 
@@ -93,17 +85,17 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
   3. Puede rotar las claves de acceso de la cuenta de almacenamiento. Consulte [Rotación de claves de cuentas de almacenamiento](#key-rotation-of-storage-accounts) para obtener más información sobre cómo realizar la rotación de claves.
   4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) para guardar la configuración. La configuración se actualiza en la página **Configurar**. Haga clic en **Guardar** para guardar la configuración recién actualizada.
 
-    ![Editar una cuenta de almacenamiento](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
+     ![Editar una cuenta de almacenamiento](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
   
 ## Eliminar una cuenta de almacenamiento
 
 > [AZURE.IMPORTANT]Puede eliminar una cuenta de almacenamiento solo si no la usa un contenedor de volúmenes. Si un contenedor de volúmenes está usando una cuenta de almacenamiento, primero elimine el contenedor de volúmenes y, a continuación, elimine la cuenta de almacenamiento asociada.
 
-### Para eliminar una cuenta de almacenamiento
+#### Para eliminar una cuenta de almacenamiento
 
 1. En la página de aterrizaje del servicio de Administrador de StorSimple, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en **Configurar**.
 
-2. En la lista tabular de cuentas de almacenamiento, desplace el ratón sobre la cuenta que desea eliminar.
+2. En la lista tabular de cuentas de almacenamiento, desplace el mouse sobre la cuenta que desea eliminar.
 
 3. Aparecerá un icono de eliminación (**x**) en la columna de la derecha de todo para esa cuenta de almacenamiento. Haga clic en el icono **x** para eliminar las credenciales.
 
@@ -113,6 +105,8 @@ Puede editar una cuenta de almacenamiento usada por un contenedor de volúmenes.
 
 Por motivos de seguridad, la rotación de claves suele ser un requisito en los centros de datos.
 
+> [AZURE.NOTE]La siguiente información de rotación de claves y el procedimiento de rotación se aplican solo a las cuentas de almacenamiento de Microsoft Azure. Si usa otro proveedor de servicios en la nube, puede administrar claves de cuenta de almacenamiento a través del panel de ese proveedor.
+ 
 Cada suscripción de Microsoft Azure puede tener una o más cuentas de almacenamiento asociadas. El acceso a estas cuentas se controla mediante la suscripción y las teclas de acceso de cada cuenta de almacenamiento.
 
 Cuando se crea una cuenta de almacenamiento, Microsoft Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para la autenticación cuando se accede a la cuenta de almacenamiento. El hecho de tener dos claves de acceso de almacenamiento permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien tener acceso a ese servicio. La clave que está actualmente en uso es la clave *principal* y la clave de la copia de seguridad es la clave *secundaria*. Una de estas dos claves debe suministrarse cuando el dispositivo de Microsoft Azure StorSimple tiene acceso a su proveedor de servicios de almacenamiento en la nube.
@@ -129,7 +123,7 @@ Un administrador de Microsoft Azure puede volver a generar o cambiar la clave pr
 
 Para informar al servicio de Administrador de StorSimple del cambio, tendrá que acceder a dicho servicio, entrar en la cuenta de almacenamiento y sincronizar la clave principal o secundaria (en función de cuál se haya cambiado). A continuación, el servicio obtiene la clave más reciente, cifra las claves y envía la clave cifrada al dispositivo.
 
-### Para sincronizar las claves de cuentas de almacenamiento de la misma suscripción que el servicio
+#### Para sincronizar las claves de cuentas de almacenamiento de la misma suscripción que el servicio (solo Azure)
 
 1. En la página **Servicios**, haga clic en la pestaña **Configurar**.
 
@@ -142,7 +136,7 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 
     ![sincronizar claves](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-### Para sincronizar las claves de cuentas de almacenamiento fuera de la suscripción al servicio
+#### Para sincronizar las claves de cuentas de almacenamiento fuera de la suscripción al servicio
 
 1. En la página **Servicios**, haga clic en la pestaña **Configurar**.
 
@@ -156,5 +150,6 @@ Para informar al servicio de Administrador de StorSimple del cambio, tendrá que
 
 ## Pasos siguientes
 
-Obtener más información sobre la [Seguridad de StorSimple](storsimple-security.md) <!--HONumber=52-->
- 
+Obtener más información sobre la [Seguridad de StorSimple](storsimple-security.md)
+
+<!---HONumber=July15_HO2-->

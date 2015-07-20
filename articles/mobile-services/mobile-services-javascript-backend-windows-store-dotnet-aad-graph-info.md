@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Acceso a información de Azure Active Directory Graph
@@ -181,4 +181,5 @@ En el próximo tutorial, [Control de acceso basado en roles con Azure Active Dir
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Blog del equipo de Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # Muestra de MapReduce de Hadoop para GraySort de 10 GB en HDInsight
 
 En este tema de ejemplo se muestra cómo ejecutar un programa de MapReduce de Hadoop para GraySort de uso general en HDInsight de Azure con Azure PowerShell. GraySort es un tipo de banco de pruebas cuya métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB como mínimo.
+
+> [AZURE.NOTE]Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Para obtener información sobre cómo ejecutar este y otros ejemplos con los clústeres basados en Linux, consulte [Ejecución de ejemplos de Hadoop en HDInsight](hdinsight-hadoop-run-samples-linux.md).
 
 Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/).
 
@@ -429,6 +431,5 @@ Para ver tutoriales que le guíen en la ejecución de otras muestras y ofrezcan 
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

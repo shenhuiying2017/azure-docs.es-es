@@ -60,4 +60,9 @@ En la replicación geográfica activa, todas las bases de datos secundarias son 
 
 La replicación geográfica utiliza un proceso de copia continua. Por lo tanto, utilice la vista de administración dinámica (DMV) [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) para obtener la última hora de replicación, entre otros datos.
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

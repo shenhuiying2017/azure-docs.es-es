@@ -23,11 +23,7 @@
 
 ## Información general
 
-Esta guía le indicará cómo actuar en situaciones habituales usando el
-de Azure de Windows. Los ejemplos están escritos usando la API
-Python. Entre los escenarios descritos se incluyen la **inserción**, **inspección**,
-**obtención** y **eliminación** de los mensajes en cola, así como la **creación y
-eliminación de colas**.
+Esta guía le indicará cómo actuar en situaciones habituales usando el servicio Cola de Microsoft Azure. Los ejemplos están escritos usando la API Node.js. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -35,9 +31,9 @@ eliminación de colas**.
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube de Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix].
 
-## Configuración de su aplicación para obtener acceso al almacenamiento
+## Configuración de la aplicación para obtener acceso al almacenamiento
 
 Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
@@ -45,8 +41,7 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 
 1.  Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
 
-2.  Escriba **npm install azure-storage** en la ventana de comandos, lo que
-    es el siguiente:
+2.  Escriba **npm install azure-storage** en la ventana de comandos. Esto debería devolver la salida siguiente:
 
         azure-storage@0.1.0 node_modules\azure-storage
 		├── extend@1.2.1
@@ -58,34 +53,27 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Puede ejecutar manualmente el comando **ls** para verificar que se ha creado la carpeta
-    **node_modules**. Dentro de esa carpeta
-    encontrará el paquete **azure-storage**, que contiene las bibliotecas que necesita para
-    obtener acceso al almacenamiento.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node_modules**. Dentro de dicha carpeta, encontrará el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
 ### Importación del paquete
 
-Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte superior del archivo
-**server.js** de la aplicación en la que pretenda usar el almacenamiento:
+Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte superior del archivo **server.js** de la aplicación en la que pretenda usar el almacenamiento:
 
     var azure = require('azure-storage');
 
 ## Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
+El módulo azure leerá las variables de entorno AZURE_STORAGE_ACCOUNT, AZURE_STORAGE_ACCESS_KEY o AZURE_STORAGE_CONNECTION_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
 
-## Trabajo de una cola
+## Creación de una cola
 
-El código siguiente crea un objeto **QueueService**, el que le permite
-trabajar con colas.
+El siguiente código crea un objeto **QueueService**, que le permite trabajar con colas.
 
     var queueSvc = azure.createQueueService();
 
-Utilice el método **createQueueIfNotExists**, que devuelve la cola
-especificada si ya existe o crea una nueva cola con el nombre especificado
-si todavía no existe.
+Utilice el método **createQueueIfNotExists**, que devuelve la cola especificada si ya existe o crea una nueva cola con el nombre especificado si todavía no existe.
 
 	queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
       if(!error){
@@ -93,11 +81,11 @@ si todavía no existe.
 	  }
 	});
 
-Si la cola se crea,  `result` es verdadero. Si la cola existe,  `result` es falso.
+Si la cola se crea, `result` es verdadero. Si la cola existe, `result` es falso.
 
 ### Filtros
 
-Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas utilizando **QueueService**. Las operaciones de filtrado pueden incluir el registro y el reintento automático, entre otros. Los filtros son objetos que implementan un método con la firma siguiente:
+Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas utilizando **QueueService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
 		function handle (requestOptions, next)
 
@@ -112,10 +100,9 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
-## Trabajo Inserción de un mensaje en una cola
+## Inserción de un mensaje en una cola
 
-Para insertar un mensaje en una cola, use el método **createMessage** para
-crear un nuevo mensaje y agregarlo a la cola.
+Para insertar un mensaje en una cola, utilice el método **createMessage** para crear un nuevo mensaje y agregarlo a la cola.
 
 	queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
 	  if(!error){
@@ -123,11 +110,9 @@ crear un nuevo mensaje y agregarlo a la cola.
 	  }
 	});
 
-## Trabajo Inspección del siguiente mensaje
+## Inspección del siguiente mensaje
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo
-de la cola, mediante una llamada al método **peekMessages**. De forma predetermianda,
-**peekMessages** inspecciona un único mensaje.
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessages**. De forma predeterminada, **peekMessages** inspecciona un único mensaje.
 
 	queueSvc.peekMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -135,11 +120,11 @@ de la cola, mediante una llamada al método **peekMessages**. De forma predeterm
 	  }
 	});
 
-El  `result` contiene el mensaje.
+El `result` contiene el mensaje.
 
-> [AZURE.NOTE] Si se utiliza**peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
+> [AZURE.NOTE]Si se utiliza **peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
-## Trabajo siguiente mensaje de la cola
+## Extracción del siguiente mensaje de la cola
 
 El procesamiento de un mensaje es un proceso que consta de dos etapas:
 
@@ -161,14 +146,13 @@ Para quitar un mensaje de la cola, use **getMessage**. De esta forma el mensaje 
 	  }
 	});
 
-> [AZURE.NOTE] De manera predeterminada, un mensaje solo está oculto durante 30 segundos, después de lo cual es visible para otros clientes. Puede especificar un valor diferente usando  `options.visibilityTimeout` con **getMessages**.
+> [AZURE.NOTE]De manera predeterminada, un mensaje solo está oculto durante 30 segundos, después de lo cual es visible para otros clientes. Puede especificar un valor diferente usando `options.visibilityTimeout` con **getMessages**.
 
-> [AZURE.NOTE]
-> Si utiliza <b>getMessages</b> cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
+> [AZURE.NOTE]Si utiliza <b>getMessages</b> cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
-## Trabajo contenido de un mensaje en cola
+## Cambio del contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola mediante**updateMessage**. En el ejemplo siguiente se actualiza el texto de un mensaje:
+Puede cambiar el contenido de un mensaje local en la cola mediante **updateMessage**. En el ejemplo siguiente se actualiza el texto de un mensaje:
 
     queueSvc.getMessages('myqueue', function(error, result, response){
 	  if(!error){
@@ -182,15 +166,14 @@ Puede cambiar el contenido de un mensaje local en la cola mediante**updateMessag
 	  }
 	});
 
-## Trabajo Opciones adicionales para quitar mensajes de la cola
+## Opciones adicionales para extraer mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola:
 
-* "options.numOfMessages" - Recuperar un lote de mensajes (hasta 32)
-* "options.visibilityTimeout" - Establecer un tiempo de espera de invisibilidad más largo o más corto.
+* `options.numOfMessages` - Recuperar un lote de mensajes (hasta 32).
+* `options.visibilityTimeout` - Establecer un tiempo de espera de invisibilidad más largo o más corto.
 
-En el siguiente ejemplo se usa el método **getMessages** para obtener 15 mensajes en una llamada. A continuación,
-procesa cada mensaje con un bucle for. También se establece el tiempo de espera de invisibilidad en cinco minutos para todos los mensajes que devuelve este método.
+En el siguiente ejemplo se usa el método **getMessages** para obtener 15 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle for. También se establece el tiempo de espera de invisibilidad en cinco minutos para todos los mensajes que devuelve este método.
 
     queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
 	  if(!error){
@@ -207,7 +190,7 @@ procesa cada mensaje con un bucle for. También se establece el tiempo de espera
 	  }
 	});
 
-## Trabajo la longitud de la cola
+## Obtención de la longitud de la cola
 
 El método **getQueueMetadata** devuelve metadatos sobre la cola, junto con el número aproximado de mensajes que esperan en la cola.
 
@@ -217,7 +200,7 @@ El método **getQueueMetadata** devuelve metadatos sobre la cola, junto con el n
 	  }
 	});
 
-## Trabajo de colas
+## Enumeración de las colas
 
 Para recuperar una lista de colas, use **listQueuesSegmented**. Para recuperar una lista filtrada por un prefijo determinado, use **listQueuesSegmentedWithPrefix**.
 
@@ -227,12 +210,11 @@ Para recuperar una lista de colas, use **listQueuesSegmented**. Para recuperar u
 	  }
 	});
 
-Si no se pueden devolver todas las colas, se puede usar `result.continuationToken` como el primer parámetro de **listQueuesSegmented** o el segundo parámetro de **listQueuesSegmentedWithPrefix** para recuperar más resultados.
+Si no se pueden devolver todas las colas, `result.continuationToken` se puede usar como el primer parámetro de **listQueuesSegmented** o el segundo parámetro de **listQueuesSegmentedWithPrefix** para recuperar más resultados.
 
-## Trabajo una cola
+## Eliminación de una cola
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
-**deleteQueue** en el objeto de cola.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteQueue** en el objeto de cola.
 
     queueSvc.deleteQueue(queueName, function(error, response){
 		if(!error){
@@ -242,7 +224,7 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Para borrar todos los mensajes de una cola sin eliminarla, use **clearMessages**.
 
-## Procedimientos: Trabajo con firmas de acceso compartido
+## Trabajo con firmas de acceso compartido
 
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las colas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus colas, por ejemplo, para permitir que una aplicación móvil envíe mensajes.
 
@@ -283,7 +265,7 @@ Dado que la SAS se generó solo con acceso para agregar, si se realizara un inte
 
 Se puede usar una lista de control de acceso (ACL) para definir la directiva de acceso para una SAS. Esto es útil si desea permitir que varios clientes accedan a la cola, pero cada uno con directivas de acceso diferentes.
 
-Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, con un Id. asociado a cada directiva. En los siguientes ejemplos se definen dos directivas; una para 'user1' y otra para 'user2':
+Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, con un Id. asociado a cada directiva. En los siguientes ejemplos se definen dos directivas; una para "user1" y otra para "user2":
 
 	var sharedAccessPolicy = [
 	  {
@@ -324,30 +306,30 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 
 ## Pasos siguientes
 
-Ahora que ha aprendido los conceptos básicos de Almacenamiento de colas, siga estos vínculos
-para obtener información sobre tareas de almacenamiento más complejas.
+Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
+-   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
 -   Visite el [Blog del equipo de almacenamiento de Azure][].
--   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
+-   Visite el repositorio del [SDK de almacenamiento de Azure para Node][] en GitHub.
 
-  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
-  [Uso de la API de REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
+  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../web-sites-nodejs-develop-deploy-mac.md
-  [Servicio en la nube de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-  [Aplicación web Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
+  [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
+  [Aplicación web de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
 
   
-  [Cola1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
+  [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
   [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
   
   
   
-  [Servicio en la nube de Node.js]: ../cloud-services-nodejs-develop-deploy-app.md
+  [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  [Sitio web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

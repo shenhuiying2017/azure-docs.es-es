@@ -1,7 +1,8 @@
 <properties 
-	pageTitle="Escalado de extremos de API" 
+	pageTitle="Escalado de extremos de API | Microsoft Azure" 
 	description="Ampliación de extremos de servicio web en Aprendizaje automático de Azure" 
-	services="machine-learning" 
+	services="machine-learning"
+	documentationCenter="" 
 	authors="hiteshmadan" 
 	manager="padou" 
 	editor=""/>
@@ -12,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="02/19/2015"
+	ms.date="06/29/2015"
 	ms.author="himad"/>
 
 
@@ -29,7 +30,7 @@ Si tiene previsto llamar a la API con una carga mayor de lo que permitirán las 
 
 Tenga en cuenta que usar un recuento de simultaneidad muy alto puede ser perjudicial si no se llega a la API con una tasa elevada en consecuencia. Puede que vea tiempos de espera esporádicos o picos de latencia si pone una carga relativamente baja en una API configurada para una carga elevada.
 
-Tenga en cuenta que modificar los ajustes de límite solo afecta al comportamiento de la API sincrónica. Debe ajustar estos valores si ve respuestas frecuentes de 503 servicio no disponible en la API sincrónica.
+Tenga en cuenta que modificar los ajustes de límite solo afecta al comportamiento de la API sincrónica (RRS). Debe ajustar estos valores si ve respuestas frecuentes de 503 servicio no disponible en la API sincrónica.
 
 La interfaz de usuario de administración permite alternar el nivel de limitación. Para cambiar un número de simultaneidad personalizado a nivel alto de limitación, use la API de extremo de revisión.
 
@@ -44,5 +45,6 @@ La interfaz de usuario de administración permite alternar el nivel de limitaci�
 - Cambie el nivel de limitación a Alto y haga clic en Guardar.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

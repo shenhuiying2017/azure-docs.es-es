@@ -1,25 +1,25 @@
 <properties 
-    pageTitle="Notas de la versión de StorSimple - Julio de 2014"
+    pageTitle="Notas de la versión de StorSimple 8000 Series - julio de 2014"
     description="Describe las nuevas características, problemas y soluciones alternativas de la versión de Microsoft Azure StorSimple de julio de 2014."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/28/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Notas de la versión de StorSimple - Julio de 2014 
+# Notas de la versión de StorSimple 8000 Series - julio de 2014 
 
 ## Información general
 
-Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.
+Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de StorSimple 8000 Series de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.
 
 A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Las notas se actualizan continuamente y, a medida que se descubren, se van agregando problemas críticos que requieren una solución alternativa. Antes de implementar la solución de Microsoft Azure StorSimple, tenga en cuenta la siguiente información.
 
@@ -40,6 +40,6 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 10 | Interfaces de red | Las interfaces de red DATA 2 y DATA 3 se intercambiaron en el software. | Póngase en contacto con el soporte técnico de Microsoft si necesita configurar estas interfaces. | Sí | No |
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

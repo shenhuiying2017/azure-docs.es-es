@@ -1,20 +1,21 @@
+
 <properties 
-	pageTitle="Establecer y recuperar propiedades y metadatos para el almacenamiento de blobs | Microsoft Azure" 
-	description="Obtener información sobre cómo establecer y recuperar propiedades y metadatos para los contenedores y blobs de Almacenamiento de Azure." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
-	editor=""/>
+  pageTitle="Establecer y recuperar propiedades y metadatos para el almacenamiento de blobs | Microsoft Azure" 
+  description="Obtenga información acerca de cómo establecer y recuperar propiedades y metadatos para los blobs y contenedores del Almacenamiento de Azure." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="tamram"/>
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="04/21/2015" 
+  ms.author="tamram"/>
 
 
 # Establecer y recuperar propiedades y metadatos #
@@ -158,6 +159,6 @@ En el ejemplo de código siguiente se crea un nuevo contenedor, se establecen su
 
 - [Referencia de la biblioteca de cliente de almacenamiento de Azure](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [Introducción al almacenamiento de blobs para .NET](storage-dotnet-how-to-use-blobs.md)  
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

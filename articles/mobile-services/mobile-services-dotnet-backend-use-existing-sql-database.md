@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles
 
 Con el backend .NET de Servicios móviles, es muy fácil aprovechar las ventajas que ofrecen recursos existentes para compilar un servicio móvil. Un escenario especialmente interesante es el uso de una base de datos SQL existente (local o en la nube), que ya pueden estar usando otras aplicaciones, para hacer que los datos existentes estén disponibles para clientes móviles. En este caso, es imprescindible que no se modifique el modelo de base de datos (o *esquema*) para que las soluciones actuales continúen funcionando.
-
-Este tutorial consta de las siguientes secciones:
-
-1. [Exploración del modelo de base de datos existente](#ExistingModel)
-2. [Creación de objetos de transferencia de datos (DTO) para el servicio móvil](#DTOs)
-3. [Establecimiento de una asignación entre objetos DTO y el modelo](#Mapping)
-4. [Implementación de lógica específica del dominio](#DomainManager)
-5. [Implementación de un elemento TableController con objetos DTO](#Controller)
 
 <a name="ExistingModel"></a>
 ## Exploración del modelo de base de datos existente
@@ -158,7 +150,7 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    A continuación, agregue estas propiedades adicionales a cada una de las clases:
+4. A continuación, agregue estas propiedades adicionales a cada una de las clases:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -187,7 +179,7 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Después, en el cuerpo de **ExistingContext**, invalide [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
+5. En el cuerpo de **ExistingContext**, invalide [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -621,5 +613,6 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
 
     }
 
-Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
-<!--HONumber=54--> 
+Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio. Para obtener más información, consulte [Incorporación de Servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
+
+<!---HONumber=July15_HO2-->

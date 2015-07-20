@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # Guía de solución de problemas de inserción y cobertura
 
@@ -31,7 +30,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Pruebe simplemente una inserción en la aplicación y una inserción fuera de la aplicación para determinar si algo es un problema dentro o fuera de la aplicación.
 - Realice pruebas desde dentro de la interfaz de usuario y la API como paso de solución de problemas para ver qué información de error adicional está disponible en ambos lugares.
 - Las inserciones fuera de la aplicación no funcionarán a menos que Azure Mobile Engagement y la cobertura están integrados en el SDK.
-- Las inserciones fuera de la aplicación no funcionarán si los certificados no son válidos o está usando PROD frente a DEV correctamente (únicamente en iOS). (**Nota:** es posible que las notificaciones de inserción "fuera de la aplicación" no se entreguen a iOS si tiene las versiones de desarrollo (DEV) y producción (PROD) de la aplicación instaladas en el mismo dispositivo, ya que Apple puede invalidar el token de seguridad asociado con el certificado. Para resolver este problema, desinstale las versiones DEV y PROD de la aplicación y vuelva a instalar solo una versión en el dispositivo.)
+- Las inserciones no funcionarán si los certificados no son válidos o usan PROD frente a DEV correctamente (únicamente en iOS). (**Nota:** es posible que las notificaciones de inserción "fuera de la aplicación" no se entreguen a iOS si tiene las versiones de desarrollo (DEV) y producción (PROD) de la aplicación instaladas en el mismo dispositivo, ya que Apple puede invalidar el token de seguridad asociado con el certificado. Para resolver este problema, desinstale las versiones DEV y PROD de la aplicación y vuelva a instalar solo una versión en el dispositivo.)
 - Los recuentos de inserción fuera de la aplicación se controlan de forma distinta en diferentes plataformas (iOS muestra menos información que Android si las inserciones nativas están deshabilitadas en un dispositivo, la API puede proporcionar más información que la interfaz de usuario en las estadísticas de inserción).
 - Las inserciones fuera de la aplicación pueden ser bloqueadas por los clientes a nivel de sistema operativo (iOS y Android).
 - Las inserciones fuera de la aplicación se mostrarán como deshabilitadas en la interfaz de usuario de Azure Mobile Engagement si no están integradas correctamente, pero pueden producir un error silenciosamente a través de la API.
@@ -45,10 +44,6 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Para los problemas con la API de inserción, confirme que realmente desea utilizar la API de inserción en lugar de la API de cobertura (ya que esta se usa con más frecuencia) y que no se confunda los parámetros "carga" y "notificador".
 - Pruebe su campaña de inserción con ambos dispositivos conectados a través de Wi-Fi y 3G para eliminar la conexión de red como posible fuente de problemas.
 
-### Consulte también
-
-- [Guía de solución de problemas - SDK][Link 25], [Guía de solución de problemas - Inserción][Link 23], [Documentación del SDK - iOS - Cómo preparar la aplicación para las notificaciones de inserción de Apple][Link 5]
- 
 ## Pruebas de inserción
 
 ### Problema
@@ -59,10 +54,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Los dispositivos de prueba se configuran de manera diferente para cada plataforma, pero provocar un evento en la aplicación en un dispositivo de prueba y buscar el identificador del dispositivo en el portal debería funcionar para encontrar el identificador del dispositivo para todas las plataformas.
 - Los dispositivos de prueba funcionan de manera diferente con IDFA frente a IDFV (únicamente en iOS).
 
-### Consulte también
 
-- [Documentación de la interfaz de usuario - Cobertura][Link 17]
- 
 ## Personalización de inserción
 
 ### Problema
@@ -85,12 +77,6 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Las diferencias entre cómo controlan Android y iOS las notificaciones "fuera de la aplicación" hace difícil comparar directamente las estadísticas de inserción entre la versión iOS y Android de la aplicación. Android proporciona más información de notificación a nivel de sistema operativo que iOS. Android informa cuando se recibe, se elimina o se hace clic en una notificación nativa en el centro de notificaciones, pero iOS no indica esta información a menos que se haga clic en la notificación. 
 - La razón principal por la cual los números de "inserciones" y los números de "entregas" son diferentes en las campañas de cobertura es que las notificaciones "en la aplicación" y "fuera de la aplicación" se contabilizan de manera diferente. Las notificaciones "en la aplicación" las controla Mobile Engagement, pero las notificaciones "fuera de la aplicación" las controla el centro de notificaciones en el sistema operativo del dispositivo.
 
-### Consulte también
-
-- [Guía práctica - Primera inserción][Link 27], [Guía de solución de problemas - Inserción][Link 23], [Información del protocolo HTTP](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
-- [Desarrolladores de Apple - Información de la interfaz de usuario de "No participar"](http://support.apple.com/kb/HT3576), [Desarrolladores de Apple - Información de desarrollo de "No participar"](https://developer.apple.com/notifications/), [para desarrolladores de Apple - "descartar" solución de problemas de](https://developer.apple.com/library/ios/technotes/tn2265/), [Desarrolladores de Apple - Esquema de dirección URL](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) 
-- [Desarrolladores de Android - Información de la interfaz de usuario de "No participar"](http://developer.android.com/about/versions/jelly-bean.html), [Desarrolladores de Android - Patrones "No participar"](http://developer.android.com/design/patterns/notifications.html), [Desarrolladores de Android - Notificador "No participar"](http://developer.android.com/guide/topics/ui/notifiers/notifications.html), [Desarrolladores de Android - Vista previa de "No participar"](https://developer.android.com/preview/notifications.html), [Desarrolladores de Android - Referencia de "No participar"](http://developer.android.com/reference/android/app/Notification.html), [Desarrolladores de Android - Esquema de filtro de intento](http://developer.android.com/guide/components/intents-filters.html#DataTest), [Desarrolladores de Android - Guía de referencia del filtro de intento](http://developer.android.com/reference/android/content/Intent.html#toUri)
-
 ## Orientación de la inserción
 
 ### Problema
@@ -106,10 +92,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Establecer un "idioma" es diferente de orientar en función del país o la configuración regional, que también es diferente a orientar según la geolocalización basada en una ubicación de teléfono o de GPS.
 - El mensaje en el "idioma predeterminado" se envía a los clientes que no tienen su dispositivo establecido en uno de los idiomas alternativos que especifica.
 
-### Consulte también
 
-- [Documentación de la interfaz de usuario - Cobertura][Link 17], [Documentación de la interfaz de usuario - Configuración][Link 20], [Documentación de la API - Cobertura][Link 4], [Documentación de la API - Inserción][Link 4], [Documentación de la API - Dispositivo][Link 4]
- 
 ## Programación de la inserción
 
 ### Problema
@@ -125,39 +108,6 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 - Si utiliza la opción "Omitir audiencia, la inserción se enviará a los usuarios a través de la API" de la sección "Campaña" de una campaña de cobertura, la campaña NO se enviará automáticamente, deberá enviarla de forma manual mediante la API de cobertura.
 - Si usa una categoría personalizada en cobertura para mostrar las notificaciones de la aplicación, deberá seguir el ciclo de vida correcto de una notificación, o puede que la notificación no se borre cuando el usuario la descarte.
 
-### Consulte también
-
-- [Guía práctica de cobertura - Programar campañas][Link 3], [Documentación de interfaz de usuario - Cobertura - Nueva campaña de inserción][Link 27]
  
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

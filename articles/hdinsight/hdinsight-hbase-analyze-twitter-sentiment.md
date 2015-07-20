@@ -98,18 +98,16 @@ Las API de streaming de Twitter autorizan las solicitudes con [OAuth](http://oau
 3. Escriba un **nombre**, una **descripción** y un **sitio web**. El campo Sitio web no se usa en realidad. No es necesario escribir una URL válida. La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
 	<table border="1">
-	<tr><th>Campo</th><th>Valor</th></tr>
-	<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
+<tr><th>Campo</th><th>Valor</th></tr>
+<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
 
 4. Haga clic en **Sí, acepto** y luego haga clic en **Crear su aplicación de Twitter**.
-5. Haga clic en la pestaña **Permisos**. El permiso predeterminado es **Solo lectura**. Esto es suficiente para este tutorial. 
-6. Haga clic en la pestaña **Claves y tokens de acceso**.
-7. Haga clic en **Crear mi token de acceso**.
+5. Haga clic en la pestaña **Permissions** (Permisos). El permiso predeterminado es **Read only** (Solo lectura). Esto es suficiente para este tutorial. 
+6. Haga clic en la pestaña **Keys and Access Tokens** (Claves y tokens de acceso).
+7. Haga clic en **Create my access token** (Crear mi token de acceso).
 8. Haga clic en **Prueba de OAuth** en la esquina superior derecha de la página.
 9. Copie los valores de **clave de consumidor**, **secreto de consumidor**, **token de acceso** y **secreto de token de acceso**. Los necesitará más adelante en el tutorial.
 
@@ -222,7 +220,7 @@ Debe crear una aplicación de consola para obtener tweets, calcular la puntuaci�
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -1177,8 +1175,7 @@ En esta sección, creará una aplicación web ASP.NET MVC para leer los datos de
 
 **Para modificar layout.cshtml, siga estos pasos:**
 
-1. En el **Explorador de soluciones**, expanda **TweetSentimentWeb**, **Vistas** y **Compartido**, y haga doble clic en _**Layout.cshtml**.
-2. Reemplace el contenido por lo siguiente:
+1. En el **Explorador de soluciones**, expanda **TweetSentimentWeb**, **Vistas** y **Compartido**, y haga doble clic en _**Layout.cshtml**.2. Reemplace el contenido por lo siguiente:
 
 		<!DOCTYPE html>
 		<html>
@@ -1356,5 +1353,6 @@ En este tutorial, ha aprendido a obtener tweets, analizar la opinión de estos, 
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

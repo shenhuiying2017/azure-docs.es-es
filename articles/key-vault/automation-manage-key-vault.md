@@ -44,5 +44,6 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 * Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
 * Consulte los [scripts de PowerShell del Almacén de claves de Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

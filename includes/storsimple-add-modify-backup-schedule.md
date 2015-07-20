@@ -1,4 +1,5 @@
 
+
 #### Para agregar o modificar una programación de copia de seguridad de StorSimple
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en la pestaña **Directivas de copia de seguridad**. Esto le llevará a la página **Directivas de copia de seguridad**.
@@ -28,4 +29,4 @@
 La página **Directivas de copia de seguridad** se actualizará para guardar los cambios en la directiva.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

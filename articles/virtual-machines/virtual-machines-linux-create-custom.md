@@ -31,6 +31,6 @@ Una máquina virtual *personalizada* no es más que una máquina virtual que se 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

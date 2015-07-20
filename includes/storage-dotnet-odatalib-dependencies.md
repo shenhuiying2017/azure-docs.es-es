@@ -2,4 +2,4 @@
 > 
 > Aunque las clases de almacenamiento de tabla de Azure usan estas bibliotecas, son dependencias necesarias para programar con la biblioteca de cliente de almacenamiento.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

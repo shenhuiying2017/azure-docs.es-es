@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Introducción a Azure Mobile Engagement para iOS en Swift" 
+<properties
+	pageTitle="Introducción a Azure Mobile Engagement para iOS en Swift"
 	description="Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones iOS."
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="swift" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="swift"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Swift
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 En este tema se muestra cómo utilizar Azure Mobile Engagement para conocer el uso de las aplicaciones y enviar notificaciones push a los usuarios segmentados a una aplicación de iOS. En este tutorial, puede crear una aplicación iOS vacía que recopile datos básicos y reciba notificaciones push mediante el sistema de notificaciones push de Apple (APN). Cuando haya terminado, podrá difundir notificaciones de inserción a todos los dispositivos o dirigirse a usuarios específicos en función de las propiedades de sus dispositivos.
 
@@ -54,11 +55,11 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
    	![][7]
 
 3. En el menú emergente que aparece, escriba la siguiente información:
- 
+
    	![][8]
 
 	- **Nombre de la aplicación**: escriba el nombre de la aplicación. Puede usar cualquier carácter.
-	- **Plataforma**: seleccione la plataforma de destino (**iOS**) para la aplicación (si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma). 
+	- **Plataforma**: seleccione la plataforma de destino (**iOS**) para la aplicación (si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma).
 	- **Nombre del recurso de la aplicación**: este es el nombre por el que la aplicación será accesible a través de las API y las direcciones URL. Solo debe usar caracteres convencionales de dirección URL. El nombre que se genera automáticamente debería proporcionar una sugerencia sólida. También debe anexar el nombre de la plataforma para evitar cualquier conflicto de nombres, ya que este debe ser único.
 	- **Ubicación**: seleccione el centro de datos donde se alojará esta aplicación y, más importante aún, su colección.
 	- **Colección**: si ya ha creado una aplicación, seleccione una colección creada anteriormente; en caso contrario, seleccione una colección nueva.
@@ -67,7 +68,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
 4. Seleccione la aplicación que acaba de crear en la pestaña **Aplicación**:
 
 5. Haga clic en **Información de conexión** para mostrar la configuración de la conexión que se debe incluir en la integración de SDK en su aplicación móvil.
- 
+
    	![][10]
 
 6. Copie la **Cadena de conexión**, la necesitará para identificar esta aplicación en el código de aplicación y conectar con Mobile Engagement desde la aplicación de teléfono.
@@ -76,7 +77,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
 
 ##<a id="connecting-app"></a>Conectar la aplicación al back-end de Mobile Engagement
 
-En este tutorial se presenta una "integración básica», que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. Toda la información sobre la integración se encuentra en la [documentación del SDK de iOS de Mobile Engagement].
+En este tutorial se presenta una "integración básica», que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. Toda la información sobre la integración se encuentra en [documentación del SDK Mobile Engagement para iOS]
 
 Crearemos una aplicación básica con XCode para demostrar la integración:
 
@@ -98,7 +99,7 @@ Puede omitir este paso si ya tiene una aplicación y está familiarizado con el 
 
 Xcode creará la aplicación de demostración en la que se integrará Mobile Engagement.
 
-###Conectar la aplicación al back-end de Mobile Engagement 
+###Conectar la aplicación al back-end de Mobile Engagement
 
 1. Descargue el [SDK de iOS para Mobile Engagement].
 2. Extraiga el archivo .tar.gz archivo en una carpeta del equipo.
@@ -145,7 +146,7 @@ Xcode creará la aplicación de demostración en la que se integrará Mobile Eng
   			[...]
 		}
 
-##<a id="monitor">Habilitar supervisión en tiempo real
+##<a id="monitor"></a>Habilitar supervisión en tiempo real
 
 Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla (Actividad) al back-end de Mobile Engagement.
 
@@ -224,7 +225,7 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 			EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
 			[...]
 			return true
-		}	
+		}
 
 ###Habilite su aplicación para recibir notificaciones push de APN.
 1. Agregue la siguiente línea al método `didFinishLaunchingWithOptions`:
@@ -282,7 +283,7 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 1. Vaya a la pestaña Cobertura en el portal de Mobile Engagement.
 
 2. Haga clic en **Nuevo anuncio** para crear la campaña de inserción
-	
+
 	![][35]
 
 3. Configure el primer campo de la campaña:
@@ -335,5 +336,6 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [39]: ./media/mobile-engagement-ios-swift-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-ios-swift-get-started/SwiftSelection.png
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

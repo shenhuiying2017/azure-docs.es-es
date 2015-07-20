@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/12/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
       
 #Perfiles de puntuación (API de REST de Búsqueda de Azure: 2014-10-20-Preview)#
 
-> [AZURE.NOTE]En este artículo se describen los perfiles puntuación de la versión 2014-10-20-Preview de la API de REST. La versión lanzada de esta API se puede encontrar en [Agregar perfiles de puntuación a un índice de búsqueda](http://msdn.microsoft.com/library/azure/dn798928.aspx) en MSDN. Para obtener más información acerca de la versión 2014-10-20-Preview, consulte [API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/).
+> [AZURE.NOTE]En este artículo se describen los perfiles puntuación de la versión 2014-10-20-Preview de la API de REST. La versión lanzada de esta API se puede encontrar en [Agregar perfiles de puntuación a un índice de búsqueda](http://msdn.microsoft.com/library/azure/dn798928.aspx) en MSDN. Para obtener más información acerca de la versión 2014-10-20-Preview, consulte [API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
 Puntuación hace referencia al cálculo de una puntuación de búsqueda para todos los elementos devueltos en los resultados de la búsqueda. La puntuación es un indicador de la importancia de un elemento en el contexto de la operación de búsqueda actual. Cuanto mayor sea la puntuación, mayor importancia tendrá el elemento. En los resultados de búsqueda, los elementos están ordenados de alto a bajo, según la puntuación de la búsqueda calculada para cada artículo.
 
@@ -142,7 +142,7 @@ En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuaci
 
 Para implementar el comportamiento personalizado de puntuación, agregue un perfil de puntuación al esquema que define el índice. Puede tener varios perfiles de puntuación en un índice, pero solo puede especificar un perfil de cada vez en una consulta concreta.
 
-Comience con la [Plantilla][#bkmk_template] incluida en este tema.
+Comience con la [Plantilla](#bkmk_template) incluida en este tema.
 
 Proporcione un nombre. Los perfiles de puntuación son opcionales, pero si agrega uno, se requerirá el nombre. Asegúrese de seguir las convenciones de nomenclatura de los campos (empieza con una letra, evita caracteres especiales y palabras reservadas). Consulte [Reglas de nomenclatura](http://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información.
 
@@ -292,7 +292,7 @@ Las interpolaciones le permiten definir la pendiente con la que la potenciación
 
 `boostingDuration` es un atributo de la función de índice de actualización. Se usa para establecer un período de caducidad después del que se detendrá la potenciación de un documento determinado. Por ejemplo, para potenciar una línea de productos o marca durante un período de promoción de 10 días, debe especificar el período de 10 días como "P10D" para dichos documentos.
 
-`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "P[nD][T[nH][nM][nS]]".
+`boostingDuration` debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de duración ISO 8601). El patrón de este es: "P(nD)(T(nH)(nM)(nS))".
 
 La tabla siguiente proporciona varios ejemplos.
 
@@ -323,5 +323,6 @@ Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de 
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2014-10-20-Preview/scoring_interpolations.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,4 +1,5 @@
 
+
 #### Para configurar actualizaciones automáticas
 
 1. En la página **Dispositivos**, seleccione el dispositivo en el que desea instalar las actualizaciones.
@@ -7,4 +8,4 @@
 
 3. Establezca **Actualizaciones automáticas** en **Sí**. Esta opción busca automáticamente actualizaciones a las 3:00 A.M. hora del dispositivo e instala cualquier actualización a las 4:00 A.M. todos los días.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

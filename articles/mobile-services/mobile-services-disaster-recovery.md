@@ -105,4 +105,4 @@ Ahora debería encontrarse en un estado donde el servicio móvil se haya recuper
 [Automatización de servicios móviles con CLI de Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -78,4 +78,7 @@ Debe usar la versión más reciente de las herramientas de Visual Studio para la
 | Herramienta compatible con Microsoft. | Herramienta compatible con la comunidad cuya descarga está disponible desde CodePlex. | Herramientas compatibles con Microsoft con uso opcional de la herramienta de la comunidad descargada desde CodePlex. |
 | Proceso de uno o dos pasos de configuración sencilla. | La transformación, generación e implementación del esquema en la nube se organiza desde un asistente fácil de usar. | Proceso de varios pasos más complejo (más sencillo si solo se implementa el esquema). |
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

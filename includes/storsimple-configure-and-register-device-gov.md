@@ -116,7 +116,7 @@
 	
 	![Registrar el dispositivo 7 de StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)
 
-      >[AZURE.IMPORTANT]Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. Luego, podrá pegarlo en el Portapapeles o en cualquier editor de texto. > No use Ctrl + C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
+      >[AZURE.IMPORTANT]Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. Luego, podrá pegarlo en el Portapapeles o en cualquier editor de texto. >> No use Ctrl + C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
 
 16. Salga de la consola serie.
 
@@ -133,4 +133,4 @@
      
         
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

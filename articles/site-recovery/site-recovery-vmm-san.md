@@ -217,12 +217,7 @@ Una vez instalado el proveedor, siga con la instalación para registrar el servi
 
 	- Si desea utilizar un servidor proxy personalizado, debe configurarlo antes de instalar el proveedor.
 	- Las siguientes direcciones URL deben ser accesibles desde el servidor VMM
-		- *.hypervrecoverymanager.windowsazure.com 
-		- *.accesscontrol.windows.net 
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
-	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU. 
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU. 
 	
 	- Si elige utilizar un proxy personalizado, se creará una cuenta de ejecución de VMM (DRAProxyAccount) mediante el uso automático de las credenciales de proxy especificadas. Configure el servidor proxy para que esta cuenta pueda autenticarse correctamente.
 	- La configuración de la cuenta de ejecución de VMM puede modificarse en la consola VMM. Para ello, abra el área de trabajo Configuración, expanda Seguridad, haga clic en Cuentas de ejecución y, a continuación, modifique la contraseña de DRAProxyAccount. Deberá reiniciar el servicio VMM para que esta configuración surta efecto.
@@ -290,7 +285,7 @@ Una vez que los servidores VMM están registrados, puede configurar la protecci�
 
 ## Paso 7: Habilitación de la replicación de los grupos de replicación</h3>
 
- para poder habilitar la protección de máquinas virtuales deberá habilitar la replicación para grupos de almacenamiento de replicación.
+: para poder habilitar la protección de máquinas virtuales deberá habilitar la replicación para grupos de almacenamiento de replicación.
 
 1. En el portal de Azure Site Recovery, en la página de propiedades de la nube principal, abra la pestaña **Máquinas virtuales**. Haga clic en **Agregar grupo de replicación**.
 2. Seleccione uno o más grupos de replicación de VMM asociados con la nube, compruebe las matrices de origen y de destino y especifique la frecuencia de replicación.
@@ -317,9 +312,7 @@ Siga el progreso de la acción de habilitación de la protección en la pestaña
 Pruebe la implementación para asegurarse de que la conmutación por error de las máquinas virtuales y los datos se realiza de la manera esperada. Para ello, creará un plan de recuperación seleccionando los grupos de replicación. A continuación, ejecute una conmutación por error de prueba en el plan.
 
 1. En la pestaña **Planes de recuperación**, haga clic en **Crear plan de recuperación**.
-2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **SAN** para ver solo las nubes configuradas para la replicación de SAN.
-3.
-	![Creación de un plan de recuperación](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
+2. Especifique un nombre para el plan de recuperación, y los servidores VMM de origen y destino. El servidor de origen debe tener máquinas virtuales habilitadas para conmutación por error y recuperación. Seleccione **SAN** para ver solo las nubes configuradas para la replicación de SAN. 3. ![Creación de un plan de recuperación](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
 4. En **Seleccionar máquina virtual**, seleccione grupos de replicación. Se seleccionarán todas las máquinas virtuales asociadas al grupo de replicación y se agregarán al plan de recuperación. Estas máquinas virtuales se agregan al grupo predeterminado del plan de recuperación: grupo 1. Puede agregar más grupos si es necesario. Tenga en cuenta que tras la replicación las máquinas virtuales se iniciarán según el orden de los grupos del plan de recuperación.
 
@@ -363,4 +356,4 @@ Para obtener más información sobre la interacción con los trabajos y el panel
 	
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

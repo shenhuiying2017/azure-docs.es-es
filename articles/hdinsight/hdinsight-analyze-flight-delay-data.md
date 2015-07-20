@@ -46,7 +46,7 @@ En los apéndices, puede encontrar instrucciones para cargar los datos del retra
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
@@ -104,7 +104,7 @@ Existen determinados aspectos que debe conocer en relación con la tabla interna
 
 Para obtener más información, consulte [HDInsight: introducción de tablas internas y externas de Hive][cindygross-hive-tables].
 
-> [AZURE.NOTE]Una de las instrucciones de HiveQL crea una tabla externa de Hive. La tabla externa de Hive conserva el archivo de datos en la ubicación original. La tabla interna de Hive mueve el archivo de datos a hive\warehouse. La tabla interna de Hive requiere que el archivo de datos se encuentre en el contenedor predeterminado. Para datos almacenados fuera del contenedor de blobs predeterminado, debe usar tablas externas de Hive.
+> [AZURE.NOTE]Una de las instrucciones de HiveQL crea una tabla externa de Hive. La tabla externa de Hive conserva el archivo de datos en la ubicación original. La tabla interna de Hive mueve el archivo de datos a hive\\warehouse. La tabla interna de Hive requiere que el archivo de datos se encuentre en el contenedor predeterminado. Para datos almacenados fuera del contenedor de blobs predeterminado, debe usar tablas externas de Hive.
 
 
 
@@ -407,7 +407,7 @@ La carga del archivo de datos y los archivos de script de HiveQL (consulte el [A
 </table>
 
 3. Haga clic en **Descargar**.
-4. Descomprima el archivo en la carpeta **C:\Tutorials\FlightDelays\Data**. Cada archivo es un archivo CSV y tiene un tamaño aproximado de 60 GB.
+4. Descomprima el archivo en la carpeta **C:\\Tutorials\\FlightDelays\\Data**. Cada archivo es un archivo CSV y tiene un tamaño aproximado de 60 GB.
 5.	Cambie el nombre del archivo al nombre del mes que contiene los datos. Por ejemplo, el archivo que contiene los datos de enero se llamaría *January.csv*.
 6. Repita los pasos 2 y 5 para descargar un archivo para cada uno de los 12 meses de 2013. Necesitará como mínimo un archivo para ejecutar el tutorial.  
 
@@ -505,7 +505,7 @@ Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o emp
 El script de HiveQL realizará lo siguiente:
 
 1. **Anular la tabla delays_raw**, en caso de que la tabla ya exista.
-2. **Crear la tabla externa de Hive delays_raw** que apunta a la ubicación del almacenamiento de blobs con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\n". Esto plantea un problema cuando los valores de campo contienen comas porque Hive no puede distinguir entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN_CITY_NAME y DEST_CITY_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.  
+2. **Crear la tabla externa de Hive delays_raw** que apunta a la ubicación del almacenamiento de blobs con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\\n". Esto plantea un problema cuando los valores de campo contienen comas porque Hive no puede distinguir entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN_CITY_NAME y DEST_CITY_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.  
 3. **Anular la tabla de retrasos**, en caso de que la tabla ya exista.
 4. **Crear la tabla de retrasos**. Es útil realizar una limpieza de los datos antes de realizar un procesamiento adicional. Esta consulta crea una tabla nueva, *delays*, a partir de la tabla delays_raw. Tenga en cuenta que las columnas TEMP no se copian (como se mencionó anteriormente) y que la función **substring** se usa para quitar las comillas de los datos. 
 5. **Procesa el retraso promedio a causa del tiempo y agrupa los resultados por nombre de la ciudad.** También producirá los resultados en el almacenamiento de blobs. Tenga en cuenta que la consulta eliminará los apóstrofes de los datos y excluirá las filas donde el valor de **weather_delay** es null. Esto es necesario porque Sqoop, que se usa más adelante en este tutorial, no trata estos valores correctamente de forma predeterminada.
@@ -673,7 +673,7 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 
 	Estas son las variables que se usan en el script:
 
-	- **$hqlLocalFileName**: el script guarda el archivo de script de HiveQL en modo local antes de cargarlo en el almacenamiento de blobs. Este es el nombre del archivo. El valor predeterminado es <u>C:\tutorials\flightdelays\flightdelays.hql</u>.
+	- **$hqlLocalFileName**: el script guarda el archivo de script de HiveQL en modo local antes de cargarlo en el almacenamiento de blobs. Este es el nombre del archivo. El valor predeterminado es <u>C:\\tutorials\\flightdelays\\flightdelays.hql</u>.
 	- **$hqlBlobName**: este es el nombre del blob del archivo de script de HiveQL que se ha usado en el almacenamiento de blobs de Azure. El valor predeterminado es tutorials/flightdelays/flightdelays.hql. Puesto que el archivo se escribirá directamente en el almacenamiento de blobs de Azure, NO se pone "/" delante del nombre de blob. Si quiere tener acceso al archivo desde el almacenamiento de blobs, debe agregar "/" delante del nombre de archivo.
 	- **$srcDataFolder** y **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
@@ -880,4 +880,4 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

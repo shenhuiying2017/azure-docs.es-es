@@ -18,7 +18,7 @@
 
 # Incorporación de Servicios móviles a una aplicación existente
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)] 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de Xamarin.Android. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
@@ -28,13 +28,13 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 1. [Descarga del proyecto de la aplicación Xamarin.Android][GitHub] 
 2. [Creación del servicio móvil]
-3. [Incorporación de una tabla de datos para almacenamiento]
+3. [Agregar una tabla de datos para almacenamiento]
 4. [Actualización de la aplicación para usar Servicios móviles]
 5. [Prueba de la aplicación en Servicios móviles]
 
 > [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
-Este tutorial requiere el [componente de Servicios móviles de Azure], [Xamarin.Android] y el SDK de Android 4.2 o una versión posterior.
+Este tutorial requiere el [componente de Servicios móviles de Azure], [Xamarin.Android], y el SDK de Android 4.2 o una versión posterior.
 
 > [AZURE.NOTE]El proyecto GetStartedWithData descargado requiere Android 4.2 o una versión más reciente. No obstante, el SDK para Servicios móviles solo requiere Android 2.2 o una versión más reciente.
 
@@ -127,7 +127,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 7. En el Portal de administración, haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
 
-8. Haga clic en la pestaña **Panel** y anote la **Dirección URL del sitio**; después, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+8. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![][8]
 
@@ -215,9 +215,9 @@ Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para
 
    	Esto envía un elemento nuevo como inserción al servicio móvil.
 
-3. En el [Portal de administración], haga clic en **Servicios móviles** y luego en su servicio móvil.
+3. En el [Portal de administración], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
-4. Haga clic en la pestaña **Datos** y luego en **Examinar**.
+4. Haga clic en la pestaña **Datos** y, a continuación, en **Examinar**.
 
    	![][9]
   
@@ -248,7 +248,7 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Xamar
 
 [Get the Windows Store app]: #download-app
 [Creación del servicio móvil]: #create-service
-[Incorporación de una tabla de datos para almacenamiento]: #add-table
+[Agregar una tabla de datos para almacenamiento]: #add-table
 [Actualización de la aplicación para usar Servicios móviles]: #update-app
 [Prueba de la aplicación en Servicios móviles]: #test-app
 [Next Steps]: #next-steps
@@ -281,5 +281,6 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Xamar
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -25,5 +25,6 @@ Base de datos SQL le permite [escalar verticalmente](sql-database-service-tiers.
 Base de datos SQL está disponible en los [niveles de servicio](sql-database-service-tiers.md) Basic, Standard y Premium, que admiten cargas de trabajo de ligeras a pesadas, por lo que puede moverse o fusionar los niveles para los diseños de aplicaciones innovadores. Con la potencia y el alcance de Azure, puede combinar y hacer coincidir los servicios de Azure con Base de datos SQL para satisfacer sus necesidades únicas de diseño de aplicaciones modernas, impulsar las eficiencias de costos y recursos y desbloquear nuevas oportunidades de negocio.
 
 Empiece a trabajar con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda [cómo crear su primera Base de datos SQL](sql-database-get-started.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

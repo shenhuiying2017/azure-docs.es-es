@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #Escale clústeres de Hadoop, HBase o Apache Storm para cambiar su número de nodos de datos en HDInsight 
@@ -145,4 +145,4 @@ El siguiente es un código de ejemplo que muestra cómo usar la versión asincr�
 Consulte el tema [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](hdinsight-provision-clusters.md) para obtener más información sobre el uso del SDK .NET de HDInsight.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

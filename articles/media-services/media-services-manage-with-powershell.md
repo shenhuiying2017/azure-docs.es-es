@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/14/2015" 
+	ms.date="06/16/2015" 
 	ms.author="juliako"/>
 
 
 #Administración de cuentas de Servicios multimedia de Azure con PowerShell
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
+
 ##Información general 
 
 En este artículo se muestra cómo usar los cmdlets de PowerShell para administrar las cuentas de Servicios multimedia de Azure.
 
->[AZURE.NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure</a>.
+>[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 ##Instalación de los cmdlets de PowerShell de Microsoft Azure
 
@@ -32,7 +36,7 @@ Para instalar los cmdlets de PowerShell de Azure más recientes, consulte [Insta
 
 ##Selección de la suscripción de Azure
 
-Una vez que se instala y configura los cmdlets de PowerShell, debe especificar en qué suscripción desea trabajar. 
+Una vez que se instala y configura los cmdlets de PowerShell, debe especificar en qué suscripción desea trabajar.
 
 Para obtener una lista de suscripciones disponibles, ejecute el siguiente cmdlet:
 
@@ -45,11 +49,11 @@ A continuación, seleccione una realizando los siguientes pasos:
  
 ##Obtención de un nombre de cuenta de almacenamiento
 
-Servicios multimedia de Azure usa Almacenamiento de Azure para almacenar contenido multimedia. Cuando se crea una nueva cuenta de Servicios multimedia, tiene que asociarla a una cuenta de Almacenamiento. La cuenta de Almacenamiento debe pertenecer a la misma suscripción que piensa utilizar para la cuenta de Servicios multimedia. 
+Servicios multimedia de Azure usa Almacenamiento de Azure para almacenar contenido multimedia. Cuando se crea una nueva cuenta de Servicios multimedia, tiene que asociarla a una cuenta de Almacenamiento. La cuenta de Almacenamiento debe pertenecer a la misma suscripción que piensa utilizar para la cuenta de Servicios multimedia.
 
 En este ejemplo, se utiliza una cuenta de almacenamiento existente. El cmdlet [Get-AzureStorageAccount](https://msdn.microsoft.com/library/azure/dn495134.aspx) obtiene cuentas de almacenamiento en la suscripción actual. Obtenga el nombre (StorageAccountName) de la cuenta de almacenamiento que desee asociar a la cuenta multimedia.
 
-	StorageAccountDescription :
+	StorageAccountDescription : 
 	AffinityGroup             :
 	Location                  : East US
 	GeoReplicationEnabled     : True
@@ -70,14 +74,14 @@ En este ejemplo, se utiliza una cuenta de almacenamiento existente. El cmdlet [G
 
 ##Creación de una nueva cuenta de Servicios multimedia
 
-Para crear una nueva cuenta de Servicios multimedia de Azure, use el cmdlet [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) proporcionando el nombre de cuenta de Servicios multimedia, la ubicación del centro de datos donde se creará la ubicación y el nombre de cuenta de Almacenamiento. 
+Para crear una nueva cuenta de Servicios multimedia de Azure, use el cmdlet [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) proporcionando el nombre de cuenta de Servicios multimedia, la ubicación del centro de datos donde se creará y el nombre de la cuenta de almacenamiento.
 
 
 	PS C:> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ##Obtención de cuentas de Servicios multimedia
 
-Una vez creada una o varias cuentas de Servicios multimedia, puede enumerar información mediante [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)
+Una vez creadas una o varias cuentas de Servicios multimedia, puede enumerar la información con [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx).
 
 	
 	PS C:> Get-AzureMediaServicesAccount
@@ -92,8 +96,7 @@ Si proporciona el parámetro Name, obtendrá información más detallada, inclui
 
 ##Generación de claves de acceso de Servicios multimedia de nuevo
 
-Si desea actualizar la clave de acceso principal o secundaria de servicios multimedia, utilice [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). 
-Deberá proporcionar el nombre de cuenta y especificar la clave que desea volver a generar (principal o secundaria). 
+Si desea actualizar la clave de acceso principal o secundaria de Servicios multimedia, use [New-AzureMediaServicesKey](https://msdn.microsoft.com/library/azure/dn495215.aspx). Deberá proporcionar el nombre de cuenta y especificar la clave que desea volver a generar (principal o secundaria).
 
 Especifique un modificador -Force si no desea que PowerShell realice preguntas de confirmación.
 
@@ -101,10 +104,10 @@ Especifique un modificador -Force si no desea que PowerShell realice preguntas d
 
 ##Eliminación la cuenta de Servicios multimedia
 
-Cuando esté listo para eliminar la cuenta de Servicios multimedia de Azure, utilice [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
+Cuando esté listo para eliminar la cuenta de Servicios multimedia de Azure, use [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx).
 
 	PS C:> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

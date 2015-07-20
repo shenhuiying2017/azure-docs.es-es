@@ -18,15 +18,15 @@
 
 # Clúster de Redis con una plantilla del Administrador de recursos
 
-Redis es un almacén y memoria caché de pares clave-valor de código abierto, donde las claves pueden contener estructuras de datos tales como cadenas, hash, listas, conjuntos y conjuntos ordenados.  Redis admite un conjunto de operaciones atómicas con estos tipos de datos. Con el lanzamiento de Redis versión 3.0, el clúster de Redis ahora está disponible en la versión estable más reciente de Redis. El clúster de Redis es una implementación distribuida de Redis donde los datos se particionan automáticamente en varios nodos de Redis, con la posibilidad de continuar las operaciones cuando un subconjunto de nodos experimenta errores.
+Redis es un almacén y memoria caché de pares clave-valor de código abierto, donde las claves pueden contener estructuras de datos tales como cadenas, hash, listas, conjuntos y conjuntos ordenados. Redis admite un conjunto de operaciones atómicas con estos tipos de datos. Con el lanzamiento de Redis versión 3.0, el clúster de Redis ahora está disponible en la versión estable más reciente de Redis. El clúster de Redis es una implementación distribuida de Redis donde los datos se particionan automáticamente en varios nodos de Redis, con la posibilidad de continuar las operaciones cuando un subconjunto de nodos experimenta errores.
 
-La Caché en Redis de Microsoft Azure es un servicio dedicado de caché en Redis administrado por Microsoft, pero es posible que no todos los clientes de Microsoft Azure quieran usar la Caché en Redis de Azure. Algunos preferirán mantener su caché en Redis detrás de una subred dentro de sus propias implementaciones de Azure, mientras que a otros les resultará más cómodo hospedar sus propios servidores de Redis en máquinas virtuales de Linux para aprovechar al máximo todas las características de Redis.
+La Caché en Redis de Microsoft Azure es un servicio dedicado de caché en Redis administrado por Microsoft, pero es posible que no todos los clientes de Microsoft Azure quieran usar la Caché en Redis de Azure. Algunos preferieren mantener su caché en Redis detrás de una subred dentro de sus propias implementaciones de Azure, mientras que a otros les resultará más cómodo hospedar sus propios servidores de Redis en máquinas virtuales de Linux para aprovechar al máximo todas las características de Redis.
 
-Este tutorial le guiará a través del uso de una plantilla de ejemplo del Administrador de recursos de Azure (ARM) para implementar un clúster de Redis en máquinas virtuales de Ubuntu dentro de una subred de un grupo de recursos de Microsoft Azure. Además del clúster de Redis 3.0, esta plantilla también admite la implementación de Redis 2.8 con Redis Sentinel. Tenga en cuenta que este tutorial solo se centrará en la implementación del clúster de Redis 3.0.
+Este tutorial le guiará a través del uso de una plantilla de ejemplo del Administrador de recursos de Azure para implementar un clúster de Redis en máquinas virtuales de Ubuntu dentro de una subred de un grupo de recursos de Microsoft Azure. Además del clúster de Redis 3.0, esta plantilla también admite la implementación de Redis 2.8 con Redis Sentinel. Tenga en cuenta que este tutorial se centrará en la implementación del clúster de Redis 3.0.
 
 El clúster de Redis se crea detrás de una subred, de modo que no hay acceso de IP pública al clúster de Redis. Como parte de la implementación, puede implementar un “JumpBox” opcional. Este “JumpBox” es una máquina virtual de Ubuntu que también se implementa en la subred, pero que *expone* una dirección IP pública con un puerto SSH abierto al que se puede conectar mediante SSH. A continuación, desde el “JumpBox”, puede conectarse mediante SSH a todas las máquinas virtuales de Redis de la subred.
 
-Esta plantilla usa el concepto de “tamaño de camiseta” para especificar una configuración del clúster de Redis “pequeña”, “mediana” o “grande”. Cuando el idioma de la plantilla de ARM admite un tamaño de plantilla más dinámico, este puede cambiarse para especificar el número de nodos maestros del clúster de Redis, los nodos subordinados, el tamaño de máquina virtual, etc. Por el momento, puede ver el tamaño de la máquina virtual y el número de nodos maestros y subordinados definidos en el archivo **azuredeploy.json** en las variables `tshirtSizeSmall`, `tshirtSizeMedium` y `tshirtSizeLarge`.
+Esta plantilla usa el concepto de “tamaño de camiseta” para especificar una configuración del clúster de Redis “pequeña”, “mediana” o “grande”. Cuando el idioma de la plantilla de Administrador de recursos de Azure admite un tamaño de plantilla más dinámico, este puede cambiarse para especificar el número de nodos maestros del clúster de Redis, los nodos subordinados, el tamaño de máquina virtual, etc. Por el momento, puede ver el tamaño de la máquina virtual y el número de nodos maestros y subordinados definidos en el archivo azuredeploy.json en las variables `tshirtSizeSmall`, `tshirtSizeMedium` y `tshirtSizeLarge`.
 
 La plantilla de clúster de Redis para el tamaño “mediano” crea esta configuración:
 
@@ -42,7 +42,7 @@ Antes de entrar en más detalles relacionados con el Administrador de recursos d
 
 Siga estos pasos para crear un clúster de Redis mediante una plantilla del Administrador de recursos desde el repositorio de plantillas de GitHub. Cada paso incluye instrucciones para Azure PowerShell y CLI de Azure.
 
-### Paso 1-a: Descargar los archivos de plantilla con PowerShell
+### Paso 1-a: Descargar los archivos de plantilla mediante Azure PowerShell
 
 Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\RedisCluster).
 
@@ -90,19 +90,19 @@ $webclient.DownloadFile($url,$filePath)
 
 ### Paso 1-b: Descargar los archivos de plantilla con CLI de Azure
 
-Clone todo el repositorio de plantillas mediante un cliente GIT de su elección, por ejemplo:
+Clone todo el repositorio de plantillas mediante un cliente Git de su elección, por ejemplo:
 
 ```
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-Cuando haya finalizado, busque la carpeta **redis-high-availability** en el directorio C:\\Azure\\Templates.
+Cuando haya finalizado la clonación, busque la carpeta **redis-high-availability** en el directorio C:\\Azure\\Templates.
 
-### Paso 2 (opcional): Comprender los parámetros de plantilla 
+### Paso 2 (opcional): Comprender los parámetros de plantilla
 
 Cuando se crea un clúster de Redis con una plantilla, debe especificar un conjunto de parámetros de configuración. Para ver los parámetros que se deben especificar para la plantilla en un archivo JSON local antes de ejecutar el comando para crear el clúster de Redis, abra el archivo JSON en el editor de texto o la herramienta de su elección.
 
-Busque la sección **“parameters”** en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar el clúster de Redis. Esta es la sección **“parameters”** de la plantilla azuredeploy.json:
+Busque la sección “parameters” en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar el clúster de Redis. Esta es la sección “parameters” de la plantilla azuredeploy.json:
 
 ```json
 "parameters": {
@@ -122,7 +122,7 @@ Busque la sección **“parameters”** en la parte superior del archivo, que mu
 		"type": "string",
 		"defaultValue": "",
 		"metadata": {
-			"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
+			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
 		}
 	},
 	"location": {
@@ -149,7 +149,7 @@ Busque la sección **“parameters”** en la parte superior del archivo, que mu
 		"type": "string",
 		"defaultValue": "redisSubnet1",
 		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned in to"
+			"Description": "Subnet name for the virtual network that resources will be provisioned into"
 		}
 	},
 	"subnetPrefix": {
@@ -174,7 +174,7 @@ Busque la sección **“parameters”** en la parte superior del archivo, que mu
 			"Disabled"
 		],
 		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Redis nodes"
+			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Redis nodes"
 		}
 	},
 	"tshirtSize": {
@@ -206,13 +206,13 @@ Busque la sección **“parameters”** en la parte superior del archivo, que mu
 },
 ```
 
-Cada parámetro incluye detalles como el tipo de datos y los valores permitidos. Esto permite la validación de parámetros pasados durante la ejecución de la plantilla en un modo interactivo (por ejemplo, PowerShell o CLI de Azure), así como una interfaz de usuario de detección automática que se podría compilar dinámicamente mediante el análisis de la lista de parámetros necesarios y sus descripciones.
+Cada parámetro incluye detalles como el tipo de datos y los valores permitidos. Esto permite la validación de parámetros pasados durante la ejecución de la plantilla en un modo interactivo (por ejemplo, Azure PowerShell o CLI de Azure), así como una interfaz de usuario de detección automática que se podría compilar dinámicamente mediante el análisis de la lista de parámetros necesarios y sus descripciones.
 
-### Paso 3-a: Implementar un clúster de Redis con una plantilla mediante PowerShell
+### Paso 3-a: Implementar un clúster de Redis con una plantilla mediante Azure PowerShell
 
-Prepare un archivo de parámetros para la implementación creando un archivo JSON que contenga los valores de tiempo de ejecución para todos los parámetros. Este archivo se pasará como una sola entidad al comando de implementación. Si no incluye un archivo de parámetros, PowerShell usará los valores predeterminados especificados en la plantilla y le pedirá que rellene los valores restantes.
+Prepare un archivo de parámetros para la implementación creando un archivo JSON que contenga los valores de tiempo de ejecución para todos los parámetros. Este archivo se pasará como una sola entidad al comando de implementación. Si no incluye un archivo de parámetros, Azure PowerShell usará los valores predeterminados especificados en la plantilla y le pedirá que rellene los valores restantes.
 
-A continuación se muestra un ejemplo que puede encontrar en el archivo **azuredeploy-parameters.json**: Tenga en cuenta que deberá proporcionar valores válidos para los parámetros `storageAccountName`, `adminUsername` y `adminPassword`, además de las personalizaciones realizadas en los demás parámetros:
+A continuación se muestra un ejemplo que puede encontrar en el archivo azuredeploy-parameters.json: Tenga en cuenta que deberá proporcionar valores válidos para los parámetros `storageAccountName`, `adminUsername` y `adminPassword`, además de las personalizaciones realizadas en los demás parámetros:
 
 ```json
 {
@@ -346,10 +346,10 @@ Durante la implementación y después de ella, puede comprobar todas las solicit
 
 Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
 
-- Haga clic en “Examinar” en la barra de navegación de la izquierda, desplácese hacia abajo y haga clic en “Grupos de recursos”.
-- Si selecciona el grupo de recursos que acaba de crear, aparecerá la hoja “Grupo de recursos”.
-- En la sección Supervisión, seleccione el gráfico de barras “Eventos”. Esto mostrará los eventos para la implementación.
-- Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación individual que se realiza en nombre de la plantilla
+- Haga clic en **Examinar** en la barra de navegación de la izquierda y, a continuación, desplácese hacia abajo y haga clic en **Grupos de recursos**.
+- Seleccione el grupo de recursos que acaba de crear para abrir la hoja “Grupo de recursos”.
+- En la sección **Supervisión**, seleccione el gráfico de barras “Eventos”. Esto mostrará los eventos para la implementación.
+- Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación que se realiza en nombre de la plantilla.
 
 Si desea quitar este grupo de recursos y todos sus recursos (cuenta de almacenamiento, máquina virtual y red virtual) después de realizar las pruebas, use este comando:
 
@@ -365,7 +365,7 @@ Para implementar un clúster de Redis a través de CLI de Azure, primero debe cr
 azure group create TestRG "West US"
 ```
 
-Pase este nombre del grupo de recursos, la ubicación del archivo de plantilla JSON y la ubicación del archivo de parámetros (consulte la sección anterior de PowerShell para obtener detalles) en el siguiente comando:
+Pase este nombre del grupo de recursos, la ubicación del archivo de plantilla JSON y la ubicación del archivo de parámetros (consulte la sección anterior de Azure PowerShell para obtener detalles) en el siguiente comando:
 
 ```powershell
 azure group deployment create TestRG -f .\azuredeploy.json -e .\azuredeploy-parameters.json
@@ -377,9 +377,9 @@ Puede comprobar el estado de las implementaciones de recursos individuales con e
 azure group deployment list TestRG
 ```
 
-## Recorrido por la estructura de plantilla y la organización de archivos del clúster de Redis 
+## Recorrido por la estructura de plantilla y la organización de archivos del clúster de Redis
 
-Si desea crear un enfoque sólido y reutilizable para el diseño de plantillas del Administrador de recursos, hay que pensar aún más en cómo organizar la serie de tareas complejas e interrelacionadas necesarias durante la implementación de una solución compleja como el clúster de Redis. Al aprovechar las capacidades de **vinculación de plantillas** de ARM, los **bucles de recursos** y la ejecución de scripts mediante extensiones relacionadas, es posible implementar un enfoque modular que se puede reutilizar con prácticamente cualquier implementación compleja basada en plantillas.
+Si desea crear un enfoque sólido y reutilizable para el diseño de plantillas del Administrador de recursos, hay que pensar aún más en cómo organizar la serie de tareas complejas e interrelacionadas necesarias durante la implementación de una solución compleja como el clúster de Redis. Al aprovechar las capacidades de vinculación de plantillas del Administrador de recursos, los bucles de recursos y la ejecución de scripts mediante extensiones relacionadas, es posible implementar un enfoque modular que se puede reutilizar con prácticamente cualquier implementación compleja basada en plantillas.
 
 En este diagrama se describen las relaciones entre todos los archivos descargados de GitHub para esta implementación:
 
@@ -387,7 +387,7 @@ En este diagrama se describen las relaciones entre todos los archivos descargado
 
 Esta sección le guía a través de la estructura de la plantilla azuredeploy.json para el clúster de Redis.
 
-Si no ha descargado una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\RedisCluster). Rellene el nombre de la carpeta y ejecute estos comandos.
+Si no ha descargado una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\RedisCluster). Rellene el nombre de la carpeta y ejecute estos comandos:
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
@@ -397,11 +397,11 @@ $filePath = $folderName + "\azuredeploy.json"
 $webclient.DownloadFile($url,$filePath)
 ```
 
-Abra la plantilla azuredeploy.json en un editor de texto o una herramienta de su elección. A continuación se describe la estructura del archivo de plantilla y el propósito de cada sección. Como alternativa, puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json).
+Abra la plantilla azuredeploy.json en un editor de texto o una herramienta de su elección. En la siguiente información se describe la estructura del archivo de plantilla y el propósito de cada sección. Como alternativa, puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json).
 
 ### Sección “parameters”
 
-Ya se mencionó el rol de **azuredeploy-parameters.json**, que se usará para pasar un conjunto determinado de valores de parámetros durante la ejecución de la plantilla. La sección “parameters” de azuredeploy.json especifica parámetros que se usan para introducir datos en esta plantilla.
+Ya se mencionó el rol de azuredeploy-parameters.json, que se usará para pasar un conjunto determinado de valores de parámetros durante la ejecución de la plantilla. La sección “parameters” de azuredeploy.json especifica parámetros que se usan para introducir datos en esta plantilla.
 
 Este es un ejemplo de un parámetro para el “tamaño de camiseta”:
 
@@ -422,7 +422,7 @@ Este es un ejemplo de un parámetro para el “tamaño de camiseta”:
 
 >[AZURE.NOTE]Tenga en cuenta que puede especificarse un `defaultValue`, así como `allowedValues`.
 
-### Sección “variables”
+### Sección "variables"
 
 La sección “variables” especifica las variables que se pueden usar en esta plantilla. Básicamente, contiene cierto número de campos (tipos de datos o fragmentos JSON) que se establecerán en constantes o valores calculados en tiempo de ejecución. Estos son algunos ejemplos, del más sencillo al más complejo:
 
@@ -453,9 +453,9 @@ La sección “variables” especifica las variables que se pueden usar en esta 
 }
 ```
 
-`vmStorageAccountContainerName` y `vmStorageAccountDomain` son ejemplos de variables de nombre/valor simples. `vnetID` es un ejemplo de una variable que se calcula en tiempo de ejecución mediante las funciones `resourceId` y `parameters`. `machineSettings` se basa en estos conceptos todavía más al anidar el objeto JSON `osImageReference` en la variable `machineSettings`. `vmScripts` contiene una matriz JSON, `scriptsToDownload`, que se calcula en tiempo de ejecución usando las funciones `concat` y `variables`.
+Las variables `vmStorageAccountContainerName` y `vmStorageAccountDomain` son ejemplos de variables de nombre/valor simples. `vnetID` es un ejemplo de una variable que se calcula en tiempo de ejecución mediante las funciones `resourceId` y `parameters`. `machineSettings` se basa en estos conceptos todavía más al anidar el objeto JSON `osImageReference` en la variable `machineSettings`. `vmScripts` contiene una matriz JSON, `scriptsToDownload`, que se calcula en tiempo de ejecución usando las funciones `concat` y `variables`.
 
-Si desea personalizar el tamaño de la implementación del clúster de Redis, puede cambiar las propiedades de las variables `tshirtSizeSmall`, `tshirtSizeMedium` y `tshirtSizeLarge` en la plantilla **azuredeploy.json**.
+Si desea personalizar el tamaño de la implementación del clúster de Redis, puede cambiar las propiedades de las variables `tshirtSizeSmall`, `tshirtSizeMedium` y `tshirtSizeLarge` en la plantilla azuredeploy.json.
 
 ```json
 "tshirtSizeSmall": {
@@ -485,13 +485,13 @@ Si desea personalizar el tamaño de la implementación del clúster de Redis, pu
 },
 ```
 
-Nota: las propiedades `totalMemberCountExcludingLast` y `totalMemberCount` son necesarias porque el idioma de la plantilla actualmente no contiene operaciones “matemáticas”.
+Nota: Las propiedades `totalMemberCountExcludingLast` y `totalMemberCount` son necesarias porque el idioma de la plantilla actualmente no contiene operaciones “matemáticas”.
 
 Encontrará más información sobre el idioma de la plantilla en MSDN en [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-### Sección “resources”
+### Sección "resources"
 
-La sección **“resources”** es donde ocurre la mayor parte de la acción. Al analizar detenidamente esta sección, puede identificar de inmediato dos casos distintos: el primero es un elemento definido de tipo `Microsoft.Resources/deployments` que básicamente invoca una implementación anidada dentro de la principal. El segundo es la propiedad `templateLink` (y la propiedad `contentVersion` relacionada) que hace posible especificar un archivo de plantilla vinculada que se invocará, pasando un conjunto de parámetros como entrada. Pueden verse en este fragmento de plantilla:
+La sección “resources” es donde ocurre la mayor parte de la acción. Analizando detenidamente esta sección, puede identificar inmediatamente dos casos diferentes. El primero es un elemento definido de tipo `Microsoft.Resources/deployments` que básicamente invoca una implementación anidada dentro de la principal. El segundo es la propiedad `templateLink` (y la propiedad `contentVersion` relacionada) que hace posible especificar un archivo de plantilla vinculada que se invocará, pasando un conjunto de parámetros como entrada. Pueden verse en este fragmento de plantilla:
 
 ```json
 {
@@ -519,17 +519,17 @@ La sección **“resources”** es donde ocurre la mayor parte de la acción. Al
 },
 ```
 
-A partir de este primer ejemplo está claro que **azuredeploy.json** se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
+A partir de este primer ejemplo está claro que azuredeploy.json se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas. Cada archivo es responsable de una parte de las actividades de implementación necesarias.
 
-En particular, se usarán las siguientes plantillas vinculadas para esta implementación:
+En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
 
 - **shared-resource.json**: contiene la definición de todos los recursos que se van a compartir en toda la implementación. Algunos ejemplos son las cuentas de almacenamiento que se usan para almacenar discos del sistema operativo de la máquina virtual, redes virtuales y conjuntos de disponibilidad.
 - **jumpbox resources.json**: implementa la máquina virtual de “JumpBox” y todos los recursos relacionados, como la interfaz de red, la dirección IP pública y el extremo de entrada usado para conectarse mediante SSH al entorno.
-- **node-resources.json**: implementa todas las máquinas virtuales de nodo del clúster de Redis y los recursos conectados (por ejemplo, tarjetas de red, IP privadas, etc.). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash para instalar físicamente y configurar Redis en cada nodo. El script que se va a invocar se pasa a esta plantilla en el parámetro `machineSettings` en la propiedad `commandToExecute`. Todos los nodos del clúster de Redis excepto uno se pueden implementar y generar por scripts en paralelo. Es necesario reservar un nodo hasta el final porque la configuración del clúster de Redis solo puede ejecutarse en un nodo y debe hacerse una vez que todos los nodos estén ejecutando el servidor de Redis. Por esta razón, el script que se va a ejecutar se pasa a esta plantilla; el último nodo debe ejecutar un script ligeramente diferente que no solo instalará el servidor de Redis, sino que configurará el clúster de Redis.
+- **node-resources.json**: implementa todas las máquinas virtuales de nodo del clúster de Redis y los recursos conectados (por ejemplo, adaptadores de red, IP privadas, etc.). Esta plantilla también implementa extensiones de máquinas virtuales (scripts personalizados para Linux) e invoca un script Bash para instalar físicamente y configurar Redis en cada nodo. El script que se va a invocar se pasa a esta plantilla en el parámetro `machineSettings` de la propiedad `commandToExecute`. Todos los nodos del clúster de Redis excepto uno se pueden implementar y generar por scripts en paralelo. Es necesario reservar un nodo hasta el final porque la configuración del clúster de Redis solo puede ejecutarse en un nodo y debe hacerse una vez que todos los nodos estén ejecutando el servidor de Redis. Por esta razón, el script que se va a ejecutar se pasa a esta plantilla; el último nodo debe ejecutar un script ligeramente diferente que no solo instalará el servidor de Redis, sino que configurará el clúster de Redis.
 
-Analicemos *cómo* se usa esta última plantilla, **node-resources.json**, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede un solo archivo de plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como **bucle de recursos**.
+Analicemos *cómo* se usa esta última plantilla, node-resources.json, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede un solo archivo de plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como **bucle de recursos**.
 
-Cuando **node-resources.json** se invoca desde el archivo **azuredeploy.json** principal, se invoca desde dentro de un recurso que usa el elemento `copy` para crear un bucle de tipos. Un recurso que usa el elemento `copy` “se copiará” a sí mismo el número de veces especificado en el parámetro `count` del elemento `copy`. Para todas las configuraciones donde sea necesario especificar valores únicos entre diferentes instancias del recurso implementado, se puede usar la función **copyindex()** para obtener un valor numérico que indica el índice actual en esa creación de bucle de recurso en particular. En el fragmento siguiente de **azuredeploy.json** se puede ver este concepto aplicado a la creación de varias máquinas virtuales para los nodos del clúster de Redis:
+Cuando node-resources.json se invoca desde el archivo azuredeploy.json principal, se invoca desde dentro de un recurso que usa el elemento `copy` para crear un bucle de tipos. Un recurso que usa el elemento `copy` “se copiará” a sí mismo el número de veces especificado en el parámetro `count` del elemento `copy`. Para todas las configuraciones donde sea necesario especificar valores únicos entre diferentes instancias del recurso implementado, se puede usar la función **copyindex()** para obtener un valor numérico que indica el índice actual en esa creación de bucle de recurso en particular. En el fragmento siguiente de azuredeploy.json se puede ver este concepto aplicado a la creación de varias máquinas virtuales para los nodos del clúster de Redis:
 
 ```json
 {
@@ -580,7 +580,7 @@ Cuando **node-resources.json** se invoca desde el archivo **azuredeploy.json** p
 
 Otro concepto importante en la creación de recursos es la capacidad de especificar las dependencias y prioridades entre los recursos, tal como se puede observar en la matriz JSON `dependsOn`. En esta plantilla en particular, puede ver que los nodos del clúster de Redis dependen de los recursos compartidos que se crean en primer lugar.
 
-Como se mencionó anteriormente, el último nodo debe esperar para su aprovisionamiento hasta que todos los demás nodos del clúster de Redis estén aprovisionados con el servidor de Redis que se ejecuta en ellos. Esto se logra en **azuredeploy.json** mediante un recurso llamado `lastnode-resources` que depende del bucle `copy`, llamado `memberNodesLoop`, del fragmento de plantilla anterior. Una vez completado `memberNodesLoop`, se puede aprovisionar `lastnode-resources`:
+Como se mencionó anteriormente, el último nodo debe esperar para su aprovisionamiento hasta que todos los demás nodos del clúster de Redis estén aprovisionados con el servidor de Redis que se ejecuta en ellos. Esto se logra en azuredeploy.json mediante un recurso llamado `lastnode-resources` que depende del bucle `copy`, llamado `memberNodesLoop`, del fragmento de plantilla anterior. Una vez completado el aprovisionamiento de `memberNodesLoop`, `lastnode-resources` se puede aprovisionar:
 
 ```json
 {
@@ -625,9 +625,9 @@ Como se mencionó anteriormente, el último nodo debe esperar para su aprovision
 }
 ```
 
-Observe cómo el recurso `lastnode-resources` pasa un `machineSettings.commandToExecute` ligeramente diferente a la plantilla vinculada. Esto se debe a que, para el último nodo, además del servidor de Redis instalado, también debe llamar a un script para configurar el clúster de Redis (lo que debe llevarse a cabo solo después de que todos los servidores de Redis estén en funcionamiento).
+Observe cómo el recurso `lastnode-resources` pasa un `machineSettings.commandToExecute` ligeramente diferente a la plantilla vinculada. Esto se debe a que, para el último nodo, además del servidor de Redis instalado, debe llamar a un script para configurar el clúster de Redis (lo que debe llevarse a cabo solo después de que todos los servidores de Redis estén en funcionamiento).
 
-Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de `CustomScriptForLinux`. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster. En este caso, esto se usa para instalar y configurar Redis en cada nodo de la máquina virtual. Echemos un vistazo a un fragmento de código de la plantilla **node-resources.json** que las usa:
+Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de `CustomScriptForLinux`. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster. En este caso, esto se usa para instalar y configurar Redis en cada nodo de la máquina virtual. Echemos un vistazo a un fragmento de código de la plantilla node-resources.json que las usa:
 
 ```json
 {
@@ -650,20 +650,20 @@ Otro fragmento interesante es el relacionado con las extensiones de máquinas vi
 }
 ```
 
-Puede ver que este recurso depende de la máquina virtual del recurso que ya se está implementando (Microsoft.Compute/virtualMachines/vmMember<X>, donde <X> es el parámetro “machineSettings.machineIndex”, que es el índice de la máquina virtual que se pasó a este script mediante la función “copyindex()”.
+Puede ver que este recurso depende de la máquina virtual del recurso que ya se está implementando (`Microsoft.Compute/virtualMachines/vmMember<X>`, donde `<X>` es el parámetro `machineSettings.machineIndex`, que es el índice de la máquina virtual que se pasó a este script mediante la función **copyindex()**).
 
-Al familiarizarse con los demás archivos incluidos en esta implementación, podrá entender todos los detalles y los procedimientos recomendados necesarios para organizar y coordinar las complejas estrategias de implementación de las soluciones de varios nodos, basadas en cualquier tecnología, aprovechando las plantillas del Administrador de recursos de Azure. Aunque no es obligatorio, un enfoque recomendado consiste en estructurar los archivos de plantillas, tal como se muestra en el diagrama siguiente:
+Al familiarizarse con los demás archivos incluidos en esta implementación, podrá entender todos los detalles y los procedimientos recomendados necesarios para organizar y coordinar las complejas estrategias de implementación de las soluciones de múltiples nodos, basadas en cualquier tecnología, aprovechando las plantillas del Administrador de recursos de Azure. Aunque no es obligatorio, un enfoque recomendado consiste en estructurar los archivos de plantillas, tal como se muestra en el diagrama siguiente:
 
 ![redis-template-structure](media/virtual-machines-redis-template/redis-template-structure.png)
 
 Básicamente, se sugiere este enfoque para:
 
 - Definir el archivo de plantilla principal como punto central de coordinación para todas las actividades de implementación específicas y aprovechar la vinculación de las plantillas para invocar ejecuciones de subplantillas.
-- Crear archivos de plantillas específicas que implementarán todos los recursos compartidos en todas las demás tareas de implementación específicas (por ejemplo, cuentas de almacenamiento, configuración de red virtual, etc.). Esto se puede reutilizar en gran medida entre las implementaciones que tienen requisitos similares en cuanto a una infraestructura común.
+- Crear archivos de plantillas específicas que implementarán todos los recursos compartidos en todas las demás tareas de implementación específicas (cuentas de almacenamiento, configuración de red virtual, etc.). Esto se puede reutilizar en gran medida entre las implementaciones que tienen requisitos similares en cuanto a una infraestructura común.
 - Incluir plantillas de recursos opcionales para identificar requisitos específicos de un recurso determinado.
 - Para los miembros idénticos de un grupo de recursos (nodos de un clúster, etc.), crear plantillas específicas que aprovechen bucles de recursos a fin de implementar varias instancias con propiedades únicas.
-- Para todas las tareas de implementación posteriores (por ejemplo, instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
+- Para todas las tareas de implementación posteriores (instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

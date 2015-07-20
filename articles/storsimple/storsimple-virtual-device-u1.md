@@ -385,4 +385,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Obtenga información acerca de cómo [Restaurar desde copia de seguridad](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

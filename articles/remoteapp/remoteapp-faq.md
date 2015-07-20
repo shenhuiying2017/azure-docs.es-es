@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="06/30/2015" 
 	ms.author="elizapo"/>
 
 # Preguntas más frecuentes sobre Azure RemoteApp
@@ -27,11 +27,12 @@ Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene algun
 
 ## Configuraciones admitidas ##
 
-
+- **¿Cuáles son los límites de servicio?** Acabamos de agregar un nuevo tema donde se tratan todos [los límites de servicio y los valores predeterminados](remoteapp-servicelimits.md). Indíquenos si tiene otras preguntas.
+- **¿Cuántos usuarios es necesario tener?** Hay un mínimo de 20 usuarios. Permítame que me repita para que quede más claro: el valor mínimo es 20. Se le facturarán 20. Consulte otros [límites y valores predeterminados de usuario](remoteapp-servicelimits.md) aquí.
 - **¿Son compatibles las aplicaciones personalizadas de línea de negocio (LOB)?** Sí. Para usar una aplicación personalizada de RemoteApp de Azure, cree una [imagen de plantilla personalizada](remoteapp-create-custom-image.md), y cárguela en la colección de RemoteApp.
 - **¿Funcionará mi aplicación personalizada de LOB en RemoteApp de Azure?** La mejor manera de averiguarlo es probándola. Revise los [requisitos de compatibilidad de aplicaciones](http://www.microsoft.com/download/details.aspx?id=18704) y consulte el [Centro de compatibilidad de Escritorio remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
 - **¿Qué método de implementación (nube o híbrida) es mejor para mi organización?** Las colecciones híbridas ofrecen una mejor experiencia si desea una integración completa y segura con el inicio de sesión único (SSO) en entornos locales de conectividad de red. Las colecciones de nube ofrecen una manera fácil y ágil para aislar la implementación usando varios métodos de autenticación. Obtenga más información sobre las [Opciones de implementación](remoteapp-whatis.md).
-- **La colección híbrida requiere una red virtual. ¿Podemos usar nuestra red existente?** No en este momento, pero sabemos que quiere hacerlo. Mientras trabajamos en ello, puede conectar la red virtual existente a la red virtual de RemoteApp de Azure siguiendo [estas instrucciones](http://blogs.msdn.com/b/rds/archive/2014/07/21/how-to-link-azure-remoteapp-to-an-existing-vnet.aspx).
+- **La colección híbrida requiere una red virtual. ¿Podemos usar nuestra red virtual existente?** Puede hacerlo si la red virtual existente es una red virtual de Azure. Vea "Paso 1: Configuración de la red virtual" en las [instrucciones de colección híbrida](remoteapp-create-hybrid-deployment.md) para obtener más información.
 - **¿Puedo usar una nube o una máquina virtual existente como plantilla para mi colección de RemoteApp?** Sí. Puede crear una imagen basada en una máquina virtual de Azure, usar una de las imágenes que se incluyen con su suscripción o crear una imagen personalizada. Consulte las [Opciones de imagen de RemoteApp](remoteapp-imageoptions.md).
 - **Tenemos SQL u otra base de datos en implementación local o en Azure. ¿Qué tipo de implementación debemos usar?** Depende de dónde esté la base de datos SQL o back-end. Si la base de datos está en una red privada, use la colección híbrida. Si la base de datos está expuesta en Internet y permite conexiones cliente para conectarse a ella, puede usar la colección en la nube.
 - **¿Qué sucede con las características de asignación de unidad, puerto serie y USB, uso compartido del Portapapeles y redirección de impresora?** Todas estas características se admiten en RemoteApp de Azure. El uso compartido del Portapapeles y la redirección de impresora se habilitan de forma predeterminada. Puede obtener más información sobre la redirección [aquí](remoteapp-redirection.md). 
@@ -79,5 +80,6 @@ Hemos recibido las siguientes preguntas acerca de Azure RemoteApp. ¿Tiene algun
 
 	Vídeos También tenemos una serie de vídeos acerca de RemoteApp. Algunos ofrecen una introducción ([Introducción a RemoteApp de Azure](https://www.youtube.com/watch?v=3NAv2iwZtGc&feature=youtu.be)) y otros le guiarán a través de la implementación ([Implementación en la nube](http://azure.microsoft.com/documentation/videos/cloud-cover-ep-150-azure-remote-app-with-thomas-willingham-and-nihar-namjoshi/) e [Implementación híbrida](https://www.youtube.com/watch?v=GCIMxPUvg0c&feature=youtu.be)). Écheles un vistazo.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="Solucionar problemas con los indicadores de supervisión"
+    pageTitle="Indicadores de supervisión de StorSimple"
     description="Describe los LED y alarmas que se usan para supervisar el estado del dispositivo StorSimple."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/07/2015"
+    ms.date="06/11/2015"
     ms.author="v-sharos" />
 
-# Solucionar problemas con los indicadores de supervisión   
+# Indicadores de supervisión de StorSimple   
 
 ## Información general
 
@@ -34,6 +34,8 @@ En lo que resta de artículo se describen los distintos indicadores LED de super
 El panel frontal, también conocido como *panel de operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el dispositivo StorSimple y el revestimiento de EBOD, como se ilustra aquí.
 
    ![][1]
+
+**Figura 1: Panel frontal del dispositivo**
  
 El panel frontal contiene los siguientes indicadores:
 
@@ -67,11 +69,14 @@ Los indicadores LED del módulo de refrigeración de alimentación (PCM) se encu
 - LED de PCM del revestimiento de EBOD
 
 ## LED de PCM del revestimiento principal  
+
 El dispositivo StorSimple tiene un módulo PCM de 764 W con una batería adicional. En la siguiente ilustración se muestra el panel de indicadores LED del dispositivo.
 
    ![][2]
+
+**Figura 2: LED de PCM del revestimiento principal**
  
-**Leyenda de LED**
+Leyenda de LED:
 
 1. Error de corriente alterna
 2. Error del ventilador
@@ -110,6 +115,8 @@ El estado del PCM se indica en el panel de LED. El panel de LED de PCM del dispo
 El revestimiento de EBOD tiene un PCM de 580 W sin batería adicional. El panel del PCM del revestimiento de EBOD tiene LED únicamente para las fuentes de alimentación y el ventilador. En la siguiente ilustración se muestran estos indicadores.
 
    ![][3]
+
+**Figura 3: LED de PCM del revestimiento de EBOD**
  
 Use la siguiente tabla para conocer el estado del PCM.
 
@@ -133,6 +140,8 @@ La siguiente ilustración sirve para identificar los LED en el controlador princ
 
    ![][4]
  
+**Figura 4: LED de supervisión - controlador principal**
+
 Use la siguiente tabla para saber si el módulo del controlador está funcionando correctamente.
 
 ### Indicadores LED de controlador  
@@ -149,24 +158,21 @@ Use la siguiente tabla para saber si el módulo del controlador está funcionand
 >[AZURE.IMPORTANT]Si el LED de error está encendido, quiere decir que hay un problema con el módulo del controlador que podría resolverse reiniciando el controlador. Póngase en contacto con el equipo de soporte técnico de Microsoft si reiniciar el controlador no resuelve este problema.
 
 
-###LED de supervisión del EBOD (revestimiento de EBOD)  
+### LED de supervisión del EBOD (revestimiento de EBOD)  
 
 Cada uno de los controladores de EBOD SAS de 6 Gb/s tiene varios LED que indican su estado, como se muestra en la siguiente ilustración.
 
   ![][5]
+
+**Figura 5: Supervisión LED - receptáculo de EBOD**
  
 Use la siguiente tabla para saber si el módulo del controlador EBOD funciona con normalidad.
 
-###Indicadores LED del módulo de controlador de EBOD  
+### Indicadores LED del módulo de controlador de EBOD  
 
 |Estado | Módulo de E/S correcto (verde) | Error del módulo de E/S (ámbar) | Actividad de puerto del host (verde) |
 |-------|----------------------|-------------------------------|----------------------------|
-| Módulo de controlador correcto | Encendido | Apagado | - | 
-| Error del módulo de controlador | Apagado | Encendido | - | 
-| Sin conexión de puerto de host externo | - | - | Apagado | 
-| Conexión de puerto de host externo: sin actividad | - | - | Encendido| 
-| Conexión de puerto de host externo: actividad | - | - | Intermitente | 
-| Error de metadatos del módulo de controlador | Intermitente | - | - |
+| Módulo de controlador correcto | Encendido | Apagado | - | | Error del módulo de controlador | Apagado | Encendido | - | | Sin conexión de puerto de host externo | - | - | Apagado | | Conexión de puerto de host externo: sin actividad | - | - | Encendido| | Conexión de puerto de host externo: actividad | - | - | Intermitente | | Error de metadatos del módulo de controlador | Intermitente | - | - |
 
 ## Indicadores LED de unidad de disco del revestimiento principal y el revestimiento de EBOD
 
@@ -175,6 +181,8 @@ El dispositivo StorSimple tiene unidades de disco en el revestimiento principal 
 El estado de las unidades de disco se indica con un LED verde y un LED rojo-ámbar montados en la parte frontal de cada módulo portador de unidades. En la siguiente ilustración se muestran estos indicadores.
 
   ![][6]
+
+**Figura 6: LED de unidad de disco**
  
 Use la siguiente tabla para conocer el estado de cada unidad de disco, lo que a su vez afecta al estado de los LED del panel frontal.
 
@@ -213,7 +221,7 @@ En la siguiente tabla se describen los distintos estados de alarma.
 | S3 | Modo en silencio: silencioso | Ninguna |
 | S4 | Modo de error crítico: alarma continua | No disponible: silencio no activo |
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 
 >  - Si en el estado de alarma S1 no presiona Silenciar en los siguientes 2 minutos, pasará automáticamente a S2 o S3.  
 >  - Los estados de alarma S1 a S4 vuelven a S0 una vez resuelta la condición de error.  
@@ -246,6 +254,7 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 | Error de control de alimentación de la unidad | Error: crítico; pérdida de alimentación de la unidad | S1 | Error de módulo |
 | Unidad extraída | Advertencia | Ninguna | Error de módulo |
 | Alimentación insuficiente disponible | Advertencia | Ninguna | Error de módulo |
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -253,6 +262,6 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

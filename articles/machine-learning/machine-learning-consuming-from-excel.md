@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Consumir un servicio web de Aprendizaje automático de Azure desde Excel | Azure" 
+	pageTitle="Consumo de un servicio web de Aprendizaje automático de Excel |Microsoft Azure" 
 	description="Consumir un servicio web de Aprendizaje automático de Azure de Excel" 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,23 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="luisca"/>
+	ms.date="05/18/2015" 
+	ms.author="tedway"/>
 
 
 # Consumo de un servicio web de Aprendizaje automático de Azure de Excel #
 
- Azure Machine Learning Studio facilita el consumo de servicios web de puntuación directamente desde Excel sin necesidad de escribir ningún código. 
+ Estudio de aprendizaje automático de Azure facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)] 
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Pasos
 
-1. Publicar un servicio web. [En esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de Libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única). 
+1. Publicar un servicio web. En [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de Libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única). 
  
-2. En cuanto disponga de un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, a continuación, seleccione el servicio web para consumir desde Excel. 
+2. Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, a continuación, seleccione el servicio web que se va a consumir desde Excel.
 
-3. En la ficha **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** en esa fila.
+3. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** de esa fila.
 
 	![][1]
  
@@ -41,15 +41,15 @@
 
 6. Aparecerá una advertencia de seguridad. Haga clic en el botón **Habilitar contenido** para ejecutar macros en la hoja de cálculo.
 
-	![][3] 
+	![][3]
  
-7. Una vez que las macros están habilitadas, se generará una tabla. Las columnas en azul son necesarias como entrada al servicio web RRS o como **PARÁMETROS**. Tenga en cuenta la salida del servicio RRS, los **VALORES PREDICHOS** en verde. Cuando se llenan todas las columnas de una fila determinada, el libro llama a la API de puntuación automáticamente y muestra los resultados con puntuación. 
+7. Una vez que las macros están habilitadas, se generará una tabla. Las columnas en azul son necesarias como entrada al servicio web RRS o como **PARÁMETROS**. Tenga en cuenta la salida del servicio RRS, los **VALORES PREDICHOS** en verde. Cuando se llenan todas las columnas de una fila determinada, el libro llama a la API de puntuación automáticamente y muestra los resultados con puntuación.
 
 	![][4]
 
 7. Para puntuar más de una fila, rellene la segunda fila con datos y se generarán los valores predichos. Incluso puede pegar varias filas a la vez.
 
-8. Ahora utilice cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción.    
+8. Ahora utilice cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción.
 
 
 ## Compartir el libro
@@ -62,11 +62,12 @@ En las siguientes dos situaciones se realiza una llamada a RRS:
 
 1. La primera vez que una fila tiene contenido en todos sus **PARÁMETROS**
     
-2. Cada vez que cualquiera de los cambios en los **PARÁMETROS** de una fila en la que se habían introducido todos sus **PARÁMETROS**.
+2. Cada vez que cualquiera de los **PARÁMETROS** cambia en una fila en la que se habían introducido todos sus **PARÁMETROS**.
 
 [1]: ./media/machine-learning-consuming-from-excel/excellink.png
 [2]: ./media/machine-learning-consuming-from-excel/enableeditting.png
 [3]: ./media/machine-learning-consuming-from-excel/enablecontent.png
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

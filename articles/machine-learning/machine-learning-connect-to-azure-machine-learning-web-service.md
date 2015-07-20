@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Conectarse a un servicio web de Aprendizaje automático de Azure | Azure" 
+	pageTitle="Conectarse a un servicio web de Aprendizaje automático | Microsoft Azure" 
 	description="Mediante C# o Python, conéctese a un servicio web de Aprendizaje automático de Azure mediante una clave de autorización." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="derrickv" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,19 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="derrickv" />
 
 
 # Conectarse a un servicio web de Aprendizaje automático de Azure 
-La experiencia del desarrollador de Aprendizaje automático de Azure es una API de servicio web para realizar predicciones a partir de datos de entrada en tiempo real o en modo por lotes. Utilice Azure Machine Learning Studio (ML Studio) para crear predicciones y publicar un servicio web de Azure ML. 
+La experiencia del desarrollador de Aprendizaje automático de Azure es una API de servicio web para realizar predicciones a partir de datos de entrada en tiempo real o en modo por lotes. Utilice Estudio de aprendizaje automático de Azure para crear predicciones y publicar un servicio web de Aprendizaje automático de Azure.
 
-Para obtener información acerca de cómo crear y publicar un servicio web de Aprendizaje automático de Azure con ML Studio:
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-- [Información general sobre el proceso Aprendizaje automático de Azure](../machine-learning-overview-of-azure-ml-process.md)
+Para obtener información acerca de cómo crear y publicar un servicio web de Aprendizaje automático de Azure con Estudio:
+
+- [Publicar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md)
 - [Introducción a Estudio de aprendizaje automático](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Vista previa de Aprendizaje automático de Azure](https://studio.azureml.net/)
-- [Centro de documentación de aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning/)
+- [Centro de documentación de Aprendizaje automático](http://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Servicio web de Aprendizaje automático de Azure ##
 
@@ -36,13 +38,13 @@ Aprendizaje automático de Azure tiene dos tipos de servicios:
 - Servicio de solicitud y respuesta (RRS): servicio de latencia baja altamente escalable que proporciona una interfaz para los modelos sin estado creados y publicados desde ML Studio.
 - Servicio de ejecución por lotes (BES): servicio asincrónico que puntúa un lote de registros de datos.
 
-Para obtener más información acerca de los servicios web de Aprendizaje automático de Azure, consulte [Proceso de información general de Azure ML](../machine-learning-overview-of-azure-ml-process.md).
+Para obtener más información sobre los servicios web de Aprendizaje automático de Azure, consulte [Publicar un servicio web de Aprendizaje automático de Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Obtener una clave de autorización de Aprendizaje automático de Azure ##
 Obtenga una clave de API de servicio web de un servicio web de ML. Puede obtenerla de Microsoft Azure Machine Learning Studio o del portal de administración de Azure.
 ### Microsoft Azure Machine Learning Studio ###
-1. En Microsoft Azure Machine Learning Studio, haga clic en **SERVICIOS WEB** a la izquierda.
-2. Haga clic en un servicio web. La "clave de API" está en la ficha **PANEL**.
+1. En Estudio de aprendizaje automático de Microsoft Azure, haga clic en **SERVICIOS WEB** a la izquierda.
+2. Haga clic en un servicio web. La "clave de API" está en la pestaña **PANEL**.
 
 ### Portal de administración de Azure ###
 
@@ -52,7 +54,7 @@ Obtenga una clave de API de servicio web de un servicio web de ML. Puede obtener
 4. Haga clic en un servicio web.
 5. Haga clic en un extremo. La "CLAVE DE API" está inactiva en la parte inferior derecha.
 
-## <a id="connect"></a>Conectarse a un servicio web de Aprendizaje automático de Azure
+## <a id="connect"></a>Conexión a un servicio web de Aprendizaje automático de Azure
 
 Puede conectarse a un servicio web de Aprendizaje automático de Azure mediante cualquier lenguaje de programación que admita la respuesta y solicitud HTTP. Puede ver ejemplos en C#, Python y R desde una página de ayuda de servicio web de Azure ML.
 
@@ -60,21 +62,19 @@ Puede conectarse a un servicio web de Aprendizaje automático de Azure mediante 
 Se crea una página de ayuda de la API de Azure ML al publicar un servicio web. Consulte [Tutorial de Aprendizaje automático de Azure: publicar servicio web](machine-learning-walkthrough-5-publish-web-service.md).
 
 
-**Para ver una página de ayuda de la API de Azure ML**
-En Microsoft Azure Machine Learning Studio:
+**Para ver una página de ayuda de la API de Aprendizaje automático de Azure**, en Estudio de aprendizaje automático de Microsoft Azure:
 
-1. Seleccione **SERVICIOS WEB**.
+1. Elija **SERVICIOS WEB**.
 2. Elija un servicio web.
-3. Seleccione **Página de ayuda de la API** - **SOLICITUD/RESPUESTA** o **EJECUCIÓN POR LOTES**.
+3. Elija **Página de ayuda de la API** - **SOLICITUD-RESPUESTA** o **EJECUCIÓN POR LOTES**.
 
 
-**Página de ayuda de la API de Azure ML**
-La página de ayuda de la API de Azure ML contiene detalles acerca de un servicio web de predicción, incluido
+**Página de ayuda de la API de Aprendizaje automático de Azure**. La página de ayuda de la API de Aprendizaje automático de Azure contiene detalles acerca de un servicio web de predicción, entre los que se incluyen
 
 
 <table>
 	<tr>
-		<td>&nbsp;</td>
+		<td>&#160;</td>
 		<td>Ejemplo </td>
 	</tr>
 	<tr>
@@ -86,16 +86,16 @@ La página de ayuda de la API de Azure ML contiene detalles acerca de un servici
 	<tr>
 		<td>Solicitud de ejemplo </td>
 		<td>{ <br/> 
-			&nbsp;&nbsp; "Id": "score00001",   <br/>
-			&nbsp;&nbsp; "Instancia": <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; {  <br/>  
- 			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; "FeatureVector": { <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col1": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col2": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col3": "0", <br/>  
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  ...     },   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;   "GlobalParameters": {}   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; } <br/>
+			&#160;&#160; "Id": "score00001",   <br/>
+			&#160;&#160; "Instancia": <br/>
+			&#160;&#160;&#160;&#160; {  <br/>  
+ 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
+			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
+			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
+			&#160;&#160;&#160;&#160; } <br/>
 		}</td>
 	</tr>
 	<tr>
@@ -104,7 +104,7 @@ La página de ayuda de la API de Azure ML contiene detalles acerca de un servici
 		<table style="width: 100%">
 
 			<tr>
-				<td><B>Nombre</B></td>
+				<td><B>Name</B></td>
 				<td><B>Tipo de datos</B></td>
 			</tr>
 	
@@ -129,7 +129,7 @@ La página de ayuda de la API de Azure ML contiene detalles acerca de un servici
 	</tr>
 	<tr>
 		<td>Respuesta de ejemplo </td>
-		<td>[&quot;Col1&quot;,&quot;1&quot;,&quot;1&quot;,...] </td>
+		<td>["Col1","1","1",…] </td>
 	</tr>
 	<tr>
 		<td>Código de ejemplo </td>
@@ -137,15 +137,15 @@ La página de ayuda de la API de Azure ML contiene detalles acerca de un servici
 	</tr>
 </table>
 
-**NOTA** Los ejemplos corresponden al ejemplo 1: Descargue el conjunto de datos de UCI: Parte del conjunto de datos para adultos 2 de la colección de ejemplo Azure ML.
+**NOTA** Los ejemplos corresponden al ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2, que forma parte de la colección de ejemplos de Aprendizaje automático de Azure.
 
 ### Ejemplo de C# ###
 
-Para conectarse a un servicio web de Azure ML, use un **HttpClient** que pase ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones  de características numéricas que representa el ScoreData. Autentíquese en el servicio de Azure ML con una clave de API.
+Para conectarse a un servicio web de Aprendizaje automático de Azure, use un **HttpClient** que pase ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones de características numéricos que representa el ScoreData. Autentíquese en el servicio de Azure ML con una clave de API.
 
-Para conectarse a un servicio web de ML, el paquete **Microsoft.AspNet.WebApi.Client** NuGet debe estar instalado.
+Para conectarse a un servicio web de Aprendizaje automático, se debe instalar el paquete NuGet **Microsoft.AspNet.WebApi.Client**.
 
-**Instalar Microsoft.AspNet.WebApi.Client Nuget en Visual Studio**
+**Instalar NuGet Microsoft.AspNet.WebApi.Client Nuget en Visual Studio**
 
 1. Publique el conjunto de datos de descarga de UCI: Servicio web de conjunto de datos de clase de contenido para adultos 2.
 2. Haga clic en **Herramientas** > **Administrador de paquetes de Nuget** > **Consola del Administrador de paquetes**.
@@ -153,7 +153,7 @@ Para conectarse a un servicio web de ML, el paquete **Microsoft.AspNet.WebApi.Cl
 
 **Para ejecutar el ejemplo de código**
 
-1. Publique "Ejemplo 1: Descargue el conjunto de datos de UCI: experimento "Conjunto de datos de clase de contenido para adultos 2", parte de la colección de ejemplo de Aprendizaje automático de Azure.
+1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático de Azure.
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
@@ -256,12 +256,12 @@ Para conectarse a un servicio web de ML, el paquete **Microsoft.AspNet.WebApi.Cl
 
 ### Ejemplo de Python ###
 
-Para conectarse a un servicio web de Azure ML, use la biblioteca **urllib2** pasando ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones  de características numéricas que representa el ScoreData. Autentíquese en el servicio de Azure ML con una clave de API.
+Para conectarse a un servicio web de Aprendizaje automático de Azure, use la biblioteca **urllib2** pasando ScoreData. ScoreData contiene un FeatureVector, un vector de n dimensiones de características numéricos que representa el ScoreData. Autentíquese en el servicio de Azure ML con una clave de API.
 
 
 **Para ejecutar el ejemplo de código**
 
-1. Publique "Ejemplo 1: Descargue el conjunto de datos de UCI: experimento "Conjunto de datos de clase de contenido para adultos 2", parte de la colección de ejemplo de Aprendizaje automático de Azure.
+1. Publique el experimento "Ejemplo 1: descargar el conjunto de datos de UCI: conjunto de datos de clase de contenido para adultos 2", que forma parte de la colección de ejemplos de Aprendizaje automático de Azure.
 2. Asigne una clave de API con la clave de un servicio web. Consulte cómo obtener una clave de autorización de Aprendizaje automático de Azure.
 3. Asigne la URI de servicio a la URI de solicitud. Consulte cómo obtener un URI de solicitud.
 
@@ -312,5 +312,6 @@ Para conectarse a un servicio web de Azure ML, use la biblioteca **urllib2** pas
 	
 		result = response.read()
 		print(result) 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

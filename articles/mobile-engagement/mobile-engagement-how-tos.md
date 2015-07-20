@@ -3,7 +3,7 @@
    description="Introducción de la interfaz de usuario de Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,27 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introducción">Introducción</a> 	
-<a href="../mobile-engagement-user-interface-navigation" title="Navegación">Navegación</a> 	
-<a href="../mobile-engagement-user-interface-home/" title="Inicio">Inicio</a> 	
-<a href="../mobile-engagement-user-interface-my-account" title="Mi cuenta">Mi cuenta</a> 	
-<a href="../mobile-engagement-user-interface-analytics" title="Análisis">Análisis</a> 	
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a> 	
-<a href="../mobile-engagement-user-interface-reach" title="Cobertura">Cobertura</a> 	
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Campaña-cobertura">Campaña-cobertura</a> 	
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Criterio-cobertura">Criterio-cobertura</a>	
-<a href="../mobile-engagement-user-interface-reach-content" title="Contenido-cobertura">Contenido-cobertura</a>	
-<a href="../mobile-engagement-how-tos" title="Guía práctica-Cobertura">Guía práctica-Cobertura</a> 	
-<a href="../mobile-engagement-user-interface-segments" title="Segmentos">Segmentos</a> 	
-<a href="../mobile-engagement-user-interface-dashboard" title="Panel">Panel</a> 	
-<a href="../mobile-engagement-user-interface-settings" title="Configuración">Configuración</a>	
-</div>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
+
 Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a usar la sección Cobertura de la interfaz de usuario para enviar notificaciones a los usuarios de la aplicación.
 
 ## Creación de la primera campaña de notificación de inserción
@@ -307,5 +291,6 @@ Una vista web es un elemento emergente con contenido web. Este elemento emergent
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

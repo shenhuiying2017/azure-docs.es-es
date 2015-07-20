@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/05/2015"
+    ms.date="06/29/2015"
     ms.author="v-sharos" />
 
 # Notas de la versión 1 de la actualización de la serie StorSimple 8000  
@@ -27,6 +27,7 @@ Revise la información contenida en las notas de la versión antes de implementa
 
 >[AZURE.IMPORTANT]
 > 
+- El 23 de junio se lanzó una revisión de gran importancia, la actualizazión 1.1. Esta revisión soluciona un problema que surgía en el motor de copia de seguridad. Si aplicó la actualización 1 antes del 23 de junio y está utilizando la versión de software **6.3.9600.17491**, asegúrese de aplicar esta actualización crítica para evitar problemas con las copias de seguridad. Una vez instalada la actualización, la versión del software cambiará a **6.3.9600.17521**.
 - Para instalar la actualización 1, use el Servicio de Administrador de StorSimple, no Windows PowerShell para StorSimple.
 - Esta versión contiene también las actualizaciones del firmware del disco que solo pueden aplicarse cuando el dispositivo está en modo de mantenimiento. Estas actualizaciones son perturbadoras, por lo que provocarán un tiempo de inactividad en el dispositivo. Estas actualizaciones se pueden aplicar durante el mantenimiento planificado.
 - Esta actualización tarda aproximadamente 5-10 horas en instalarse (incluidas las actualizaciones de Windows). 
@@ -55,7 +56,6 @@ Esta actualización contiene las siguientes características nuevas y mejoras:
 
 ## Problemas corregidos en la actualización 1
 
-
 La tabla siguiente contiene un resumen de los problemas corregidos en esta actualización.
 
 | N.º | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
@@ -68,6 +68,7 @@ La tabla siguiente contiene un resumen de los problemas corregidos en esta actua
 | 6 | Recuperación ante desastres | Se corrigió un error de recuperación ante desastres (DR) en el que se produciría un error de DR durante la detección de las copias de seguridad en el dispositivo de destino. | Sí | Sí |
 | 7 | LED de supervisión | En determinados casos, los LED de supervisión de la parte trasera del dispositivo no indicaron que el estado es correcto. Se ha desactivado el LED azul. Los LED de DATA 0 y DATA 1 parpadeaban aun cuando las interfaces no se habían configurado. El problema se ha corregido y los LED de supervisión indican el estado correcto. | Sí | No |
 | 8 | Interfaces de red | En las versiones anteriores, los dispositivos de StorSimple configurados con una puerta de enlace no enrutable podían quedarse sin conexión. En esta versión, la métrica de enrutamiento para Data 0 se ha realizado en los valores más bajos; por lo tanto, aunque otras interfaces de red están habilitadas para la nube, todo el tráfico de nube del dispositivo se enrutará a través de Data 0. | Sí | Sí | 
+| 9 | Copias de seguridad | En la revisión de la actualización 1.1 (versión de software 6.3.9600.17521), se ha corregido un error que se daba en la actualización 1 (versión de software 6.3.9600.17491) y que causaba el fallo de las copias de seguridad a los 24 días. | Sí | Sí |
 
 ## Problemas conocidos de la actualización 1
 
@@ -83,7 +84,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 6 | Proxy web | Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. | Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](https://msdn.microsoft.com/library/azure/dn764937.aspx). | Sí | No |
 | 7 | Proxy web | Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | | Sí | No |
 | 8 | Latencia alta de la nube y alta carga de trabajo de E/S | Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». | Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. | Sí | No |
-| 9 | Azure PowerShell | Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. | Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | Sí | Sí |
+| 9 | Azure PowerShell | Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. | Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | Sí | Sí |
 | 10| Migración | Cuando se pasan varios contenedores de volúmenes para la migración, el ETA de la copia de seguridad más reciente solo es preciso en el primer contenedor de volúmenes. Además, la migración paralela se iniciará después de que se hayan migrado las cuatro primeras copias de seguridad del primer contenedor de volúmenes. | Se recomienda migrar los contenedores de volúmenes de uno en uno. | Sí | No |
 | 11| Migración | Después de la restauración, los volúmenes no se agregan a la directiva de copia de seguridad ni al grupo de discos virtuales. | Para crear copias de seguridad, será preciso agregar estos volúmenes a una directiva de copia de seguridad. | Sí | Sí |
 | 12| Migración | Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. | Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. | Sí | No |
@@ -92,7 +93,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 
 ## Actualizaciones del dispositivo físico en la actualización 1
 
-Cuando estas actualizaciones se aplican a un dispositivo físico, la versión del software cambiará a 6.3.9600.17491.
+Cuando aplique estas actualizaciones en un dispositivo físico, la versión del software cambiará a 6.3.9600.17521.
 
 ## Controlador SCSI conectado en serie (SAS) y actualizaciones de firmware en la actualización 1
 
@@ -113,4 +114,4 @@ Esta versión no contiene actualizaciones para el dispositivo virtual. La aplica
 - [Instalación de la actualización 1 en un dispositivo](storsimple-install-update-1.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

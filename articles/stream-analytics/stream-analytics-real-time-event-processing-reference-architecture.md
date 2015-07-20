@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Procesado de eventos en tiempo real con Análisis de transmisiones | Azure" 
+	pageTitle="Procesado de eventos en tiempo real con Análisis de transmisiones | Microsoft Azure" 
 	description="Aprenda cómo puede interoperar un conjunto de servicios de Azure para habilitar el procesado de eventos en tiempo real y el análisis." 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 
-# Arquitectura de referencia: Procesado de eventos en tiempo real con Análisis de transmisiones de Microsoft Azure
+# Arquitectura de referencia: procesado de eventos en tiempo real con Análisis de transmisiones de Microsoft Azure
 
 La arquitectura de referencia para el procesado de eventos en tiempo real con Análisis de transmisiones de Azure está diseñada para proporcionar un plano genérico para implementar una plataforma en tiempo real como una solución de procesado de transmisiones (PaaS) de servicio con Microsoft Azure.
 
@@ -60,5 +60,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

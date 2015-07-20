@@ -119,4 +119,4 @@ Si cualquiera de las siguientes caracterizan sus necesidades de servicio de apli
 + [Lea el modelo de programación de actores fiables](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

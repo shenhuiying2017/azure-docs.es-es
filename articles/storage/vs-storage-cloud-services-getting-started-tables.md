@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de servicio en la nube)
@@ -418,7 +418,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 <ul>
 <li>Consulte la documentación de referencia del servicio de tabla para obtener información detallada acerca de las API disponibles:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de API de REST</a></li>
   </ul>
@@ -444,7 +444,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
   
   [publicación de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
@@ -456,4 +456,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -34,6 +34,7 @@
 | 4. Seleccione el servidor que quiere copiar a un servidor nuevo con SQL Database Update habilitado. | ![Muestra una lista de servidores SQL Server][4] |
 | 5. Haga clic en **Configuración** o **Versión de servidor** para actualizar el servidor a la V12. | ![Característica de vista previa más reciente][5] |
 | 6. Haga clic en **ACTUALIZAR ESTE SERVIDOR**. | ![Actualiza el servidor SQL Server a la vista previa][6] |
+| 7. Al hacer clic en **ACTUALIZAR ESTE SERVIDOR**, se iniciará el proceso de actualización. En **Versión del servidor**, la notificación cambia de **V2** a **Actualización programada..**. Al hacer clic en la notificación **Actualización programada...**, se abre una hoja que tiene el botón **Cancelar actualización** en la parte superior. Haga clic en **Cancelar actualización** en caso de que decida no actualizar el servidor por cualquier motivo. **Tenga en cuenta** que la función para cancelar la actualización no funcionará en las fases finales del proceso de actualización. Si se pulsa el botón en estas fases, la actualización se llevará a cabo normalmente.|![Cancelar actualización][9] 
 
 
 > [AZURE.NOTE]Una vez que seleccione la opción de actualización, se habilitarán tanto el servidor como las bases de datos del servidor con las características de Base de datos SQL V12 y dicha operación no se podrá revertir. Para actualizar los servidores a Base de datos SQL V12, se requiere un nivel de servicio Basic, Standard o Premium. Para obtener más información sobre los niveles de servicio, consulte [Actualización de las bases de datos SQL Web o Business a niveles de servicio nuevos](sql-database-upgrade-new-service-tiers.md).
@@ -90,6 +91,7 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 [6]: ./media/sql-database-v12-upgrade/upgrade.png
 [7]: ./media/sql-database-v12-upgrade/typeservername.png
 [8]: ./media/sql-database-v12-upgrade/enabled.png
+[9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

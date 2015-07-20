@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # Instalar el dispositivo StorSimple 8600
@@ -41,10 +41,10 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
 1. Compruebe si las cajas y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. Póngase en contacto con el soporte técnico de Microsoft para ayudarle a determinar si el dispositivo está en buen estado.
 
 2. Abra las dos cajas y desempaquete los receptáculos EBOD y principal. En la siguiente ilustración se muestra una vista del dispositivo de almacenamiento desempaquetado.
- 
-    **Figura 1 Vista del dispositivo de almacenamiento desempaquetado**
 
     ![Desempaquetar el dispositivo de almacenamiento](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+ 
+    **Figura 1: Vista del dispositivo de almacenamiento desempaquetado**
 
      Etiqueta | Descripción 
      ----- | -------------
@@ -112,9 +112,9 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
 
 2. Normalmente, estas guías vienen instaladas de fábrica. En caso contrario, instale las guías del lado izquierdo y derecho en los laterales del chasis del receptáculo. Estas se instalan mediante seis tornillos métricos en cada lado. Para ayudarle con la orientación, las guías disponen de las marcas **LH – Front** y **RH – Front**, y el extremo que se fija en la parte trasera del receptáculo tiene un extremo ahusado.
 
-    **Figura 2 Fijación de guías a los laterales del receptáculo**
-
     ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+
+    **Figura 2: Fijación de guías a los laterales del receptáculo**
 
     Etiqueta | Descripción
     ----- | -----------
@@ -129,9 +129,9 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
 
 6. Repita estos pasos con el otro soporte de la guía.
 
-    **Figura 3 Fijación de soportes de guía en el bastidor**
-
      ![Fijación de las guías al armario del chasis](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **Figura 3: Fijación de soportes de guía en el bastidor**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -151,17 +151,17 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
 2. Inserte cuidadosamente el receptáculo en las guías y, a continuación, empújelo completamente hacia el armario del bastidor.
 
-    **Figura 4 Montaje del receptáculo en el bastidor**
-
     ![Inserción del dispositivo en el bastidor](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **Figura 4: Montaje del receptáculo en el bastidor**
 
 3. Fije el receptáculo en el bastidor mediante la instalación de un tornillo de cabeza compatible con un tornillo de cabeza Phillips proporcionado a través de cada brida, izquierda y derecha.
 
 4. Presione los topes de las bridas en su posición para ajustarlos.
 
-    **Figura 5 Instalación de los topes de las bridas**
-
      ![Instalación de los topes de las bridas](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+
+    **Figura 5: Instalación de los topes de las bridas**
  
      Etiqueta | Descripción
      ----- | -----------
@@ -208,9 +208,9 @@ A continuación, identifique el receptáculo principal y EBOD.
 
 1. Identifique los receptáculos principal y EBOD Los dos receptáculo pueden identificarse examinando las placas posteriores respectivas. Consulte la figura siguiente para obtener instrucciones.
 
-    **Figura 6 Parte posterior de los receptáculos EBOD y principal**
-
     ![Receptáculos principal y EBOD](./media/storsimple-8600-hardware-installation/HCSBackplaneofprimaryandEBODenclosure.png)
+
+    **Figura 6: Parte posterior de los receptáculos EBOD y principal**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -220,9 +220,9 @@ A continuación, identifique el receptáculo principal y EBOD.
 
 2. Busque los números de serie del receptáculo principal y EBOD. La etiqueta del número de serie está colocada en el dispositivo de escucha posterior de cada receptáculo. Los números de serie deben ser idénticos en ambos receptáculos. Póngase en contacto con el soporte técnico de Microsoft inmediatamente si no coinciden los números de serie. Consulte la figura siguiente para ayudarle a localizar los números de serie.
 
-    **Figura 7 Vista posterior del receptáculo que muestra la ubicación del número de serie**
-
     ![Ubicación del número de serie](./media/storsimple-8600-hardware-installation/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+
+    **Figura 7: Vista posterior del receptáculo que muestra la ubicación del número de serie**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -235,9 +235,9 @@ A continuación, utilice los cables SAS proporcionados para conectar el receptá
 
 1. Identifique los cuatro puertos Serial Attached SCSI (SAS) en el receptáculo principal y EBOD. Los puertos SAS se etiquetan como EBOD en el receptáculo principal y CTRL en el receptáculo EBOD, tal como se muestra en la figura 8.
 
-    **Figura 8 Ubicación de los puertos SAS en los receptáculos principal y EBOD**
-
     ![Ubicación de los puertos SAS](./media/storsimple-8600-hardware-installation/HCSSAScablingforyourdevice.png)
+
+    **Figura 8: Ubicación de los puertos SAS en los receptáculos principal y EBOD**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -278,15 +278,15 @@ Realice los pasos siguientes para pasar los cables de alimentación del disposit
 
 8. Ahora encienda el receptáculo principal colocando cada interruptor de PCM en la posición ON.
 
-9. Compruebe que el sistema está operativo asegurándose de que se hayan encendido los LED del controlador del dispositivo.
+9. Compruebe que el sistema está operativo asegurándose de que los LED del controlador de dispositivo se han activado.
 
 10. Verifique que la conexión entre el controlador EBOD y el controlador del dispositivo esté activa comprobando los LED de SAS (4 LED situados al lado del puerto SAS) del controlador EBOD. Los LED SAS deberían aparecer en verde.
 
 > [AZURE.IMPORTANT]Para garantizar una alta disponibilidad del sistema, debe cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado.
 
-   **Figura 9 Cables de alimentación del dispositivo**
-
    ![Diagrama de cables de alimentación](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforPower.png)
+
+   **Figura 9: Cables de alimentación del dispositivo**
 
      Label | Description
      ----- | -----------
@@ -311,9 +311,9 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 1. El dispositivo tiene seis interfaces de red en cada controlador: cuatro puertos Ethernet de 1 Gbps y dos de 10 Gbps. Consulte la ilustración siguiente para identificar los puertos de datos de la placa posterior del dispositivo.
 
-    **Figura 10 Parte posterior del dispositivo en la que se muestran los puertos de datos**
-
      ![Panel posterior del dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **Figura 10: Parte posterior del dispositivo en la que se muestran los puertos de datos**
  
      Etiqueta | Descripción
      ------- | -----------
@@ -332,9 +332,9 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 Como mínimo, configure una interfaz de red para el acceso a la nube y otro para iSCSI. Para obtener una alta disponibilidad y rendimiento, configure dos pares de interfaces de red en cada controlador. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
 
-**Figura 11 Cables de red del dispositivo**
-
 ![Colocación del cable de red del dispositivo 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+
+**Figura 11: Cables de red del dispositivo**
 
 Etiqueta | Descripción
 ----- | -----------
@@ -382,4 +382,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

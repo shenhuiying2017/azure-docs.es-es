@@ -20,9 +20,9 @@
 
 ## Información general
 
-La seguridad es una preocupación clave para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. A medida que evalúa distintas tecnologías, debe considerar mayores riesgos y costes para la protección de datos. Microsoft Azure StorSimple proporciona una solución de seguridad y privacidad para la protección de datos, lo que le ayuda a garantizar: 
+La seguridad es una preocupación clave para cualquiera que adopte una tecnología nueva, en especial cuando se utiliza la tecnología con información confidencial o de su propiedad. A medida que evalúa distintas tecnologías, debe considerar mayores riesgos y costes para la protección de datos. Microsoft Azure StorSimple proporciona una solución de seguridad y privacidad para la protección de datos, lo que le ayuda a garantizar:
 
-- **Confidencialidad**: solo las entidades autorizadas pueden ver los datos.
+- **Confidencialidad** solo las entidades autorizadas pueden ver los datos. 
 - **Integridad**: solo las entidades autorizadas pueden modificar o eliminar los datos.
 
 La solución de Microsoft Azure StorSimple consta de cuatro componentes principales que interactúan entre sí:
@@ -36,9 +36,9 @@ Las secciones siguientes describen las características de seguridad de StorSimp
 
 ## Protección del servicio StorSimple Manager
 
-El servicio StorSimple Manager es un servicio de administración hospedado en Microsoft Azure y se utiliza para administrar todos los dispositivos de StorSimple que ha adquirido su organización. Puede tener acceso al servicio StorSimple Manager mediante el uso de sus credenciales de organización para iniciar sesión en el Portal de administración de Azure a través de un explorador web. 
+El servicio StorSimple Manager es un servicio de administración hospedado en Microsoft Azure y se utiliza para administrar todos los dispositivos de StorSimple que ha adquirido su organización. Puede tener acceso al servicio StorSimple Manager mediante el uso de sus credenciales de organización para iniciar sesión en el Portal de administración de Azure a través de un explorador web.
 
-El acceso al servicio StorSimple Manager requiere que la organización tenga una suscripción de Azure que incluya StorSimple. Su suscripción rige las características a las que puede tener acceso en el portal de Azure. Si su organización no tiene una suscripción de Azure y desea obtener más información sobre ellas, consulte [Inicio de sesión como organización en Azure](../sign-up-organization.md). 
+El acceso al servicio StorSimple Manager requiere que la organización tenga una suscripción de Azure que incluya StorSimple. Su suscripción rige las características a las que puede tener acceso en el portal de Azure. Si su organización no tiene una suscripción de Azure y desea obtener más información sobre ellas, vea [Inicio de sesión en Azure como una organización](../sign-up-organization.md).
 
 Debido a que el servicio StorSimple Manager está hospedado en Azure, se encuentra protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](http://azure.microsoft.com/support/trust-center/security/).
 
@@ -48,11 +48,11 @@ El dispositivo de StorSimple es un dispositivo de almacenamiento híbrido local 
 
 ## Control del acceso a StorSimple a través del registro del dispositivo
 
-Solo los dispositivos de StorSimple autorizados tienen permitido unirse al servicio StorSimple que creó en su suscripción de Azure. 
+Solo los dispositivos de StorSimple autorizados tienen permitido unirse al servicio StorSimple que creó en su suscripción de Azure.
 
-Para autorizar un dispositivo, debe registrarlo con el servicio StorSimple Manager mediante la clave de registro del servicio. La clave de registro del servicio es una clave aleatoria de 128 bits generada en el portal. Para obtener información sobre cómo obtener una clave de registro del servicio, vaya al [Paso 2: obtención de la clave de registro del servicio](https://msdn.microsoft.com/library/azure/dn772346.aspx).
+Para autorizar un dispositivo, debe registrarlo con el servicio StorSimple Manager mediante la clave de registro del servicio. La clave de registro del servicio es una clave aleatoria de 128 bits generada en el portal. Para obtener información sobre cómo obtener una clave de registro del servicio, vaya al [Paso 2: Obtener la clave de registro del servicio](https://msdn.microsoft.com/library/azure/dn772346.aspx).
 
-> [AZURE.NOTE] La clave de registro del servicio es una clave larga que contiene más de 100 caracteres. Se recomienda copiar la clave y guardarla en un archivo de texto en una ubicación segura para que pueda utilizarla para autorizar dispositivos adicionales según sea necesario.
+> [AZURE.NOTE]La clave de registro del servicio es una clave larga que contiene más de 100 caracteres. Se recomienda copiar la clave y guardarla en un archivo de texto en una ubicación segura para que pueda utilizarla para autorizar dispositivos adicionales según sea necesario.
 > 
 > * Si se pierde la clave de registro del servicio una vez que registra el primer dispositivo, puede generar una clave nueva desde el servicio StorSimple Manager. Esto no afectará la operación de los dispositivos existentes. 
 > * Una vez que se registra un dispositivo, usa tokens para comunicarse con Microsoft Azure. La clave de registro del servicio no se usa después del registro del dispositivo.
@@ -69,11 +69,11 @@ Las contraseñas son un aspecto importante de la seguridad informática y se usa
 
 ### Contraseñas para el administrador del dispositivo de StorSimple y Windows Powershell para StorSimple
 
-Windows PowerShell para StorSimple es una interfaz de línea de comandos que puede utilizar para administrar el dispositivo de StorSimple. Windows PowerShell para StorSimple tiene características que le permite registrar su dispositivo, configurar la interfaz de red en su dispositivo, instalar ciertos tipos de actualizaciones, solucionar problemas con su dispositivo mediante el acceso a la sesión de soporte y cambiar el estado del dispositivo. Puede tener acceso a Windows PowerShell para StorSimple si se conecta a la consola serial o si usa la comunicación remota de Windows PowerShell. 
+Windows PowerShell para StorSimple es una interfaz de línea de comandos que puede utilizar para administrar el dispositivo de StorSimple. Windows PowerShell para StorSimple tiene características que le permite registrar su dispositivo, configurar la interfaz de red en su dispositivo, instalar ciertos tipos de actualizaciones, solucionar problemas con su dispositivo mediante el acceso a la sesión de soporte y cambiar el estado del dispositivo. Puede tener acceso a Windows PowerShell para StorSimple si se conecta a la consola serial o si usa la comunicación remota de Windows PowerShell.
 
-La comunicación remota de PowerShell se puede realizar a través de HTTPS o HTTP. Si la administración remota a través de HTTPS está habilitada, deberá descargar el certificado de administración remota desde el dispositivo e instalarlo en el cliente remoto. 
+La comunicación remota de PowerShell se puede realizar a través de HTTPS o HTTP. Si la administración remota a través de HTTPS está habilitada, deberá descargar el certificado de administración remota desde el dispositivo e instalarlo en el cliente remoto.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 
 > * La administración remota está desactivada de manera predeterminada. Puede usar el servicio StorSimple Manager para habilitarla. Como procedimiento de seguridad recomendado, el acceso remoto solo debe estar habilitado durante el periodo que realmente se necesita.
 > * Si cambia la contraseña, asegúrese de notificar a todos los usuarios de acceso remoto para que no experimenten una pérdida de conectividad inesperada.
@@ -86,7 +86,7 @@ Después de que use Windows PowerShell para StorSimple para conectarse al dispos
 
 CHAP es un esquema de autenticación que el dispositivo de StorSimple utiliza para validar la identidad de los clientes remotos. La comprobación se basa en una contraseña compartida. CHAP puede ser unidireccional o mutuo (bidireccional). Con CHAP unidireccional, el destino (el dispositivo de StorSimple) autentica un iniciador (host). El protocolo CHAP mutuo requiere que el destino autentique al iniciador y, a continuación, que el iniciador autentique al destino. Azure StorSimple se puede configurar para que utilice cualquiera de estos métodos.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 > 
 > * El nombre de usuario de CHAP no puede contener más de 233 caracteres.
 > * La contraseña de CHAP debe contener entre 12 y 16 caracteres. Si se intenta usar un nombre de usuario o una contraseña con más caracteres, se producirá un error de autenticación en el host de Windows.
@@ -99,7 +99,7 @@ StorSimple Snapshot Manager es un complemento de Microsoft Management Console (M
 
 Cuando configure un dispositivo para que utilice StorSimple Snapshot Manager, deberá proporcionar la contraseña de StorSimple Snapshot Manager. Esta contraseña se establece por primera vez en Windows PowerShell para StorSimple durante el registro. También es posible establecer y cambiar la contraseña desde el servicio StorSimple Manager. Esta contraseña autentica el dispositivo con StorSimple Snapshot Manager.
 
-> [AZURE.IMPORTANT] <ul><li>Esta contraseña debe tener entre 14 y 15 caracteres y debe contener tres o más combinaciones de mayúsculas, minúsculas, caracteres numéricos y caracteres especiales.</li><li>Después de establecer la contraseña de StorSimple Snapshot Manager, es posible cambiarla pero no se puede recuperar. Si se cambia la contraseña, asegúrese de notificar a todos los usuarios remotos.</li></ul>
+> [AZURE.IMPORTANT]<ul><li>Esta contraseña debe tener de 14 a 15 caracteres y contener tres o más de una combinación de caracteres en mayúsculas, minúsculas, números y caracteres especiales.</li><li>Después de establecer la contraseña de Snapshot Manager de StorSimple, se puede cambiar, pero no se podrá recuperar. Si se cambia la contraseña, asegúrese de notificar a todos los usuarios remotos.</li></ul>
 
 
 ### Procedimientos recomendados sobre las contraseñas
@@ -120,7 +120,7 @@ Esta sección describe las características de seguridad de Azure StorSimple que
 
 Según lo descrito en otras secciones, las contraseñas se utilizan para autorizar y autenticar a los usuarios antes de que puedan obtener acceso a su solución de Microsoft Azure StorSimple. Otra consideración de seguridad es la protección de los datos ante usuarios no autorizados mientras se transfieren entre sistemas de almacenamiento y mientras se almacenan. Las secciones siguientes describen las características de protección de datos proporcionadas con Azure StorSimple.
 
-> [AZURE.NOTE] La desduplicación proporciona protección adicional para datos almacenados en el dispositivo de StorSimple y en almacenamiento de Microsoft Azure. Cuando se desduplican los datos, los objetos de datos se almacenan de manera independiente de los metadatos usados para asignarlos y tener acceso a ellos: no hay un contexto de nivel de almacenamiento disponible para reconstruir los datos basados en la estructura del volumen, el sistema de archivos o el nombre del archivo.
+> [AZURE.NOTE]La desduplicación proporciona protección adicional para datos almacenados en el dispositivo de StorSimple y en almacenamiento de Microsoft Azure. Cuando se desduplican los datos, los objetos de datos se almacenan de manera independiente de los metadatos usados para asignarlos y tener acceso a ellos: no hay un contexto de nivel de almacenamiento disponible para reconstruir los datos basados en la estructura del volumen, el sistema de archivos o el nombre del archivo.
 
 ## Protección del flujo de datos a través del servicio
 
@@ -152,11 +152,11 @@ El dispositivo de StorSimple administra los datos a través de su almacenamiento
 
 ## Protección de datos a través de cuentas de almacenamiento
 
-Cada suscripción de Microsoft Azure puede crear una o más cuentas de almacenamiento. (Una cuenta de almacenamiento proporciona un espacio de nombres único para trabajar con datos almacenados en la nube de Azure). El acceso a una cuenta de almacenamiento es controlado por la suscripción y las claves de acceso asociadas con esa cuenta de almacenamiento. 
+Cada suscripción de Microsoft Azure puede crear una o más cuentas de almacenamiento. (Una cuenta de almacenamiento proporciona un espacio de nombres único para trabajar con datos almacenados en la nube de Azure). El acceso a una cuenta de almacenamiento es controlado por la suscripción y las claves de acceso asociadas con esa cuenta de almacenamiento.
 
-Cuando crea una cuenta de almacenamiento, Microsoft Azure genera dos claves de acceso de almacenamiento de 512 bits, una de las cuales se usa para autenticación cuando el dispositivo de StorSimple tiene acceso a la cuenta de almacenamiento. Observe que solo se usa una de estas claves. La otra clave se mantiene en reserva, lo que le permite rotar periódicamente las claves. Para rotar las claves, active la clave secundaria y, a continuación, elimine la principal. Luego puede crear una clave nueva para usarla durante la siguiente rotación. (Por motivos de seguridad, muchos centros de datos requieren que las claves se roten). 
+Cuando crea una cuenta de almacenamiento, Microsoft Azure genera dos claves de acceso de almacenamiento de 512 bits, una de las cuales se usa para autenticación cuando el dispositivo de StorSimple tiene acceso a la cuenta de almacenamiento. Observe que solo se usa una de estas claves. La otra clave se mantiene en reserva, lo que le permite rotar periódicamente las claves. Para rotar las claves, active la clave secundaria y, a continuación, elimine la principal. Luego puede crear una clave nueva para usarla durante la siguiente rotación. (Por motivos de seguridad, muchos centros de datos requieren que las claves se roten).
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 > 
 > Se recomienda seguir estos procedimientos recomendados para la rotación de claves:
 > 
@@ -170,72 +170,72 @@ StorSimple usa los siguientes algoritmos de cifrado para proteger datos almacena
 
 | Algoritmo | Longitud de la clave | Protocolos/aplicaciones/comentarios |
 | --------- | ---------- | ------------------------------- |
-| RSA       | 2048       | El Portal de administración utiliza RSA PKCS 1 v1.5 para cifrar datos de configuración que se envían al dispositivo: por ejemplo, credenciales de cuenta de almacenamiento, configuración del dispositivo de StorSimple y claves de cifrado de almacenamiento en la nube. |
-| AES       | 256        | AES con CBC se usa para cifrar la parte pública de la clave de cifrado de datos de servicio antes de enviarla al Portal de administración desde el dispositivo de StorSimple. El dispositivo de StorSimple también lo usa para cifrar datos antes de que se envíen a la cuenta de almacenamiento en la nube. |
-| RSA       | 2048       | El Portal de administración utiliza RSA PKCS 1 v1.7 para cifrar la parte pública de la clave de cifrado de datos de servicio antes de almacenarla en el almacenamiento de portal local. |
+| RSA | 2048 | El Portal de administración utiliza RSA PKCS 1 v1.5 para cifrar datos de configuración que se envían al dispositivo: por ejemplo, credenciales de cuenta de almacenamiento, configuración del dispositivo de StorSimple y claves de cifrado de almacenamiento en la nube. |
+| AES | 256 | AES con CBC se usa para cifrar la parte pública de la clave de cifrado de datos de servicio antes de enviarla al Portal de administración desde el dispositivo de StorSimple. El dispositivo de StorSimple también lo usa para cifrar datos antes de que se envíen a la cuenta de almacenamiento en la nube. |
+| RSA | 2048 | El Portal de administración utiliza RSA PKCS 1 v1.7 para cifrar la parte pública de la clave de cifrado de datos de servicio antes de almacenarla en el almacenamiento de portal local. |
 
 
 ## Preguntas más frecuentes
 
 Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Microsoft Azure StorSimple.
 
-**P:** La seguridad de mi servicio está comprometida. ¿Cuáles debieran ser mis próximos pasos?
+**P:** mi servicio se ha puesto en peligro. ¿Cuáles deben ser mis siguientes pasos?
 
-**R:** Debe cambiar inmediatamente la clave de cifrado de datos de servicio y las claves de la cuenta de almacenamiento que se usa para la organización en niveles de los datos. Para obtener instrucciones sobre cómo hacerlo, vaya a: 
+**R:** Debe cambiar inmediatamente la clave de cifrado de datos de servicio y las claves de la cuenta de almacenamiento que se usa para la organización en niveles de los datos. Para obtener instrucciones, vaya a:
 
 - [Cambiar la clave de cifrado de datos de servicio](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
 - [Rotación de claves de cuentas de almacenamiento](https://msdn.microsoft.com/library/azure/1747f56e-858a-4cfe-a020-949d7db23b8b#rotate)
 
 **P:** Tengo un dispositivo de StorSimple nuevo que pide la clave de registro de servicio. ¿Cómo la recupero?
 
-**R:** Esta clave se creó cuando creó por primera vez el servicio StorSimple Manager. Cuando usa el servicio StorSimple Manager para conectarse al dispositivo, puede usar la página de inicio rápido del servicio para ver o volver a generar la clave de registro de servicio. Generar una clave de registro de servicio nueva no afectará a los dispositivos registrados existentes. Para obtener instrucciones sobre cómo hacerlo, vaya a:
+**R:** esta clave se creó cuando creó por primera vez el servicio de StorSimple Manager. Cuando usa el servicio de StorSimple Manager para conectarse al dispositivo, puede usar la página de inicio rápido de servicio para ver o volver a generar la clave de registro de servicio. La generación de una nueva clave de registro del servicio no afectará a los dispositivos registrados existentes. Para obtener instrucciones, vaya a:
 
 - [Ver o volver a generar la clave de registro de servicio](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#BKMK_viewsrk)
 
-**P:** Perdí mi clave de cifrado de datos de servicio. ¿Qué tengo que hacer?
+**P:** Perdí mi clave de cifrado de datos de servicio. ¿Qué puedo hacer?
 
-**R:** Póngase en contacto con Soporte técnico de Microsoft. Ellos pueden iniciar sesión en una sesión de soporte en su dispositivo y pueden ayudarle a recuperar la clave. Inmediatamente después de que reciba la clave de cifrado de datos de servicio, debe cambiarla para asegurarse de que nadie más la conozca. Para obtener instrucciones sobre cómo hacerlo, vaya a:
+**R:** Consultar al soporte técnico de Microsoft. Puede iniciar sesión en una sesión de asistencia en el dispositivo y ayudarle a recuperar la clave. Inmediatamente después de obtener la clave de cifrado de datos de servicio, deberá cambiarla para asegurarse de que solo usted conozca la nueva clave. Para obtener instrucciones, vaya a:
 
 - [Cambiar la clave de cifrado de datos de servicio](https://msdn.microsoft.com/library/azure/8158cbe9-1f26-4513-a031-49f88bb3d481#sec01)
 
-**P:** Autoricé un dispositivo para un cambio de clave de cifrado de datos de servicio, pero no inició el proceso de cambio de clave. ¿Qué debo hacer?
+**P:** Autoricé un dispositivo para un cambio de clave de cifrado de datos de servicio, pero no inició el proceso de cambio de clave. ¿Cuál debo hacer?
 
 **R:** Si el periodo de espera expiró, deberá volver a autorizar el dispositivo para el cambio de clave de cifrado de datos de servicio y volver a comenzar el proceso.
 
-**P:** Cambié la clave de cifrado de datos de servicio, pero no me fue posible actualizar los demás dispositivos dentro de cuatro horas. ¿Debo comenzar de nuevo?
+**P:** Cambié la clave de cifrado de datos de servicio, pero no me fue posible actualizar los demás dispositivos dentro de cuatro horas. ¿Es necesario empezar de nuevo?
 
-**R:** El periodo de cuatro horas es solo para iniciar el cambio. Una vez que inicie el proceso de actualización en el dispositivo de StorSimple autorizado, la autorización es válida hasta que se actualicen todos los dispositivos.
+**R:** el período de tiempo de 4 horas solo es para iniciar el cambio. Una vez que inicie el proceso de actualización en el dispositivo de StorSimple autorizado, la autorización es válida hasta que se actualicen todos los dispositivos.
 
-**P:** Nuestro administrador de StorSimple ya no trabaja en la empresa. ¿Qué debo hacer?
+**P:** Nuestro administrador de StorSimple ya no trabaja en la empresa. ¿Cuál debo hacer?
 
-**R:** Cambie y restablezca las contraseñas que permiten el acceso al dispositivo de StorSimple y cambie la clave de cifrado de datos de servicio para asegurarse de personal no autorizado no conozca la información nueva. Para obtener información sobre cómo hacerlo, vaya a:
+**R:** Cambie y restablezca las contraseñas que permiten el acceso al dispositivo de StorSimple y cambie la clave de cifrado de datos de servicio para asegurarse de personal no autorizado no conozca la información nueva. Para obtener instrucciones, vaya a:
 
 - [Configurar StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
-- [Configurar la contraseña del administrador de dispositivos](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
+- [Configuración de la contraseña del administrador de dispositivos](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configurar la administración remota](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec10)
-- [Configurar el iniciador de CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec06)
-- [Configurar el destino de CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec07)
+- [Configuración del iniciador CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec06)
+- [Configuración del destino CHAP](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec07)
 
-**P:** Deseo proporcionar la contraseña de StorSimple Snapshot Manager a un host que se está conectando con el dispositivo de StorSimple, pero la contraseña no se encuentra disponible. ¿Qué puedo hacer?
+**P:** Deseo proporcionar la contraseña de Snapshot Manager de StorSimple a un host que se está conectando con el dispositivo de StorSimple, pero la contraseña no se encuentra disponible. ¿Qué puedo hacer?
 
-**R:** Si olvidó la contraseña, deberá crear una. A continuación, asegúrese de informar a todos los usuarios existentes que la contraseña cambió y que deberán actualizar sus clientes para que usen la contraseña nueva. Para obtener instrucciones sobre cómo hacerlo, vaya a:
+**R:** si ha olvidado la contraseña, debería crear una nueva. A continuación, asegúrese de informar a todos los usuarios existentes que la contraseña cambió y que deberán actualizar sus clientes para que usen la contraseña nueva. Para obtener instrucciones, vaya a:
 
 - [Configurar Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 - [Autenticar un dispositivo](https://msdn.microsoft.com/library/azure/dn790537.aspx)
 
-**P:** El certificado para acceso remoto a Windows PowerShell para StorSimple cambió en el dispositivo. ¿Cómo puedo actualizar mis clientes de acceso remoto?
+**P:** El certificado para acceso remoto a Windows PowerShell para StorSimple cambió en el dispositivo. ¿Cómo actualizo mis clientes de acceso remoto?
 
-**R:** Puede descargar el certificado nuevo desde el servicio StorSimple Manager y, a continuación, bríndelo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones sobre cómo hacerlo, vaya a:
+**R:** Puede descargar el certificado nuevo desde el servicio StorSimple Manager y, a continuación, bríndelo para instalarlo en el almacén de certificados de sus clientes de acceso remoto. Para obtener instrucciones, vaya a:
 
 - [Cmdlet Import-Certificate](https://technet.microsoft.com/library/hh848630.aspx)
 
 **P:** ¿Mis datos están protegidos si el servicio StorSimple Manager se ve comprometido?
 
-**R:** Los datos de configuración del servicio siempre se cifran con su clave pública cuando los ve en un explorador web. Como el servicio no tiene acceso a la clave privada, el servicio no podrá ver ningún dato. Si el servicio StorSimple Manager se ve comprometido, no hay ningún impacto, puesto que no hay claves almacenadas en el servicio StorSimple Manager.
+**P:** los datos de configuración del servicio se cifran siempre con la clave pública cuando la ve en un explorador web. Dado que el servicio no tiene acceso a la clave privada, el servicio no podrá ver ningún dato. Si el servicio de StorSimple Manager se pone en peligro, no habrá ningún efecto, ya que no hay ninguna clave almacenada en el servicio de StorSimple Manager.
 
 **P:** Si alguna persona obtiene acceso al certificado de cifrado de datos, ¿mis datos se verán comprometidos?
 
-**R:** Microsoft Azure almacena la clave de cifrado de datos del cliente (archivo .pfx) en formato cifrado. Como el archivo .pfx está cifrado y el servicio StorSimple no cuenta con la clave de cifrado de datos de servicio para descifrar el archivo .pfx, el hecho de obtener acceso solo al archivo .pfx no expondrá ningún secreto.
+**R:** Microsoft Azure almacena la clave de cifrado de datos del cliente (archivo .pfx) en un formato cifrado. Como el archivo .pfx está cifrado y el servicio StorSimple no cuenta con la clave de cifrado de datos de servicio para descifrar el archivo .pfx, el hecho de obtener acceso solo al archivo .pfx no expondrá ningún secreto.
 
 **P:** ¿Qué ocurre si una entidad gubernamental pide mis datos a Microsoft?
 
@@ -244,6 +244,6 @@ Las siguientes son algunas preguntas y respuestas acerca de la seguridad y de Mi
 ## Pasos siguientes
 
 [Introducción al dispositivo físico](https://msdn.microsoft.com/library/azure/dn772410.aspx)
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

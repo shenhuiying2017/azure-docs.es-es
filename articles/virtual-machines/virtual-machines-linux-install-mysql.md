@@ -202,7 +202,7 @@ Utilizaremos Ubuntu 14.04 LTS como ejemplo en este artículo.
 
 ###Instalación de MySQL en Suse Linux
 
-- Paso 1: Instalación de  MySQL Server
+- Paso 1: Instalación de MySQL Server
 
     Para elevar los permisos, ejecute el comando:
 
@@ -237,5 +237,6 @@ Utilizaremos Ubuntu 14.04 LTS como ejemplo en este artículo.
     Para configurar MySQL para que se inicie cuando el sistema arranque, ejecute el siguiente comando:
 
            #mysql-test:~ # insserv mysql
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

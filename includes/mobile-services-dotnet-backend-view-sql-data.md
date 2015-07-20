@@ -13,4 +13,4 @@ El último paso opcional de este tutorial es comprobar en la Base de datos SQL a
 
 	La tabla incluye las columnas Id, __createdAt, __updatedAt y __version. Estas columnas admiten la sincronización de datos sin conexión y se implementan en la clase base [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Para más información, vea [Introducción a la sincronización de datos sin conexión].
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

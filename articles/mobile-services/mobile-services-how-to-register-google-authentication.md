@@ -62,4 +62,4 @@ Ahora está listo para configurar el servicio móvil para utilizar inicio de ses
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

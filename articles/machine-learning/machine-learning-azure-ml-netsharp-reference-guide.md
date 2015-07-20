@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2014" 
+	ms.date="06/29/2015" 
 	ms.author="jeannt"/>
 
 
@@ -79,16 +79,16 @@ Por ejemplo, la siguiente instrucción define una constante **x**:
 
     Const X = 28;  
 
-Para definir simultáneamente dos o más constantes, escriba los valores y nombres del identificador entre llaves y sepárelos con punto y coma, por ejemplo:
+Para definir simultáneamente dos o más constantes, escriba los valores y nombres del identificador entre llaves y sepárelos con punto y coma. Por ejemplo:
 
     Const { X = 28; Y = 4; }  
 
-El lado derecho de cada expresión de asignación puede ser un número entero, un número real, un valor booleano (True o False) o una expresión matemática, por ejemplo:
+La parte derecha de cada expresión de asignación puede ser un entero, un número real, un valor booleano (verdadero/falso) o una expresión matemática. Por ejemplo:
 
 	Const { X = 17 * 2; Y = true; }  
 
 ##Declaración de capas
-La declaración de capa es obligatoria. Define el tamaño y el origen de la capa, incluidos sus atributos y agrupaciones de conexión. La instrucción de la declaración empieza por el nombre de la capa (de entrada, oculta o de salida) seguida de las dimensiones de la capa (una tupla de números enteros positivos), por ejemplo:
+La declaración de capa es obligatoria. Define el tamaño y el origen de la capa, incluidos sus atributos y agrupaciones de conexión. La instrucción de la declaración empieza por el nombre de la capa (de entrada, oculta o de salida) seguida por las dimensiones de la capa (una tupla de enteros positivos). Por ejemplo:
 
 	input Data[784];
 	hidden Hidden[5,20] from Data all;
@@ -150,19 +150,19 @@ Una especificación de conjunto de conexiones filtrado incluye un predicado, exp
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	En el predicado de ByRow, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada, Pixels, y **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta ByRow. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** intervalos sobre todos los pares de enteros con 0 <= s[0] < 10 y 0 <= s[1] < 20 y **d** intervalos de todos los pares de enteros con 0 <= d[0] < 10 y 0 <= d[1] < 12. 
+-	En el predicado de ByRow, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada, Pixels, y **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta ByRow. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** intervalos sobre todos los pares de enteros con _0 <= s[0] < 10_ y _0 <= s[1] < 20_ y **d** intervalos de todos los pares de enteros con _0 <= d[0] < 10_ y _0 <= d[1] < 12_. 
 -	En la parte derecha de la expresión del predicado hay una condición. En este ejemplo, para cada valor de **s** y **d** en los que esa condición sea verdadera, hay un borde que va desde el nodo de la capa de origen al nodo de la capa de destino. Por tanto, esta expresión de filtro indica que el conjunto incluye una conexión desde el nodo definido por **s** hasta el nodo definido por **d** en todos aquellos casos en que s[0] sea igual a d[0].  
 
 También tiene la posibilidad de especificar un conjunto de ponderaciones para un conjunto filtrado. El valor del atributo **Weights** debe ser una tupla de los valores de punto flotante con una longitud que coincida con el número de conexiones definidas por la agrupación. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
 
-Los valores ponderados se agrupan según el índice del nodo de destino. Esto es, si el primer nodo de destino está conectado a nodos de origen K, los primeros K elementos de la tupla **Weights** son las ponderaciones del primer nodo de destino, en orden del índice de origen. Lo mismo se aplica para los nodos de destino restantes.
+Los valores ponderados se agrupan según el índice del nodo de destino. Esto es, si el primer nodo de destino está conectado a nodos de origen K, los primeros _K_ elementos de la tupla **Weights** son las ponderaciones del primer nodo de destino, en orden del índice de origen. Lo mismo se aplica para los nodos de destino restantes.
 
 ##Conjuntos convolucionales
 Cuando los datos de entrenamiento tienen una estructura homogénea, se utilizan conexiones de circunvolución habitualmente para aprender funciones de alto nivel de los datos. Por ejemplo, en datos de imagen, audio o vídeo, la dimensionalidad espacial o temporal puede ser bastante homogénea.
 
 Los conjuntos convolucionales usan **kernels** que se deslizan a través de las dimensiones. Básicamente, cada kernel define un conjunto de ponderaciones aplicado en vecindades locales, conocidas como **aplicaciones de kernel**. Cada aplicación de kernel se corresponde con un nodo de la capa de origen, conocido como **nodo central**. Las ponderaciones de un kernel se comparten entre varias conexiones. En un conjunto convolucional, cada kernel es rectangular y todas las aplicaciones de kernel tienen el mismo tamaño.
 
-Las agrupaciones de circunvolución admiten las siguientes los atributos:
+Los conjuntos convolucionales admiten los siguientes atributos:
 
 **InputShape** define la dimensionalidad de la capa de origen para los fines de este conjunto convolucional. El valor debe ser una tupla de enteros positivos. El producto de los enteros debe equivaler al número de nodos de la capa de origen, pero no es necesario que coincida con la dimensionalidad declarada para la capa de origen. La longitud de esta tupla se convierte en el valor de **aridad** del conjunto convolucional. (La aridad normalmente hace referencia al número de argumentos u operandos que puede asumir una función).
 
@@ -170,14 +170,19 @@ Para definir la forma y las ubicaciones de los kernels, use los atributos **Kern
 
 -	**KernelShape**: (obligatorio) define la dimensionalidad de cada kernel para el conjunto convolucional. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ninguno de los componentes de esta tupla debe superar en tamaño al componente correspondiente de **InputShape**. 
 -	**Stride**: (opcional) define los tamaños de los pasos de deslizamiento de la convolución (un tamaño de paso para cada dimensión), es decir, la distancia entre los nodos centrales. El valor debe ser una tupla de números enteros positivos con una longitud igual a la aridad de la agrupación. Ningún componente de esta tupla debe superar en tamaño al componente correspondiente de **KernelShape**. El valor predeterminado es una tupla con todos los componentes iguales a uno. 
--	**Padding**: (opcional) determina si la entrada debe completarse usando un esquema de completado predeterminado. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. Si el valor de una dimensión es verdadero, el origen se completa lógicamente en esa dimensión con celdas de valor cero para atender a las aplicaciones de kernel adicionales, por lo cual los nodos centrales del primer y último kernel de esa dimensión son el primer y último nodo en esa dimensión en la capa de origen. De este modo, el número de nodos "ficticios" de cada dimensión se determina automáticamente, para coincidir exactamente con el número de kernels (InputShape[d] - 1) / Stride[d] + 1 en la capa de origen completada. Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
--	**UpperPad** y **LowerPad**: (opcional) proporcionan control sobre la cantidad de completado que se usa. Estos atributos pueden definirse si y solo si **Padding** ***no*** está definido. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
-	-	Cada componente de **LowerPad** debe ser estrictamente inferior a KernelShape[d]/2. 
-	-	Ningún componente de **UpperPad** puede ser superior a KernelShape[d]/2. 
-	-	El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0. 
 -	**Sharing**: (opcional) define el uso compartido de las ponderaciones de cada dimensión de la convolución. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. El valor predeterminado es una tupla que consta de todos los valores True. 
 -	**MapCount**: (opcional) define el número de mapas de características para el conjunto convolucional. El valor puede ser un número entero positivo o una tupla de enteros positivos con una longitud que sea la aridad de la agrupación. Un valor entero sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado y todos los componentes restantes equivalen a uno. El valor predeterminado es uno. El número total de mapas de características es el producto de los componentes de la tupla. La factorización de este número total entre los componentes determina cómo se agrupan los valores de mapas de características en los nodos de destino. 
 -	**Weights**: (opcional) define las ponderaciones iniciales del conjunto. El valor debe ser una tupla de valores de punto flotante con una longitud que es el número de kernel, el número de pesos por kernel, tal como se define más adelante en este artículo. De manera predeterminada, las ponderaciones se generan de manera aleatoria.  
+
+Hay dos conjuntos de propiedades que controlan el completado, que se excluyen mutuamente:
+
+-	**Padding**: (opcional) determina si la entrada debe completarse usando un **esquema de completado predeterminado**. El valor puede ser un único valor booleano o una tupla de valores booleanos con una longitud que sea la aridad de la agrupación. Un valor booleano sencillo se amplía para convertirse en una tupla si la longitud correcta con todos los componentes equivale al valor especificado. Si el valor de una dimensión es verdadero, el origen se completa lógicamente en esa dimensión con celdas de valor cero para atender a las aplicaciones de kernel adicionales, por lo cual los nodos centrales del primer y último kernel de esa dimensión son el primer y último nodo en esa dimensión en la capa de origen. De este modo, el número de nodos "ficticios" de cada dimensión se determina automáticamente, para coincidir exactamente con el número de kernels _(InputShape[d] - 1) / Stride[d] + 1_ en la capa de origen completada. Si el valor de una dimensión es falso, los kernels se definen de manera que el número de nodos que quedan en cada lado sea el mismo (con una diferencia máxima de 1). El valor predeterminado de este atributo es una tupla con todos los componentes iguales a falso.
+-	**UpperPad** y **LowerPad**: (opcional) proporcionan mayor control sobre la cantidad de completado que se usa. **Importante**: Estos atributos pueden definirse si y solo si la propiedad **Padding** anterior ***no*** está definida. Los valores deben ser las tuplas con valores enteros con longitudes que sean la aridad de la agrupación. Cuando se especifican estos atributos, se agregan nodos "ficticios" a los extremos inferior y superior de cada dimensión de la capa de entrada- El número de nodos agregados a los extremos inferior y superior en cada dimensión está determinado por **LowerPad**[i] y **UpperPad**[i], respectivamente. Para asegurarse de que los kernels se corresponden solo a nodos "reales" y no a nodos "ficticios", deben cumplirse las condiciones siguientes:
+	-	Cada componente de **LowerPad** debe ser estrictamente inferior a KernelShape[d]/2. 
+	-	Ningún componente de **UpperPad** puede ser superior a KernelShape[d]/2. 
+	-	El valor predeterminado de estos atributos es una tupla con todos los componentes iguales a 0. 
+
+La configuración de **Padding** = true permite todo el completado que sea necesario para mantener el "centro" del núcleo dentro de la entrada "real". Cambia la expresión matemática un poco para calcular el tamaño de salida. Por lo general, el tamaño de salida _D_ se calcula como _D (I - K) = / S + 1_, donde _I_ es el tamaño de entrada, _K_ es el tamaño del núcleo, _S_ es el intervalo y _/_ es la división de enteros (redondear hacia cero). Si establece UpperPad = [1, 1], el tamaño de entrada _I_ es efectivamente 29 y por lo tanto _D = (29 - 5) / 2 + 1 = 13_. Sin embargo, cuando **Padding** = true, esencialmente _I_ aumenta por _K - 1_; por lo tanto, _D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14_. Al especificar valores para **UpperPad** y **LowerPad**, obtendrá un mayor control sobre el relleno que si simplemente establece **Padding** = true.
 
 Para obtener más información acerca de las redes convolucionales y sus aplicaciones, consulte estos artículos:
 
@@ -200,9 +205,9 @@ El ejemplo siguiente ilustra un conjunto de agrupación:
 	  }  
 
 -	La aridad del conjunto es 3 (la longitud de las tuplas **InputShape**, **KernelShape** y **Stride**). 
--	El número de nodos de la capa de origen es 5 * 24 * 24 = 2880. 
+-	El número de nodos de la capa de origen es _5 * 24 * 24 = 2880_. 
 -	Esto es un nivel de agrupación local tradicional porque **KernelShape** y **Stride** son iguales. 
--	El número de nodos de la capa de destino es 5 * 12 * 12 = 1440.  
+-	El número de nodos de la capa de destino es _5 * 12 * 12 = 1440_.  
 	
 Para obtener más información acerca de las capas de agrupación, consulte estos artículos:
 
@@ -222,7 +227,7 @@ Las agrupaciones de normalización de respuesta admiten todos los atributos conv
 
 Dado que los conjuntos de normalización de respuesta aplican una función predefinida a los valores del nodo de origen para determinar el valor del nodo de destino, no tienen un estado entrenable (ponderaciones o sesgos).
 
-**Alerta**: los nodos de la capa de destino se corresponden con las neuronas que se encuentran en los nodos centrales de los kernels. Por ejemplo, si KernelShape[d] es impar, KernelShape[d]/2 corresponde al nodo del kernel central. Si KernelShape[d] es par, el nodo central está en KernelShape[d]/2 - 1. Por lo tanto, si **Padding**[d] es False, el primer y último nodo KernelShape[d]/2 no tienen nodos correspondientes en la capa de destino. Para evitar esta situación, defina **Padding** como [true, true, …, true].
+**Alerta**: los nodos de la capa de destino se corresponden con las neuronas que se encuentran en los nodos centrales de los kernels. Por ejemplo, si KernelShape[d] es impar, _KernelShape[d]/2_ corresponde al nodo del kernel central. Si _KernelShape[d]_ es par, el nodo central está en _KernelShape[d]/2 - 1_. Por lo tanto, si **Padding**[d] es False, el primer y último nodo _KernelShape[d]/2_ no tienen nodos correspondientes en la capa de destino. Para evitar esta situación, defina **Padding** como [true, true, …, true].
 
 Además de los cuatro atributos que se han descrito anteriormente, las agrupaciones de normalización de respuesta también admiten los siguientes atributos:
 
@@ -385,15 +390,15 @@ La definición de la siguiente red está diseñada para reconocer los números y
 -	La red tiene una tercera capa oculta (Hid3) que está totalmente conectada a la segunda capa oculta (Conv2).
 -	La capa de salida (Digit) está conectada solo a la tercera capa oculta (Hid3). La palabra clave **all** indica que la capa de salida está conectada por completo a Hid3.
 -	La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**). 
--	El número de ponderaciones por kernel es 1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300.
+-	El número de ponderaciones por kernel es _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26. O 26 * 50 = 1300_.
 -	Puede calcular los nodos en cada capa oculta del modo siguiente:
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: **MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5
--	Dado que **Sharing**[d] es falso solo para d == 0, el número de los kernel es **MapCount** * **NodeCount**[0] = 10 * 5 = 50. 
+-	El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa [50, 5, 5] del modo siguiente: _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_
+-	Dado que **Sharing**[d] es falso solo para _d == 0_, el número de los kernel es _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_. 
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

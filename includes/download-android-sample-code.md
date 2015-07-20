@@ -15,4 +15,4 @@ Este tutorial está integrado en **GetStartedWithData**, que es una aplicación 
 	Ahora el proyecto está listo para trabajar con él.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

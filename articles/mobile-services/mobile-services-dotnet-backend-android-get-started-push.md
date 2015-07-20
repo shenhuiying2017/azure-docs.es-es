@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="ricksal"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -83,11 +83,11 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 * [Adición de autenticación a la aplicación][Get started with authentication] <br/>Obtenga información sobre cómo autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
-* [¿Qué son los Centros de notificaciones?] <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
+* [¿Qué son los Centros de notificaciones?] <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
-* [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga orientación sobre la solución de problemas y la depuración de soluciones de los Centros de notificaciones.
+* [Depuración de aplicaciones de centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga instrucciones de resolución de problemas y depuración de soluciones de centros de notificaciones.
 
-* [Uso de la biblioteca de cliente Android para Servicios móviles ] <br/>Obtenga más información sobre cómo usar Servicios móviles con Android.
+* [Uso de la biblioteca de cliente Android para Servicios móviles] <br/>Obtenga más información sobre cómo usar Servicios móviles con Android.
   
 <!-- Anchors. -->
 
@@ -112,20 +112,15 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 
-[Uso de la biblioteca de cliente Android para Servicios móviles ]: mobile-services-android-how-to-use-client-library.md
+[Uso de la biblioteca de cliente Android para Servicios móviles]: mobile-services-android-how-to-use-client-library.md
 
 [Enviar notificaciones de inserción a los usuarios autenticados]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 [Envío de notificaciones de inserción a usuarios autenticados]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-<<<<<<< HEAD:articles/mobile-services-dotnet-backend-android-get-started-push.md
-[¿Qué son los Centros de notificaciones?]: notification-hubs/notification-hubs-overview.md
-[Enviar notificaciones de difusión a los suscriptores]: notification-hubs/notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Envío de notificaciones basadas en plantillas a los suscriptores]: notification-hubs/notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
-=======
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Enviar notificaciones de difusión a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Envío de notificaciones basadas en plantillas a los suscriptores]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
->>>>>>> master:articles/mobile-services/mobile-services-dotnet-backend-android-get-started-push.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

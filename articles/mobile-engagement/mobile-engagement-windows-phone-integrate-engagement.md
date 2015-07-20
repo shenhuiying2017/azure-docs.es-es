@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Integración del SDK de Windows Phone Silverlight Engagement
@@ -201,7 +201,7 @@ Recomendamos que llame a `StartActivity` dentro del método `OnNavigatedTo` de s
 
 > [AZURE.IMPORTANT]Asegúrese de finalizar la sesión correctamente.
 >
-> El SDK de iOS llama automáticamente al método `EndActivity` cuando se cierra la aplicación. Por lo tanto, es **MUY** recomendable llamar al método `StartActivity` cada vez que cambie la actividad del usuario y **NUNCA** llamar al método `EndActivity`, ya que esto obliga la finalización de la sesión actual.
+> El SDK de iOS llama automáticamente al método `EndActivity` cuando se cierra la aplicación. Por lo tanto, es **MUY** recomendable llamar al método `StartActivity` cada vez que cambie la actividad del usuario y no llamar **NUNCA** al método `EndActivity`. Este método envía un mensaje al servidor de Engagement indicando que el usuario actual ha salido de la aplicación, lo que afecta a todos los registros de la aplicación.
 
 ##Informes avanzados
 
@@ -242,7 +242,9 @@ Para ello, llame al método siguiente:
 
 El argumento es un valor en **milisegundos**. En cualquier momento, si desea volver a activar el registro en tiempo real, simplemente llame al método sin ningún parámetro o con el valor 0.
 
-El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). Se recomienda usar un umbral de ráfaga inferior a 30.000 (30 segundos).
+El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). Se recomienda usar un umbral de ráfaga inferior a 30.000 (30 segundos). Tenga en cuenta que los registros guardados se limitan a 300 elementos. Si el envío es demasiado largo, puede perder algunos registros.
 
 > [AZURE.WARNING]El umbral de ráfaga no se puede configurar en un período inferior a un segundo. Si intenta hacerlo, el SDK mostrará un seguimiento con el error y se restablecerá automáticamente en el valor predeterminado; es decir, cero segundos. Esto hará que el SDK informe los registros en tiempo real.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

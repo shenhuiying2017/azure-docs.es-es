@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2015"
+	ms.date="06/24/2015"
 	ms.author="pehteh"/>
 
 
@@ -37,14 +37,27 @@ Este tema se divide en dos secciones:
 En la tabla siguiente se muestran las bibliotecas publicadas por Microsoft. La columna **Bibliotecas** proporciona vínculos que puede usar para descargar cada biblioteca. La columna **Versión** muestra la versión mínima recomendada para interactuar con Base de datos de SQL Azure y Microsoft SQL Server.
 
 
-| Plataforma | Oper sys | Bibliotecas | Versión | Descripción |
-| :--- | :--- | :--- | :--- | :--- |
-| .NET | Multiplataforma (. NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Proveedor de SQL Server para .NET Framework |
-| PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/es-es/download/details.aspx?id=20098) | 2.0+ | Controlador PHP para SQL Server |
-| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/es-es/download/details.aspx?id=11774) | 2.0+ | Controlador JDBC de tipo 4 que proporciona conectividad de base de datos a través de la API de JDBC estándar |
-| ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/es-es/download/details.aspx?id=36434) | 11.0+ | Controlador ODBC de Microsoft para SQL Server |
-| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/es-es/download/details.aspx?id=34687) | 11.0+ | Controlador ODBC de Microsoft para SQL Server |
-| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/es-es/download/details.aspx?id=34687) | 11.0+ | Controlador ODBC de Microsoft para SQL Server |
+| Plataforma | Oper Sys | Bibliotecas<br/>para descarga | Versión<br/>de controlador | Descripción<br/>de controlador | Más<br/>información |
+| :--- | :--- | :--- | :--- | :--- | :-- |
+| .NET | Multiplataforma (. NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Proveedor de SQL Server para .NET Framework | . |
+| PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0+ | Controlador PHP para SQL Server | [Vínculo](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ | Controlador JDBC de tipo 4 que proporciona conectividad de base de datos a través de la API de JDBC estándar | [Vínculo](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Controlador ODBC de Microsoft para SQL Server | [Vínculo](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Controlador ODBC de Microsoft para SQL Server | . |
+| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Controlador ODBC de Microsoft para SQL Server | . |
+
+
+### OLEDB para DB2 y SQL Server, para diseño DRDA
+
+
+Proveedor OLE DB de Microsoft para DB2 Versión 5.0 (proveedor de datos) le permite crear aplicaciones distribuidas dirigidas a bases de datos de IBM DB2. El proveedor de datos utiliza la arquitectura de acceso a los datos de Microsoft SQL Server en conjunto con un cliente de redes de Microsoft para DB2 que funciona como solicitante de la aplicación Arquitectura distribuida de bases de datos relacionales (DRDA). El proveedor de datos convierte los comandos OLE DB del Modelo de objetos componentes (COM) de Microsoft y los tipos de datos en formatos de datos y puntos de código de protocolo DRDA.
+
+
+Para más información, consulte:
+
+
+- [Proveedor OLE DB de Microsoft para DB2 Versión 5.0](http://msdn.microsoft.com/library/dn745875.aspx)
+- [Proveedor OLE DB de Microsoft para DB2 v4.0 para Microsoft SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29100)
 
 
 ## Bibliotecas de terceros
@@ -69,4 +82,4 @@ En la tabla siguiente se muestran las bibliotecas publicadas por terceros como d
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

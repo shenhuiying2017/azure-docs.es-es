@@ -1,43 +1,45 @@
-<properties 
+<properties
    pageTitle="Administración de la capacidad de la infraestructura"
-   description="Aprenda a usar el paquete de inteligencia de planeamiento de capacidad en Visión operativa para entender la capacidad de su infraestructura de servidores"
+   description="Aprenda a usar la solución de planeamiento de capacidad en Visión operativa para entender la capacidad de su infraestructura de servidores."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Administración de la capacidad de la infraestructura
 
-Puede usar el paquete de inteligencia de planeamiento de capacidad en Visión operativa de Microsoft Azure para entender la capacidad de su infraestructura de servidores. Instale el paquete de inteligencia para actualizar el agente Operations Manager y el módulo de configuración básica en Visión operativa. El paquete de inteligencia lee los contadores de rendimiento en el servidor supervisado y envía datos de uso al servicio de Visión operativa en la nube para su procesamiento. La lógica se aplica a los datos usados y el servicio en la nube registra los datos. Con el tiempo, se identifican los patrones de uso y se proyecta la capacidad según el consumo actual
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
+
+Puede utilizar la solución Planificación de capacidad en Visión operativa de Microsoft Azure para ayudarle a entender la capacidad de su infraestructura de servidor. Instale la solución para actualizar el agente Operations Manager y el módulo de configuración básica en Visión operativa. La solución lee los contadores de rendimiento en el servidor supervisado y envía datos de uso al servicio de Visión operativa en la nube para su procesamiento. La lógica se aplica a los datos usados y el servicio en la nube registra los datos. Con el tiempo, se identifican los patrones de uso y se proyecta la capacidad según el consumo actual.
 
 Por ejemplo, una proyección puede identificar cuándo serán necesarios núcleos de procesador adicionales o una memoria adicional para un servidor individual. En este ejemplo, la proyección podría indicar que en 30 días, el servidor necesitará memoria adicional. Esto puede ayudarle a planear una actualización de memoria durante la próxima ventana de mantenimiento del servidor, algo que puede ocurrir una vez cada dos semanas.
 
 ## Panel Administración de capacidad
 
-Para poder usar el panel Administración de capacidad en Visión operativa de Microsoft Azure, debe tener instalado el paquete de inteligencia. Para obtener más información sobre cómo instalar los paquetes de inteligencia, consulte [Uso de la Galería para agregar o eliminar paquetes de inteligencia](../operational-insights-add-intelligence-packs.md). Después de instalar el paquete de inteligencia de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de Visión operativa. 
+Para poder usar el panel Administración de capacidad en Visión operativa de Microsoft Azure, debe tener instalada la solución. Para obtener más información sobre cómo instalar soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md). Después de instalar la solución de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de Visión operativa.
 
 ![imagen del icono Planeamiento de capacidad](./media/operational-insights-capacity/overview-cap-plan.png)
 
 El icono abre el panel **Administración de capacidad**, donde puede ver un resumen de la capacidad del servidor. La página muestra los iconos siguientes en los que puede hacer clic:
 
-- *Recuento de máquinas virtuales*: muestra el número de días que quedan para la capacidad de las máquinas virtuales.
+- *Cuenta de la máquina virtual*: muestra el número de días que quedan para la capacidad de las máquinas virtuales.
 
-- *Proceso*: muestra los núcleos de procesador y la memoria disponibles.
+- *Proceso*: muestra los núcleos de procesador y la memoria disponible.
 
 - *Almacenamiento*: muestra el espacio en disco utilizado y el promedio de latencia del disco.
 
-- *Search*: el explorador de datos que puede usar para buscar cualquier dato en el sistema de Visión operativa.
+- *Búsqueda*: el explorador de datos que puede usar para buscar cualquier dato en el sistema de Visión operativa.
 
->[AZURE.NOTE] Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional acerca de cómo conectar los sistemas, consulte la información sobre cómo conectar VMM con Operations Manager.
+>[AZURE.NOTE]Para ver los datos de administración de capacidad, debe habilitar la conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional acerca de cómo conectar los sistemas, consulte la información sobre cómo conectar VMM con Operations Manager.
 
 ![imagen del panel Administración de capacidad](./media/operational-insights-capacity/gallery-capacity-01.png)
 
@@ -72,25 +74,25 @@ Las áreas siguientes se muestran en el panel **Proceso**:
 
 - *Núcleos libres*: núcleos físicos totales menos los núcleos usados.
 
-- *Porcentaje de núcleos disponibles*: número de núcleos físicos libres dividido entre el número total de núcleos físicos.
+- *Porcentaje de núcleos disponible*: los núcleos físicos libres divididos por el número total de núcleos físicos.
 
-- *Núcleos virtuales por cada máquina virtual*: número total de núcleos virtuales en el sistema dividido entre el número total de máquinas virtuales del sistema.
+- *Núcleos virtuales por VM*: número total de núcleos virtuales del sistema dividido entre el número total de máquinas virtuales del sistema.
 
-- *Relación entre los núcleos virtuales y los físicos*: relación entre la cantidad total de núcleos físicos y los núcleos físicos que utilizan las máquinas virtuales en el sistema.
+- *Relación entre núcleos virtuales y núcleos físicos*: relación entre la cantidad total de núcleos físicos y los núcleos físicos que utilizan las máquinas virtuales en el sistema.
 
-- *Número de núcleos virtuales disponibles*: relación entre el núcleo virtual y los núcleos físicos multiplicado por los núcleos físicos disponibles.
+- *Número de núcleos de virtuales disponibles*: relación entre núcleo virtual y núcleos físicos multiplicada por el número de núcleos físicos disponibles.
 
 - *Memoria usada*: suma de la memoria que utilizan todos los hosts.
 
 - *Memoria libre*: memoria física total menos la memoria usada.
 
-- *Porcentaje de memoria disponible*: memoria física libre dividida entre la memoria física total.
+- *Porcentaje de memoria disponible*: memoria física libre dividida por la memoria física total.
 
-- *Memoria virtual por cada máquina virtual*: memoria virtual total en el sistema dividida entre el número total de máquinas virtuales del sistema.
+- *Memoria virtual por VM*: memoria virtual total del sistema dividida entre el número total de máquinas virtuales del sistema.
 
-- *Relación entre la memoria virtual y la memoria física*: total de memoria virtual en el sistema dividido entre la memoria física total del sistema.
+- *Proporción entre memoria virtual y memoria física*: total de memoria virtual del sistema dividido por el total de memoria física del sistema.
 
-- *Memoria virtual disponible*: relación entre la memoria virtual y la memoria física multiplicado por la memoria física disponible.
+- *Memoria virtual disponible*: relación entre la memoria virtual y la memoria física multiplicada por la memoria física disponible.
 
 **Herramienta de proyección**
 
@@ -98,13 +100,13 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 **Eficacia**
 
-- *Máquinas virtuales inactivas*: aquellas que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
+- *VM inactiva*: aquellas que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
 
-- *VM sobreutilizadas*: aquellas que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
+- *VM sobreutilizada*: aquellas que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
 
-- *Hosts inactivos*: aquellas que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
+- *Host inactivo*: aquellos que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
 
-- *Hosts sobreutilizados*: aquellas que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
+- *Host sobreutilizado*: aquellos que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
 
 ### Uso de los elementos de la página Proceso
 
@@ -112,7 +114,7 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 2. Haga clic en un elemento para abrirlo en la página **Buscar** y ver información detallada al respecto.
 
-3. En la herramienta **Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
+3. En la herramienta de **Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
 
 3. En el área **Eficacia**, puede ver la información sobre la eficacia de la capacidad acerca de las máquinas virtuales y los hosts de máquina virtual.
 
@@ -130,15 +132,15 @@ Las áreas siguientes se muestran en la página **Almacenamiento**:
 
 - *Uso*: conozca el uso del espacio de disco en los hosts de máquina virtual.
 
-- *Espacio total en disco*: suma (espacio de disco lógico) para todos los hosts.
+- *Espacio en disco total*: suma (espacio en disco lógico) para todos los hosts
 
-- *Espacio de disco usado*: suma (espacio de disco lógico usado) para todos los hosts.
+- *Espacio en disco usado*: suma (espacio en disco lógico usado) para todos los hosts
 
-- *Espacio disponible en disco*: espacio en disco total menos el espacio en disco utilizado.
+- *Espacio en disco disponible*: espacio en disco total menos espacio en disco usado
 
-- *Porcentaje de disco utilizado*: espacio en disco utilizado dividido entre el espacio total en disco.
+- *Porcentaje utilizado del disco*: espacio en disco usado dividido por el espacio en disco total
 
-- *Porcentaje de disco disponible*: espacio en disco disponible dividido entre el espacio total en disco.
+- *Porcentaje en disco disponible*: espacio en disco disponible dividido por espacio en disco total
 
 ![imagen de la página Administración de capacidad del almacenamiento con conexión directa](./media/operational-insights-capacity/gallery-capacity-03.png)
 
@@ -158,8 +160,6 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 3. En el área **Rendimiento del disco**, puede ver la información sobre el rendimiento y la latencia del disco.
 
-4. En la herramienta **Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
+4. En la **herramienta de Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
 
-
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

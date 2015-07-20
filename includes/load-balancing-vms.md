@@ -1,4 +1,5 @@
 
+
 #Equilibrio de carga para Servicios de infraestructura de Azure#
 
 Hay dos niveles de equilibrio de carga disponibles para Servicios de infraestructura de Azure:
@@ -61,4 +62,4 @@ Para obtener más información, consulte [Equilibrio de carga interno](http://ms
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

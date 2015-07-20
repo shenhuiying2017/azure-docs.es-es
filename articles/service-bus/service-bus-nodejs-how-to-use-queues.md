@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Utilización de las colas del Bus de servicio (Node.js) - Azure" 
-	description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Node.js." 
+	description="Obtenga información sobre cómo usar las colas del Bus de servicio en Azure desde una aplicación Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="sethm"/>
-
-
-
-
-
+	ms.date="07/06/2015" 
+	ms.author="mwasson"/>
 
 # Utilización de las colas del Bus de servicio
 
-Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios que abarca se incluyen la **creación de colas, el envío y recepción de mensajes** y **la eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes].
+Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios que abarca se incluyen la **creación de colas, el envío y recepción de mensajes** y la **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix].
 
 ## Configuración de la aplicación para usar el Bus de servicio
 
-Para utilizar el bus de servicio de Azure, es necesario descargar y usar el paquete azure para Node.js. Este paquete incluye un conjunto de prácticas bibliotecas que se comunican con los servicios REST del Bus de servicio.
+Para utilizar el Bus de servicio de Azure, descargue y use el paquete azure para Node.js. Incluye un conjunto de bibliotecas que se comunican con los servicios REST del Bus de servicio.
 
 ### Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 
@@ -53,7 +48,7 @@ Para utilizar el bus de servicio de Azure, es necesario descargar y usar el paqu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  Puede ejecutar manualmente el comando **ls** para verificar que se ha creado la carpeta **node_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a colas de Bus de servicio.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node_modules**. Dentro de esa carpeta, busque el paquete **azure**, que contiene las bibliotecas necesarias para obtener acceso a las colas del Bus de servicio.
 
 ### Importación del módulo
 
@@ -63,11 +58,11 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 
 ### Configuración de una conexión del Bus de servicio de Azure
 
-El módulo azure leerá las variables de entorno AZURE_SERVICEBUS_NAMESPACE y AZURE_SERVICEBUS_ACCESS_KEY para obtener la información necesaria para conectarse al Bus de servicio de Azure. Si estas variables de entorno no están configuradas, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
+El módulo Azure leerá las variables de entorno AZURE_SERVICEBUS_NAMESPACE y AZURE_SERVICEBUS_ACCESS_KEY para obtener la información necesaria para conectarse al Bus de servicio. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][Servicio en la nube de Node.js].
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio en la nube de Azure, consulte [Servicio en la nube de Node.js con almacenamiento].
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento][Aplicación web Node.js con almacenamiento].
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
 
 ## Creación de una cola
 
@@ -75,7 +70,7 @@ El objeto **ServiceBusService** le permite trabajar con colas. El siguiente cód
 
     var serviceBusService = azure.createServiceBusService();
 
-Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService** se devolverá la cola especificada (si existe) o se creará una nueva cola con el nombre especificado. El código siguiente usa **createQueueIfNotExists** para crear una cola llamada "myqueue" o bien para conectarse a ella:
+Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService** se devolverá la cola especificada (si existe) o se creará una nueva cola con el nombre especificado. El código siguiente utiliza **createQueueIfNotExists** para crear una cola llamada "myqueue" o conectarse a ella.
 
     serviceBusService.createQueueIfNotExists('myqueue', function(error){
         if(!error){
@@ -83,7 +78,7 @@ Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService** se dev
         }
     });
 
-**createServiceBusService** también admite opciones adicionales, que permiten sobrescribir la configuración de cola predeterminada, como el tiempo que dura la transmisión de un mensaje o el tamaño máximo de la cola. En el siguiente ejemplo se muestra cómo establecer el tamaño máximo de las colas en 5 GB y el período de vida en 1 minuto:
+**createServiceBusService** también admite opciones adicionales, que permiten sobrescribir la configuración de cola predeterminada, como el tiempo que dura la transmisión de un mensaje o el tamaño máximo de la cola. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor del período de vida en 1 minuto:
 
     var queueOptions = {
           MaxSizeInMegabytes: '5120',
@@ -98,15 +93,15 @@ Al llamar a **createQueueIfNotExists** en el objeto **ServiceBusService** se dev
 
 ### Filtros
 
-Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas utilizando **ServiceBusService**. Las operaciones de filtrado pueden incluir el registro y el reintento automático, entre otros. Los filtros son objetos que implementan un método con la firma siguiente:
+Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas utilizando **ServiceBusService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
 		function handle (requestOptions, next)
 
-Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a "next" pasando una devolución de llamada con la firma siguiente:
+Después de realizar el preprocesamiento en las opciones de solicitud, el método tiene que llamar a `next`, pasando una devolución de llamada con la firma siguiente:
 
 		function (returnObject, finalCallback, next)
 
-En esta devolución de llamada y después de procesar returnObject (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a next, si existe, para continuar procesando otros filtros, o bien simplemente invocar a finalCallback para finalizar la invocación del servicio.
+En esta devolución de llamada y después de procesar **returnObject** (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a `next`, si existe, para continuar procesando otros filtros, o bien simplemente invocar a `finalCallback`, que finaliza la invocación del servicio.
 
 Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Azure para Node.js: **ExponentialRetryPolicyFilter** y **LinearRetryPolicyFilter**. Con el siguiente código se crea un objeto **ServiceBusService** que utiliza el filtro **ExponentialRetryPolicyFilter**:
 
@@ -115,9 +110,9 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 
 ## Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola del bus de servicio, la aplicación debe llamar al método **sendQueueMessage** del objeto **ServiceBusService**. Los mensajes enviados a las colas del bus de servicio (y recibidos de ellas) son objetos **BrokeredMessage** y cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena como mensaje, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
+Para enviar un mensaje a una cola del Bus de servicio, la aplicación debe llamar al método **sendQueueMessage** del objeto **ServiceBusService**. Los mensajes enviados a las colas del Bus de servicio (y recibidos de ellas) son objetos **BrokeredMessage** y cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando una cadena como el mensaje. Las propiedades estándar requeridas se rellenan con valores predeterminados.
 
-En el ejemplo siguiente se demuestra cómo enviar un mensaje de prueba a la cola 'myqueue' mediante **sendQueueMessage**:
+En el ejemplo siguiente se demuestra cómo enviar un mensaje de prueba a la cola `myqueue` mediante **sendQueueMessage**:
 
     var message = {
         body: 'Test message',
@@ -130,7 +125,7 @@ En el ejemplo siguiente se demuestra cómo enviar un mensaje de prueba a la cola
         }
     });
 
-Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
+Las colas del Bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
 
 ## Recepción de mensajes de una cola
 
@@ -138,24 +133,23 @@ Se pueden recibir mensajes de una cola con el uso del método **receiveQueueMess
 
 El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-Si el parámetro **isPeekLock** está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación.
-Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **deleteMessage** marcará el mensaje como consumido y lo eliminará de la cola.
+Si el parámetro **isPeekLock** está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **deleteMessage** marcará el mensaje como consumido y lo eliminará de la cola.
 
-En el ejemplo que aparece a continuación se muestra cómo se pueden recibir y procesar mensajes con **receiveQueueMessage**. En primer lugar, el ejemplo recibe y elimina un mensaje, después, recibe un mensaje con **isPeekLock** establecido en true y, a continuación, lo elimina mediante **deleteMessage**:
+En el ejemplo siguiente se muestra cómo recibir y procesar mensajes mediante **receiveQueueMessage**. En primer lugar, el ejemplo recibe y elimina un mensaje, después, recibe un mensaje con **isPeekLock** establecido en **true** y luego lo elimina mediante **deleteMessage**:
 
-    serviceBusService.receiveQueueMessage('taskqueue', function(error, receivedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
         if(!error){
             // Message received and deleted
         }
     });
-    serviceBusService.receiveQueueMessage(queueName, { isPeekLock: true }, function(error, lockedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
         if(!error){
             // Message received and locked
             serviceBusService.deleteMessage(lockedMessage, function (deleteError){
                 if(!deleteError){
                     // Message deleted
                 }
-            }
+            });
         }
     });
 
@@ -165,40 +159,35 @@ El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin prob
 
 También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **At Least Once Processing**; es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo esto se consigue mediante la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## Pasos siguientes
 
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][].
--   Visite el repositorio del [SDK de Azure para Node.js] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones][].
+-   Visite el repositorio del [SDK de Azure para Node] en GitHub.
 
-  [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
+  [SDK de Azure para Node]: https://github.com/Azure/azure-sdk-for-node
   [Pasos siguientes]: #next-steps
-  [¿Qué son las colas del Bus de servicio?]: #what-are-service-bus-queues
-  [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
-  [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
-  [Creación de una aplicación Node.js]: #create-app
-  [Configuración de la aplicación para usar el Bus de servicio]: #configure-app
-  [Codificación de una cola]: #create-queue
-  [Codificación mensajes a una cola]: #send-messages
-  [Codificación mensajes desde una cola]: #receive-messages
-  [Codificación ante errores de la aplicación y mensajes que no se pueden leer]: #handle-crashes
-  [Conceptos de cola]: ../../dotNet/Media/sb-queues-08.png
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [What are Service Bus Queues?]: #what-are-service-bus-queues
+  [Create a Service Namespace]: #create-a-service-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
+  [Create a Node.js Application]: #create-app
+  [Configure Your Application to Use Service Bus]: #configure-app
+  [How to: Create a Queue]: #create-queue
+  [How to: Send Messages to a Queue]: #send-messages
+  [How to: Receive Messages from a Queue]: #receive-messages
+  [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
+  [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
+  [Azure Management Portal]: http://manage.windowsazure.com
   
-  
-  
-  
-  
-  [Servicio en la nube de Node.js]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
-  [Sitio web con WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
-[Portal de administración anterior]: ../../Shared/Media/previous-portal.png
-  [Creación e implementación de una aplicación Node.js en un sitio web Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
-  [Servicio en la nube de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-app-with-storage/
-  [Aplicación web Node.js con almacenamiento]: /develop/nodejs/tutorials/web-site-with-storage/
-
-<!--HONumber=47-->
+  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Sitio web con WebMatrix]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
+  [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
+  [Servicio en la nube de Node.js con almacenamiento]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
+  [Aplicación web de Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
+
+<!---HONumber=July15_HO2-->

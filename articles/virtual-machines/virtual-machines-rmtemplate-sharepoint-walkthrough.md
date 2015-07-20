@@ -20,7 +20,7 @@
 
 Este tema le guiará por la estructura del archivo de plantilla azuredeploy.json para la granja de servidores SharePoint de tres servidores. Puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Como alternativa, para examinar una copia local del archivo azuredeploy.json, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\Azure\Templates\SharePointFarm). Rellene el nombre de la carpeta y ejecute estos comandos en el símbolo del sistema de Azure PowerShell.
+Como alternativa, para examinar una copia local del archivo azuredeploy.json, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\SharePointFarm). Rellene el nombre de la carpeta y ejecute estos comandos en el símbolo del sistema de Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -378,4 +378,4 @@ Para obtener más información, consulte [Idioma de la plantilla del Administrad
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

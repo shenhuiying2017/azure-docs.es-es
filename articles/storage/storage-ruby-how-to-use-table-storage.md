@@ -3,7 +3,7 @@
 	description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos usando la API Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -23,9 +23,7 @@
 
 ## Información general
 
-Esta guía le indicará cómo actuar en situaciones habituales usando el
-servicio Tabla de Microsoft Azure. Los ejemplos se han escrito usando la
-API Ruby. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla**.
+Esta guía le indicará cómo actuar en situaciones habituales usando el servicio Tabla de Microsoft Azure. Los ejemplos se han escrito usando la API Ruby. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla**.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -70,31 +68,31 @@ Para obtener estos valores:
 
 ## Creación de una tabla
 
-El objeto **Azure::TableService** permite trabajar con tablas y entidades. Para crear una tabla, utilice el método **create_table()**. En el siguiente ejemplo se crea una tabla o se imprime el error, si hay alguno.
+El objeto **Azure::TableService** permite trabajar con tablas y entidades. Para crear una tabla, use el método **create_table()**. En el siguiente ejemplo se crea una tabla o se imprime el error, si hay alguno.
 
 	azure_table_service = Azure::TableService.new
 	begin
-	 azure_table_service.create_table("testtable")
+	  azure_table_service.create_table("testtable")
 	rescue
-	 puts $!
+	  puts $!
 	end
 
 ## Incorporación de una entidad a una tabla
 
-Para agregar una entidad, primero cree un objeto hash que defina las propiedades de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey**. Estos son los identificadores exclusivos de sus entidades y son valores que se pueden consultar más rápidamente que las demás propiedades. El servicio de almacenamiento de Azure usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece. 
+Para agregar una entidad, primero cree un objeto hash que defina las propiedades de la entidad. Tenga en cuenta que para cada entidad debe especificar valores en **PartitionKey** y **RowKey**. Estos son los identificadores exclusivos de sus entidades y son valores que se pueden consultar más rápidamente que las demás propiedades. El servicio de almacenamiento de Azure usa **PartitionKey** para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
 
 	entity = { "content" => "test entity", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.insert_entity("testtable", entity)
 
-## Procedimientos: de una entidad
+## Actualización de una entidad
 
 Hay varios métodos para actualizar una entidad existente:
 
 * **update_entity():** actualiza una entidad existente reemplazándola.
-* **merge_entity():** actualiza una entidad que ya existe combinando los valores de las nuevas propiedades con la entidad existente.
-* **insert_or_merge_entity():** actualiza una entidad existente reemplazándola. Si no existe ninguna entidad, se insertará una nueva:
-* **insert_or_replace_entity():** actualiza una entidad existente combinando nuevos valores de propiedad en la entidad existente. Si no existe ninguna entidad, se insertará una nueva.
+* **merge_entity():**: actualiza una entidad que ya existe combinando los valores de las nuevas propiedades con la entidad existente.
+* **insert_or_merge_entity():** actualiza una entidad existente reemplazándola. Si no hay entidades, se insertará una nueva.
+* **insert_or_replace_entity():** actualiza una entidad que ya existe combinando los valores de las nuevas propiedades con la entidad existente. Si no hay entidades, se insertará una nueva.
 
 El ejemplo siguiente demuestra cómo actualizar una entidad usando **update_entity()**:
 
@@ -104,7 +102,7 @@ El ejemplo siguiente demuestra cómo actualizar una entidad usando **update_enti
 
 Con **update_entity()** y **merge_entity()**, si la entidad que se está actualizando no existe, se producirá un error en la operación de actualización. Por lo tanto, si desea almacenar una entidad independientemente de si ya existe, debe usar **insert_or_replace_entity()** o **insert_or_merge_entity()**.
 
-## Procedimientos: grupos de entidades
+## Trabajo con grupos de entidades
 
 A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, cree primero un objeto **Batch** y, a continuación, utilice el método **execute_batch()** en **TableService**. El siguiente ejemplo muestra el envío de dos entidades con RowKey 2 y 3 en un lote. Tenga en cuenta que solo funciona para entidades con el mismo valor de PartitionKey.
 
@@ -116,14 +114,14 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 	end
 	results = azure_table_service.execute_batch(batch)
 
-## Procedimientos: una entidad
+## Consulta de una entidad
 
 Para consultar la entidad de una tabla, use el método **get_entity()**, pasando el nombre de tabla, **PartitionKey** y **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key", 
 	  "1")
 
-## Procedimientos: un conjunto de entidades
+## Consulta de un conjunto de entidades
 
 Para realizar una consulta de un conjunto de entidades en una tabla, cree un objeto hash de consulta y use el método **query_entities()**. El siguiente ejemplo muestra la obtención de todas las entidades con el mismo valor de **PartitionKey**:
 
@@ -132,7 +130,7 @@ Para realizar una consulta de un conjunto de entidades en una tabla, cree un obj
 
 **Tenga en cuenta** que si el resultado establecido es demasiado largo para que lo devuelva una única consulta, se devolverá un token de continuación que puede usar para recuperar las páginas siguientes.
 
-## Trabajo Consulta de un subconjunto de propiedades de las entidades
+## Consulta de un subconjunto de propiedades de las entidades
 
 Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. Esta técnica, denominada "proyección", reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Utilice la cláusula select y pase los nombres de las propiedades que quiera que lleguen al cliente.
 
@@ -140,13 +138,13 @@ Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. E
 	  :select => ["content"] }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-## Trabajo Eliminación de una entidad
+## Eliminación de una entidad
 
 Para eliminar una entidad, use el método **delete_entity()**. Tiene que pasar el nombre de la tabla que contiene la entidad, la PartitionKey y la RowKey de la entidad.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
-## Procedimientos: Eliminación de una tabla
+## Cómo eliminar una tabla
 
 Para eliminar una tabla, use el método **delete_table()** para pasar el nombre de la tabla que desee eliminar.
 
@@ -156,8 +154,9 @@ Para eliminar una tabla, use el método **delete_table()** para pasar el nombre 
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-- Consulte la referencia de MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Vea la Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visite el repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -49,4 +49,4 @@
 
 Ahora la **ToDoActivity** estará preparada para agregar notificaciones de inserción.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

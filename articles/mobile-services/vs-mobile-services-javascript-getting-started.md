@@ -91,4 +91,5 @@ Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [P
 
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

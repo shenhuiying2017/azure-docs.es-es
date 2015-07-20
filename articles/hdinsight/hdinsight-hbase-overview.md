@@ -104,4 +104,4 @@ El caso de uso canónico para el que se creó BigTable y, por extensión, HBase,
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

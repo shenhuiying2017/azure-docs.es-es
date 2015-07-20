@@ -25,7 +25,7 @@ Esta guía le muestra cómo realizar tareas comunes con el cliente del component
 
 ## <a name="setup"></a>Configuración y requisitos previos
 
-Se asume que ha creado un servicio móvil y una tabla. Para obtener más información, consulte [Creación de una tabla](http://go.microsoft.com/fwlink/?LinkId=298592). En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `id`, `Text` y `Complete`.
+Se asume que ha creado un servicio móvil y una tabla. Para obtener más información, consulte [Crear una tabla](http://go.microsoft.com/fwlink/?LinkId=298592). En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `id`, `Text` y `Complete`.
 
 El tipo .NET del cliente con tipo correspondiente es el siguiente:
 
@@ -45,14 +45,14 @@ Cuando está habilitado el esquema dinámico, Servicios móviles de Azure genera
 
 ## <a name="create-client"></a>Creación del cliente de Servicios móviles
 
-El código siguiente crea el objeto `MobileServiceClient` que se usa para acceder al servicio móvil.
+El código siguiente crea el objeto `MobileServiceClient` que se usa para obtener acceso al servicio móvil.
 			
 	MobileServiceClient client = new MobileServiceClient( 
 		"AppUrl", 
 		"AppKey" 
 	); 
 
-En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, por ese orden. Estos datos están disponibles en el Portal de administración de Azure si selecciona el servicio móvil y, a continuación, hace clic en Panel.
+En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de administración de Azure si selecciona el servicio móvil y, a continuación, hace clic en Panel.
 
 ## <a name="instantiating"></a>Creación de una referencia de tabla
 
@@ -69,7 +69,7 @@ En esta sección se describe cómo generar consultas al servicio móvil. Los sub
 			
 ### <a name="filtering"></a>Filtro de datos devueltos
 
-El siguiente código muestra cómo filtrar datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de filas a la consulta en la tabla.
+El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de filas a la consulta en la tabla.
 	
 
 	// This query filters out completed TodoItems and 
@@ -87,7 +87,7 @@ Normalmente, esta solicitud se traduciría aproximadamente en la siguiente consu
 	FROM TodoItem 			
 	WHERE ISNULL(complete, 0) = 0
 			
-La función que se pasa al método `Where` puede tener un número arbitrario de condiciones. Por ejemplo, la siguiente línea:
+La función que se pasa al método `Where` puede disponer de un número arbitrario de condiciones. Por ejemplo, la siguiente línea:
 
 	// This query filters out completed TodoItems where Text isn't null
 	List<TodoItem> items = await todoTable
@@ -102,7 +102,7 @@ Se traduciría aproximadamente (para la misma solicitud mostrada anteriormente) 
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
-La instrucción `where` anterior buscará los elementos con el estado `Complete` establecido en false con `Text` no nulo.
+La instrucción `where` anterior buscará los elementos con el estado `Complete` establecido en false con no nulo `Text`.
 
 También podría haberse escrito en varias líneas:
 
@@ -113,7 +113,7 @@ También podría haberse escrito en varias líneas:
 
 Los dos métodos son equivalentes y pueden usarse indistintamente. La opción anterior, de concatenación de varios predicados en una consulta, es más compacta y es la que se recomienda.
 
-La cláusula `where` es compatible con las operaciones que pueden convertirse en el subconjunto OData de Servicios móviles. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todos estos.
+La cláusula `where` es compatible con las operaciones que pueden traducirse en el subconjunto OData de Servicios móviles. Incluye operadores relacionales (==, !=, <, <=, >, >=), operadores aritméticos (+, -, /, *, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores.
 
 ### <a name="sorting"></a>Clasificación de datos devueltos
 
@@ -154,11 +154,11 @@ También puede usar el método [IncludeTotalCount](http://msdn.microsoft.com/lib
 
 	query = query.IncludeTotalCount();
 
-Se trata de un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos `Take` y `Skip`. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores.
+Este es un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos `Take` y `Skip`. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores.
 
 ### <a name="selecting"></a>Selección de columnas específicas
 
-Puede especificar qué conjunto de propiedades se incluirá en los resultados agregando una cláusula `Select` a la consulta. Por ejemplo, el siguiente código muestra cómo seleccionar solo un campo y también cómo seleccionar varios campos y darles formato:
+Puede especificar qué conjunto de propiedades se incluirá en los resultados agregando una cláusula `Select` a su consulta. Por ejemplo, el siguiente código muestra cómo seleccionar solo un campo y también cómo seleccionar varios campos y darles formato:
 
 	// Select one field -- just the Text
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -181,7 +181,7 @@ Todas las funciones descritas en adelante son adicionales, por lo que es posible
 	
 ### <a name="lookingup"></a>Búsqueda de datos por identificador
 
-La función `LookupAsync` puede usarse para buscar objetos en la base de datos con un identificador determinado.
+La función `LookupAsync` puede usarse para buscar objetos desde la base de datos con un identificador determinado.
 
 	// This query filters out the item with the ID of 25
 	TodoItem item25 = await todoTable.LookupAsync(25);
@@ -229,13 +229,13 @@ El siguiente código muestra cómo eliminar una instancia existente. La instanci
 
 	await todoTable.DeleteAsync(todoItem);
 
-Para eliminar datos sin tipo, puede aprovechar Json.NET. Tenga en cuenta que cuando realice una solicitud de eliminación, debe especificarse un identificador, ya que de esa forma el servicio móvil identifica qué instancia eliminar. Una solicitud de eliminación precisa solo el identificador; las demás propiedades no se pasan al servicio, y si se pasa alguna, se ignoran en el servicio. El resultado de una llamada de `DeleteAsync` también suele ser `null`. El identificador puede obtenerse a partir del resultado de la llamada de `InsertAsync`.
+Para eliminar datos sin tipo, puede aprovechar Json.NET. Tenga en cuenta que cuando realice una solicitud de eliminación, debe especificarse un identificador, ya que de esa forma el servicio móvil identifica qué instancia eliminar. Una solicitud de eliminación precisa solo el identificador; las demás propiedades no se pasan al servicio, y si se pasa alguna, se ignoran en el servicio. El resultado de una llamada `DeleteAsync` es normalmente `null` también. El identificador puede obtenerse a partir del resultado de la llamada `InsertAsync`.
 
 	JObject jo = new JObject(); 
 	jo.Add("Id", 52);
 	await table.DeleteAsync(jo);
 			
-Si intenta actualizar un elemento sin el campo "Id" ya establecido, no hay forma de que el servicio indique qué instancia se debe eliminar, por lo que recibirá una `MobileServiceInvalidOperationException` del servicio. De forma parecida, si intenta eliminar un elemento sin tipo sin el campo "Id" ya establecido, recibirá una `MobileServiceInvalidOperationException` del servicio.
+Si intenta eliminar un elemento sin el campo "Id" ya establecido, no hay forma de que el servicio indique qué instancia eliminar, por lo que volverá a obtener `MobileServiceInvalidOperationException` del servicio. De forma parecida, si intenta eliminar un elemento sin tipo sin el campo "Id" ya establecido, recibirá una `MobileServiceInvalidOperationException` del servicio.
 		
 
 
@@ -274,9 +274,9 @@ Una vez que haya registrado el proveedor de identidades, simplemente llame al m�
 		}
 	}
 
-Si usa un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider] anterior por el valor de su proveedor.
+Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider] anterior por el valor de su proveedor.
 
-En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync] devuelve [MobileServiceUser], que proporciona el [userId] del usuario autenticado y el [MobileServiceAuthenticationToken] como token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación].
+En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El [método LoginAsync] devuelve [MobileServiceUser], que proporciona [userId] del usuario autenticado y [MobileServiceAuthenticationToken] como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación].
 
 ### Flujo de cliente
 
@@ -392,7 +392,7 @@ El cliente del componente Xamarin se ha creado para escenarios fuertemente tipad
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Json.NET, consulte [Json.NET](http://json.codeplex.com/).
+Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y [Json.NET](http://json.codeplex.com/), consulte Json.NET.
 
 ## <a name="unit-testing"></a>Diseño de pruebas unitarias
 
@@ -466,9 +466,11 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [Authorize users with scripts iOS]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Authorize users with scripts Android]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 [LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[método LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

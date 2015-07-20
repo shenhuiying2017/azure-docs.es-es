@@ -39,4 +39,4 @@
 
     ![Directiva de copia de seguridad personalizada](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

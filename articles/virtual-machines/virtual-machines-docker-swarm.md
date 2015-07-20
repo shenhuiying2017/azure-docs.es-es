@@ -21,9 +21,7 @@
 
 Este tema le mostrará una manera muy sencilla de usar [docker](https://www.docker.com/) con [swarm](https://github.com/docker/swarm) para crear un clúster administrado por swarm en Azure. Éste crea cuatro máquinas virtuales en Azure: una que actúe como el administrador de enjambre y tres como parte del clúster de los hosts docker. Cuando termine, puede usar enjambre para ver el clúster y comenzar a usar docker en él. Además, las llamadas de CLI de Azure en este tema utilizan el modo de administración de servicio (asm).
 
-> [AZURE.NOTE]Esta es una versión anterior del software, así que compruebe si hay actualizaciones acerca de su uso en Azure para no solo poder crear una serie de clústeres más grandes, equilibrados y controlados de los contenedores de Docker, sino también para poder revisar la documentación de docker y enjambre y así descubrir así todas sus características.
-<!-- -->
-> Además, en este tema usaremos docker con swarm y la CLI de Azure *sin* usar la **docker-machine** para mostrar cómo funcionan conjuntamente las distintas herramientas, aunque éstas sigan siendo independientes. **docker-machine** tiene conmutadores **--swarm** que le permitirán usar **docker-machine** para añadir nodos directamente a swarm. Para obtener un ejemplo, consulte la documentación de [docker-machine](https://github.com/docker/machine). Si no sabe cómo ejecutar **docker-machine** con las máquinas virtuales de Azure, consulte [Cómo usar una máquina docker con Azure](virtual-machines-docker-machine.md).
+> [AZURE.NOTE]Esta es una versión anterior del software, así que compruebe si hay actualizaciones acerca de su uso en Azure para no solo poder crear una serie de clústeres más grandes, equilibrados y controlados de los contenedores de Docker, sino también para poder revisar la documentación de docker y enjambre y así descubrir así todas sus características. <!-- --> Además, en este tema usaremos docker con swarm y la CLI de Azure *sin* usar la **docker-machine** para mostrar cómo funcionan conjuntamente las distintas herramientas, aunque éstas sigan siendo independientes. **docker-machine** tiene conmutadores **--swarm** que le permitirán usar **docker-machine** para añadir nodos directamente a swarm. Para obtener un ejemplo, consulte la documentación de [docker-machine](https://github.com/docker/machine). Si no sabe cómo ejecutar **docker-machine** con las máquinas virtuales de Azure, consulte [Cómo usar una máquina docker con Azure](virtual-machines-docker-machine.md).
 
 ## Crear hosts docker con máquinas virtuales de Azure
 
@@ -46,7 +44,7 @@ Cuando haya terminado, debería poder usar **azure vm list** para ver sus máqui
 
 En este tema usamos el [modelo de instalación del contenedor de la documentación de docker swarm](https://github.com/docker/swarm#1---docker-image), pero también puede usar SSH en **swarm-master**. En este modelo, **swarm** se descarga como un contenedor de docker que ejecuta swarm. A continuación, llevamos a cabo este paso *de forma remota desde nuestro equipo portátil usando docker* para conectarnos a la máquina virtual de**swarm-master** e indicarle que use el comando de creación del identificador de clúster, **swarm create**. El identificador de clúster es la manera con la que **swarm** detecta a los miembros del grupo de swarm. (Además también puede clonar el repositorio y compilarlo usted mismo; gracias a ello tendrá el control total y podrá habilitar la depuración.)
 
-    $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run --rm swarm create
+    $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm create
     Unable to find image 'swarm:latest' locally
     511136ea3c5a: Pull complete
     a8bbe4db330c: Pull complete
@@ -62,15 +60,13 @@ En este tema usamos el [modelo de instalación del contenedor de la documentaci�
 
 La última línea es el identificador de clúster, así que cópielo ya que tendrá que usarlo de nuevo cuando una el nodo de máquinas virtuales al maestro de enjambre para crear el "enjambre". En este ejemplo, el identificador de clúster es **36731c17189fd8f450c395db8437befd**.
 
-> [AZURE.NOTE] Para que quede claro: usamos la instalación docker local para conectarnos a la máquina virtual de **swarm-master** en Azure e indicamos a**swarm-master** que descargue, instale y ejecute el comando **create**, el cual devolverá el identificador de clúster que usaremos más adelante para detectar otras cosas.
-<!-- -->
-> Para confirmar esta acción, ejecute`docker -H tcp://`*&lt;hostname&gt;* ` images` para enumerar los procesos de contenedor en **swarm-master** y en otro nodo para compararlos (como ejecutamos el comando de enjambre anterior con el conmutador **--rm** el contenedor se quitó una vez terminada su tarea, así que si usa **docker ps -a**, éste no devolverá nada).
+> [AZURE.NOTE]Para que quede claro: usamos la instalación docker local para conectarnos a la máquina virtual de **swarm-master** en Azure e indicamos a**swarm-master** que descargue, instale y ejecute el comando **create**, el cual devolverá el identificador de clúster que usaremos más adelante para detectar otras cosas. <!-- --> Para confirmar esta acción, ejecute`docker -H tcp://`*&lt;hostname&gt;* ` images` para enumerar los procesos de contenedor en **swarm-master** y en otro nodo para compararlos (como ejecutamos el comando de enjambre anterior con el conmutador **--rm** el contenedor se quitó una vez terminada su tarea, así que si usa **docker ps -a**, éste no devolverá nada).
 
 
-        $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 images
+        $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 images
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         swarm               latest              92d78d321ff2        11 days ago         7.19 MB
-        $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 images
+        $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 images
         REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
         $
 <P />
@@ -85,14 +81,14 @@ Para cada nodo, enumere la información de extremo usando la CLI de Azure. A con
     + Getting virtual machines
     data:    Name    Protocol  Public Port  Private Port  Virtual IP      EnableDirectServerReturn  Load Balanced
     data:    ------  --------  -----------  ------------  --------------  ------------------------  -------------
-    data:    docker  tcp       4243         4243          138.91.112.194  false                     No
+    data:    docker  tcp       2376         2376          138.91.112.194  false                     No
     data:    ssh     tcp       22           22            138.91.112.194  false                     No
     info:    vm endpoint list command OK
 
 
 Si usa **docker** y la opción `-H` para señalar al cliente de docker en su máquina virtual de nodo, una ese nodo al swarm que está creando pasando el identificador de clúster y el puerto de docker del nodo (este último usa **--addr**):
 
-    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 run -d swarm join --addr=138.91.112.194:4243 token://36731c17189fd8f450c395db8437befd
+    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 run -d swarm join --addr=138.91.112.194:2376 token://36731c17189fd8f450c395db8437befd
     Unable to find image 'swarm:latest' locally
     511136ea3c5a: Pull complete
     a8bbe4db330c: Pull complete
@@ -108,7 +104,7 @@ Si usa **docker** y la opción `-H` para señalar al cliente de docker en su má
 
 Tiene buen aspecto. Para confirmar que **swarm** se está ejecutando en** swarm-node-1**, escriba:
 
-    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:4243 ps -a
+    $ docker --tls -H tcp://swarm-node-1.cloudapp.net:2376 ps -a
         CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
         bbf88f61300b        swarm:latest        "/swarm join --addr=   13 seconds ago      Up 12 seconds       2375/tcp            angry_mclean
 
@@ -116,12 +112,12 @@ Repítalo para el resto de nodos del clúster. En nuestro caso, lo hacemos para 
 
 ## Empezar a administrar el clúster enjambre
 
-    $ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
+    $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
     d7e87c2c147ade438cb4b663bda0ee20981d4818770958f5d317d6aebdcaedd5
 
 y, a continuación, puede enumerar los nodos del clúster:
 
-    ralph@local:~$ docker --tls -H tcp://swarm-master.cloudapp.net:4243 run --rm swarm list token://73f8bc512e94195210fad6e9cd58986f
+    ralph@local:~$ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm list token://73f8bc512e94195210fad6e9cd58986f
     54.149.104.203:2375
     54.187.164.89:2375
     92.222.76.190:2375
@@ -134,5 +130,6 @@ Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [htt
 <!-- links -->
 
 [docker-machine-azure]: virtual-machines-docker-machine.md
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

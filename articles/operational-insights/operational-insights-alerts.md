@@ -1,27 +1,29 @@
-<properties 
+<properties
    pageTitle="Visualización de alertas de Operations Manager"
    description="Aprenda cómo administrar las alertas de Operations Manager para los servidores supervisados en la infraestructura."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
-<tags 
+   editor="" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 
 
 # Visualización de alertas de Operations Manager
 
-Para poder usar la administración de alertas en Visión operativa de Microsoft Azure, debe tener el paquete de inteligencia correspondiente instalado. Para obtener más información sobre cómo instalar los paquetes de inteligencia, consulte Uso de la Galería para agregar o eliminar paquetes de inteligencia(operational-insights-add-intelligence-packs.md). El paquete de inteligencia solo funciona cuando los servidores los supervisan agentes de Operations Manager. Consulte [Recopilación de datos de máquina](../operational-insights-collect-data.md) para obtener más información acerca del uso de Operations Manager con Visión operativa.
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Una vez instalado el paquete de inteligencia, puede ver las alertas de los servidores supervisados mediante el icono **Administración de alertas** en el panel **Información general** de Visión operativa. 
+Antes de usar Administración de alertas en Visión operativa de Microsoft Azure, debe tener instalada la solución. Para obtener más información sobre la instalación de soluciones, vea [Uso de la Galería de soluciones para agregar o quitar soluciones](operational-insights-add-solution.md). La solución solo funciona cuando los agentes de Operations Manager supervisan los servidores. Consulte [Conexión a Visión operativa desde System Center Operations Manager](operational-insights-connect-scom.md) para obtener información sobre el uso de Operations Manager con Visión operativa.
+
+Una vez instalada la solución, puede ver las alertas de los servidores supervisados mediante el icono de **Administración de alertas** en el panel **Información general** de Visión operativa.
 
 ![Imagen del icono Administración de alertas](./media/operational-insights-alerts/overview-alert.png)
 
@@ -45,17 +47,13 @@ Las alertas indican que se ha detectado un problema, el servidor al que afecta l
 ![imagen del panel de alertas](./media/operational-insights-alerts/alert-drilldown2.png)
 
 
-En el panel **Administración de alertas** puede ver todas las alertas que Visión operativa de Microsoft Azure ha encontrado.
+En el panel **Administración de alertas**, puede ver todas las alertas que ha encontrado Visión operativa de Microsoft Azure.
 
 ## Para ver las alertas de Visión operativa
 
-1. En la página de **información general**, haga clic en el icono **Administración de alertas**.
-
-2. En el panel **Administración de alertas**, visualice las categorías de alerta y elija una para trabajar con ella.
-
-3. Haga clic en un icono o en cualquier elemento para ver información detallada acerca de este en la página de **búsqueda**.
-
+1. En la página **Información general**, haga clic en el icono de **Administración de alertas**.
+2. En el panel **Administración de alertas**, vea las categorías de alerta y elija una con la que trabajar.
+3. Haga clic en un icono o en cualquier elemento para ver información detallada sobre él en la página **Buscar**.
 4. Si usa la información encontrada, puede investigar la alerta y determinar las acciones adicionales que puede ser necesario realizar para resolverla.
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

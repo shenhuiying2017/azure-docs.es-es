@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Qué es un grupo de seguridad de red"
    description="Información acerca de los grupos de seguridad de red"
-   services="traffic-manager"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carolz"
@@ -118,7 +118,7 @@ Asociación de un grupo de seguridad de red a una subred: cuando un grupo de seg
 
 Asociación de un grupo de seguridad de red a una subred y una máquina virtual: es posible asociar un grupo de seguridad de red a una máquina virtual y otro grupo de seguridad de red diferente a la subred donde reside la máquina virtual. Esto está admitido y, en este caso, la máquina virtual obtiene dos capas de protección. En el tráfico entrante el paquete pasa por las reglas de acceso especificadas en la subred y,después, por las reglas de la máquina virtual y en el tráfico saliente pasa primero por las reglas especificadas en la máquina virtual, antes de pasar por las reglas especificadas en la subred, como se ilustra en el diagrama siguiente.
 
-![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
+![ACL de grupos de seguridad de red](./media/virtual-networks-nsg/figure1.png)
 
 Cuando un grupo de seguridad de red está asociado a una máquina virtual o una subred, las reglas de control de acceso de la red pasan a ser muy explícitas. La plataforma no insertará ninguna regla implícita para permitir el tráfico a un puerto determinado. En este caso, si crea un extremo en la máquina virtual, también debe crear una regla para permitir el tráfico de Internet. Si no lo hace, la dirección VIP:<Port> no estará accesible desde fuera.
 
@@ -127,6 +127,27 @@ Por ejemplo: cree una nueva máquina virtual y un nuevo grupo de seguridad de re
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 | WEB | 100 | INTERNET | * | * | 80 | TCP | PERMITIR |
+
+## Consideraciones de diseño
+
+Es necesario que entienda cómo se comunican las máquinas virtuales con los servicios de infraestructura y el servicio PaaS hospedado por Azure cuando designe sus NSG. La mayoría de los servicios PaaS de Azure, como las bases de datos SQL y el almacenamiento, solo pueden tener acceso a través de una dirección de Internet pública. Esto mismo puede aplicarse a los sondeos de equilibrio de carga.
+
+Un escenario común en Azure es la separación de roles de máquinas virtuales y PaaS en subredes, en función de si estos objetos requieren acceso a Internet o no. En tal caso, es posible que tenga una subred con máquinas virtuales o instancias de rol que requieran acceso a servicios PaaS de Azure, como las bases de datos SQL y el almacenamiento, pero que no necesiten ninguna comunicación entrante o saliente a Internet.
+
+Imagine la siguiente regla NSG para este escenario:
+
+| Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|SIN INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|DENEGAR| 
+
+Puesto que la regla deniega todo acceso desde la red virtual a Internet, las máquinas virtuales no podrán tener acceso a cualquier servicio PaaS de Azure que requiera un extremo de Internet público, como por ejemplo, las bases de datos SQL.
+
+En lugar de usar una regla de denegación, pruebe a usar una regla para permitir el acceso desde la red virtual a Internet, pero que deniegue el acceso desde Internet a la red virtual, tal y como se muestra a continuación:
+
+| Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|A INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|PERMITIR|
+|DESDE INTERNET|110| INTERNET|&\#42;|VIRTUAL_NETWORK|&\#42;|TCP|DENEGAR| 
 
 
 ## Planificación: flujo de trabajo de grupos de seguridad de red
@@ -187,6 +208,11 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
 	| Update-AzureVM
 
+**Ver las reglas NSG asociadas a una máquina virtual**
+
+	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
+	| Get-AzureNetworkSecurityGroupAssociation
+
 **Eliminación de un grupo de seguridad de red de una máquina virtual**
 
 	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
@@ -198,6 +224,11 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
 	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
 		-SubnetName 'FrontEndSubnet'
+
+**Ver las reglas NSG asociadas a una subred**
+
+	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
+		-VirtualNetworkName 'VNetUSWest' 
 
 **Eliminación de un grupo de seguridad de red de una subred**
 
@@ -213,5 +244,8 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
  
+**Ver todos cmdlets de Azure PowerShell relacionados con las reglas NSG**
 
-<!---HONumber=62-->
+	Get-Command *azurenetworksecuritygroup*
+
+<!---HONumber=July15_HO2-->

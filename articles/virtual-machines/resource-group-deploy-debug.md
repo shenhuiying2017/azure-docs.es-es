@@ -49,7 +49,7 @@ La CLI de Azure tiene diversos comandos para ayudar a evitar errores y detectar 
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**. Este comando valida la plantilla y los parámetros de esta antes de usarlos. Especifique una plantilla personalizada o de la galería y los valores de los parámetros de la plantilla que pretende usar. Este cmdlet prueba si la plantilla es coherente internamente y si el conjunto de valores de los parámetros coincide con la plantilla.
+- **azure group template validate <resource group>**. Este comando valida sus plantillas y parámetros de plantilla antes de usarlos. Especifique una plantilla personalizada o de la galería y los valores de los parámetros de la plantilla que pretende usar.
 
     En el ejemplo siguiente se muestra cómo validar una plantilla y los parámetros necesarios; la CLI de Azure solicita valores de parámetros que son necesarios.
 
@@ -115,7 +115,7 @@ La CLI de Azure tiene diversos comandos para ayudar a evitar errores y detectar 
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+Use la opción **--última implementación** para recuperar solo el registro para la implementación más reciente. El script siguiente usa la opción **--json** y **jq** para buscar el registro de errores de implementación.
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -213,6 +213,26 @@ Sin embargo, Azure Active Directory permite al usuario o al administrador contro
 
 También puede tener problemas cuando una implementación llega a cuota predeterminada, que podría haberse establecido por grupo de recursos, suscripciones, cuentas, etc. Confirme que dispone de los recursos disponibles para implementar correctamente. Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 
+Para examinar las cuotas de su propia suscripción para núcleos, debería usar el comando `azure vm list-usage` en la CLI de Azure y el cmdlet `Get-AzureVMUsage` de PowerShell. A continuación se muestra el comando en la CLI de Azure y la cuota de núcleos para una cuenta de evaluación gratuita es 4:
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+Si tuviera que intenta implementar una plantilla que crea más de 4 núcleos en la región occidental de Estados Unidos en la suscripción anterior, obtendría un error de implementación que podría ser similar al siguiente (en el portal o investigando los registros de implementación):
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+En estos casos, debe ir al portal y archivar un problema de soporte técnico para aumentar su cuota para la región en la que desea realizar la implementación.
+
+> [AZURE.NOTE]Recuerde que para los grupos de recursos, la cuota para cada región individual, no para toda la suscripción. Si necesita implementar 30 núcleos en el oeste de Estados Unidos, debe pedir 30 núcleos de administración de recursos en el oeste de Estados Unidos. Si necesita implementar 30 núcleos en cualquiera de las regiones para las que tiene acceso, debe pedir 30 núcleos de administración de recursos en todas las regiones. <!-- --> Para ser específicos sobre núcleos, por ejemplo, puede comprobar las regiones para las que debe solicitar la cantidad adecuada de cuota mediante el comando siguiente, que se canaliza en **jq** para el análisis de json. El proveedor de Azure de <!-- --> muestra Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "Este de Estados Unidos", "Oeste de Estados Unidos", "Europa occidental", "Asia oriental", "Sudeste de Asia" ] }
+     
 
 ## Problemas del modo de CLI de Azure y PowerShell
 
@@ -243,7 +263,7 @@ Para ver si el proveedor está registrado para su uso con la CLI de Azure, use e
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+Nuevamente, si desea obtener más información sobre los proveedores, incluida su disponibilidad regional, escriba `azure provider list --json`. Lo siguiente selecciona solo la primera de ellas en la lista que se va a ver:
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +371,6 @@ Es habitual querer utilizar un recurso desde fuera del grupo de recursos actual 
 
     }
 
-
-
 ## Pasos siguientes
 
 Para dominar la creación de plantillas, lea [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md) y visite el [repositorio de AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates) para obtener ejemplos implementables. Un ejemplo de la propiedad **dependsOn** es el [Equilibrador de carga con la plantilla de regla NAT entrante](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
@@ -367,6 +385,6 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

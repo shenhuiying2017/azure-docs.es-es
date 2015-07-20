@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Soluciones de Visión operativa
@@ -42,11 +42,15 @@ En este momento, los servidores conectados directamente a Visión operativa de M
 
 - [Evaluación de SQL y Active Directory](operational-insights-assessment.md)
 
-Sin embargo, las siguientes soluciones *no* son compatibles con Microsoft Monitoring Agent
+Sin embargo, las siguientes soluciones *no* son compatibles con Microsoft Monitoring Agent y requieren System Center Operations Manager (SCOM).
 
 - [Administración de la capacidad](operational-insights-capacity.md)
 
-- [Evaluación de la configuración](../operational-insights-configuration-assessment.md)
+- [Administración de alertas](operational-insights-alerts.md)
+
+- [Evaluación de la configuración](operational-insights-solutions.md#configuration-assessment)
+
+Consulte [Consideraciones de Operations Manager con Visión operativa](operational-insights-operations-manager.md) para obtener instrucciones sobre el uso de estas soluciones con Operations Manager.
 
 La colección de registros de IIS se admite en equipos con:
 
@@ -85,6 +89,5 @@ La colección de registros de IIS se admite en equipos con:
 
 
 3. En la página de confirmación, haga clic en **Sí** para quitar la solución.
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

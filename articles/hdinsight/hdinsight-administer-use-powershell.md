@@ -25,7 +25,7 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - **Una estación de trabajo con Azure PowerShell**. Vea [Instalar y usar Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
@@ -279,4 +279,4 @@ Consulte la sección [Envío de trabajos de MapReduce](#mapreduce) en este artí
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

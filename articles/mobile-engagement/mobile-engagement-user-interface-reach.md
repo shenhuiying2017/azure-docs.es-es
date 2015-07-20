@@ -45,7 +45,7 @@ La sección de cobertura de la interfaz de usuario es la herramienta de administ
 
 
 ## Detalles de la campaña
-Puede editar, clonar, eliminar o activar las campañas que no se han activado todavía pasando el ratón sobre sus nombres o puede hacer clic para abrirlas. Se pueden clonar las campañas que ya se han activado pasando el ratón sobre sus nombres o puede hacer clic para abrirlas. Sin embargo, no puede cambiar una campaña una vez activada.
+Puede editar, clonar, eliminar o activar las campañas que no se han activado todavía pasando el mouse sobre sus nombres o puede hacer clic para abrirlas. Se pueden clonar las campañas que ya se han activado pasando el mouse sobre sus nombres o puede hacer clic para abrirlas. Sin embargo, no puede cambiar una campaña una vez activada.
  
 ![Reach1][18]
 
@@ -148,5 +148,6 @@ Puede cambiar de la vista de detalles a la vista de estadísticas de una campañ
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

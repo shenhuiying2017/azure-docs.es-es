@@ -96,4 +96,7 @@ Esta API es asincrónica. Cuando vuelva, use la API[Obtener copia de la base de 
 
 Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta varias opciones de configuración. La elección dependerá de la topología de la implementación de la aplicación y de las partes de las aplicaciones que sean más vulnerables a las interrupciones. Vea [Diseño de soluciones de nube para la recuperación ante desastres mediante la replicación geográfica activa](https://msdn.microsoft.com/library/azure/dn741328.aspx) para obtener instrucciones.
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

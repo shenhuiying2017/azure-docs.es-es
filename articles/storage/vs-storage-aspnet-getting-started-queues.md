@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos ASP.NET)
@@ -246,7 +246,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 <ul>
 <li>Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de API de REST</a></li>
   </ul>
@@ -263,7 +263,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 </ul>
 
   [Download and install the Azure SDK for .NET]: /develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
@@ -275,4 +275,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

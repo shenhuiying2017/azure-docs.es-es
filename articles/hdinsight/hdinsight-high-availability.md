@@ -33,7 +33,7 @@ Para determinar qué nodo principal está activo y comprobar el estado de los se
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
-## Acceso a los archivos de registro en el nodo principal secundario \
+## Acceso a los archivos de registro en el nodo principal secundario \\
 
 Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se haya conectado de forma remota al clúster, haga doble clic en el icono **Nodo de nombres de Hadoop** situado en el escritorio y, a continuación, haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
 
@@ -83,4 +83,4 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

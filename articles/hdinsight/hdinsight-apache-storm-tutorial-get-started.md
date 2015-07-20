@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -44,7 +44,7 @@ Storm en HDInsight usa el almacenamiento de blobs de Azure para almacenar archiv
 
 4. Espere hasta que la característica **ESTADO** de la nueva cuenta de almacenamiento cambie a **En línea**.
 
-Para obtener información sobre la creación de cuentas de almacenamiento, consulte <a href="../storage-create-storage-account/" target="_blank">Creación de una cuenta de almacenamiento</a>.
+Para obtener información sobre la creación de cuentas de almacenamiento, consulte [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md).
 
 ##Aprovisionamiento de un clúster de Storm en el portal de Azure
 
@@ -92,7 +92,7 @@ El formulario **Enviar topología** puede usarse para cargar y ejecutar archivos
 
 ###<a id="run"></a>Ejecución de la muestra de recuento de palabras desde el proyecto de inicio de Storm en GitHub
 
-Las muestras que se facilitan con el clúster incluyen ciertas variaciones de una topología de recuento de palabras. Estos ejemplos incluyen un **spout** que emite oraciones de forma aleatoria y **bolts** que dividen una frase en palabras individuales para, a continuación, contar cuántas veces se ha encontrado cada palabra. Estas muestras proceden de las <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">Muestras de inicio de Storm</a>, que forman parte de Apache Storm.
+Las muestras que se facilitan con el clúster incluyen ciertas variaciones de una topología de recuento de palabras. Estos ejemplos incluyen un **spout** que emite oraciones de forma aleatoria y **bolts** que dividen una frase en palabras individuales para, a continuación, contar cuántas veces se ha encontrado cada palabra. Estos ejemplos proceden de los [Ejemplos de inicio de Storm](https://github.com/apache/storm/tree/master/examples/storm-starter), que forman parte de Apache Storm.
 
 Siga estos pasos para ejecutar una muestra de inicio de Storm:
 
@@ -143,7 +143,7 @@ La interfaz de usuario de Storm se puede usar para supervisar la topología.
 
 	* **Desactivar**: pausa una topología en ejecución.
 
-	* **Reequilibrar**: ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esto permite que la topología ajuste el paralelismo para compensar el mayor o menor número de nodos del clúster. Para obtener más información, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Descripción del paralelismo de una topología de Storm</a>.
+	* **Reequilibrar**: ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esto permite que la topología ajuste el paralelismo para compensar el mayor o menor número de nodos del clúster. Para obtener más información, consulte [Descripción del paralelismo de una topología de Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
 	* **Eliminar**: finaliza una topología de Storm tras el tiempo de espera especificado.
 
@@ -190,9 +190,9 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 
 * **Herramientas de HDInsight para Visual Studio**: las herramientas de HDInsight le permiten usar Visual Studio para enviar, supervisar y administrar topologías Storm de forma similar al panel Storm mencionado anteriormente. Las herramientas de HDInsight también ofrecen la posibilidad de crear topologías de Storm en C# e incluyen topologías de muestra que puede implementar y ejecutar en el clúster.
 
-	Para obtener más información, consulte <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introducción al uso de las herramientas de Hadoop de HDInsight para Visual Studio</a>.
+	Para obtener más información, consulte [Introducción al uso de las herramientas de Hadoop de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Archivos de muestra**: el clúster de Storm en HDInsight ofrece varios ejemplos en el directorio **%STORM_HOME%\contrib**. Cada ejemplo debe contener lo siguiente:
+* **Archivos de muestra**: el clúster de Storm en HDInsight ofrece varios ejemplos en el directorio **%STORM_HOME%\\contrib**. Cada ejemplo debe contener lo siguiente:
 
 	* El código fuente, por ejemplo, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 
 	> [AZURE.NOTE]Los documentos de Java constan de páginas web. Una vez extraídos, use un explorador para ver el archivo **index.html**.
 
-	Para obtener acceso a estas muestras, debe habilitar Escritorio remoto para el clúster de Storm en HDInsight y, después, copiar los archivos desde **%STORM_HOME%\contrib**.
+	Para obtener acceso a estas muestras, debe habilitar Escritorio remoto para el clúster de Storm en HDInsight y, después, copiar los archivos desde **%STORM_HOME%\\contrib**.
 
 * El documento siguiente contiene una lista de otros ejemplos que se pueden usar con Storm en HDInsight:
 
@@ -216,6 +216,5 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

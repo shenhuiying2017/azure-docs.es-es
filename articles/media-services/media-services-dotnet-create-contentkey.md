@@ -3,7 +3,7 @@
 	description="Aprenda a crear claves de contenido que proporcionen un acceso seguro a los recursos." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,27 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/15/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
 #Creación de claves de contenido con .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
-Los Servicios multimedia permiten crear nuevos recursos y entregar recursos cifrados. Una **clave de contenido** proporciona acceso seguro a los **recursos**s. 
+Servicios multimedia permite crear nuevos recursos y entregar recursos cifrados. Una **ContentKey** proporciona acceso seguro a los **recursos**.
 
-Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-dotnet-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](media-services-dotnet-upload-files.md)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**.
 
 Al enviar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](media-services-dotnet-configure-asset-delivery-policy.md) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
-Los recursos cifrados tienen que estar asociados con **clave**s de contenido. En este artículo se describe cómo crear una clave de contenido.
+Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
->[AZURE.NOTE] Al crear un nuevo recurso **StorageEncrypted** con el SDK .NET de Servicios multimedia, la **clave de contenido** se crea automáticamente y se vincula al recurso.
+>[AZURE.NOTE]Al crear un nuevo recurso **StorageEncrypted** con el SDK de Servicios multimedia para .NET, la **ContentKey** se crea automáticamente y se vincula al recurso.
 
 ##ContentKeyType
 
-Uno de los valores que debe configurar al crear una clave de contenido es el tipo de clave de contenido. Elija uno de los valores siguientes. 
+Uno de los valores que debe configurar al crear una clave de contenido es el tipo de clave de contenido. Elija uno de los valores siguientes.
 
     /// <summary>
     /// Specifies the type of a content key.
@@ -55,19 +55,9 @@ Uno de los valores que debe configurar al crear una clave de contenido es el tip
         /// Specifies a content key for encrypting encoding configuration data that may contain sensitive preset information. 
         /// </summary>
         ConfigurationEncryption = 2,
-
-        /// <summary>
-        /// Specifies a content key for url encryption.  Only used internally.
-        /// </summary>
-        UrlEncryption = 3,
-
-        /// <summary>
-        /// Specifies a content key for Envelope encryption.  Only used internally.
-        /// </summary>
-        EnvelopeEncryption = 4
     }
 
-##<a id="envelope_contentkey"></a>Crear tipo de sobre ContentKey
+##<a id="envelope_contentkey"></a>Crear ContentKey de tipo de sobre
 
 El siguiente fragmento de código crea una clave de contenido del tipo de cifrado de sobre. A continuación, asocia la clave con el recurso especificado.
 
@@ -99,13 +89,13 @@ El siguiente fragmento de código crea una clave de contenido del tipo de cifrad
         return randomBytes;
     }
 
-call
+llamada
 
 	IContentKey key = CreateEnvelopeTypeContentKey(encryptedsset);
 
 
 
-##<a id="common_contentkey"></a>Crear tipo común ContentKey    
+##<a id="common_contentkey"></a>Crear ContentKey de tipo común    
 
 El fragmento de código siguiente crea una clave de contenido del tipo de cifrado común. A continuación, asocia la clave con el recurso especificado.
 
@@ -139,9 +129,8 @@ El fragmento de código siguiente crea una clave de contenido del tipo de cifrad
 
         return returnValue;
     }
-call
+llamada
 
-	IContentKey key = CreateCommonTypeContentKey(encryptedsset);
+	IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

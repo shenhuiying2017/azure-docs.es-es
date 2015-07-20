@@ -1143,4 +1143,4 @@ Para agregar la dirección IP, consulte el paso 14 del [Apéndice](#appendix-mig
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -46,5 +46,6 @@ En la tabla siguiente se describen los errores que pueden surgir al ejecutar el 
 | 4 | Invoke-HcsSetupWizard: El valor no está dentro del intervalo esperado. | Este error se debe a una máscara de subred incorrecta. Las posibles causas son: <ul><li> La máscara de subred falta o está vacía.</li><li>El formato de prefijo de Ipv6 es incorrecto.</li><li>La interfaz está habilitada para la nube, pero la puerta de enlace falta o es incorrecta.</li></ul>Tenga en cuenta que DATA 0 se habilita automáticamente para la nube si se configura mediante el Asistente para instalación. | Para determinar el problema, utilice la subred 0.0.0.0 o 256.256.256.256 y, a continuación, examine la salida. Escriba los valores correctos para la máscara de subred, la puerta de enlace y el prefijo de Ipv6, según sea necesario. |
  
 ## Pasos siguientes
-Si no puede resolver el problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obtener ayuda. <!--HONumber=52-->
- 
+Si no puede resolver el problema, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para obtener ayuda.
+
+<!---HONumber=July15_HO2-->

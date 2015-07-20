@@ -124,4 +124,4 @@ Compruebe el esquema de definición del [sondeo de estado](https://msdn.microsof
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

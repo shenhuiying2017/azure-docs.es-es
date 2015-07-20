@@ -68,7 +68,7 @@ Una de las principales características del backend .NET es la capacidad para de
 
     ![Configure la carga de símbolos][SymbolLoading]
 
-3. Seleccione el nodo **Símbolos** a la izquierda y agregue una referencia al servidor (SymbolSource)[http://symbolsource.org] con el URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Los símbolos para el backend .NET de Servicios móviles están disponibles aquí con cada nueva versión.
+3. Seleccione el nodo **Símbolos** a la izquierda y agregue una referencia al servidor (SymbolSource) [http://symbolsource.org] con el URI [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Los símbolos para el backend .NET de Servicios móviles están disponibles aquí con cada nueva versión.
  
     ![Configure el servidor de símbolos][SymbolServer]
 
@@ -153,4 +153,5 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

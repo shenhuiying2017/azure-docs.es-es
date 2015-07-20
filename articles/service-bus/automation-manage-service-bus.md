@@ -42,5 +42,6 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 * Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
 * Consulte el artículo sobre [Administración de Bus de servicio con PowerShell](service-bus-powershell-how-to-provision.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

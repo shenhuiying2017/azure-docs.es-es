@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/01/2015"
    ms.author="larryfr"/>
 
 #Administración de clústeres de HDInsight con Ambari (vista previa)
@@ -30,9 +30,9 @@ De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en
 
 ##Proxy SSH
 
-> [AZURE.NOTE]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, cierta funcionalidad se basa en tener acceso a nodos a través del nombre de dominio interno que usa el clúster. Debido a que se trata de un nombre de dominio interno y no público, recibirá errores de "servidor no encontrado" al intentar tener acceso a algunas características a través de Internet.
+> [AZURE.NOTE]A pesar de que es posible tener acceso directamente a través de Internet a Ambari para su clúster, algunos vínculos de la interfaz de usuario web de Ambari (como JobTracker) no estarán expuestos en Internet. Por lo tanto, recibirá errores de "servidor no encontrado" al intentar tener acceso a estas características, a menos que utilice un túnel de Shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster.
 
-Para evitar este problema, utilice un túnel de shell seguro (SSH) para canalizar el tráfico web para el nodo principal del clúster, que puede resolver correctamente los nombres de dominio interno. Use los siguientes artículos para crear un túnel SSH desde un puerto en la máquina local al clúster:
+Use los siguientes artículos para crear un túnel SSH desde un puerto en la máquina local al clúster:
 
 * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos para crear un túnel SSH con el comando `ssh`.
 
@@ -74,9 +74,9 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 * **Botón Admin**: administración de Ambari, configuración del usuario y cierre de sesión.
 
-###Supervisión
+##Supervisión
 
-####Alertas
+###Alertas
 
 Ambari proporciona muchas alertas, las que tendrán uno de los siguientes estados:
 
@@ -102,7 +102,7 @@ También puede crear notificaciones de alerta en el menú **Actions**. Esto le p
 
 ![cuadro de diálogo Crear alerta](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-####Clúster
+###Clúster
 
 La pestaña **Metrics** (Métricas) del panel contiene una serie de widgets que facilitan la supervisión del estado del clúster de un solo vistazo. Varios widgets, como **CPU Usage** (Uso de CPU), proporcionan información adicional al hacer clic en ellos.
 
@@ -116,7 +116,7 @@ Para obtener información más detallada sobre los nodos dentro del clúster, se
 
 ![detalles del host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-####Servicios
+###Servicios
 
 La barra lateral **Services** (Servicios) del panel proporciona información rápida del estado de los servicios que se ejecutan en el clúster. Se usan varios iconos para indicar el estado o las acciones que se debieran realizar, como un símbolo de reciclaje de color amarillo si es necesario reciclar un servicio.
 
@@ -126,7 +126,7 @@ Seleccione un servicio para ver información más detallada sobre el servicio.
 
 ![información de resumen de servicio](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
-#####Vínculos rápidos
+####Vínculos rápidos
 
 Algunos servicios muestran un vínculo **Quick Links** (Vínculos rápidos) en la parte superior de la página. Este vínculo puede usarse para tener acceso a interfaces de usuario web específicas del servicio, como:
 
@@ -140,21 +140,21 @@ Algunos servicios muestran un vínculo **Quick Links** (Vínculos rápidos) en l
 
 Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explorador, donde aparecerá la página seleccionada.
 
-> [AZURE.NOTE]Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto se produce porque Ambari usa el nombre de dominio interno para estos vínculos.
-> 
+> [AZURE.NOTE]Al seleccionar un vínculo **Quick Links** para cualquier servicio se generará un error de "servidor no encontrado", a menos que use un túnel de Capa de sockets seguros (SSL) para autorizar el tráfico web al clúster. Esto es porque las aplicaciones web que se usan para mostrar esta información no se exponen en Internet.
+>
 > Para obtener información sobre el uso de un túnel SSL con HDInsight, consulte uno de los siguientes elementos:
-> 
+>
 > * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos para crear un túnel SSH con el comando `ssh`.
 >
 >* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a>: pasos para usar PuTTY con el fin de crear un túnel SSH.
 
-###Administración
+##Administración
 
-####Usuarios, grupos y permisos de Ambari
+###Usuarios, grupos y permisos de Ambari
 
 La administración de usuarios, grupos y permisos no se debe usar durante la vista previa de HDInsight basado en Linux.
 
-####Hosts
+###Hosts
 
 La página **Hosts** muestra todos los hosts existentes en el clúster. Siga estos pasos para administrar los hosts.
 
@@ -190,7 +190,7 @@ La página **Hosts** muestra todos los hosts existentes en el clúster. Siga est
 
 		> [AZURE.NOTE]No use esta acción en clústeres de HDInsight.
 
-####<a id="service"></a>Servicios
+###<a id="service"></a>Servicios
 
 Desde la página **Dashboard** (Panel) o **Services** (Servicios), use el botón **Actions** que se encuentra en la parte inferior de la lista de servicios para agregar servicios nuevos o para detener e iniciar todos los servicios.
 
@@ -252,5 +252,4 @@ Ambari Web se basa en una API de REST subyacente, que puede aprovechar para crea
 
 Para obtener una referencia completa de la API de REST, consulte [Referencia de API de Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

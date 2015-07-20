@@ -194,13 +194,13 @@ La tabla resume las métricas de rendimiento y contadores que se midieron en la 
 
 |Métrica|Contador|
 |---|---|
-|CPU|Procesador(_Total)% Hora del procesador|
-|Memoria disponible|\Memoria\MB disponibles|
-|E/S|\Disco físico(_Total)\Transferencias de disco/s|
-|Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s|\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Operaciones de lectura/s|
-|Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s|\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Operaciones de escritura/s|
-|Rendimiento de lectura de máquinas virtuales|\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Bytes leídos/s|
-|Rendimiento de escritura de máquinas virtuales|\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\Bytes escritos/s|
+|CPU|Procesador(_Total)\% Hora del procesador|
+|Memoria disponible|\\Memoria\\MB disponibles|
+|E/S|\\Disco físico(_Total)\\Transferencias de disco/s|
+|Operaciones de lectura de máquinas virtuales por segundo (IOPS)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de lectura/s|
+|Operaciones de escritura de máquinas virtuales por segundo (IOPS)/s|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Operaciones de escritura/s|
+|Rendimiento de lectura de máquinas virtuales|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes leídos/s|
+|Rendimiento de escritura de máquinas virtuales|\\Dispositivo de almacenamiento virtual de Hyper-V(<VHD>)\\Bytes escritos/s|
 
 
 ## Pasos siguientes
@@ -214,4 +214,4 @@ Para empezar a implementar ASR:
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

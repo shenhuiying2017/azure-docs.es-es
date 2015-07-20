@@ -97,5 +97,4 @@ El empaquetado dinámico no admite los siguientes formatos de archivo de origen:
 - Archivos MP4 Dolby Digital Plus.
 - Archivos Smooth Dolby Digital Plus. 
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

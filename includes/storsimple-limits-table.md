@@ -1,19 +1,3 @@
-<properties 
-   pageTitle="Tabla de límites del sistema de StorSimple"
-   description="Describe los límites del sistema y los tamaños recomendados para conexiones y componentes StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="06/19/2015"
-   ms.author="alkohli" />
 
 | Identificador de límites | Límite | Comentarios |
 |----------------- | ------|--------- |
@@ -22,7 +6,7 @@
 | Número máximo de volúmenes | 255 | |
 | Número máximo de plantillas de ancho de banda | 25 | |
 | Número máximo de programaciones por plantilla de ancho de banda | 168 | Una programación para cada hora y cada día de la semana (24*7). |
-| Tamaño máximo de un volumen | 64 TB | El tamaño recomendado de un volumen NTFS es de 64 TB. |
+| Tamaño máximo de un volumen | 64 TB | |
 | Número máximo de conexiones iSCSI | 512 | |
 | Número máximo de conexiones de iSCSI de iniciadores | 512 | |
 | Número máximo de registros de control de acceso por dispositivo | 64 | |
@@ -40,4 +24,4 @@
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -57,7 +57,7 @@ Esta secuencia de comandos instala una pila LAMP en Ubuntu (incluida la configur
 
 	# write some PHP
 	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
-	echo <\?php phpinfo()\; \?> > /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart
@@ -107,4 +107,4 @@ A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, L
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

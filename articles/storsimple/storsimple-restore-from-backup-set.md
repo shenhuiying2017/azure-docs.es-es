@@ -1,18 +1,10 @@
-<properties 
-   pageTitle="Restaurar un volumen de StorSimple de un conjunto de copia de seguridad"
-   description="Se explica cómo usar el catálogo de copias de seguridad para restaurar un volumen de StorSimple desde un conjunto de copias de seguridad."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> 
-<tags 
+<properties pageTitle="Restaurar un volumen de StorSimple de un conjunto de copia de seguridad" | Microsoft Azure description="Explica cómo usar el catálogo de copia de seguridad para restaurar un volumen de StorSimple de un conjunto de copia de seguridad". services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # Restaurar un volumen de StorSimple de un conjunto de copia de seguridad
@@ -80,5 +72,6 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el dis
 
 ## Pasos siguientes
 
-Aprenda cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md) <!--HONumber=52-->
- 
+Aprenda cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md)
+
+<!---HONumber=July15_HO2-->

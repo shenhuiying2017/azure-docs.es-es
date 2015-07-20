@@ -13,11 +13,45 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="06/26/2015"
 	ms.author="nitinme"/>
 
 
 # Notas de la versión de los componentes de Hadoop en HDInsight de Azure
+
+
+## Notas de la versión del 06/26/2015 de HDinsight ##
+
+Los números de versión completos de los clústeres de HDInsight implementados con esta versión son:
+
+* HDInsight 2.1.10.601.1610731 (HDP 1.3.12.0-01795, sin cambios)
+* HDInsight 3.0.6.601.1610731 (HDP 2.0.13.0-2117, sin cambios)
+* HDInsight 3.1.4.601.1610731 (HDP 2.1.15.0-2334, sin cambios)
+* HDInsight 3.2.4.601.1610731 (HDP 2.2.6.1-0011)
+* SDK 1.5.8
+
+
+Esta versión contiene las siguientes actualizaciones.
+
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descripción</th>
+<th>Área afectada (por ejemplo, servicio, componente o SDK)</p></th>
+<th>Tipo de clúster (por ejemplo, Hadoop, HBase o Storm)</th>
+<th>JIRA (si es aplicable)</th>
+</tr>
+
+
+<tr>
+<td>Versiones actualizadas de HDP para clústeres de HDInsight 3.2</td>
+<td>Con esta versión HDInsight 3.2 implementa HDP 2.2.6.1</td>
+<td>Servicio</td>
+<td>Todo</td>
+<td>N/D</td>
+</tr>
+
+</table>
 
 ## Notas de la versión del 18/06/2015 de HDInsight ##
 
@@ -1246,4 +1280,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -13,60 +13,37 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/20/2015" 
+	ms.date="04/24/2015" 
 	ms.author="kathydav"/>
 
-#Acoplamiento de un disco de datos a una máquina virtual de Windows
+# Acoplamiento de un disco de datos a una máquina virtual de Windows
 
-Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse. 
+Puede acoplar discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
 
-> [AZURE.NOTE] Es recomendable usar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. **No use la unidad D para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
-
-- [Uso de un disco vacío](#attachempty)
-- [Uso de un disco existente](#attachexisting)
-- [Uso de un nuevo disco de datos en Windows Server](#initializeinWS)
-
+> [AZURE.NOTE]Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo asignado a la unidad C y un disco temporal asignado a la unidad D. **No utilice la unidad D para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinWS"></a>Procedimiento: un nuevo disco de datos en Windows Server
+## <a id="initializeinWS"></a>Inicialización de un nuevo disco de datos en Windows Server
 
-1. Conexión a una máquina virtual. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server][logon].
+1. Conexión a una máquina virtual. Para obtener instrucciones, vea [Inicio de sesión en una máquina virtual con Windows Server][logon].
 
-2. Una vez que haya iniciado sesión, abra **Server Manager**, en el panel izquierdo, expanda **Almacenamiento** y, a continuación, haga clic en **Disk Management**.
+2. Después de iniciar sesión en la máquina virtual, abra el **Administrador del servidor**. En el panel izquierdo, seleccione **Servicios de archivos y almacenamiento**.
 
+	![Abrir Administrador de servidores](./media/storage-windows-attach-disk/fileandstorageservices.png)
 
+3. Expanda el menú y seleccione **Discos**.
 
-	![Open Server Manager](./media/storage-windows-attach-disk/ServerManager.png)
+4. En la sección **Discos** muestra el disco 0, el disco 1 y el disco 2. El disco 0 es el disco del sistema operativo, el disco 1 es el disco temporal (que no debe usarse para almacenamiento de datos) y el disco 2 es el disco de datos que ha conectado a la máquina virtual. El disco de datos tiene una capacidad de 5 GB, en función de lo que se especificó al conectar el disco. Haga clic con el botón secundario en el disco 2 y seleccione **Inicializar**.
 
+5.	Se le notificará que se borrarán todos los datos cuando se inicializa el disco. Haga clic en **Sí** para confirmar la advertencia e inicializar el disco. A continuación, haga clic con el botón secundario de nuevo en el disco 2 y seleccione **Nuevo volumen**.
 
+6.	Complete el asistente usando los valores predeterminados que se proporcionan. Cuando haya finalizado el asistente, la sección **Volúmenes** mostrará el nuevo volumen. El disco está ahora conectado y listo para almacenar los datos.
 
-3. Haga clic con el botón secundario en **Disco 2**, haga clic en **Inicializar disco** y, a continuación, haga clic en **Aceptar**.
+	![Volumen inicializado correctamente](./media/storage-windows-attach-disk/newvolumecreated.png)
 
+> [AZURE.NOTE]El tamaño de la máquina virtual determina el número de discos que le puede asociar. Para obtener detalles, vea [Servicios en la nube y Máquinas virtuales](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
+[logon]: virtual-machines-log-on-windows-server.md
 
-	![Initialize the disk](./media/storage-windows-attach-disk/InitializeDisk.png)
-
-
-4. Haga clic con el botón secundario en el área de asignación de espacio para el Disco 2, haga clic en **New Simple Volume** y, a continuación, finalice el asistente con los valores predeterminados.
- 
-
-	![Initialize the volume](./media/storage-windows-attach-disk/InitializeDiskVolume.png)
-
-
-[logon]: ../virtual-machines-log-on-windows-server/
-
-
-
-	El disco está ahora en línea y listo para usarse con una nueva letra de unidad.
-
-
-
-	![Volume successfully initialized](./media/storage-windows-attach-disk/InitializeSuccess.png)
-
-> [AZURE.NOTE] La cantidad máxima de discos que se pueden conectar a una máquina virtual es variable en función del tamaño de la máquina virtual. Por ejemplo, solo puede conectar 4 discos al estándar A2 estándar, pero puede conectar 32 discos al estándar D14 y 64 discos al estándar G5. Puede encontrar información detallada sobre cuántos discos se pueden conectar por tamaño de máquina virtual [aquí](https://msdn.microsoft.com/es-es/library/azure/dn197896.aspx).
-
-
-
-<!--HONumber=42-->
- 
+<!---HONumber=July15_HO2-->

@@ -48,5 +48,6 @@ Desde siempre, Microsoft tiene un compromiso con la privacidad, que es una parte
 [Tutoriales introductorios (marketing)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [Tutoriales introductorios (desarrolladores)](/documentation/services/mobile-engagement/)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

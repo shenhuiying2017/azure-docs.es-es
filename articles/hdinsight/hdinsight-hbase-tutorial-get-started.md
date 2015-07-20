@@ -357,4 +357,4 @@ Para obtener más información, consulte:
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

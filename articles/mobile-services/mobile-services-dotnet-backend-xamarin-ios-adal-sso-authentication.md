@@ -4,7 +4,7 @@
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
-	editor="" 
+	editor="dwrede" 
 	services="mobile-services"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/19/2015" 
 	ms.author="mahender"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
@@ -140,4 +140,5 @@ Este tutorial requiere lo siguiente:
 [Enlace de Xamarin para la biblioteca de autenticación de Active Directory para iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [extensión Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

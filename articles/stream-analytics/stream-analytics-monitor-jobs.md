@@ -176,5 +176,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -1,4 +1,5 @@
 
+
 #### Para acceder al modo de mantenimiento
 
 1. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**.
@@ -13,4 +14,4 @@
 
     Ambos controladores se reiniciarán. Una vez completado el reinicio, aparecerá otro mensaje que indica que el dispositivo está en modo de mantenimiento.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

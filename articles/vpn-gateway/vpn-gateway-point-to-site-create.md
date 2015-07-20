@@ -159,4 +159,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 Si desea configurar una conexión de red virtual mediante RRAS, consulte [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

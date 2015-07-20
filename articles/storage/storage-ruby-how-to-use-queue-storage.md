@@ -3,7 +3,7 @@
 	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -23,9 +23,7 @@
 
 ## Información general
 
-Esta guía le indicará cómo actuar en situaciones habituales usando el
-servicio de almacenamiento en cola de Azure. Los ejemplos están escritos usando la API Ruby de Azure.
-Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Microsoft Azure. Los ejemplos están escritos usando la API Ruby de Azure. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -35,7 +33,7 @@ Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** 
 
 Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
-## Configuración de su aplicación para obtener acceso al almacenamiento
+## Configuración de la aplicación para obtener acceso al almacenamiento
 
 Para usar el almacenamiento de Azure tendrá que descargar y usar el paquete Ruby azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
@@ -65,13 +63,13 @@ Para obtener estos valores:
 3. Haga clic en **ADMINISTRAR CLAVES** en la parte inferior del panel de navegación.
 4. En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede elegir la principal o la secundaria.
 
-## Trabajo de una cola
+## Creación de una cola
 
 El siguiente código crea un objeto **Azure::QueueService**, que permite trabajar con colas.
 
 	azure_queue_service = Azure::QueueService.new
 
-Utilice el método **create_queue()**) para crear una cola con el nombre especificado.
+Utilice el método **create_queue()** para crear una cola con el nombre especificado.
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,20 +77,20 @@ Utilice el método **create_queue()**) para crear una cola con el nombre especif
 	  puts $!
 	end
 
-## Trabajo Inserción de un mensaje en una cola
+## Inserción de un mensaje en una cola
 
 Para insertar un mensaje en una cola, utilice el método **create_message()** para crear un nuevo mensaje y agregarlo a la cola.
 
 	azure_queue_service.create_message("test-queue", "test message")
 
-## Trabajo Inspección del siguiente mensaje
+## Inspección del siguiente mensaje
 
 Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, llamando al método **peek_messages()**. De forma predeterminada, **peek_messages()** ojea un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
 
-## Trabajo siguiente mensaje de la cola
+## Extracción del siguiente mensaje de la cola
 
 Puede borrar un mensaje de una cola en dos pasos.
 
@@ -106,16 +104,16 @@ Este proceso de extracción de un mensaje que consta de dos pasos garantiza que 
 	azure_queue_service.delete_message("test-queue", 
 	  messages[0].id, messages[0].pop_receipt)
 
-## Trabajo contenido de un mensaje en cola
+## Cambio del contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola. El código siguiente utiliza el método **update_message()** para actualizar un mensaje. Este método devolverá una tupla que contiene la recepción de confirmación del mensaje en cola y un valor de fecha y hora UTC que representa el momento en que el mensaje estará visible en la cola.
+Puede cambiar el contenido de un mensaje local en la cola. El código siguiente usa el método **update_message()** para actualizar un mensaje. Este método devolverá una tupla que contiene la recepción de confirmación del mensaje en cola y un valor de fecha y hora UTC que representa el momento en que el mensaje estará visible en la cola.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
 	  "test-queue", message.id, message.pop_receipt, "updated test message", 
 	  30)
 
-## Trabajo Opciones adicionales para quitar mensajes de la cola
+## Opciones adicionales para extraer mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola.
 
@@ -131,14 +129,14 @@ El siguiente ejemplo de código utiliza el método **list_messages()** para obte
 	  azure_queue_service.delete_message("test-queue", m.id, m.pop_receipt)
 	end
 
-## Trabajo la longitud de la cola
+## Obtención de la longitud de la cola
 
 Puede obtener una estimación del número de mensajes existentes en la cola. El método **get_queue_metadata()** solicita al servicio de colas que devuelva el recuento aproximado de mensajes y metadatos sobre la cola.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
-## Trabajo una cola
+## Eliminación de una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete_queue()** en el objeto de cola.
 
@@ -148,10 +146,11 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-- Consulte la referencia de MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Vea la Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-Para ver una comparación entre el servicio de colas de Azure tratado en este artículo y las colas del Bus de servicio de Azure abordadas en el artículo [Utilización de las colas del Bus de servicio]develop/ruby/how-to-guides/service-bus-queues/), consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/hh767287.aspx)
+Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/hh767287.aspx)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -4,6 +4,6 @@ Para comenzar, configure su entorno de desarrollo mediante la instalación del [
 
 Si no cuenta con Visual Studio instalado, se instalará Visual Studio Express para Web junto con el SDK.
 
->[AZURE.NOTE] Según la cantidad de dependencias de SDK que tenga ya en la máquina, la instalación del SDK puede tardar un período largo, desde unos minutos a media hora o más.
+>[AZURE.NOTE]Según la cantidad de dependencias de SDK que tenga ya en la máquina, la instalación del SDK puede tardar un período largo, desde unos minutos a media hora o más.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

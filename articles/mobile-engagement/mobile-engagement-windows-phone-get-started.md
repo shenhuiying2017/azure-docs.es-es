@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Introducción a Azure Mobile Engagement para aplicaciones Windows Phone Silverlight" 
+<properties
+	pageTitle="Introducción a Azure Mobile Engagement para aplicaciones Windows Phone Silverlight"
 	description="Aprenda a usar Azure Mobile Engagement con capacidades de análisis y notificaciones de inserción en aplicaciones Windows Phone Silverlight."
-	services="mobile-engagement" 
-	documentationCenter="windows" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="windows"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Introducción a Azure Mobile Engagement para aplicaciones Windows Phone Silverlight
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 En este tema se muestra cómo usar Azure Mobile Engagement para comprender el uso que hace de las aplicaciones y enviar notificaciones de inserción a los usuarios segmentados de una aplicación de Windows Phone Silverlight. En este tutorial se demuestra el escenario de difusión sencillo con Mobile Engagement. En él, puede crear una aplicación de Windows Phone Silverlight vacía que recopila datos básicos y recibe notificaciones de inserción mediante el Servicio de notificaciones de inserción de Microsoft (MPNS). Cuando haya terminado, podrá difundir notificaciones de inserción a todos los dispositivos o dirigirse a usuarios específicos en función de las propiedades de sus dispositivos (mediante MPNS). Asegúrese de seguir el tutorial siguiente para ver cómo usar Mobile Engagement para dirigirse a usuarios y grupos de dispositivos específicos.
 
@@ -45,11 +46,11 @@ Este tutorial requiere lo siguiente:
    	![][7]
 
 3. En el menú emergente que aparece, escriba la siguiente información:
- 
+
    	![][8]
 
 	- **Nombre de la aplicación**: escriba el nombre de la aplicación. Puede usar cualquier carácter.
-	- **Plataforma**: seleccione la plataforma de destino (**Windows Phone Silverlight**) para la aplicación (si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma). 
+	- **Plataforma**: seleccione la plataforma de destino (**Windows Phone Silverlight**) para la aplicación (si la aplicación tiene como destino varias plataformas, repita este tutorial para cada plataforma).
 	- **Nombre del recurso de la aplicación**: este es el nombre por el que la aplicación será accesible a través de las API y las direcciones URL. Solo debe usar caracteres convencionales de dirección URL. El nombre que se genera automáticamente debería proporcionar una sugerencia sólida. También debe anexar el nombre de la plataforma para evitar cualquier conflicto de nombres, ya que este debe ser único.
 	- **Ubicación**: seleccione el centro de datos donde se alojará esta aplicación y, más importante aún, su colección.
 	- **Colección**: si ya ha creado una aplicación, seleccione una colección creada anteriormente; en caso contrario, seleccione una colección nueva.
@@ -58,7 +59,7 @@ Este tutorial requiere lo siguiente:
 4. Seleccione la aplicación que acaba de crear en la pestaña **Aplicación**:
 
 5. Haga clic en **Información de conexión** para mostrar la configuración de la conexión que se debe incluir en la integración de SDK en su aplicación móvil.
- 
+
    	![][10]
 
 6. Copie la **Cadena de conexión**, la necesitará para identificar esta aplicación en el código de aplicación y conectar con Mobile Engagement desde la aplicación de teléfono.
@@ -83,12 +84,12 @@ Crearemos una aplicación básica con Visual Studio para demostrar la integraci�
 
 Ahora ha creado una nueva aplicación Windows Phone Silverlight en la que se integrará el SDK de Azure Mobile Engagement.
 
-###Conectar la aplicación al back-end de Mobile Engagement 
+###Conectar la aplicación al back-end de Mobile Engagement
 
 1. Instale el paquete nuget del [SDK de Mobile Engagement Windows Phone] en su proyecto.
 
 2. Abra `WMAppManifest.xml` (en la carpeta Propiedades) y asegúrese de que se declara lo siguiente (agréguelo en caso de que no) en la etiqueta `<Capabilities />`:
-		
+
 		<Capability Name="ID_CAP_NETWORKING" />
 		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
 
@@ -105,7 +106,7 @@ Ahora ha creado una nueva aplicación Windows Phone Silverlight en la que se int
 			using Microsoft.Azure.Engagement;
 
 	b. Inicialice el SDK en el método `Application_Launching`:
-			
+
 			private void Application_Launching(object sender, LaunchingEventArgs e)
 			{
 			  EngagementAgent.Instance.Init();
@@ -133,7 +134,7 @@ Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, de
 3. En el archivo `MainPage.xml`: a. Agregue a las declaraciones de espacios de nombres:
 
 			xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-	
+
 	b. Reemplace `phone:PhoneApplicationPage` en el nombre de etiqueta xml por `engagement:EngagementPage`.
 
 ###Asegúrese de que la aplicación está conectada con la supervisión en tiempo real
@@ -146,7 +147,7 @@ En esta sección se muestra cómo asegurarse de que la aplicación se conecta al
 
 	![][26]
 
-2. Será dirigido a la página de configuración del portal de Engagement de la aplicación. Desde allí, haga clic en la pestaña **Monitor**, tal como se muestra a continuación.![][30]
+2. Será dirigido a la página de configuración del portal de Engagement de la aplicación. Desde allí, haga clic en la pestaña **Monitor**, tal como se muestra a continuación. ![][30]
 
 3. El monitor está listo para mostrar cualquier dispositivo, en tiempo real, que iniciará la aplicación.
 
@@ -164,8 +165,8 @@ Mobile Engagement permite interactuar y llegar a los usuarios mediante notificac
 
 Agregue nuevas capacidades a su archivo `WMAppManifest.xml`:
 
-		ID_CAP_PUSH_NOTIFICATION 
-		ID_CAP_WEBBROWSERCOMPONENT 
+		ID_CAP_PUSH_NOTIFICATION
+		ID_CAP_WEBBROWSERCOMPONENT
 
 ![][34]
 
@@ -195,7 +196,7 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 
 1. Vaya a la pestaña **COBERTURA** en el portal de Mobile Engagement.
 
-2. Haga clic en **Nuevo anuncio** para crear la campaña de inserción.![][35]
+2. Haga clic en **Nuevo anuncio** para crear la campaña de inserción. ![][35]
 
 3. Configure el primer campo de la campaña mediante los pasos siguientes:![][36]
 
@@ -204,7 +205,7 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 	3. En el texto de la notificación, escriba el título que aparecerá en negrita en la inserción.
 	4. Luego, escriba el mensaje.
 
-4. Desplácese hacia abajo. En la sección del contenido, elija **Solo notificación**.![][37]
+4. Desplácese hacia abajo. En la sección del contenido, elija **Solo notificación**. ![][37]
 
 5. Ha terminado de configurar la campaña más básica posible. Ahora, desplácese hacia abajo de nuevo y haga clic en el botón **Crear** para guardar su campaña.
 
@@ -235,5 +236,6 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [37]: ./media/mobile-engagement-windows-phone-get-started/campaign-content.png
 [39]: ./media/mobile-engagement-windows-phone-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

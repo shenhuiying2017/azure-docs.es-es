@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Novedades en la actualización más reciente de Búsqueda de Azure#
@@ -86,9 +86,9 @@ Visite [Búsqueda de Azure ya está disponible con carácter general](http://go.
 
 Esta versión era la versión preliminar pública de Búsqueda de Azure y ofrecía las siguientes características principales:
 
-- API de REST para las operaciones de índice y de documento. La mayor parte de esta versión de API está intacta en 2015-02-28. La documentación de la versión `2014-07-31-Preview` puede encontrarse en [API de REST del Servicio Búsqueda de Azure versión 2014-07-31](../search-api-2014-07-31-preview.md).
+- API de REST para las operaciones de índice y de documento. La mayor parte de esta versión de API está intacta en 2015-02-28. La documentación de la versión `2014-07-31-Preview` puede encontrarse en [API de REST del Servicio Búsqueda de Azure versión 2014-07-31](search-api-2014-07-31-preview.md).
 
-- Perfiles de puntuación para optimizar los resultados de la búsqueda. Un perfil de puntuación agrega criterios que se usan para calcular los resultados de búsqueda. La documentación de esta característica puede encontrarse en [API de REST de perfiles de puntuación del Servicio Búsqueda de Azure versión 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview.md).
+- Perfiles de puntuación para optimizar los resultados de la búsqueda. Un perfil de puntuación agrega criterios que se usan para calcular los resultados de búsqueda. La documentación de esta característica puede encontrarse en [API de REST de perfiles de puntuación del Servicio Búsqueda de Azure versión 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
 
 - La compatibilidad con geoespaciales ha estado disponible desde el principio, y se proporcionaba a través del tipo de datos `Edm.GeographyPoint` que ha formado parte de Búsqueda de Azure desde sus inicios.
 
@@ -102,8 +102,9 @@ La [API de REST de administración](https://msdn.microsoft.com/library/azure/dn8
 ##Versión de API de administración 2014-07-31
 **Publicado: octubre de 2014**
 
-La versión preliminar de [API de REST de administración](../search-management-api-2014-07-31-preview.md) se agregó para permitir la administración de servicios mediante programación. Se actualiza de forma independiente de la API de REST del servicio.
+La versión preliminar de [API de REST de administración](search-management-api-2014-07-31-preview.md) se agregó para permitir la administración de servicios mediante programación. Se actualiza de forma independiente de la API de REST del servicio.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,10 +13,14 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/14/2015" 
 	ms.author="glenga"/>
 
 # Registre la aplicación para usar la cuenta Microsoft para realizar la autenticación
+
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
+
+## Información general 
 
 Este tema indica cómo registrar su aplicación móvil para que pueda usar la cuenta de Microsoft como proveedor de identidad con Servicios móviles de Azure. Se aplican los mismos pasos para la autenticación dirigida por el servicio y la dirigida por el cliente con el SDK de Live.
 
@@ -30,13 +34,13 @@ Las aplicaciones de la Tienda Windows deben registrarse primero con el Centro de
 
    	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-submit-win8-app.png)
 
-2. Seleccione **Crear una nueva aplicación reservando un nombre único**, haga clic en **Continuar** y, a continuación, escriba un nombre para la aplicación en **Nombre de la aplicación**, haga clic en **Reservar nombre de aplicación**, y, a continuación, haga clic en **Guardar**.
+2. Seleccione **Crear una nueva aplicación reservando un nombre único**, haga clic en **Continuar** y, a continuación, escriba un nombre para la aplicación en **Nombre de la aplicación**, haga clic en **Reservar nombre de aplicación** y, a continuación, en **Guardar**.
 
    	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-name.png)
 
    	Se crea un nuevo registro de la Tienda Windows para su aplicación.
 
-3. En Visual Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles].
+3. En Visual Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 4. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de la aplicación para la Tienda Windows, haga clic en **Tienda** y, a continuación, en **Asociar aplicación con la Tienda...**.
 
@@ -44,7 +48,7 @@ Las aplicaciones de la Tienda Windows deben registrarse primero con el Centro de
 
    	Se muestra el asistente para **asociar la aplicación con la Tienda Windows**.
 
-5. En el asistente, haga clic en **Iniciar sesión** y, a continuación, inicie sesión con su cuenta de Microsoft, seleccione el nombre de la aplicación que se ha reservado en el paso 2, haga clic en **Siguiente** y, a continuación, haga clic en **Asociar**.
+5. En el asistente, haga clic en **Iniciar sesión** y, a continuación, inicie sesión con su cuenta de Microsoft, seleccione el nombre de la aplicación que se ha reservado en el paso 2, haga clic en **Siguiente** > **Asociar**.
 
    	Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 
@@ -77,9 +81,10 @@ El primer paso de esta sección se aplica solo a Windows Phone 8, Windows Phone 
 	El **Dominio raíz** debería rellenarse automáticamente.
 
 4. Haga clic en **Configuración de aplicaciones** y tome nota de los valores de **Id. de cliente**, **Secreto de cliente** y **SID de paquete**.
-
+	
    	![Configuración de la aplicación de la cuenta de Microsoft](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
-
+	
+	
     > [AZURE.NOTE]El secreto de cliente es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación. Solo los registros de aplicaciones de la Tienda Windows verán un campo de SID del paquete.
 
 4. En el [Portal de administración de Azure], haga clic en la pestaña **identidad** del servicio móvil, escriba el identificador de cliente, el secreto de cliente y el SID del paquete obtenido del proveedor de identidades y haga clic en **Guardar**.
@@ -100,5 +105,6 @@ El servicio móvil y la aplicación están ahora configurados para funcionar con
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

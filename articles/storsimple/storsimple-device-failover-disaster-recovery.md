@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="05/29/2015"
    ms.author="alkohli" />
 
 # Conmutación por error y recuperación ante desastres para el dispositivo StorSimple
@@ -57,7 +57,7 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo físico de desti
 
 	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+		>[AZURE.NOTE]**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
 	1. En **Elegir un dispositivo de destino** para los volúmenes de los contenedores seleccionados, elija un dispositivo de destino en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad disponible.
 
@@ -111,11 +111,13 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 1. En el asistente que se abre, en **Elegir el contenedor de volúmenes para la conmutación por error**, siga estos pasos:
 													
-	1. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
+	a. En la lista de contenedores de volúmenes, seleccione los contenedores de volúmenes que desea que conmuten por error.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	>[AZURE.NOTE]**Solo se muestran los contenedores de volúmenes con volúmenes desconectados e instantáneas de nube asociadas.**
 
-1. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
+	b. En **Elegir un dispositivo de destino para los volúmenes de los contenedores seleccionados**, seleccione el dispositivo virtual de StorSimple en la lista desplegable de dispositivos disponibles. En la lista desplegable solo se muestran los dispositivos con capacidad suficiente.
+	
+	>[AZURE.NOTE]**Si el dispositivo físico ejecuta la actualización 1, puede conmutar por error a un dispositivo virtual que ejecute solo la actualización 1. Si el dispositivo virtual de destino está ejecutando una versión anterior del software, verá un error en el sentido de que es necesario actualizar el software del dispositivo de destino.**
 
 1. Por último, revise toda la configuración de conmutación por error en Confirmar conmutación por error. Haga clic en el icono de marca de verificación ![Icono de marca de verificación](./media/storsimple-device-failover-disaster-recovery/IC740895.png).
 
@@ -136,6 +138,6 @@ Para obtener información sobre cómo administrar el dispositivo mediante el ser
 
 - [Guía del administrador](https://msdn.microsoft.com/library/dn772401.aspx)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

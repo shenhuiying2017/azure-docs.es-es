@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
@@ -36,7 +36,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 Para autenticar la aplicación a HDInsight de Azure, debe crear un certificado autofirmado, instalarlo en su estación de trabajo de desarrollo y también cargarlo en su suscripción de Azure.
 
-Para obtener instrucciones sobre cómo hacerlo, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">Creación de un certificado autofirmado</a>.
+Para obtener instrucciones sobre cómo hacerlo, consulte [Creación de un certificado autofirmado](http://go.microsoft.com/fwlink/?LinkId=511138).
 
 > [AZURE.NOTE]Al crear el certificado, asegúrese de tener en cuenta el nombre descriptivo que utilice, ya que lo utilizará más adelante.
 
@@ -44,7 +44,7 @@ Para obtener instrucciones sobre cómo hacerlo, consulte <a href="http://go.micr
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
-1. Visite la <a href="https://manage.windowsazure.com/" target="_blank">consola de administración de Azure</a>.
+1. Visite la [consola de administración de Azure](https://manage.windowsazure.com/).
 
 2. En la barra de la izquierda del portal, seleccione **Configuración**.
 
@@ -94,14 +94,14 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		using System.Linq;
 		using System.Text;
 		using System.Threading.Tasks;
-		
+
 		using System.IO;
 		using System.Threading;
 		using System.Security.Cryptography.X509Certificates;
-		
+
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.Hadoop.Client;
-		
+
 		namespace SubmitPigJob
 		{
 		    class Program
@@ -113,13 +113,13 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 
 		            // Get the certificate name
 		            string certFriendlyName = PromptForInput("Enter the management certificate name:");
-		
+
 		            // Get the cluster name
 		            string clusterName = PromptForInput("Enter the HDInsight cluster name:");
-		
+
 		            // Set the folder that job status is written to
 		            string statusFolderName = @"/tutorials/usepig/status";
-		
+
 		            // The Pig Latin statements to run
 		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
 		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
@@ -128,32 +128,32 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		                "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
 		                "RESULT = order FREQUENCIES by COUNT desc;" +
 		                "DUMP RESULT;";
-		
+
 		            // Define the Pig job
 		            PigJobCreateParameters myJobDefinition = new PigJobCreateParameters()
 		            {
 		                Query = queryString,
 		                StatusFolder = statusFolderName
 		            };
-		
+
 		            // Get the certificate object from certificate store using the friendly name to identify it
 		            X509Store store = new X509Store();
 		            store.Open(OpenFlags.ReadOnly);
 		            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-		
+
 		            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-		
+
 		            // Create a hadoop client to connect to HDInsight
 		            var jobClient = JobSubmissionClientFactory.Connect(creds);
-		
+
 		            // Run the MapReduce job
 		            Console.WriteLine("----- Submit the Pig job ...");
 		            JobCreationResults mrJobResults = jobClient.CreatePigJob		(myJobDefinition);
-		
+
 		            // Wait for the job to complete
 		            Console.WriteLine("----- Wait for the Pig job to complete ...");
 		            WaitForJobCompletion(mrJobResults, jobClient);
-		
+
 		            // Display the error log
 		            Console.WriteLine("----- The Pig job error log.");
 		            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
@@ -161,7 +161,7 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		                var reader = new StreamReader(stream);
 		                Console.WriteLine(reader.ReadToEnd());
 		            }
-		
+
 		            // Display the output log
 		            Console.WriteLine("----- The Pig job output log.");
 		            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
@@ -169,11 +169,11 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		                var reader = new StreamReader(stream);
 		                Console.WriteLine(reader.ReadToEnd());
 		            }
-		
+
 		            Console.WriteLine("----- Press ENTER to continue.");
 		            Console.ReadLine();
 		        }
-		
+
 		        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
 		        {
 		            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
@@ -183,7 +183,7 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 		                Thread.Sleep(TimeSpan.FromSeconds(10));
 		            }
 		        }
-		
+
 		        private static string PromptForInput(string message)
 		        {
 		            Console.WriteLine(message);
@@ -229,4 +229,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

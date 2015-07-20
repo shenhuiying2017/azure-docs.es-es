@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="06/16/2015" 
 	ms.author="juliako"/>
 
 
 #<a id="managemediaservicesorigins"></a>Administración de extremos de streaming en una cuenta de Servicios multimedia
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
 
 
-En Servicios multimedia de Microsoft Azure, un **extremo de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para la distribución posterior. Servicios multimedia también proporciona integración sin problemas de CDN de Azure. La secuencia de salida de un servicio de StreamingEndpoint puede ser una secuencia en vivo o un recurso de vídeo bajo demanda en su cuenta de Servicios multimedia.  
+En Servicios multimedia de Microsoft Azure, un **extremo de streaming** representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para la distribución posterior. Servicios multimedia también proporciona integración sin problemas de CDN de Azure. La secuencia de salida de un servicio de StreamingEndpoint puede ser una secuencia en vivo o un recurso de vídeo bajo demanda en su cuenta de Servicios multimedia.
 
-Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades de escalado (también conocidas como unidades de streaming). Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Las unidades de escalado proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y funcionalidad adicional cuya funcionalidad incorpora: [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx), integración de CDN y configuración avanzada.
+Además, puede controlar la capacidad del servicio de extremo de streaming para administrar las necesidades crecientes de ancho de banda mediante el ajuste de unidades de escalado (también conocidas como unidades de streaming). Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Las unidades de escalado proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y funcionalidad adicional que incluye: [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx), integración con CDN y configuración avanzada.
 
-Tenga en cuenta que solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución. 
+Tenga en cuenta que solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
 Este tema proporciona información general de las principales funcionalidades proporcionadas por los extremos de streaming. El tema también muestra cómo usar el Portal de administración de Azure para administrar extremos de streaming.
 
@@ -44,14 +44,14 @@ Para agregar/quitar el extremo de streaming mediante el Portal, haga lo siguient
 4. Haga clic en el botón INICIAR para iniciar el extremo de streaming. 
 5. Haga clic en el nombre del extremo de streaming para configurarlo.   
 
-	![Página de extremo de streaming][streaming-endpoint]
+	![Página Extremo de streaming][streaming-endpoint]
 
 
 De forma predeterminada puede tener hasta dos extremos de streaming. Si necesita solicitar más, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations/).
 
 ##<a id="scale_streaming_endpoints"></a>Escalado del extremo de streaming
 
-Las unidades de streaming proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y una funcionalidad adicional que actualmente incluye [capacidades de empaquetado dinámico](http://go.microsoft.com/fwlink/?LinkId=276874). De forma predeterminada, el streaming se configura en un modelo de instancia compartida para el que los recursos del servidor (por ejemplo, cálculo, capacidad de salida, etc.) se comparten con los demás usuarios. Para mejorar el rendimiento de streaming, se recomienda adquirir unidades de streaming. 
+Las unidades de streaming proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y una funcionalidad adicional que actualmente incluye [funcionalidades de empaquetado dinámico](http://go.microsoft.com/fwlink/?LinkId=276874). De forma predeterminada, el streaming se configura en un modelo de instancia compartida para el que los recursos del servidor (por ejemplo, cálculo, capacidad de salida, etc.) se comparten con los demás usuarios. Para mejorar el rendimiento de streaming, se recomienda adquirir unidades de streaming.
 
 Puede escalar con el SDK de .NET , la API de REST o el Portal de administración de Azure.
 
@@ -61,18 +61,18 @@ Para cambiar el número de unidades de streaming mediante el Portal, haga lo sig
 
 	![Página de escala](./media/media-services-manage-origins/media-services-origin-scale.png)
 
-4. Presione el botón SAVE para guardar los cambios.
+4. Presione el botón GUARDAR para guardar los cambios.
 
-	La asignación de cualquier nueva unidad de streaming puede tardar unos 20 minutos en finalizarse. 
+	La asignación de cualquier nueva unidad de streaming puede tardar unos 20 minutos en finalizarse.
 
 	 
-	>[AZURE.NOTE] Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming a petición hasta una hora.
+	>[AZURE.NOTE]Actualmente, pasar de cualquier valor positivo de unidades de streaming a ninguno puede deshabilitar el streaming a petición hasta una hora.
 
-	>[AZURE.NOTE] Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[AZURE.NOTE]Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 	
 ##<a id="configure_streaming_endpoints"></a>Configuración del extremo de streaming
 
-Extremo de streaming le permite configurar las siguientes propiedades cuando tenga al menos una unidad de escala: 
+Extremo de streaming le permite configurar las siguientes propiedades cuando tenga al menos una unidad de escala:
 
 - Control de acceso
 - Nombres de host personalizados
@@ -90,7 +90,7 @@ Para cambiar el número de unidades de streaming mediante el Portal, haga lo sig
   
 Aparecerá una breve descripción de los campos.
 
-![Configure origin][configure-origin]
+![Configuración del origen][configure-origin]
   
 
 1. Definir el período máximo de almacenamiento en caché que se especificará en el encabezado de control de caché de las respuestas HTTP. Este valor no sobrescribirá el valor máximo de caché que se definió explícitamente en el contenido de blobs.
@@ -99,9 +99,9 @@ Aparecerá una breve descripción de los campos.
 
 3. Especifique la configuración para la autenticación del encabezado de firma de Akamai.
 
-4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx),  
+4. Puede especificar una directiva de acceso entre dominios para los clientes de Adobe Flash (para obtener más información, consulte [Especificación de archivos de directiva entre dominios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html). Así como la directiva de acceso de cliente para los clientes de Microsoft Silverlight (para obtener más información, consulte [Disponibilidad de un servicio entre límites del dominio.aspx](https://msdn.microsoft.com/library/cc197955(v=vs.95).aspx).
 
-5. también puede configurar los nombres de host personalizado, al hacer clic en el botón **Configurar**. Para obtener más información, consulte la propiedad **CustomHostNames** en el tema [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).  
+5. También puede configurar nombres de host personalizados haciendo clic en el botón **Configurar**. Para obtener más información, consulte la propiedad **CustomHostNames** en el tema [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
 
 ##<a id="enable_cdn"></a>Habilitación de la integración de CDN de Azure
@@ -110,32 +110,34 @@ Puede especificar habilitar la integración de CDN de Azure para un extremo de s
 
 Para configurar la integración de CDN de Azure en true:
 
-- El extremo de streaming debe tener al menos una unidad (escala) de streaming. Si más adelante desea establecer unidades de escala en 0, primero debe deshabilitar la integración de CDN. 
+- El extremo de streaming debe tener al menos una unidad (escala) de streaming. Si más adelante desea establecer unidades de escala en 0, primero debe deshabilitar la integración de CDN. De forma predeterminada, cuando se crea un nuevo extremo de streaming, automáticamente se establece una unidad de streaming.
 
-- El extremo de streaming debe estar en un estado detenido. Cuando se habilita CDN, puede iniciar el extremo de streaming. 
+- El extremo de streaming debe estar en un estado detenido. Cuando se habilita CDN, puede iniciar el extremo de streaming.
 
-Es posible que la integración de CDN de Azure tarde en habilitarse hasta 90 minutos.   
+Es posible que la integración de CDN de Azure tarde en habilitarse hasta 90 minutos. Se tarda hasta dos horas en activar los cambios en todos los POP de la red CDN.
+
+
+La integración de CDN está habilitada en todos los centros de datos de Azure: oeste de EE. UU., este de EE. UU., Europa del Norte, Europa Occidental, Oeste de Japón, Este de Japón, Sudeste de Asia y Asia Oriental.
 
 Una vez habilitada, se deshabilitan las siguientes configuraciones: **Nombres de host personalizados** y **Control de acceso**.
 
-No todos los centros de datos admiten la integración de CDN de Azure. Si utiliza el Portal de administración de Azure, verá que la opción **Habilitar CDN** si está disponible en el centro de datos. 
+![Extremo de streaming con la red CDN habilitada][streaming-endpoint-enable-cdn]
 
-![Streaming Endpoint Enable CDN][streaming-endpoint-enable-cdn]
 
-Si utiliza el SDK de .NET o la API de REST, deberá comprobar si su centro de datos tiene la integración de CDN de Azure disponible. 
+###Consideraciones adicionales
 
-Para comprobarlo, haga lo siguiente:
+- Cuando la red CDN está habilitada para un extremo de streaming, los clientes no pueden solicitar contenido directamente desde el origen. Si necesita poder probar el contenido con o sin red CDN, puede crear otro extremo de streaming que no tenga habilitada la red CDN.
+- El nombre de host del extremo de streaming permanece igual después de habilitar la red CDN. No es necesario realizar ningún cambio en el flujo de trabajo de Servicios multimedia una vez habilitada la red CDN. Por ejemplo, si el nombre de host del extremo de streaming es strasbourg.streaming.mediaservices.windows.net, después de habilitar la red CDN se usa exactamente el mismo nombre de host.
+- Para los nuevos extremos de streaming, puede habilitar la red CDN creando un nuevo extremo; para los extremos de streaming existentes, deberá detener primero el extremo y, después, habilitar la red CDN.
+ 
 
-1. Intente establecer CdnEnabled en true.
-1. Compruebe el resultado devuelto de un código de Error HTTP 412 (PreconditionFailed) con un mensaje del tipo "La propiedad CdnEnabled del extremo de streaming no puede establecerse en true porque  la capacidad de CDN no está disponible en la región actual". 
-
-	Si obtiene este error, el centro de datos no lo admite. Pruebe con otro centro de datos.
+Para obtener más información, consulte [Anuncio de la integración de Servicios multimedia de Azure con la red CDN de Azure (red de entrega de contenido)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
 [streaming-endpoint]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="06/03/2015"
+   ms.date="07/02/2015"
    ms.author="rasquill"/>
 
 # Marcos de aplicaciones mediante el uso de plantillas
@@ -22,6 +22,7 @@ Utilice este material para crear grandes cosas rápidamente.
 
 | Nombre de la plantilla | Descripción | Ver la plantilla | Implementarla ahora |
 |:---|:---|:---:|:---:|
+| Implementar «n» máquinas virtuales rápidamente | Esta es una plantilla creada por Microsoft que implementa hasta «n» nuevas máquinas virtuales (junto con una nueva cuenta de almacenamiento y red virtual). | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/resource-loop-vms-vnet-aset/) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fresource-loop-vms-vnet-aset%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Active Directory Forest and Domain | Esta plantilla implementa dos máquinas virtuales nuevas (junto con una red virtual nueva, un equilibrador de carga y una cuenta de almacenamiento) y crea un nuevo bosque y dominio de AD. Cada máquina virtual se crea como un controlador de dominio para el nuevo dominio y se coloca en un conjunto de disponibilidad; también se agrega un extremo RDP con una dirección IP pública de equilibrio de carga. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache Webserver | Esta plantilla usa la extensión de Linux CustomScript de Azure para implementar un servidor web Apache. La plantilla crea una VM de Ubuntu, instala Apache2 y crea un archivo HTML simple.| [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 | Couchbase Cluster | Esta plantilla implementa un clúster Couchbase en máquinas virtuales de Ubuntu. | [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/couchbase-on-ubuntu) | <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fcouchbase-on-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -49,4 +50,4 @@ Descubra todas las plantillas que están a su disposición en [GitHub](https://g
 Obtenga más información sobre la administración de recursos de Azure [aquí](../resource-group-template-deploy.md).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

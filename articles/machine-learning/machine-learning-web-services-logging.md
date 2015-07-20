@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Habilitar el registro para los servicios web de Aprendizaje automático | Azure" 
-	description="Aprenda cómo habilitar el registro para los servicios web de Aprendizaje automático." 
+	pageTitle="Registro para los servicios web de Aprendizaje automático | Microsoft Azure" 
+	description="Aprenda cómo habilitar el registro para los servicios web de Aprendizaje automático. El registro proporciona información adicional para ayudar a solucionar las API." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/12/2015"
-	ms.author="garye"/>
-
+	ms.date="06/30/2015"
+	ms.author="raymondl;garye"/>
 
 #Habilitar el registro para los servicios web de Aprendizaje automático  
 
@@ -37,5 +36,6 @@ Este documento proporciona información sobre la capacidad de registro de los se
 	-	El nombre de cada blob tiene un prefijo de la siguiente forma: {id. de área de trabajo}-{id. de servicio web}-{id. de extremo}/{tipo de registro}.  
 -	El tipo de registro toma uno de los siguientes valores: batch score/requests score/init  
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

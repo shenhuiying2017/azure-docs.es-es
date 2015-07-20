@@ -1,4 +1,5 @@
 
+
 #### Para crear un contenedor de volúmenes
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en **Agregar un contenedor de volúmenes**. Aparece el cuadro de diálogo **Crear contenedor de volúmenes**.
@@ -15,4 +16,4 @@
 
   El contenedor de volúmenes recién creado se mostrará en la página **Contenedores de volúmenes**.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -4,8 +4,8 @@
 	services="sql-database, automation"
 	documentationCenter=""
 	authors="jodoglevy"
-	manager="eamono"
-	editor=""/>
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
@@ -34,15 +34,23 @@ Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentra
 
 ## ¿Cómo puede Automatización de Azure ayudar a administrar bases de datos SQL de Azure?
 
-La base de datos SQL de Azure puede administrarse en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en las [herramientas de PowerShell de Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de base de datos SQL de Azure disponibles directamente para que pueda realizar todas las tareas de administración de base de datos SQL dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+La base de datos SQL de Azure puede administrarse en Automatización de Azure mediante los [cmdlets de PowerShell de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn546726.aspx) que están disponibles en las [herramientas de PowerShell de Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx). Automatización de Azure tiene estos cmdlets de PowerShell de base de datos SQL de Azure disponibles directamente para que pueda realizar todas las tareas de administración de base de datos SQL dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 Automatización de Azure también tiene la capacidad de comunicarse con servidores SQL Server directamente, mediante la emisión de comandos SQL con PowerShell.
 
+La [Galería de runbooks de Automatización de Azure](http://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contiene una gran variedad de runbooks de comunidad y equipo de producto para empezar a automatizar la administración de Base de datos SQL de Azure, otros servicios de Azure y sistemas de terceros. Los runbooks de la Galería incluyen:
+
+ * [Ejecución de consultas SQL en una Base de datos de SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
+ * [Escalación vertical (arriba o abajo) de una Base de datos SQL de Azure en una programación](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+ * [Truncamiento de una tabla SQL si su base de datos se aproxima al tamaño máximo](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
+ * [Indexación de tablas en una Base de datos SQL de Azure si están muy fragmentadas](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## Pasos siguientes
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar bases de datos SQL de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-Vea el [Tutorial de introducción de](../automation-create-runbook-from-samples.md) Automatización de Azure
+ * Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
+ * Lea la entrada de blog [Automatización de Azure: el agente SQL en la nube](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

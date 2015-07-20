@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introducción a Apache Storm en HDInsight | Microsoft Azure"
-	description="Obtenga una introducción general a Apache Storm y aprenda cómo puede usar Apache Storm en HDInsight para crear soluciones de análisis de datos en tiempo real en la nube."
+	description="Obtenga una introducción a Apache Storm y aprenda cómo puede usar Storm en HDInsight para crear soluciones de análisis de datos en tiempo real en la nube."
 	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop
@@ -209,4 +209,4 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -3,7 +3,7 @@
 	description="El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar el Indizador multimedia." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/21/2015" 
 	ms.author="juliako"/>
 
 
 # Indización de archivos multimedia con el Indizador multimedia de Azure
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
-El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.  
+El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.
 
->[AZURE.NOTE] Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
+>[AZURE.NOTE]Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 
 
 Un trabajo de indización genera cuatro salidas en cada archivo de indización:
@@ -31,26 +31,26 @@ Un trabajo de indización genera cuatro salidas en cada archivo de indización:
 - Archivo de subtítulos en formato SAMI.
 - Archivo de subtítulos en formato de lenguaje de marcado de texto sincronizado(TTML).
 
-	SAMI y TTML incluyen una etiqueta denominada Recognizability que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen.  Puede usar el valor de Recognizability para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
+	SAMI y TTML incluyen una etiqueta denominada Recognizability que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de Recognizability para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.
 - Archivo de palabras clave (XML).
 - Archivo blob de indización de audio (AIB) para usar con SQL Server.
 	
-	Para obtener más información, consulte [Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+	Para obtener más información, consulte [Uso de archivos AIB con Azure Media Indexer y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
 Este tema muestra cómo crear trabajos de indización para **Indización de un recurso** e **Indización de varios archivos**.
 
-Para ver las actualizaciones más recientes del Indizador multimedia de Azure, consulte [Blogs de los Servicios multimedia](http://azure.microsoft.com/blog/topics/media-services/).
+Para ver las actualizaciones más recientes de Azure Media Indexer, consulte [Blogs de Servicios multimedia](http://azure.microsoft.com/blog/topics/media-services/).
 
-## Uso de archivos de manifiesto y de manifiesto para tareas de indización
+##Uso de archivos de manifiesto y de manifiesto para tareas de indización
 
 Puede especificar más detalles de las tareas de indización mediante la configuración de tarea. Por ejemplo, puede especificar los metadatos que se usarán para el archivo multimedia. Estos metadatos los usa el motor de lenguaje para ampliar su vocabulario y mejora considerablemente la precisión del reconocimiento de voz.
 
 También puede procesar varios archivos multimedia a la vez mediante un archivo de manifiesto.
 
-Para obtener más información, consulte [Valores preestablecidos de tarea para el Indizador multimedia de Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-## Indización de un recurso
+##Indización de un recurso
 
 El método siguiente carga un archivo multimedia como un recurso y crea un trabajo para indizarlo.
 
@@ -58,53 +58,53 @@ Tenga en cuenta que si no se especifica ningún archivo de configuración, el ar
 	
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
-	    // Crear un recurso y cargar el archivo multimedia de entrada en el almacenamiento.
+	    // Create an asset and upload the input media file to storage.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
 	
-	    // Declarar un trabajo nuevo.
+	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
 	
-	    // Obtener una referencia al Indizador multimedia de Azure.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Leer la configuración del archivo si se especifica.
+	    // Read configuration from file if specified.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
 	
-	    // Crear una tarea con los detalles de codificación, usando un valor predefinido de cadena.
+	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Especificar el recurso de entrada que se va a indizar.
+	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
 	
-	    // Agregar un recurso de salida que va a contener los resultados del trabajo. 
+	    // Add an output asset to contain the results of the job. 
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
 	
-	    // Usar el siguiente controlador de eventos para comprobar el progreso del trabajo.  
+	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Iniciar el trabajo.
+	    // Launch the job.
 	    job.Submit();
 	
-	    // Comprobar la ejecución del trabajo y esperar a que finalice. 
+	    // Check job execution and wait for job to finish. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // Si el estado del trabajo es Error, el método de administración de 
-	    // eventos para el progreso del trabajo debe registrar los errores.  En este caso comprobamos 
-	    // el estado del error y la salida, si es necesario.
+	    // If job state is Error, the event handling 
+	    // method for job progress should log errors.  Here we check 
+	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Descargar las salidas de trabajo.
+	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -143,7 +143,7 @@ Tenga en cuenta que si no se especifica ningún archivo de configuración, el ar
 	    return processor;
 	} 
 	
-### <a id="output_files"></a>Archivos de salida
+###<a id="output_files"></a>Archivos de salida
 
 El trabajo de indización genera los siguientes archivos de salida. Los archivos se almacenarán en el primer recurso de salida.
 
@@ -152,12 +152,12 @@ El trabajo de indización genera los siguientes archivos de salida. Los archivos
 <tr><th>Nombre de archivo</th><th>Descripción</th></tr>
 <tr><td>InputFileName.aib </td>
 <td>Archivo Blob de indización de audio.<br/><br/>
-El archivo Blob de indización de audio (AIB) es un archivo que se puede buscar en Microsoft SQL Server mediante la búsqueda de texto completo.  El archivo AIB es más eficaz que los archivos de subtítulos simples, porque contiene alternativas para cada palabra, lo que permite una experiencia de búsqueda mucho más rica.
+El archivo Blob de indización de audio (AIB) es un archivo que se puede buscar en Microsoft SQL Server mediante la búsqueda de texto completo. El archivo AIB es más eficaz que los archivos de subtítulos simples, porque contiene alternativas para cada palabra, lo que permite una experiencia de búsqueda mucho más rica.
 <br/>
 <br/>
 Requiere la instalación del complemento de SQL Indizador en un equipo que ejecute Microsoft SQL Server 2008 o posterior. Buscar AIB mediante la búsqueda de texto completo de Microsoft SQL Server proporciona resultados de búsqueda más precisos que buscar los archivos de subtítulos generados por WAMI. Esto se debe a que el archivo AIB contiene palabras alternativas que suenan de forma similar mientras que los archivos de subtítulos contienen la palabra de mayor confianza para cada segmento del audio. Si la búsqueda de palabras habladas es de suma importancia, se recomienda usar el archivo AIB junto con Microsoft SQL Server.
 <br/><br/>
-Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">Complemento SQL del Indizador multimedia de Azure</a>.
+Para descargar el complemento, haga clic en <a href="http://aka.ms/indexersql">Complemento de Azure Media Indexer</a>.
 <br/><br/>
 También es posible usar otros motores de búsqueda, como Apache Lucene/Solr para indizar simplemente el vídeo en función de los subtítulos y los archivos XML de palabras clave, pero esto generará unos resultados de búsqueda menos precisos.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
@@ -165,7 +165,7 @@ También es posible usar otros motores de búsqueda, como Apache Lucene/Solr par
 <br/><br/>
 Se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.
 <br/><br/>
-SAMI y TTML incluyen una etiqueta denominada <b>Recognizability</b> que puntúa un trabajo de indización en función de lo reconocible que es la voz en el vídeo de origen.  Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.</td></tr>
+SAMI y TTML incluyen una etiqueta denominada <b>Recognizability</b> que puntúa un trabajo de indización en función de lo reconocible que resulta la voz en el vídeo de origen. Puede usar el valor de <b>Recognizability</b> para filtrar los archivos de salida por facilidad de uso. Una puntuación baja significa unos resultados de indización pobres debido a la calidad del audio.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>Archivo de palabras clave.
 <br/><br/>
@@ -176,67 +176,67 @@ El archivo se puede usar para varios propósitos, por ejemplo, para realizar an�
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
-## Indización de varios archivos
+##Indización de varios archivos
 
 El método siguiente carga varios archivos multimedia como un recurso y crea un trabajo para indizar todos esos archivos en un lote.
 
-Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso. El archivo de manifiesto contiene la lista de todos los archivos del recurso. Para obtener más información, consulte [Valores preestablecidos de tarea para el Indizador multimedia de Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso. El archivo de manifiesto contiene la lista de todos los archivos del recurso. Para obtener más información, consulte [Valores preestablecidos de tarea para Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 	
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
-	    // Crear un recurso y cargarlo en el almacenamiento.
+	    // Create an asset and upload to storage.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
 	
-	    // Crear un archivo de manifiesto que contiene todos los nombres de archivo de recurso y cargarlo en el almacenamiento.
+	    // Create a manifest file that contains all the asset file names and upload to storage.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
 	
-	    // Declarar un trabajo nuevo.
+	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
 	
-	    // Obtener una referencia al Indizador multimedia de Azure.
+	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
 	
-	    // Leer la configuración.
+	    // Read configuration.
 	    string configuration = File.ReadAllText("batch.config");
 	
-	    // Crear una tarea con los detalles de codificación, usando un valor predefinido de cadena.
+	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
 	
-	    // Especificar el recurso de entrada que se va a indizar.
+	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
 	
-	    // Agregar un recurso de salida que va a contener los resultados del trabajo.
+	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
 	
-	    // Usar el siguiente controlador de eventos para comprobar el progreso del trabajo.  
+	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 	
-	    // Iniciar el trabajo.
+	    // Launch the job.
 	    job.Submit();
 	
-	    // Comprobar la ejecución del trabajo y esperar a que finalice. 
+	    // Check job execution and wait for job to finish. 
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
 	
-	    // Si el estado del trabajo es Error, el método de administración de 
-	    // eventos para el progreso del trabajo debe registrar los errores.  En este caso comprobamos 
-	    // el estado del error y la salida, si es necesario.
+	    // If job state is Error, the event handling 
+	    // method for job progress should log errors.  Here we check 
+	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
 	
-	    // Descargar las salidas de trabajo.
+	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
 	
 	    return true;
@@ -256,11 +256,11 @@ Un archivo de manifiesto con la extensión .lst se crea y se carga en el recurso
 	}
 
 
-### Archivos de salida
+###Archivos de salida
 
 Cuando haya más de un archivo multimedia de entrada, WAMI generará un archivo de manifiesto para las salidas del trabajo denominado 'JobResult.txt'. Para cada archivo multimedia de entrada, los archivos de palabraas clave AIB, SAMI y TTML resultantes se numeran secuencialmente, como se muestra a continuación.
 
-Para obtener descripciones de los archivos de salida, vea [Archivos de salida](#output_files). 
+Para obtener descripciones de los archivos de salida, consulte [Archivos de salida](#output_files).
 
 
 <table border="1">
@@ -284,7 +284,7 @@ Alias: nombre de archivo de salida correspondiente.
 <br/><br/>
 MediaLength: longitud del archivo multimedia de entrada en segundos. Puede ser 0 si se ha producido un error en esta entrada.
 <br/><br/>
-Error: indica si el archivo multimedia se ha indizado correctamente. 0 si se realiza correctamente; en caso contrario, producirá un error. Consulte <a href="#error_codes">Códigos de error</a> para ver errores concretos.
+Error: indica si el archivo multimedia se ha indizado correctamente. 0 si se realiza correctamente; en caso contrario, producirá un error. Consulte <a href="#error_codes">Códigos de error para ver errores concretos</a>.
 </td></tr>
 <tr><td>Media_1.aib </td>
 <td>File #0: archivo de blob de indización de audio.</td></tr>
@@ -298,7 +298,7 @@ Error: indica si el archivo multimedia se ha indizado correctamente. 0 si se rea
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
-### Trabajo parcialmente correcto
+###Trabajo parcialmente correcto
 
 Si no se indizan correctamente todos los archivos multimedia de entrada, el trabajo de indización fallará con el código de error 4000. Para obtener más información, consulte [Códigos de error](#error_codes).
 
@@ -329,13 +329,13 @@ No hay ninguna secuencia de audio en el archivo multimedia de entrada.</td></tr>
 </table>
 
 
-## <a id="supported_languages"></a>Idiomas admitidos
+##<a id="supported_languages"></a>Idiomas admitidos
 
-Actualmente, solo se admite el inglés.
+Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [Azure Media Indexer en español](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)
 
-## Vínculos relacionados
+##Vínculos relacionados
 
-[Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Uso de archivos AIB con Azure Media Indexer y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -343,4 +343,4 @@ Actualmente, solo se admite el inglés.
 
 <!-- URLs. -->
 
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

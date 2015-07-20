@@ -18,18 +18,11 @@
 
 # Almacenamiento del código del proyecto en control de código fuente
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title="Back-end de .NET">Back-end de .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a>
-</div>
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
 
 Este tema le muestra cómo usar el control del código fuente proporcionado por Servicios móviles de Azure para almacenar los scripts del servidor. Los scripts y otros archivos de código de back-end de JavaScript pueden promoverse desde el repositorio local al servicio móvil de producción. También se muestra cómo definir código compartido que pueden requerir varios scripts y cómo usar el archivo package.json para agregar módulos Node.js al servicio móvil.
-
-El tutorial le guiará a través de los siguientes pasos:
-
-1. [Habilitación del control de código fuente en el servicio móvil].
-2. [Instalación de Git y creación del repositorio local].
-3. [Implementación de archivos de script actualizados en el servicio móvil].
-4. [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor].
 
 Para completar este tutorial, debe haber creado un servicio móvil tras completar los tutoriales [Introducción a los servicios móviles] o [Incorporación de servicios móviles a una aplicación existente].
 
@@ -100,31 +93,21 @@ Ahora que ha creado su repositorio local, puede realizar cambios en los scripts 
 	
 	Aparecerá una serie de comandos que indica que la confirmación se ha implementado en el servicio móvil.
 
-6. Nuevamente en el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
-
-	![][5]
-
-3. Haga clic en **Script** y, a continuación, seleccione la operación **Insert**.
-
-	![][6]
-
+6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos**, haga clic en la tabla **TodoItem** y en **Script**; a continuación, seleccione la operación **Insertar**.
+7. 
 	Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
 
 ##<a name="use-npm"></a>Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor
 
-Servicios móviles proporciona acceso a todo el conjunto de módulos Node.js básicos, que puede usar en su código mediante la función **require**. Asimismo, el servicio móvil puede usar módulos Node.js que no formen parte del paquete Node.js básico, y el usuario puede incluso definir su propio código compartido como módulos Node.js. Para obtener más información acerca de la creación de módulos, consulte la sección [Módulos][Node.js API Documentation: Modules] en la documentación de referencia de API Node.js.
+Servicios móviles proporciona acceso a todo el conjunto de módulos Node.js básicos, que puede usar en su código mediante la función **require**. Asimismo, el servicio móvil puede usar módulos Node.js que no formen parte del paquete Node.js básico, y el usuario puede incluso definir su propio código compartido como módulos Node.js. Para obtener más información acerca de la creación de módulos, consulte la sección [Módulos] en la documentación de referencia de API Node.js.
 
 La manera recomendada de agregar módulos Node.js al servicio móvil es agregando referencias al archivo package.json del servicio. A continuación, agregará el módulo Node.js [node-uuid] al servicio móvil a través de la actualización del archivo package.json. Cuando la actualización se inserte en Azure, el servicio móvil se reiniciará y se instalará el módulo. Este módulo se usará después para generar un nuevo valor de GUID para la propiedad **uuid** en los elementos insertados.
 
-2. Desplácese a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto.
+2. Desplácese a la carpeta `.\service` del repositorio Git local y abra el archivo package.json en un editor de texto; añada el siguiente campo al objeto **dependencias**:
 
-3. Ubique
+		"node-uuid": "~1.4.3"
 
-		npm install node-uuid
-
-	NPM crea el directorio `node_modules` en la ubicación actual e instala el módulo [node-uuid] en el subdirectorio `\node-uuid`.
-
-	> [AZURE.NOTE]Si ya existe `node_modules` en la jerarquía de directorios, NPM creará el subdirectorio `\node-uuid` ahí en lugar de crear un nuevo `node_modules` en el repositorio. En este caso, elimine simplemente el directorio `node_modules` existente.
+	>[AZURE.NOTE]Esta actualización para el archivo package.json producirá un reinicio del servicio móvil después de insertar la confirmación.
 
 4. Ahora, desplácese a la subcarpeta .\\service\\table, abra el archivo todoitem.insert.js y modifíquelo de la siguiente forma:
 
@@ -154,10 +137,10 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 + [Llamar a una API personalizada desde el cliente] <br/> Muestra cómo crear API personalizadas que se pueden llamar desde el cliente.
 
 <!-- Anchors. -->
-[Habilitación del control de código fuente en el servicio móvil]: #enable-source-control
-[Instalación de Git y creación del repositorio local]: #clone-repo
-[Implementación de archivos de script actualizados en el servicio móvil]: #deploy-scripts
-[Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor]: #use-npm
+[Enable source control in your mobile service]: #enable-source-control
+[Install Git and create the local repository]: #clone-repo
+[Deploy updated script files to your mobile service]: #deploy-scripts
+[Leverage shared code and Node.js modules in your server scripts]: #use-npm
 
 <!-- Images. -->
 [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
@@ -173,7 +156,8 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Uso de scripts del servidor en Servicios móviles]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Llamar a una API personalizada desde el cliente]: mobile-services-ios-call-custom-api.md
-[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
+[Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

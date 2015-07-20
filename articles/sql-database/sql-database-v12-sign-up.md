@@ -65,4 +65,6 @@ A continuación, en los siguientes temas se explican las distintas formas de uti
 <!-- References, Images. -->
 [Image1]: ./media/sql-database-v12-sign-up/V12Preview-YesNo-Option-New-SQLDatabase-Server-Newserver-Screenshot-e23.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

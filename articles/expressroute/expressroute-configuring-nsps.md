@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  Configuración de una conexión ExpressRoute a través de un proveedor de servicios de red
@@ -150,4 +150,4 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 		
 		Provisioned 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

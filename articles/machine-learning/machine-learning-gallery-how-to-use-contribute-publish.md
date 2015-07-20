@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Galería de Aprendizaje automático de Azure | Microsoft Azure" 
-	description="Descripción del sitio Galería de Aprendizaje automático de Azure para experimentos de Aprendizaje automático publicados por la comunidad." 
+	pageTitle="Galería de experimentos de Aprendizaje automático | Microsoft Azure" 
+	description="Comparta y detecte experimentos de aprendizaje automático en la Galería de Aprendizaje automático de Azure. Aprenda de otros experimentos o simplemente empiece a trabajar con el aprendizaje automático." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="cjgronlund" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="chhavib;garye"/>
+	ms.date="06/29/2015" 
+	ms.author="chhavib;cgronlun;garye"/>
 
 
-# **Galería de aprendizaje automático** #
+# Comparta y detecte experimentos de aprendizaje automático en la Galería de Aprendizaje automático
 La Galería de Aprendizaje automático de Azure es un sitio impulsado por la comunidad para descubrir experimentos que solucionan problemas interesantes. Se trata de un destino para los usuarios que buscan aprender de los experimentos de otros usuarios o que simplemente desea comenzar con el Aprendizaje automático de Azure. Estos experimentos son principalmente una contribución de la comunidad de usuarios de Aprendizaje automático de Azure.
 
 La galería también permite que los usuarios examinen y copien experimentos contribuidos por el equipo de Aprendizaje automático de Microsoft Azure.
@@ -26,7 +26,7 @@ La galería también permite que los usuarios examinen y copien experimentos con
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Ventajas ##
+## Ventajas 
 Comience a usar la galería para disfrutar de estas ventajas:
 
 - Descubrir experimentos interesantes 
@@ -37,7 +37,7 @@ Inicie sesión con su cuenta de Microsoft para disfrutar de estas ventajas adici
 - Copie experimentos en su área de trabajo y comience a solucionar sus propios problemas con Aprendizaje automático de Azure
 - Contribuya y muestre su trabajo
 
-## Descubra ##
+## Descubra 
 Puede buscar y examinar experimentos interesantes de la galería que le pueden ayudar a solucionar sus necesidades de aprendizaje automático o simplemente para comenzar a crear experimentos de Aprendizaje automático de Azure.
 
 Puede empezar a usar la galería para descubrir y aprender más acerca de los experimentos sin iniciar sesión. Encuentre fácilmente experimentos recientemente publicados y experimentos de tendencias en la galería o busque por nombre de experimento, etiquetas, algoritmos y otros atributos.
@@ -48,10 +48,10 @@ Si le interesa un experimento determinado, puede leer información adicional sob
 
 También puede comentar, dar opiniones o formular preguntas en la sección de comentarios que se encuentra en cada página de experimento. Incluso más, puede compartir un experimento de interés con amigos o colegas con funcionalidades de uso compartido con cuentas de LinkedIn o Twitter. También puede enviar por correo electrónico vínculos a estos experimentos para invitar a otros usuarios a ver las páginas de los experimentos.
 
-## Descargar ##
+## Descargar 
 La Galería de Aprendizaje automático de Azure le permite copiar fácilmente experimentos en su espacio de trabajo con solo un clic, para comenzar a usarlo inmediatamente con el fin que desee. Si no ha iniciado sesión mientras explora, se le pedirá que lo haga con su cuenta de Microsoft antes de que pueda copiar el experimento en su espacio de trabajo de estudio.
 
-## Contribuciones ##
+## Contribuciones 
 ¿Está listo para comenzar a contribuir con experimentos a la Galería?
 
 Siga estos pasos:
@@ -60,12 +60,12 @@ Siga estos pasos:
 - Cree el experimento y ejecútelo.
 - Cuando esté listo para publicar su experimento en la galería, haga clic en "Publicar en la galería" en la barra inferior negra de Estudio. ![Publicar](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) ¡Disfrute!
 
-## Queremos saber de usted. ##
+## Queremos saber de usted. 
 Queremos que la galería sea por y para nuestros usuarios. Use el emoticono que aparece a la derecha para indicarnos qué le gusta y qué no le gusta de la galería.
 
 ![Comentarios](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## Preguntas frecuentes ##
+## Preguntas frecuentes 
 **Me gustaría hacer cambios en el flujo de trabajo del experimento que envié a la galería. ¿Cómo puedo hacerlo?**
 
 En estos momentos no admitimos actualizaciones en el flujo de trabajo de experimentos ya publicados en la galería. Puede publicar esos cambios como un experimento nuevo en la galería y eliminar el anterior. Estamos trabajando activamente para permitir la publicación de actualizaciones del flujo de trabajo de los experimentos ya contribuidos en la galería. Permanezca atento.
@@ -109,5 +109,6 @@ Puede usar la tecla TAB para delimitar las etiquetas.
 La representación de la descripción enriquecida no está disponible para todos los usuarios de la galería. Estamos trabajando activamente para que esta funcionalidad esté disponible mediante la compatibilidad de representación de reducciones.
 
 **[IR A LA GALERÍA >>](http://gallery.azureml.net)**
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -125,4 +125,4 @@ A continuación, usará este certificado para generar un archivo .p12 para habil
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -18,7 +18,7 @@
 
 #Migración de una base de datos compatible con SSMS 
 
-![texto alternativo](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
+![Diagrama de migración de SSMS](./media/sql-database-migrate-ssms/01SSMSDiagram.png)
 
 Si un esquema de base de datos ya es compatible con Base de datos SQL d Azure, la migración será sencilla. Como no es necesaria ninguna transformación, la migración solo requiere que la base de datos se importe a Azure. Esto puede hacerse en un solo paso mediante SSMS con la ’implementación' de la base de datos a Base de datos SQL de Azure, o como un proceso de dos pasos por exportar primero un BACPAC y después importarlo a un servidor de Base de datos SQL de Azure para crear una nueva base de datos.
 
@@ -30,44 +30,45 @@ Esta opción también se usa como el último paso de la opción 3 para migrar la
 
 ##Uso de SSMS para implementar en Base de datos SQL de Azure
 1.	Aprovisione un servidor mediante el Portal de Azure tal como se describe en Creación del servidor de destino para la base de datos migrada.
-2. Busque la base de datos de origen en el Explorador de objetos de SSMS y ejecute la tarea **Implementación de bases de datos en Base de datos SQL de Microsoft Azure**
+2. Busque la base de datos de origen en el Explorador de objetos de SSMS y ejecute la tarea **Implementación de bases de datos en Base de datos SQL de Azure**.
 
-	![texto alternativo](./media/sql-database-migrate-ssms/02MigrateusingSSMS.png)
+	![Implementación en Azure desde el menú Tareas](./media/sql-database-migrate-ssms/02MigrateusingSSMS.png)
 
 3.	En el asistente para la implementación configure la conexión con el servidor de Base de datos SQL de Azure de destino que se aprovisionó en el paso.
 4.	Proporcione el **nombre** para la base de datos y establezca la **edición** (capa de servicio) y el **objetivo de servicio** (nivel de rendimiento). Consulte Elección de un nivel de rendimiento/nivel de precios de la base de datos para la migración, para obtener más información sobre cómo configurar estas opciones. 
 
-	![texto alternativo](./media/sql-database-migrate-ssms/03MigrateusingSSMS.png)
+	![Exportar configuración](./media/sql-database-migrate-ssms/03MigrateusingSSMS.png)
 
 5.	Complete el Asistente para realizar la migración de la base de datos. Según el tamaño y la complejidad de la implementación de la base de datos puede tardar desde unos minutos a varias horas. Si se producen errores que indican que el esquema de base de datos no es compatible con Base de datos SQL, se deberá utilizar una opción diferente.
+
 ##Uso de SSMS para exportar un BACPAC y después importarlo en Base de datos SQL
 El proceso de implementación se puede dividir en dos pasos: exportar e importar. En el primer paso se crea un archivo BACPAC que después se utiliza como entrada en el segundo paso.
 
 1.	Aprovisione un servidor mediante la última actualización de Base de datos SQL, tal como se describe en Creación del servidor de destino para la base de datos migrada.
-2.	Busque la base de datos de origen en el Explorador de objetos de SSMS y seleccione la tarea **Implementación de bases de datos en Base de datos SQL de Microsoft Azure**
+2.	Busque la base de datos de origen en el Explorador de objetos de SSMS y seleccione la tarea **Implementación de bases de datos en Base de datos SQL de Azure**.
 
-	![texto alternativo](./media/sql-database-migrate-ssms/04MigrateusingSSMS.png)
+	![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-migrate-ssms/04MigrateusingSSMS.png)
 
 3. En el Asistente para exportación configure la exportación para guardar localmente el archivo BACPAC. El archivo BACPAC exportado siempre incluye el esquema de la base de datos completa y, de manera predeterminada, los datos de todas las tablas. Si desea excluir los datos de algunas o todas las tablas, utilice la pestaña de opciones avanzadas. Por ejemplo, puede exportar únicamente los datos de las tablas de referencia.
 	>[AZURE.NOTE]Nota: una vez que el Portal de administración de Azure admite la importación que se ejecuta en Azure, puede elegir guardar el archivo BACPAC exportado al Almacenamiento de Azure y ejecutar la importación en la nube.
 
-	![texto alternativo](./media/sql-database-migrate-ssms/05MigrateusingSSMS.png)
+	![Exportar configuración](./media/sql-database-migrate-ssms/05MigrateusingSSMS.png)
 
 4.	Una vez creado el archivo BACPAC, conéctese al servidor que creó en el paso 1, haga clic con el botón derecho en la carpeta Bases de datos y seleccione Importar aplicación de capa de datos...
 
-	![texto alternativo](./media/sql-database-migrate-ssms/06MigrateusingSSMS.png)
+	![Importar elemento de menú de aplicación de capa de datos](./media/sql-database-migrate-ssms/06MigrateusingSSMS.png)
 
 5.	En el Asistente para importación, seleccione el archivo BACPAC que acaba de exportar para crear la nueva base de datos en Base de datos SQL de Azure.
 
-	![texto alternativo](./media/sql-database-migrate-ssms/07MigrateusingSSMS.png)
+	![Importar configuración](./media/sql-database-migrate-ssms/07MigrateusingSSMS.png)
 
 6.	Proporcione el nombre para la base de datos y establezca la edición (capa de servicio) y el objetivo de servicio (nivel de rendimiento).
 	 
 7.	Complete el asistente para importar el archivo BACPAC y cree la base de datos en Base de datos SQL de Azure.
 
-	![texto alternativo](./media/sql-database-migrate-ssms/08MigrateusingSSMS.png)
+	![Configuración de base de datos](./media/sql-database-migrate-ssms/08MigrateusingSSMS.png)
  
 ##Alternativas
-También puede usar la utilidad de línea de comandos sqlpackage.exe para implementar la base de datos o exportar e importar un archivo BACPAC. Sqlpackage.exe usa la misma tecnología DAC como SSMS, por lo que el resultado es el mismo. Para obtener más información, vaya [aquí](https://msdn.microsoft.com/library/hh550080.aspx).
+También puede usar la utilidad de línea de comandos sqlpackage.exe para implementar la base de datos o exportar e importar un archivo BACPAC. Sqlpackage.exe usa la misma tecnología DAC como SSMS, por lo que el resultado es el mismo. Para obtener más información, consulte [SqlPackage.exe en MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

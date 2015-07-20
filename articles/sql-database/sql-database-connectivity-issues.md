@@ -70,4 +70,6 @@ El artículo de soporte técnico anterior proporciona ayuda para los siguientes 
 
 - Es posible tener acceso a las métricas de eventos de conectividad de la base de datos mediante el envío de consultas a la vista [**sys.database_connection_stats (base de datos SQL de Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

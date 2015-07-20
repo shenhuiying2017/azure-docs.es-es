@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Incorporación de notificaciones de inserción a la aplicación de Servicios móviles (Windows Store) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." 
 	services="mobile-services,notification-hubs" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 
@@ -93,7 +93,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
-* [¿Qué son los Centros de notificaciones?] <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
+* [¿Qué son los Centros de notificaciones?] <br/>Obtenga más información sobre el funcionamiento de los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas de cliente.
 
 * [Depuración de aplicaciones de centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Obtenga instrucciones de resolución de problemas y depuración de soluciones de centros de notificaciones.
 
@@ -126,5 +126,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

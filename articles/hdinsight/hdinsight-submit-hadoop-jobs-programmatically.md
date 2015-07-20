@@ -38,7 +38,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 ##Envío de trabajos de MapReduce mediante Azure PowerShell
 Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight mediante PowerShell][hdinsight-admin-powershell].
 
-MapReduce de Hadoop es un marco de software para escribir aplicaciones que procesan enormes cantidades de datos. Los clústeres de HDInsight incluyen un archivo JAR (ubicado en *\example\jars\hadoop-mapreduce-examples.jar*) que contiene varios ejemplos de MapReduce.
+MapReduce de Hadoop es un marco de software para escribir aplicaciones que procesan enormes cantidades de datos. Los clústeres de HDInsight incluyen un archivo JAR (ubicado en *\\example\\jars\\hadoop-mapreduce-examples.jar*) que contiene varios ejemplos de MapReduce.
 
 Uno de los ejemplos ilustra el recuento de la frecuencia de las palabras en los archivos de código fuente. En esta sesión, aprenderá a utilizar Azure PowerShell desde una estación de trabajo para ejecutar una muestra de recuento de palabras. Para obtener más información sobre el desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce].
 
@@ -111,7 +111,7 @@ Uno de los ejemplos ilustra el recuento de la frecuencia de las palabras en los 
 
 	La carpeta *example/data/WordCountOutput* es la carpeta de salida especificada al ejecutar el trabajo de MapReduce. *part-r-00000* es el nombre de archivo predeterminado para el resultado del trabajo de MapReduce. El archivo se descargará en la misma estructura de carpetas de la carpeta local. Por ejemplo, en la captura de pantalla siguiente, la carpeta actual es la carpeta raíz C:. El archivo se descargará en:
 
-*C:\example\data\WordCountOutput* 
+*C:\\example\\data\\WordCountOutput* 
 
 5. Ejecute el siguiente comando para imprimir el archivo de salida del trabajo de MapReduce:
 
@@ -300,7 +300,7 @@ Consulte [Introducción al uso de herramientas de Hadoop de HDInsight para Visua
 Consulte [Uso de Sqoop con HDInsight][hdinsight-use-sqoop].
 
 ##Envío de trabajos de MapReduce mediante el SDK de .NET de HDInsight
-El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET. Los clústeres de HDInsight incluyen un archivo JAR (ubicado en *\example\jars\hadoop-mapreduce-examples.jar*) que contiene varios ejemplos de MapReduce. Uno de los ejemplos ilustra el recuento de la frecuencia de las palabras en los archivos de código fuente. En esta sesión, aprenderá a crear una aplicación .NET para ejecutar un ejemplo de recuento de palabras. Para obtener más información sobre el desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce].
+El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET. Los clústeres de HDInsight incluyen un archivo JAR (ubicado en *\\example\\jars\\hadoop-mapreduce-examples.jar*) que contiene varios ejemplos de MapReduce. Uno de los ejemplos ilustra el recuento de la frecuencia de las palabras en los archivos de código fuente. En esta sesión, aprenderá a crear una aplicación .NET para ejecutar un ejemplo de recuento de palabras. Para obtener más información sobre el desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce].
 
 
 Los siguientes procedimientos son necesarios para aprovisionar un clúster de HDInsight mediante el SDK:
@@ -729,4 +729,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

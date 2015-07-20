@@ -1,27 +1,31 @@
-<properties 
+<properties
    pageTitle="Implementar el dispositivo StorSimple local"
    description="Pasos y procedimientos recomendados para implementar el servicio y el dispositivo StorSimple."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # Implementar el dispositivo StorSimple local
+
+[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
 ## Información general
 
 Bienvenido a la implementación del dispositivo StorSimple de Microsoft Azure.
 
-Esta serie de tutoriales describe cómo configurar los dispositivos de StorSimple e incluye una lista de comprobación previa a la instalación, requisitos previos de configuración y pasos de configuración detallados.
+Estos tutoriales de implementación se aplican a la versión de lanzamiento de la serie StorSimple 8000, actualización 0.1 de la serie StorSimple 8000, actualización 0.2 de la serie StorSimple 8000 y actualización 0.3 de la serie StorSimple 8000.
+
+En esta serie de tutoriales describe cómo configurar un dispositivo de StorSimple y se incluyen una lista de comprobación previa a la instalación, requisitos previos de configuración y pasos de configuración detallados.
 
 > [AZURE.NOTE]La información de implementación de StorSimple publicada en el sitio web de Microsoft Azure y en MSDN Library se aplica solo a los dispositivos de la serie 8000 de StorSimple. Para obtener información completa sobre los dispositivos de la serie 7000, vaya a: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Para obtener información sobre la implementación de la serie 7000, vea la [Guía de inicio rápido del sistema StorSimple](http://onlinehelp.storsimple.com/111_Appliance/).
 
@@ -36,7 +40,7 @@ La siguiente lista de comprobación previa a la instalación describe la informa
 | | Requisitos | Detalles | Valores |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | Nombre descriptivo para el dispositivo | Nombre que ayuda a identificar el dispositivo | |
-| 2 | Configuración de red <ol><li>Dirección IP del dispositivo</li><li>Interfaces de red, 4x1 GbE, 2x10 GbE</li><li>IP fija del controlador</li><li>Máscaras de subred</li><li>Puerta de enlace</li></ol> | Total de direcciones IP necesarias: 8 <ol><li>Una por dispositivo</li><li>Una por cada interfaz de red habilitada, 6 en total</li><li>Una por controlador, 2 en total</li><li>Una para cada dirección IP</li><li>Una por dispositivo</li></ol> | |
+| 2 | Configuración de red <ol><li>Interfaces de red, 4x1 GbE, 2x10 GbE</li><li>IP fija del controlador</li><li>Máscaras de subred</li><li>Puerta de enlace</li></ol> | Total de direcciones IP necesarias: 8 <ol><li>Una por cada interfaz de red habilitada, 6 en total</li><li>Una por controlador, 2 en total</li><li>Una para cada dirección IP</li><li>Una por dispositivo</li></ol> | |
 | 3 | Acceso serie | Configuración inicial del dispositivo | Sí/No |
 | 4 | Direcciones IP del servidor DNS | Necesarias para conectarse a Microsoft Azure: necesarias un total de 2 para alta disponibilidad | |
 | 5 | Direcciones IP del servidor NTP | Necesarias para sincronizar la hora con Azure: 1 necesaria, 1 opcional | |
@@ -75,13 +79,13 @@ Antes de configurar el dispositivo, asegúrese de que:
 
 Siga estos pasos imprescindibles para configurar el dispositivo StorSimple y conectarlo al servicio de Administrador de StorSimple:
 
-- Paso 1: Crear un nuevo servicio 
+- Paso 1: Crear un nuevo servicio
 - Paso 2: Obtener la clave de registro del servicio
-- Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple 
+- Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple
 - Paso 4: Completar la instalación mínima del dispositivo
-- Paso 5: Crear un contenedor de volúmenes 
+- Paso 5: Crear un contenedor de volúmenes
 - Paso 6: Crear un volumen
-- Paso 7: Montar, inicializar y formatear un volumen 
+- Paso 7: Montar, inicializar y formatear un volumen
 - Paso 8: Realizar una copia de seguridad
 
 Además de los pasos imprescindibles, hay una serie de pasos opcionales que podría tener que seguir al implementar la solución. Estos pasos opcionales explican cómo:
@@ -102,8 +106,8 @@ El servicio de Administrador de StorSimple puede administrar varios dispositivos
 
 > [AZURE.IMPORTANT]Si no habilitó la creación automática de una cuenta de almacenamiento con el servicio, debe crear al menos una cuenta de almacenamiento después de crear correctamente un servicio. Dicha cuenta de almacenamiento se usará al crear un contenedor de volúmenes.
 >
-> * Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#Configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas. 
-> * Si habilitó la creación automática de una cuenta de almacenamiento, vaya al Paso 2: Obtener la clave de registro del servicio.
+> * Si no creó automáticamente una cuenta de almacenamiento, vaya a [Configurar una nueva cuenta de almacenamiento para el servicio](#Configure-a-new-storage-account-for-the-service) para obtener instrucciones detalladas.
+> * Si habilitó la creación automática de una cuenta de almacenamiento, vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2:-get-the-service-registration-key).
 
 ## Paso 2: Obtener la clave de registro del servicio
 
@@ -206,6 +210,6 @@ Para obtener instrucciones de instalación de MPIO, vaya a [Configurar MPIO para
 Configure un [dispositivo virtual](storsimple-virtual-device.md).
 
 Use el [servicio de Administrador de StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx) para administrar el dispositivo StorSimple.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

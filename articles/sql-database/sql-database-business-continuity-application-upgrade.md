@@ -29,5 +29,6 @@ Al diseñar el proceso de actualización de la aplicación, el objetivo principa
 
 Si la aplicación puede funcionar temporalmente en modo de solo lectura, el flujo de trabajo de actualización se puede diseñar para eliminar de manera eficaz el tiempo de inactividad. Para comprender cómo se debe implementar el flujo de trabajo de actualización para la topología de su aplicación específica, vea [Prácticas recomendadas para minimizar las interrupciones en la base de datos SQL de Azure durante la aplicación durante la implementación de actualizaciones en la aplicación](https://msdn.microsoft.com/library/azure/dn790385.aspx)
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

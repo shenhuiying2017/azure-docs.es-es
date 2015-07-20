@@ -42,5 +42,6 @@ Para obtener más información acerca de cómo administrar Bases de datos SQL de
 Puede utilizar herramientas de línea de comandos como PowerShell para administrar Bases de datos SQL de Azure y automatizar las implementaciones de recursos de Azure. Microsoft recomienda esta herramienta para administrar un gran número de Bases de datos SQL de Azure e implementar los cambios de los recursos en un entorno de producción.
 
 Para obtener más información acerca de cómo administrar Bases de datos SQL de Azure con las herramientas de línea de comandos, [haga clic aquí](sql-database-command-line-tools.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

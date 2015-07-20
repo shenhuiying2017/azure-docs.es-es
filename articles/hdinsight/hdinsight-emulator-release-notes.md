@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jgao"/>
 
 
@@ -43,7 +43,7 @@
 
 ### Novedades 
  
-* Se han agregado scripts para simplificar la configuración de todos los servicios de Apache Hadoop para el inicio automático o manual. El valor predeterminado seguirá siendo igual de automático que antes, pero todos los servicios pueden cambiarse ahora mediante los scripts set-onebox-autostart.cmd o set-onebox-manualstart.cmd instalados en C:\Hadoop. 
+* Se han agregado scripts para simplificar la configuración de todos los servicios de Apache Hadoop para el inicio automático o manual. El valor predeterminado seguirá siendo igual de automático que antes, pero todos los servicios pueden cambiarse ahora mediante los scripts set-onebox-autostart.cmd o set-onebox-manualstart.cmd instalados en C:\\Hadoop. 
 
 * El número de dependencias de instalación necesarias se ha reducido notablemente, lo que permite instalaciones más rápidas.
 
@@ -110,7 +110,7 @@
 
 	En el panel, verá un clúster local predeterminado con el nombre de "local (hdfs)". Si desea usar el almacenamiento de blobs de Azure como almacenamiento para la instalación local, realice los siguientes pasos:
 
-	1. Agregue la etiqueta de cuenta en core-site.xml que se encuentra en C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf:       
+	1. Agregue la etiqueta de cuenta en core-site.xml que se encuentra en C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf:       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -245,7 +245,7 @@
 
 * Directorio temporal
 	
-	El archivo hadoop.tmp.dir hace referencia a una ubicación incorrecta. en lugar de apuntar a C:\hadoop\hdfs, apunta a C:\hdfs. Este error se corregirá en la siguiente actualización de bits de HDP.
+	El archivo hadoop.tmp.dir hace referencia a una ubicación incorrecta. en lugar de apuntar a C:\\hadoop\\hdfs, apunta a c:\\hdfs. Este error se corregirá en la siguiente actualización de bits de HDP.
 
 * Restricciones del SO
 
@@ -276,4 +276,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

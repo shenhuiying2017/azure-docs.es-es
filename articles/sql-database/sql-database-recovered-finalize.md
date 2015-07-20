@@ -62,5 +62,6 @@ Para obtener más información sobre las reglas de alerta de bases de datos, con
 ## Habilitar auditoría
 
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Se requiere un buen indicador de auditoría, que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *. database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md). 
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

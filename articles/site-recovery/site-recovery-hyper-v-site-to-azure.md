@@ -61,11 +61,7 @@ Como parte de la implementación de Azure Site Recovery, instalará el proveedor
 - Debe ejecutar las versiones más recientes del proveedor y del agente.
 - Todos los servidores de Hyper-V de un almacén de credenciales deben tener las mismas versiones.
 - El proveedor necesitará conectarse a Azure Site Recovery a través de Internet. Puede seleccionar hacerlo sin un proxy, utilizando la configuración de proxy que ya está definida en el servidor VMM o la configuración de proxy personalizada que estableció durante la instalación del proveedor. Para usar un servidor proxy existente, asegúrese de que están permitidas las direcciones URL para conectarse a Azure a través del firewall:
-	- *.hypervrecoverymanager.windowsazure.com 
-	- *.accesscontrol.windows.net
-	- *.backup.windowsazure.com 
-	- *.blob.core.windows.net 
-	- *.store.core.windows.net 
+	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
 - Para usar un proxy personalizado, configúrelo antes de instalar el proveedor. Durante la configuración del proveedor, deberá especificar la dirección y el puerto del servidor proxy, y las credenciales que pueden utilizarse para el acceso.
 
 La siguiente imagen muestra los distintos canales y puertos de comunicación utilizados por Azure Site Recovery para la orquestación y la replicación
@@ -143,11 +139,7 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 	- Si el proxy predeterminado en el servidor de Hyper-V requiere autenticación, debe utilizar un servidor proxy personalizado. Escriba los detalles del proxy predeterminado y especifique las credenciales.
 	- Si desea utilizar un servidor proxy personalizado, debe configurarlo antes de instalar el proveedor. 
 	- Las siguientes direcciones URL deben ser accesibles desde el host de Hyper-v
-		- *.hypervrecoverymanager.windowsazure.com 
-		- *.accesscontrol.windows.net
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
+		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
 	- Permita las direcciones IP que se describen en [Intervalos de direcciones IP de los centros de datos de Azure](http://go.microsoft.com/fwlink/?LinkId=511094) y el protocolo HTTPS (443). Tendrá que incluir en una lista blanca los intervalos de direcciones IP de la región de Azure que va a usar y los del Oeste de EE. UU.
 
 9. En la página **Configuración de almacén**, haga clic en **Examinar** para seleccionar el archivo de clave. Especifique la suscripción de Azure Site Recovery, el nombre del almacén y el sitio de Hyper-V al que pertenece el servidor Hyper-V.
@@ -165,15 +157,15 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 
 Tenga en cuenta que si desea instalar el proveedor en Server Core para Windows Server 2012 R2 o Hyper-V Server 2012 R2 independiente, debe hacer lo siguiente:
 
-1. Descargue el archivo de instalación del proveedor y la clave de registro.
+1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta C:\\ASR.
 2. Extraiga el instalador de proveedor escribiendo:
 
-	    C:\Windows\System32> CD C:\Program Files\Azure Site Recovery Provider
-	    C:\Program Files\Azure Site Recovery Provider>AzureSiteRecoveryProvider.exe /x:. /q
+	    C:\Windows\System32> CD C:\ASR
+	    C:\ASR>AzureSiteRecoveryProvider.exe /x:. /q
 
 3. Instale el proveedor escribiendo:
 
-	    C:\Program Files\Azure Site Recovery Provider> setupdr.exe /i
+	    C:\ASR> setupdr.exe /i
 
 4. Registre el servidor escribiendo:
 
@@ -187,12 +179,14 @@ Tenga en cuenta que si desea instalar el proveedor en Server Core para Windows S
 		- /proxyUsername <username>: credenciales si el servidor proxy requiere autenticación.
 		- proxyPassword <password>
 
+>[AZURE.NOTE]Puede configurar cada uno de los host de Hyper-V individual para usar la configuración de ancho de banda de red diferente para replicar máquinas virtuales en Azure. Obtenga más información sobre [cómo administrar el uso de ancho de banda de red de protección de instalaciones locales a Azure](https://support.microsoft.com/es-es/kb/3056159)
+
+
 ## Paso 4: Creación de recursos de Azure
 
 1. En **Preparar recursos**, seleccione **Crear cuenta de almacenamiento** para crear una cuenta de almacenamiento de Azure si no tiene una. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción.
 
 	![Crear una cuenta de almacenamiento](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_CreateResources1.png)
-
 
 ## Paso 5: Creación y configuración de grupos de protección
 
@@ -212,6 +206,7 @@ Los grupos de protección son agrupaciones lógicas de máquinas virtuales que d
 
 
 ## Paso 6: Habilitación de la protección de máquinas virtuales
+
 
 Agregue máquinas virtuales a grupos de protección para habilitar su protección.
 
@@ -250,7 +245,7 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 		- **Dirección IP de destino**: si el adaptador de red de la máquina virtual de origen está configurado para usar una dirección IP estática, puede especificar la dirección IP de la máquina virtual de destino para asegurarse de que el equipo tiene la misma dirección IP después de la conmutación por error. Si no especifica una dirección IP, se asignará cualquier dirección disponible en el momento de la conmutación por error. Si especifica una dirección que está en uso, se producirá un error en la conmutación por error.
 		 
 		![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure/SRHVSite_VMMultipleNic.png)
-	
+
 ## Paso 7: Creación de un plan de recuperación
 
 Para probar la implementación, puede ejecutar una conmutación por error de prueba para una sola máquina virtual o un plan de recuperación que contenga una o varias máquinas virtuales. Para crear un plan de recuperación, [siga estas instrucciones](site-recovery-create-recovery-plans.md)
@@ -301,4 +296,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

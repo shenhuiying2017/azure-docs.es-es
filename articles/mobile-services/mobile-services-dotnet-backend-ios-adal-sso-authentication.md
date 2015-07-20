@@ -94,9 +94,9 @@ Este tutorial requiere lo siguiente:
 
 7. En el código del método anterior `loginAndGetData`, sustituya **INSERT-RESOURCE-URI-HERE** por el **URI de id. de aplicación** de su servicio móvil. Si ha seguido el tema [Registro en Azure Active Directory], el URI de id. de aplicación debe ser parecido a https://todolist.azure-mobile.net/login/aad.
 
-8. En el código del método `loginAndGetData` anterior, sustituya **INSERT-CLIENT-ID-HERE** por el Id. de cliente que ha copiado de la aplicación cliente nativa.
+8. En el código del método anterior `loginAndGetData`, sustituya **INSERT-CLIENT-ID-HERE** por el Id. de cliente que ha copiado de la aplicación cliente nativa.
 
-9. En el código del método `loginAndGetData` anterior, reemplace **INSERT-REDIRECT-URI-HERE** por el extremo /login/done para su servicio móvil. Debe ser similar a https://todolist.azure-mobile.net/login/done.
+9. En el código del método anterior `loginAndGetData`, reemplace **INSERT-REDIRECT-URI-HERE** por el extremo /login/done para su servicio móvil. Debe ser similar a https://todolist.azure-mobile.net/login/done.
 
 
 3. En QSTodoListViewController, modifique `ViewDidLoad` sustituyendo `[self refresh]` por lo siguiente:
@@ -119,5 +119,6 @@ Este tutorial requiere lo siguiente:
 [Registro en Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [biblioteca de autenticación de Active Directory para iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -38,12 +38,12 @@ En el diagrama siguiente se muestra la arquitectura de alto nivel del servicio d
 
 ##Formato de secuencia de bits: MP4 fragmentado ISO 14496-12
 
-El formato de inserción de streaming en directo que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) para obtener una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo a la carta como para la introducción de streaming en vivo.
+El formato de ingesta de streaming activa que se describe en este documento se basa en [ISO-14496-12]. Consulte [[MS SSTR]](https://msdn.microsoft.com/library/ff469518.aspx) para obtener una explicación detallada del formato MP4 fragmentado y de las extensiones tanto para archivos de vídeo a la carta como para la introducción de streaming en vivo.
 
 A continuación se muestra una lista de definiciones de formato especial que se aplican a la introducción en directo en Servicios multimedia de Microsoft Azure:
 
 1. El cuadro 'ftyp', LiveServerManifestBox y 'moov' DEBE enviarse con cada solicitud (HTTP POST). DEBEN enviarse al principio de la secuencia y cada vez que el codificador deba volver a conectarse para reanudar la introducción de secuencias. Consulte la sección 6 en [1] para obtener más detalles.
-2. La sección 3.3.2 en [1] define un cuadro opcional denominado StreamManifestBox para la introducción en directo. Debido a la lógica de enrutamiento del equilibrador de carga de Microsoft Azure, el uso de este cuadro está en desuso y NO DEBERÍA estar presente cuando se introduce en Servicios multimedia de Microsoft Azure. Si esta casilla está presente, Servicios multimedia de Azure la omite en el modo silencioso.
+2. La sección 3.3.2 en [1] define un cuadro opcional denominado StreamManifestBox para la ingesta activa. Debido a la lógica de enrutamiento del equilibrador de carga de Microsoft Azure, el uso de este cuadro está en desuso y NO DEBERÍA estar presente cuando se introduce en Servicios multimedia de Microsoft Azure. Si esta casilla está presente, Servicios multimedia de Azure la omite en el modo silencioso.
 3. El TrackFragmentExtendedHeaderBox definido en 3.2.3.2 en [1] DEBE estar presente para cada fragmento.
 4. Se debe usar la versión 2 de TrackFragmentExtendedHeaderBox para generar los segmentos multimedia con direcciones URL idénticas en varios centros de datos. SE REQUIERE el campo de índice de fragmento para conmutación por error entre centros de datos de formatos de streaming basados en índices como Apple HTTP Live Streaming (HLS) y MPEG-DASH basado en índices. Para habilitar la conmutación por error entre centros de datos, el índice de fragmentos DEBE sincronizarse entre varios codificadores y aumentar en 1 para cada fragmento de medios sucesivo, incluso entre reinicios o errores de codificador.
 5. En la sección 3.3.6 en [1] se define el cuadro denominado MovieFragmentRandomAccessBox ('mfra') que se PUEDE enviar al final de la introducción en directo para indicar EOS (final de secuencia) al canal. Debido a la lógica de introducción de Servicios multimedia de Azure, el uso de EOS (final de la secuencia) están en desuso y el cuadro 'mfra' de la introducción en directo NO DEBERÍA enviarse. Si se envía, Servicios multimedia de Azure la omite en el modo silencioso. Se recomienda usar [Restablecer canal](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels) para restablecer el estado del punto de introducción y también se recomienda usar [Detener el programa](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) para finalizar una presentación y una secuencia.
@@ -64,7 +64,7 @@ Estos son los requisitos detallados:
 3. El codificador DEBE iniciar una nueva solicitud HTTP POST con la secuencia MP4 fragmentada. La carga DEBE empezar con los cuadros de encabezado seguidos de fragmentos. Tenga en cuenta que el cuadro 'ftyp', "Live Server Manifest Box" y 'moov' (en este orden) DEBE enviarse con cada solicitud, aunque el codificador deba volver a conectarse porque se canceló la solicitud anterior antes del final de la secuencia. 
 4. El codificador DEBE usar una codificación de transferencia fragmentada para cargar, ya que es imposible predecir la longitud del contenido completa del evento en directo.
 5. Cuando se termina el evento, después de enviar el último fragmento, el codificador DEBE finalizar correctamente la secuencia de mensajes de la codificación de transferencia fragmentada (la mayoría de las pilas de cliente HTTP la controlan automáticamente). El codificador debe esperar que el servicio devuelva el código de respuesta final y luego finalizar la conexión. 
-6. El codificador NO DEBE usar el nombre Events() como se describe en 9.2 en [1] para la introducción en directo en Servicios multimedia de Microsoft Azure.
+6. El codificador NO DEBE usar el nombre Events() como se describe en 9.2 en [1] para la ingesta activa en Servicios multimedia de Microsoft Azure.
 7. Si la solicitud HTTP POST finaliza o se agota el tiempo antes del final de la secuencia con un error TCP, el codificador DEBE emitir una nueva solicitud POST con una nueva conexión y seguir los requisitos anteriores con el requisito adicional de que el codificador debe reenviar los dos fragmentos de MP4 anterior de cada pista en la secuencia anteriores y reanudar sin introducir discontinuidades en la escala de tiempo multimedia. El reenvío de los dos últimos fragmentos de MP4 para cada pista garantiza que no hay ninguna pérdida de datos. En otras palabras, si una secuencia contiene tanto una pista de audio como una de vídeo, y se produce un error en la solicitud POST actual, el codificador debe volver a conectarse y reenviar los últimos dos fragmentos de la pista de audio, que se enviaron correctamente anteriormente, y los dos últimos fragmentos para la pista de vídeo, que se enviaron correctamente anteriormente, para asegurarse de que no hay ninguna pérdida de datos. El codificador DEBE mantener un búfer de “reenvío” de fragmentos de medios, que vuelve a enviar al volver a conectarse.
 
 ##Escala de tiempo 
@@ -167,7 +167,7 @@ Cuando se entrega una presentación de streaming en vivo con la experiencia de c
 
 A continuación se muestra una implementación recomendada para introducir pistas dispersas:
 
-1. Cree una secuencia de bits MP4 fragmentada independiente  que solo contenga secuencia de bits que solo contenga pistas dispersas sin pistas de audio y vídeo.
+1. Cree una secuencia de bits MP4 fragmentada independiente que solo contenga secuencia de bits que solo contenga pistas dispersas sin pistas de audio y vídeo.
 2. En el "Live Server Manifest Box" según se define en la sección 6 en [1], use el parámetro "parentTrackName" para especificar el nombre de la pista principal. Consulte la sección 4.2.1.2.1.2 en [1] para obtener más detalles.
 3. En el "Live Server Manifest Box", manifestOutput se DEBE establecer en "true".
 4. Dada la naturaleza dispersa del evento de señalización, se recomienda que:
@@ -204,4 +204,6 @@ A continuación se muestra una implementación recomendada de las pistas de audi
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -20,7 +20,7 @@
 
 [Base de datos SQL](sql-database-technical-overview.md) está disponible en los niveles de servicio Basic, Standard y Premium. Los tres niveles de servicio tienen un [SLA](http://azure.microsoft.com/support/legal/sla/) de tiempo de actividad del 99,99% y ofrecen un rendimiento predecible, opciones de continuidad del negocio flexibles, características de seguridad y facturación por hora. Con varios niveles de rendimiento dentro de cada nivel de servicio, tiene la flexibilidad de elegir el nivel que mejor se adapte a las exigencias de la carga de trabajo. Si necesita escalar vertical u horizontalmente, puede cambiar fácilmente los niveles de la base de datos en el Portal de Azure sin que haya tiempo de inactividad en la aplicación. Para obtener información más detallada, consulte [Modificación de niveles de servicio y de rendimiento de la base de datos](https://msdn.microsoft.com/library/azure/dn369872.aspx).
 
-> [AZURE.IMPORTANT]Retirada de las ediciones Web y Business. Descubra cómo [actualizar las ediciones Web y Business](sql-database-upgrade-new-service-tiers.md). Si piensa seguir usando las ediciones Web y Business, lea  [P+F de Sunset](http://azure.microsoft.com/pricing/details/sql-database/web-business/).
+> [AZURE.IMPORTANT]Retirada de las ediciones Web y Business. Descubra cómo [actualizar las ediciones Web y Business](sql-database-upgrade-new-service-tiers.md). Si piensa seguir usando las ediciones Web y Business, lea [P+F de Sunset](http://azure.microsoft.com/pricing/details/sql-database/web-business/).
 
 ## Básica
 
@@ -87,5 +87,6 @@ El nivel Premium está diseñado para aplicaciones críticas. Ofrece el mejor ni
 Para obtener más información sobre los precios de estos niveles, consulte [Precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/).
 
 Ahora que conoce los niveles de Base de datos SQL, pruébelos con una [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) y aprenda a [crear su primera base de datos SQL](sql-database-get-started.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

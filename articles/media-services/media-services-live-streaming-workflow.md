@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Entrega de transmisión en directo con Servicios multimedia de Azure" 
-	description="En este tema se describen los pasos de un flujo de trabajo típico de streaming en vivo de Servicios multimedia." 
+	description="Este tema ofrece información general de los principales componentes que intervienen en el streaming en vivo." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,105 +13,76 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="05/26/2015" 
 	ms.author="juliako"/>
 
 
-#Entrega de transmisión en directo con Servicios multimedia de Azure
+#Entrega de eventos de streaming en vivo con Servicios multimedia de Azure
 
 ##Información general
 
-En este tema se describen los pasos de un flujo de trabajo típico de streaming en vivo de Servicios multimedia de Azure (AMS). Cada paso se vincula a temas relevantes. En cuanto a las tareas que se pueden lograr con distintas tecnologías, hay botones que vinculan a la tecnología que usted elija (por ejemplo, .NET o REST).   
+Cuando se trabaja con streaming en vivo, normalmente participan los siguientes componentes:
 
-Tenga en cuenta que puede integrar Servicios multimedia con los procesos y herramientas existentes. Por ejemplo, codifique el contenido in situ y, a continuación, cárguelo en los Servicios multimedia para realizar la transcodificación en varios formatos y entregue a través de CDN de Azure o un CDN de otro proveedor. 
+- Una cámara que se usa para difundir un evento.
+- Un codificador de vídeo en directo que convierte las señales de la cámara en secuencias que se envían a un servicio de streaming en vivo. 
+  
+	Opcionalmente, varios codificadores en directo. Para determinados eventos en directo críticos que demandan una disponibilidad y una calidad de experiencia muy altas, se recomienda emplear codificadores redundantes activo-activo para lograr una conmutación por error perfecta sin pérdida de datos.
+- Un servicio de streaming en vivo que permita hacer lo siguiente: 
+	- Recopilar contenido en directo mediante varios protocolos de streaming en vivo (por ejemplo RTMP o Smooth Streaming). 
+	- Codificar la secuencia en una secuencia con velocidad de bits adaptable.
+	- Mostrar una vista previa de la secuencia en vivo.
+	- Almacenar el contenido recibido para transmitirlo posteriormente (vídeo bajo demanda).
+	- Entregar el contenido mediante protocolos de streaming comunes (por ejemplo, MPEG DASH, Smooth, HLS, HDS) directamente a sus clientes o a una red de entrega de contenido (CDN) para ampliar la distribución. 
+	
+		
+**Servicios multimedia de Microsoft Azure** (AMS) permite recopilar, codificar, mostrar una vista previa, almacenar y entregar el contenido de streaming en vivo.
 
-En el diagrama siguiente se muestran las partes principales de la plataforma de Servicios multimedia que intervienen en el flujo de trabajo de streaming en directo.
+Al entregar contenido a sus clientes, el objetivo es entregar un vídeo de alta calidad a diversos dispositivos en condiciones de red diferentes. Para abordar la calidad y las condiciones de la red, use codificadores en directo para codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptativa). Para abordar el streaming en diferentes dispositivos, use el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia para volver a empaquetar dinámicamente su secuencia para distintos protocolos. Los Servicios multimedia admiten la entrega de las siguientes tecnologías de transmisión de velocidad de bits adaptativa: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
-![Flujo de trabajo en directo][live-overview]
+En Servicios multimedia de Microsoft Azure, los **canales**, **programas** y **extremos de streaming** controlan todas las funcionalidades de streaming en vivo, incluidas la recopilación, el formato, DVR, la seguridad, la escalabilidad y la redundancia.
 
-Este tema describe los conceptos relacionados con la transmisión en directo y vínculos a temas que muestran cómo realizar tareas de streaming en directo.
-
-##Conceptos
-
-Para los conceptos relacionados con el streaming en directo, vea [Conceptos de Servicios multimedia](media-services-concepts.md).
-
-##Creación de una cuenta de Servicios multimedia
-
-Use el **Portal de administración de Azure** para [Creación de una cuenta de Servicios multimedia de Azure](media-services-create-account.md).
-
-##Configuración de extremos de streaming
-
-Para obtener información general acerca de los extremos de streaming e información acerca de cómo administrarlos, vea [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md)
-
-##Configuración del entorno de desarrollo  
-
-Elija **.NET** o **API de REST** para el entorno de desarrollo.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-##Conexión mediante programación  
-
-Elija **.NET** o **API de REST** para conectarse mediante programación a los Servicios multimedia de Azure.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
+Un **canal** representa una canalización para procesar contenido de streaming en vivo. Actualmente, un canal puede recibir secuencias de entrada en directo de la siguiente manera:
 
 
-##Uso de codificadores en directo locales en secuencias de varias velocidades de bits de salida en un canal
+- Un codificador en directo local envía una secuencia de una sola velocidad de bits al canal que está habilitado para realizar codificación en directo con Servicios multimedia, con uno de los siguientes formatos: RTP (MPEG-TS), RTMP o Smooth Streaming (MP4 fragmentado). Después, el canal codifica en directo la secuencia entrante de una sola velocidad de bits en una secuencia de vídeo de varias velocidades de bits (adaptable). Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
-##Trabajo con transcodificadores en directo de terceros
-
-Para más información, vea [Uso de codificadores dinámicos de terceros con los Servicios multimedia de Azure](https://msdn.microsoft.com/library/azure/dn783464.aspx).
-
-##Administración de canales, programas y recursos
-
-**Información general**: [Información general de la administración de canales y programas](media-services-manage-channels-overview.md).
-
-Elija **Portal**, **.NET** y **API de REST** para ver ejemplos.
-
-[AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
-
-##Configuración de la directiva de entrega de recursos
-
-Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-##Creación de una clave de contenido
-
-Cree una clave de contenido con la que desee cifrar el recurso con **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-##Configuración de la directiva de autorización de claves de contenido 
-
-Configure la protección de contenido y las directivas de autorización de claves mediante **.NET** o **API de REST**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+	La codificación de secuencias en directo con Servicios multimedia está en **versión preliminar**.
+- Un codificador en directo local envía contenido **RTMP** o **Smooth Streaming** (MP4 fragmentado) de varias velocidades de bits al canal. Puede usar los siguientes codificadores en directo que generan Smooth Streaming de varias velocidades de bits: Elemental, Envivio y Cisco. Los siguientes codificadores en directo generan RTMP: transcodificadores Tricaster, Telestream Wirecast y Adobe Flash Live. Las secuencias recopiladas pasan a través de **canales** sin más procesamiento. El codificador en directo también puede enviar una secuencia de una sola velocidad de bits a un canal que no está habilitado para la codificación en directo, pero esto no es recomendable. Cuando se solicita, Servicios multimedia entrega la secuencia a los clientes.
 
 
-##Publicación y entrega de recursos
-
-**Información general**: [Información general de entrega de recursos](media-services-deliver-content-overview.md)
-
-Publique recursos (creando localizadores) mediante el **Portal de administración de Azure** o **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
+##Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure
 
 
-##Habilitación de CDN de Azure
+El diagrama siguiente muestra las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo, en la que se habilita un canal para realizar la codificación en directo con Servicios multimedia.
 
-Servicios multimedia admite la integración con CDN de Azure. Para obtener información acerca de cómo habilitar CDN de Azure, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-manage-origins.md#enable_cdn).
+![Flujo de trabajo activo][live-overview1]
 
-##Escalado de una cuenta de Servicios multimedia
+Para obtener más información, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-Puede escalar **Servicios multimedia** especificando el número de **unidades reservadas** que desea aprovisionar con su cuenta. 
 
-Para obtener información sobre la escalación de unidades de streaming, vea: [Escalación de unidades de streaming](media-services-manage-origins.md#scale_streaming_endpoints.md).
+##Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales
+
+
+En el diagrama siguiente se muestran las partes principales de la plataforma AMS que intervienen en el flujo de trabajo de streaming en vivo.
+
+![Flujo de trabajo activo][live-overview2]
+
+Para obtener más información, consulte [Uso de canales que reciben streaming en vivo con velocidad de bits múltiple de codificadores locales](media-services-manage-channels-overview.md).
+
+
+##Temas relacionados
+
+[Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
+
+[Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure](media-services-fmp4-live-ingest-overview.md)
 
 
 
 
-[live-overview]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
 
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 
-<!--HONumber=52--> 
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+ 
+
+<!---HONumber=July15_HO2-->

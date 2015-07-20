@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/13/2015" 
 	ms.author="juliako"/>
 
 
 #Obtención de una instancia de procesador multimedia
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
+Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
 ##Información general
 
@@ -39,17 +39,17 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
     <tr>
        <td>Codificador multimedia de Azure</td>
        <td>Le permite ejecutar tareas de codificación con el Codificador multimedia de Azure.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Cadenas preestablecidas de tarea para el Codificador multimedia de Azure</a></td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Cadenas preestablecidas de tarea para Azure Media Encoder</a></td>
     </tr>
     <tr>
        <td>Flujo de trabajo del Codificador multimedia</td>
        <td>Le permite ejecutar tareas de codificación con el flujo de trabajo Premium del Codificador multimedia.</td>
-       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codificación con el flujo de trabajo Premium del Codificador multimedia.</a></td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Codificación con el flujo de trabajo del Codificador multimedia Premium.</a></td>
     </tr>    
 	<tr>
         <td>Azure Media Indexer</td>
         <td>Le permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas y palabras clave de subtítulos (CC).</td>
-		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Indización de archivos multimedia con el Indizador multimedia de Azure</a>.</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Indización de archivos multimedia con Azure Media Indexer</a>.</td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
@@ -61,6 +61,11 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
         <td>Le permite cifrar recursos multimedia con la protección PlayReady.</td>
         <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Cadenas preestablecidas de tarea para el Empaquetador multimedia de Azure</a></td>
     </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (versión preliminar)</td>
+		<td>Permite suavizar los “saltos” en el vídeo con estabilización de vídeo. También permite acelerar su contenido en un clip consumible.</td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkId=613274">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
         <td>Storage Decryption</td>
         <td>Le permite descifrar recursos multimedia que se cifraron con el cifrado de almacenamiento.</td>
@@ -72,7 +77,7 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
 
 ##Obtener MediaProcessor
 
-El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamado **_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Conexión con los Servicios multimedia mediante programación].
+El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamada **_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Procedimientos: Conexión con los Servicios multimedia mediante programación.].
 
 	private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
@@ -86,11 +91,10 @@ El siguiente método muestra cómo obtener una instancia del procesador multimed
 	}
 
 ##Pasos siguientes
-Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema [Codificación de un recurso][], que le mostrará cómo utilizar el Codificador multimedia de Azure para codificar un recurso.
+Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema [Codificación de un recurso][], que le mostrará cómo usar Azure Media Encoder para codificar un recurso.
 
 [Codificación de un recurso]: media-services-encode-asset.md
-[Cadenas preestablecidas de tarea para el Codificador multimedia de Azure]: http://msdn.microsoft.com/library/jj129582.aspx
-[Conexión con los Servicios multimedia mediante programación]: ../media-services-set-up-computer/
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
+[Procedimientos: Conexión con los Servicios multimedia mediante programación.]: ../media-services-set-up-computer/
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

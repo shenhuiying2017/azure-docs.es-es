@@ -64,4 +64,4 @@ Otras formas de aprender HDInsight son:
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

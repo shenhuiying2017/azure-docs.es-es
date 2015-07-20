@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/26/2015" 
 	ms.author="elizapo"/>
 
-# Cómo crear una colección en la nube de RemoteApp
+# Creación de una colección en la nube de Azure RemoteApp
 
-Hay dos tipos de colecciones de RemoteApp:
+Hay dos tipos de colecciones de Azure RemoteApp:
 
 - Nube: reside completamente en Azure y se crea mediante la opción **Creación rápida** del Portal de administración de Azure.  
 - Híbrida: incluye una red virtual para acceso local y se crea con la opción **Crear con VPN** del Portal de administración.
@@ -91,5 +91,6 @@ Ahora que ha creado la colección de RemoteApp, necesita agregar los usuarios qu
 
 Eso es todo, ha creado e implementado correctamente su colección en la nube de RemoteApp. El paso siguiente es que los usuarios descarguen e instalen el cliente Escritorio remoto. Puede encontrar la dirección URL del cliente en la página Inicio rápido de RemoteApp. Después, indique a los usuarios que inicien sesión en el cliente y accedan a las aplicaciones publicadas.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

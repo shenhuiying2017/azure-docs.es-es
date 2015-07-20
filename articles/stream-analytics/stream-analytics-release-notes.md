@@ -13,44 +13,101 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jeffstok"/>
 
-#Retraso en la configuración de la cuenta de almacenamiento de Azure
+#Notas de la versión de Análisis de transmisiones de Microsoft
 
-Al crear un trabajo de Análisis de transmisiones en una región por primera vez, se le pedirá que cree una nueva cuenta de almacenamiento o que especifique una cuenta existente para la supervisión de trabajos de Análisis de transmisiones en esa región. Debido a la latencia en la configuración de la supervisión, al crear otro trabajo de Análisis de transmisiones en la misma región al cabo de 30 minutos se le solicitará que especifique una segunda cuenta de almacenamiento en lugar de mostrar la configurada recientemente en la lista desplegable de supervisión de cuentas de almacenamiento. Para evitar la creación de una cuenta de almacenamiento innecesaria, espere 30 minutos después de crear un trabajo en una región por primera vez antes de aprovisionar trabajos adicionales en dicha región.
+## Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
 
-##Actualización del trabajo
+Esta versión contiene las siguientes actualizaciones.
 
-En este momento, Análisis de transmisiones no admite modificaciones dinámicas en la definición o la configuración de un trabajo en ejecución. Para cambiar la entrada, salida, la consulta, la escala o la configuración de un trabajo en ejecución, primero debe detener el trabajo.
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descripción</th>
+</tr>
 
-##Tipos de datos deducidos del origen de entrada
+<tr>
+<td>Particiones de salida de blob personalizadas</td>
+<td>Las salidas de almacenamiento de blobs ahora le dan la opción de especificar tanto la frecuencia en la que los blobs de salida son escritos, como la estructura y el formato de la estructura de la carpeta con la ruta de acceso a los datos de salida. </td>
+</tr>
+</table>
 
-Si no se utiliza una instrucción **CREATE TABLE**, el tipo de entrada se deriva del formato de entrada; por ejemplo, todos los campos de CSV son cadenas. Los campos deben convertirse explícitamente al tipo adecuado mediante la función CAST para evitar errores de coincidencia de tipos.
+## Notas de la versión de Análisis de transmisiones del 03/05/2015 ##
 
-##Los campos que faltan generan valores null
+Esta versión contiene las siguientes actualizaciones.
 
-Hacer referencia a un campo que no está presente en el origen de entrada dará como resultado valores null en el evento de salida.
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descripción</th>
+</tr>
 
-##Las instrucciones WITH deben preceder a las instrucciones SELECT
+<tr>
+<td>Se ha incrementado el valor máximo del período de tolerancia de fuera de servicio</td>
+<td>El tamaño máximo del período de tolerancia de fuera de servicio es ahora de 59:59 (MM:SS)</td>
+</tr>
 
-En una consulta, las instrucciones SELECT deben seguir a subconsultas definidas en instrucciones WITH.
+<tr>
+<td>Formato de salida JSON: separación por líneas o matriz</td>
+<td>Cuando envíe elementos al Almacenamiento de blobs o al Centro de eventos, tiene la opción de hacer la salida como una matriz de objetos JSON o separando los objetos JSON con una nueva línea. </td>
+</tr>
+</table>
 
-##Problema de memoria agotada
+## Notas de la versión de Análisis de transmisiones del 16/04/2015 ##
 
-Los trabajos de Análisis de transmisiones con una gran tolerancia para eventos sin orden o consultas complejas que mantienen una gran cantidad de estados pueden hacer que el trabajo se quede sin memoria, lo que da lugar a que este se reinicie. Las operaciones de inicio y detención serán visibles en los registros de operaciones del trabajo. Para evitar este comportamiento, escale horizontalmente el resultado de la consulta entre varias particiones. En una versión futura se abordará esta limitación de forma que provoque la degradación del rendimiento de los trabajos y no que se reinicien.
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descripción</th>
+</tr>
 
-##Las entradas de blobs grandes sin marca de tiempo de carga pueden causar un problema de falta de memoria
+<tr>
+<td>Retraso en la configuración de la cuenta de almacenamiento de Azure</td>
+<td>Al crear un trabajo de Análisis de transmisiones en una región por primera vez, se le pedirá que cree una nueva cuenta de almacenamiento o que especifique una cuenta existente para la supervisión de trabajos de Análisis de transmisiones en esa región. Debido a la latencia en la configuración de la supervisión, al crear otro trabajo de Análisis de transmisiones en la misma región al cabo de 30 minutos se le solicitará que especifique una segunda cuenta de almacenamiento en lugar de mostrar la configurada recientemente en la lista desplegable de supervisión de cuentas de almacenamiento. Para evitar la creación de una cuenta de almacenamiento innecesaria, espere 30 minutos después de crear un trabajo en una región por primera vez antes de aprovisionar trabajos adicionales en dicha región.</td>
+</tr>
 
-El consumo de grandes archivos desde el almacenamiento de blobs puede hacer que los trabajos de Análisis de transmisiones se bloquee si no se especifica un campo de marca de tiempo a través de marca de tiempo. Para evitar este problema, mantenga el tamaño de todos los blobs por debajo de 10 MB.
+<tr>
+<td>Actualización del trabajo</td>
+<td>En este momento, Análisis de transmisiones no admite modificaciones dinámicas en la definición o la configuración de un trabajo en ejecución. Para cambiar la entrada, salida, la consulta, la escala o la configuración de un trabajo en ejecución, primero debe detener el trabajo.</td>
+</tr>
 
-##Limitación del volumen de eventos de Base de datos SQL
+<tr>
+<td>Tipos de datos deducidos del origen de entrada</td>
+<td>Si no se utiliza una instrucción CREATE TABLE, el tipo de entrada se deriva del formato de entrada; por ejemplo, todos los campos de CSV son cadenas. Los campos deben convertirse explícitamente al tipo adecuado mediante la función CAST para evitar errores de coincidencia de tipos.</td>
+</tr>
 
-Cuando se utiliza la Base de datos SQL como destino de la salida, unos volúmenes de datos de salida muy elevados pueden hacer que se agote el tiempo de espera del trabajo de Análisis de transmisiones. Para resolver este problema, reduzca el volumen de salida con agregados u operadores de filtro o elija el almacenamiento de blobs de Azure o los centros de eventos como destino de la salida.
+<tr>
+<td>Los campos que faltan generan valores null</td>
+<td>Hacer referencia a un campo que no está presente en el origen de entrada dará como resultado valores null en el evento de salida.</td>
+</tr>
 
-##Los conjuntos de datos PowerBI solo pueden contener una tabla
+<tr>
+<td>Las instrucciones WITH deben preceder a las instrucciones SELECT</td>
+<td>En una consulta, las instrucciones SELECT deben seguir a subconsultas definidas en instrucciones WITH.</td>
+</tr>
 
-PowerBI no admite más de una tabla en un conjunto de datos determinado.
+<tr>
+<td>Problema de memoria agotada</td>
+<td>Los trabajos de Análisis de transmisiones con una gran tolerancia para eventos sin orden o consultas complejas que mantienen una gran cantidad de estados pueden hacer que el trabajo se quede sin memoria, lo que da lugar a que este se reinicie. Las operaciones de inicio y detención serán visibles en los registros de operaciones del trabajo. Para evitar este comportamiento, escale horizontalmente el resultado de la consulta entre varias particiones. En una versión futura se abordará esta limitación de forma que provoque la degradación del rendimiento de los trabajos y no que se reinicien.</td>
+</tr>
+
+<tr>
+<td>Las entradas de blobs grandes sin marca de tiempo de carga pueden causar un problema de falta de memoria</td>
+<td>El consumo de grandes archivos desde el almacenamiento de blobs puede hacer que los trabajos de Análisis de transmisiones se bloquee si no se especifica un campo de marca de tiempo a través de marca de tiempo. Para evitar este problema, mantenga el tamaño de todos los blobs por debajo de 10 MB.</td>
+</tr>
+
+<tr>
+<td>Limitación del volumen de eventos de Base de datos SQL</td>
+<td>Cuando se utiliza la Base de datos SQL como destino de la salida, unos volúmenes de datos de salida muy elevados pueden hacer que se agote el tiempo de espera del trabajo de Análisis de transmisiones. Para resolver este problema, reduzca el volumen de salida con agregados u operadores de filtro o elija el almacenamiento de blobs de Azure o los centros de eventos como destino de la salida.</td>
+</tr>
+
+<tr>
+<td>Los conjuntos de datos PowerBI solo pueden contener una tabla</td>
+<td>PowerBI no admite más de una tabla en un conjunto de datos determinado.</td>
+</tr>
+</table>
 
 ## Obtener ayuda
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
@@ -62,6 +119,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 - [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -13,17 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #Uso del SDK de .NET para crear canales que realicen la codificación en directo de secuencias de una sola velocidad de bits a secuencias de varias velocidades de bits (vista previa)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- 
 ##Información general
 
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
 >[AZURE.NOTE]Para obtener información más detallada sobre los canales habilitados para la codificación en directo, consulte [Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md).
+
+>[AZURE.NOTE]Debe usar el SDK de Servicios multimedia para .NET versión 3.2.0.0 o posterior.
 
 ##Escenario común de streaming en vivo
 
@@ -491,7 +498,7 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
 	
 ##Temas relacionados
 
-[Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md) 
-
-<!--HONumber=52-->
+[Uso de canales que realizan la codificación en directo de una secuencia de una sola velocidad de bits a otra de varias velocidades](media-services-manage-live-encoder-enabled-channels.md)
  
+
+<!---HONumber=July15_HO2-->

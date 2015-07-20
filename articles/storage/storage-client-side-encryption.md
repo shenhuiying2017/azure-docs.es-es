@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Cifrado del lado de cliente para el Almacenamiento de Microsoft Azure | Microsoft Azure" 
+	pageTitle="Introducción al cifrado del lado cliente para el Almacenamiento de Microsoft Azure (vista previa) | Microsoft Azure" 
 	description="La biblioteca de cliente de Almacenamiento de Azure para la vista previa de .NET ofrece compatibilidad para el cifrado de cliente e integración con el Almacén de claves de Azure. Cifrado de cliente ofrece una seguridad máxima para las aplicaciones de Almacenamiento de Azure, ya que las claves de acceso nunca están disponibles para el servicio. El cifrado del cliente está disponible para blobs, colas y tablas." 
 	services="storage" 
 	documentationCenter=".net" 
@@ -13,61 +13,225 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="06/18/2015" 
 	ms.author="tamram"/>
 
 
-# Cifrado del lado cliente para el Almacenamiento de Microsoft Azure (vista previa)
+# Introducción al cifrado del lado cliente para el almacenamiento de Microsoft Azure (vista previa)
 
 ## Información general
 
 Bienvenido a la [vista previa de la nueva biblioteca de cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/4.4.1-preview). Esta biblioteca de vista previa contiene nuevas funcionalidades para ayudar a los desarrolladores a cifrar los datos de las aplicaciones de cliente antes de cargarlas en el Almacenamiento de Azure y para descifrar los datos mientras se descargan. La biblioteca de vista previa también admite la integración con el [Almacén de claves](http://azure.microsoft.com/services/key-vault/) de Azure para la administración de claves de cuenta de almacenamiento.
 
-## ¿Por qué es recomendable usar el cifrado de cliente?
+## Cifrado y descifrado a través de la técnica de sobres
 
-El cifrado de cliente ofrece una importante ventaja sobre el cifrado de servidor: controla totalmente las claves de acceso de la cuenta. El cifrado de cliente ofrece máxima seguridad para las aplicaciones, ya que el Almacenamiento de Azure nunca ve sus claves y nunca puede descifrar los datos. La biblioteca de vista previa está abiertamente disponible en [GitHub](https://github.com/Azure/azure-storage-net/tree/preview), para que pueda ver cómo cifra la biblioteca sus datos para asegurarse de que cumplen los estándares.
+El proceso de cifrado y descifrado sigue la técnica de sobres.
 
-## ¿Por qué ofrecemos una biblioteca con compatibilidad con el cifrado de cliente?
+### Cifrado a través de la técnica de sobres
 
-Mientras que cualquier desarrollador puede cifrar sus datos en el cliente antes de cargarlos, para ello se requiere tener conocimientos de cifrado. También requiere efectuar un diseño para obtener rendimiento y seguridad. Distintos desarrolladores tendrían que diseñar su propia solución de cifrado, y puesto que cada solución sería diferente, ninguna de ellas funcionaría conjuntamente.
+El cifrado mediante la técnica de sobres funciona de la siguiente manera:
 
-La biblioteca de vista previa está diseñada para:
+1. La biblioteca de cliente de almacenamiento de Azure genera una clave de cifrado de contenido (CEK), que es una clave simétrica de un solo uso.
+2. Los datos de usuario se cifran mediante esta CEK.
+3. Se encapsula la CEK (cifrada) con la clave de cifrado de clave (KEK). La KEK se identifica mediante un identificador de clave y puede ser un par de clave asimétrico o una clave simétrica que puede administrarse de forma local o guardarse en Almacén de claves de Azure. 
+	
+	La propia biblioteca de cliente de almacenamiento no tiene nunca acceso a la KEK. La biblioteca invoca el algoritmo de encapsulado de clave proporcionado por Almacén de claves. Los usuarios pueden elegir utilizar proveedores personalizados para el ajuste y desajuste clave si lo desean.
 
-- Implementar recomendaciones de seguridad para usted.
-- Maximizar el rendimiento.
-- Ofrecer facilidad de uso para escenarios comunes.
-- Admitir la interoperabilidad entre idiomas. Los datos cifrados mediante la biblioteca de cliente .NET podrán ser descifrados en el futuro por las bibliotecas de cliente para los otros idiomas admitidos, incluidos Java, Node.js y C++ (y viceversa).
+4. A continuación, se cargan los datos cifrados en el servicio Almacenamiento de Azure. La clave encapsulada y algunos metadatos adicionales de cifrado se almacenan como metadatos (en un blob) o se interpolan con los datos cifrados (cola de mensajes y las entidades de tabla).
 
-## ¿Qué está disponible ahora?
+### Descifrado a través de la técnica de sobres
 
-La biblioteca de vista previa actualmente admite el cifrado para blobs, tablas y colas mediante la técnica de sobres. El cifrado y descifrado con claves asimétricas es costoso desde el punto de vista computacional. Por lo tanto, en la técnica de sobres, los datos en sí no se cifran directamente con estas claves, pero en su lugar, se cifran mediante una clave de cifrado de contenido simétrica aleatoria. A continuación, esta clave de cifrado de contenido se cifra con una clave pública. La compatibilidad con el Almacén de claves de Azure le ayuda a administrar las claves de forma eficaz.
+El descifrado mediante la técnica de sobres funciona de la siguiente manera:
 
-Usar el cifrado de cliente es sencillo. Puede especificar opciones de solicitud con la directiva de cifrado adecuad (Blob, cola o tabla) y pasarla a API de carga y descarga de datos. La biblioteca cliente cifra automáticamente los datos en el cliente cuando se cargan en el Almacenamiento de Azure y descifra los datos cuando se recuperan. Puede encontrar más detalles y códigos de ejemplo en la entrada de blog [Introducción con cifrado de cliente para el Almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx).
+1. La biblioteca de cliente asume que el usuario está administrando la clave de cifrado de claves (KEK), ya sea localmente o en almacenes de claves de Azure. El usuario no necesita conocer la clave específica que se usó para el cifrado. En su lugar, se puede configurar y usar una resolución de clave que resuelva distintos identificadores de clave para las claves.
+2. La biblioteca de cliente descarga los datos cifrados junto con cualquier material de cifrado que esté almacenado en el servicio.
+3. A continuación, la clave de cifrado de contenido encapsulado (CEK) se desencapsula (descifra) usando la clave de cifrado de claves (KEK). Aquí nuevamente, la biblioteca de cliente no tiene acceso a la KEK. Simplemente invoca el algoritmo de desencapsulado personalizado o el del proveedor del Almacén de claves.
+4. La clave de cifrado de contenido (CEK) se usa entonces para descifrar los datos cifrados del usuario.
 
-Algunos detalles adicionales acerca del cifrado de cliente:
+## Mecanismo de cifrado
 
-- **Seguridad**: los datos cifrados no son legibles, incluso si las claves de cuenta de almacenamiento de los clientes se ven comprometidas.
-- **Cifrado de sobrecarga fijo**: los datos cifrados tendrán un tamaño predecible en función del tamaño original.
-- **Cifrado independiente**: cada blob, entidad de tabla o mensaje de la cola almacena toda la información de cifrado en el propio objeto o en sus metadatos. El único valor externo necesario es la clave de cifrado.
-- **Giro de clave**: los usuarios pueden girar las claves ellos mismos, y se admiten varias claves durante el proceso de rotación de claves.
-- **Limpiar ruta de acceso de actualización**: se admitirán versiones de algoritmos de cifrado y protocolos adicionales en el futuro sin necesidad de cambios significativos en el código.
-- **Compatibilidad con el cifrado de blob**:
-	- **Carga completa del blob**: puede cifrar y cargar archivos, como documentos, fotos y vídeos en su totalidad.
-	- **Descarga completa o basada en intervalo de blob**: puede descargar y descifrar un blob en su totalidad o en intervalos.
+La biblioteca de cliente de almacenamiento usa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) para cifrar los datos del usuario. En concreto, emplea el modo [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) con AES. Cada servicio funciona de forma ligeramente diferente, por lo que describiremos aquí cada uno de ellos.
 
+### Blobs
+
+En la versión de vista previa, la biblioteca de cliente solo admite el cifrado de blobs completos. En concreto, se admite el cifrado cuando los usuarios emplean los métodos **UploadFrom*** o **BlobWriteStream**. En el caso de las descargas, se admiten las descargas de intervalo y las completas.
+
+Durante el cifrado, la biblioteca de cliente generará un vector de inicialización (IV) aleatorio de 16 bytes, junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes, y realiza el cifrado de sobres de los datos de blob con esta información. Posteriormente, la CEK encapsulada y algunos metadatos de cifrado adicionales se almacenan como metadatos de blob junto con el objeto blob cifrado en el servicio.
+
+> [AZURE.WARNING]Si está modificando o cargando sus propios metadatos para el blob, deberá asegurarse de que estos metadatos se conserven. Si carga nuevos metadatos sin estos metadatos, la CEK encapsulada, IV y otros metadatos se perderán y el contenido del blob nunca podrá recuperarse nuevamente.
+
+Descargar un blob cifrado implica recuperar el contenido del blob completo mediante los cómodos métodos **DownloadTo***/**BlobReadStream**. La CEK encapsulada se desencapsula y se utiliza junto con el vector de inicialización (que se almacena como metadatos de blob, en este caso) para devolver los datos descifrados a los usuarios.
+
+Descargar un intervalo arbitrario (métodos **DownloadRange***) en el objeto blob cifrado implica ajustar el intervalo proporcionado por los usuarios para obtener una pequeña cantidad de datos adicionales que pueden utilizarse para descifrar correctamente el intervalo solicitado.
+
+Todos los tipos de blobs (blobs en bloques y blobs en páginas) se pueden cifrar y descifrar usando este esquema.
+
+### Colas
+
+Dado que la cola de mensajes puede tener cualquier formato, la biblioteca de cliente define un formato personalizado que incluye el vector de inicialización (IV) y la clave de cifrado de contenido (CEK) cifrada en el texto del mensaje.
+
+Durante el cifrado, la biblioteca de cliente genera un vector de inicialización aleatorio de 16 bytes junto con una CEK aleatoria de 32 bytes y realiza el cifrado de sobres del texto del mensaje de cola con esta información. La CEK encapsulada y algunos metadatos de cifrado adicionales se incluyen entonces en el mensaje de cola cifrado. Este mensaje modificado (que se muestra a continuación) se almacena en el servicio.
+
+	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
+
+Durante el descifrado, la clave encapsulada se extrae del mensaje de cola y se desencapsula. El vector de inicialización también se extrae del mensaje de cola y se utiliza junto con la clave desencapsulada para descifrar los datos de mensaje de cola. Tenga en cuenta que los metadatos de cifrado son pequeños (menos de 500 bytes), por lo que, aunque se tienen en cuenta para el límite de 64 KB para un mensaje de la cola, el impacto debería ser fácil de administrar.
+
+### Tablas
+
+En la versión de vista previa, la biblioteca de cliente admite el cifrado de propiedades de entidad para insertar y reemplazar las operaciones.
+
+>[AZURE.NOTE]Las operaciones de combinación no se admiten actualmente. Puesto que un subconjunto de propiedades puede haberse cifrado previamente con una clave distinta, si simplemente se combinan las nuevas propiedades y se actualizan los metadatos, se producirá una pérdida de datos. Para realizar una combinación es necesario realizar llamadas de servicio adicionales para leer la entidad existente desde el servicio. También puede usar una nueva clave por propiedad. Ninguno de estos procedimientos es adecuado por motivos de rendimiento.
+
+El cifrado de datos de tabla funciona de la siguiente forma:
+
+1. Los usuarios especifican las propiedades que deben cifrarse.
+2. La biblioteca de cliente genera un vector de inicialización (IV) aleatorio de 16 bytes junto con una clave de cifrado de contenido (CEK) aleatoria de 32 bytes para cada entidad. Después, realiza el cifrado de sobres en las propiedades individuales que se deben cifrar derivando un nuevo vector de inicialización por propiedad.
+3. La CEK encapsulada y algunos metadatos de cifrado adicional se almacenan posteriormente como dos propiedades reservadas adicionales. La primera propiedad reservada (_ClientEncryptionMetadata1) es una propiedad de cadena que contiene la información sobre el vector de inicialización, la versión y la clave encapsulada. La otra propiedad reservada (_ClientEncryptionMetadata2) es una propiedad binaria que contiene la información sobre las propiedades que se cifran.
+4. A causa de estas propiedades reservadas adicionales necesarias para el cifrado, es posible que los usuarios ahora tengan solo 250 propiedades personalizadas en lugar de 252. El tamaño total de la entidad debe ser inferior a 1 MB.
+
+Tenga en cuenta que solo se pueden cifrar las propiedades de cadena. Si hay que cifrar otros tipos de propiedades, habrá que convertirlas en cadenas.
+
+Para las tablas, además de la directiva de cifrado, los usuarios deben especificar las propiedades que deben cifrarse. Para ello, pueden especificar un atributo [EncryptProperty] (para las entidades POCO que se derivan de TableEntity) o una resolución de cifrado en las opciones de solicitud. Una resolución de cifrado es un delegado que toma una clave de partición, una clave de fila y un nombre de propiedad y devuelve un valor booleano que indica si se debe cifrar dicha propiedad. Durante el cifrado, la biblioteca de cliente usará esta información para decidir si se debe cifrar una propiedad mientras se escribe en la conexión. El delegado también proporciona la posibilidad de lógica con respecto a la forma de cifrar las propiedades. (Por ejemplo, si el valor es X, hay que cifrar la propiedad A; en caso contrario, hay que cifrar las propiedades A y B). Tenga en cuenta que no es necesario proporcionar esta información para leer o consultar entidades.
+
+### Operaciones por lotes
+
+En las operaciones por lotes, se usará la misma KEK en todas las filas de esa operación por lotes porque la biblioteca de cliente solo permite un objeto de opciones (y, por lo tanto, una directiva/KEK) por cada operación por lotes. Sin embargo, la biblioteca de cliente generará internamente un nuevo vector de inicialización aleatorio y una CEK aleatoria por cada fila del lote. Los usuarios también pueden optar por cifrar diferentes propiedades para cada operación del lote mediante la definición de este comportamiento en la resolución de cifrado.
+
+### Consultas
+
+Para realizar operaciones de consulta, debe especificar a una resolución de clave que sea capaz de resolver todas las claves en el conjunto de resultados. Si una entidad incluida en el resultado de la consulta no se puede resolver en un proveedor, la biblioteca de cliente producirá un error. Para cualquier consulta que realice proyecciones del lado servidor, la biblioteca de cliente agregará las propiedades de metadatos de cifrado especiales (_ClientEncryptionMetadata1 y _ClientEncryptionMetadata2) a las columnas seleccionadas de forma predeterminada.
+
+## Almacén de claves de Azure
+
+El Almacén de claves de Azure (vista previa) ayuda a proteger las claves criptográficas y los secretos que usan los servicios y las aplicaciones en la nube. Mediante el uso del Almacén de claves de Azure, los usuarios pueden cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) usando claves que están protegidas por módulos de seguridad de hardware (HSM). Para obtener más información, consulte [¿Qué es el Almacén de claves de Azure?](../articles/key-vault-whatis.md)
+
+La biblioteca de cliente de almacenamiento utiliza la biblioteca básica del Almacén de claves para proporcionar un marco común en Azure para administrar las claves. Los usuarios obtienen también la ventaja adicional de usar la biblioteca de extensiones del Almacén de claves. La biblioteca de extensiones ofrece funciones útiles para los proveedores de claves en la nube y locales simétricas/RSA, así como para la agregación y el almacenamiento en caché.
+
+### Interfaz y dependencias
+
+Hay tres paquetes del Almacén de claves:
+
+- Microsoft.Azure.KeyVault.Core contiene IKey e IKeyResolver. Es un paquete pequeño sin dependencias. Las bibliotecas de cliente de almacenamiento para .NET y Windows Phone la definen como una dependencia.
+- Microsoft.Azure.KeyVault contiene el cliente de REST del Almacén de claves.
+- Microsoft.Azure.KeyVault.Extensions contiene el código de extensión que incluye implementaciones de algoritmos criptográficos, además de una RSAKey y una SymmetricKey. Depende de los espacios de nombres principales y KeyVault. Proporciona funcionalidad para definir una resolución de agregado (cuando los usuarios desean utilizar varios proveedores de clave) y una resolución de clave de almacenamiento en caché. Aunque la biblioteca de cliente de almacenamiento no depende directamente de este paquete, si los usuarios desean usar el Almacén de claves de Azure para almacenar sus claves o utilizar las extensiones del Almacén de claves para consumir los proveedores de servicios criptográficos locales y en la nube, necesitarán este paquete.
+
+El Almacén de claves está diseñado para claves maestras de gran valor. Por su parte, los valores de limitación por cada Almacén de claves se diseñan teniendo en cuenta este aspecto. Al realizar el cifrado en el lado cliente con el Almacén de claves, el modelo preferido es usar las claves maestras simétricas almacenadas como secretos en el Almacén de claves y almacenadas en caché localmente. Los usuarios deben hacer lo siguiente:
+
+1. Crear un secreto sin conexión y cargarlo en el Almacén de claves.
+2. Usar el identificador de base del secreto como un parámetro para resolver la versión actual del secreto para el cifrado y el almacenamiento en caché de esta información localmente. Usar CachingKeyResolver para el almacenamiento en caché (los usuarios no deben implementar su propia lógica de almacenamiento en caché).
+3. Utilizar la resolución de caché como una entrada al crear la directiva de cifrado.
+
+Puede encontrar más información con respecto al uso del Almacén de claves en los [ejemplos de código de cifrado](https://github.com/Azure/azure-storage-net/tree/preview/Samples/GettingStarted/EncryptionSamples).
+
+### Prácticas recomendadas
+
+La compatibilidad con el cifrado solo está disponible en las bibliotecas de cliente de almacenamiento para .NET y Windows Phone. Windows en tiempo de ejecución no admite actualmente el cifrado. Además, las extensiones del Almacén de claves no se admiten actualmente para Windows Phone. Si desea utilizar el cifrado de cliente de almacenamiento en el teléfono, deberá implementar sus propios proveedores de claves. Además, debido a una limitación de la plataforma .NET de Windows Phone, el cifrado de blob en páginas no se admite actualmente en Windows Phone.
 
 >[AZURE.IMPORTANT]Tenga en cuenta estos puntos importantes al utilizar la biblioteca de vista previa:
 >
 >- No utilice la biblioteca de vista previa para los datos de producción. En el futuro, los cambios realizados en la biblioteca afectarán a los esquemas utilizados. El descifrado de datos que se ha cifrado con la biblioteca de vista previa no está garantizado en futuras versiones.  
 >- Al leer de o escribir en un blob cifrado, utilice comandos de carga completa del blob y comandos de descarga de blobs de intervalo/completos. Evite escribir en un blob cifrado mediante operaciones de protocolo, como Colocar bloque, Colocar lista de bloque, Escribir páginas o Borrar páginas; de lo contrario, puede dañar el objeto blob cifrado y que no sea legible.
 >- Para las tablas, existe una restricción similar. Tenga cuidado de no actualizar propiedades cifradas sin actualizar los metadatos de cifrado.
->- Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también es cierto para las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado.
+>- Si establece los metadatos en el objeto blob cifrado, puede sobrescribir los metadatos relacionados con el cifrado necesarios para el descifrado, ya que el establecimiento de metadatos no es aditivo. Esto también se aplica a las instantáneas: evite la especificación de metadatos durante la creación de una instantánea de un blob cifrado.
 
-## Consulte también
 
-- [Introducción a cifrado de cliente para el Almacenamiento de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx)  
-- [Biblioteca de cliente de almacenamiento de Azure para el paquete NuGet de .NET (versión preliminar)](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview)  
-- [Biblioteca de cliente de Almacenamiento de Azure para el código fuente de .NET (versión preliminar)](https://github.com/Azure/azure-storage-net/tree/preview)
- 
+## Interfaz/API de cliente
 
-<!---HONumber=62-->
+Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo una clave (implementación de IKey), solo una resolución (implementación de IKeyResolver) o ambas. IKey es el tipo de clave básico que se identifica mediante un identificador de claves y que proporciona la lógica para la encapsulación y desencapsulación. IKeyResolver se utiliza para resolver una clave durante el proceso de descifrado. Define un método ResolveKey que devuelve un IKey concreto (identificador de clave). Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
+
+- Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.
+- Para el descifrado:
+	- La resolución de claves se invoca si se especifica para obtener la clave. Si se especifica la resolución, pero no se proporciona una asignación para el identificador de clave, se produce un error.
+	- Si no se especifica la resolución, pero sí se especifica una clave, el identificador de clave de la clave es opuesto a lo que se almacena para el servicio.
+
+Los [ejemplos de cifrado](https://github.com/Azure/azure-storage-net/tree/preview/Samples/GettingStarted/EncryptionSamples) muestran un escenario más detallado de un extremo a otro para blobs, colas y tablas, junto con la integración del Almacén de claves.
+
+### Blobs
+
+Los usuarios crearán un objeto **BlobEncryptionPolicy** y lo configurarán en las opciones de solicitud (por API o en un nivel de cliente mediante el uso de **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
+
+	// Create the IKey used for encryption.
+ 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+  
+ 	// Create the encryption policy to be used for upload and download.
+ 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+  
+ 	// Set the encryption policy on the request options.
+ 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+  
+ 	// Upload the encrypted contents to the blob.
+ 	blob.UploadFromStream(stream, size, null, options, null);
+  
+ 	// Download and decrypt the encrypted contents from the blob.
+ 	MemoryStream outputStream = new MemoryStream();
+ 	blob.DownloadToStream(outputStream, null, options, null);
+
+### Colas
+
+Los usuarios crearán un objeto **QueueEncryptionPolicy** y lo configurarán en las opciones de solicitud (por API o en el nivel del cliente usando **DefaultRequestOptions**). Todo lo demás lo controlará la biblioteca de cliente internamente.
+
+
+	// Create the IKey used for encryption.
+ 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+  
+ 	// Create the encryption policy to be used for upload and download.
+ 	QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
+  
+ 	// Add message
+ 	QueueRequestOptions options = new QueueRequestOptions() { EncryptionPolicy = policy };
+ 	queue.AddMessage(message, null, null, options, null);
+  
+ 	// Retrieve message
+ 	CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
+
+### Tablas
+
+Además de crear una directiva de cifrado y configurarla en las opciones de solicitud, los usuarios tendrán que especificar un **EncryptionResolver** en **TableRequestOptions** o establecer atributos en la entidad.
+
+#### Uso de la resolución
+
+
+	// Create the IKey used for encryption.
+ 	RsaKey key = new RsaKey("private:key1" /* key identifier */);
+  
+ 	// Create the encryption policy to be used for upload and download.
+ 	TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
+  
+ 	TableRequestOptions options = new TableRequestOptions() 
+ 	{ 
+    	EncryptionResolver = (pk, rk, propName) =>
+     	{
+        	if (propName == "foo")
+         	{
+            	return true;
+         	}
+         	return false;
+     	},
+     	EncryptionPolicy = policy
+ 	};
+  
+ 	// Insert Entity
+ 	currentTable.Execute(TableOperation.Insert(ent), options, null);
+  
+ 	// Retrieve Entity
+ 	// No need to specify an encryption resolver for retrieve
+ 	TableRequestOptions retrieveOptions = new TableRequestOptions() 
+ 	{
+    	EncryptionPolicy = policy
+ 	};
+  
+ 	TableOperation operation = TableOperation.Retrieve(ent.PartitionKey, ent.RowKey);
+ 	TableResult result = currentTable.Execute(operation, retrieveOptions, null);
+
+#### Uso de los atributos
+
+Como se mencionó anteriormente, si la entidad implementa TableEntity, las propiedades se pueden completar con el atributo [EncryptProperty] en lugar de especificar EncryptionResolver.
+
+	[EncryptProperty]
+ 	public string EncryptedProperty1 { get; set; }
+
+## Pasos siguientes
+
+[Cifrado del lado cliente para el almacenamiento de Microsoft Azure (vista previa)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) Descargue el [paquete de la biblioteca de cliente de almacenamiento de Azure para .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) Descargue el [código fuente de la biblioteca de almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net/tree/preview) de GitHub Descargue el paquete [principal](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), el de [cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y el de [extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure para NuGet Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
+
+<!---HONumber=July15_HO2-->

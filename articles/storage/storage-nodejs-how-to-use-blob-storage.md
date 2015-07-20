@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,10 +24,7 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del
-servicio BLOB de Azure. Los ejemplos están escritos usando la
-API Node.js. Entre los escenarios descritos se incluyen la **carga****, listado**,
-**descarga** y **eliminación de** blobs.
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos usando la API Node.js. Entre los escenarios descritos se incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -35,7 +32,7 @@ API Node.js. Entre los escenarios descritos se incluyen la **carga****, listado*
 
 ## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube de Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell) o [Sitio web con WebMatrix].
 
 ## Configuración de la aplicación para acceder al almacenamiento
 
@@ -45,8 +42,7 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 
 1.  Utilice una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix) y vaya a la carpeta donde ha creado la aplicación de ejemplo.
 
-2.  Escriba **npm install azure-storage** en la ventana de comandos, lo que
-    es el siguiente:
+2.  Escriba **npm install azure-storage** en la ventana de comandos. Esto debería devolver la salida siguiente:
 
         azure-storage@0.1.0 node_modules\azure-storage
 		├── extend@1.2.1
@@ -58,15 +54,11 @@ Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azu
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  Puede ejecutar manualmente el comando **ls** para verificar que se ha creado la carpeta
-    **node_modules**. Dentro de esa carpeta, busque el paquete
-    **azure-storage**, que contiene las bibliotecas que necesita para obtener acceso al
-    almacenamiento.
+3.  Puede ejecutar manualmente el comando **ls** para comprobar si se ha creado la carpeta **node_modules**. Dentro de dicha carpeta, busque el paquete **azure-storage**, que contiene las bibliotecas necesarias para el acceso al almacenamiento.
 
 ### Importación del paquete
 
-Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte superior del archivo
-**server.js** de la aplicación en la que pretenda usar el almacenamiento:
+Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte superior del archivo **server.js** de la aplicación en la que pretenda usar el almacenamiento:
 
     var azure = require('azure-storage');
 
@@ -74,17 +66,19 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo azure leerá las variables de entorno `AZURE_STORAGE_ACCOUNT` y `AZURE_STORAGE_ACCESS_KEY` o `AZURE_STORAGE_CONNECTION_STRING` para obtener la información necesaria para conectarse a la cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta llamando a **createBlobService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
+Para ver un ejemplo de cómo configurar las variables de entorno del portal de administración para un sitio web de Azure, consulte [aplicación web de Node.js con almacenamiento].
 
 ## Procedimientos: Creación de un contenedor
 
-El objeto **BlobService** le permite trabajar con contenedores y blobs. El código siguiente crea un objeto **BlobService**. Agregue lo siguiente cerca de la parte superior de **server.js**.
+El objeto **BlobService** permite trabajar con contenedores y blobs. El código siguiente crea un objeto **BlobService**. Agregue lo siguiente cerca de la parte superior de **server.js**:
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE] Puede obtener acceso a un blob de forma anónima mediante el uso de **createBlobServiceAnonymous** y proporcionando la dirección del host. Por ejemplo: `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
+> [AZURE.NOTE]Puede obtener acceso a un blob de forma anónima mediante el uso de **createBlobServiceAnonymous** y proporcionando la dirección del host. Por ejemplo: `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`.
 
-Todos los blobs residen en un contenedor. Para crear un nuevo contenedor, use **createContainerIfNotExists**. Lo siguiente crea un nuevo contenedor llamado 'mycontainer'
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+Para crear un nuevo contenedor, use **createContainerIfNotExists**. Lo siguiente crea un nuevo contenedor llamado 'mycontainer'
 
 	blobSvc.createContainerIfNotExists('mycontainer', function(error, result, response){
       if(!error){
@@ -94,17 +88,17 @@ Todos los blobs residen en un contenedor. Para crear un nuevo contenedor, use **
       }
 	});
 
-Si el contenedor se crea,  `result` será verdadero. Si el contenedor ya existe,  `result` será falso.  `response` contendrá información acerca de la operación, junto con la información de [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) del contenedor.
+Si el contenedor se crea, `result` será verdadero. Si el contenedor ya existe, `result` será falso. `response` contendrá información acerca de la operación, junto con la información de [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) del contenedor.
 
 ### Seguridad del contenedor
 
-De forma predeterminada, los nuevos contenedores son privados, así que no se puede acceder a ellos de forma anónima. Para que el contenedor sea público de forma que sea posible el acceso anónimo, puede establecer el nivel de acceso del contenedor en**blob** o **contenedor**.
+De forma predeterminada, los nuevos contenedores son privados, así que no se puede acceder a ellos de forma anónima. Para que el contenedor sea público de forma que sea posible el acceso anónimo, puede establecer el nivel de acceso del contenedor en **blob** o **contenedor**.
 
-* **blob** permite el acceso de lectura anónimo al contenido del blob y a los metadatos del contenedor, pero no al listado de todos los blobs de un contenedor determinado.
+* **blob**: permite el acceso de lectura anónimo al contenido del blob y a los metadatos del contenedor, pero no al listado de todos los blobs de un contenedor determinado. 
 
-* **contenedor** permite el acceso de lectura anónimo al contenido del blob y los metadatos, incluidos los del contenedor.
+* **contenedor**: permite el acceso de lectura anónimo al contenido del blob y los metadatos, incluidos los del contenedor.
 
-El ejemplo siguiente demuestra cómo configurar el nivel de acceso en**blob**: 
+El ejemplo siguiente demuestra cómo configurar el nivel de acceso en **blob**:
 
     blobSvc.createContainerIfNotExists('mycontainer', {publicAccessLevel : 'blob'}, function(error, result, response){
       if(!error){
@@ -120,11 +114,11 @@ También puede modificar el nivel de acceso de un contenedor usando **setContain
 	  }
 	});
 
-El resultado contendrá información acerca de la operación, junto con la información de **ETag** del contenedor.
+El resultado contendrá información acerca de la operación, junto con la información de **ETag** actual del contenedor.
 
 ### Filtros
 
-Las operaciones de filtrado opcionales se pueden aplicar a las operaciones realizadas usando **BlobService**. Las operaciones de filtrado pueden incluir el registro y el reintento automático, entre otros. Los filtros son objetos que implementan un método con la firma siguiente:
+Las operaciones de filtrado opcionales se pueden aplicar a las operaciones realizadas usando **BlobService**. Las operaciones de filtrado pueden incluir registros, reintentos automáticos, etc. Los filtros son objetos que implementan un método con la firma:
 
 		function handle (requestOptions, next)
 
@@ -139,7 +133,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
-## Procedimientos: un blob en un contenedor
+## Cómo cargar un blob en un contenedor
 
 Un blob se puede basar en un bloque o en una página. Los blobs en bloques le permiten cargar datos de gran tamaño con una mayor eficiencia, mientras que los blobs en páginas están optimizados para operaciones de lectura/escritura. Para obtener más información, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 
@@ -147,15 +141,15 @@ Un blob se puede basar en un bloque o en una página. Los blobs en bloques le pe
 
 Para cargar datos en un blob en bloque, use lo siguiente:
 
-* **createBlockBlobFromLocalFile**: crea un nuevo blob en bloque y carga el contenido de un archivo.
+* **createBlockBlobFromLocalFile**: crea un nuevo blob en bloques y carga el contenido de un archivo.
 
-* **createBlockBlobFromStream**: crea un nuevo blob en bloque y carga el contenido de una secuencia.
+* **createBlockBlobFromStream**: crea un nuevo blob en bloques y carga el contenido de una secuencia.
 
-* **createBlockBlobFromText**: crea un nuevo blob en bloque y carga el contenido de una cadena.
+* **createBlockBlobFromText**: crea un nuevo blob en bloques y carga el contenido de una cadena.
 
-* **createWriteStreamToBlockBlob**: proporciona una secuencia de escritura a un blob en bloque.
+* **createWriteStreamToBlockBlob**: proporciona una secuencia de escritura a un blob en bloques.
 
-En el siguiente ejemplo se carga el contenido del archivo**test.txt** en **myblob**.
+En el siguiente ejemplo se carga el contenido del **test.txt** en **myblob**.
 
 	blobSvc.createBlockBlobFromLocalFile('mycontainer', 'myblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -163,23 +157,23 @@ En el siguiente ejemplo se carga el contenido del archivo**test.txt** en **myblo
 	  }
 	});
 
-Los  `result` que devuelven estos métodos contendrá información acerca de la operación, como el valor **ETag** del blob.
+Los `result` que devuelven estos métodos contendrán información acerca de la operación, como el valor **ETag** del blob.
 
 ### Blobs en páginas
 
 Para cargar datos en un blob en página, use lo siguiente:
 
-* **createPageBlob**: crea un nuevo blob en página de una longitud especificada.
+* **createPageBlob**: crea un nuevo blob en páginas de una longitud especificada.
 
-* **createPageBlobFromLocalFile**: crea un nuevo blob en página y carga el contenido de un archivo.
+* **createPageBlobFromLocalFile**: crea un nuevo blob en páginas y carga el contenido de un archivo.
 
-* **createPageBlobFromStream**: crea un nuevo blob en página y carga el contenido de una secuencia.
+* **createPageBlobFromStream**: crea un nuevo blob en páginas y carga el contenido de una secuencia.
 
-* **createWriteStreamToExistingPageBlob**: proporciona una secuencia de escritura a un blob en página existente.
+* **createWriteStreamToExistingPageBlob**: proporciona una secuencia de escritura a un blob en páginas existente.
 
-* **createWriteStreamToNewPageBlob**: crea un nuevo blob y, a continuación, proporciona una secuencia para escribir en él.
+* **createWriteStreamToNewPageBlob**: crea un nuevo blob y luego proporciona una secuencia para escribir en él.
 
-En el siguiente ejemplo se carga el contenido del archivo**test.txt** en **mypageblob**.
+En el siguiente ejemplo se carga el contenido del archivo **test.txt** en **mypageblob**.
 
 	blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
 	  if(!error){
@@ -187,11 +181,11 @@ En el siguiente ejemplo se carga el contenido del archivo**test.txt** en **mypag
 	  }
 	});
 
-> [AZURE.NOTE] Los blobs en páginas constan de 'pages' de 512 bytes. Puede que al cargar datos con un tamaño que no es múltiplo de 512 reciba un error.
+> [AZURE.NOTE]Los blobs en páginas constan de 'páginas' de 512 bytes. Puede que al cargar datos con un tamaño que no es múltiplo de 512 reciba un error.
 
-## Procedimientos: Enumeración de los blobs de un contenedor
+## Cómo enumerar los blobs en un contenedor
 
-Para enumerar los blobs de un contenedor, use el método**listBlobsSegmented**. Si desea devolver blobs con un prefijo determinado, use **listBlobsSegmentedWithPrefix**.
+Para enumerar los blobs de un contenedor, use el método **listBlobsSegmented**. Si desea devolver blobs con un prefijo determinado, use **listBlobsSegmentedWithPrefix**.
 
     blobSvc.listBlobsSegmented('mycontainer', null, function(error, result, response){
       if(!error){
@@ -199,13 +193,13 @@ Para enumerar los blobs de un contenedor, use el método**listBlobsSegmented**. 
 	  }
 	});
 
-El  `result` contendrá una colección de  `entries`, que es una matriz de objetos que describen cada blob. Si no se pueden devolver todos los blobs, `result` proporcionará también un `continuationToken`, que se puede usar como el segundo parámetro para recuperar entradas adicionales.
+El `result` contendrá una colección de `entries`, que es una matriz de objetos que describen cada blob. Si no se pueden devolver todos los blobs, el `result` proporcionará también un `continuationToken`, que se puede usar como el segundo parámetro para recuperar entradas adicionales.
 
-## Procedimientos: blobs
+## Cómo descargar blobs
 
 Para descargar datos de un blob, use lo siguiente:
 
-* **getBlobToFile**: escribe el contenido del blob en un archivo.
+* **getBlobToFile**: escribe el contenido del blob en un archivo
 
 * **getBlobToStream**: escribe el contenido del blob en una secuencia.
 
@@ -222,9 +216,9 @@ En el ejemplo siguiente se demuestra cómo usar **getBlobToStream** para descarg
 	  }
 	});
 
-El  `result` contendrá información acerca del blob, lo que incluye información de **ETag**.
+El `result` contendrá información acerca del blob, lo que incluye información de **ETag**.
 
-## Procedimientos: Eliminación de un blob
+## Cómo eliminar un blob
 
 Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo siguiente se elimina el blob llamado **myblob**.
 
@@ -234,7 +228,7 @@ Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo siguien
 	  }
 	});
 
-## Procedimientos: Acceso simultáneo
+## Acceso simultáneo
 
 Para permitir el acceso simultáneo a un blob desde varios clientes o varias instancias de proceso, puede usar **ETags** o **concesiones**.
 
@@ -272,17 +266,17 @@ Se puede adquirir una nueva concesión mediante el método **acquireLease**, esp
 	  }
 	});
 
-Las sucesivas operaciones sobre **myblob** deben proporcionar el parámetro  `options.leaseId`. El Id. de concesión se devuelve como  `result.id` desde **acquireLease**.
+Las sucesivas operaciones sobre **myblob** deben proporcionar el parámetro `options.leaseId`. El Id. de concesión se devuelve como `result.id` desde **acquireLease**.
 
-> [AZURE.NOTE] De manera predeterminada, la duración de la concesión es infinita. Puede especificar una duración no infinita (entre 15 y 60 segundos) con el parámetro  `options.leaseDuration`.
+> [AZURE.NOTE]De manera predeterminada, la duración de la concesión es infinita. Puede especificar una duración no infinita (entre 15 y 60 segundos) con el parámetro `options.leaseDuration`.
 
 Para eliminar una concesión, use **releaseLease**. Para interrumpir una concesión, pero impedir que otros obtengan una nueva concesión hasta que expire la duración original, use **breakLease**.
 
-## Procedimientos: Trabajo con firmas de acceso compartido
+## Trabajo con firmas de acceso compartido
 
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a blobs y contenedores sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus datos, por ejemplo, para permitir que una aplicación móvil acceda a los blobs.
 
-> [AZURE.NOTE] Aunque también puede permitir el acceso anónimo a los blobs, SAS le permite proporcionar acceso más controlado, puesto que debe generar la SAS.
+> [AZURE.NOTE]Aunque también puede permitir el acceso anónimo a los blobs, SAS le permite proporcionar acceso más controlado, puesto que debe generar la SAS.
 
 Una aplicación de confianza, como un servicio basado en la nube, genera una SAS mediante el valor **generateSharedAccessSignature** del elemento **BlobService**, y lo proporciona a una aplicación en la que no se confía o en la que se confía parcialmente. Por ejemplo, una aplicación móvil. La SAS se genera usando una directiva que describe las fechas de inicio y de finalización durante las cuales la SAS es válida, junto con el nivel de acceso otorgado al titular de la SAS.
 
@@ -365,20 +359,21 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
 -   Lea la [Referencia del SDK de almacenamiento de Azure para la API de nodo][]
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
+-   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
 -   Visite el [Blog del equipo de almacenamiento de Azure][].
--   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
+-   Visite el repositorio del [SDK de almacenamiento de Azure para Node][] en GitHub.
 
-[SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
+[SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
 [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
-[Servicio en la nube de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-cloud-service-app.md
-[Aplicación web Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
+[Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
+[aplicación web de Node.js con almacenamiento]: ../storage-nodejs-use-table-storage-web-site.md
 [Sitio web con WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
-[Mediante la API de REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Portal de administración de Azure]: http://manage.windowsazure.com
-[Servicio en la nube de Node.js]: ../cloud-services-nodejs-develop-deploy-app.md
+[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure Management Portal]: http://manage.windowsazure.com
+[Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

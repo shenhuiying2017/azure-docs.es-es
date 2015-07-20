@@ -1,4 +1,4 @@
-###Instalación mediante el compositor
+### Instalación mediante el compositor
 
 1. [Instalación de Git][install-git]. 
 
@@ -25,11 +25,11 @@
 
 3. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
 
-4. Abra un símbolo del sistema y ejecute esto en la raíz del proyecto
+4. Abra un símbolo del sistema y ejecute el siguiente comando en la raíz del proyecto
 
 		php composer.phar install
 
-###Instalación manual
+### Instalación manual
 
 Para descargar e instalar las bibliotecas de clientes PHP para Azure manualmente, siga estos pasos:
 
@@ -49,4 +49,4 @@ Para obtener más información sobre la instalación de bibliotecas de clientes 
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

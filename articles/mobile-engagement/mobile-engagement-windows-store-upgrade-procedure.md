@@ -45,7 +45,7 @@ El SDK usa el término `Engagement`. Debe actualizar el proyecto para que coinci
 
 Debe desinstalar el paquete NuGet de Capptain actual. Tenga en cuenta que se van a quitar todos los cambios de la carpeta recursos de Capptain. Si desea conservar los archivos, haga una copia de ellos.
 
-Después, instale el nuevo paquete NuGet de Microsoft Azure Mobile Engagement en el proyecto. Este se encuentra en el [sitio web de NuGet] o en el índice de aquí. Esta acción reemplaza todos los archivos de recursos que Engagement usa y agrega el nuevo archivo DLL de Engagement a las referencias del proyecto.
+Después, instale el nuevo paquete NuGet de Microsoft Azure Mobile Engagement en el proyecto. Lo encontrará directamente en el [sitio web de NuGet] o aquí, en el índice. Esta acción reemplaza todos los archivos de recursos que Engagement usa y agrega el nuevo archivo DLL de Engagement a las referencias del proyecto.
 
 Tendrá que limpiar las referencias del proyecto al eliminar de referencias del archivo DLL de Capptain. Si no lo hace, la versión de Capptain entrará en conflicto y se producirán errores.
 
@@ -167,5 +167,6 @@ Ejemplos de elementos Capptain que se usan habitualmente:
 
 Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidados.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

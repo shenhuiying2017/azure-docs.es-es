@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/12/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -81,4 +81,4 @@ Descargue la [aplicación GetStartedWithData de iOS]. En Xcode, abra el proyecto
 [aplicación GetStartedWithData de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 [aplicación de iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

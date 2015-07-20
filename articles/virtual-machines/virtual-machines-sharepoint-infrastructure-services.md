@@ -1,19 +1,20 @@
 <properties 
 	pageTitle="Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure" 
-	description="Obtener acceso a los temas que describen cómo configurar una granja de servidores de desarrollo/prueba o de producción de SharePoint 2013 en los servicios de infraestructura de Azure." 
+	description="Busque artículos clave que describan cómo configurar una granja de servidores de desarrollo/prueba o de producción de SharePoint 2013 en los servicios de infraestructura de Microsoft Azure." 
 	documentationCenter="" 
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows-sharepoint" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.topic="index-page" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure
@@ -22,23 +23,31 @@ Configure la primera o siguiente granja de servidores de desarrollo/prueba de Sh
 
 ## Granja de servidores de desarrollo/prueba básica de SharePoint 
 
-Puede utilizar la plantilla [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) en el Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba básica para un sitio web de SharePoint destinado a Internet.
+Para las máquinas virtuales creadas en la administración de servicios, use la función [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) del Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba básica para un sitio web de SharePoint orientado a Internet.
 
 El entorno creado automáticamente consta de tres servidores para un controlador de dominio, un servidor SQL Server y el servidor de SharePoint en una red virtual de Azure solo en la nube.
 
-## Granja de servidores de desarrollo/prueba de SharePoint de alta disponibilidad
+Para crear una configuración similar con máquinas virtuales creadas en el Administrador de recursos, use una plantilla. Consulte [Implementar una granja de tres servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-También puede utilizar la plantilla [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) en el Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba de SharePoint de alta disponibilidad para un sitio web de SharePoint destinado a Internet.
+## Granja de desarrollo/prueba de SharePoint de alta disponibilidad
+
+Para las máquinas virtuales creadas en la administración de servicios, use la función [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) del Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba de SharePoint de alta disponibilidad para un sitio web de SharePoint orientado a Internet.
 
 El entorno creado automáticamente que consta de nueve servidores en una red virtual de Azure solo en la nube: dos para los controladores de dominio, tres para un clúster de SQL Server, dos servidores de SharePoint de capa de aplicación y dos servidores de SharePoint de capa de web.
+
+Para crear una configuración similar con máquinas virtuales creadas en el Administrador de recursos, use una plantilla. Consulte [Implementar una granja de nueve servidores de SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
 ## Granja de servidores de desarrollo/prueba de nube híbrida
 
 Con la [granja de servidores de intranet de SharePoint en entorno de prueba o desarrollo de nube híbrida](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), se crea una configuración de nube híbrida simulada que hospeda una granja de servidores de SharePoint simple, de dos capas, que puede utilizar para probar una granja de servidores de SharePoint de intranet hospedada en Azure desde su ubicación en Internet.
 
-## Granja de servidores de producción de SharePoint de intranet, de alta disponibilidad
+Esta configuración usa máquinas virtuales creadas en la administración de servicios.
 
-Con [Implementación de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en Azure](https://msdn.microsoft.com/library/dn275959.aspx), cree una granja de servidores de SharePoint Server 2013 de intranet en Azure.
+## Granja de servidores de producción de SharePoint de intranet de alta disponibilidad
+
+Con [Implementación de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en Azure](virtual-machines-workload-intranet-sharepoint-overview.md), cree una granja de servidores de SharePoint Server 2013 de intranet en Azure.
+
+Esta configuración usa máquinas virtuales creadas en la administración de servicios.
 
 ## Recursos adicionales
 
@@ -47,6 +56,6 @@ Con [Implementación de SharePoint 2013 con grupos de disponibilidad AlwaysOn de
 [Planeación para SharePoint 2013 en los servicios de infraestructura de Azure](https://msdn.microsoft.com/library/dn275958.aspx)
 
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

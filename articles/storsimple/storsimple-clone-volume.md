@@ -3,17 +3,17 @@
    description="Describe los diferentes tipos de clon y cuándo usarlos, y explica cómo se puede usar un conjunto de copia de seguridad para clonar un volumen individual."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
-   ms.author="v-sharos" />
+   ms.date="05/27/2015"
+   ms.author="alkohli" />
 
 # Clonar un volumen de StorSimple
 
@@ -22,6 +22,8 @@
 La página **Catálogo de copias de seguridad** muestra todos los conjuntos de copia de seguridad que se crean cuando se realizan copias de seguridad manuales o automatizadas. Puede usar esta página para enumerar todas las copias de seguridad para un volumen o una directiva de copia de seguridad, seleccionar o eliminar las copias de seguridad, o usar una copia de seguridad para restaurar o clonar un volumen.
 
   ![catálogo de copia de seguridad](./media/storsimple-clone-volume/HCS_BackupCatalog.png)
+
+**Figura 1: Catálogo de copias de seguridad**
 
 Este tutorial describe cómo puede usar una copia de seguridad para clonar un volumen individual. También explica la diferencia entre clones *transitorios* y *permanente*.
 
@@ -41,7 +43,7 @@ Puede crear un clon en el mismo dispositivo, en otro dispositivo o incluso en un
 
 4. En el Asistente para clonar volúmenes, en **Especificar el nombre y la ubicación**:
 
-  1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo.
+  1. Identifique un dispositivo de destino. Esta es la ubicación donde se creará el clon. Puede elegir el mismo dispositivo o especificar otro dispositivo. Si elige un volumen asociado a otros proveedores de servicios en la nube (no Azure), la lista desplegable para el dispositivo de destino solo mostrará dispositivos físicos. No se puede clonar un volumen asociado a otros proveedores de servicios en la nube en un dispositivo virtual.
 
         >  [AZURE.NOTE] Make sure that the capacity required for the clone is lower than the capacity available on the target device.
   2. Especifique un nombre de volumen único para el clon. El nombre debe tener entre 3 y 127 caracteres.
@@ -87,6 +89,6 @@ Necesita comprobar un error de prueba en el entorno de producción. Crear un clo
 Obtenga información sobre cómo [restaurar un volumen de StorSimple de un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

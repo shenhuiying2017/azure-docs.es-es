@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Configuraciones admitidas para Visión operativa"
    description="Obtenga información acerca de las configuraciones necesarias para obtener Visión operativa"
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Configuraciones admitidas para Visión operativa
@@ -38,14 +39,8 @@ El uso de Visión operativa como un servicio adjunto tiene los siguientes requis
 
 Consulte [Visualización de alertas de Visión operativa](http://go.microsoft.com/fwlink/?LinkID=293793) para obtener instrucciones de instalación y configuración.
 
-Si quiere ver las alertas de Visión operativa acerca de SharePoint Server 2010, Lync Server 2013, Lync Server 2010 o System Center 2012 SP1 - Virtual Machine Manager, deberá configurar una cuenta de ejecución para esas cargas de trabajo. Escriba la siguiente información:
+Si quiere ver las alertas de Visión operativa acerca de SharePoint Server 2010, Lync Server 2013, Lync Server 2010 o System Center 2012 SP1 - Virtual Machine Manager, deberá configurar una cuenta de ejecución para esas cargas de trabajo. Consulte [Consideraciones sobre Operations Manager con Visión operativa](operational-insights-operations-manager.md) para obtener más información sobre la configuración de las cuentas de ejecución.
 
-
-- [Definición de la cuenta de ejecución para SharePoint](../operational-insights-run-as.md)
-
-- [Definición de la cuenta de ejecución para Lync Server](../operational-insights-run-as.md)
-
-- [Definición de la cuenta de ejecución para Virtual Machine Manager (VMM)](../operational-insights-run-as.md)
 
 ### Sistemas operativos de Operations Manager
 
@@ -105,5 +100,4 @@ Para SQL Server, se admiten las siguientes ediciones de 32 bits y 64 bits para e
 
 Además, se admite la edición de 32 bits de SQL Server cuando se ejecuta en la implementación de WOW64.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

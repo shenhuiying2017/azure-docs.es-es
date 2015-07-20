@@ -25,4 +25,4 @@
 
    	Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

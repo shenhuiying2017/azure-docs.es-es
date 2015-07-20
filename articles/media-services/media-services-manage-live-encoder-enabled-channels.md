@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure (vista previa)
@@ -40,6 +40,16 @@ A partir de la versión 2.10 de Servicios multimedia, al crear un canal, puede e
 El siguiente diagrama representa un flujo de trabajo de streaming en vivo donde un canal recibe una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). A continuación, la codifica como secuencia de varias velocidades de bits.
 
 ![Flujo de trabajo activo][live-overview]
+
+>[AZURE.NOTE]No todos los centros de datos admiten la codificación en directo con Servicios multimedia de Azure.
+>
+>Si usas el Portal de administración de Azure para crear canales, tendrá dos opciones de tipo de codificación de canal disponibles: **Ninguno** y **Estándar**. Si solo ve la opción **Ninguno**, significa que su centro de datos no admite la codificación en directo con AMS.
+>
+>Si usa .NET SDK o API de REST, haga lo siguiente para comprobar:
+>
+>1. Intente crear un canal con el tipo de codificación establecido en Estándar. 
+>2. Si el valor devuelto es Código de error HTTP 412 (error de condición previa) con el siguiente mensaje: *"Esta región no admite la codificación en directo; EncodingType debe establecerse en 'Ninguno'."*, su centro de datos no admite la codificación en directo.
+
 
 ##En este tema
 
@@ -69,7 +79,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 
 	Con el Portal de administración de Azure, al crear un programa también se crea un recurso.
 
-	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa.
+	Con el SDK de .NET o REST, debe crear un recurso y especificar que este se use al crear un programa. 
 1. Publique el recurso asociado al programa.   
 
 	Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
@@ -107,29 +117,29 @@ Consideraciones:
 - A continuación, se indican los códecs admitidos:
 	- MPEG-2/H.262 Video 
 		
-		- Main Profile (4:2:0)
-		- High Profile (4:2:0, 4:2:2)
-		- 422 Profile (4:2:0, 4:2:2)
+		- Perfil Principal (4:2:0)
+		- Perfil Alta (4:2:0, 4:2:2)
+		- Perfil 422 (4:2:0, 4:2:2)
 
-	- MPEG-4 AVC/H.264 Video  
+	- MPEG-4 AVC/H.264 Video
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Perfil Línea de base, Principal, Alta (4:2:0 de 8 bits)
+		- Perfil Alta 10 (4:2:0 de 10 bits)
+		- Perfil Alta 422 (4:2:2 de 10 bits)
 
 
-	- MPEG-2 AAC-LC Audio 
+	- MPEG-2 AAC-LC Audio
 	
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+		- Mono, estéreo, Surround (5.1, 7.1)
+		- Empaquetado ADTS estilo MPEG-2
 
-	- Dolby Digital (AC-3) Audio 
+	- Audio Dolby Digital (AC-3)
 
-		- Mono, Stereo, Surround (5.1, 7.1)
+		- Mono, estéreo, Surround (5.1, 7.1)
 
-	- MPEG Audio (Layer II and III) 
+	- Audio MPEG (nivel II y III)
 			
-		- Mono, Stereo
+		- Mono, estéreo
 
 - Entre los codificadores de difusión recomendados se incluyen:
 	- Ateme AM2102
@@ -158,15 +168,15 @@ Consideraciones:
 
 	- MPEG-4 AVC/H.264 Video  
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- Perfil Línea de base, Principal, Alta (4:2:0 de 8 bits)
+		- Perfil Alta 10 (4:2:0 de 10 bits)
+		- Perfil Alta 422 (4:2:2 de 10 bits)
 
 	- MPEG-2 AAC-LC Audio
 
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
+		- Mono, estéreo, Surround (5.1, 7.1)
+		- Velocidad de muestreo 44,1 kHz
+		- Empaquetado ADTS estilo MPEG-2
 	
 - Entre los codificadores recomendados se incluyen:
 
@@ -304,9 +314,10 @@ Identificador único de la pausa comercial que la aplicación correspondiente us
 
 ###Mostrar pizarra
 
-Opcional. Señala el codificador en directo para cambiar a la imagen de pizarra predeterminada durante una pausa comercial y ocultar la fuente de vídeo entrante. El audio también está desactivado durante el uso de la pizarra. El valor predeterminado es **false**.
+Opcional. Indica al codificador en directo que cambie a la [pizarra predeterminada](media-services-manage-live-encoder-enabled-channels.md#default_slate) durante una pausa comercial y ocultar la fuente de vídeo entrante. El audio también está desactivado durante el uso de la pizarra. El valor predeterminado es **false**.
  
 La imagen usada será la especificada mediante la propiedad Id del recurso de pizarra predeterminado en el momento de la creación del canal. La pizarra se estira para ajustarse al tamaño de la imagen en pantalla.
+
 
 ##Insertar imágenes de pizarra
 
@@ -322,14 +333,17 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true.
 
-###Id. del recurso de pizarra predeterminado
+###<a id="default_slate"></a>Id. del recurso de pizarra predeterminado
 
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null.
 
-**Nota**: antes de crear el canal, la imagen de pizarra (con una resolución máxima de 1920 x 1080, formato JPEG y un tamaño máximo de 3 MB) debe cargarse como recurso dedicado (no debe haber ningún otro archivo en este recurso). El nombre de archivo debe tener la extensión *.jpg y el archivo AssetFile debe marcarse como archivo principal de ese recurso. Este recurso no se puede almacenar cifrado.
+**Nota**: antes de crear el canal, la imagen de pizarra debe cargarse con las siguientes restricciones como recurso dedicado (no debe haber ningún otro archivo en este recurso).
+
+- Máximo 1920x1080 de resolución.
+- Al menos 3 MB de tamaño.
+- El nombre de archivo debe tener una *extensión .jpg. - La imagen se debe cargar en un recurso como el único AssetFile en ese recurso y este AssetFile debe marcarse como el archivo principal. El recurso no se puede almacenar cifrado.
 
 Si no se especifica el **Id. del recurso de pizarra predeterminado** y el valor **Insertar pizarra en marcador de anuncio** está establecido en **true**, se usará una imagen de Servicios multimedia de Azure predeterminada para ocultar la secuencia de vídeo de entrada. El audio también está desactivado durante el uso de la pizarra.
-
 
 
 ##Programas del canal
@@ -378,8 +392,7 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 </table>
 
 
->[AZURE.NOTE]Actualmente en vista previa, el inicio del canal puede tardar hasta 30 minutos. El restablecimiento del canal puede tardar hasta 5 minutos.
-
+>[AZURE.NOTE]Actualmente en versión preliminar; el inicio del canal puede tardar hasta 20 minutos. El restablecimiento de canal puede tardar hasta 5 minutos.
 
 
 ##<a id="Considerations"></a>Consideraciones
@@ -390,6 +403,12 @@ En la tabla siguiente se muestra cómo se asignan los estados del canal al modo 
 - De forma predeterminada solo puede agregar 5 canales a su cuenta de Servicios multimedia. Esta es una cuota de advertencia a todas las cuentas nuevas. Para obtener más información, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).
 - No se puede cambiar el protocolo de entrada mientras el canal o sus programas asociados se están ejecutando. Si necesita diferentes protocolos, debe crear canales independientes para cada protocolo de entrada.
 - Solo se le cobrará cuando el canal esté en estado **En ejecución**. Para obtener más información, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) sección.
+
+##Problemas conocidos
+
+- El inicio del canal puede tardar más de 20 minutos.
+- La compatibilidad con RTP está dirigida a los operadores de radiodifusión profesionales. Revise las notas sobre RTP en [este](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blog.
+- Las imágenes de pizarra deben cumplir las restricciones descritas [aquí](media-services-manage-live-encoder-enabled-channels.md#default_slate). Si intenta crear un canal con una pizarra predeterminada que sea superior a 1920x1080, la solicitud terminará por producir un error.
 
 
 ##<a id="tasks"></a>Tareas relacionadas con el streaming en vivo
@@ -420,10 +439,14 @@ Elija **Portal**, **.NET** o **API de REST** para ver cómo crear y administrar 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###Protección de recursos
+
+**Información general**:
+
+[Protección de contenido (PlayReady)](media-services-content-protection-overview.md)
 
 Si desea cifrar un recurso asociado a un programa con Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits) o DRM de PlayReady, debe crear una clave de contenido.
 
@@ -435,12 +458,17 @@ Una vez creada la clave de contenido, puede configurar la directiva de autorizac
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
+####Integración con socios
+
+[Uso de castLabs para entregar licencias de DRM a Servicios multimedia de Azure](media-services-castlabs-integration.md)
+
+
 ###Publicación y entrega de recursos
 
 **Información general**:
 
 - [Información general sobre el empaquetado dinámico](../media-services-dynamic-overview.md)
-- [Información general de entrega de contenido](media-services-deliver-content-overview.md)
+
 
 Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 
@@ -450,6 +478,11 @@ Publique recursos (creando localizadores) mediante el **Portal de administració
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
+
+Entrega de contenido
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Habilitación de CDN de Azure
 
@@ -467,8 +500,9 @@ Para obtener información sobre el escalado de unidades de streaming, consulte: 
 
 [Conceptos de Servicios multimedia de Azure](media-services-concepts.md)
 
+[Especificación de la introducción en directo de MP4 fragmentado de Servicios multimedia de Azure](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

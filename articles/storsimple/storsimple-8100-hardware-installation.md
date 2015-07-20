@@ -4,15 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
+   ms.date="07/08/2015"
    ms.author="v-sharos" />
 
 # Instalar el dispositivo StorSimple 8100
@@ -45,9 +45,9 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
 
 2. Desempaquete la caja. En la siguiente imagen se muestra el dispositivo StorSimple de Azure desempaquetado.
 
-    **Figura 1 Vista del dispositivo de almacenamiento desempaquetado**
-
      ![Desempaquetar el dispositivo de almacenamiento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+
+    **Figura 1: Vista del dispositivo de almacenamiento desempaquetado**
 
      Etiqueta | Descripción 
      ----- | -------------
@@ -113,14 +113,14 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
 
 2. Normalmente, las guías vienen instaladas de fábrica. En caso contrario, instale las guías del lado izquierdo y derecho en los laterales del chasis del receptáculo. Estas se instalan mediante seis tornillos métricos en cada lado. Para ayudarle con la orientación, las guías disponen de las marcas **LH – Front** y **RH – Front**, y el extremo que se fija en la parte trasera del receptáculo tiene un extremo ahusado.<br/>
 
-    **Figura 2 Fijación de guías a los laterales del receptáculo**
-
     ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    Etiqueta | Descripción
+   **Figura 2: Fijación de guías a los laterales del receptáculo**
+
+    Label | Description
     ----- | -----------
-    1 | Tornillos de cabeza de botón M 3 x 4
-    2 | Guías de chasis
+    1     | M 3x4 button-head screws
+    2     | Chassis slides
 
 3. Instale los ensamblajes de las guías del lado izquierdo y derecho en los miembros verticales del armario del bastidor. Los soportes presentan las marcas **LH**, **RH** y **This side up** para guiarle a la hora de efectuar la orientación correcta.
 
@@ -130,9 +130,9 @@ Se proporciona un conjunto de guías de montaje para utilizar con el armario de 
 
 6. Repita estos pasos con el otro soporte de la guía.<br/>
 
-    **Figura 3 Fijación de soportes de guía en el bastidor**
-
      ![Fijación de las guías al armario del chasis](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **Figura 3: Fijación de soportes de guía en el bastidor**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -152,18 +152,18 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
 
 2. Inserte cuidadosamente el dispositivo en las guías y, a continuación, empuje el dispositivo completamente en el armario del bastidor.<br/>
 
-    **Figura 4 Montaje del dispositivo en el bastidor**
-
     ![Inserción del dispositivo en el bastidor](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **Figura 4: Montaje del dispositivo en el bastidor**
 
 3. Fije el receptáculo en el bastidor mediante la instalación de un tornillo de cabeza compatible con un tornillo de cabeza Phillips proporcionado a través de cada brida, izquierda y derecha.
 
 4. Presione los topes de las bridas en su posición para ajustarlos.<br/>
 
-    **Figura 5 Instalación de los topes de las bridas**
-
      ![Instalación de los topes de las bridas](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
+    **Figura 5: Instalación de los topes de las bridas**
+
      Etiqueta | Descripción
      ----- | -----------
      1 | Tornillo de fijación del receptáculo
@@ -213,10 +213,9 @@ Realice los pasos siguientes para pasar los cables de alimentación del disposit
 
     >[AZURE.NOTE]Para garantizar una alta disponibilidad del sistema, debe cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado.
 
+    ![Colocación del cable de alimentación del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
-    **Figura 6 Cables de alimentación del dispositivo**
-
-     ![Colocación del cable de alimentación del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
+    **Figura 6: Cables de alimentación del dispositivo**
 
      Etiqueta | Descripción
      ----- | -----------
@@ -236,9 +235,9 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 1. El dispositivo tiene seis interfaces de red en cada controlador: cuatro puertos Ethernet de 1 Gbps y dos de 10 Gbps. Identifique los distintos puertos de datos de la placa posterior del dispositivo.
 
-    **Figura 7 Parte posterior de dispositivo en la que se muestran los puertos de datos**
-
     ![Panel posterior del dispositivo 8100](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **Figura 7: Parte posterior de dispositivo en la que se muestran los puertos de datos**
  
      Etiqueta | Descripción
      ------- | -----------
@@ -255,21 +254,21 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
     2. Interfaces de cada controlador a al menos dos conmutadores diferentes para garantizar la disponibilidad si se produce un error de conmutador.
     3. El puerto DATA 0 a la LAN principal (red con acceso a Internet). Los demás puertos de datos pueden conectarse al segmento de la LAN SAN/iSCSI (VLAN) de la red, dependiendo del rol deseado.
 
-   Como mínimo, configure una interfaz de red para el acceso a la nube y otro para iSCSI. Para obtener una alta disponibilidad y rendimiento, configure dos pares de interfaces de red en cada controlador. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
+    Como mínimo, configure una interfaz de red para el acceso a la nube y otro para iSCSI. Para obtener una alta disponibilidad y rendimiento, configure dos pares de interfaces de red en cada controlador. Consulte el siguiente diagrama de cableado de red. (La configuración de red mínima se muestra mediante líneas azules continuas. Para obtener un alto rendimiento y disponibilidad, la configuración adicional requerida se muestra mediante líneas de puntos).
 
-   **Figura 8 Cables de red del dispositivo**
+    ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-   ![Colocación del cable de red del dispositivo 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    **Figura 8: Cables de red del dispositivo**
 
-    Label | Description
+    Etiqueta | Descripción
     ----- | -----------
-     A    | LAN with Internet access
-     B    | Controller 0
-     C    | PCM 0
-     D    | Controller 1
-     E    | PCM 1
-     F,G  | Hosts
-     0-5  | Network interfaces
+     Encontrará | LAN con acceso a Internet
+     B | Controlador 0
+     C | PCM 0
+     D | Controlador 1
+     E | PCM 1
+     F, G | Hosts
+     0-5 | Interfaces de red
    
 ### Cableado del puerto serie
 
@@ -298,4 +297,4 @@ Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la r
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

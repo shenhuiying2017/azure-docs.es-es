@@ -14,17 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/07/2015"
 	ms.author="genemi"/>
 
 
 # Planeación y preparación para actualizar a SQL Database V12
-
-
-<!-- What is being changed this time?:
-GeneMi , 2015-May-15 14:31pm
-Powershell cmdlets.
--->
 
 
 En este tema se describen la planificación y los preparativos que deben realizarse para actualizar las bases de datos SQL de Azure de la versión V11 a la versión V12 ([en vista previa en algunas regiones](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)).
@@ -54,9 +48,9 @@ En las siguientes subsecciones se describe el aprendizaje y la toma de decisione
 Este documento se refiere a la actualización de la base de datos SQL de Microsoft Azure de la versión V11 a la V12. Más formalmente, los números de versión están próximos a los dos valores siguientes, como informa la instrucción **SELECT @@version;** de Transact-SQL:
 
 
-- 11.0.9228.18 *(V11)*
 - 12.0.2000.8 *(o algo superior, V12)*
-
+- 11.0.9228.18 *(V11)*
+ - En ocasiones, V11 también se conoce como SAWA v2.
 
 ### Planificación del nivel de servicio
 
@@ -156,9 +150,12 @@ Como alternativa, puede utilizar SQL Server Management Studio (SSMS) 2014 con [C
 ### Limitación *durante* la actualización a V12
 
 
+La base de datos V11 sigue estando disponible para el acceso a los datos durante la actualización a V12. Sin embargo, existen algunas limitaciones que deben considerarse.
+
+
 | Limitación | Descripción |
 | :--- | :--- |
-| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas o incluso días en ejecutarse para los servidores, especialmente para los servidores que tiene bases de datos:<br/><br/>* Mayores de 50 GB o <br/>* En un nivel de servicio no premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
+| Duración de la actualización | La duración de la actualización depende del tamaño, edición y número de bases de datos del servidor. El proceso de actualización puede tardar horas, o incluso días, en ejecutarse para los servidores, especialmente para aquellos que tiene bases de datos:<br/><br/>* Con más de 50 GB o <br/>* Sin nivel de servicio Premium <br/><br/>La creación de nuevas bases de datos en el servidor durante la actualización también puede aumentar la duración de la actualización. |
 | Sin replicación geográfica | No se admite la replicación geográfica en un servidor V12 que está implicado actualmente en una actualización desde V11. |
 
 
@@ -245,5 +242,6 @@ Si la actualización falla por algún extraño motivo, la base de datos V11 perm
 
 <!--Anchors-->
 [Subheading 1]: #subheading-1
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

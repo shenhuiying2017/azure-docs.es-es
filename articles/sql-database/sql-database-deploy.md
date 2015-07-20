@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Implementación de una base de datos SQL - Azure" 
-	description="Obtenga información acerca de cómo implementar una base de datos de SQL Server en Azure. Usará el Asistente de implementación de la base de datos en Base de datos SQL para cargar una base de datos de ejemplo." 
+	pageTitle="Implementación de una base de datos SQL en SQL de Azure" 
+	description="Implemente una base de datos de SQL Server en Base de datos SQL de Azure mediante el Asistente de SQL Server 2016 Management Studio." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="sidneyh" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,35 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="07/01/2015" 
+	ms.author="sidneyh"/>
 
 
+# Implementación de una base de datos de SQL Server en Base de datos SQL de Azure.
 
+En este artículo, usará el **Asistente para implementar una base de datos en Base de datos SQL de Azure** para cargar una base de datos de ejemplo en Base de datos SQL de Azure. Debe descargar **SQL Server 2016 Management Studio (CTP 2.1)** para este tutorial.
 
+Tiempo estimado para completarlo: 15 minutos (incluye el tiempo de descarga)
 
+> [AZURE.NOTE]Este tutorial usa una base de datos de ejemplo "school" muy sencilla; todos sus objetos son compatibles con Base de datos SQL de Azure, por lo que no es necesario modificar o preparar la base de datos para la migración. Si va a migrar una base de datos existente más compleja, también podría utilizar el [Asistente para migración de Base de datos SQL](http://sqlazuremw.codeplex.com/) y ver esta [información general](sql-database-cloud-migrate.md).
 
-<h1><a id="howtodeploySQLdb"></a>Implementación de una base de datos en Azure</h1>
+## Requisitos previos
 
-Existen diferentes formas de trasladar una base de datos SQL Server local a Azure. En esta tarea, usará el Asistente de implementación de la base de datos en Base de datos SQL para cargar una base de datos de ejemplo.
+Una **cuenta de Microsoft Azure**. Para una prueba gratuita, vea esta [oferta](http://azure.microsoft.com/pricing/free-trial/).
 
-La base de datos de ejemplo School es muy sencilla; todos sus objetos son compatibles con Base de datos SQL, por lo que no es necesario modificar o preparar la base de datos para la migración. Como nuevo administrador, intente implementar una base de datos simple antes de conocer el procedimiento para usar sus propias bases de datos. 
+Descargue [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx). (Para obtener más información acerca de la herramienta, vea [SQL Server Management Studio - Notas de la versión de junio de 2015](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-**Nota:** revise la guía para la migración de Base de datos de SQL para obtener instrucciones detalladas sobre cómo preparar una base de datos local para la migración a Azure. Además, considere la posibilidad de descargar el kit de formación de Azure que incluye un laboratorio que muestra un enfoque alternativo a la migración de una base de datos local.
+Un servidor existente en Base de datos SQL de Azure. Para obtener instrucciones sobre cómo crear una nueva base de datos (en un nuevo servidor), vea [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 
+## la base de datos School en un servidor local
 
-<h2><a id="schooldb"></a>Codificación de la base de datos School en un servidor local</h2>
+Ejecute los scripts en SQL Server Management Studio (SSMS) para crear una versión local de la base de datos "school".
 
-Puede encontrar los scripts para la creación de esta base de datos en [Introducción a la administración de Base de datos SQL][]. En esta guía, ejecutará los scripts en Management Studio para crear una versión local de la base de datos School.
+1. En SSMS, conéctese a un servidor local. Haga clic con el botón derecho en **Bases de datos**, haga clic en **Nueva base de datos** y escriba *school*.
 
-1. En Management Studio, conéctese a un servidor local. Haga clic en **Bases de datos**, haga clic en **Nueva base de datos**y escriba *school*.
+2. Haga clic con el botón derecho en *school* y haga clic en **Nueva consulta**.
 
-2. Haga doble clic en *school*, haga clic en **Nueva consulta**. 
-
-3. Copie y ejecute el script de creación de esquema del tutorial. 
+3. Copie y ejecute este script:
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
-	-- Create the Department table.
+	-- Crear la tabla Department.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 	   	WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
 	  	AND type in (N'U'))
@@ -60,7 +63,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
     END;
 	GO
 
-	-- Create the Person table.
+	-- Crear la tabla Person.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Person]') 
 		AND type in (N'U'))
@@ -79,7 +82,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	-- Create the OnsiteCourse table.
+	-- Crear la tabla OnsiteCourse.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]') 
 		AND type in (N'U'))
@@ -97,7 +100,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	-- Create the OnlineCourse table.
+	-- Crear la tabla OnlineCourse.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OnlineCourse]') 
 		AND type in (N'U'))
@@ -113,7 +116,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	--Create the StudentGrade table.
+	--Crear la tabla StudentGrade.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[StudentGrade]') 
 		AND type in (N'U'))
@@ -131,7 +134,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	-- Create the CourseInstructor table.
+	-- Crear la tabla CourseInstructor.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[CourseInstructor]') 
 		AND type in (N'U'))
@@ -148,7 +151,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	-- Create the Course table.
+	-- Crear la tabla Course.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Course]') 
 		AND type in (N'U'))
@@ -166,7 +169,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	-- Create the OfficeAssignment table.
+	-- Crear la tabla OfficeAssignment.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]')
 		AND type in (N'U'))
@@ -183,7 +186,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	END;
 	GO
 
-	-- Define the relationship between OnsiteCourse and Course.
+	-- Definir la relación entre OnsiteCourse y Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnsiteCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnsiteCourse]'))
@@ -195,7 +198,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
        CONSTRAINT [FK_OnsiteCourse_Course];
 	GO
 
-	-- Define the relationship between OnlineCourse and Course.
+	-- Definir la relación entre OnlineCourse y Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_OnlineCourse_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[OnlineCourse]'))
@@ -206,7 +209,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	ALTER TABLE [dbo].[OnlineCourse] CHECK 
        CONSTRAINT [FK_OnlineCourse_Course];
 	GO
-	-- Define the relationship between StudentGrade and Course.
+	-- Definir la relación entre StudentGrade y Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Course]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))
@@ -218,7 +221,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
        CONSTRAINT [FK_StudentGrade_Course];
 	GO
 
-	--Define the relationship between StudentGrade and Student.
+	--Definir la relación entre StudentGrade y Student.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_StudentGrade_Student]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[StudentGrade]'))	
@@ -230,7 +233,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
        CONSTRAINT [FK_StudentGrade_Student];
 	GO
 
-	-- Define the relationship between CourseInstructor and Course.
+	-- Definir la relación entre CourseInstructor y Course.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
   	 WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Course]')
   	 AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
@@ -242,7 +245,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
  	  CONSTRAINT [FK_CourseInstructor_Course];
 	GO
 
-	-- Define the relationship between CourseInstructor and Person.
+	-- Definir la relación entre CourseInstructor y Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
  	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_CourseInstructor_Person]')
 	   AND parent_object_id = OBJECT_ID(N'[dbo].[CourseInstructor]'))
@@ -254,7 +257,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
   	 CONSTRAINT [FK_CourseInstructor_Person];
 	GO
 
-	-- Define the relationship between Course and Department.
+	-- Definir la relación entre Course y Department.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
        WHERE object_id = OBJECT_ID(N'[dbo].[FK_Course_Department]')
        AND parent_object_id = OBJECT_ID(N'[dbo].[Course]'))
@@ -265,7 +268,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 	ALTER TABLE [dbo].[Course] CHECK CONSTRAINT [FK_Course_Department];
 	GO
 
-	--Define the relationship between OfficeAssignment and Person.
+	--Definir la relación entre OfficeAssignment y Person.
 	IF NOT EXISTS (SELECT * FROM sys.foreign_keys 
 	  WHERE object_id = OBJECT_ID(N'[dbo].[FK_OfficeAssignment_Person]')
  	  AND parent_object_id = OBJECT_ID(N'[dbo].[OfficeAssignment]'))
@@ -281,7 +284,7 @@ Puede encontrar los scripts para la creación de esta base de datos en [Introduc
 A continuación, copie y ejecute el script de inserción de datos.
 
 <div style="width:auto; height:300px; overflow:auto"><pre>
-	-- Insert data into the Person table.
+	-- Insertar datos en la tabla Person.
 	SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
@@ -355,7 +358,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	GO
 	SET IDENTITY_INSERT dbo.Person OFF;
 	GO
-	-- Insert data into the Department table.
+	-- Insertar datos en la tabla Department.
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
 	VALUES (1, 'Engineering', 350000.00, '2007-09-01', 2);
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
@@ -365,7 +368,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	INSERT INTO dbo.Department (DepartmentID, [Name], Budget, StartDate, Administrator)
 	VALUES (7, 'Mathematics', 250000.00, '2007-09-01', 3);
 	GO
-	-- Insert data into the Course table.
+	-- Insertar datos en la tabla Course.
 	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
 	VALUES (1050, 'Chemistry', 4, 1);
 	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
@@ -387,7 +390,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	INSERT INTO dbo.Course (CourseID, Title, Credits, DepartmentID)
 	VALUES (3141, 'Trigonometry', 4, 7);
 	GO
-	-- Insert data into the OnlineCourse table.
+	-- Insertar datos en la tabla OnlineCourse.
 	INSERT INTO dbo.OnlineCourse (CourseID, URL)
 	VALUES (2030, 'http://www.fineartschool.net/Poetry');
 	INSERT INTO dbo.OnlineCourse (CourseID, URL)
@@ -396,7 +399,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	VALUES (4041, 'http://www.fineartschool.net/Macroeconomics');
 	INSERT INTO dbo.OnlineCourse (CourseID, URL)
 	VALUES (3141, 'http://www.fineartschool.net/Trigonometry');
-	--Insert data into OnsiteCourse table.
+	--Insertar datos en la tabla OnsiteCourse.
 	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
 	VALUES (1050, '123 Smith', 'MTWH', '11:30');
 	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
@@ -409,7 +412,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	VALUES (2042, '225 Adams', 'MTWH', '11:00');
 	INSERT INTO dbo.OnsiteCourse (CourseID, Location, Days, [Time])
 	VALUES (4022, '23 Williams', 'MWF', '9:00');
-	-- Insert data into the CourseInstructor table.
+	-- Insertar datos en la tabla CourseInstructor.
 	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
 	VALUES (1050, 1);
 	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
@@ -429,7 +432,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	INSERT INTO dbo.CourseInstructor(CourseID, PersonID)
 	VALUES (4061, 34);
 	GO
-	--Insert data into the OfficeAssignment table.
+	--Insertar datos en la tabla OfficeAssignment.
 	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
 	VALUES (1, '17 Smith');
 	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
@@ -448,7 +451,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 	VALUES (32, '203 Williams');
 	INSERT INTO dbo.OfficeAssignment(InstructorID, Location)
 	VALUES (34, '213 Smith');
-	-- Insert data into the StudentGrade table.
+	-- Insertar datos en la tabla StudentGrade.
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
 	VALUES (2021, 2, 4);
 	INSERT INTO dbo.StudentGrade (CourseID, StudentID, Grade)
@@ -531,68 +534,63 @@ A continuación, copie y ejecute el script de inserción de datos.
 	VALUES (1061, 30, 4);
 	GO
 </pre></div>
+Ahora dispone de una base de datos local que puede exportar a Azure. A continuación, ejecutará un asistente que crea un archivo .bacpac, lo carga en Azure y lo importa en Base de datos SQL.
 
-   Ahora dispone de una base de datos local que puede exportar a Azure. A continuación, ejecutará un asistente que crea un archivo .bacpac, lo carga en Azure y lo importa en Base de datos SQL.
+	
+## Implementación de una base de datos en SQL de Azure. 
+	
+1. En Management Studio, haga clic con el botón derecho en la base de datos school que acaba de crear, seleccione **Tareas** y haga clic en **Implementar base de datos en Base de datos SQL de Microsoft Azure**.
+2. En **Configuración de implementación**, escriba un nombre para la base de datos, como *school*.
+5. Haga clic en **Conectar**. Para solucionar problemas de conectividad, pruebe este [solucionador de problemas](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+6. En **Nombre de servidor**, escriba el nombre de servidor de 10 caracteres seguido de **.database.windows.net**.
+7. En **Autenticación**, elija **Autenticación de SQL Server**.
+8. Escriba el nombre de inicio de sesión y la contraseña de administrador que creó cuando aprovisionó el servidor lógico de Base de datos SQL.
+9. Haga clic en **Opciones**.
+10. En Propiedades de la conexión, en **Conectar con base de datos**, escriba **master**.
 
+	**Nota** Debe conectarse a la base de datos **master** siempre que desee crear una base de datos en el servidor de Base de datos SQL de Azure. 
+11. Haga clic en **Conectar**. Con este paso se completa la especificación de la conexión y se le redirige al asistente.
+12. Haga clic en **Siguiente** y en **Finalizar** para ejecutar el asistente.
 
-<h2><a id="deploydb"></a>Codificación en Base de datos SQL</h2>
+	
+## Comprobación de la implementación de la base de datos
+	
+1. En Management Studio, en **Explorador de objetos**, haga clic en el icono **Conectar**.
+2. En el cuadro de nombre **Servidor** escriba el nombre del servidor SQL de Azure, seguido de **database.windows.net**.
+3. En **Autenticación**, seleccione **Autenticación de SQL Server**.
+4. Escriba el nombre de inicio de sesión y la contraseña de administrador que creó cuando aprovisionó el servidor. 
+5. Haga clic en el botón **Opciones**.
+6. Haga clic en la lista desplegable **Conectar con base de datos** y haga clic en **Examinar el servidor**. En el siguiente cuadro de diálogo, haga clic en **Sí** para permitir el examen del servidor.
+7. Haga clic en la base de datos **school** para seleccionarla y, a continuación, haga clic en **Aceptar**. 
+8. Haga clic en **Conectar**. Para solucionar problemas de conectividad, pruebe este [solucionador de problemas](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1).
+2. Expanda la carpeta **Bases de datos**. Debe ver la base de datos **school** en la lista.
 
-1. En Management Studio, conéctese a una instancia de SQL Server local que cuente con una base de datos que desee migrar.
-
-2. Haga clic con el botón derecho en la base de datos School que acaba de crear, seleccione **Tareas** y haga clic en **Implementar base de datos en SQL Azure**.
-
-3. En Configuración de implementación, escriba un nombre para la base de datos, como *school*. 
-
-4. Haga clic en **Conectar**.
-
-5. En Server name, especifique un nombre de servidor de 10 caracteres seguido de .database.windows.net.
-
-6. En Authentication, seleccione **SQL Server Authentication**.
-
-7. Especifique el nombre de inicio de sesión y la contraseña de administrador que aprovisionó al crear el servidor lógico de Base de datos SQL.
-
-8. Haga clic en **Options**.
-
-9. En Connection Properties, en **Connect to database**, escriba **master**.
-
-10. Haga clic en **Conectar**. Con este paso se completa la especificación de la conexión y se le redirige al asistente.
-
-
-11. Haga clic en **Next** y en **Finish** para ejecutar el asistente.
-
-
-<h2><a id="verify"></a>Codificación de la implementación de la base de datos</h2>
-
-1. En Management Studio, en Object Explorer, actualice las bases de datos para ver la nueva que acaba de crear.
-
-2. Expanda la carpeta **Databases**. Debe ver la base de datos **school** en la lista.
-
-3. Haga clic con el botón secundario en la base de datos School y haga clic en **New Query**.
-
+	**Nota** Debe conectarse a la base de datos que desea consultar. 
+3. Haga clic con el botón derecho en **school** y haga clic en **Nueva consulta**.
 4. Ejecute la siguiente consulta para comprobar que es posible obtener acceso a los datos.
 
-<div style="width:auto; height:auto; overflow:auto"><pre>
-	SELECT
-		Course.Title as "Course Title"
-  		,Department.Name as "Department"
-  		,Person.LastName as "Instructor"
-  		,OnsiteCourse.Location as "Location"
-  		,OnsiteCourse.Days as "Days"
-  		,OnsiteCourse.Time as "Time"
-	FROM
- 	 Course
- 	 INNER JOIN Department
-  	  ON Course.DepartmentID = Department.DepartmentID
- 	 INNER JOIN CourseInstructor
- 	   ON Course.CourseID = CourseInstructor.CourseID
- 	 INNER JOIN Person
- 	   ON CourseInstructor.PersonID = Person.PersonID
- 	 INNER JOIN OnsiteCourse
+		SELECT
+			Course.Title as "Course Title"
+				,Department.Name as "Department"
+				,Person.LastName as "Instructor"
+				,OnsiteCourse.Location as "Location"
+				,OnsiteCourse.Days as "Days"
+				,OnsiteCourse.Time as "Time"
+		FROM
+			 Course
+			 INNER JOIN Department
+			  ON Course.DepartmentID = Department.DepartmentID
+			 INNER JOIN CourseInstructor
+			   ON Course.CourseID = CourseInstructor.CourseID
+			 INNER JOIN Person
+			   ON CourseInstructor.PersonID = Person.PersonID
+			 INNER JOIN OnsiteCourse
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
-</pre></div>
+		
+## Pasos siguientes
 
-[Introducción a la administración de Base de datos SQL]: /manage/services/sql-databases/getting-started-w-sql-databases/  
+Para obtener un tutorial sobre cómo crear una nueva base de datos SQL de Azure, consulte [Introducción a la administración de Base de datos SQL](sql-database-get-started.md). Para conocer los aspectos básicos de la conexión a una base de datos SQL de Azure desde una aplicación de C#, vea [Conexión y consultas a Base de datos SQL con C#](sql-database-connect-query.md). Para ver más tutoriales sobre la conexión desde varias plataformas (como PHP), vea [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos](https://msdn.microsoft.com/library/azure/ee621787.aspx).
 
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

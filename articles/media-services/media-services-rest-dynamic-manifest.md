@@ -361,4 +361,6 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 [Información general de manifiestos dinámicos](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

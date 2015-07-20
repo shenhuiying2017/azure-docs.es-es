@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/08/2015"
    ms.author="larryfr"/>
 
 #Desarrolle topologías basadas en Java para una aplicación básica de recuento de palabras con Apache Storm y Maven en HDInsight
@@ -30,7 +30,7 @@ Después de completar los pasos descritos en este documento, tendrá una topolog
 
 * Un editor de texto como Bloc de notas, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a>. O puede usar un entorno de desarrollo integrado (IDE), como <a href="https://eclipse.org/" target="_blank">Eclipse</a> (versión Luna o posterior).
 
-	> [AZURE.NOTE]El editor o IDE puede tener una funcionalidad específica para trabajar con Eclipse que no se trata en este documento. Para obtener información sobre las capacidades de su entorno de edición, consulte la documentación del producto que esté utilizando.
+	> [AZURE.NOTE]El editor o IDE puede tener una funcionalidad específica para trabajar con Maven que no se trata en este documento. Para obtener información sobre las capacidades de su entorno de edición, consulte la documentación del producto que esté utilizando.
 
 ##Configuración de las variables de entorno
 
@@ -42,7 +42,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 	* **JAVA_HOME** (o la ruta de acceso equivalente).
 
-	* **JAVA_HOME\bin** (o la ruta de acceso equivalente).
+	* **JAVA_HOME\\bin** (o la ruta de acceso equivalente).
 
 	* El directorio donde está instalado Maven
 
@@ -58,17 +58,17 @@ El directorio **WordCount** contendrá los siguientes elementos:
 
 * **pom.xml**: contiene la configuración del proyecto de Maven
 
-* **src\main\java\com\microsoft\example**: contiene el código de la aplicación
+* **src\\main\\java\\com\\microsoft\\example**: contiene el código de la aplicación
 
-* **src\test\java\com\microsoft\example**: contiene pruebas para la aplicación. En este ejemplo, no se crearán pruebas.
+* **src\\test\\java\\com\\microsoft\\example**: contiene pruebas para la aplicación. En este ejemplo, no se crearán pruebas.
 
 ###Supresión del código de ejemplo
 
 Dado que se creará una aplicación propia, elimine los archivos de la aplicación y las pruebas generadas:
 
-*  **src\test\java\com\microsoft\example\AppTest.java**
+*  **src\\test\\java\\com\\microsoft\\example\\AppTest.java**
 
-*  **src\main\java\com\microsoft\example\App.java**
+*  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
 ##Adición de dependencias
 
@@ -153,7 +153,7 @@ Para reducir los requisitos de la configuración de los orígenes de datos exter
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm Kafka</a>: un spout que lee desde Kafka.
 
-Para el spout, cree un nuevo archivo denominado **RandomSentenceSpout.java** en el directorio **src\main\java\com\microsoft\example** y use lo siguiente como contenido:
+Para el spout, cree un nuevo archivo denominado **RandomSentenceSpout.java** en el directorio **src\\main\\java\\com\\microsoft\\example** y use lo siguiente como contenido:
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -251,7 +251,7 @@ Los bolts controlan el procesamiento de datos. Para esta topología, hay dos bol
 
 > [AZURE.NOTE]Los bolts pueden hacer prácticamente todo; por ejemplo, cálculo, persistencia o hablar con componentes externos.
 
-Cree dos archivos nuevos, **SplitSentence.java** y **WordCount.Java** en el directorio **src\main\java\com\microsoft\example**. Use lo siguiente como contenido para los archivos:
+Cree dos archivos nuevos, **SplitSentence.java** y **WordCount.Java** en el directorio **src\\main\\java\\com\\microsoft\\example**. Use lo siguiente como contenido para los archivos:
 
 **SplitSentence**
 
@@ -285,7 +285,7 @@ Cree dos archivos nuevos, **SplitSentence.java** y **WordCount.Java** en el dire
           //get the word
           String word=sentence.substring(start,end);
           //If a word is whitespace characters, replace it with empty
-          word=word.replaceAll("\s+","");
+          word=word.replaceAll("\\s+","");
           //if it's an actual word, emit it
           if (!word.equals("")) {
             collector.emit(new Values(word));
@@ -352,7 +352,7 @@ Lo siguiente es un diagrama básico del gráfico de componentes para esta topolo
 
 ![diagrama que muestra la disposición de los spouts y bolts](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-Para implementar la topología, cree un nuevo archivo denominado **WordCountTopology.java** en el directorio **src\main\java\com\microsoft\example**. Use lo siguiente como contenido del archivo:
+Para implementar la topología, cree un nuevo archivo denominado **WordCountTopology.java** en el directorio **src\\main\\java\\com\\microsoft\\example**. Use lo siguiente como contenido del archivo:
 
 	package com.microsoft.example;
 
@@ -465,6 +465,5 @@ Ha aprendido a crear una topología de Storm con Java. Ahora obtenga informació
 * [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Puede encontrar más topologías de ejemplo de Storm en [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md).
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

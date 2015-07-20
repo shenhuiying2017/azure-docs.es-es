@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Creación de un conjunto de disponibilidad con las plantillas del Administrador de recursos de Azure" 
-	description="Describe cómo utilizar la plantilla del conjunto de disponibilidad e incluye la sintaxis de la plantilla" 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Creación de un conjunto de disponibilidad con las plantillas del Administrador de recursos de Azure"
+	description="Describe cómo utilizar la plantilla del conjunto de disponibilidad e incluye la sintaxis de la plantilla"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/04/2015"
 	ms.author="kathydav"/>
 
 # Creación de un conjunto de disponibilidad con las plantillas del Administrador de recursos de Azure
 
 Puede crear fácilmente un conjunto de disponibilidad para una máquina virtual con Azure PowerShell o la línea de comandos (CLI) de Azure y una plantilla del Administrador de recursos. Esta plantilla crea un conjunto de disponibilidad.
- 
-Antes de profundizar, asegúrese de tener Azure, PowerShell y CLI de Azure configurados y listos para usar.
+
+Antes de comenzar, asegúrese de tener Azure, PowerShell y CLI de Azure configurados y listos para usar.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
@@ -33,7 +33,7 @@ Siga estos pasos para crear una máquina virtual mediante una plantilla del Admi
 
 ### Paso 1: Descarga del archivo JSON
 
-Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\Azure\Templates\availability).
+Designe una carpeta local como ubicación de los archivos de la plantilla JSON y créela (por ejemplo, C:\\Azure\\Templates\\availability).
 
 Cambie el nombre de la carpeta y, a continuación, copie y ejecute estos comandos.
 
@@ -41,14 +41,14 @@ Cambie el nombre de la carpeta y, a continuación, copie y ejecute estos comando
 	$webclient = New-Object System.Net.WebClient
 	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath) 
+	$webclient.DownloadFile($url,$filePath)
 
 ### Paso 2: Recopilación de los detalles de los parámetros obligatorios
 
-Cuando se utiliza una plantilla, necesitará para proporcionar detalles como la ubicación, el nombre del conjunto, etc. Para averiguar qué parámetros son necesarios para una plantilla, realice una de las acciones siguientes:
+Cuando se utiliza una plantilla, necesitará para proporcionar detalles como la ubicación y el nombre del conjunto. Para averiguar qué parámetros son necesarios para una plantilla, realice una de las acciones siguientes:
 
 - Revise la lista de parámetros [aquí](http://azure.microsoft.com/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
-- Abra el archivo JSON en un editor de texto o la herramienta de su elección. Busque la sección "parameters" en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar la máquina virtual. 
+- Abra el archivo JSON en un editor de texto o la herramienta de su elección. Busque la sección "parameters" en la parte superior del archivo, que muestra el conjunto de parámetros que necesita la plantilla para configurar la máquina virtual.
 
 Recopile la información necesaria para tenerla preparada para escribirla. Al ejecutar el comando para implementar la plantilla, se le pedirá la información.
 
@@ -63,7 +63,7 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos, u
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\availability>" 
+	$folderName="<folder name, such as C:\Azure\Templates\availability>"
 	$templateFile= $folderName + "\azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
@@ -103,10 +103,4 @@ Siga estos pasos para crear el conjunto de disponibilidad mediante una plantilla
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-
-
-
-
- 
-
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

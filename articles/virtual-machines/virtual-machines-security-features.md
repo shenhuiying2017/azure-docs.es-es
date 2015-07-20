@@ -40,4 +40,7 @@ Las listas de control de acceso (ACL) de red ofrecen la posibilidad de permitir 
 ##Recursos adicionales
 [Recursos](http://azure.microsoft.com/support/trust-center/resources/) del Centro de confianza de Microsoft Azure
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

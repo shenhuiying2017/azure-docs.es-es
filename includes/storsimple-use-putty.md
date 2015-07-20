@@ -1,4 +1,5 @@
 
+
 #### Para conectarse a través de la consola serie
 
 1. Conecte el cable serie al dispositivo (directamente o a través de un adaptador USB-serie).
@@ -29,4 +30,4 @@
 7. Haga clic en **Abrir** para iniciar una sesión en serie.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

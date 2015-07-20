@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Acceso a conjuntos de datos desde Python con la biblioteca de cliente de Python de Aprendizaje automático | Azure" 
+	pageTitle="Acceso a conjuntos de datos con la biblioteca de cliente de Python de Aprendizaje automático | Microsoft Azure" 
 	description="Instale y use la biblioteca de cliente de Python para tener acceso y administrar datos de Aprendizaje automático de Azure de forma segura desde un entorno local de Python." 
 	services="machine-learning" 
 	documentationCenter="python" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/07/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -80,12 +80,15 @@ Si su rol no está establecido como **Propietario**, puede solicitar que se le v
 
 Para obtener el token de autorización, puede realizar una de las acciones siguientes:
 
-1. Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens principales y secundarios. ![](http://i.imgur.com/h33GoZX.jpg) Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
+1. Solicite un token a un propietario. Los propietarios pueden tener acceso a sus tokens de autorización en la página Configuración de su área de trabajo en el Estudio. Seleccione **Configuración** en el panel izquierdo y haga clic en **TOKENS DE AUTORIZACIÓN** para ver los tokens principales y secundarios. Aunque se pueden utilizar los tokens de autorización principales y secundarios, se recomienda que los propietarios solo compartan los tokens de autorización secundarios.
+
+    ![](http://i.imgur.com/h33GoZX.jpg)
+
 2. Pida que le amplíen al rol de propietario. Para ello, un propietario actual del área de trabajo debe quitarle primero del área de trabajo y, a continuación, volver a invitarle como propietario.
 
 Una vez que los desarrolladores han obtenido el identificador de área de trabajo y el token de autorización, podrán tener acceso al área de trabajo usando el fragmento de código independientemente de su rol.
 
-Los tokens de autorización se administran en la página  **TOKENS DE AUTORIZACIÓN**, en **CONFIGURACIÓN**. Puede volver a generarlos, pero este procedimiento revoca el acceso al token anterior.
+Los tokens de autorización se administran en la página **TOKENS DE AUTORIZACIÓN**, en **CONFIGURACIÓN**. Puede volver a generarlos, pero este procedimiento revoca el acceso al token anterior.
 
 ### <a name="accessingDatasets"></a>Obtener acceso a los conjuntos de datos desde una aplicación local de Python
 
@@ -362,5 +365,6 @@ Si sus datos ya están serializados, puede utilizar`update_from_raw_data` en lug
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

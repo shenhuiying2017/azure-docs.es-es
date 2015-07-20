@@ -380,7 +380,7 @@ La sección **“resources”** es donde ocurre la mayor parte de la acción. Al
 	      }
 	    },
 
-A partir de este primer ejemplo está claro que **azuredeploy.json** se ha organizado en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
+A partir de este primer ejemplo está claro que **azuredeploy.json** se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
 
 En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
 
@@ -499,5 +499,6 @@ Básicamente, se sugiere este enfoque para:
 -	Para todas las tareas de implementación posteriores (por ejemplo, instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

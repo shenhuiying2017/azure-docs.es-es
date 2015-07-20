@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Empezar con la primera aplicación de Búsqueda de Azure en .NET | Microsoft Azure" 
-	description="Tutorial sobre cómo crear una solución de Visual Studio usando la biblioteca de cliente .NET desde el SDK de .NET para Búsqueda de Azure." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Empezar con la primera aplicación de Búsqueda de Azure en .NET | Microsoft Azure"
+	description="Tutorial sobre cómo crear una solución de Visual Studio usando la biblioteca de cliente .NET desde el SDK de .NET para Búsqueda de Azure."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #Comenzar con la primera aplicación de Búsqueda de Azure en .NET#
@@ -32,32 +32,32 @@ En esta aplicación, el programa **DataIndexer** compila y carga el índice usan
 
 > [AZURE.NOTE]Se aplicó un filtro a este conjunto de datos para no sobrepasar el límite de 10.000 documentos del nivel de precios gratuito. Si usa el nivel estándar, este límite no se aplica. Para obtener más información acerca de la capacidad de cada nivel de precios, consulte [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-##Crear el servicio##
+##Creación del servicio##
 
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
- 
+
      ![][1]
 
-3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se pueden cambiar una vez que se aprovisiona el servicio.
+3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se puede cambiar una vez que se aprovisiona el servicio.
 
      ![][2]
 
-	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura. 
-	
+	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura.
+
 	- **Nivel de precios** determina la capacidad y la facturación. Los dos niveles proporcionan las mismas características, pero con niveles de recursos distintos.
-	
+
 		- **Gratuito** se ejecuta en clústeres que se comparten con otros suscriptores. Ofrece suficiente capacidad para probar tutoriales y escribir código de prueba de concepto, pero no está destinado a aplicaciones de producción. Implementar un servicio gratuito suele llevar pocos minutos.
 		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos quince minutos.
-	
+
 	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, Sitios web Azure, almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
-	
+
 	- **Suscripción** permite elegir entre varias suscripciones, si tiene más de una.
-	
+
 	- **Ubicación** es la región del centro de datos. Actualmente, todos los recursos se deben ejecutar en el mismo centro de datos. No se admite la distribución de recursos entre varios centros de datos.
 
-4. Haga clic en **Crear** para aprovisionar el servicio.
+4. Haga clic en **Crear** para realizar el aprovisionamiento del servicio.
 
 Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
@@ -66,7 +66,7 @@ Preste atención a las notificaciones de la barra de salto. Cuando el servicio e
 
 Después de crear el servicio, puede volver al portal para obtener la dirección URL o la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
-1. En la barra de salto, haga clic en **Inicio** y, después, haga clic en el servicio de búsqueda para abrir el panel del servicio. 
+1. En la barra de salto, haga clic en **Inicio** y, después, haga clic en el servicio de búsqueda para abrir el panel del servicio.
 
 2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -79,15 +79,15 @@ Después de crear el servicio, puede volver al portal para obtener la dirección
 Esta solución incluirá dos proyectos:
 
 - **DataIndexer**, una aplicación de consola de Visual C# que se usa para cargar datos
-- **SimpleSearchMVCApp**, una aplicación web ASP.NET MVC de Visual C# que se usa para consultar y devolver resultados de búsqueda. 
+- **SimpleSearchMVCApp**, una aplicación web ASP.NET MVC de Visual C# que se usa para consultar y devolver resultados de búsqueda.
 
 En este paso, creará ambos proyectos.
 
-1. Inicie **Visual Studio** | **Nuevo proyecto** | **Visual C#** | **Aplicación de consola**. 
+1. Inicie **Visual Studio** | **Nuevo proyecto** | **Visual C#** | **Aplicación de consola**.
 2. Asigne el nombre **DataIndexer** al proyecto y, después, asigne el nombre **AzureSearchDotNetDemo** a la solución.
-3. En el Explorador de soluciones, en la solución, haga clic con el botón derecho en **Agregar** | **Nuevo proyecto** | **Visual C#** | **Aplicación web ASP.NET**. 
+3. En el Explorador de soluciones, en la solución, haga clic con el botón derecho en **Agregar** | **Nuevo proyecto** | **Visual C#** | **Aplicación web ASP.NET**.
 4. Asigne el nombre **SimpleSearchMVCApp** al proyecto.
-5. En el nuevo proyecto de ASP.NET, elija la plantilla MVC y desactive las opciones para evitar crear artefactos de programa que no va a usar en este tutorial. 
+5. En el nuevo proyecto de ASP.NET, elija la plantilla MVC y desactive las opciones para evitar crear artefactos de programa que no va a usar en este tutorial.
 
    Desactive las casillas de hospedaje de Azure y pruebas unitarias, y establezca la autenticación en ninguna.
 
@@ -99,7 +99,7 @@ Cuando haya terminado de crear los proyectos, la solución tendrá un aspecto si
 
 ##Instalar la biblioteca de cliente .NET y actualizar otros paquetes
 
-1. Haga clic con el botón secundario en **Administrar paquetes de NuGet** en la solución, en el Explorador de soluciones. 
+1. Haga clic con el botón secundario en **Administrar paquetes de NuGet** en la solución, en el Explorador de soluciones.
 2. Especifique **Actualizaciones** | **Solo estable** | **Actualizar todo**.
 
    ![][11]
@@ -120,20 +120,20 @@ A continuación se muestra una lista parcial de los ensamblados usados en este e
 
 **DataIndexer** usa **System.Configuration** para leer los valores de configuración de app.config.
 
-1. Haga clic en **DataIndexer** | **Agregar** | **Referencia** | **Framework** | **System.Configuration**. Active la casilla. 
+1. Haga clic en **DataIndexer** | **Agregar** | **Referencia** | **Framework** | **System.Configuration**. Active la casilla.
 2. Haga clic en **Aceptar**.
 
 ##Actualizar los archivos de configuración
 
 Cada proyecto incluye archivos de configuración que especifican el nombre del servicio y la clave de API.
 
-1. En **DataIndexer**, reemplace App.config por el siguiente ejemplo y actualice [SERVICE NAME] y [SERVICE KEY] con valores que sean válidos para el servicio. 
+1. En **DataIndexer**, reemplace App.config por el siguiente ejemplo y actualice [SERVICE NAME] y [SERVICE KEY] con valores que sean válidos para el servicio.
 
    El nombre del servicio no es la dirección URL completa. Por ejemplo, si el extremo de servicio de Búsqueda es *https://mysearchsrv.search.microsoft.net*, el nombre de servicio que escribirá en App.config es *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
-	      <startup> 
+	      <startup>
 	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	      </startup>
 	      <appSettings>
@@ -143,7 +143,7 @@ Cada proyecto incluye archivos de configuración que especifican el nombre del s
 	    </configuration>
 
 2. En **SimpleSearchMVCApp**, reemplace Web.config por el ejemplo siguiente y vuelva a actualizar [SERVICE NAME] y [SERVICE KEY] con valores que sean válidos para el servicio.
-		
+
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
 		  For more information on how to configure your ASP.NET application, please visit
@@ -160,7 +160,7 @@ Cada proyecto incluye archivos de configuración que especifican el nombre del s
 		  <appSettings>
 		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
 		    <add key="SearchServiceApiKey" value="[API KEY]" />
-		
+
 		    <add key="webpages:Version" value="2.0.0.0" />
 		    <add key="webpages:Enabled" value="false" />
 		    <add key="PreserveLoginUrl" value="true" />
@@ -287,34 +287,34 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 3. Reemplace el código predeterminado por el siguiente.
 
 		//Copyright 2015 Microsoft
-		
+
 		//Licensed under the Apache License, Version 2.0 (the "License");
 		//you may not use this file except in compliance with the License.
 		//You may obtain a copy of the License at
-		
+
 		//       http://www.apache.org/licenses/LICENSE-2.0
-		
+
 		//Unless required by applicable law or agreed to in writing, software
 		//distributed under the License is distributed on an "AS IS" BASIS,
 		//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 		//See the License for the specific language governing permissions and
 		//limitations under the License.
-		
+
 		using System;
 		using System.Net.Http;
 		using System.Text;
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Converters;
 		using Newtonsoft.Json.Serialization;
-		
+
 		namespace DataIndexer
 		{
 		    public class AzureSearchHelper
 		    {
 		        public const string ApiVersionString = "api-version=2015-02-28";
-		
+
 		        private static readonly JsonSerializerSettings _jsonSettings;
-		
+
 		        static AzureSearchHelper()
 		        {
 		            _jsonSettings = new JsonSerializerSettings
@@ -323,36 +323,36 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                ContractResolver = new CamelCasePropertyNamesContractResolver(),
 		                DateTimeZoneHandling = DateTimeZoneHandling.Utc
 		            };
-		
+
 		            _jsonSettings.Converters.Add(new StringEnumConverter());
 		        }
-		
+
 		        public static string SerializeJson(object value)
 		        {
 		            return JsonConvert.SerializeObject(value, _jsonSettings);
 		        }
-		
+
 		        public static T DeserializeJson<T>(string json)
 		        {
 		            return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
 		        }
-		
+
 		        public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
 		        {
 		            UriBuilder builder = new UriBuilder(uri);
 		            string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
 		            builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
-		
+
 		            var request = new HttpRequestMessage(method, builder.Uri);
-		
+
 		            if (json != null)
 		            {
 		                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 		            }
-		
+
 		            return client.SendAsync(request).Result;
 		        }
-		
+
 		        public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
 		        {
 		            if (!response.IsSuccessStatusCode)
@@ -386,24 +386,24 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		using System.Threading;
 		using System.Threading.Tasks;
 		using System.Timers;
-		
+
 		namespace DataIndexer
 		{
 		    class Program
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        // This Sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		            string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		            // Create an HTTP reference to the catalog index
 		            _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		            _indexClient = _searchClient.Indexes.GetClient("geonames");
-		
+
 		            Console.WriteLine("{0}", "Deleting index...\n");
 		            if (DeleteIndex())
 		            {
@@ -415,7 +415,7 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
 		            Console.ReadKey();
 		        }
-		
+
 		        private static bool DeleteIndex()
 		        {
 		            // Delete the index if it exists
@@ -429,10 +429,10 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                Console.WriteLine("Did you remember to add your SearchServiceName and SearchServiceApiKey to the app.config?\r\n");
 		                return false;
 		            }
-		
+
 		            return true;
 		        }
-		
+
 		        private static void CreateIndex()
 		        {
 		            // Create the Azure Search index based on the included schema
@@ -441,8 +441,8 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                var definition = new Index()
 		                {
 		                    Name = "geonames",
-		                    Fields = new[] 
-		                    { 
+		                    Fields = new[]
+		                    {
 		                        new Field("FEATURE_ID",     DataType.String)         { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_NAME",   DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_CLASS",  DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
@@ -459,23 +459,23 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                        new Field("DATE_EDITED",    DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true}
 		                    }
 		                };
-		
+
 		                _searchClient.Indexes.Create(definition);
 		            }
 		            catch (Exception ex)
 		            {
 		                Console.WriteLine("Error creating index: {0}\r\n", ex.Message.ToString());
 		            }
-		
+
 		        }
-		
+
 		        private static void SyncDataFromAzureSQL()
 		        {
 		            // This will use the Azure Search Indexer to synchronize data from Azure SQL to Azure Search
 		            Uri _serviceUri = new Uri("https://" + ConfigurationManager.AppSettings["SearchServiceName"] + ".search.windows.net");
 		            HttpClient _httpClient = new HttpClient();
 		            _httpClient.DefaultRequestHeaders.Add("api-key", ConfigurationManager.AppSettings["SearchServiceApiKey"]);
-		
+
 		            Console.WriteLine("{0}", "Creating Data Source...\n");
 		            Uri uri = new Uri(_serviceUri, "datasources/usgs-datasource");
 		            string json = "{ 'name' : 'usgs-datasource','description' : 'USGS Dataset','type' : 'azuresql','credentials' : { 'connectionString' : 'Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;' },'container' : { 'name' : 'GeoNamesRI' }} ";
@@ -485,7 +485,7 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                Console.WriteLine("Error creating data source: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Creating Indexer...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer");
 		            json = "{ 'name' : 'usgs-indexer','description' : 'USGS data indexer','dataSourceName' : 'usgs-datasource','targetIndexName' : 'geonames','parameters' : { 'maxFailedItems' : 10, 'maxFailedItemsPerBatch' : 5, 'base64EncodeKeys': false }}";
@@ -495,7 +495,7 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                Console.WriteLine("Error creating indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Syncing data...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer/run");
 		            response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Post, uri);
@@ -504,7 +504,7 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                Console.WriteLine("Error running indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            bool running = true;
 		            Console.WriteLine("{0}", "Synchronization running...\n");
 		            while (running)
@@ -516,7 +516,7 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                    Console.WriteLine("Error polling for indexer status: {0}", response.Content.ReadAsStringAsync().Result);
 		                    return;
 		                }
-		
+
 		                var result = AzureSearchHelper.DeserializeJson<dynamic>(response.Content.ReadAsStringAsync().Result);
 		                if (result.lastResult != null)
 		                {
@@ -526,12 +526,12 @@ El código que llama a la API de REST debe incluir una clase que controla las co
 		                            Console.WriteLine("{0}", "Synchronization running...\n");
 		                            Thread.Sleep(1000);
 		                            break;
-		
+
 		                        case "success":
 		                            running = false;
 		                            Console.WriteLine("Synchronized {0} rows...\n", result.lastResult.itemsProcessed.Value);
 		                            break;
-		
+
 		                        default:
 		                            running = false;
 		                            Console.WriteLine("Synchronization failed: {0}\n", result.lastResult.errorMessage);
@@ -581,7 +581,7 @@ Reemplace el código predeterminado por el siguiente.
 	using System.Linq;
 	using System.Web;
 	using System.Web.Mvc;
-	
+
 	namespace SimpleSearchMVCApp.Controllers
 	{
 	    public class HomeController : Controller
@@ -589,26 +589,26 @@ Reemplace el código predeterminado por el siguiente.
 	        //
 	        // GET: /Home/
 	        private FeaturesSearch _featuresSearch = new FeaturesSearch();
-	
+
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
-	
+
 	        public ActionResult Search(string q = "")
 	        {
 	            // If blank search, assume they want to search everything
 	            if (string.IsNullOrWhiteSpace(q))
 	                q = "*";
-	
+
 	            return new JsonResult
 	            {
 	                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
 	                Data = _featuresSearch.Search(q)
 	            };
 	        }
-	
-	
+
+
 	    }
 	}
 
@@ -620,10 +620,10 @@ Reemplace el código predeterminado por el siguiente.
 	@{
 	    ViewBag.Title = "Azure Search - Feature Search";
 	}
-	
+
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
-	
+
 	    $(function () {
 	        // Execute search if user clicks enter
 	        $("#q").keyup(function (event) {
@@ -632,12 +632,12 @@ Reemplace el código predeterminado por el siguiente.
 	            }
 	        });
 	    });
-	
+
 	    function Search() {
 	        // We will post to the MVC controller and parse the full results on the client side
 	        // You may wish to do additional pre-processing on the data before sending it back to the client
 	        var q = $("#q").val();
-	
+
 	        $.post('/home/search',
 	        {
 	            q: q
@@ -661,11 +661,11 @@ Reemplace el código predeterminado por el siguiente.
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_CREATED) + "</td>";
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_EDITED) + "</td></tr>";
 	            }
-	
+
 	            $("#searchResults").html(searchResultsHTML);
-	
+
 	        });
-	
+
 	        function parseJsonDate(jsonDateString) {
 	            if (jsonDateString != null)
 	                return new Date(parseInt(jsonDateString.replace('/Date(', '')));
@@ -673,10 +673,10 @@ Reemplace el código predeterminado por el siguiente.
 	                return "";
 	        }
 	    };
-	
+
 	</script>
 	<h2>USGS Search for Rhode Island</h2>
-	
+
 	<div class="container">
 	    <input type="search" name="q" id="q" autocomplete="off" size="100" /> <button onclick="Search();">Search</button>
 	</div>
@@ -703,23 +703,23 @@ Agregue una clase que proporcione la funcionalidad de búsqueda a la aplicación
 		using System.Configuration;
 		using System.Linq;
 		using System.Web;
-		
+
 		namespace SimpleSearchMVCApp
 		{
 		    public class FeaturesSearch
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        public static string errorMessage;
-		
+
 		        static FeaturesSearch()
 		        {
 		            try
 		            {
 		                string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		                string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		                // Create an HTTP reference to the catalog index
 		                _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		                _indexClient = _searchClient.Indexes.GetClient("geonames");
@@ -729,7 +729,7 @@ Agregue una clase que proporcione la funcionalidad de búsqueda a la aplicación
 		                errorMessage = e.Message.ToString();
 		            }
 		        }
-		
+
 		        public DocumentSearchResponse Search(string searchText)
 		        {
 		            // Execute search based on query string
@@ -744,7 +744,7 @@ Agregue una clase que proporcione la funcionalidad de búsqueda a la aplicación
 		            }
 		            return null;
 		        }
-		
+
 		    }
 		}
 
@@ -778,7 +778,7 @@ Este es el primer tutorial de Búsqueda de Azure basado en .NET y en el conjunto
 
 Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como punto de partida para probar proveedores de sugerencias (escritura automática o autocompletar consultas), filtros y navegación por facetas. También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
 
-¿Es la primera vez que usa Búsqueda de Azure? Le recomendamos que pruebe otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. También puede ver los vínculos en nuestra [lista de vídeos y tutoriales](https://msdn.microsoft.com/library/azure/dn798933.aspx) para obtener acceso a más información.
+¿Es la primera vez que usa Búsqueda de Azure? Le recomendamos que pruebe otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. También puede ver los vínculos en nuestra [lista de vídeos y tutoriales](https://msdn.microsoft.com/library/azure/dn798933.aspx) para tener acceso a más información.
 
 <!--Image references-->
 [1]: ./media/search-get-started-dotnet/create-search-portal-1.PNG
@@ -796,5 +796,6 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [10]: ./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

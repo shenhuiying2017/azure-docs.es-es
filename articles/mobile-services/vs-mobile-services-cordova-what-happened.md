@@ -40,4 +40,5 @@ En `services\mobileServices\settings`, se ha generado un nuevo archivo JavaScrip
 	    );
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

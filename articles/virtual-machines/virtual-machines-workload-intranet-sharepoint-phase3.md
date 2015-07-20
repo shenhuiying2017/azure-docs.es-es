@@ -102,7 +102,7 @@ Para cada servidor SQL Server, haga lo siguiente:
 
 2. Utilice el procedimiento [Para inicializar un disco vacío](virtual-machines-workload-intranet-sharepoint-phase2.md#datadisk) dos veces, una vez para cada servidor SQL Server para agregar el disco de datos adicional.
 
-3. Ejecute los comandos siguientes en el símbolo del sistema de  Windows PowerShell:
+3. Ejecute los comandos siguientes en el símbolo del sistema de Windows PowerShell:
 
 		md f:\Data
 		md f:\Log
@@ -126,7 +126,7 @@ Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Ser
 7.	En el panel izquierdo, expanda la **carpeta seguridad**.
 8.	Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
 9.	En **Nombre de inicio de sesión**, escriba *dominio*\\sp_farm_db en (en el que *dominio* es el nombre del dominio en el que se creó la cuenta de sp_farm_db). 
-10.	En **Seleccionar una página**, haga clic en **Roles de servidor**,  en **sysadmin** y, a continuación, en **Aceptar**.
+10.	En **Seleccionar una página**, haga clic en **Roles de servidor**, en **sysadmin** y, a continuación, en **Aceptar**.
 11.	Cierre SQL Server 2014 Management Studio.
 
 Utilice el procedimiento siguiente dos veces, una vez para cada servidor SQL Server, para permitir conexiones a Escritorio remoto con la cuenta de sp_farm_db.
@@ -223,5 +223,7 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 4: C
 
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

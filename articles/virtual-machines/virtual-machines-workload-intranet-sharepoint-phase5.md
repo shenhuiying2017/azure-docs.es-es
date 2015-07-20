@@ -36,7 +36,7 @@ Una vez que se ha realizado una copia de seguridad de las bases de datos y se ha
 Para habilitar la copia de seguridad y restauración, los archivos de copia de seguridad (.bak) deben ser accesibles desde la VM secundaria de SQL Server. Utilice el siguiente procedimiento:
 
 1.	Inicie sesión en el host de servidor SQL principal como [domain]**\\sp_farm_db**. 
-2.	Vaya al disco F:. 
+2.	Vaya al disco F:\. 
 3.	Haga clic con el botón secundario en la carpeta **Copia de seguridad** y haga clic en **Compartir con** y haga clic en **determinadas personas**.
 4.	En el cuadro de diálogo **Uso compartido de archivos**, escriba **[dominio]\\sqlservice** y, a continuación, haga clic en **Agregar**.
 5.	Haga clic en la columna **Nivel de permiso** para el nombre de cuenta de **sqlservice** y, a continuación, haga clic en **Lectura/escritura**. 
@@ -51,11 +51,11 @@ Los siguientes procedimientos deben repetirse para cada base de datos que debe a
 Siga estos pasos para hacer una copia de seguridad de una base de datos.
 
 1.	En la pantalla de inicio del equipo del servidor de SQL Server principal, escriba **SQL Studio** y, a continuación, haga clic en **SQL Server Management Studio**.
-2.	Haga clic en  **Conectar**.
+2.	Haga clic en **Conectar**.
 3.	En el panel izquierdo, amplíe el nodo **Base de datos**.
 4.	Haga clic con el botón derecho en una base de datos para realizar una copia de seguridad, seleccione **Tareas** y, a continuación, haga clic en **Copia de seguridad**.
 5.	En la sección **Destino**, haga clic en **Quitar** para quitar la ruta de acceso del archivo predeterminado para el archivo de copia de seguridad.
-6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba  **[machineName]\\backup[databaseName].bak**, donde machineName es el nombre del equipo del equipo del servidor SQL principal y databaseName de datos el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
+6.	Haga clic en **Agregar**. En **Nombre de archivo**, escriba **\\[machineName]\\backup[databaseName].bak**, donde machineName es el nombre del equipo del equipo del servidor SQL principal y databaseName de datos el nombre de la base de datos. Haga clic en **Aceptar** y, a continuación, haga clic en **Aceptar** de nuevo después del mensaje sobre la copia de seguridad correcta.
 7.	En el panel izquierdo, haga clic en **[databaseName]**, seleccione **Tareas** y, a continuación, haga clic en **Copia de seguridad**.
 8.	En **Tipo de copia de seguridad**, seleccione **Registro de transacciones** y, a continuación, haga clic en **Aceptar** dos veces.
 9.	Mantenga esta sesión de Escritorio remoto abierta.
@@ -64,11 +64,11 @@ Use estos pasos para reiniciar una base de datos.
 
 1.	Inicie sesión en el equipo de SQL Server secundario como [domainName]\\sp_farm_db.
 2.	En la pantalla de inicio, escriba **SQL Studio** y, a continuación, haga clic en **SQL Server Management Studio**.
-3.	Haga clic en  **Conectar**.
+3.	Haga clic en **Conectar**.
 4.	En el panel izquierdo, haga clic con el botón derecho en **Bases de datos** y, a continuación, haga clic en **Restaurar base de datos**.
 5.	En la sección **Origen**, seleccione **Dispositivo** y haga clic en el botón de puntos suspensivos (...).
 6.	En **Seleccionar dispositivos de copia de seguridad**, haga clic en **Agregar**.
-7.	En **Ubicación del archivo de copia de seguridad**, escriba **[machineName]\\backup**, pulse **Intro**, seleccione **[databaseName].bak** y, a continuación, haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
+7.	En **Ubicación del archivo de copia de seguridad**, escriba **\\[machineName]\\backup**, pulse **Intro**, seleccione **[databaseName].bak** y, a continuación, haga clic en **Aceptar** dos veces. Ahora debería ver la copia de seguridad completa y la copia de seguridad del registro en la sección **Conjuntos de copia de seguridad para restaurar**.
 8.	En **Seleccionar una página**, haga clic en **Opciones**. En la sección **Opciones de restauración** en **Estado de recuperación**, seleccione **RESTAURAR CON NORECOVERY** y, a continuación, haga clic en **Aceptar**. 
 9.	Cuando se le solicite, haga clic en **Aceptar**.
 
@@ -95,7 +95,7 @@ Principal | Secundaria legible | Sí
 Secundario | Secundaria legible | Sí
 		
 9.	Haga clic en **Siguiente**.
-10.	En la página Selección de sincronización de datos inicial, haga clic en **Unirse solo** y, a continuación, haga clic en **Siguiente**. La sincronización de datos se ejecuta manualmente realizando copias de seguridad completas y de transacciones en el servidor principal y restaurándola en la copia de seguridad. 
+10.	En la página Selección de sincronización de datos inicial, haga clic en **Unirse solo** y, a continuación, haga clic en **Siguiente**. La sincronización de datos se ejecuta manualmente realizando copias de seguridad completas y de transacciones en el servidor principal y restaurándola en la copia de seguridad.  
 En su lugar, puede seleccionar **Completo** para permitir que el Asistente de nuevo grupo de disponibilidad realice la sincronización de datos por usted. Sin embargo, no se recomienda la sincronización para bases de datos de gran tamaño que se encuentran en algunas empresas.
 11.	En la página de validación, haga clic en **Siguiente**. Hay una advertencia para una configuración de agente de escucha ausente porque no hay configurado un agente de escucha del grupo de disponibilidad. 
 12.	En la página de resumen, haga clic en **Finalizar**. Una vez que el asistente haya finalizado, inspeccione la página **Resultados** para comprobar que se ha creado correctamente el grupo de disponibilidad. Si es así, haga clic en **Cerrar** para salir del asistente. 
@@ -122,4 +122,7 @@ Para obtener información adicional acerca de SharePoint con grupos de disponibi
 
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

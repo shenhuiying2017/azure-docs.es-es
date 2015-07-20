@@ -65,5 +65,6 @@ Aunque puede encontrar más información sobre cualquiera de los comandos CLI de
 
 * [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
 * [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

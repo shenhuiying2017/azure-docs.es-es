@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="05/20/2015"
 	ms.author="jolevy"/>
 
 
@@ -47,7 +47,7 @@ La [Galería de runbooks de Automatización de Azure](http://azure.microsoft.com
 
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar blobs, tablas y colas de Almacenamiento de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-Vea el [Tutorial de introducción  de Automatización de Azure](../automation-create-runbook-from-samples.md)
+Consulte el [Tutorial de introducción](../automation-create-runbook-from-samples.md) de Automatización de Azure.
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

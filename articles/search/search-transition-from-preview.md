@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 #Transición de versión preliminar api-version=2014* a api-version=2015 *#
@@ -22,12 +22,12 @@ La siguiente orientación es para los clientes que crearon aplicaciones personal
 
 Como cliente de la versión preliminar, puede usar cualquiera de estas versiones preliminares anteriores:
 
-- [2014-07-31-Preview](../search-api-2014-07-31-preview.md)
+- [2014-07-31-Preview](search-api-2014-07-31-preview.md)
 - [2014-10-20-Preview](search-api-2014-10-20-preview.md)
 
-Ahora que Búsqueda de Azure está disponible con carácter general, recomendamos realizar la transición a versiones más recientes: 2015-02-28 es la versión oficial de la API de la versión de Búsqueda de Azure disponible con carácter general. Esta versión está documentada en [MSDN](https://msdn.microsoft.com/es-es/library/azure/dn798933.aspx).
+Ahora que Búsqueda de Azure está disponible con carácter general, recomendamos realizar la transición a versiones más recientes: 2015-02-28 es la versión oficial de la API de la versión de Búsqueda de Azure disponible con carácter general. Esta versión está documentada en [MSDN](https://msdn.microsoft.com/library/azure/dn798933.aspx).
 
-También estamos implementando la próxima versión preliminar, [2015-02-28-Preview](../search-api-2015-02-28-preview.md), que introduce características que aún están en desarrollo. Solicitamos sus comentarios en los [foros de Búsqueda de Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azuresearch) o en nuestra [página de comentarios](http://feedback.azure.com/forums/263029-azure-search).
+También estamos implementando la próxima versión preliminar, [2015-02-28-Preview](search-api-2015-02-28-preview.md), que introduce características que aún están en desarrollo. Puede proporcionar comentarios sobre la API preliminar a través de los [foros de Búsqueda de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuresearch) o de nuestra [página de comentarios](http://feedback.azure.com/forums/263029-azure-search).
 
 ###Lista de comprobación para la migración###
 
@@ -41,9 +41,9 @@ También estamos implementando la próxima versión preliminar, [2015-02-28-Prev
 
 La versión inicial de la API incluye una característica de sugerencias de autocompletar o escritura anticipada. Aunque útil, estaba limitado a coincidencias con prefijos y buscaba los primeros caracteres del término de búsqueda, sin compatibilidad para la coincidencia en otros lugares del campo. La implementación era una propiedad booleana denominada `suggestions` que se establecía en `true` cuando se deseaba habilitar la coincidencia con prefijos en un campo determinado.
 
-Esta implementación original ahora está en desuso en favor de una nueva construcción `Suggesters` definida en la característica [índice](https://msdn.microsoft.com/es-es/library/azure/dn798941.aspx), que proporciona coincidencia con infijos y coincidencia aproximada. Tal y como se desprende de los nombres, la coincidencia con infijos y aproximada proporciona una gama mucho más amplia de posibilidades de coincidencia. La coincidencia con infijos incluye los prefijos, ya que sigue coincidiendo con los caracteres del principio, pero amplía la búsqueda de coincidencias para incluir el resto de la cadena.
+Esta implementación original ahora está en desuso en favor de una nueva construcción `Suggesters` definida en la característica [índice](https://msdn.microsoft.com/library/azure/dn798941.aspx), que proporciona coincidencia con infijos y coincidencia aproximada. Tal y como se desprende de los nombres, la coincidencia con infijos y aproximada proporciona una gama mucho más amplia de posibilidades de coincidencia. La coincidencia con infijos incluye los prefijos, ya que sigue coincidiendo con los caracteres del principio, pero amplía la búsqueda de coincidencias para incluir el resto de la cadena.
 
-Hemos decidido interrumpir la implementación anterior (la propiedad booleana), lo que significa que deja de estar disponible por completo en cualquiera de las versiones de 2015; no se mantienen la compatibilidad con versiones anteriores para evitar su adopción involuntaria por parte de los clientes que creen soluciones nuevas. Si utiliza `2015-02-28` o `2015-02-28-Preview` deberá usar la nueva construcción `Suggesters` para habilitar las consultas con escritura anticipada.
+Hemos decidido interrumpir la implementación anterior (la propiedad booleana), lo que significa que deja de estar disponible por completo en cualquiera de las versiones de 2015; no se mantiene la compatibilidad con versiones anteriores para evitar su adopción involuntaria por parte de los clientes que creen soluciones nuevas. Si utiliza `2015-02-28` o `2015-02-28-Preview` deberá usar la nueva construcción `Suggesters` para habilitar las consultas con escritura anticipada.
 
 ##Importación del código existente##
 
@@ -135,12 +135,13 @@ Una definición de esquema migrada omite la propiedad `Suggestions`y agrega una 
 Después de migrar la solución y comprobar que se ejecuta como esperaba, puede utilizar estos vínculos para obtener información acerca de las nuevas características.
 
 - [Búsqueda de Azure está disponible con carácter general (entrada de blog)](http://go.microsoft.com/fwlink/p/?LinkId=528211)
-- [Novedades en la actualización más reciente de Búsqueda de Azure](../search-latest-updates/)
-- [Introducción a Búsqueda de Azure](https://msdn.microsoft.com/es-es/library/azure/dn798933.aspx)
+- [Novedades en la actualización más reciente de Búsqueda de Azure](search-latest-updates.md)
+- [¿Qué es Búsqueda de Azure?](search-what-is-azure-search.md)
 
 ##Obtener ayuda##
 
-La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (SLA). Utilice las opciones de soporte técnico y los vínculos de [esta página](http://azure.microsoft.com/support/options/) para presentar una incidencia de soporte técnico.
+La versión `2015-02-28` de la API responde a un Contrato de nivel de servicio (SLA). Utilice las opciones de soporte técnico y los vínculos de [esta página](../support/options/) para presentar una incidencia de soporte técnico.
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

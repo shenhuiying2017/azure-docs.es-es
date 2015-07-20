@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Uso del almacenamiento de tablas de PHP | Microsoft Azure" 
-	description="Aprenda a utilizar el servicio de tablas de PHP para crear y eliminar una tabla e insertar, eliminar y consultar la tabla." 
+	pageTitle="Uso del almacenamiento de tablas desde PHP | Microsoft Azure" 
+	description="Aprenda a utilizar el servicio Tabla de Azure de PHP para crear y eliminar una tabla e insertar, eliminar y consultar la tabla." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
@@ -23,7 +23,7 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Tabla de Azure. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP][descargar]. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, y la inserción, eliminación y consulta de entidades de una tabla**. Para obtener más información acerca del servicio Tabla de Azure, consulte la sección [Pasos siguientes](#NextSteps) .
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Tabla de Azure. Los ejemplos están escritos en PHP y usan el [SDK de Azure para PHP][download]. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, y la inserción, eliminación y consulta de entidades de una tabla**. Para obtener más información acerca del servicio Tabla de Azure, vea la sección [Pasos siguientes](#NextSteps).
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -48,7 +48,7 @@ Para utilizar las API del servicio Tabla de Azure, necesita:
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
-> [AZURE.NOTE] En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente o como paquete PEAR, deberá hacer referencia al archivo autocargador <code>MicrosoftAzure.php</code>.
+> [AZURE.NOTE]En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente o como paquete PEAR, deberá hacer referencia al archivo autocargador <code>MicrosoftAzure.php</code>.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -69,10 +69,10 @@ Para obtener acceso al emulador de almacenamiento:
 	UseDevelopmentStorage=true
 
 
-Para crear un cliente de cualquier servicio de Azure necesario para utilizar la clase **ServicesBuilder**. puede:
+Para crear un cliente de cualquier servicio de Azure, debe usar la clase **ServicesBuilder**. Puede:
 
 * pasarle directamente la cadena de conexión, o bien
-* utilizar **CloudConfigurationManager (CCM)** para buscar la cadena de conexión en varios orígenes externos:
+* usar **CloudConfigurationManager (CCM)** para buscar la cadena de conexión en varios orígenes externos:
 	* De manera predeterminada, admite un origen externo: variables de entorno.
 	* para agregar nuevos orígenes, amplíe la clase **ConnectionStringSource**
 
@@ -87,7 +87,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
 ## Procdimientos: Creación de una tabla
 
-Puede crear una tabla con un objeto **TableRestProxy** con el método **createTable**. Al crear una tabla, puede establecer un tiempo de espera para el servicio Tabla. (Para obtener más información acerca del tiempo de espera del servicio de tablas, consulte [Establecer los tiempos de espera para las operaciones del servicio Tabla][table-service-timeouts]).
+Puede crear una tabla con un objeto A **TableRestProxy** con el método **createTable**. Al crear una tabla, puede establecer un tiempo de espera para el servicio Tabla. (Para obtener más información acerca del tiempo de espera del servicio Tabla, consulte [Establecer los tiempos de espera para las operaciones del servicio Tabla][table-service-timeouts].)
 
 	require_once 'vendor\autoload.php';
 
@@ -109,11 +109,11 @@ Puede crear una tabla con un objeto **TableRestProxy** con el método **createTa
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
-Para obtener más información acerca de las restricciones que se aplican a los nombres de las tablas, consulte [Introducción al modelo de datos de servicio de tabla][table-data-model].
+Para obtener más información acerca de las restricciones que se aplican a los nombres de las tablas, consulte [Introducción al modelo de datos del servicio Tabla][table-data-model].
 
-## Procedimientos: Adición de una entidad a una tabla
+## Cómo agregar una entidad a una tabla
 
-Para agregar una entidad a una tabla, cree un nuevo objeto **Entity** y páselo a **TableRestProxy->insertEntity**. Tenga en cuenta que al crear una entidad es necesario especificar los valores de `PartitionKey` y `RowKey`. Estos valores son los identificadores exclusivos de la entidad y se pueden consultar más rápidamente que las demás propiedades. El sistema usa  `PartitionKey` para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma `PartitionKey` se almacenan en el mismo nodo. (Las operaciones que afecten a entidades almacenadas en el mismo nodo se realizarán mejor que aquellas que afecten a entidades almacenadas en nodos distintos).  `RowKey` es el identificador exclusivo de una entidad dentro de una partición.
+Para agregar una entidad a una tabla, cree un nuevo objeto **Entity** y páselo a **TableRestProxy->insertEntity**. Tenga en cuenta que al crear una entidad es necesario especificar los valores de `PartitionKey` y `RowKey`. Estos valores son los identificadores exclusivos de la entidad y se pueden consultar más rápidamente que las demás propiedades. El sistema usa `PartitionKey` para distribuir automáticamente las entidades de la tabla entre varios nodos de almacenamiento. Las entidades con la misma `PartitionKey` se almacenan en el mismo nodo. (Las operaciones que afecten a entidades almacenadas en el mismo nodo se realizarán mejor que aquellas que afecten a entidades almacenadas en nodos distintos). `RowKey` es el identificador exclusivo de una entidad dentro de una partición.
 
 	require_once 'vendor\autoload.php';
 
@@ -145,9 +145,9 @@ Para agregar una entidad a una tabla, cree un nuevo objeto **Entity** y páselo 
 		$error_message = $e->getMessage();
 	}
 
-Para obtener más información acerca de las propiedades y tipos de tabla, consulte [Introducción al modelo de datos de servicio de tabla][table-data-model].
+Para obtener más información acerca de las propiedades y los tipos de tabla, consulte [Introducción al modelo de datos del servicio Tabla][table-data-model].
 
-La clase **TableRestProxy** ofrece dos métodos alternativos para insertar entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para utilizar estos métodos, cree una nueva **Entity** y pásela como un parámetro para cualquiera de los métodos. Ambos métodos insertarán la entidad si todavía no existe. Si ya existe la entidad, **insertOrMergeEntity** actualizará los valores de las propiedades existentes y agregará las propiedades que no existan, mientras que **insertOrReplaceEntity** reemplazará por completo la entidad existente. En el siguiente ejemplo se muestra cómo usar el método **insertOrMergeEntity**. Si todavía no existe ninguna entidad con  `PartitionKey` "tasksSeattle" y `RowKey` "1", se insertará. Sin embargo, si ya se insertó previamente (como se muestra en el ejemplo anterior), se actualizará la propiedad `DueDate` y se agregará la propiedad  `Status`. Las propiedades  `Description` y  `Location` también se actualizan, pero con valores que a efectos prácticos no provocarán ningún cambio en ellas. Si estas dos últimas propiedades no se agregaron como se muestra en el ejemplo, sino que existían en la entidad objetivo, sus valores actuales permanecerán invariables.
+La clase **TableRestProxy** ofrece dos métodos alternativos para insertar entidades: **insertOrMergeEntity** y **insertOrReplaceEntity**. Para usar estos métodos, cree una nueva **Entity** y pásela como un parámetro para cualquiera de los métodos. Ambos métodos insertarán la entidad si todavía no existe. Si ya existe la entidad, **insertOrMergeEntity** actualizará los valores de las propiedades existentes y agregará las propiedades que no existan, mientras que **insertOrReplaceEntity** reemplazará por completo la entidad existente. En el siguiente ejemplo se muestra cómo usar el método **insertOrMergeEntity**. Si todavía no existe ninguna entidad con `PartitionKey` "tasksSeattle" y `RowKey` "1", se insertará. Sin embargo, si ya se insertó previamente (como se muestra en el ejemplo anterior), se actualizará la propiedad `DueDate` y se agregará la propiedad `Status`. Las propiedades `Description` y `Location` también se actualizan, pero con valores que a efectos prácticos no provocarán ningún cambio en ellas. Si estas dos últimas propiedades no se agregaron como se muestra en el ejemplo, sino que existían en la entidad objetivo, sus valores actuales permanecerán invariables.
 
 	require_once 'vendor\autoload.php';
 
@@ -188,7 +188,7 @@ La clase **TableRestProxy** ofrece dos métodos alternativos para insertar entid
 	}
 	   
 
-## Procedimientos: Recuperación de una sola entidad
+## Cómo recuperar una sola entidad
 
 El método **TableRestProxy->getEntity** permite recuperar una sola entidad consultando sus valores de `PartitionKey` y `RowKey`. En el ejemplo siguiente, la clave de partición `tasksSeattle` y la clave de fila `1` se pasan al método **getEntity**.
 
@@ -216,9 +216,9 @@ El método **TableRestProxy->getEntity** permite recuperar una sola entidad cons
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-## Procedimientos: todas las entidades de una partición
+## Cómo recuperar todas las entidades de una partición
 
-Las consultas a entidades se basan en filtros (para obtener más información, consulte [Consultar tablas y entidades][filters]). Para recuperar todas las entidades de una partición, use el filtro "PartitionKey eq *partition_name*". En el siguiente ejemplo se muestra cómo recuperar todas las entidades de la partición `tasksSeattle` pasando un filtro al método **queryEntities**.
+Las consultas a entidades se basan en filtros (para obtener más información, consulte [Consultar tablas y entidades][filters]). Para recuperar todas las entidades de una partición, utilice el filtro "PartitionKey eq *partition_name*". En el siguiente ejemplo se muestra cómo recuperar todas las entidades de la partición `tasksSeattle` pasando un filtro al método **queryEntities**.
 
 	require_once 'vendor\autoload.php';
 
@@ -248,9 +248,9 @@ Las consultas a entidades se basan en filtros (para obtener más información, c
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## Procedimientos: un subconjunto de entidades de una partición
+## Cómo recuperar un subconjunto de entidades de una partición
 
-El mismo patrón utilizado en el ejemplo anterior se puede aplicar a la recuperación de cualquier subconjunto de entidades de una partición. El subconjunto de entidades que recupere dependerá del filtro que utilice (para obtener más información, consulte [Consultar tablas y entidades][filters]). En el siguiente ejemplo se muestra cómo utilizar un filtro para recuperar todas las entidades con un `Location`concreto y un `DueDate` anterior a una fecha determinada.
+El mismo patrón utilizado en el ejemplo anterior se puede aplicar a la recuperación de cualquier subconjunto de entidades de una partición. El subconjunto de entidades que recupere dependerá del filtro que utilice (para obtener más información, consulte [Consultar tablas y entidades][filters]). En el siguiente ejemplo se muestra cómo utilizar un filtro para recuperar todas las entidades con un valor concreto para `Location` y un valor para `DueDate` anterior a una fecha determinada.
 
 	require_once 'vendor\autoload.php';
 
@@ -280,9 +280,9 @@ El mismo patrón utilizado en el ejemplo anterior se puede aplicar a la recupera
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-## Procedimientos: un subconjunto de propiedades de las entidades
+## Recuperar un subconjunto de propiedades de las entidades
 
-Es posible recuperar un subconjunto de propiedades de las entidades mediante una consulta. Esta técnica, denominada *projection*, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Para especificar la propiedad que desea recuperar, pase el nombre de la propiedad al método **Query->addSelectField**. Puede llamar a este método varias veces para agregar más propiedades. Tras ejecutar **TableRestProxy->queryEntities**, las entidades que se recuperen solo presentarán las propiedades seleccionadas. (Si desea recuperar un subconjunto de entidades de tabla, utilice un filtro tal y como se muestra en las consultas anteriores).
+Es posible recuperar un subconjunto de propiedades de las entidades mediante una consulta. Esta técnica, denominada *proyección*, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Para especificar la propiedad que desea recuperar, pase el nombre de la propiedad al método **Query->addSelectField**. Puede llamar a este método varias veces para agregar más propiedades. Tras ejecutar **TableRestProxy->queryEntities**, las entidades que se recuperen solo presentarán las propiedades seleccionadas. (Si desea recuperar un subconjunto de entidades de tabla, utilice un filtro tal y como se muestra en las consultas anteriores).
 
 	require_once 'vendor\autoload.php';
 
@@ -318,9 +318,9 @@ Es posible recuperar un subconjunto de propiedades de las entidades mediante una
 		echo $description."<br />";
 	}
 
-## Procedimientos: Actualización de una entidad
+## Actualización de una entidad
 
-Es posible actualizar una entidad existente con los métodos **Entity->setProperty** y **Entity->addProperty** en la entidad y, a continuación, con una llamada a **TableRestProxy->updateEntity**. En el siguiente ejemplo se recupera una entidad, se modifica una propiedad, se elimina otra propiedad y se agrega una nueva propiedad. Tenga en cuenta que para eliminar una propiedad debe establecer su valor en **null**. 
+Es posible actualizar una entidad existente con los métodos **Entity->setProperty** y **Entity->addProperty** en la entidad y, a continuación, con una llamada a **TableRestProxy->updateEntity**. En el siguiente ejemplo se recupera una entidad, se modifica una propiedad, se elimina otra propiedad y se agrega una nueva propiedad. Tenga en cuenta que para eliminar una propiedad debe establecer su valor en **null**.
 
 	require_once 'vendor\autoload.php';
 	
@@ -354,9 +354,9 @@ Es posible actualizar una entidad existente con los métodos **Entity->setProper
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedimientos: Eliminación de una entidad
+## Cómo eliminar una entidad
 
-Para eliminar una entidad, pase el nombre de la tabla y los valores  `PartitionKey` y `RowKey` de la entidad al método **TableRestProxy->deleteEntity**.
+Para eliminar una entidad, pase el nombre de la tabla y los valores `PartitionKey` y `RowKey` de la entidad al método **TableRestProxy->deleteEntity**.
 
 	require_once 'vendor\autoload.php';
 
@@ -381,16 +381,16 @@ Para eliminar una entidad, pase el nombre de la tabla y los valores  `PartitionK
 
 Tenga en cuenta que en las comprobaciones de simultaneidad puede determinar que se elimine la propiedad Etag de una entidad utilizando el método **DeleteEntityOptions->setEtag** y pasando el objeto **DeleteEntityOptions** a **deleteEntity** como cuarto parámetro.
 
-## Procedimientos: Operaciones de tabla en lote
+## Operaciones de tabla en lote
 
 El método **TableRestProxy->batch** permite ejecutar varias operaciones en una única solicitud. Este patrón consiste en agregar operaciones al objeto **BatchRequest** y, a continuación, pasar el objeto **BatchRequest** al método **TableRestProxy->batch**. Para agregar una operación a un objeto **BatchRequest**, puede llamar a cualquiera de los siguientes métodos varias veces:
 
-* **addInsertEntity** (adds an insertEntity operation)
-* **addUpdateEntity** (adds an updateEntity operation)
-* **addMergeEntity** (adds a mergeEntity operation)
-* **addInsertOrReplaceEntity** (adds an insertOrReplaceEntity operation)
-* **addInsertOrMergeEntity** (adds an insertOrMergeEntity operation)
-* **addDeleteEntity** (adds a deleteEntity operation)
+* **addInsertEntity** (agrega una operación insertEntity)
+* **addUpdateEntity** (agrega una operación updateEntity)
+* **addMergeEntity** (agrega una operación mergeEntity)
+* **addInsertOrReplaceEntity** (agrega una operación insertOrReplaceEntity)
+* **addInsertOrMergeEntity** (agrega una operación insertOrMergeEntity)
+* **addDeleteEntity** (agrega una operación deleteEntity)
 
 En el siguiente ejemplo se muestra cómo ejecutar las operaciones **insertEntity** y **deleteEntity** en una única solicitud:
 
@@ -437,9 +437,9 @@ En el siguiente ejemplo se muestra cómo ejecutar las operaciones **insertEntity
 
 Para obtener más información acerca del procesamiento por lotes de las operaciones de tabla, consulte [Realizar transacciones con grupos de entidades][entity-group-transactions].
 
-## Procedimientos: Eliminación de una tabla
+## Cómo eliminar una tabla
 
-Finalmente, para eliminar una tabla pase su nombre al método **TableRestProxy->deleteTable**.
+Finalmente, para eliminar una tabla, pase su nombre al método **TableRestProxy->deleteTable**.
 
 	require_once 'vendor\autoload.php';
 
@@ -466,16 +466,17 @@ Finalmente, para eliminar una tabla pase su nombre al método **TableRestProxy->
 
 Ahora que está familiarizado con los aspectos básicos del servicio de tablas de Azure, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-- Consulte la referencia de MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Vea la Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-[descargar]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
 [table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 
 [table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

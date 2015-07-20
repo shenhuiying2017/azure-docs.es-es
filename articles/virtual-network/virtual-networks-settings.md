@@ -100,4 +100,4 @@ Después de implementar la red virtual, solo se pueden modificar ciertas configu
 
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

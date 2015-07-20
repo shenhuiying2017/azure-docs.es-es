@@ -18,7 +18,7 @@
 
 # Autenticación de una aplicación de la Tienda Windows con la autenticación del cliente administrada mediante la cuenta de Microsoft
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##Información general
 En este tema se muestra cómo obtener un token de autenticación de cuenta de Microsoft mediante el SDK de Live desde una aplicación de Windows universal. A continuación, use este token para autenticar usuarios con Servicios móviles de Azure. En este tutorial, podrá agregar la autenticación de cuenta de Microsoft a un proyecto existente mediante el SDK de Live. Una vez que haya realizado la autenticación correctamente, se dará la bienvenida al usuario que ha iniciado sesión por su nombre y se mostrará el valor de identificador de usuario.
@@ -41,7 +41,7 @@ Para autenticar usuarios, debe registrar la aplicación en el Centro para desarr
 
 A continuación se debe restringir el acceso a un recurso, en este caso la tabla *TodoItems* para asegurarse de que solo sean accesibles para un usuario con sesión iniciada.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
@@ -161,5 +161,6 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Referencia conceptual de Servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [SDK de Live]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -3,7 +3,7 @@
 	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en PHP." 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
@@ -22,7 +22,7 @@
 
 ## Información general
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Cola de Azure. Los ejemplos se escriben con las clases del SDK de Windows para PHP. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#NextSteps) .
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Cola de Azure. Los ejemplos se escriben con las clases del SDK de Windows para PHP. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#NextSteps).
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -47,8 +47,7 @@ Para utilizar las API del servicio Cola de Azure, necesita:
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
-> [AZURE.NOTE]
-> En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente o como un paquete PEAR, deberá hacer referencia al archivo autocargador `WindowsAzure.php`.
+> [AZURE.NOTE]En este ejemplo (así como en otros ejemplos de este artículo), se asume que ha instalado las bibliotecas de clientes PHP para Azure mediante el compositor. Si las instaló manualmente o como un paquete PEAR, deberá hacer referencia al archivo autocargador `WindowsAzure.php`.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -69,10 +68,10 @@ Para obtener acceso al emulador de almacenamiento:
 	UseDevelopmentStorage=true
 
 
-Para crear un cliente de cualquier servicio de Azure necesario para utilizar la clase **ServicesBuilder**. puede:
+Para crear un cliente de cualquier servicio de Azure, debe usar la clase **ServicesBuilder**. Puede:
 
 * pasarle directamente la cadena de conexión, o bien
-* utilizar **CloudConfigurationManager (CCM)** para buscar la cadena de conexión en varios orígenes externos:
+* usar **CloudConfigurationManager (CCM)** para buscar la cadena de conexión en varios orígenes externos:
 	* De manera predeterminada, admite un origen externo: variables de entorno.
 	* para agregar nuevos orígenes, amplíe la clase **ConnectionStringSource**
 
@@ -85,7 +84,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
 
-## Procedimientos: Creación de una cola
+## Creación de una cola
 
 Un objeto **QueueRestProxy** le permite crear una cola con el método **createQueue**. Al crear una cola, puede establecer opciones en ella, aunque no es obligatorio. El ejemplo siguiente muestra cómo configurar metadatos en una cola.
 
@@ -116,10 +115,10 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
 		echo $code.": ".$error_message."<br />";
 	}
 
-> [AZURE.NOTE] No debe confiar en la distinción entre minúsculas y mayúsculas para las claves de metadatos. Todas las claves se leen en el servicio en minúsculas.
+> [AZURE.NOTE]No debe confiar en la distinción entre minúsculas y mayúsculas para las claves de metadatos. Todas las claves se leen en el servicio en minúsculas.
 
 
-## Procedimientos: Incorporación de un mensaje a una cola
+## Incorporación de un mensaje a una cola
 
 Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El método toma el nombre de la cola, el texto del mensaje y las opciones de mensaje (que son opcionales).
 
@@ -146,7 +145,7 @@ Para agregar un mensaje a una cola, use **QueueRestProxy->createMessage**. El m�
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedimientos: siguiente mensaje
+## Cómo ojear el siguiente mensaje
 
 Puede ojear uno o varios mensajes en la parte delantera de una cola, sin quitarlos de la cola, mediante una llamada a **QueueRestProxy->peekMessages**. De forma predeterminada, el método **peekMessage** devuelve un único mensaje, pero puede cambiar el valor con el método **PeekMessagesOptions->setNumberOfMessages**.
 
@@ -191,7 +190,7 @@ Puede ojear uno o varios mensajes en la parte delantera de una cola, sin quitarl
 		}
 	}
 
-## Procedimientos: Eliminación de la cola del siguiente mensaje
+## Cómo extraer el siguiente mensaje de la cola
 
 El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRestProxy->listMessages**, que hace que el mensaje sea invisible a cualquier otro código que lea de la cola. De forma predeterminada, este mensaje permanecerá invisible durante 30 segundos (si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar quitando el mensaje de la cola, debe llamar a **QueueRestProxy->deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
@@ -229,9 +228,9 @@ El código borra un mensaje de una cola en dos pasos. Primero llama a **QueueRes
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedimientos: contenido de un mensaje en cola
+## Cómo cambiar el contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRestProxy->updateMessage**. Si el mensaje representa una tarea de trabajo, puede utilizar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de n veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
+Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRestProxy->updateMessage**. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede usar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de n veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
 	require_once 'vendor\autoload.php';
 
@@ -271,7 +270,7 @@ Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRest
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Opciones adicionales de los mensajes quitados de la cola
+## Opciones adicionales para quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la visibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **getMessages** para obtener 16 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for**. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
@@ -318,7 +317,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 		echo $code.": ".$error_message."<br />";
 	}
 
-## Procedimientos: Obtención de la longitud de la cola
+## Obtención de la longitud de la cola
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **QueueRestProxy->getQueueMetadata** solicita al servicio de colas que devuelva los metadatos sobre la cola. Al llamar al método **getApproximateMessageCount** en el objeto devuelto, se ofrece un recuento de la cantidad de mensajes que hay en una cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
 
@@ -346,9 +345,9 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 	
 	echo $approx_msg_count;
 
-## Procedimientos: Eliminación de una cola
+## Cómo eliminar una cola
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **QueueRestProxy->deleteQueue** method.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **QueueRestProxy->deleteQueue**.
 
 	require_once 'vendor\autoload.php';
 
@@ -376,12 +375,13 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del servicio de colas de Azure, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-- Consulte la referencia de MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Vea la Referencia MSDN: [Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 
-[descargar]: http://go.microsoft.com/fwlink/?LinkID=252473
+[download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
-[Portal de administración de Azure]: http://manage.windowsazure.com/
-[Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[Azure Management Portal]: http://manage.windowsazure.com/
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

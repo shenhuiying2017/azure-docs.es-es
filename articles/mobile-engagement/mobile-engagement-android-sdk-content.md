@@ -18,7 +18,7 @@
 
 #Contenido del SDK
 
-Este documento enumera y describe el contenido del archivo del SDK.
+En este documento se indica y describe el contenido del archivo SDK.
 
 `mobile-engagement-VERSION.jar`
 
@@ -32,13 +32,13 @@ Carpeta `src`
 
 > Código fuente del SDK de Engagement.
 >
-> Tenga en cuenta que no se incluyen los orígenes del servicio (`com.microsoft.azure.engagement.service.EngagementService` y sus archivos de código fuente relacionados).
+> Tenga en cuenta que no se incluyen los archivos de código fuente del servicio (`com.microsoft.azure.engagement.service.EngagementService` y sus archivos de código fuente relacionados).
 
 `documentation.html`
 
 > Un acceso directo al sitio de documentación que corresponde a la versión descargada del SDK.
 
 Los otros archivos corresponden a una copia de las licencias de software.
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

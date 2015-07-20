@@ -68,5 +68,6 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

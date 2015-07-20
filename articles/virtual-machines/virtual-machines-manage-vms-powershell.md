@@ -13,56 +13,84 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="06/24/2015"
    ms.author="kasing"/>
 
 # Administrar las máquinas virtuales con PowerShell de Azure
 
-Antes de comenzar, necesitará asegurarse de que tiene instalado PowerShell de Azure. Para ello, visite [Cómo instalar y configurar PowerShell de Azure](../install-configure-powershell.md)
+Muchas tareas que se realizan cada día para administrar las máquinas virtuales pueden automatizarse mediante cmdlets de Azure PowerShell. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
 
-## Obtener una imagen
+>[AZURE.NOTE]Si no ha instalado y configurado todavía Azure PowerShell, obtenga instrucciones [aquí](../install-configure-powershell.md).
 
-Antes de crear una máquina virtual, necesitará decidir **qué imagen utilizará**. Puede obtener una lista de imágenes mediante el siguiente cmdlet
+## Utilización de los comandos de ejemplo
+Tendrá que reemplazar parte del texto en los comandos con texto que sea adecuado para su entorno. Los símbolos < and > indican texto que se debe reemplazar. Al reemplazar el texto, quite los símbolos pero deje las comillas en su lugar.
 
-      Get-AzureVMImage
+## Obtención de una máquina virtual
+Es una tarea básica que utilizará a menudo. Utilícelo para obtener información acerca de una máquina virtual, realizar tareas en una máquina virtual y obtener el resultado para almacenarlo en una variable.
 
-Este cmdlet devuelve una lista de todas las imágenes disponibles en Azure. Se trata de una lista muy larga y puede ser difícil encontrar la imagen exacta que desea utilizar. En el ejemplo siguiente, estoy usando otros cmdlets de PowerShell para reducir la lista de imágenes devueltas a sólo aquellas que contengan según **Windows Server 2012 R2 Datacenter**. Además, escogeré que solo obtenga la última imagen al especificar [-1] para la matriz de imágenes devuelta
+Para obtener información acerca de la máquina virtual, ejecute este comando y reemplace todo el contenido de las comillas, incluidos los caracteres < and >:
 
-    $img = (Get-AzureVMImage | Select -Property ImageName, Label | where {$_.Label -like '*Windows Server 2012 R2 Datacenter*'})[-1]
+     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Crear una VM
+Para almacenar la salida en una variable $vm, ejecute:
 
-La creación de una máquina virtual comienza con el cmdlet **New-AzureVMConfig**. Aquí, especificará el **nombre** de la máquina virtual, el **tamaño** de la máquina virtual y la **imagen** que se usará para la máquina virtual. Este cmdlet crea un objeto de máquina virtual local **$myVM** que más adelante se modifica con otros cmdlets de PowerShell de Azure en esta guía.
+    $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-      $myVM = New-AzureVMConfig -Name "testvm" -InstanceSize "Small" -ImageName $img.ImageName
+## Inicio de sesión en una máquina virtual Windows
 
-A continuación, deberá elegir el **nombre de usuario** y la **contraseña** para la máquina virtual. Puede hacerlo con el cmdlet **Add-AzureProvisioningConfig**. Aquí es donde le indica a Azure cuál es el sistema operativo para la máquina virtual. No que todavía está realizando cambios en el objeto local **$myVM**.
+Ejecute estos comandos:
 
-    $user = "azureuser"
-    $pass = "&Azure1^Pass@"
-    $myVM = Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
+>[AZURE.NOTE]Puede obtener el nombre de la máquina virtual y del servicio de nube en la presentación del comando **Get-AzureVM**.
+>
+	$svcName="<cloud service name>"
+	$vmName="<virtual machine name>"
+	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile=$localPath + "" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 
-Finalmente, está listo para poner en marcha la máquina virtual en Azure. Para ello, deberá usar el cmdlet **New-AzureVM**
+## Detención de una máquina virtual
 
-> [AZURE.NOTE] Deberá configurar el servicio en la nube antes de crear la máquina virtual. Existen dos formas de hacerlo.
-* Crear el servicio en la nube mediante el cmdlet New-AzureService. Si elige este método, deberá asegurarse de que la ubicación especificada en el cmdlet New-AzureVM a continuación coincide con la ubicación del servicio en la nube, de lo contrario, se producirá un error de cmdlet de ejecución del cmdlet New-AzureVM.
-* Permitir que el cmdlet New-AzureVM lo haga por usted. Deberá asegurarse de que el nombre del servicio es único, de lo contrario, se producirá un error de cmdlet de ejecución del cmdlet New-AzureVM.
+Ejecute este comando:
 
-    New-AzureVM -ServiceName "mytestserv" -VMs $myVM -Location "West US"
+    Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-**OPCIONAL**
+>[AZURE.IMPORTANT]Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
 
-Puede utilizar otros cmdlets como **Add-AzureDataDisk**, **Add-AzureEndpoint** para configurar opciones adicionales para la máquina virtual.
+## Inicio de una máquina virtual
 
-## Obtener una máquina virtual
-Ahora que ha creado una máquina virtual en Azure, sin duda deseará ver cómo actúa. Puede hacerlo mediante el cmdlet **Get-AzureVM**, como se muestra a continuación
+Ejecute este comando:
 
-    Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
+    Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
+## Anexión de un disco de datos
+Esta tarea requiere unos pocos pasos. En primer lugar, utilice el cmdlet *** Add-AzureDataDisk *** para agregar el disco al objeto $vm y, a continuación, utilice el cmdlet Update-AzureVM para actualizar la configuración de la máquina virtual.
 
-## Pasos siguientes
-[Conectarse a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)<br>
-[Preguntas más frecuentes sobre las máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn683781.aspx)
+También tendrá que decidir si desea adjuntar un disco nuevo o uno que contenga los datos. Para un disco nuevo, el comando crea el archivo .vhd y lo adjunta en el mismo comando.
 
-<!--HONumber=47-->
- 
+Para adjuntar un disco nuevo, ejecute este comando:
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
+              | Update-AzureVM
+
+Para adjuntar un disco de datos existente, ejecute este comando:
+
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
+              | Update-AzureVM
+
+Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamiento de blobs, ejecute este comando:
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation `
+              "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
+              -DiskLabel "<main>" -LUN <0> `
+              | Update-AzureVM
+
+## Creación de una máquina virtual Windows
+
+Para crear una nueva máquina virtual de Windows en Azure, siga las instrucciones de [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md). Este tema le guiará por la creación de un conjunto de comandos de PowerShell que crea una máquina virtual de Windows que puede configurarse previamente con:
+
+- Pertenencia al dominio de Active Directory
+- Discos adicionales
+- Como miembro de un conjunto con equilibrio de carga
+- Una dirección IP estática
+
+<!---HONumber=July15_HO2-->

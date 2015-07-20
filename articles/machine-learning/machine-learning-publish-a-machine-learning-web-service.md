@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Publicar un servicio web de Aprendizaje automático | Azure" 
+	pageTitle="Publicación de un servicio web de Aprendizaje automático | Microsoft Azure" 
 	description="Cómo convertir un experimento de entrenamiento en un experimento de puntuación, preparar para la publicación y, a continuación, publicarlo como un servicio web de Aprendizaje automático de Azure." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="garye"/>
 
 #Publicar un servicio web de Aprendizaje automático de Azure
@@ -93,8 +93,7 @@ Para más información sobre el acceso a un servicio web de Aprendizaje automát
 
 En el Portal de administración de Azure, puede administrar los servicios web haciendo clic en el servicio **Aprendizaje automático**, abriendo el área de trabajo de Aprendizaje automático y, a continuación, abriendo el servicio web desde la pestaña **SERVICIOS WEB**. Desde esta página, puede supervisar el servicio web, actualizarlo y eliminarlo. También puede agregar un segundo extremo para el servicio web además del extremo predeterminado que se crea cuando se publica.
 
-Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md).
-<!-- When this article gets published, fix the link and uncomment
+Para más información, vea [Administrar un área de trabajo de Aprendizaje automático de Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
@@ -107,5 +106,6 @@ Para actualizar el servicio web, abra el experimento de puntuación original que
 
 > [AZURE.NOTE]Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 
+Una opción para actualizar el servicio web es volver a entrenar el modelo mediante programación. Para obtener más información, consulte [Volver a entrenar modelos de aprendizaje automático mediante programación](machine-learning-retrain-models-programmatically.md).
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

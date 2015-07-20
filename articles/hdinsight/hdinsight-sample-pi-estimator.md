@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # Muestra de Hadoop del estimador de pi en HDInsight
 
 En este tema se describe cómo ejecutar un programa de MapReduce de Hadoop en HDInsight de Azure que calcula el valor de la constante matemática pi mediante Azure PowerShell. También se ofrece el código de Java usado en el programa de MapReduce para estimar el valor de pi, para inspeccionarlo.
+
+> [AZURE.NOTE]Los pasos de este documento requieren un clúster de HDInsight basado en Windows. Para obtener información sobre cómo ejecutar este y otros ejemplos con los clústeres basados en Linux, consulte [Ejecución de ejemplos de Hadoop en HDInsight](hdinsight-hadoop-run-samples-linux.md).
 
 El programa usa un método estadístico (quasi-Monte Carlo) para calcular el valor de pi. Los puntos colocados en el interior aleatorio de un cuadrado unitario también entran dentro de un círculo inscrito dentro de ese cuadrado con una probabilidad igual al área del círculo, pi/4. El valor de pi se puede estimar a partir del valor de 4R, donde R es la proporción de la cantidad de puntos contados dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado. Mientras más grande sea la muestra de puntos usada, mejor resulta el valor calculado.
 
@@ -471,6 +473,5 @@ Para ver tutoriales que describen la ejecución de otras muestras y ofrecen inst
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -31,4 +31,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
 	Este script de inserción envía una notificación push (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows una vez que se realiza la inserción.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

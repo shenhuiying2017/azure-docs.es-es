@@ -5,24 +5,20 @@
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
-    editor="mattshel"/>
+    editor=""/>
 
 <tags
     ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="02/26/2015"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
     ms.author="sethm"/>
-
-
-
-
 
 # Utilización de las colas del Bus de servicio
 
-<span>Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en C# y usan la API de .NET. Los escenarios descritos incluyen la **creación de colas, el envío y la recepción de mensajes** y la **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes]. </span>
+Esta guía describe cómo utilizar las colas del Bus de servicio. Los ejemplos están escritos en C# y utilizan la API .NET. Entre los escenarios que abarca se incluyen la **creación de colas** y el **envío y recepción de mensajes**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#Next-steps).
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -34,30 +30,29 @@ Cuando cree una aplicación que use el bus de servicio, deberá agregar una refe
 
 ## Agregar el paquete NuGet del bus de servicio
 
-El paquete **NuGet** del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
+El paquete **NuGet** del Bus de servicio es la forma más sencilla de obtener la API del Bus de servicio y configurar la aplicación con todas las dependencias del Bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio.
 
 Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 
-1.  En el Explorador de soluciones, haga clic con el botón secundario en **Referencias** y, a continuación, haga clic en **Administración de paquetes de NuGet**.
-2.  Busque "Service Bus" y seleccione el elemento **Microsoft Azure Service Bus**. Haga clic en **Install** para completar la instalación y, luego, cierre este cuadro de diálogo.
+1.  En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y luego en **Administrar paquetes de NuGet**.
+2.  Busque "Bus de servicio" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Haga clic en **Instalar** para completar la instalación y, luego, cierre este cuadro de diálogo.
 
     ![][7]
 
 De este modo ya estará listo para escribir código para el bus de servicio.
 
-
 ## Configuración de una cadena de conexión del bus de servicio
 
 El bus de servicio usa una cadena de conexión para almacenar extremos y credenciales. Puede poner la cadena de conexión en un archivo de configuración en vez de codificarla de forma rígida:
 
-- Si utiliza los servicios en la nube de Azure, es recomendable que almacene la cadena de conexión mediante el sistema de configuración de servicios de Azure (archivos `*.csdef` and `*.cscfg`).
-- Al usar Sitios web de Azure o Máquinas virtuales de Azure, es recomendable que almacene su cadena de conexión usando el sistema de configuración .NET (por ejemplo, el archivo  `web.config`).
+- Si utiliza los Servicios en la nube de Azure, es recomendable que almacene la cadena de conexión con el sistema de configuración de servicios de Azure (archivos ***.csdef** y ***.cscfg**).
+- Al usar Sitios web Azure o Máquinas virtuales de Azure, es recomendable que almacene su cadena de conexión con el sistema de configuración .NET (por ejemplo, el archivo **Web.config**).
 
 En ambos casos, puede recuperar la cadena de conexión utilizando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en esta guía.
 
 ### Configuración de la cadena de conexión si utiliza los servicios en la nube
 
-El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el Portal de administración de Azure sin volver a implementar la aplicación.  Por ejemplo, agregue una opción de configuración a su archivo de definición de servicio (`*.csdef`), como se indica a continuación:
+El mecanismo de configuración de servicios es exclusivo para los proyectos de los servicios en la nube de Azure y le permite cambiar dinámicamente la configuración desde el portal de administración de Azure sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (***.csdef**), como se indica a continuación:
 
     <ServiceDefinition name="Azure1">
     ...
@@ -69,7 +64,7 @@ El mecanismo de configuración de servicios es exclusivo para los proyectos de l
     ...
     </ServiceDefinition>
 
-A continuación, especifique los valores del archivo de configuración de servicio (`*.cscfg`):
+Especifique luego los valores del archivo de configuración de servicio (***.cscfg**):
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -82,11 +77,11 @@ A continuación, especifique los valores del archivo de configuración de servic
     ...
     </ServiceConfiguration>
 
-Utilice el emisor y los valores de clave de la Firma de acceso compartido (SAS) recuperados del Portal de administración como se indica en la sección anterior.
+Utilice el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de administración, como se indica en la sección anterior.
 
 ### Configuración de la cadena de conexión al usar Sitios web o Máquinas virtuales
 
-Al usar Sitios web o Máquinas virtuales, es recomendable que utilice el sistema de configuración .NET (por ejemplo,  `web.config`).  Almacene la cadena de conexión usando el elemento `<appSettings>`:
+Al usar Sitios web o Máquinas virtuales de Azure, es recomendable utilizar el sistema de configuración .NET (por ejemplo, **Web.config**). Almacene la cadena de conexión usando el elemento `<appSettings>`:
 
     <configuration>
         <appSettings>
@@ -95,13 +90,13 @@ Al usar Sitios web o Máquinas virtuales, es recomendable que utilice el sistema
         </appSettings>
     </configuration>
 
-Utilice el emisor y los valores clave recuperados del Portal de administración como se indica en la sección anterior.
+Utilice el nombre y los valores de clave de SAS recuperados del Portal de administración, como se indica en la sección anterior.
 
 ## Creación de una cola
 
-Puede realizar operaciones de administración para las colas del bus de servicio a través de la clase **NamespaceManager**. La clase **NamespaceManager** proporciona métodos para crear, enumerar y eliminar colas.
+Puede realizar operaciones de administración para las colas del Bus de servicio a través de la [clase `NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Esta clase proporciona métodos para crear, enumerar y eliminar colas.
 
-En este ejemplo se construye un objeto **NamespaceManager** usando la clase **CloudConfigurationManager** de Azure con una cadena de conexión que consta de una dirección base de un espacio de nombres del bus de servicio y las credenciales SAS pertinentes con los permisos para administrarla. Esta cadena de conexión tiene la forma siguiente:
+En este ejemplo, se construye un objeto `NamespaceManager` usando la clase `CloudConfigurationManager` de Azure con una cadena de conexión que consta de una dirección base de un espacio de nombres del servicio de Bus de servicio y las credenciales de SAS pertinentes con los permisos de administración. Esta cadena de conexión tiene la forma
 
     Endpoint=sb://yourServiceNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedSecretValue=yourKey
 
@@ -119,14 +114,14 @@ Por ejemplo, con las opciones de configuración de la sección anterior:
         namespaceManager.CreateQueue("TestQueue");
     }
 
-Hay sobrecargas del método **CreateQueue** que le permiten ajustar las propiedades de la cola (por ejemplo, establecer el valor "período de vida" predeterminado para que se aplique a los mensajes enviados a la cola). Esta configuración se aplica mediante la clase **QueueDescription**. En el siguiente ejemplo se muestra cómo crear una cola con el nombre "TestQueue" con un tamaño máximo de 5 GB y un período de vida de mensaje predeterminado de un minuto:
+Hay sobrecargas del método [`CreateQueue`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx) que le permiten ajustar las propiedades de la cola (por ejemplo, establecer el valor "período de vida" predeterminado para que se aplique a los mensajes enviados a la cola). Estas opciones de configuración se aplican usando la clase [`QueueDescription`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). En el siguiente ejemplo se muestra cómo crear una cola con el nombre "TestQueue" con un tamaño máximo de 5 GB y un período de vida de mensaje predeterminado de un minuto:
 
-    // Configure Queue Settings
+    // Configure queue settings
     QueueDescription qd = new QueueDescription("TestQueue");
     qd.MaxSizeInMegabytes = 5120;
     qd.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-    // Create a new Queue with custom settings
+    // Create a new queue with custom settings
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -138,13 +133,13 @@ Hay sobrecargas del método **CreateQueue** que le permiten ajustar las propieda
         namespaceManager.CreateQueue(qd);
     }
 
-**Nota:** puede usar el método **QueueExists** en los objetos **NamespaceManager** para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
+> [AZURE.NOTE]Puede usar el método [`QueueExists`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.queueexists.aspx) en los objetos [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
 
 ## Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola del Bus de servicio, la aplicación crea un objeto **QueueClient** utilizando la cadena de conexión.
+Para enviar un mensaje a una cola de Bus de servicio, la aplicación crea un objeto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) utilizando la cadena de conexión.
 
-El código siguiente muestra cómo crear un objeto **QueueClient** para la cola "TestQueue" creada anteriormente con la llamada de la API **CreateFromConnectionString**:
+El código que aparece a continuación indica cómo crear un objeto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) para la cola "TestQueue" creada anteriormente usando la llamada de la API [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx):
 
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -154,9 +149,9 @@ El código siguiente muestra cómo crear un objeto **QueueClient** para la cola 
 
     Client.Send(new BrokeredMessage());
 
-Los mensajes enviados a las colas del bus de servicio y recibidos en ellas son instancias de la clase **BrokeredMessage**. **Los objetos BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando todos los objetos serializables al constructor de **BrokeredMessage** y, a continuación, se usará el elemento **DataContractSerializer** adecuado para serializar el objeto. Como alternativa, se puede proporcionar un elemento **System.IO.Stream**.
+Los mensajes enviados a las colas del bus de servicio (y recibidos de ellas) son instancias de la clase [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Los objetos `BrokeredMessage` cuentan con un conjunto de propiedades estándar (como [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) y [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor del objeto [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) y, a continuación, se usará el objeto **DataContractSerializer** adecuado para serializar el objeto. También se puede proporcionar un **System.IO.Stream**.
 
-En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a "TestQueue" **QueueClient** que se ha obtenido en el fragmento de código anterior:
+En el ejemplo que aparece a continuación se indica cómo enviar cinco mensajes de prueba al objeto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) de "TestQueue" que se ha obtenido en el fragmento de código anterior:
 
      for (int i=0; i<5; i++)
      {
@@ -171,17 +166,17 @@ En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a "Te
        Client.Send(message);
      }
 
-Las colas del bus de servicio admiten un tamaño máximo del mensaje de 256 Kb (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 Kb). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
+Las colas del Bus de servicio admiten mensajes con un[ tamaño máximo de 256 KB](service-bus-quotas.md) (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un tamaño de 64 KB). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Si está habilitada la división en particiones, el límite superior es más elevado. Para obtener más información, consulte [Particionamiento de entidades de mensajería](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ## Recepción de mensajes de una cola
 
-La forma más sencilla de recibir mensajes desde una cola es usar un objeto **QueueClient**. Estos objetos pueden funcionar de dos formas distintas: **ReceiveAndDelete** y **PeekLock**.
+La manera recomendada de recibir mensajes de una cola es usar un objeto [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Los objetos `QueueClient` pueden funcionar de dos modos diferentes: [`ReceiveAndDelete` y `PeekLock`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx).
 
-Al usar el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando el bus de servicio recibe una solicitud de lectura para un mensaje de una cola, marca el mensaje como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el Bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
+Cuando se usa el modo **ReceiveAndDelete**, la operación de recepción consta de una sola fase; es decir, cuando el Bus de servicio recibe una solicitud de lectura para un mensaje de una cola, lo marca como consumido y lo devuelve a la aplicación. El modo **ReceiveAndDelete** es el modelo más sencillo y funciona mejor en los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como el bus de servicio habrá marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 
-En el modo **PeekLock** (que es el predeterminado), el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción creando la llamada **Complete** en el mensaje recibido. Cuando el Bus de servicio ve la llamada **Complete**, marca el mensaje como consumido y lo elimina de la cola.
+En el modo **PeekLock** (que es el predeterminado), el proceso de recepción es una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción mediante la llamada a [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. Cuando el Bus de servicio ve la llamada `Complete`, marca el mensaje como consumido y lo elimina de la cola.
 
-En el ejemplo que aparece a continuación, se indica cómo se pueden procesar y recibir los mensajes usando el modo predeterminado **PeekLock**. Para especificar otro valor **ReceiveMode**, puede usar otra sobrecarga  **CreateFromConnectionString**. Este ejemplo usa la devolución de llamada **OnMessage** para procesar los mensajes conforme llegan a "TestQueue".
+En el ejemplo que aparece a continuación, se indica cómo se pueden procesar y recibir los mensajes usando el modo predeterminado **PeekLock**. Para especificar un modo de [`ReceiveMode`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) distinto, use otra sobrecarga de [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.createfromconnectionstring.aspx). En este ejemplo se usa la devolución de llamada [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) para procesar los mensajes conforme llegan a **TestQueue**.
 
     string connectionString =
       CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
@@ -214,39 +209,40 @@ En el ejemplo que aparece a continuación, se indica cómo se pueden procesar y 
         }
     }, options);
 
-Este ejemplo configura la devolución de llamada **OnMessage** utilizando un objeto **OnMessageOptions**. **Autocompletar** se establece en **false** para habilitar el control manual de cuándo llamar a **Complete** en el mensaje recibido.
-**AutoRenewTimeout** se establece en un minuto, lo que hace que el cliente espere un minuto un mensaje antes de que se agote el tiempo de espera de la llamada y el cliente realiza una nueva llamada para comprobar los mensajes; de esta manera se reduce el número de veces que el cliente realiza llamadas facturables que no recuperan mensajes.
+En este ejemplo se configura la devolución de llamada [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) utilizando un objeto [`OnMessageOptions`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). [`AutoComplete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) está establecido en **false** para habilitar el control manual sobre cuándo llamar a [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) en el mensaje recibido. [`AutoRenewTimeout`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) está establecido en 1 minuto, lo que hace que el cliente espere los mensajes un minuto antes de que se agote el tiempo de la llamada y el cliente realice una nueva llamada para comprobar si hay mensajes nuevos. Este valor de propiedad reduce el número de veces que el cliente hace llamadas facturables que no recuperan mensajes.
 
 ## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
-El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces realice la llamada al método **Abandon** del mensaje recibido (en lugar del método **Complete**). Esto hará que el Bus de servicio desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
+El Bus de servicio proporciona una funcionalidad que ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, llame al método [`Abandon`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) en el mensaje recibido (en lugar de al método [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). Esto hará que el Bus de servicio desbloquee el mensaje de la cola y esté disponible para volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
-También hay un tiempo de espera asociado con un mensaje bloqueado en la cola, y si la aplicación no puede procesar el mensaje antes de que expire el tiempo de espera de bloqueo (por ejemplo, si la aplicación sufre un error), el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
+También hay otro tiempo de espera asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación se bloquea), entonces el Bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
 
-En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **Complete**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esto suele denominarse **At Least Once Processing**; es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo esto se consigue mediante la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
+En caso de que la aplicación se bloquee después de procesar el mensaje pero antes de emitir la solicitud [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx), el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad [`MessageId`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) del mensaje, que permanece constante en todos los intentos de entrega.
 
 ## Pasos siguientes
 
 Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][].
--   Creación de una aplicación que envíe y reciba mensajes desde la cola del bus de servicio y hacia ella: [Tutorial de .NET de mensajería con confianza establecida de servicio][Tutorial de .NET de mensajería con confianza establecida del bus de servicio].
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones][].
+-   Creación de una aplicación que envíe y reciba mensajes desde una cola de Bus de servicio y hacia ella: [Tutorial de .NET de mensajería asíncrona de Bus de servicio].
+-   Ejemplos de Bus de servicio: descárguelos desde [Ejemplos de Azure][] o consulte la información general en [MSDN][].
 
-  [Pasos siguientes]: #next-steps
-  [¿Qué son las colas del bus de servicio?]: #what-queues
-  [Creación de un espacio de nombres de servicio]: #create-namespace
-  [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-creds
-  [Configuración de la aplicación para usar el Bus de servicio]: #configure-app
-  [Codificación una cadena de conexión del bus de servicio]: #set-up-connstring
-  [Codificación la cadena de conexión]: #config-connstring
-  [Codificación de una cola]: #create-queue
-  [Codificación mensajes a una cola]: #send-messages
-  [Codificación mensajes desde una cola]: #receive-messages
-  [Codificación ante errores de la aplicación y mensajes que no se pueden leer]: #handle-crashes
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [What are Service Bus Queues]: #what-queues
+  [Create a Service Namespace]: #create-namespace
+  [Obtain the Default Management Credentials for the Namespace]: #obtain-creds
+  [Configure Your Application to Use Service Bus]: #configure-app
+  [How to: Set Up a Service Bus Connection String]: #set-up-connstring
+  [How to: Configure your Connection String]: #config-connstring
+  [How to: Create a Queue]: #create-queue
+  [How to: Send Messages to a Queue]: #send-messages
+  [How to: Receive Messages from a Queue]: #receive-messages
+  [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
+  [Azure Management Portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/library/hh367516.aspx
-  [Tutorial de .NET de mensajería con confianza establecida del bus de servicio]: http://msdn.microsoft.com/library/hh367512.aspx
-
-<!--HONumber=47-->
+  [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Tutorial de .NET de mensajería asíncrona de Bus de servicio]: http://msdn.microsoft.com/library/azure/hh367512.aspx
+  [Ejemplos de Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
+
+<!---HONumber=July15_HO2-->

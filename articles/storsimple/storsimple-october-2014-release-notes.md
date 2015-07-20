@@ -1,25 +1,25 @@
 <properties 
-    pageTitle="Notas de la versión de StorSimple - Octubre de 2014"
+    pageTitle="Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014"
     description="Describe las nuevas características, problemas y soluciones alternativas de la versión de StorSimple de octubre de 2014."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Notas de la versión de StorSimple - Octubre de 2014  
+# Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014  
 
 ## Información general
 
-Las notas siguientes identifican los problemas críticos por resolver de la versión de octubre de 2014 de Microsoft Azure StorSimple. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Se trata de la primera versión después del lanzamiento de la disponibilidad general (GA) de Microsoft Azure StorSimple y corresponde a la versión 6.3.9600.17312.
+Las siguientes notas de la versión identifican los problemas críticos abiertos de la actualización 0.1 de la serie StorSimple 8000 publicada en octubre de 2014. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Esta es la primera versión que aparece después de que la versión de lanzamiento de la serie StorSimple 8000 Series se pusiera a disposición general en julio de 2014 y corresponde a la versión de software 6.3.9600.17312.
 
 Se recomienda buscar y aplicar las actualizaciones disponibles inmediatamente después de instalar el dispositivo. También puede activar las actualizaciones automáticas para descargar e instalar actualizaciones de alta prioridad de Microsoft en cuanto se publiquen. Para obtener más información, consulte cómo instalar [Actualizaciones](https://msdn.microsoft.com/library/azure/1a2cd7de-706b-4d3c-8efb-02e322d3ae73#BKMK_Updates).
 
@@ -97,6 +97,6 @@ Esta versión también aplica una actualización de firmware acumulativa que sol
 ## Actualizaciones del dispositivo virtual en la versión de octubre
 
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

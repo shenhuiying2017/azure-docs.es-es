@@ -149,8 +149,8 @@ La solución para el recuento de palabras contiene dos proyectos de aplicaciones
 
 Los ejecutables de las aplicaciones del asignador y reductor se encuentran en:
 
-- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
-- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
+- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
 ##<a name="test"></a>Prueba del programa en el emulador
@@ -167,7 +167,7 @@ De manera predeterminada, el emulador de HDInsight usa el Sistema de archivos di
 
 Este tutorial utiliza la siguiente estructura de carpetas:
 
-<table border="1"> <tr><td>Carpeta</td><td>Nota</td></tr> <tr><td>\WordCount</td><td>La carpeta raíz del proyecto de recuento de palabras. </td></tr> <tr><td>\WordCount\Apps</td><td>La carpeta de los ejecutables de asignador y reductor.</td></tr> <tr><td>\WordCount\Input</td><td>La carpeta de archivos de origen de MapReduce.</td></tr> <tr><td>\WordCount\Output</td><td>La carpeta de archivos de salida de MapReduce.</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>La carpeta de salida del trabajo.</td></tr> </table></br>
+<table border="1"> <tr><td>Carpeta</td><td>Nota</td></tr> <tr><td>\\WordCount</td><td>La carpeta raíz del proyecto de recuento de palabras. </td></tr> <tr><td>\\WordCount\\Apps</td><td>La carpeta de los ejecutables de asignador y reductor.</td></tr> <tr><td>\\WordCount\\Input</td><td>La carpeta de archivos de origen de MapReduce.</td></tr> <tr><td>\\WordCount\\Output</td><td>La carpeta de archivos de salida de MapReduce.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>La carpeta de salida del trabajo.</td></tr> </table></br>
 
 Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop_home%.
 
@@ -278,7 +278,7 @@ Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop_home%.
 	Puede anexar "|more" al final del comando para obtener la vista de la página.
 
 ##<a id="upload"></a>Carga de datos al almacenamiento de blobs de Azure
-HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archivos predeterminado. Puede configurar un clúster de HDInsight para utilizar almacenamiento de blobs adicional para los archivos de datos. En esta sección, creará una cuenta de almacenamiento de Azure y cargará los archivos de datos en el almacenamiento de blobs. Los archivos de datos son los archivos .txt del directorio %hadoop_home%\share\doc\hadoop\common.
+HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archivos predeterminado. Puede configurar un clúster de HDInsight para utilizar almacenamiento de blobs adicional para los archivos de datos. En esta sección, creará una cuenta de almacenamiento de Azure y cargará los archivos de datos en el almacenamiento de blobs. Los archivos de datos son los archivos .txt del directorio %hadoop_home%\\share\\doc\\hadoop\\common.
 
 
 **Para crear una cuenta de almacenamiento y un contenedor**
@@ -316,7 +316,7 @@ HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archi
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	Observe que la carpeta de archivos de origen local es**C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** y la carpeta de destino es **WordCount/Input**. La ubicación de origen es la ubicación de los archivos .txt en el emulador de HDInsight. El destino es la estructura de carpetas que se reflejará en el contenedor de blobs de Azure.
+	Observe que la carpeta de archivos de origen local es**C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** y la carpeta de destino es **WordCount/Input**. La ubicación de origen es la ubicación de los archivos .txt en el emulador de HDInsight. El destino es la estructura de carpetas que se reflejará en el contenedor de blobs de Azure.
 
 3. Ejecute los siguientes comandos para obtener una lista de los archivos .txt de la carpeta de archivos de origen:
 
@@ -551,4 +551,4 @@ En este tutorial aprendió a desarrollar un trabajo de MapReduce de streaming de
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

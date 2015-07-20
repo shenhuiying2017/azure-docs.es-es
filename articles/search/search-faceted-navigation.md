@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/07/2015" 
 	ms.author="heidist"/>
 
-#Procedimiento para implementar la navegación por facetas en Búsqueda de Azure#
+#Procedimiento para implementar la navegación por facetas en Búsqueda de Azure
 
 La navegación por facetas es un mecanismo de filtrado que proporciona una navegación en profundidad autodirigida en aplicaciones de búsqueda. Aunque es posible que el término “navegación por facetas” no le resulte familiar, es casi seguro que ya ha usado esta característica. Como se muestra en el siguiente ejemplo, la navegación por facetas no es más que las categorías usadas para filtrar los resultados.
 
-## Su aspecto ##
+## Su aspecto
 
  ![][1]
   
@@ -46,10 +46,10 @@ Este artículo contiene las siguientes secciones:
 - [Navegación por facetas basada en GeoPoints](#geofacets)
 - [Prueba](#tryitout)
 
-##Por qué usarla##
+##Por qué usarla
 Las aplicaciones de búsqueda más eficaces tienen varios modelos de interacción además de un cuadro de búsqueda. La navegación por facetas es un punto de entrada alternativo para búsqueda que supone una alternativa práctica a la escritura manual de expresiones de búsqueda complejas.
 
-##Conceptos básicos##
+##Conceptos básicos
 
 Si no está familiarizado con el desarrollo de búsquedas, la mejor manera de pensar en la navegación por facetas es que muestra las posibilidades de una búsqueda autodirigida. Es un tipo de experiencia de búsqueda en profundidad basada en filtros predefinidos, que se usa para restringir rápidamente los resultados de búsqueda mediante acciones de apuntar y hacer clic.
 
@@ -96,7 +96,7 @@ Aunque ambas consultas son válidas, la segunda es mejor si está buscando hotel
 En las aplicaciones que incluyen navegación por facetas, querrá asegurarse de que cada acción del usuario en una estructura de navegación por facetas vaya acompañada de una restricción de los resultados de búsqueda, que se logra mediante una expresión filter.
 
 <a name="howtobuildit"></a>
-# Cómo crearla #
+##Cómo crearla
 
 La navegación por facetas en Búsqueda de Azure se implementa en el código de aplicación que crea la solicitud, pero se basa en los elementos predefinidos del esquema.
 
@@ -113,7 +113,7 @@ La capa de presentación del código proporciona la experiencia del usuario. Deb
 En las secciones siguientes veremos con más detalle cómo crear cada parte a partir de la capa de presentación.
 
 <a name="presentationlayer"></a>
-# Crear la capa de presentación #
+##Crear la capa de presentación
 
 Empezar a trabajar desde la capa de presentación puede ayudarle a descubrir requisitos que de otra forma podrían perderse, y comprender las características que son esenciales para la experiencia de búsqueda.
 
@@ -131,7 +131,7 @@ Observe que cada faceta tiene una etiqueta (Colors, Categories, Prices), un enla
 > [AZURE.TIP]Al diseñar la página de resultados de búsqueda, no olvide agregar un mecanismo para borrar las facetas. Si usa casillas, los usuarios intuirán fácilmente cómo borrar los filtros. En otros diseños, puede que necesite un patrón de ruta de navegación u otro enfoque creativo. Por ejemplo, en la aplicación de ejemplo AdventureWorks Catalog, puede hacer clic en el título, AdventureWorks Catalog, para restablecer la página de búsqueda.
 
 <a name="buildindex"></a>
-# Crear el índice #
+##Crear el índice
 
 El uso de facetas se habilita para cada campo en el índice mediante este atributo de índice: `"Facetable": true`. Todos los tipos de campo que podrían usarse en la navegación por facetas son `Facetable` de forma predeterminada. Entre estos tipos de campo se incluyen `Edm.String`, `Edm.DateTimeOffset`, y todos los tipos de campo numéricos (básicamente, todos los tipos de campo se pueden usar con facetas excepto `Edm.GeographyPoint`, que no se puede usar en la navegación por facetas).
 
@@ -146,7 +146,7 @@ Observe que `Facetable` se ha desactivado para los campos de cadena que no deben
 > [AZURE.TIP]Como procedimiento recomendado, incluya el conjunto completo de atributos de índice para cada campo. Aunque `Facetable` está activado para casi todos los campos de forma predeterminada, establecer deliberadamente cada atributo puede ayudar a considerar detenidamente las implicaciones de cada decisión del esquema.
 
 <a name="checkdata"></a>
-# Comprobar la calidad de los datos 
+##Comprobar la calidad de los datos 
 
 Al desarrollar cualquier aplicación centrada en datos, la preparación de los datos suele ser una de las principales tareas. Las aplicaciones de búsqueda no son ninguna excepción. La calidad de los datos influye directamente en si la estructura de navegación por facetas se materializa tal y como se espera, así como en su eficacia para ayudarle a crear filtros que reduzcan el conjunto de resultados.
 
@@ -162,7 +162,7 @@ Este es un pequeño recordatorio de lo que se debe pulir:
 Como puede imaginar, la diligencia en la preparación de los datos es un aspecto esencial de una navegación por facetas eficiente.
 
 <a name="buildquery"></a>
-# Crear la consulta #
+##Crear la consulta
 
 El código que se escribe para crear consultas debe especificar todas las partes de una consulta válida, incluidas las expresiones de búsqueda, las facetas o los filtros de puntuación (todo lo que se usa para formular una solicitud). En esta sección, exploraremos cómo encajan las facetas en una consulta y cómo se usan los filtros con facetas para entregar un conjunto de resultados reducido.
 
@@ -178,7 +178,7 @@ Además de las facetas, la solicitud que la aplicación formula también debe ge
 
 Cuando un usuario hace clic en "Red" para indicar que solo se deben mostrar productos de color rojo, la consulta siguiente que la aplicación envía incluiría `$filter=Color eq ‘Red’`.
 
-## Procedimientos recomendados para la navegación por facetas ##
+## Procedimientos recomendados para la navegación por facetas
 
 La siguiente lista resume algunos procedimientos recomendados.
 
@@ -192,7 +192,7 @@ La siguiente lista resume algunos procedimientos recomendados.
 
 
 <a name="tips"></a>
-# Sugerencias sobre cómo controlar la navegación por facetas #
+##Sugerencias sobre cómo controlar la navegación por facetas
 
 La siguiente es una lista de sugerencias con información sobre problemas específicos.
 
@@ -257,7 +257,7 @@ Los recuentos de faceta pueden ser incorrectos debido a la arquitectura de parti
 Aunque este comportamiento podría cambiar en cualquier momento, si se produce hoy puede solucionarlo estableciendo artificialmente count:<number> en un número muy grande para forzar que se notifique el valor completo de cada partición. Si el valor de count: es mayor o igual que el número de valores únicos en el campo, se garantizan resultados precisos. Sin embargo, si el recuento de documentos es muy alto afecta al rendimiento, por lo que debe usar esta opción con prudencia.
 
 <a name="rangefacets"></a>
-# Navegación por facetas basada en un intervalo de valores #
+##Navegación por facetas basada en un intervalo de valores
 
 El uso de facetas en intervalos es un requisito habitual de las aplicaciones de búsqueda. Se admiten intervalos para datos numéricos y valores de fecha y hora. Puede leer más acerca de cada enfoque en [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx).
 
@@ -285,7 +285,7 @@ En la aplicación de ejemplo, la expresión de filtro usa los parámetros **pric
   ![][6]
 
 <a name="geofacets"></a>
-# Navegación por facetas basada en GeoPoints #
+##Navegación por facetas basada en GeoPoints
 
 Es habitual ver filtros que ayudan a elegir una tienda, un restaurante o un destino en función de su proximidad a la ubicación actual. Aunque este tipo de filtro podría ser similar a la navegación por facetas, en realidad es solo un filtro. Lo mencionamos aquí para aquellos que buscan específicamente consejos de implementación para ese problema de diseño concreto.
 
@@ -298,7 +298,7 @@ Hay dos funciones geoespaciales en Búsqueda de Azure, **geo.distance** y **geo.
 Puede encontrar ejemplos de filtros en [Sintaxis de expresiones de OData (Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798921.aspx). Para obtener más información acerca de la búsqueda geoespacial, consulte [Crear una aplicación de búsqueda geoespacial en Búsqueda de Azure](search-create-geospatial.md).
 
 <a name="tryitout"></a>
-# Prueba #
+##Prueba
 
 La demostración de Búsqueda de Azure con Adventure Works en Codeplex contiene los ejemplos a los que se hace referencia en este artículo. Cuando trabaje con los resultados de búsqueda, vigile los posibles cambios en las direcciones URL en la construcción de la consulta. Esta aplicación anexa facetas al URI a medida que las selecciona.
 
@@ -327,7 +327,7 @@ La demostración de Búsqueda de Azure con Adventure Works en Codeplex contiene 
 	![][10]
  
 <a name="nextstep"></a>
-# Paso siguiente #
+##Paso siguiente
 
 Para probar sus conocimientos, puede agregar un campo de faceta para *modelName*. El índice ya está configurado para esta faceta, por lo que no se necesita ningún cambio en el índice. Sin embargo, necesitará modificar el código HTML para incluir una nueva faceta para Models y agregar el campo de faceta al constructor de la consulta.
 
@@ -370,5 +370,6 @@ Para obtener más información sobre los principios de diseño de la navegación
 [Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="05/24/2015" 
 	ms.author="juliako"/>
 
-#Trabajo Actualización de Servicios multimedia después de rotar las claves de acceso
+#Actualización de Servicios multimedia después de rotar las claves de acceso de almacenamiento
 
 Cuando crea una nueva cuenta de Servicios multimedia de Azure, también se le pide que seleccione una cuenta de almacenamiento de Azure que se usa para almacenar el contenido multimedia. Tenga en cuenta que puede agregar más de una cuenta de almacenamiento a su cuenta de Servicios multimedia.
 
@@ -24,26 +24,26 @@ Cuando se crea una nueva cuenta de almacenamiento, Azure genera dos claves de ac
 
 Servicios multimedia tiene una dependencia de una de las claves de almacenamiento (principal o secundaria). En concreto, los localizadores que se usan para transmitir o descargar sus recursos dependen de la clave de acceso. Al rotar las claves de acceso de almacenamiento, también debe asegurarse de actualizar sus localizadores para que no haya ninguna interrupción en su servicio de streaming.
 
->[AZURE.NOTE]Después de regenerar una clave de almacenamiento, debe asegurarse de sincronizar la actualización con Servicios multimedia. 
+>[AZURE.NOTE]Después de regenerar una clave de almacenamiento, debe asegurarse de sincronizar la actualización con Servicios multimedia.
 
 En este tema se describen los pasos que tomaría para rotar las claves de almacenamiento y actualizar Servicios multimedia para usar la clave de almacenamiento adecuada. Tenga en cuenta que si tiene varias cuentas de almacenamiento, realizaría este procedimiento con cada una.
 
 >[AZURE.NOTE]Antes de ejecutar los pasos que se describen en este tema en una cuenta de producción, asegúrese de probarlos en una cuenta de ensayo.
 
 
-## Paso 1: Regenerar la clave de acceso de almacenamiento
+## Paso 1: Regeneración de la clave de acceso de almacenamiento secundaria
 
-Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria.  Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Procedimiento: Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
   
-##<a id="step2"></a>Paso 2:  Actualizar Servicios multimedia para usar la nueva clave de almacenamiento secundaria
+##<a id="step2"></a>Paso 2: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento secundaria
 
 Actualice Servicios multimedia para usar la clave de acceso de almacenamiento secundaria. Puede usar uno de los dos métodos siguientes para sincronizar la clave de almacenamiento regenerada con Servicios multimedia.
 
-- Use el Portal de Azure: seleccione su cuenta de Servicios multimedia y haga clic en el icono "ADMINISTRAR CLAVES" en la parte inferior de la ventana del portal. Según la clave de almacenamiento con la que desee que se sincronice Servicios multimedia, seleccione el botón para sincronizar la clave principal o para sincronizar la clave secundaria. En este caso, use la clave secundaria.
+- Use el Portal de Azure: seleccione su cuenta de Servicios multimedia y haga clic en el icono “ADMINISTRAR CLAVES” en la parte inferior de la ventana del portal. Según la clave de almacenamiento con la que desee que se sincronice Servicios multimedia, seleccione el botón para sincronizar la clave principal o para sincronizar la clave secundaria. En este caso, use la clave secundaria.
 
-- Use la API de REST de Servicios multimedia. 
+- Use la API de REST de Servicios multimedia.
 
-	En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key con el fin de sincronizar la clave de almacenamiento especificada con Servicios multimedia. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para obtener más información, consulte [Cómo: Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+	En el siguiente código de ejemplo se muestra cómo construir la solicitud https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key con el fin de sincronizar la clave de almacenamiento especificada con Servicios multimedia. En este caso, se usa el valor de la clave de almacenamiento secundaria. Para obtener más información, consulte [Uso de la API de REST de administración de Servicios multimedia](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -83,29 +83,29 @@ A continuación, actualice los localizadores existentes (que tienen una dependen
 
 >[AZURE.NOTE]Espere 30 minutos antes de realizar ninguna operación con Servicios multimedia (por ejemplo, crear nuevos localizadores) a fin de impedir que los trabajos pendientes sea vean afectados.
 
-##Paso 3: Actualizar los localizadores 
+##Paso 3: Actualización de los localizadores 
 
-Pasados 30 minutos, puede actualizar los localizadores existentes de modo que tomen dependencia de la nueva clave de almacenamiento secundaria.  
+Pasados 30 minutos, puede actualizar los localizadores existentes de modo que tomen dependencia de la nueva clave de almacenamiento secundaria.
 
-Para actualizar la fecha de caducidad en un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que cuando actualiza la fecha de caducidad de un localizador SAS, la dirección URL cambia. 
+Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
-##Paso 5: Regenerar la clave de acceso de almacenamiento principal
+##Paso 5: Regeneración de la clave de acceso de almacenamiento principal
 
-Regenere la clave de acceso de almacenamiento principal. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Procedimiento: Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)
+Regenere la clave de acceso de almacenamiento principal. Para obtener información sobre cómo rotar las claves de almacenamiento, consulte [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
-##Paso 6: Actualizar Servicios multimedia para usar la nueva clave de almacenamiento principal
+##Paso 6: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento principal
 	
-Use el mismo procedimiento que se describe en el [Paso 2](media-services-roll-storage-access-keys.md#step2) pero solo esta vez sincronice la nueva clave de acceso de almacenamiento principal con la cuenta de Servicios multimedia.
+Use el mismo procedimiento que se describe en el [paso 2](media-services-roll-storage-access-keys.md#step2), pero esta vez sincronice la nueva clave de acceso de almacenamiento principal con la cuenta de Servicios multimedia.
 
 >[AZURE.NOTE]Espere 30 minutos antes de realizar ninguna operación con Servicios multimedia (por ejemplo, crear nuevos localizadores) a fin de impedir que los trabajos pendientes sea vean afectados.
 
-##Paso 7: Actualizar los localizadores  
+##Paso 7: Actualización de los localizadores  
 
-Pasados 30 minutos, puede actualizar los localizadores existentes de modo que tomen dependencia de la nueva clave de almacenamiento principal.  
+Pasados 30 minutos, puede actualizar los localizadores existentes de modo que tomen dependencia de la nueva clave de almacenamiento principal.
 
-Para actualizar la fecha de caducidad en un localizador, use las API de [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que cuando actualiza la fecha de caducidad de un localizador SAS, la dirección URL cambia. 
+Para actualizar la fecha de caducidad de un localizador, utilice las [API de REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Tenga en cuenta que, cuando se actualiza la fecha de caducidad de un localizador de SAS, cambia la dirección URL.
 
  
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Uso de los Centros de notificaciones con Java" 
-	description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure desde un back-end de Java." 
+	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure desde un back-end de Java." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/12/2015" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde Java
@@ -21,10 +21,9 @@
     	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
-En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. 
-Se trata de un proyecto de código abierto y puede ver todo el código SDK en [SDK de Java]. 
+En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible. Este es un proyecto de código abierto, el código entero lo puede ver en el [SDK de Java].
 
-En general, puede tener acceso a todas las características de los Centros de notificaciones desde un servidor back-end deJava/PHP/Python/Ruby  mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de MSDN [API de REST de los Centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java. 
+En general, puede tener acceso a todas las características de los Centros de notificaciones desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST del Centro de notificaciones, como se describe en el tema de [API de REST de los centros de notificaciones](http://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java.
 
 El SDK admite actualmente:
 
@@ -35,7 +34,7 @@ El SDK admite actualmente:
 - Envíos regulares
 - Envíos programados
 - Operaciones asincrónicas mediante Java NIO
-- Plataformas compatibles: APN (iOS), GCM (Android), WNS (Aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google) 
+- Plataformas admitidas: APNS (iOS), GCM (Android), WNS (aplicaciones de la Tienda Windows), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android sin servicios de Google) 
 
 ## Uso del SDK
 
@@ -142,16 +141,14 @@ Quita los duplicados debido a las respuestas perdidas si se almacenan identifica
 Todas las consultas de la colección admiten los tokens $top y continuation.
 
 ### Uso de la API de instalación
-La API de instalación es un mecanismo alternativo para la administración de registros. En lugar de mantener varios registros que no es un procedimiento sencillo y puede fácilmente realizarse de manera incorrecta o ineficaz, ahora es posible usar un objeto de instalación ÚNICO. 
-La instalación contiene todo lo que necesita: canal de inserción (token del dispositivo), etiquetas, plantillas, iconos secundarios (para WNS y APNS). No es necesario llamar al servicio para obtener el identificador: solo hay que generar el GUID o cualquier otro identificador, mantenerlo en el dispositivo y enviarlo a su back-end junto con el canal de inserción (token del dispositivo). 
-En el back-end sólo debe realizar una única llamada: CreateOrUpdateInstallation, es completamente idempotente, así que no dude en reintentarlo si es necesario.
+La API de instalación es un mecanismo alternativo para la administración de registros. En lugar de mantener varios registros que no es un procedimiento sencillo y puede fácilmente realizarse de manera incorrecta o ineficaz, ahora es posible usar un objeto de instalación ÚNICO. La instalación contiene todo lo que necesita: canal de inserción (token del dispositivo), etiquetas, plantillas, iconos secundarios (para WNS y APNS). No es necesario llamar al servicio para obtener el identificador: solo hay que generar el GUID o cualquier otro identificador, mantenerlo en el dispositivo y enviarlo a su back-end junto con el canal de inserción (token del dispositivo). En el back-end, solo debe hacer una llamada: CreateOrUpdateInstallation, es completamente idempotente, así que no dude en reintentarlo si es necesario.
 
 Un ejemplo para Amazon Kindle Fire es como el siguiente:
 
 	Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
 	hub.createOrUpdateInstallation(installation);
 
-Si desea actualizarlo: 
+Si desea actualizarlo:
 
 	installation.addTag("foo");
 	installation.addTemplate("template1", new InstallationTemplate("{"data":{"key1":"$(value1)"}}","tag-for-template1"));
@@ -226,8 +223,7 @@ A veces es necesario para realizar la operación masiva en registros. Normalment
 
 	List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**URI con firma de SAS:**
-Se trata de la dirección URL de algunos archivos de blobs o contenedor de blobs además de conjunto de parámetros, como los permisos y la hora de expiración más firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de almacenamiento de Azure tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de github) que tiene una implementación muy básica y compacta del algoritmo de firma.
+**URI con firma SAS**: se trata de la dirección URL de algunos archivos de blobs o contenedor de blobs más el conjunto de parámetros, como los permisos y la hora de expiración, más la firma de todas las operaciones realizadas mediante la clave SAS de la cuenta. El SDK de Java de almacenamiento de Azure tiene amplias capacidades, incluida la creación de ese tipo de URI. Como una alternativa sencilla puede echar un vistazo a la clase de prueba ImportExportE2E (desde la ubicación de github) que tiene una implementación muy básica y compacta del algoritmo de firma.
 
 ###Envío de notificaciones
 El objeto de notificación es simplemente un cuerpo con encabezados, algunos métodos de utilidad ayudan en la creación de los objetos de notificación nativos y de plantilla.
@@ -274,7 +270,7 @@ El objeto de notificación es simplemente un cuerpo con encabezados, algunos mé
 		tags.add("foo");
 		hub.sendNotification(n, tags);
 
-* **Envío a la expresión de etiqueta**       
+* **Envío a la expresión de etiqueta**
 
 		hub.sendNotification(n, "foo && ! bar");
 
@@ -300,12 +296,13 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 	- [Envío de notificaciones entre plataformas a usuarios autenticados]
 
 [SDK de Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Introducción a los Centros de notificaciones]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Envío de noticias de última hora]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Envío de noticias de última hora localizadas]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Envío de notificaciones a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
 [Envío de notificaciones entre plataformas a usuarios autenticados]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

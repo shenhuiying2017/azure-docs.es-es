@@ -19,7 +19,7 @@
 
 #Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento
 
-A partir de Servicios multimedia de Microsoft Azure  2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia proporciona las siguientes ventajas: equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
+A partir de Servicios multimedia de Microsoft Azure 2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia proporciona las siguientes ventajas: equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
 
 Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB).
 
@@ -35,7 +35,7 @@ Al asociar varias cuentas de almacenamiento a su cuenta de Servicios multimedia,
 
 Otras consideraciones:
 
-Los Servicios multimedia usan el valor de la propiedad **IAssetFile.Name** al generar direcciones URL para el contenido de streaming (por ejemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad Name no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+Los Servicios multimedia usan el valor de la propiedad **IAssetFile.Name** al generar direcciones URL para el contenido de streaming (por ejemplo, http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad Name no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 ##Para asociar una cuenta de almacenamiento con la API de REST de administración de servicios de Azure
 
@@ -53,7 +53,7 @@ El código siguiente usa el último SDK de Servicios multimedia para realizar la
 
 	uso de Microsoft.WindowsAzure.MediaServices.Client; uso de System; uso de System.Collections.Generic; uso de System.Configuration; uso de System.IO; uso de System.Linq; uso de System.Text; uso de System.Threading; uso de System.Threading.Tasks;
 	
-	namespace MultipleStorageAccounts { class Program { //Ubicación del archivo multimedia que quiere codificar. cadena de solo lectura estática privada _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
+	namespace MultipleStorageAccounts { class Program { //Ubicación del archivo multimedia que quiere codificar. cadena de solo lectura estática privada _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -234,5 +234,6 @@ El código siguiente usa el último SDK de Servicios multimedia para realizar la
 	        }
 	    }
 	}
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

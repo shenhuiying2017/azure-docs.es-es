@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." 
+<properties 
+	pageTitle="Creación de una aplicación de marcador de Tienda Windows con el backend .NET | Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo crear una aplicación de marcador de Tienda Windows mediante los Servicios móviles de Azure con un backend. NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="06/24/2015" 
+	ms.author="glenga"/>
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
 
@@ -113,7 +113,7 @@ Observe que ambas clases se heredan de la clase **EntityData**. Al derivarse de 
 
 La clase `PlayerRank` tiene una [propiedad navigation](http://msdn.microsoft.com/data/jj713564.aspx) que apunta a la entidad `Player` relacionada. El atributo **[ForeignKey]** le indica a EF que la propiedad `Player` representa una clave externa.
 
-# Incorporación de controladores Web API
+## Incorporación de controladores Web API
 
 Ahora va a agregar controladores Web API para `Player` y `PlayerRank`. En lugar de controladores Web API estándar, va a agregar un tipo especial de controlador denominado *controlador de tabla*, diseñado específicamente para los Servicios móviles de Azure.
 
@@ -314,11 +314,11 @@ El método `PostPlayerScore` toma una instancia de `PlayerScore` como entrada. (
 2.	Actualiza la puntuación del jugador.
 3.	Ejecuta una consulta SQL que actualiza por lotes todas las clasificaciones de los jugadores.
 
-El atributo **[Route]** define una ruta personalizada para este método:
+El atributo **Route** define una ruta personalizada para este método:
 
 	[Route("api/score")]
 
-También puede poner el método en un controlador aparte. No hay ninguna ventaja particular de cualquier de las maneras, solo depende de cómo desea organizar el código. Para obtener más información sobre el atributo **[Route]**, vea [Enrutamiento de atributos en Web API](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2).
+También puede poner el método en un controlador aparte. No hay ninguna ventaja particular de cualquier de las maneras, solo depende de cómo desea organizar el código. Para obtener más información sobre el atributo **[Route]**, consulte [Enrutamiento de atributos en Web AP](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2)I.
 
 ## Creación de una aplicación de la Tienda Windows
 
@@ -334,7 +334,7 @@ Utilice el Administrador de paquetes de NuGet para agregar la biblioteca de clie
 
 El modificador -Project especifica el proyecto donde se debe instalar el paquete.
 
-## Incorporación de clases de modelo
+## Incorporación de clases de modelo  
 
 
 Cree una carpeta denominada Models y agregue las siguientes clases:
@@ -758,9 +758,9 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 [Más información acerca de Servicios móviles de Azure]: /develop/mobile/resources/
 [Más información acerca de Web API]: http://asp.net/web-api
 [Control de conflictos de escritura de bases de datos]: mobile-services-windows-store-dotnet-handle-database-conflicts.md
-[Incorporación de notificaciones de inserción]: notification-hubs/notification-hubs-windows-store-dotnet-get-started.md
-
+[Incorporación de notificaciones de inserción]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

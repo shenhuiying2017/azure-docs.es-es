@@ -19,7 +19,6 @@
 
 # Serialización de datos en Hadoop con Microsoft Avro Library
 
-##Información general
 En este tema, se explica el uso de <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> para serializar objetos y otras estructuras de datos en secuencias con el fin de guardarlos en memoria, en una base de datos o en un archivo, y cómo deserializarlos para recuperar los objetos originales.
 
 
@@ -364,7 +363,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
 
 ###<a name="Scenario3"></a>Muestra 3: serialización mediante el uso de archivos contenedores de objetos y serialización con reflexión
 
-Este ejemplo es similar al escenario del <a href="#Scenario1">primer ejemplo</a>, donde el esquema se especifica de forma implícita con reflexión. La diferencia es que aquí no se presupone su conocimiento por parte del lector que lo deserializa. Los objetos **SensorData** que se van a serializar y el esquema especificado de forma implícita se almacenan en un archivo contenedor de objetos representado por la clase  [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx).
+Este ejemplo es similar al escenario del <a href="#Scenario1">primer ejemplo</a>, donde el esquema se especifica de forma implícita con reflexión. La diferencia es que aquí no se presupone su conocimiento por parte del lector que lo deserializa. Los objetos **SensorData** que se van a serializar y el esquema especificado de forma implícita se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx).
 
 En este ejemplo, los datos se serializan con [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) y se deserializan con [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). Después, se compara el resultado con las instancias iniciales para asegurarse de la identidad.
 
@@ -1397,9 +1396,14 @@ En ambos casos, todas las modificaciones deben realizarse en la sección de conf
 Para limpiar el clúster, ejecute el comando siguiente:
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

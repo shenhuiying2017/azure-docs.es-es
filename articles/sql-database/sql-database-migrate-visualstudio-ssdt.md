@@ -93,4 +93,6 @@ En la comparación de esquemas debajo de la base de datos Adventure Works 2014 d
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

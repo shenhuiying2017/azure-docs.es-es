@@ -32,9 +32,9 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-windows-store-sdk-co
 
 ##Notas de la versión
 
-###3.0.1 (29/04/2015)
+###3.1.0 (05/21/2015)
 
--   Se ha corregido un error que afecta a la inicialización del SDK en algunas aplicaciones de Windows Phone WinRT.
+-   El identificador de dispositivo de Mobile Engagement ahora se basa en un GUID que se genera durante la instalación.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-windows-store-release-notes.md)
 
@@ -52,4 +52,5 @@ Este paso se refiere solo a los recursos personalizados. Si ha personalizado los
 ### Actualizar de versiones anteriores
 
 Consulte [Procedimientos de actualización](mobile-engagement-windows-store-upgrade-procedure/)
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

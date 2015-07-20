@@ -19,4 +19,4 @@ En esta sección, probará la nueva aplicación en el servicio móvil que se eje
 
 	De este modo, se envía una solicitud POST al servicio móvil local. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

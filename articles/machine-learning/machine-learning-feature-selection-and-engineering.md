@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Diseño y selección de características en Aprendizaje automático de Azure | Azure" 
-	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático." 
+<properties
+	pageTitle="Diseño y selección de características en Aprendizaje automático de Azure | Microsoft Azure" 
+	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/21/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/21/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -29,16 +29,16 @@ Las características diseñadas y seleccionadas aumenta la eficiencia del proces
 
 El diseño y la selección de las características es solo una parte de un proceso más grande, el que normalmente consta de cuatro pasos:
 
-* recopilación de datos 
-* mejora de datos 
-* construcción del modelo 
-* procesamiento posterior 
+* recopilación de datos
+* mejora de datos
+* construcción del modelo
+* procesamiento posterior
 
 El diseño y la selección se encuentran en el paso de **mejora de datos** del aprendizaje automático. Para nuestros propósitos, es posible distinguir tres aspectos de este proceso:
 
 * **procesamiento previo de los datos**: este proceso intenta asegurarse de que los datos recopilados estén limpios y sean coherentes. Incluye tareas como la integración de varios conjuntos de datos, el control de los datos que faltan, el control de datos incoherentes y la conversión de los tipos de datos.
 * **diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
-* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento. 
+* **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 En este tema solo se abarcan los aspectos de diseño y selección de características del proceso de mejora de los datos. Para obtener información adicional sobre el paso de procesamiento previo de los datos, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
@@ -51,7 +51,7 @@ Los datos de entrenamiento constan de una matriz compuesta de ejemplos (registro
 
 Al comenzar con Aprendizaje automático de Azure, es más fácil comprender este proceso de manera concreta si se usan ejemplos proporcionados en Estudio. Aquí se muestran dos ejemplos:
 
-* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](../machine-learning-sample-prediction-of-number-of-bike-rentals.md), en un experimento supervisado en el que se conocen los valores de destino 
+* Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](../machine-learning-sample-prediction-of-number-of-bike-rentals.md), en un experimento supervisado en el que se conocen los valores de destino
 * Un ejemplo de clasificación de minería de texto con [Hash de características][feature-hashing]
 
 ### Ejemplo 1: incorporación de características temporales para el modelo de regresión ###
@@ -59,7 +59,7 @@ Al comenzar con Aprendizaje automático de Azure, es más fácil comprender este
 Usemos el experimento "Previsión de demanda de bicicletas" en Estudio de aprendizaje automático de Azure para mostrar cómo diseñar características para una tarea de regresión. El objetivo de este experimento es predecir la demanda de bicicletas, es decir, el número de bicicletas alquiladas dentro de un mes/día/hora específico. El conjunto de datos "Conjunto de datos de UCI de alquiler de bicicletas" se usa como los datos de entrada sin procesar. Este conjunto de datos se basa en datos reales provenientes de la empresa Capital Bikeshare que mantiene una red de alquiler de bicicletas en Washington DC, en Estados Unidos. El conjunto de datos representa el número de bicicletas alquiladas dentro de una hora específica durante un día en el año 2011 y 2012 y contiene 17379 filas y 17 columnas. El conjunto de características sin procesar contiene condiciones climáticas (temperatura/humedad/velocidad del viento) y el tipo de día (festivo/día de semana). El campo para la predicción es "cnt", un contador que representa las bicicletas alquiladas dentro de una hora específica y cuyos intervalos van de 1 a 977.
 
 Con el objetivo de construir características eficaces en los datos de entrenamiento, se crean cuatro modelos de regresión con el mismo algoritmo, pero con cuatro conjuntos de datos de entrenamiento distintos. Los cuatro conjuntos de datos representan los mismos datos de entrada sin procesar, pero con un número creciente del conjunto de características. Estas características se agrupan en cuatro categorías:
- 
+
 1. A = características de clima + festivo + día de semana + fin de semana correspondiente al día de la predicción
 2. B = el número de bicicletas alquiladas en cada una de las 12 horas anteriores
 3. C = el número de bicicletas alquiladas en cada uno de los 12 días anteriores a la misma hora
@@ -83,8 +83,8 @@ Para llevar a cabo esta tarea, se aplica una técnica llamada **hash de caracter
 
 En Aprendizaje automático de Azure, existe un módulo llamado [Hash de características][feature-hashing] que crea oportunamente estas características de palabras/frases. La figura siguiente muestra un ejemplo del uso de este módulo. El conjunto de datos de entrada contiene dos columnas: la clasificación de libro, que va de 1 a 5, y el contenido mismo de la reseña. El objetivo de este módulo [Hash de características][feature-hashing] es recuperar una gran cantidad de características nuevas que muestran la frecuencia de repetición de las palabras/frases correspondientes dentro de la reseña de ese libro en especial. Para usar este módulo, es necesario realizar los siguientes pasos:
 
-* Primero, seleccione la columna que contiene el texto de entrada ("Col2" en este ejemplo). 
-* Segundo, defina el "Tamaño de bits de hash" en 8,lo que significa que se crearán 2^8=256 características. La palabra/frase en todo el texto tendrá hash en 256 índices. El parámetro "Tamaño de bits de hash" va de 1 a 31. Es menos probable que las palabras/frases tengan hash en el mismo índice si este valor se define para que sea un número mayor. 
+* Primero, seleccione la columna que contiene el texto de entrada ("Col2" en este ejemplo).
+* Segundo, defina el "Tamaño de bits de hash" en 8,lo que significa que se crearán 2^8=256 características. La palabra/frase en todo el texto tendrá hash en 256 índices. El parámetro "Tamaño de bits de hash" va de 1 a 31. Es menos probable que las palabras/frases tengan hash en el mismo índice si este valor se define para que sea un número mayor.
 * Tercero, defina el parámetro "N-gramas" en 2. Con esto se obtiene la frecuencia de repetición de unigramas (una característica para cada palabra única) y bigramas (una características para cada par de palabras adyacentes) a partir del texto de entrada. El parámetro "N-gramas" va de 0 a 10, lo que indica el número máximo de palabras secuenciales que se incluirán en una característica.  
 
 ![Módulo "Hash de características"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
@@ -97,15 +97,15 @@ La figura siguiente muestra cómo se ven estas nuevas características.
 
 La selección de características es un proceso que normalmente se aplica para la construcción de conjuntos de datos de entrenamiento para tareas de modelado predictivo, como las tareas de clasificación o de regresión. El objetivo es seleccionar un subconjunto de las características a partir del conjunto de datos original que reduce sus dimensiones al usar un conjunto de características mínimo para que represente la cantidad máxima de varianza en los datos. De este modo, este subconjunto de características son las únicas características que se incluirán para entrenar el modelo. La selección de características tiene dos propósitos principales.
 
-* En primer lugar, la selección de características a menudo aumenta la precisión de la clasificación a través de la eliminación de características irrelevantes, redundantes o altamente correlacionadas. 
-* En segundo lugar, disminuye la cantidad de características, lo que hace que el proceso de entrenamiento del modelo sea más eficiente. Esto resulta especialmente importante cuando se trata de sistemas aprendices que son costosos de entrenar, como las máquinas de vectores de soporte. 
+* En primer lugar, la selección de características a menudo aumenta la precisión de la clasificación a través de la eliminación de características irrelevantes, redundantes o altamente correlacionadas.
+* En segundo lugar, disminuye la cantidad de características, lo que hace que el proceso de entrenamiento del modelo sea más eficiente. Esto resulta especialmente importante cuando se trata de sistemas aprendices que son costosos de entrenar, como las máquinas de vectores de soporte.
 
 A pesar de que la selección de características sí busca disminuir la cantidad de características en el conjunto de datos que se usa para entrenar el modelo, no es frecuente referirse a ella con el término "reducción de la dimensionalidad". Los métodos de selección de características extraen un subconjunto de las características originales de los datos sin cambiarlas. Los métodos de reducción de dimensionalidad emplean características diseñadas que pueden transformar las características originales y, de ese modo, modificarlas. Algunos ejemplos de los métodos de reducción de dimensionalidad incluyen el análisis del componente principal, el análisis de correlación canónica y la descomposición en valores singulares.
 
 Entre otros aspectos, una categoría ampliamente aplicada de los métodos de selección de categorías en un contexto supervisado se llama "selección de características basada en filtro". Mediante la evaluación de la correlación entre cada característica y el atributo de destino, estos métodos aplican una medida estadística para asignar una puntuación a cada característica. A continuación, las características se clasifican según la puntuación, lo que se puede usar para definir el umbral para conservar o eliminar una característica específica. Algunos ejemplos de las medidas estadísticas que se usan en estos métodos incluyen la correlación de Pearson, la información mutua y la prueba de Chi-cuadrado.
 
 En Estudio de aprendizaje automático de Azure, estos son los módulos proporcionados para la selección de características. Tal como aparece en la figura siguiente, estos módulos incluyen [Selección de características basada en filtro][filter-based-feature-selection] y [Análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
- 
+
 ![Ejemplo de selección de características](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
 
@@ -133,5 +133,6 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,32 +1,32 @@
 <properties 
-    pageTitle="Notas de la versión de StorSimple - Enero de 2015"
+    pageTitle="Notas de la versión 0.2 de la actualización de la serie StorSimple 8000 - enero de 2015"
     description="Describe las nuevas características, problemas y soluciones alternativas de la versión de Microsoft Azure StorSimple de enero de 2015."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="06/02/2015"
     ms.author="v-sharos" />
 
 
-# Notas de la versión de StorSimple - Enero de 2015
+# Notas de la versión 0.2 de la actualización de la serie StorSimple 8000 - enero de 2015
 
 ## Información general
 
-En las notas siguientes se identifican los problemas críticos por resolver de la versión de enero de 2015 de Microsoft Azure StorSimple. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Se trata de la segunda versión después del lanzamiento de la disponibilidad general (GA) de Microsoft Azure StorSimple.
+En las notas siguientes se identifican los problemas críticos por resolver de la versión de enero de 2015 de Microsoft Azure StorSimple. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Esta es la segunda versión que aparece después de que la versión de lanzamiento de la serie StorSimple 8000 Series se pusiera a disposición general en julio de 2014.
   
 Esta actualización no cambia la versión de software del dispositivo físico de la actualización de octubre. Sigue siendo la versión 6.3.9600.17312. En esta versión, la imagen que usa la imagen del dispositivo virtual cambió. Por lo tanto, en todos los dispositivos virtuales nuevos creados después del 20/01/2015 se mostrará la versión 6.3.9600.17361.
 
 Consulte la siguiente información de las notas de la versión referente a la actualización de enero de 2015.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 
 - Esta actualización no está disponible a través de Windows Update y no se puede instalar como otras actualizaciones. El dispositivo no recibirá esta actualización aunque haya aplicado las actualizaciones mediante el Portal de administración. Esta actualización solo se aplicará a los dispositivos virtuales creados después del 20 de enero de 2015. 
  
@@ -76,6 +76,6 @@ Esta versión no contiene las actualizaciones para el controlador SCSI conectado
 
 Esta versión contiene una imagen actualizada para el dispositivo virtual. Todos los dispositivos virtuales creados después del 20 de enero de 2015 mostrarán la versión del software como 6.3.9600.17361.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

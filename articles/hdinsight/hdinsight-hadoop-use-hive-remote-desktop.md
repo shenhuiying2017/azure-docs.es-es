@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Uso de Hive con Hadoop en HDInsight con el escritorio remoto
@@ -22,7 +22,7 @@
 
 En este artículo, obtendrá información sobre cómo conectarse a un clúster de HDInsight mediante Escritorio remoto y, a continuación, ejecutar consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 
-> [AZURE.NOTE]Este documento no ofrece una descripción detallada de las instrucciones de HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL utilizado en este ejemplo, vea <a href="hdinsight-use-hive.md" target="_blank">Uso de Hive con Hadoop en HDInsight</a>.
+> [AZURE.NOTE]Este documento no ofrece una descripción detallada de las instrucciones de HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL utilizado en este ejemplo, consulte [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md).
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -32,11 +32,11 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
 * Un equipo cliente con Windows 10, Window 8 o Windows 7
 
-##<a id="connect"></a>Conexión con Escritorio remoto
+##<a id="connect"></a>Conexión con el Escritorio remoto
 
-Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
-##<a id="hive"></a>Uso del comando Hive
+##<a id="hive"></a>Uso del comando de Hive
 
 Cuando se haya conectado al escritorio para el clúster de HDInsight, utilice los pasos siguientes para trabajar con Hive.
 
@@ -80,7 +80,7 @@ Cuando se haya conectado al escritorio para el clúster de HDInsight, utilice lo
 
     Estas instrucciones realizan las acciones siguientes:
 
-    * **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que la palabra clave **EXTERNAL** no se usa, se trata de una tabla interna, que se almacena en el almacenamiento de datos de Hive y es administrada por Hive.
+    * **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que la palabra clave **EXTERNAL** no se usa, se trata de una tabla interna, que se almacena en el almacenamiento de datos de Hive y es administrada completamente por Hive.
 
 		> [AZURE.NOTE]A diferencia de las tablas **EXTERNAL**, la eliminación de una tabla interna también eliminará los datos subyacentes.
 
@@ -88,7 +88,7 @@ Cuando se haya conectado al escritorio para el clúster de HDInsight, utilice lo
 
     * **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
 
-    Para comprobar que solamente las filas que contienen **[ERROR]** en la columna t4 se almacenaron en la tabla **errorLogs**, use la siguiente instrucción para devolver todas las filas de **errorLogs**:
+    Para comprobar que solamente las filas que contienen **ERROR** en la columna t4 se almacenaron en la tabla **errorLogs**, use la siguiente instrucción para devolver todas las filas de **errorLogs**:
 
         SELECT * from errorLogs;
 
@@ -131,18 +131,18 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: ../powershell-install-configure.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

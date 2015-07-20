@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -34,12 +34,12 @@ Para completar este tutorial necesita Xamarin.Android y el SDK de Android 4.2 o 
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 ##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. En Eclipse, abra el proyecto que creó al completar el tutorial [Introducción a los Servicios móviles]. 
@@ -54,7 +54,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 1. Agregue la propiedad siguiente a la clase **TodoActivity**:
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
 2. Agregue el método siguiente a la clase **TodoActivity**:
 
@@ -85,14 +85,17 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -133,5 +136,6 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], tomará el va
 [Autorización de usuarios con scripts]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

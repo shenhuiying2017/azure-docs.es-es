@@ -32,10 +32,9 @@ Para crear un nombre de espacio de servicio:
 
 	![][6]
 
-
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
-Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el Portal de administración de Azure o en el Explorador de servidores de Visual Studio.
+Para realizar operaciones de administración (como la creación de un tema o una suscripción) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el portal de administración de Azure o en el Explorador de servidores de Visual Studio.
 
 ### Para obtener las credenciales de administración desde el portal
 
@@ -49,7 +48,7 @@ Para realizar operaciones de administración (como la creación de un tema o una
 
 ### Para obtener las credenciales de administración desde el Explorador de servidores
 
-Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón secundario en cualquier espacio de nombres y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados con este espacio de nombres que aparecen en el panel **Propiedades** de Visual Studio.
+Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí](http://msdn.microsoft.com/library/azure/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón secundario en cualquier espacio de nombres y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados con este espacio de nombres que aparecen en el panel **Propiedades** de Visual Studio.
 
 Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
 
@@ -65,4 +64,4 @@ Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

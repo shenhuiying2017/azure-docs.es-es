@@ -1,25 +1,25 @@
 <properties 
-    pageTitle="Notas de la versión de StorSimple - Febrero de 2015"
+    pageTitle="Notas de la versión 0.3 de la actualización de la serie StorSimple 8000 - febrero de 2015"
     description="Describe las nuevas características, problemas y soluciones alternativas de la versión de StorSimple de febrero de 2015."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> 
-<tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# Notas de la versión de StorSimple - Febrero de 2015
+# Notas de la versión 0.3 de la actualización de la serie StorSimple 8000 - febrero de 2015
 
 ## Información general
 
-Las notas siguientes identifican los problemas críticos por resolver de la versión de febrero de 2015 de Microsoft Azure StorSimple. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Se trata de la tercera versión después del lanzamiento de la disponibilidad general (GA) de Microsoft Azure StorSimple.
+Las siguientes notas de la versión identifican los problemas críticos abiertos de la actualización 0.3 de la serie StorSimple 8000 publicada en febrero de 2015. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Esta es la tercera versión que aparece después de que la versión de lanzamiento de la serie StorSimple 8000 Series se pusiera a disposición general en julio de 2014.
   
 Esta actualización no cambia la versión de software del dispositivo de la actualización de enero. Sigue siendo la versión 6.3.9600.17312. Puede confirmar que la actualización está instalada mediante la comprobación de la fecha de la **Última actualización**. Si la fecha es el 10/02/2015 o posterior, la actualización está correctamente instalada.
 
@@ -27,7 +27,7 @@ Se recomienda buscar y aplicar las actualizaciones disponibles inmediatamente de
 
 Revise la información contenida en las notas de la versión antes de implementar la actualización de la solución de StorSimple.
 
->[AZURE.IMPORTANT] 
+>[AZURE.IMPORTANT]
 >
 > - Para instalar la actualización de febrero, use el servicio de Administrador de StorSimple y no Windows PowerShell para StorSimple.   
 > - Tarda aproximadamente una hora en instalar esta actualización. Sin embargo, si va a instalar actualizaciones acumulativas, el proceso puede tardar unas 3 horas en completarse.  
@@ -84,6 +84,6 @@ Esta versión no contiene las actualizaciones para el controlador SCSI conectado
 ## Actualizaciones del dispositivo virtual en la versión de febrero
 
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

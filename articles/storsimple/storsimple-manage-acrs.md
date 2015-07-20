@@ -94,4 +94,4 @@ Más información sobre la [administración de volúmenes de StorSimple](storsim
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

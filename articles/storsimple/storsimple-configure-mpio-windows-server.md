@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> 
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -166,6 +166,6 @@ Con el siguiente procedimiento explicamos cómo agregar las sesiones cuando un d
 
 12. Para ver los dispositivos presentados en las sesiones, seleccione la pestaña **Dispositivos**. Para configurar la directiva MPIO de un dispositivo seleccionado, haga clic en **MPIO**. Aparecerá el cuadro de diálogo **Detalles del dispositivo**. En la pestaña **MPIO**, puede seleccionar la configuración de **Directiva de equilibrio de carga** apropiada. También puede ver el tipo de ruta de acceso **Activo** o **En espera**.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

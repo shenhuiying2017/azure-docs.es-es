@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Ejecutar scripts de Python en Aprendizaje automático de Azure | Azure" 
-	description="Describe los principios de diseño subyacentes a la compatibilidad de Python en Aprendizaje automático de Azure y los escenarios de uso básicos, las funcionalidades y las limitaciones." 
+	pageTitle="Ejecución de scripts de aprendizaje automático de Python | Microsoft Azure" 
+	description="Describe los principios de diseño subyacentes a la compatibilidad con scripts de Python en Aprendizaje automático de Azure y los escenarios de uso básico, las funcionalidades y las limitaciones." 
+	keywords="python machine learning,pandas,python pandas,python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,11 +18,9 @@
 	ms.author="bradsev;garye" />
 
 
-# Ejecución de scripts de Python en Aprendizaje automático de Azure
+# Ejecución de scripts de Python en Aprendizaje automático de Azure | Azure
 
-## Introducción
-
-En este tema se describen los principios de diseño subyacentes a la compatibilidad actual con Python en Aprendizaje automático de Azure. También se describen las funcionalidades principales, incluida la compatibilidad para importar código existente, exportar visualizaciones y, finalmente, se analizan algunas de las limitaciones y el trabajo en curso.
+En este tema se describen los principios de diseño subyacentes a la compatibilidad actual con scripts de Python en Aprendizaje automático de Azure. También se describen las funcionalidades principales, incluida la compatibilidad para importar código existente, exportar visualizaciones y, finalmente, se analizan algunas de las limitaciones y el trabajo en curso.
 
 [Python](https://www.python.org/) es una herramienta indispensable de la caja de herramientas de muchos científicos de datos. Tiene una sintaxis elegante y concisa, asistencia multiplataforma, una amplia colección de potentes bibliotecas y herramientas de desarrollo perfeccionadas. Python se usa en todas las fases del flujo de trabajo que se usa normalmente en el modelado de aprendizaje automático, comenzando desde el procesamiento y la ingesta de datos hasta la construcción de características y al entrenamiento, la validación y la implementación de modelos.
 
@@ -30,12 +29,12 @@ Estudio de aprendizaje automático de Azure admite la incrustación de scripts d
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## Principios de diseño
+## Principios de diseño de los scripts de Python en Aprendizaje automático
 La interfaz principal para Python en Estudio de aprendizaje automático de Azure es mediante el módulo [Ejecutar script de Python][execute-python-script] que aparece en la figura 1.
 
-![imagen1](./media/machine-learning-execute-python-scripts/figure1a.png)
+![imagen1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![imagen2](./media/machine-learning-execute-python-scripts/figure1b.png)
+![imagen2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
 Figura 1. El módulo **Ejecutar script de Python**.
 
@@ -50,14 +49,16 @@ El módulo [Ejecutar script de Python][execute-python-script] acepta hasta tres 
   * evalúen y procesen posteriormente los resultados con R.
 
 
-## Uso básico
-En esta sección, analizaremos algunos de los usos básicos del módulo [Ejecutar script de Python][execute-python-script]. Como se mencionó anteriormente, toda entrada que se realice en el módulo Python se expone como trama de datos de Pandas. Puede encontrar más información sobre Pandas y sobre cómo se puede usar para manipular datos de manera eficaz y eficiente en *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012) de W. McKinney. La función debe devolver una sola trama de datos de Pandas empaquetada dentro de una [secuencia](https://docs.python.org/2/c-api/sequence.html) de Python, como una tupla, una lista o una matriz de NumPy. Luego, el primer elemento de esta secuencia se devuelve en el primer puerto de salida del módulo. Este esquema aparece en la figura 2.
+## Escenarios de uso básico en Aprendizaje automático para los scripts de Python
+En esta sección, analizaremos algunos de los usos básicos del módulo [Ejecutar script de Python][execute-python-script]. Como se mencionó anteriormente, toda entrada que se realice en el módulo Python se expone como trama de datos de Pandas. Puede encontrar más información sobre Python Pandas y sobre cómo se puede usar para manipular datos de manera eficaz y eficiente en *Python for Data Analysis* (Sebastopol, CA.: O'Reilly, 2012) de W. McKinney. La función debe devolver una sola trama de datos de Pandas empaquetada dentro de una [secuencia](https://docs.python.org/2/c-api/sequence.html) de Python, como una tupla, una lista o una matriz de NumPy. Luego, el primer elemento de esta secuencia se devuelve en el primer puerto de salida del módulo. Este esquema aparece en la figura 2.
 
-![imagen3](./media/machine-learning-execute-python-scripts/figure2.png) Figura 2. Asignación de puertos de entrada a parámetros y valor de devolución a puerto de salida.
+![imagen3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
+
+Ilustración 2. Asignación de puertos de entrada a parámetros y valor de devolución a puerto de salida.
 
 Puede ver una semántica más detallada de cómo se asignan los puertos de entrada a los parámetros de la `azureml_main` función en la tabla 1:
 
-![imagen1T](./media/machine-learning-execute-python-scripts/table-1.png)
+![imagen1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 Tabla 1. Asignación de puertos de entrada a parámetros de función.
 
@@ -75,13 +76,13 @@ Cuando un experimento de puntuación se publica como servicio web, se llama a to
 
 ![imagen4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
-![imagen5](./media/machine-learning-execute-python-scripts/figure3b.png)
+![imagen5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
 
 Figura 3. Servicio web para evaluar una expresión de Python.
 
 Un servicio web creado a partir de este experimento toma como entrada una expresión de Python (como cadena), la envía al intérprete de Python y devuelve una tabla que contiene tanto la expresión como el resultado evaluado.
 
-## Importación de módulos existentes de Python
+## Importación de módulos existentes de scripts de Python
 Un caso de uso común para muchos científicos de datos es incorporar scripts existentes de Python en experimentos de Aprendizaje automático de Azure. En lugar de concatenar y pegar todo el código en un solo cuadro de script, el módulo [Ejecutar script de Python][execute-python-script] acepta un tercer puerto de entrada al que se puede conectar un archivo ZIP que contiene los módulos de Python. A continuación, el marco de ejecución descomprime el archivo en tiempo de ejecución y los contenidos se agregan a la ruta de acceso de la biblioteca del intérprete de Python. La función de punto de entrada `azureml_main` luego puede importar directamente estos módulos.
 
 Por ejemplo, considere el archivo Hello.py que contiene una función "Hello, World".
@@ -168,5 +169,6 @@ Durante los próximos meses, esperamos proporcionar una funcionalidad adicional 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -338,4 +338,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -36,4 +36,4 @@ Para obtener detalles sobre cómo asignar un nombre a recursos compartidos, dire
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

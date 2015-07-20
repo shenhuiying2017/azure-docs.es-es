@@ -102,6 +102,10 @@ Para usar estos comandos, rellene los valores y quite el elemento < and >. Aquí
 
 En la pantalla del comando Get-AzureInternalLoadBalancer, anote la dirección IP y realice los cambios necesarios en los servidores o registros DNS para asegurarse de que el tráfico se envía a la dirección VIP.
 
+>[AZURE.IMPORTANT]La Plataforma Microsoft Azure utiliza una dirección IPv4 estática enrutable públicamente para una variedad de escenarios de administración. La dirección IP es 168.63.129.16. Esta dirección IP no debe bloquearse por ningún firewall, ya que puede causar un comportamiento inesperado. Con respecto a la ILB de Azure, esta dirección IP la usan las sondas de supervisión del equilibrador de carga para determinar el estado de mantenimiento de las máquinas virtuales en un conjunto con equilibrio de carga. Si se usa un grupo de seguridad de red se utiliza para restringir el tráfico a Máquinas virtuales de Azure en un conjunto de carga equilibrada internamente o se aplica a una subred de Red virtual, asegúrese de agregar una regla de seguridad de red para permitir el tráfico desde 168.63.129.16.
+
+
+
 ## Ejemplos completos de equilibrio de carga interno
 
 Para guiarle en el proceso completo de la creación de un conjunto con equilibrio de carga para dos configuraciones de ejemplo, vea las secciones siguientes.
@@ -282,4 +286,4 @@ Para obtener información adicional sobre los cmdlets de ILB, ejecute los siguie
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

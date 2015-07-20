@@ -198,7 +198,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **Descripción**: no se puede resolver el DNS *URLdelDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
-- **Mitigación**: proporcione una URL de blob válida. La dirección URL debe ser totalmente válida, entre otras cosas, debe empezar por *http://* y terminar en *.com*. La dirección URL completa suele encontrarse en la pestaña de almacenamiento del Portal de administración de Azure. 
+- **Mitigación**: proporcione una URL de blob válida. La dirección URL debe ser totalmente válida, entre otras cosas debe empezar por *http://* y terminar en *.com*. La dirección URL completa suele encontrarse en la pestaña de almacenamiento del Portal de administración de Azure. 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **Descripción**: no se puede comprobar la ubicación del recurso *URLdeDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
 - **Mitigación**: proporcione una URL de blob válida. La dirección URL debe ser totalmente válida, entre otras cosas debe empezar por *http://* y terminar en *.com*. La dirección URL completa suele encontrarse en la pestaña de almacenamiento del Portal de administración de Azure. 
@@ -231,5 +231,6 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

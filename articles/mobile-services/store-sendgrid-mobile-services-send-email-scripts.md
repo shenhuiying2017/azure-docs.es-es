@@ -134,5 +134,6 @@ Ahora que ya sabe lo fácil que resulta usar el servicio de correo electrónico 
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
 [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

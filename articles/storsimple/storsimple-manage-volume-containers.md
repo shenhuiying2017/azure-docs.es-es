@@ -64,5 +64,6 @@ Los contenedores de volúmenes contienen volúmenes. Solo se puede eliminar si p
 ## Pasos siguientes
 
 Más información sobre la [administración de volúmenes de StorSimple](storsimple-manage-volumes.md).
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

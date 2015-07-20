@@ -35,10 +35,11 @@ Para obtener acceso mediante programación a los blobs en los proyectos ASP.NET 
 
 1. Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al Almacenamiento de Azure mediante programación.
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. Utilice el comando siguiente para obtener los valores de configuración.
 
@@ -148,8 +149,7 @@ Para eliminar un blob, primero obtenga una referencia al blob y, a continuación
 	// Delete the blob.
 	await blockBlob.DeleteAsync();
 
-[Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
- Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
+[Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

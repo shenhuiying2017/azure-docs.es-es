@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Acceso a información de Azure Active Directory Graph
@@ -59,7 +59,7 @@ En esta sección, creará la API personalizada GetUserInfo que usará la API de 
 Si nunca ha usado API personalizadas con Servicios móviles, consulte el [Tutorial sobre API personalizadas] antes de realizar esta sección.
 
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de back-end de .NET de servicio móvil y elija **Administrar paquetes de NuGet**.
-2. En el cuadro de diálogo Administrador de paquetes de NuGet, escriba **ADAL** en los criterios de búsqueda para buscar e instalar la **biblioteca de autenticación de Active Directory** para el servicio móvil. Este tutorial ha sido probado más recientemente con la versión (versión preliminar) 3.0.110281957-alpha del paquete ADAL.
+2. En el cuadro de diálogo Administrador de paquetes de NuGet, escriba **ADAL** en los criterios de búsqueda para buscar e instalar la **biblioteca de autenticación de Active Directory** para el servicio móvil. Este tutorial se ha probado recientemente con la versión 3.3.205061641-alpha (versión preliminar) del paquete ADAL.
 
 
 3. En Visual Studio, haga clic con el botón derecho en la carpeta **Controladores** del proyecto de servicio móvil y haga clic en **Agregar** para agregar un nuevo controlador personalizado de **Servicios móviles de Microsoft Azure** llamado `GetUserInfoController`. El cliente llamará a esta API para obtener información del usuario de Active Directory.
@@ -253,5 +253,6 @@ En el próximo tutorial, [Control de acceso basado en roles con Azure Active Dir
 [Blog del equipo de Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -15,4 +15,4 @@ Para poder almacenar datos en su nuevo servicio móvil, debe crear antes una tab
 	>
 	>Las tablas nuevas se crean con las columnas Id, __createdAt, __updatedAt y __version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

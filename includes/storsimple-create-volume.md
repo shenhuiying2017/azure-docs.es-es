@@ -22,4 +22,4 @@
 
 4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Se creará un volumen con la configuración especificada.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

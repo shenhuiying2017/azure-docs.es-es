@@ -57,7 +57,7 @@ Siga estos pasos para crear un clúster de Spark, mediante una plantilla del Adm
 
 ### Paso 1-a: Descargar los archivos de plantilla con PowerShell
 
-Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\Azure\Templates\Spark).
+Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\Spark).
 
 Sustituya el nombre de carpeta de la carpeta local y ejecute estos comandos:
 
@@ -91,7 +91,7 @@ Clone todo el repositorio de plantillas mediante un cliente GIT de su elección,
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Cuando haya finalizado, busque la carpeta **spark-on-ubuntu** en el directorio C:\Azure\Templates.
+Cuando haya finalizado, busque la carpeta **spark-on-ubuntu** en el directorio C:\\Azure\\Templates.
 
 ### Paso 2 (opcional): Comprender los parámetros de plantilla
 
@@ -416,7 +416,7 @@ En este diagrama se describen las relaciones entre todos los archivos descargado
 
 Esta sección le guía a través de la estructura del archivo **azuredeploy.json** para el clúster de Spark.
 
-Si no ha descargado todavía una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\Azure\Templates\Spark). Rellene el nombre de la carpeta y ejecute estos comandos.
+Si no ha descargado todavía una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\Spark). Rellene el nombre de la carpeta y ejecute estos comandos.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -844,4 +844,4 @@ Descubra más [marcos de aplicaciones](virtual-machines-app-frameworks.md).
 [Solución de problemas en implementaciones de plantilla](resource-group-deploy-debug.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

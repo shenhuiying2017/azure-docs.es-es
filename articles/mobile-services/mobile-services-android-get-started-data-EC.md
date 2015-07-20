@@ -100,11 +100,9 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
 A continuación, pruebe estos otros tutoriales de Android:
 
-* [Introducción a la autenticación]
-	<br/>Aprenda a autenticar a los usuarios de su aplicación.
+* [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación.
 
-* [Introducción a las notificaciones de inserción] 
-  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
+* [Introducción a las notificaciones de inserción] <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@ A continuación, pruebe estos otros tutoriales de Android:
 [SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

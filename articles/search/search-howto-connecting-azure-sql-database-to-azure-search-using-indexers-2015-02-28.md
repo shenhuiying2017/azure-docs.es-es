@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #Conectar la Base de datos SQL de Azure para la Búsqueda de Azure con indizadores#
@@ -30,7 +30,7 @@ Para instalar y configurar un indizador de SQL Azure, puede llamar a la [API de 
 
 Un **origen de datos** especifica los datos que se deben indizar, las credenciales necesarias para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (filas nuevas, modificadas o eliminadas). Se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
-Un **indizador** es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino. Un indizador se usa de las maneras siguientes:
+Un **indizador** es un recurso que conecta los orígenes de datos con los índices de búsqueda de destino. Un indexador se usa de las maneras siguientes:
  
 - Realizar una copia única de los datos para rellenar un índice.
 - Actualizar un índice con los cambios del origen de datos en una programación.
@@ -143,7 +143,7 @@ También puede disponer que el indizador se ejecute periódicamente según una p
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (un subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+El parámetro **interval** es obligatorio. El intervalo se refiere al tiempo entre el inicio de dos ejecuciones consecutivas de indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
 
 El valor **startTime** opcional indica cuándo deben comenzar las ejecuciones programadas; si se omite, se usará la hora UTC actual. Este tiempo puede estar en el pasado, en cuyo caso la primera ejecución se programará como si el indizador se hubiera ejecutado continuamente desde la hora de inicio.
 
@@ -261,5 +261,6 @@ R: Sí. El indizador se ejecuta en uno de los nodos del servicio de búsqueda, y
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

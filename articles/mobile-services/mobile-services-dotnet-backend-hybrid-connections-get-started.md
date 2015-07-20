@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="ggailey777" 
 	manager="dwrede" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
@@ -13,180 +13,124 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="06/16/2015" 
 	ms.author="glenga"/>
 
   
-# Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas 
+# Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas 
 
-Cuando una empresa realiza la transición a la nube, a menudo debe dejar algunos activos en la instalación local, ya sea por motivos técnicos, de cumplimiento o de seguridad. Con los Servicios móviles puede crear fácilmente una capa de movilidad hospedada en la nube encima de estos activos y, al mismo tiempo, conectarse a ellos de forma segura en sus instalaciones mediante conexiones híbridas. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados.
+Es posible que al realizar la transición a la nube, su empresa no pueda migrar todos los recursos a Azure inmediatamente. Las conexiones híbridas permite que los Servicios móviles de Azure se conecten a los recursos locales. De este modo, puede hacer que los datos locales sean accesibles para los clientes móviles mediante el uso de Azure. Entre los activos admitidos se incluye cualquier recurso que se ejecute en un puerto TCP estático, como Microsoft SQL Server, MySQL, API Web HTTP y la mayoría de los servicios web personalizados. Las conexiones híbridas emplean la autorización de firma de acceso compartido (SAS) para proteger las conexiones del servicio móvil y el Administrador de conexiones híbridas a la conexión híbrida. Para obtener más información, consulte [Introducción a las conexiones híbridas](../integration-hybrid-connection-overview.md).
 
-En este tutorial, aprenderá a modificar un servicio móvil back-end de .NET para usar una base de datos SQL Server local en lugar de la base de datos SQL de Azure aprovisionada con su servicio. Aunque los servicios móviles backend de JavaScript admiten conexiones híbridas, en este tema solo se tratan los servicios móviles backend de .NET.
+En este tutorial, aprenderá a modificar un servicio móvil back-end de .NET para usar una base de datos SQL Server local en lugar de la base de datos SQL de Azure aprovisionada con su servicio. También se admiten conexiones híbridas para un servicio móvil de back-end de JavaScript, tal y como se describe en [este artículo](http://blogs.msdn.com/b/azuremobile/archive/2014/05/12/connecting-to-an-external-database-with-node-js-backend-in-azure-mobile-services.aspx).
 
-Este tema le guiará a través de estos pasos básicos:
-
-1. [Requisitos previos](#Prerequisites)
-2. [Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local](#InstallSQL)
-3. [Creación de una conexión híbrida](#CreateHC)
-4. [Instalación del Administrador de conexiones híbridas local para realizar la conexión](#InstallHCM)
-5. [Modificación de un servicio móvil para usar la conexión](#CreateService)
-
-<a name="Prerequisites"></a>
 ##Requisitos previos##
-Para completar este tutorial, necesitará los siguientes productos. Todos están disponibles en versión gratuita, así que puede comenzar a desarrollar en Azure completamente gratis.
 
-- **Visual Studio 2013**: para descargar una versión de evaluación gratuita de Visual Studio 2013, vea [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Instale esta aplicación antes de continuar.
+Para realizar este tutorial se requiere lo siguiente:
 
-- **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft](http://www.microsoft.com/web/platform/database.aspx). Elija la versión **Express** (no LocalDB). La versión **Express with Tools** incluye SQL Server Management Studio, que usará en este tutorial.
+- **Un servicio móvil de back-end de .NET existente** <br/>Siga el tutorial [Introducción a Servicios móviles] para crear y descargar un nuevo servicio móvil de back-end de .NET desde el [Portal de administración de Azure].
 
-También necesitará una máquina local que se conectará a Azure mediante conexiones híbridas. Esa máquina debe cumplir los siguientes criterios:
+[AZURE.INCLUDE [hybrid-connections-prerequisites](../../includes/hybrid-connections-prerequisites.md)]
 
-- Poder conectarse a Azure a través del puerto 5671
-- Poder comunicarse con el *nombre de host*: *número de puerto* del recurso local al que desea conectarse. El recurso puede estar o no hospedado en la misma máquina. 
-
-<a name="InstallSQL"></a>
 ## Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local
 
-Para usar una base de datos de SQL Server o SQL Server Express local con una conexión híbrida, es necesario habilitar TCP/IP en un puerto estático. Las instancias predeterminadas de SQL Server usan el puerto estático 1433, mientras que las instancias con nombre no.
+[AZURE.INCLUDE [hybrid-connections-create-on-premises-database](../../includes/hybrid-connections-create-on-premises-database.md)]
 
-Para obtener instrucciones detalladas sobre cómo configurar SQL Server de forma que cumpla las condiciones descritas anteriormente, consulte [Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos SQL Server local](../web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). Si ya tiene SQL Server instalado en una configuración y en un entorno que cumple las condiciones descritas anteriormente, puede continuar y empezar con [Creación de una base de datos de SQL Server local](../web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB).
-
-A efectos de este tutorial, vamos a suponer que el nombre de la base de datos es **OnPremisesDB**, que se ejecuta en el puerto **1433** y que el nombre de host de la máquina es **onPremisesServer**.
-
-<a name="CreateHC"></a>
 ## Creación de una conexión híbrida
-1. En la máquina local, inicie sesión en el [Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?linkid=213885&clcid=0x409).
 
-2. En la parte inferior del panel de navegación, seleccione **+NUEVO**, **Servicios de aplicaciones**, **Servicios de BizTalk** y después **Creación personalizada**
+[AZURE.INCLUDE [hybrid-connections-create-new](../../includes/hybrid-connections-create-new.md)]
 
-	![Create BizTalk Service][CreateBTS]
-
-3. Proporcione un **Nombre del servicio de BizTalk** y seleccione una **Edición**.
-
-	![Configure new BizTalk Service][ConfigureBTS]
-
-	Este tutorial usa **móvil1**. Deberá especificar un nombre exclusivo para su nuevo servicio de BizTalk.
-
-4. Después de crear el servicio de BizTalk, seleccione la pestaña **Conexiones híbridas** y luego haga clic en **Agregar**.
-
-	![Add Hybrid Connection][AddHC]
-
-	De esta forma, se creará una nueva conexión híbrida.
-
-5. Proporcione un **Nombre** y un **Nombre de host** para su conexión híbrida y establezca el **Puerto** en `1433`.
-  
-	![Configure Hybrid Connection][ConfigureHC]
-
-	El nombre de host es el nombre del servidor local. De esta manera se configura la conexión híbrida para el acceso a SQL Server que se ejecuta en el puerto 1433.
-
-6. Una vez que se crea la nueva conexión, aparece en la siguiente tabla.
- 
-	![Hybrid Connection successfully created][HCCreated]
-	
-	El estado de la nueva conexión muestra que la **configuración local está incompleta**.
-
-Ahora, será necesario instalar el Administrador de conexiones híbridas en el equipo local.
-
-<a name="InstallHCM"></a>
 ## Instalación del Administrador de conexiones híbridas local para realizar la conexión
 
-El Administrador de conexiones híbridas permite que su máquina local se conecte a Azure y retransmita el tráfico TCP. Este software se debe instalar en el equipo local al que intenta acceder desde Azure.
+[AZURE.INCLUDE [hybrid-connections-install-connection-manager](../../includes/hybrid-connections-install-connection-manager.md)]
 
-1. Seleccione la conexión que acaba de crear y, en la barra inferior, haga clic en **Configuración local**.
+## Configuración del proyecto de servicio móvil para conectarse a la base de datos de SQL Server
 
-	![On-Premises Setup][DownloadHCM]
+En este paso, defina una cadena de conexión para la base de datos local y modifique el servicio móvil para que use esta conexión.
 
-4. Haga clic en **Instalar y configurar**.
-
-	![Install Hybrid Connection Manager][InstallHCM]
-
-	De esta forma, se instala una instancia personalizada del Administrador de conexiones, que ya está configurado para funcionar con la conexión híbrida que acaba de crear.
-
-3. Realice el resto de los pasos de configuración del Administrador de conexiones.
-
-	![Hybrid Connection Manager setup][HCMSetup]
-
-	Cuando finalice la instalación, el estado de la conexión híbrida cambia a **1 instancia conectada**. Puede que tenga que actualizar el explorador y esperar unos minutos. La configuración local ahora está completa.
-
-	![Hybrid Connection connected][HCConnected]
-
-<a name="CreateService"></a>
-## Modificación de un servicio móvil para usar la conexión
-### Asociación de la conexión híbrida con un servicio
-1. En la pestaña **Servicios móviles** del portal, seleccione un servicio móvil existente o cree uno nuevo. 
-
-	>[AZURE.NOTE]Asegúrese de seleccionar un servicio que se haya creado con el back-end de .NET o cree un nuevo servicio móvil back-end de .NET. Para aprender a crear un nuevo servicio móvil back-end de .NET, vea [Introducción a los Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)
-
-2. En la pestaña **Configurar** del servicio móvil, busque la sección **Conexiones híbridas** y seleccione **Agregar conexión híbrida**.
-
-	![Associate Hybrid Connection][AssociateHC]
-
-3. Seleccione la conexión híbrida que acabamos de crear en la pestaña Servicios de BizTalk y presione **Aceptar**.
-
-	![Pick associated Hybrid Connection][PickHC]
-
-El servicio móvil está ahora asociado con la nueva conexión híbrida.
-
-### Actualización del servicio para usar la cadena de conexión local
-Finalmente, debemos crear una configuración de aplicación para almacenar el valor de la cadena de conexión en nuestro servidor SQL Server local. Luego, tendremos que modificar el servicio móvil para que use la nueva cadena de conexión.
-
-1. En la pestaña **Configurar** en **Cadenas de conexión**, agregue una nueva cadena de conexión llamada `OnPremisesDatabase` con un valor como `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
-
-	![Cadena de conexión de la base de datos local][ConnectionString]
-
-	Sustituya `{password}` por la contraseña segura de su base de datos local.
-
-2. Presione **Guardar** para guardar la conexión híbrida y la cadena de conexión que acabamos de crear.
-
-3. En Visual Studio 2013, abra el proyecto que define el servicio móvil basado en .NET.
+1. En Visual Studio 2013, abra el proyecto que define el servicio móvil de back-end de .NET. 
 
 	Para aprender a descargar el proyecto de back-end de .NET, vea [Introducción a los Servicios móviles](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
- 
-4. En el Explorador de soluciones, expanda la carpeta **Modelos** y abra el archivo de modelo de datos que termina con *Context.cs*.
 
-6. Modifique el constructor de instancia **DbContext** para que se asemeje al siguiente fragmento:
+2. En el Explorador de soluciones, abra el archivo Web.config, busque la sección **connectionStrings** y agregue una nueva entrada de SqlClient similar al siguiente, que apunta a la base de datos de SQL Server local:
+	
+	    <add name="OnPremisesDBConnection" 
+         connectionString="Data Source=OnPremisesServer,1433;
+         Initial Catalog=OnPremisesDB;
+         User ID=HybridConnectionLogin;
+         Password=<**secure_password**>;
+         MultipleActiveResultSets=True"
+         providerName="System.Data.SqlClient" />
+
+	No olvide reemplazar `<**secure_password**>` en esta cadena por la contraseña que creó para *HbyridConnectionLogin*.
+	
+3. Haga clic en **Guardar** en Visual Studio para guardar el archivo Web.config.
+
+	> [AZURE.NOTE]Esta configuración de conexión se usa cuando se ejecuta en el equipo local. Cuando se ejecuta en Azure, esta configuración se reemplaza por la configuración de conexión definida en el portal.
+
+4. Expanda la carpeta **Modelos** y abra el archivo de modelo de datos que termina con *Context.cs*.
+
+6. Modifique el constructor de instancia **DbContext** para pasar el valor `OnPremisesDBConnection` al constructor **DbContext** base, de forma parecida al siguiente fragmento:
 
         public class hybridService1Context : DbContext
         {
             public hybridService1Context()
-                : base("OnPremisesDatabase")
+                : base("OnPremisesDBConnection")
             {
             }
-        
-            // snipped
         }
 
-	El servicio usará ahora la nueva cadena de conexión híbrida definida en Azure.
+	El servicio usará ahora la nueva conexión a la base de datos de SQL Server.
+ 
+##Prueba de la conexión de base de datos local
 
-5. Publique los cambios y use una aplicación cliente conectada a su servicio móvil para invocar algunas operaciones de generación de cambios en la base de datos.
+Antes de publicar en Azure y usar la conexión híbrida, es una buena idea asegurarse de que la conexión de base de datos funciona cuando se ejecuta localmente. De esta forma, puede diagnosticar y corregir más fácilmente los problemas de conexión antes de volver a publicar y comenzar a usar la conexión híbrida.
 
-6. Abra SQL Management Studio en el equipo local donde se ejecuta SQL Server y luego, en el Explorador de objetos, expanda la base de datos **OnPremisesDB** y expanda **Tablas**.
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service-api-documentation](../../includes/mobile-services-dotnet-backend-test-local-service-api-documentation.md)]
 
-9. Haga clic con el botón secundario en la tabla **hybridService1.TodoItems** y elija **Seleccionar las 1000 filas principales** para ver los resultados.
+## Actualización de Azure para usar la cadena de conexión local
 
-	![SQL Management Studio][SMS]
+Ahora que ha comprobado la conexión de base de datos, deberá agregar una configuración de la aplicación para esta nueva cadena de conexión de modo que se pueda usar desde Azure y pueda publicar el servicio móvil en Azure.
 
-El servicio móvil ha transferido los cambios generados en la aplicación a la base de datos local.
+1. En el [Portal de administración de Azure], vaya el servicio móvil.
+  
+1. Haga clic en la pestaña **Configurar** y busque la sección **Cadenas de conexión**.
+
+	![Cadena de conexión de la base de datos local](./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png)
+
+2. Agregue una nueva cadena de conexión de **SQL Server** llamada `OnPremisesDBConnection` con un valor similar al siguiente:
+
+		Server=OnPremisesServer,1433;Database=OnPremisesDB;User ID=HybridConnectionsLogin;Password=<**secure_password**>
+
+
+	Reemplace `<**secure_password**>` por la contraseña segura de *HybridConnectionLogin*.
+
+2. Presione **Guardar** para guardar la conexión híbrida y la cadena de conexión que acaba de crear.
+
+3. Con Visual Studio, publique el proyecto de servicio móvil actualizado en Azure.
+
+	Se muestra la página de inicio del servicio.
+
+4. Con el botón **Probar ahora**, situado en la página de inicio como antes, o con una aplicación cliente conectada a su servicio móvil, invoque algunas operaciones que generen cambios en la base de datos.
+
+	>[AZURE.NOTE]Cuando use el botón **Probar ahora** para iniciar las páginas de la API de ayuda, recuerde que debe proporcionar la clave de aplicación como contraseña (con un nombre de usuario en blanco).
+
+4. En SQL Server Management Studio, conéctese a la instancia de SQL Server, abra el Explorador de objetos, expanda la base de datos **OnPremisesDB** y expanda **Tablas**.
+
+5. Haga clic con el botón secundario en la tabla **hybridService1.TodoItems** y elija **Seleccionar las 1000 filas principales** para ver los resultados.
+
+	Tenga en cuenta que el servicio móvil guarda los cambios que se generan en la aplicación en la base de datos local usando la conexión híbrida.
 
 ##Otras referencias##
  
-+ [Sitio web de conexiones híbridas](http://azure.microsoft.com/services/biztalk-services/)
-+ [Introducción a las conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [Servicios BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexión híbrida](biztalk-dashboard-monitor-scale-tabs)
++ [Sitio web de conexiones híbridas](../../services/biztalk-services/)
++ [Introducción a las conexiones híbridas](../integration-hybrid-connection-overview.md)
++ [Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](../biztalk-dashboard-monitor-scale-tabs.md)
++ [Modificación del modelo de datos de un servicio móvil back-end de .NET](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)
 
 <!-- IMAGES -->
-[CreateBTS]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/1.png
-[ConfigureBTS]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/2.png
-[AddHC]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/3.png
-[ConfigureHC]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/4.png
-[HCCreated]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5.png
-[InstallHCM]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/6.png
-[HCMSetup]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/7.png
-[HCConnected]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
-[AssociateHC]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
-[PickHC]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
-[ConnectionString]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
-[SMS]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
-[DownloadHCM]: ./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png
 
-<!--HONumber=54--> 
+<!-- Links -->
+[Portal de administración de Azure]: http://manage.windowsazure.com
+[Introducción a Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
+
+<!---HONumber=July15_HO2-->

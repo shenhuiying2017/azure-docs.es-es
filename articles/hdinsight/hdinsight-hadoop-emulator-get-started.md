@@ -76,9 +76,9 @@ La instalación debería haber instalado también varios servicios locales. La s
 
 ![Servicios del ecosistema de Hadoop mostrados en la ventana del emulador.][image-hdi-emulator-services]
 
-De manera predeterminada, los servicios relacionados con el emulador de HDInsight no se inician. Para iniciar los servicios, desde la línea de comandos de Hadoop, ejecute **start_local_hdp_services.cmd** en C:\hdp (ubicación predeterminada). Para iniciar automáticamente los servicios después de reiniciar el equipo, ejecute **set-onebox-autostart.cmd**.
+De manera predeterminada, los servicios relacionados con el emulador de HDInsight no se inician. Para iniciar los servicios, desde la línea de comandos de Hadoop, ejecute **start_local_hdp_services.cmd** en C:\\hdp (ubicación predeterminada). Para iniciar automáticamente los servicios después de reiniciar el equipo, ejecute **set-onebox-autostart.cmd**.
 
-Para obtener información acerca de los problemas conocidos con la instalación y ejecución del emulador de HDInsight, consulte las [Notas de la versión del emulador de HDInsight](hdinsight-emulator-release-notes.md). El registro de instalación se encuentra en **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**.
+Para obtener información acerca de los problemas conocidos con la instalación y ejecución del emulador de HDInsight, consulte las [Notas de la versión del emulador de HDInsight](hdinsight-emulator-release-notes.md). El registro de instalación se encuentra en **C:\\HadoopFeaturePackSetup\\HadoopFeaturePackSetupTools\\gettingStarted.winpkg.install.log**.
 
 ##<a name="vstools"></a>Uso del emulador con las herramientas de HDInsight para Visual Studio
 
@@ -108,9 +108,9 @@ Una vez que la conexión esté correctamente establecida, puede utilizar las her
 
 ## Solución de problemas: conexión de herramientas de HDInsight con el emulador de HDInsight
 
-1. Al conectar con el emulador de HDInsight, incluso aunque el cuadro de diálogo muestra que HiveServer2 se ha conectado correctamente, hay que configurar manualmente la propiedad **hive.security.authorization.enabled** como **false** en el archivo de configuración de Hive, en C:\hdp\hive-*versión*\conf\hive-site.xml. A continuación, reinicie el emulador local. Las herramientas de HDInsight para Visual Studio se conectan a HiveServer2 solo cuando se muestra una vista previa de las 100 primeras filas de la tabla. Si no desea usar este tipo de consulta, puede dejar la configuración de hive como está.
+1. Al conectar con el emulador de HDInsight, incluso aunque el cuadro de diálogo muestra que HiveServer2 se ha conectado correctamente, hay que configurar manualmente la propiedad **hive.security.authorization.enabled** como **false** en el archivo de configuración de Hive, en C:\\hdp\\hive-*versión*\\conf\\hive-site.xml. A continuación, reinicie el emulador local. Las herramientas de HDInsight para Visual Studio se conectan a HiveServer2 solo cuando se muestra una vista previa de las 100 primeras filas de la tabla. Si no desea usar este tipo de consulta, puede dejar la configuración de hive como está.
 
-2. Si está utilizando asignación de IP dinámica (DHCP) en el equipo que ejecuta el emulador de HDInsight, necesitará actualizar C:\hdp\hadoop-*versión*\etc\hadoop\core-site.xml y cambiar el valor de la propiedad **hadoop.proxyuser.hadoop.hosts** a (*). Esto permite a los usuarios de Hadoop conectarse desde todos los hosts para suplantar al usuario que ha escrito en Visual Studio.
+2. Si está utilizando asignación de IP dinámica (DHCP) en el equipo que ejecuta el emulador de HDInsight, necesitará actualizar C:\\hdp\\hadoop-*versión*\\etc\\hadoop\\core-site.xml y cambiar el valor de la propiedad **hadoop.proxyuser.hadoop.hosts** a (*). Esto permite a los usuarios de Hadoop conectarse desde todos los hosts para suplantar al usuario que ha escrito en Visual Studio.
 
 		<property>
 			<name>hadoop.proxyuser.hadoop.hosts</name>
@@ -123,7 +123,7 @@ Una vez que la conexión esté correctamente establecida, puede utilizar las her
 
 Ahora que ha configurado el Emulador de HDInsight en su estación de trabajo, pruebe este tutorial de MapReduce para probar la instalación. Primero, cargará algunos archivos de datos en HDFS y, posteriormente, ejecutará un trabajo de recuento de palabras de MapReduce para contar la frecuencia de palabras específicas de esos archivos.
 
-El programa de recuento de palabras de MapReduce se empaquetó en *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*. El archivo jar se encuentra en la carpeta *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce*.
+El programa de recuento de palabras de MapReduce se empaquetó en *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*. El archivo jar se encuentra en la carpeta *C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\hadoop\\mapreduce*.
 
 El trabajo de MapReduce para contar palabras adopta dos argumentos:
 
@@ -209,7 +209,7 @@ La generación e importación de los datos a HDFS se hace usando el script impor
 **Para importar los datos de muestra del registro de W3C**
 
 1. Abra la línea de comandos de Hadoop desde el escritorio.
-2. Cambie el directorio a **C:\hdp\GettingStarted**.
+2. Cambie el directorio a **C:\\hdp\\GettingStarted**.
 3. Ejecute el siguiente comando para generar e importar datos a HDFS:
 
 		powershell -File importdata.ps1 w3c -ExecutionPolicy unrestricted
@@ -243,12 +243,12 @@ MapReduce es el motor de cálculo básico de Hadoop. De manera predeterminada, e
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
-El archivo jar y los archivos de origen se encuentran en la carpeta C:\Hadoop\GettingStarted\Java.
+El archivo jar y los archivos de origen se encuentran en la carpeta C:\\Hadoop\\GettingStarted\\Java.
 
 **Para ejecutar un trabajo de MapReduce para calcular las visitas a la página web**
 
 1. Abra la línea de comandos de Hadoop.
-2. Cambie el directorio a **C:\hdp\GettingStarted**.
+2. Cambie el directorio a **C:\\hdp\\GettingStarted**.
 3. Ejecute el siguiente comando para quitar el directorio de salida en caso de que exista la carpeta. El trabajo de MapReduce producirá un error si la carpeta de salida ya existe.
 
 		hadoop fs -rm -r /w3c/output
@@ -257,7 +257,7 @@ El archivo jar y los archivos de origen se encuentran en la carpeta C:\Hadoop\Ge
 
 		hadoop jar .\Java\w3c_scenarios.jar "microsoft.hadoop.w3c.TotalHitsForPage" "/w3c/input/small/data_w3c_small.txt" "/w3c/output"
 
-	En la tabla siguiente, se describen los elementos del comando: <table border="1"> <tr><td>Parámetro</td><td>Nota</td></tr> <tr><td>w3c_scenarios.jar</td><td>El archivo jar se encuentra en la carpeta C:\hdp\GettingStarted\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>El tipo se puede sustituir por uno de los siguientes valores: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>El archivo de entrada se puede sustituir por lo siguiente: <ul> <li>/w3c/input/medium/data_w3c_medium.txt</li> <li>/w3c/input/large/data_w3c_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>Este es el nombre de la carpeta de salida.</td></tr> </table>
+	En la tabla siguiente, se describen los elementos del comando: <table border="1"> <tr><td>Parámetro</td><td>Nota</td></tr> <tr><td>w3c_scenarios.jar</td><td>El archivo jar se encuentra en la carpeta C:\\hdp\\GettingStarted\\Java.</td></tr> <tr><td>microsoft.hadoop.w3c.TotalHitsForPage</td><td>El tipo se puede sustituir por uno de los siguientes valores: <ul> <li>microsoft.hadoop.w3c.AverageTimeTaken</li> <li>microsoft.hadoop.w3c.ErrorsByPage</li> </ul></td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td>El archivo de entrada se puede sustituir por lo siguiente: <ul> <li>/w3c/input/medium/data_w3c_medium.txt</li> <li>/w3c/input/large/data_w3c_large.txt</li> </ul></td></tr> <tr><td>/w3c/output</td><td>Este es el nombre de la carpeta de salida.</td></tr> </table>
 
 4. Ejecute el siguiente comando para ver el archivo de salida:
 
@@ -278,7 +278,7 @@ A los analistas con profundos conocimientos de lenguaje de consulta estructurado
 **Para ejecutar un trabajo de Hive**
 
 1. Abra una línea de comandos de Hadoop.
-2. Cambie el directorio a **C:\hdp\GettingStarted**.
+2. Cambie el directorio a **C:\\hdp\\GettingStarted**.
 3. Ejecute el siguiente comando para eliminar la carpeta **/w3c/hive/input**, en caso de que exista. El trabajo de Hive producirá un error si la carpeta existe.
 
 		hadoop fs -rmr /w3c/hive/input
@@ -315,7 +315,7 @@ A los analistas con profundos conocimientos de lenguaje de consulta estructurado
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
-	En la tabla siguiente, se describen los elementos del comando: <table border="1"> <tr><td>Archivo</td><td>Descripción</td></tr> <tr><td>C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd</td><td>El script del comando de Hive.</td></tr> <tr><td>C:\hdp\GettingStarted\Hive\w3c\w3ctotalhitsbypage.hql</td><td> Puede sustituir el archivo de script de Hive por uno de los siguientes valores: <ul> <li>C:\hdp\GettingStarted\Hive\w3c\w3caveragetimetaken.hql</li> <li>C:\hdp\GettingStarted\Hive\w3c\w3cerrorsbypage.hql</li> </ul> </td></tr>
+	En la tabla siguiente, se describen los elementos del comando: <table border="1"> <tr><td>Archivo</td><td>Descripción</td></tr> <tr><td>C:\\hdp\\hive-0.13.0.2.1.3.0-1981\\bin\\hive.cmd</td><td>El script del comando de Hive.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3ctotalhitsbypage.hql</td><td> Puede sustituir el archivo de script de Hive por uno de los siguientes valores: <ul> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3caveragetimetaken.hql</li> <li>C:\\hdp\\GettingStarted\\Hive\\w3c\\w3cerrorsbypage.hql</li> </ul> </td></tr>
 
 	</table>
 
@@ -352,12 +352,12 @@ El procesamiento de Pig usa un lenguaje de flujo de datos llamado *Pig Latin*. L
 **Para ejecutar trabajos de pig**
 
 1. Abra una línea de comandos de Hadoop.
-2. Cambie el directorio a la carpeta **C:\hdp\GettingStarted**.
+2. Cambie el directorio a la carpeta **C:\\hdp\\GettingStarted**.
 3. Ejecute el siguiente comando para enviar un trabajo de Pig:
 
 		C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd -f ".\Pig\w3c\TotalHitsForPage.pig" -p "input=/w3c/input/small/data_w3c_small.txt"
 
-	En la tabla siguiente, se muestran los elementos del comando: <table border="1"> <tr><td>Archivo</td><td>Descripción</td></tr> <tr><td>C:\hdp\pig-0.12.1.2.1.3.0-1981\bin\pig.cmd</td><td>El script del comando de Pig.</td></tr> <tr><td>C:\hdp\GettingStarted\Pig\w3c\TotalHitsForPage.pig</td><td> Puede sustituir el archivo de script de Pig Latin por uno de los siguientes valores: <ul> <li>C:\hdp\GettingStarted\Pig\w3c\AverageTimeTaken.pig</li> <li>C:\hdp\GettingStarted\Pig\w3c\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Puede sustituir el parámetro por un archivo de mayor tamaño:
+	En la tabla siguiente, se muestran los elementos del comando: <table border="1"> <tr><td>Archivo</td><td>Descripción</td></tr> <tr><td>C:\\hdp\\pig-0.12.1.2.1.3.0-1981\\bin\\pig.cmd</td><td>El script del comando de Pig.</td></tr> <tr><td>C:\\hdp\\GettingStarted\\Pig\\w3c\\TotalHitsForPage.pig</td><td> Puede sustituir el archivo de script de Pig Latin por uno de los siguientes valores: <ul> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\AverageTimeTaken.pig</li> <li>C:\\hdp\\GettingStarted\\Pig\\w3c\\ErrorsByPage.pig</li> </ul> </td></tr> <tr><td>/w3c/input/small/data_w3c_small.txt</td><td> Puede sustituir el parámetro por un archivo de mayor tamaño:
 
 	<ul>
 <li>/w3c/input/medium/data_w3c_medium.txt</li>
@@ -406,7 +406,7 @@ Para que pueda tener acceso a una cuenta de almacenamiento de Azure, debe agrega
 
 **Para configurar la conexión a una cuenta de almacenamiento de Azure**
 
-1. Abra **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\etc\hadoop\core-site.xml** en el Bloc de notas.
+1. Abra **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\etc\\hadoop\\core-site.xml** en el Bloc de notas.
 2. Agregue la siguiente etiqueta <property> junto a las otras etiquetas <property>:
 
 		<property>
@@ -491,4 +491,4 @@ En este tutorial de MapReduce, ha instalado un Emulador de HDInsight (un espacio
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

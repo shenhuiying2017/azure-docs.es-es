@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Consideraciones sobre Operations Manager con Operational Insights"
    description="Si utiliza Microsoft Azure Operational Insights con Operations Manager, su configuración se basa en una distribución de agentes y grupos de administración de Operations Manager para recopilar y enviar datos al servicio Operational Insights para su análisis"
    services="operational-insights"
@@ -6,18 +6,22 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Consideraciones sobre Operations Manager con Operational Insights
 
+[AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
+
 Si utiliza Microsoft Azure Operational Insights con Operations Manager, su configuración se basa en una distribución de agentes y grupos de administración de Operations Manager para recopilar y enviar datos al servicio Operational Insights para su análisis Sin embargo, si utiliza agentes que se conectan directamente al servicio web, entonces no necesita Operations Manager. Tenga en cuenta los siguientes problemas cuando use Operational Insights con Operations Manager.
+
+Asimismo, deberá especificar las credenciales de ejecución para las cargas de trabajo supervisadas en Operations Manager para Visión operativa.
 
 ## Funciones y requisitos de software de Operational Insights
 
@@ -39,11 +43,11 @@ Operational Insights puede usar el Servicio de mantenimiento de System Center pa
 
 ## Coexistencia con Operations Manager
 
-Cuando se utiliza Operations Manager, Operational Insights solo se admite con el agente de Operations Manager en System Center Operations Manager 2012 R2 o System Center Operations Manager 2012 SP1. No es compatible con versiones anteriores de System Center Operations Manager. Como el agente de Operations Manager se utiliza para recopilar datos, emplea credenciales específicas (cuentas de acción o cuentas de ejecución) para admitir algunas de las cargas de trabajo analizadas, como SharePoint 2012.
+Cuando se utiliza Operations Manager, Visión operativa solo se admite con el agente de Operations Manager en System Center Operations Manager 2012 R2 o System Center Operations Manager 2012 SP1. No es compatible con versiones anteriores de System Center Operations Manager. Como el agente de Operations Manager se utiliza para recopilar datos, emplea credenciales específicas (cuentas de acción o cuentas de ejecución) para admitir algunas de las cargas de trabajo analizadas, como SharePoint 2012.
 
-## Operational Insights y SQL Server 2012
+## Visión operativa y SQL Server 2012
 
-Al usar Operations Manager, se ejecuta el Servicio de mantenimiento de System Center con la cuenta de sistema local. En versiones de SQL Server anteriores a SQL Server 2008 R2, la cuenta de sistema local se habilitaba de forma predeterminada y era miembro del rol de servidor de administrador del sistema. En SQL Server 2012, el inicio de sesión de sistema local no forma parte del rol de servidor de administrador del sistema. Como consecuencia, cuando utiliza Operational Insights, no se puede supervisar la instancia de SQL Server 2012 por completo, y no todas las reglas pueden generar alertas.
+Al usar Operations Manager, se ejecuta el Servicio de mantenimiento de System Center con la cuenta de sistema local. En versiones de SQL Server anteriores a SQL Server 2008 R2, la cuenta de sistema local se habilitaba de forma predeterminada y era miembro del rol de servidor de administrador del sistema. En SQL Server 2012, el inicio de sesión de sistema local no forma parte del rol de servidor de administrador del sistema. Como consecuencia, cuando utiliza Visión operativa, no se puede supervisar la instancia de SQL Server 2012 por completo, y no todas las reglas pueden generar alertas.
 
 ## Conectividad de red interna y de Internet
 
@@ -53,7 +57,7 @@ Cuando se utiliza Operations Manager, el servidor de administración debe accede
 
 ## Compatibilidad con la agrupación en clústeres
 
-El agente de Operations Manager se admite en equipos que ejecutan Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 cuando están configurados para formar parte de un clúster de conmutación por error de Windows. Puede ver los cústeres en el portal de Operational Insights. En la página Servidores, los clústeres se identifican como TYPE=CLUSTER (por oposición a TYPE=AGENT, que es como se identifican los equipos físicos).
+El agente de Operations Manager se admite en equipos que ejecutan Windows Server 2012, Windows Server 2008 R2 o Windows Server 2008 cuando están configurados para formar parte de un clúster de conmutación por error de Windows. Puede ver los cústeres en el portal de Operational Insights. En la página Servidores, los clústeres se identifican como TYPE=CLUSTER (por oposición a TYPE=AGENT, que es como se identifican los equipos físicos).
 
 Las reglas de detección y configuración se ejecutan en los nodos activos y pasivos del clúster, pero cualquier alerta generada en los nodos pasivos se omite. Si un nodo cambia de pasivo a activo, se muestran alertas para ese nodo automáticamente, sin que sea necesario que el usuario intervenga.
 
@@ -71,11 +75,11 @@ Tenga en cuenta las siguientes variables:
 
 - Número de agentes por grupo de administración
 
-- El tamaño medio de los datos transferidos desde el agente al grupo de administración por día. De forma predeterminada, cada agente carga archivos CAB en el grupo de administración dos veces al día. El tamaño de los archivos CAB depende de la configuración del servidor (como el número de motores de SQL Server y el número de bases de datos) y del estado del servidor (como el número de alertas generadas). En la mayoría de los casos, el tamaño diario de carga suele ser inferior a 100 KB.
+- El tamaño medio de los datos transferidos desde el agente al grupo de administración por día. De forma predeterminada, cada agente carga archivos CAB en el grupo de administración dos veces al día. El tamaño de los archivos CAB depende de la configuración del servidor (como el número de motores de SQL Server y el número de bases de datos) y del estado del servidor (como el número de alertas generadas). En la mayoría de los casos, el tamaño diario de carga suele ser inferior a 100 KB.
 
 - Periodo de archivo para mantener datos en el grupo de administración (el valor predeterminado son 5 días)
 
-Por ejemplo, si considera un tamaño diario de carga de 100 KB por agente y el período de archivo predeterminado, necesitaría el siguiente almacenamiento para el grupo de administración:
+Por ejemplo, si considera un tamaño diario de carga de 100 KB por agente y el período de archivo predeterminado, necesitaría el siguiente almacenamiento para el grupo de administración:
 
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -85,20 +89,143 @@ Por ejemplo, si considera un tamaño diario de carga de 100 KB por agente y el p
     </tr>
     <tr align="left" valign="top">
 		<td>5</td>
-		<td>~2,5 MB (5 agentes x 100 KB datos/día x 5 días = 2.500 KB)</td>
+		<td>~2.5 MB (5 agentes x 100 KB datos/día x 5 días = 2.500 KB)</td>
     </tr>
     <tr align="left" valign="top">
 		<td>50</td>
-		<td>~25 MB (50 agentes x 100 KB datos/día x 5 días = 25.000 KB)</td>
+		<td>~ 25 MB (50 agentes x 100 KB datos/día x 5 días = 25.000 KB)</td>
     </tr>
 
     </tbody>
     </table>
 
+## Cuentas de ejecución de Operations Manager para Operational Insights
+
+Visión operativa usa el agente y el grupo de administración de Operations Manager para recopilar y enviar datos al servicio de Visión operativa. Operational Insights se basa en paquetes de administración de cargas de trabajo para proporcionar servicios de valor añadido. Cada carga de trabajo requiere privilegios específicos de carga de trabajo para ejecutar paquetes de administración en un contexto de seguridad diferente, como una cuenta de dominio. Debe proporcionar información de credenciales mediante la configuración de una cuenta de ejecución de Operations Manager.
+
+En las siguientes secciones se describe cómo definir cuentas de ejecución de Operations Manager para las siguientes cargas de trabajo:
+
+- Evaluación de SQL
+- Virtual Machine Manager
+- Lync Server
+- SharePoint
+
+### Definición de la cuenta de ejecución para la evaluación de SQL
+
+ Si ya está usando el paquete de administración de SQL Server, debe utilizar esa cuenta de ejecución.
+
+#### Para configurar la cuenta de ejecución de SQL en la consola de Operations, siga estos pasos:
+
+1. En Operations Manager, abra la consola Operaciones y luego haga clic en **Administración**.
+
+2. En **Configuración de ejecución**, haga clic en **Perfiles** y abra el **Perfil de ejecución de evaluación de SQL para Visión operativa**.
+
+3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
+
+4. Seleccione una cuenta de ejecución de Windows que contenga las credenciales necesarias para SQL Server o haga clic en **Nuevo** para crear una.
+	>[AZURE.NOTE]El tipo de cuenta de ejecución debe ser Windows. La cuenta de ejecución también debe ser parte del grupo de administradores locales en todos los servidores de Windows que hospedan instancias de SQL Server.
+
+5. Haga clic en **Guardar**.
+
+6. Modifique y luego ejecute el siguiente ejemplo de T-SQL en cada instancia de SQL Server para conceder los permisos mínimos que necesita la cuenta de ejecución para realizar la evaluación de SQL. Sin embargo, este paso no es necesario si una cuenta de ejecución ya forma parte del rol de servidor sysadmin en las instancias de SQL Server.
+
+```
+---
+    -- Replace <UserName> with the actual user name being used as Run As Account.
+    USE master
+
+    -- Create login for the user, comment this line if login is already created.
+    CREATE LOGIN [<UserName>] FROM WINDOWS
+
+    -- Grant permissions to user.
+    GRANT VIEW SERVER STATE TO [<UserName>]
+    GRANT VIEW ANY DEFINITION TO [<UserName>]
+    GRANT VIEW ANY DATABASE TO [<UserName>]
+
+    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+
+```
+#### To configure the SQL Run As account using Windows PowerShell
+
+Open a PowerShell window and run the following script after you’ve updated it with your information:
+
+```
+
+    import-module OperationsManager
+    New-SCOMManagementGroupConnection "<your management group name>"
+     
+    $profile = Get-SCOMRunAsProfile -DisplayName "Operational Insights SQL Assessment Run As Profile"
+    $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
+    Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
+```
+
+
+### Definición de la cuenta de ejecución para Virtual Machine Manager
+
+Asegúrese de que la cuenta de ejecución tenga privilegios para las siguientes acciones:
+
+- Usar el módulo VMM Windows PowerShell
+
+- Consultar la base de datos de VMM
+
+- Administrar de forma remota los agentes de VMM que se ejecutan en los hosts de virtualización
+
+Lleve a cabo los siguientes pasos para definir la cuenta cuando conecte Operational Insights a Operations Manager.
+
+#### Para definir credenciales para VMM, siga estos pasos:
+
+1. En Operations Manager, abra la consola Operaciones y luego haga clic en **Administración**.
+
+2. En **Configuración de ejecución**, haga clic en **Perfiles** y abra **Cuenta de ejecución de VMM de Visión operativa**.
+
+3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
+
+4. Seleccione una cuenta de ejecución de Windows que contenga las credenciales necesarias para VMM o haga clic en **Nuevo** para crear una.
+	>[AZURE.NOTE]El tipo de cuenta de ejecución debe ser Windows.
+
+5. Haga clic en **Guardar**.
+
+
+### Definición de la cuenta de ejecución para Lync Server
+
+ La cuenta de ejecución debe ser miembro de los grupos de seguridad de administradores locales y RTCUniversalUserAdmins de Lync.
+
+#### Para establecer las credenciales para una cuenta de Lync, siga estos pasos:
+
+1. En Operations Manager, abra la consola Operaciones y luego haga clic en **Administración**.
+
+2. En **Configuración de ejecución**, haga clic en **Perfiles** y abra **Cuenta de ejecución de Lync de Visión operativa**.
+
+3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
+
+4. Seleccione una cuenta de ejecución de Windows que sea miembro de los grupos de seguridad de administradores locales y RTCUniversalUserAdmins de Lync.
+	>[AZURE.NOTE]El tipo de cuenta de ejecución debe ser Windows.
+
+5. Haga clic en **Guardar**.
+
+
+### Definición de la cuenta de ejecución para SharePoint
+
+
+#### Para establecer las credenciales para una cuenta de SharePoint, siga estos pasos:
+
+1. En Operations Manager, abra la consola Operaciones y luego haga clic en **Administración**.
+
+2. En **Configuración de ejecución**, haga clic en **Perfiles** y abra **Cuenta de ejecución de SharePoint de Visión operativa**.
+
+3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
+
+4. Seleccione una cuenta de ejecución de Windows que contenga las credenciales necesarias para SharePoint o haga clic en **Nuevo** para crear una.
+	>[AZURE.NOTE]El tipo de cuenta de ejecución debe ser Windows.
+
+5. Haga clic en **Guardar**.
+
+
+
 ## Ubicaciones geográficas
 
 Si desea analizar datos de servidores situados en diversas ubicaciones geográficas, podría tener un grupo de administración por ubicación. Esto puede mejorar el rendimiento de la transferencia de datos entre el agente y el grupo de administración.
 
-
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

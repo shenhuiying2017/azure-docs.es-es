@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a Búsqueda de Azure en Java" 
-	description="Recorra la creación de una aplicación personalizada de búsqueda de Azure mediante Java como su lenguaje de programación." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Introducción a Búsqueda de Azure en Java"
+	description="Recorra la creación de una aplicación personalizada de búsqueda de Azure mediante Java como su lenguaje de programación."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/30/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="06/24/2015"
 	ms.author="heidist"/>
 
 #Introducción a Búsqueda de Azure en Java#
@@ -34,7 +34,7 @@ Para ejecutar este ejemplo, debe tener un servicio Búsqueda de Azure, para el q
 
 ## Acerca de los datos
 
-Esta aplicación de ejemplo utiliza los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
+Esta aplicación de ejemplo usa los datos del [Servicio geológico de Estados Unidos (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrados por el estado de Rhode Island para reducir el tamaño del conjunto de datos. Vamos a usar estos datos para crear una aplicación de búsqueda que devuelva edificios de referencia como hospitales y escuelas, además de características geológicas como ríos, lagos y montes.
 
 En esta aplicación, el programa **SearchServlet.java** compila y carga el índice utilizando un constructo de [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) y obtiene el conjunto de datos filtrado de USGS desde una base de datos SQL pública de Azure. En el código del programa se proporcionan credenciales predefinidas e información de conexión al origen de datos en línea. En términos de acceso a datos, no es necesario realizar ninguna otra configuración.
 
@@ -58,27 +58,27 @@ La lista siguiente describe los archivos que son relevantes para este ejemplo.
 1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
 2. En la barra de salto, haga clic en **Nuevo** | **Datos + Almacenamiento** | **Búsqueda**.
- 
+
      ![][1]
 
-3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se pueden cambiar una vez que se aprovisiona el servicio.
+3. Configure el nombre del servicio, el nivel de precios, el grupo de recursos, la suscripción y la ubicación. Estos valores son necesarios y no se puede cambiar una vez que se aprovisiona el servicio.
 
      ![][2]
 
-	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura. 
-	
+	- **Nombre de servicio** debe ser único, en minúsculas, con un máximo de 15 caracteres y sin espacios. Este nombre se convierte en parte del extremo del servicio Búsqueda de Azure. Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) para obtener más información acerca de las convenciones de nomenclatura.
+
 	- **Nivel de precios** determina la capacidad y la facturación. Los dos niveles proporcionan las mismas características, pero con niveles de recursos distintos.
-	
+
 		- **Gratuito** se ejecuta en clústeres que se comparten con otros suscriptores. Ofrece suficiente capacidad para probar tutoriales y escribir código de prueba de concepto, pero no está destinado a aplicaciones de producción. Implementar un servicio gratuito suele llevar pocos minutos.
 		- **Estándar** se ejecuta en recursos dedicados y es altamente escalable. Inicialmente, se aprovisiona un servicio estándar con una réplica y una partición, pero se puede ajustar la capacidad una vez creado el servicio. Implementar un servicio estándar lleva más tiempo, normalmente unos quince minutos.
-	
+
 	- Los **grupos de recursos** son contenedores para servicios y recursos que se usan para un objetivo común. Por ejemplo, si va a compilar una aplicación de búsqueda personalizada basada en Búsqueda de Azure, Sitios web Azure, almacenamiento de blobs de Azure, puede crear un grupo de recursos que mantenga estos servicios juntos en las páginas de administración del portal.
-	
+
 	- **Suscripción** permite elegir entre varias suscripciones, si tiene más de una.
-	
+
 	- **Ubicación** es la región del centro de datos. Actualmente, todos los recursos se deben ejecutar en el mismo centro de datos. No se admite la distribución de recursos entre varios centros de datos.
 
-4. Haga clic en **Crear** para aprovisionar el servicio.
+4. Haga clic en **Crear** para realizar el aprovisionamiento del servicio.
 
 Preste atención a las notificaciones de la barra de salto. Cuando el servicio esté listo para su uso, aparecerá un aviso.
 
@@ -87,7 +87,7 @@ Preste atención a las notificaciones de la barra de salto. Cuando el servicio e
 
 Después de crear el servicio, puede volver al portal para obtener la dirección URL y la `api-key`. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una `api-key` para autenticar la llamada.
 
-1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio de búsqueda para abrir el panel del servicio. 
+1. En la barra de salto, haga clic en **Inicio** y, a continuación, haga clic en el servicio de búsqueda para abrir el panel del servicio.
 
 2. En el panel del servicio verá mosaicos con información esencial, así como el icono de llave para tener acceso a las claves de administrador.
 
@@ -121,8 +121,8 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 
 ## Configuración de la dirección URL del servicio y la clave de API
 
-1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API. 
- 
+1. En **Project Explorer** (Explorador de proyectos), haga doble clic en **config.properties** para editar los valores de configuración que contienen el nombre del servidor y la clave de API.
+
 2. Consulte los pasos descritos anteriormente en este artículo, referentes a la obtención de la dirección URL del servicio y la clave de API en el [Portal de Azure](https://portal.azure.com), para obtener los valores que debe introducir en **config.properties**.
 
 3. En **config.properties**, reemplace "Api Key" con la clave de API del servicio. A continuación, utilice el nombre de servicio (el primer componente de la dirección URL http://servicename.search.windows.net) para reemplazar "service name" en el mismo archivo.
@@ -148,13 +148,13 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 6. En la página siguiente, especifique el directorio de instalación de Tomcat. En un equipo Windows, probablemente será C:\\Program Files\\Apache Software Foundation\\Tomcat *versión*.
 
 6. Haga clic en **Finalizar**
- 
+
 7. Seleccione **Window** | **Preferences** | **Java** | **Installed JREs** | **Add...** (Ventana | Preferencias | Java | JRE instalados | Agregar...).
 
 8. En **Add JRE** (Agregar JRE), seleccione **Standard VM** (VM estándar).
 
 10. Haga clic en **Siguiente**.
- 
+
 11. En JRE Definition (Definición de JRE), en JRE home (Directorio de JRE), haga clic en **Directory** (Directorio).
 
 12. Vaya a **Program Files** | **Java** y seleccione el JDK instalado anteriormente. Es importante seleccionar el JDK como JRE.
@@ -170,13 +170,13 @@ Todas las modificaciones y las instrucciones de ejecución subsiguientes se real
 Ahora ha completado las tareas de configuración. A continuación, podrá compilar y ejecutar el proyecto.
 
 ## Compilación del proyecto
- 
+
 1. En Project Explorer, haga clic con el botón secundario en el nombre del proyecto y elija **Run As** | **Maven build...** (Ejecutar como | Compilación de Maven...) para configurar el proyecto.
 
     ![][10]
 
 8. En Edit Configuration (Editar configuración), en la sección Goals (Objetivos), escriba "clean install" y, a continuación, haga clic en **Run** (Ejecutar).
- 
+
 Los mensajes de estado se envían a la ventana de consola. Debería ver BUILD SUCCESS, lo que indica que el proyecto se ha compilado sin errores.
 
 ## Ejecución de la aplicación
@@ -213,12 +213,12 @@ También puede probar con alguno de estos términos:
 
 Este es el primer tutorial de Búsqueda de Azure basada en Java y en el conjunto de datos de USGS. Con el tiempo, ampliaremos este tutorial para mostrar otras características de búsqueda que podría querer usar en sus soluciones personalizadas.
 
-Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemplo como punto de partida para experimentación adicional, por ejemplo, aumentando la [página de búsqueda](../search-pagination/), o implementando la [navegación por facetas](../search-faceted-navigation/). También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
+Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemplo como punto de partida para experimentación adicional, por ejemplo, aumentando la [página de búsqueda](search-pagination.md), o implementando la [navegación por facetas](../search-faceted-navigation/). También puede mejorar la página de resultados de búsqueda si agrega recuentos y procesamiento por lotes de documentos para que los usuarios puedan navegar por las páginas de resultados.
 
 ¿Es la primera vez que usa Búsqueda de Azure? Le recomendamos que pruebe otros tutoriales para comprender mejor lo que puede crear. Visite nuestra [página de documentación](http://azure.microsoft.com/documentation/services/search/) para encontrar más recursos. También puede ver los vínculos en nuestra [lista de vídeos y tutoriales](https://msdn.microsoft.com/library/azure/dn798933.aspx) para tener acceso a más información.
 
 <!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-11.PNG
+[1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-21.PNG
 [3]: ./media/search-get-started-java/create-search-portal-31.PNG
 [4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
@@ -230,5 +230,6 @@ Si ya Tiene alguna experiencia con Búsqueda de Azure, puede utilizar este ejemp
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

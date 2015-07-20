@@ -5,9 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"
-	tags="AZURE CLASSIC PORTAL"/>
-	
+	editor=""/>
+
 
 <tags 
 	ms.service="virtual-machines" 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="04/29/2015" 
 	ms.author="kathydav"/>
 
 #Creación de una máquina virtual personalizada que ejecute Windows
@@ -33,6 +32,6 @@ Una máquina virtual *personalizada* no es más que una máquina virtual que se 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

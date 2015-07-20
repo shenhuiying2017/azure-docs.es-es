@@ -141,4 +141,8 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

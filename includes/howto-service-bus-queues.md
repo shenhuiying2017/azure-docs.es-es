@@ -1,4 +1,3 @@
-<a id="what-are-service-bus-queues"></a>
 ## ¿Qué son las colas del Bus de servicio?
 
 Las colas del Bus de servicio son compatibles con el modelo de comunicación de **mensajería asíncrona**. Cuando se usan colas, los componentes de una aplicación distribuida no se comunican directamente entre sí, sino que intercambian mensajes a través de una cola, que actúa como un intermediario (agente). El productor del mensaje (remitente) manda un mensaje a la cola y, a continuación sigue con su procesamiento. De forma asíncrona, el destinatario del mensaje (receptor) extrae el mensaje de la cola y lo procesa. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes. Las colas ofrecen una entrega de mensajes según el modelo **El primero en entrar es el primero en salir (FIFO)** a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
@@ -53,10 +52,9 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 	![](./media/howto-service-bus-queues/multi-web-45.png)
     
+5.  Anote la clave o cópiela en el Portapapeles.
 
-4.  Anote la clave o cópiela en el Portapapeles.
-
-###Para obtener las credenciales de administración desde el Explorador de servidores
+### Para obtener las credenciales de administración desde el Explorador de servidores
 
 Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí](http://msdn.microsoft.com/library/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón secundario en cualquier espacio de nombres y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados con este espacio de nombres que aparecen en el panel **Propiedades** de Visual Studio.
 
@@ -69,4 +67,4 @@ Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

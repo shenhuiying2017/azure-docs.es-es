@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Usar parámetros de servicio web de Aprendizaje automático de Azure | Azure" 
+	pageTitle="Uso de parámetros de servicio web de Aprendizaje automático de Azure | Microsoft Azure" 
 	description="Cómo utilizar parámetros de servicio web de Aprendizaje automático de Azure para modificar el comportamiento de su modelo cuando se tiene acceso al servicio web." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="raymondl;garye"/>
 
 #Usar parámetros de servicio web de Aprendizaje automático de Azure
@@ -22,7 +22,7 @@ Se crea un servicio web de Aprendizaje automático de Azure mediante la publicac
 
 Un ejemplo común es la configuración del módulo [Lector][reader] para que el usuario del servicio web publicado pueda especificar un origen de datos diferente al acceder al servicio web. También puede configurar el módulo [Escritor][writer] para que se pueda especificar un destino diferente. Algunos otros ejemplos incluyen cambiar el número de bits del [hash de características][feature-hashing] o el número de características deseadas para el módulo [Selección de características basada en filtros][filter-based-feature-selection] módulo.
 
-Puede definir parámetros de servicio web y asociarlos con uno o más parámetros de módulo, y puede especificar si son obligatorios u opcionales. El usuario del servicio web puede proporcionar a continuación valores para estos parámetros cuando se tiene acceso al servicio y las acciones del módulo se modificarán en consecuencia.
+Puede definir parámetros de servicio web y asociarlos con uno o más parámetros de módulo, y puede especificar si son obligatorios u opcionales. El usuario del servicio web puede proporcionar a continuación valores para estos parámetros cuando se tiene acceso al servicio y las acciones del módulo se modificarán en tiempo de ejecución.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -48,7 +48,8 @@ Por ejemplo, supongamos que tenemos un experimento con un módulo de [Escritor][
 
     - En **Especifique el destino de los datos**, seleccione "Almacenamiento de blobs de Azure".
     - En **Especifique el tipo de autenticación**, seleccione "Cuenta".
-    - Escriba la información de cuenta para el almacenamiento de blobs de Azure. <p />
+    - Escriba la información de cuenta para el almacenamiento de blobs de Azure. 
+    <p />
 
 3.	Haga clic en el icono situado a la derecha de la **ruta de acceso que comienza con el parámetro de contenedor de blobs**. Su aspecto es similar a este:
 
@@ -88,5 +89,6 @@ Para más información sobre el acceso a un servicio web de Aprendizaje automát
 [filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

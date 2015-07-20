@@ -100,4 +100,4 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

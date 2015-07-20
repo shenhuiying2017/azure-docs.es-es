@@ -1,4 +1,5 @@
 
+
 #### Para obtener el IQN de un host de Windows
 
 1. Inicie el iniciador iSCSI de Microsoft en el host de Windows.
@@ -9,4 +10,4 @@
 
 3. Guarde esta cadena.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

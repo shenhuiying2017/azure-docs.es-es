@@ -99,4 +99,4 @@ Las ACL de red pueden especificarse en un extremo del conjunto con equilibrio de
 
 [Administración de listas de control de acceso (ACL) para extremos mediante PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

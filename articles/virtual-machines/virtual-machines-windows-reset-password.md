@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/25/2015" 
 	ms.author="josephd"/>
 
 # Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows
 
 Si no puede conectarse a una máquina virtual Windows debido a que se olvidó la contraseña o por un problema con la configuración de servicio del Escritorio remoto, use el Portal de vista previa de Azure o la extensión VMAccess para restablecer la contraseña de administrador local o restablezca la configuración de servicio de Escritorio remoto.
+
+> [AZURE.NOTE]Este artículo no se aplica a las máquinas virtuales basadas en el Administrador de recursos de Azure.
 
 ## Portal de vista previa de Azure
 
@@ -88,7 +90,7 @@ La extensión VMAccess ejecuta estos dos comandos en la máquina virtual:
 
 	Este comando habilita el grupo de firewall de Windows integrado que permite el tráfico de Escritorio remoto entrante, el que usa el puerto TCP 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Este comando establece el valor de registro fDenyTSConnections en 0, lo que permite conexiones de Escritorio remoto.
 
@@ -108,4 +110,6 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Conexión a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Granja de servidores SharePoint" 
-	description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Granja de servidores SharePoint"
+	description="Puede crear rápidamente una nueva granja de SharePoint Server 2013 mediante la función de granja de servidores de SharePoint en el Portal de vista previa de Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Granja de servidores SharePoint
@@ -31,14 +32,14 @@ La granja de servidores de SharePoint de alta disponibilidad consta de nueve má
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-azure-preview/SPFarm_HighAvail.png)
 
 Use esta configuración de granja para probar cargas de cliente más altas, la alta disponibilidad del sitio externo de SharePoint y la característica AlwaysOn de SQL Server para una granja de SharePoint. También puede usar esta configuración para el desarrollo de aplicaciones de SharePoint en un entorno de alta disponibilidad.
- 
+
 Para obtener los detalles de configuración de ambas granjas, consulte [Detalles de configuración de una granja de servidores SharePoint](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ## Configuración paso a paso
- 
+
 Para crear una granja de SharePoint con la plantilla de la granja de servidores de SharePoint, haga lo siguiente:
 
-1. En el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), haga clic en **Nuevo** > **Proceso** > **Granja de servidores SharePoint**. Si no aparece **Granja de servidores SharePoint**, haga clic en **Nuevo** > **Proceso** > **Azure Marketplace**, escriba **SharePoint** en **Buscar todo**, y, a continuación, haga clic en **Granja de servidores SharePoint**. 
+1. En el [Portal de vista previa de Microsoft Azure](https://portal.azure.com/), haga clic en **Nuevo** > **Proceso** > **Granja de servidores SharePoint**. Si no aparece **Granja de servidores SharePoint**, haga clic en **Nuevo** > **Proceso** > **Marketplace**, escriba **SharePoint** en **Buscar proceso**, y, a continuación, haga clic en **Granja de servidores SharePoint**. En el panel de la **Granja de servidores de SharePoint**, haga clic en **Crear**.
 2. En el panel **Crear una granja de SharePoint**, escriba el nombre de un grupo de recursos.
 3. Escriba un nombre de usuario y una contraseña para una cuenta de administrador local en cada máquina virtual de la granja. Elija un nombre y una contraseña que sea difícil de adivinar, regístrelos y almacénelos en una ubicación segura.
 4. Si desea una granja de alta disponibilidad, haga clic en **Habilitar alta disponibilidad**.
@@ -55,35 +56,34 @@ Para crear una granja de SharePoint con la plantilla de la granja de servidores 
 
 Las granjas de SharePoint tienen un extremo previamente configurado para permitir el tráfico web no autenticado (puerto TCP 80) al servidor web de SharePoint para un equipo cliente conectado a Internet. Este extremo es para un sitio de equipo preconfigurado. Para obtener acceso a este sitio de equipo:
 
-1.	En el Portal de vista previa de Azure, haga clic en **Examinar** y, a continuación, en **Grupos de recursos**. 
+1.	En el Portal de vista previa de Azure, haga clic en **Examinar** y, a continuación, en **Grupos de recursos**.
 2.	En la lista de grupos de recursos, haga clic en el nombre del grupo de recursos de su granja de SharePoint.
-3.	En el panel del grupo de recursos de su granja de SharePoint, haga clic en **Historial de implementaciones**. 
+3.	En el panel del grupo de recursos de su granja de SharePoint, haga clic en **Historial de implementaciones**.
 4.	En el panel **Historial de implementaciones**, haga clic en **Microsoft.SharePointFarm**.
-5.	En el panel **Microsoft.SharePointFarm**, seleccione la URL del campo SHAREPOINTSITEURL y cópiela. 
+5.	En el panel **Microsoft.SharePointFarm**, seleccione la URL del campo **SHAREPOINTSITEURL** y cópiela.
 6.	Desde su explorador de Internet, pegue la URL en el campo de direcciones.
 7.	Cuando el sistema lo solicite, escriba las credenciales de cuenta de usuario que especificó cuando creó la granja.
 
 En el sitio de Administración central de SharePoint, puede configurar Mis sitios, aplicaciones de SharePoint y más funcionalidad. Para obtener más información, consulte [Configuración de SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx). Para obtener acceso al sitio de SharePoint de administración central:
 
-1.	En el Portal de vista previa de Azure, haga clic en **Examinar** y, a continuación, en **Grupos de recursos**. 
+1.	En el Portal de vista previa de Azure, haga clic en **Examinar** y, a continuación, en **Grupos de recursos**.
 2.	En la lista de grupos de recursos, haga clic en el nombre del grupo de recursos de su granja de SharePoint.
-3.	En el panel del grupo de recursos de su granja de SharePoint, haga clic en **Historial de implementaciones**. 
+3.	En el panel del grupo de recursos de su granja de SharePoint, haga clic en **Historial de implementaciones**.
 4.	En el panel **Historial de implementaciones**, haga clic en **Microsoft.SharePointFarm**.
-5.	En el panel **Microsoft.SharePointFarm**, seleccione la URL del campo SHAREPOINTCENTRALADMINURL y cópiela. 
+5.	En el panel **Microsoft.SharePointFarm**, seleccione la URL del campo **SHAREPOINTCENTRALADMINURL** y cópiela.
 6.	Desde su explorador de Internet, pegue la URL en el campo de direcciones.
 7.	Cuando el sistema lo solicite, escriba las credenciales de cuenta de usuario que especificó cuando creó la granja.
 
 
 Notas:
 
-- El portal de Azure en vista previa crea estas máquinas virtuales en su suscripción.
-- El portal de Azure en vista previa crea los dos tipos de granja en una red virtual solo en la nube con presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización. 
+- El portal de Azure en vista previa crea estas máquinas virtuales en la suscripción especificada.
+- El portal de Azure en vista previa crea los dos tipos de granja en una red virtual solo en la nube con presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio o conexión ExpressRoute con la red de su organización.
 - Puede administrar estos servidores a través de conexiones de Escritorio remoto. Para obtener más información, consulte [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md).
-
 
 ## Administrador de recursos de Azure
 
-Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
+La función de granja de servidores de SharePoint del Portal de vista previa de Azure crea máquinas virtuales en la administración de servicios. Para crear granjas de SharePoint Server 2013 en el Administrador de recursos, consulte [Implementar granjas de SharePoint con plantillas de Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionales
 
@@ -95,4 +95,4 @@ Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

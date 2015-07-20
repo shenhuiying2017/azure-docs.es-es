@@ -157,5 +157,6 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Notificaciones periódicas]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

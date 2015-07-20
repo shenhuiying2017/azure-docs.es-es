@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/21/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc"/>
 
 #  Configurar una red virtual en ExpressRoute
@@ -39,6 +39,8 @@
 	- **Nombre**: el nombre que quiere para el sitio de red local.
 	- **Espacio de direcciones**: incluidas la dirección IP de inicio y el CIDR (recuento de direcciones). Puede especificar cualquier intervalo de direcciones, siempre que no se solape con el intervalo de direcciones de la red virtual.
 	- **Agregar espacio de direcciones**: este ajuste no es relevante para ExpressRoute.
+	- 
+**Nota:** se requiere crear un sitio de red local para ExpressRoute. Los prefijos de dirección especificados para el sitio de red local se ignorarán. Los prefijos de dirección anunciados a Microsoft a través del circuito ExpressRoute se usarán para el enrutamiento.
 
 6. En la página **Espacios de direcciones de la red virtual**, escriba la información siguiente y, después, haga clic en la marca de verificación de la parte inferior derecha para configurar la red. Existen varias reglas relativas al espacio de direcciones de la red virtual, por lo que posiblemente quiera consultar la [página Espacios de direcciones de la red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obtener más información.
 
@@ -72,4 +74,4 @@ Si quiere obtener más información sobre redes virtuales, consulte las [Pregunt
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

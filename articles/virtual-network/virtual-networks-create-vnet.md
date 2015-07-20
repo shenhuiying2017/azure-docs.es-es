@@ -66,4 +66,4 @@ Después de crear la red virtual, puede agregar nuevas máquinas virtuales a ell
 [Eliminación de una red virtual](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

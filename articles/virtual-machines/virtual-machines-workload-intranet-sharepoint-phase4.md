@@ -95,7 +95,7 @@ Cuando proporcione todos los valores adecuados, ejecute el bloque resultante en 
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Utilice el procedimiento [Inicio de sesión en una máquina virtual con una conexión a Escritorio remoto](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) cuatro veces, una vez para cada servidor de SharePoint, para iniciar sesión con las credenciales de cuenta  [Dominio]\\sp_farm_db, como se creó en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Utilice el procedimiento [Inicio de sesión en una máquina virtual con una conexión a Escritorio remoto](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) cuatro veces, una vez para cada servidor de SharePoint, para iniciar sesión con las credenciales de cuenta [Dominio]\\sp_farm_db, como se creó en [Fase 2: Configuración de controladores de dominio](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 Use el procedimiento [Para probar la conectividad](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) cuatro veces, uno para cada servidor de SharePoint, para probar la conectividad en las ubicaciones de la red de la organización.
 
@@ -188,4 +188,7 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 5: C
 
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

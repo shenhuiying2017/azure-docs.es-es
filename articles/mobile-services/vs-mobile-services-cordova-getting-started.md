@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/22/2015" 
+	ms.date="06/22/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Servicios móviles (proyectos Cordova)
@@ -34,7 +34,7 @@ El primer paso que debe realizar para seguir el código de estos ejemplos depend
 
 El código siguiente obtiene una referencia a una tabla que contiene datos para TodoItem, que puede utilizar en operaciones posteriores para leer y actualizar la tabla de datos. La tabla TodoItem se crea automáticamente cuando se crea un servicio móvil.
 
-var todoTable = mobileServiceClient.getTable('TodoItem');
+    var todoTable = mobileServiceClient.getTable('TodoItem');
 
 Para que funcionen estos ejemplos, los permisos de la tabla deben estar configurados en **Cualquier persona con la clave de aplicación**. Más adelante podrá configurar la autenticación. Consulte [Introducción a la autenticación](mobile-services-html-get-started-users.md).
 
@@ -42,19 +42,35 @@ Para que funcionen estos ejemplos, los permisos de la tabla deben estar configur
 
 Inserte un nuevo elemento en una tabla de datos. Se crea automáticamente un identificador (un GUID de tipo cadena) como clave principal para la nueva fila. Llame al método `done()` en el objeto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) devuelto para obtener una copia del objeto insertado y abordar los errores.
 
-function TodoItem(text) { this.text = text; this.complete = false; }
-
-var items = new Array(); todoTable.insert(todoItem).done(function (item) { items.push(item) }); };
+    function TodoItem(text) {
+        this.text = text;
+        this.complete = false;
+    }
+    
+    var items = new Array();
+    var insertTodoItem = function (todoItem) {
+        todoTable.insert(todoItem).done(function (item) {
+            items.push(item)
+        });
+    };
 
 #####Lectura o consulta de una tabla
 
 El código siguiente consulta una tabla para todos los elementos, ordenados por campo de texto. Puede agregar código para procesar los resultados de la consulta en el controlador de proceso correcto. En este caso, se actualiza una matriz local de los elementos.
 
-todoTable.orderBy('text') .read().done(function (results) { items = results.slice(); }); });
+    todoTable.orderBy('text')
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 Puede usar el método where para modificar la consulta. Aquí mostramos un ejemplo que filtra los elementos completados.
 
-todoTable.where(function () { return (this.complete === false); }) .read().done(function (results) { items = results.slice(); });
+    todoTable.where(function () {
+            return (this.complete === false);
+        })
+        .read().done(function (results) {
+            items = results.slice();
+        });
 
 Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
@@ -62,14 +78,19 @@ Para obtener más ejemplos de las consultas que puede utilizar, consulte el obje
 
 Actualice una fila en la tabla de datos. En este código, si el servicio móvil responde, el elemento se quita de la lista. Llame al método `done()` en el objeto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) devuelto para obtener una copia del objeto insertado y abordar los errores.
 
-todoTable.update(todoItem).done(function (item) { // Update a local collection of items. items.splice(items.indexOf(todoItem), 1, item); });
+    todoTable.update(todoItem).done(function (item) {
+        // Update a local collection of items.
+        items.splice(items.indexOf(todoItem), 1, item);
+    });
 
 #####Eliminación de un elemento de tabla
 
 Elimine una fila en la tabla de datos utilizando el método **del**. Llame al método `done()` en el objeto [Promise](https://msdn.microsoft.com/library/dn802826.aspx) devuelto para obtener una copia del objeto insertado y abordar los errores.
 
-todoTable.del(todoItem).done(function (item) { items.splice(items.indexOf(todoItem), 1); });
+    todoTable.del(todoItem).done(function (item) {
+        items.splice(items.indexOf(todoItem), 1);
+    });
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

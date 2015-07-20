@@ -32,12 +32,9 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-###2.1.0 (24/04/2015)
+###2.2.0 (05/21/2015)
 
--   Agregar compatibilidad con Swift.
--   Al hacer clic en una notificación, la dirección URL de la acción se ejecuta ahora justo después de abrir la aplicación.
--   Se ha agregado el archivo de encabezado que faltaba en el paquete del SDK.
--   Se ha corregido un problema cuando se deshabilitaba el generador de informes de error de Mobile Engagement.
+-   El identificador de dispositivo de Mobile Engagement para dispositivos anteriores a iOS 6 ahora se basa en un GUID que se genera durante la instalación.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
@@ -51,5 +48,6 @@ Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a impo
 
 ###De 2.0.0 a 2.1.0
 Ninguno.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

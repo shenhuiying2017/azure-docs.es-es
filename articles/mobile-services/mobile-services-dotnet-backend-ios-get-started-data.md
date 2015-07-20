@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # Agregar Servicios móviles a una aplicación existente
@@ -29,7 +29,7 @@ Completar el [Inicio rápido] es un requisito previo necesario antes de iniciar 
 
 Este tutorial se basa en la [aplicación de iOS GetStartedWithData]. La aplicación es idéntica a [Inicio rápido], salvo que los elementos agregados se almacenan en la memoria.
 
-Descargue la [aplicación GetStartedWithData]. En Xcode, abra el proyecto y examine **TodoService.m**. Existen ocho comentarios **// TODO** que especifican los pasos necesarios para que la aplicación funcione.
+Descargue la [aplicación GetStartedWithData de iOS]. En Xcode, abra el proyecto y examine **TodoService.m**. Existen ocho comentarios **// TODO** que especifican los pasos necesarios para que la aplicación funcione.
 
 ##<a name="update-app"></a>Actualice la aplicación para usar el servicio móvil para el acceso a datos
 
@@ -85,7 +85,7 @@ Descargue la [aplicación GetStartedWithData]. En Xcode, abra el proyecto y exam
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
 [Inicio rápido]: mobile-services-dotnet-backend-ios-get-started.md
-[aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
+[aplicación GetStartedWithData de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 [aplicación de iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

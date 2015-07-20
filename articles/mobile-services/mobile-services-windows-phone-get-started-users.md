@@ -41,13 +41,13 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 
 ##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 <ol start="3">
@@ -63,7 +63,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 ##<a name="tokens"></a>Almacenamiento de tokens de autorización en el cliente
 
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -88,5 +88,6 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect]: mobile-services-windows-phone-single-sign-on.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

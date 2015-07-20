@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 # Control de acceso basado en roles en Servicios móviles y Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-#Información general
+##Información general
 
 El control de acceso basado en roles (RBAC) es la práctica de asignar permisos a roles que los usuarios pueden mantener, definiendo límites con precisión en lo que ciertas clases de usuarios pueden y no pueden hacer. Este tutorial le enseñará cómo agregar RBAC básico a Servicios móviles de Azure.
 
@@ -284,4 +284,5 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 [referencia de errores de la API Graph]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Acceso a información de Azure Active Directory Graph]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

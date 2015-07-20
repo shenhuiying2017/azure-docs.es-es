@@ -263,7 +263,7 @@ Hay ejemplos más detallados en los siguientes artículos de blog:
 - [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerShell de  Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerShell de Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -276,4 +276,4 @@ Además, puede descargar algunos scripts listos para usar: - [Scripts de PowerSh
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [API .NET para Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

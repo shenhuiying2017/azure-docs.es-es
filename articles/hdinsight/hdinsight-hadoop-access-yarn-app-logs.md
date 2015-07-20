@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Acceso a los registros de aplicación de YARN de HDInsight mediante programación| Microsoft Azure" 
-	description="Acceder a los registros de aplicación HDInsight mediante programación" 
+	pageTitle="Acceso a los registros de aplicación de YARN de Hadoop mediante programación| Microsoft Azure" 
+	description="La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,7 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# Acceso a los registros de aplicación de YARN en HDInsight mediante programación
+# Acceso a los registros de aplicación de YARN en Hadoop en HDInsight mediante programación
 
 En este tema, se explica cómo enumerar mediante programación las aplicaciones de YARN (del inglés Yet Another Resource Negotiator) que hayan finalizado en un clúster de Hadoop en HDInsight de Azure. También se describe la forma de obtener acceso mediante programación a los registros de aplicación sin tener que conectarse a los clústeres mediante RDP (del inglés Remote Desktop Protocol). De manera específica, se ha agregado un nuevo componente y una nueva API:
 
@@ -163,10 +163,14 @@ Si es necesario, también puede descargar los registros para cada contenedor (o 
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
 	}
+
+
+
 [YARN-timeline-server]: http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]: http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

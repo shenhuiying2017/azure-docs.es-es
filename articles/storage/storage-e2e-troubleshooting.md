@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes | Microsoft Azure" 
+	pageTitle="Solución integral de problemas gracias a las Métricas de almacenamiento y registro de Azure, a AzCopy y al Analizador de mensajes | Microsoft Azure" 
 	description="Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft." 
 	services="storage" 
 	documentationCenter="dotnet" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="06/22/2015" 
 	ms.author="tamram"/>
 
 # Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes 
@@ -23,7 +23,7 @@ Poder diagnosticar y solucionar problemas es una habilidad clave a la hora de cr
 
 En este tutorial explicaremos cómo reconocer algunos errores que pueden afectar al rendimiento y cómo solucionarlos completamente usando herramientas proporcionadas por Microsoft y por el servicio Almacenamiento de Azure, todo ello para optimizar la aplicación cliente.
 
-Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de almacenamiento de Azure, vea [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../articles/storage-monitoring-diagnosing-troubleshooting/).
+Aquí encontrará un análisis práctico de un escenario de solución integral de problemas. Para obtener una guía conceptual exhaustiva con la que solucionar problemas de aplicaciones de almacenamiento de Azure, vea [Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../articles/storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Herramientas para solucionar problemas de aplicaciones de Almacenamiento de Azure
 
@@ -109,7 +109,7 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 	```
 
 2. En la ventana de **inicio de sesión en Microsoft Azure**, escriba la dirección de correo electrónico y contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
-3. Ejecute los siguientes comandos en la ventana de PowerShell{b> <b}para establecer la cuenta de almacenamiento predeterminada en la cuenta de almacenamiento que esté usando en este tutorial:
+3. Ejecute los siguientes comandos en la ventana de PowerShell para establecer la cuenta de almacenamiento predeterminada en la cuenta de almacenamiento que esté usando en este tutorial:
 
 	```
 	$SubscriptionName = 'Your subscription name'
@@ -145,7 +145,7 @@ Puede usar el analizador de mensajes para recopilar un seguimiento de red HTTP/H
 1. Instale [Fiddler](http://www.telerik.com/download/fiddler).
 2. Inicie Fiddler.
 2. Seleccione **Tools | Fiddler Options** (Herramientas | Opciones de Fiddler).
-3. En el cuadro de diálogo de opciones, asegúrese de que las opciones **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS){b> <b}y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS) están seleccionadas, tal y como se muestra aquí.
+3. En el cuadro de diálogo de opciones, asegúrese de que las opciones **Capture HTTPS CONNECTs** (Capturar CONEXIONES HTTPS) y **Decrypt HTTPS Traffic** (Descifrar tráfico HTTPS) están seleccionadas, tal y como se muestra aquí.
 
 ![Configurar opciones de Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
@@ -292,7 +292,7 @@ En la siguiente imagen puede ver los resultados de la agrupación y filtrado. Si
 
 ![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting/400-range-errors1.png)
 
-Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna **StatusCode**. Para empezar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
+Una vez aplicado este filtro, verá que las filas del registro de cliente se excluyeron, ya que este registro no incluye la columna **StatusCode**. Para comenzar, revisaremos los registros de servidor y de seguimiento de red para localizar errores 404 y, después, volveremos al registro de cliente para examinar las operaciones de cliente que llevaron a esos errores.
 
 >[AZURE.NOTE]Si agrega una expresión al filtro que incluya entradas de registro donde el código de estado sea nulo, puede filtrar la columna **StatusCode** y ver datos de los tres registros (incluido el registro de cliente). Para crear esta expresión de filtro, use:
 >
@@ -349,18 +349,7 @@ Ahora que ya está familiarizado con el analizador de mensajes y su uso para ana
 | Retrasos inesperados en la entrega de mensajes en una cola | AzureStorageClientDotNetV4.Description contiene "Intentando de nuevo la operación con error." | Cliente |
 | Aumento de HTTP en PercentThrottlingError | HTTP.Response.StatusCode == 500 &#124;&#124; HTTP.Response.StatusCode == 503 | Red |
 | Aumento en PercentTimeoutError | HTTP.Response.StatusCode == 500 | Red |
-| Aumento en PercentTimeoutError (todos) | *StatusCode == 500 | Todos |
-| Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente |
-| Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red |
-| Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red |
-| 404 (todos) | *StatusCode == 404 | Todos |
-| Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red |
-| Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red |
-| 409 (todos) | *StatusCode == 409 | Todos |
-| Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor |
-| Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor |
-| Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red |
-| Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
+| Aumento en PercentTimeoutError (todos) | *StatusCode == 500 | Todos | | Aumento en PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Cliente | | Mensajes HTTP 403 (prohibido) | HTTP.Response.StatusCode == 403 | Red | | Mensajes HTTP 404 (no encontrado) | HTTP.Response.StatusCode == 404 | Red | | 404 (todos) | *StatusCode == 404 | Todos | | Problema de autorización de Firma de acceso compartido (SAS) | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Red | | Mensajes HTTP 409 (conflicto) | HTTP.Response.StatusCode == 409 | Red | | 409 (todos) | *StatusCode == 409 | Todos | | Entradas de registro de análisis o de bajo porcentaje de éxito que tienen operaciones con un estado de transacción ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Servidor | | Advertencia de Nagle | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) y (AzureStorageLog.RequestPacketSize <1460) y (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Servidor | | Intervalo de tiempo en los registros de servidor y de red | #Timestamp >= 2014-10-20T16:36:38 y #Timestamp <= 2014-10-20T16:36:39 | Servidor, red | | Intervalo de tiempo en los registros de servidor | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 y AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Servidor |
 
 
 ## Pasos siguientes
@@ -373,6 +362,6 @@ Para más información sobre los escenarios de solución integral de problemas e
 - [Uso de AzCopy con Almacenamiento de Microsoft Azure](storage-use-azcopy.md)
 - [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
  
-
-<!---HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

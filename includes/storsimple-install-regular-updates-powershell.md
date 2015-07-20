@@ -1,4 +1,5 @@
 
+
 #### Para instalar actualizaciones regulares a través de Windows PowerShell para StorSimple
 
 1. Abra la consola serie del dispositivo y seleccione la opción 1, **Iniciar sesión con acceso completo**. Escriba la contraseña. La contraseña predeterminada es *Password1*. 
@@ -20,4 +21,4 @@
 > - Este comando solo se aplica a las actualizaciones regulares. Este comando se ejecuta en un solo controlador, pero se actualizarán ambos controladores. 
 > - Es posible que observe una conmutación por error del controlador durante el proceso de actualización. Sin embargo, la conmutación por error no afectará a la disponibilidad o el funcionamiento del sistema.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

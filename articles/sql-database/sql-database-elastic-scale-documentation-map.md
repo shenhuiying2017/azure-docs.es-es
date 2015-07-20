@@ -25,4 +25,4 @@ Las características de base de datos elástica de la Base de datos de SQL Azure
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/ElasticScaleMapcoded.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

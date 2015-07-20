@@ -1,24 +1,25 @@
 <properties 
 	pageTitle="Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows " 
-	description="Obtenga información sobre cómo restaurar la conectividad de Escritorio remoto (RDP) a la máquina virtual de Azure realizando el diagnóstico y siguiendo los pasos para identificar la causa del problema."
+	description="Si no se puede conectar la máquina virtual de Azure basada en Windows, use estos diagnósticos y siga estos pasos para aislar la causa del problema."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
-# Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows 
+# Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows
 
-Este tema describe un enfoque metódico para la corrección y la determinación de las causas principales de los problemas de las conexiones de Escritorio remoto a máquinas virtuales de Azure basadas en Windows.
+Si no puede conectarse a máquinas virtuales de Azure basadas en Windows, en este artículo se describe un enfoque metódico para la corrección y la determinación de las causas principales de los problemas de las conexiones de Escritorio remoto.
 
 ## Paso 1: Ejecutar el paquete de diagnóstico de Azure IaaS
 
@@ -35,7 +36,7 @@ Si tras ejecutar el paquete de diagnóstico de Azure IaaS no se corrigió el pro
 
 ## Paso 2: Determinar el mensaje de error en el cliente de Escritorio remoto
 
-Haga uso de estas secciones en función del mensaje de error que obtenga.
+Haga uso de estas secciones en función del mensaje de error que obtenga cuando intente conectarse.
 
 ### Ventana de mensajes de conexión a Escritorio remoto: La sesión remota se desconectó porque no hay servidores de licencias de Escritorio remoto disponibles para proporcionar una licencia.
 
@@ -60,12 +61,24 @@ A continuación le facilitamos un ejemplo de un archivo RDP generado por el Port
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-La parte de la dirección consiste en el nombre de dominio completo del servicio en la nube que contiene la máquina virtual (en este ejemplo, tailspin-azdatatier.cloudapp.net) y el puerto TCP externo del extremo para el tráfico de Escritorio remoto (55919).
+En este ejemplo, la parte de la dirección consiste en el nombre de dominio completo del servicio de nube que contiene la máquina virtual (tailspin-azdatatier.cloudapp.net en este ejemplo) y el puerto TCP externo del extremo para el tráfico de escritorio remoto (55919).
 
 Posibles soluciones a este problema:
 
 - Si se encuentra en la intranet de una organización, asegúrese de que el equipo tiene acceso al servidor proxy y puede enviarle tráfico HTTPS.
-- Si está usando un archivo RDP almacenado localmente, intente usar el archivo generado por el Portal de administración de Azure para asegurarse de que tiene el nombre correcto para el servicio en la nube y el puerto de extremo de la máquina virtual.
+- Si está usando un archivo RDP almacenado localmente, intente usar el generado por el Portal de administración de Azure para asegurarse de que tiene el nombre correcto de DNS para la máquina virtual o el servicio en la nube y el puerto de extremo de la máquina virtual.
+
+### Ventana de mensaje de conexión a Escritorio remoto: se ha producido un error de autenticación. No se puede conectar con la autoridad de seguridad Local.
+
+Causa: la máquina virtual a la que se está conectando no encuentra la entidad de seguridad que se indica en la parte del nombre de usuario de las credenciales.
+
+Cuando el nombre de usuario tiene la forma *SecurityAuthority*\\*UserName* (ejemplo: CORP\\User1), la parte *SecurityAuthority* es el nombre del equipo de la máquina virtual (para la autoridad de seguridad local) o un nombre de dominio de Active Directory.
+
+Posibles soluciones a este problema:
+
+- Si la cuenta de usuario es local en la máquina virtual, compruebe la ortografía del nombre de la máquina virtual.
+- Si la cuenta de usuario es una cuenta de dominio de Active Directory, compruebe la ortografía del nombre de dominio.
+- Si la cuenta de usuario es una cuenta de dominio de Active Directory y el nombre de dominio está escrito correctamente, compruebe que esté disponible un controlador de dominio para el dominio de Active Directory. Esto puede ser un problema común en una red virtual de Azure que contiene controladores de dominio en los que no se ha iniciado un equipo de controlador de dominio. Una solución temporal alternativa es usar una cuenta de administrador local en lugar de una cuenta de dominio.
 
 ### Ventana de mensajes de Seguridad de Windows: Las credenciales no funcionaron.
 
@@ -73,8 +86,8 @@ Causa: la máquina virtual a la que se está conectando no puede validar el nomb
 
 Un equipo basado en Windows puede validar las credenciales de una cuenta local o de una cuenta basada en dominio.
 
-- Para las cuentas locales, use la <computer name>sintaxis <nombre de cuenta> (ejemplo: SQL1\\Admin4798). 
-- Para las cuentas de dominio, use la <domain name>sintaxis <nombre de cuenta> (ejemplo: CONTOSO\\johndoe).
+- Para las cuentas locales, use la sintaxis *Nombredelequipo*\\*Nombredeusuario* (ejemplo: SQL1\\Admin4798). 
+- Para las cuentas de dominio, use la sintaxis *Nombrededominio*\\*Nombredeusuario* (ejemplo: CONTOSO\\johndoe).
 
 Para los equipos que promueve a controladores de dominio en un nuevo bosque de AD, la cuenta de administrador local a la que está conectado al realizar la promoción se convierte en una cuenta equivalente con la misma contraseña en el nuevo bosque y dominio. La cuenta de administrador local anterior se elimina. Por ejemplo, si inició sesión con la cuenta de administrador local DC1\\DCAdmin y promovió la máquina virtual como controlador de dominio en un bosque nuevo para el dominio corp.contoso.com, la cuenta local DC1\\DCAdmin se elimina y se crea una nueva cuenta de dominio CORP\\DCAdmin con la misma contraseña.
 
@@ -100,7 +113,7 @@ Presentamos a continuación los componentes implicados.
  
 Antes de iniciar un proceso paso a paso de solución de problemas, es útil repasar mentalmente qué cambió desde que creó las conexiones a Escritorio remoto y tomar ese cambio como base para intentar corregir el problema. Por ejemplo:
 
-- Si pudo crear conexiones a Escritorio remoto y cambió la dirección IP pública del servicio en la nube que contiene la máquina virtual (también conocida como dirección IP virtual, [VIP]), la caché del cliente DNS podría tener una entrada para el nombre DNS del servicio en la nube y la *dirección IP antigua*. Vacíe la caché del cliente DNS y vuelva a intentarlo. También puede intentar establecer la conexión usando la VIP nueva.
+- Si pudo crear conexiones a Escritorio remoto y cambió la dirección IP pública de la máquina virtual o del servicio en la nube que contiene la máquina virtual (también conocida como dirección IP virtual, [VIP]), la caché del cliente DNS podría tener una entrada para el nombre DNS y la *dirección IP antigua*. Vacíe la caché del cliente DNS y vuelva a intentarlo. También puede intentar establecer la conexión usando la VIP nueva.
 - Si pasó de usar el Portal de administración de Azure o el Portal de vista previa de Azure a usar una aplicación para administrar las conexiones a Escritorio remoto, asegúrese de que la configuración de la aplicación incluye el puerto TCP determinado al azar para el tráfico de Escritorio remoto. 
 
 Las secciones siguientes indican los pasos para aislar y determinar las distintas causas de este problema y proporcionan soluciones y alternativas.
@@ -146,7 +159,7 @@ Para descartar el dispositivo perimetral de intranet de la organización como ca
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
  
-Si no tiene un equipo conectado directamente a Internet, puede crear fácilmente una nueva máquina virtual de Azure en su propio servicio en la nube y usarla. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual y el servicio en la nube.
+Si no tiene un equipo conectado directamente a Internet, puede crear fácilmente una nueva máquina virtual de Azure en su propio grupo de recursos o servicio en la nube y usarla. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine el grupo de recursos o la máquina virtual y el servicio en la nube.
 
 Si puede crear una conexión a Escritorio remoto con un equipo conectado directamente a Internet, compruebe si el dispositivo perimetral de intranet de la organización tiene lo siguiente:
 
@@ -158,24 +171,26 @@ Trabaje con el administrador de red para corregir la configuración del disposit
 
 ### Causa 3: extremo de servicio en la nube y ACL
 
-Para descartar el extremo de servicio en la nube y la ACL como causa de los problemas o errores de configuración, compruebe que otra máquina virtual de Azure que se encuentra en el mismo servicio en la nube puede establecer conexiones a Escritorio remoto con su máquina virtual de Azure.
+Para descartar el extremo de servicio en la nube y la ACL como causa de los problemas o errores de configuración de máquinas virtuales creadas en la administración del servicio, compruebe que otra máquina virtual de Azure que se encuentra en el mismo servicio en la nube o red virtual pueda establecer conexiones de Escritorio remoto a su máquina virtual de Azure.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-Si no tiene otra máquina virtual en el mismo servicio en la nube, puede crear una fácilmente. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
+> [AZURE.NOTE]Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Origen 4: Grupos de seguridad de red](#nsgs).
 
-Si se puede establecer una conexión a Escritorio remoto con una máquina virtual en el mismo servicio en la nube, compruebe lo siguiente:
+Si no tiene otra máquina virtual en el mismo servicio en la nube o red virtual, puede crear una fácilmente. Para obtener más información, vea [Crear una máquina virtual que ejecuta Windows en Azure](virtual-machines-windows-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
+
+Si se puede establecer una conexión a Escritorio remoto con una máquina virtual en el mismo servicio en la nube o red virtual, compruebe lo siguiente:
 
 - La configuración del extremo para el tráfico de Escritorio remoto en la máquina virtual de destino. El puerto TCP privado del extremo debe coincidir con el puerto TCP en el que escucha el servicio Servicios de Escritorio remoto en la máquina virtual, que de forma predeterminada es 3389. 
 - La ACL del extremo para el tráfico de Escritorio remoto en la máquina virtual de destino. Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de Escritorio remoto al extremo. Examine las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Para descartar el extremo como causa del problema, quite el extremo actual y cree un nuevo extremo. Para ello, elija un puerto aleatorio en el intervalo que va entre 49152 y 65535 para el número de puerto externo. Para obtener más información, vea [ Configuración de extremos en una máquina virtual en Azure](virtual-machines-set-up-endpoints.md).
 
-### Causa 4: grupos de seguridad de red
+### <a id="nsgs"></a>Causa 4: Grupos de seguridad de red
 
 Los grupos de seguridad de red permiten un control pormenorizado del tráfico entrante y saliente permitido. Puede crear reglas que abarquen subredes y servicios en la nube en una red virtual de Azure. Examine las reglas del grupo de seguridad de red para asegurarse de que se permite el tráfico de Escritorio remoto desde Internet.
 
-Para obtener más información, consulte [Información sobre los grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx).
+Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../virtual-network/virtual-networks-nsg.md).
 
 ### Causa 5: máquina virtual de Azure basada en Windows
 
@@ -195,7 +210,7 @@ Pruebe de nuevo la conexión desde su equipo. Si no funciona correctamente, pued
 - El firewall de Windows u otro firewall local tiene una regla de salida que impide el tráfico de Escritorio remoto.
 - El software de detección de intrusiones o supervisión de red que se ejecuta en la máquina virtual de Azure impide las conexiones a Escritorio remoto.
 
-Para corregir estos posibles problemas, puede usar una sesión remota de PowerShell en la máquina virtual de Azure. En primer lugar, debe instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configurar el acceso remoto seguro de PowerShell a máquinas virtuales de Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en una carpeta del equipo local.
+Para corregir estos posibles problemas para máquinas virtuales creadas en Administración de servicio, puede usar una sesión remota de PowerShell en la máquina virtual de Azure. En primer lugar, debe instalar un certificado para el servicio en la nube de hospedaje de la máquina virtual. Vaya a [Configurar el acceso remoto seguro de PowerShell a máquinas virtuales de Azure](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) y descargue el archivo de script **InstallWinRMCertAzureVM.ps1** en una carpeta del equipo local.
 
 A continuación, instale Azure PowerShell si todavía no lo ha hecho. Consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md).
 
@@ -226,7 +241,7 @@ La primera parte del símbolo del sistema indica que ahora está emitiendo coman
 
 Ahora puede emitir comandos de PowerShell para investigar los problemas adicionales que se citaron anteriormente y corregir la configuración.
 
-### Para corregir manualmente el puerto TCP de escucha del servicio Servicios de Escritorio remoto 
+### Para corregir manualmente el puerto TCP de escucha del servicio Servicios de Escritorio remoto
 
 Si no pudo ejecutar el [paquete de diagnóstico de Azure IaaS (Windows)](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864) para solucionar el problema **Conectividad de RDP a una máquina virtual de Azure (se requiere reinicio)**, en el símbolo del sistema de la sesión remota de PowerShell, ejecute este comando.
 
@@ -268,9 +283,8 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-[Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Preguntas más frecuentes sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -329,7 +329,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 **Para ejecutar la aplicación**
 
-Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \bin\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
+Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \\bin\\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

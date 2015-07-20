@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Formatos y códecs de Codificador multimedia de Azure" 
-	description="Este tema ofrece información general sobre los formatos y códecs de Codificador multimedia de Azure." 
+	description="Este tema ofrece información general sobre los formatos y códecs de Azure Media Encoder." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/27/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 #Formatos y códecs de Codificador multimedia de Azure
 
-Los codificadores comprimen los archivos multimedia digitales mediante códecs. Los codificadores normalmente tienen varias configuraciones que le permiten especificar propiedades de multimedia generadas, por ejemplo, los códecs que se utilizan, el formato de los archivos, la resolución y la velocidad de bits. Los formatos de archivo son contenedores que contienen el vídeo comprimido, así como información sobre los códecs que se utilizaron para comprimir el video. 
+Los codificadores comprimen los archivos multimedia digitales mediante códecs. Los codificadores normalmente tienen varias configuraciones que le permiten especificar propiedades de multimedia generadas, por ejemplo, los códecs que se utilizan, el formato de los archivos, la resolución y la velocidad de bits. Los formatos de archivo son contenedores que contienen el vídeo comprimido, así como información sobre los códecs que se utilizaron para comprimir el video.
 
 Los códecs tienen dos componentes: uno para comprimir archivos multimedia digitales para su transmisión y el otro para descomprimir los archivos multimedia digitales para su reproducción. Existen códecs de audio que comprimen y descomprimen el audio y códecs de vídeo que comprimen y descomprimen vídeo. Los códecs pueden utilizar compresión sin pérdida de información o compresión con pérdida de información. Los códecs de compresión sin pérdida de información conservan toda la información cuando se produce la compresión. Cuando se descomprime el archivo, el resultado es un archivo idéntico al archivo multimedia de entrada, lo que hace que los códecs de compresión sin pérdida de información sean muy apropiados para el archivado y el almacenamiento. Los códecs con pérdida de información pierden parte de la información al codificar y generan archivos más pequeños (que el original) a costa de la calidad del vídeo, y son muy apropiados para la transmisión a través de Internet. Los dos principales códecs que el Codificador multimedia de Azure utiliza para codificar son H.264 y VC-1. Puede haber disponibles otros códecs en nuestro ecosistema de socios de codificadores.
 
@@ -29,7 +29,7 @@ Este documento contiene una lista de los formatos de archivo de importación y e
 
 [Formatos de importación del codificador multimedia ](#import_formats)
 
-[Formatos de exportación del codificador multimedia ](#export_formats)
+[Formatos de exportación del codificador multimedia](#export_formats)
 
 
 ##<a id="import_formats"></a>Formatos de importación del codificador multimedia 
@@ -129,13 +129,12 @@ La siguiente es una lista parcial de los formatos no comprimidos admitidos.
 <tr><td>Datos no comprimidos en formato YVU9 estándar</td><td>Un formato YUV planar. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea, una muestra Y en cada línea vertical, una muestra U y V en cada cuarta línea vertical. 9 bits por píxel.</td></tr>
 <tr><td>Datos en formato YUV 411</td><td>Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 12 bytes son 8 píxeles de imagen.</td></tr>
 <tr><td>Datos en formato Y41P</td><td>Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U4, Y2, V4, Y3, Y4, Y5, Y6, Y7, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 12 bytes son 8 píxeles de imagen.</td></tr>
-<tr><td>Datos en formato YUY2</td><td>Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen.</td></tr>
-<tr><td>Datos en formato YVYU</td><td>Un formato YUV empaquetado. Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen.</td></tr>
-<tr><td>Datos en formato UYVY</td><td>Un formato YUV empaquetado. Una muestra Y en cada píxel, una muestra U y V en cada segundo píxel horizontalmente en cada línea; muestra de cada línea vertical. El más popular de los distintos formatos YUV 4:2:2. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen.</td></tr>
+<tr><td>Datos en formato YUY2</td><td>Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, U0, Y1, V0, Y2, U2, Y3, V2, Y4, U4, Y5, V4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen</td></tr>
+<tr><td>Datos en formato YVYU</td><td>Un formato YUV empaquetado. Igual que UYVY, pero con distinto orden de píxeles. El orden de los bytes (el más bajo primero) es Y0, V0, Y1, U0, Y2, V2, Y3, U2, Y4, V4, Y5, U4, donde el sufijo 0 indica el píxel más hacia la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen</td></tr>
+<tr><td>Datos en formato UYVY</td><td>Un formato YUV empaquetado. Una muestra Y en cada píxel, una muestra U y V en cada segundo píxel horizontalmente en cada línea; muestra de cada línea vertical. El más popular de los distintos formatos YUV 4:2:2. El orden de los bytes (el más bajo primero) es U0, Y0, V0, Y1, U2, Y2, V2, Y3, U4, Y4, V4, Y5, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 2 píxeles de imagen</td></tr>
 <tr><td>Datos en formato YUV 211</td><td>Un formato YUV empaquetado. Una muestra Y en cada segundo píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical. El orden de los bytes (el más bajo primero) es Y0, U0, Y2, V0, Y4, U4, Y6, V4, Y8, U8, Y10, V8, donde el sufijo 0 es el píxel más a la izquierda y los números cada vez mayores son píxeles que aumentan de izquierda a derecha. Cada bloque de 4 bytes son 4 píxeles de imagen.</td></tr>
 <tr><td>Formato YUV 411 de Cirrus Logic Jr</td><td>Formato YUV 411 de Cirrus Logic Jr con menos de 8 bits por muestra Y, U y V. Una muestra Y en cada píxel, una muestra U y V en cada cuarto píxel horizontalmente en cada línea; muestra de cada línea vertical.</td></tr>
 <tr><td>Formato YVU9 generado por Indeo</td><td>Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.</td></tr>
 </table>
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

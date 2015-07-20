@@ -81,4 +81,6 @@ La obtención de detalles de la recuperación ante desastres se realizará media
 
 - Complete la obtención de detalles mediante la comprobación de la integridad de la aplicación posterior a la recuperación (es decir, las cadenas de conexión, los inicios de sesión, la comprobación de funciones básicas u otras validaciones que formen parte de los procedimientos estándar de validación de aplicaciones).
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

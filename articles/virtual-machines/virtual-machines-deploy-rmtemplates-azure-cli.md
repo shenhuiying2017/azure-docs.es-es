@@ -1281,7 +1281,9 @@ Ejecute este comando:
 
 ## <a id="start-a-virtual-machine"></a>TAREA: Inicio de una máquina virtual
 
-Ejecute este comando: azure vm start de información general del Administrador de recursos de Azure <group name> <virtual machine name>
+Ejecute este comando:
+
+    azure vm start <group name> <virtual machine name>
 
 ## <a id="attach-a-data-disk"></a>TAREA: Acoplamiento de un disco de datos
 
@@ -1313,4 +1315,4 @@ Para obtener más plantillas que puede utilizar, consulte [Plantillas de inicio 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

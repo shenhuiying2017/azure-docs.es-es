@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> 
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -179,6 +179,6 @@ Siga estos pasos para habilitar o deshabilitar la supervisión de un volumen.
 Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

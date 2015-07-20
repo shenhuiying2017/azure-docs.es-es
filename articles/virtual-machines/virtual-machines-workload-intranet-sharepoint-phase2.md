@@ -24,7 +24,7 @@ Debe completar esta fase antes de pasar a la [fase 3](virtual-machines-workload-
 
 ## Creación de máquinas virtuales de controlador de dominio en Azure
 
-En primer lugar, se debe rellenar la columna **Nombre de máquina Virtual** de la Tabla M y modificar los tamaños de máquina virtual según sea necesario en la columna  **Tamaño mínimo**.
+En primer lugar, se debe rellenar la columna **Nombre de máquina Virtual** de la Tabla M y modificar los tamaños de máquina virtual según sea necesario en la columna **Tamaño mínimo**.
 
 Elemento | Nombre de la máquina virtual | Imagen de la Galería | Tamaño mínimo 
 --- | --- | --- | --- 
@@ -33,8 +33,8 @@ Elemento | Nombre de la máquina virtual | Imagen de la Galería | Tamaño míni
 3. | ______________ (primer equipo de SQL Server, ejemplo SQL1) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
 4. | ______________ (segundo equipo de SQL Server, ejemplo SQL2) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
 5. | ______________ (testigo de nodos de mayoría para el clúster, ejemplo MN1) | Windows Server 2012 R2 Datacenter | A1 (pequeño)
-6. | ______________  (primer servidor de aplicaciones de SharePoint, ejemplo APP1) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
-7. | ______________  (segundo servidor de aplicaciones de SharePoint, ejemplo APP2) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
+6. | ______________ (primer servidor de aplicaciones de SharePoint, ejemplo APP1) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
+7. | ______________ (segundo servidor de aplicaciones de SharePoint, ejemplo APP2) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
 8. | ______________ (primer servidor web de SharePoint, ejemplo WEB1) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
 9. | ______________ (segundo servidor web de SharePoint, ejemplo WEB2) | Versión de evaluación de Microsoft SharePoint Server 2013: Windows Server 2012 R2 | A4 (extragrande)
 
@@ -110,10 +110,10 @@ Inicie sesión en el primer equipo de controlador de dominio mediante las creden
 3.	En la parte inferior de la página, en la barra de comandos, haga clic en **Conectar**.
 4.	El Portal de administración le informa de que el archivo .rdp se está recuperando. Haga clic en **Aceptar**.
 5.	Aparecerá un cuadro de diálogo de explorador que mostrará el mensaje: "¿Desea abrir o guardar ComputerName.rdp desde manage.windowsazure.com?" Haga clic en **Abrir**.
-6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en  **Conectar**.
+6.	Seleccione el cuadro de diálogo **Conexión de escritorio remoto** y haga clic en **Conectar**.
 7.	En el cuadro de diálogo **Seguridad de Windows**, haga clic en **Usar otra cuenta**.
 8.	En **Nombre de usuario**, escriba el nombre del máquina virtual y nombre de usuario de la cuenta de administrador local que se creó con la máquina virtual (una cuenta de máquina local). Utilice el siguiente formato: 
-- *ComputerName**LocalAdministratorAccountName*
+- *ComputerName*\\*LocalAdministratorAccountName*
 9.	En **Contraseña**, escriba la contraseña para la cuenta de administrador local.
 10.	Haga clic en **Aceptar**.
 11.	En el cuadro de diálogo **Conexión a Escritorio remoto**, haga clic en **Sí**. El escritorio de la nueva máquina aparece en una ventana de sesión de Escritorio remoto.
@@ -138,7 +138,7 @@ A continuación, pruebe la conectividad del primer controlador de dominio en ubi
 ### <a id="testconn"></a>Para probar la conectividad
 
 1.	En el escritorio, abra un símbolo del sistema de Windows PowerShell.
-2.	En el símbolo del sistema de Windows PowerShell, use el comando **ping** para hacer ping  en nombres y direcciones IP de los recursos en la red de la organización.
+2.	En el símbolo del sistema de Windows PowerShell, use el comando **ping** para hacer ping en nombres y direcciones IP de los recursos en la red de la organización.
 
 Este procedimiento garantiza que la resolución de nombres DNS funciona correctamente (que la máquina virtual está configurada correctamente con los servidores DNS locales) y que se pueden enviar paquetes a la red virtual entre locales y desde ella.
 
@@ -197,13 +197,13 @@ A continuación, realice los pasos siguientes para agregar propiedades de cuenta
 6.	Haga clic con el botón secundario en el nombre de dominio y haga clic en **Propiedades**.
 7.	En el cuadro de diálogo **Propiedades**, haga clic en la pestaña **Seguridad** y, a continuación, haga clic en el botón **Avanzado**.
 8.	En la ventana **Configuración de seguridad avanzada para<YourDomain>**, haga clic en **Agregar**.
-9.	En la ventana **Entrada de permiso para <YourDomain>**, haga clic en **   Seleccionar una entidad de seguridad**.
+9.	En la ventana **Entrada de permiso para <YourDomain>**, haga clic en ** Seleccionar una entidad de seguridad**.
 10.	En el cuadro de texto, escriba **<YourDomain>\\sp_install** y, a continuación, haga clic en **Aceptar**.
 11.	Seleccione **Permitir** para **Crear objetos de equipo** y, a continuación, haga clic en **Aceptar** tres veces.
 
 A continuación, actualice los servidores DNS de la red virtual de manera que Azure asigne a las máquinas virtuales las direcciones IP de los dos nuevos controladores de dominio que se usarán como sus servidores DNS. Tenga en cuenta que este procedimiento utiliza los valores de Tabla V (para la configuración de red virtual).
 
-1.	En el panel izquierdo del Portal de administración de Azure, haga clic en **Redes** y, a continuación, haga clic en el nombre de la red virtual  (Tabla V – Elemento 1 – Columna Valor).
+1.	En el panel izquierdo del Portal de administración de Azure, haga clic en **Redes** y, a continuación, haga clic en el nombre de la red virtual (Tabla V – Elemento 1 – Columna Valor).
 2.	Haga clic en **Configurar**.
 3.	En **Servidores DNS**, quite las entradas correspondientes a los servidores DNS que se encuentran en la red local.
 4.	En **Servidores DNS**, agregue dos entradas con nombres descriptivos y las direcciones IP de estos elementos de dos tablas:
@@ -212,7 +212,7 @@ A continuación, actualice los servidores DNS de la red virtual de manera que Az
 5.	En la barra de comandos de la parte inferior, haga clic en **Guardar**.
 6.	En el panel izquierdo del Portal de administración de Azure, haga clic en **Máquinas virtuales** y, a continuación, haga clic en la columna **Estado** junto al nombre del primer controlador de dominio.
 7.	En la barra de comandos, haga clic en **Reiniciar**.
-8.	Cuando se inicia el primer controlador de dominio, haga clic en la columna **Estado**  junto al nombre de su segundo controlador de dominio.
+8.	Cuando se inicia el primer controlador de dominio, haga clic en la columna **Estado** junto al nombre de su segundo controlador de dominio.
 9.	En la barra de comandos, haga clic en **Reiniciar**. Espere hasta que se inicie el segundo controlador de dominio.
 
 Tenga en cuenta que reiniciamos los dos controladores de dominio, por lo que no se configuran con los servidores DNS locales como servidores DNS. Porque ambos son por sí mismos servidores DNS, se configuran automáticamente con los servidores DNS locales como reenviadores DNS cuando ascienden a controladores de dominio.
@@ -242,4 +242,7 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 3: C
 
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

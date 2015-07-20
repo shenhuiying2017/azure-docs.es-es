@@ -1,4 +1,5 @@
 ## Envío de mensajes a Centros de eventos
+
 En esta sección se escribirá una aplicación de consola Windows que envía eventos al Centro de eventos.
 
 1. En Visual Studio, cree un nuevo proyecto de aplicación de escritorio de Visual C# con la plantilla de proyecto **Aplicación de consola**. Asigne al proyecto el nombre **Remitente**.
@@ -63,4 +64,4 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->
