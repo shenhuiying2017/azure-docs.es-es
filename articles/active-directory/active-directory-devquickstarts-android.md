@@ -94,7 +94,7 @@ Para compilar con Maven, puede utilizar pom.xml en el nivel superior.
 
   `$ git clone git@github.com:AzureADSamples/NativeClient-Android.git`
 
-  * Siga los pasos descritos en la sección de [requisitos previos](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android) para configurar Maven para Android.
+  * Siga los pasos descritos en la sección de [requisitos previos para configurar Maven para Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android).
   * Configure el emulador con SDK 19.
   * Vaya a la carpeta raíz donde ha clonado el repositorio.
   * Ejecute el comando: mvn clean install.
@@ -268,7 +268,8 @@ Puede llamar a **acquireTokenSilent** para controlar el almacenamiento en caché
      mContext.acquireTokenSilent(resource, clientid, userId, callback );
     ```
 
-11. **Agente**: la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
+11. **Agente**:
+  la aplicación de portal de empresa de Microsoft Intune proporcionará el componente del agente. ADAL usará la cuenta del agente (si hay una cuenta de usuario que se ha creado en este autenticador y el desarrollador decide no omitirla). El desarrollador puede omitir el usuario del agente con:
 
     ```java
      AuthenticationSettings.Instance.setSkipBroker(true);

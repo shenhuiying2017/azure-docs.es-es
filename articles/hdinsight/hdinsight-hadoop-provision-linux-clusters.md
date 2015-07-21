@@ -106,19 +106,21 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 		<td>Seleccione <b>Ubuntu 12.04 LTS Preview</b> para aprovisionar un clúster de HDInsight en Linux. Para aprovisionar un clúster de Windows, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Windows en HDInsight</a>.</td></tr>
 	<tr><td>Versión de HDInsight</td>
 		<td>Seleccione la versión. Para HDInsight en Linux, el valor predeterminado es la versión 3.2 de HDInsight, que usa Hadoop 2.6.</td></tr>
-	</table>Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
+	</table>
+	Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
 
 4. En la página **Configurar clúster**, escriba o seleccione los valores siguientes:
 
 	![Proporcionar detalles del clúster de HDInsight de Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>Nombre</th><th>Valor</th></tr>
-<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
-<tr><td>Región/Red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que almacenó anteriormente. Los clústeres de HDInsight requieren que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p></td></tr>
-<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
-<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-</table>>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+	<tr><th>Nombre</th><th>Valor</th></tr>
+	<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
+	<tr><td>Región/Red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que almacenó anteriormente. Los clústeres de HDInsight requieren que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p></td></tr>
+	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
+	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
+	</table>
+	>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 
 5. En la página **Configurar usuario de clúster** proporcione los siguientes valores:
@@ -142,7 +144,8 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 	<tr><td>Especificación de la tienda de metadatos de Hive/Oozie</td>
 		<td>Active esta casilla para especificar una base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
 	</td></tr>
-	</table>> [AZURE.NOTE]Se recomienda usar autenticación con clave pública SSH con SSH, dado que es más segura que la autenticación con contraseña.
+	</table>
+	> [AZURE.NOTE]Se recomienda usar autenticación con clave pública SSH con SSH, dado que es más segura que la autenticación con contraseña.
 
 	Haga clic en la flecha derecha.
 
@@ -185,7 +188,8 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     </td></tr>
 	<tr><td>Cuentas de almacenamiento adicionales</td>
 		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página <strong>Cuenta de almacenamiento</strong> adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
-</table>Haga clic en la flecha derecha.
+	</table>
+	Haga clic en la flecha derecha.
 
 7. Si ha elegido configurar almacenamiento adicional para el clúster, escriba la información de la cuenta de almacenamiento adicional en la página **Cuenta de almacenamiento**:
 
@@ -297,7 +301,8 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 **Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
+1.	Vaya a **http://azure.microsoft.com/downloads/**. 
+2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
 
