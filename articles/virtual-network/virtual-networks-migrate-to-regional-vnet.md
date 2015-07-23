@@ -63,9 +63,9 @@ La migración temprana está disponible para los clientes que tienen un contrato
 	
 	Edite las líneas siguientes del archivo de configuración de red y reemplace los valores por los suyos propios:
 
-	**Valor antiguo:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Valor antiguo:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Nuevo valor:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Nuevo valor:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Guarde los cambios e [importe](../virtual-networks-using-network-configuration-file/) la configuración de red en Azure.
 
@@ -86,4 +86,4 @@ No es necesario quitar las máquinas virtuales que están en un grupo de afinida
 Una vez implementada una máquina virtual, se implementa en una sola unidad de escalado. Los grupos de afinidad pueden restringir el conjunto de tamaños de máquina virtual disponibles para una nueva implementación de máquina virtual, pero cualquier máquina virtual existente que esté implementa ya está restringida al conjunto de tamaños de máquina virtual disponible en la unidad de escalado en el que se implementa la máquina virtual. Por este motivo, quitar una máquina virtual del grupo de afinidad no tendrá ningún efecto.
  
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->

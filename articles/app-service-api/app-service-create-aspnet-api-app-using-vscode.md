@@ -464,4 +464,4 @@ En el portal de vista previa de Azure, vaya a la hoja **HOST DE APLICACIÓN DE A
 En este tutorial a aprendido crear una aplicación de API en Visual Studio Code. Para obtener más información sobre Visual Studio Code, consulte [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener información sobre las aplicaciones de API, consulte [¿Qué son las Aplicaciones de API?](app-service-api-apps-why-best-platform.md)
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
