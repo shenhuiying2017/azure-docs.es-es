@@ -35,7 +35,7 @@ Con ARM, el Equilibrador de carga de Azure contiene los siguientes recursos secu
 - Reglas NAT entrantes: las reglas NAT que definen el tráfico entrante que fluye a través de la dirección IP front-end y se distribuye a la dirección IP back-end.
 
 
-![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/es-es/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
+![](https://acomdpsstorage.blob.core.windows.net/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/20150429054039/figure5.png)
 
 
 

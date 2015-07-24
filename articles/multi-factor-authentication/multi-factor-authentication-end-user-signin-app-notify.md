@@ -38,4 +38,4 @@ La siguiente información describe la experiencia de uso de la autenticación mu
 
 <li>Con esto debe haber iniciado sesión.</li>
 
-<!---HONumber=July15_HO2-->
+<!----HONumber=July15_HO2-->
