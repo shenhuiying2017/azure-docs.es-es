@@ -360,8 +360,10 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 		  </property>
 		</configuration>
 
-	* Reemplace todas las instancias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con el valor que recibió anteriormente. 
-	> [AZURE.WARNING]Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción de RunHiveScript producirá un error cuando se inicie el trabajo.
+	* Reemplace todas las instancias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con el valor que recibió anteriormente.
+
+
+	> [AZURE.WARNING] Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción de RunHiveScript producirá un error cuando se inicie el trabajo.
 
 	* Reemplace **JOBTRACKERADDRESS** con la dirección de JobTracker/ResourceManager que recibió anteriormente.
 
@@ -725,4 +727,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->
