@@ -17,6 +17,9 @@
 	ms.author="huvalo"/>
 
 
+
+
+
 # Bloc de notas de IPython en Azure
 
 El [proyecto IPython](http://ipython.org) proporciona una colección de herramientas para la informática científica que incluye potentes shells interactivos, bibliotecas paralelas de elevado rendimiento y facilidad de uso, así como un entorno basado en web conocido como bloc de notas de IPython. El bloc de notas ofrece un entorno de trabajo para la informática interactiva que combina la ejecución del código con la creación de documentos informáticos activos. Estos archivos del bloc de notas pueden contener texto arbitrario, fórmulas matemáticas, código de entrada, resultados, gráficos, vídeos y cualquier otra clase de contenido multimedia que pueda mostrar cualquier explorador web moderno.
@@ -112,7 +115,7 @@ Para instalar IPython y sus dependencias en la máquina virtual de Windows, abra
 
 	* Necesitará agregar `C:\OpenSSL-Win32\bin` a su variable de entorno `PATH`.
 
-	> [AZURE.NOTE]Al instalar OpenSSL, use la versión 1.0.1g o superior, ya que incluye una revisión para la vulnerabilidad de seguridad Heartbleed.
+	> [AZURE.NOTE] Al instalar OpenSSL, use la versión 1.0.1g o superior, ya que incluye una revisión para la vulnerabilidad de seguridad Heartbleed.
 
 1.  Instale IPython mediante el comando:
 
@@ -273,4 +276,4 @@ Las características centrales de IPython también están disponibles en Visual 
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

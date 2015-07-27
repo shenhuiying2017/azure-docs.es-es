@@ -27,7 +27,9 @@ Utilice la información de [Actualización de las bases de datos SQL Web o Busin
 
 Puede moverse fácilmente entre los distintos niveles de servicio mediante el Portal de administración de Azure, [PowerShell](https://msdn.microsoft.com/library/azure/dn546726.aspx) o la [API de REST](https://msdn.microsoft.com/library/dn505719.aspx).
 
-Al moverse entre los niveles de servicio, tenga en cuenta lo siguiente: - Antes de la actualización entre los niveles de servicio o niveles de rendimiento, asegúrese de tener una cuota disponible en el servidor. Si necesita una mayor cuota, llame al servicio de soporte al cliente. -Las bases de datos federadas no se pueden actualizar a los niveles de servicio Basic, Standard o Premium.
+Al moverse entre los niveles de servicio, tenga en cuenta lo siguiente: 
+- Antes de la actualización entre los niveles de servicio o niveles de rendimiento, asegúrese de tener una cuota disponible en el servidor. Si necesita una mayor cuota, llame al servicio de soporte al cliente. 
+- Las bases de datos federadas no se pueden actualizar a los niveles de servicio Basic, Standard o Premium.
 
 - Para degradar una base de datos, esta no debe alcanzar el tamaño máximo permitido del nivel de servicio de destino. Para obtener más información sobre el tamaño permitido para cada nivel de servicio, consulte la tabla de niveles de servicio y tamaños de bases de datos, que encontrará en esta misma sección.
 
@@ -41,9 +43,11 @@ Al moverse entre los niveles de servicio, tenga en cuenta lo siguiente: - Antes 
 
 - Las nuevas propiedades de la base de datos no se aplican hasta que se completan los cambios.
 
-Tenga en cuenta que los niveles de servicio Business y Web se retirarán en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
+Tenga en cuenta lo siguiente:
+- Niveles de servicio Business y Web se retirarán en septiembre de 2015. Para obtener más información, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx).
 
-<note included> -Es importante tener en cuenta que la implementación actual de [las federaciones finalizará con los niveles de servicio con Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Se recomienda utilizar [Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md) para crear una solución compartida de escala horizontal en Base de datos SQL de Azure. Para probarlo, consulte Introducción a la vista previa del escalado flexible de Base de datos SQL de Azure.
+<note included> 
+- Es importante tener en cuenta que la implementación actual de [las federaciones finalizará con los niveles de servicio con Web y Business](https://msdn.microsoft.com/library/azure/dn741330.aspx). Se recomienda utilizar [Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md) para crear una solución compartida de escala horizontal en Base de datos SQL de Azure. Para probarlo, consulte Introducción a la vista previa del escalado flexible de Base de datos SQL de Azure.
 
 ## Actualización a un nivel de servicio superior
 Para actualizar una base de datos utilice cualquiera de los métodos siguientes. Los pasos son específicos para actualizar a un nivel de servicio Premium, pero se aplican a todas las actualizaciones.
@@ -64,7 +68,11 @@ Para actualizar una base de datos utilice cualquiera de los métodos siguientes.
 2. Establezca el contexto del servidor con el cmdlet New-AzureSqlDatabaseServerContext. La sintaxis de ejemplo se proporciona en la sección Uso de comandos de PowerShell de Azure.
 3. Obtenga un identificador de la base de datos y el nivel de rendimiento de destino. Especifique el nivel de rendimiento con Set-AzureSqlDatabase – ServiceObjective
 
-**Ejemplo de uso** En este ejemplo: - En este ejemplo se muestra la actualización a un nivel de servicio Premium. - Se crea el identificador $db que apunta al nombre de la base de datos "somedb". - Se crea el identificador $P1 y señala al nivel de rendimiento Premium 1. - El nivel de rendimiento de la base de datos $db se establece en $P1.
+**Ejemplo de uso** En este ejemplo: 
+- En este ejemplo se muestra la actualización a un nivel de servicio Premium. 
+- Se crea el identificador $db que apunta al nombre de la base de datos "somedb". 
+- Se crea el identificador $P1 y señala al nivel de rendimiento Premium 1. 
+- El nivel de rendimiento de la base de datos $db se establece en $P1.
 
 		Windows PowerShell:
 
@@ -120,7 +128,8 @@ Se puede aumentar o reducir los niveles de rendimiento de una base de datos Prem
 
 Si va a cambiar el nivel de rendimiento de una base de datos Premium que tiene relaciones de Replicación geográfica activa configuradas, utilice el orden siguiente para las bases de datos primaria y secundaria activa:
 
-Esto se debe a que las bases de datos secundarias activas deben tener un nivel de rendimiento igual o mayor que la principal. -Si está cambiando de un nivel de rendimiento superior a un nivel de rendimiento inferior, empiece con la base de datos principal en primer lugar seguido de una o más bases de datos secundarias activas.
+Esto se debe a que las bases de datos secundarias activas deben tener un nivel de rendimiento igual o mayor que la principal. 
+- Si está cambiando de un nivel de rendimiento superior a un nivel de rendimiento inferior, empiece con la base de datos principal en primer lugar seguido de una o más bases de datos secundarias activas.
 
 - Si va a cambiar de un nivel de rendimiento inferior a un nivel superior, empiece por las bases de datos secundarias activas y deje la principal para el final.
 
@@ -203,7 +212,8 @@ Para usar los cmdlets de Azure PowerShell que se describen en este tema, debe te
 
 2. Descargue Azure PowerShell en la sección Herramienta de línea de comandos de [Descargas de SDK y herramientas de Azure](http://azure.microsoft.com/downloads/).
 
-Realice la siguientes operaciones: en la pantalla **Inicio** o en el menú **Inicio**, inicie Azure PowerShell.
+Realice la siguientes operaciones: 
+En la pantalla **Inicio** o en el menú **Inicio**, inicie Azure PowerShell.
 
 Escriba el nombre de usuario y contraseña del servidor.
 
@@ -229,4 +239,4 @@ Cree el contexto de servidor con **New-AzureSqlDatabaseServerContext**.
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

@@ -186,10 +186,11 @@ Puede usar la actividad de copia para copiar archivos desde un sistema de archiv
 ### Supuestos
 En este ejemplo se da por hecho lo siguiente:
 
-- **Host**: el nombre del servidor que hospeda el sistema de archivos es: **\\contoso**.
-- **Carpeta**: el nombre de la carpeta que contiene los archivos de entrada es: **marketingcampaign\\regionaldata\\{slice}, donde los archivos se particionan en una carpeta denominada {slice}, como 2014121112 (año 2014, mes 12, día 11, hora 12). 
+- **Host**: el nombre del servidor que hospeda el sistema de archivos es: **\contoso**.
+- **Carpeta**: el nombre de la carpeta que contiene los archivos de entrada es: **marketingcampaign\regionaldata\{slice}, donde los archivos se particionan en una carpeta denominada {slice}, como 2014121112 (año 2014, mes 12, día 11, hora 12).
+
 ### Creación de un servicio vinculado del sistema de archivos local
-El siguiente ejemplo JSON puede usarse para crear un servicio vinculado con el nombre **FolderDataStore** de tipo **OnPremisesFileSystemLinkedService**.
+El siguiente ejemplo JSON puede usarse para crear un servicio vinculado con el nombre **FolderDataStore** de tipo **OnPremisesFileSystemLinkedService**.  
 
 	{
 	    "name": "FolderDataStore",

@@ -81,7 +81,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución (aprovisionamiento)
     -   Ejecución
 
-##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
+##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
