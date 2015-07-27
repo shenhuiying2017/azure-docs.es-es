@@ -1,63 +1,60 @@
-<properties 
-	pageTitle="Muestreo de datos en tablas de HDInsight Hive de Azure | Azure" 
-	description="Reducción de la muestra de datos en tablas de HDInsight Hive de Azure" 
-	metaKeywords="" 
-	services="machine-learning" 
-	solutions="" 
-	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
+<properties
+	pageTitle="Muestreo de datos en tablas de HDInsight Hive de Azure | Microsoft Azure"
+	description="Reducción de la muestra de datos en tablas de HDInsight Hive de Azure"
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="hangzh-msft"
+	manager="paulettm" 
 	editor="cgronlun"  />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/29/2015"
 	ms.author="hangzh;bradsev" />
 
-# Muestreo de datos en tablas de HDInsight Hive de Azure 
+# Muestreo de datos en tablas de HDInsight Hive de Azure
 
-Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su función en el proceso de ciencia de datos es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su función en la tecnología y procesos de análisis avanzado de Aprendizaje automático de Azure consiste en permitir la creación rápida de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-En este artículo, se describe cómo reducir la muestra de datos en tablas de HDInsight Hive de Azure mediante consultas de Hive. Se explican tres métodos de muestreo normalmente utilizados: Muestreo aleatorio uniforme, muestreo aleatorio por grupos y muestreo estratificado.
+En este artículo, se describe cómo reducir la muestra de datos en tablas de HDInsight Hive de Azure mediante consultas de Hive. Veremos tres métodos de muestreo usados popularmente: muestreo aleatorio uniforme, muestreo aleatorio por grupos y muestreo estratificado.
 
-Debe enviar las consultas de Hive desde la consola de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](machine-learning-data-science-process-hive-tables.md#submit). 
+Debe enviar las consultas de Hive desde la consola de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](machine-learning-data-science-process-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Muestreo aleatorio uniforme ##
-El muestreo aleatorio uniforme implica que cada fila del conjunto de datos tiene la misma probabilidad de muestreo. Esto se puede implementar añadiendo un campo adicional de rand() al conjunto de datos en la consulta "select" interna, y en la consulta "select" externa esa condición en ese campo aleatorio. 
+El muestreo aleatorio uniforme implica que cada fila del conjunto de datos tiene la misma probabilidad de muestreo. Esto se puede implementar añadiendo un campo adicional de rand() al conjunto de datos en la consulta "select" interna, y en la consulta "select" externa esa condición en ese campo aleatorio.
 
 Aquí se muestra una consulta de ejemplo:
 
 	SET sampleRate=<sample rate, 0-1>;
 	select
-		field1, field2, ..., fieldN
+		field1, field2, …, fieldN
 	from
 		(
 		select
-			field1, field2, ..., fieldN, rand() as samplekey 
+			field1, field2, …, fieldN, rand() as samplekey
 		from <hive table name>
 		)a
 	where samplekey<='${hiveconf:sampleRate}'
 
-En este caso, `<sample rate, 0-1>` especifica la proporción de registros que los usuarios quieren usar como muestra. 
+En este caso, `<sample rate, 0-1>` especifica la proporción de registros que los usuarios quieren usar como muestra.
 
 ## <a name="group"></a> Muestreo aleatorio por grupos ##
 
-Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor concreto de una variable de categoría. Esto es lo que significa "muestreo por grupos".
-Por ejemplo, si tiene una variable de categoría "Estado", que tiene como valores NY, MA, CA, NJ, PA, etc., querrá que los registros de un mismo estado estén siempre juntos, ya están muestreados o no. 
+Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor concreto de una variable de categoría. Esto es lo que significa "muestreo por grupos". Por ejemplo, si tiene una variable de categoría "Estado", que tiene como valores NY, MA, CA, NJ, PA, etc., querrá que los registros de un mismo estado estén siempre juntos, ya están muestreados o no.
 
 Aquí se muestra una consulta de ejemplo que realiza un muestreo por grupo:
 
 	SET sampleRate=<sample rate, 0-1>;
-    select 
-		b.field1, b.field2, ..., b.catfield, ..., b.fieldN
+    select
+		b.field1, b.field2, …, b.catfield, …, b.fieldN
 	from
 		(
-		select 
-			field1, field2, ..., catfield, ..., fieldN
+		select
+			field1, field2, …, catfield, …, fieldN
 		from <table name>
 		)b
 	join
@@ -66,7 +63,7 @@ Aquí se muestra una consulta de ejemplo que realiza un muestreo por grupo:
 			catfield
 		from
 			(
-			select 
+			select
 				catfield, rand() as samplekey
 			from <table name>
 			group by catfield
@@ -82,19 +79,20 @@ El muestreo aleatorio se estratifica con respecto a una variable de categoría c
 Aquí se muestra una consulta de ejemplo:
 
 	SET sampleRate=<sample rate, 0-1>;
-    select 
-		field1, field2, field3, ..., fieldN, state 
+    select
+		field1, field2, field3, ..., fieldN, state
 	from
 		(
-		select 
+		select
 			field1, field2, field3, ..., fieldN, state,
-			count(*) over (partition by state) as state_cnt, 
+			count(*) over (partition by state) as state_cnt,
       		rank() over (partition by state order by rand()) as state_rank
       	from <table name>
-		) a 
+		) a
 	where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 
 
-Para obtener más información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
+Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling) (Manual de lenguaje: muestreo).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

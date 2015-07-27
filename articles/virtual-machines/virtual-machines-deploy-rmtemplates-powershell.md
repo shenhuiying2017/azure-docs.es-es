@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@ Antes de comenzar, asegúrese de que tiene Azure PowerShell listo para usar.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Descripción de las plantillas de recursos y grupos de recursos de Azure
+## Descripción de las plantillas de recursos y grupos de recursos de Administrador de recursos de Azure
 
 La mayoría de las aplicaciones que se implementan y ejecutan en Microsoft Azure constan de una combinación de diferentes tipos de recursos en la nube (por ejemplo, una o varias máquinas virtuales y cuentas de almacenamiento, una Base de datos SQL o una red virtual). Las plantillas del Administrador de recursos de Azure permiten implementar y administrar los distintos recursos conjuntamente mediante una descripción de JSON de los recursos y los parámetros de configuración e implementación asociados.
 
@@ -1126,4 +1127,4 @@ Verá información similar a la siguiente:
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

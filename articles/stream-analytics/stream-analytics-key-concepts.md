@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Obtenga información acerca de los conceptos clave de Análisis de transmisiones | Microsoft Azure" 
 	description="Obtenga información sobre los conceptos clave de Análisis de transmisiones: componentes de un trabajo de Análisis de transmisiones, incluidas entradas y salidas admitidas, configuración del trabajo y métricas." 
-	keywords="event processing,data stream,key concepts,serialization"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="06/16/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok" />
 
 
@@ -32,7 +31,7 @@ Con Análisis de transmisiones, puede:
 
 Para obtener más información, consulte [Introducción a Análisis de transmisiones de Azure](stream-analytics-introduction.md).
 
-Un trabajo de Análisis de transmisiones incluye lo siguiente: * Uno o varios orígenes de entrada * Una consulta sobre un flujo de datos de entrada * Un destino de salida.
+Un trabajo de Análisis de transmisiones incluye lo siguiente: - uno o varios orígenes de entrada - una consulta sobre un flujo de datos de entrada - un destino de salida.
 
 
 ## Entradas
@@ -139,10 +138,14 @@ En el destino de salida se escribirán los resultados del trabajo de Análisis d
 - Almacenamiento de tablas de Azure: se trata de un almacén de datos estructurados con menos restricciones en el esquema. Las entidades con un esquema diferente y diferentes tipos pueden almacenarse en la misma tabla de Azure. El almacenamiento de tablas de Azure puede usarse para almacenar datos con de persistencia y recuperación eficaz. Para obtener más información, consulte [Introducción al almacenamiento de Azure](../storage/storage-introduction.md) y [Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Base de datos SQL de Azure: este destino de salida es adecuado para datos de carácter relacional o para aplicaciones que dependen del contenido que se hospeda en una base de datos.
 
+## Unidades de streaming ##
+Para poder ofrecer una experiencia de rendimiento más predecible a los clientes, Análisis de transmisiones de Azure usa Unidades de streaming (SU) para representar los recursos y la capacidad de ejecutar un trabajo. Las SU proporcionan una forma de describir el evento relativo en función de una medida que combina la CPU, la memoria, la capacidad de procesamiento y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento. Cada trabajo de Análisis de transmisiones de Azure necesita como mínimo una unidad de streaming, que es el valor predeterminado de todos los trabajos. Para más información acerca de cómo seleccionar el número correcto de SU para un trabajo, consulte [Escalar trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 
 ## Trabajos de escala
 
-Un trabajo de Análisis de transmisiones se puede escalar a través de la configuración de unidades de streaming, que definen la cantidad de potencia de procesamiento de datos que recibe un trabajo. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento. Cada suscripción tiene una cuota de 12 unidades de streaming por región que se distribuyen entre los trabajos de la región.
+La métrica del porcentaje de uso de SU que se define más adelante, es un indicador de la necesidad de escalar un trabajo de Análisis de transmisiones de Azure. Un alto porcentaje de uso de SU puede deberse a que se ha usado una gran ventana en una consulta, grandes eventos en la entrada, una ventana con gran tolerancia a elementos desordenados o a una combinación de los anteriores. Para evitar este problema, puede optar por dividir la consulta o desglosarla en más pasos y agregar más SU de la pestaña Escalar.
+
+Es posible que observe que los recursos de línea base siguen usándose incluso sin eventos de entrada, ya que el mismo sistema consume cierta cantidad de recursos. La cantidad de recursos consumidos por el sistema también pueden fluctuar con el tiempo.
 
 Para obtener más información, consulte [Trabajos de escala de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md).
 
@@ -156,9 +159,9 @@ Para habilitar la supervisión de trabajos, Análisis de transmisiones requiere 
 ### Métricas
 Las siguientes métricas están disponibles para supervisar el uso y el rendimiento de los trabajos de Stream Analytics:
 
+- Porcentaje de uso de SU: este indicador le muestra la capacidad relativa de procesamiento de eventos de uno o varios de los pasos de la consulta. Si este indicador llega o supera el 80 %, existe una gran probabilidad de que el procesamiento de eventos se retrase o deje de avanzar.
 - Errores: número de mensajes de error que provoca un trabajo de Análisis de transmisiones.
-- Eventos de entrada: cantidad de datos recibidos por el trabajo de Análisis de transmisiones, en términos de 
-- recuento de eventos.
+- Eventos de entrada: cantidad de datos recibidos por el trabajo de Análisis de transmisiones, en términos de recuento de eventos.
 - Eventos de salida: cantidad de datos enviados por el trabajo de Análisis de transmisiones al destino de salida, en términos de recuento de eventos.
 - Eventos desordenados: número de eventos recibidos fuera de orden que se eliminan o se les asigna una marca de tiempo ajustada, según la directiva de fuera de orden.
 - Errores de conversión de datos: número de errores de conversión de datos que produce un trabajo de Análisis de transmisiones.
@@ -203,4 +206,4 @@ Ahora que está familiarizado con los conceptos básicos de Análisis de transmi
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

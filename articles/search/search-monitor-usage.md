@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="04/27/2015"
+   ms.date="07/08/2015"
    ms.author="heidist"/>
 
 # Supervisión del uso y estadísticas en un servicio Búsqueda de Azure
@@ -55,5 +55,6 @@ Visite [Administración del servicio de búsqueda en Microsoft Azure](search-man
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

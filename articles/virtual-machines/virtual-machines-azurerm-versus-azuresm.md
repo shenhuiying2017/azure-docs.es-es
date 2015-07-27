@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -39,7 +40,7 @@ Además de las ventajas que se han mencionado anteriormente, existen algunos ava
 -	Habilitación de la implementación masiva y paralela de las máquinas virtuales
 -	Compatibilidad con tres dominios de error en conjuntos de disponibilidad
 -	Extensión de script personalizada mejorada que permite la especificación de scripts desde cualquier dirección URL personalizada accesible públicamente
-- Integración de máquinas virtuales con el almacén de claves de Azure para un almacenamiento muy seguro e implementación privada de secretos desde los [módulos de seguridad de hardware](http://wikipedia.org/wiki/Hardware_security_module) [validados por FIPS](http://wikipedia.org/wiki/FIPS_140-2) 
+- Integración de máquinas virtuales con el almacén de claves de Azure para un almacenamiento muy seguro e implementación privada de secretos desde los [módulos de seguridad de hardware](http://wikipedia.org/wiki/Hardware_security_module) [validados por FIPS](http://wikipedia.org/wiki/FIPS_140-2)
 -	Proporciona los bloques de creación básicos de las redes a través de API que permiten a los clientes construir aplicaciones complicadas que incluyen interfaces de red, equilibradores de carga y redes virtuales
 -	Las interfaces de red como un nuevo objeto permiten mantener y volver a usar configuraciones de redes complicadas para las máquinas virtuales
 -	Los equilibradores de carga como un recurso de primera clase permiten la asignación de direcciones IP
@@ -107,6 +108,6 @@ Toda la automatización y los scripts que ha creado continuarán funcionando par
 **¿Las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure se pueden conectar a mi circuito de Express Route?**
 
 Esto no se admite en este momento. No se pueden conectar las redes virtuales creadas mediante las nuevas API del Administrador de recursos de Azure con un circuito Route Express. Se admitirán en el futuro.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

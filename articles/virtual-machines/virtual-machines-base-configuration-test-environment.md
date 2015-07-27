@@ -1,24 +1,27 @@
 <properties 
 	pageTitle="Entorno de prueba de la configuración base" 
-	description="Obtenga información acerca de cómo crear un entorno de desarrollo/prueba sencillo que simula una intranet simplificada en Azure." 
+	description="Obtenga información acerca de cómo crear un entorno de desarrollo/prueba sencillo que simula una intranet simplificada en Microsoft Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Entorno de prueba de la configuración base
 
-Este tema proporciona instrucciones paso a paso para crear el entorno de prueba de la configuración base en una red virtual de Microsoft Azure, con equipos en los que se ejecuta Windows Server 2012 R2. Puede utilizar el entorno de prueba resultante:
+En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Microsoft Azure, con máquinas virtuales creadas en la administración de servicios.
+
+Puede utilizar el entorno de prueba resultante:
 
 - Para el desarrollo de aplicaciones y pruebas.
 - El [entorno de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
@@ -72,7 +75,7 @@ En primer lugar, seleccione la suscripción de Azure correcta con estos comandos
 
 Puede obtener el nombre de la suscripción de la propiedad **SubscriptionName** de la visualización del comando **Get-AzureSubscription**.
 
-A continuación, cree un servicio en la nube de Azure. El servicio en la nube actúa como un límite de seguridad y un contenedor lógico para las máquinas virtuales situadas en la red virtual. También proporciona una manera de conectar  y administrar remotamente las máquinas virtuales en la subred de la red corporativa.
+A continuación, cree un servicio en la nube de Azure. El servicio en la nube actúa como un límite de seguridad y un contenedor lógico para las máquinas virtuales situadas en la red virtual. También proporciona una manera de conectar y administrar remotamente las máquinas virtuales en la subred de la red corporativa.
 
 Debe elegir un nombre único para el servicio en la nube. *El nombre del servicio en la nube solo puede contener letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.*
 
@@ -125,9 +128,9 @@ A continuación, conéctese a la máquina virtual DC1.
 2.	En la barra de tareas, haga clic en **Conectar**. 
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
-5.	Cuando se le soliciten credenciales, utilice lo siguiente:
+5.	Cuando se le pidan las credenciales, utilice las siguientes:
 - Nombre: **DC1**[nombre de la cuenta de administrador local]
-- Contraseña: [contraseña de la cuenta de administrador local]
+- Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
 A continuación, agregue un disco de datos adicional como un nuevo volumen con la letra de unidad F:.
@@ -154,9 +157,9 @@ Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 2.	En la barra de tareas, haga clic en **Conectar**. 
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
-5.	Cuando se le soliciten credenciales, utilice lo siguiente:
+5.	Cuando se le pidan las credenciales, utilice las siguientes:
 - Nombre: **CORP**[nombre de la cuenta de administrador local]
-- Contraseña: [contraseña de la cuenta de administrador local]
+- Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
 A continuación, cree una cuenta de usuario en Active Directory que se utilizará al iniciar sesión en equipos miembros del dominio corporativo. Ejecute estos comandos uno a uno en un símbolo del sistema de Windows PowerShell con nivel de administrador.
@@ -166,7 +169,7 @@ A continuación, cree una cuenta de usuario en Active Directory que se utilizar�
 
 Tenga en cuenta que el primer comando genera un símbolo del sistema para proporcionar la contraseña de la cuenta User1. Puesto que esta cuenta se utilizará para las conexiones a escritorio remotos para todos los equipos de miembros de dominio CORP, elija una contraseña segura. Para comprobar su robustez, consulte [Comprobador de contraseñas: uso de contraseñas seguras](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registre la contraseña de la cuenta User1 y almacénela en una ubicación segura.
 
-Vuelva a conectarse a la máquina virtual DC1 con la cuenta CORP\\User1.
+Vuelva a conectarse a la máquina virtual DC1 con la cuenta CORP\User1.
 
 A continuación, para permitir el tráfico de la herramienta Ping, ejecute este comando en un símbolo de Windows PowerShell con nivel de administrador.
 
@@ -191,7 +194,7 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-A continuación, conéctese a la máquina virtual APP1 con las credenciales CORP\\User1 y abra un símbolo de Windows PowerShell de nivel de administrador.
+A continuación, conéctese a la máquina virtual APP1 con las credenciales CORP\User1 y abra un símbolo de Windows PowerShell de nivel de administrador.
 
 Para comprobar la comunicación de red y la resolución de nombres entre APP1 y DC1, ejecute el comando **ping dc1.corp.contoso.com** y compruebe que haya cuatro respuestas.
 
@@ -224,7 +227,7 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-A continuación, conéctese a la máquina virtual CLIENT1 con las credenciales CORP\\User1.
+A continuación, conéctese a la máquina virtual CLIENT1 con las credenciales CORP\User1.
 
 Para comprobar la comunicación de la red y la resolución de nombres entre CLIENT1 y DC1, ejecute el comando **ping dc1.corp.contoso.com** en un símbolo del sistema de Windows PowerShell y compruebe que hay cuatro respuestas.
 
@@ -235,7 +238,7 @@ A continuación, compruebe que puede tener acceso a recursos compartidos de arch
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
 5.	En la barra de direcciones, escriba **http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1. 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
-7.	En la barra de direcciones, escriba **\\\\app1\\Files** y, a continuación, presione ENTRAR.
+7.	En la barra de direcciones, escriba **\app1\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
 9.	En la ventana de carpeta compartida **Archivos** , haga doble clic en el archivo **Example.txt**. Debería ver el contenido del archivo Example.txt.
 10.	Cierre las ventanas de carpetas compartidas **Example.tx - Bloc de notas** y **Archivos**.
@@ -278,6 +281,6 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -4,7 +4,8 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
-	manager="mbaldwin"/>
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/04/2015"
+	ms.date="06/25/2015"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
+Almacén de claves de Azure está disponible en la mayoría de las regiones. Para obtener más información, consulte la [página de precios del Almacén de claves](../../../../pricing/details/key-vault/).
 
 ## Introducción  
-Use este tutorial para empezar a trabajar con el Almacén de claves de Azure, actualmente en versión de vista previa, para crear un contenedor reforzado (un almacén) en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Se describe el proceso para usar Windows PowerShell a fin de crear un almacén en el que se guardará una clave o una contraseña para usarla con una aplicación de Azure. A continuación, se explica cómo utiliza una aplicación esa clave o contraseña.
+Use este tutorial para empezar a trabajar con el Almacén de claves de Azure para crear un contenedor (un almacén) reforzado en Azure en el que almacenar y administrar las claves criptográficas y los secretos en Azure. Se describe el proceso para usar Windows PowerShell a fin de crear un almacén en el que se guardará una clave o una contraseña para usarla con una aplicación de Azure. A continuación, se explica cómo utiliza una aplicación esa clave o contraseña.
 
 **Tiempo estimado para completar el tutorial:** 20 minutos
 
 >[AZURE.NOTE]Este tutorial no incluye instrucciones sobre cómo escribir la aplicación de Azure incluida en uno de los pasos, en el que se muestra cómo autorizar a una aplicación para que use una clave o un secreto del Almacén de claves.
 >
->Durante el período de vista previa, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell.
+>Actualmente, no es posible configurar el Almacén de claves de Azure en el portal de Azure. En su lugar, siga estas instrucciones de Azure PowerShell. O bien, para obtener instrucciones de la interfaz de la línea de comandos entre plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli.md).
 
 Para obtener información general sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de clave de Azure?](key-vault-whatis.md)
 
@@ -32,7 +34,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 
 Para realizar este tutorial, necesitará lo siguiente:
 
-- Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../pricing/free-trial).
+- Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para obtener una versión de [evaluación gratuita](../../../../pricing/free-trial).
 - Azure PowerShell versión 0.9.1 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 - Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/es-es/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
@@ -117,7 +119,7 @@ A continuación, escriba lo siguiente para importar la clave desde el archivo .P
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Por ejemplo, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** .
+Ahora puede utilizar el URI para hacer referencia a esta clave que creó o cargó en el Almacén de claves de Azure. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para obtener siempre la versión actual y use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** para obtener esta versión específica.
 
 Para mostrar el URI para esta clave, escriba:
 
@@ -131,7 +133,7 @@ A continuación, escriba lo siguiente:
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Por ejemplo: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+Ahora puede hacer referencia a esta clave que agregó al Almacén de claves de Azure utilizando su URI. Use **https://ContosoVault.vault.azure.net/secrets/SQLPassword** para obtener siempre la versión actual y **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d** para obtener esta versión específica.
 
 Para mostrar el URI para este secreto, escriba:
 
@@ -188,7 +190,7 @@ Por ejemplo, si el nombre del almacén es ContosoKeyVault y la aplicación que d
 
 ## <a id="HSM"></a>Si desea utilizar un módulo de seguridad de hardware (HSM) ##
 
-Para obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM están certificados para FIPS 140-2 nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete).
+Para obtener seguridad adicional, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Los HSM tienen la validación FIPS 140-2 de nivel 2. Si este requisito no es relevante para usted, omita esta sección y vaya al paso [Eliminación del Almacén de claves junto con las claves y secretos asociados](#delete).
 
 Para crear estas claves protegidas con HSM, debe contar con una [suscripción de almacén que admita claves protegidas mediante HSM](../../../pricing/free-trial).
 
@@ -239,11 +241,11 @@ Estos son otros comandos que pueden resultar útiles para administrar el Almacé
 
 ## <a id="next"></a>Pasos siguientes ##
 
-Para obtener un tutorial sobre el uso de Almacén de claves de Azure en una aplicación web, consulte [Usar Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md)
+Para obtener un tutorial de seguimiento que usa el Almacén de claves de Azure en una aplicación web, consulte [Uso del Almacén de claves de Azure desde una aplicación web](key-vault-use-from-web-application.md).
 
 Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de claves de Azure, consulte [Cmdlets del Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Para conocer las referencias de programación, consulte [API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) y [Referencia de API de cliente de C# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Para obtener referencias de programación, consulte [Almacén de claves](https://msdn.microsoft.com/library/azure/dn903625.aspx) en la biblioteca de documentación de Microsoft Azure en MSDN.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

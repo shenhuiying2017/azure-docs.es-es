@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Análisis de transmisiones supervisa y administra trabajos mediante PowerShell | Azure" 
-	description="Aprenda a usar los cmdlets de PowerShell de Azure para supervisar y administrar trabajos de Análisis de transmisiones" 
+	pageTitle="Supervisar y administrar los trabajos de Análisis de transmisiones con PowerShell | Microsoft Azure" 
+	description="Aprenda a usar los cmdlets de Azure PowerShell para supervisar y administrar trabajos de Análisis de transmisiones." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,13 +13,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="jeffstok"/>
 
 
-# Supervisión y administración de trabajos de Análisis de transmisiones con Azure PowerShell
+# Supervisar y administrar los trabajos de Análisis de transmisiones con los cmdlets de Azure PowerShell
 
-Aprenda a administrar los recursos de Análisis de transmisiones de Azure mediante Azure PowerShell.
+Aprenda a supervisar y administrar los recursos de Análisis de transmisiones con los cmdlets de Azure PowerShell que se encargan de ejecutar las tareas básicas de Análisis de transmisiones.
+
 
 ## Requisitos previos para ejecutar cmdlets de Azure PowerShell en Análisis de transmisiones
 
@@ -31,17 +32,10 @@ Aprenda a administrar los recursos de Análisis de transmisiones de Azure median
 
 		Add-AzureAccount
 
-	Para seleccionar la suscripción de Azure con el servicio Análisis de transmisiones habilitado:
+	Para seleccionar su suscripción de Azure con el servicio Análisis de transmisiones de Azure habilitado, siga el siguiente método:
 
 		Select-AzureSubscription
 
-	>[AZURE.NOTE]El siguiente mensaje de error indica que Análisis de transmisiones no está habilitado en la suscripción:
-	>
-		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
-	
-	>Para resolver este problema, habilite la vista previa de Análisis de transmisiones en la suscripción y después ejecute los siguientes cmdlets para cambiar de suscripción:
-	>
-		Select-AzureSubscription –SubscriptionId xxxxxxxx
 
 2.	Configuración del modo de Azure.
 
@@ -49,7 +43,7 @@ Aprenda a administrar los recursos de Análisis de transmisiones de Azure median
 
 		Switch-AzureMode AzureResourceManager
 
->[AZURE.NOTE]Hay una limitación temporal en la cual los trabajos de Análisis de transmisiones creados a través de Azure PowerShell no tienen habilitada la supervisión. Para solucionar este problema, vaya a la página **Seguimiento** del trabajo en el Portal de Azure y haga clic en el botón **Habilitar**.
+> [AZURE.NOTE]Los trabajos de Análisis de transmisiones creados mediante programación no tienen la supervisión habilitada de forma predeterminada. Puede habilitar la supervisión manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en el botón Habilitar. También puede hacerlo mediante programación siguiendo los pasos que se encuentran en [Análisis de transmisiones de Azure - Supervisión de trabajos de Análisis de transmisiones mediante programación](stream-analytics-monitor-jobs.md)
 
 ## Cmdlets de PowerShell de Azure en Análisis de transmisiones
 Se pueden usar los siguientes cmdlets de PowerShell de Azure para supervisar y administrar trabajos de Análisis de transmisiones de Azure.
@@ -61,17 +55,17 @@ Muestra todos los trabajos de Análisis de transmisiones definidos en la suscrip
 
 	Get-AzureStreamAnalyticsJob
 
-Este comando devuelve información acerca de todos los trabajos de Análisis de transmisiones en la suscripción de Azure.
+Este comando de PowerShell devuelve información acerca de todos los trabajos de Análisis de transmisiones en la suscripción de Azure.
 
 **Ejemplo 2**
 
 	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
-Este comando devuelve información sobre todos los trabajos de Análisis de transmisiones del grupo de recursos StreamAnalytics-Default-Central-US.
+Este comando de PowerShell devuelve información sobre todos los trabajos de Análisis de transmisiones del grupo de recursos StreamAnalytics-Default-Central-US.
 
 **Ejemplo 3**
 
 	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
-Este comando devuelve información sobre el trabajo StreamingJob de Análisis de transmisiones del grupo de recursos StreamAnalytics-Default-Central-US.
+Este comando de PowerShell devuelve información sobre el trabajo StreamingJob de Análisis de transmisiones del grupo de recursos StreamAnalytics-Default-Central-US.
 
 ### Get-AzureStreamAnalyticsInput
 Muestra todas las entradas que se definen en un determinado trabajo de Análisis de transmisiones u obtiene información sobre una entrada concreta.
@@ -80,12 +74,12 @@ Muestra todas las entradas que se definen en un determinado trabajo de Análisis
 
 	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
-Este comando devuelve información sobre todas las entradas que se definen en el trabajo StreamingJob.
+Este comando de PowerShell devuelve información sobre todas las entradas que se definen en el trabajo StreamingJob.
 
 **Ejemplo 2**
 
 	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
-Este comando devuelve información sobre la entrada denominada EntryStream que se define en el trabajo StreamingJob.
+Este comando de PowerShell devuelve información sobre la entrada denominada EntryStream que se define en el trabajo StreamingJob.
 
 ### Get-AzureStreamAnalyticsOutput
 Muestra todas las salidas que se definen en un determinado trabajo de Análisis de transmisiones u obtiene información sobre una salida concreta.
@@ -93,12 +87,12 @@ Muestra todas las salidas que se definen en un determinado trabajo de Análisis 
 **Ejemplo 1**
 
 	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
-Este comando devuelve información sobre las salidas que se definen en el trabajo StreamingJob.
+Este comando de PowerShell devuelve información sobre las salidas que se definen en el trabajo StreamingJob.
 
 **Ejemplo 2**
 
 	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
-Este comando devuelve información sobre la salida denominada Output que se define en el trabajo StreamingJob.
+Este comando de PowerShell devuelve información sobre la salida denominada Output que se define en el trabajo StreamingJob.
 
 ### Get-AzureStreamAnalyticsQuota
 Obtiene información sobre la cuota de unidades de streaming de una región determinada.
@@ -106,7 +100,7 @@ Obtiene información sobre la cuota de unidades de streaming de una región dete
 **Ejemplo 1**
 
 	Get-AzureStreamAnalyticsQuota –Location "Central US" 
-Este comando devuelve información sobre la cuota de unidades de streaming y su uso en la región Centro de EE. UU.
+Este comando de PowerShell devuelve información sobre la cuota de unidades de streaming y su uso en la región Centro de EE. UU.
 
 ### Get-AzureStreamAnalyticsTransformation
 Obtiene información sobre una transformación específica definida en un trabajo de Análisis de transmisiones.
@@ -114,7 +108,7 @@ Obtiene información sobre una transformación específica definida en un trabaj
 **Ejemplo 1**
 
 	Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
-Este comando devuelve información sobre la transformación denominada StreamingJob en el trabajo StreamingJob.
+Este comando de PowerShell devuelve información sobre la transformación denominada StreamingJob en el trabajo StreamingJob.
 
 ### New-AzureStreamAnalyticsInput
 Crea otra entrada en un trabajo de Análisis de transmisiones o actualiza una determinada entrada existente.
@@ -130,17 +124,17 @@ Para obtener información detallada sobre la estructura de archivos JSON y el co
 **Ejemplo 1**
 
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
-Este comando crea una nueva entrada desde el archivo Input.json. Si ya se ha definido una entrada existente con el nombre especificado en el archivo de definición de entrada, el cmdlet le preguntará si quiere reemplazarlo o no.
+Este comando de PowerShell crea una nueva entrada desde el archivo Input.json. Si ya se ha definido una entrada existente con el nombre especificado en el archivo de definición de entrada, el cmdlet le preguntará si quiere reemplazarlo o no.
 
 **Ejemplo 2**
 	
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
-Este comando crea una entrada en el trabajo denominada EntryStream. Si ya se ha definido una entrada existente con este nombre, el cmdlet le preguntará si quiere reemplazarlo o no.
+Este comando de PowerShell crea una entrada en el trabajo denominada EntryStream. Si ya se ha definido una entrada existente con este nombre, el cmdlet le preguntará si quiere reemplazarlo o no.
 
 **Ejemplo 3**
 
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
-Este comando reemplaza la definición del origen de entrada existente denominado EntryStream por la definición del archivo.
+Este comando de PowerShell reemplaza la definición del origen de entrada existente denominado EntryStream por la definición del archivo.
 
 ### New-AzureStreamAnalyticsJob
 Crea un trabajo de Análisis de transmisiones en Microsoft Azure o actualiza la definición de un determinado trabajo existente.
@@ -156,12 +150,12 @@ Para obtener información detallada sobre la estructura de archivos JSON y el co
 **Ejemplo 1**
 
 	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
-Este comando crea un nuevo trabajo a partir de la definición de JobDefinition.json. Si ya se ha definido un trabajo existente con el nombre especificado en el archivo de definición de trabajo, el cmdlet le preguntará si quiere reemplazarlo o no.
+Este comando de PowerShell crea un nuevo trabajo a partir de la definición de JobDefinition.json. Si ya se ha definido un trabajo existente con el nombre especificado en el archivo de definición de trabajo, el cmdlet le preguntará si quiere reemplazarlo o no.
 
 **Ejemplo 2**
 
 	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
-Este comando reemplaza la definición del trabajo para StreamingJob.
+Este comando de PowerShell reemplaza la definición del trabajo de StreamingJob.
 
 ### New-AzureStreamAnalyticsOutput
 Crea una salida en un trabajo de Análisis de transmisiones o actualiza una salida existente.
@@ -177,12 +171,12 @@ Para obtener información detallada sobre la estructura de archivos JSON y el co
 **Ejemplo 1**
 
 	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
-Este comando crea un nuevo resultado denominado "output" en el trabajo StreamingJob. Si ya se ha definido un resultado existente con este nombre, el cmdlet le preguntará si quiere reemplazarlo o no.
+Este comando de PowerShell crea una nueva salida denominada "output" en el trabajo StreamingJob. Si ya se ha definido un resultado existente con este nombre, el cmdlet le preguntará si quiere reemplazarlo o no.
 
 **Ejemplo 2**
 
 	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
-Este comando reemplaza la definición de "output" en el trabajo StreamingJob.
+Este comando de PowerShell reemplaza la definición de "output" en el trabajo StreamingJob.
 
 ### New-AzureStreamAnalyticsTransformation
 Crea una transformación en un trabajo de Análisis de transmisiones o actualiza la transformación existente.
@@ -198,12 +192,12 @@ Para obtener información detallada sobre la estructura de archivos JSON y el co
 **Ejemplo 1**
 
 	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
-Este comando crea una nueva transformación denominada StreamingJobTransform en el trabajo StreamingJob. Si ya hay definida una transformación existente con este nombre, el cmdlet le preguntará si quiere reemplazarla o no.
+Este comando de PowerShell crea una nueva transformación denominada StreamingJobTransform en el trabajo StreamingJob. Si ya hay definida una transformación existente con este nombre, el cmdlet le preguntará si quiere reemplazarla o no.
 
 **Ejemplo 2**
 
 	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
- Este comando reemplaza la definición de StreamingJobTransform en el trabajo StreamingJob.
+ Este comando de PowerShell reemplaza la definición de StreamingJobTransform en el trabajo StreamingJob.
 
 ### Remove-AzureStreamAnalyticsInput
 Elimina de forma asincrónica una entrada específica desde un trabajo de Análisis de transmisiones en Microsoft Azure. Si especifica el parámetro –Force, la entrada se eliminará sin confirmación.
@@ -211,7 +205,7 @@ Elimina de forma asincrónica una entrada específica desde un trabajo de Análi
 **Ejemplo 1**
 	
 	Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
-Este comando elimina la entrada EventStream en el trabajo StreamingJob.
+Este comando de PowerShell elimina la entrada EventStream en el trabajo StreamingJob.
 
 ### Remove-AzureStreamAnalyticsJob
 Elimina de forma asincrónica un trabajo específico de Análisis de transmisiones en Microsoft Azure. Si especifica el parámetro –Force, el trabajo se eliminará sin confirmación.
@@ -219,7 +213,7 @@ Elimina de forma asincrónica un trabajo específico de Análisis de transmision
 **Ejemplo 1**
 
 	Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
-Este comando elimina el trabajo StreamingJob.
+Este comando de PowerShell elimina el trabajo StreamingJob.
 
 ### Remove-AzureStreamAnalyticsOutput
 Elimina de forma asincrónica un resultado concreto de un trabajo de Análisis de transmisiones en Microsoft Azure. Si especifica el parámetro –Force, la salida se eliminará sin confirmación.
@@ -227,7 +221,7 @@ Elimina de forma asincrónica un resultado concreto de un trabajo de Análisis d
 **Ejemplo 1**
 
 	Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
-Este comando elimina el resultado Output en el trabajo StreamingJob.
+Este comando de PowerShell elimina la salida Output en el trabajo StreamingJob.
 
 ### Start-AzureStreamAnalyticsJob
 Implementa e inicia un trabajo de Análisis de transmisiones de Microsoft Azure de forma asincrónica.
@@ -236,7 +230,7 @@ Implementa e inicia un trabajo de Análisis de transmisiones de Microsoft Azure 
 
 	Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 
-Este comando inicia el trabajo StreamingJob con una hora de inicio de salida personalizada establecida en el 12 de diciembre de 2012, 12:12:12 UTC.
+Este comando de PowerShell inicia el trabajo StreamingJob con una hora de inicio de salida personalizada establecida en el 12 de diciembre de 2012, 12:12:12 UTC.
 
 
 ### Stop-AzureStreamAnalyticsJob
@@ -245,7 +239,7 @@ Detiene la ejecución de un trabajo de Análisis de transmisiones en Microsoft A
 **Ejemplo 1**
 
 	Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
-Este comando detiene el trabajo StreamingJob.
+Este comando de PowerShell detiene el trabajo StreamingJob.
 
 ### Test-AzureStreamAnalyticsInput
 Comprueba la capacidad de Análisis de transmisiones para conectarse a una entrada especificada.
@@ -253,7 +247,7 @@ Comprueba la capacidad de Análisis de transmisiones para conectarse a una entra
 **Ejemplo 1**
 
 	Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
-Este comando comprueba el estado de conexión de la entrada EntryStream en StreamingJob.
+Este comando de PowerShell comprueba el estado de conexión de la entrada EntryStream en StreamingJob.
 
 ###Test-AzureStreamAnalyticsOutput
 Comprueba la capacidad de Análisis de transmisiones para conectarse a una salida especificada.
@@ -261,9 +255,7 @@ Comprueba la capacidad de Análisis de transmisiones para conectarse a una salid
 **Ejemplo 1**
 
 	Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
-Este comando prueba el estado de conexión de la salida Output en StreamingJob.
-
-> [AZURE.NOTE]Los trabajos de Análisis de transmisiones creados mediante programación no tienen supervisión habilitada de forma predeterminada. Puede habilitar la supervisión manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en el botón Habilitar. También puede hacerlo mediante programación siguiendo los pasos que se encuentran en [Análisis de transmisiones de Azure - Supervisión de trabajos de Análisis de transmisiones mediante programación](stream-analytics-monitor-jobs.md)
+Este comando de PowerShell comprueba el estado de conexión de la salida Output en StreamingJob.
 
 ## Obtención de soporte técnico
 Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
@@ -291,8 +283,8 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure" 
 	description="Uso del proceso analítico avanzado y tecnología (ADAPT) para un escenario integral con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -648,4 +646,4 @@ Con esto concluye la explicación sobre cómo administrar conjuntos de datos a g
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

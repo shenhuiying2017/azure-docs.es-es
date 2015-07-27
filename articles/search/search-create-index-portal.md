@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Creación de un índice de Búsqueda de Azure en el portal" 
-	description="Agregue un índice al servicio Búsqueda de Azure rellenando definiciones de campo en el portal de administración" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Creación de un índice de Búsqueda de Azure en el portal"
+	description="Agregue un índice al servicio Búsqueda de Azure rellenando definiciones de campo en el portal de administración"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""
     tags="azure-portal"/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Creación de un índice de Búsqueda de Azure en el portal
@@ -27,10 +27,10 @@ Para completar esta tarea, asegúrese de disponer de un servicio de Búsqueda de
 
 2. Abra el panel del servicio de Búsqueda de Azure. A continuación se presentan algunas formas de buscar el panel.
 	- En la barra de salto, haga clic en **Inicio**. La página principal dispone de iconos para cada servicio de su suscripción. Haga clic en el icono para abrir el panel de servicio.
-	- En la barra de salto, haga clic en **Examinar** | **Filtrar por** | **Servicios de búsqueda** para encontrar el servicio de búsqueda en la lista. 
+	- En la barra de salto, haga clic en **Examinar** | **Filtrar por** | **Servicios de búsqueda** para buscar el servicio de búsqueda en la lista.
 
 3. En el panel del servicio, verá una barra de comandos en la parte superior, incluso uno para **Agregar índice**.
-	
+
 	Compruebe el nivel de precios. Si tiene la versión gratuita, puede tener hasta tres índices. Es posible que tenga que eliminar uno para liberar espacio.
 
      ![][1]
@@ -63,7 +63,7 @@ En la Búsqueda de Azure, los atributos de índice, como buscable, facetable y f
 
 El portal es diferente. En el portal, los comportamientos de búsqueda están desactivados de forma predeterminada para que pueda seleccionar todos los comportamientos que se aplican en cada campo.
 
-1. Haga clic en **Agregar o editar campos** para agregar más campos. En este ejercicio, recrearemos el índice *hoteles* mencionado en el artículo [Cómo usar Fiddler con Búsqueda de Azure](search-fiddler.md). 
+1. Haga clic en **Agregar o editar campos** para agregar más campos. En este ejercicio, recrearemos el índice *hoteles* mencionado en el artículo [Uso de Fiddler con Búsqueda de Azure](search-fiddler.md).
 
 	![][4]
 
@@ -73,13 +73,23 @@ El portal es diferente. En el portal, los comportamientos de búsqueda están de
 
 	Consulte [Reglas de nomenclatura](https://msdn.microsoft.com/library/azure/dn857353.aspx) y [Tipos de datos compatibles](https://msdn.microsoft.com/library/azure/dn798938.aspx) para obtener información de referencia sobre los nombres y tipos de campo.
 
-3. Haga clic en **Guardar** en la parte superior de la página.
+    Los atributos de índice constan de los siguientes elementos:
 
-  	![][6]
+	- **Retrievable** establece si el campo se puede devolver en un resultado de búsqueda.
+	- **Filterable** permite el campo que se usará en consultas **$filter**.
+	- **Sortable** permite que el campo se use como una opción de ordenación.
+	- **Facetable** permite que un campo se use en una estructura de navegación con facetas para el filtrado autodirigido. Normalmente los campos que contienen valores repetitivos que se pueden usar para agrupar varios documentos (por ejemplo, varios documentos que forman parte de una categoría de servicio o producto único) funcionan mejor como facetas.
+	- **Key** es el identificador único de cada documento, que se utiliza para buscar documentos. Todos los índices deben tener una clave. Solo un campo puede ser la clave y se debe establecer en Edm.String.
+	- **Searchable**: marca el campo como de búsqueda de texto completo.
+
+3. Para quitar los campos que no desee, haga clic con el botón derecho y seleccione **Eliminar**.
+
+4. Haga clic en **Aceptar** para guardar el índice recién definido y, a continuación, haga clic en **Aceptar** en la página de Agregar índice para generarlo.
+
 
 ##Pasos siguientes
 
-Aunque el índice esté definido, no estará listo para usarse hasta que cargue los documentos. Para hacer esto fácilmente, continúe con [Cómo usar Fiddler con Búsqueda de Azure](search-fiddler.md) en **Cargar documentos**. A continuación, puede seguir los pasos restantes de ese artículo para ejecutar algunas consultas.
+Aunque el índice esté definido, no estará listo para usarse hasta que cargue los documentos. Suponiendo que se está volviendo a crear el índice de hoteles, utilizado con fines de prueba, puede cargar fácilmente el número pequeño de documentos para ese índice en [Fiddler](search-fiddler.md), según las instrucciones de la sección **Cargar documentos** de [Uso de Fiddler con Búsqueda de Azure](search-fiddler.md). A continuación, puede seguir los pasos restantes de ese artículo para ejecutar algunas consultas.
 
 Una vez que se encuentre cómodo con el índice básico, considere la posibilidad de agregar un analizador de lenguaje o un proveedor de sugerencias para agregar compatibilidad con varios idiomas o sugerencias de escritura. Ambas funciones se especifican en el esquema de índice. Consulte [Compatibilidad con idiomas](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) y [Crear índice](https://msdn.microsoft.com/library/azure/dn798941.aspx) para obtener más información.
 
@@ -89,5 +99,5 @@ Una vez que se encuentre cómodo con el índice básico, considere la posibilida
 [3]: ./media/search-create-index-portal/AzureSearch-PortalIndex-3.PNG
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
-[6]: ./media/search-create-index-portal/AzureSearch-PortalIndex-6.PNG
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

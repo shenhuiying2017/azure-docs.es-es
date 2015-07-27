@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Aprender qué es Hive y cómo usar HiveQL | Microsoft Azure"
-	description="Obtenga información sobre Apache Hive y sobre cómo usarlo con Hadoop en HDInsight. Elija cómo desea ejecutar el trabajo de Hive y use HiveQL para analizar un archivo log4j de Apache de ejemplo." 
-	keywords="hiveql,what is hive"
+	description="Obtenga información sobre Apache Hive y sobre cómo usarlo con Hadoop en HDInsight. Elija cómo ejecutar el trabajo de Hive y use HiveQL para analizar un archivo log4j de Apache de ejemplo."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/23/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 # Usar Hive y HiveQL con Hadoop en HDInsight para analizar un archivo log4j de Apache de muestra
@@ -24,7 +23,7 @@
 
 En este tutorial, podrá aprender a usar Apache Hive en Hadoop en HDInsight y elegir cómo desea ejecutar el trabajo de Hive. También aprenderá sobre HiveQL y cómo analizar un archivo Apache log4j de ejemplo.
 
-##<a id="why"></a>¿Qué es Hive y por qué usarlo? 
+##<a id="why"></a>¿Qué es Hive y por qué usarlo?
 [Apache Hive](http://hive.apache.org/) es un sistema de almacén de datos para Hadoop, que permite realizar resúmenes de datos, consultas y análisis de datos mediante HiveQL (una lenguaje de consultas similar a SQL). Hive se puede usar para explorar los datos de forma interactiva o para crear trabajos de procesamiento por lotes reutilizables.
 
 Hive le permite proyectar la estructura del proyecto en datos que en gran medida no están estructurados. Después de definir la estructura, puede usar Hive para consultar esos datos sin conocimiento de Java o MapReduce. **HiveQL** (el lenguaje de consultas de Hive) permite escribir consultas con instrucciones similares a T-SQL.
@@ -163,4 +162,4 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

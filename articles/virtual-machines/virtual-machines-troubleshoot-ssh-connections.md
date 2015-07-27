@@ -1,24 +1,26 @@
 <properties 
 	pageTitle="Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux" 
-	description="Recorra el proceso para aislar la causa del problema y corregir los problemas mediante la creación de una conexión SSH a una máquina virtual de Linux que se ejecute en Microsoft Azure."
+	description="Si no se puede conectar la máquina virtual de Azure basada en Linux, siga estos pasos para aislar la causa del problema."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
+
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux
 
-En este artículo se describe un enfoque metódico para solucionar problemas de conexiones a Secure Shell (SSH) en máquinas virtuales de Azure basadas en Linux.
+Si no puede conectarse a máquinas virtuales Azure basadas en Linux, este artículo describe un enfoque metódico para aislar y corregir el problema.
 
 ## Paso 1: Restablecimiento de la configuración, clave o contraseña de SSH
 
@@ -47,7 +49,7 @@ En el Portal de administración de Azure:
 
 En el Portal de vista previa de Azure:
 
-1. Haga clic en **Examinar** > **Máquinas virtuales** > *Nombre de la máquina virtual*. Para una máquina virtual basada en el Administrador de recursos, haga clic en **Examinar** > **Máquinas virtuales (v2)** > *Nombre de máquina virtual*. El panel de estado de la máquina virtual debe mostrar **En ejecución**. Desplácese hacia abajo para ver la actividad reciente de los recursos de proceso, almacenamiento y de red.
+1. Haga clic en **Examinar** > **Máquinas virtuales** > *Nombre de la máquina virtual*. Para una máquina virtual creada en el Administrador de recursos, haga clic en **Examinar** > **Máquinas virtuales (v2)** > *Nombre de máquina virtual*. El panel de estado de la máquina virtual debe mostrar **En ejecución**. Desplácese hacia abajo para ver la actividad reciente de los recursos de proceso, almacenamiento y de red.
 2. Haga clic en **Configuración** para examinar los extremos, direcciones IP y otros valores de configuración.
 
 Para comprobar la conectividad de red, analice los extremos configurados y determine si puede llegar a la máquina virtual a través de otro protocolo, como HTTP o de otro servicio conocido.
@@ -94,7 +96,7 @@ Para descartar el dispositivo perimetral de la organización como causa de los p
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
  
-Si no tiene un equipo conectado directamente a Internet, puede crear fácilmente una nueva máquina virtual de Azure en su propio servicio en la nube y usarla. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual y el servicio en la nube.
+Si no tiene un equipo conectado directamente a Internet, puede crear fácilmente una nueva máquina virtual de Azure en su propio grupo de recursos o servicio en la nube y usarla. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-tutorial.md). Cuando acabe de realizar las pruebas, elimine el grupo de recursos o la máquina virtual y el servicio en la nube.
 
 Si puede crear una conexión a SSH con un equipo conectado directamente a Internet, compruebe si el dispositivo perimetral de la organización tiene lo siguiente:
 
@@ -106,15 +108,17 @@ Trabaje con el administrador de red para corregir la configuración de los dispo
 
 ### Causa 3: extremo de servicio en la nube y ACL
 
-Para descartar el extremo de servicio en la nube y la ACL como causa de los problemas o errores de configuración, compruebe que otra máquina virtual de Azure que se encuentra en la misma red virtual puede hacer conexiones a SSH en la máquina virtual de Azure.
+Para descartar el extremo de servicio en la nube y la ACL como causa de los problemas o errores de configuración de máquinas virtuales creadas en la administración del servicio, compruebe que otra máquina virtual de Azure que se encuentra en la misma red virtual pueda hacer conexiones a SSH en la máquina virtual de Azure.
  
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
+
+> [AZURE.NOTE]Para las máquinas virtuales creadas en el Administrador de recursos, vaya a [Origen 4: Grupos de seguridad de red](#nsg).
 
 Si no tiene otra máquina virtual en la misma red virtual, puede crear una fácilmente. Para obtener más información, consulte [Creación de una máquina virtual que ejecuta Linux en Azure](virtual-machines-linux-tutorial.md). Cuando acabe de realizar las pruebas, elimine la máquina virtual que creó.
 
 Si puede crear una conexión a SSH con una máquina virtual en la misma red virtual, compruebe:
 
-- La configuración del extremo para el tráfico de SSH en la máquina virtual de destino. El puerto TCP privado del extremo debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual, que de forma predeterminada es 22. Para las máquinas virtuales basadas en el Administrador de recursos creadas con plantillas, compruebe el número de puerto TCP de SSH en el Portal de vista previa de Azure con **Examinar** > **Máquinas virtuales (v2)** > *Nombre de máquina virtual* > **Configuración** > **Extremos**.
+- La configuración del extremo para el tráfico de SSH en la máquina virtual de destino. El puerto TCP privado del extremo debe coincidir con el puerto TCP en el que escucha el servicio SSH en la máquina virtual, que de forma predeterminada es 22. Para las máquinas virtuales creadas en el Administrador de recursos mediante plantillas, compruebe el número de puerto TCP de SSH en el Portal de vista previa de Azure con **Examinar** > **Máquinas virtuales (v2)** > *Nombre de máquina virtual* > **Configuración** > **Extremos**.
 - La ACL del extremo para el tráfico de SSH en la máquina virtual de destino. Las ACL permiten especificar el tráfico entrante de Internet que se permite o se deniega en función de la dirección IP de origen. Las ACL mal configuradas pueden impedir el tráfico entrante de SSH al extremo. Examine las ACL para asegurarse de que está permitido el tráfico entrante desde las direcciones IP públicas del proxy o de otro servidor perimetral. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
 Para descartar el extremo como causa del problema, quite el extremo actual y cree un nuevo extremo, especificando el nombre **SSH** (puerto TCP 22 para el número de puerto público y privado). Para obtener más información, vea [ Configuración de extremos en una máquina virtual en Azure](virtual-machines-set-up-endpoints.md).
@@ -159,7 +163,7 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 
 [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-
+[Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

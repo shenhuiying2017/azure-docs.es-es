@@ -2,7 +2,6 @@
     pageTitle="Migración de una red virtual de RemoteApp a una red virtual de Azure"
     description="Aprenda a migrar desde una red virtual de RemoteApp a una red virtual de Azure" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +26,7 @@ Supongamos que ya ha creado una colección de RemoteApp híbrida denominada *Ori
 
 1.	En la pestaña **Redes** del [Portal de administración](http://manage.windowsazure.com/), cree una red virtual denominada *AzureVNET* usando los mismos valores de ubicación, configuración de DNS y espacio de direcciones (para al menos una de las subredes de *AzureVNET*) que utilizó para *RemoteAppVNET*.
 2.	Configure *AzureVNET* para hospedar o tener conectividad de red para la implementación de Active Directory a la que la colección *OriginalCollection* está unida mediante dominio.
-3.	En la pestaña **RemoteApps**, cree una nueva colección de RemoteApp denominada *New Collection*. (Use la opción **Crear con VPN**, no **Creación rápida**.)
+3.	En la pestaña **RemoteApps**, cree una nueva colección de RemoteApp denominada *New Collection*. (Use la opción **Crear con red virtual**, no **Creación rápida**).
 3.	Configure *NewCollection* para que se implemente en una subred en *AzureVNET*.
 4.	Configure *NewCollection* para que utilice la misma imagen y la misma información de unión a un dominio que las empleadas para *OriginalCollection*.
 5.	Después de unas horas, *NewCollection* aparecerá en la lista de colecciones con un estado activo.
@@ -49,6 +48,6 @@ Como alternativa, en caso de que SÍ tenga que migrar información de usuario de
 Y ahora, ¡ya ha terminado!
 
 Si tiene alguna pregunta o necesita ayuda especial, envíe un correo electrónico a [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -1,42 +1,118 @@
-<properties 
-    pageTitle="¿Qué es el Aprendizaje automático de Azure? | Microsoft Azure" 
-    description="Información general del servicio de Aprendizaje automático de Azure." 
-    services="machine-learning" 
-    documentationCenter="" 
-    authors="tedway" 
-    manager="neerajkh" 
+<properties
+    pageTitle="¿Qué es Aprendizaje automático en Azure? | Microsoft Azure"
+    description="Explica los conceptos básicos del servicio Aprendizaje automático totalmente administrado, una tecnología de nube que puede utilizar para crear, operacionalizar y rentabilizar soluciones."
+	services="machine-learning"
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
     editor="cgronlun"/>
 
-<tags 
-    ms.service="machine-learning" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="04/22/2015" 
-    ms.author="tedway;olgali"/>
+<tags
+    ms.service="machine-learning"
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="06/23/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
-# ¿Qué es el aprendizaje automático?
-El aprendizaje automático está en todo lo que le rodea en su trabajo. Cuando compra en línea, el aprendizaje automático ayuda a recomendar otros productos según lo que haya adquirido. Al pasar su tarjeta de crédito, el aprendizaje automático ayuda al banco a detectar fraudes y le notifica si la transacción le parece sospechosa. El aprendizaje automático es el proceso de creación de modelos para aprender a partir de datos existentes y realizar análisis predictivos de datos en el futuro.
+# Introducción al aprendizaje automático en Microsoft Azure
 
-## ¿Qué es el Aprendizaje automático de Microsoft Azure?
-El Aprendizaje automático de Azure es un eficaz servicio de análisis predictivo basado en la nube que permite crear rápidamente soluciones de análisis. Hemos creado el Aprendizaje automático de Azure para democratizar el aprendizaje automático: hemos eliminado el trabajo pesado de creación e implementación de tecnología de aprendizaje automático para hacerlo accesible a todo el mundo. Es un servicio completamente administrado, lo que significa que no es necesario comprar ningún hardware ni administrar manualmente máquinas virtuales.
+## ¿Qué es el aprendizaje automático?
 
-Puede utilizar la herramienta basada en explorador [Estudio de aprendizaje automático](machine-learning-what-is-ml-studio.md) para crear rápidamente y automatizar flujos de trabajo de aprendizaje automático. Puede arrastrar y colocar cientos de [bibliotecas de aprendizaje automático](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) existentes para impulsar sus soluciones de análisis predictivos y, a continuación, agregar de forma opcional sus propios scripts [R](machine-learning-r-quickstart.md) y [Python](machine-learning-execute-python-scripts.md) personalizados para ampliarlos. El Estudio funciona en cualquier explorador y le permite desarrollar e iterar en soluciones rápidamente. ![Experimentos de análisis predictivos en la nube con el Estudio de aprendizaje automático de Azure](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+Aprendizaje automático utiliza equipos para ejecutar modelos predictivos que aprenden de los datos existentes para prever las tendencias, los resultados y comportamientos futuros.
 
-Puede detectar y crear fácilmente [servicios web](machine-learning-publish-a-machine-learning-web-service.md), [entrenar y volver a entrenar sus modelos a través de API](machine-learning-retrain-models-programmatically.md), [administrar extremos](machine-learning-create-endpoint.md) y [escalar servicios web](machine-learning-scaling-endpoints.md) por clientes, así como configurar diagnósticos para la depuración y supervisión de servicios. Las nuevas características incluyen:
+Estas previsiones o predicciones del aprendizaje automático pueden hacer que las aplicaciones y los dispositivos sean más inteligentes. Cuando compra en línea, el aprendizaje automático ayuda a recomendar otros productos según lo que haya adquirido. Al pasar su tarjeta de crédito, el aprendizaje automático compara la transacción con una base de datos de transacciones y ayuda al banco a detectar fraudes.
 
-- La capacidad para crear un módulo R personalizado configurable, incorporar sus propios scripts R de entrenamiento/predicción y agregar scripts de Python con un gran ecosistema de bibliotecas, como numpy, scipy, pandas o scikit-learn. Ahora puede entrenar terabytes de datos mediante el [aprendizaje con recuentos][learning-with-counts], el uso de PCA o SVM de una clase para la detección de anomalías y la modificación, el filtrado y la limpieza de datos mediante el conocido SQLite. 
-- La [Galería de la comunidad de Aprendizaje automático](machine-learning-gallery-how-to-use-contribute-publish.md) le permite descubrir y utilizar interesantes experimentos creados por otros usuarios. También puede hacer preguntas o publicar comentarios acerca de experimentos en la Galería o publicar sus experimentos. Puede compartir vínculos a experimentos interesantes a través de canales sociales como LinkedIn y Twitter. La galería es una excelente forma para que los usuarios empiecen a trabajar con el Aprendizaje automático de Azure y aprendan de otros usuarios de la comunidad. ![Pruebe ejemplos de experimentos predictivos o contribuya con los suyos propios en la Galería de Aprendizaje automático de Azure.](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
-- Puede adquirir [aplicaciones de Marketplace](https://datamarket.azure.com/browse?query=machine+learning) a través de una suscripción de Azure y consumir servicios web terminados de recomendaciones, análisis de texto y detección de anomalías directamente desde Azure Marketplace. 
-- Una guía paso a paso para el viaje de la ciencia de los datos partiendo de datos sin procesar hasta un servicio web consumible para facilitar el acceso a la ciencia de los datos basados en la nube. Hemos agregado la capacidad para usar herramientas conocidas, como el Bloc de notas de iPython y Python Tools para Visual Studio con el Aprendizaje automático de Azure.
+## ¿Qué es el Aprendizaje automático en Microsoft Azure?
 
-## Empiece ahora
-Puede aprender los conceptos básicos de análisis predictivos y de aprendizaje automático mediante un [tutorial paso a paso](machine-learning-create-experiment.md) y [creando muestras](machine-learning-sample-experiments.md). Al probar experimentos en Estudio, no se requiere ninguna tarjeta de crédito ni suscripción a Azure para empezar a usar el Aprendizaje automático.
+Aprendizaje automático de Azure es un eficaz servicio de análisis predictivo basado en la nube que permite crear e implementar rápidamente modelos predictivos como soluciones de análisis.
+
+Aprendizaje automático de Azure no solo proporciona herramientas para análisis predictivos de modelos, sino que también proporciona un servicio totalmente administrado que se puede usar para publicar los modelos predictivos como servicios web listos para consumir. Aprendizaje automático de Azure proporciona herramientas para crear completas soluciones de análisis predictivos en la nube: crear, probar, poner operativos y administrar modelos predictivos rápidamente. No es necesario comprar ningún hardware ni administrar manualmente máquinas virtuales.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## ¿Qué es el análisis predictivo?
+
+El análisis predictivo emplea varias técnicas estadísticas; en este caso, el aprendizaje automático, para analizar los datos recopilados o actuales para patrones o tendencias para la previsión de futuros eventos.
+
+Aprendizaje automático de Azure es una manera muy eficaz de realizar análisis predictivos: puede trabajar desde una biblioteca lista para el uso de algoritmos, crear modelos en un equipo conectado a Internet sin comprar infraestructura o un equipo adicional e implementar rápidamente su solución predictiva. También puede encontrar ejemplos listos para usar y soluciones en [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning) o [Galería de aprendizaje automático](http://gallery.azureml.net/).
+
+## Generación de completas soluciones de Aprendizaje automático en la nube
+
+Aprendizaje automático de Azure tiene todo lo que necesita para crear soluciones de análisis predictivos en la nube desde una biblioteca de algoritmos grande, a un estudio para la creación de modelos, para una manera fácil de implementar el modelo como un servicio web.
+
+### Estudio de aprendizaje automático: creación de modelos predictivos
+
+Para crear modelos predictivos en [Estudio de aprendizaje automático](machine-learning-what-is-ml-studio.md), una herramienta basada en el explorador, arrastre, quite y conecte módulos.
+
+![Descripción de análisis predictivo: ejemplo de un experimento de análisis predictivo en Estudio de aprendizaje automático de Azure](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+
+* Utilice una gran biblioteca de [algoritmos y módulos de Aprendizaje automático](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) en Estudio de aprendizaje automático para impulsar sus modelos de predictivos. Elija en la biblioteca de experimentos de ejemplo, paquetes R y Python y los mejores algoritmos de su clase en servicios de Microsoft como Xbox y Bing. Amplíe los módulos de Studio con sus propios scripts de [R](machine-learning-r-quickstart.md) y [Python](machine-learning-execute-python-scripts.md) personalizados.
+* La [Galería de la comunidad de Aprendizaje automático](machine-learning-gallery-how-to-use-contribute-publish.md) es una excelente forma para que los usuarios empiecen a trabajar con Aprendizaje automático de Azure y aprendan de otros usuarios de la comunidad. Pruebe experimentos creados por otros usuarios, formule preguntas o publique comentarios acerca de experimentos o sus propios experimentos. También puede compartir vínculos a experimentos a través de las redes sociales como LinkedIn y Twitter.  
+
+	![Pruebe ejemplos de experimentos predictivos o contribuya con los suyos propios en la Galería de Aprendizaje automático de Azure.](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+
+### Operacionalización de soluciones de análisis predictivos: adquiera servicios web de compra o publique las suyas
+
+* Adquiera servicios web listos para consumir en [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), por ejemplo, recomendaciones, análisis de texto y detección de anomalías.
+
+* Operacionalización de los modelos de análisis predictivo:
+    * [Publicación de servicios web](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Entrenar y volver a entrenar modelos mediante API](machine-learning-retrain-models-programmatically.md)
+    * [Administración de extremos de servicios web](machine-learning-create-endpoint.md)
+    * [Escala de servicios web](machine-learning-scaling-endpoints.md)
+    * [Consumo de servicios web](machine-learning-consume-web-services.md)
+
+## Terminología y conceptos clave del aprendizaje automático
+### Exploración de datos, análisis descriptivo y análisis predictivos
+
+**Exploración de datos** es el proceso de recopilación de información sobre un conjunto de datos grande y a menudo no estructurado para encontrar características para análisis más detallados. **Minería de datos** hace referencia a la exploración de datos automatizada.
+
+**Análisis descriptivo** es el proceso de análisis de un conjunto de datos con el fin de resumir lo que sucedió. La inmensa mayoría de análisis de negocios, como los informes de ventas, las métricas de web y el análisis de redes sociales, son descriptivos.
+
+El **Análisis predictivos** es el proceso de creación de modelos de datos históricos o actuales con el fin de pronosticar resultados futuros.
+
+
+### Aprendizaje supervisado y no supervisado
+ Los algoritmos de **aprendizaje supervisado** se ha entrenado con datos etiquetados; es decir, con datos formados por ejemplos de las respuestas deseadas. Por ejemplo, se podría preparar un modelo que identifique el uso de tarjetas de crédito fraudulentas desde un conjunto de datos en el cual se etiqueten los puntos de datos que indiquen cargos fraudulentos y cargos válidos conocidos. Se supervisa la mayoría del aprendizaje automático.
+
+ El **aprendizaje no supervisado** se utiliza en los datos sin etiquetas y el objetivo es buscar relaciones en los datos. Por ejemplo, puede querer buscar agrupaciones de datos demográficos del cliente con hábitos de compra similares.
+
+### Entrenamiento y evaluación de modelos
+Un modelo de aprendizaje automático es una abstracción de la pregunta que intenta responder o el resultado que desea predecir. Modelos se entrenan y se evalúan a partir de datos existentes.
+
+#### Entrenamiento a partir de datos
+En Aprendizaje automático de Azure, se crea un modelo a partir de un módulo de algoritmo que procesa los datos de entrenamiento y módulos funcionales, como un módulo de puntuación.
+
+En el aprendizaje supervisado, si está entrenando un modelo de detección de fraudes, usará un conjunto de transacciones que se etiquetan como fraudulentas o válidas. Podrá dividir el conjunto de datos de forma aleatoria y usar una parte para entrenar el modelo y otra parte para probar o evaluar el modelo.
+
+#### Datos de evaluación
+Una vez entrenado un modelo, se evalúa con los datos restantes de la prueba. Puede usar los datos de los que ya conoce los resultados, por lo que puede saber si su modelo predice con precisión.
+
+### Otros términos comunes relativos al aprendizaje automático
+
+* **Algoritmo**: un conjunto independiente de reglas usado para resolver problemas a través de procesamiento de datos, cálculo o razonamiento automatizado.
+* **Datos categóricos**: datos que se organizan por categorías y que se pueden dividir en grupos. Por ejemplo, un conjunto de datos categóricos de coches podría especificar el año, la marca, el modelo y el precio.
+* **Clasificación**: un modelo para organizar los puntos de datos en categorías según un conjunto de datos para el que ya se conocen las agrupaciones de categorías.
+* **Ingeniería de características**: el proceso de extracción o de selección de características relacionados con un conjunto de datos con el fin de mejorar el conjunto de datos y de mejorar los resultados. Por ejemplo, los datos de vuelo podrían mejorarse por días de la semana y días festivos. Consulte [Selección de características e ingeniería en Aprendizaje automático de Azure](machine-learning-feature-selection-and-engineering.md).
+* **módulo**: un elemento funcional en un modelo de Estudio de aprendizaje automático, como el módulo Especificar datos que permite especificar y editar conjuntos de datos pequeños. Un algoritmo también es un tipo de módulo de Estudio de aprendizaje automático.
+* **Modelo**: en el aprendizaje supervisado, un modelo es el producto de un experimento de aprendizaje automático que consta de un conjunto de datos de entrenamiento, un módulo de algoritmo y módulos funcionales, como un módulo de puntuación de modelos.
+* **Datos numéricos**: datos que significan medidas (datos continuos) o cuentas (datos discretos). También se denomina *datos cuantitativos*.
+* **Partición**: el método por el que se dividen los datos en los ejemplos. Consulte [Partición y ejemplo](https://msdn.microsoft.com/library/azure/dn905960.aspx) para obtener más información.
+* **Predicción**: una predicción es una previsión de un valor o valores en un modelo de aprendizaje automático. También puede ver el término "puntuación prevista"; sin embargo, los resultados previstos no son el resultado final de un modelo. Una evaluación del modelo sigue la puntuación.
+* **Regresión**: un modelo para predecir un valor continuo en función de variables independientes; por ejemplo, predecir el precio de un coche en función de su año y marca.
+* **puntuación**: un valor predictivo que se genera a partir de una clasificación entrenada o un modelo de regresión, mediante el [módulo Puntuar modelo](https://msdn.microsoft.com/library/azure/dn905995.aspx) en Estudio de aprendizaje automático. Los modelos de clasificación también devuelven un resultado de la probabilidad del valor de predicción. Cuando se hayan generado las puntuaciones de un modelo, puede evaluar la exactitud del modelo con el [módulo Evaluar modelo](https://msdn.microsoft.com/library/azure/dn905915.aspx).
+* **Ejemplo**: una parte de un conjunto de datos diseñado para ser representante del conjunto. Los ejemplos pueden elegirse aleatoriamente o según características específicas del conjunto de datos.
+
+
+
+## Pasos siguientes
+Puede aprender los conceptos básicos de análisis predictivos y de aprendizaje automático mediante un [tutorial paso a paso](machine-learning-create-experiment.md) y [creando muestras](machine-learning-sample-experiments.md).
 
 
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

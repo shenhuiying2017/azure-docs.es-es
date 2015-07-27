@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Cómo consumir un servicio web de aprendizaje automático que se ha publicado desde un experimento de aprendizaje automático | Azure" 
+	pageTitle="Consumo de un servicio web de Aprendizaje automático de Microsoft Azure" 
 	description="Una vez publicado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes." 
 	services="machine-learning" 
-	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -14,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="02/20/2015" 
+	ms.date="06/29/2015" 
 	ms.author="bradsev" />
 
 
-# Cómo consumir un servicio web de aprendizaje automático de Azure publicado
+# Cómo consumir un servicio web de Aprendizaje automático de Azure publicado en un experimento de Aprendizaje automático
 
 ## Introducción
 
@@ -28,19 +27,20 @@ Cuando se publica como un servicio web, los experimentos de Aprendizaje automát
 * Disponer de capacidades SSL para ejecutar solicitudes HTTPS
 * Disponer de capacidad para analizar JSON (a mano o mediante bibliotecas de apoyo)
 
-Esto significa que los servicios se pueden consumir desde aplicaciones web, aplicaciones móviles, aplicaciones de escritorio personalizadas e incluso desde dentro de Excel.  
+Esto significa que los servicios se pueden consumir desde aplicaciones web, aplicaciones móviles, aplicaciones de escritorio personalizadas e incluso desde dentro de Excel.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Un servicio web de Aprendizaje automático de Azure se puede consumir de dos maneras diferentes, como un servicio de solicitud-respuesta o como un servicio de ejecución por lotes. En cada escenario se proporciona la funcionalidad a través del servicio web RESTFul que se facilita para consumirse una vez que se ha publicado el experimento. Implementando un servicio web de aprendizaje automático en Azure con un punto extremo de servicio web Azure, donde el servicio se escala automáticamente según el uso, puede evitar los costos continuados derivados de los recursos de hardware.
 
-<!-- Cuando se publique este artículo, arregle el vínculo y quite la marca de comentario
-Para obtener más información sobre cómo administrar los extremos de servicio web de Aprendizaje automático de Azure mediante la API de REST, consulte **Extremos de servicio web de Aprendizaje automático de Azure**. 
+<!-- When this article gets published, fix the link and uncomment
+For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
-Para obtener información acerca de cómo crear y publicar un servicio web de Aprendizaje automático de Azure, 
-consulte [Publicar un servicio web de Aprendizaje automático de Azure][publicar]. Para obtener un tutorial paso a paso acerca de la creación de un experimento de aprendizaje automático y publicarlo, consulte [Desarrollar una solución de predicción mediante Aprendizaje automático de Azure][tutorial].
+Para obtener información acerca de cómo crear y publicar un servicio web de Aprendizaje automático de Azure, consulte [Publicar un servicio web de Aprendizaje automático de Azure][publish]. Para obtener un tutorial paso a paso acerca de la creación de un experimento de Aprendizaje automático y publicarlo, consulte [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure][walkthrough].
 
-[publicar]: machine-learning-publish-a-machine-learning-web-service.md
-[tutorial]: machine-learning-walkthrough-develop-predictive-solution.md
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 ## Servicio de solicitud-respuesta (RRS)
@@ -59,19 +59,19 @@ Un Servicio de ejecución de lotes (BES) es un servicio que maneja una puntuaci�
 Un BES resultaría útil cuando las respuestas no se necesiten inmediatamente, como para una puntuación programada regularmente de individuos o para dispositivo de Internet de las cosas (IOT).
 
 ## Ejemplos
-Para mostrar cómo funcionan RRS y BES, usamos un ejemplo de servicio web de Azure. Este servicio se usaría en un escenario IOT (Internet de las cosas). Para facilitarlo, nuestro dispositivo solo envía un valor, `cog_speed` y recibe una sola respuesta. 
+Para mostrar cómo funcionan RRS y BES, usamos un ejemplo de servicio web de Azure. Este servicio se usaría en un escenario IOT (Internet de las cosas). Para facilitarlo, nuestro dispositivo solo envía un valor, `cog_speed`, y recibe una sola respuesta.
 
-Hay cuatro elementos de información que son necesarios para llamar al servicio RRS o BES. Esta información está disponible en las páginas de servicio de [Páginas de servicios de Aprendizaje automático de Azure](https://studio.azureml.net) una vez que se ha publicado el experimento. Haga clic en el vínculo de SERVICIOS WEB situado a la izquierda de la pantalla y verá los servicios publicados. Para obtener información acerca de un servicio concreto, hay vínculos de páginas de ayuda de API para RRS y BES.
+Hay cuatro elementos de información que son necesarios para llamar al servicio RRS o BES. Esta información está disponible en las páginas de servicios de [Páginas de servicios de Aprendizaje automático de Azure](https://studio.azureml.net) una vez que se ha publicado el experimento. Haga clic en el vínculo de SERVICIOS WEB situado a la izquierda de la pantalla y verá los servicios publicados. Para obtener información acerca de un servicio concreto, hay vínculos de páginas de ayuda de API para RRS y BES.
 
-1.	La **clave de API de servicio**, disponible en la página principal de servicios
-2.	El **URI de servicio**, disponible en la página de ayuda de la API del servicio seleccionado
+1.	La **clave de API de servicio**, disponible en la página principal de servicios.
+2.	El **URI de servicio**, disponible en la página de ayuda de la API del servicio seleccionado.
 3.	El **cuerpo de la solicitud de API** esperado, disponible en la página de ayuda de la API del servicio seleccionado
-4.	El **cuerpo de respuesta de la API esperado**, disponible en la página de ayuda de la API del servicio seleccionado
+4.	El **cuerpo de respuesta de la API** esperado, disponible en la página de ayuda de la API del servicio seleccionado
 
-En los dos ejemplos siguientes, se utiliza el lenguaje C# para ilustrar el código necesario y la plataforma de destino es un escritorio de Windows 8. 
+En los dos ejemplos siguientes, se utiliza el lenguaje C# para ilustrar el código necesario y la plataforma de destino es un escritorio de Windows 8.
 
 ### Ejemplo de RRS
-En la página de ayuda de la API, además de la dirección URI, introducirá y emitirá definiciones y ejemplos de código. Se llama a la entrada de la API, para este servicio específicamente, y es la carga de la llamada a la API. 
+En la página de ayuda de la API, además de la dirección URI, introducirá y emitirá definiciones y ejemplos de código. Se llama a la entrada de la API, para este servicio específicamente, y es la carga de la llamada a la API.
 
 **Solicitud de ejemplo**
 
@@ -123,9 +123,10 @@ De forma similar, también se llama a la respuesta de la API, nuevamente para es
 	  "GlobalParameters": {}
 	}
 
-Hacia la parte inferior de la página, encontrará los ejemplos de código. A continuación se muestra el código de ejemplo para la implementación de C# 
+Hacia la parte inferior de la página, encontrará los ejemplos de código. A continuación se muestra el código de ejemplo para la implementación de C#
                    
 **Código de ejemplo**
+
 	using System;
 	using System.Collections.Generic;
 	using System.IO;
@@ -197,17 +198,26 @@ Hacia la parte inferior de la página, encontrará los ejemplos de código. A co
 	}
 
 ### Ejemplo de BES
-En la página de ayuda de la API, además del URI, encontrará información acerca de varias llamadas que están disponibles. A diferencia del servicio RRS, el servicio BES es asincrónico. Esto significa que la API de BES simplemente pone en cola un trabajo que se va a ejecutar. Pero realmente no se ejecuta antes de recibir la respuesta de la API. A continuación se describen las tres cosas que un desarrollador puede hacer con el servicio BES.
+En la página de ayuda de la API, además del URI, encontrará información acerca de varias llamadas que están disponibles. A diferencia del servicio RRS, el servicio BES es asincrónico. Esto significa que la API de BES simplemente pone en cola un trabajo que se va a ejecutar y el llamador sondea el estado del trabajo para cuándo se ha completado. Estas son las operaciones admitidas actualmente para los trabajos por lotes:
 
-1. Enviar un trabajo de ejecución por lotes
-1. Obtener el estado o el resultado de un trabajo de ejecución por lotes
-1. Eliminar un trabajo de ejecución por lotes  
+1. Crear (enviar) un trabajo por lotes.
+1. Iniciar un trabajo por lotes.
+1. Obtener el estado o el resultado de un trabajo por lotes
+1. Cancelar un trabajo por lotes en ejecución.
 
-**1. Enviar un trabajo de ejecución por lotes**
+**1. Crear un trabajo de ejecución por lotes**
 
-Envíe un trabajo de ejecución por lotes al proporcionar información acerca de dónde se almacenan los datos del lote. En este ejemplo, daremos por hecho que los registros que deseamos puntuar por lotes se encuentran en un archivo blob en una cuenta de almacenamiento.
+Al crear un trabajo por lotes para el extremo de servicio de Aprendizaje automático de Azure, se pueden especificar varios parámetros que definan la ejecución de lotes:
 
-La respuesta a un trabajo por lotes es un identificador de trabajo, ya que el trabajo se ejecuta de forma asincrónica. Usaremos el identificador de trabajo para obtener el estado del trabajo y los resultados posteriormente.
+* **Input**: representa una referencia del blob al lugar en que se almacena la entrada del trabajo por lotes.
+* **GlobalParameters**: representa el conjunto de parámetros globales que se pueden definir para un experimento. Los experimentos de Aprendizaje automático de Azure pueden tener parámetros opcionales y obligatorios que personalicen la ejecución del servicio, y se espera que el llamador proporcione todos los parámetros obligatorios, si procede. Estos parámetros se especifican como una colección de pares clave-valor.
+* **Outputs**: si el servicio tiene definidas una o varias salidas, permitimos al llamador redirigir cualquiera de ellas a la ubicación del blob de Azure que prefiera. Esto permite guardar las salidas del servicio en la ubicación preferida y con un nombre de predicción, ya que, de lo contrario, el nombre de blob de salida se genera aleatoriamente. **TENGA EN CUENTA** que el servicio espera que el contenido de la salida, según su tipo, se guarde en cualquier de los formatos admitidos:
+  - salidas de conjuntos de datos: se pueden guardar como **.csv, .tsv o .arff**
+  - salidas de modelos entrenados: se pueden guardar como **.ilearner**
+  
+  Las invalidaciones de la ubicación de salida se especifican como una colección de *<output name  blob reference>* pares, donde el *nombre de salida* es el nombre definido por el usuario para un nodo de salida específico (que también se muestra en la página de ayuda de la API del servicio) y la *referencia del blob* es una referencia a una ubicación de blobs de Azure a la que se redirigirá a la salida.
+  
+Todos estos parámetros de creación de trabajos pueden ser opcionales, en función de la naturaleza del servicio. Por ejemplo, los servicios sin nodos de entrada definidos, no requieren que se use un parámetro *Input* y la característica de invalidación de la ubicación de salida es totalmente opcional. Sin estos elementos, las salidas se guardarán en la cuenta de almacenamiento predeterminada configurada para el área de trabajo de Aprendizaje automático de Azure. A continuación encontrará una carga de solicitudes de ejemplo, tal como se pasan a la API de REST, para un servicio en la que solo se pasa la información de entrada:
 
 **Solicitud de ejemplo**
 
@@ -219,258 +229,208 @@ La respuesta a un trabajo por lotes es un identificador de trabajo, ya que el tr
 	    "BaseLocation": null,
 	    "SasBlobToken": null
 	  },
-	  "Output": null,
-	  "GlobalParameters": {}
+	  "Outputs": null,
+	  "GlobalParameters": null
 	}
 
+La respuesta a la API de creación de trabajos por lotes es el Id. de trabajo único que estaba asociado al trabajo. Este identificador es muy importante porque proporciona el único medio para hacer referencia a este trabajo en el sistema para otras operaciones.
+  
 **Respuesta de ejemplo**
 
 	"539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
 
-**Código de ejemplo**
+**2. Iniciar un trabajo de ejecución por lotes**
 
-	// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
-	// Instructions for doing this in Visual Studio:
-	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.AspNet.WebApi.Client
-	
-	using System;
-	using System.Collections.Generic;
-	using System.Net.Http;
-	using System.Threading.Tasks;
-	using System.Net.Http.Headers;
-	
-	namespace CallBatchExecutionService
-	{
-	    internal class Program
-	    {
-	        private static void Main(string[] args)
-	        {
-	            InvokeBatchExecutionService().Wait();
-	        }
-	
-	        private static async Task InvokeBatchExecutionService()
-	        {
-	            // API Information
-	            const string BESUrl = "[BES URI]";
-	            const string ApiKey = "abc123"; 
-	            // The storage account information
-	            const string StorageAccountName = @"mystorageacct"; 
-	            const string StorageAccountKey = @"Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==";
-	            // Storage file with the batch of records
-	            const string StorageInputFile = @"/mycontainermydatablob.csv"; 
-	
-	
-	            String connString = String.Format(
-	                "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-	                StorageAccountName,
-	                StorageAccountKey);
-	
-	            BatchRequest request = new BatchRequest();
-	            request.Input.RelativeLocation = StorageInputFile;
-	            request.Input.ConnectionString = connString;
-	
-	            using (var client = new HttpClient())
-	            {
-	                client.BaseAddress = new Uri(BESUrl);
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
-	
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", request);
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Job ID: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-	
-	    public class BatchInput
-	    {
-	        public String ConnectionString { get; set; }
-	        public String RelativeLocation { get; set; }
-	        public String BaseLocation { get; set; }
-	        public String SasBlobToken { get; set; }
-	
-	        public BatchInput()
-	        {
-	            ConnectionString = null;
-	            RelativeLocation = null;
-	            BaseLocation = null;
-	            SasBlobToken = null;
-	        }
-	    }
-	
-	    public class BatchRequest
-	    {
-	        public BatchInput Input { get; set; }
-	
-	        public Object Output { get; set; }
-	
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	
-	        public BatchRequest()
-	        {
-	            this.GlobalParameters = new Dictionary<string, string>();
-	            Input = new BatchInput();
-	            Output = null;
-	        }
-	    }
-	}
-	
-**2. Obtener el estado o el resultado de un trabajo de ejecución por lotes**
+La creación de un trabajo por lotes sólo lo registra en el sistema y lo coloca en el estado *No iniciado*. Para programar realmente el trabajo para su ejecución, es preciso llamar a la API de **inicio** API que se describe en la página de ayuda de la API del extremo de servicio y especificar el identificador de trabajo que se obtuvo al crear el trabajo.
+  
+**3. Obtener el estado de un trabajo de ejecución por lotes**
 
-Para obtener el resultado de un trabajo, primero debe tener el identificador del trabajo que estaba en la respuesta al envío de trabajos. No hay ninguna entrada real en esta llamada de API. Utiliza un leve cambio en el URI de BES y en el método de solicitud. En lugar de una solicitud POST, utiliza una solicitud GET después del URI definido en la página de ayuda de la API.
+El estado de un trabajo por lotes asincrónico se puede sondear en cualquier momento pasando el identificador del trabajo a la API GetJobStatus. La respuesta de la API contendrá un indicador del estado actual del trabajo, así como los resultados reales del trabajo por lotes si se ha completado correctamente. En caso de error, en la propiedad *Detalles* se puede encontrar más información sobre las razones reales del error.
  
-Sin embargo, se coloca la respuesta.
-
 **Carga de respuesta**
 
 	{
 	    "StatusCode": STATUS_CODE,
-	    "Result": RESULT,
+	    "Results": RESULTS,
 	    "Details": DETAILS
 	}
 
-Es posible que `StatusCode` tenga un valor de 0, 1, 2, 3 o 4 con la semántica siguiente:
+*StatusCode* puede ser:
 
-* 0	No iniciado
-* 1	En ejecución
-* 2	Error
-* 3	Cancelado
-* 4	Terminado
+* No iniciado
+* Ejecución
+* Con error
+* Cancelado
+* Terminado
 
-Si no se ha finalizado el trabajo, `Result` es **null**. Si se ha finalizado el trabajo, `Result` tendría el formulario siguiente: 
+La propiedad *Results* solo se rellena si el trabajo se ha completado correctamente (de lo contrario, su valor es **null**). Tras la finalización del trabajo y si el servicio tiene al menos un nodo de salida definido, los resultados se devolverán en forma de colección de pares *[nombre de salida, referencia de blob]*, donde la referencia de blob es una referencia SAS de sólo lectura al blob que contiene el resultado real.
+
+**Respuesta de ejemplo**
 
 	{
-	  "ConnectionString": null,
-	  "RelativeLocation": "RELATIVE_LOCATION",
-	  "BaseLocation": "BASE_LOCATION",
-	  "SasBlobToken": "SAS_BLOB_TOKEN"
+	    "Status Code": "Finished",
+	    "Results":
+	    {
+	        "dataOutput":
+	        {              
+	            "ConnectionString": null,
+	            "RelativeLocation": "outputs/dataOutput.csv",
+	            "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
+	            "SasBlobToken": "?sv=2013-08-15&sr=b&sig=ABCD&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
+	        },
+	        "trainedModelOutput":
+	        {              
+	            "ConnectionString": null,
+	            "RelativeLocation": "models/trainedModel.ilearner",
+	            "BaseLocation": "https://mystorageaccount.blob.core.windows.net/",
+	            "SasBlobToken": "?sv=2013-08-15&sr=b&sig=EFGH%3D&st=2015-04-04T05%3A39%3A55Z&se=2015-04-05T05%3A44%3A55Z&sp=r"              
+	        },           
+	    },
+	    "Details": null
 	}
 
-Detalles muestra los detalles del error, si los hay.
+**4. Cancelar un trabajo por lotes en ejecución**
 
-**Código de ejemplo**
+Los trabajos por lotes en ejecución se pueden cancelar en cualquier momento llamando a la API CancelJob designada y pasando el identificador del trabajo. Esto se llevaría a cabo por diversas razones, como que el trabajo está tardando demasiado en completarse.
 
-	// This code requires the Nuget package Microsoft.AspNet.WebApi.Client to be installed.
+
+
+#### Uso del [SDK de BES](machine-learning-consume-web-services.md#batch-execution-service-sdk)
+
+El [paquete de NuGet SDK de BES](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/) proporciona funciones que simplifican la llamada a BES para su puntuación en el modo por lotes. Para instalar el paquete NuGet, en Visual Studio, vaya a Herramientas, seleccione Administrador de paquetes NuGet y haga clic en Consola del Administrador de paquetes.
+
+Los experimentos de Aprendizaje automático de Azure que se publican como servicios web pueden incluir módulos de entrada de servicios web, lo que significa que esperan que la entrada se realice a través de la llamada del servicio web en forma de referencia a una ubicación de blob. También existe la opción de no usar un módulo de entrada del servicio web y usar en su lugar un módulo lector. En ese caso, el lector normalmente leería de una base de datos SQL mediante una consulta en tiempo de ejecución para obtener los datos. Los parámetros de servicio web pueden utilizarse para apuntar dinámicamente a otros servidores o tablas, etc. El SDK es compatible con ambas plataformas.
+
+El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un trabajo por lotes con un extremo de servicio de Aprendizaje automático de Azure mediante el SDK de BES. En los comentarios encontrará más información sobre la configuración y las llamadas.
+
+#### **Código de ejemplo**
+
+	// This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
 	// Instructions for doing this in Visual Studio:
 	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.AspNet.WebApi.Client
-	//
-	// Also, add a reference to Microsoft.WindowsAzure.Storage.dll for reading from and writing to the Azure blob storage
+	// Install-Package Microsoft.Azure.MachineLearning 
 	
-	using System;
-	using System.IO;
-	using System.Net.Http;
-	using System.Net.Http.Headers;
-	using System.Threading.Tasks;
-	using Newtonsoft.Json;
-	
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Auth;
-	using Microsoft.WindowsAzure.Storage.Blob;
+	  using System;
+	  using System.Collections.Generic;
+	  using System.Threading.Tasks;
+	  
+	  using Microsoft.Azure.MachineLearning;
+	  using Microsoft.Azure.MachineLearning.Contracts;
+	  using Microsoft.Azure.MachineLearning.Exceptions;
 	
 	namespace CallBatchExecutionService
 	{
 	    class Program
 	    {
 	        static void Main(string[] args)
-	        {
-	            String jobId = "123";
-	            InvokeBatchExecutionService(jobId).Wait();
+	        {	            
+	            InvokeBatchExecutionService().Wait();
 	        }
 	
-	        static async Task InvokeBatchExecutionService(String JobId)
+	        static async Task InvokeBatchExecutionService()
 	        {
-	            Console.WriteLine(String.Format("Getting job status for job {0}", JobId));
+	            // First collect and fill in the URI and access key for your web service endpoint.
+	            // These are available on your service's API help page.
+	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
+	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
 	
-	            // BES Information
-	            const string BaseUrl = @"[BES Job Id]/{0}";
-	            const string ApiKey = "abc123"; 
-	            // Replace this with the location you would like to use for your output file
-	            const string OutputFileLocation = @"myresults.csv"; 
+	            // Create an Azure Machine Learning runtime client for this endpoint
+	            var runtimeClient = new RuntimeClient(endpointUri, accessKey);
 	
-	            using (var client = new HttpClient())
+	            // Define the request information for your batch job. This information can contain:
+	            // -- A reference to the AzureBlob containing the input for your job run
+	            // -- A set of values for global parameters defined as part of your experiment and service
+	            // -- A set of output blob locations that allow you to redirect the job's results
+	
+	            // NOTE: This sample is applicable, as is, for a service with explicit input port and
+	            // potential global parameters. Also, we choose to also demo how you could override the
+	            // location of one of the output blobs that could be generated by your service. You might 
+	            // need to tweak these features to adjust the sample to your service.
+	            //
+	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
+	            // your service, so it is not required to specify all with any request.  If you do not want to
+	            // use any of the parameters, a null value should be passed in its place.
+	            
+	            // Define the reference to the blob containing your input data. You can refer to this blob by its
+                    // connection string / container / blob name values; alternatively, we also support references 
+                    // based on a blob SAS URI
+                    
+                    BlobReference inputBlob = BlobReference.CreateFromConnectionStringData(connectionString:                                         "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+                        containerName: "YOUR_CONTAINER_NAME",
+                        blobName: "YOUR_INPUT_BLOB_NAME");
+                              
+                    // If desired, one can override the location where the job outputs are to be stored, by passing in
+                    // the storage account details and name of the blob where we want the output to be redirected to.
+                    
+                    var outputLocations = new Dictionary<string, BlobReference>
+                        {
+                          {
+                           "YOUR_OUTPUT_NODE_NAME", 
+                           BlobReference.CreateFromConnectionStringData(                                     connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
+                                containerName: "YOUR_CONTAINER_NAME",
+                                blobName: "YOUR_DESIRED_OUTPUT_BLOB_NAME")
+                           }
+                        };
+	            
+	            // If applicable, you can also set the global parameters for your service
+	            var globalParameters = new Dictionary<string, string>
 	            {
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApiKey);
+	                { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
+	            };
+	                
+	            var jobRequest = new BatchJobRequest
+	            {
+	                Input = inputBlob,
+	                GlobalParameters = globalParameters,
+	                Outputs = outputLocations
+	            };
 	
-	                HttpResponseMessage response = await client.GetAsync(String.Format(BaseUrl, JobId));
-	                if (response.IsSuccessStatusCode)
+	            try
+	            {
+	                // Register the batch job with the system, which will grant you access to a job object
+	                BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
+	
+	                // Start the job to allow it to be scheduled in the running queue
+	                await job.StartAsync();
+	
+	                // Wait for the job's completion and handle the output
+	                BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
+	                if (jobStatus.JobState == JobState.Finished)
 	                {
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    BatchResponseStructure responseStruct = JsonConvert.DeserializeObject<BatchResponseStructure>(result);
-	
-	                    switch (responseStruct.StatusCode)
+	                    // Process job outputs
+	                    Console.WriteLine(@"Job {0} has completed successfully and returned {1} outputs", job.Id, jobStatus.Results.Count);
+	                    foreach (var output in jobStatus.Results)
 	                    {
-	                        case (int)BatchScoreStatusCode.NotStarted:
-	                            Console.WriteLine("Not started...");
-	                            break;
-	                        case (int)BatchScoreStatusCode.Running:
-	                            Console.WriteLine("Running...");
-	                            break;
-	                        case (int)BatchScoreStatusCode.Failed:
-	                            Console.WriteLine("Failed!");
-	                            Console.WriteLine(string.Format(@"Error details: {0}", status.Details));
-	                            break;
-	                        case (int)BatchScoreStatusCode.Cancelled:
-	                            Console.WriteLine("Cancelled!");
-	                            break;
-	                        case (int)BatchScoreStatusCode.Finished:
-	                            Console.WriteLine("Finished!");
-	                            var credentials = new StorageCredentials(status.Result.SasBlobToken);
-	                            var cloudBlob = new CloudBlockBlob(new Uri(new Uri(responseStruct.Result.BaseLocation), 
-	                                                                                               responseStruct.Result.RelativeLocation), credentials);
-	                            cloudBlob.DownloadToFile(OutputFileLocation, FileMode.Create);
-	                            Console.WriteLine(string.Format(@"The results have been written to the file {0}", OutputFileLocation));
-	                            break;
+	                        Console.WriteLine(@"\t{0}: {1}", output.Key, output.Value.AbsoluteUri);
 	                    }
 	                }
-	                else
+	                else if (jobStatus.JobState == JobState.Failed)
 	                {
-	                    Console.WriteLine(String.Format("Batch Result : Failed with status code: {0}", response.StatusCode));
+	                    // Handle job failure
+	                    Console.WriteLine(@"Job {0} has failed with this error: {1}", job.Id, jobStatus.Details);
 	                }
 	            }
-	        }
-	    }
-	
-	    public enum BatchScoreStatusCode : int
-	    {
-	        NotStarted = 0,
-	        Running = 1,
-	        Failed = 2,
-	        Cancelled = 3,
-	        Finished = 4
-	    }
-	
-	    public class BatchResult
-	    {
-	        public String ConnectionString { get; set; }
-	        public String RelativeLocation { get; set; }
-	        public String BaseLocation { get; set; }
-	        public String SasBlobToken { get; set; }
-	    }
-	
-	    public class BatchResponseStructure
-	    {
-	        public int StatusCode { get; set; }
-	        public BatchResult Result { get; set; }
-	        public String Details { get; set; }
-	        public BatchResponseStructure()
-	        {
-	            this.Result = new BatchResult();
+	            catch (ArgumentException aex)
+	            {
+	                Console.WriteLine("Argument {0} is invalid: {1}", aex.ParamName, aex.Message);
+	            }
+	            catch (RuntimeException runtimeError)
+	            {
+	                Console.WriteLine("Runtime error occurred: {0} - {1}", runtimeError.ErrorCode, runtimeError.Message);
+	                Console.WriteLine("Error details:");
+	                foreach (var errorDetails in runtimeError.Details)
+	                {
+	                    Console.WriteLine("\t{0} - {1}", errorDetails.Code, errorDetails.Message);
+	                }
+	            }
+	            catch (Exception ex)
+	            {
+	                Console.WriteLine("Unexpected error occurred: {0} - {1}", ex.GetType().Name, ex.Message);
+	            }
 	        }
 	    }
 	}
 
-**3. Eliminar un trabajo de ejecución por lotes**              
-También es posible eliminar un trabajo una vez que se ha iniciado. Esto se llevaría a cabo por diversas razones, como que el trabajo está tardando demasiado en completarse. Para eliminar un trabajo, primero debe tener el identificador del trabajo, que se incluye en la respuesta al envío del trabajo.
+ 
 
-No hay ninguna entrada real en esta llamada de API. Un leve cambio en el URI de BES y en el método de solicitud. En lugar de una solicitud POST, utiliza una solicitud DELETE siguiendo el URI definido en la página de ayuda de la API. El ejemplo de código para esto es muy sencillo.
-
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

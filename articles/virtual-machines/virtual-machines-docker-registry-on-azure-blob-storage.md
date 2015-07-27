@@ -5,7 +5,7 @@
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
-  manager="" 
+  manager=""
   tags="" />
 
 <tags
@@ -92,4 +92,4 @@ Una vez configurado el registro, es hora de usarlo más. Comience con [registry-
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

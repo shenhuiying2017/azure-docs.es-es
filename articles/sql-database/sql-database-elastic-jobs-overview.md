@@ -1,8 +1,6 @@
 <properties 
-	title="Elastic database jobs overview" 
 	pageTitle="Información general de los trabajos de bases de datos elásticas" 
 	description="Muestra el servicio de trabajo de base de datos elástica" 
-	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
@@ -13,12 +11,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh" />
 
-# Información general de los trabajos de bases de datos elásticas
+# Información general de Trabajos de base de datos elástica
 
-Los **trabajos de bases de datos elásticas** (vista previa) permiten ejecutar secuencias de comandos T-SQL (trabajos) en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Por ejemplo, puede actualizar fácilmente el esquema de todas las bases de datos para incluir una nueva tabla. Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Los **trabajos de bases de datos elásticas** controlan la tarea de inicio de sesión y permiten ejecutar de manera fiable la secuencia de comandos, al mismo tiempo que registran el estado de la ejecución en cada base de datos. Para obtener instrucciones acerca de cómo instalar la vista preliminar, vaya a [Instalación del componente de trabajo de la base de datos elástica](sql-database-elastic-jobs-service-installation.md).
+**Trabajos de bases de datos elásticas** (vista previa) permite ejecutar scripts de T-SQL (trabajos) en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Por ejemplo, puede actualizar fácilmente el esquema de todas las bases de datos para incluir una nueva tabla. Normalmente, debe conectarse a cada base de datos de forma independiente para ejecutar instrucciones T-SQL o realizar otras tareas administrativas. Un **trabajo de base de datos elástica** controla la tarea de inicio de sesión y permite ejecutar de manera fiable el script, al mismo tiempo que registra el estado de la ejecución en cada base de datos. Para obtener instrucciones acerca de cómo instalar la vista previa, vaya a [Instalación del componente de trabajo de la base de datos elástica](sql-database-elastic-jobs-service-installation.md).
 
 ![Servicio del trabajo de bases de datos elásticas][1]
 
@@ -36,15 +34,10 @@ Los **trabajos de bases de datos elásticas** (vista previa) permiten ejecutar s
 
 ## Cómo funciona el trabajo
 
-1.	Instale los servicios que usan los trabajos de las bases de datos elásticas. Vea [Instalación de trabajos de bases de datos elásticas](sql-database-elastic-jobs-service-installation.md). En caso de error en la instalación, vea [Desinstalación](sql-database-elastic-jobs-uninstall.md).
+1.	Instale los servicios que usan los trabajos de las bases de datos elásticas. Vea [Instalación del componente de trabajo de la base de datos elástica](sql-database-elastic-jobs-service-installation.md). En caso de error en la instalación, vea [Desinstalación](sql-database-elastic-jobs-uninstall.md).
 2.	Configure el grupo de bases de datos elásticas para la ejecución del trabajo mediante la [adición de un usuario a cada base de datos](sql-database-elastic-jobs-add-logins-to-dbs.md).
-3.	Desde la vista del grupo de bases de datos elásticas, haga clic en **Crear trabajo**.
-4.	Escriba el nombre de usuario y la contraseña para la base de datos de control de trabajos (almacenamiento de metadatos para trabajos). (El nombre de usuario y la contraseña se crean durante la instalación de los trabajos de bases de datos elásticas).
-5.	En la hoja **Crear trabajo**, escriba el nombre del trabajo, el nombre de usuario y la contraseña para las bases de datos de destino (con permisos suficientes para que la ejecución de script sea correcta) y pegue o escriba el script T-SQL.
-6.	Haga clic en **Ejecutar** para que el trabajo ejecute la secuencia de comandos en cada base de datos.
-7.	La vista **Administrar trabajos** permite ver todos los trabajos en ejecución, o que se han ejecutado, así como el estado de ejecución más reciente.
-8.	Haga clic en cualquier trabajo para ver los detalles de ejecución del trabajo, así como el estado de ejecución del trabajo de cada base de datos.
-9.	Si se produce un error en un trabajo, haga clic en su nombre para ver el registro de errores.
+3.	Cree un script de T-SQL que se pueden ejecutar en cada base de datos de grupo.
+4.	Siga estos pasos para ejecutar el script: [Creación y administración de trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md) 
 
 ## Componentes y precios 
 
@@ -64,4 +57,4 @@ Los siguientes componentes funcionan conjuntamente para crear un servicio de nub
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

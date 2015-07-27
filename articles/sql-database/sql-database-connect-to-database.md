@@ -1,13 +1,11 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
 	pageTitle="Conexión a una base de datos SQL de Azure mediante SSMS" metaKeywords=""
 	description="Aprenda a establecer una conexión a una base de datos SQL de Azure mediante SSMS."
-	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
+	authors="sidneyh" 
+	manager="jhubbard" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -15,17 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh" />
 
-# Conexión a una base de datos SQL de Azure con SSMS
+# Conexión a una base de datos SQL de Azure con SQL Server Management Studio
 
-A continuación se describen los pasos necesario para conectarse a una base de datos SQL de Microsoft Azure con SQL Server Management Studio.
+A continuación se describen los pasos necesarios para conectarse a una base de datos SQL de Microsoft Azure con SQL Server Management Studio (SSMS).
 
 ## Requisitos previos
 * Una base de datos SQL de Azure SQL aprovisionada y en ejecución. Para crear una nueva base de datos SQL, vea [Introducción a la base de datos SQL de Microsoft Azure](sql-database-get-started.md).
 * El nombre y la contraseña de administrador de la base de datos SQL.
 * SQL Server Management Studio 2014. Para obtener la herramienta, vea [Descargar SQL Express](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx).
+* Definir la configuración del firewall para la base de datos. Vea [Configuración del firewall (Base de datos SQL de Azure)](sql-database-configure-firewall-settings.md)
 
 ## Para conectarse a una instancia de base de datos SQL
 1. Inicie sesión en el [Portal de administración de Azure](https://portal.azure.com).
@@ -63,4 +62,4 @@ Puede usar instrucciones Transact-SQL para crear o administrar las bases de dato
 [5]: ./media/sql-database-connect-to-database/ssms-master.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

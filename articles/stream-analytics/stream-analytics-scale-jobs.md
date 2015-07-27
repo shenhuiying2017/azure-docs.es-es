@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Escalación de trabajos de Stream Analytics | Azure"
-	description="Obtenga información acerca de cómo escalar trabajos de análisis de secuencias"
+	pageTitle="Escalar los trabajos de Análisis de transmisiones para incrementar el rendimiento | Microsoft Azure"
+	description="Aprenda a escalar los trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo."
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,29 +13,36 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
-# Escalación de trabajos de Azure Stream Analytics
+# Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
 
-Aprenda a calcular las *Unidades de streaming* para un trabajo de Análisis de transmisiones, y a escalar trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consultas y el establecimiento de las unidades de streaming del trabajo.
+Aprenda a calcular las *unidades de streaming* para un trabajo de Análisis de transmisiones, y a escalar trabajos de Análisis de transmisiones mediante la configuración de particiones de entrada, la optimización de la definición de consulta y el ajuste de las unidades de streaming del trabajo.
 
-Una definición de trabajo de Análisis de transmisiones de Azure incluye entradas, una consulta y la salida. Las entradas proceden del lugar en donde trabajo lee el streaming de datos, la consulta se usa para transformar el streaming de entrada y la salida es el lugar al que el trabajo envía los resultados.
+## ¿Cuáles son las partes de un trabajo de Análisis de transmisiones? ##
+Una definición de trabajo de Análisis de transmisiones de Azure incluye entradas, una consulta y la salida. Las entradas proceden del lugar en el cual el trabajo lee el flujo de datos, la consulta se usa para transformar el flujo de entrada de datos y la salida es el lugar al que el trabajo envía los resultados.
 
-Un trabajo requiere al menos un origen de entrada de secuencia de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md), [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md) y [Guía para desarrolladores de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md).
+Un trabajo requiere al menos un origen de entrada de streaming de datos. El origen de entrada de streaming de datos puede almacenarse en un Centro de eventos de Bus de servicio de Azure o en un almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md), [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md) y [Guía para desarrolladores de Análisis de transmisiones de Azure](../stream-analytics-developer-guide.md).
 
-El recurso disponible para procesar los trabajos de Stream Analytics se mide mediante una unidad de streaming. Cada unidad de streaming puede proporcionar una capacidad de procesamiento de hasta 1 MB por segundo. Cada trabajo necesita como mínimo una unidad de streaming, que es el valor predeterminado para todos los trabajos. Puede configurar hasta 50 unidades de streaming para un trabajo de Análisis de transmisiones mediante el Portal de administración de Azure. Cada suscripción de Azure solo puede tener un máximo de 50 unidades de streaming en todos los trabajos de una región específica. Para aumentar las unidades de streaming de su suscripción (hasta 100 unidades), póngase en contacto con el [Servicio de soporte técnico de Microsoft](http://support.microsoft.com).
+## Configuración de unidades de streaming ##
+Las Unidades de streaming (SU) representan los recursos y la capacidad de ejecutar un trabajo de Análisis de transmisiones de Azure. Las SU proporcionan una forma de describir la capacidad de procesamiento del evento relativo en función de una medida que combina la CPU, la memoria y las tasas de lectura y escritura. Cada unidad de streaming corresponde aproximadamente a 1 MB por segundo de rendimiento.
 
-El número de unidades de streaming que puede usar un trabajo depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. En este artículo se mostrará cómo calcular y ajustar la consulta para aumentar la capacidad de procesamiento.
+Elegir cuántas SU son necesarias para un trabajo en concreto depende de la configuración de la partición de las entradas y de la consulta definida para el trabajo. Puede seleccionar tantas unidades de streaming para un trabajo como su cuota se lo permita, mediante el Portal de Azure. De forma predeterminada, cada suscripción de Azure tiene una cuota máxima de 50 unidades de streaming en todos los trabajos de análisis de una región específica. Para aumentar las unidades de streaming de su suscripción póngase en contacto con el [Servicio de soporte técnico de Microsoft](http://support.microsoft.com).
 
+El número de unidades de streaming que puede usar un trabajo depende de la configuración de particiones para las entradas y de la consulta definida para el trabajo. Tenga en cuenta que también se debe usar un valor válido para las unidades de streaming. Los valores válidos comienzan por 1, 3, 6 y, a continuación, van aumentando de seis en seis, tal y como se muestra a continuación.
 
-## Cálculo de las unidades máximas de streaming para un trabajo
+![Escala de las unidades de streaming de Análisis de transmisiones de Azure][img.stream.analytics.streaming.units.scale]
+
+En este artículo aprenderá a calcular y a ajustar la consulta para aumentar el rendimiento de los trabajos de análisis.
+
+## Cálculo de las unidades máximas de streaming para un trabajo ##
 El número total de unidades de streaming que se puede utilizar en un trabajo de Stream Analytics depende del número de pasos de la consulta definida para el trabajo y del número de particiones para cada paso.
 
-### Pasos de una consulta
+### Pasos de una consulta ###
 Una consulta puede tener uno o varios pasos. Cada paso es una subconsulta que se define mediante la palabra clave WITH. La única consulta que se queda excluida de la palabra clave WITH también se cuenta como un paso; por ejemplo, la instrucción SELECT en la consulta siguiente:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -43,13 +50,13 @@ Una consulta puede tener uno o varios pasos. Cada paso es una subconsulta que se
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute,3), TollBoothId, PartitionId
+	GROUP BY TumblingWindow(minute,3), TollBoothId
 
 La consulta anterior tiene dos pasos.
 
 > [AZURE.NOTE]Esta consulta de ejemplo se explicará más adelante en este artículo.
 
-### Posicionamiento de un paso
+### Posicionamiento de un paso ###
 
 El particionamiento de un paso requiere las siguientes condiciones:
 
@@ -59,7 +66,7 @@ El particionamiento de un paso requiere las siguientes condiciones:
 
 Cuando una consulta está particionada, los eventos de entrada se procesan y agregan en grupos de particiones sdeparados, y se generan eventos de salida para cada uno de los grupos. Si un agregado combinado es aconsejable, debe crear un segundo paso sin particionar para agregar.
 
-### Cálculo de las unidades máximas de streaming para un trabajo
+### Cálculo de las unidades máximas de streaming para un trabajo ###
 
 Todos los pasos sin particiones juntos pueden escalar hasta seis unidades de streaming para un trabajo de Análisis de transmisiones. Para agregar unidades de streaming adicionales, se debe particionar un paso. Cada partición puede tener seis unidades de streaming.
 
@@ -103,7 +110,7 @@ Todos los pasos sin particiones juntos pueden escalar hasta seis unidades de str
 <td>24 (18 para los pasos particionados y 6 para los pasos no particionados)</td></tr>
 </table>
 
-### Ejemplo de escala
+### Ejemplo de escala ###
 La siguiente consulta calcula el número de vehículos que pasan por una estación de peaje con tres cabinas de peaje en una ventana temporal de tres minutos. Esta consulta se puede escalar hasta seis unidades de streaming.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -120,7 +127,7 @@ Cuando una consulta está particionada, se procesan los eventos de entrada y se 
 
 Cada una de las particiones de Imput1 se procesará por separado en Análisis de transmisiones y se crearán varios registros del recuento de vehículos que pasan por la misma cabina de peaje en la misma ventana de saltos de tamaño constante. Si la clave de partición de entrada no se puede cambiar, este problema se puede solucionar agregando un paso adicional sin particiones, por ejemplo:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -128,14 +135,14 @@ Cada una de las particiones de Imput1 se procesará por separado en Análisis de
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId, ParititonId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 Esta consulta se puede escalar hasta 24 unidades de streaming.
 
->[AZURE.NOTE]Si va a unir dos secuencias, asegúrese de que estén particionadas por la clave de partición de la columna por la que hace las uniones y de que tenga el mismo número de particiones en ambas secuencias.
+>[AZURE.NOTE]Si va a unir dos secuencias, asegúrese de que estén particionadas mediante la clave de partición de la columna que usa para realizar las uniones, y de que tenga el mismo número de particiones en ambas secuencias.
 
 
-## Configuración de la partición de trabajo de Stream Analytics
+## Configuración de la partición de trabajo de Stream Analytics ##
 
 **Para ajustar una unidad de streaming de un trabajo**
 
@@ -147,7 +154,7 @@ Esta consulta se puede escalar hasta 24 unidades de streaming.
 ![Análisis de transmisiones de Azure -- Configuración de escala de trabajo][img.stream.analytics.configure.scale]
 
 
-## Supervisión del rendimiento del trabajo
+## Supervisión del rendimiento del trabajo ##
 
 Mediante el portal de administración, puede realizar el seguimiento de la capacidad de procesamiento de un trabajo en eventos por segundo:
 
@@ -155,7 +162,7 @@ Mediante el portal de administración, puede realizar el seguimiento de la capac
 
 Calcule la capacidad de procesamiento esperada de la carga de trabajo en eventos por segundo. Si la capacidad de procesamiento es inferior a la esperada, ajuste la partición de entrada, ajuste la consulta y agregue unidades de streaming adicionales a su trabajo.
 
-##Capacidad de procesamiento de ASA a escala - Escenario Raspberry PI
+## Capacidad de procesamiento de ASA a escala - Escenario Raspberry PI ##
 
 
 Para entender cómo se escala ASA en un escenario típico en términos de capacidad de procesamiento en varias unidades de streaming, aquí tenemos un experimento que envía los datos de sensor (clientes) al Centro de eventos, ASA los procesa y envía una alerta o estadísticas como salida a otro Centro de eventos.
@@ -220,11 +227,11 @@ A continuación se muestran los resultados por número creciente de unidades de 
 
 ![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## Obtener ayuda
+## Obtener ayuda ##
 Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
-## Pasos siguientes
+## Pasos siguientes ##
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
@@ -238,6 +245,7 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
+[img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 
 <!--Link references-->
 
@@ -246,10 +254,10 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

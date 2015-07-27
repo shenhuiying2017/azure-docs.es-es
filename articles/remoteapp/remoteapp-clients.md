@@ -1,9 +1,8 @@
 
 <properties
     pageTitle="Acceso a sus aplicaciones"
-    description="Obtenga información acerca de qué clientes son compatibles con RemoteApp y cómo tener acceso a sus aplicaciones."
+    description="Obtenga información sobre qué clientes son compatibles con Azure RemoteApp y cómo tener acceso a sus aplicaciones."
     services="remoteapp"
-    solutions="" documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,14 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="04/27/2015"
+    ms.date="06/30/2015"
     ms.author="elizapo" />
 
 
 
-# Acceso a sus aplicaciones
+# Acceso a las aplicaciones de Azure RemoteApp
 
-Una de las ventajas de RemoteApp es que puede tener acceso a las aplicaciones publicadas para usted desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
+Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones publicadas para usted desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
 
 En este tema, revisaremos la lista de clientes admitidos actualmente y cómo descargarlos antes de mostrar cómo iniciar sesión en RemoteApp desde cada uno de los clientes.
 
@@ -205,5 +204,6 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 8. Esto le dará acceso a un conjunto básico de aplicaciones para comenzar a usar RemoteApp.
 
 ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
