@@ -3,7 +3,7 @@
 	description="Aprenda como acoplar un disco de datos a una máquina virtual de Azure y a inicializarla para que esté lista para utilizarse."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/29/2015"
-	ms.author="kathydav"/>
+	ms.author="dkshir"/>
 
 # Acoplamiento de un disco de datos a una máquina virtual Linux
 
@@ -140,6 +140,5 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

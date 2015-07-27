@@ -31,4 +31,4 @@ Vuelva a Visual Studio y seleccione el proyecto de aplicación cliente de códig
 
 	Tenga en cuenta que los datos guardados en el paso anterior se cargan desde la aplicación móvil después de que se inicie la aplicación de Windows.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

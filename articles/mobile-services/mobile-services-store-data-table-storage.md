@@ -3,7 +3,6 @@
 	description="Aprenda a usar Servicios móviles para almacenar datos en el almacenamiento de tablas." 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@ Aprenda a trabajar con Almacenamiento de tabla a través de Servicios móviles c
 [Servicios móviles y Almacenamiento de Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

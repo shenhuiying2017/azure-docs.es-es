@@ -1,9 +1,8 @@
-<properties 
-	title="How to add a users to an elastic database pool" 
+<properties  
 	pageTitle="Cómo agregar usuarios a un grupo de bases de datos elásticas" 
-	description="Debe agregar un usuario con privilegios para cada base de datos del grupo." 
-	metaKeywords="azure sql database elastic databases credentials" 
-	services="sql-database" documentationCenter=""  
+	description="Debe agregar un usuario con privilegios para cada base de datos del grupo."  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -18,7 +17,7 @@
 
 # Cómo agregar usuarios a un grupo de bases de datos elásticas
 
-Los trabajos de bases de datos elásticas permiten ejecutar la misma secuencia de comandos en cada base de datos de un [grupo de bases de datos elásticas](sql-database-elastic-pool.md). Para ejecutar la secuencia de comandos, deberá agregar un usuario con los permisos adecuados para cada base de datos del grupo. Para obtener más información, vea [Administración de bases de datos e inicios de sesión en su base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o [Adición de usuarios a la base de datos SQL de Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/).
+Los [trabajos de bases de datos elásticas](sql-database-elastic-pool.md) permiten ejecutar el mismo script en cada base de datos de un **grupo de bases de datos elásticas**. Para ejecutar la secuencia de comandos, deberá agregar un usuario con los permisos adecuados para cada base de datos del grupo. Para obtener más información, vea [Administración de bases de datos e inicios de sesión en su base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) o [Adición de usuarios a la base de datos SQL de Azure](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/).
 
 ## Requisitos previos
 * [Creación de un grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool-portal.md)
@@ -38,7 +37,7 @@ Los trabajos de bases de datos elásticas permiten ejecutar la misma secuencia d
 
 ## Pasos siguientes
 
-Ejecute el trabajo en el grupo de bases de datos elásticas. Vea [Creación y administración de trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md).
+Ejecutar un trabajo en el grupo de bases de datos elásticas. Vea [Creación y administración de trabajos de bases de datos elásticas](sql-database-elastic-jobs-create-and-manage.md).
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -46,4 +45,4 @@ Ejecute el trabajo en el grupo de bases de datos elásticas. Vea [Creación y ad
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

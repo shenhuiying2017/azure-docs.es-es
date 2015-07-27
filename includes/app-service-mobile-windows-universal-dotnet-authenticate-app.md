@@ -57,10 +57,13 @@
 		
 5. En el proyecto de aplicación de la Tienda Windows, abra el archivo de proyecto MainPage.xaml y agregue el siguiente elemento **Botón** inmediatamente antes del elemento que define el botón **Guardar**:
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                        Visibility="Visible">Sign in</Button>
+	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                Visibility="Visible">Sign in</Button>
 
-6. Repita el paso anterior para el proyecto de aplicación de la Tienda de Windows Phone, pero esta vez agregue el **Botón** en el **TitlePanel**, después del elemento **TextBlock**.
+6. En el proyecto de aplicación de la Tienda de Windows Phone, agregue el siguiente elemento **Button** en el **ContentPanel**, después del elemento **TextBlock**:
+
+        <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
+        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. Abra el archivo de proyecto compartido App.xaml.cs y agregue la siguiente instrucción using si no existe ya:
 
@@ -91,4 +94,4 @@
 
 10. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

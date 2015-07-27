@@ -17,7 +17,7 @@
 	ms.date="04/27/2015" 
 	ms.author="Justinha"/>
 
-#  Administración de contraseñas en Azure AD
+# Administración de contraseñas en Azure AD
 
 Si es administrador, puede restablecer la contraseña de un usuario en Azure en el portal clásico de Azure. Haga clic en el nombre del directorio y en la página Usuarios, haga clic en el nombre del usuario y en la parte inferior del portal, haga clic en **Restablecer contraseña**.
 
@@ -41,10 +41,11 @@ Utilice los siguientes vínculos para ir a la documentación en la que esté má
 - [Escritura diferida de contraseñas: configuración de Azure AD para administrar las contraseñas locales](https://msdn.microsoft.com/library/azure/dn903642.aspx)
 - [Preguntas más frecuentes y solución de problemas para la administración de contraseñas de Azure AD](https://msdn.microsoft.com/library/azure/dn683878.aspx)
 
-##  Pasos siguientes
+## Pasos siguientes
 
 - [Administración de Azure AD](active-directory-administer.md)
 - [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 - [Administración de grupos en Azure AD](active-directory-manage-groups.md)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -16,7 +16,7 @@
 	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
-#  Introducción a la configuración avanzada de la Administración de API de Azure
+# Introducción a la configuración avanzada de la Administración de API de Azure
 
 Los tutoriales de esta sección ofrecen orientación sobre tareas de configuración y administración avanzadas de Administración de API.
 
@@ -35,4 +35,5 @@ Los tutoriales de esta sección ofrecen orientación sobre tareas de configuraci
 [Delegación de registros de usuario y suscripciones a producto]: api-management-howto-setup-delegation.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

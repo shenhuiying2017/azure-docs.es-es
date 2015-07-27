@@ -50,4 +50,4 @@ Por ejemplo, para almacenar en caché el contenido durante una hora, agregue lo 
 
 [Administración de la expiración del contenido del blob en la Red de entrega de contenido de Azure (CDN)](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -218,4 +218,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v√
 -	Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

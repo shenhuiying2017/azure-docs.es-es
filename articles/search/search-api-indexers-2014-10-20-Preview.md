@@ -1,10 +1,10 @@
-<properties title="" pageTitle="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" description="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties pageTitle="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" description="Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 #Operaciones de indexador (API de REST del servicio de Búsqueda de Azure: 2014-10-20-Preview)
 
-> [AZURE.NOTE]En este artículo se describe un prototipo de la nueva funcionalidad que no está en la versión publicada de la API. Obtenga más información acerca de las versiones y compatibilidad en [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) en MSDN. Para obtener más información sobre otras funciones de esta API de vista previa, consulte [API de REST de servicio de Búsqueda de Azure: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
+> [AZURE.NOTE]En este artículo se describe un prototipo de la nueva funcionalidad que no está en la versión publicada de la API. Obtenga más información acerca de las versiones y compatibilidad en [Versiones del servicio de búsqueda](http://msdn.microsoft.com/library/azure/dn864560.aspx) en MSDN. Para obtener más información sobre otras funciones de esta API de vista previa, consulte [API de REST de servicio de Búsqueda de Azure: 2014-10-20-Preview](search-api-2014-10-20-preview.md).
 
 ## Información general
 
@@ -80,7 +80,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear origen de datos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta). 
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda acerca de la navegación por páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service-portal.md) para obtener ayuda sobre la navegación en páginas.
 
 <a name="CreateDataSourceRequestSyntax"></a> **Sintaxis del cuerpo de la solicitud**
 
@@ -135,7 +135,7 @@ Esta directiva se puede especificar del modo siguiente:
 
 ***Directiva de detección de cambios integrados de SQL***
 
-Si la base de datos SQL admite el [seguimiento de cambios integrados de SQL] (http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx)), se recomienda usar la directiva de seguimiento de cambios integrada de SQL. Esta directiva habilita el seguimiento de cambios más eficaz y también permite que la Búsqueda de Azure identifique las filas eliminadas sin tener que disponer de una columna de "eliminación temporal" explícita en su esquema.
+Si la base de datos SQL admite el [seguimiento de cambios integrados de SQL](http://technet.microsoft.com/library/cc280462.aspx), se recomienda usar la directiva de seguimiento de cambios integrada de SQL. Esta directiva habilita el seguimiento de cambios más eficaz y también permite que la Búsqueda de Azure identifique las filas eliminadas sin tener que disponer de una columna de "eliminación temporal" explícita en su esquema.
 
 El seguimiento de cambios integrado de SQL se admite a partir de las siguientes versiones de la base de datos de SQL: - SQL Server 2008 R2, si está usando máquinas virtuales de IaaS SQL. - Base de datos SQL de Azure V12, si está usando SQL Azure.
 
@@ -657,4 +657,4 @@ Código de estado: 204 Sin contenido para obtener una respuesta correcta.
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

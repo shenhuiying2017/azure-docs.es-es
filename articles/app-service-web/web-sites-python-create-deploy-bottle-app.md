@@ -400,4 +400,4 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 [Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

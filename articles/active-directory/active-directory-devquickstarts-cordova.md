@@ -20,8 +20,7 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Apache Cordova permite desarrollar aplicaciones HTML5/JavaScript que se pueden ejecutar en dispositivos móviles como aplicaciones nativas completas. 
-Con Azure AD, puede agregar capacidades de autenticación de nivel empresarial a sus aplicaciones Cordova. Gracias a un SDK nativo de Azure AD del complemento Cordova disponible en iOS, Android, Tienda Windows y Windows Phone, podrá mejorar su aplicación para que admita el inicio de sesión con las cuentas de AD de sus usuarios, permita acceder a Office 365 y a la API de Azure e, incluso, garantice la seguridad de las llamadas a su propia API web personalizada.
+Apache Cordova permite desarrollar aplicaciones HTML5/JavaScript que se pueden ejecutar en dispositivos móviles como aplicaciones nativas completas. Con Azure AD, puede agregar capacidades de autenticación de nivel empresarial a sus aplicaciones Cordova. Gracias a un SDK nativo de Azure AD del complemento Cordova disponible en iOS, Android, Tienda Windows y Windows Phone, podrá mejorar su aplicación para que admita el inicio de sesión con las cuentas de AD de sus usuarios, permita acceder a Office 365 y a la API de Azure e, incluso, garantice la seguridad de las llamadas a su propia API web personalizada.
 
 En este tutorial, usaremos el complemento de Apache Cordova para la biblioteca de autenticación de Active Directory (ADAL) para mejorar una aplicación sencilla con las siguientes características:
 
@@ -64,8 +63,8 @@ Cada plataforma de destino tiene diferentes requisitos previos.
 	-   [ios sim](https://www.npmjs.org/package/ios-sim): permite iniciar aplicaciones de iOS en el simulador de iOS desde la línea de comandos (se puede instalar fácilmente mediante el terminal: `npm install -g ios-sim`)
 
 - Para compilar y ejecutar la aplicación para Android
-	- Instale el [Kit de desarrollo de Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o una versión posterior. Asegúrese de que `JAVA_HOME` (variable de entorno) se haya configurado correctamente según la ruta de instalación de JDK (por ejemplo, C:\Archivos de programa\Java\jdk1.7.0_75).
-	- Instale el [SDK de Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) y agregue la ubicación `<android-sdk-location>\tools` (por ejemplo, C:\tools\Android\android-sdk\tools) a su variable de entorno `PATH`.
+	- Instale el [Kit de desarrollo de Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o una versión posterior. Asegúrese de que `JAVA_HOME` (variable de entorno) se haya configurado correctamente según la ruta de instalación de JDK (por ejemplo, C:\\Archivos de programa\\Java\\jdk1.7.0_75).
+	- Instale el [SDK de Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) y agregue la ubicación `<android-sdk-location>\tools` (por ejemplo, C:\\tools\\Android\\android-sdk\\tools) a su variable de entorno `PATH`.
 	- Abra el Administrador de SDK de Android (por ejemplo, a través de terminal: `android`) y proceda con la instalación.
     - SDK para la plataforma de *Android 5.0.1 (API 21)*
     - *Herramientas de compilación de SDK de Android*, versión 19.1.0 o posterior
@@ -104,8 +103,7 @@ Hay varias maneras de crear aplicaciones de Cordova. En este tutorial, utilizare
 
      cordova create DirSearchClient --copy-from="NativeClient-MultiTarget-Cordova/DirSearchClient"
 
-Esta acción creará la estructura de carpetas y el scaffolding para el proyecto Cordova y se copiará el contenido del proyecto de inicio en la subcarpeta www. 
-Acceda a la nueva carpeta de DirSearchClient.
+Esta acción creará la estructura de carpetas y el scaffolding para el proyecto Cordova y se copiará el contenido del proyecto de inicio en la subcarpeta www. Acceda a la nueva carpeta de DirSearchClient.
 
     cd .\DirSearchClient
 
@@ -164,17 +162,14 @@ A continuación, hay que agregar el código de la solicitud de token real. Inser
 
     },
 ```
-Examinemos esa función dividiéndola en dos partes principales. Este ejemplo está diseñado para que funcione con cualquier inquilino, en lugar de vincularse a uno concreto. Se utiliza el extremo "/common", que permite al usuario especificar cualquier cuenta en el momento de la autenticación y dirige la solicitud al inquilino al que pertenece. Esta primera parte del método inspecciona la memoria caché de ADAL para ver si ya hay un token almacenado. Si lo hay, usa los inquilinos de los que proviene para volver a inicializar ADAL. Esto es necesario para evitar mensajes adicionales, ya que el uso de "/common" siempre hace que se le pida al usuario que especifique una nueva cuenta. 
-```javascript
+Examinemos esa función dividiéndola en dos partes principales. Este ejemplo está diseñado para que funcione con cualquier inquilino, en lugar de vincularse a uno concreto. Se utiliza el extremo "/common", que permite al usuario especificar cualquier cuenta en el momento de la autenticación y dirige la solicitud al inquilino al que pertenece. Esta primera parte del método inspecciona la memoria caché de ADAL para ver si ya hay un token almacenado. Si lo hay, usa los inquilinos de los que proviene para volver a inicializar ADAL. Esto es necesario para evitar mensajes adicionales, ya que el uso de "/common" siempre hace que se le pida al usuario que especifique una nueva cuenta. ```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
         app.context.tokenCache.readItems().then(function (items) {
             if (items.length > 0) {
                 authority = items[0].authority;
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
-```
-La segunda parte del método realiza la solicitud tokewn correcta. El método `acquireTokenSilentAsync` solicita a ADAL que devuelva un token para el recurso especificado sin mostrar ninguna experiencia de usuario. Esto puede ocurrir si la memoria caché ya tiene un token de acceso adecuado almacenado, o si hay un token de actualización que puede utilizarse para obtener un nuevo token de acceso sin mostrar ningún símbolo del sistema. Si dicho intento falla, se recurre a `acquireTokenAsync`, que solicitará visiblemente al usuario que se autentique. 
-```javascript
+``` La segunda parte del método realiza la solicitud tokewn correcta. El método `acquireTokenSilentAsync` solicita a ADAL que devuelva un token para el recurso especificado sin mostrar ninguna experiencia de usuario. Esto puede ocurrir si la memoria caché ya tiene un token de acceso adecuado almacenado, o si hay un token de actualización que puede utilizarse para obtener un nuevo token de acceso sin mostrar ningún símbolo del sistema. Si dicho intento falla, se recurre a `acquireTokenAsync`, que solicitará visiblemente al usuario que se autentique. ```javascript
             // Attempt to authorize user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
@@ -184,8 +179,7 @@ La segunda parte del método realiza la solicitud tokewn correcta. El método `a
                     app.error("Failed to authenticate: " + err);
                 });
             });
-```
- Ahora que tenemos el token, podemos invocar finalmente la API Graph y realizar la consulta de búsqueda que queremos. Inserte el fragmento de código siguiente justo debajo de la definición `authenticate`.
+``` Ahora que tenemos el token, podemos invocar finalmente la API Graph y realizar la consulta de búsqueda que queremos. Inserte el fragmento de código siguiente justo debajo de la definición `authenticate`.
 
 ```javascript
 // Makes Api call to receive user list.
@@ -258,9 +252,7 @@ Como referencia, aquí puede ver el ejemplo finalizado (sin sus valores de confi
 
 [Protección de una API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-Para acceder a recursos adicionales, consulte:
- - [Ejemplos de Azure AD en GitHub >>](https://github.com/AzureAdSamples)
- - [CloudIdentity.com >>](https://cloudidentity.com)
- - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+Para acceder a recursos adicionales, consulte: - [Ejemplos de Azure AD en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

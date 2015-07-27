@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -29,9 +29,7 @@ Microsoft creó los grupos de bases de datos elásticos precisamente para resolv
 
 Un grupo de bases de datos elásticas es una colección de recursos disponibles que comparten las bases de datos elásticas del grupo. Puede agregar bases de datos al grupo o quitarlas en cualquier momento. Las bases de datos del grupo comparten los recursos (expresados como unidades de rendimiento de la base elástica o eDTU) y la capacidad de almacenamiento del grupo, aunque cada base de datos usa solo los recursos que necesita cuando los necesita, dejando recursos libres para otras bases de datos cuando los necesiten. En lugar de aprovisionar en exceso las bases de datos individuales y pagar por recursos que permanecen inactivos, podrá asignar y pagar un precio predecible por los recursos del grupo en conjunto. Esto afecta al coste, por lo que le permitirá lograr un modelo de negocio competitivo. Además, cada base de datos ganará en adaptabilidad de rendimiento.
 
-Las bases de datos ideales para los grupos de bases de datos elásticas son aquellas que permanecen activas menos del 50 % del tiempo. Un patrón típico de actividad de las bases de datos es el de permanecer inactivas durante algún tiempo, permanecer activas con una baja demanda de recursos y activas con elevada demanda de recursos.
-
-No todas las bases de datos se ajustan a este patrón. Existen bases de datos que tienen una demanda de recursos más constante. Estas bases de datos son las más idóneas para los niveles de servicio Basic, Standard y Premium, cuyos recursos se asignan por separado.
+Las bases de datos ideales para los grupos de bases de datos elásticas son aquellas que permanecen activas menos del 50 % del tiempo. Un patrón típico de actividad de las bases de datos es el de permanecer inactivas durante algún tiempo, permanecer activas con una baja demanda de recursos y activas con elevada demanda de recursos. No todas las bases de datos se ajustan a este patrón. Existen bases de datos que tienen una demanda de recursos más constante. Estas bases de datos son las más idóneas para los niveles de servicio Basic, Standard y Premium, cuyos recursos se asignan por separado. Para obtener ayuda para determinar si las bases de datos se beneficiarían de un grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
 Los grupos de bases de datos elásticos se pueden crear mediante el Portal de Microsoft Azure o con PowerShell. Para obtener más información, vea [Creación y administración de grupos elásticos](sql-database-elastic-pool-portal.md). Para obtener información detallada acerca de los grupos de bases de datos elásticas, incluidos los detalles de errores y de API, vea la [Referencia acerca de las bases de datos elásticas](sql-database-elastic-pool-reference.md).
 
@@ -65,4 +63,4 @@ Las bases de datos que tienen habilitada la replicación geográfica se pueden m
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

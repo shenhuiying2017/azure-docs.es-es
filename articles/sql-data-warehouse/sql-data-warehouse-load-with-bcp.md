@@ -71,7 +71,7 @@ Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archiv
 20150101,1,3
 ```
 
-Guárdelo en el directorio temporal local, C:\Temp\DimDate2.txt.
+Guárdelo en el directorio temporal local, C:\\Temp\\DimDate2.txt.
 
 ### Paso 3: Conectar e importar los datos
 Con bcp, puede conectarse e importar los datos con el comando siguiente, reemplazando los valores según corresponda:
@@ -150,4 +150,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Uso del conector de Oracle en el Servicio de aplicaciones de Microsoft Azure" 
-   description="Uso del conector de Oracle" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Uso del conector de Oracle en el Servicio de aplicaciones de Microsoft Azure"
+   description="Uso del conector de Oracle"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Conector de base de datos de Oracle
@@ -23,7 +23,7 @@ Conéctese a un servidor de base de datos de Oracle local para crear y modificar
 
 - Exponer una parte de los datos que residen en la base de datos Oracle a través de una aplicación móvil o web.
 - Insertar los datos en la tabla de base de datos de Oracle para almacenarlos. Por ejemplo, puede especificar los registros de empleados, actualizar los pedidos de ventas y así sucesivamente.
-- Obtener datos de Oracle para usarlos en un proceso empresarial. Por ejemplo, puede obtener los registros de clientes y colocarlos en SalesForce. 
+- Obtener datos de Oracle para usarlos en un proceso empresarial. Por ejemplo, puede obtener los registros de clientes y colocarlos en SalesForce.
 
 
 ## Acciones y desencadenadores
@@ -69,7 +69,7 @@ Instrucción de sondeo de envío | No | Especifique la instrucción para ejecuta
 Veamos una aplicación lógica sencilla que sondea datos en una tabla de Oracle, agrega los datos en otra tabla y actualiza los datos.
 
 ### Incorporación del desencadenador
-1. Al crear o editar una aplicación lógica, seleccione el conector de Oracle que ha creado como desencadenador. Se mostrarán los desencadenadores disponibles: **Datos de sondeo (JSON)** y **Datos de sondeo (XML)**: <br/> ![][5] 
+1. Al crear o editar una aplicación lógica, seleccione el conector de Oracle que ha creado como desencadenador. Se mostrarán los desencadenadores disponibles: **Datos de sondeo (JSON)** y **Datos de sondeo (XML)**: <br/> ![][5]
 
 2. Seleccione el desencadenador **Datos de sondeo (JSON)**, especifique la frecuencia y haga clic en el signo ✓: <br/> ![][6]
 
@@ -80,7 +80,7 @@ Vamos a usar una aplicación lógica sencilla que sondea datos en una tabla de O
 
 Para usar el conector de Oracle como una acción, escriba el nombre de las tablas o procedimientos almacenados que especificó al crear el conector de Oracle:
 
-1. Seleccione el mismo conector de Oracle de la Galería como una acción. Seleccione una de las acciones de inserción, como *insertar en TempEmployeeDetails (JSON)*: <br/> ![][8] 
+1. Seleccione el mismo conector de Oracle de la Galería como una acción. Seleccione una de las acciones de inserción, como *insertar en TempEmployeeDetails (JSON)*: <br/> ![][8]
 
 2. Escriba los valores de entrada del registro que se va a insertar y haga clic en el signo ✓: <br/> ![][9]
 
@@ -115,8 +115,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

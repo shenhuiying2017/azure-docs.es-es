@@ -110,4 +110,4 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

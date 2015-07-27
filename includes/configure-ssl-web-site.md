@@ -2,9 +2,9 @@
 
 > [AZURE.NOTE]Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804) de Azure. Con este tutorial, resulta muy fácil asociar un nombre de dominio personalizado Y proteger la comunicación (SSL) con los Servicios en la nube o el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) de Azure.
 
-Puede proteger la comunicación entre la aplicación web y el explorador con HTTPS, que utiliza el cifrado de capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su aplicación. En este artículo se describe cómo configurar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure.
+Puede proteger la comunicación entre la aplicación web y el explorador con HTTPS, que utiliza el cifrado de capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su aplicación. En este artículo se describe cómo configurar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure. En este artículo no se cubre la autenticación de certificado de cliente; para obtener información al respecto, consulte [Configuración de la autenticación mutua TLS para aplicaciones web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio *.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \\*.azurewebsites.net
 
 Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio *.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Puede usar **https://mywebsite.azurewebsites.net** para acceder a la aplicación. Sin embargo, *.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como utilizar un dominio personalizado con su propio certificado.
 
@@ -517,7 +517,7 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
+[customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
@@ -541,4 +541,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -112,4 +112,4 @@ Ahora que completó este tutorial, obtenga más información acerca de los Centr
 [Procedimientos en los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

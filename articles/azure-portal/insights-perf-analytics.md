@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Supervisión del rendimiento de las aplicaciones" 
+	pageTitle="Supervisión del rendimiento de aplicaciones web de Azure" 
 	description="Carga y tiempo de respuesta de gráfico, información de dependencia y establecer alertas en el rendimiento." 
 	services="azure-portal"
     documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -12,32 +12,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
-# Supervisión del rendimiento de las aplicaciones
+# Supervisión del rendimiento de aplicaciones web de Azure
 
-En el [Portal de Azure](http://portal.azure.com) es posible configurar la supervisión para que recopile estadísticas y detalles sobre las dependencias de las aplicaciones en las aplicaciones web o máquinas virtuales.
+En el [Portal de Azure](http://portal.azure.com), puede configurar la supervisión para que recopile estadísticas y detalles sobre las dependencias de las aplicaciones en las [aplicaciones web](../app-service-web/app-service-web-overview.md) o [máquinas virtuales](../virtual-machines/virtual-machines-about.md) de Azure.
 
 Azure admite que Supervisión de rendimiento de aplicaciones (o *APM*) haga uso de *extensiones*. Dichas extensiones se instalan en la aplicación, donde recopilan datos e informan a los servicios de supervisión.
+
+Application Insights y New Relic son dos de las extensiones de supervisión de rendimiento que hay disponibles. Para usar New Relic, instale a un agente en tiempo de ejecución. Para usar Application Insights, vuelva a compilar el código con un SDK; también puede instalar una extensión que proporciona acceso a datos adicionales. El SDK permite escribir código para supervisar el uso y el rendimiento de la aplicación con más detalle.
 
 ## Habilitación de extensiones
 
 1. Haga clic en **Examinar** y seleccione la aplicación web o la máquina virtual que desee instrumentar.
 
-2. Haga clic en el icono **Supervisión de aplicaciones** de **Supervisión**.
+2. Agregue toda la extensión de Application Insights o New Relic. Si va a instrumentar una aplicación web:
 
-3. Elija el proveedor de extensiones que desea utilizar, como **Application Insights** o **New Relic**.
-
-![APM de aplicaciones web](./media/insights-perf-analytics/05-extend.png)
+![Configuración, Extensiones, Agregar, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 O bien, si utiliza una máquina virtual:
 
-![Máquina virtual](./media/insights-perf-analytics/10-vm1.png)
+![Haga clic en el icono Análisis](./media/insights-perf-analytics/10-vm1.png)
 
 ### En Application Insights: recompilar con el SDK
 
-New Relic puede instalarse automáticamente sin ninguna instrumentación adicional, pero Application Insights tiene un requisito adicional.
+Application Insights funciona instalando un SDK en la aplicación.
 
 En Visual Studio, agregue el SDK de Application Insights al proyecto.
 
@@ -81,4 +81,4 @@ Una vez que obtenga la hoja, para Application Insights, por ejemplo, puede reali
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

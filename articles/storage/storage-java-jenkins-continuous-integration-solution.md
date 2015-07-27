@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="Uso del Almacenamiento de Azure con una solución de integración continua Jenkins | Microsoft Azure" 
-	metaKeywords="" 
 	description="En este tutorial se muestra cómo usar el servicio BLOB de Azure como repositorio para artefactos de compilación creados por una solución de integración continua Jenkins." 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe" />
 
 <tags 
 	ms.service="storage" 
@@ -109,7 +102,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
         cd text
         echo Hello Azure Storage from Jenkins > hello.txt
         date /t > date.txt
-        time /t > date.txt
+        time /t >> date.txt
  
 5. En la sección **Post-build Actions** (Acciones posteriores a la compilación) de la configuración del trabajo, haga clic en **Add post-build action** (Agregar acción posterior a la compilación) y seleccione **Upload artifacts to Azure Blob storage** (Cargar artefactos en el almacenamiento de blobs de Azure).
 6. En **Storage account name** (Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
@@ -122,7 +115,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 8. Haga clic en **Make new container public by default** (Hacer público el nuevo contenedor de forma predeterminada) para este ejemplo. (Si desea usar un contenedor privado, también tendrá que crear una firma de acceso compartida para permitir el acceso. Eso va más allá del ámbito de este tema. Puede obtener más información acerca de las firmas de acceso compartido en [Creación de una firma de acceso compartido](http://go.microsoft.com/fwlink/?LinkId=279889).)
 9. [Opcional] Haga clic en **Clean container before uploading** (Limpiar contenedor antes de cargarlo) si desea que se borre el contenido del contenedor antes de cargar los artefactos de compilación (déjela sin marcar si no desea limpiar el contenido del contenedor).
 10. En **List of Artifacts to upload** (Lista de artefactos para cargar), escriba **text/*.txt**.
-11. A los efectos del presente tutorial, en **Common virtual path for uploaded artifacts** (Ruta de acceso virtual común para artefactos cargados), escriba **${BUILD\_ID}/${BUILD\_NUMBER}**.
+11. A los efectos del presente tutorial, en **Common virtual path for uploaded artifacts** (Ruta de acceso virtual común para artefactos cargados), escriba **${BUILD\\_ID}/${BUILD\\_NUMBER}**.
 12. Haga clic en **Save** (Guardar) para guardar la configuración.
 13. En el panel de Jenkins, haga clic en **Build Now** (Compilar ahora) para ejecutar **MyJob**. Examine el resultado de la consola para consultar el estado. Los mensajes de estado sobre el almacenamiento de Azure se incluirán en los resultados de la consola cuando la acción posterior a la compilación comience a cargar los artefactos de compilación.
 14. Tras completar el trabajo satisfactoriamente, abra el blob público si desea examinar los artefactos de compilación.
@@ -161,7 +154,7 @@ A continuación se ofrece información general acerca de los componentes del ser
     
     (El formato anterior se aplica a la nube pública de Azure. En cambio, si usa una nube de Azure distinta, use el extremo en el portal de administración de Azure para determinar el extremo de la URL).
 
-    En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/**. El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\_ID}/${BUILD\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
+    En el formato anterior, `storageaccount` representa el nombre de la cuenta de almacenamiento, `container_name` representa el nombre del contenedor y `blob_name` representa el nombre del blob. En el nombre del contenedor, puede tener varias rutas de acceso, separadas por una barra diagonal, **/**. El nombre de contenedor utilizado como ejemplo para este tutorial es **MyJob** y **${BUILD\\_ID}/${BUILD\\_NUMBER}** se ha usado para la ruta de acceso virtual común; como resultado, la URL del blob presenta el siguiente formato:
 
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
@@ -172,4 +165,4 @@ A continuación se ofrece información general acerca de los componentes del ser
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

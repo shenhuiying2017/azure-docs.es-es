@@ -52,4 +52,4 @@ Este documento describe un patrón de procesamiento por lotes fuera del sitio me
 
 [Nivel de Búsqueda de Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

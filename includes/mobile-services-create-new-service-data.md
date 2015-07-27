@@ -33,4 +33,4 @@ A continuación, creará un nuevo servicio móvil para sustituir la lista en mem
 
 Ahora ha creado un servicio móvil que pueden usar sus aplicaciones móviles. A continuación, agregará una nueva tabla en la que se almacenarán los datos de aplicaciones. Esta tabla será la que utilice la aplicación en lugar de la colección en memoria.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

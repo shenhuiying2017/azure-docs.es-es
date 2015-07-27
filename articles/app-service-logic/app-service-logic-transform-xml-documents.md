@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Transformación de documentos XML" 
+	pageTitle="Transformación de BizTalk" 
 	description="Aprenda a transformar documentos XML de un esquema a otro." 
 	authors="anuragdalmia" 
 	manager="dwrede" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2015"
+	ms.date="06/30/2015"
 	ms.author="anuragdalmia"/>
 
-#Transformación de documentos XML
+#Transformación de BizTalk
 
 
-## Introducción a la aplicación de API de transformación de BizTalk
+## Información general
 En pocas palabras, la aplicación de API de transformación de BizTalk convierte los datos de un formato a otro. Por ejemplo, puede tomar las direcciones de envío y facturación de un pedido de compra e insertarlas en un documento de factura. También puede darse el caso de que tenga un mensaje entrante en el que la fecha actual tenga el formato *YearMonthDay*. Si lo desea, puede cambiar el formato de la fecha a *MonthDayYear*.
 
 Puede hacerlo mediante la aplicación de API de transformación incluida en el servicio de aplicaciones de Microsoft Azure. Una transformación o una asignación están formadas por un esquema XML de origen (la entrada) y un esquema XML de destino (la salida). Puede utilizar las diferentes funciones integradas para administrar o controlar los datos, incluidos aspectos como las manipulaciones de cadenas, las asignaciones condicionales, las expresiones aritméticas, los formateadores de tiempo y fecha e, incluso, las construcciones en bucle.
@@ -34,46 +34,12 @@ Otras características:
 - Al crear una asignación, se muestra una representación gráfica de la asignación, incluidas todas las relaciones y los vínculos que cree.
 - Utilice la característica **Comprobar asignación** para agregar un mensaje XML de ejemplo. Con un solo clic, puede probar la asignación creada y ver el resultado generado.
 - Cargue las asignaciones de servicios de BizTalk de Azure existentes (.trfm) y use todas las ventajas de la aplicación de API de transformación.
+- Cuando crea la asignación, no es necesario agregar un esquema. Cuando la asignación esté lista, agréguela a la aplicación de API de transformación y ya puede comenzar. 
 - Es compatible con el formato XML.
-
-
-## Creación de una aplicación de API de transformación de BizTalk nueva
-
-1.	Inicie sesión en el Portal de Azure y vaya al Panel de inicio (página principal).
-
-2.	Elija **Nuevo** > **Web + móvil** > **Azure Marketplace** > **Aplicaciones de API**:
-
-	   ![][1]
- 
-	O bien puede elegir **Marketplace** en el Panel de inicio y seleccionar **Aplicaciones de API** en la lista disponible:
-
-	   ![][2]
- 
-3.	Para buscar la transformación de BizTalk, escriba **Transformar** y elija **Servicio de transformación de BizTalk**:
-
-	   ![][4]
- 
-4.	En la hoja **Servicio de transformación de BizTalk**, elija **Crear**:
-
-       ![][5]
- 
-5.	En la hoja **Nueva aplicación de API**, escriba la información siguiente y elija **Crear**:
-
-	- Nombre: asigne un nombre a la aplicación de API de transformación. 
-	- Plan de servicio de la aplicación: elija o cree un nuevo plan de servicio de aplicaciones. 
-	- Nivel de precios: elija el nivel de precios en el que desea que resida esta aplicación 
-	- Grupo de recursos: elija o cree el grupo de recursos en el que desea ubicar la aplicación. 
-	- Ubicación: elija la ubicación geográfica en la que desea implementar la aplicación.
-	
-	   ![][6]
-
-6.	Seleccione **Crear**. La aplicación de API de transformación de BizTalk se creará en unos minutos.
 
 
 ## Descarga de esquemas desde aplicaciones de API de conectores
 Puede descargar los esquemas XML para conectores como SQL, SAP y SharePoint desde la página de resumen de la aplicación de API. Por ejemplo, si desea descargar esquemas XML para una aplicación de API específica de conector de SAP, busque la aplicación de API y abra la página de resumen. Elija **Descargar esquemas** y se descargará en el equipo un archivo zip con todos los esquemas correspondientes a las acciones de SAP. Puede utilizar los esquemas para crear una asignación (.trfm) en Visual Studio.
-
-   ![][14]
 
 
 ## Creación e incorporación de la asignación
@@ -109,7 +75,7 @@ Si el mapa cambia o se ha modificado después de cargarlo, puede cargar la asign
 
 
 ## Uso de una aplicación de API de transformación de BizTalk en una aplicación lógica
-Una vez que se haya creado y probado la asignación, estará lista para su uso. Los usuarios pueden crear una nueva aplicación lógica (**Nuevo** > **Aplicaciones lógicas**).
+Una vez que se haya creado y probado la asignación, estará lista para su uso.
 
 1. Dentro de la aplicación lógica, la transformación de BizTalk está disponible en la galería, en la parte derecha. Elija **Servicio de transformación de BizTalk** en la galería. La transformación se agrega al flujo de:
 
@@ -150,4 +116,4 @@ Una vez que se haya creado y probado la asignación, estará lista para su uso. 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

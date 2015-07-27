@@ -297,4 +297,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

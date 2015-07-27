@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/24/2015" 
+	ms.date="07/14/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,26 +21,26 @@
 
 Para desarrolladores de SaaS que tienen decenas, cientos o incluso miles de bases de datos, los grupos de bases de datos elásticas simplifican el proceso de creación, mantenimiento y administración del rendimiento y el coste de todo el grupo de bases de datos.
 
-Esta referencia proporciona vínculos y detalles de artículos de grupos elásticos, así como información de programación.
+Esta referencia proporciona vínculos y detalles de artículos de grupos elásticos de bases de datos, así como información de programación.
 
 ## Información general
 
-Un grupo elástico es una colección de unidades de rendimiento de bases de datos (DTU) y almacenamiento (GB) que se comparten en varias bases de datos. Las bases de datos elásticas se pueden agregar y quitar del grupo en cualquier momento. Las bases de datos elásticas del grupo usan solo los recursos que necesitan, con lo que liberan recursos disponibles solo para las bases de datos activas que los necesiten.
+Un grupo de bases de datos elásticas es una colección de unidades de rendimiento de bases de datos (DTU) y almacenamiento (GB) que varias bases de datos comparten. Las bases de datos elásticas se pueden agregar y quitar del grupo en cualquier momento. Las bases de datos elásticas del grupo usan solo los recursos que necesitan, con lo que liberan recursos disponibles solo para las bases de datos activas que los necesiten. Para obtener ayuda para determinar si las bases de datos se beneficiarían de un grupo de bases de datos elásticas, consulte [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
 
 
 
-## Requisitos previos para crear y administrar grupos elásticos
+## Requisitos previos para crear y administrar grupos de bases de datos elásticas
 
 
-- Los grupos elásticos solo están disponibles en los servidores de base de datos SQL V12 de Azure.   
-- PowerShell y las API de REST para grupos elásticos solo son compatibles en el Administrador de recursos de Azure (ARM); los comandos de administración de servicio (RDFE) no son compatibles. 
-- La creación y administración de grupos elásticos solo se admite en el [Portal de Microsoft Azure](https:portal.azure.com). 
+- Los grupos de bases de datos elásticas solo están disponibles en los servidores de Base de datos SQL V12 de Azure.   
+- La creación y administración de grupos de bases de datos elásticas se puede realizar con el [portal de Microsoft Azure](https://portal.azure.com), PowerShell y las API de REST del Administrador de recursos de Azure (ARM); no se admiten el [portal clásico](https://manage.windowsazure.com/) y los comandos de administración de servicio (RDFE). 
 
 
 ## Restricciones de la vista previa actual
 
-- El nivel de precios de un grupo elástico en la vista previa actual es Standard.  
-- No se admite la importación de una base de datos directamente en un grupo elástico. Puede importar a una base de datos independiente y, a continuación, mover la base de datos a un grupo. No se admite la exportación de una base de datos desde un grupo.
+- El nivel de precios de un grupos de bases de datos elásticas en la versión preliminar actual es Standard.  
+- No se admite la importación de una base de datos directamente en un grupo. Puede importar a una base de datos independiente y, a continuación, mover la base de datos a un grupo. No se admite la exportación de una base de datos desde un grupo.
+- Cada grupo puede tener un máximo 100 bases de datos.
 
 
 ## Lista de artículos
@@ -49,9 +49,9 @@ Los artículos siguientes le ayudarán a empezar a usar bases de datos y trabajo
 
 | Artículo | Descripción |
 | :-- | :-- |
-| [Grupos elásticos de bases de datos SQL](sql-database-elastic-pool.md) | Información general sobre los grupos elásticos |
-| [Creación y administración de un grupo elástico de bases de datos SQL con el portal de Azure](sql-database-elastic-pool-portal.md) | Creación y administración de un grupo elástico mediante el portal de Azure |
-| [Creación y administración de un grupo elástico de bases de datos SQL con PowerShell](sql-database-elastic-pool-powershell.md) | Creación y administración de un grupo elástico mediante cmdlets de PowerShell |
+| [Grupos de bases de datos SQL elásticas](sql-database-elastic-pool.md) | Información general sobre los grupos elásticos |
+| [Creación y administración de un grupo de bases de datos SQL elásticas con el portal de Azure](sql-database-elastic-pool-portal.md) | Creación y administración de un grupo elástico mediante el portal de Azure |
+| [Creación y administración de un grupo de bases de datos SQL elásticas con PowerShell](sql-database-elastic-pool-powershell.md) | Creación y administración de un grupo elástico mediante cmdlets de PowerShell |
 | [Información general de los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md) | Información general acerca del servicio de trabajos elásticos, que permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos elásticas de un grupo. |
 | [Instalación del componente de trabajo de la base de datos elástica](sql-database-elastic-jobs-service-installation.md) | Instalación del servicio de trabajo de base de datos elástica |
 | [Creación del usuario necesario para el servicio de trabajos elásticos](sql-database-elastic-jobs-add-logins-to-dbs.md) | Para ejecutar una secuencia de comandos de trabajo de la base de datos elástica, deberá agregar un usuario con los permisos adecuados para cada base de datos del grupo. |
@@ -63,7 +63,7 @@ Los artículos siguientes le ayudarán a empezar a usar bases de datos y trabajo
 Un grupo elástico es un recurso ARM de tipo "ElasticPool" en la base de datos SQL de Microsoft Azure.
 
 - **Espacio de nombres**: Microsoft.Sql/ElasticPool
-- **Extremo secundario** para llamadas de API de REST (administrador de recursos de Azure): https://management.azure.com
+- **management-endpoint** para llamadas a la API de REST (Administrador de recursos de Azure): https://management.azure.com
 
 
 
@@ -111,11 +111,10 @@ El número máximo de sesiones y trabajadores simultáneos que se admiten para t
 
 ## Limitaciones del Administrador de recursos de Azure
 
-Un grupo elástico requiere un servidor de base de datos SQL V12 de Azure. Los servidores se encuentran en un grupo de recursos.
+Los servidores de Base de datos SQL V12 de Azure se encuentran en grupos de recursos.
 
 - Cada grupo de recursos puede tener un máximo de 800 servidores.
 - Cada servidor puede tener un máximo de 800 grupos elásticos.
-- Cada grupo elástico puede tener un máximo de 100 bases de datos.
 
 
 ## Latencia de las operaciones de grupos elásticos
@@ -192,4 +191,4 @@ El precio unitario de DTU de un grupo elástico es mayor que el precio unitario 
 | 40891 | EX_USER | El número mínimo de DTU por base de datos (%d) no puede superar el número máximo de DTU por base de datos (%d). | Número mínimo de DTU por base de datos; número máximo de DTU por base de datos. | Se intentó establecer el número mínimo de DTU por base de datos con un valor superior al número máximo de DTU por base de datos. | Asegúrese de que el número mínimo de DTU por base de datos no supere el número máximo de DTU por base de datos. |
 | TBD | EX_USER | El tamaño de almacenamiento para una base de datos individual de un grupo elástico no puede superar el tamaño máximo permitido por el grupo elástico del nivel de servicio ' %.* ls'. | Nivel de servicio de grupo elástico. | El tamaño máximo de la base de datos supera el tamaño máximo permitido por el nivel de servicio del grupo elástico. | Establezca el tamaño máximo de la base de datos por debajo de los límites de tamaño máximo permitidos por el nivel de servicio del grupo elástico. |
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

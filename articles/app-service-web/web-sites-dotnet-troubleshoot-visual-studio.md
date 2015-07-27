@@ -109,7 +109,7 @@ Con frecuencia, la manera más fácil de encontrar la causa de un error es habil
 
 	![Mensajes de error detallados](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-	(El error que aparece se generó al agregar la línea en rojo a *Views\Home\Index.cshtml*).
+	(El error que aparece se generó al agregar la línea en rojo a *Views\\Home\\Index.cshtml*).
 
 Editar el archivo Web.config es solo un ejemplo de las situaciones en las que la capacidad de leer y editar archivos en su aplicación web de Azure facilita la solución de problemas.
 
@@ -123,7 +123,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 1. Abra el proyecto web que creó en [Introducción a Azure y ASP.NET][GetStarted].
 
-1. Abra *Controllers\HomeController.cs*.
+1. Abra *Controllers\\HomeController.cs*.
 
 2. Elimine el método `About()` e inserte el siguiente código en su lugar.
 
@@ -269,7 +269,7 @@ Si la función [escribió registros](websites-dotnet-webjobs-sdk-storage-queues-
 
 * Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
 
-* Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/es-es/library/vstudio/sc65sadd.aspx).
+* Puede asociar manualmente el depurador a cualquier proceso, no solo al proceso de la aplicación web (w3wp.exe). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depuración en Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 
 ## <a name="logsoverview"></a>Información general de registros de diagnóstico
 
@@ -298,7 +298,7 @@ Para obtener información acerca de cómo crear registros de aplicaciones en Web
 
 ### Adición de instrucciones de seguimiento a la aplicación
 
-1. Abra *Controllers\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
+1. Abra *Controllers\\HomeController.cs* y reemplace el contenido del archivo por el siguiente código para agregar instrucciones `Trace` y una instrucción `using` para `System.Diagnostics`:
 
 		using System;
 		using System.Collections.Generic;
@@ -519,9 +519,9 @@ Todos los registros que se pueden supervisar en la ventana **Resultados** tambi�
 
 	![Archivo descargado](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
-	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\Application*.
-	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\http\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
-	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\DetailedErrors*.
+	* Los registros de seguimiento de aplicación están en archivos *.txt* en la carpeta *LogFiles\\Application*.
+	* Los registros de servidor web están en archivos *.log* en la carpeta *LogFiles\\http\\RawLogs*. Puede utilizar una herramienta como [Analizador del registro](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) para ver y manipular estos archivos.
+	* Los registros de mensajes de error detallados están en los archivos *.html* de la carpeta *LogFiles\\DetailedErrors*.
 
 	(La carpeta de *implementaciones* es para archivos creados por la publicación del control del código fuente; no tiene ninguna relación con la publicación en Visual Studio. La carpeta *Git* es para seguimientos relacionados con la publicación de control de origen y el servicio de transmisión de archivos de registro).
 
@@ -567,8 +567,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 1. En la ventana **Aplicación web de Azure** de Visual Studio, haga clic en la pestaña **Registros** y a continuación, haga clic en **Configurar registro en el Portal de administración**.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
-	![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![registro](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	Esto abre la pestaña **Configurar** en el portal de administración de su aplicación web. También puede llegar ahí mediante un clic en la pestaña **Aplicaciones web**, donde debe hacer clic en su aplicación web y, a continuación, en la pestaña **Configurar**.
 
@@ -739,7 +738,7 @@ También antiguo, pero incluye cierta información adicional que el artículo de
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Publicaciones de blog de Scott Hanselman sobre ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
-Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\home\logfiles*.
+Además, tenga en cuenta que no tiene que utilizar el seguimiento de System.Diagnostics o ASP.NET si desea obtener registros de streaming de Azure. El servicio de registros de streaming de la aplicación web de Azure transmitirá todo archivo *.txt*, *.html* o *.log* que encuentre en la carpeta *LogFiles*. Por lo tanto, podría crear su propio sistema de registro que escriba en el sistema de archivos de la aplicación web y su archivo se transmitirá y descargará automáticamente. Todo lo que tiene que hacer es escribir código de aplicación que cree archivos en la carpeta *d:\\home\\logfiles*.
 
 ### Análisis de registros de servidor web
 
@@ -757,7 +756,7 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Uso de seguimien
 
 ### Depuración de Servicios en la nube
 
-Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web, consulte [Depuración de servicio en la nube](http://msdn.microsoft.com/es-es/library/windowsazure/ee405479.aspx).
+Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web, consulte [Depuración de servicio en la nube](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx).
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
@@ -769,4 +768,4 @@ Si desea depurar un servicio en la nube de Azure en lugar de una aplicación web
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!-----HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -2,7 +2,6 @@
 	pageTitle="Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes" 
 	description="Se explica cómo el nuevo Servicio de aplicaciones de Azure y sus características afectan a los servicios ya existentes de Azure." 
 	authors="yochayk" 
-	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
@@ -90,4 +89,5 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 
 Para obtener más información, visite [Documentación del Servicio de aplicaciones](http://azure.microsoft.com/documentation/services/app-service/).
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

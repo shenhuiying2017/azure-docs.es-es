@@ -78,7 +78,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 ##Actualización de la aplicación para iniciar sesión antes del registro
 
-[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](mobile-services-android-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-android-push-notifications-app-users](../../includes/mobile-services-android-push-notifications-app-users.md)]
 
 ##Prueba de la aplicación
 
@@ -98,4 +98,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

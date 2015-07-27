@@ -352,4 +352,4 @@ En este tema hemos visto cómo crear a un cliente REST de Python sencillo para c
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

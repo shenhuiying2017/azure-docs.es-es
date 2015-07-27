@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Configurar el área de trabajo y administrar la configuración
@@ -34,7 +34,7 @@ Cada área de trabajo puede tener varias cuentas de usuario asociadas y cada una
 
 ## Vincular un área de trabajo existente a una suscripción de Azure
 
-Es posible crear un área de trabajo desde [opinsights.azure.com](http://opinsights.azure.com). Sin embargo, existen ciertos límites en estas áreas de trabajo, el más notable es el límite de 500 MB/día para cargar datos si usa una cuenta gratuita. Para realizar cambios en esta área de trabajo deberá **vincular el área de trabajo existente a una suscripción de Azure**.
+Es posible crear un área de trabajo desde [microsoft.com/oms](https://microsoft.com/oms). Sin embargo, existen ciertos límites en estas áreas de trabajo, el más notable es el límite de 500 MB/día para cargar datos si usa una cuenta gratuita. Para realizar cambios en esta área de trabajo deberá **vincular el área de trabajo existente a una suscripción de Azure**.
 
 >[AZURE.IMPORTANT]Para vincular un área de trabajo, su cuenta de Azure debe tener acceso al área de trabajo que quiere vincular. En otras palabras, la cuenta que usa para acceder al portal de Azure debe ser **la misma** que la cuenta que usa para tener acceso al área de trabajo de Visión operativa. Si no es el caso, consulte [Agregar un usuario a un área de trabajo existente](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
@@ -179,6 +179,5 @@ Si es administrador, y hay varios usuarios asociados con el área de trabajo, se
 2. Seleccione uno de los motivos para cerrar el área de trabajo o escriba un motivo distinto en el cuadro de texto.
 
 3. Haga clic en **Cerrar área de trabajo**.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

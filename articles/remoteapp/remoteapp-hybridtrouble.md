@@ -3,7 +3,7 @@
     pageTitle="Solución de problemas de creación de colecciones híbridas de RemoteApp"
     description="Obtenga información sobre cómo solucionar problemas con la creación de las colecciones híbridas de RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -83,4 +83,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

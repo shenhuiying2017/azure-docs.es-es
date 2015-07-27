@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="05/04/2015"
+   ms.date="07/09/2015"
    ms.author="coreyp"/>
 
 # Información general de DSC de Automatización de Azure #
 
->[AZURE.IMPORTANT]**DSC de Automatización de Azure actualmente está en vista previa limitada** y no es compatible para las cargas de trabajo de producción. Por el momento solo está basado en cmdlet y no cuenta con interfaz gráfica de usuario. Si se registra para obtener la vista previa de DSC de Automatización de Azure, acepta que esta característica se encuentra en vista previa y que está sujeta a condiciones de servicio reducidas o menores, tal como se estipula en el [acuerdo de servicio](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409) y que acepta las [condiciones complementarias de vista previa](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409). A pesar de que el uso del servicio actualmente es gratuito, a futuro de introducirán precios.
+>[AZURE.IMPORTANT]**DSC de Automatización de Azure actualmente está en vista previa limitada** y no es compatible para las cargas de trabajo de producción. Por ahora se basa principalmente en cmdlets y tiene una interfaz gráfica de usuario mínima. Si se registra para obtener la vista previa de DSC de Automatización de Azure, acepta que esta característica se encuentra en vista previa y que está sujeta a condiciones de servicio reducidas o menores, tal como se estipula en el [acuerdo de servicio](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409) y que acepta las [condiciones complementarias de vista previa](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409). A pesar de que el uso del servicio actualmente es gratuito, a futuro de introducirán precios.
 
 ## ¿Qué es DSC de PowerShell? ##
 Configuración de estado deseado (DSC) es una plataforma de administración nueva en Windows PowerShell que permite administrar la configuración de hosts físicos y máquinas virtuales mediante el uso de una sintaxis declarativa de PowerShell.
@@ -49,6 +49,8 @@ DSC de Automatización de Azure se basa en los elementos fundamentales presentad
 
 DSC de Automatización de Azure le permite [crear y administrar Configuraciones de estado deseado de PowerShell](https://technet.microsoft.com/library/dn249918.aspx), importar [Recursos de DSC](https://technet.microsoft.com/library/dn282125.aspx) y generar Configuraciones de nodo de DSC (documentos MOF), todo en la nube. Estos elementos de DSC se colocarán en el [servidor de extracción de DSC](https://technet.microsoft.com/library/dn249913.aspx) de Automatización de Azure, para que los nodos de destino (como las máquinas físicas y virtuales) en la nube o locales puedan tomarlos, cumplir automáticamente con el estado deseado especificado e informar según su cumplimiento con el estado deseado a Automatización de Azure.
 
+> [AZURE.VIDEO microsoft-ignite-2015-heterogeneous-configuration-management-using-microsoft-azure-automation]
+
 ## Condiciones de DSC de Automatización de Azure ##
 ### Configuración ###
 DSC de PowerShell introdujo un concepto nuevo llamado configuraciones. Las configuraciones le permiten definir, a través de la sintaxis de PowerShell, el estado deseado de su entorno. Para usar DSC para configurar su entorno, primero defina un bloque de scripts de Windows PowerShell usando la palabra clave Configuration, seguida de un identificador y llaves ({}) para delimitar el bloque.
@@ -69,7 +71,7 @@ Ejecutar (compilar) una configuración de DSC generará una o más configuracion
 
 DSC de Automatización de Azure le permite importar, crear y compilar configuraciones de DSC en Automatización de Azure, de manera similar a cómo se pueden importar, crear e iniciar runbooks en Automatización de Azure.
 
-Actualmente, DSC de Automatización de Azure proporciona los siguientes cmdlets en el **módulo PowerShell de Administrador de recursos de Azure** para la administración de configuraciones de DSC:
+Actualmente, DSC de Automatización de Azure proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de configuraciones de DSC:
 
 - `Get-AzureAutomationDscConfiguration`
 - `Import-AzureAutomationDscConfiguration`
@@ -82,7 +84,7 @@ Cuando se compila una configuración de DSC, se generan una o más configuracion
 
 Los nodos de DSC de PS descubren las configuraciones de nodo que deben aplicar a través de métodos de inserción o extracción de DSC. DSC de Automatización de Azure se basa en el método de extracción de DSC, donde los nodos solicitan configuraciones de nodo que deben aplicar desde los servidores de extracción de DSC de Automatización de Azure. Debido a que los nodos realizan la solicitud a DSC de Automatización de Azure, pueden encontrarse detrás de firewalls, pueden tener cerrados todos los puertos de entrada, etc. Lo único que necesitan es acceso de salida a Internet.
 
-DSC de Automatización de Azure proporciona actualmente los siguientes cmdlets en el **módulo PowerShell de Administrador de recursos de Azure** para la administración de configuraciones de nodos de DSC: `Get-AzureAutomationDscNodeConfiguration`
+DSC de Automatización de Azure proporciona actualmente los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de configuraciones de nodos de DSC: `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###Nodo###
@@ -91,7 +93,7 @@ Un nodo de DSC es cualquier equipo cuya configuración es administrada por DSC. 
 
 DSC de Automatización de Azure facilita la incorporación de nodos para su administración por parte de DSC de Automatización de Azure y permite cambiar la configuración de nodos asignada al lado servidor de cada nodo, para que la próxima vez que un nodo revise un servidor para obtener instrucciones, asumirá un rol distinto y cambiará cómo se configura para coincidir. Los nodos también informan el cumplimiento de estado y configuración a DSC de Automatización de Azure.
 
-DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para la administración de nodos de DSC:
+DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de nodos de DSC:
 
 -	`Get-AzureAutomationDscNode`  
 -	`Register-AzureAutomationDscNode` (se usa para incorporar máquinas virtuales de Azure v2 como nodos)
@@ -137,7 +139,7 @@ PowerShell:
         ConfigurationFunction = "RegistrationMetaConfig.ps1\RegistrationMetaConfig"
 
         # update these DSC agent configurations if these defaults are not what you want. 
-        # See https://technet.microsoft.com/es-es/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
+        # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
         Properties = @{
             RegistrationKey = $RegistrationInfo.PrimaryKey
             RegistrationUrl = $RegistrationInfo.Endpoint
@@ -168,7 +170,7 @@ Los recursos de DSC también se pueden importar como parte de los módulos Power
 
 DSC de Automatización de Azure incluye los mismos recursos integrados de DSC que DSC de PS. Es posible agregar recursos adicionales a DSC de Automatización de Azure mediante la importación a Automatización de Azure de los módulos PowerShell que contienen los recursos.
 
-DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para la administración de nodos de DSC:
+DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de nodos de DSC:
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -185,7 +187,7 @@ Un trabajo de compilación en DSC de Automatización de Azure es una instancia d
 >[AZURE.NOTE]Las configuraciones se pueden publicar, al igual que los runbooks. Esto no está relacionado con la colocación de elementos de DSC en el servidor de extracción de DSC de Automatización de Azure. Los trabajos de compilación hacen que se coloquen los elementos de DSC en el servidor de extracción de DSC de Automatización de Azure. Para obtener más información acerca de cómo "publicar" en Automatización de Azure, consulte [Publicar un runbook](https://msdn.microsoft.com/library/dn903765.aspx).
 
 
-DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](../powershell-azure-resource-manager.md) para la administración de trabajos de compilación:
+DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets en el [módulo PowerShell de Administrador de recursos de Azure](https://msdn.microsoft.com/library/mt244122.aspx) para la administración de trabajos de compilación:
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
@@ -218,8 +220,10 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Cuando un nodo se registra por primera vez con una cuenta de Automatización de Azure o cuando el nodo se cambia para asignarlo a una configuración de nodo distinta de lado servidor, su estado estará en cumplimiento, incluso si el estado del nodo no está realmente en cumplimiento con la configuración de nodo a la que ahora está asignado. Una vez que el nodo envía su primer informe después del registro o un cambio de asignación de la configuración de nodo, el estado del nodo puede ser de confianza.
 
-- Cuando se incorpora una máquina virtual de Azure para la administración con DSC de Automatización de Azure mediante el uso de `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, si el registro muestra el error **No se especificó el nombre del equipo, y el directorio de configuración no tiene ningún archivo de configuración**, se trata de una falsa alarma y el registro de la máquina virtual se realizó correctamente. Para comprobar si el registro se realizó de manera correcta, puede usar el cmdlet `Get-AzureAutomationDscNode`.
+- Cuando se incorpora una máquina virtual de Azure para la administración con DSC de Automatización de Azure mediante el uso de `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el Portal de vista previa de Azure, si el registro muestra el error **No se especificó el nombre del equipo, y el directorio de configuración no tiene ningún archivo de configuración**, se trata de una falsa alarma y el registro de la máquina virtual se realizó correctamente. Para comprobar si el registro se realizó de manera correcta, puede usar el cmdlet `Get-AzureAutomationDscNode`.
 
- 
+- Al incorporar una VM de Azure para la administración con DSC de Automatización de Azure usando `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` o la extensión de máquina virtual de DSC de Automatización de Azure en el portal de vista previa de Azure, la máquina virtual puede tardar hasta una hora en aparecer como nodo DSC en Automatización de Azure. Esto se debe a la instalación de Windows Management Framework 5.0 en la máquina virtual por la extensión de DSC de la máquina virtual de Azure, que es necesario para incorporar la máquina a DSC de Automatización de Azure.
 
-<!---HONumber=62-->
+- Los nodos de DSC incorporados a DSC de Automatización de Azure mostrarán inicialmente el estado ''Conforme'', incluso si no son realmente conformes con la configuración del nodo de DSC que tienen asignada. Después de que un nodo realice su primera extracción y envíe su primer informe de DSC a DSC de Automatización de Azure, el estado del nodo debe ser correcto.
+
+<!---HONumber=July15_HO3-->

@@ -461,7 +461,7 @@ Para obtener información de conexión de FTP a partir de las hojas de la aplica
 
 1. En **Essentials**, busque y copie el **nombre de host del FTP**. Se trata de un URI similar a `ftp://waws-prod-bay-NNN.ftp.azurewebsites.windows.net`.
 
-2. En **Essentials**, busque y copie el **nombre de usuario de implementación/FTP**. Tendrá el formato *nombreaplicaciónweb\nombreusuarioimplementación*, por ejemplo `WebDemoWebApp\deployer77`.
+2. En **Essentials**, busque y copie el **nombre de usuario de implementación/FTP**. Tendrá el formato *nombreaplicaciónweb\\nombreusuarioimplementación*, por ejemplo `WebDemoWebApp\deployer77`.
 
 Para obtener información sobre la conexión FTP desde el perfil de publicación:
 
@@ -542,7 +542,7 @@ Otra herramienta que puede usar para publicar la aplicación es FileZilla, un cl
 1. En FileZilla, haga clic en **File (Archivo) > Site Manager (Administrador de sitios)**.
 2. En el cuadro de diálogo **Site Manager** (Administrador de sitios), haga clic en **New Site** (Nuevo sitio). Aparecerá un nuevo sitio FTP en blanco en **Select Entry** (Seleccionar entrada), en el que se le solicitará que proporcione un nombre. Para este procedimiento, asígnele el nombre `AzureWebDemo-FTP`.
 
-    En la pestaña **General**, especifique la siguiente configuración: - **Host:** especifique el **Nombre de host FTP** que copió del panel. - **Port** (Puerto): deje este campo en blanco, ya que se trata de una transferencia pasiva y el servidor será el que determine el puerto que se debe usar. - **Protocol** (Protocolo): es el protocolo de transferencia de archivo FTP. - **Encryption** (Cifrado): use el modo FTP sin cifrar. - **Logon Type** (Tipo de inicio de sesión): especifique Normal. - **User** (Usuario): especifique el usuario FTP o la implementación que copió del panel. Se trata del nombre de usuario FTP completo, que tiene la forma *nombreaplicaciónweb\nombreusuario*.- **Password** (Contraseña): escriba la contraseña que especificó al configurar las credenciales de la implementación.
+    En la pestaña **General**, especifique la siguiente configuración: - **Host:** especifique el **Nombre de host FTP** que copió del panel. - **Port** (Puerto): deje este campo en blanco, ya que se trata de una transferencia pasiva y el servidor será el que determine el puerto que se debe usar. - **Protocol** (Protocolo): es el protocolo de transferencia de archivo FTP. - **Encryption** (Cifrado): use el modo FTP sin cifrar. - **Logon Type** (Tipo de inicio de sesión): especifique Normal. - **User** (Usuario): especifique el usuario FTP o la implementación que copió del panel. Se trata del nombre de usuario FTP completo, que tiene la forma *nombreaplicaciónweb\\nombreusuario*.- **Password** (Contraseña): escriba la contraseña que especificó al configurar las credenciales de la implementación.
 
     En la pestaña **Transfer Settings** (Configuración de transferencia), elija **Passive** (Pasivo).
 
@@ -590,4 +590,4 @@ Este procedimiento crea una aplicación web de Servicio de aplicaciones. Se le f
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

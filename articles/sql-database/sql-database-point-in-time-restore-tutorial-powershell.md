@@ -42,7 +42,7 @@ Debe utilizar la autenticación basada en certificados para ejecutar los cmdlets
 	* **ServerName** (nombre de servidor) donde se encuentra la base de datos.
 	* **DatabaseName** (nombre) de la base de datos que desea restaurar.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Comience la restauración usando el cmdlet [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Especifique los parámetros siguientes:
 	* **SourceDatabase** (base de datos de origen) desde la que desea realizar la restauración.
@@ -51,14 +51,14 @@ Debe utilizar la autenticación basada en certificados para ejecutar los cmdlets
 
 	Almacene lo obtenido en una variable denominada **$RestoreRequest**. Esta variable contiene el identificador de solicitud de restauración usado para supervisar el estado de una restauración.
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`PS C:>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Una restauración puede tardar algún tiempo en completarse. Para supervisar el estado de la restauración, utilice el cmdlet [Get AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) y especifique los siguientes parámetros:
 
 * **ServerName** (nombre del servidor) de la base de datos en la que va a restaurar.
 * **OperationGuid**, que es el identificador de solicitud de restauración almacenado en la variable **$RestoreRequest** en el paso 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`PS C:>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 Los campos **State** (estado) y **PercentComplete** (porcentaje finalizado) muestran el estado de la restauración.
 
@@ -75,4 +75,4 @@ Para obtener más información, consulte los temas siguientes:
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

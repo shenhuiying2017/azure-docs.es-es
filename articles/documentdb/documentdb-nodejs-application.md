@@ -81,7 +81,7 @@ Ahora vamos a crear un proyecto Node.js básico de Hello World usando el marco [
 
 El archivo **package.json** es uno de los archivos creados en la raíz del proyecto. Este archivo contiene una lista de módulos adicionales necesarios para una aplicación Node.js. Posteriormente, cuando implemente esta aplicación en un sitio web de Azure, este archivo se usará para determinar qué módulos se deben instalar en Azure para ofrecer respaldo a su aplicación. Todavía hay que instalar dos paquetes más para este tutorial.
 
-1. De nuevo en el terminal, instale el módulo  **async** mediante npm.
+1. De nuevo en el terminal, instale el módulo **async** mediante npm.
 
 		npm install async --save
 
@@ -89,11 +89,11 @@ El archivo **package.json** es uno de los archivos creados en la raíz del proye
 
 		npm install documentdb --save
 
-3. Una comprobación rápida del archivo  **package.json** de la aplicación debe mostrar los módulos adicionales. Este archivo indicará a Azure qué paquetes debe descargar e instalar cuando ejecute la aplicación. El aspecto debe ser similar al siguiente.
+3. Una comprobación rápida del archivo **package.json** de la aplicación debe mostrar los módulos adicionales. Este archivo indicará a Azure qué paquetes debe descargar e instalar cuando ejecute la aplicación. El aspecto debe ser similar al siguiente.
 
 	![Captura de pantalla de la ficha package.json](./media/documentdb-nodejs-application/image17.png)
 
-       Esto indica a Node (y a Azure más tarde) que la aplicación depende de estos módulos adicionales.
+       Esto indica a Node (y a Azure más tarde) que la aplicación depende de estos módulos adicionales.
 
 ## <a name="_Toc395783180"></a>Paso 4: Uso del servicio de DocumentDB en una aplicación Node
 
@@ -101,9 +101,9 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 
 ### Crear el modelo
 
-1. En el directorio del proyecto, cree un nuevo directorio con el nombre  **models**.
+1. En el directorio del proyecto, cree un nuevo directorio con el nombre **models**.
 2. En el directorio **models**, cree un archivo nuevo con el nombre **taskDao.js**. Este archivo contendrá el modelo para las tareas que crea nuestra aplicación.
-3. En el mismo directorio  **models**, cree otro nuevo archivo denominado **docdbUtils.js**. Este archivo contendrá código útil y reutilizable que se utilizará en toda nuestra aplicación. 
+3. En el mismo directorio **models**, cree otro nuevo archivo denominado **docdbUtils.js**. Este archivo contendrá código útil y reutilizable que se utilizará en toda nuestra aplicación. 
 4. Copie el siguiente código en **docdbUtils.js**
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -176,8 +176,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada.
-> Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection toma un parámetro de requestOptions opcional que puede utilizarse para especificar el tipo de la oferta para la colección. Si no se proporciona ningún valor requestOptions.offerType, la colección se creará con el tipo de oferta predeterminada. Para obtener más información sobre los tipos de oferta de DocumentDB , consulte [Niveles de rendimiento de DocumentDB](documentdb-performance-levels.md)
 		
 3. Guarde y cierre el archivo **docdbUtils.js**.
 
@@ -300,7 +299,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 
 ### Crear el controlador
 
-1. En el directorio **routes** del nuevo proyecto, cree un nuevo archivo denominado  **tasklist.js**. 
+1. En el directorio **routes** del nuevo proyecto, cree un nuevo archivo denominado **tasklist.js**. 
 2. Agregue el siguiente código a **tasklist.js**. De este modo, se cargan los módulos DocumentDBClient y async, que utiliza **tasklist.js**. También se define la función **TaskList**, que pasa a una sesión del objeto **Task** que definimos anteriormente:
 
 		var DocumentDBClient = require('documentdb').DocumentClient;
@@ -390,7 +389,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = config;
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de Microsoft Azure](http://portal.azure.com):
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de vista previa de Azure de Microsoft](http://portal.azure.com):
 
 4. Guarde y cierre el archivo **config.js**.
  
@@ -424,7 +423,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a DocumentDB (utilizando los valores de lectura de **config.js**). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**. 
+6. Estas líneas definen una nueva sesión de nuestro objeto **TaskDao**, con una nueva conexión a DocumentDB (utilizando los valores de lectura de **config.js**). Además, inicializan el objeto de la tarea y, a continuación, enlazan las acciones del formulario con los métodos de nuestro controlador de **TaskList**.
 
 7. Por último, guarde y cierre el archivo **app.js**. Estamos a punto de terminar.
  
@@ -451,8 +450,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 
 
-	Esto indica al motor **Jade** de forma efectiva, que represente HTML de nuestra aplicación y cree un "**bloque**" llamado “**contenido**” dónde podemos proporcionar el diseño de nuestras páginas de contenido.
-	Guarde y cierre el archivo **layout.jade**.
+	Esto indica al motor **Jade** de forma efectiva que represente HTML de nuestra aplicación y cree un **bloque** llamado **content** donde podemos especificar el diseño para nuestras páginas de contenido. Guarde y cierre el archivo **layout.jade**.
 
 4. Ahora abra el archivo **index.jade**, la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por lo siguiente:
 
@@ -496,9 +494,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 	Esto amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**.
 	
-	En este diseño hemos creado dos formularios HTML. 
-	El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador.
-	El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
+	En este diseño hemos creado dos formularios HTML. El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos publicando en el método **/completetask** de nuestro controlador. El segundo formulario contiene dos campos de entrada y un botón que nos permite crear un nuevo elemento publicando en el método **/addtask** de nuestro controlador.
 	
 	Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
@@ -559,8 +555,8 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 
 El código fuente de la aplicación de referencia completa se puede descargar [aquí](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
-
-<!--HONumber=52-->
+  [Node.js]: http://nodejs.org/
+  [Git]: http://git-scm.com/
  
+
+<!---HONumber=July15_HO3-->

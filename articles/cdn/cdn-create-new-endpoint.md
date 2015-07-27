@@ -54,4 +54,4 @@ Tenga en cuenta que ahora también puede crear un origen personalizado y no tien
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

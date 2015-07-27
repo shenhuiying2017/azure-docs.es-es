@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # Ejecutar tareas en segundo plano con trabajos web
@@ -166,7 +165,7 @@ Los trabajos programados se puede configurar adicionalmente en las páginas del 
 
 ## <a name="WHPNotes"></a>Notas
 	
-- Desde marzo de 2014, las aplicaciones web en modo libre pueden agotar su tiempo de espera tras 20 minutos si no se realizan solicitudes al sitio de scm (implementación) y el portal de la aplicación web no está abierto en Azure. Las solicitudes al sitio real no restablecerán esto.
+- Las aplicaciones web en modo libre pueden agotar su tiempo de espera tras 20 minutos si no se realizan solicitudes al sitio de scm (implementación) y el portal de la aplicación web no está abierto en Azure. Las solicitudes al sitio real no restablecerán esto.
 - Debe escribirse el código para un trabajo continuo para que se ejecute en un bucle infinito.
 - Los trabajos continuos solo se ejecutan continuamente cuando la aplicación web está activa.
 - Los modos básico y estándar ofrecen la característica Siempre disponible que, cuando está habilitada, impide que las aplicaciones web se vuelvan inactivas.
@@ -210,4 +209,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

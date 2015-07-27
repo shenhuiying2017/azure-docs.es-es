@@ -16,7 +16,7 @@
 
 	- **Nuevo nombre de usuario** se refiere a la cuenta administrativa que se usa para administrar el servidor. Cree una contraseña única para esta cuenta y asegúrese de recordarla. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual**.
 
-	- El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como, por ejemplo, el número de discos de datos que se pueden acoplar. Para obtener información más detallada, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://go.microsoft.com/fwlink/p/?LinkId=466520).
+	- El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como, por ejemplo, el número de discos de datos que se pueden acoplar. Para obtener más información, consulte [Tamaños de máquinas virtuales](../articles/virtual-machines-size-specs.md) y [Tamaños de los servicios en la nube](../articles/cloud-services-sizes-specs.md) en Azure.
 
 
 6. La tercera pantalla permite configurar los recursos relacionados con las redes, el almacenamiento y la disponibilidad. A continuación, se ofrecen algunos datos para ayudarle a rellenarlos:
@@ -40,4 +40,4 @@
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

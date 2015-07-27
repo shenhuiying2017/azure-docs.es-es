@@ -23,7 +23,7 @@ El solo hecho de instalar la CLI de Azure y tener una suscripción de Azure le i
 
 ## Instalación de la CLI de Azure
 
-Siga estas instrucciones para instalar la [CLI de Azure](../xplat-cli.md#install).
+Siga estas instrucciones para [instalar la CLI de Azure](../xplat-cli.md#install).
 
 ## Conexión a Azure con la CLI de Azure
 
@@ -33,7 +33,7 @@ Puede conectar su instalación de CLI de Azure con una cuenta personal de Azure 
 
 Para crear una máquina virtual, debe comenzar por elegir (o cargar) una imagen y usar el comando `azure vm create`.
 
-1. Para elegir una imagen de la línea de comandos, puede mostrar las imágenes de máquina virtual disponibles usando el comando `azure vm image list`. Como hay tantas imágenes, querrá paginar los resultados mediante `more` o filtrarlos con `grep` (Linux) o con `findstr` (Windows). Por ejemplo, si está buscando imágenes de Ubuntu en Linux, utilice un comando similar al siguiente:
+1. Para elegir una imagen de la línea de comandos, puede mostrar las imágenes de la máquina virtual disponibles mediante el comando `azure vm image list`. Como hay tantas imágenes, querrá paginar los resultados mediante `more` o filtrarlos con `grep` (Linux) o con `findstr` (Windows). Por ejemplo, si está buscando imágenes de Ubuntu en Linux, use un comando similar al siguiente:
 
         azure vm image list | grep Ubuntu
 
@@ -45,9 +45,7 @@ Para crear una máquina virtual, debe comenzar por elegir (o cargar) una imagen 
 
         azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-es-es-30GB
 
-2. Creación de la máquina virtual.
-
-    Una vez que haya elegido una imagen de máquina virtual, use el comando `vm create` para crear la imagen. Este comando tiene varias opciones que puede mostrar con el comando de ayuda:
+2. Una vez que haya elegido una imagen de máquina virtual, use el comando `vm create` para crear la imagen. Este comando tiene muchas opciones que puede mostrar con el comando `help`:
 
         vm create --help
 
@@ -75,6 +73,5 @@ Un lugar excelente para ver más ejemplos de cómo usar la CLI de Azure para adm
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

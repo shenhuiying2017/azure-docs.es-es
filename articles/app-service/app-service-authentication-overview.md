@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure
@@ -94,17 +94,17 @@ En algunos casos, como en los siguientes, el flujo de servidor puede ser una opc
 
 Puede escribir código para realizar llamadas salientes a plataformas de software como servicio (SaaS) en nombre de un usuario que haya iniciado sesión o puede usar una [aplicación de API de conector](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md). Por ejemplo, para publicar un tweet desde la cuenta de Twitter de un usuario, puede usar un [SDK de Twitter](https://dev.twitter.com/overview/api/twitter-libraries) o proporcionar un [conector de Twitter](../app-service-mobile/app-service-logic-connector-twitter.md) en su suscripción de Azure y realizar una llamada a este. Esta sección trata sobre el acceso a una plataforma de SaaS desde el código que se ejecuta en una aplicación de API o una aplicación móvil.
 
-### Uso del token del proveedor de identidades 
+### <a id="obotoidprovider"></a> Uso del token del proveedor de identidades 
 
 La puerta de enlace mantiene un *almacén de tokens* donde asocia un token de Zumo a uno o varios tokens de acceso del proveedor de identidades y tokens de actualización. Cuando se recibe una solicitud HTTP con un token de Zumo válido, la puerta de enlace sabe qué tokens del proveedor de identidades pertenecen a ese usuario.
   
-Cuando el código que se ejecuta en su aplicación de API o aplicación móvil debe realizar una llamada a un recurso protegido en nombre del usuario que ha iniciado sesión, se puede recuperar y usar el token del proveedor de identidades del almacén de tokens de la puerta de enlace, como se muestra en el diagrama siguiente.
+Cuando el código que se ejecuta en su aplicación de API o aplicación móvil debe realizar una llamada a un recurso protegido en nombre del usuario que ha iniciado sesión, se puede recuperar y usar el token del proveedor de identidades del almacén de tokens de la puerta de enlace, como se muestra en el diagrama siguiente. En el diagrama se supone que el cliente ya se ha autenticado en la puerta de enlace y tiene el token Zumo.
 
 ![](./media/app-service-authentication-overview/idprovidertoken.png)
 
 Por ejemplo, suponga que el proveedor de identidades es Azure Active Directory (AAD) y su aplicación de API quiere usar el token de acceso de AAD para llamar a la API Graph de AAD o para solicitar acceso a un sitio de SharePoint al que el usuario tiene permisos para acceder. Puede enviar una solicitud a la puerta de enlace para recuperar el token de AAD y luego usar dicho token para llamar a la API Graph o para obtener un token de acceso para el sitio de SharePoint.
 
-### Obtención del consentimiento del usuario para acceder a otros recursos
+### <a id="obotosaas"></a>Obtención del consentimiento del usuario para obtener acceso a otros recursos
 
 La puerta de enlace también tiene características integradas para obtener el consentimiento del usuario cuando se desea acceder a recursos protegidos por un proveedor distinto del proveedor de identidades original. Por ejemplo, para un usuario que inicia sesión con Azure Active Directory, puede que usted desee acceder a los archivos de la cuenta de Dropbox del usuario.
 
@@ -121,8 +121,10 @@ La puerta de enlace del Servicio de aplicaciones incluye compatibilidad integrad
 * SharePointOnline
 * Twitter
 * Yammer
+* Azure Active Directory
+* Cuenta Microsoft
 
-Para estos proveedores, la puerta de enlace mantiene tokens de acceso y los asocia con el token de Zumo, igual que hace con el token de acceso del proveedor de identidades. El proceso de obtener el consentimiento del usuario y llamar a una plataforma de SaaS se ilustra en el diagrama siguiente.
+Para estos proveedores, la puerta de enlace mantiene tokens de acceso y los asocia con el token de Zumo, igual que hace con el token de acceso del proveedor de identidades. El proceso de obtener el consentimiento del usuario y llamar a una plataforma de SaaS se ilustra en el diagrama siguiente. En el diagrama se supone que el cliente ya se ha autenticado en la puerta de enlace y tiene el token Zumo.
 
 ![](./media/app-service-authentication-overview/saastoken.png)
 
@@ -185,16 +187,17 @@ Este artículo, se explican los servicios de autenticación que ofrece el Servic
 ### <a id="apiaclient"></a>Flujo de cliente para aplicaciones de API
 
 * [Protección de una aplicación de API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte de la configuración de la aplicación de API se aplica tanto al flujo de cliente como al de servidor, pero la parte del explorador en pruebas se refiere al flujo de servidor.
+* [Uso de una aplicación de API del Servicio de aplicaciones de Azure desde un cliente .NET](../app-service-api/app-service-api-dotnet-consume.md): la aplicación de ejemplo para una llamada autenticada ilustra el flujo de servidor, pero va seguida de una sección [flujo de cliente](../app-service-api/app-service-api-dotnet-consume.md#client-flow) con código de ejemplo.
 
 ### <a id="apiaserver"></a>Flujo de servidor para aplicaciones de API
 
-* [Protección de una aplicación de API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte de la configuración de la aplicación de API se aplica tanto al flujo de cliente como al de servidor, pero la parte del explorador en pruebas se refiere al flujo de servidor.
+* [Protección de una aplicación de API](../app-service-api/app-service-api-dotnet-add-authentication.md): la parte de la configuración de la aplicación de API se aplica tanto al flujo de cliente como al de servidor, y la parte del explorador en pruebas se refiere al flujo de servidor.
 * [Consumo de una aplicación de API en el Servicio de aplicaciones de Azure desde un cliente .NET](../app-service-api/app-service-api-dotnet-consume.md): el código de muestra para una llamada autenticada ilustra el flujo de servidor. 
 
-### <a id="apiaobo"></a>Llamadas de aplicaciones de API en nombre de un usuario a recursos protegidos
+### <a id="apiaobo"></a>Llamadas en nombre de un usuario a aplicaciones de API
 
 * [Implementación y configuración de una aplicación de API de conector de SaaS en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md): muestra cómo aprovisionar una aplicación de API de conector preempaquetada, cómo configurarla y llamarla utilizando las herramientas del explorador.
-* Estamos elaborando un tutorial que le enseña a escribir su propio conector; es decir, aprovisionar y configurar una aplicación de API personalizada que realiza llamadas en nombre de otro usuario a los recursos protegidos.
+* [Conexión a una plataforma de SaaS desde una aplicación de API ASP.NET en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md): muestra cómo escribir su propio conector, es decir, aprovisionar, configurar y escribir código para una aplicación de API personalizada que realiza llamadas en nombre de un usuario a un proveedor de SaaS.
 
 ### <a id="maclient"></a>Flujo de cliente para aplicaciones móviles
 
@@ -211,6 +214,4 @@ Este artículo, se explican los servicios de autenticación que ofrece el Servic
 
 * [Obtención de un token de acceso y llamada a la API de SharePoint en una aplicación móvil](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-
-
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

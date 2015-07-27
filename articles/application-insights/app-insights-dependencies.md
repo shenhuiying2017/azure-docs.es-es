@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Diagnóstico de problemas con dependencias en Application Insights
@@ -31,7 +31,7 @@ Para otros tipos, como aplicaciones de dispositivo o aplicaciones web de Java, p
 El monitor de dependencia listo para su uso sin configuraciones adicionales actualmente llama a estos tipos de dependencias:
 
 * Bases de datos SQL
-* Servicios wcf y web ASP.NET
+* Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
 * Llamadas HTTP locales o remotas
 * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
 
@@ -96,5 +96,32 @@ Haga clic en un tipo de solicitud y una instancia de la solicitud para buscar un
 ![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/app-insights-dependencies/07-faildetail.png)
 
 
+## Seguimiento de dependencias personalizadas
+
+El módulo de seguimiento de dependencias estándar detecta automáticamente las dependencias externas, como bases de datos y API de REST. Pero tal vez quieras que se traten algunos componentes adicionales de la misma manera.
+
+Puede escribir código que envíe la información de dependencia usando la misma[API de TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) que usan los módulos estándar.
+
+Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas al ensamblado para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos con `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la referencia a DependencyTrackingTelemetryModule en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
+
 <!--Link references-->
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

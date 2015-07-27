@@ -86,4 +86,4 @@ Una vez que haya creado el back-end móvil, podrá seguir una fácil guía de in
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

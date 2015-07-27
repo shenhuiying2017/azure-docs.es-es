@@ -39,7 +39,7 @@ Para usar este perfil de puntuación, se formula la consulta para especificar el
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)]().
+Esta consulta busca el término «inn» y pasa la ubicación actual. Tenga en cuenta que esta consulta incluye otros parámetros, como `scoringParameter`. Los parámetros de consulta se describen en [Buscar documentos (API de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
 Haga clic en [Ejemplo](#bkmk_ex) para revisar un ejemplo más detallado de un perfil de puntuación.
 
@@ -62,8 +62,6 @@ El orden basado en relevancia también se implementa a través de perfiles de pu
 Tal y como se ha indicado, la puntuación personalizada se implementa mediante los perfiles de puntuación definidos en un esquema de índice.
 
 En este ejemplo se muestra el esquema de un índice con dos perfiles de puntuación (`boostGenre`, `newAndHighlyRated`). Las consultas sobre este índice que incluyen cualquiera de los perfiles como parámetro de consulta usará el perfil para puntuar el conjunto de resultados.
-
-[Pruebe este ejemplo]().
 
     {
       "name": "musicstoreindex",
@@ -132,38 +130,9 @@ Proporcione un nombre. Los perfiles de puntuación son opcionales, pero si agreg
 
 El cuerpo del perfil de puntuación se construye a partir de campos ponderados y funciones.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>elemento</td><td>descripción</td></tr></thead>
-<tbody>
-<tr>
-<td><b>Ponderaciones</b></td>
-<td>
-Especifique pares de nombre-valor que asignen una ponderación relativa a un campo. En el [ejemplo](#bkmk_ex), los campos de título del álbum, género y nombre del artista se aumentan a 1, 5 y null respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor.
-</td>
-</tr>
-<tr>
-<td><b>Funciones</b></td><td>Usadas cuando se requieren cálculos adicionales para contextos concretos. Entre los valores válidos se incluyen `freshness`, `magnitude` o `distance`. Cada función tiene parámetros que son únicos. <br> - `freshness` debe usarse cuando desea aumentar por la antigüedad de un elemento. Esta función solo puede usarse con campos de fecha y hora (edm. DataTimeOffset). Tenga en cuenta el atributo `boostingDuration` solo se usa con la función de actualización. <br> - `magnitude` debe usarse cuando desee aumentar en función de cómo de alto o bajo resulta un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y entero.
-<br>
-- `distance` debe usarse cuando desea aumentar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `geo.distance`.
-<br>
-<b>Reglas para usar funciones</b>
-<br>
-Tipo de función (frescura, magnitud, distancia) deben aparecer en minúsculas.
-<br>
-Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor.
-<br>
-Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)]() para obtener más información acerca de los campos que se pueden filtrar.
-<br>
-Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>elemento</td><td>descripción</td></tr></thead> <tbody <tr> <td><b>Ponderaciones</b></td> <td> Especifique pares de nombre-valor que asignen una ponderación relativa a un campo. En el [ejemplo](#bkmk_ex), los campos de título del álbum, género y nombre del artista se aumentan a 1, 5 y null respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor. </td> </tr> <tr> <td><b>Funciones</b></td><td>Usadas cuando se requieren cálculos adicionales para contextos concretos. Entre los valores válidos se incluyen `freshness`, `magnitude` o `distance`. Cada función tiene parámetros que son únicos. <br> - `freshness` debe usarse cuando desea aumentar por la antigüedad de un elemento. Esta función solo puede usarse con campos de fecha y hora (edm. DataTimeOffset). Tenga en cuenta el atributo `boostingDuration` solo se usa con la función de actualización. <br> - `magnitude` debe usarse cuando desee aumentar en función de cómo de alto o bajo resulta un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y entero. <br> - `distance` debe usarse cuando desea aumentar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `geo.distance`. <br> <b>Reglas para usar funciones</b> <br> Tipo de función (frescura, magnitud, distancia) deben aparecer en minúsculas. <br> Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor. <br> Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)]() para obtener más información acerca de los campos que se pueden filtrar. <br> Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice. <td> </tr> </tbody> </table> </font>
 
-Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice (API de Búsqueda de Azure)]() y [Agregar o actualizar documentos (API de Búsqueda de Azure)]() para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
+Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice (API de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) y [Agregar o actualizar documentos (API de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798930.aspx) para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
 
 ##Plantilla
 En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuación. Consulte [Referencia del atributo de índice](#bkmk_indexref) en la sección siguiente para obtener descripciones de los atributos.
@@ -261,7 +230,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 </tr><tr>
 <td>distancia</td>	<td>La función de puntuación de la distancia se usa para afectar a la puntuación de documentos en función de la cercanía o distancia respecto a una ubicación geográfica de referencia. La ubicación de referencia se proporciona como parte de la consulta en un parámetro (mediante la opción de cadena «scoringParameterquery») como argumento lon, lat.</td>
 </tr><tr>
-<td>distancia | referencePointParameter</td>	<td>Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos (API de Búsqueda de Azure)]() para obtener descripciones de los parámetros de consulta.</td>
+<td>distancia | referencePointParameter</td>	<td>Parámetro que se pasarán en las consultas a usar como ubicación de referencia. scoringParameter es un parámetro de consulta. Consulte [Búsqueda de documentos (API de Búsqueda de Azure)] (https://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener las descripciones de los parámetros de consulta.</td>
 </tr><tr>
 <td>distancia | boostingDistance</td>	<td>Número que indica la distancia en kilómetros desde la ubicación de referencia donde finaliza el intervalo de potenciación.</td>
 </tr><tr>
@@ -314,13 +283,10 @@ La tabla siguiente proporciona varios ejemplos.
 </tbody>
 </table>
 
-Para obtener más ejemplos, consulte [Esquema XML: tipos de datos (sitio web de W3.org)]().
-
 **Consulte también**
 
 Creación de índice (API de REST de servicio de Búsqueda de Azure)
-________________________________________
 
  
 
-<!------HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

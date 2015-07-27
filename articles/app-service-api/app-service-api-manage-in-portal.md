@@ -43,8 +43,8 @@ La hoja de **aplicación de API** se utiliza para las siguientes tareas:
 - Configurar la directiva de actualización: haga clic en **Configuración > Configuración de la aplicación**. El valor predeterminado es **Activado**. Esto significa que cuando se publica una nueva versión de la aplicación de API en Marketplace, la aplicación de API se actualiza automáticamente a la nueva versión si se trata de un cambio no radical.  
 - Configurar la autenticación para llamadas salientes desde la aplicación de API: haga clic en **Configuración > Autenticación**. Si la aplicación de API realiza llamadas a un servicio externo que requiere autenticación, los valores de configuración requeridos se introducen aquí. Por ejemplo, un conector de Dropbox requiere un identificador de cliente y un secreto de cliente para tener acceso al servicio de Dropbox.
 - Configurar [RBAC](../role-based-access-control-configure.md): haga clic en **Configuración > Usuarios**. El acceso de usuario que configure aquí determina solo quién puede tener acceso a las características específicas de la aplicación de API. Para configurar RBAC para las características de la aplicación web, utilice la hoja de **host de aplicación de API**. Normalmente deseará mantener sincronizados los valores de RBAC para la aplicación de API y el host de la aplicación de API. Si asigna a alguien acceso a la aplicación de API pero no al host de la aplicación de API, no podrá utilizar las características de la hoja de **aplicación de API** que realmente guardan relación con el host de la aplicación de API.
-- Ver definición de API: haga clic en **Definición de API** en la sección **Resumen** para ver una lista de los métodos expuestos por la **aplicación de API**.
-- [Instalación de administrador de conexiones híbridas](](../app-service-logic/app-service-logic-hybrid-connection-manager.md). (Se aplica a las aplicaciones de API de conector). El Administrador de conexiones híbridas permite conectarse a un sistema local, como SQL Server o SAP. Esta conectividad híbrida usa el Bus de servicio de Azure para conectarse y controlar la seguridad entre los recursos de Azure y los recursos locales.
+- Ver definición de API: haga clic en **Definición de API** en la sección **Resumen** para ver una lista de los métodos expuestos por la aplicación de API.
+- [Instalación del Administrador de conexiones híbridas](../app-service-logic/app-service-logic-hybrid-connection-manager.md). El Administrador de conexiones híbridas permite conectarse a un sistema local, como SQL Server o SAP. Esta conectividad híbrida usa el Bus de servicio de Azure para conectarse y controlar la seguridad entre los recursos de Azure y los recursos locales.
 
 ### Tareas que puede realizar en la hoja de la aplicación de API y en la hoja del host de aplicación de API 
 
@@ -130,8 +130,8 @@ Para obtener una aplicación de API en el Explorador de servidores, haga clic en
 
 ## Pasos siguientes
 
-En este artículo, se muestra cómo usar el portal de Azure para realizar tareas de administración de aplicaciones de API.
+En este artículo, se muestra cómo usar el portal de Azure para realizar tareas de administración de aplicaciones de API. Para las aplicaciones de API que haya instalado desde la Galería de aplicaciones de API, consulte también [Administración y supervisión de conectores y aplicaciones de API integrados](../app-service-logic/app-service-logic-monitor-your-connectors.md).
 
 Para obtener información acerca de cómo administrar aplicaciones de API mediante la línea de comandos, consulte los artículos de la sección **Automatizar** del menú que aparece en el lado izquierdo del artículo (en las ventanas del explorador anchas) o en la parte superior del artículo (en las ventanas del explorador estrechas).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

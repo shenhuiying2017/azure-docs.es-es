@@ -55,7 +55,7 @@ En el ejemplo siguiente se mostrará cómo crear registros y un conjunto de regi
 
 Cree un conjunto de registros y asígnelo a una variable $rs:
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 El conjunto de registros tiene el nombre relativo “www” en la zona DNS “contoso.com”, por lo que el nombre completo de los registros será “www.contoso.com”. El tipo de registro es “A” y el valor de TTL es de 60 segundos.
 
@@ -67,8 +67,8 @@ El conjunto de registros está vacío y tenemos que agregar registros para poder
 
 Agregue registros A de IPv4 al conjunto de registros “www” con la variable $rs asignada al crear el conjunto de registros en el paso 1:
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 Agregar registros a un conjunto de registros mediante Add-AzureDnsRecordConfig es una operación sin conexión. Se actualiza únicamente la variable local $rs.
 
@@ -81,7 +81,7 @@ Confirme los cambios introducidos en el conjunto de registros. Use Set-AzureDnsR
 Los cambios se han completado. Puede recuperar el conjunto de registros de DNS de Azure mediante Get-AzureDnsRecordSet:
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,7 +100,7 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 >[AZURE.NOTE]Al crear la zona, si aún no ha delegado el dominio en los servidores de nombres de DNS de Azure, será necesario especificar explícitamente la dirección del servidor de nombres de la zona.
 
 
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -119,4 +119,4 @@ También puede usar nslookup u otras herramientas DNS para consultar el nuevo co
 [Automatización de operaciones de Azure con el SDK de .NET](dns-sdk.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

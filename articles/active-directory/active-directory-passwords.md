@@ -16,12 +16,12 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Administración de contraseñas desde cualquier lugar
+# Administración de contraseñas desde cualquier lugar
 El autoservicio ha sido durante mucho tiempo un objetivo clave para los departamentos de TI de todo el mundo como una medida de reducción de costos y ahorro de mano de obra. De hecho, el mercado está atestado de productos que le permiten administrar los grupos locales, las contraseñas o los perfiles de usuario en la nube o a nivel local. Azure AD se distingue de estas ofertas proporcionando algunas de las capacidades de autoservicio más fáciles de usar y más eficaces disponibles hoy día.
 
 **La Administración de contraseñas de Azure AD** es un conjunto de capacidades que permiten a los usuarios administrar cualquier contraseña desde cualquier dispositivo, en cualquier momento, desde cualquier ubicación, manteniendo la conformidad con las directivas de seguridad que defina.
 
-##  Información general
+## Información general
 Puede comenzar con una prueba piloto de la Administración de contraseñas de Azure AD en menos de cinco minutos, y puede tenerla implementada en toda la organización en horas. A continuación se muestran algunos recursos útiles para poder avanzar con el servicio:
 
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis diferentes componentes del servicio y lo que hace cada uno.
@@ -34,7 +34,7 @@ Puede comenzar con una prueba piloto de la Administración de contraseñas de Az
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
 
 
-##  ¿Qué se puede hacer con la Administración de contraseñas de Azure AD?
+## ¿Qué se puede hacer con la Administración de contraseñas de Azure AD?
 Estas son algunas de las cosas que puede hacer con las capacidades de administración de contraseñas de Azure AD.
 
 - El **cambio de la contraseña de autoservicio** permite a los usuarios finales o administradores cambiar sus contraseñas expiradas o no expiradas sin llamar a un administrador o departamento de soporte técnico para obtener soporte técnico.
@@ -43,7 +43,7 @@ Estas son algunas de las cosas que puede hacer con las capacidades de administra
 - Los **informes de actividad de administración de contraseñas** proporcionan a los administradores perspectivas sobre una actividad de registro y restablecimiento de contraseña en su organización. 
 - La **escritura diferida de la contraseña** permite la administración de contraseñas locales desde la nube, por lo que todos los escenarios anteriores pueden realizarse por los usuarios sincronizados con contraseña o federados, o en nombre de ellos. La escritura diferida de la contraseña requiere Azure AD Premium. Para obtener más información, consulte Introducción a Azure AD Premium.
 
-##  ¿Por qué usar la Administración de contraseñas de Azure AD?
+## ¿Por qué usar la Administración de contraseñas de Azure AD?
 Estas son algunas de las razones por las que se debe usar las capacidades de administración de contraseñas de Azure AD.
 
 - **Reducir los costos** : el restablecimiento de contraseñas con asistencia de un servicio de soporte técnico normalmente supone el 20 % del gasto en TI de una organización.
@@ -51,7 +51,7 @@ Estas son algunas de las razones por las que se debe usar las capacidades de adm
 - **Reducir los volúmenes de soporte técnico**: la administración de contraseñas es el motivo único que empuja a la mayoría de organizaciones a recurrir más veces al departamento de soporte técnico.
 - **Permitir la movilidad**: los usuarios pueden restablecer sus contraseñas desde cualquier lugar en que se encuentren.
 
-##  Actualizaciones recientes
+## Actualizaciones recientes
 **Registro de SSPR con la marca**: abril de 2015
 
 - La página de registro del restablecimiento de contraseña ahora lleva el logotipo de su empresa.
@@ -72,11 +72,11 @@ Estas son algunas de las razones por las que se debe usar las capacidades de adm
 * [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
 * [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
 * [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de la Administración de contraseñas](active-directory-passwords-best-practices.md)
+* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
 * [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la Administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de Administración de contraseñas](active-directory-passwords-troubleshoot.md)
+* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
+* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
 * [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

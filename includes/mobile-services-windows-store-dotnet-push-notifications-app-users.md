@@ -69,4 +69,4 @@ En este método, agregó un código de registro desde el tutorial directamente e
 	
 	De esta forma, se garantiza que la autenticación se produce antes de que se intente el registro de inserción.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

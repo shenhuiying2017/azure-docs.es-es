@@ -16,11 +16,11 @@
 	ms.date="05/19/2015" 
 	ms.author="sdanie"/>
 
-#  Creación de API, operaciones y productos en Administración de API de Azure
+# Creación de API, operaciones y productos en Administración de API de Azure
 
 En Administración de API de Azure, las API y sus operaciones se agregan a productos, donde las pueden utilizar los desarrolladores que crean aplicaciones que utilizan dichas API. Las guías de esta sección muestran cómo crear una API, agregarle operaciones y, a continuación, asociar dicha API con un producto y publicarla para ponerla a disposición de los desarrolladores.
 
-##  <a name="create-apis"> </a>Creación de API
+## <a name="create-apis"> </a>Creación de API
 
 En Administración de API, una API representa un conjunto de operaciones que puede invocarse por las aplicaciones cliente. Las nuevas API se crean en el portal Administración de API.
 
@@ -28,7 +28,7 @@ En este guía se muestra cómo crear y configurar una nueva API en Administraci�
 
 -   [Creación de API][]
 
-##  <a name="add-operations"> </a>Incorporación de operaciones a una API
+## <a name="add-operations"> </a>Incorporación de operaciones a una API
 
 Es necesario agregar operaciones para poder utilizar una API en Administración de API. En esta guía se muestra cómo agregar y configurar diferentes tipos de operaciones a una API en Administración de API.
 
@@ -38,7 +38,7 @@ También es posible importar una API y sus operaciones en un paso, en formato WA
 
 -	[Importación de la definición de una API con operaciones][]
 
-##  <a name="add-product"> </a>Creación y publicación de un producto
+## <a name="add-product"> </a>Creación y publicación de un producto
 
 En Administración de API, un producto contiene una o varias API, así como una cuota de uso y los términos de uso. Una vez publicado un producto, los desarrolladores pueden suscribirse a él y comenzar a utilizar sus API. Estos temas ofrecen orientaciones acerca de cómo crear un producto, agregarle una API y publicarlo para los desarrolladores.
 
@@ -61,4 +61,5 @@ En Administración de API, un producto contiene una o varias API, así como una 
 [Monitoring and analytics]: ../api-management-monitoring.md
 [Importación de la definición de una API con operaciones]: api-management-howto-import-api.md
 [Creación y definición de configuraciones de productos avanzadas]: api-management-howto-product-with-rules.md
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

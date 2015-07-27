@@ -72,4 +72,5 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 
 <!-- IMAGES -->
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

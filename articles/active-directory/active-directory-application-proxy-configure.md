@@ -25,15 +25,11 @@ Proxy de aplicación de Azure AD es una característica que solo está disponibl
 
 > [AZURE.NOTE]Las ediciones Premium y Básico de Azure Active Directory están disponibles para los clientes de China que utilizan la instancia de Azure Active Directory en todo el mundo. Las ediciones Premium y Básico de Azure Active Directory no se admiten actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-Para comenzar a usar Proxy de aplicación, siga estos pasos: 
-1. [Habilitar servicios de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768214.aspx) 
-2. [Publicar aplicaciones con Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768220.aspx)
+Para comenzar a usar Proxy de aplicación, siga estos pasos: 1. [Habilitar servicios de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768214.aspx) 2. [Publicar aplicaciones con Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768220.aspx)
 
 ## Pasos siguientes
 
-[Blog de Microsoft Azure](http://azure.microsoft.com/blog/) 
-[Habilitar servicios de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768214.aspx) 
-[Publicar aplicaciones con Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768220.aspx) 
-[Solucionar problemas de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768218.aspx)
+[Blog de Microsoft Azure](http://azure.microsoft.com/blog/) [Habilitar servicios de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768214.aspx) [Publicar aplicaciones con Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768220.aspx) [Solucionar problemas de Proxy de aplicación](https://msdn.microsoft.com/library/azure/dn768218.aspx)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -114,19 +114,54 @@ Si se trabaja en modo de depuración, la telemetría se agiliza a través de la 
 
 Consulte [este apartado de la solución de problemas](app-insights-troubleshoot-faq.md#NuGetBuild).
 
+## Adición del seguimiento de dependencia
+
+El SDK necesita un poco de ayuda para obtener acceso a algunos datos. En concreto, este paso adicional será necesario para medir automáticamente las llamadas de la aplicación a las bases de datos, las API de REST y otros componentes externos. Estas métricas de dependencia pueden ser inestimables para ayudar a diagnosticar problemas de rendimiento.
+
+#### Si la aplicación se ejecuta en su servidor IIS
+
+Inicie sesión en el servidor con derechos de administrador e instale [Monitor de estado de Application Insights](http://go.microsoft.com/fwlink/?LinkId=506648).
+
+(También puede usar el Monitor de estado para [instrumentar una aplicación que ya se está ejecutando](app-insights-monitor-performance-live-website-now.md), incluso si no se ha compilado con el SDK).
+
+#### Si la aplicación es una aplicación web de Azure
+
+En el panel de control de la aplicación web de Azure, agregue la extensión Application Insights.
+
+![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+(La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
+
+## Adición de la supervisión del lado cliente
+
+Ha instalado el SDK que envía los datos de telemetría del extremo del servidor de la aplicación. Ahora puede agregar la supervisión del lado cliente. Esto proporciona datos de los usuarios, sesiones, vistas de página y excepciones o bloqueos que se producen en el cliente.
+
+También podrá escribir su propio código para realizar un seguimiento de cómo los usuarios trabajan con la aplicación, incluidos el nivel detallado de clics y las pulsaciones de teclas.
+
+#### Si los clientes son exploradores web
+
+Si la aplicación muestra páginas web, agregar un fragmento de código de JavaScript en cada página. Obtenga el código del recurso de Application Insights:
+
+![En la aplicación web, abra Inicio rápido y haga clic en ''Obtener código para supervisar mis páginas web''](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+Observe que el código contiene la clave de instrumentación que identifica al recurso de la aplicación.
+
+[Obtenga más información sobre el seguimiento de páginas web.](app-insights-web-track-usage.md)
+
+#### Si los clientes son aplicaciones de dispositivos
+
+Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agregue el [SDK adecuado](app-insights-platforms.md) a la aplicación del dispositivo.
+
+Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
+
 
 ## Complete la instalación
 
 Para obtener la vista completa de 360 grados de la aplicación, debe realizar algunas tareas adicionales:
 
-
-* [Agregue el SDK de JavaScript a sus páginas web][client] para obtener telemetría basada en el explorador, como recuentos de vista de página, de sesiones y de usuarios, tiempos de carga de página, excepciones de script y poder escribir telemetría personalizada en los scripts de página.
-* Agregue seguimiento de dependencias para diagnosticar los problemas ocasionados por bases de datos u otros componentes usados por la aplicación:
- * [en su aplicación web o máquina virtual de Azure][azure]
- * [en el servidor IIS local][redfield]
+* [Configure las pruebas web][availability] para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 * [Captura del seguimientos de registros][netlogs] de su marco de registro de favoritos
 * [Realice el seguimiento de métricas y eventos personalizado][api] en el cliente, en el servidor o en ambos para obtener más información acerca de cómo se usa la aplicación.
-* [Configure las pruebas web][availability] para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 
 ## <a name="ide"></a> La forma automatizada
 
@@ -195,4 +230,5 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

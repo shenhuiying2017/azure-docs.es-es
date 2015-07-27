@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Definición de alertas en Application Insights
@@ -36,7 +36,7 @@ Para recibir un correo electrónico cuando una métrica cruce un umbral, inicie 
 
 ![En la hoja Reglas de alerta, elija Agregar alerta. Establezca la aplicación como el recurso que se va a medir, proporcione un nombre para la alerta y elija una métrica.](./media/app-insights-alerts/01-set-metric.png)
 
-Establezca el recurso antes de las demás propiedades. No elija los recursos de la prueba web si desea establecer alertas en las métricas de rendimiento o de uso.
+Establezca el recurso antes de las demás propiedades. **Elija el recurso "(components)"** si desea establecer alertas sobre métricas de rendimiento o de uso.
 
 Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
 
@@ -79,4 +79,5 @@ Las alertas más populares son:
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

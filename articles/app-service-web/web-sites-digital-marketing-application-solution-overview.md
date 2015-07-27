@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 # Creación de una campaña de marketing digital en Aplicaciones web del Servicio de aplicaciones de Azure
@@ -33,7 +33,7 @@ Cree rápidamente aplicaciones nuevas a partir de un CMS popular en la galería 
 
 Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
-Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git]: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Mantener la agilidad
 
@@ -141,4 +141,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

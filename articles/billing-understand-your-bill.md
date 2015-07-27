@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/06/2015"
    ms.author="kareni"/>
 
 
@@ -262,4 +262,4 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 <!--Image references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

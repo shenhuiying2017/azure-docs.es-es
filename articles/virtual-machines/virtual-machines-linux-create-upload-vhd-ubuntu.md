@@ -93,7 +93,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 	a) Abra el archivo /etc/grub.d/00_header.
 
-	b) En la función **make_timeout()**, busque **if ["\${recordfail}" = 1 ]; then**
+	b) En la función **make_timeout()**, busque **if ["\\${recordfail}" = 1 ]; then**
 
 	c) Cambie la instrucción que se encuentra debajo de esta línea a **set timeout=5**.
 
@@ -125,4 +125,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

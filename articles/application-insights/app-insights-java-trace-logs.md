@@ -148,4 +148,5 @@ Ahora que ha configurado el proyecto para enviar el seguimiento a Application In
 [java]: app-insights-java-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

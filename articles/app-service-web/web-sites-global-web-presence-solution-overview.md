@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 
@@ -35,7 +35,7 @@ Cree rápidamente sitios nuevos a partir de un CMS popular en la galería o apro
 
 Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
-Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
+Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git]: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Publicar de manera confiable
 
@@ -140,4 +140,4 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -32,4 +32,5 @@ Se trata de notas de la versión detalladas e instrucciones de actualización de
 Obtenga información también sobre nuestras [Actualizaciones del servicio](http://azure.microsoft.com/updates/?service=application-insights), donde se resumen mejoras importantes en el servicio Application Insights en su conjunto.
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

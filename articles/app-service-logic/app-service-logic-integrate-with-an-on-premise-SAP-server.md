@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Integración con un servidor SAP local en el Servicio de aplicaciones de Microsoft Azure"
 	description="Aprenda a integrar con un servidor SAP local"
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # Integración con un servidor SAP local
 Mediante el conector SAP, puede conectar aplicaciones web, móviles y lógicas de Servicios de aplicaciones de Azure al servidor SAP existente. Puede invocar RFC, BAPI, tRFC y enviar IDOC al servidor SAP.
-	
+
 El servidor SAP puede estar incluso detrás de su firewall localmente. En el caso de un servidor local, la conectividad se establece a través de un agente de escucha híbrido, tal como se muestra:
 
 ![Flujo de conectividad híbrida][1]
@@ -40,12 +40,12 @@ Las bibliotecas de cliente específicas de SAP son necesarias en el equipo clien
 
 
 ## Creación de un nuevo adaptador SAP
-1. Inicie sesión en el Portal de administración de Microsoft Azure. 
+1. Inicie sesión en el Portal de administración de Microsoft Azure.
 2. Seleccione **Nuevo**.
 3. En la hoja Crear, seleccione **Equipo** > **Azure Marketplace**.
 4. En la hoja Marketplace, seleccione **Aplicaciones de API** y busque SAP en la barra de búsqueda:
-	
-	![Aplicación de API del conector de SAP][2]	
+
+	![Aplicación de API del conector de SAP][2]
 5. Seleccione el **conector SAP** publicado por Microsoft.
 6. En la hoja del conector SAP, seleccione **Crear**.
 7. En la nueva hoja que se abre, escriba lo siguiente:
@@ -125,8 +125,4 @@ Para la acción seleccionada, consulte los parámetros de entrada y salida. Pued
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

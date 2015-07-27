@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Implementar trabajos web con Visual Studio
@@ -193,11 +193,11 @@ Para un trabajo web independiente, aparece el mismo asistente **Publicación web
 
 ## <a id="nextsteps"></a>Pasos siguientes
 
-Para obtener más información sobre cómo implementar WebJobs de Azure desde Visual Studio y con un proceso de entrega continua, consulte [WebJos de Azure - Recursos recomendados - Implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
+Este artículo explica cómo implementar WebJobs con Visual Studio. Para obtener más información sobre cómo implementar WebJobs de Azure desde Visual Studio y con un proceso de entrega continua, consulte [WebJos de Azure - Recursos recomendados - Implementación](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/azure-webjobs-recommended-resources#deploying).
 
 ## Lo que ha cambiado
-* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

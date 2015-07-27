@@ -64,4 +64,4 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

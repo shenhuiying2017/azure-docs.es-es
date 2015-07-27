@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Captura de una imagen de una máquina virtual que ejecuta Windows Server" 
-	description="Aprenda a capturar una imagen de una máquina virtual de Azure que ejecuta Windows Server 2008 R2." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Captura de una imagen de una máquina virtual que ejecuta Windows Server"
+	description="Aprenda a capturar una imagen de una máquina virtual de Azure que ejecuta Windows Server 2008 R2."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/13/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/13/2015"
 	ms.author="kathydav"/>
 
-#Cómo capturar una máquina virtual Windows para usarla como plantilla.#
+#Cómo capturar una máquina virtual Windows para usarla como plantilla#
 
-En este artículo se muestra cómo puede capturar una máquina virtual de Azure Con Windows para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla de máquina virtual incluye el disco del sistema operativo y cualquier otro disco de datos conectado a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
+En este artículo se muestra cómo puede capturar una máquina virtual de Azure Con Windows para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla incluye el disco del sistema operativo y los discos de datos que están conectados a la máquina virtual. No incluye configuraciones de red, por lo que deberá configurarlas usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
 
 Azure trata esta plantilla como una imagen y la almacena en **Mis imágenes**. Aquí también están almacenadas todas las imágenes que ha cargado. Para obtener más información sobre las imágenes, consulte [Acerca de las imágenes de máquina virtual en Azure][].
 
@@ -29,7 +29,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 - [Creación de una máquina virtual personalizada][]
 - [Acoplamiento de un disco de datos a una máquina virtual][]
 
-##Capture la máquina virtual##
+##Captura de la máquina virtual##
 
 1. Establezca conexión con la máquina virtual y haga clic en **Conectar** en la barra de comandos. Para obtener información detallada, consulte [Cómo iniciar sesión en una máquina virtual que ejecuta Windows Server][].
 
@@ -50,7 +50,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 
 	![Ejecute Sysprep](./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png)
 
-7.	Sysprep apaga la máquina virtual, lo que cambia su estado en el [Portal de administración](http://manage.windowsazure.com) a **Detenido**.
+7.	Sysprep apaga la máquina virtual, lo que cambia su estado en el [Portal de Azure](http://manage.windowsazure.com) a **Detenido**.
 
 
 8.	Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que desea capturar.
@@ -72,9 +72,9 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
  La nueva imagen ahora está disponible en **Imágenes**. ![Captura correcta de la imagen](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Pasos siguientes##
-La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Para ello, cree una máquina virtual personalizada con el método **Desde la galería** y seleccione la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
+La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Para ello, cree una máquina virtual personalizada con el elemento de menú **Desde la galería** y seleccione la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
 
-	
+
 [Acerca de las imágenes de máquina virtual en Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
 [Acoplamiento de un disco de datos a una máquina virtual]: storage-windows-attach-disk.md
@@ -87,6 +87,5 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [Enter the image name]: ./media/virtual-machines-capture-image-windows-server/Capture.png
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

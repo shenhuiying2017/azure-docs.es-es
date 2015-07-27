@@ -13,16 +13,16 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="03/24/2015" 
+	ms.date="07/02/2015" 
 	ms.author="cephalin"/>
 
 # Usar Active Directory para la autenticación en Servicio de aplicaciones de Azure #
 
-[Aplicaciones web del servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite escenarios de aplicaciones de línea de negocio empresariales al admitir el inicio de sesión único (SSO) de usuarios si tienen acceso a la aplicación desde el entorno local o desde Internet pública. Se puede integrar con [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) o con el servicio de token seguro (STS) local, como los Servicios de federación de Active Directory (AD FS), para autenticar a los usuarios de Active Directory (AD) internos y autorizarles correctamente.
+[Aplicaciones web del servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) permite escenarios de aplicaciones de línea de negocio empresariales al admitir el inicio de sesión único (SSO) de usuarios si tienen acceso a la aplicación desde el entorno local o desde Internet pública. Se puede integrar con [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) o con un servicio de token seguro (STS) local, como los Servicios de federación de Active Directory (AD FS), para autenticar a los usuarios de Active Directory (AD) internos y autorizarles correctamente.
 
 ## Autorización y autenticación perfecta ##
 
-Con unos pocos clics, puede habilitar la autenticación y autorización para su aplicación web. La configuración de estilo de casillas de verificación en las aplicaciones web de Azure proporciona el control de acceso básico de la aplicación web de línea de negocio. Para ello, exige HTTPS y la autenticación en un inquilino de Azure AD de su elección antes de conceder a los usuarios acceso al contenido de la aplicación web. Para obtener más información, consulte [Autenticación y autorización de aplicaciones web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
+Con unos pocos clics, puede habilitar la autenticación y autorización para su aplicación web. La configuración de estilo de casillas en las aplicaciones web de Azure proporciona el control de acceso básico de la aplicación web de línea de negocio. Para ello, exige HTTPS y la autenticación en un inquilino de Azure AD de su elección antes de conceder a los usuarios acceso al contenido de la aplicación web. Para obtener más información, consulte [Autenticación y autorización de aplicaciones web](http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/).
 
 >[AZURE.NOTE]Esta funcionalidad actualmente está en su versión preliminar.
 
@@ -53,4 +53,4 @@ En muchos escenarios, quiere personalizar el comportamiento de la autenticación
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

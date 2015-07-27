@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Aplicación de API del conector de SMTP" 
-   description="Uso del conector de SMTP" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Aplicación de API del conector de SMTP"
+   description="Uso del conector de SMTP"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,73 +12,84 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.workload="integration"
+   ms.date="07/01/2015"
+   ms.author="andalmia"/>
 
 
-# Uso del conector de SMTP en la aplicación lógica #
+# Conector de SMTP
 
-Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo.
+Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo de trabajo.
 
 El conector de SMTP permite conectarse a un servidor SMTP y realizar una acción para enviar correo electrónico con datos adjuntos. La acción "Enviar correo electrónico" del conector de SMTP permite enviar correo electrónico a las direcciones de correo electrónico especificadas.
 
-## Creación de un conector de SMTP para la aplicación lógica ##
-Para usar el conector de SMTP, deberá crear primero una instancia de la aplicación de API del conector de SMTP. Se puede hacer de la forma siguiente:
+## Acciones y desencadenadores
+Los *desencadenadores* son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un *acción* es el resultado del desencadenador. Por ejemplo, cuando se actualice un pedido o se agregue un nuevo cliente, enviar un correo electrónico al nuevo cliente.
 
-1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior izquierda del Portal de Azure.
-2.	Vaya a "Web y móviles > Azure Marketplace" y busque "Conector SMTP".
-3.	Configure el conector de SMTP de la siguiente forma:
- 
-	![][1]
-	- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
-	- **Suscripción**: elija una suscripción en la que desee crear este conector.
-	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
-	- **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web.
-	- **Nivel de precios**: elija un nivel de precios para el conector.
-	- **Nombre**: asigne un nombre al conector SMTP
-	- **Configuración del paquete**
-		- **Nombre de usuario**: especifique el nombre de usuario para conectarse al servidor SMTP.
-		- **Contraseña**: especifique la contraseña para conectarse al servidor SMTP.
-		- **Dirección del servidor**: especifique el nombre del servidor SMTP o la dirección IP.
-		- **Puerto del servidor** especifique el número de puerto del servidor SMTP.
-		- **Habilitar SSL**: especifique true para usar SMTP a través del canal SSL/TLS seguro.
-4.	Haga clic en Crear. Se creará un nuevo conector de SMTP.
-5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SMTP. 
+El conector de SMTP puede usarse como acción en una aplicación lógica y es compatible con datos en formato JSON y XML. Actualmente, no hay ningún desencadenador para este conector.
 
-## Uso del conector de SMTP en la aplicación lógica ##
-Una vez creada la aplicación de la API, ahora puede usar el conector de SMTP como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
+El conector de SMTP dispone de los siguientes desencadenadores y acciones:
 
-1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de SMTP.
- 
+Desencadenadores | Acciones
+--- | ---
+None | Enviar correo electrónico
+
+
+## Creación del conector de SMTP
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
+
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. Seleccione **Aplicaciones de API** y busque "Conector de SMTP".
+3. Haga clic en **Crear** para crear el conector.
+4. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
+5. Escriba la siguiente configuración del paquete:
+
+	Nombre | Obligatorio | Descripción
+	--- | --- | ---
+	User Name | Sí | Escriba un nombre de usuario que se puede conectar al servidor SMTP.
+	Password | Sí | Escriba la contraseña del nombre de usuario.
+	Dirección del servidor | Sí | Escriba el nombre o la dirección IP del servidor SMTP.
+	Puerto del servidor | Sí | Escriba el número de puerto del servidor SMTP.
+	Habilitación de SSL | No | Escriba *true* para usar SMTP a través de un canal seguro de SSL/TLS.
+
+6. Seleccione **Crear**.
+
+## Uso del conector de SMTP en la aplicación lógica
+Una vez creado el conector, ahora puede usar el conector de SMTP como acción para la aplicación lógica. Para ello, siga estos pasos:
+
+1.	Cree una nueva aplicación lógica.
+
 	![][2]
-2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo. 
- 
+2.	Abra **Desencadenadores y acciones** para abrir el diseñador de aplicaciones lógicas y configurar el flujo de trabajo.
+
 	![][3]
-3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho. Selecciónelo.
- 
+3.	El conector de SMTP aparecerá en la sección "Aplicaciones de API de este grupo de recursos" en la galería, en el lado derecho. Selecciónelo:
+
 	![][4]
-4.	Puede quitar la aplicación de la API del conector de SMTP en el editor haciendo clic en "Conector de SMTP". 
-	
-7.	Ahora puede usar el conector de SMTP en el flujo. Seleccione la acción "Enviar correo electrónico" y configure las propiedades de entrada como sigue:
-	- **Para**: la dirección de correo electrónico de los destinatarios. Separe múltiples direcciones de correo electrónico con un signo de punto y coma (;). Por ejemplo: recipient1@domain.com;recipient2@domain.com.
-	- **CC**: la dirección de correo electrónico de los destinatarios con copia. Separe múltiples direcciones de correo electrónico con un signo de punto y coma (;). Por ejemplo: recipient1@domain.com;recipient2@domain.com.
-	- **Asunto**: el asunto del correo electrónico.
-	- **Cuerpo**: el cuerpo del correo electrónico.
-	- **Es HTML**: cuando esta propiedad se establece en true, el contenido del cuerpo se enviará como HTML.
-	- **CCO**: la dirección de correo electrónico de los destinatarios de copia oculta. Separe múltiples direcciones de correo electrónico con un signo de punto y coma (;). Por ejemplo: recipient1@domain.com;recipient2@domain.com.
-	- **Importancia**: la importancia del correo electrónico. Las opciones son Normal, Baja, Alta.
-	- **Datos adjuntos**: los datos adjuntos que se enviarán con el correo electrónico. Contiene los siguientes campos:
-		- Contenido (cadena)
-		- Codificación de transferencia de contenido (Enum) (“none”|”base64”)
-		- Tipo de contenido (cadena)
-		- Id. de contenido (cadena)
-		- Nombre de archivo (cadena)
-	 
-	
+4.	Seleccione el conector de SMTP para agregarlo automáticamente al diseñador de flujo de trabajo.
+
+Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. Seleccione la acción **Enviar correo electrónico** y configure las propiedades de entrada como sigue:
+
+	Property | Description
+	--- | ---
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+
 	![][5]
 	![][6]
 
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobre conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
@@ -87,6 +98,5 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SMTP co
 [4]: ./media/app-service-logic-connector-smtp/img4.PNG
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
- 
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

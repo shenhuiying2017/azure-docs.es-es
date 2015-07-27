@@ -51,8 +51,7 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
 - También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso de **acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
 
 ## *2. Instalación y configuración de ADAL*
-Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación.
--	Comience agregando ADAL al proyecto de DirectorySearcher con la consola del Administrador de paquetes.
+Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación. Comience agregando ADAL al proyecto de DirectorySearcher con la consola del Administrador de paquetes.
 
 ```
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -161,9 +160,7 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-DotN
 
 [Protección de una API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para tener acceso a recursos adicionales, consulte:
- - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
- - [CloudIdentity.com >>](https://cloudidentity.com)
- - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+Para tener acceso a recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

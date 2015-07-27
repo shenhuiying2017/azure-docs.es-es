@@ -23,4 +23,4 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 <!-- URLs. -->
 [Portal de vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

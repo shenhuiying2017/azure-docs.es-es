@@ -41,4 +41,4 @@ Ya ha creado un nuevo back-end de aplicación móvil que pueden usar las aplicac
 <!-- URLs. -->
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

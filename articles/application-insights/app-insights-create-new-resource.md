@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
 
 # Creación de un recurso de Application Insights
@@ -55,20 +55,20 @@ Cuando se haya creado la aplicación, se abrirá una nueva hoja. Aquí es donde 
 Para volver aquí la próxima vez que inicie sesión en Azure, busque el icono de inicio rápido de la aplicación en el panel de inicio (pantalla principal). O bien, haga clic en Examinar para buscar esta opción.
 
 
-## Copie la clave de instrumentación.
+## Copia de la clave de instrumentación
 
+La clave de instrumentación identifica al recurso que ha creado. La necesitará para proporcionársela al SDK.
 
-La necesitará en poco tiempo para dirigir los datos desde el SDK de la aplicación al recurso que acaba de crear.
+![Haga clic en Essentials y elija la clave de instrumentación, CTRL + C](./media/app-insights-create-new-resource/02-props.png)
 
-![Haga clic en Propiedades, seleccione la clave y presione ctrl + C.](./media/app-insights-create-new-resource/02-props.png)
+## Instalación del SDK en la aplicación
 
-## Configuración del SDK
+Instale el SDK de Application Insights en su aplicación. Este paso depende en gran medida del tipo de aplicación.
 
 Use la clave de instrumentación para configurar [el SDK que instala en la aplicación][start].
 
-Este paso depende en gran medida del tipo de aplicación con que esté trabajando.
+El SDK incluye módulos estándar que envían telemetría sin tener que escribir código. Para realizar un seguimiento de las acciones del usuario o diagnosticar los problemas con más detalle, [use la API][api] para enviar su propia telemetría.
 
-En algunos casos, instala módulos estándar que envían telemetría sin tener que escribir ningún código. En todos los casos, puede [usar la API][api] para enviar su propia telemetría.
 
 ## <a name="monitor"></a>Visualización de los datos de telemetría
 
@@ -91,4 +91,5 @@ Puede escribir un [script de PowerShell](app-insights-powershell-script-create-r
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

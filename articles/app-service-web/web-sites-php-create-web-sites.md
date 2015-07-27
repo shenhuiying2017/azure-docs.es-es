@@ -103,4 +103,4 @@ Para conocer tutoriales integrales, visite la página [Tutoriales del Centro par
 [Escalación de una aplicación web en Servicio de aplicaciones de Azure]: web-sites-scale.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

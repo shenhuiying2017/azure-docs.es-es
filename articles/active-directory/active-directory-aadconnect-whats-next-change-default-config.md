@@ -26,4 +26,5 @@ Si necesita cambiar la configuración predeterminada, haga lo siguiente:
 - Si necesita modificar un flujo de atributos de una regla de sincronización lista para su aplicación, no lo cambie directamente. En su lugar, cree una nueva regla de sincronización con una prioridad más alta (valor numérico más bajo) que contenga el flujo de atributos necesario.
 - Exporte las reglas de sincronización personalizadas mediante el editor de reglas de sincronización. De este modo, obtiene un script de PowerShell que puede utilizar fácilmente para volver a crearlas en un posible escenario de recuperación ante desastres.
 - Si necesita cambiar el ámbito o la configuración de unión de una regla de sincronización lista para su aplicación, documéntelo y vuelva a aplicar el cambio tras actualizar a una versión más reciente de Azure AD Connect. 
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

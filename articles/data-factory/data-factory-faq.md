@@ -107,16 +107,14 @@ La configuración de **disponibilidad** en la tabla de datos de salida determina
 ## Actividad de copia: preguntas más frecuentes
 ### P: ¿Qué regiones admite la actividad de copia?
 
-La actividad de copia es compatible con la copia de datos en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., EE. UU. central, Centro-Norte de EE. UU., Sur-Centro de EE. UU., Europa del Norte, Europa occidental y Sudeste Asiático.
+La actividad de copia es compatible con la copia de datos en las siguientes regiones: Este de EE. UU., Este de EE. UU. 2, Oeste de EE. UU., EE. UU. central, Centro-Norte de EE. UU., Sur-Centro de EE. UU., Europa del Norte, Europa occidental, Sudeste Asiático, Este de Japón y Sur de Brasil.
 
 También se admite la copia de los datos en otras regiones, mediante el uso de las regiones anteriores para enrutar los datos. La operación de copia se mide según la región por la que se enrutan los datos.
 
 Región de destino de copia | Región usada para el enrutamiento
 -------------------------- | -----------------------
 Asia oriental | Sudeste de Asia
-Este de Japón | Oeste de EE. UU.
-Oeste de Japón | Oeste de EE. UU.
-Sur de Brasil | Este de EE. UU. 2
+Oeste de Japón | Este de Japón
 
 ### ¿Cómo puedo copiar en varias tablas de salida?
 Puede tener varias tablas de salida en una canalización como se muestra en el siguiente ejemplo:
@@ -217,4 +215,4 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

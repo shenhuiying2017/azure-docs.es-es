@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a los Centros de eventos" 
-	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con Java y recibir en C# mediante EventProcessorHost" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="Introducción a los Centros de eventos"
+	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con Java y recibir en C# mediante EventProcessorHost"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -24,9 +24,9 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general sobre Centros de eventos].
+Para obtener más información, consulte [Información general de los centros de eventos].
 
-En este tutorial, aprenderá a introducir mensajes en un centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo con la biblioteca [Host del procesador de eventos] de C#.
+En este tutorial, aprenderá a introducir mensajes en un centro de eventos mediante una aplicación de consola en Java y a recuperarlos en paralelo con la biblioteca [Event Processor Host] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
@@ -34,7 +34,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 ## Creación de un centro de eventos
 
@@ -56,7 +56,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
    	![][4]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla denominada **SendRule** con derechos *Send*, agregue otra regla llamada **ReceiveRule** con derechos *Manage, Send, Listen* y, a continuación, haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla llamada **SendRule** con derechos para *enviar*, agregue otra regla llamada **ReceiveRule** con derechos para *administrar, enviar y escuchar* y luego haga clic en **Guardar**.
 
    	![][5]
 
@@ -102,8 +102,8 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general sobre Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Información general de los centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

@@ -172,4 +172,4 @@ En menos de 5 minutos ha sido capaz de configurar una aplicación lógica sencil
 [Uso de las características de aplicaciones lógicas]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

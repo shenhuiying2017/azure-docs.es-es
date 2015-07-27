@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="07/13/2015"
 	ms.author="mwasson"/>
 
 # Configurar un nombre de dominio personalizado en el servicio de aplicaciones de Azure
@@ -27,7 +27,7 @@
 
 Cuando crea una aplicación web, Azure la asigna a un subdominio de azurewebsites.net. Por ejemplo, si la aplicación web se denomina **contoso**, la dirección URL es **contoso.azurewebsites.net**. Azure también asigna una dirección IP virtual.
 
-Para un sitio web de producción, probablemente quiera que los usuarios vean un nombre de dominio personalizado. En este artículo se explica cómo reservar o configurar un dominio personalizado con [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714). (En este artículo proporciona instrucciones generales para cualquier registrador de dominios. Las pestañas que aparecen en la parte superior de este articulo se vinculan a artículos para registradores específicos).
+Para un sitio web de producción, probablemente quiera que los usuarios vean un nombre de dominio personalizado. En este artículo se explica cómo reservar o configurar un dominio personalizado con [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../../includes/custom-dns-web-site-intro-notes.md)]
 
@@ -70,7 +70,8 @@ Si está creando un registro CNAME, omita este paso. Para crear un registro A, n
 3.	Haga clic en la hoja **Aplicaciones web**.
 4.	Haga clic en el nombre de la aplicación web.
 5.	En la página **Essentials**, haga clic en **Toda la configuración**.
-6.	Haga clic en **Dominios personalizados y SSL**. La dirección IP se encuentra en la parte inferior de la página (justo encima de la sección **Enlaces SSL**).
+6.	Haga clic en **Dominios personalizados y SSL**. 
+7.	En la hoja **Dominios personalizados y SSL**, haga clic en **Traer dominios externos**. La dirección IP se encuentra en la parte inferior de esta parte.
 
 ## Creación de registros DNS
 
@@ -110,7 +111,7 @@ Suponiendo que el nombre de dominio personalizado es 'contoso.com', esto crearí
 
 >[AZURE.NOTE]Puede utilizar DNS de Azure para hospedar los registros de dominio necesarios para la aplicación web. Para configurar el dominio personalizado y crear los registros, en DNS de Azure, consulte [Creación de registros de DNS personalizados para una aplicación web](../dns-web-sites-custom-domain).
 
-<a name="awverify" /></a>
+<a name="awverify" />
 ## Creación de un registro awverify (solo registros A)
 
 Si crea un registro A, la aplicación web también requiere un registro CNAME especial, que se usa para comprobar es propietario del dominio que está intentando utilizar. Este registro CNAME debe tener el formato siguiente.
@@ -129,7 +130,7 @@ Los visitantes de su aplicación web no verán el subdominio awverify, este solo
 
 ## Pasos siguientes
 
-Para obtener más información, consulte: [Introducción a DNS de Azure](http://azure.microsoft.com/es-es/documentation/articles/dns-getstarted-create-dnszone) y [Delegación de dominios en DNS de Azure](http://azure.microsoft.com/es-es/documentation/articles/dns-domain-delegation)
+Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/dns-getstarted-create-dnszone) y [Delegación de dominios en DNS de Azure](../dns/dns-domain-delegation)
 
 ## Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
@@ -146,4 +147,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](http://
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

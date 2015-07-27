@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/20/2015" 
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
@@ -183,4 +183,4 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -208,4 +208,4 @@ La biblioteca de clientes de .NET de Servicios móviles admite aplicaciones de l
 [Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVMM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

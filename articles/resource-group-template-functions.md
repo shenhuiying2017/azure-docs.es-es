@@ -1,19 +1,19 @@
 <properties
    pageTitle="Funciones de la plantilla del Administrador de recursos de Azure"
    description="Describe las funciones que se van a usar en una plantilla del Administrador de recursos de Azure para recuperar valores, cadenas de formato e información de implementación."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -382,4 +382,4 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 - [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

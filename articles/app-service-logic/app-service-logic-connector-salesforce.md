@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector de Salesforce" 
-   description="Uso del conector de Salesforce" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector de Salesforce"
+   description="Uso del conector de Salesforce"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Uso del conector de Salesforce en la aplicación lógica#
 
 Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos como parte del flujo. Conector de Salesforce le permite crear y modificar las distintas entidades como cuentas o clientes potenciales, entre otras. A continuación se muestran los escenarios de integración típicos que implican a Salesforce.
 
-- Sincronización de cuentas entre sistemas ERP y de Salesforce como SAP y QuickBooks	
+- Sincronización de cuentas entre sistemas ERP y de Salesforce como SAP y QuickBooks
 
 - Solicitud de flujo de caja de sitemas de Salesforce a ERP
 
 
 Como parte de la configuración del paquete del conector, el usuario puede especificar entidades que el conector puede administrar y las acciones y los parámetros de entrada y salida se completarán de forma dinámica. A continuación se muestran las distintas acciones disponibles en el conector de Salesforce:
- 
+
 - Crear entidad: use esta acción para crear una nueva entidad de Salesforce como Cuenta, Caso o un Objeto personalizado
 
 - Actualizar entidad: use esta acción para actualizar una entidad de Salesforce existente.
@@ -133,7 +133,4 @@ Vamos a crear una aplicación lógica simple que cree una cuenta en Salesforces 
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

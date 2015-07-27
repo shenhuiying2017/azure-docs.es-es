@@ -13,12 +13,12 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/19/2015" 
+    ms.date="06/16/2015" 
     ms.author="andrl"/>
 
 #Conexión de DocumentDB con Búsqueda de Azure mediante indizadores
 
-Si desea mejorar las experiencias de búsqueda en los datos de DocumentDB, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Microsoft Azure DocumentDB con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
+Si desea mejorar las experiencias de búsqueda en los datos de DocumentDB, use el indizador de Búsqueda de Azure para dicha base de datos. En este artículo mostraremos cómo integrar Azure DocumentDB con Búsqueda de Azure sin necesidad de escribir código alguno para mantener la infraestructura de indización.
 
 Para establecer esta opción, debe [configurar una cuenta de Búsqueda de Azure](../search-get-started.md#start-with-the-free-service) (no es necesario actualizar a la búsqueda estándar) y, a continuación, llamar a la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) para crear un **origen de datos** de DocumentDB y un **indizador** para dicho origen de datos.
 
@@ -28,7 +28,7 @@ Búsqueda de Azure admite la creación y administración de orígenes de datos (
 
 Un **origen de datos** especifica los datos que es necesario indizar, las credenciales para obtener acceso a estos y las directivas que posibilitan que Búsqueda de Azure identifique cambios en los datos de forma eficaz (por ejemplo, los documentos modificados o eliminados dentro de una colección). El origen de datos se define como un recurso independiente para que puedan usarlo múltiples indizadores.
 
-Un **indizador** describe cómo fluyen los datos desde el origen de datos a un índice de búsqueda de destino. Debe planear la creación de un indizador para cada combinación de origen de datos e índice de destino. Si bien varios indizadores pueden escribir en el mismo índice, cada indizador únicamente puede escribir en un solo índice. Un indizador se usa para: 
+Un **indizador** describe cómo fluyen los datos desde el origen de datos a un índice de búsqueda de destino. Debe planear la creación de un indizador para cada combinación de origen de datos e índice de destino. Si bien varios indizadores pueden escribir en el mismo índice, cada indizador únicamente puede escribir en un solo índice. Un indizador se usa para:
 
 - Realizar una copia única de los datos para rellenar un índice.
 - Sincronizar un índice con los cambios del origen de datos en una programación. La programación forma parte de la definición del indizador.
@@ -42,31 +42,31 @@ Emita una solicitud HTTP POST para crear un nuevo origen de datos en el servicio
     Content-Type: application/json
     api-key: [Search service admin key]
 
-Se requierie el valor `api-version`. Entre los valores válidos se incluye `2015-02-28` o una versión posterior.
+`api-version` es obligatorio Entre los valores válidos se incluye `2015-02-28` o una versión posterior.
 
 El cuerpo de la solicitud contiene la definición del origen de datos, que debe incluir los siguientes campos:
 
-- **name**: el nombre del origen de datos.
+- **nombre**: el nombre del origen de datos.
 
-- **type**: use `documentdb`.
+- **tipo**: use `documentdb`.
 
-- **credentials**:
+- **credenciales**:
 
-    - **connectionString**: Obligatorio. Especifique la información de conexión a Microsoft Azure DocumentDB con el formato siguiente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
+    - **connectionString**: obligatorio. Especifique la información de conexión a Azure DocumentDB con el formato siguiente: `AccountEndpoint=<DocumentDB endpoint url>;AccountKey=<DocumentDB auth key>;Database=<DocumentDB database id>`
 
-- **container**:
+- **contenedor**:
 
-    - **name**: Obligatorio. Especifique la colección de DocumentDB que se va a indizar. 
+    - **nombre**: obligatorio. Especifique la colección de DocumentDB que se va a indizar. 
 
-    - **query**: Opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Búsqueda de Azure pueda indizar.
+    - **consulta**: opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Búsqueda de Azure pueda indizar.
 
-- **dataChangeDetectionPolicy**: Opcional. Consulte la [directiva de detección de cambios de datos](#DataChangeDetectionPolicy) más adelante.
+- **dataChangeDetectionPolicy**: opcional. Consulte la [directiva de detección de cambios de datos](#DataChangeDetectionPolicy) más adelante.
 
-- **dataDeletionDetectionPolicy**: Opcional. Consulte la [directiva de detección de eliminación de datos](#DataDeletionDetectionPolicy) más adelante.
+- **dataDeletionDetectionPolicy**: opcional. Consulte la [directiva de detección de eliminación de datos](#DataDeletionDetectionPolicy) más adelante.
 
 ###<a id="DataChangeDetectionPolicy"></a>Captura de documentos modificados
 
-El fin de una directiva de detección de cambios de datos es identificar de forma eficaz los elementos de datos que han cambiado. Actualmente, solo es compatible la directiva `High Water Mark` que usa la propiedad `_ts` de marca de tiempo de última modificación proporcionada por Base de datos documentos, especificada de la siguiente forma:
+El fin de una directiva de detección de cambios de datos es identificar de forma eficaz los elementos de datos que han cambiado. Actualmente, solo es compatible la directiva `High Water Mark` que usa la propiedad de marca de tiempo de última modificación `_ts` proporcionada por DocumentDB, especificada de la siguiente forma:
 
     { 
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -88,7 +88,7 @@ Cuando se eliminan filas de la tabla de origen, también debe eliminar dichas fi
         "softDeleteMarkerValue" : "the value that identifies a document as deleted" 
     }
 
-> [AZURE.NOTE] Si usa una proyección personalizada, deberá incluir la propiedad en la cláusula SELECT.
+> [AZURE.NOTE]Si usa una proyección personalizada, deberá incluir la propiedad en la cláusula SELECT.
 
 ###<a id="CreateDataSourceExample"></a>Ejemplo de cuerpo de solicitud
 
@@ -130,7 +130,7 @@ Si aún no tiene un índice de Búsqueda de Azure de destino, créelo. Puede cre
 
 Asegúrese de que el esquema del índice de destino es compatible con el de los documentos JSON de origen o el resultado de la proyección de consultas personalizada.
 
-###Ilustración A: asignación entre tipos de datos de JSON y de Búsqueda de Azure
+###Figura A: asignación entre tipos de datos de JSON y de Búsqueda de Azure
 
 <table style="font-size:12">
     <tr>
@@ -154,7 +154,10 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
         <td>Edm.String</td>
     </tr>
     <tr>
-        <td>Matrices de tipos primitivos, por ejemplo [ "a", "b", "c" ]</td>
+        <td>
+            Matrices de tipos primitivos<br/>
+            Por ejemplo, ["a", "b", "c"]
+        </td>
         <td>Collection(Edm.String)</td>
     </tr>
     <tr>
@@ -162,7 +165,14 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
         <td>Edm.DateTimeOffset, Edm.String</td>
     </tr>
     <tr>
-        <td>Objetos JSON</td>
+        <td>
+            Objetos GeoJSON<br/>
+            Por ejemplo, {"tipo": "Punto", "coordenadas": [long, lat]}
+        </td>
+        <td>Edm.GeographyPoint</td>
+    </tr>
+    <tr>
+        <td>Otros objetos JSON</td>
         <td>N/D</td>
     </tr>
 </table>
@@ -202,21 +212,21 @@ Para crear un indizador dentro de un servicio de Búsqueda de Azure, use una sol
 
 El cuerpo de la solicitud contiene la definición del indizador, que debe incluir los siguientes campos:
 
-- **name**: Obligatorio. El nombre del indizador.
+- **nombre**: obligatorio. El nombre del indizador.
 
-- **dataSourceName**: Obligatorio. El nombre de un origen de datos existente.
+- **dataSourceName**: obligatorio. El nombre de un origen de datos existente.
 
-- **targetIndexName**: Obligatorio. El nombre de un índice existente.
+- **targetIndexName**: obligatorio. El nombre de un índice existente.
 
-- **schedule**: Opcional. Consulte la [programación de indización](#IndexingSchedule) a continuación.
+- **programación**: opcional. Consulte la [programación de indización](#IndexingSchedule) a continuación.
 
 ###<a id="IndexingSchedule"></a>Ejecución de indizadores en una programación
 
 Un indizador puede especificar opcionalmente una programación. Si existe una programación, el indizador se ejecutará de forma periódica de acuerdo con la misma. Una programación tiene los siguientes atributos:
 
-- **interval**: Obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón es: `P[nD][T[nH][nM]]`. Examples: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
+- **intervalo**: obligatorio. Valor de duración que especifica un intervalo o período durante el que se ejecuta el indizador. El intervalo mínimo permitido es de 5 minutos y el máximo de un día. Debe tener el formato de un valor "dayTimeDuration" XSD (subconjunto restringido de un valor de [duración ISO 8601](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)). El patrón de este es: `P(nD)(T(nH)(nM))`. Ejemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas. 
 
-- **startTime**: Obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indizador. 
+- **startTime**: obligatorio. Valor de fecha y hora UTC que especifica cuándo debería empezar a ejecutarse el indizador.
 
 ###<a id="CreateIndexerExample"></a>Ejemplo de cuerpo de solicitud
 
@@ -233,9 +243,9 @@ En el ejemplo siguiente se crea un indizador que copia datos de la colección a 
 
 Si el indizador se crea correctamente, recibirá una respuesta HTTP 201 que indica que se ha creado.
 
-##<a id="RunIndexer"></a>Paso 4: Ejecución de un indizador
+##<a id="RunIndexer"></a>Paso 4: Ejecutar un indizador
 
-Además de ejecutarse periódicamente según una programación, un indizador también puede invocarse a petición mediante la emisión de la siguiente solicitud HTTP POST: 
+Además de ejecutarse periódicamente según una programación, un indizador también puede invocarse a petición mediante la emisión de la siguiente solicitud HTTP POST:
 
     POST https://[Search service name].search.windows.net/indexers/[indexer name]/run?api-version=[api-version]
     api-key: [Search service admin key]
@@ -246,14 +256,14 @@ Si el indizador se invoca correctamente, recibirá una respuesta HTTP 202 que in
 
 ##<a name="GetIndexerStatus"></a>Paso 5: Obtención del estado del indizador
 
-Puede emitir una solicitud HTTP GET para recuperar el estado actual y el historial de ejecución de un indizador: 
+Puede emitir una solicitud HTTP GET para recuperar el estado actual y el historial de ejecución de un indizador:
 
     GET https://[Search service name].search.windows.net/indexers/[indexer name]/status?api-version=[api-version]
     api-key: [Search service admin key]
 
 ###Response
 
-Se devolverá una respuesta HTTP 200 de aceptado junto con un cuerpo de respuesta que contiene información sobre el estado general del indizador, la última invocación de este, así como el historial de invocaciones recientes del mismo (si existe). 
+Se devolverá una respuesta HTTP 200 de aceptado junto con un cuerpo de respuesta que contiene información sobre el estado general del indizador, la última invocación de este, así como el historial de invocaciones recientes del mismo (si existe).
 
 La respuesta debe ser similar a la siguiente:
 
@@ -287,10 +297,11 @@ El historial de ejecución contiene como máximo las 50 ejecuciones completadas 
 
 ##<a name="NextSteps"></a>Pasos siguientes
 
-¡Enhorabuena! En este artículo ha aprendido a integrar Microsoft Azure DocumentDB con Búsqueda de Azure usando el indizador para dicha base de datos.
+¡Enhorabuena! En este artículo ha aprendido a integrar Azure DocumentDB con Búsqueda de Azure usando el indizador para dicha base de datos.
 
- - Para obtener más información sobre Microsoft Azure DocumentDB, haga clic [aquí](/services/documentdb/).
+ - Para obtener más información sobre Azure DocumentDB, haga clic [aquí](/services/documentdb/).
 
  - Para obtener más información sobre Búsqueda de Azure, haga clic [aquí](/services/search/).
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

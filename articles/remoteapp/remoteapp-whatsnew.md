@@ -3,7 +3,7 @@
     pageTitle="Novedades en RemoteApp de Azure"
     description="Obtenga información sobre los cambios y las mejoras realizados en RemoteApp de Azure" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -51,4 +51,4 @@ Han tenido lugar varias adiciones y han pasado varios meses desde que creamos es
 
 Gracias por seguir con nosotros, volveremos el próximo mes con más novedades.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

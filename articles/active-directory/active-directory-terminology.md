@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -17,7 +16,7 @@
 	ms.date="04/27/2015" 
 	ms.author="Justinha"/>
 
-#  Terminología de Azure AD
+# Terminología de Azure AD
 
 Microsoft Azure Active Directory (Azure AD) tiene un conjunto único de terminología que está relacionada con escenarios en la nube, híbridos y locales. En la tabla siguiente se definen estos términos para proporcionarle información básica sobre su uso.
 
@@ -39,11 +38,12 @@ Inicio de sesión único | Se usa para proporcionar a los usuarios una experienc
 Id. de usuario | Un id. de usuario es un identificador único que un usuario proporciona en la página de inicio de sesión para tener acceso a los servicios en la nube de Microsoft a los que está suscrita su organización.
 Cuenta profesional o educativa | Una cuenta de usuario asignada por una organización (profesional, educativa, sin ánimo de lucro) a uno de sus integrantes (un empleado, estudiante, cliente) que proporciona acceso de inicio de sesión a una o más suscripciones de servicios en la nube de Microsoft de la organización, como Office 365 o Azure. Estas cuentas se almacenan en el directorio de Azure AD de una organización y normalmente se eliminan cuando el usuario abandona la organización. Las cuentas profesionales o educativas se diferencian de las cuentas de Microsoft en que es el administrador, y no el usuario, quien las crea y administra en la organización. 
 
-##  Pasos siguientes
+## Pasos siguientes
 - [Inicio de sesión en Azure como una organización](sign-up-organization.md)
 - [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restricciones y límites del servicio Azure AD](active-directory-service-limits-restrictions.md)
 
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

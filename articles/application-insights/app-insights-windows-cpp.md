@@ -1,10 +1,4 @@
-<properties
-    pageTitle="Application Insights para aplicaciones C++" 
-    description="Analice el uso y el rendimiento de su aplicación C++ con Application Insights." 
-    services="application-insights" 
-    documentationCenter="cpp"
-    authors="crystk" 
-    manager="jakubo""/>
+<properties pageTitle="Application Insights para aplicaciones C++" description="Analice el uso y el rendimiento de su aplicación C++ con Application Insights." services="application-insights" documentationCenter="cpp" authors="crystk" manager="jakubo""/>
 
 <tags 
     ms.service="application-insights" 
@@ -52,11 +46,11 @@ La clave identifica al recurso y se instalará pronto en el SDK para dirigir los
     ![Active **Incluir versión preliminar** y busque "Application Insights".](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. En la configuración de lanzamiento y depuración de los proyectos:
-  - Agregue $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc a las propiedades del proyecto -> Directorios VC++ -> Directorios de archivos de inclusión.
-  - Agregue $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DE PLATAFORMA>\release\AppInsights_Win10-UAP a las propiedades del proyecto -> Directorios VC++ -> Directorios de archivos de bibliotecas.
+  - Agregue $(SolutionDir)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc a las propiedades del proyecto -> Directorios VC++ -> Directorios de archivos de inclusión.
+  - Agregue $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\AppInsights_Win10-UAP a las propiedades del proyecto -> Directorios VC++ -> Directorios de archivos de bibliotecas.
 
-4. Agregue ApplicationInsights.winmd como referencia al proyecto desde $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DE PLATAFORMA>\release\ApplicationInsights.
-5. Agregue AppInsights_Win10-UAP.dll desde $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<TIPO DE PLATAFORMA>\release\AppInsights_Win10-UAP. Vaya a las propiedades y establezca el contenido en SÍ. Al hacerlo, el archivo dll se copiará en el directorio de compilación.
+4. Agregue ApplicationInsights.winmd como referencia al proyecto desde $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\ApplicationInsights.
+5. Agregue AppInsights_Win10-UAP.dll desde $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<TIPO DE PLATAFORMA>\\release\\AppInsights_Win10-UAP. Vaya a las propiedades y establezca el contenido en SÍ. Al hacerlo, el archivo dll se copiará en el directorio de compilación.
 
 
 #### Para actualizar el SDK para versiones futuras
@@ -144,4 +138,5 @@ Haga clic en cualquier gráfico para obtener más detalles. Por ejemplo, bloqueo
 [track]: app-insights-custom-events-metrics-api.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

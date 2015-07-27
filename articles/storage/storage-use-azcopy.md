@@ -42,12 +42,21 @@ A continuación, abra una ventana de comandos y vaya al directorio de instalaci�
 
 > [AZURE.NOTE]A partir de la versión 3.0.0 de AzCopy, la sintaxis de línea de comandos de AzCopy requiere que se especifiquen todos los parámetros para incluir su nombre, *por ejemplo*, `/ParameterName:ParameterValue`.
 
+## Escritura del primer comando de AzCopy
+
+**Cargar un archivo desde el sistema de archivos a Almacenamiento de blobs:**
+	
+	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
+
+Al copiar un único archivo, recuerde que debe especificar la opción /Pattern con el nombre de archivo. Encontrará más ejemplos en una sección posterior de este artículo.
+
+## Introducción a los parámetros
+
 En la tabla siguiente se describen los parámetros para AzCopy. También puede escribir uno de los siguientes comandos desde la línea de comandos para obtener ayuda en el uso de AzCopy:
 
 - Para obtener ayuda detallada sobre la línea de comandos de AzCopy: `AzCopy /?`
 - Para obtener ayuda detallada con algún parámetro de AzCopy: `AzCopy /?:SourceKey`
 - Para obtener ejemplos de línea de comandos: `AzCopy /?:Samples` 
-
 
 <table>
   <tr>
@@ -810,7 +819,7 @@ AzCopy generará un archivo de datos JSON en la carpeta o el contenedor de blobs
 
 El archivo de datos JSON generado sigue el formato de carga para metadatos mínimos. Para obtener más información sobre el formato de carga, consulte [Formato de carga para las operaciones del servicio Tabla](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Tenga en cuenta que, al exportar las entidades de tabla de almacenamiento a Almacenamiento ode BLOB, AzCopy exportará las entidades de tabla a archivos de datos temporales locales en primer lugar y, después, los cargará en Blob; estos archivos de datos temporales se colocan en la carpeta de archivos de diario con la ruta de acceso predeterminada "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". Puede especificar la opción /Z:[carpeta-de-archivos-de-diario] para cambiar la ubicación de la carpeta de archivos de diario y así cambiar la ubicación de los archivos de datos temporales. El tamaño de los archivos de datos temporales se decide según el tamaño de las entidades de tabla y el tamaño especificado con la opción /SplitSize, aunque el archivo de datos temporales en el disco local se eliminará inmediatamente después de que se cargue en el Blob. Asegúrese de que tiene suficiente espacio en el disco local para almacenar estos archivos de datos temporales antes de que se eliminen.
+Tenga en cuenta que, al exportar las entidades de tabla de almacenamiento a Almacenamiento ode BLOB, AzCopy exportará las entidades de tabla a archivos de datos temporales locales en primer lugar y, después, los cargará en Blob; estos archivos de datos temporales se colocan en la carpeta de archivos de diario con la ruta de acceso predeterminada "<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>". Puede especificar la opción /Z:[carpeta-de-archivos-de-diario] para cambiar la ubicación de la carpeta de archivos de diario y así cambiar la ubicación de los archivos de datos temporales. El tamaño de los archivos de datos temporales se decide según el tamaño de las entidades de tabla y el tamaño especificado con la opción /SplitSize, aunque el archivo de datos temporales en el disco local se eliminará inmediatamente después de que se cargue en el Blob. Asegúrese de que tiene suficiente espacio en el disco local para almacenar estos archivos de datos temporales antes de que se eliminen.
 
 ### Dividir los archivos exportados
 
@@ -902,4 +911,4 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

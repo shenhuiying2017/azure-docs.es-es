@@ -16,17 +16,17 @@
 	ms.date="06/10/2015" 
 	ms.author="sdanie"/>
 
-#  Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure
+# Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Administración de API de Azure
 
 Muchas API admiten [OAuth 2.0](http://oauth.net/2/) para proteger la API y garantizar que solo usuarios válidos obtengan acceso y que, además, solo puedan tener acceso a los recursos para los que estén autorizados. Para usar la consola interactiva para desarrolladores de la Administración de API de Azure, el servicio permite configurar la instancia del servicio para que funcione con la API habilitada para OAuth 2.0.
 
-##  <a name="prerequisites"> </a>Requisitos previos
+## <a name="prerequisites"> </a>Requisitos previos
 
 En esta guía se explica cómo configurar la instancia del servicio Administración de API para que use la autorización OAuth 2.0 con las cuentas de desarrollador, pero no se explica cómo configurar un proveedor de OAuth 2.0. Aunque los proveedores de OAuth 2.0 tienen configuraciones diferentes, los pasos son similares y se precisa la misma información para configurar OAuth 2.0 en la instancia del servicio Administración de API. Este tema muestra ejemplos donde Azure Active Directory actúa como proveedor de OAuth 2.0.
 
 >[AZURE.NOTE]Para obtener más información sobre cómo configurar OAuth 2.0 con Azure Active Directory, consulte el ejemplo de [WebApp-GraphAPI-DotNet][].
 
-##  <a name="step1"> </a>Configurar un servidor de autorización OAuth 2.0 en Administración de API
+## <a name="step1"> </a>Configurar un servidor de autorización OAuth 2.0 en Administración de API
 
 Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
@@ -80,7 +80,7 @@ Si **Tipos de concesión de código de autorización** se establece en **Contras
 
 Cuando complete el formulario, haga clic en **Guardar** para guardar la configuración del servidor de autorización OAuth 2.0 de Administración de API. Cuando se guarda la configuración del servidor, pueden configurarse las API para que usen estos valores, conforme a la sección siguiente.
 
-##  <a name="step2"> </a>Configurar una API para que use la autorización de usuario OAuth 2.0
+## <a name="step2"> </a>Configurar una API para que use la autorización de usuario OAuth 2.0
 
 Haga clic en **API** en el menú **Administración de API** de la izquierda, en el nombre de la API en cuestión, en **Seguridad** y, después, active la casilla **OAuth 2.0**.
 
@@ -90,7 +90,7 @@ Seleccione el **Servidor de autorización** que quiera en la lista desplegable y
 
 ![Autorización de usuario][api-management-user-authorization-save]
 
-##  <a name="step3"> </a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores
+## <a name="step3"> </a>Probar la autorización de usuario OAuth 2.0 en el portal para desarrolladores
 
 Tras configurar el servidor de autorización OAuth 2.0 y las API para que usen dicho servidor, puede probarlo. Para ello, vaya al portal para desarrolladores y llame a una API. Haga clic en **Portal para desarrolladores** en el menú superior derecho.
 
@@ -118,7 +118,7 @@ Tras iniciar sesión, los **Encabezados de solicitud** se rellenan con el encabe
 
 Llegado a este punto, puede configurar los valores que desea para los demás parámetros y enviar la solicitud.
 
-##  Pasos siguientes
+## Pasos siguientes
 
 Para obtener más información acerca del uso de OAuth 2.0 y Administración de API, vea el siguiente vídeo.
 
@@ -160,5 +160,4 @@ Para obtener más información acerca del uso de OAuth 2.0 y Administración de 
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

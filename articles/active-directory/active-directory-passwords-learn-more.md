@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Más información sobre la administración de contraseñas
+# Más información sobre la administración de contraseñas
 Si ya ha implementado la administración de contraseñas, o simplemente desea obtener más información sobre los detalles técnicos del funcionamiento antes de implementarla, en esta sección se le ofrece una introducción apropiada de los conceptos técnicos subyacentes al servicio. Trataremos lo siguiente:
 
 * [**Información general sobre la escritura diferida de contraseñas**](#password-writeback-overview)
@@ -26,7 +26,7 @@ Si ya ha implementado la administración de contraseñas, o simplemente desea ob
 * [**¿Cómo funciona el portal de restablecimiento de contraseñas?**](#how-does-the-password-reset-portal-work)
   - [¿Qué datos sirven para restablecer la contraseña?](#what-data-is-used-by-password-reset)
 
-##  Información general sobre la escritura diferida de contraseñas
+## Información general sobre la escritura diferida de contraseñas
 La escritura diferida de contraseñas es un componente de [Azure Active Directory Connect](active-directory-aadconnect) que los suscriptores actuales de Azure Active Directory Premium pueden habilitar y utilizar. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
 
 La escritura diferida de contraseñas le permite configurar el inquilino de nube para que escriba contraseñas en diferido en su Active Directory local. Evita tener que configurar y administrar una solución de restablecimiento de contraseñas de autoservicio local y ofrece una manera conveniente basada en la nube para que los usuarios restablezcan sus contraseñas locales dondequiera que estén. Siga leyendo para conocer algunas de las características clave de la escritura diferida de contraseñas:
@@ -40,7 +40,7 @@ La escritura diferida de contraseñas le permite configurar el inquilino de nube
 - **No requiere ninguna regla de firewall de entrada.** La escritura diferida de contraseñas usa una retransmisión de Bus de servicio de Azure como un canal de comunicación subyacente, lo que significa que no tendrá que abrir puertos de entrada en el firewall para que esta característica funcione.
 - **No se admite para las cuentas de usuario que se encuentran en grupos protegidos del entorno local de Active Directory.** Para obtener más información sobre los grupos protegidos, consulte [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
-###  Funcionamiento de la escritura diferida de contraseñas
+### Funcionamiento de la escritura diferida de contraseñas
 La escritura diferida de contraseñas tiene tres componentes principales:
 
 - Servicio en la nube de restablecimiento de contraseñas (también está integrado en las páginas de cambio de contraseña de Azure AD)
@@ -64,12 +64,12 @@ Si un usuario federado o con sincronización de hash de contraseña cambia o res
 9.	Si la operación de establecimiento de la contraseña se realiza correctamente, notificamos al usuario que la contraseña se ha modificado y que puede continuar con su trabajo.
 10.	Si se produce un error en la operación de establecimiento de la contraseña, se devolverá el error al usuario y se le permitirá que vuelva a intentarlo. La operación puede producir un error porque el servicio no estaba disponible, la contraseña seleccionada no cumplía las directivas de la organización, no se encontraba el usuario en el entorno local de AD o por otros motivos. Disponemos de un mensaje específico para muchos de estos casos, a fin de indicar al usuario qué puede hacer para resolver el problema.
 
-###  Escenarios admitidos para la escritura diferida de contraseñas
+### Escenarios admitidos para la escritura diferida de contraseñas
 En la tabla siguiente se describe qué escenarios se admiten para las versiones de nuestras capacidades de sincronización. En general, se recomienda que instale la versión más reciente de [Azure AD Connect](active-directory-aadconnect.md#download-azure-ad-connect) si desea utilizar la escritura diferida de contraseñas.
 
   ![][002]
 
-###  Modelo de seguridad de la escritura diferida de contraseñas
+### Modelo de seguridad de la escritura diferida de contraseñas
 La escritura diferida de contraseñas es un servicio sumamente seguro y sólido. Para asegurarse de que su información está protegida, habilitamos un modelo de seguridad de cuatro niveles que describimos a continuación.
 
 - **Retransmisión de Bus de servicio específica de inquilino**: al configurar el servicio, configuramos una retransmisión de Bus de servicio específica del inquilino que está protegida por una contraseña segura generada aleatoriamente a la que Microsoft nunca tiene acceso.
@@ -77,7 +77,7 @@ La escritura diferida de contraseñas es un servicio sumamente seguro y sólido.
 - **TLS estándar del sector**: cuando se produce una operación de restablecimiento o cambio de contraseña, ciframos la contraseña de texto no cifrado con la clave pública. A continuación, la insertamos en un mensaje HTTPS que se envía a través de un canal cifrado con certificados SSL de Microsoft para la retransmisión de Bus de servicio. Después de que ese mensaje llega al Bus de servicio, el agente local se activa, se autentica en el Bus de servicio con la contraseña segura que se había generado previamente, recoge el mensaje cifrado, lo descifra con la clave privada generada y, a continuación, intenta establecer la contraseña a través de la API SetPassword de AD DS. Este paso nos permite aplicar la directiva de contraseñas local de AD (complejidad, edad, historial, filtros, etc.) en la nube.
 - **Directivas de expiración de mensajes**: por último, si por alguna razón el mensaje espera en el Bus de servicio porque el servicio local no funciona, se agotará el tiempo de espera y se eliminará transcurridos unos minutos para aumentar aún más la seguridad.
 
-##  ¿Cómo funciona el portal de restablecimiento de contraseñas?
+## ¿Cómo funciona el portal de restablecimiento de contraseñas?
 Cuando un usuario navega al portal de restablecimiento de contraseñas, se inicia un flujo de trabajo para determinar si esa cuenta de usuario es válida, a qué organización pertenece, dónde se administra la contraseña del usuario y si el usuario dispone o no de una licencia para usar la característica. Lea los pasos siguientes para obtener información sobre la lógica de la página de restablecimiento de contraseña.
 
 1.	El usuario hace clic en el vínculo ¿No puede tener acceso a su cuenta? o visita directamente [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
@@ -97,7 +97,7 @@ Cuando un usuario navega al portal de restablecimiento de contraseñas, se inici
 
 Obtenga más información sobre cómo implementar la escritura diferida de contraseñas en [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
 
-###  ¿Qué datos sirven para restablecer la contraseña?
+### ¿Qué datos sirven para restablecer la contraseña?
 En la tabla siguiente se describe dónde y cómo se usan estos datos durante el restablecimiento de la contraseña y está diseñada para ayudarle a decidir qué opciones de autenticación resultan apropiadas para su organización. En esta tabla también se indican los requisitos de formato para los casos donde va a proporcionar datos en nombre de usuarios desde rutas de acceso de entrada que no validan estos datos.
 
 > [AZURE.NOTE]El teléfono del trabajo no aparece en el portal de registro porque los usuarios actualmente no pueden editar esta propiedad en el directorio.
@@ -281,4 +281,5 @@ En la tabla siguiente se describe dónde y cómo se usan estos datos durante el 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

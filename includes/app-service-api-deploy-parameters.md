@@ -4,7 +4,7 @@ Vamos a describir cada parámetro de la plantilla.
 
 ### gatewayName
 
-El nombre de la puerta de enlace que desea crear. La aplicación de API se registra en esta puerta de enlace.
+El nombre de la puerta de enlace. La aplicación de API se registra en esta puerta de enlace.
 
     "gatewayName": {
       "type": "string"
@@ -12,7 +12,7 @@ El nombre de la puerta de enlace que desea crear. La aplicación de API se regis
 
 ### apiAppName
 
-El nombre de la aplicación de API que se va a crear.
+El nombre de la aplicación de API que se va a crear. El nombre debe contener al menos 8 caracteres y no más de 50.
     
     "apiAppName": {
       "type": "string"
@@ -34,4 +34,4 @@ La ubicación de la nueva aplicación de API.
       "type": "string"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

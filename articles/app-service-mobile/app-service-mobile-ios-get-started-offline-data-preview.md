@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # Activación de la sincronización sin conexión para la aplicación móvil iOS
@@ -48,7 +48,7 @@ Esta sección le guía a través del código relacionado con la sincronización 
 
     Para obtener una referencia a una tabla de sincronización, utilice el método `syncTableWithName`. Para quitar la funcionalidad de sincronización sin conexión, use en su lugar `tableWithName`.
 
-3. Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. Este es el código pertinente en el método `QSTodoService.init`:
+2. Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. Este es el código pertinente en el método `QSTodoService.init`:
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +58,9 @@ Esta sección le guía a través del código relacionado con la sincronización 
 
     El primer parámetro de `initWithDelegate` se utiliza para especificar un controlador de conflictos. Puesto que hemos pasado `nil`, obtenemos el controlador de conflictos predeterminado, que produce un error en cualquier conflicto.
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. Los métodos `pullData` y `syncData` realizan la operación de sincronización real: `syncData` inserta primero los nuevos cambios y, a continuación, se llama a `pullData` para obtener datos desde el back-end remoto.
+3. Los métodos `pullData` y `syncData` realizan la operación de sincronización real: `syncData` inserta primero los nuevos cambios y, a continuación, se llama a `pullData` para obtener datos desde el back-end remoto.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +98,7 @@ Esta sección le guía a través del código relacionado con la sincronización 
 
     El segundo parámetro para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo del registro `UpdatedAt` (llamada `ms_updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. En la clase `QSTodoService`, se llama al método `syncData` después de las operaciones que modifican datos, `addItem` y `completeItem`. También se le llama desde `QSTodoListViewController.refresh`, de modo que el usuario obtiene los datos más recientes cada vez que realizan los gestos de actualización. La aplicación también lleva a cabo una sincronización en el inicio, ya que `QSTodoListViewController.init` llama a `refresh`.
@@ -212,13 +212,13 @@ En esta sección, desactivará el Wi-Fi en el simulador para crear un escenario 
 
 Para admitir la característica de sincronización sin conexión, usamos la interfaz `MSSyncTable` e inicializamos `MSClient.syncContext` con un almacén local. En este caso, el almacén local era una base de datos Core Data.
 
-Cuando se usa un almacén local Core Data, debe definir varias tablas con las [propiedades del sistema correctas][ Revisión del modelo Core Data].
+Cuando se utiliza un almacén local Core Data, debe definir varias tablas con las [propiedades del sistema de corrección](#review-core-data).
 
 Las operaciones CRUD normales para Aplicaciones móviles funcionan como si la aplicación siguiera conectada, pero todas las operaciones se producen en el almacén local.
 
 Cuando quisimos sincronizar el almacén local con el servidor, usamos los métodos `MSSyncTable.pullWithQuery` y `MSClient.syncContext.pushWithCompletion`.
 
-*  Para insertar cambios en el servidor, llamamos a `Review the Core Data model`. Este método es miembro de `MSSyncContext` y no de la tabla de sincronización porque insertará cambios en todas las tablas.
+*  Para insertar cambios en el servidor, llamamos a `pushWithCompletion`. Este método es miembro de `MSSyncContext` y no de la tabla de sincronización porque insertará cambios en todas las tablas.
 
     Solo los registros que se han modificado localmente de alguna forma (mediante operaciones CUD) se enviarán al servidor.
 
@@ -275,7 +275,7 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/es-es/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

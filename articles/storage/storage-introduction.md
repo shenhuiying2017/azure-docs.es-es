@@ -117,9 +117,7 @@ Una cuenta de almacenamiento puede contener un número cualquiera de colas y, a 
 
 ## Almacenamiento de archivos (vista previa)
 
-Muchas aplicaciones heredadas se basan en recursos compartidos de archivos, una dependencia que ha complicado el traslado de estas aplicaciones a la nube. Almacenamiento de archivos ofrece recursos compartidos de archivos basados en la nube, de forma que puede migrar aplicaciones heredadas a Azure con rapidez y sin necesidad de reescribir código y el coste que esto supone.
-
-Las aplicaciones que se ejecutan en máquinas virtuales o servicios en la nube de Azure pueden montar un recurso compartido de Almacenamiento de archivos para acceder a archivos de datos, igual que montaría una aplicación de escritorio un recurso compartido SMB normal. Cualquier número de componentes de aplicación puede montar y acceder simultáneamente al recurso compartido de Almacenamiento de archivos.
+Almacenamiento de archivos de Azure ofrece recursos compartidos de archivos SMB 2.1 basados en la nube, de forma que puede migrar a Azure aplicaciones heredadas con rapidez y sin necesidad de costosas reescrituras de código. Con Almacenamiento de archivos de Azure, las aplicaciones se ejecutan en máquinas virtuales de Azure o en servicios en la nube pueden montar un recurso compartido de archivos en la nube, igual que una aplicación de escritorio monta un recurso compartido SMB típico. Cualquier número de componentes de aplicación puede montar y acceder simultáneamente al recurso compartido de Almacenamiento de archivos.
 
 Puesto que un recurso compartido de Almacenamiento de archivos es un recurso compartido de archivos SMB 2.1 estándar, las aplicaciones que se ejecutan en Azure pueden obtener acceso a los datos del recurso compartido a través de API de E/S del sistema de archivos. Por tanto, los desarrolladores pueden aprovechar el código y los conocimientos que ya tienen para migrar las aplicaciones actuales. Los profesionales de TI pueden usar cmdlets de PowerShell para crear, montar y administrar recursos compartidos de Almacenamiento de archivos como parte de la administración de aplicaciones de Azure.
 
@@ -226,4 +224,4 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

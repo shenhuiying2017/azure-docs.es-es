@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Análisis en tiempo real de opinión de Twitter con Análisis de transmisiones | Microsoft Azure"
 	description="Aprenda a usar Análisis de transmisiones para el análisis en tiempo real de opinión de Twitter. Pasos desde la generación de eventos a los datos en un panel dinámico."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +29,7 @@ Un sitio web multimedia de noticias está interesado en obtener una ventaja sobr
 
 ## Requisitos previos
 1.	Se requiere una cuenta de Twitter para este tutorial.  
-2.	Este tutorial utiliza un generador de eventos situado en GitHub. Descárguelo [aquí](https://github.com/streamanalytics/samples/tree/master/TwitterClient) y siga estos pasos para configurar la solución.
+2.	Este tutorial usa una aplicación de cliente Twitter que se encuentra en GitHub. Descárguelo [aquí](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient) y siga estos pasos para configurar la solución.
 
 ## Cree una entrada del centro de eventos y un grupo de consumidores
 
@@ -38,7 +37,7 @@ La aplicación de ejemplo genera eventos y los inserta en una instancia de los c
 
 Siga estos pasos para crear un centro de eventos.
 
-1.	En el portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y proporcione un nombre, una región y un espacio de nombres nuevo o existente para crear un nuevo centro de eventos.  
+1.	En el Portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y proporcione un nombre, una región y un espacio de nombres nuevo o existente para crear un nuevo centro de eventos.  
 2.	Como práctica recomendada, debe leer cada trabajo de Análisis de transmisiones de un solo grupo de consumidores del centro de eventos. Le guiaremos a través del proceso de creación de un grupo de consumidores y podrá obtener más información aquí. Para crear un grupo de consumidores, vaya al centro de eventos recién creado y haga clic en la pestaña **GRUPOS DE CONSUMIDORES** y, después, haga clic en **CREAR** en la parte inferior de la página y proporcione un nombre para el grupo de consumidores.
 3.	Para otorgar acceso al centro de eventos, necesitamos crear una directiva de acceso compartido. Haga clic en la pestaña **CONFIGURAR** de su centro de eventos.
 4.	En **DIRECTIVAS DE ACCESO COMPARTIDO**, cree una nueva directiva con permisos para **ADMINISTRAR**.
@@ -49,9 +48,9 @@ Siga estos pasos para crear un centro de eventos.
 5.	Haga clic en **GUARDAR** en la parte inferior de la página.
 6.	Vaya a **PANEL** y haga clic en **INFORMACIÓN DE CONEXIÓN** en la parte inferior de la página y copie y guarde la información de conexión. (Utilice el icono de copia que aparece bajo el icono de búsqueda).
 
-## Configuración e inicio de la aplicación del generador de eventos
+## Configuración e inicio de la aplicación cliente Twitter
 
-Hemos proporcionado una aplicación cliente que derivará datos de Twitter mediante las [API de REST de Twitter](https://dev.twitter.com/rest/public) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
+Hemos proporcionado una aplicación cliente que derivará datos de Twitter mediante las [API de streaming de Twitter](https://dev.twitter.com/streaming/overview) para recopilar eventos de Tweet sobre un conjunto de temas con parámetros. La herramienta de código abierto [Sentiment140](http://help.sentiment140.com/), de otro proveedor, se utiliza para asignar un valor de opinión a cada tweet (0: negativo, 2: neutro, 4: positivo) y, a continuación, se insertan eventos Tweet en el centro de eventos.
 
 Siga estos pasos para configurar la aplicación:
 
@@ -153,7 +152,7 @@ Para comparar el número de menciones entre temas, se aprovechará una [Tumbling
 
 #### Identificación de tendencias: ventana deslizante
 
-Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para este tutorial, buscaremos temas que se mencionan más de 20 veces en 5 segundos con un [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
+Para identificar las tendencias buscaremos temas que crucen un umbral para las menciones en un período determinado de tiempo. Para este tutorial, buscaremos temas que se mencionan más de 20 veces en los últimos 5 segundos con un [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx).
 
 1.	Cambie la consulta en el editor de código a:
 
@@ -183,7 +182,7 @@ La consulta final que probaremos utiliza una ventana de saltos de tamaño consta
 
 ## Creación de receptores de salida
 
-Ahora que hemos definido una secuencia de eventos, una entrada de centro de eventos para introducir eventos y una consulta para realizar una transformación en la secuencia, el último paso es definir un receptor de salida para el trabajo. Escribiremos los eventos de tweet agregados de nuestra consulta de trabajo en un blob de Azure. También podría insertar los resultados en la base de datos SQL, el almacén de tablas o el centro de eventos, según las necesidades de su aplicación.
+Ahora que hemos definido una secuencia de eventos, una entrada de centro de eventos para introducir eventos y una consulta para realizar una transformación en la secuencia, el último paso es definir un receptor de salida para el trabajo. Escribiremos los eventos de tweet agregados de nuestra consulta de trabajo en un blob de Azure. También podría insertar los resultados en la base de datos SQL, el almacén de tablas o el centro de eventos, según las necesidades específicas de su aplicación.
 
 Siga estos pasos para crear un contenedor para el almacenamiento de blobs, si aún no tiene ninguno:
 
@@ -224,7 +223,7 @@ Cuando el trabajo se esté ejecutando y esté procesando el flujo de Twitter en 
 ![Análisis de los medios sociales: salida del análisis de opinión (minería de opinión) de Análisis de transmisiones en un panel de Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -236,4 +235,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

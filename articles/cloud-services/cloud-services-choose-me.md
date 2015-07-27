@@ -26,7 +26,7 @@ Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cad
 | [Máquinas virtuales] | Máquinas virtuales Linux y Windows personalizadas con un control completo del sistema operativo |
 
 
-[AZURE.INCLUDE [Contenido](../../includes/cloud-services-choose-me-content.md)]
+[AZURE.INCLUDE [contenido](../../includes/cloud-services-choose-me-content.md)]
 
 
 ## Pasos siguientes
@@ -36,4 +36,4 @@ Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cad
 [Máquinas virtuales]: ../virtual-machines-choose-me.md
 [Servicios en la nube]: #tellmecs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

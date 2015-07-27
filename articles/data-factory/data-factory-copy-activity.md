@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Copia de datos con la Factoría de datos de Azure (actividad de copia)
@@ -40,23 +40,15 @@ Para obtener más información:
 ## Orígenes y receptores compatibles
 La actividad de copia admite los siguientes escenarios de movimiento de datos:
 
-- Copiar datos de un blob de Azure a un blob de Azure, una tabla de Azure, una base de datos SQL de Azure, SQL Server local o SQL Server en IaaS.
-- Copiar datos de una base de datos SQL de Azure a un blob de Azure, una tabla de Azure, una base de datos SQL de Azure, un SQL Server local o un SQL Server en IaaS.
-- Copiar datos de una tabla de Azure a un blob de Azure, una tabla de Azure o una base de datos SQL de Azure.
-- Copiar datos de un local SQL Server local o de un SQL Server en IaaS a un blob de Azure o una base de datos SQL de Azure.
-- Copiar datos de una base de datos de Oracle local a un blob de Azure
-- Copiar datos de un sistema de archivos local a un blob de Azure
- 
-
 <table border="1">	
 	<tr>
 		<th><i>Origen/receptor<i></th>
 		<th>Blob de Azure</th>
 		<th>Tabla de Azure</th>
 		<th>Base de datos SQL de Azure</th>
-		<th>SQL Server local</th>
-		<th>SQL Server en IaaS</th>
 		<th>DocumentDB de Azure</th>
+		<th>SQL Server en máquinas virtuales de Azure</th>
+		<th>SQL Server local</th>
 	</tr>	
 
 	<tr>
@@ -74,11 +66,10 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 		<td>X</td>
 	</tr>	
-
 	<tr>
 		<td><b>Base de datos SQL de Azure</b></td>
 		<td>X</td>
@@ -88,108 +79,6 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td>X</td>
 		<td>X</td>
 	</tr>
-
-
-	<tr>
-		<td><b>SQL Server local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server en IaaS</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de archivos local</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos de Oracle local</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de archivos local</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos MySQL local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos DB2 local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos Teradata local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos Sybase local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos PostgreSQL local</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
 	<tr>
 		<td><b>DocumentDB de Azure</b></td>
 		<td>X</td>
@@ -198,6 +87,106 @@ La actividad de copia admite los siguientes escenarios de movimiento de datos:
 		<td></td>
 		<td></td>
 		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>SQL Server local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>SQL Server en máquinas virtuales de Azure</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Sistema de archivos local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos de Oracle local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Sistema de archivos local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos MySQL local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos DB2 local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos Teradata local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos Sybase local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Base de datos PostgreSQL local</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 </table>
@@ -443,7 +432,7 @@ Para los almacenes de datos que ofrecen conexión HTTPS, elija la conexión HTTP
 
 Para **Base de datos SQL de Azure**, solicite explícitamente una conexión cifrada y no confíe en los certificados de servidor para evitar el ataque de tipo "Man in the middle". Para ello, use **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, vea [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ff394108.aspx).
 
-Para bases de datos tradicionales como **SQL Server**, especialmente cuando las instancias están en una Máquina Virtual de Azure, habilite la opción de conexión cifrada mediante la configuración de un certificado firmado, con **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, consulte [Habilitar conexiones cifradas en el motor de base de datos](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) y [Sintaxis de cadena de conexión.](https://msdn.microsoft.com/library/ms254500.aspx).
+Para bases de datos tradicionales como **SQL Server**, especialmente cuando las instancias están en una Máquina Virtual de Azure, habilite la opción de conexión cifrada mediante la configuración de un certificado firmado, con **Encrypt=True** y **TrustServerCertificate=False** en la cadena de conexión. Para obtener más información, consulte [Habilitar conexiones cifradas en el motor de base de datos](https://msdn.microsoft.com/library/ms191192(v=sql.110)) y [Sintaxis de cadena de conexión.](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Escenarios avanzados
 - **Filtrado de columnas mediante la definición de estructuras**. Según el tipo de tabla, es posible especificar un subconjunto de las columnas del origen especificando menos columnas en la definición de **estructura** de la definición de la tabla que las que hay en el origen de datos subyacente.
@@ -486,4 +475,4 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

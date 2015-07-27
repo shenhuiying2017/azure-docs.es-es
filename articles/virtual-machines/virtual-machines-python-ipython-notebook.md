@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # Bloc de notas de IPython en Azure
 
 El [proyecto IPython](http://ipython.org) proporciona una colección de herramientas para la informática científica que incluye potentes shells interactivos, bibliotecas paralelas de elevado rendimiento y facilidad de uso, así como un entorno basado en web conocido como bloc de notas de IPython. El bloc de notas ofrece un entorno de trabajo para la informática interactiva que combina la ejecución del código con la creación de documentos informáticos activos. Estos archivos del bloc de notas pueden contener texto arbitrario, fórmulas matemáticas, código de entrada, resultados, gráficos, vídeos y cualquier otra clase de contenido multimedia que pueda mostrar cualquier explorador web moderno.
@@ -149,7 +146,7 @@ En Linux:
 
 En Windows:
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 Cree el certificado SSL como sigue (Linux y Windows):
 
@@ -180,7 +177,7 @@ A continuación, modificaremos el archivo de configuración del perfil, que es e
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -262,18 +259,18 @@ Las características centrales de IPython también están disponibles en Visual 
 
 
 [tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
+[pyzmq]: https://github.com/zeromq/pyzmq "PyZMQ"
+[numpy]: http://www.numpy.org/ "NumPy"
+[matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [repositorio]: https://github.com/ipython/ipython
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[python Tools for visual studio]: http://aka.ms/ptvs
 
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[python 2.7]: http://www.python.org/download
+[openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

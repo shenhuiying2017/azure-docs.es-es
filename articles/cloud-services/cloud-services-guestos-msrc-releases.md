@@ -59,7 +59,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
-| [MS15-034] | [3042553][3042553] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4.19, 3.26, 2.38 | 17 de abril de 2015 |
+| [MS15-034] | [3042553][3042553] | Una vulnerabilidad en HTTP.sys podría permitir la ejecución remota de código | 4\.19, 3.26, 2.38 | 17 de abril de 2015 |
 
 
 ## SO invitado de marzo
@@ -208,4 +208,4 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

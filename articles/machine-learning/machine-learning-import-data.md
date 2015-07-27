@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Importación de datos en Estudio de aprendizaje automático | Microsoft Azure"
 	description="Cómo importar datos de entrenamiento a Estudio de aprendizaje automático de Azure desde varios orígenes de datos Obtenga información sobre qué tipos de datos y formatos de datos son compatibles."
-	keywords="import data,data format,data types,data sources,training data"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -144,4 +143,4 @@ Cuando termine de guardar, el conjunto de datos estará disponible para usarlo d
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

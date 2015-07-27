@@ -232,4 +232,4 @@ Para obtener más información sobre el uso de plantillas, consulte [Notificaci�
 [Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

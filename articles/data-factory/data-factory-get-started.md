@@ -66,7 +66,7 @@ Asegúrese de que la configuración **Permitir el acceso a los servicios de Azur
 ### Preparación del almacenamiento de blobs de Azure y la base de datos SQL de Azure para el tutorial
 Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure para el tutorial realizando los pasos siguientes:
 
-1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\ADFGetStarted** del disco duro.
+1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\\ADFGetStarted** del disco duro.
 
         John, Doe
 		Jane, Doe
@@ -218,4 +218,4 @@ Haga lo siguiente:
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

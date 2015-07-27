@@ -64,4 +64,4 @@ Si está usando Azure como un extremo de almacenamiento de copia de seguridad te
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

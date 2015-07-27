@@ -1,6 +1,6 @@
 <properties
 			pageTitle="Uso de Almacenamiento de archivos de Azure con PowerShell y .NET | Microsoft Azure"
-            description="Aprenda a usar el Almacenamiento de archivos de Azure para crear recursos compartidos de archivos en la nube y administrar contenido de archivos. Almacenamiento de archivos permite a las empresas mover aplicaciones que dependen de los recursos compartidos de archivos SMB a Azure. Los ejemplos están escritos en PowerShell y C#."
+            description="Aprenda a usar el Almacenamiento de archivos de Azure para crear recursos compartidos de archivos en la nube y administrar contenido de archivos. Almacenamiento de archivos permite a las empresas mover a Azure aplicaciones que dependen de recursos compartidos de archivos SMB. Conserve las credenciales de la cuenta de almacenamiento para la máquina virtual para volver a conectarse con el recurso compartido de archivos al reiniciar."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -12,14 +12,18 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/22/2015"
+      ms.date="07/06/2015"
       ms.author="tamram" />
 
 # Uso de Almacenamiento de archivos de Azure con PowerShell y .NET
 
 ## Información general
 
-En esta guía introductoria se muestran los conceptos básicos del uso de Almacenamiento de archivos de Microsoft Azure. En este tutorial, veremos lo siguiente:
+El servicio de archivos de Azure expone recursos compartidos de archivos mediante el protocolo SMB 2.1 estándar. Ahora, las aplicaciones que se ejecutan en Azure pueden compartir archivos entre las máquinas virtuales usando conocidas API de sistemas de archivos como ReadFile y WriteFile. Además, también se puede acceder a los archivos al mismo tiempo a través de una interfaz REST, que abre una variedad de escenarios híbridos. Por último, el servicio de archivos de Azure se basa en la misma tecnología que los servicios de blobs, tablas y colas, lo que significa que el servicio de archivos de Azure puede aprovechar la disponibilidad, durabilidad, escalabilidad y redundancia geográfica existentes que están integradas en nuestra plataforma.
+
+## Acerca de este tutorial
+
+En este tutorial introductorio se muestran los conceptos básicos del uso de Almacenamiento de archivos de Microsoft Azure. En este tutorial, veremos lo siguiente:
 
 - El uso de PowerShell para mostrar cómo crear un nuevo recurso compartido de archivos de Azure, agregar un directorio, cargar un archivo local en el recurso compartido y mostrar los archivos del directorio.
 - Cómo montar el recurso compartido de archivos desde una maquina virtual de Azure, exactamente igual que si fuera cualquier recurso compartido SMB.
@@ -114,17 +118,17 @@ Windows se reconectará al recurso compartido de archivos cuando la máquina vir
 
 Una vez tenga una conexión remota con la máquina virtual, puede ejecutar el comando `net use` para montar el recurso compartido de archivos usando la siguiente sintaxis. Reemplace `<storage-account-name>` por el nombre de su cuenta de almacenamiento y `<share-name>` por el nombre del recurso compartido de Almacenamiento de archivos:
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs
+	net use z: \\samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]Dado que hizo persistir las credenciales de la cuenta de almacenamiento en el paso anterior, no necesita proporcionarlas con el comando `net use`. Si todavía no tiene credenciales de persistencia, inclúyalas como un parámetro pasado al comando `net use`.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como las proporcionadas por los [espacios de nombres System.IO] (http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) en .NET Framework.
 
@@ -233,4 +237,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

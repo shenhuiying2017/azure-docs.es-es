@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -41,15 +41,7 @@ Puede usar la clase [CloudConfigurationManager](https://msdn.microsoft.com/libra
 
 ## Creación de una cadena de conexión para el emulador de almacenamiento
 
-La cuenta del emulador de almacenamiento es una cuenta local con un nombre y una clave conocidos. Puede utilizar un formato de cadena de método abreviado, `UseDevelopmentStorage=true`, para hacer referencia al emulador de almacenamiento desde dentro de una cadena de conexión. Por ejemplo, una cadena de conexión al emulador de almacenamiento en un archivo app.config tendrá un aspecto similar al siguiente:
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-También puede especificar que se use un proxy HTTP cuando se está probando el servicio con el emulador de almacenamiento. Esto puede ser útil para observar solicitudes y respuestas HTTP mientras está depurando operaciones con los servicios de almacenamiento. Para especificar un proxy, agregue la opción `DevelopmentStorageProxyUri` a la cadena de conexión y establezca su valor en el URI del proxy. Por ejemplo, esta es una cadena de conexión que apunta al emulador de almacenamiento y configura un proxy HTTP:
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [storage-emulator-connection-string-include](../../includes/storage-emulator-connection-string-include.md)]
 
 Consulte [Uso de Emulador de almacenamiento de Azure para desarrollo y pruebas](storage-use-emulator.md) para obtener más información sobre el emulador de almacenamiento.
 
@@ -60,9 +52,10 @@ Para crear una cadena de conexión para su cuenta de Almacenamiento de Azure, us
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 Por ejemplo, la cadena de conexión tendrá un aspecto similar a la siguiente cadena de conexión de ejemplo:
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]Almacenamiento de Azure admite HTTP y HTTPS en una cadena de conexión; sin embargo, se recomienda encarecidamente utilizar HTTPS.
     
@@ -75,9 +68,12 @@ Puede especificar de manera explícita los extremos del servicio en la cadena de
 
 Para crear una cadena de conexión que especifique un extremo de Blob explícito, especifique el extremo de servicio completo para cada servicio, incluida la especificación de protocolo (HTTP o HTTPS) con el formato siguiente:
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 Debe especificar al menos un extremo de servicio, pero no es necesario que los especifique todos. Por ejemplo, si va a crear una cadena de conexión para su uso con un extremo de blob personalizado, es opcional especificar los extremos de la cola y de la tabla. Tenga en cuenta que si opta por omitir los extremos de la cola y la tabla de la cadena de conexión, no podrá tener acceso a los servicios Cola y Tabla desde el código utilizando dicha cadena de conexión.
 
@@ -92,9 +88,11 @@ Si ha registrado un nombre de dominio personalizado para usarlo con el servicio 
 
 Por ejemplo, una cadena de conexión para un extremo de blob en un dominio personalizado podría ser similar a:
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### Especificación de un extremo de blob con una firma de acceso compartido 
 
@@ -116,8 +114,12 @@ Para crear una cadena de conexión para un servicio de almacenamiento en regione
 
 Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente cadena de conexión de ejemplo:
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

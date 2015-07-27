@@ -16,14 +16,10 @@
 	ms.date="06/02/2015"
 	ms.author="curtand"/>
 
-#  Obtenga más información acerca de Azure AD
+# Obtenga más información acerca de Azure AD
 
-### Otros artículos sobre este tema
-[¿Qué es Azure AD?](active-directory-whatis.md)<br> 
-[¿Cómo funciona?](active-directory-works.md)<br> 
-[Introducción](active-directory-get-started.md)<br> 
-[Pasos siguientes](active-directory-next-steps.md)<br>
-[Más información](active-directory-learn-map.md)
+###Otros artículos sobre este tema
+[¿Qué es Azure AD?](active-directory-whatis.md)<br> [¿Cómo funciona?](active-directory-works.md)<br> [Introducción](active-directory-get-started.md)<br> [Pasos siguientes](active-directory-next-steps.md)<br> [Más información](active-directory-learn-map.md)
 
 Ya tengo una suscripción de Azure. ¿Qué relación guarda con Azure AD? [Asociación de las suscripciones con un directorio](active-directory-how-subscriptions-associated-directory.md)
 
@@ -36,9 +32,10 @@ Puede agregar su propio nombre de dominio personalizado a Azure Active Directory
 Para entender las restricciones de uso y otros límites de servicio para el servicio de Azure Active Directory, vea [Restricciones y límites de los servicios de Azure AD](active-directory-service-limits-restrictions.md).
 
 
-##  Recursos adicionales
+## Recursos adicionales
 
 * [Registro en Azure como una organización](sign-up-organization.md)
 * [Identidad de Azure](fundamentals-identity.md)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

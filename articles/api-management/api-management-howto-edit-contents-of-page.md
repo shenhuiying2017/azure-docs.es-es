@@ -16,7 +16,7 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-#  Edición del contenido de una página en Administración de API de Azure
+# Edición del contenido de una página en Administración de API de Azure
 
 El portal de desarrolladores consta de páginas generadas automáticamente como API, Productos, Aplicaciones, Emisiones y contenido escrito a mano. Como se basa en un sistema de administración de contenido, puede crear contenido de este tipo a medida que sea necesario.
 
@@ -35,4 +35,4 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 
 [api-management-howto-edit-contents-of-page-manage-content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
 
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

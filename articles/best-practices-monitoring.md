@@ -612,4 +612,4 @@ En muchos casos, los informes se pueden generar mediante procesos por lotes seg�
 - La página [Descripción de la supervisión de alertas y notificaciones en Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) del sitio web de Microsoft.
 - La página de [Application Insights](app-insights-get-started/) del sitio web de Microsoft.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

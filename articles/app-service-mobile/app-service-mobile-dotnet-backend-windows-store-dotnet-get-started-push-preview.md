@@ -191,4 +191,4 @@ La carpeta ahora ya está lista para recibir notificaciones.
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

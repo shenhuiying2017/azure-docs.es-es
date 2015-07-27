@@ -74,4 +74,4 @@ Obtenga información sobre [carga de trabajo del almacenamiento de datos].
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

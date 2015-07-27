@@ -20,20 +20,20 @@
 
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y mensajes SMS en sus aplicaciones, consulte la sección [Pasos siguientes](#NextSteps).
 
-<h2><a id="WhatIs"></a>¿Qué es Twilio?</h2>
+## <a id="WhatIs"></a>¿Qué es Twilio?
 Twilio es una API de servicio web de telefonía que le permite utilizar las habilidades y lenguajes web existentes para crear aplicaciones de voz y SMS. Twilio es un servicio de terceros (no una característica de Azure ni tampoco un producto de Microsoft).
 
 **Twilio Voice** permite que sus aplicaciones realicen y reciban llamadas. **Twilio SMS** permite que sus aplicaciones envíen y reciban mensajes SMS. **Twilio Client** permite que sus aplicaciones habiliten la comunicación por voz a través de conexiones existentes a Internet, incluidas las conexiones móviles.
 
-<h2><a id="Pricing"></a>Precios de Twilio y ofertas especiales</h2>
+## <a id="Pricing"></a>Precios de Twilio y ofertas especiales
 Puede encontrar información sobre los precios de Twilio en [Precios de Twilio][twilio_pricing]. Los clientes de Azure reciben una [oferta especial][special_offer]: 1000 mensajes o 1000 minutos para llamar totalmente gratuitos. Para registrarse para obtener esta oferta o si desea más información, visite [http://ahoy.twilio.com/azure][special_offer].
 
-<h2><a id="Concepts"></a>Conceptos</h2>
+## <a id="Concepts"></a>Conceptos
 La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios idiomas; para ver una lista, consulte las [bibliotecas API de Twilio][twilio_libraries].
 
 Aspectos fundamentales de la API de Twilio son los verbos de Twilio y el lenguaje de marcado de Twilio (TwiML).
 
-<h3><a id="Verbs"></a>Verbos de Twilio</h3>
+### <a id="Verbs"></a>Verbos de Twilio
 La API usa los verbos de Twilio; por ejemplo, el verbo **&lt;Say&gt;** indica a Twilio que entregue por voz un mensaje en una llamada.
 
 A continuación se presenta una lista de verbos de Twilio.
@@ -49,7 +49,7 @@ A continuación se presenta una lista de verbos de Twilio.
 * **&lt;Say&gt;**: convierte texto en voz para hacer una llamada.
 * **&lt;Sms&gt;**: envía un mensaje SMS.
 
-<h3><a id="TwiML"></a>TwiML</h3>
+### <a id="TwiML"></a>TwiML
 TwiML es un conjunto de instrucciones basadas en XML y en los verbos de Twilio que informan a Twilio sobre cómo procesar una llamada o un SMS.
 
 Como ejemplo, el siguiente TwiML convierte el texto **Hello World** en voz.
@@ -63,18 +63,18 @@ Cuando su aplicación llama a la API de Twilio, uno de los parámetros de API es
 
 Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, consulte [TwiML][twiml]. Para obtener información adicional sobre la API de Twilio, consulte la [API de Twilio][twilio_api].
 
-<h2><a id="CreateAccount"></a>Creación de una cuenta de Twilio</h2>
+## <a id="CreateAccount"></a>Creación de una cuenta de Twilio
 Cuando esté preparado para obtener una cuenta de Twilio, regístrese en la [página de evaluación de Twilio][try_twilio]. Puede empezar con una cuenta gratuita y, posteriormente, actualizarla.
 
 Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador de cuenta y un token de autenticación. Necesitará ambos para realizar llamadas a la API de Twilio. Para evitar el acceso no autorizado a su cuenta, mantenga protegido el token de autenticación. Puede ver el identificador de cuenta y el token de autenticación en la [página de la cuenta de Twilio][twilio_account], en los campos etiquetados como **ACCOUNT SID** y **AUTH TOKEN**, respectivamente.
 
-<h2><a id="create_app"></a>Creación de una aplicación Java</h2>
+## <a id="create_app"></a>Creación de una aplicación Java
 1. Obtenga el archivo JAR de Twilio y agréguelo a su ruta de acceso de compilación de Java y a su ensamblado de implementación de WAR. En [https://github.com/twilio/twilio-java][twilio_java] puede descargar el código fuente de GitHub y crear su propio archivo JAR, o bien puede descargar un archivo JAR previamente generado (con o sin dependencias).
 2. Asegúrese de que el almacén (KeyStore) de **cacerts** de JDK contiene el certificado de la entidad de certificación Equifax Secure con la huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (el número de serie es 35:DE:F4:CF y la huella digital SHA1 es D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este es el certificado de la entidad de certificación (CA) para el servicio [https://api.twilio.com][twilio_api_service], al que se llama cuando se utilizan las API de Twilio. Para obtener información sobre cómo asegurarse de que su almacén (KeyStore) de **cacerts** de JDK contiene el certificado CA correcto, consulte [Incorporación de un certificado al almacén de certificados CA de Java][add_ca_cert].
 
 Puede conseguir instrucciones detalladas sobre el uso de la biblioteca de cliente de Twilio para Java en [Realización de una llamada telefónica con Twilio en una aplicación Java en Azure][howto_phonecall_java].
 
-<h2><a id="configure_app"></a>Configuración de su aplicación para utilizar bibliotecas de Twilio</h2>
+## <a id="configure_app"></a>Configuración de la aplicación para usar bibliotecas de Twilio
 Dentro de su código, puede agregar instrucciones **import** en la parte superior de los archivos de origen para las clases o paquetes de Twilio que desea utilizar en la aplicación.
 
 Para archivos de origen de Java:
@@ -92,7 +92,7 @@ Para archivos de origen de Java Server Page (JSP).
     import="com.twilio.sdk.resource.instance.*"
 Dependiendo del paquete o la clase de Twilio que desee utilizar, las instrucciones **import** pueden ser distintas.
 
-<h2><a id="howto_make_call"></a>Realización de una llamada saliente</h2>
+## <a id="howto_make_call"></a>Realización de una llamada saliente
 A continuación se indica cómo realizar una llamada saliente con la clase **CallFactory**. Este código también utiliza un sitio que proporciona Twilio para devolver la respuesta de lenguaje de marcado de Twilio (TwiML). Sustituya los valores de los números de teléfono **From** y **To** y asegúrese de comprobar el número de teléfono **From** de su cuenta de Twilio antes de ejecutar el código.
 
     // Use your account SID and authentication token instead
@@ -127,7 +127,7 @@ Si desea obtener más información acerca de los parámetros transmitidos al mé
 
 Como se mencionó, este código usa el sitio proporcionado por Twilio para devolver la respuesta de TwiML. En lugar de lo anterior, podría utilizar su propio sitio web para proporcionar la respuesta de TwiML; si desea obtener más información, consulte [Procedimientos: Suministro de respuestas de TwiML desde su propio sitio web](#howto_provide_twiml_responses).
 
-<h2><a id="howto_send_sms"></a>Procedimientos: Envío de un mensaje SMS</h2>
+## <a id="howto_send_sms"></a>Envío de un mensaje SMS
 A continuación se muestra cómo enviar un mensaje SMS con la clase **SmsFactory**. Twilio proporciona el número **From** **4155992671**, para que las cuentas de evaluación de Twilio puedan enviar mensajes SMS. El número **To** se debe comprobar en la cuenta de Twilio antes de ejecutar el código.
 
     // Use your account SID and authentication token instead
@@ -154,7 +154,7 @@ A continuación se muestra cómo enviar un mensaje SMS con la clase **SmsFactory
         
 Para obtener más información acerca de los parámetros que se transmiten al método **SmsFactory.create**, consulte [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
-<h2><a id="howto_provide_twiml_responses"></a>Procedimientos: Suministro de respuestas de TwiML desde su propio sitio web</h2>
+## <a id="howto_provide_twiml_responses"></a>Entrega de respuestas de TwiML desde su propio sitio web
 Cuando la aplicación inicia una llamada a la API de Twilio, por ejemplo a través del método **CallFactory.create**, Twilio envía la solicitud a una dirección URL que debe devolver una respuesta de TwiML. El ejemplo anterior utiliza la URL [http://twimlets.com/message][twimlet_message_url] proporcionada por Twilio. Aun cuando TwiML está diseñado para que lo usen los servicios web, puede ver el TwiML en su explorador. Por ejemplo, haga clic en [http://twimlets.com/message][twimlet_message_url] para ver un elemento **&lt;Response&gt;** vacío; otro ejemplo, haga clic en [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver un elemento **&lt;Response&gt;** que consta de un elemento **&lt;Say&gt;**.
 
 En lugar de confiar en la URL que Twilio proporciona, puede crear su propio sitio URL que devuelve procesos HTTP. Puede crear el sitio en cualquier lenguaje que devuelva respuestas HTTP; en este tema se asume que hospedará la URL en una página de JSP.
@@ -196,10 +196,10 @@ Otra opción para responder con TwiML es mediante la clase **TwiMLResponse**, qu
 
 Si desea obtener más información acerca de cómo usar Twilio en Azure con Java, consulte [Realización de una llamada telefónica con Twilio en una aplicación Java en Azure][howto_phonecall_java].
 
-<h2><a id="AdditionalServices"></a>Procedimientos: Uso de servicios Twilio adicionales</h2>
+## <a id="AdditionalServices"></a>Procedimientos: Uso de servicios Twilio adicionales
 Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en web que puede utilizar para aprovechar las funciones adicionales de Twilio desde su aplicación de Azure. Para obtener los detalles completos, consulte la [Documentación sobre la API de Twilio][twilio_api_documentation].
 
-<h2><a id="NextSteps"></a>Pasos siguientes</h2>
+## <a id="NextSteps"></a>Pasos siguientes
 Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para obtener más información:
 
 * [Directrices de seguridad de Twilio][twilio_security_guidelines]
@@ -232,4 +232,4 @@ Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

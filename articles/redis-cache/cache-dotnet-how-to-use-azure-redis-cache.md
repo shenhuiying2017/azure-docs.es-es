@@ -371,4 +371,4 @@ Ahora que está familiarizado con los aspectos básicos de Caché en Redis de Az
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

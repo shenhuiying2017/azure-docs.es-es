@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Visión operativa con los informes de la administración de contraseñas
+# Visión operativa con los informes de la administración de contraseñas
 En esta sección se describe cómo puede usar informes de administración de contraseñas de Azure Active Directory para ver cómo utilizan los usuarios el restablecimiento y el cambio de contraseña en su organización.
 
 - [**Información general de los informes de administración de contraseñas**](#overview-of-password-management-reports)
@@ -24,7 +24,7 @@ En esta sección se describe cómo puede usar informes de administración de con
 - [**Visualización de la actividad de registro de restablecimiento de contraseña en su organización**](#view-password-reset-registration-activity)
 - [**Visualización de la actividad de restablecimiento de contraseña en su organización**](#view-password-reset-activity)
 
-##  Información general de los informes de administración de contraseñas
+## Información general de los informes de administración de contraseñas
 Después de implementar el restablecimiento de contraseña, uno de los siguientes pasos más comunes es ver cómo se usa en su organización. Por ejemplo, puede que desee saber cómo se registran los usuarios para el restablecimiento de contraseña o cuántos restablecimientos de contraseña se han realizado en los últimos días. Estas son algunas de las preguntas comunes que podrá responder con los informes de administración de contraseñas que existen actualmente en el [Portal de administración de Azure](https://manage.windowsazure.com):
 
 - ¿Cuántas personas se han registrado para el restablecimiento de contraseña?
@@ -37,7 +37,7 @@ Después de implementar el restablecimiento de contraseña, uno de los siguiente
 - ¿Hay alguna actividad sospechosa en relación con el restablecimiento de contraseña?
 
 
-##  Visualización de los informes de administración de contraseñas
+## Visualización de los informes de administración de contraseñas
 Para buscar los informes de administración de contraseñas, siga estos pasos:
 
 1.	Haga clic en la extensión de **Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com).
@@ -48,7 +48,7 @@ Para buscar los informes de administración de contraseñas, siga estos pasos:
 
     ![][001]
 
-##  Visualización de la actividad de registro de restablecimiento de contraseña en su organización
+## Visualización de la actividad de registro de restablecimiento de contraseña en su organización
 
 El informe de actividad de registro de restablecimiento de contraseña muestra todos los registros de restablecimiento de contraseña que se han producido en su organización. En este informe, se muestra un registro de restablecimiento de contraseña para cualquier usuario que haya registrado correctamente la información de autenticación en el portal de registro de restablecimiento de contraseña ([http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)).
 
@@ -58,7 +58,7 @@ El informe de actividad de registro de restablecimiento de contraseña muestra t
 
     ![][002]
 
-###  Descripción de las columnas del informe
+### Descripción de las columnas del informe
 La siguiente lista explica en detalle cada una de las columnas del informe:
 
 - **Usuario**: usuario que intentó una operación de registro de restablecimiento de contraseña.
@@ -66,7 +66,7 @@ La siguiente lista explica en detalle cada una de las columnas del informe:
 - **Fecha y hora**: fecha y hora del intento.
 - **Datos registrados**: datos de autenticación que el usuario proporcionó durante el registro de restablecimiento de contraseña.
 
-###  Descripción de los valores del informe
+### Descripción de los valores del informe
 En la tabla siguiente se describen los distintos valores permitidos para cada columna:
 
 <table>
@@ -111,7 +111,7 @@ En la tabla siguiente se describen los distintos valores permitidos para cada co
             </tr>
           </tbody></table>
 
-##  Visualización de la actividad de restablecimiento de contraseña en su organización
+## Visualización de la actividad de restablecimiento de contraseña en su organización
 
 Este informe muestra todos los intentos de restablecimiento de contraseña que se han producido en su organización.
 
@@ -121,7 +121,7 @@ Este informe muestra todos los intentos de restablecimiento de contraseña que s
 
     ![][003]
 
-###  Descripción de las columnas del informe
+### Descripción de las columnas del informe
 La siguiente lista explica en detalle cada una de las columnas del informe:
 
 1. **Usuario**: usuario que intentó una operación de restablecimiento de contraseña (basado en el campo Id. de usuario cuando el usuario intenta restablecer una contraseña).
@@ -131,7 +131,7 @@ La siguiente lista explica en detalle cada una de las columnas del informe:
 5. **Resultado**: resultado final de la operación de restablecimiento de contraseña.
 6. **Detalles**: detalles de por qué el restablecimiento de contraseña dio ese resultado. También incluye los pasos de mitigación que podría seguir para resolver un error inesperado.
 
-###  Descripción de los valores del informe
+### Descripción de los valores del informe
 En la tabla siguiente se describen los distintos valores permitidos para cada columna:
 
 <table>
@@ -215,7 +215,7 @@ En la tabla siguiente se describen los distintos valores permitidos para cada co
             </tr>
           </tbody></table>
 
-###  Valores permitidos para la columna Detalles
+### Valores permitidos para la columna Detalles
 A continuación se muestra la lista de los tipos de resultados que puede esperar cuando usa el informe de actividad de restablecimiento de contraseña:
 
 <table>
@@ -542,4 +542,5 @@ A continuación se muestra la lista de los tipos de resultados que puede esperar
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

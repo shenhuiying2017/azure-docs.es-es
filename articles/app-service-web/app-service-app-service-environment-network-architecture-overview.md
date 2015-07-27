@@ -1,0 +1,75 @@
+<properties 
+	pageTitle="Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones" 
+	description="Introducción a la arquitectura de la topología de red de los entornos del Servicio de aplicaciones." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/06/2015" 
+	ms.author="stefsch"/>
+
+# Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
+
+## Introducción ##
+Los entornos del Servicio de aplicaciones siempre se crean dentro de una subred de una [red virtual][virtualnetwork]; las aplicaciones que se ejecutan en un entorno del Servicio de aplicaciones pueden comunicarse con extremos privados ubicados dentro de la misma topología de red virtual. Puesto que los clientes pueden bloquear partes de su infraestructura de red virtual, es importante conocer los tipos de flujos de comunicación de red que se producen con un entorno del Servicio de aplicaciones.
+
+## Flujo de red general ##
+ 
+Un entorno del Servicio de aplicaciones siempre tiene una dirección IP virtual (VIP) pública. Todo el tráfico entrante llega a esa VIP pública, incluido el tráfico HTTP y HTTPS para las aplicaciones, así como otro tráfico de FTP, la funcionalidad de depuración remota y las operaciones de administración de Azure. Para obtener una lista completa de los puertos específicos (necesarios y opcionales) que están disponibles en la VIP pública, consulte el artículo sobre el [control del tráfico entrante][controllinginboundtraffic] en un entorno del Servicio de aplicaciones.
+
+En el diagrama siguiente se ofrece información general sobre los distintos flujos de red entrantes y salientes:
+
+![Flujos de red generales][GeneralNetworkFlows]
+
+Un entorno del Servicio de aplicaciones puede comunicarse con una variedad de extremos privados del cliente. Por ejemplo, las aplicaciones que se ejecutan en el entorno del Servicio de aplicaciones pueden conectarse a servidores de base de datos que se ejecutan en máquinas virtuales de IaaS en la misma topología de red virtual.
+
+Los entornos del Servicio de aplicaciones también se comunican con la base de datos SQL y los recursos del Almacenamiento de Azure necesarios para administrar y operar un entorno del Servicio de aplicaciones. Algunos recursos de almacenamiento y SQL con los que se comunica un entorno del Servicio de aplicaciones se encuentran en la misma región que el entorno del Servicio de aplicaciones, mientras que otros se encuentran en regiones de Azure remotas. Como resultado, la conectividad saliente a Internet siempre es necesaria para que un entorno del Servicio de aplicaciones funcione correctamente.
+
+Puesto que un entorno del Servicio de aplicaciones se implementa en una subred, los grupos de seguridad de red pueden usarse para controlar el tráfico entrante a la subred. Para obtener información detallada sobre cómo controlar el tráfico entrante a un entorno del Servicio de aplicaciones, consulte el siguiente [artículo][controllinginboundtraffic].
+
+Para obtener información detallada sobre cómo permitir la conectividad saliente de Internet desde un entorno del Servicio de aplicaciones, consulte el artículo siguiente sobre cómo trabajar con [Express Route][ExpressRoute]. El mismo enfoque que se describe en este artículo se aplica al trabajar con conectividad de sitio a sitio y al usar la tunelización forzada.
+
+## Direcciones de red de salida ##
+Cuando un entorno del Servicio de aplicaciones realiza las llamadas salientes, una dirección IP siempre se asocia con las llamadas salientes. La dirección IP específica que se usa depende de si el extremo al que se llama se encuentra dentro de la topología de red virtual o fuera de ella.
+
+Si el extremo al que se llama está **fuera** de la topología de red virtual, entonces la dirección saliente (también conocida como la dirección NAT saliente) que se utiliza es la VIP pública del entorno del Servicio de aplicaciones. Esta dirección se puede encontrar en la interfaz de usuario del portal para el entorno del Servicio de aplicaciones (nota: UX pendiente).
+
+Esta dirección también se puede determinar mediante la creación de una aplicación en el entorno del Servicio de aplicaciones y, a continuación, realizar una *nslookup* en la dirección de la aplicación. La dirección IP resultante es tanto la VIP pública como la dirección NAT saliente del entorno del Servicio de aplicaciones.
+
+Si el extremo al que se llama está **dentro** de la topología de red virtual, la dirección saliente de la aplicación de llamada será la dirección IP interna del recurso informático individual que ejecuta la aplicación. Sin embargo, no hay una asignación persistente de direcciones IP internas de red virtual a las aplicaciones. Las aplicaciones pueden moverse a través de recursos informáticos diferentes y el grupo de recursos informáticos disponibles en un entorno del Servicio de aplicaciones puede cambiar debido a las operaciones de ajuste de escala.
+
+Sin embargo, puesto que un entorno del Servicio de aplicaciones siempre se encuentra dentro de una subred, se garantiza que la dirección IP interna de un recurso informático que ejecuta una aplicación siempre se queda dentro del intervalo CIDR de la subred. Como resultado, cuando las ACL específicas o los grupos de seguridad de red se utilizan para proteger el acceso a otros extremos en la red virtual, el intervalo de subred que contiene el entorno del Servicio de aplicaciones necesita tener acceso.
+
+En el diagrama siguiente se explican estos conceptos de manera detallada:
+
+![Direcciones de red de salida][OutboundNetworkAddresses]
+
+En el diagrama anterior:
+
+- Dado que la VIP pública del entorno del Servicio de aplicaciones es 192.23.1.2, que es la dirección IP saliente que se utiliza cuando se realizan llamadas a los extremos de "Internet".
+- El intervalo CIDR de la subred que contiene para el entorno del Servicio de aplicaciones es 10.0.1.0/26. Otros extremos dentro de la misma infraestructura de red virtual verán las llamadas de aplicaciones como originadas en algún lugar dentro de este intervalo de direcciones.
+
+## Información y vínculos adicionales ##
+Se puede obtener más información sobre los puertos de entrada utilizados por los entornos del Servicio de aplicaciones y mediante grupos de seguridad de red para controlar el tráfico entrante [aquí][controllinginboundtraffic].
+
+Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso saliente a Internet a los entornos del Servicio de aplicaciones están disponibles en este [artículo][ExpressRoute].
+
+
+<!-- LINKS -->
+[virtualnetwork]: http://azure.microsoft.com/services/virtual-network/
+[controllinginboundtraffic]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
+[ExpressRoute]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-network-configuration-expressroute/
+
+<!-- IMAGES -->
+[GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
+[OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
+
+<!---HONumber=July15_HO3-->

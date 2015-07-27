@@ -1,6 +1,6 @@
 <table cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Recurso<sup>1</sup></th>
+   <th align="left" valign="middle">Recurso</th>
    <th align="left" valign="middle">Límite predeterminado</th>
 </tr>
 <tr>
@@ -24,16 +24,16 @@
    <td valign="middle"><p>El único límite es la capacidad total de 5 TB del recurso compartido de archivos</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Máximo de 8 KB IOPS por disco persistente (nivel Básico)</p></td>
-   <td valign="middle"><p>300<sup>2</sup></p></td>
+   <td valign="middle"><p>Máximo de 8&#160;kB de IOPS por disco persistente (máquina virtual de nivel Básico)</p></td>
+   <td valign="middle"><p>300<sup>1</sup></p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Máximo de 8 KB IOPS por disco persistente (nivel Estándar)</p></td>
-   <td valign="middle"><p>500<sup>2</sup></p></td>
+   <td valign="middle"><p>Máximo de 8&#160;kB de IOPS por disco persistente (máquina virtual de nivel Estándar)</p></td>
+   <td valign="middle"><p>500<sup>1</sup></p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Velocidad de solicitudes (suponiendo un tamaño de objeto de 1 KB) por cuenta de almacenamiento</p></td>
-   <td valign="middle"><p>Hasta 20.000 entidades o mensajes por segundo</p></td>
+   <td valign="middle"><p>Hasta 20.000 IOPS, entidades por segundo o mensajes por segundo</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Rendimiento de un blob</p></td>
@@ -48,27 +48,33 @@
    <td valign="middle"><p>Hasta 2000 entidades por segundo</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Entrada máxima por cuenta de almacenamiento (regiones de EE. UU.)</p></td>
+   <td valign="middle"><p>Rendimiento de destino para un solo recurso compartido de archivos (vista previa)</p></td>
+   <td valign="middle"><p>Hasta 60 MB por segundo</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Entrada máxima<sup>2</sup> por cuenta de almacenamiento (regiones de EE. UU.)</p></td>
    <td valign="middle"><p>10 Gbps si GRS<sup>3</sup> está habilitado, 20 Gbps para LRS</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Salida máxima por cuenta de almacenamiento (regiones de EE. UU.)</p></td>
+   <td valign="middle"><p>Salida máxima<sup>2</sup> por cuenta de almacenamiento (regiones de EE. UU.)</p></td>
    <td valign="middle"><p>20 Gbps si GRS<sup>3</sup> está habilitado, 30 Gbps para LRS</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Entrada máxima por cuenta de almacenamiento (regiones de Europa y Asia)</p></td>
+   <td valign="middle"><p>Entrada máxima<sup>2</sup> por cuenta de almacenamiento (regiones de Europa y Asia)</p></td>
    <td valign="middle"><p>5 Gbps si GRS<sup>3</sup> está habilitado, 10 Gbps para LRS</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Salida máxima por cuenta de almacenamiento (regiones de Europa y Asia)</p></td>
+   <td valign="middle"><p>Salida máxima<sup>2</sup> por cuenta de almacenamiento (regiones de Europa y Asia)</p></td>
    <td valign="middle"><p>10 Gbps si GRS<sup>3</sup> está habilitado, 15 Gbps para LRS</p></td>
 </tr>
 </table>
 
-<sup>1</sup>Para obtener más detalles sobre estos límites, vea [Objetivos de escalabilidad y rendimiento de Almacenamiento de Azure](../articles/storage/storage-scalability-targets.md).
+<sup>1</sup>El límite de velocidad de solicitudes total para una cuenta de almacenamiento es 20.000 IOPS. Si una máquina virtual usa el número máximo de IOPS por disco, para evitar una posible limitación, asegúrese de que el número total de IOPS en todos los discos duros virtuales de las máquinas virtuales no supere el límite de la cuenta de almacenamiento (20.000 IOPS).
 
-<sup>2</sup>En el caso de máquinas virtuales del nivel Básico, no ponga más de 66 VHD de uso intensivo en una cuenta de almacenamiento para evitar el límite de velocidad de solicitudes de 20 000 (20 000/300). Para máquinas virtuales del nivel Estándar, no ponga más de 40 VHD de uso intensivo en una cuenta de almacenamiento (20.000/500). Para obtener más información, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx).
+Puede calcular aproximadamente el número de discos muy usados admitidos por una única cuenta de almacenamiento en función del límite de transacciones. Por ejemplo, para una máquina virtual de nivel Básico, el número máximo de discos muy usados es alrededor de 66 (20.000/300 IOPS por disco) y, para una máquina virtual de nivel Estándar, aproximadamente 40 (20.000/500 IOPS por disco). Sin embargo, la cuenta de almacenamiento admite un mayor número de discos si no todos están siendo muy usados al mismo tiempo.
 
-<sup>3</sup>GRS es [almacenamiento con redundancia geográfica](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx). LRS es [almacenamiento con redundancia local](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx). Tenga en cuenta que GRS incluye también redundancia local.
+<sup>2</sup>*Entrada* se refiere a todos los datos (solicitudes) que se envían a una cuenta de almacenamiento. *Salida* se refiere a todos los datos (respuestas) recibidos desde una cuenta de almacenamiento.
 
-<!---HONumber=62-->
+<sup>3</sup>GRS hace referencia al almacenamiento con redundancia geográfica, mientras que LRS se refiere al almacenamiento con redundancia local.
+
+<!---HONumber=July15_HO3-->

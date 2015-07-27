@@ -3,7 +3,7 @@
 	description="Aprenda la manera de usar el complemento New Relic para supervisar el servicio móvil." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@ A continuación, habilitará la supervisión de New Relic para el servicio móvi
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

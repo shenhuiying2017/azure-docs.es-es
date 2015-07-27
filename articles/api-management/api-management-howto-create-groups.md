@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure" 
-	description="Obtenga información acerca de cómo administrar cuentas de desarrollador mediante los grupos en Administración de API de Azure" 
+	description="Obtenga información acerca de cómo administrar cuentas de desarrollador mediante los grupos en Administración de API de Azure." 
 	services="api-management" 
 	documentationCenter="" 
 	authors="steved0x" 
@@ -16,7 +16,7 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-#  Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
+# Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
 
 En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos son visibles en primer lugar para los grupos y luego los desarrolladores de dichos grupos pueden ver y suscribirse a los productos asociados a los grupos.
 
@@ -30,7 +30,7 @@ Además de estos grupos del sistema, los administradores pueden crear grupos per
 
 En esta guía se muestra cómo los administradores de una instancia de Administración de API pueden agregar nuevos grupos y asociarlos a productos y desarrolladores.
 
-##  <a name="create-group"> </a>Creación de un grupo
+## <a name="create-group"> </a>Creación de un grupo
 
 Para crear un grupo nuevo, haga clic en **Administrar** en el Portal de Azure para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
@@ -52,7 +52,7 @@ El nuevo grupo se muestra en la pestaña Grupos. Para editar el **Nombre** o la 
 
 Ahora que se ha creado el grupo, se puede asociar a productos y desarrolladores.
 
-##  <a name="associate-group-product"> </a>Asociación de un grupo a un producto
+## <a name="associate-group-product"> </a>Asociación de un grupo a un producto
 
 Para asociar un grupo a un producto, haga clic en **Productos** en el menú **Administración de API** de la izquierda y haga clic en el nombre del producto que desee.
 
@@ -68,7 +68,7 @@ Seleccione la pestaña **Visibilidad** para agregar y quitar grupos, así como p
 
 Una vez asociado un producto a un grupo, los desarrolladores del grupo pueden ver el producto y suscribirse a él.
 
-##  <a name="associate-group-developer"> </a>Asociación de grupos a desarrolladores
+## <a name="associate-group-developer"> </a>Asociación de grupos a desarrolladores
 
 Para asociar grupos a desarrolladores, haga clic en **Usuarios** en el menú **Administración de API** de la izquierda y active la casilla situada junto a los desarrolladores que desee asociar a un grupo.
 
@@ -80,7 +80,7 @@ Una vez seleccionados los desarrolladores que desee, haga clic en el grupo que d
 
 Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver en la pestaña **Usuarios**.
 
-##  <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"> </a>Pasos siguientes
 
 Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Administración de API de Azure][].
 
@@ -105,4 +105,5 @@ Una vez agregado a un grupo, un desarrollador puede ver los productos asociados 
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

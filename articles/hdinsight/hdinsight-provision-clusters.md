@@ -114,21 +114,19 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 		<td>Seleccione <b>Windows Server 2012 R2 Data Center</b> para aprovisionar un clúster de Windows. Para aprovisionar un clúster de Linux, consulte <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop en Linux en HDInsight</a>.</td></tr>
 	<tr><td>Versión de HDInsight</td>
 		<td>Seleccione la versión. Para Hadoop, la versión predeterminada la versión 3.1 de HDInsight, que usa Hadoop 2.4.</td></tr>
-	</table>
-	Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
+	</table>Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.
 
 4. En la página **Configurar clúster** escriba o seleccione los valores siguientes:
 
 	![Proporcionar detalles del clúster de HDInsight de Hadoop](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-	<tr><th>Nombre</th><th>Valor</th></tr>
-	<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
-	<tr><td>Región/red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que creó en el último procedimiento. HDInsight requiere que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p><p>Las regiones disponibles son: <strong>Asia oriental</strong>, <strong>sudeste de Asia</strong>, <strong>norte de Europa</strong>, <strong>oeste de Europa</strong>, <strong>este de EE.&#160;UU.</strong>, <strong>oeste de EE.&#160;UU.</strong>, <strong>centro y norte de EE.&#160;UU.</strong>, <strong>centro y sur de EE.&#160;UU</strong>.<br/>Si ha creado una red virtual de Azure, puede seleccionar la red que configurará para su uso por parte del clúster de HDInsight.</p><p>Para obtener más información sobre la creación de una red virtual de Azure, consulte <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tareas de configuración de la red virtual</a>.</p></td></tr>
-	<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
-	<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
-	</table>
-	>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
+<tr><th>Nombre</th><th>Valor</th></tr>
+<tr><td>Nodos de datos</td><td>Número de nodos de datos que desea implementar. Para propósitos de prueba, cree un clúster de un solo nodo. <br />El límite de tamaño del clúster varía según las suscripciones a Azure. Póngase en contacto con el servicio de soporte relacionado con la facturación de Azure para aumentar el límite.</td></tr>
+<tr><td>Región/red virtual</td><td><p>Elija la misma región que la cuenta de almacenamiento que creó en el último procedimiento. HDInsight requiere que la cuenta de almacenamiento se encuentre en la misma región. Posteriormente, en la configuración, puede seleccionar solo una cuenta de almacenamiento que se encuentre en la misma región que especificó aquí.</p><p>Las regiones disponibles son: <strong>Asia oriental</strong>, <strong>sudeste de Asia</strong>, <strong>norte de Europa</strong>, <strong>oeste de Europa</strong>, <strong>este de EE.&#160;UU.</strong>, <strong>oeste de EE.&#160;UU.</strong>, <strong>centro y norte de EE.&#160;UU.</strong>, <strong>centro y sur de EE.&#160;UU</strong>.<br/>Si ha creado una red virtual de Azure, puede seleccionar la red que configurará para su uso por parte del clúster de HDInsight.</p><p>Para obtener más información sobre la creación de una red virtual de Azure, consulte <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">Tareas de configuración de la red virtual</a>.</p></td></tr>
+<tr><td>Tamaño de nodo principal</td><td><p>Seleccione un tamaño de máquina virtual (VM) para el nodo principal.</p></td></tr>
+<tr><td>Tamaño de nodo de datos</td><td><p>Seleccione un tamaño de máquina virtual para los nodos de datos.</p></td></tr>
+</table>>[AZURE.NOTE]En función de la elección de las máquinas virtuales, el costo puede variar. HDInsight usa todas las máquinas virtuales de nivel estándar para los nodos del clúster. Para obtener información sobre cómo afectan los tamaños de máquinas virtuales a los precios, consulte <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">Precios de HDInsight</a>.
 
 
 5. En la página **Configurar usuario de clúster** proporcione los siguientes valores:
@@ -146,8 +144,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 	<tr><td>Especificar la tienda de metadatos de Hive/Oozie</td>
 		<td>Active esta casilla para especificar una base de datos SQL que se encuentra en el mismo centro de datos que el clúster, que se usará como tienda de metadatos de Hive/Oozie. Si activa esta casilla, debe especificar detalles acerca de la base de datos SQL de Azure en las páginas siguientes del asistente. Esto resulta de gran utilidad si desea conservar los metadatos sobre trabajos de Hive/Oozie después de haber eliminado un clúster.</td></tr>
 	</td></tr>
-	</table>
-	Haga clic en la flecha derecha.
+</table>Haga clic en la flecha derecha.
 
 6. En la página **Configurar la tienda de metadatos de Hive/Oozie** proporcione los siguientes valores:
 
@@ -187,8 +184,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
     </td></tr>
 	<tr><td>Cuentas de almacenamiento adicionales</td>
 		<td>HDInsight admite varias cuentas de almacenamiento. No hay límite en el número de cuentas de almacenamiento adicionales que un clúster puede usar. No obstante, si crea un clúster mediante el portal de Azure, tendrá un límite de siete debido a las restricciones de la interfaz de usuario. Por cada cuenta de almacenamiento adicional que especifique, se agregará una página **Cuenta de almacenamiento** adicional al asistente donde podrá especificar la información de la cuenta. Por ejemplo, en la captura de pantalla anterior, se selecciona una cuenta de almacenamiento adicional y, por tanto, se agrega la página 5 al diálogo.</td></tr>
-	</table>
-	Haga clic en la flecha derecha.
+</table>Haga clic en la flecha derecha.
 
 7. Si ha elegido configurar almacenamiento adicional para el clúster, escriba la información de la cuenta de almacenamiento adicional en la página **Cuenta de almacenamiento**:
 
@@ -212,8 +208,7 @@ Los clústeres de HDInsight usan un contenedor de almacenamiento de blobs de Azu
 		<td>Especifique los nodos en los que se ejecuta el script de personalización. Puede elegir <b>Todos los nodos</b>, <b>Solo nodos principales</b> o <b>Solo nodos de trabajo</b>.
 	<tr><td>Parámetros</td>
 		<td>Especifique los parámetros, si lo requiere el script.</td></tr>
-	</table>
-	Puede agregar más de una acción de script para instalar varios componentes en el clúster. Una vez agregados los scripts, haga clic en la marca de verificación para iniciar el aprovisionamiento del clúster.
+</table>Puede agregar más de una acción de script para instalar varios componentes en el clúster. Una vez agregados los scripts, haga clic en la marca de verificación para iniciar el aprovisionamiento del clúster.
 
 ##<a id="powershell"></a> Uso de Azure PowerShell
 Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Esta sección proporciona instrucciones sobre cómo aprovisionar un clúster de HDInsight con Azure PowerShell. Para obtener información sobre la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight Windows PowerShell, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md). Para obtener más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para obtener una lista de los cmdlets de HDInsight Windows PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight][hdinsight-powershell-reference].
@@ -442,7 +437,7 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> o <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
 
 5.	Ejecute el siguiente comando para comprobar la instalación:
 
@@ -455,10 +450,9 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 		azure hdinsight cluster -h
 		azure hdinsight cluster create -h
 
-**Para instalar la CLI de Azure mediante Windows Installer**
+**Para instalar la CLI de Azure con Windows Installer**
 
-1.	Vaya a **http://azure.microsoft.com/downloads/**. 
-2.	Desplácese hasta la sección **Herramientas de línea de comandos** y haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
+1.	Vaya a **http://azure.microsoft.com/downloads/**. 2.	Desplácese hasta la sección **Herramientas de línea de comandos** y, a continuación, haga clic en **Interfaz de la línea de comandos de Azure** y siga el asistente del instalador de plataforma web.
 
 **Para descargar e importar la configuración de publicación**
 
@@ -760,4 +754,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
   [89e2276a]: hdinsight-use-sqoop.md "Uso de Sqoop con HDInsight"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

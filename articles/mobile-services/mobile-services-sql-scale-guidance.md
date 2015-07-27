@@ -476,4 +476,4 @@ Para analizar el plan de consulta en el **Portal de administración de Base de d
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

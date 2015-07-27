@@ -16,7 +16,7 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-#  Importación de la definición de una API con operaciones en Administración de API de Azure
+# Importación de la definición de una API con operaciones en Administración de API de Azure
 
 En Administración de API se pueden crear nuevas API y agregar las operaciones manualmente o se puede importar la API junto con las operaciones en un solo paso.
 
@@ -27,7 +27,7 @@ Las API y sus operaciones se pueden importar con los siguientes formatos.
 
 En esta guía se muestra cómo crear una API e importar sus operaciones en un solo paso. Para obtener información sobre la creación manual de una API y la incorporación de operaciones, consulte [Creación de API][] e [Incorporación de operaciones a una API][].
 
-##  <a name="import-api"> </a>Importación de una API
+## <a name="import-api"> </a>Importación de una API
 
 Las API se crean y se configuran en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
 
@@ -56,7 +56,7 @@ Una vez especificados todos los valores, haga clic en **Guardar** para crear la 
 
 >[AZURE.NOTE]Para ver un tutorial de la importación de una API de calculadora básica en formato Swagger, consulte [Administración de su primera API en Administración de API de Azure](api-management-get-started.md).
 
-##  <a name="export-api"> </a> Exportación de una API
+## <a name="export-api"> </a> Exportación de una API
 
 Además de importar nuevas API, puede exportar las definiciones de sus API desde el portal del publicador. Para ello, haga clic en **Exportar API** en la **pestaña Resumen** de la **API**.
 
@@ -66,7 +66,7 @@ Las API se pueden exportar con WADL o Swagger. Seleccione el formato que desee, 
 
 ![Export API format][api-management-export-api-format]
 
-##  <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"> </a>Pasos siguientes
 
 Una vez creada una API e importadas las operaciones, se pueden revisar y definir las configuraciones adicionales, agregar la API a un producto y publicarlo para ponerlo a disposición de los desarrolladores. Para obtener más información, consulte las siguientes guías.
 
@@ -95,4 +95,4 @@ Una vez creada una API e importadas las operaciones, se pueden revisar y definir
 [Creación de API]: api-management-howto-create-apis.md
 [Definición de la configuración de la API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

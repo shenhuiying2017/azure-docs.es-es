@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
+# Implementación de la Administración de contraseñas y formación a los usuarios para que la utilicen
 Después de habilitar el restablecimiento de contraseña, la siguiente tarea es conseguir que los usuarios de su organización utilicen este servicio. Para ello, deberá asegurarse de que los usuarios están configurados para usar el servicio correctamente y también de que los usuarios tienen la formación que necesitan para administrar correctamente sus propias contraseñas. En este artículo se explican los conceptos siguientes:
 
 * [**Configuración de los usuarios para la Administración de contraseñas**](#how-to-get-users-configured-for-password-reset)
@@ -28,10 +28,10 @@ Después de habilitar el restablecimiento de contraseña, la siguiente tarea es 
   * [Carga de datos de autenticación para cuentas de usuario](#uploading-data-yourself)
 * [**Ejemplo de usuario y materiales de formación de soporte técnico (disponible próximamente)**](#sample-training-materials)
 
-##  Configuración de los usuarios para el restablecimiento de contraseña
+## Configuración de los usuarios para el restablecimiento de contraseña
 En esta sección se describen diversos métodos por los que se garantiza que todos los usuarios de su organización pueden utilizar el autoservicio de restablecimiento de contraseña de forma eficaz en caso de que olviden su contraseña.
 
-###  Configuración de una cuenta
+### Configuración de una cuenta
 Antes de que un usuario pueda utilizar el restablecimiento de contraseña, deben cumplirse **todas** las siguientes condiciones:
 
 1.	El restablecimiento de la contraseña debe estar habilitado en el directorio. Aprenda a habilitar el restablecimiento de contraseña en [Permitir a los usuarios restablecer sus contraseñas de Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords) o [Permitir a los usuarios restablecer o cambiar sus contraseñas de AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
@@ -43,7 +43,7 @@ Antes de que un usuario pueda utilizar el restablecimiento de contraseña, deben
  - Un conjunto mínimo de datos de autenticación se define como **al menos una** de las opciones de autenticación habilitadas si se configura una directiva de una puerta, o **al menos dos** de las opciones autenticación habilitadas si se configura una directiva de dos puertas.
 4.	Si el usuario está utilizando una cuenta local, debe habilitarse y activarse la [escritura diferida de contraseñas](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
 
-###  Maneras de rellenar los datos de autenticación
+### Maneras de rellenar los datos de autenticación
 Tiene varias opciones para especificar los datos de los usuarios de su organización que se usarán para restablecer la contraseña.
 
 - Editar usuarios en el [Portal de administración de Azure](https://manage.windowsazure.com) o en el [Portal de administración de Office 365](https://portal.microsoftonline.com)
@@ -54,7 +54,7 @@ Tiene varias opciones para especificar los datos de los usuarios de su organizac
 
 No es necesario que los usuarios se registren en el restablecimiento de contraseña para que el sistema funcione. Por ejemplo, si ya tiene números de teléfono en el directorio local, puede sincronizarlos en Azure AD y de este modo se utilizarán para restablecer la contraseña automáticamente.
 
-##  ¿Cuál es la mejor forma de aplicar el restablecimiento de contraseña para los usuarios?
+## ¿Cuál es la mejor forma de aplicar el restablecimiento de contraseña para los usuarios?
 Estos son los pasos de implementación generales para restablecer la contraseña:
 
 1.	Habilite el restablecimiento de contraseña; para ello, vaya a la pestaña **Configurar** en el [Portal de administración de Azure](https://manage.windowsazure.com) y seleccione **Sí** en la opción **Usuarios habilitados para restablecer la contraseña**.
@@ -66,14 +66,14 @@ Estos son los pasos de implementación generales para restablecer la contraseña
 
 Hay varias maneras de informar a los usuarios de que pueden registrarse en el restablecimiento de contraseña y utilizar este servicio en su organización. Se explican a continuación.
 
-###  Implementación basada en correo electrónico
+### Implementación basada en correo electrónico
 Quizás el enfoque más sencillo para informar a los usuarios sobre el registro en el restablecimiento de contraseña o el uso de este servicio es enviarles un correo electrónico pidiéndoles que lo hagan. A continuación se muestra una plantilla que puede utilizar para ello. Reemplace los colores y logotipos por otros de su elección para personalizarla de manera que se ajuste a sus necesidades.
 
   ![][001]
 
 Puede descargar la plantilla de correo electrónico [aquí](http://1drv.ms/1xWFtQM).
 
-###  Uso del registro exigido
+### Uso del registro exigido
 Si desea que sean los usuarios quienes se registren para el restablecimiento de contraseña, también puede obligarles a registrarse al iniciar sesión en el panel de acceso, en [http://myapps.microsoft.com](http://myapps.microsoft.com). Puede habilitar esta opción desde la pestaña **Configurar** del directorio habilitando la opción **Requerir que los usuarios se registren al iniciar sesión en el panel de acceso** .
 
 Opcionalmente, también puede definir si se les pedirá o no que se vuelvan a registrar transcurrido un período de tiempo configurable mediante la modificación de la opción **Antelación con la que los usuarios deben confirmar sus datos de contacto, en días** en un valor distinto de cero. Consulte [Personalización del comportamiento de la administración de contraseñas de usuario](active-directory-passwords-customize.md#password-management-behavior) para obtener más información.
@@ -88,7 +88,7 @@ Al hacer clic en **Comprobar ahora**, el usuario llegará al **portal de registr
 
   ![][004]
 
-###  Carga de los datos personalmente
+### Carga de los datos personalmente
 Si desea cargar los datos de autenticación personalmente, no es necesario que los usuarios se registren en el restablecimiento de contraseña para poder restablecer sus contraseñas. Siempre que los datos de autenticación definidos en la cuenta de los usuarios se correspondan con la directiva de restablecimiento de contraseña, estos usuarios podrán restablecer sus contraseñas.
 
 Para obtener información sobre las propiedades que puede configurar a través de AAD Connect o Windows PowerShell, consulte [Qué datos se utilizan por el restablecimiento de contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
@@ -109,7 +109,7 @@ Puede cargar los datos de autenticación a través del [Portal de administració
 
 Consulte [Qué datos se utilizan por el restablecimiento de contraseña](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset) para ver cómo se puede utilizar cada una de estas propiedades.
 
-##  Ejemplo de materiales de formación
+## Ejemplo de materiales de formación
 Estamos trabajando en materiales de formación de ejemplo que puede utilizar para hacer que su organización de TI y sus usuarios se pongan al día rápidamente sobre cómo implementar y usar el restablecimiento de contraseña. Permanezca atento.
 
 
@@ -123,8 +123,8 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 * [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
 * [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
 * [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la Administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de Administración de contraseñas](active-directory-passwords-troubleshoot.md)
+* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
+* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
 * [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
 
@@ -137,4 +137,5 @@ Estamos trabajando en materiales de formación de ejemplo que puede utilizar par
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

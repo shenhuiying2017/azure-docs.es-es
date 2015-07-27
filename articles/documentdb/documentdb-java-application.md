@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Creación de una aplicación web de Java mediante DocumentDB" 
+	pageTitle="Crear una aplicación web de Java mediante DocumentDB" 
 	description="En este tutorial aprenderá a usar el servicio de Azure DocumentDB para almacenar y acceder a datos desde una aplicación Java hospedada en sitios web de Azure." 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -43,9 +43,9 @@ Si va a instalar estas herramientas por primera vez, coreservlets.com proporcion
 Para aprovisionar una cuenta de base de datos de DocumentDB en Azure:
 
 1. Si ya no tiene una cuenta de base de datos, cree una siguiendo las instrucciones en [Creación de una cuenta de base de datos](documentdb-create-account.md). Si ya tiene una cuenta, vaya al paso 2.
-2. Con la hoja **Claves** que se muestra en la siguiente ilustración, copie el extremo **URI**  y **CLAVE PRINCIPAL** en el portapapeles y mantenga los valores a mano, ya que se utilizarán en la aplicación web que crearemos a continuación.
+2. Con la hoja **Claves** que se muestra en la siguiente ilustración, copie el extremo **URI** y **CLAVE PRINCIPAL** en el portapapeles y mantenga los valores a mano, ya que se utilizarán en la aplicación web que crearemos a continuación.
 
-![Captura de pantalla del portal de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][1]
+![Captura de pantalla del portal de vista previa de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves][1]
 
 
 ##<a id="CreateJSP"></a>Paso 2: Creación de la aplicación JSP ##
@@ -92,13 +92,13 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 
 	![](./media/documentdb-java-application/image13.png)
 
-O bien, agregue el XML de dependencia para GroupId y ArtifactId directamente al archivo pom.xml mediante un editor de texto:
+	O bien, agregue el XML de dependencia para GroupId y ArtifactId directamente al archivo pom.xml mediante un editor de texto:
 
-	<dependency>
-		<groupId>com.microsoft.azure</groupId>
-		<artifactId>azure-documentdb</artifactId>
-		<version>1.0.0</version>
-	</dependency>
+	    <dependency>
+		    <groupId>com.microsoft.azure</groupId>
+		    <artifactId>azure-documentdb</artifactId>
+		    <version>1.0.0</version>
+	    </dependency>
 
 5. Haga clic en **Aceptar** y Maven instalará el SDK de Java de DocumentDB.
 6. Guarde el archivo pom.xml.
@@ -118,7 +118,7 @@ O bien, agregue el XML de dependencia para GroupId y ArtifactId directamente al 
 
 	En este proyecto, estamos usando [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
 
-2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una  **DocumentClientFactory**. Aquí es también donde tienes que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [SU_EXTREMO_AQUÍ] por el URI y reemplace [SU_CLAVE_AQUÍ] por CLAVE PRINCIPAL.
+2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. Aquí es también donde tienes que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR_ENDPOINT_HERE] por el URI y reemplace [YOUR_KEY_HERE] por su CLAVE PRINCIPAL.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -777,6 +777,6 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 22. Para implementar el proyecto en un sitio web de Azure, consulte el [paso 6. Implementación de su aplicación en sitios web de Azure](#Deploy). 
 
 [1]: media/documentdb-java-application/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

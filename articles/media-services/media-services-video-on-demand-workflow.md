@@ -118,7 +118,7 @@ Cargue los archivos mediante el **Portal de administración de Azure**, **.NET**
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-###Creación de trabajo y tareas
+###Creación de trabajos y tareas
 
 Un trabajo es una entidad que contiene metadatos sobre un conjunto de tareas (por ejemplo, codificación o indización). Cada tarea realiza una operación atómica en los recursos de entrada. Para ver un ejemplo de cómo crear trabajos de codificación, consulte:
 
@@ -220,4 +220,4 @@ Para obtener más información, consulte [Reproducción de contenido con reprodu
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

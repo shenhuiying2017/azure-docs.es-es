@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Aprovisionamiento de una aplicación web con una base de datos SQL
@@ -24,7 +24,7 @@ Para obtener más información sobre la creación de plantillas, consulte [Creac
 
 Para obtener más información acerca de la implementación de aplicaciones, consulte [Implementación de una aplicación compleja de forma predecible en Azure](app-service-deploy-complex-application-predictably.md).
 
-Para la plantilla completa, consulte [Aplicación web con plantilla de Base de datos SQL](../../templates/app-service-web-arm-with-sql-database-provision/).
+Para la plantilla completa, consulte [Aplicación web con plantilla de Base de datos SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
 ## Lo que implementará
 
@@ -36,6 +36,10 @@ En esta plantilla, implementará lo siguiente:
 - Configuración de escala automática
 - Las reglas de alertas
 - Detalles de la aplicación
+
+Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
+
+[![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parámetros para especificar
 
@@ -101,12 +105,16 @@ El tipo de base de datos que se va a crear.
 
 ### maxSizeBytes
 
+El tamaño máximo, en bytes, de la base de datos.
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+El GUID correspondiente al nivel de rendimiento para la edición. Para obtener una lista de valores disponibles, consulte [Creación de una base de datos](https://msdn.microsoft.com/library/azure/dn505701.aspx). El valor predeterminado corresponde al nivel de rendimiento web.
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -168,7 +176,7 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 ### Aplicación web
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
@@ -426,13 +434,13 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

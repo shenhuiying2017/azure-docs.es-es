@@ -236,4 +236,4 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -69,8 +69,7 @@ Cuando se agrega un usuario desde un directorio a un nuevo directorio, ese usuar
 
 La única vinculación entre los dos objetos es que el usuario siempre se autentica en el directorio particular o con su cuenta de Microsoft. Por eso, no se muestra una opción para restablecer la contraseña ni habilitar la autenticación multifactor para una cuenta de usuario externo: actualmente, la directiva de autenticación del directorio particular o la cuenta de Microsoft es la única que se evalúa cuando el usuario inicia sesión.
 
-> [AZURE.NOTE]
-Si lo desea, puede deshabilitar el usuario externo en el directorio y esta acción bloqueará el acceso al directorio.
+> [AZURE.NOTE]Si lo desea, puede deshabilitar el usuario externo en el directorio y esta acción bloqueará el acceso al directorio.
 
 Si se elimina un usuario en su directorio particular o se cancela su cuenta de Microsoft, el usuario externo sigue existiendo en el directorio. Sin embargo, el usuario no puede tener acceso a los recursos del directorio porque ya no puede autenticarse en su directorio particular ni en la cuenta de Microsoft.
 
@@ -112,4 +111,5 @@ La capacidad de los invitados para ver información limitada de un usuario o gru
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

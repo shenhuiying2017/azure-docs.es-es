@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 #Factoría de datos de Azure: terminología
@@ -113,4 +113,4 @@ Una característica importante de los centros es que una canalización se ejecut
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

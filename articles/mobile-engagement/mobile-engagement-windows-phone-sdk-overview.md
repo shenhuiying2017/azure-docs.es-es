@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -32,7 +32,7 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-windows-phone-sdk-co
 
 ##Notas de la versión
 
-###3.0.0 (03/04/2015)
+###3\.0.0 (03/04/2015)
 
 -   Icono de notificación predeterminado actualizado.
 -   Envíe comentarios de acción de notificación del sistema al hacer clic en una notificación.
@@ -55,4 +55,4 @@ Ninguno.
 Consulte [Procedimientos de actualización](mobile-engagement-windows-phone-upgrade-procedure/)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

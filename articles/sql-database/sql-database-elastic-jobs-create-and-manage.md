@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/12/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh"/>
 
 # Creación y administración de trabajos de bases de datos elásticas
 
-Los **grupos de bases de datos elásticas** proporcionan un modelo de predicción para la implementación de gran número de bases de datos. Puede establecer el número mínimo de unidades de rendimiento de datos (DTU) para cada base de datos a un coste establecido. La administración de objetos comunes en estas bases de datos puede realizarse más fácilmente mediante los **trabajos de bases de datos elásticas**. El servicio permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos del grupo en una sola operación. Por ejemplo, puede establecer la directiva en cada base de datos para permitir que solo una persona pueda ver los datos confidenciales con las credenciales correctas.
+Los **grupos de bases de datos elásticas** proporcionan un modelo predecible para la implementación de un gran número de bases de datos. Puede establecer el número mínimo de unidades de rendimiento de datos (DTU) para cada base de datos a un coste establecido. La administración de objetos comunes en estas bases de datos puede realizarse más fácilmente usando **trabajos de bases de datos elásticas**. El servicio permite ejecutar secuencias de comandos de T-SQL en todas las bases de datos del grupo en una sola operación. Por ejemplo, puede establecer la directiva en cada base de datos para permitir que solo una persona pueda ver los datos confidenciales con las credenciales correctas.
 
 ## Requisitos previos
 
@@ -29,7 +29,7 @@ Los **grupos de bases de datos elásticas** proporcionan un modelo de predicció
 ## Creación de trabajos
 
 1. En la hoja del grupo de trabajos de bases de datos elásticas, haga clic en **Crear trabajo**.
-2. Escriba el nombre de usuario y la contraseña del administrador de base de datos (creados al instalar los trabajos) de la base de datos de control de trabajos (almacenamiento de metadatos para los trabajos).
+2. Escriba el nombre de usuario y la contraseña del administrador de base de datos (creados al instalar los trabajos) para la base de datos de control de trabajos (almacenamiento de metadatos de los trabajos).
 
 	![Asigne un nombre al trabajo, escríbalo o péguelo en el código y haga clic en Ejecutar.][1]
 2. En la hoja **Crear trabajo**, escriba un nombre para el trabajo.
@@ -110,4 +110,4 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

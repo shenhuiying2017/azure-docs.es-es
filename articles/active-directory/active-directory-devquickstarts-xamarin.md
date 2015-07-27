@@ -39,12 +39,7 @@ Para crear la aplicación de trabajo completa, deberá:
 Para empezar, [descargue el proyecto del esquema](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) o [descargue el ejemplo finalizado](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Cualquiera de los dos es una solución de Visual Studio 2013. También necesitará a un inquilino de Azure AD en el que pueda crear usuarios y registrar una aplicación. Si aún no tiene un inquilino, [descubra cómo conseguir uno](active-directory-howto-tenant.md).
 
 ## *0. Configuración de su entorno de desarrollo de Xamarin*
-Hay varias maneras diferentes en las que puede desear configurar Xamarin, dependiendo de las plataformas específicas a las que quiera dirigirse. Puesto que este tutorial incluye proyectos para iOS, Android y Windows, seleccionaremos usar Visual Studio 2013 y el [host de compilación Xamarin.iOS](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/), que requerirá:
-- Una máquina Windows para ejecutar Visual Studio y las aplicaciones Windows 
-- Una máquina OSX (si desea ejecutar la aplicación iOS) 
-- Una suscripción Xamarin Business (una [prueba gratuita](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) es suficiente) 
-- [Xamarin para Windows](https://xamarin.com/download), que incluye Xamarin.iOS, Xamarin.Android y la integración de Visual Studio (recomendada para este ejemplo).
-- [Xamarin para OS X](https://xamarin.com/download), que incluye Xamarin.iOS (y el host de compilación de Xamarin.iOS), Xamarin.Android, Xamarin.Mac y Xamarin Studio.
+Hay varias maneras diferentes en las que puede desear configurar Xamarin, dependiendo de las plataformas específicas a las que quiera dirigirse. Puesto que este tutorial incluye proyectos para iOS, Android y Windows, seleccionaremos usar Visual Studio 2013 y el [host de compilación Xamarin.iOS](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/), que requerirá: - Una máquina Windows para ejecutar Visual Studio y las aplicaciones Windows - Una máquina OSX (si desea ejecutar la aplicación iOS) - Una suscripción Xamarin Business (una [prueba gratuita](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) es suficiente) - [Xamarin para Windows](https://xamarin.com/download), que incluye Xamarin.iOS, Xamarin.Android y la integración de Visual Studio (recomendada para este ejemplo). - [Xamarin para OS X](https://xamarin.com/download), que incluye Xamarin.iOS (y el host de compilación de Xamarin.iOS), Xamarin.Android, Xamarin.Mac y Xamarin Studio.
 
 Se recomienda comenzar con la [página de descargas de Xamarin](https://xamarin.com/download) e instalar Xamarin en su Mac y PC. Si no dispone de los equipos disponibles, puede ejecutar el ejemplo, pero tendrán que omitirse determinados proyectos. Siga el [guías detalladas de instalación](http://developer.xamarin.com/guides/cross-platform/getting_started/installation/) para iOS y Android, y si desea saber más acerca de las opciones disponibles para el desarrollo, eche un vistazo a la guía [Creación de aplicaciones de plataformas cruzadas](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/part_1_-_understanding_the_xamarin_mobile_platform/). No es necesario configurar un dispositivo para el desarrollo en este momento, ni necesita una suscripción al programa para desarrolladores de Apple (a menos que, por supuesto, desee ejecutar la aplicación iOS en un dispositivo).
 
@@ -65,8 +60,7 @@ Para habilitar la aplicación para obtener tokens, primero deberá registrarla e
 - También en la pestaña **Configurar**, busque la sección "Permisos para otras aplicaciones". Para la aplicación "Azure Active Directory", agregue el permiso de **acceso al directorio de la organización** en **Permisos delegados**. Esto permitirá a su aplicación consultar la API Graph para los usuarios.
 
 ## *2. Instalación y configuración de ADAL*
-Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación.
--	Comience agregando ADAL a cada uno de los proyectos de la solución con la Consola del Administrador de paquetes.
+Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el código relacionado con la identidad. Para que ADAL pueda comunicarse con Azure AD, tiene que proporcionarle información sobre el registro de la aplicación. Comience agregando ADAL a cada uno de los proyectos de la solución con la Consola del Administrador de paquetes.
 
 `
 PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib -IncludePrerelease
@@ -135,7 +129,7 @@ request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResu
 
 Eso es todo para el PCL `DirectorySearcher` y el código relacionado con la identidad de la aplicación. Todo lo que queda es llamar al método `SearchByAlias(...)` en cada vista de plataforma, y cuando se necesario, agregar código para la administración correcta del ciclo de vida de la interfaz de usuario.
 
-#### Android:
+####Android:
 - En `MainActivity.cs`, agregue una llamada a `SearchByAlias(...)` en el administrador de clics de botones:
 
 ```C#
@@ -153,7 +147,7 @@ protected override void OnActivityResult(int requestCode, Result resultCode, Int
 ...
 ```
 
-#### Escritorio de Windows:
+####Escritorio de Windows:
 - En `MainWindow.xaml.cs`, simplemente realice una llamada a `SearchByAlias(...)` pasando un `WindowInteropHelper` en el objeto `PlatformParameters` de escritorio:
 
 ```C#
@@ -162,7 +156,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-#### iOS:
+####iOS:
 - En `DirSearchClient_iOSViewController.cs`, el objeto `PlatformParameters` de iOS simplemente toma una referencia para el Controlador de vista:
 
 ```C#
@@ -171,7 +165,7 @@ List<User> results = await DirectorySearcher.SearchByAlias(
   new PlatformParameters(PromptBehavior.Auto, this.Handle));
 ```
 
-#### Tienda Windows
+####Tienda Windows
 - En Tienda Windows, abra `MainPage.xaml.cs` e implemente el método `Search` , que utiliza un método auxiliar en un proyecto compartido para actualizar la interfaz de usuario según sea necesario.
 
 ```C#
@@ -183,7 +177,7 @@ await UnivDirectoryHelper.Search(
   new PlatformParameters(PromptBehavior.Auto, false));
 ```
 
-#### Windows Phone
+####Windows Phone
 - En Windows Phone, abra `MainPage.xaml.cs` e implemente el método `Search` , que utiliza el mismo método auxiliar en un proyecto compartido para actualizar la interfaz de usuario.
 
 ```C#
@@ -203,9 +197,7 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 
 [Protección de una API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obtener recursos adicionales, consulte:
- - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
- - [CloudIdentity.com >>](https://cloudidentity.com) 
- - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+Para obtener recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

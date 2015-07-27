@@ -123,7 +123,7 @@ El módulo de Azure incluye cmdlets que le ayudan a descargar e importar el cert
 
 4. Cuando aparezca la opción, descargue y guarde el perfil de publicación y anote la ruta y el nombre del archivo .publishsettings. Esta información se solicita al ejecutar el cmdlet **Import-AzurePublishSettingsFile** para importar la configuración. La ubicación y el nombre predeterminados del archivo son:
 
-			C:\Users<UserProfile>\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. Escriba un comando similar al siguiente sustituyendo los marcadores de posición por el nombre de su cuenta de Windows y la ruta y nombre del archivo:
 
@@ -260,4 +260,4 @@ A continuación, se indican algunos de los recursos que puede utilizar para apre
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

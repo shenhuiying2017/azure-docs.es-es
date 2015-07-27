@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Requisitos de imagen de RemoteApp"
-    description="Obtenga información sobre los requisitos para crear imágenes que se usarán con RemoteApp" 
+    pageTitle="Requisitos de imagen de Azure RemoteApp"
+    description="Obtenga información sobre los requisitos para crear imágenes que se usarán con Azure RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# Requisitos para imágenes de RemoteApp
-RemoteApp usa una imagen de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con los usuarios. Para crear una imagen de RemoteApp personalizada, puede comenzar con una imagen existente o [crear una nueva](remoteapp-create-custom-image.md).
+# Requisitos para las imágenes Azure RemoteApp
+Azure RemoteApp usa una imagen de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con los usuarios. Para crear una imagen personalizada, puede comenzar con una imagen existente o [crear una nueva](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP]¿Sabía que la suscripción de Azure RemoteApp le permite acceder a una imagen de Windows Server 2012 R2 ya generada en la galería de la máquina virtual de Azure que puede usar para crear su propia imagen de plantilla? [Compruébelo](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP]¿Sabía que la suscripción de Azure RemoteApp le permite acceder a una imagen de Windows Server 2012 R2 en la galería de máquinas virtuales de Azure, y que puede usarla para crear su propia imagen de plantilla? [Compruébelo](remoteapp-image-on-azurevm.md).
 
 
 Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
@@ -43,4 +43,4 @@ Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de 
 - No se admite la carga de su VHD desde una cadena de instantáneas.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Uso de Búsqueda de diagnóstico en Application Insights
@@ -81,6 +81,12 @@ En este ejemplo, es obvio que la solicitud `Reports/Employees` genera la mayor p
 
 Además ,si desea ver también qué otros eventos se estaban produciendo durante este tiempo, puede activar **Incluir eventos con propiedades no definidas**.
 
+## Supresión de bots y de tráfico de prueba web
+
+Utilice el filtro **Tráfico real o sintético** y active+ **Real**.
+
+También puede filtrar por **Origen del tráfico sintético**.
+
 ## Inspección de repeticiones individuales
 
 Agregue ese nombre de solicitud al filtro definido y podrá inspeccionar repeticiones individuales de ese evento.
@@ -89,7 +95,7 @@ Agregue ese nombre de solicitud al filtro definido y podrá inspeccionar repetic
 
 Para los eventos de solicitud, los detalles muestran las excepciones que ocurrieron mientras la solicitud se estaba procesando.
 
-Haga clic en una excepción para ver sus detalles.
+Haga clic en una excepción para ver los detalles, incluido el seguimiento de la pila.
 
 ![Haga clic en una excepción](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -191,4 +197,5 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 [track]: app-insights-custom-events-metrics-api.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

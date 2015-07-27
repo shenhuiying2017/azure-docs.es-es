@@ -4,7 +4,6 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
-	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -260,4 +259,4 @@ Para eliminar una ranura de implementación que ya no sea necesaria, utilice el 
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

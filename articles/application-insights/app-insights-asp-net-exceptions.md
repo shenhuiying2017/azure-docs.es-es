@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Diagnóstico de errores y excepciones en aplicaciones de ASP.NET con Application Insights  
@@ -31,9 +31,8 @@ Haga clic en uno de los tipos de solicitudes con error de la lista para llegar a
 
 ![Seleccione una instancia de una solicitud con error y, en los detalles de la excepción, obtenga las instancias de la excepción.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-*¿No se muestra ninguna excepción? Consulte [Captura de excepciones](#exceptions).*
 
-Como alternativa, puede comenzar a partir de la lista de excepciones que encontrará más abajo de la hoja Problemas. Siga haciendo clic hasta llegar finalmente a las excepciones individuales.
+**Como alternativa**, puede comenzar a partir de la lista de excepciones que encontrará más abajo de la hoja Problemas. Siga haciendo clic hasta llegar finalmente a las excepciones individuales.
 
 
 ![Obtener detalles](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -57,7 +56,25 @@ Las llamadas con error a las dependencias se muestran en la hoja Problemas, pero
 
 *¿No hay errores de dependencia? Eso está muy bien. Pero para comprobar que está obteniendo datos de dependencia, abra la hoja Rendimiento y examine el gráfico Duración de la dependencia.*
 
-## Cómo ver la solicitud POST y otros datos de registro
+ 
+
+## Personalización del seguimiento y del registro de datos
+
+Para obtener datos de diagnóstico específicos de su aplicación, puede insertar código para enviar sus propios datos de telemetría. Esto aparece en la búsqueda de diagnóstico junto con la solicitud, vista de página y otros datos que se recopilan automáticamente.
+
+Tiene varias opciones:
+
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event) normalmente se usa para supervisar patrones de uso, pero los datos que envía también aparecen en Eventos personalizados en la búsqueda de diagnósticos. Los eventos tienen nombre y pueden llevar propiedades de cadena y métricas numéricas en las que puede [filtrar las búsquedas de diagnósticos][diagnostic].
+* [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) le permite enviar datos más grandes, como la información de POST.
+* [TrackException()](#exceptions) envía seguimientos de la pila. [Más información sobre excepciones](#exceptions).
+* Si ya utiliza un marco de registro como Log4Net o NLog, puede [capturar aquellos registros][netlogs] y verlos en la búsqueda de diagnósticos junto con datos de solicitud y excepción.
+
+Para ver estos eventos, abra [Buscar][diagnostic], abra Filtrar y luego elija Evento personalizado, Seguimiento o Excepción.
+
+
+![Obtener detalles](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+### Cómo ver los datos de solicitud POST
 
 Los detalles de la solicitud no incluyen los datos enviados a la aplicación en una llamada a POST. Para que se notifiquen estos datos:
 
@@ -67,12 +84,8 @@ Los detalles de la solicitud no incluyen los datos enviados a la aplicación en 
 
 ![Obtener detalles](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
-Si ya usa un marco de registro como Log4Net o NLog, puede [capturar esos registros][netlogs] y verlos de la misma manera.
 
-Los [eventos personalizados][api] se usan normalmente para el seguimiento del uso, pero también puede encontrarlos en "Toda la telemetría de esta solicitud".
-
-
-## <a name="exceptions"></a> Captura de las excepciones y los datos de diagnóstico relacionados
+## <a name="exceptions"></a> Captura de excepciones y datos de diagnóstico relacionados
 
 En primer lugar, no verá en el portal todas las excepciones que provocan errores en su aplicación. Verá las excepciones del explorador (si usa el [SDK de JavaScript][client] en sus páginas web). Pero la mayoría de las excepciones de servidor las detecta IIS y debe escribir algo de código para verlas.
 
@@ -427,4 +440,5 @@ Agregue el atributo a las implementaciones de servicio:
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

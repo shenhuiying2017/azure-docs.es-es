@@ -57,4 +57,5 @@ Una vez completada la prueba, la aplicación puede anunciarse en la galería de 
 >
 > Adjunte el logotipo de la aplicación (archivo PNG, 150 px por 122 px, color de fondo transparente):
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

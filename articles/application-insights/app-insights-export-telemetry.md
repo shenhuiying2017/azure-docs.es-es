@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Exportación de telemetría desde Application Insights
@@ -74,7 +74,7 @@ La fecha y hora son UTC e indican cuándo se depositó la telemetría en el alma
 
 ## <a name="format"></a> Formato de datos
 
-* Cada blob es un archivo de texto que contiene varias filas separadas por' \n'.
+* Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'.
 * Cada fila es un documento JSON sin formato. Si desea centrarse en él, pruebe un visor como el Bloc de notas ++ con el complemento de JSON:
 
 ![Visualización de la telemetría con una herramienta apropiada](./media/app-insights-export-telemetry/06-json.png)
@@ -160,6 +160,12 @@ La exportación continua se reiniciará.
 
     No. Seguiremos insertando datos hasta que elimine la exportación. Pararemos si alcanzamos los límites externos del almacenamiento de blobs, pero hasta llegar ahí falta mucho. Depende de usted controlar la cantidad de almacenamiento que usa.
 
+* *¿Cuántos blobs debería ver en el almacenamiento?*
+
+ * Para cada tipo de datos que seleccionó para exportar, se crea un blob nuevo cada minuto (si los datos están disponibles).
+ * Además, para las aplicaciones con mucho tráfico, se asignan unidades de partición adicionales. En este caso, cada unidad crea un blob cada minuto.
+
+
 * *Volví a generar la clave de mi almacenamiento o cambié el nombre del contenedor, y ahora no funciona la exportación.*
 
     Edite la exportación y abra la hoja de destino de la exportación. Deje el mismo almacenamiento seleccionado que antes y haga clic en Aceptar para confirmar. La exportación se reiniciará. Si el cambio estaba dentro de los últimos días, no perderá datos.
@@ -177,4 +183,4 @@ La exportación continua se reiniciará.
 
  
 
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

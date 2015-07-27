@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Exploración de métricas en Application Insights
@@ -29,18 +29,7 @@ Algunos gráficos se segmentan: la altura total del gráfico en un momento deter
 
 Las líneas de puntos muestran el valor de la métrica de una semana anterior.
 
-## Valores de punto
 
-Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas en ese momento.
-
-
-![Mantener el mouse sobre un gráfico](./media/app-insights-metrics-explorer/02-focus.png)
-
-Se agrega el valor de la métrica en un momento determinado en el intervalo de muestreo anterior. Esto puede variar según el intervalo de tiempo de todo el gráfico.
-
-El intervalo de muestreo o "nivel de detalle" se muestra en la parte superior de la hoja.
-
-![El encabezado de una hoja.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## Intervalo de tiempo
 
@@ -56,6 +45,23 @@ En la hoja de información general, arrastre una parte del gráfico para ampliar
 
 ![Arrastre por parte de un gráfico.](./media/app-insights-metrics-explorer/12-drag.png)
 
+## Valores de punto y de nivel de detalle
+
+Mantenga el cursor sobre el gráfico para mostrar los valores de las métricas en ese momento.
+
+![Mantener el mouse sobre un gráfico](./media/app-insights-metrics-explorer/02-focus.png)
+
+Se agrega el valor de la métrica en un momento determinado en el intervalo de muestreo anterior.
+
+El intervalo de muestreo o "nivel de detalle" se muestra en la parte superior de la hoja.
+
+![El encabezado de una hoja.](./media/app-insights-metrics-explorer/11-grain.png)
+
+Puede ajustar el nivel de detalle en la hoja Intervalo de tiempo:
+
+![El encabezado de una hoja.](./media/app-insights-metrics-explorer/grain.png)
+
+Los niveles de detalle disponibles dependen del intervalo de tiempo que seleccione. Los niveles de detalle explícitos son alternativas al nivel de detalle "automático" para el intervalo de tiempo.
 
 ## Explorador de métricas
 
@@ -189,4 +195,5 @@ Si desea que los datos se exporten continuamente para procesarlos externamente, 
 [track]: app-insights-custom-events-metrics-api.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

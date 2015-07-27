@@ -4,7 +4,6 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
-	writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -179,4 +178,4 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- El recurso local se configura automáticamente para usar la cadena de conexión local principal.
 
 - El Administrador de conexiones híbridas debe usar una cadena de conexión local válida para la autorización. Las Aplicaciones web de Azure o las Aplicaciones móviles de Azure deben usar una cadena de conexión de aplicación válida para la autorización.
+- Puede escalar las conexiones híbridas mediante la instalación de otra instancia del Administrador de conexiones híbridas en otro servidor. Configure el agente de escucha local para usar la misma dirección como el primer agente de escucha local. En esta situación, el tráfico es distribuido aleatoriamente (round robin) entre los agentes de escucha locales activos. 
 
 
 ## <a name="ManageHybridConnection"></a>Administración de conexiones híbridas
@@ -123,8 +124,8 @@ Para administrar las conexiones híbridas, puede:
 2. Extraiga los archivos.
 3. En el equipo que modifica la directiva de grupo, haga lo siguiente: 
 
-	- Copie los archivos .ADMX en la carpeta *%WINROOT%\PolicyDefinitions*.
-	- Copie los archivos .ADML en la carpeta *%WINROOT%\PolicyDefinitions\es-es*.
+	- Copie los archivos .ADMX en la carpeta *%WINROOT%\\PolicyDefinitions*.
+	- Copie los archivos .ADML en la carpeta *%WINROOT%\\PolicyDefinitions\\es-es*.
 
 Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la directiva.
 
@@ -145,4 +146,4 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

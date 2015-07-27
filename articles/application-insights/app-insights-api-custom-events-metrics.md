@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # API de Application Insights para eventos y métricas personalizados 
@@ -35,6 +35,7 @@ Método | Usado para
 [`TrackException`](#track-exception)|Excepciones de registro para diagnóstico. Permite realizar el seguimiento del lugar donde se producen en relación con otros eventos y examinar los seguimientos de pila.
 [`TrackRequest`](#track-request)| Permite registrar la frecuencia y duración de las solicitudes de servidor para el análisis de rendimiento.
 [`TrackTrace`](#track-trace)|Mensajes de registro de diagnóstico. También puede capturar registros de terceros.
+[`TrackDependency`](#track-dependency)|Registre la duración y frecuencia de las llamadas a componentes externos de los que depende la aplicación.
 
 Puede [adjuntar propiedades y métricas](#properties) a la mayoría de estas llamadas de telemetría.
 
@@ -231,6 +232,7 @@ Si le resulta más cómodo, puede recopilar los parámetros de un evento en un o
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a> Eventos de temporización
 
 Seguro que en ocasiones le gustaría representar el tiempo que se tarda en realizar alguna acción. Por ejemplo, puede que quiera saber cuánto tiempo tardan los usuarios en considerar las opciones de un juego. Este es un ejemplo útil del uso del parámetro de medición.
@@ -367,7 +369,7 @@ También puede llamarlo usted mismo si quiere simular solicitudes en un contexto
 
 ## Seguimiento de excepciones
 
-Envíe excepciones a Application Insights para [contabilizarlas][metrics], como una indicación de la frecuencia de un problema, y para [examinar todas las repeticiones individuales][diagnostic].
+Envíe excepciones a Application Insights para [contabilizarlas][metrics], como una indicación de la frecuencia de un problema, y para [examinar todas las repeticiones individuales][diagnostic]. Los informes incluyen los seguimientos de la pila.
 
 *C#*
 
@@ -397,6 +399,30 @@ Los [adaptadores de registro][trace] usan esta API para enviar registros de terc
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 El límite de tamaño en `message` es mucho mayor que el límite en propiedades. Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de propiedad) no puede filtrar por él.
+
+## Seguimiento de dependencia
+
+El módulo de seguimiento de dependencias estándar usa esta API para registrar las llamadas a dependencias externas, como bases de datos o API de REST. El módulo descubre automáticamente algunas dependencias externas, pero puede que le interese tratar a algunos componentes adicionales de la misma manera.
+
+Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas a él para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos mediante `TrackDependency`.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+Para desactivar el módulo de seguimiento de dependencias estándar, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)y elimine la referencia a `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 ## <a name="defaults"></a>Establecimiento de valores predeterminados para los datos de telemetría personalizados seleccionados
 
@@ -432,6 +458,7 @@ Si quiere establecer valores de propiedad predeterminados para algunos de los ev
     gameTelemetry.TrackEvent("WinGame");
     
 Las llamadas de telemetría individuales pueden invalidar los valores predeterminados en los diccionarios de propiedad.
+
 
 
 
@@ -692,6 +719,9 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Session** Identifica la sesión del usuario. El id. se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **User** Permite contar a los usuarios. En una aplicación web, si hay una cookie, el id. de usuario se toma de ella. Si no hay ninguna, se genera un identificador nuevo. Si los usuarios tienen que iniciar sesión en su aplicación, puede establecer el id. desde su id. autenticado, con el fin de proporcionar un recuento más confiable que sea correcto incluso si el usuario inicia sesión desde otro equipo. 
 
+
+
+
 ## Límites
 
 Hay algunos límites en cuanto al número de métricas y eventos por aplicación.
@@ -704,6 +734,7 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 * *P: ¿Durante cuánto tiempo se conservan los datos?*
 
     Consulte [Privacidad y retención de los datos][data].
+
 
 ## Documentos de referencia
 
@@ -746,4 +777,5 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 [windows]: app-insights-windows-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

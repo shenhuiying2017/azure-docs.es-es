@@ -304,4 +304,5 @@ Después de unos minutos, vuelva a las herramientas de administración de SQL Se
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

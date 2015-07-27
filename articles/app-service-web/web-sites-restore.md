@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/03/2015" 
 	ms.author="cephalin"/>
 
 # Restauración de una aplicación web en el Servicio de aplicaciones de Azure
@@ -23,7 +22,7 @@ En este artículo se muestra cómo restaurar una aplicación web de la que haya 
 
 La característica de restauración de aplicaciones web le permite restaurar, siempre que lo desee, la aplicación web a un estado anterior, o bien crear una nueva aplicación web en función de una de las copias de seguridad de la aplicación web original. La creación de una nueva aplicación web que se ejecuta en paralelo con la versión más reciente puede resultar útil para la prueba A/B.
 
-La característica de restauración de aplicaciones web, disponible en la hoja **Copias de seguridad** del [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), solo está disponible en los modos Estándar y Premium. Para obtener información acerca de cómo escalar el uso de la aplicación al modo Estándar o Premium, consulte [Escalado de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el modo Premium permite realizar un mayor número de copias de seguridad diarias que el modo Estándar.
+La característica de restauración de aplicaciones web, disponible en la hoja **Copias de seguridad** del [Portal de vista previa de Azure](http://portal.azure.com), solo está disponible en los modos Estándar y Premium. Para obtener información acerca de cómo escala la aplicación con el modo Estándar o Premium, consulte [Escalado de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-scale.md). Tenga en cuenta que el modo Premium permite realizar un mayor número de copias de seguridad diarias que el modo Estándar.
 
 <a name="PreviousBackup"></a>
 ## Para restaurar una aplicación web desde una copia de seguridad realizada anteriormente
@@ -97,4 +96,4 @@ La hoja de detalles mostrará la información disponible relacionada con la oper
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -123,4 +123,5 @@ Hasta 500 eventos por segundo de cada aplicación. Los eventos se conservan dura
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="windows"
    ms.workload="web"
-   ms.date="03/31/2015"
+   ms.date="06/30/2015"
    ms.author="cfowler"/>
 
 # Conexión de una aplicación web en Servicio de aplicaciones de Azure a Caché en Redis a través del protocolo Memcache
@@ -83,7 +83,7 @@ Descargue el vínculo No seguro para subprocesos (NTS) x86 para la versión de P
 
 ### Habilitar la extensión php_memcache
 
-Después de descargar el archivo, descomprima y cargue **php_memcache.dll** en el directorio **d:\home\site\wwwroot\bin\ext**. Una vez que el archivo php_memcache.dll se cargó en la aplicación web, es necesario habilitar la extensión para tiempo de ejecución de PHP. Para habilitar la extensión Memcache en el Portal de Azure, abra la hoja **Configuración de aplicación** de la aplicación web y, a continuación, agregue la nueva configuración de aplicación con la clave de **PHP_EXTENSIONS** y el valor **bin\ext\php_memcache.dll**.
+Después de descargar el archivo, descomprima y cargue **php_memcache.dll** en el directorio **d:\\home\\site\\wwwroot\\bin\\ext\**. Una vez que el archivo php_memcache.dll se cargó en la aplicación web, es necesario habilitar la extensión para tiempo de ejecución de PHP. Para habilitar la extensión Memcache en el Portal de Azure, abra la hoja **Configuración de aplicación** de la aplicación web y, a continuación, agregue la nueva configuración de aplicación con la clave de **PHP_EXTENSIONS** y el valor **bin\\ext\\php_memcache.dll**.
 
 
 > Si la aplicación web necesita cargar varias extensiones PHP, el valor de PHP_EXTENSIONS debe ser una lista delimitada por comas de rutas de acceso relativas a archivos DLL.
@@ -93,6 +93,8 @@ Después de descargar el archivo, descomprima y cargue **php_memcache.dll** en e
 Una vez que termine, haga clic en **Guardar**.
 
 ## Instalar el complemento WordPress para Memcache
+
+> También puede descargar el [complemento de almacenamiento en caché del objeto Memcached ](https://wordpress.org/plugins/memcached/) desde WordPress.org.
 
 En la página de complementos de WordPress, haga clic en el botón **Agregar nuevo**.
 
@@ -195,4 +197,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [13]: http://memcached.org
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

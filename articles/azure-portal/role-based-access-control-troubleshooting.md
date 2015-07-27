@@ -4,7 +4,6 @@
 	services="azure-portal"
 	documentationCenter="na" 
 	authors="stepsic-microsoft-com" 
-	writer="" 
 	manager="terrylan" 
 	editor=""/>
 
@@ -83,4 +82,4 @@ Las máquinas virtuales tienen estos recursos relacionados: * nombres de dominio
     
 Si no puede acceder a ninguno de estos iconos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -139,4 +139,4 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 [Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

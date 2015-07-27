@@ -124,4 +124,5 @@ Ahora que va a enviar datos desde el lado servidor de la aplicación, siga estos
 [windows]: app-insights-windows-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

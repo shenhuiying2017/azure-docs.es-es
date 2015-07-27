@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Creación gráfica en Automatización de Azure
@@ -115,11 +115,11 @@ Cuando especifica un valor para un parámetro, selecciona un origen de datos par
 |:---|:---|
 |Valor constante|Escriba un valor para el parámetro. Este solo se encuentra disponible para los siguientes tipos de datos: Int32, Int64, String, Boolean, DateTime, Switch. |
 |Salida de la actividad|Salida de una actividad que precede la actividad actual en el flujo de trabajo. Se mostrarán todas las actividades válidas. Seleccione solo la actividad para usar su salida en el valor de parámetro. Si la actividad genera un objeto con varias propiedades, puede escribir el nombre de la propiedad después de seleccionar la actividad.|
-|Parámetro de entrada runbook<br>*(próximamente) *|Seleccione un parámetro de entrada runbook como entrada para el parámetro de actividad.|  
-|Activo de variable de Automatización<br>*(próximamente)*|Seleccione una variable de Automatización como entrada.|  
-|Activo de credencial de Automatización<br>*(próximamente)*|Seleccione una credencial de Automatización como entrada.|  
-|Activo de certificado de Automatización<br>*(próximamente)*|Seleccione un certificado de Automatización como entrada.|  
-|Activo de conexión de Automatización<br>*(próximamente)*|Seleccione una conexión de Automatización como entrada.| 
+|Parámetro de entrada de runbook|Seleccione un parámetro de entrada runbook como entrada para el parámetro de actividad.|  
+|Recurso de variable de automatización|Seleccione una variable de Automatización como entrada.|  
+|Recurso de credencial de automatización|Seleccione una credencial de Automatización como entrada.|  
+|Recurso de certificado de automatización|Seleccione un certificado de Automatización como entrada.|  
+|Recurso de conexión de automatización|Seleccione una conexión de Automatización como entrada.| 
 |Expresión de PowerShell|Especifique una expresión simple de PowerShell. La expresión se evaluará antes de la actividad y el resultado se usará en el valor del parámetro. Puede usar variables para consultar la salida de una actividad o un parámetro de entrada de runbook.|
 |Cadena vacía|Un valor de cadena vacío.|
 |Null|Un valor Null.|
@@ -228,7 +228,7 @@ También puede recuperar la salida de una actividad en un origen de datos **Expr
 
 ### Puntos de control
 
-Las mismas instrucciones para configurar los [puntos de control](automation-runbook-concepts/#checkpoints) en el runbook se aplican a los runbooks gráficos. Puede agregar una actividad para el cmdlet Checkpoint-Workflow donde necesite establecer un punto de control. A continuación, debe seguir esta actividad con Add-AzureAccount en caso de que el runbook se inicie desde este punto de control en un trabajo distinto.
+Las mismas instrucciones para configurar los [puntos de control](automation-powershell-workflow/#checkpoints) en el runbook se aplican a los runbooks gráficos. Puede agregar una actividad para el cmdlet Checkpoint-Workflow donde necesite establecer un punto de control. A continuación, debe seguir esta actividad con Add-AzureAccount en caso de que el runbook se inicie desde este punto de control en un trabajo distinto.
 
 ## Autenticación a los recursos de Azure
 
@@ -276,8 +276,8 @@ Los datos que crea alguna actividad que no tienen un vínculo saliente se agrega
 
 ## Artículos relacionados
 
-- [Conceptos de runbooks de Automatización de Azure](automation-runbook-concepts.md)
+- [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md)
 - [Recursos de automatización](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

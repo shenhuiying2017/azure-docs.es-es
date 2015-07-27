@@ -113,7 +113,7 @@ En esta sección podrá crear una nueva aplicación Node en su entorno de desarr
 
 1. En la línea de comandos, cambie de directorio al directorio **tasklist**. Si el directorio **tasklist** no existe, créelo.
 
-	> [AZURE.NOTE]Este tutorial hace referencia a la carpeta **tasklist**. La ruta completa a esta carpeta se omite, debido a que la semántica de la ruta es diferente entre los sistemas operativos. Debe crear esta carpeta en una ubicación a la que tenga fácil acceso en su sistema de archivos local, como **~/node/tasklist** o **c:\node\tasklist**.
+	> [AZURE.NOTE]Este tutorial hace referencia a la carpeta **tasklist**. La ruta completa a esta carpeta se omite, debido a que la semántica de la ruta es diferente entre los sistemas operativos. Debe crear esta carpeta en una ubicación a la que tenga fácil acceso en su sistema de archivos local, como **~/node/tasklist** o **c:\\node\\tasklist**.
 
 2. Escriba el siguiente comando para instalar el comando Express.
 
@@ -571,4 +571,4 @@ Para obtener información sobre la protección de MongoDB, consulte [MongoDB Sec
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -2,7 +2,6 @@
 	pageTitle="Mover datos a SQL Server en Azure| Microsoft Azure" 
 	description="Mover datos a SQL Server en Azure" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -19,7 +18,7 @@
 
 #Mover datos a SQL Server en Azure
 
-Este documento aborda el movimiento de datos de archivos planos (csv/tsv) o un SQL Server local a un SQL Server en Azure. Esta tarea forma parte de la Tecnología y procesos de análisis avanzado (ADAPT) proporcionada por Aprendizaje automático de Azure.
+En este documento, se aborda el movimiento de datos de archivos planos (csv/tsv) o un servidor SQL Server local a un servidor SQL Server en Azure. Esta tarea forma parte de la Tecnología y procesos de análisis avanzado (ADAPT) proporcionada por Aprendizaje automático de Azure.
 
 
 <table>
@@ -78,7 +77,7 @@ Si los datos se encuentran en un archivo plano (organizado en un formato de fila
 
 ### <a name="insert-tables-bcp"></a>Utilidad de copia masiva (BCP) de la línea de comandos
 
-BCP es una utilidad de línea de comandos instalada con SQL Server y es una de las maneras más rápidas de mover datos. Funciona a través de las tres variantes de SQL Server (SQL Server local, SQL Azure y la VM de SQL Server en Azure).
+BCP es una utilidad de línea de comandos instalada con SQL Server y es una de las maneras más rápidas de mover datos. Funciona en las tres variantes de SQL Server (SQL Server local, SQL Azure y máquina virtual SQL Server en Azure).
 
 > [AZURE.NOTE]**¿Donde deberían estar mis datos para BCP?** Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../storage-use-azcopy.md), el [Explorador de almacenamiento de Azure](https://azurestorageexplorer.codeplex.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
 
@@ -177,7 +176,7 @@ Puede utilizar los servicios de integraciones de SQL Server (SSIS) para importar
 - Para obtener más información acerca de las herramientas de datos de SQL Server, consulte [Herramientas de datos de Microsoft SQL Server](https://msdn.microsoft.com/data/tools.aspx).  
 - Para obtener más información acerca del Asistente para importación y exportación, consulte [Asistente para importación y exportación de SQL Server](https://msdn.microsoft.com/library/ms141209.aspx).
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>Mover datos desde un SQL Server local
+### <a name="sqlonprem_to_sqlonazurevm"></a>Movimiento de datos desde un SQL Server local
 
 Los datos se pueden mover desde un SQL Server local de la siguiente manera:
 
@@ -189,9 +188,9 @@ Describimos cada una de estas opciones:
 
 #### <a name="export-flat-file"></a>Exportación a un archivo plano
 
-Se pueden usar varios métodos para exportar datos de manera masiva desde un SQL Server local como se documenta [aquí](https://msdn.microsoft.com/library/ms175937.aspx). Este documento tratará el programa de copia masiva (BCP) como ejemplo. Una vez que los datos se exportan a un archivo plano, se puede importar a otro servidor SQL Server mediante la importación masiva.
+Se pueden usar diversos métodos para exportar datos en bloque desde un SQL Server local, como se documenta [aquí](https://msdn.microsoft.com/library/ms175937.aspx). Este documento tratará el programa de copia masiva (BCP) como ejemplo. Una vez que los datos se exportan a un archivo plano, se puede importar a otro servidor SQL Server mediante la importación masiva.
 
-1. Exportar los datos del SQL Server local a un archivo mediante la utilidad bcp como se indica a continuación
+1. Exporte los datos del SQL Server local a un archivo mediante la utilidad bcp como se indica a continuación.
 
 	`bcp dbname..tablename out datafile.tsv -S	servername\sqlinstancename -T -t \t -t \n -c`
 
@@ -233,4 +232,4 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

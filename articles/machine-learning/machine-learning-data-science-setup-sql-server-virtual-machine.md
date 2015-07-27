@@ -2,7 +2,7 @@
 	pageTitle="Configuración de una máquina virtual de Azure SQL Server como servidor del Bloc de notas de IPython | Microsoft Azure"
 	description="Configurar una máquina virtual de ciencia de datos con SQL Server y IPython Server."
 	services="machine-learning"
-	solutions="" documentationCenter=""
+	documentationCenter=""
 	authors="msolhab" 
 	manager="paulettm"
 	editor="cgronlun" />
@@ -137,7 +137,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
     La primera vez que abra Management Studio se debe crear el entorno de Management Studio para los usuarios. Esta operación puede tardar unos minutos.
 
-2.  Cuando se abre, Management Studio presenta el cuadro de diálogo **Conectar al servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje ***su_nombre_de_MV*\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
+2.  Cuando se abre, Management Studio presenta el cuadro de diálogo **Conectar al servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje ***su_nombre_de_MV*\\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
 
     ![Conectar al servidor][6]
 
@@ -298,4 +298,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

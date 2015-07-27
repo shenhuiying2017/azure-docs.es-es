@@ -3,7 +3,7 @@
     pageTitle="Prueba gratuita de 30 días de Azure RemoteApp"
     description="Revise la prueba gratuita de 30 días de Azure RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -30,4 +30,4 @@ Mientras se encuentra en el modo de prueba, puede crear dos colecciones con un l
 
 ¿Tiene comentarios? Publique sus preguntas en los [foros de discusión](http://feedback.azure.com/forums/247748-azure-remoteapp). Si tiene un [plan de soporte técnico de Azure](http://azure.microsoft.com/support/plans/), puede enviar una incidencia. Todos pueden enviar comentarios en nuestro [foro de comentarios](http://feedback.azure.com/forums/247748-azure-remoteapp).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

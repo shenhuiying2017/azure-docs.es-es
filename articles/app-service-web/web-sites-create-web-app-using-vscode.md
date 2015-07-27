@@ -220,9 +220,13 @@ En esta sección, creará un repositorio Git local e insertará desde ese reposi
 
 		git remote add azure [URL for remote repository]
 
-7. Envíe los cambios a Azure escribiendo el siguiente comando.
+7. Configure Git para guardar las credenciales localmente de manera que se anexe automáticamente a los comandos de inserción generados a partir de código de VS.
 
-		git push azure master
+		git config credential.helper store
+
+8. Envíe los cambios a Azure escribiendo el siguiente comando. Después de esta inserción inicial en Azure, podrá realizar todos los comandos de inserción desde el código de VS.
+
+		git push -u azure master
 
 	Se le solicitará la contraseña que ha creado anteriormente. **Nota: la contraseña no será visible.**
 
@@ -232,7 +236,9 @@ En esta sección, creará un repositorio Git local e insertará desde ese reposi
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]Si realiza cambios en la aplicación, puede volver a publicarla; para ello, seleccione la opción **Confirmar todo** en VS Code y, a continuación, escriba el comando **git push azure master** en el símbolo del sistema.
+> [AZURE.NOTE]Si realiza cambios en la aplicación, puede volver a publicar directamente en el código de VS con la funcionalidad integrada de Git seleccionando la opción **Confirmar todo** seguida de la opción **Insertar**. Encontrará la opción **Insertar** en el menú desplegable junto a los botones **Confirmar todo** y **Actualizar**.
+
+Si necesita para colaborar en un proyecto, considere la posibilidad de insertar en GitHub entre la inserción en Azure.
 
 ## Ejecución de la aplicación en Azure
 Ahora que ha implementado la aplicación web, vamos a ejecutar la aplicación mientras está hospedada en Azure.
@@ -250,4 +256,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para obtener más información sobre VS Code, consulte el artículo sobre [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

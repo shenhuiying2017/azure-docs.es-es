@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Uso del almacenamiento de blobs de .NET | Microsoft Azure"
-	description="Aprenda a usar el almacenamiento de blobs de Microsoft Azure para cargar, descargar, enumerar y eliminar contenidos de blobs. Los ejemplos están escritos en C#."
+	description="Aprenda a usar el almacenamiento de blobs de Azure y cómo crear un contenedor para cargar, descargar, enumerar y eliminar contenido de blobs."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="07/06/2015"
 	ms.author="tamram"/>
 
 
@@ -304,4 +304,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

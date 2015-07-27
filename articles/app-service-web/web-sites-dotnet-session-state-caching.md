@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/24/2015" 
 	ms.author="riande"/>
 
 
@@ -24,10 +24,10 @@ En este tema se explica cómo utilizar el servicio Caché en Redis de Azure para
 
 Si su aplicación de ASP.NET utiliza el estado de sesión, deberá configurar un proveedor externo del estado de sesión (bien un servicio Caché en Redis o un proveedor de estado de sesión del SQL Server). Si utiliza el estado de sesión y no utiliza un proveedor externo, deberá limitar su aplicación web a una instancia. El servicio Caché en Redis es el más sencillo y rápido que se puede habilitar.
 
-<h2><a id="createcache"></a>Creación de la memoria caché</h2>
+##<a id="createcache"></a>Creación de la memoria caché
 Siga [estas instrucciones](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) para crear la caché.
 
-<h2><a id="configureproject"></a>Incorporación del paquete NuGet RedisSessionStateProvider a su aplicación web</h2>
+##<a id="configureproject"></a>Incorporación del paquete NuGet RedisSessionStateProvider a su aplicación web
 Instale el paquete NuGet `RedisSessionStateProvider`. Utilice el comando siguiente para realizar la instalación desde la consola del administrador de paquetes (Herramientas > **Administrador de paquetes de NuGet** > **Consola del administrador de paquetes**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -36,7 +36,7 @@ Para instalar desde **Herramientas** > **Administrador de paquetes de NuGet** > 
 
 Para obtener más información, vea la página [NuGet RedisSessionStateProvider](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) y [Configuración de los clientes de caché](../cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-<h2><a id="configurewebconfig"></a>Modificación del archivo web.config</h2>
+##<a id="configurewebconfig"></a>Modificación del archivo web.config
 Además de hacer referencias de ensamblado para la memoria caché, el paquete NuGet agrega entradas auxiliares en el archivo *web.config*.
 
 1. Abra el archivo *web.config* y busque el elemento **sessionState**.
@@ -74,8 +74,7 @@ Además de hacer referencias de ensamblado para la memoria caché, el paquete Nu
   &lt;/system.web></pre>
 
 
-<h2><a id="usesessionobject"></a>Uso del objeto Session en el código</h2>
-El paso final es comenzar a utilizar el objeto Session en su código ASP.NET. Agregue objetos al estado de sesión con el método **Session.Add**. Este método utiliza pares clave-valor para almacenar elementos en la caché de estado de sesión.
+<a id="usesessionobject"></a>Uso del objeto Session en el código El paso final es comenzar a utilizar el objeto Session en su código ASP.NET. Agregue objetos al estado de sesión con el método **Session.Add**. Este método utiliza pares clave-valor para almacenar elementos en la caché de estado de sesión.
 
     string strValue = "yourvalue";
 	Session.Add("yourkey", strValue);
@@ -109,4 +108,4 @@ También puede usar el servicio Caché en Redis para almacenar objetos en la mem
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

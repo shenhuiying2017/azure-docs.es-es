@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #Conectores#
+
+> [AZURE.NOTE]Este tema se ha retirado. Consulte la [lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md) para ver todas las aplicaciones API y conectores integrados que se encuentran disponibles.
+
+
 Los conectores son aplicaciones de API que permiten conectarse a datos y servicios que se ejecutan en la nube o de forma local. Los conectores facilitan llegar a los datos con una variedad de desencadenadores integrados y acciones a las que se puede obtener acceso fácilmente en las aplicaciones lógicas y mucho más.
 
 Servicios de aplicaciones de Azure proporciona una serie de conectores listos para usar:
@@ -46,14 +50,16 @@ Servicios de aplicaciones de Azure proporciona una serie de conectores listos pa
 * [Conector de SugarCRM]
 * [Conector de Twilio]
 * [Conector de Twitter]
-* Conector de espera
+* [Conector de espera]
 * [Conector de Yammer]
+
 
 ##Conectores y aplicaciones de API Premium##
 * [Conector AS2]
 * [BizTalk EDIFACT]
 * [Codificador de archivos sin formato de BizTalk]
-* Servicio de transformación de BizTalk
+* [Codificador JSON de BizTalk]
+* [Servicio de transformación de BizTalk]
 * [Reglas de BizTalk]
 * [BizTalk X12]
 * [Extractor XPath de BizTalk]
@@ -112,7 +118,10 @@ Los conectores también pueden utilizarse como acciones que forman parte de una 
 [Validador XML de BizTalk]: app-service-logic-xml-validator.md
 [Reglas de BizTalk]: app-service-logic-use-biztalk-rules.md
 [Conector AS2]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[Servicio de transformación de BizTalk]: app-service-logic-transform-xml-documents.md
+[Conector de espera]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/16/2015"
+	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
@@ -98,6 +98,8 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
+* [Empezar a trabajar con datos]<br/>Obtenga información sobre cómo agregar una nueva tabla a un servicio móvil y, después, leer y escribir en esa tabla.
+
 * [Introducción a la sincronización de datos sin conexión] <br/>Obtenga información sobre cómo el inicio rápido usa la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de la aplicación.
 
 * [Introducción a la autenticación] <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
@@ -122,15 +124,14 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Introducción a la sincronización de datos sin conexión]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Empezar a trabajar con datos]: partner-xamarin-mobile-services-ios-get-started-data.md
+[Introducción a la sincronización de datos sin conexión]: mobile-services-xamarin-ios-get-started-offline-data.md
+[Introducción a la autenticación]: partner-xamarin-mobile-services-ios-get-started-users.md
+[Introducción a las notificaciones de inserción]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Uso de etiquetas para organizar los recursos de Azure" 
-	description="" 
-	services="" 
+	description="Muestra cómo aplicar etiquetas para organizar los recursos para la facturación y administración." 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -121,4 +121,4 @@ Administración y auditoría del acceso
 - [Creación de una nueva entidad de servicio de Azure mediante el portal clásico de Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Conexión a entradas y salidas
@@ -90,8 +90,7 @@ Hay unos cuantos parámetros que los clientes deben configurar para secuencias d
 3. Nombre de directiva de centro de eventos: nombre de la directiva de acceso compartido para tener acceso al centro de eventos. Las directivas de acceso compartido pueden configurarse para un centro de eventos en la Pestaña Configurar. Cada directiva de acceso compartido tiene un nombre, los permisos establecidos y las claves de acceso.
 4. Clave de la directiva de centro de eventos: clave principal o secundaria de la directiva de acceso compartido para tener acceso al centro de eventos.  
 5. Grupo de consumidores del centro de eventos: parámetro opcional para las entradas del centro de eventos. El grupo de consumidores para introducir datos desde el centro de eventos. Si no se especifica, los trabajos de Análisis de transmisiones utilizan el grupo de consumidores predeterminado para introducir datos desde el centro de eventos. Se recomienda usar un grupo de consumidores distinto para cada trabajo de Análisis de transmisiones.
-
-Columna de clave de partición: parámetro opcional para las salidas del centro de eventos. La columna de atributos de datos que se utiliza como clave de partición para la salida del centro de eventos.
+6. Columna de clave de partición: parámetro opcional para las salidas del centro de eventos. La columna de atributos de datos que se utiliza como clave de partición para la salida del centro de eventos. 
 
 ##Uso de la salida de la tabla de Azure
 
@@ -126,8 +125,7 @@ Elija "Almacenamiento de tabla" en la salida.
 Escriba la información de la tabla de Azure en la página siguiente. El alias de salida es el nombre que puede usar en la consulta para dirigir la salida de la consulta a esta tabla.
 
 
-![graphic14][graphic14]
-![graphic15][graphic15]
+![graphic14][graphic14] ![graphic15][graphic15]
 
 Tamaño del lote es el número de registros de una operación por lotes; déjelo como valor predeterminado si no está familiarizado de él, o bien consulte [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obtener más información
 
@@ -151,7 +149,7 @@ En este ejemplo, las credenciales proporcionadas son incorrectas. Puede corregir
 ![graphic19][graphic19]
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -185,4 +183,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -106,7 +106,7 @@ HPC Pack instala un certificado autofirmado en el nodo principal, llamado Defaul
 
 	![Configuración del certificado][upload_cert1]
 
-4. Busque el archivo C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer en el nodo principal. A continuación, haga clic en el botón **Comprobar**.
+4. Busque el archivo C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer en el nodo principal. A continuación, haga clic en el botón **Comprobar**.
 
 	![Carga del certificado][install_hpc10]
 
@@ -347,4 +347,4 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

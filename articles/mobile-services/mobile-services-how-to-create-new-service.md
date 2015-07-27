@@ -41,4 +41,4 @@ En este tema se muestra cómo usar el [Portal de administración de Azure][Manag
 [.NET backend version]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

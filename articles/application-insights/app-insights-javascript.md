@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights para y aplicaciones web de JavaScript
@@ -44,7 +44,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
 
-* En un proyecto de ASP.NET MVC, lo colocaría en View\Shared_Layout.cshtml.
+* En un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\_Layout.cshtml.
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
 
 El script contiene la clave de instrumentación que dirige los datos al recurso de Application Insights.
@@ -135,11 +135,15 @@ En la hoja Búsqueda de diagnóstico, establezca Filtros en Vista de página.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Seleccione el evento que desea ver con mayor detalle.
+Seleccione el evento que desea ver con mayor detalle. En la página de detalles, haga clic en "..." para ver aún más detalles.
 
 > [AZURE.NOTE]Si usa [Buscar][diagnostic], tenga en cuenta que tiene que hacer coincidir palabras completas: "Acerc" y "cerca de" no coinciden con "Acerca de", pero "Acerca d*" sí lo hace. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca".
 
 > [Más información sobre Búsqueda de diagnóstico][diagnostic]
+
+### Propiedades de la vista de página
+
+* **Duración de la vista de página** Tiempo que se tarda en cargar la página y se inicia la ejecución de scripts. En concreto, el intervalo entre el inicio de la carga de la página y la ejecución de trackPageView. Si mueve trackPageView desde su posición habitual después de la inicialización del script, reflejará un valor diferente. 
 
 ## Seguimiento de uso personalizado
 
@@ -176,4 +180,5 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 [track]: app-insights-custom-events-metrics-api.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

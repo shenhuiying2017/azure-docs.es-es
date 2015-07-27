@@ -116,7 +116,7 @@ En este paso, creará una aplicación ASP.NET MVC. En los pasos siguientes, inte
 
 1. En **Nombre**, escriba **MvcACS** y, a continuación, haga clic en **Aceptar**.
 1. En el diálogo siguiente, seleccione **Aplicación de Internet** y, a continuación, haga clic en **Aceptar**.
-1. Edite el archivo *Views\Shared_LoginPartial.cshtml* y sustituya el contenido por el código siguiente:
+1. Edite el archivo *Views\\Shared_LoginPartial.cshtml* y sustituya el contenido por el código siguiente:
 
         @if (Request.IsAuthenticated)
         {
@@ -206,7 +206,7 @@ Cuando la aplicación se integre con ACS y haya seleccionado Windows Live ID (cu
 
 En esta sección se modificará la aplicación para ver las notificaciones enviadas por ACS. La herramienta de identidades y acceso ha creado un grupo de reglas que pasa por todas las notificaciones que emite el IP a su aplicación. Tenga en cuenta que cada proveedor de identidades envía notificaciones diferentes.
 
-1. Abra el archivo *Controllers\HomeController.cs*. Agregue una instrucción **using** a **System.Threading**:
+1. Abra el archivo *Controllers\\HomeController.cs*. Agregue una instrucción **using** a **System.Threading**:
 
  	using System.Threading;
 
@@ -225,7 +225,7 @@ En esta sección se modificará la aplicación para ver las notificaciones envia
 
 1. Haga clic en **Agregar**.
 
-1. Reemplace el contenido del archivo *Views\Home\Claims.cshtml* por el código siguiente:
+1. Reemplace el contenido del archivo *Views\\Home\\Claims.cshtml* por el código siguiente:
 
         @{
             ViewBag.Title = "Claims";
@@ -402,4 +402,5 @@ Para seguir explorando la funcionalidad de ACS y experimentar con más escenario
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

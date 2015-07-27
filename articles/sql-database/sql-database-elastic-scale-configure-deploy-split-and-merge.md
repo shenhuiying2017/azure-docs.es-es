@@ -1,9 +1,8 @@
 <properties
-	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Tutorial de la herramienta de división y combinación de Base de datos elástica | Microsoft Azure"
 	description="División y combinación con las herramientas de Base de datos elástica"
-	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/14/2015"
 	ms.author="sidneyh" />
 
 # Tutorial de la herramienta de división y combinación de Base de datos elástica
@@ -23,19 +22,19 @@
 2. Abra un símbolo del sistema y vaya al directorio al que descargó nuget.exe.
 3. Descargue el paquete de división y combinación más reciente en el directorio actual con el comando que aparece a continuación:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-Los pasos anteriores descargan los archivos de División y combinación al directorio actual. Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio División y combinación en el subdirectorio **content\splitmerge\service** y los scripts de Powershell de División y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\splitmerge\powershell**.
+Los pasos anteriores descargan los archivos de División y combinación al directorio actual. Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio División y combinación en el subdirectorio **content\\splitmerge\\service** y los scripts de Powershell de División y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\\splitmerge\\powershell**.
 
 ## Requisitos previos
 
-1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de División y combinación. Vaya al [Portal de vista previa de Azure](https://ms.portal.azure.com). Cree una nueva **Base de datos SQL**. Rellene el nombre de la base de datos y cree un nuevo usuario y contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
+1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de División y combinación. Vaya al [Portal de Azure](https://ms.portal.azure.com). Cree una nueva **Base de datos SQL**. Rellene el nombre de la base de datos y cree un nuevo usuario y contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 
-2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. En el [Portal de vista previa](https://ms.portal.azure.com), en la **Configuración de firewall**, asegúrese de que la configuración de **Permitir acceso a Servicios de Azure** está establecida en **Activado**. Haga clic en el icono de "guardar".
+2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. En el portal, en la **Configuración de firewall**, asegúrese de que la opción **Permitir acceso a Servicios de Azure** está establecida en **Activado**. Haga clic en el icono de "guardar".
 
     ![Servicios permitidos][1]
 
-3. Cree una cuenta de almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, **Servicios de datos**, **Almacenamiento** y luego en **Creación rápida**.
+3. Cree una cuenta de almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya al Portal de vista previa de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en**Datos + almacenamiento** y en **Almacenamiento**.
 
-4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, **Proceso**, **Servicio en la nube** y luego en **Creación rápida**.
+4. Cree un servicio en la nube de Azure que contendrá el servicio de División y combinación. Vaya al Portal de vista previa de Azure. En la barra de la izquierda, haga clic en **Nuevo**, en **Proceso**, en **Servicio en la nube** y en **Crear**.
 
 
 ## Configuración del servicio División y combinación
@@ -54,13 +53,13 @@ Los pasos anteriores descargan los archivos de División y combinación al direc
 5.    Para el rol **SplitMergeWorker**, escriba una cadena de conexión válida en el Almacenamiento de Azure para la configuración **WorkerRoleSynchronizationStorageAccountConnectionString**.
         
 ### Configuración de seguridad
-Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuración de seguridad de división y combinación](../sql-database-elastic-scale-configure-security.md).
+Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 Para fines de una simple implementación de prueba adecuada para completar este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
 
 ### Creación de un certificado autofirmado
 
-Cree un directorio nuevo y desde este directorio ejecute el siguiente comando usando una ventana de [Símbolo del sistema para desarrolladores para Visual Studio](http://msdn.microsoft.com/es-es/library/ms229859.aspx):
+Cree un directorio nuevo y desde este directorio ejecute el siguiente comando usando una ventana de [Símbolo del sistema para desarrolladores para Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx):
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -87,7 +86,7 @@ Ejecute el siguiente comando desde la misma ventana donde se ejecutó makecert; 
 
 ### Carga del archivo PFX al servicio en la nube
 
-Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).
+Vaya al [Portal de vista previa de Azure](https://portal.azure.com).
 
 1. Seleccione **Servicios en la nube**.
 2. Seleccione el servicio en la nube que creó anteriormente para el servicio División y combinación.
@@ -113,10 +112,11 @@ Para el rol de trabajo:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, para cifrado, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas al respecto, consulte [Configuración de seguridad](../sql-database-elastic-scale-configure-security.md).
+Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, para cifrado, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas al respecto, consulte [Configuración de seguridad](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ### Implementación del servicio División y combinación
-1. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).
+
+1. Vaya al [Portal de Azure](https://manage.windowsazure.com).
 2. Haga clic en la pestaña **Servicios en la nube** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente.
 3. Haga clic en **Panel**.
 4. Elija el entorno de ensayo y, a continuación, haga clic en **Cargar una nueva implementación de ensayo**.
@@ -131,6 +131,7 @@ Tenga en cuenta que para las implementaciones de producción se deben usar certi
 
 
 ## Solución de problemas de implementación
+
 Si el rol web no puede ponerse en línea, probablemente haya un problema con la configuración de seguridad. Compruebe que SSL esté configurado como se describió anteriormente.
 
 Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probablemente se trate de un problema al conectarse a la base de datos de estado que creó anteriormente.
@@ -145,6 +146,7 @@ Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probableme
 * Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que el valor **Servicios de Microsoft Azure** esté establecido en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
 ## Prueba de la implementación del servicio División y combinación
+
 ### Conexión con un explorador web
 
 Determine el extremo web de su servicio División y combinación. Para averiguar esto, vaya al Portal de administración de Azure, seleccione el **Panel** de su servicio en la nube y busque en **Dirección URL** del sitio en el lado derecho. Sustituya **http://** por **https://** dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
@@ -327,4 +329,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

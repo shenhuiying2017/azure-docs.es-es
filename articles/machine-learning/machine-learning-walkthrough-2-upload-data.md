@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -62,7 +62,7 @@ Una vez que los datos se han convertido al formato CSV, debemos cargarlos en el 
 2.	Haga clic en **+NUEVO** en la parte inferior de la página.
 3.	Seleccione **CONJUNTO DE DATOS**.
 4.	Seleccione **DE ARCHIVO LOCAL**.
-5.	En el cuadro de diálogo **Cargar un nuevo conjunto de datos**, haga clic en **Examinar** y busque el archivo **german.csv** que ha creado.
+5.	En el cuadro de diálogo **Cargar un nuevo conjunto de datos**, haga clic en **Examinar** y busque el archivo **german.csv** que creó.
 6.	Escriba un nombre para el conjunto de datos. En este ejemplo, lo llamaremos "UCI German Credit Card Data".
 7.	Para el tipo de datos, seleccione **Archivo CSV genérico sin encabezado (.nh.csv)**.
 8.	Agregue una descripción si así lo desea.
@@ -80,4 +80,4 @@ Para obtener más información acerca de la importación de diversos tipos de da
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

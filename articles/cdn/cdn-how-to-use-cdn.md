@@ -54,4 +54,4 @@ Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, 
 [Información general de la red de entrega de contenido (CDN) de Azure](cdn-overview.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

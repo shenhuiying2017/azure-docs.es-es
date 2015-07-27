@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="¿Qué son las aplicaciones lógicas?" 
 	description="Obtenga más información acerca de las Aplicaciones lógicas del Servicio de aplicaciones" 
-	authors="joshtwist" 
+	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
-	ms.author="jtwist"/>
+	ms.date="07/08/2015"
+	ms.author="klam"/>
 
 #¿Qué son las aplicaciones lógicas?
 
@@ -32,13 +32,13 @@ Las aplicaciones lógicas permiten a los desarrolladores diseñar flujos de trab
 
 Si desea automatizar cualquier proceso empresarial (por ejemplo, encontrar tweets negativos y publicar en el canal de inactividad interno, o replicar nuevos registros de clientes de SQL, como lleguen, en el sistema CRM), las aplicaciones lógicas realizan la integración de orígenes de datos dispares de la nube al entorno local de forma sencilla. Consulte nuestros [conectores][connectors] para obtener más ideas y [comenzar a][create] ahora para ver qué puede hacer.
 
-Además, con nuestras aplicaciones de [API de BizTalk][biztalk], puede realizar la escalación para madurar escenarios de integración con la potencia de un [motor de reglas][rules], la [administración de socios comerciales][tpm] y mucho más.
+Además, con nuestras aplicaciones de [API de BizTalk][biztalk], puede realizar la escalación a escenarios de integración maduros con la eficacia de un [motor de reglas][rules], la [administración de socios comerciales][tpm] y mucho más.
 
 - **Herramientas de diseño fáciles de usar**: las aplicaciones lógicas pueden diseñarse de principio a fin en el explorador. Inicio con un desencadenador: desde una simple programación hasta siempre vez que aparezcas un tweet acerca de su compañía. A continuación, se coordina cualquier número de acciones mediante la sofisticada galería de conectores.
 
 - **Crear fácilmente SaaS**: incluso las tareas de composición que son fáciles de describir son difíciles de implementar en el código. Las aplicaciones lógicas hacen muy fácil de conectar sistemas dispares. ¿Desea crear una tarea en el software CRM que se basa en la actividad de las cuentas de Facebook o Twitter? ¿Desea conectar su solución de marketing en la nube a su sistema de facturación local? Las aplicaciones lógicas son la forma más rápida y más confiable para ofrecer soluciones a estos problemas.
 
-- **Introducción rápida desde plantillas**: para ayudarle a empezar, hemos proporcionado una galería de plantillas que permiten crear rápidamente algunas soluciones comunes. Desde soluciones avanzadas de BizTalk a la conectividad de SaaS simple e incluso algunos que sean solo por diversión: la galería es la forma más rápida de comprender la eficacia de las aplicaciones lógicas.
+- **Introducción rápida desde plantillas**: para ayudarle a empezar, hemos proporcionado una [galería de plantillas][templates] que permiten crear rápidamente algunas soluciones comunes. Desde soluciones avanzadas de BizTalk a la conectividad de SaaS simple e incluso algunos que sean solo por diversión: la galería es la forma más rápida de comprender la eficacia de las aplicaciones lógicas.
 
 - **Extensibilidad incorporada**: ¿no ve el conector que necesita? Las aplicaciones lógicas forman parte del conjunto de aplicaciones Servicio de aplicaciones y están diseñadas para trabajar con Aplicaciones de API; puede crear fácilmente su propia aplicación de API que se usará como un conector. Cree una nueva aplicación solo para usted, o bien compártala y rentabilícela en el marketplace.
 
@@ -49,7 +49,7 @@ Además, con nuestras aplicaciones de [API de BizTalk][biztalk], puede realizar 
 Las siguientes son algunas de las principales partes que componen la experiencia de aplicaciones lógicas.
 
 - **Flujo de trabajo**: las aplicaciones lógicas ofrecen una forma gráfica para modelar los procesos de negocio como una serie de pasos o un flujo de trabajo.
-- **[Conectores][connectors]**: las aplicaciones lógicas necesitan tener acceso a datos y servicios. Un conector es un tipo especial de aplicación de API. Se crea específicamente para ayudarle cuando se conecta y trabaja con datos. Vea la lista de conectores disponibles ahora en [Uso de conectores][connectors].
+- **Conectores**: las aplicaciones lógicas necesitan tener acceso a datos y servicios. Un conector es un tipo especial de aplicación de API. Se crea específicamente para ayudarle cuando se conecta y trabaja con datos. Vea la lista de conectores disponibles ahora en [Uso de conectores][connectors].
 - **Desencadenadores**: algunos conectores también pueden actuar como un desencadenador. Un desencadenador inicia una nueva instancia de un flujo de trabajo de acuerdo con un evento específico, como la llegada de un correo electrónico o un cambio en la cuenta de almacenamiento de Azure.
 -  **Acciones**: cada paso después de la llamada a la acción de un desencadenador en un flujo de trabajo. Cada acción normalmente se asigna a una operación en el conector o aplicaciones de API personalizadas.
 - **BizTalk**: para escenarios más avanzados de integración, Servicios de aplicaciones de Azure incluye capacidades de BizTalk. BizTalk es la plataforma de integración líder del sector de Microsoft. Las Aplicaciones de API de BizTalk permiten incluir fácilmente la validación, transformación, reglas y mucho más en sus flujos de trabajo de aplicaciones lógicas. Obtenga más información en [Qué son las Aplicaciones de API de BizTalk][biztalk].
@@ -63,10 +63,10 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-use-biztalk-connectors.md
-[tpm]: app-service-logic-create-a-trading-partner-agreement
-[rules]: app-service-logic-use-biztalk-rules
-
+[connectors]: app-service-logic-connectors-list.md
+[tpm]: app-service-logic-create-a-trading-partner-agreement.md
+[rules]: app-service-logic-use-biztalk-rules.md
+[templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

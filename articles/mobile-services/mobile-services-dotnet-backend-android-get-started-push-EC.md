@@ -237,4 +237,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

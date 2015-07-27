@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/15/2015"
+	ms.date="07/09/2015"
 	ms.author="tamram"/>
 
 
@@ -51,13 +51,17 @@ Para obtener más información acerca de los objetivos de capacidad y rendimient
 
 	![Nueva cuenta de almacenamiento](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. En **Dirección URL**, escriba un nombre para la cuenta de almacenamiento. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas. Consulte [Extremos de cuenta de almacenamiento](#storage-account-endpoints) más adelante para obtener información detallada sobre la forma en que se utilizará este nombre para dirigir objetos en Almacenamiento de Azure.
+3. En **Dirección URL**, escriba un nombre para la cuenta de almacenamiento.
+	
+	> [AZURE.NOTE]Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
+	>  
+	> El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. El portal se indicará si ya existe el nombre de la cuenta de almacenamiento que seleccione.
+
+	Consulte [Extremos de cuenta de almacenamiento](#storage-account-endpoints) más adelante para obtener información detallada sobre la forma en que se usará este nombre para dirigir los objetos en Almacenamiento de Azure.
 
 4. En **Ubicación/Grupo de afinidad**, seleccione una ubicación para la cuenta de almacenamiento que esté próxima a usted o a los clientes. Si otro servicio de Azure va a obtener acceso a los datos de la cuenta de almacenamiento, como un servicio en la nube o una máquina virtual de Azure, debe seleccionar un grupo de afinidad en la lista para agrupar la cuenta de almacenamiento en el mismo centro de datos que otros servicios de Azure que utiliza, a fin de mejorar el rendimiento y reducir los costes.
 
-	> [AZURE.NOTE]Tenga en cuenta que debe seleccionar un grupo de afinidad al crear la cuenta de almacenamiento; no puede mover una cuenta existente a un grupo de afinidad.
-
-	Para obtener información sobre los grupos de afinidad, consulte [Coubicación de servicios con un grupo de afinidad](#service-co-location-with-an-affinity-group) que se muestra a continuación.
+	Tenga en cuenta que debe seleccionar un grupo de afinidad al crear la cuenta de almacenamiento; no puede mover una cuenta existente a un grupo de afinidad. Para obtener información sobre los grupos de afinidad, consulte [Coubicación de servicios con un grupo de afinidad](#service-co-location-with-an-affinity-group) que se muestra a continuación.
 
 5. Si tiene más de una suscripción a Azure, aparecerá el campo **Suscripción**. En **Suscripción**, escriba la suscripción a Azure con la que desea usar la cuenta de almacenamiento. Puede crear hasta cinco cuentas de almacenamiento para una suscripción.
 
@@ -163,4 +167,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

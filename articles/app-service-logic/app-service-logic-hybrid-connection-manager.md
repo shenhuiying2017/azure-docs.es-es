@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Uso del Administrador de conexiones híbridas del Servicio de aplicaciones de Azure
@@ -133,4 +133,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

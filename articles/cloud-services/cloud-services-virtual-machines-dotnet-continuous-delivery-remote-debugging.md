@@ -95,4 +95,4 @@ $vm | Update-AzureVM
 6. Importe el certificado (.pfx) en la máquina que tiene instalado Visual Studio con el SDK de Azure para .NET.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

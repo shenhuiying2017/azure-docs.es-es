@@ -75,4 +75,4 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 	}
    
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
 
 # Supervisión de un sitio de SharePoint con Application Insights
@@ -41,7 +41,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, lo colocaría en View\Shared_Layout.cshtml
+Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\_Layout.cshtml
 
 El script contiene la clave de instrumentación que dirige los datos de telemetría al recurso de Application Insights.
 
@@ -73,6 +73,8 @@ Inserte un elemento web e incruste el fragmento de código en él.
 
 ## Visualización de los datos de la aplicación
 
+Vuelva a implementar la aplicación.
+
 Vuelva a la hoja de la aplicación en el [Portal de Azure](http://portal.azure.com).
 
 Los primeros eventos aparecerán en Búsqueda de diagnóstico.
@@ -81,11 +83,11 @@ Los primeros eventos aparecerán en Búsqueda de diagnóstico.
 
 Si espera más datos, haga clic en Actualizar después de unos segundos.
 
-**Análisis de uso** proporciona una instantánea rápida de los usuarios, las sesiones y las vistas de página:
+**Análisis de uso** vincula a los gráficos de usuarios, sesiones y vistas de página:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Haga clic en Vistas de página para ver su contenido con mayor detalle.
+Por ejemplo, haga clic en Vistas de página para ver más detalles:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -105,4 +107,5 @@ Haga clic en Usuarios para ver los detalles acerca de los nuevos usuarios y sus 
 
 
 <!--Link references-->
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

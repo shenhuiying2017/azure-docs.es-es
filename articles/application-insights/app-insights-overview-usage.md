@@ -258,4 +258,5 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
 [start]: app-insights-get-started.md
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

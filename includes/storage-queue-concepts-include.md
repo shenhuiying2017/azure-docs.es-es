@@ -24,4 +24,4 @@ La siguiente dirección URL dirige una de las colas del diagrama: http://myaccou
 
 - **Mensaje:** un mensaje, en cualquier formato, de hasta 64 KB.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

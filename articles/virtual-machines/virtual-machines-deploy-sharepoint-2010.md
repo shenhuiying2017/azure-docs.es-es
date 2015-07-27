@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 
@@ -92,7 +93,7 @@ Para obtener información detallada, consulte [Inicio de sesión en una máquina
 Cree la máquina virtual de SQL Server con cualquiera de las siguientes opciones:
 
 - Cree una máquina virtual de SQL Server 2012 siguiendo los pasos 1 a 7 anteriormente descritos, excepto en el paso 3, donde debe utilizar la imagen de SQL Server 2012 en lugar de la imagen de Windows Server 2008 R2 SP1. Para obtener más información, vaya a [Aprovisionamiento de una máquina virtual de SQL Server en Azure](virtual-machines-provision-sql-server.md).
-	- Cuando elige esta opción, el proceso de aprovisionamiento conserva una copia de los archivos de configuración de SQL Server 2012 en la ruta de acceso al directorio C:\SQLServer_11.0_Full para que pueda personalizar la instalación. Por ejemplo, puede convertir la instalación de evaluación de SQL Server 2012 en una versión con licencia si utiliza su clave de licencia.
+	- Cuando elige esta opción, el proceso de aprovisionamiento conserva una copia de los archivos de configuración de SQL Server 2012 en la ruta de acceso al directorio C:\\SQLServer_11.0_Full para que pueda personalizar la instalación. Por ejemplo, puede convertir la instalación de evaluación de SQL Server 2012 en una versión con licencia si utiliza su clave de licencia.
 
 - Utilice la herramienta de preparación del sistema SQL Server (SysPrep) para instalar SQL Server en la máquina virtual con sistema operativo base (como se mostró anteriormente en los pasos 1 a 7). Para obtener más información, vaya a [Instalar SQL Server 2012 mediante SysPrep](http://msdn.microsoft.com/library/ee210664.aspx).
 
@@ -278,10 +279,10 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-[Carga de trabajo de Servicios de infraestructura de Azure: granja de servidores de SharePoint de Intranet](virtual-machines-workload-intranet-sharepoint-farm)
+[Carga de trabajo de servicios de infraestructura de Azure: conjunto de servidores de SharePoint de Intranet](virtual-machines-workload-intranet-sharepoint-farm)
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

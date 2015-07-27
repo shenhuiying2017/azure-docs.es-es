@@ -1,6 +1,6 @@
 <properties pageTitle="API de REST del Servicio Búsqueda de Azure versión 2014-07-31-Preview" description="API de REST del servicio de Búsqueda de Azure: versión 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # Version de API de REST del servicio de Búsqueda de Azure: 2014-07-31-Preview
 
@@ -10,7 +10,7 @@ Si utiliza una versión preliminar de la API en el código de la aplicación, le
 
 Entre otros contenidos de la API relacionados con **2014-07-31-Preview** se incluyen los siguientes:
 
-- [Perfiles de puntuación (API de REST del servicios de Búsqueda de Azure: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview.md)
+- [Perfiles de puntuación (API de REST del servicios de Búsqueda de Azure: 2014-07-31-Preview)](search-api-scoring-profiles-2014-07-31-preview.md)
 
 
 ##Acerca de la API de REST del servicio
@@ -170,7 +170,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `api-key`: obligatorio. El `api-key` se usa para 
 - autenticar la solicitud al servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Crear índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta). 
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 <a name="RequestData"></a> **Sintaxis del cuerpo de la solicitud**
 
@@ -647,7 +647,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Actualizar índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Sintaxis del cuerpo de la solicitud**
 
@@ -739,7 +739,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
  
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Índices de la lista** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -806,7 +806,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
  
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Obtener índice** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
 
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -840,7 +840,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
  
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Eliminar índice** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -872,7 +872,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
  
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Obtener estadísticas de índice** debe incluir un `api-key` establecido en una clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -931,7 +931,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Content-Type`: obligatorio. Establézcalo en `application/json`
 - `api-key`: obligatorio. `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena único para el servicio. La solicitud **Agregar documentos** debe incluir un encabezado `api-key` establecido en su clave de administración (en lugar de una clave de consulta).
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1104,7 +1104,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud de **Búsqueda** puede especificar una clave de administración o una clave de consulta para `api-key`.
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1238,7 +1238,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Buscar documento** puede especificar una clave de administración o una clave de consulta para `api-key`.
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1286,7 +1286,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 - `Accept`: este valor debe establecerse en `text/plain`.
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Documentos de recuento** puede especificar una clave de administración o una clave de consulta para `api-key`.
  
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1340,7 +1340,7 @@ En la lista siguiente se describen los encabezados de solicitud obligatorios y o
 
 - `api-key`: `api-key` se usa para autenticar la solicitud en su servicio de búsqueda. Es un valor de cadena, único en su URL de servicio. La solicitud **Sugerencias** puede especificar una clave de administración o una clave de consulta como `api-key`.
 
-También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](../search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
+También necesitará el nombre del servicio para construir la dirección URL de la solicitud. Puede obtener el nombre de servicio y `api-key` desde el panel de servicio en el Portal de vista previa de Azure. Consulte [Crear un servicio de Búsqueda de Azure en el portal](search-create-service.portal.md) para obtener ayuda sobre la navegación en páginas.
 
 **Cuerpo de la solicitud**
 
@@ -1384,4 +1384,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

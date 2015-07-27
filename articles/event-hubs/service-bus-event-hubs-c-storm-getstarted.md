@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a los Centros de eventos" 
-	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C y recibirlos en un clúster de Apache Storm" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="Introducción a los Centros de eventos"
+	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C y recibirlos en un clúster de Apache Storm"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="c" 
-	ms.devlang="java" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="c"
+	ms.devlang="java"
+	ms.topic="article" 
+	ms.date="07/06/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -24,17 +24,17 @@
 
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
-Para obtener más información, consulte [Información general sobre Centros de eventos].
+Para obtener más información, consulte [Información general de los centros de eventos].
 
 En este tutorial, obtendrá información sobre cómo introducir mensajes en un Centro de eventos mediante una aplicación de consola en C y cómo recuperarlos en paralelo mediante Apache Storm.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
++ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-tutorial.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
 
 + Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
++ Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Creación de un Centro de eventos
 
@@ -44,7 +44,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
    	![][1]
 
-3. Escriba un nombre para el centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos nuevo**.
+3. Escriba un nombre para el centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos**.
 
    	![][2]
 
@@ -56,7 +56,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
    	![][4]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla denominada **SendRule** con derechos *Send*, agregue otra regla llamada **ReceiveRule** con derechos *Listen* y, a continuación, haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla llamada **SendRule** con derechos *Enviar*, agregue otra regla llamada **ReceiveRule** con derechos *Escuchar* y, a continuación, haga clic en **Guardar**.
 
    	![][5]
 
@@ -67,7 +67,6 @@ Para completar este tutorial, necesitará lo siguiente:
 Se creó el centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
@@ -81,14 +80,14 @@ Ahora está preparado para ejecutar las aplicaciones.
 
    	![][23]
 
-> [AZURE.NOTE] Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte la [Información general de Storm en HDinsight] y la documentación oficial de [Apache Storm] para obtener más información sobre los patrones y las implementaciones de Storm.
+> [AZURE.NOTE]Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte [Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop] y la documentación oficial de [Apache Storm] para obtener más información sobre los patrones y las implementaciones de Storm.
 
 ## Pasos siguientes
 
 Los siguientes recursos están disponibles para desarrollar aplicaciones que integran Centros de eventos y Storm.
 
-- [Análisis de los datos de sensor con Storm y HBase en HDInsight] es un tutorial de escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
-- [Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
+- [Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight] es un tutorial de escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
+- [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-c-storm-getstarted/create-event-hub1.png
@@ -103,13 +102,13 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general sobre Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Información general de los centros de eventos]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Información general de Storm en HDinsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Análisis de los datos de sensor con Storm y HBase en HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop]: ../hdinsight/hdinsight-storm-overview.md/
+[Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

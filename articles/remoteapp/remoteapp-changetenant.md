@@ -3,7 +3,7 @@
     pageTitle="Cambio del inquilino de Azure Active Directory en Azure RemoteApp"
     description="Obtenga información sobre cómo cambiar el inquilino de Azure Active Directory asociado con Azure RemoteApp"
     services="remoteapp"
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -48,4 +48,4 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
 
 Ahora puede usar el nuevo inquilino de Azure AD para controlar el acceso a la suscripción de Azure y para configurar el acceso de usuario en Azure RemoteApp.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

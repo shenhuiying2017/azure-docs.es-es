@@ -3,7 +3,7 @@
 	description="Describe los dos tipos diferentes de equilibrio de carga compatibles con Azure: El Equilibrador de carga para servicios en la nube y el Administrador de tráfico de Azure para el tráfico del cliente." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="cherylmc" 
+	authors="joaoma" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
-	ms.author="cherylmc"/>
+	ms.date="06/16/2015" 
+	ms.author="joaoma"/>
 
 
 # Equilibrio de carga para Servicios de infraestructura de Azure#
@@ -36,7 +36,7 @@ El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de car
 - **Rendimiento**: use este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" en términos de la latencia más baja.
 - **Round Robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
 
-Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
+Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](../traffic-manager/traffic-manager-load-balancing-methods.md).
 
 En la figura siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
 
@@ -49,7 +49,7 @@ El proceso básico es el siguiente:
 3.	El administrador de tráfico elige el siguiente servicio en la nube de la lista round robin y devuelve el nombre DNS. El servidor DNS del cliente de Internet resuelve el nombre en una dirección IP y lo envía al cliente de Internet.
 4.	El cliente de Internet se conecta con el servicio en la nube que ha elegido el Administrador de tráfico.
 
-Para obtener más información, consulte [Administrador de tráfico](http://msdn.microsoft.com/library/azure/hh745750.aspx).
+Para obtener más información, consulte [Administrador de tráfico](../traffic-manager/traffic-manager-overview.md).
 
 ## Equilibrio de carga de Azure para máquinas virtuales ##
 
@@ -61,7 +61,7 @@ En la siguiente ilustración se muestra un extremo con equilibrio de carga para 
 
 ![equilibrio de carga](./media/virtual-machines-load-balance/LoadBalancing.png)
 
-Para obtener más información, consulte [Equilibrador de carga de Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Para obtener más información, consulte [Equilibrador de carga de Azure](../load-balancer/load-balancer-overview.md). Para conocer los pasos para crear un conjunto con equilibrio de carga, consulte [Configurar un conjunto de carga equilibrada](../load-balancer/load-balancer-internet-getstarted.md).
 
 Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
@@ -77,10 +77,10 @@ En la figura siguiente se muestra un ejemplo de un extremo con carga equilibrada
 
 ## Pasos siguientes
 
-Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada interno](../load-balancer/load-balancer-internal-getstarted.md).
 
-Para obtener más información, consulte [Equilibrio de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx).
+Para obtener más información, consulte [Equilibrio de carga interno](../load-balancer/load-balancer-internal-overview.md).
 
 <!-- LINKS -->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

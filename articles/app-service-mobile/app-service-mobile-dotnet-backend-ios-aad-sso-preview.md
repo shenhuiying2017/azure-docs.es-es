@@ -117,4 +117,4 @@ Ahora podrá hacer referencia a la biblioteca de autenticación de Active Direct
  [Introducción a las aplicaciones móviles]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

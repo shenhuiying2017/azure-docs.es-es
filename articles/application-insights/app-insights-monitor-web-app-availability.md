@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
@@ -74,15 +74,17 @@ Puede agregar pruebas para tantas direcciones URL como desee. Por ejemplo, adem�
 
 ### <a name="monitor"></a>3. Ver informes de disponibilidad
 
-Después de 1 o 2 minutos, haga clic en Actualizar en la hoja de disponibilidad. (No se actualiza automáticamente).
+Después de 1 o 2 minutos, haga clic en Actualizar en la hoja de pruebas de disponibilidad/web. (No se actualiza automáticamente).
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-El gráfico de la hoja de disponibilidad combina resultados de todas las pruebas web de esta aplicación.
+Haga clic en cualquier barra del gráfico de resumen en la parte superior para obtener una vista más detallada de ese período de tiempo.
 
-#### Componentes de la página
+Estos gráficos combinan los resultados de todas las pruebas web de esta aplicación.
 
-Como parte de la prueba se solicitan imágenes, hojas de estilos, scripts y otros componentes estáticos.
+#### Componentes de la página web
+
+Como parte de la prueba se solicitan imágenes, hojas de estilo, scripts y otros componentes estáticos de la página web que está probando.
 
 El tiempo de respuesta registrado es el tiempo necesario para que se complete la carga de todos los componentes.
 
@@ -90,7 +92,11 @@ Si no se puede cargar alguno de los componentes, la prueba se marca con errores.
 
 ## <a name="failures"></a>Si ve errores...
 
-En la hoja de pruebas web, desplácese hacia abajo y haga clic en una prueba donde vea errores.
+Haga clic en un punto rojo.
+
+![Click a red dot](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+
+O bien, desplácese hacia abajo y haga clic en una prueba donde vea un éxito de menos del 100%.
 
 ![Click a specific webtest](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
@@ -123,7 +129,7 @@ Puede supervisar un escenario que implique una secuencia de direcciones URL. Por
 
 Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a continuación, cargue la grabación en Application Insights. Application Insights reproducirá el escenario a intervalos y comprobará las respuestas.
 
-#### 1. Grabar un escenario
+#### 1\. Grabar un escenario
 
 Utilice Visual Studio Ultimate para grabar una sesión web.
 
@@ -150,7 +156,7 @@ Utilice Visual Studio Ultimate para grabar una sesión web.
 
 (No inserte bucles en el código de prueba web).
 
-#### 2. Cargar la prueba web en Application Insights
+#### 2\. Cargar la prueba web en Application Insights
 
 1. En el portal de Application Insights, cree una nueva prueba web.
 
@@ -222,4 +228,5 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 [start]: app-insights-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -270,4 +270,4 @@ Notas sobre el árbol de decisión:
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

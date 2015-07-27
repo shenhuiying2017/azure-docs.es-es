@@ -106,4 +106,4 @@ Vuelva a publicar el proyecto de back-end móvil y ejecute cualquiera de las apl
 [plantillas]: https://msdn.microsoft.com/es-es/library/dn530748.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -32,7 +32,7 @@ Al utilizar Azure AD Connect para implementar los Servicios de federación de Ac
 - En una ventana de comandos PSH con privilegios elevados, use el comando "Enable-PSRemoting –force".
 	- En el equipo en el que se está ejecutando el asistente (si el equipo de destino no está unido al dominio o el dominio no es de confianza): 
 
-- En una ventana de comandos PSH con privilegios elevados, use el comando "Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate"
+- En una ventana de comandos PSH con privilegios elevados, use el comando "Set-Item WSMan:\\localhost\\Client\\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate"
 	- En el Administrador de servidores:
 		- Agregue el host WAP de DMZ al grupo de máquinas (pestaña Administrador de servidores -> Administrar -> Agregar servidores... usar DNS) 
 		- Pestaña Todos los servidores del Administrador de servidores: haga clic con el botón derecho en el servidor WAP y elija Administrar como..., escriba credenciales locales (no de dominio) para la máquina WAP. 
@@ -45,4 +45,4 @@ Al utilizar Azure AD Connect para implementar los Servicios de federación de Ac
 * [Instalación personalizada de Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

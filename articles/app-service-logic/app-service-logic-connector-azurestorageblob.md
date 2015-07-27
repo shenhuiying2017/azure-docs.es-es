@@ -13,89 +13,91 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="05/11/2015"
+   ms.date="06/30/2015"
    ms.author="rajram"/>
    
 # Conector de blobs de almacenamiento de Azure
+Conecte con el blob de almacenamiento de Azure para cargar, descargar y eliminar blobs del contenedor de blobs. Los conectores se pueden usar en aplicaciones lógicas como parte de un "flujo de trabajo".
 
-## Información general
-El conector de blobs de almacenamiento de Azure permite cargar, descargar y eliminar blobs de un contenedor de blobs.
+## Acciones y desencadenadores
+Los *desencadenadores* son eventos que se producen. Por ejemplo, cuando se actualiza un pedido o cuando se agrega un cliente nuevo. Un *acción* es el resultado del desencadenador. Por ejemplo, cuando se actualiza un pedido,se envía una alerta al vendedor. O bien, cuando se agrega un nuevo cliente, a este se le envía un correo electrónico de bienvenida.
 
-## Creación de un nuevo conector de blobs de almacenamiento de Azure
-Para crear un nuevo conector de almacenamiento de Azure, siga los pasos que se mencionan a continuación. <ul> <li>Iniciar el portal de Azure <li> Abra Azure Marketplace con +Nuevo (en la parte inferior de la página) -> Web+móvil--> Azure Marketplace.</ul>
+El conector de Blob de almacenamiento puede usarse como acción en una aplicación lógica y es compatible con datos en formato JSON y XML. Actualmente, no hay ningún desencadenador para el conector de Blob de almacenamiento.
 
-![Inicio de Azure Marketplace][1]<br> <ul> <li>Haga clic en Aplicaciones de API <li>Busque <i>Blob</i> y seleccione el conector de blobs de almacenamiento de Azure</ul>
+El conector de Blob de almacenamiento dispone de los siguientes desencadenadores y acciones:
 
-![Selección del conector del blobs de almacenamiento de Azure][2] <br> <ul> <li>Haga clic en Crear <li>En la hoja del conector de blobs de almacenamiento de Azure que se abre, proporcione los siguientes datos.</ul>
+Desencadenadores | Acciones
+--- | ---
+None | <ul><li>Obtener blob: para obtener un blob específico del contenedor</li><li>Cargar blob: para cargar un nuevo blob o actualizar uno existente</li><li>Eliminar blob: para eliminar un blob de un contenedor</li><li>Mostrar blobs: para mostrar todos los blobs de un directorio</li><li>Blob de instantánea: para crear una instantánea de solo lectura de un blob concreto</li><li>Copiar blob: para crear un nuevo blob a partir de la copia de otro. El blob de origen puede estar en la misma cuenta o en otra cuenta.</li></ul>
 
-![Creación del conector del blobs de almacenamiento de Azure][3]
 
-- **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector.
-- **Suscripción**: elija una suscripción en la que desee crear este conector.
-- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
-- **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web.
-- **Nivel de precios**: elija un nivel de precios para el conector.
-- **Nombre**: asigne un nombre al conector de almacenamiento de blobs.
-- **Configuración del paquete** 
-	- **URI de contenedor/SAS**: especifique el URI del contenedor de blobs. El URI también puede incluir también el token SAS. Por ejemplo http://storageaccountname.blob.core.windows.net/containername, o http://storageaccountname.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah.
-	- **Clave de acceso**: especifique una clave de acceso de la cuenta de almacenamiento principal o secundaria. Deje este campo vacío si se utiliza un token SAS para autenticación.
-- Haga clic en Crear. Se creará un nuevo conector de blobs de almacenamiento de Azure.
+## Creación del conector de Blob de almacenamiento de Azure
+
+Un conector puede crearse dentro de una aplicación lógica o directamente desde Azure Marketplace. Para crear un conector desde Marketplace:
+
+1. En el panel de inicio de Azure, seleccione **Marketplace**.
+2. Seleccione **Aplicaciones de API** y busque "Blob": <br/>![Selección del conector del blobs de almacenamiento de Azure][2]
+
+3. Haga clic en **Crear** para crear el conector.
+4. Escriba el nombre, el plan del Servicio de aplicaciones y otras propiedades.
+5. Escriba la siguiente configuración del paquete:
+
+	Nombre | Obligatorio | Descripción
+--- | --- | ---
+URI del contenedor/SAS | Sí | Escriba el URI del contenedor de blobs. El URI también puede incluir también el token SAS. Por ejemplo, escriba http://*storageaccountname*.blob.core.windows.net/containername o http://*storageaccountname*.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
+Clave de acceso | No | Escriba una clave de acceso válida a la cuenta de almacenamiento principal o secundaria. Deje este campo vacío si usa un token de SAS para la autenticación.
+
+	![Creación del conector del blobs de almacenamiento de Azure][3]
+
+6. Haga clic en **Crear**.
 
 ## Uso del conector de blobs de almacenamiento de Azure en la aplicación lógica
-Cuando se haya creado el conector de blobs de almacenamiento de Azure, se puede consumir desde el flujo.
+Una vez que ha creado el conector de Blob de almacenamiento de Azure, puede agregarlo al flujo de trabajo.
 
-Cree un nuevo flujo a través de +Nuevo -> Web+Móvil -> LogicApp. Proporcione los metadatos para el flujo incluyendo el grupo de recursos.
+1. Cree una nueva aplicación de lógica: Nuevo -> Web y Móvil -> Aplicación lógica. Establezca las propiedades de la aplicación lógica:
 
-![Creación de la aplicación lógica][4]
+	![Creación de la aplicación lógica][4]
 
-Haga clic en *Desencadenadores y acciones*. Se abrirá el diseñador de flujos.
+2. Haga clic en **Desencadenadores y acciones**. Se abre el diseñador del flujo de trabajo:
 
-![Diseñador de flujo vacío de la aplicación lógica][5]
+	![Diseñador de flujo vacío de la aplicación lógica][5]
 
-El conector de blobs de almacenamiento de Azure puede usarse como acción.
+3. En el panel derecho, seleccione el conector de Blob de almacenamiento de Azure. El conector muestra las acciones disponibles:
 
-### Acciones
-En el panel derecho, haga clic en el conector de blobs de almacenamiento de Azure. El conector enumera las acciones admitidas.
+	![Lista de acciones de blobs de almacenamiento de Azure][10]
 
-![Lista de acciones de blobs de almacenamiento de Azure][10]
+4. En este escenario, vamos a usar la acción **Cargar blob**:
 
-El conector de blobs de almacenamiento de Azure admite seis acciones. siguientes:
+	![Entradas de acción Cargar blob][11]
 
-- **Obtener blob**: obtenga un blob específico del contenedor.
-- **Cargar blob**: cargue un blob nuevo o actualice uno existente.
-- **Eliminar blob**: elimine un blob específico de un contenedor.
-- **Enumerar blobs**: muestre todos los blobs de un directorio.
-- **Blob de instantánea**: cree una instantánea de solo lectura de un blob específico.
-- **Copiar blob**: cree un blob nuevo copiándolo desde otro blob. El blob de origen puede estar en la misma cuenta o en otra cuenta.
+5. Escriba los valores de entrada y seleccione la marca de verificación para completar la configuración:
 
-Veamos un ejemplo: cargar un blob. Haga clic en Cargar blob
-
-![Entradas de acción Cargar blob][11]
-
-
-- **Ruta de acceso del blob**: especifique la ruta de acceso del blob que se va a cargar. La ruta de acceso se interpreta en relación con la ruta de acceso del contenedor configurado.
-- **Contenido de escritura del blob**: especifique el contenido y las propiedades del blob que se van a cargar.
-- **Codificación de la transferencia de contenido**: especifique ninguna o Base64.
-- **Sobrescribir**: si se establece en true, el blob existente se sobrescribirá. De lo contrario, devolverá un error si ya existe un blob en la misma ruta de acceso.
-
-Proporcione las entradas y haga clic en la marca de graduación para completar la configuración de la entrada.
-
+	Entrada | Descripción
+--- | ---
+Ruta del blob | Determina la ruta de acceso del blob que se va a cargar. La ruta de acceso se interpreta en relación con la ruta de acceso del contenedor configurado.
+Contenido de escritura de blob | Escriba el contenido y las propiedades del blob que se va a cargar.
+Codificación de transferencia de contenido | Especifique ninguno o Base64.
+Sobrescribir | Cuando está establecido en true, el blob existente se sobrescribe. Cuando se establece en false, devuelve un error si ya existe un blob en la misma ruta de acceso.
 
 Tenga en cuenta que la acción Cargar blob del blob de almacenamiento de Azure configurada muestra ambos parámetros de entrada, así como parámetros de salida.
 
 #### Uso de las salidas de las acciones anteriores como entrada para las acciones de blobs de almacenamiento de Azure
-Tenga en cuenta que en la captura de pantalla configurada, el valor de Contenido se establece en una expresión.
+En la captura de pantalla anterior, el valor de **Contenido** puede ser una expresión:
 
 	@triggers().outputs.body.Content
 
-
-Puede establecerlo en cualquier valor que desee. Esto es solo un ejemplo. La expresión toma el resultado del desencadenador de aplicación lógica y lo utiliza como el contenido del archivo que se va a cargar. Supongamos que desea utilizar la salida de una acción anterior, por ejemplo, transform (transformar). En ese caso, la expresión será:
+Puede establecerlo en cualquier valor que desee. La expresión toma el resultado del desencadenador de aplicación lógica y lo utiliza como el contenido del archivo que se va a cargar. Por ejemplo, desea usar el resultado de una transformación. En ese caso, la expresión sería:
 
 	@actions('transformservice').outputs.body.OutputXML
 
+## Aplicaciones adicionales del conector
+Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
+
+Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobre conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
 <!-- Image reference -->
-[1]: ./media/app-service-logic-connector-azurestorageblob/LaunchAzureMarketplace.PNG
 [2]: ./media/app-service-logic-connector-azurestorageblob/SelectAzureStorageBlobConnector.PNG
 [3]: ./media/app-service-logic-connector-azurestorageblob/CreateAzureStorageBlobConnector.PNG
 [4]: ./media/app-service-logic-connector-azurestorageblob/CreateLogicApp.PNG
@@ -107,4 +109,5 @@ Puede establecerlo en cualquier valor que desee. Esto es solo un ejemplo. La exp
 [10]: ./media/app-service-logic-connector-azurestorageblob/ListOfAzureStorageBlobActions.PNG
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

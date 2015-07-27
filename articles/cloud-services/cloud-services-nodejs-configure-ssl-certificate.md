@@ -192,4 +192,4 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
   [Configuración de SSL para una aplicación Node.js en un rol de trabajo de Azure]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

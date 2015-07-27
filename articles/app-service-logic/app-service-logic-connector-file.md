@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Conector de archivos"
 	description="Introducción al conector de archivos"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/09/2015"
+	ms.date="07/02/2015"
 	ms.author="andalmia"/>
 
 # Uso del conector de archivos en la aplicación lógica #
@@ -28,13 +28,13 @@ Para usar el conector de archivos, deberá crear primero una instancia de la apl
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte izquierda del Portal de Azure.
 2.	Vaya a "Marketplace > Aplicaciones de API" y busque "Conector de archivos".
 3.	Configure el conector de archivos de la siguiente forma:
- 
+
 	![][1]
- 
+
 	- **Nombre**: asigne un nombre al conector de archivos.
 	- **Configuración del paquete**
-		- **Carpeta raíz**: especifique la ruta de acceso de la carpeta raíz en el equipo host. Ejemplo: D:\FileConnectorTest
-		- **Cadena de conexión del Bus de servicio**: proporcione una cadena de conexión del Bus de servicio. Asegúrese de que el espacio de nombres del Bus de servicio es de tipo estándar y NO básico para poder usar las retransmisiones de bus de servicio. La Retransmisión de bus de servicio se utiliza para conectarse al Administrador de conexiones híbridas. 
+		- **Carpeta raíz**: especifique la ruta de acceso de la carpeta raíz en el equipo host. Ejemplo: D:\\FileConnectorTest
+		- **Cadena de conexión del Bus de servicio**: proporcione una cadena de conexión del Bus de servicio. Asegúrese de que el espacio de nombres del Bus de servicio es de tipo estándar y NO básico para poder usar las retransmisiones de bus de servicio. La Retransmisión de bus de servicio se utiliza para conectarse al Administrador de conexiones híbridas.
 	- **Plan de servicio de aplicaciones**: seleccione o cree un plan de Servicio de aplicaciones.
 	- **Nivel de precios**: elija un nivel de precios para el conector.
 	- **Grupo de recursos**: seleccione o cree un grupo de recursos en el que vaya a estar el conector.
@@ -49,18 +49,18 @@ Una vez creada la instancia de aplicación de API, vaya a su panel. Para ello, h
 ## Uso del conector de archivos en la aplicación lógica ##
 Una vez creada la aplicación de la API, ahora puede usar el conector de archivos como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
-1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de archivos. Siga las instrucciones para [crear una nueva aplicación lógica].  	
-	
+1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de archivos. Siga las instrucciones para [crear una nueva aplicación lógica].
+
 2.	Abra "Desencadenadores y acciones" dentro de la aplicación lógica creada para abrir el Diseñador de aplicaciones lógicas y configure el flujo.
-	
+
 3.	El conector de archivos aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho.
- 	
+
 4.	Puede quitar la aplicación de la API del conector de archivos en el editor haciendo clic en "Conector de archivos". El conector de archivos muestra un desencadenador y cuatro acciones.
- 
+
 	![][5]
 
 6.	Cada uno de ellos muestra algunas propiedades. La imagen siguiente enumera las propiedades para el desencadenador y para la acción Obtener archivo.
- 
+
 	![][6]
 
 7. Cuando se han configurado, el desencadenador y la acción pueden utilizarse en el flujo. De forma similar, pueden configurarse también otras acciones.
@@ -70,7 +70,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de archivo
 ## API de REST del conector de archivos ##
 Para usar el conector fuera de una lógica de aplicación, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -> Aplicación de API -> Conector de archivos. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector.
 
-	![][7]
+  ![][7]
 
 Los detalles de las API se pueden encontrar en [Definición de la API del conector de archivos].
 
@@ -82,7 +82,7 @@ Los detalles de las API se pueden encontrar en [Definición de la API del conect
 
 <!-- Links -->
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
-[Definición de la API del conector de archivos]: https://msdn.microsoft.com/es-es/library/dn936296.aspx
+[Definición de la API del conector de archivos]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
 [Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -53,18 +53,18 @@ Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
 
 1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, a continuación, haga clic en **Proyecto**.
 
-   Aparecerá el cuadro de diálogo **Nuevo proyecto**.
+   	Aparecerá el cuadro de diálogo **Nuevo proyecto**.
 2. En el panel **Tipos de proyecto**, expanda **Plantillas**, **Visual C#**, **Web** y, a continuación, seleccione **Aplicación web ASP.NET**.
 
-  ![Captura de pantalla del cuadro de diálogo Nuevo proyecto con el tipo de proyecto Aplicación web ASP.NET resaltado](./media/documentdb-dotnet-application/image10.png)
+  	![Captura de pantalla del cuadro de diálogo Nuevo proyecto con el tipo de proyecto Aplicación web ASP.NET resaltado](./media/documentdb-dotnet-application/image10.png)
 
-3. En el cuadro **Nombre** , escriba el nombre del proyecto. Este tutorial utiliza el nombre "todo". Si decide usar otro nombre distinto, siempre que en el tutorial se hable del espacio de nombres todo, deberá adaptar los ejemplos de código proporcionados para usar el nombre que haya dado a la aplicación. 
+3. En el cuadro **Nombre** , escriba el nombre del proyecto. Este tutorial utiliza el nombre "todo". Si decide usar otro nombre distinto, siempre que en el tutorial se hable del espacio de nombres todo, deberá adaptar los ejemplos de código proporcionados para usar el nombre que haya dado a la aplicación.
 
 4. Haga clic en **Examinar** para navegar hasta la carpeta donde desea crear el proyecto y, a continuación, haga clic en **Aceptar**.
 
-  Aparece el cuadro de diálogo **Nuevo proyecto de ASP.NET**.
+  	Aparece el cuadro de diálogo **Nuevo proyecto de ASP.NET**.
 
-  ![Captura de pantalla del cuadro de diálogo Nuevo proyecto de ASP.NET con la plantilla MVC resaltada y el cuadro Hospedar en la nube activado](./media/documentdb-dotnet-application/image11.png)
+  	![Captura de pantalla del cuadro de diálogo Nuevo proyecto de ASP.NET con la plantilla MVC resaltada y el cuadro Hospedar en la nube activado](./media/documentdb-dotnet-application/image11.png)
 
 5. En el panel Plantillas, seleccione **MVC**.
 
@@ -74,11 +74,11 @@ Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
 
 8. Si decide alojarla en la nube, verá al menos una pantalla adicional que le solicitará que inicie sesión en su cuenta de Azure y proporcione valores para el nuevo sitio web. Proporcione todos los valores adicionales y continúe.
 
-  No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure aquí, vamos a crear una nueva cuenta de Azure DocumentDB más adelante en el portal de Microsoft Azure.
+  	No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure aquí, vamos a crear una nueva cuenta de Azure DocumentDB más adelante en el Portal de vista previa de Azure.
 
-	Para obtener más información acerca de la elección de un **plan de Servicio de aplicaciones** y de un **grupo de recursos**, vea [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	Para obtener más información acerca de la elección de un **plan del Servicio de aplicaciones** y **Grupo de recursos**, vea [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-  ![Captura de pantalla del cuadro de diálogo Configurar sitio web de Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
+  	![Captura de pantalla del cuadro de diálogo Configurar sitio web de Microsoft Azure](./media/documentdb-dotnet-application/image11_1.png)
 
 9. Después de que Visual Studio haya terminado de crear la aplicación MVC reutilizable, tiene una aplicación ASP.NET vacía que puede ejecutar de manera local.
 
@@ -90,23 +90,23 @@ Se encarga de la mayoría de los mecanismos de ASP.NET MVC que necesitamos para 
 
 1. El SDK .NET de DocumentDB se empaqueta y distribuye como un paquete de NuGet. Para obtener el paquete de NuGet en Visual Studio, utilice el Administrador de paquetes de NuGet en Visual Studio haciendo clic con el botón secundario en el proyecto en el **Explorador de soluciones** y, a continuación, haciendo clic en **Administrar paquetes de NuGet**.
 
-  ![Captura de pantalla de las opciones del botón secundario para el proyecto en el Explorador de soluciones, con Administrar paquetes de NuGet resaltado](./media/documentdb-dotnet-application/image21.png)
+  	![Captura de pantalla de las opciones del botón secundario para el proyecto en el Explorador de soluciones, con Administrar paquetes de NuGet resaltado](./media/documentdb-dotnet-application/image21.png)
 
-    Aparece el cuadro de diálogo **Administrar paquetes NuGet**.
+    Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
 
-2. En el cuadro **Buscar en línea**, escriba ***Azure DocumentDB***. 
+2. En el cuadro **Buscar en línea**, escriba ***Azure DocumentDB***.
     
-    En los resultados, instale el paquete  **Biblioteca de cliente de Microsoft Azure DocumentDB**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json.
+    En los resultados, instale el paquete **Biblioteca de cliente de Microsoft Azure DocumentDB**. De esta manera se descarga e instala el paquete de DocumentDB además de todas las dependencias, como Newtonsoft.Json.
 
-  ![Captura de pantalla de la ventana Administrar paquetes de NuGet, con la biblioteca de cliente de Microsoft Azure DocumentDB resaltada](./media/documentdb-dotnet-application/nuget.png)
+  	![Captura de pantalla de la ventana Administrar paquetes de NuGet, con la biblioteca de cliente de Microsoft Azure DocumentDB resaltada](./media/documentdb-dotnet-application/nuget.png)
 
-  También puede usar la Consola del Administrador de paquetes para instalar el paquete. Para ello, en el menú **Herramientas**, haga clic en **Administrador de paquetes de NuGet** y, a continuación, haga clic en **Consola del Administrador de paquetes**. En el símbolo del sistema, escriba lo siguiente:
+  	También puede usar la Consola del Administrador de paquetes para instalar el paquete. Para ello, en el menú **Herramientas**, haga clic en **Administrador de paquetes de NuGet** y, a continuación, haga clic en **Consola del Administrador de paquetes**. En el símbolo del sistema, escriba lo siguiente:
 
     	Install-Package Microsoft.Azure.DocumentDB
 
 3. Una vez instalado el paquete, la solución de Visual Studio debe ser similar a lo siguiente con dos nuevas referencias agregadas, Microsoft.Azure.Documents.Client y Newtonsoft.Json.
 
-  ![Captura de pantalla de las dos referencias agregadas al proyecto en el Explorador de soluciones](./media/documentdb-dotnet-application/image22.png)
+  	![Captura de pantalla de las dos referencias agregadas al proyecto en el Explorador de soluciones](./media/documentdb-dotnet-application/image22.png)
 
 
 ##<a name="_Toc395637763"></a>Paso 4: Configuración de la aplicación ASP.NET MVC
@@ -124,9 +124,9 @@ Comencemos creando la **M** en MVC, el modelo.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta **Modelos**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**.
 
-  Aparecerá el cuadro de diálogo **Agregar nuevo elemento**.
+  	Aparecerá el cuadro de diálogo **Agregar nuevo elemento**.
 
-2. Ponga a la nueva clase el nombre **Item.cs** y haga clic en **Agregar**. 
+2. Ponga a la nueva clase el nombre **Item.cs** y haga clic en **Agregar**.
 
 3. En este nuevo archivo **Item.cs**, agregue lo siguiente después de la última *instrucción using*.
 		
@@ -154,7 +154,6 @@ Comencemos creando la **M** en MVC, el modelo.
        		[JsonProperty(PropertyName="isComplete")]
         	public bool Completed { get; set; }    
 		}
-
 
 	Todos los datos de DocumentDB se transmiten mediante la conexión y se almacenan como JSON. Para controlar la forma en la que JSON.NET serializa y deserializa los objetos, puede usar el atributo **JsonProperty** como se mostró en la clase de **elemento** que acabamos de crear. No **tiene** que hacer esto pero quería asegurarme de que mis propiedades siguen las convenciones de nomenclatura de mezcla de mayúsculas y minúsculas de JSON.
 	
@@ -395,15 +394,15 @@ Lo primero que debe hacerse es agregar una clase que contenga toda la lógica pa
 
 3. Estamos leyendo algunos valores de la configuración; por tanto, abra el archivo **Web.config** de su aplicación y agregue las siguientes líneas debajo de la sección `<AppSettings>`.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. Ahora, actualice los valores de *endpoint* y *authKey* mediante la hoja Claves del Portal de Azure. Utilice el **URI** de la hoja Claves como el valor de la configuración de endpoint y utilice **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja Claves como el valor de la configuración de authKey.
+4. Ahora, actualice los valores de *endpoint* y *authKey* mediante la hoja Claves del Portal de vista previa de Azure. Utilice el **URI** de la hoja Claves como el valor de la configuración de endpoint y utilice **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja Claves como el valor de la configuración de authKey.
 
 
-    Esto se encarga de conectar el repositorio de DocumentDB. Ahora agreguemos nuestra lógica de aplicación.
+    Se encarga de cableado del repositorio de DocumentDB; agreguemos ahora nuestra lógica de aplicación.
 
 5. Lo primero que queremos poder hacer con una aplicación de lista todo es mostrar los elementos incompletos. Copie y pegue el siguiente fragmento de código en cualquier parte dentro de la clase **DocumentDBRepository**.
 
@@ -442,7 +441,7 @@ En este punto, la solución debe ser capaz de compilar sin errores.
 
 Si ejecuta la aplicación ahora, irá a **HomeController** y a la vista de **índice** de ese controlador. Este es el comportamiento predeterminado para el proyecto de plantillas MVC que seleccionamos al comienzo, pero no queremos eso. Cambiemos el enrutamiento en esta aplicación MVC para modificar este comportamiento.
 
-Abra ***App_Start\\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
+Abra ***App\\_Start\\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
@@ -493,9 +492,9 @@ Agreguemos algo de código a DocumentDBRepository e ItemController para mantener
 		}
 	Este código llama a DocumentDBRepository y usa el método CreateItemAsync para conservar el nuevo elemento todo en la base de datos.
  
-	**Nota de seguridad**: El atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código de origen proporcionado en [GitHub][] tiene la implementación completa en su lugar.
+	**Security Note**: el atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código de origen proporcionado en [GitHub][] tiene la implementación completa en su lugar.
 
-	**Nota de seguridad**: También usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para obtener más información, consulte [Operaciones CRUD básicas en ASP.NET MVC][].
+	**Nota de seguridad**: también usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para obtener más información, consulte [Operaciones CRUD básicas en ASP.NET MVC][].
 
 Esto finaliza el código necesario para agregar elementos nuevos en nuestra base de datos.
 
@@ -567,7 +566,7 @@ Hay una última cosa que tenemos que hacer, que es agregar la capacidad de edita
 	
 	El primer método controla el Http GET que ocurrirá cuando el usuario haga clic en el vínculo de **edición** en la vista de **índice**. Este método captura un [**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) de DocumentDB y lo pasa a la vista de **edición**.
 
-	A continuación, la vista de **edición** realizará un Http POST en **IndexController**. 
+	La vista de **edición** realizará un Http POST en **IndexController**.
 	
 	El segundo método que agregamos controla el paso del objeto actualizado en DocumentDB para que se conserve en la base de datos.
 
@@ -631,17 +630,17 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 
 3. Para restaurar las referencias al SDK de .NET de DocumentDB de Visual Studio 2013, haga clic con el botón secundario en la solución todo en el **Explorador de soluciones** y, a continuación haga clic en **Habilitar la restauración del paquete NuGet**, que restaurará las referencias.
 
-4. Recupere los valores **URI** y **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Claves** de su cuenta de DocumentDB en el [Portal de Azure](https://portal.azure.com/).
+4. Recupere los valores **URI** y **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Clave**s de su cuenta de DocumentDB en el [Portal de vista previa de Azure](https://portal.azure.com/).
 
 	
 	Si no dispone de una cuenta, consulte [Creación de una cuenta de base de datos](documentdb-create-account.md) para configurar una.
 
-	![Captura de pantalla del portal de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves](media/documentdb-dotnet-application/keys.png)
+	![Captura de pantalla del portal de vista previa de Azure, que muestra una cuenta de DocumentDB, con el concentrador ACTIVO resaltado, el botón Claves resaltado en la hoja de cuenta de DocumentDB y los valores URI, CLAVE PRINCIPAL y CLAVE SECUNDARIA resaltados en la hoja Claves](media/documentdb-dotnet-application/keys.png)
 
 5. En el archivo Web.config, actualice los valores predeterminados para las claves **endpoint** y **authKey**.
 
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure classic portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure classic portal~" /> 
+    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
+		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
 
 	- Copie el valor **URI** de la hoja Claves y péguelo en el valor de la propiedad **endpoint**. 
 	- Copie el valor **CLAVE PRINCIPAL** o **CLAVE SECUNDARIA** de la hoja **Claves** y péguelo en el valor de la propiedad **authKey**.
@@ -655,9 +654,8 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Prevención de la falsificación de solicitud entre sitios]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

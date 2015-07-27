@@ -48,14 +48,9 @@ El SDK principal de Application Insights ofrece soporte para los servicios y las
 
     ![Busque "Application Insights"](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Edite ApplicationInsights.config (que la instalación de NuGet ha agregado). Inserte esto justo antes de la etiqueta de cierre:
+3. Establezca InstrumentationKey en el código mediante el objeto `TelemetryConfiguration.Active`.
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    Asimismo, puede lograr el mismo efecto con este código:
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>Inserción de llamadas de telemetría
 
@@ -177,4 +172,5 @@ Si ha utilizado TrackMetric o el parámetro de mediciones de TrackEvent, abra el
 [api]: app-insights-api-custom-events-metrics.md
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

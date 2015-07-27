@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/10/2015" 
 	ms.author="spelluru"/>
 
 # Habilitación de canalizaciones para trabajar con datos locales
@@ -62,8 +62,8 @@ Data Management Gateway ofrece una gama completa de características de conexió
 2.	La **configuración** recomendada del equipo de la puerta de enlace es de al menos 2 GHz, 4 núcleos, 8 GB de RAM y disco de 80 GB.
 3.	Si el equipo host está en hibernación, la puerta de enlace no podrá responder a las solicitudes de datos. Por tanto, configure un **plan de energía** adecuado en el equipo antes de instalar la puerta de enlace. La instalación de la puerta de enlace emite un mensaje si el equipo está configurado para la hibernación.  
 
+Data Management Gateway serializa y deserializa los datos de origen y receptor en el equipo donde se hospeda. También realiza conversiones de tipos en los datos mientras se está copiando. Durante la operación de copia, la puerta de enlace lee los datos de origen en un búfer de memoria y al mismo tiempo, otro subproceso de escritura escribe el búfer en el receptor. Dado que pueden ejecutarse varios trabajos de actividad de copia al mismo tiempo en el equipo host de puerta de enlace durante las horas punta, el consumo de memoria y los recursos de la CPU son mucho mayores que en tiempos de inactividad. Por lo tanto, el equipo host que ejecuta una Data Management Gateway puede necesitar más recursos de los descritos en la configuración mínima de equipos sugerida anteriormente, o menos recursos durante tiempos de inactividad.
 
- 
 
 ## Tutorial
 
@@ -117,7 +117,7 @@ En este paso, use el Portal de administración de Azure para crear una instancia
 
 	![Puerta de enlace: hoja Configurar][image-data-factory-gateway-configure-blade]
 
-	Esta es la forma más sencilla (un clic) para descargar, instalar, configurar y registrar la puerta de enlace en un solo paso. Puede ver que la aplicación **Administrador de configuración de Microsoft Data Management Gateway** está instalada en el equipo. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
+	Esta es la forma más sencilla (un clic) para descargar, instalar, configurar y registrar la puerta de enlace en un solo paso. Puede ver que la aplicación **Administrador de configuración de Microsoft Data Management Gateway** está instalada en el equipo. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	También puede descargar e instalar la puerta de enlace manualmente con los vínculos de esta hoja y registrarla usando la clave que se muestra en el cuadro de texto **REGISTRAR CON LA CLAVE**.
 	
@@ -166,7 +166,7 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 4.	En el panel JSON, haga lo siguiente:
 	1.	En la propiedad **gatewayName**, escriba **adftutorialgateway** para reemplazar todo el texto entre comillas dobles.  
 	2.	Si está usando **Autenticación de SQL**: 
-		1.	En la propiedad **connectionString**, reemplace **<servername>**, **<databasename>**, **<username>** y **<password>** por los nombres de su servidor SQL de Azure local, base de datos, cuenta de usuario y contraseña.	
+		1.	En la propiedad **connectionString**, reemplace **<servername>**, **<databasename>**, **<username>** y **<password>** por los nombres de su servidor SQL de Azure local, base de datos, cuenta de usuario y contraseña. Para especificar un nombre de instancia, use el carácter de escape:. Por ejemplo: **server\\instancename**. 	
 		2.	Quite las dos últimas propiedades (**username** y **password**) del archivo JSON y quite el carácter de **coma (,)** al final de la última línea del script JSON restante.
 		
 				{
@@ -487,7 +487,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. En Azure PowerSell, cambie a la carpeta **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
+4. En Azure PowerSell, cambie a la carpeta **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

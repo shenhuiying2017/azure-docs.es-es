@@ -234,7 +234,7 @@ A continuación, en la aplicación lógica secundaria usará la función [`trigg
 }
 ```
 
-Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/es-es/library/azure/dn948511.aspx).
+Puede leer sobre la [acción del tipo de aplicación lógica en MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]El Diseñador de aplicaciones lógicas no admite acciones de tipo de aplicación lógica, por lo que deberá editar manualmente la definición.
 
@@ -687,4 +687,5 @@ A continuación, en la solicitud `PUT` real para la aplicación lógica, puede p
 ``` 
 
 En cada entorno puede proporcionar un valor diferente para el parámetro `connection`. Consulte la [documentación sobre la API de REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) para conocer todas las opciones disponibles para crear y administrar aplicaciones lógicas.
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

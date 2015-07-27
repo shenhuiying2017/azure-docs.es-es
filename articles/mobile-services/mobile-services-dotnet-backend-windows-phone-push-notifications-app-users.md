@@ -40,7 +40,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 ##<a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
 
-[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](mobile-services-windows-phone-push-notifications-app-users.md)]
+[AZURE.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Prueba de la aplicación
@@ -61,4 +61,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

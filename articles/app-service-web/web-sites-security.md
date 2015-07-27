@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
@@ -52,13 +52,21 @@ Es habitual almacenar cadenas de conexión, credenciales de autenticación y otr
 
 El Servicio de aplicaciones de Azure le permite almacenar la información de configuración como parte del entorno de tiempo de ejecución de aplicaciones web en forma de **configuración de aplicación** y **cadenas de conexión**. Estos valores se exponen a su aplicación en el tiempo de ejecución a través de *variables de entorno* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución.
 
-**Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) o utilidades como PowerShell o la CLI de Azure.
+**Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el [Portal de vista previa de Azure](http://portal.azure.com) o utilidades como PowerShell o la CLI de Azure.
 
 Para obtener más información sobre configuración de aplicación y cadenas de conexión, consulte [Configuración de aplicaciones web](web-sites-configure.md).
 
 ### FTPS
 
-Azure proporciona acceso FTP seguro al sistema de archivos para la aplicación web a través de **FTPS**. Esto le permite tener acceso seguro al código de la aplicación en la aplicación web, así como a los registros de diagnóstico. El vínculo FTPS para la aplicación web se puede encontrar en la página **Panel** del [Portal de administración de Azure](https://manage.windowsazure.com).
+Azure proporciona acceso FTP seguro al sistema de archivos para la aplicación web a través de **FTPS**. Esto le permite tener acceso seguro al código de la aplicación en la aplicación web, así como a los registros de diagnóstico. El vínculo FTPS para su aplicación web puede encontrarse con los siguientes pasos:
+
+1. Abra el [Portal de vista previa de Azure](http://portal.azure.com).
+2. Seleccione **Examinar todo**.
+3. Desde la hoja **Examinar**, seleccione**Aplicaciones web**.
+4. Desde la hoja **Aplicaciones web**, seleccione la aplicación web deseada.
+5. En la hoja de la aplicación web, seleccione**Toda la configuración**.
+6. Desde la hoja **Configuración**, seleccione**Propiedades**.
+7. Se proporcionan los vínculos FTP y FTPS en la hoja **Configuración**. 
 
 Para obtener más información acerca de FTPS, consulte [File Transfer Protocol](http://en.wikipedia.org/wiki/File_Transfer_Protocol).
 
@@ -78,4 +86,4 @@ Para obtener información sobre información de registro para aplicaciones web, 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

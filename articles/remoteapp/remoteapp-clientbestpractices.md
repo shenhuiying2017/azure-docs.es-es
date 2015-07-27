@@ -3,7 +3,7 @@
     pageTitle="Prácticas recomendadas para los clientes de RemoteApp de Azure"
     description="Conozca las prácticas recomendadas para el uso de los clientes de RemoteApp" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@ La siguiente información puede ayudar a los clientes de RemoteApp:
 - RemoteApp cerrará automáticamente la sesión si está inactivo durante un período de tiempo determinado. Para impedir la pérdida de datos, se recomienda cerrar las aplicaciones cuando haya terminado de utilizar el servicio.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

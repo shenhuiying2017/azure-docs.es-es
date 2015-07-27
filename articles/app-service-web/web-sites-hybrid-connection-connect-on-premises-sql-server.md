@@ -218,7 +218,7 @@ En este paso editará la cadena de conexión que indica a la aplicación dónde 
 	
 	Cuando escriba la cadena de conexión, tenga en cuenta lo siguiente:
 	
-	- Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, consulte [Cómo configurar SQL Server para que escuche en un puerto específico](http://support.microsoft.com/kb/823938). De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite. 
+	- Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, consulte [Cómo configurar SQL Server para que escuche en un puerto específico](http://support.microsoft.com/kb/823938). De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite. 
 	
 	- Es recomendable que especifique el puerto (1433 de forma predeterminada, como se muestra en el ejemplo) en la cadena de conexión de forma que pueda asegurarse de que su servidor SQL Server local tiene la funcionalidad TCP habilitada y usa el puerto correcto.
 	
@@ -378,4 +378,4 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

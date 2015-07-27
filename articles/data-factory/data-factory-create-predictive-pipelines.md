@@ -159,10 +159,14 @@ Se recomienda que siga el tutorial [Introducción a la Factoría de datos de Azu
 		               "timeout":"02:00:00"
 		            }
 		         }
-		        ]
+		        ],
+
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z"
 		    }
 		}
 
+	Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ## Parámetros de servicio web
 Puede utilizar parámetros de servicios web expuestos por un servicio web de Aprendizaje automático de Azure publicado en las canalizaciones de Factoría de datos de Azure (ADF). Puede crear un experimento en Aprendizaje automático de Azure y publicarlo como un servicio web y, a continuación, usar ese servicio web en varias actividades y canalizaciones ADF pasando por distintas entradas a través de los parámetros de servicio web.
@@ -182,7 +186,7 @@ También puede usar [Funciones de Factoría de datos](https://msdn.microsoft.com
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -298,7 +302,7 @@ En el ejemplo JSON anterior:
 - El servicio Factoría de datos no completa automáticamente los parámetros de escritor (los que tienen el sufijo "1"). Por lo tanto, tiene que especificar valores para estos parámetros en la sección **webServiceParameters** de JSON de actividad.  
 - **Id. de cliente**, **etiquetas puntuadas** y **probabilidades puntuadas** se guardan como columnas separadas por comas. 
 - El **nombre de la tabla de datos** en este ejemplo se corresponde con una tabla en la base de datos de salida.
-- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **end** es opcional, pero se utilizará en este tutorial. Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+- Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -324,4 +328,4 @@ Artículo | Descripción
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

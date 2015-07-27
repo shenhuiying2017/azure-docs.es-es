@@ -52,4 +52,4 @@
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

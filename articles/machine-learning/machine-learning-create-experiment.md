@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Creación de un experimento sencillo en Estudio de aprendizaje automático | Azure"
 	description="Un primer tutorial de Aprendizaje de máquina para la creación de un experimento sencilla para entrenar y probar un modelo de regresión lineal en Estudio de aprendizaje automático de Azure."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="04/21/2015"
+	ms.date="07/09/2015"
 	ms.author="garye"/>
 
 #Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure
@@ -23,9 +22,9 @@ En este primer tutorial de Aprendizaje automático, crearemos un modelo de regre
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Un experimento Estudio de aprendizaje automático consta básicamente de componentes de arrastrar y colocar para *crear un modelo*, *entrenar el modelo* y *puntuar y probar el modelo*. El experimento usa técnicas de modelado predictivo en forma de módulos de Estudio de aprendizaje automático que recopila datos, entrena un modelo y aplica dicho modelo a nuevos datos. También se pueden agregar módulos para procesar previamente los datos y seleccionar las funciones, dividir los datos en conjuntos de formación y prueba y evaluar o validar de forma cruzada la calidad del modelo.
+Un experimento de Estudio de aprendizaje automático de Azure consiste en arrastrar y colocar componentes a un lienzo y conectarlos para *crear un modelo*, *entrenar el modelo* y *puntuar y probar el modelo*. El experimento usa técnicas de modelado predictivo en forma de módulos de Estudio de aprendizaje automático que recopila datos, entrena un modelo y aplica dicho modelo a nuevos datos. También se pueden agregar módulos para procesar previamente los datos y seleccionar las funciones, dividir los datos en conjuntos de formación y prueba y evaluar o validar de forma cruzada la calidad del modelo.
 
-Abra Estudio de aprendizaje automático: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Para ayudarle a comenzar con Estudio de aprendizaje automático, consulte [Inicio de Estudio de aprendizaje automático de Microsoft Azure](https://studio.azureml.net/).
+Abra Estudio de aprendizaje automático de Azure en [https://studio.azureml.net](https://studio.azureml.net) y haga clic en el botón "Get started" (Comenzar). Puede elegir el acceso de invitado o iniciar sesión con su cuenta Microsoft.
 
 Y para obtener más información sobre Estudio de aprendizaje automático, consulte [¿Qué es Estudio de aprendizaje automático?](machine-learning-what-is-ml-studio.md)
 
@@ -233,4 +232,4 @@ Si quiere un tutorial más amplio y detallado de técnicas de modelado predictiv
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -409,7 +409,7 @@ Un *controlador* administra las solicitudes HTTP y procesa la respuesta HTML.
 
 El archivo **layout.jade** del directorio **views** es una plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de herramientas que facilita el diseño de una aplicación web atractiva.
 
-Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta Bootstrap **css** al directorio **public\stylesheets** de su aplicación.
+Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta Bootstrap **css** al directorio **public\\stylesheets** de su aplicación.
 
 En la carpeta **views**, abra **layout.jade** y reemplace todo el contenido por lo siguiente:
 
@@ -642,4 +642,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

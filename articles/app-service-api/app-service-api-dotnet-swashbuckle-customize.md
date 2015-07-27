@@ -74,7 +74,7 @@ Los pasos siguientes muestran cómo personalizar Swashbuckle mediante el archivo
 		    }
 		}
 
-2. En el archivo *App_Start\SwaggerConfig.cs*, llame al método `OperationFilter` para hacer que Swashbuckle use la nueva implementación de `IOperationFilter`.
+2. En el archivo *App_Start\\SwaggerConfig.cs*, llame al método `OperationFilter` para hacer que Swashbuckle use la nueva implementación de `IOperationFilter`.
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
@@ -249,4 +249,5 @@ El código de esta demostración se puede encontrar en [este repositorio de GitH
 
 En este artículo se ha mostrado cómo personalizar la forma en que Swashbuckle genera identificadores de operación y códigos de respuesta válidos. Para obtener más información, consulte [Swashbuckle en GitHub](https://github.com/domaindrivendev/Swashbuckle).
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -111,7 +111,7 @@ Al crear un servicio en la nube, servicio de almacenamiento o grupo de afinidad,
 - Oeste de EE. UU.
 - Este de EE. UU.
 
-En los siguientes ejemplos de código, las ubicaciones se traspasan a los métodos como cadenas. Sin embargo, también puede pasar las ubicaciones como enumeraciones con la utilización de la clase <code>WindowsAzure\ServiceManagement\Models\Locations</code>. Por ejemplo, en lugar de pasar "Oeste de EE. UU." a un método que acepta una ubicación, podría pasar <code>Locations::WEST_US</code>.
+En los siguientes ejemplos de código, las ubicaciones se traspasan a los métodos como cadenas. Sin embargo, también puede pasar las ubicaciones como enumeraciones con la utilización de la clase <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code>. Por ejemplo, en lugar de pasar "Oeste de EE. UU." a un método que acepta una ubicación, podría pasar <code>Locations::WEST_US</code>.
 
 ## Creación de un servicio en la nube
 
@@ -555,4 +555,4 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
 
 [Esquema de configuración del servicio de Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

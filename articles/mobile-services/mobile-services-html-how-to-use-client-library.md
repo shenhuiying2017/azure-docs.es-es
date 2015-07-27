@@ -608,4 +608,4 @@ Para controlar a qué sitios web se les permite interactuar con solicitudes y en
 [Llamar a una API personalizada desde el cliente]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

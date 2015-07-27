@@ -16,7 +16,7 @@
 	ms.date="06/16/2015"
 	ms.author="sdanie"/>
 
-#  Implementación de una instancia del servicio Administración de API de Azure en varias regiones de Azure
+# Implementación de una instancia del servicio Administración de API de Azure en varias regiones de Azure
 
 Administración de API admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio de Administración de API en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
 
@@ -24,7 +24,7 @@ Al crear inicialmente un servicio de Administración de API, este contiene solo 
 
 > [AZURE.IMPORTANT]La implementación en varias regiones solo está disponible en el nivel **[Premium][]**.
 
-##  <a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
+## <a name="add-region"> </a>Implementación de una instancia del servicio Administración de API en una nueva región
 
 Para comenzar, haga clic en **Administrar** en el Portal de Azure para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
 
@@ -46,7 +46,7 @@ Una vez seleccionada la región, elija el número de unidades para la nueva regi
 
 Una vez configuradas las regiones y las unidades deseadas, haga clic en **Guardar**.
 
-##  <a name="remove-region"> </a>Eliminación de una instancia del servicio Administración de API de una región
+## <a name="remove-region"> </a>Eliminación de una instancia del servicio Administración de API de una región
 
 Para quitar una instancia del servicio Administración de API de una región, navegue hasta la pestaña **Escala** del Portal de Azure para la instancia de dicho servicio.
 
@@ -75,5 +75,4 @@ Una vez que se quiten las regiones deseadas, haga clic en **Guardar**.
 [unidad]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
 
-
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

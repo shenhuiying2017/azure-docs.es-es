@@ -52,4 +52,4 @@ Para obtener información general sobre la integración, consulte [Información 
 <!--Other Web references-->
 [documentación sobre Factoría de datos de Azure]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

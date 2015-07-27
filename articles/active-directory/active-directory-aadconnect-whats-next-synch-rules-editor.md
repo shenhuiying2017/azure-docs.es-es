@@ -47,14 +47,14 @@ El filtro de ámbito tiene grupos y las cláusulas que se pueden anidar. Deben c
 
 Esta regla se usa para definir qué grupos se deben aprovisionar a ADD. Los grupos de distribución deben tener el correo habilitado para sincronizarse con ADD, pero esto no es necesario para los grupos de seguridad. Como se puede ver además, también se evalúan bastantes atributos más.
 
-### Reglas de unión
+###Reglas de unión
 La tercera sección se usa para configurar cómo se relacionan los objetos del espacio conector con los objetos del metaverso. La regla que hemos examinado antes no tiene ninguna configuración para Reglas de unión, por lo que vamos a examinar la regla In from AD – User Join en su lugar.
 
 <center>![Regla de unión](./media/active-directory-aadconnect-whats-next-synch-rules-editor/sync4.png) </center>
 
 El contenido de las reglas de unión dependerá de la opción de coincidencia seleccionada en el asistente para instalación. Para una regla entrante, la evaluación se inicia con un objeto en el espacio conector de origen y cada grupo de las reglas de unión se evalúa en secuencia. Si se evalúa si un objeto de origen coincide exactamente con un objeto del metaverso usando una de las reglas de unión, los objetos se unen. Si se han evaluado todas las reglas y no hay coincidencia, se usa el tipo de vínculo de la página de descripción. Si este valor se establece en Provision, se crea un nuevo objeto en el destino, el metaverso. Aprovisionar un nuevo objeto en el metaverso también se denomina proyectar un objeto en el metaverso. Las reglas de unión solo se evalúan una vez. Cuando un objeto del espacio conector y un objeto del metaverso se unen, permanecerán unidos mientras el ámbito de la regla de sincronización se siga cumpliendo. Cuando se evalúan reglas de sincronización, solo debe haber en el ámbito una regla de sincronización con reglas de unión definidas. Si se encuentran varias reglas de sincronización con reglas de unión para un objeto, se emite un error. Por este motivo, lo mejor es tener solo una regla de sincronización con una unión definida cuando haya varias reglas de sincronización en el ámbito para un objeto. En la configuración de origen para Azure AD Connect, estas reglas se pueden encontrar consultando el nombre y buscando las que tienen la palabra Join al final del mismo. Una regla de sincronización sin ninguna regla de unión definida aplicará los flujos de atributo si otra regla de sincronización ha unido los objetos o ha aprovisionado un nuevo objeto en el destino.
 
-### Transformaciones
+###Transformaciones
 La sección sobre las transformaciones define todos los flujos de atributo que se aplicarán al objeto de destino cuando se unan los objetos y se cumpla el filtro de ámbito. Volviendo a nuestra regla de sincronización In from AD – User AccountEnabled, encontraremos las transformaciones siguientes:
 
 <center>![Regla de unión](./media/active-directory-aadconnect-whats-next-synch-rules-editor/sync5.png) </center>
@@ -73,4 +73,5 @@ Para ponerlo en contexto, en una implementación de bosque cuenta-recurso espera
 
 El tema de transformación es amplio y proporciona una gran parte de la configuración personalizada posible con Azure AD Connect. La configuración personalizada no se explicará en este documento de información general, pero examinaremos algunos de los flujos de atributo adicionales más adelante en este documento.
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

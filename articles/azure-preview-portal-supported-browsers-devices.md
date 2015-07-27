@@ -4,7 +4,6 @@
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
-	writer="" 
 	manager="carolz" 
 	editor=""/>
 
@@ -26,11 +25,11 @@ El Portal de Preview se ejecutará en tabletas, Mac y PC modernos. Los teléfono
 ### Exploradores compatibles
 Son compatibles las últimas versiones de los siguientes exploradores:
 
-- Internet Explorer (10 y versiones posteriores)
+- Internet Explorer (11 y versiones posteriores)
 - Safari (7 y versiones posteriores)
 - Chrome (última versión)
 - Firefox (última versión)
 
 *No son compatibles Safari 6 y versiones anteriores. Si usa OS X, puede usar Chrome, Firefox o actualizar a OS X Mavericks para obtener Safari 7.*
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

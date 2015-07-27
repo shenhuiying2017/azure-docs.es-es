@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
+	ms.date="06/17/2015" 
 	ms.author="awills"/>
  
 # Solución de problemas y preguntas y respuestas sobre Application Insights para Java
@@ -137,4 +137,5 @@ Consulte [Privacidad y retención de los datos][data].
 [usage]: app-insights-web-track-usage.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

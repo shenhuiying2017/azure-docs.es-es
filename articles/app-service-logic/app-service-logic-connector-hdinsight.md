@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector de HDInsight" 
-   description="Uso del conector de HDInsight" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector de HDInsight"
+   description="Uso del conector de HDInsight"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Conector de Microsoft HDInsight #
@@ -22,7 +22,7 @@
 Los conectores pueden utilizarse en aplicaciones lógicas para capturar, procesar o insertar datos como parte de un flujo. El conector de HDInsight le permite crear clústeres de Hadoop en Azure y enviar trabajos de Hadoop diferentes como Hive, Pig, MapReduce y MapReduce de streaming. El servicio de Azure HDInsight implementa y aprovisiona clústeres de Apache Hadoop en la nube con el fin de proporcionar un marco de software diseñado para realizar tareas de administración, análisis y generación de informes en relación con grandes volúmenes de datos. El núcleo de Hadoop proporciona almacenamiento de datos confiable con el sistema de archivos distribuido Hadoop (HDFS, Hadoop Distributed File System) y un sencillo modelo de programación MapReduce para procesar y analizar, en paralelo, los datos almacenados en este sistema distribuido. Mediante el conector de HDInsight puede crear o eliminar un clúster, enviar un trabajo y esperar a que el trabajo finalice.
 
 ###Acciones básicas
-		
+
 - Crear clúster
 - Esperar a que se cree el clúster
 - Enviar trabajo de Pig
@@ -78,7 +78,7 @@ El conector de HDInsight puede usarse solo como acción de la aplicación lógic
 
 
 
-- La acción aparecerá ahora como configurado en la aplicación lógica. Se mostrarán las salidas de la acción y se podrán utilizar como entradas en un paso posterior. 
+- La acción aparecerá ahora como configurado en la aplicación lógica. Se mostrarán las salidas de la acción y se podrán utilizar como entradas en un paso posterior.
 
 ![][7]
 
@@ -121,6 +121,5 @@ Puede hacer clic en “Ejecutar ahora” para iniciar manualmente la aplicación
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

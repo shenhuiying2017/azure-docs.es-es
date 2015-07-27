@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #Giro de las credenciales de entrada/salida
@@ -56,7 +56,8 @@ Para otras entradas/salidas, vaya a la Parte 2.
 11. Vaya a la parte 2.  
 
 ###Base de datos SQL
-[AZURE.NOTE]Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
+
+>[AZURE.NOTE]Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
 
 1.  Vaya a la extensión de bases de datos SQL en el Portal de administración de Azure: ![graphic14][graphic14]
 2.  Busque la base de datos SQL utilizada por su trabajo y **haga clic en el vínculo del servidor** en la misma línea: ![graphic15][graphic15]
@@ -136,7 +137,7 @@ Obtendrá la siguiente confirmación:
 	Command(s) completed successfully.
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -192,4 +193,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

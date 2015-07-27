@@ -26,12 +26,12 @@ Para poder administrar DNS de Azure con PowerShell para Azure, es necesario segu
 ### Paso 1
  DNS de Azure usa el Administrador de recursos de Azure (ARM). Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Puede encontrar más información en [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager).<BR><BR>
 
-		PS C:\> Switch-AzureMode -Name AzureResourceManager
+		PS C:> Switch-AzureMode -Name AzureResourceManager
 
 ### Paso 2
  Inicie sesión en la cuenta de Azure.<BR><BR>
 
-		PS C:\> Add-AzureAccount
+		PS C:> Add-AzureAccount
 
 Se le pedirá que se autentique con sus credenciales.<BR>
 
@@ -39,14 +39,14 @@ Se le pedirá que se autentique con sus credenciales.<BR>
 Elija qué suscripción de Azure va a utilizar.<BR>
 
 
-		PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+		PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Para consultar una lista de suscripciones disponibles, use el cmdlet “Get-AzureSubscription”.<BR>
 
 ### Paso 4
 Cree un grupo de recursos (omitir este paso si se utiliza un grupo de recursos existente)<BR>
 
-		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+		PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.<BR>
@@ -55,7 +55,7 @@ El Administrador de recursos de Azure requiere que todos los grupos de recursos 
 
 El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. La suscripción a Azure debe estar registrada para usar este proveedor de recursos antes de utilizar DNS de Azure. Se trata de una operación única para cada suscripción.
 
-	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -75,13 +75,13 @@ De forma predeterminada, PowerShell para DNS de Azure utiliza Etags para bloquea
 ### Etiquetas
 Las etiquetas son diferentes de las Etag. Las etiquetas son una lista de pares nombre-valor que el Administrador de recursos de Azure utiliza para etiquetar los recursos con fines de facturación o agrupación. Para obtener más información sobre las etiquetas, consulte Uso de etiquetas para organizar los recursos de Azure. PowerShell para DNS de Azure es compatible con etiquetas en las zonas y en los conjuntos de registros especificados mediante el parámetro “-Tag” opcional. En el ejemplo siguiente se muestra cómo crear una zona DNS con dos etiquetas, “project = demo” y “env = test”:
 
-	PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+	PS C:> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
 
 
 ## Creación de una zona DNS
 Una zona DNS se crea con el cmdlet New-AzureDnsZone. En el ejemplo siguiente, se creará una zona DNS denominada "contoso.com" en el grupo de recursos denominado “MyResourceGroup”:<BR>
 
-		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
+		PS C:> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 >[AZURE.NOTE]En DNS de Azure, deben especificarse nombres de zona sin la terminación “.”. Por ejemplo, "contoso.com" en lugar de "contoso.com.".<BR>
 
@@ -95,7 +95,7 @@ Ya se ha creado la zona DNS en DNS de Azure. Al crear una zona DNS, también se 
 
 Para consultar estos registros, use Get-AzureDnsRecordSet:
 
-		PS C:\> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+		PS C:> Get-AzureDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -123,7 +123,7 @@ Tras haber creado la primera zona DNS, puede probarla con herramientas DNS, como
 
 Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesitará dirigir la consulta DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de la zona se proporcionan en los registros NS, según muestra la operación Get-AzureDnsRecordSet anterior; asegúrese de sustituir los valores correctos de la zona en el siguiente comando.<BR>
 
-		C:\> nslookup
+		C:> nslookup
 		> set type=SOA
 		> server ns1-01.azure-dns.com
 		> contoso.com
@@ -147,4 +147,4 @@ Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, necesita
 [Introducción a la creación de registros y conjuntos de registros](dns-getstarted-create-recordset.md)<BR> [Administración de zonas DNS](dns-operations-dnszones.md)<BR> [Administración de registros DNS](dns-operations-recordsets.md)<BR> [Automatización de operaciones de Azure con .NET SDK](dns-sdk.md)<BR> [Referencia de la API de REST del DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

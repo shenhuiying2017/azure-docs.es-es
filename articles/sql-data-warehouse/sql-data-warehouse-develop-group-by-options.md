@@ -174,7 +174,7 @@ Al dividir el código en secciones y generar una construcción de bucle, el cód
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
@@ -185,4 +185,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

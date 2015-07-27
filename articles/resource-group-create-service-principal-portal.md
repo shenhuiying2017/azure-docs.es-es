@@ -1,19 +1,19 @@
 <properties
    pageTitle="Creación de una nueva entidad de servicio de Azure mediante el portal de Azure"
    description="Describe cómo crear una nueva entidad de servicio de Azure que puede utilizarse con el control de acceso basado en rol en el Administrador de recursos de Azure para administrar el acceso a los recursos."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Creación de una nueva entidad de servicio de Azure mediante el portal de Azure
@@ -134,4 +134,4 @@ Administración y auditoría del acceso
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

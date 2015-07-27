@@ -80,8 +80,7 @@ Logotipo del banner | Se muestra en la parte superior derecha de la página. Ree
 Ilustración grande / Color de fondo | Se muestra a la izquierda de la página. Reemplaza a la imagen que se mostraría normalmente en el sitio de destino en el que los usuarios están iniciando sesión. El color de fondo puede mostrarse en lugar de la ilustración grande en conexiones con un ancho de banda bajo o en pantallas muy estrechas.
 Texto de la página de inicio de sesión | Se muestra encima del pie de página cuando necesita ofrecer información útil a los usuarios antes de que inicien sesión con su cuenta profesional o educativa. Por ejemplo, es posible que desee incluir el número de teléfono de soporte técnico o una declaración legal.
 
-> [AZURE.NOTE]
-Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión mostrará su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
+> [AZURE.NOTE]Todos los elementos son opcionales. Por ejemplo, si especifica un logotipo del banner pero no una ilustración grande, la página de inicio de sesión mostrará su logotipo y la ilustración del sitio de destino (es decir, la imagen de la autopista de California de Office 365).
 
 También puede localizar todos los elementos de esta página. Una vez que haya configurado un conjunto de elementos de personalización "predeterminado", puede configurar versiones adicionales para las diferentes configuraciones regionales. También puede mezclar y hacer coincidir varios elementos. Por ejemplo, puede:
 
@@ -187,4 +186,5 @@ Color de fondo de la página de inicio de sesión | El color de fondo de la pág
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

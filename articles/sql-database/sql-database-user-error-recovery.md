@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Recuperación de Base de datos SQL de Azure tras un error del usuario
@@ -109,4 +109,4 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 Una vez finalizada la restauración, puede configurar la base de datos recuperada para su uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

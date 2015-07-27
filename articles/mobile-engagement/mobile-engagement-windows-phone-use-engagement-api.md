@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Cómo usar la API de Engagement en Windows Phone Silverlight
@@ -379,4 +379,4 @@ En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

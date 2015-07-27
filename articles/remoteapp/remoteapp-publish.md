@@ -2,7 +2,7 @@
     pageTitle="Publicar una aplicación en RemoteApp"
     description="Obtenga información sobre cómo publicar aplicaciones y recursos de RemoteApp."
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@ En la pestaña **Publicación** del portal, haga clic en **Publicar**. Puede agr
 > [AZURE.NOTE]Si quiere agregar la aplicación desde el menú Inicio, es necesario que haya *agregado esa aplicación al menú Inicio en la imagen de plantilla.* De lo contrario, RemoteApp solo verá lo que *está* en el menú Inicio y usted se confundirá. Si olvidó agregar la aplicación al menú **Inicio** al crear la plantilla, tiene la posibilidad de agregar la ruta de acceso a la aplicación. (O volver a crear la imagen de plantilla, pero supone algo más de trabajo).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

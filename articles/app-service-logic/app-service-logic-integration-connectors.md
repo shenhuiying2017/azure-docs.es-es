@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 
 # Aplicaciones de API de integración de BizTalk en el Servicio de aplicaciones de Microsoft Azure
+
+> [AZURE.NOTE]Este tema se ha retirado. Consulte la [lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md) para ver todas las aplicaciones API y conectores integrados que se encuentran disponibles.
+
+
 El Servicio de aplicaciones de Microsoft Azure (o Servicio de aplicaciones para abreviar) incluye muchas aplicaciones de API de BizTalk que son esenciales para los entornos de integración. Estas aplicaciones de API se basan en conceptos y herramientas que se usan en BizTalk Server, pero que ahora están disponibles como parte de Servicios de aplicaciones de Azure.
 
 Una categoría de estas aplicaciones de API son las aplicaciones de API de integración de BizTalk. Con estas aplicaciones de API de BizTalk, puede agregar reglas de negocio fácilmente, transformar y validar mensajes XML, codificar archivos sin formato y datos JSON, etc.; exactamente igual que haría localmente con BizTalk Server.
@@ -132,6 +136,7 @@ Los siguientes pasos agregan aplicaciones de API de BizTalk a aplicaciones lógi
 
 
 ## Más conectores
-[Conectores de empresa](app-service-logic-enterprise-connectors.md)<br/> [Conectores negocio a negocio](app-service-logic-b2b-connectors.md)<br/> [ Conectores sociales](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md)<br/> [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

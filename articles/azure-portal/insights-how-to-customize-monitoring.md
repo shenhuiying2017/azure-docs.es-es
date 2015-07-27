@@ -73,4 +73,4 @@ Al igual que con las métricas, puede utilizar la [API de REST](https://msdn.mic
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

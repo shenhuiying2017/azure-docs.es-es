@@ -16,13 +16,13 @@
     ms.date="06/03/2015"
     ms.author="robmcm" />
 
-#  Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse
+# Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse
 
 Esta guía le mostrará cómo utilizar el servicio de control de acceso de Azure (ACS) dentro del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies). Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps).
 
 > [AZURE.NOTE]El filtro de control de los servicios de acceso de Azure (de Microsoft Open Technologies) es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft Open Technologies, Inc. ni de Microsoft.
 
-##  ¿Qué es ACS?
+## ¿Qué es ACS?
 
 La mayoría de los desarrolladores ni son expertos en identidad ni generalmente quieren dedicar demasiado tiempo a desarrollar mecanismos de autenticación y autorización para sus aplicaciones y servicios. ACS es un servicio de Azure que ofrece un sencillo método de autenticación de usuarios que necesitan tener acceso a sus servicios y aplicaciones web sin tener que tomar en consideración una lógica de autenticación compleja en su código.
 
@@ -36,7 +36,7 @@ En ACS están disponibles las características siguientes:
 
 Para obtener más información acerca de ACS, consulte [Access Control Service 2.0][].
 
-##  Conceptos
+## Conceptos
 
 Azure ACS se ha creado sobre los principios de la identidad basada en notificaciones, un enfoque coherente para crear mecanismos de autenticación para las aplicaciones que se ejecutan en el entorno local o en la nube. La identidad basada en notificaciones proporciona un método común para que las aplicaciones y los servicios obtengan la información necesaria acerca de la identidad de los usuarios de la organización, de otras organizaciones y en Internet.
 
@@ -68,7 +68,7 @@ La siguiente ilustración muestra cómo funciona la autenticación de ACS con un
 6.  ACS valida el token de seguridad emitido por el IP, introduce las notificaciones de identidad de este token en el motor de reglas de ACS, calcula las notificaciones de identidad resultantes y emite un nuevo token de seguridad que contenga estas notificaciones.
 7.  ACS redirige el cliente al RP. El cliente envía el nuevo token de seguridad emitido por ACS al RP. El RP valida la firma del token de seguridad emitido por ACS, valida las notificaciones en este token y devuelve la página que solicitó originalmente.
 
-##  Requisitos previos
+## Requisitos previos
 
 Necesitará lo siguiente para completar las tareas de esta guía:
 
@@ -76,11 +76,11 @@ Necesitará lo siguiente para completar las tareas de esta guía:
 - Eclipse IDE para Java EE Developers, Indigo o superior. Esto se puede descargar en <http://www.eclipse.org/downloads/>. 
 - Una distribución de un servidor de aplicaciones o servidor web basado en Java, como Apache Tomcat, GlassFish, JBoss Application Server o Jetty.
 - Una suscripción de Azure, que se puede adquirir en <http://www.microsoft.com/windowsazure/offers/>.
-- Complemento de Azure para Eclipse con Java (de Microsoft Open Technologies), versión de abril de 2014. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/es-es/library/windowsazure/hh690946.aspx).
+- Complemento de Azure para Eclipse con Java (de Microsoft Open Technologies), versión de abril de 2014. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Un certificado X.509 para utilizar con la aplicación. Necesitará este certificado en formato de certificado público (.cer) e intercambio de información personal (.PFX). (Las opciones para crear este certificado se describirán más adelante en este tutorial).
-- Estar familiarizado con el emulador de proceso de Azure y las técnicas de implementación analizadas en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx).
+- Estar familiarizado con el emulador de proceso de Azure y las técnicas de implementación analizadas en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
-##  Creación de un espacio de nombres de ACS
+## Creación de un espacio de nombres de ACS
 
 Para comenzar a utilizar el servicio de control de acceso (ACS) en Azure, debe crear un espacio de nombres de ACS. El espacio de nombres proporciona un ámbito único para dirigir los recursos de ACS desde dentro de su aplicación.
 
@@ -94,7 +94,7 @@ Para comenzar a utilizar el servicio de control de acceso (ACS) en Azure, debe c
 
 Azure crea y activa el espacio de nombres. Espere hasta que el estado del nuevo espacio de nombres sea **Activo** antes de continuar.
 
-##  Incorporación de proveedores de identidades
+## Incorporación de proveedores de identidades
 
 En esta tarea, agregará IP para utilizarlos con su aplicación RP para la autenticación. Para los fines de esta demostración, esta tarea muestra cómo agregar Windows Live como un IP, pero podría utilizarse cualquiera de los IP que aparecen en el portal de administración de ACS.
 
@@ -105,7 +105,7 @@ En esta tarea, agregará IP para utilizarlos con su aplicación RP para la auten
 
 Windows Live ID ahora está habilitado como un IP para su espacio de nombres de ACS. A continuación, especifique la aplicación web de Java (que se va a crear más adelante) como un RP.
 
-##  Incorporación de una aplicación de usuario de confianza
+## Incorporación de una aplicación de usuario de confianza
 
 En esta tarea, configurará ACS para reconocer la aplicación web de Java como una aplicación RP válida.
 
@@ -114,15 +114,13 @@ En esta tarea, configurará ACS para reconocer la aplicación web de Java como u
 3.  En la página **Adición de aplicación de usuarios de confianza**, haga lo siguiente:
     1.  En **Nombre**, escriba el nombre del RP. Para los fines de este tutorial, escriba **Azure Web App**.
     2.  En **Modo**, seleccione **Especificar la configuración manualmente**.
-    3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**. ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator]
-    4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp** ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator]
-    5.  Acepte los valores predeterminados en el resto de los campos.
+    3.  En **Territorio**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**. ![El dominio de usuario de confianza para utilizar en el emulador de proceso][relying_party_realm_emulator] 4.  En **Dirección URL de retorno**, escriba la dirección URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp** ![La dirección URL de retorno de usuario de confianza para utilizar en el emulador de proceso][relying_party_return_url_emulator] 5.  Acepte los valores predeterminados en el resto de los campos.
 
 4.  Haga clic en **Guardar**.
 
 Ha configurado correctamente su aplicación web de Java para que cuando se ejecute en el emulador de proceso de Azure (en http://localhost:8080/) sea un RP en su espacio de nombres de ACS. A continuación, cree las reglas que ACS utiliza para procesar notificaciones para el RP.
 
-##  Creación de reglas
+## Creación de reglas
 
 En esta tarea, definirá las reglas que controlan la manera en que las notificaciones se transmiten desde los IP a su RP. En lo que respecta a esta guía, simplemente configuraremos ACS para que copie los valores y tipos de notificación de introducción directamente en el token de salida, sin filtrarlos ni modificarlos.
 
@@ -132,7 +130,7 @@ En esta tarea, definirá las reglas que controlan la manera en que las notificac
 4.  En la página **Generar reglas: Grupo de reglas predeterminado para Azure Web App**, asegúrese de que la opción Windows Live ID esté activada y, a continuación, haga clic en **Generar**.	
 5.  En la página **Editar grupo de reglas**, haga clic en **Guardar**.
 
-##  Carga de un certificado en su espacio de nombres de ACS
+## Carga de un certificado en su espacio de nombres de ACS
 
 En esta tarea, cargará un certificado .PFX que se utilizará para firmar solicitudes de token creadas por su espacio de nombres de ACS.
 
@@ -147,7 +145,7 @@ En esta tarea, cargará un certificado .PFX que se utilizará para firmar solici
 
 A continuación, revise la información que se encuentra en la página de integración de aplicaciones y copie el URI que necesitará para configurar su aplicación web de Java para usar ACS.
 
-##  Revisión de la página de integración de aplicaciones
+## Revisión de la página de integración de aplicaciones
 
 Puede encontrar toda la información y el código que se necesita para configurar su aplicación web de Java (la aplicación RP) para trabajar con ACS en la página de integración de aplicaciones del portal de administración de ACS. Necesitará esta información cuando configure la aplicación web de Java para la autenticación federada.
 
@@ -157,7 +155,7 @@ Puede encontrar toda la información y el código que se necesita para configura
 
 En la página **Integración de página de inicio de sesión: Azure Web App**, la dirección URL que aparece en **Opción 1: vínculo a una página de inicio de sesión hospedada de ACS** se utilizará en la aplicación web de Java. Necesitará este valor cuando agregue la biblioteca de filtros de servicios de control de acceso de Azure a su aplicación Java.
 
-##  Creación de una aplicación web de Java
+## Creación de una aplicación web de Java
 1. En Eclipse, en el menú, haga clic en **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Dynamic Web Project**. (Si no ve **Dynamic Web Project** como proyecto disponible después de hacer clic en **Archivo**, **Nuevo**, a continuación lleve a cabo lo siguiente: haga clic en **Archivo**, haga clic en **Nuevo**, haga clic en **Proyecto**, expanda **Web**, haga clic en **Dynamic Web Project** y en **Siguiente**). Para los fines de este tutorial, asigne el nombre **MyACSHelloWorld** al proyecto. (Asegúrese de utilizar este nombre; los pasos posteriores de este historial esperan que su archivo WAR tenga el nombre MyACSHelloWorld). La pantalla se parecerá a la siguiente:
 
     ![Ejemplo: Crear un proyecto Hello World para ACS][create_acs_hello_world]
@@ -179,7 +177,7 @@ En la página **Integración de página de inicio de sesión: Azure Web App**, l
     
     Guarde el archivo index.jsp.
   
-##  Incorporación de la biblioteca de filtros de ACS a su aplicación
+## Incorporación de la biblioteca de filtros de ACS a su aplicación
 
 1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **MyACSHelloWorld** y, a continuación, haga clic en **Ruta de acceso de compilación** y, a continuación, en **Configurar ruta de acceso de compilación**.
 2. En el cuadro de diálogo **Ruta de acceso de compilación de Java**, haga clic en la pestaña **Bibliotecas**.
@@ -201,18 +199,18 @@ En la página **Integración de página de inicio de sesión: Azure Web App**, l
 12. Haga clic en **Sí** cuando aparezca un cuadro de diálogo que indique que se creará un archivo web.xml.
 13. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Ruta de acceso de compilación de Java**.
 
-##  Implementación del emulador de proceso
+## Implementación del emulador de proceso
 
 1. En el explorador de proyectos de Eclipse, haga clic con el botón secundario en **MyACSHelloWorld** y, a continuación, haga clic en **Azure** y luego en **Paquete de Azure**
 2. En **Nombre de proyecto**, escriba **MyAzureACSProject** y haga clic en **Siguiente**.
-3. Seleccione un JDK y un servidor de aplicaciones. (Estos pasos aparecen detallados en el tutorial [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx)).
+3. Seleccione un JDK y un servidor de aplicaciones. (Estos pasos aparecen detallados en el tutorial [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 4. Haga clic en **Finalizar**
 5. Haga clic en el botón **Ejecutar Emulador de Azure**.
 6. Una vez que la aplicación web de Java se inicie en el emulador de proceso, cierre todas las instancias del explorador (para que ninguna sesión actual del explorador interfiera con la prueba de inicio de sesión en ACS).
 7. Ejecute la aplicación abriendo <http://localhost:8080/MyACSHelloWorld/> en el explorador (o <https://localhost:8080/MyACSHelloWorld/> si ha activado **Requerir conexiones HTTPS**). Se le solicitará un inicio de sesión de Windows Live ID y, a continuación, debería ir a la URL de retorno que se especificó para su aplicación de usuario de confianza.
 99.  Cuando haya terminado de visualizar la aplicación, haga clic en el botón **Restablecer Emulador de Azure**.
 
-##  Implementación en Azure
+## Implementación en Azure
 
 Para implementar en Azure, deberá cambiar el dominio de usuario de confianza y la URL de retorno para su espacio de nombres de ACS.
 
@@ -239,14 +237,14 @@ Para implementar en Azure, deberá cambiar el dominio de usuario de confianza y 
 
 13. Haga clic en **Finalizar** para cerrar el cuadro de diálogo **Editar biblioteca**.
 14. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de MyACSHelloWorld**.
-15. En Eclipse, haga clic en el botón **Publicar en Azure Cloud**. Siga las indicaciones, tal como lo hizo en la sección **Implementación de su aplicación en Azure** del tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx). 
+15. En Eclipse, haga clic en el botón **Publicar en Azure Cloud**. Siga las indicaciones, tal como lo hizo en la sección **Implementación de su aplicación en Azure** del tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). 
 
 Una vez que se ha implementado la aplicación web, cierre las sesiones abiertas del explorador, ejecute la aplicación web y se le solicitará iniciar sesión con credenciales de Windows Live ID y, a continuación, irá a la URL de retorno de su aplicación de usuario de confianza.
 
-Cuando haya terminado de utilizar la aplicación Hello World de ACS, recuerde eliminar la implementación (aprenda a eliminar una implementación en el tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx)).
+Cuando haya terminado de utilizar la aplicación Hello World de ACS, recuerde eliminar la implementación (aprenda a eliminar una implementación en el tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
-##  <a name="next_steps"></a>Pasos siguientes
+## <a name="next_steps"></a>Pasos siguientes
 
 Para analizar el lenguaje de marcado de aserción de seguridad (SAML) que devuelve ACS a su aplicación, consulte [Visualización del SAML que devuelve el servicio de control de acceso de Azure][]. Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0][].
 
@@ -308,4 +306,5 @@ En este punto, su certificado se incluiría en la implementación. Observe que, 
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

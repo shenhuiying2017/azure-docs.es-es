@@ -30,72 +30,29 @@ El hecho de que las aplicaciones de API se basen en aplicaciones web también si
  
 ## <a id="provision"></a>Creación de la aplicación de API en Azure 
 
-En esta sección, use el asistente **Publicar web** de Visual Studio para crear una nueva aplicación de API de Azure.
+En esta sección, use el asistente **Publicación web** de Visual Studio para crear una nueva aplicación de API en Azure. Cuando las instrucciones indican que escriba un nombre para la aplicación de API, escriba *ContactsList*.
 
-1. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto (no la solución) y en **Publicar...**. 
-
-	![Opción de menú de publicación de proyecto](./media/app-service-dotnet-deploy-api-app/20-publish-gesture-v3.png)
-
-2. Haga clic en la pestaña **Perfil** y en **Aplicaciones de API de Microsoft Azure (vista previa)**.
-
-	![Cuadro de diálogo Publicación web](./media/app-service-dotnet-deploy-api-app/21-select-api-apps-for-deployment-v2.png)
-
-3. Haga clic en **Nuevo** para aprovisionar una nueva aplicación de API en su suscripción de Azure.
-
-	![Selección del cuadro de diálogo Servicios de API existentes](./media/app-service-dotnet-deploy-api-app/23-publish-to-apiapps-v3.png)
-
-4. En el cuadro de diálogo **Crear una aplicación de API**, escriba lo siguiente:
-
-	- En **Nombre de la aplicación de API**, escriba ContactsList. 
-	- Si tiene varias suscripciones de Azure, seleccione la que desee usar.
-	- En el **Plan del Servicio de aplicaciones**, seleccione de entre los planes del Servicio de aplicaciones o elija **Crear nuevo plan del Servicio de aplicaciones** y escriba el nombre de un nuevo plan. 
-	- En **Grupo de recursos**, seleccione de entre los grupos de recursos existentes o elija **Crear nuevo grupo de recursos** y escriba un nombre. El nombre debe ser único; considere la posibilidad de usar el nombre de la aplicación como un prefijo y anexe información personal como el identificador de Microsoft (sin el signo @).  
-	- En **Nivel de acceso**, seleccione **Disponible para cualquier persona**. Con esta opción, la API será totalmente pública, lo cual está bien para este tutorial. Puede restringir el acceso más adelante a través del Portal de vista previa de Azure.
-	- En **Región**, seleccione una región cercana.  
-
-	![Configuración del cuadro de diálogo de Aplicación web de Microsoft Azure](./media/app-service-dotnet-deploy-api-app/24-new-api-app-dialog-v3.png)
-
-5. Haga clic en **Aceptar** para crear la aplicación de API en su suscripción. Como este proceso puede tardar unos minutos, Visual Studio muestra un cuadro de diálogo de confirmación.
-
-	![Mensaje de confirmación de inicio de creación de Servicio de API](./media/app-service-dotnet-deploy-api-app/25-api-provisioning-started-v3.png)
-
-6. Haga clic en **Aceptar** en el cuadro de diálogo de confirmación. El proceso de aprovisionamiento crea el grupo de recursos y la aplicación de API en su suscripción de Azure. Visual Studio muestra el progreso en la ventana **Actividad del Servicio de aplicaciones de Azure**.
-
-	![Notificación de estado mediante la ventana de actividad del Servicio de aplicaciones de Azure](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
+[AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
 ## <a id="deploy"></a>Implemente el código en la nueva aplicación de API
 
-En esta sección, se usa el mismo asistente **Publicar web** para implementar el código.
+Use el mismo asistente para **Publicación web** para implementar el código en la nueva aplicación de API.
 
-7. Haga clic con el botón secundario en el proyecto en el **Explorador de soluciones** y seleccione **Publicar** para volver a abrir el cuadro de diálogo de publicación. El perfil de publicación que creó en el paso anterior debe estar preseleccionado. Haga clic en **Publicar** para comenzar el proceso de implementación. 
-
-	![Implementación de la aplicación de API](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
-
-	La ventana **Actividad del Servicio de aplicaciones de Azure** muestra el progreso de la implementación.
-
-	![Notificación de estado de la ventana de actividad del Servicio de aplicaciones de Azure](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
-
-	Durante este proceso de implementación, Visual Studio reinicia automáticamente la *puerta de enlace*. La puerta de enlace es una aplicación web que controla las funciones administrativas de todas las aplicaciones de API en un grupo de recursos, y debe reiniciarse para que reconozca los cambios de la API en una aplicación de API. Si utiliza otro método para implementar una aplicación de API y la implementación cambia la API, tendrá que reiniciar manualmente la puerta de enlace. Para obtener información sobre cómo reiniciar la puerta de enlace en el portal, consulte [Administración de una aplicación de API](app-service-api-manage-in-portal.md).
+[AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
 ## Visualización de aplicaciones en el Portal de vista previa de Azure
 
-En esta sección, se desplazará al portal para ver la configuración básica disponible para las aplicaciones de API y realizar cambios iterativos en su aplicación de API. Con cada implementación, el portal reflejará los cambios que está realizando en la aplicación de API.
+En esta sección, verá la configuración básica disponible para las aplicaciones de API en el portal y realizará cambios iterativos en la aplicación de API. Con cada implementación, el portal refleja los cambios que está realizando en la aplicación de API.
 
-1. En el explorador, vaya al [Portal de vista previa de Azure](https://portal.azure.com). 
+1. En el [Portal de vista previa de Azure](https://portal.azure.com), vaya a la hoja **Aplicación de API** de la aplicación de API que ha implementado.
 
-2. Haga clic en el botón **Examinar** de la barra lateral y seleccione **Aplicaciones de API**.
-
-	![Examen de opciones en el portal de Azure](./media/app-service-dotnet-deploy-api-app/27-browse-in-portal-v3.png)
-
-3. Seleccione la API que creó en la lista de aplicaciones de API de su suscripción.
-
-	![Lista de Aplicaciones de API](./media/app-service-dotnet-deploy-api-app/28-view-api-list-v3.png)
-
-4. Haga clic en **Definición de API**. La hoja **Definición de API** de la aplicación muestra la lista de operaciones de API que definió al crear la aplicación.
+4. Haga clic en **Definición de API**.
+ 
+	La hoja **Definición de API** de la aplicación muestra la lista de operaciones de API que definió al crear la aplicación.
 
 	![Definición de la API](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
-5. Ahora, vuelva al proyecto de Visual Studio y agregue el código siguiente al archivo **ContactsController.cs**. Este código agrega un método **Post** que se puede usar para registrar nuevas instancias de `Contact` en la API.
+5. Ahora, vuelva al proyecto de Visual Studio y agregue el código siguiente al archivo **ContactsController.cs**.
 
 		[HttpPost]
 		public HttpResponseMessage Post([FromBody] Contact contact)
@@ -105,6 +62,8 @@ En esta sección, se desplazará al portal para ver la configuración básica di
 		}
 
 	![Incorporación del método Post al controlador](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
+
+	Este código agrega un método **Post** que se puede usar para registrar nuevas instancias de `Contact` en la API.
 
 6. En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y, a continuación, seleccione **Publicar**.
 
@@ -133,4 +92,4 @@ En esta sección, se desplazará al portal para ver la configuración básica di
 Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan la iteración y la implementación rápida y prueban que la API funcione correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

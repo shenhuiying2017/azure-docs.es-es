@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Introducción a los Centros de eventos" 
-	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C# y recibirlos en un clúster de Apache Storm" 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="Introducción a los Centros de eventos"
+	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C# y recibirlos en un clúster de Apache Storm"
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="csharp" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="csharp"
+	ms.devlang="csharp"
+	ms.topic="article" 
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 # Introducción a los Centros de eventos
@@ -32,9 +32,9 @@ Para completar este tutorial, necesitará lo siguiente:
 
 + Microsoft Visual Studio Express 2013 para Windows.
 
-+ Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/)
++ Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure￼</a>.
 
 ## Creación de un Centro de eventos
 
@@ -56,7 +56,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
    	![][4]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior, agregue una regla llamada **SendRule** con derechos para *enviar*, agregue otra regla llamada **ReceiveRule** con derechos para *escucharn* y luego haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** en la parte superior, agregue una regla llamada **SendRule** con derechos *Enviar*, agregue otra regla llamada **ReceiveRule** con derechos *Escuchar* y, a continuación, haga clic en **Guardar**.
 
    	![][5]
 
@@ -98,8 +98,8 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Información general de los Centros de eventos]: event-hubs-overview.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

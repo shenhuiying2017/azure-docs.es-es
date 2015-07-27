@@ -629,4 +629,5 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 [windows]: app-insights-windows-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

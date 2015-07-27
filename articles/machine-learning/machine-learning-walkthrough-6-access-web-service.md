@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,6 +40,6 @@ En la pestaña **PANEL** del servicio web, hay dos vínculos a la información q
 
 La página de ayuda de API incluye ejemplos para los lenguajes de programación R, C# y Python.
 
-<!-- Add link to Derrick's articles on web services -->
+Para obtener más información acerca de cómo acceder al servicio web y usarlo, consulte [Cómo consumir un servicio web de aprendizaje automático de Azure publicado](machine-learning-consume-web-services.md).
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

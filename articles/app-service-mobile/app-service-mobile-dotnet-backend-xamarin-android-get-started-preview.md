@@ -110,4 +110,4 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

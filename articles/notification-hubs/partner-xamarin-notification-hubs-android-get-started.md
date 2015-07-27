@@ -498,4 +498,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Componente de mensajería de Azure]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015"
+	ms.date="07/01/2015"
 	ms.author="stepsic"/>
 
 #Supervisión de las aplicaciones lógicas
@@ -37,17 +37,23 @@ La hoja de detalles muestra un gráfico con la hora de la ejecución y la secuen
 
 ![Ejecuciones y acciones](./media/app-service-logic-monitor-your-logic-apps/runandaction.png)
 
-Por último, sobre una acción concreta, puede obtener todos los datos que se pasaron a la acción y que se recibieron de esta en las secciones **Entradas** y **Salidas**.
+Por último, sobre una acción concreta, puede obtener todos los datos que se pasaron a la acción y que se recibieron de esta en las secciones **Entradas** y **Salidas**. Haga clic en los vínculos para ver el contenido completo (también puede copiar los vínculos para descargar el contenido).
 
 Otro fragmento importante de la información es el **Id. de seguimiento**. Este identificador se pasa en los encabezados de todas las llamadas de acción. Si ya se ha registrado en su propio servicio, se recomienda registrar el identificador de seguimiento y, a continuación, puede hacer una referencia cruzada a sus propios registros con este identificador.
 
-##Versiones e historial del desencadenador
+##Historial de desencadenamiento 
 
-Hay dos funciones adicionales que no se pueden usar actualmente en la interfaz de usuario (estarán disponibles próximamente), pero se pueden usar a través de la [API de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409).
+Los desencadenadores de sondeo comprueban la API cada ciertos intervalos, pero no inician necesariamente una ejecución, según la respuesta (por ejemplo, `200` implica realizar una ejecución y `202` no realizarla). El historial del desencadenador permite ver todas las llamadas que se producen, pero que no ejecutan aplicación lógica (las respuestas `202`).
 
-1. **Historial del desencadenador**: los desencadenadores de sondeo comprueban la API cada ciertos intervalos, pero no inician necesariamente una ejecución, según la respuesta (por ejemplo, `200` implica realizar una ejecución y `202` significa no realizarla). El historial del desencadenador permite ver todas las llamadas que se producen, pero que no ejecutan aplicación lógica (las respuestas `202`).
+![Historial de desencadenamiento](./media/app-service-logic-monitor-your-logic-apps/triggerhistory.png)
 
-2. **Versiones anteriores**: al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hará referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
+Para cada desencadenador, puede ver si se **activa**, si no se activa, o si ha tenido algún tipo de error (ha dado **Error**). Para inspeccionar por qué el desencadenador dio error, puede hacer clic en el vínculo **Salidas**. Si se ha activado, haga clic en el vínculo **Ejecutar** para ver qué sucedió después de que se activara.
+
+Tenga en cuenta que, para los desencadenadores de *inserción*, *no* verá las veces que comenzaron aquí las ejecuciones, sino que verá las llamadas del *registro de devolución de llamadas*, que son las que corresponden a cuando la aplicación lógica se registra para la devolución de llamada. Si el desencadenador de inserción no funciona, puede haber un problema con el registro (que puede ver en Salidas); si no es así, puede que deba investigar esa API en concreto.
+
+##Control de versiones
+
+Existe una capacidad adicional que actualmente no es posible en la interfaz de usuario (lo será pronto), pero que está disponible a través de la [API de REST](http://go.microsoft.com/fwlink/?LinkID=525617&clcid=0x409). Al actualizar la definición de una aplicación lógica, se almacena la versión anterior de la definición. Esto se hace así porque si ya tiene una ejecución en curso, dicha ejecución hará referencia a la versión de la aplicación lógica que existía cuando se inició la ejecución. Las definiciones de las ejecuciones no se pueden cambiar mientras están en curso. El historial de versiones de la API de REST proporciona acceso a esta información.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

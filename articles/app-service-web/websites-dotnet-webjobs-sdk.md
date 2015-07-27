@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Qué es el SDK de WebJobs de Azure
@@ -22,7 +22,7 @@
 
 Este artículo explica qué es el SDK de Trabajos web, revisa algunos escenarios habituales en los que resulta de utilidad y ofrece información general acerca de cómo utilizarlo en su código.
 
-[WebJobs](web-sites-create-web-jobs.md) es una característica del Servicio de aplicaciones de Azure que le permite ejecutar un programa o script en el mismo contexto que una aplicación web. El objetivo del SDK de Trabajos web consiste en simplificar la tarea de escribir el código que se ejecuta como Trabajo web y funciona con las colas, los blobs y las tablas de Almacenamiento de Azure y con las colas del Bus de servicio.
+[WebJobs](websites-webjobs-resources.md) es una característica del Servicio de aplicaciones de Azure que le permite ejecutar un programa o script en el mismo contexto que una aplicación web. El objetivo del SDK de Trabajos web consiste en simplificar la tarea de escribir el código que se ejecuta como Trabajo web y funciona con las colas, los blobs y las tablas de Almacenamiento de Azure y con las colas del Bus de servicio.
 
 El SDK de WebJobs incluye los siguientes componentes:
 
@@ -105,4 +105,4 @@ El SDK de Trabajos web proporciona varias ventajas, incluso si no necesita traba
 Para obtener información acerca del SDK de WebJobs, consulte [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

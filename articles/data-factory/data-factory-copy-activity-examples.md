@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Ejemplos para el uso de la actividad de copia en Factoría de datos de Azure
@@ -144,7 +144,7 @@ En este ejemplo, se define una canalización **CopyActivityPipeline** con las pr
 - La propiedad **type** se establece en **CopyActivity**.
 - **MyOnPremTable** se especifica como la entrada (etiqueta **inputs**).
 - **MyAzureBlob** se especifica como la salida (etiqueta **outputs**)
-- La sección **transformación** contiene dos subsecciones: **origen** y **receptor**. El tipo de origen se establece en **SqlSource** y el tipo de receptor se establece en **BlobSink**. **sqlReaderQuery** define la transformación (proyección) que se debe realizar en el origen. Para obtener información detallada de todas las propiedades, consulte [Referencia del scripting JSON][json-script-reference].
+- La sección **transformación** contiene dos subsecciones: **origen** y **receptor**. El tipo de origen se establece en **SqlSource** y el tipo de receptor se establece en **BlobSink**. **sqlReaderQuery** define la transformación (proyección) que se debe realizar en el origen. Para obtener información detallada de todas las propiedades, consulte [Referencia del scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
          
 		{
@@ -186,8 +186,8 @@ Puede usar la actividad de copia para copiar archivos desde un sistema de archiv
 ### Supuestos
 En este ejemplo se da por hecho lo siguiente:
 
-- **Host**: el nombre del servidor que hospeda el sistema de archivos es: **\contoso**.
-- **Carpeta**: el nombre de la carpeta que contiene los archivos de entrada es: **marketingcampaign\regionaldata\{slice}, donde los archivos se particionan en una carpeta denominada {slice}, como 2014121112 (año 2014, mes 12, día 11, hora 12). 
+- **Host**: el nombre del servidor que hospeda el sistema de archivos es: **\\contoso**.
+- **Carpeta**: el nombre de la carpeta que contiene los archivos de entrada es: **marketingcampaign\\regionaldata\\{slice}, donde los archivos se particionan en una carpeta denominada {slice}, como 2014121112 (año 2014, mes 12, día 11, hora 12). 
 ### Creación de un servicio vinculado del sistema de archivos local
 El siguiente ejemplo JSON puede usarse para crear un servicio vinculado con el nombre **FolderDataStore** de tipo **OnPremisesFileSystemLinkedService**.
 
@@ -195,14 +195,14 @@ El siguiente ejemplo JSON puede usarse para crear un servicio vinculado con el n
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\contoso",
+	        "host": "\\\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
 	}
 
-> [AZURE.NOTE]Recuerde que debe usar el carácter de escape '' para nombres de host y carpetas en archivos JSON. Para **\Contoso**, utilice **\\Contoso**.
+> [AZURE.NOTE]Recuerde que debe usar el carácter de escape '' para nombres de host y carpetas en archivos JSON. Para **\\Contoso**, utilice **\\\\Contoso**.
 
 Consulte [Servicio vinculado del sistema de archivos local](https://msdn.microsoft.com/library/dn930836.aspx) para obtener información sobre elementos JSON para la definición de un servicio vinculado del sistema de archivos local.
 
@@ -228,7 +228,7 @@ El siguiente script JSON define una tabla de entrada que hace referencia a un se
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
+	            "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
 	            "partitionedBy": [
 	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
 	            ],
@@ -321,7 +321,7 @@ Tenga en cuenta que solo **folderPath** se especifica en el JSON de ejemplo.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "linkedServiceName": "FolderDataStore"
 	        },
 	        ...
@@ -336,7 +336,7 @@ Tenga en cuenta que **fileFilter** está establecido en ***.csv**.
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "fileFilter": "*.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -352,7 +352,7 @@ Tenga en cuenta que **fileFiter** está establecido en un archivo específico: *
 	    "properties": {
 	        "location": {
 	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
+	            "folderPath": "marketingcampaign\\regionaldata\\na",
 	            "fileFilter": "201501.csv",
 	            "linkedServiceName": "FolderDataStore"
 	        },
@@ -461,7 +461,7 @@ La canalización de ejemplo siguiente tiene una actividad de copia que copia dat
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -491,4 +491,4 @@ Consulte [Referencia JSON de canalizaciones](https://msdn.microsoft.com/library/
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

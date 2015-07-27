@@ -21,7 +21,7 @@ Saber cómo se usa la aplicación permite centrarse en el trabajo de desarrollo 
 
 Application Insights de Visual Studio proporciona dos niveles de seguimiento de uso:
 
-* **Datos de usuario y sesión**: se proporcionan de serie.  
+* **Datos de usuarios, sesiones y vistas de página**: listos para usar.  
 * **Telemetría personalizada**: debe [escribir código][api] para hacer un seguimiento de los usuarios a través de la experiencia del usuario con la aplicación. 
 
 ## Instalación
@@ -33,10 +33,6 @@ Los datos de uso de una aplicación web proceden del explorador del cliente.
 Un recurso de Application Insights es un lugar en Microsoft Azure donde se analizan y muestran los datos de telemetría de su aplicación. Puede que ya haya realizado una configuración para mostrar los datos del servidor de la aplicación en [ASP.NET][greenbrown] o [J2EE][java]. Si no, puede hacerlo ahora.
 
 Lo mejor suele ser mostrar los datos de uso del cliente web en el mismo recurso que los datos del servidor. De este modo, se pueden correlacionar fácilmente los diagnósticos y las métricas de los dos extremos. Por lo tanto, si ya dispone de un recurso, vaya al paso siguiente.
-
-Pero si desea usar un recurso independiente para datos de uso, inicie sesión en el [portal de Azure][portal] y cree el recurso:
-
-![](./media/app-insights-web-track-usage/01-create.png)
 
 #### Inserción de código en las páginas web
 
@@ -57,50 +53,18 @@ Inicie sesión en el [portal de Azure][portal], diríjase al recurso de la aplic
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **Usuarios:**: el número de usuarios diferentes durante el intervalo de tiempo del gráfico. (Las cookies se usan para identificar a los usuarios que vuelven).
-* **Sesiones:**: una sesión se cuenta cuando un usuario no ha realizado ninguna solicitud durante 30 minutos.
+* **Usuarios:**: recuento de los distintos usuarios activos durante el intervalo de tiempo del gráfico. 
+* **Sesiones:**recuento de sesiones activas.
 * **Vistas de página**: cuenta el número de llamadas a trackPageView(), normalmente se llama una vez en cada página web.
 
 Haga clic en cualquiera de los gráficos para ver su contenido con mayor detalle. Observe que puede cambiar el intervalo de tiempo de los gráficos.
-
-
-### ¿Qué páginas se leen más?
-
-Haga clic en el gráfico de las vistas de página para ver más detalles.
-
-![](./media/app-insights-web-track-usage/appinsights-49usage.png)
-
-
-Haga clic en un gráfico para ver otras métricas que se pueden mostrar o agregue un gráfico nuevo y seleccione las métricas que muestra.
-
-![](./media/app-insights-web-track-usage/appinsights-63usermetrics.png)
-
-> [AZURE.NOTE]Las métricas solo se pueden mostrar en algunas combinaciones. Cuando selecciona una métrica, se deshabilitan las incompatibles.
-
-
 
 ### ¿Dónde viven mis usuarios?
 
 En la hoja de uso, haga clic en el gráfico Usuarios para ver más detalles:
 
-![En la hoja de información general, haga clic en el gráfico de sesiones](./media/app-insights-web-track-usage/02-sessions.png)
+![En la hoja Uso, haga clic en el gráfico Usuarios.](./media/app-insights-web-track-usage/02-sessions.png)
  
-(Este ejemplo es de un sitio web, pero los gráficos son similares para las aplicaciones que se ejecutan en dispositivos).
-
-### ¿Es igual que la semana anterior?
-
-Compárelo con el de la semana anterior para ver si ha cambiado algo:
-
-![Seleccione un gráfico que muestre una sola métrica y cambie a la semana anterior.](./media/app-insights-web-track-usage/021-prior.png)
-
-
-### ¿Qué proporción de mis usuarios son nuevos?
-
-Compare dos métricas, por ejemplo, la de usuarios y la de usuarios nuevos:
-
-![Seleccione un gráfico, busque y active o desactive las métricas.](./media/app-insights-web-track-usage/031-dual.png)
-
-
 ### ¿Qué sistemas operativos o exploradores utilizan?
 
 Agrupe (segmente) los datos por una propiedad, como Explorador, Sistema operativo o Ciudad:
@@ -151,7 +115,7 @@ De forma predeterminada, el usuario se identifica mediante la colocación de una
 
 La métrica **Recuento de usuarios** en un intervalo determinado se define como el número de usuarios únicos con actividad registrada durante este intervalo. Como resultado, es posible que los usuarios con sesiones extensas se cuenten varias veces cuando se establece un intervalo de tiempo tal que la unidad es inferior a una hora o similar.
 
-**Usuarios nuevos** cuenta los usuarios cuyas primeras sesiones con la aplicación se produjeron durante este intervalo. Si se usa el método predeterminado de recuento de usuarios por las cookies, esto incluirá también los usuarios que han desactivado sus cookies o que utilizan un nuevo dispositivo o explorador para acceder a la aplicación por primera vez.
+**Usuarios nuevos** cuenta los usuarios cuyas primeras sesiones con la aplicación se produjeron durante este intervalo. Si se usa el método predeterminado de recuento de usuarios por las cookies, esto incluirá también a los usuarios que han desactivado sus cookies o que usan un nuevo dispositivo o explorador para tener acceso a la aplicación por primera vez. ![En la hoja Uso, haga clic en el gráfico Usuarios para examinar los usuarios nuevos.](./media/app-insights-web-track-usage/031-dual.png)
 
 ## Tráfico sintético
 
@@ -186,16 +150,16 @@ Pero todavía desea que Application Insights registre el número de veces que se
 
 Use eventos personalizados. Puede enviarlos desde aplicaciones de dispositivo, páginas web o un servidor web:
 
-(JavaScript)
+*JavaScript*
 
     telemetryClient.trackEvent("GameEnd");
 
-(C#)
+*C#*
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-(VB)
+*VB*
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -245,7 +209,9 @@ Y ahora podemos comprobar que este usuario se ha conectado simplemente para comp
 Puede adjuntar etiquetas arbitrarias y valores numéricos a los eventos.
  
 
-JavaScript en el cliente
+*JavaScript en el cliente*
+
+```JavaScript
 
     appInsights.trackEvent("WinGame",
         // String properties:
@@ -253,8 +219,11 @@ JavaScript en el cliente
         // Numeric measurements:
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
+```
 
-C# en el servidor
+*C# en el servidor*
+
+```C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -264,8 +233,11 @@ C# en el servidor
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements);
+```
 
-VB en el servidor
+*VB en el servidor*
+
+```VB
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -278,14 +250,19 @@ VB en el servidor
 
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
+```
 
 Asocie propiedades a vistas de página de la misma manera:
 
-JavaScript en el cliente
+*JavaScript en el cliente*
+
+```JS
 
     appInsights.trackPageView("Win", 
+        url,
         {Game: currentGame.Name}, 
         {Score: currentGame.Score});
+```
 
 En Búsqueda de diagnóstico, vea las propiedades haciendo clic a través de una única repetición de un evento.
 
@@ -306,7 +283,9 @@ Para realizar esta técnica, adjunte etiquetas distintas a toda la telemetría q
 
 En el portal de Application Insights, podrá filtrar y agrupar (segmentar) los datos en las etiquetas, con el fin de comparar las distintas versiones.
 
-C# en el servidor
+*C# en el servidor*
+
+```C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -315,18 +294,24 @@ C# en el servidor
     var telemetry = new TelemetryClient(context);
     // Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame");
+```
 
-VB en el servidor
+*VB en el servidor*
+
+```VB
 
     Dim context = New TelemetryContext
     context.Properties("Game") = currentGame.Name
     Dim telemetry = New TelemetryClient(context)
     ' Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame")
+```
 
 La telemetría individual puede invalidar los valores predeterminados.
 
 Puede configurar un inicializador universal para que todos los TelemetryClients nuevos usen automáticamente el contexto.
+
+```C#
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -336,8 +321,11 @@ Puede configurar un inicializador universal para que todos los TelemetryClients 
             context.Properties["AppVersion"] = "v2.1";
         }
     }
+```
 
 En el inicializador de la aplicación como Global.asax.cs:
+
+```C#
 
     protected void Application_Start()
     {
@@ -345,6 +333,7 @@ En el inicializador de la aplicación como Global.asax.cs:
         TelemetryConfiguration.Active.ContextInitializers
         .Add(new MyTelemetryInitializer());
     }
+```
 
 
 ## Compilación - Métrica - Aprendizaje
@@ -360,7 +349,7 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
 ## Vídeo
 
-> [Azure.VIDEO usage-monitoring-application-insights]
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
@@ -376,4 +365,5 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 [windows]: app-insights-windows-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

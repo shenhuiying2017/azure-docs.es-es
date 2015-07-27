@@ -4,7 +4,6 @@
  services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
-   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -87,12 +86,13 @@ El siguiente script muestra la creación, actualización y eliminación de una C
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force 
 
 ## Pasos siguientes
-Para obtener más información acerca del uso de Windows Azure PowerShell:
+
+Para obtener más información acerca de Windows PowerShell con Azure, consulte los siguientes recursos:
  
-- [Cmdlets de Administrador de recursos de Azure](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): obtenga información acerca del uso de los cmdlets en el módulo AzureResourceManager.
-- [Uso de grupos de recursos para administrar los recursos de Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
+- [Cmdlets de Administrador de recursos de Azure](http://go.microsoft.com/fwlink/?LinkID=394765): obtenga información acerca del uso de los cmdlets en el módulo AzureResourceManager.
+- [Uso de grupos de recursos para administrar los recursos de Azure](../azure-portal/resource-group-portal): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
 - [Blog de Azure](http://blogs.msdn.com/windowsazure): obtenga información acerca de las nuevas características de Azure.
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

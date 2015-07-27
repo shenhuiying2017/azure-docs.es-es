@@ -88,4 +88,4 @@ Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocu
 - [Servicios de BizTalk: nombre del emisor y clave del emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

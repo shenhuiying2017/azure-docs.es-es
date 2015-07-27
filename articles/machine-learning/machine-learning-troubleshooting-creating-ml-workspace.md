@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/01/2015" 
 	ms.author="garye"/>
 
 
@@ -27,7 +27,7 @@ Esta guía proporciona soluciones para algunos de los desafíos más comunes al 
 
 Cuando se crea un área de trabajo de Aprendizaje automático nueva, el identificador que escribe en el campo PROPIETARIO DEL ÁREA DE TRABAJO debe ser una cuenta de Microsoft válida (anteriormente Windows Live ID), por ejemplo, john-contoso@live.com o john-contoso@hotmail.com. No puede ser una cuenta que no pertenezca a Microsoft, como su cuenta de correo electrónico corporativa. Para crear una cuenta gratuita de Microsoft, vaya a [www.live.com](http://www.live.com).
 
-Observe que la cuenta que usó para iniciar sesión en el portal de Azure y crear el área de trabajo no tiene automáticamente permiso para abrir esa área de trabajo, a menos que especifique esa cuenta como propietaria. Para abrir un área de trabajo en Estudio de aprendizaje automático, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo, o bien, puede ser necesario que reciba una invitación del propietario para unirse al área de trabajo. Sin embargo, en el portal de Azure puede *administrar* el área de trabajo, lo que incluye la capacidad de cambiar el propietario y configurar el acceso.
+Observe que la cuenta que usó para iniciar sesión en el Portal de Azure y crear el área de trabajo no tiene automáticamente permiso para *abrir* esa área de trabajo, a menos que especifique esa cuenta como propietaria. Para abrir un área de trabajo en Estudio de aprendizaje automático, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo, o bien, puede ser necesario que reciba una invitación del propietario para unirse al área de trabajo. Sin embargo, en el portal de Azure puede *administrar* el área de trabajo, lo que incluye la capacidad de cambiar el propietario y configurar el acceso.
 
 Para obtener más información sobre cómo administrar un área de trabajo, consulte [Administración de un área de trabajo de Aprendizaje automático de Azure].
 
@@ -77,4 +77,4 @@ Nuestro objeto es hacer que la experiencia de Aprendizaje automático sea lo má
 [screen6]: media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

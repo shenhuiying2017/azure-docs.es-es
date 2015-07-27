@@ -120,7 +120,7 @@ Como se ha mencionado en la sección anterior, la mejor forma de ver la versión
 	![Configuración de aplicaciones web][settings-button]
 
 5. En la hoja **Configuración**, seleccione **Configuración de la aplicación** y desplácese a la sección **Configuración de aplicaciones**.
-6. En la sección **Configuración de aplicaciones**, cree una clave **PHP_EXTENSIONS**. El valor de esta clave es una ruta de acceso relativa a la raíz del sitio web: **bin\your-ext-file**.
+6. En la sección **Configuración de aplicaciones**, cree una clave **PHP_EXTENSIONS**. El valor de esta clave es una ruta de acceso relativa a la raíz del sitio web: **bin\\your-ext-file**.
 
 	![Habilitar extensiones en app settings][php-extensions]
 
@@ -177,4 +177,4 @@ En lugar del tiempo de ejecución de PHP, Aplicaciones web del Servicio de aplic
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -65,7 +65,7 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Cuentas de vista previa de lotes</a> por región y por suscripción</p></td>
+   <td valign="middle"><p>Cuentas de <a href="http://azure.microsoft.com/services/batch/">Lote</a> por región y suscripción</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -73,4 +73,4 @@
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

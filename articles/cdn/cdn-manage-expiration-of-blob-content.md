@@ -23,7 +23,7 @@ Los bloques que obtienen el máximo beneficio del almacenamiento en caché de la
 Dispone de dos opciones para controlar el tiempo TTL.
 
 1.	No establecer valores de caché y utilizar, por tanto, el valor predeterminado de TTL de 7 días. 
-2.	Establecer explícitamente la propiedad *x-ms-blob-cache-control* en una solicitud **Poner blob**, **Poner lista de bloques** o **Establecer propiedades del blob**, o usar la biblioteca administrada de Azure para establecer la propiedad [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx). El establecimiento de esta propiedad establecer el valor del encabezado *Cache-Control* para el blob. El valor del encabezado o la propiedad deben especificar el valor apropiado en segundos. Por ejemplo, para establecer el período de almacenamiento en cache máximo en un año, puede especificar el encabezado de solicitud como `x-ms-blob-cache-control: public, max-age=31556926`. Para obtener detalles acerca del establecimiento de encabezados de almacenamiento en caché, vea la [especificación HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
+2.	Establecer explícitamente la propiedad *x-ms-blob-cache-control* en una solicitud **Poner blob**, **Poner lista de bloques** o **Establecer propiedades del blob**, o usar la biblioteca administrada de Azure para establecer la propiedad [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx). El establecimiento de esta propiedad establecer el valor del encabezado *Cache-Control* para el blob. El valor del encabezado o la propiedad deben especificar el valor apropiado en segundos. Por ejemplo, para establecer el período de almacenamiento en cache máximo en un año, puede especificar el encabezado de solicitud como `x-ms-blob-cache-control: public, max-age=31556926`. Para obtener detalles acerca del establecimiento de encabezados de almacenamiento en caché, vea la [especificación HTTP/1.1](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).  
 
 Cualquier contenido que desee almacenar en caché a través de la red CDN se debe almacenar en su cuenta de almacenamiento de Azure como un blob accesible públicamente. Para obtener más detalles acerca del servicio BLOB de Azure, vea **Conceptos del servicio de blobs**.
 
@@ -96,4 +96,4 @@ Si lo desea, puede utilizar una herramienta como **wget** o Fiddler para examina
 
 [Administración de la expiración del contenido del servicio en la nube en la Red de entrega de contenido de Azure (CDN)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

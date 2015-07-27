@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 # Codificador de archivos sin formato de BizTalk
@@ -100,4 +100,4 @@ La acción devuelve la salida como una cadena: archivo sin formato. La salida co
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

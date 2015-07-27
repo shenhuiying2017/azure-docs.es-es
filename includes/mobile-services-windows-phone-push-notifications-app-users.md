@@ -14,4 +14,4 @@ A continuación, debe cambiar la manera en que se registran las notificaciones d
             RefreshTodoItems();
         }
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

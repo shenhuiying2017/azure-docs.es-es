@@ -115,4 +115,4 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

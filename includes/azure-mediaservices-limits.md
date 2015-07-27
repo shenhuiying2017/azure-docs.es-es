@@ -77,4 +77,4 @@
 
 <sup>4</sup> Los localizadores no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

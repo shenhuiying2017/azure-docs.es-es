@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación lógica y una aplicación de API mediante una plantilla
@@ -26,7 +26,7 @@ Para obtener más detalles sobre las propiedades de la aplicación lógica, cons
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-Para la plantilla completa, consulte [Aplicación lógica con una plantilla de aplicación de API](https://github.com/tfitzmac/AppServiceTemplates/blob/master/LogicAppAndAPIApp.json).
+Para la plantilla completa, consulte [Aplicación lógica con una plantilla de aplicación de API](https://github.com/Azure/azure-quickstart-templates/blob/master/201-logic-app-api-app-create/azuredeploy.json).
 
 ## Lo que implementará
 
@@ -34,6 +34,10 @@ Con esta plantilla, proporcionará:
 
 - Aplicación lógica
 - Aplicación de API
+
+Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
+
+[![Implementación en Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-api-app-create%2Fazuredeploy.json)
 
 ## Parámetros
 
@@ -129,7 +133,7 @@ Crea la aplicación web para hospedar la puerta de enlace.
                     },
                     {
                         "name": "EmaStorage",
-                        "value": "D:\home\data\apiapps"
+                        "value": "D:\\home\\data\\apiapps"
                     },
                     {
                         "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -381,12 +385,13 @@ Observe que la aplicación lógica utiliza el token para llamar a la puerta de e
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicAppAndAPIApp.json -ResourceGroupName ExampleDeployGroup
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/LogicAppAndAPIApp.json -g ExampleDeployGroup
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-api-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

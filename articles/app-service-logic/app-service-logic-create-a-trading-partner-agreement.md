@@ -3,7 +3,7 @@
    description="Creación de acuerdos entre socios comerciales" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/22/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 # Creación de un acuerdo entre socios comerciales   
@@ -78,4 +78,4 @@ Para crear acuerdos entre socios comerciales:
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

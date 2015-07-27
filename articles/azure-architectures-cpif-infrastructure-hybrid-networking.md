@@ -58,4 +58,4 @@ El patrón de arquitectura Redes híbridas es complejo debido al posible número
 
 [Nivel de procesamiento por lotes](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

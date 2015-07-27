@@ -26,6 +26,7 @@ La característica de ASE esencialmente implementa el Servicio de aplicaciones d
 
 - Una red virtual regional con 512 (/23) direcciones o más
 - Una subred en esta red virtual con 256 (/ 24) direcciones o más
+- La subred ** no debe contener otros recursos informáticos**. Solo se puede implementar un entorno del Servicio de aplicaciones en una subred. El intento de creación dará error si hay otros recursos informáticos que ya residan en la subred.
 
 Si aún no tiene una red virtual que desea usar para hospedar el entorno del Servicio de aplicaciones, puede crear una durante la creación del entorno del Servicio de aplicaciones.
 
@@ -142,4 +143,4 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

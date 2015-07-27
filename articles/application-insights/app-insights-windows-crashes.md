@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # La detección y el diagnóstico se bloquean en las aplicaciones de la Tienda Windows y de Windows Phone con Application Insights
@@ -21,7 +21,7 @@
 
 Si los usuarios experimentan bloqueos en la aplicación, le gustaría saberlo rápidamente y conocer detalles sobre qué ha ocurrido. Con Application Insights, puede supervisar con qué frecuencia se producen los bloqueos, recibir avisos cuando se produzcan e investigar los informes de incidentes individuales.
 
-"Bloqueo" significa que la aplicación finaliza debido a una excepción no detectada. Si la aplicación detecta una excepción, puede notificarla con la API TrackException() pero continuará ejecutándose. En ese caso, no se registrará como un bloqueo.
+"Bloqueo" significa que la aplicación finaliza debido a una excepción no detectada. Si la aplicación detecta una excepción, puede notificarla con la [API TrackException][apiexceptions], pero continuará ejecutándose. En ese caso, no se registrará como un bloqueo.
 
 
 ## Supervisión de la frecuencia de bloqueo
@@ -80,6 +80,8 @@ Si compila en la configuración de lanzamiento, los eventos se almacenan en el d
 
 [Detección, evaluación de errores y problemas de diagnóstico con Application Insights][detect]
 
+[API de Application Insights][api]
+
 [Captura de registros de diagnóstico][trace]
 
 [Solución de problemas](app-insights-windows-troubleshoot.md)
@@ -89,11 +91,15 @@ Si compila en la configuración de lanzamiento, los eventos se almacenan en el d
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -90,4 +90,4 @@ Este es un breve vídeo que muestra cómo un cliente de Azure puede utilizar Clo
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

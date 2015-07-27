@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 # Crear un servicio REST con la Web API de ASP.NET y la base de datos SQL en el servicio de aplicaciones de Azure
@@ -37,7 +36,8 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 ![captura de pantalla de sitio web][intro001]
 
-<a name="bkmk_setupdevenv"></a> <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
+[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### Creación del proyecto
 
@@ -75,10 +75,10 @@ Si tiene un servidor de base de datos, úselo para crear una nueva base de datos
 ### Establecimiento del encabezado y pie de página
 
 
-1. En el **Explorador de soluciones**, expanda la carpeta *Views\Shared* y abra el archivo *_Layout.cshtml*. 
+1. En el **Explorador de soluciones**, expanda la carpeta *Views\\Shared* y abra el archivo *_Layout.cshtml*. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Reemplace el contenido del archivo *Views\Shared_Layout.cshtml* por el código siguiente:
+1. Reemplace el contenido del archivo *Views\\Shared_Layout.cshtml* por el código siguiente:
 
 
 		<!DOCTYPE html>
@@ -125,7 +125,7 @@ El código anterior cambia el nombre de la aplicación "My ASP.NET App" a "Conta
 
 Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a implementar en Azure. Más adelante agregará la funcionalidad de base de datos.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Implementación de la aplicación en Azure</h2>
+## Implementación de la aplicación en Azure
 
 1. En Visual Studio, haga clic con el botón secundario en el proyecto, en el **Explorador de soluciones** y seleccione **Publicar** en el menú contextual.
 
@@ -145,7 +145,7 @@ Visual Studio comienza el proceso de copiar los archivos en el servidor de Azure
 	
 	![Página de inicio de tareas pendientes ejecutándose en Azure][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>Incorporación de una base de datos a la aplicación</h2>
+## Incorporación de una base de datos a la aplicación
 
 A continuación, actualizará la aplicación MVC incorporando funciones que permitan mostrar y actualizar los contactos y almacenar los datos en una base de datos. La aplicación utilizará Entity Framework para crear la base de datos y para leer y actualizar los datos que esta contiene.
 
@@ -191,7 +191,7 @@ La clase **Contacts** define qué datos se almacenarán para cada contacto, así
 
 La característica de scaffolding de ASP.NET MVC puede generar automáticamente código que realiza acciones de creación, lectura, actualización y eliminación (CRUD).
 
-<h2><a name="bkmk_addcontroller"></a>Incorporación de un controlador y una vista para los datos</h2>
+## Incorporación de un controlador y una vista para los datos
 
 1. En el **Explorador de soluciones**, expanda la carpeta Controllers.
 
@@ -235,7 +235,7 @@ La siguiente tarea consiste en habilitar la característica [Migraciones de Code
 
 	En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down** (que se utiliza cuando se desea volver al estado anterior) la anula.
 
-3. Abra el archivo *Migrations\Configuration.cs*.
+3. Abra el archivo *Migrations\\Configuration.cs*.
 
 4. Agregue los siguientes espacios de nombres.
 
@@ -316,9 +316,9 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 ![Vista MVC de los datos][rxz3]
 
-<h2><a name="bkmk_addview"></a>Edición de la vista</h2>
+## Edición de la vista
 
-1. Abra el archivo *Views\Home\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
+1. Abra el archivo *Views\\Home\\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
 
 
 2. Reemplace el contenido del archivo por el código siguiente.
@@ -475,7 +475,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 	Utilizaremos la hoja de estilos para el diseño, los colores y el estilo utilizados en la aplicación del administrador de contactos.
 
-6. Abra el archivo *App_Start\BundleConfig.cs*.
+6. Abra el archivo *App_Start\\BundleConfig.cs*.
 
 
 7. Agregue el código siguiente para registrar el complemento [Knockout](http://knockoutjs.com/index.html "KO").
@@ -499,10 +499,9 @@ Por:
 1. En Package Manager Console, ejecute el comando siguiente para instalar Knockout.
 
 	Install-Package knockoutjs
+## Incorporación de un controlador para la interfaz Restful de Web API
 
-<h2><a name="bkmk_addwebapi"></a>Incorporación de un controlador para la interfaz Restful de Web API</h2>
-
-1. En el **Explorador de soluciones**, haga clic en Controladores, **Agregar** y luego en **Controlador...** 
+1. En el **Explorador de soluciones**, haga clic en Controladores, **Agregar** y luego en **Controlador...**
 
 1. En el cuadro de diálogo **Agregar scaffold**, escriba **Controlador de Web API 2 con acciones, usando Entity Framework** y luego haga clic en **Agregar**.
 
@@ -541,8 +540,7 @@ Por:
 	![Cuadro de diálogo de almacenamiento de la API web.][addwebapi007]
 
 	**Administración de seguridad**: en este momento, la aplicación es insegura y vulnerable frente un ataque CSRF. Más adelante en el tutorial eliminaremos esta vulnerabilidad. Para obtener más información, consulte [Impedimento de ataques de falsificación de solicitud entre sitios (CSRF)][prevent-csrf-attacks].
-
-<h2><a name="xsrf"></a>Incorporación de protección de XSRF</h2>
+## Incorporación de protección de XSRF
 
 La falsificación de solicitud entre sitios (también conocida como XSRF o CSRF) es un ataque contra aplicaciones hospedadas en web, en donde un sitio web malintencionado puede influir en la interacción entre un explorador cliente y un sitio web de confianza de ese explorador. Estos ataques son posibles porque los exploradores web enviarán tokens de autenticación automáticamente con cada solicitud a un sitio web. El ejemplo canónico es una cookie de autenticación, como el vale de autenticación de formularios de ASP.NET. Sin embargo, los sitios web que utilicen cualquier mecanismo de autenticación persistente (como Autenticación de Windows, Basic, entre otras) podrían ser objetivos de esos ataques.
 
@@ -630,7 +628,7 @@ Para obtener más información, consulte [Proyecto de seguridad de aplicación w
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Actualice la sección *Scripts* del archivo *Views\Home\Index.cshtml* para incluir código y obtener los tokens de XSRF.
+1. Actualice la sección *Scripts* del archivo *Views\\Home\\Index.cshtml* para incluir código y obtener los tokens de XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -685,7 +683,7 @@ Para obtener más información, consulte [Proyecto de seguridad de aplicación w
             </script>
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Publicación de la actualización de la aplicación en Azure y la base de datos SQL</h2>
+## Publicación de la actualización de la aplicación en Azure y la base de datos SQL
 
 Para publicar la aplicación, repita el procedimiento que ha realizado anteriormente.
 
@@ -722,7 +720,7 @@ La aplicación ahora se está ejecutando en la nube, utilizando Base de datos SQ
 
 >[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-<h2><a name="nextsteps"></a>Pasos siguientes</h2>
+## Pasos siguientes
 
 Una aplicación auténtica podría requerir la autenticación y autorización y podría usar la base de datos de suscripciones para este fin. El tutorial [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) se basa en este tutorial y muestra cómo implementar una aplicación web con la base de datos de suscripciones.
 
@@ -811,4 +809,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Conector de Office 365" 
-   description="Uso del conector de Office 365" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Conector de Office 365"
+   description="Uso del conector de Office 365"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #Uso del conector de Office 365 en la aplicación lógica#
@@ -80,7 +80,7 @@ Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba
 	![][9]
 
 11. El desencadenador ’Nuevo correo electrónico’ de Office 365 está configurado y puede ver también los parámetros de salida.
-	
+
 	![][10]
 
 12.	Seleccione "Conector de Office 365" en la sección "Usados recientemente" en la galería y se agregará una nueva acción de "Office 365".
@@ -157,7 +157,4 @@ Vamos a crear una aplicación lógica simple que se desencadene cuando se reciba
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

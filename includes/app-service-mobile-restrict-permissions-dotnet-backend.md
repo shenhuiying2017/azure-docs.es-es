@@ -28,4 +28,4 @@ De manera predeterminada, todas las solicitudes a los recursos de la aplicación
 
 6. Volver a publicar un proyecto de aplicación móvil.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Crear una cuenta de base de datos | Azure" 
-	description="Obtenga información acerca de cómo crear una cuenta de DocumentDB NoSQL y de cómo elegir la configuración de la cuenta en el Portal de vista previa de Azure."
+	pageTitle="Crear una cuenta de base de datos - versión de prueba gratuita | Microsoft Azure" 
+	description="Aprenda a crear cuentas de base de datos mediante el portal de servicios en línea para DocumentDB de Azure, una base de datos de documentos NoSQL administrada para JSON. Obtenga una versión de evaluación gratuita hoy mismo."
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -12,24 +12,37 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.topic="get-started-article" 
+	ms.date="06/26/2015" 
 	ms.author="mimig"/>
 
-#Creación de una cuenta de base de datos
-Para usar DocumentDB de Microsoft Azure, debe crear una cuenta de DocumentDB.  En este tema se describe la forma de crear una cuenta de DocumentDB en el Portal de vista previa de Azure.  
+# Crear una cuenta de base de datos de DocumentDB mediante el portal de vista previa de Azure
+
+Para usar Microsoft Azure DocumentDB, debe crear una cuenta de base de datos de DocumentDB mediante el portal de vista previa de Azure.
+
+¿Es la primera vez que usa DocumentDB? Vea [este](http://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) vídeo de cuatro minutos de Scott Hanselman para saber cómo realizar las tareas más comunes en el portal en línea.
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="NextSteps"></a>Pasos siguientes
-Para comenzar con la Microsoft Azure DocumentDB, explore los siguientes recursos:
+## Pasos siguientes
 
--	[Guía de aprendizaje para DocumentDB](documentdb-learning-map.md)
+Ahora que tiene una cuenta de DocumentDB, el siguiente paso es crear una base de datos de DocumentDB. Puede crear una base de datos mediante uno de los siguientes procedimientos:
+
+- Los ejemplos de .NET de C# en el proyecto [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) del repositorio [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) de GitHub.
+- El portal de vista previa, como se describe en [Creación de una base de datos de DocumentDB en el portal de vista previa de Azure](documentdb-create-database.md).
+- Los tutoriales de todo inclusivo: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) o [Python](documentdb-python-application.md).
+- Los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB tiene .NET, Java, Python, Node.js y SDK de la API de JavaScript. 
+
+
+Después de crear la base de datos, necesitará [agregar una o más colecciones](documentdb-create-collection.md) a la base de datos y después [agregar documentos](documentdb-view-json-document-explorer.md) a las colecciones.
+
+Cuando tenga documentos en una colección, puede usar [SQL de DocumentDB](documentdb-sql-query.md) para [ejecutar consultas](documentdb-sql-query.md#executing-queries) frente a sus documentos usando el [Explorador de consultas](documentdb-query-collections-query-explorer.md) en el portal de vista previa, la [API de REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) o uno de los [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+
+Para obtener más información acerca de DocumentDB, explore estos recursos:
+
+-	[Mapa de aprendizaje para DocumentDB](documentdb-learning-map.md)
 -	[Modelo de recursos y conceptos de DocumentDB](documentdb-resources.md)
--	[Interacciones RESTful con recursos de DocumentDB](documentdb-interactions-with-resources.md)
--	[Introducción al SDK de .NET de DocumentDB](documentdb-get-started.md)
 
-Para obtener más información sobre DocumentDB, vea la documentación correspondiente en [azure.com](http://go.microsoft.com/fwlink/p/?LinkID=402319).
+ 
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

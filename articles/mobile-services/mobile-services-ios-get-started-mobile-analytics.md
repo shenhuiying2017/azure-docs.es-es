@@ -102,4 +102,4 @@ Puede obtener más información sobre lo que Capptain puede hacer por su aplicac
 [nivel estándar de Servicios móviles]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

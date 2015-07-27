@@ -40,7 +40,7 @@ Los siguientes pasos le ayudarán a crear el proyecto de servicio en la nube que
 
 
 
-2. Cambie los directorios por el directorio **c:\\node** y, a continuación, escriba los siguientes comandos para crear una solución nueva llamada **chatapp** y un rol de trabajo con el nombre **WorkerRole1**:
+2. Cambie los directorios por el directorio **c:\\\\node** y, a continuación, escriba los siguientes comandos para crear una solución nueva llamada **chatapp** y un rol de trabajo con el nombre **WorkerRole1**:
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -57,13 +57,13 @@ Para este proyecto, usaremos el ejemplo de chat del [repositorio de Socket.IO Gi
 
     ![Ventana de explorador con https://github.com/LearnBoost/socket.io/tree/master/examples/chat, y el icono de descarga ZIP resaltado][chat-example-view]
 
-3.  Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\chat**. Copie el contenido de este directorio al directorio **C:\\node\\chatapp\\WorkerRole1** creado anteriormente.
+3.  Diríjase a la estructura de directorios del repositorio local hasta que llegue al directorio **examples\\\\chat**. Copie el contenido de este directorio al directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1** creado anteriormente.
 
-    ![Explorador que muestra el contenido del directorio examples\chat extraído del archivo][chat-contents]
+    ![Explorador que muestra el contenido del directorio examples\\chat extraído del archivo][chat-contents]
 
-    Los elementos resaltados en la captura de pantalla anterior son los archivos que se copiaron del directorio **examples\\chat**.
+    Los elementos resaltados en la captura de pantalla anterior son los archivos que se copiaron del directorio **examples\\\\chat**.
 
-4.  En el directorio **C:\\node\\chatapp\\WorkerRole1**, elimine el archivo **server.js** y, a continuación, cambie el nombre del archivo **app.js** a **server.js**. De esta manera se quita el archivo predeterminado **server.js** que se creó anteriormente a través del cmdlet **Add-AzureNodeWorkerRole** y se reemplaza por el archivo de aplicación del ejemplo de chat.
+4.  En el directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1**, elimine el archivo **server.js** y, a continuación, cambie el nombre del archivo **app.js** a **server.js**. De esta manera se quita el archivo predeterminado **server.js** que se creó anteriormente a través del cmdlet **Add-AzureNodeWorkerRole** y se reemplaza por el archivo de aplicación del ejemplo de chat.
 
 ### Modificar el archivo server.js e instalar los módulos
 
@@ -89,7 +89,7 @@ Antes de probar la aplicación en el emulador de Azure, se deben realizar alguna
 
 Después de guardar los cambios en server.js, use los siguientes pasos para instalar los módulos necesarios y, a continuación, pruebe la aplicación en el emulador de Azure:
 
-1.  Mediante **PowerShell de Azure**, cambie los directorios al directorio **C:\\node\\chatapp\\WorkerRole1** y use el siguiente comando para instalar los módulos necesarios para esta aplicación:
+1.  Mediante **PowerShell de Azure**, cambie los directorios al directorio **C:\\\\node\\\\chatapp\\\\WorkerRole1** y use el siguiente comando para instalar los módulos necesarios para esta aplicación:
 
         PS C:\node\chatapp\WorkerRole1> npm install
 
@@ -99,7 +99,7 @@ Después de guardar los cambios en server.js, use los siguientes pasos para inst
 
 4.  Debido a que este ejemplo era originalmente parte del repositorio de Socket.IO GitHub y hacía referencia directa a la biblioteca de Socket.IO mediante la ruta relativa, no se hacía referencia al Socket.IO en el archivo package.json, por lo que debemos instalarlo ejecutando el siguiente comando:
 
-        PS C:\node\chatapp\WorkerRole1> npm install socket.io -save
+        PS C:\node\chatapp\WorkerRole1> npm install socket.io --save
 
 ### Prueba e implementación
 
@@ -158,4 +158,4 @@ En este tutorial aprendió a crear una aplicación de chat básica hospedada en 
   
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

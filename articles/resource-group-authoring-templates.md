@@ -1,24 +1,26 @@
 <properties
    pageTitle="Crear plantillas del Administrador de recursos de Azure"
    description="Cree plantillas del Administrador de recursos de Azure mediante la sintaxis declarativa de JSON para implementar aplicaciones en Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Crear plantillas del Administrador de recursos de Azure
 
 Normalmente, las aplicaciones de Azure requieren una combinación de recursos (por ejemplo, un servidor de base de datos, una base de datos o un sitio web) para cumplir los objetivos deseados. En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla del Administrador de recursos de Azure que implementa y aprovisiona todos los recursos de su aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
+
+En este tema se describen las secciones de la plantilla. Para los esquemas reales, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 ## Formato de plantilla
 
@@ -401,5 +403,6 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
 - [Implementación predecible de una aplicación compleja en Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
+- [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

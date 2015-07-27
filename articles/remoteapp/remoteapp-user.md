@@ -2,7 +2,6 @@
     pageTitle="Agregar un usuario en RemoteApp" 
     description="Más información sobre cómo agregar usuarios de RemoteApp" 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="06/30/2015" 
     ms.author="elizapo" />
 
 # Cómo agregar un usuario en RemoteApp
@@ -42,7 +41,7 @@ Puede usar esta tabla como referencia rápida para saber qué identidad se admit
 |ADsync con sincronización de contraseñas |Sí |Sí |
 |ADsync sin sincronización de contraseñas|	Sí |No |
 |ADsync con AD FS |Sí |Sí |
-|Proveedores de identidades de terceros admitidas en Azure (por ejemplo, Ping) |Sí |No|	
+|Proveedores de identidades de terceros admitidas en Azure (por ejemplo, Ping) |Sí |Sí|	
 |Multi-Factor Authentication |Sí |Sí |
 
 Consulte [más información](remoteapp-ad.md) sobre cómo configurar Active Directory para RemoteApp.
@@ -54,4 +53,4 @@ Consulte [más información](remoteapp-ad.md) sobre cómo configurar Active Dire
 Si usa la imagen de plantilla de Office 365 ProPlus en su colección *o* si creó una imagen personalizada que usa Office 365, solo puede agregar usuarios de Azure Active Directory que tengan suscripciones de Office 365 para el dominio predeterminado de su suscripción. Consulte [Uso de Office 365 con RemoteApp de Azure](remoteapp-o365.md) para obtener más información.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

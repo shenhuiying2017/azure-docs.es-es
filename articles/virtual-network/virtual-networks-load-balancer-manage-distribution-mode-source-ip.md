@@ -62,7 +62,7 @@ Descargue la [última versión de Azure PowerShell](https://github.com/Azure/azu
 LoadBalancerDistribution puede establecerse en sourceIP para equilibrio de carga de 2-tupla (IP de origen, IP de destino), sourceIPProtocol para equilibrio de carga de 3-tupla (IP de origen, IP de destino, protocolo) o ninguno si desea el comportamiento predeterminado (equilibrio de carga de 5-tupla).
 
 ### Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
-    PS C:\> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
+    PS C:> Get-AzureVM â€“ServiceName "mySvc" -Name "MyVM1" | Get-AzureEndpoint
     
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
@@ -161,4 +161,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

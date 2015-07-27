@@ -259,4 +259,5 @@ Así es como un equipo usa Application Insights no solo para solucionar problema
 [perf]: app-insights-web-monitor-performance.md
 [usage]: app-insights-web-track-usage.md
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Administración del servicio de búsqueda en Microsoft Azure
@@ -210,4 +210,4 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

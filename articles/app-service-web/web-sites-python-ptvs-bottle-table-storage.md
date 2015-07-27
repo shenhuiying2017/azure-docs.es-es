@@ -73,9 +73,7 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal y haga clic en **Datos + Almacenamiento** > **Almacenamiento**. Asigne un nombre único a la cuenta de almacenamiento y cree un [grupo de recursos](../resource-group-overview.md) nuevo para ella.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->Una vez creada la cuenta de almacenamiento, el botón **Notificaciones** emitirá el mensaje **CORRECTO** en color verde y la hoja de la cuenta de almacenamiento se abrirá para mostrar que pertenece al nuevo grupo de recursos que ha creado.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -113,7 +111,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 
 Es fácil ver y editar tablas de almacenamiento con el Explorador de servidores en Visual Studio. En esta sección, vamos a utilizar el Explorador de servidores para ver el contenido de las tablas de la aplicación de sondeos.
 
-> [AZURE.NOTE]Para esto es necesario instalar Microsoft Azure Tools, que están disponibles como parte de [Azure SDK para .NET].
+> [AZURE.NOTE]Para esto es necesario que estén instaladas las Herramientas de Microsoft Azure, que se encuentran disponibles como parte del [SDK de Azure para .NET].
 
 1.  Abra el **Explorador de servidores**. Expanda **Azure**, **Almacenamiento**, la cuenta de almacenamiento y, a continuación, **Tablas**.
 
@@ -201,7 +199,7 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 <!--External Link references-->
 [Examinar]: https://portal.azure.com
 [Portal de Azure]: https://portal.azure.com
-[Azure SDK para .NET]: http://azure.microsoft.com/downloads/
+[SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
 [Herramientas de Python para Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
@@ -218,4 +216,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

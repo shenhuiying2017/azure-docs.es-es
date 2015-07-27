@@ -3,7 +3,7 @@
 	description="Obtenga información acerca de cómo crear API, operaciones y productos en Administración de API." 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="jtwist" 
+	authors="joshtwist" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="07/08/2015" 
 	ms.author="jtwist"/>
 
-## Plantillas de BizTalk y Aplicaciones lógicas
+# Plantillas de BizTalk y Aplicaciones lógicas
 
 ### Esta documentación se incluirá próximamente.
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -29,4 +29,4 @@ El ejemplo anterior muestra un inicio de sesión estándar, que requiere que el 
 
 				[self loadAuthInfo];
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

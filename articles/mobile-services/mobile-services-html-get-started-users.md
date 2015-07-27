@@ -138,4 +138,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Servicios móviles con HTML/JavaScript en Referencia conceptual de Servicios móviles HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

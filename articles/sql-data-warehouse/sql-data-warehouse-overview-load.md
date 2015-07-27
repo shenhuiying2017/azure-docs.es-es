@@ -44,7 +44,7 @@ El ejecutable de línea de comandos **bcp** es una utilidad de Microsoft que per
 PolyBase es una tecnología de Microsoft que simplifica el análisis de los datos proporcionando una forma de consulta al almacenamiento de blobs de Almacenamiento de Azure y Hadoop, todo ello con Transact-SQL estándar y sin usar MapReduce. PolyBase también puede cargar datos del almacenamiento de blobs de Azure en Almacenamiento de datos SQL. Para comenzar, siga el tutorial [Carga con PolyBase][].
 
 ### SQL Server Integration Services (SSIS)
-[SSIS][] es una plataforma para compilar soluciones de integración y transformación de datos de nivel empresarial. Para compilar paquetes que se conecten a Almacenamiento de datos SQL, use el [adaptador de destino de SQL Server][] estándar.
+[SSIS][] es una plataforma para compilar soluciones de integración y transformación de datos de nivel empresarial. Para generar paquetes que se conecten a Almacenamiento de datos SQL, use el [adaptador de destino OLE DB][] estándar con un administrador de conexión de ADO.Net.
 
 ### Herramientas de terceros
 Almacenamiento de datos SQL es compatible con soluciones líderes de la industria para la carga de datos. Para obtener más detalles, consulte nuestra lista de [soluciones de asociados][].
@@ -63,10 +63,10 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--MSDN references-->
 [origen/receptor admitido]: https://msdn.microsoft.com/library/dn894007.aspx
 [actividad de copia]: https://msdn.microsoft.com/library/dn835035.aspx
-[adaptador de destino de SQL Server]: https://msdn.microsoft.com/library/ms141095.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141237.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

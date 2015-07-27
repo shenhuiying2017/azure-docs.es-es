@@ -162,4 +162,4 @@ Para obtener más información, vea [Información general sobre los trabajos de 
 [7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
 [8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

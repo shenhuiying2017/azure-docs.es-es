@@ -16,8 +16,8 @@
 </tr>
 </table>
 
-<sup>1</sup>Cuando crea una máquina virtual fuera de un grupo de recursos de Azure, se crea automáticamente un servicio en la nube para dar cabida a esa máquina. Después puede agregar varias máquinas virtuales en ese mismo servicio en la nube.
+<sup>1</sup>Las máquinas virtuales creadas en Administración de servicios (en lugar de Administrador de recursos) se almacenan automáticamente en un servicio en la nube. Puede agregar más máquinas virtuales a ese servicio en la nube para usarlas para el equilibrio de carga y la disponibilidad. Consulte [Cómo conectar máquinas virtuales con una red virtual o un servicio de nube](../virtual-machines/cloud-services-connect-virtual-machine.md).
 
-<sup>2</sup>Los extremos de entrada se usan para permitir la comunicación con las máquinas virtuales externas al servicio en la nube contenedor. Las máquinas virtuales dentro del mismo servicio en la nube permiten la comunicación automáticamente entre todos los puertos UDP y TCP para comunicación interna.
+<sup>2</sup>Los extremos de entrada permiten establecer comunicación con una máquina virtual desde fuera del servicio en la nube de la máquina virtual. Las máquinas virtuales en el mismo servicio en la nube o red virtual pueden comunicarse automáticamente entre sí. Consulte [Configuración de extremos en una máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

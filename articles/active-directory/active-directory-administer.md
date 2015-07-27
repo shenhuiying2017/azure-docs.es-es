@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -90,8 +89,7 @@ El portal de administración de Azure, el centro de administración de Office 36
 
 Estos portales de cuentas y los cmdlets asociados de PowerShell de Azure AD que se utilizan para administrar usuarios y grupos se crean sobre la plataforma de Azure AD.
 
-Al realizar un cambio en los datos de su organización mediante cualquiera de los portales (o cmdlets) manteniendo la sesión iniciada en el contexto de uno de estos servicios, el cambio se mostrará también en los demás portales la próxima vez que inicie sesión en el contexto de dicho servicio, ya que estos datos se comparten entre los servicios en la nube de Microsoft a los que esté suscrito.
-Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloqueará el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si fuera a usar esa misma cuenta de usuario en el contexto del portal de cuentas de Microsoft Intune, vería que el usuario está bloqueado.
+Al realizar un cambio en los datos de su organización mediante cualquiera de los portales (o cmdlets) manteniendo la sesión iniciada en el contexto de uno de estos servicios, el cambio se mostrará también en los demás portales la próxima vez que inicie sesión en el contexto de dicho servicio, ya que estos datos se comparten entre los servicios en la nube de Microsoft a los que esté suscrito. Por ejemplo, si utiliza el centro de administración de Office 365 para bloquear el inicio de sesión de un usuario, dicha acción bloqueará el inicio de sesión de ese usuario en cualquier otro servicio al que esté suscrita actualmente su organización. Si fuera a usar esa misma cuenta de usuario en el contexto del portal de cuentas de Microsoft Intune, vería que el usuario está bloqueado.
 
 ## ¿Cómo puedo agregar y administrar varios directorios?
 
@@ -148,4 +146,5 @@ Se comprueban las condiciones siguientes:
 
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

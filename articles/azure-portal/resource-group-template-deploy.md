@@ -1,6 +1,6 @@
 <properties
    pageTitle="Implementación de una aplicación con la plantilla del Administrador de recursos de Azure"
-   services="azure-portal"
+   services="azure-resource-manager"
    description="Uso de Administrador de recursos de Azure para implementar una aplicación en Azure Una plantilla es un archivo JSON y puede usarse desde el Portal, PowerShell, la interfaz de la línea de comandos de Azure para Mac, Linux y Windows o REST."
    documentationCenter="na"
    authors="tfitzmac"
@@ -8,12 +8,12 @@
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -58,7 +58,7 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 
 1. Inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +66,15 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 
 2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación.
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Cambie al módulo Administrador de recursos de Azure.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 4. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +92,16 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
    
      - Use parámetros en línea.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Use un objeto de parámetro.
 
-            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Uso de un archivo de parámetro. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      Una vez implementado el grupo de recursos, verá un resumen de la implementación.
 
@@ -114,11 +114,11 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 
 6. Para obtener información acerca de los errores de la implementación.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. Para obtener información detallada acerca de los errores de la implementación.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## Implementación con CLI de Azure para Mac, Linux y Windows
 
@@ -256,4 +256,4 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

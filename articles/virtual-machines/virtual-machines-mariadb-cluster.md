@@ -370,4 +370,4 @@ Puede que desee echar un vistazo a [otro modo para el clúster MySQL en Linux] y
 [otro modo para el clúster MySQL en Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

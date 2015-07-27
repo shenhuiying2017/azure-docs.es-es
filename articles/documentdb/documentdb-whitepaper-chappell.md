@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Notas del producto de la DocumentDB | Azure" 
-	description="Descargue las notas del producto de David Chappell acerca de la DocumentDB, una base de datos de NoSQL administrada en Azure." 
+	pageTitle="Presentación de DocumentDB: una base de datos no SQL para Microsoft Azure | Azure" 
+	description="Descargue las notas del producto de David Chappell acerca de DocumentDB, una base de datos de NoSQL administrada en Azure." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="adlevin" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="adlevin"/>
+	ms.date="05/13/2015" 
+	ms.author="mimig"/>
 
-# Notas del producto de la DocumentDB (por David Chappell) 
+# Presentación de DocumentDB: una base de datos no SQL para Microsoft Azure 
 
-**Resumen:** conozca DocumentDB, una base de datos NoSQL administrada en Microsoft Azure. DocumentDB es una opción de tecnología de base de datos idónea si:
+¿No está seguro de si DocumentDB es adecuada para su aplicación o sus datos? ¿Desea obtener información sobre cómo se almacenan los datos JSON y cómo se obtiene acceso a ellos en DocumentDB? Si es así, estas notas del producto de David Chappell es un buen punto de partida. En ellas se describe cómo puede beneficiarse de la flexibilidad que proporcionan los datos sin esquema JSON, lo que le permite controlar los cambios realizados en la estructura de los datos sin esfuerzo.
 
-* La aplicación puede aprovechar un modelo de datos sin esquemas.
-* La base de datos precisa el escalado para niveles elevados de almacenamiento y rendimiento.
-* Quiere usar una plataforma de desarrollo y un lenguaje de consulta conocidos.
+Estas notas del producto también lo guiarán para llevar a cabo lo siguiente:
 
-Las notas del producto también describen los conceptos fundamentales siguientes:
+ - Usar el modelo de datos de DocumentDB para almacenar datos JSON en documentos y colecciones dentro de una base de datos. 
+ - Trabajar con sus datos mediante el uso de las bibliotecas de cliente, los métodos de acceso RESTful o SQL de DocumentDB. 
+ - Ejecutar la lógica de la propia base de datos escribiendo procedimientos almacenados (sprocs), desencadenadores o funciones definidas por el usuario (UDF) y almacenarlos en la colección.
+ - Elegir una opción de coherencia para satisfacer las necesidades de confiabilidad y rendimiento de la aplicación.
+ - Seleccionar una opción de precios según sus requisitos de rendimiento.
 
-* El modelo de datos de DocumentDB.
-* El funcionamiento con datos de las aplicaciones.
-* Las opciones disponibles en las aplicaciones para equilibrar rendimiento y coherencia
+**Descarga en PDF:** [Presentación de DocumentDB: una base de datos NoSQL para Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
+ 
 
-
-**Fecha de publicación:** 10 de septiembre de 2014
-
-**Descarga:** [Presentación de DocumentDB: una base de datos NoSQL para Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
-
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

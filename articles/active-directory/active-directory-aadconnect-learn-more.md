@@ -46,4 +46,5 @@ Vea este vídeo para aprender lo fácil que es ampliar su Active Directory local
 [AZURE.VIDEO azure-active-directory-connect-express-settings]
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

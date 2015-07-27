@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Funcionamiento de la administración de contraseñas
+# Funcionamiento de la administración de contraseñas
 La administración de contraseñas en Azure Active Directory consta de varios componentes lógicos que se describen a continuación. Haga clic en cada vínculo para obtener más información sobre ese componente.
 
 - [**Portal de configuración de administración de contraseñas**](#password-management-configuration-portal): los administradores pueden controlar distintas facetas de cómo se administran las contraseñas en sus inquilinos. Para ello, vaya a la pestaña Configurar de su directorio en el [Portal de administración de Azure](https://manage.windowsazure.com).
@@ -26,7 +26,7 @@ La administración de contraseñas en Azure Active Directory consta de varios co
 - [**Informes de administración de contraseñas**](#password-management-reports): los administradores pueden ver y analizar la actividad de registro y restablecimiento de contraseña en su inquilino. Para ello, vaya a la sección "Informes de actividad" de la pestaña "Informes" del [Portal de administración de Azure](https://manage.windowsazure.com).
 - [**Componente de escritura diferida de contraseñas de Azure AD Connect**](#password-writeback-component-of-azure-ad-connect): los administradores tienen la opción de habilitar la característica de escritura diferida de contraseñas cuando se instala Azure AD Connect para habilitar la administración de contraseñas de usuarios federados o con contraseña sincronizada desde la nube.
 
-##  Portal de configuración de administración de contraseñas
+## Portal de configuración de administración de contraseñas
 Puede configurar directivas de administración de contraseñas para un directorio específico mediante el [Portal de administración de Azure](https://manage.windowsazure.com), en la sección **Directiva de restablecimiento de contraseña del usuario** en la pestaña **Configurar** del directorio. Desde esta página de configuración, puede controlar muchos aspectos de la administración de contraseñas en su organización, entre ellos:
 
 - Habilitar y deshabilitar el restablecimiento de contraseña para todos los usuarios de un directorio.
@@ -50,7 +50,7 @@ Puede configurar directivas de administración de contraseñas para un directori
 
 Para obtener más información acerca de la configuración de la administración de contraseñas en su organización, consulte [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
 
-## Portal de registro de usuario
+##Portal de registro de usuario
 Para que los usuarios puedan utilizar el restablecimiento de contraseña, las cuentas de usuario en la nube deben estar actualizadas con los datos de autenticación correctos a fin de garantizar que puedan superar el número correspondiente de desafíos definidos por el administrador para restablecer la contraseña. Los administradores también pueden definir esta información de autenticación en nombre del usuario en los portales web de Azure y Office, con DirSync/Azure AD Connect o con Windows PowerShell.
 
 No obstante, si prefiere que sean los usuarios los que registren sus propios datos, también proporcionamos una página web a la que los usuarios pueden ir para brindar esta información. Esta página permite a los usuarios especificar la información de autenticación de acuerdo con las directivas de restablecimiento de contraseña que se hayan habilitado en su organización. Una vez que se comprueban estos datos, se almacenan en la cuenta del usuario en la nube para poder recuperar la cuenta más adelante. El portal de registro tiene el siguiente aspecto:
@@ -59,7 +59,7 @@ No obstante, si prefiere que sean los usuarios los que registren sus propios dat
 
 Para obtener más información, consulte [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md) y [Prácticas recomendadas para la administración de contraseñas de Azure AD](active-directory-passwords-best-practices.md).
 
-## Portal de restablecimiento de contraseñas
+##Portal de restablecimiento de contraseñas
 Una vez que haya habilitado el restablecimiento de contraseña de autoservicio, haya configurado la directiva de restablecimiento de contraseña de autoservicio de su organización y se haya asegurado de que los usuarios tienen los datos de contacto apropiados en el directorio, los usuarios de la organización podrán restablecer sus propias contraseñas de manera automática desde cualquier página web en la que se utilice una cuenta educativa o profesional para iniciar sesión (por ejemplo, [portal.microsoftonline.com](https://portal.microsoftonline.com)). En las páginas de este tipo, los usuarios verán el vínculo **¿No puede obtener acceso a su cuenta?**
 
   ![][002]
@@ -70,7 +70,7 @@ Al hacer clic en este vínculo se inicia un asistente para el restablecimiento d
 
 Para obtener más información acerca de cómo los usuarios pueden restablecer sus contraseñas, consulte [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
 
-## Portal de cambio de contraseñas de usuario
+##Portal de cambio de contraseñas de usuario
 Si los usuarios desean cambiar sus contraseñas, pueden hacerlo en el portal de cambio de contraseña en cualquier momento. Los usuarios pueden tener acceso al portal de cambio de contraseña a través de la página de perfil del panel de acceso o mediante un clic en el vínculo "Cambiar contraseña" en las aplicaciones de Office 365. En el caso de que las contraseñas expiren, también se pedirá a los usuarios que las cambien automáticamente al iniciar sesión.
 
   ![][004]
@@ -81,14 +81,14 @@ En ambos casos, si se ha habilitado la escritura diferida de contraseñas y el u
 
 Para obtener más información sobre cómo los usuarios pueden cambiar sus propias contraseñas de Active Directory local, consulte [Introducción a la administración de contraseñas en Azure AD](active-directory-passwords-getting-started.md).
 
-## Informes de administración de contraseñas
+##Informes de administración de contraseñas
 Si navega a la pestaña **Informes** y mira la sección **Registros de actividad**, verá dos informes de administración de contraseñas: **Actividad de restablecimiento de contraseña** y **Actividad de registro de restablecimiento de contraseña**. Con estos dos informes, puede obtener una vista de los usuarios que se registran y usan restablecimiento de contraseña en su organización. Este es el aspecto de estos informes en el [Portal de administración de Azure](https://manage.windowsazure.com):
 
   ![][006]
 
 Para obtener más información, consulte [Obtener información sobre los informes de administración de contraseñas de Azure AD](active-directory-passwords-get-insights.md).
 
-## Componente de escritura diferida de contraseñas de Azure AD Connect
+##Componente de escritura diferida de contraseñas de Azure AD Connect
 Si las contraseñas de los usuarios de su organización proceden de su entorno local (mediante federación o sincronización de contraseña), puede instalar la versión más reciente de Azure AD Connect para habilitar la actualización de esas contraseñas directamente desde la nube. Esto significa que, cuando los usuarios olvidan su contraseña de AD o desean cambiarla, pueden hacerlo directamente desde la web. Aquí es donde puede encontrar la opción de escritura diferida de contraseñas en el asistente para la instalación de AD Connect:
 
   ![][007]
@@ -104,7 +104,7 @@ Para obtener más información sobre Azure AD Connect, consulte [Introducción a
 * [Qué es la administración de contraseñas](active-directory-passwords.md)
 * [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
 * [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de la administración de contraseñas](active-directory-passwords-best-practices.md)
+* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
 * [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
 * [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
 * [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
@@ -121,4 +121,5 @@ Para obtener más información sobre Azure AD Connect, consulte [Introducción a
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

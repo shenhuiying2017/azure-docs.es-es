@@ -16,7 +16,7 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Preguntas más frecuentes sobre la administración de contraseñas
+# Preguntas más frecuentes sobre la administración de contraseñas
 Las siguientes son algunas de las preguntas más frecuentes sobre todos los aspectos relacionados con la administración de contraseñas.
 
 Si encuentra una pregunta cuya respuesta no conoce, o bien si busca ayuda para solucionar un problema determinado que enfrenta, puede seguir leyendo para ver si ya hablamos al respecto. No se preocupe si todavía no lo hemos hecho. Si tiene alguna pregunta que no se aborde aquí, no dude en preguntar en los [foros de Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD) y nos comunicaremos con usted tan pronto como sea posible.
@@ -28,7 +28,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 - [**Preguntas acerca de los informes de la administración de contraseñas**](#password-management-reports)
 - [**Preguntas acerca de la escritura diferida de contraseñas**](#password-writeback)
 
-##  Registro de restablecimiento de contraseña
+## Registro de restablecimiento de contraseña
  - **P: ¿Mis usuarios pueden registrar sus propios datos de restablecimiento de contraseña?**
  
  > **R:** Sí, siempre que el restablecimiento de contraseña esté habilitado y que los usuarios cuenten con licencia, pueden ir al portal de Registro de restablecimiento de contraseña en http://aka.ms/ssprsetup para registrar su información de autenticación y poder utilizarla con el restablecimiento de contraseña. Para registrarse, los usuarios también pueden ir al panel de acceso en http://myapps.microsoft.com, hacer clic en la pestaña de perfil y en la opción Registrarme para restablecer la contraseña. Consulte Cómo configurar a los usuarios para el restablecimiento de contraseña para obtener más información sobre cómo configurar a los usuarios para el restablecimiento de contraseña.
@@ -62,7 +62,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
  > **R:** Un usuario se considera como registrado cuando tiene definidos, al menos, N fragmentos de información de autenticación, donde N es el número de métodos de autenticación requeridos que ha definido en el [Portal de administración de Azure](https://manage.windowsazure.com). Para obtener más información, consulte Personalización de la directiva de restablecimiento de contraseña.
 
 
-##  Restablecimiento de contraseña
+## Restablecimiento de contraseña
 
  - **P: ¿Cuánto tiempo debo esperar para recibir un correo electrónico, un SMS o una llamada telefónica para el restablecimiento de contraseña?**
  
@@ -135,7 +135,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
  > **R:** La duración de la sesión de restablecimiento de contraseña es de 105 minutos. Esto significa que, desde el principio de la operación de restablecimiento de contraseña, el usuario tiene 105 minutos para restablecer la contraseña. El código de acceso de un solo uso que recibe por correo electrónico o mensaje SMS no es válido después de este período de tiempo.
 
 
-##  Informes de administración de contraseñas
+## Informes de administración de contraseñas
 
  - **P: ¿Cuánto tiempo demoran en aparecer los datos en los informes de la administración de contraseñas?**
  
@@ -156,7 +156,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
  > **R:** Sí, puede aparecer un máximo de 1.000 filas en cualquiera de los informes de administración de contraseñas, ya sea que se muestren en la interfaz de usuario o se descarguen. Actualmente investigamos cómo aumentar este límite.
 
 
-##  Escritura diferida de contraseñas
+## Escritura diferida de contraseñas
  - **P: ¿Cómo funciona en segundo plano la escritura diferida de contraseñas?**
  
  > **R:** Consulte Cómo funciona la escritura diferida de contraseñas para obtener una explicación detallada de lo que ocurre cuando se habilita la escritura diferida de contraseñas, además de cómo los datos fluyen por el sistema para volver al entorno local. Consulte "Modelo de seguridad de la escritura diferida de contraseñas" en Cómo funciona la escritura diferida de contraseñas para obtener información sobre cómo podemos asegurarnos de que la escritura diferida de contraseñas es un servicio con un alto nivel de seguridad.
@@ -187,7 +187,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 * [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
 * [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md)
 * [Personalización de la administración de contraseñas](active-directory-passwords-customize.md)
-* [Prácticas recomendadas de la administración de contraseñas](active-directory-passwords-best-practices.md)
+* [Prácticas recomendadas de administración de contraseñas](active-directory-passwords-best-practices.md)
 * [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
 * [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
@@ -197,4 +197,5 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

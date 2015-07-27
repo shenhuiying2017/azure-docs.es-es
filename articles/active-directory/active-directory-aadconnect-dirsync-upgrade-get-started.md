@@ -22,7 +22,8 @@ La siguiente documentación le ayudará a actualizar la instalación existente d
 
 ## Descarga de Azure AD Connect
 
-Para empezar a utilizar Azure AD Connect puede descargar la versión más reciente mediante el siguiente vínculo: [Descarga de la vista previa pública de Azure AD Connect](http://connect.microsoft.com/site1164/program8612).
+Para empezar a utilizar Azure AD Connect puede descargar la versión más reciente mediante [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
 
 ## Antes de instalar Azure AD Connect
 Antes de instalar Azure AD Connect y actualizar desde DirSync, a continuación se indican algunas cosas que necesitará:
@@ -125,7 +126,7 @@ Cuando instala Azure AD Connect en un nuevo servidor, no encontrará DirSync y s
 1. Ejecute el instalador de Azure AD Connect (MSI).
 2. Cuando aparezca la pantalla " Azure AD Connect", salga del asistente haciendo clic en la "X" en la esquina superior derecha de las ventanas.
 3. Abra un símbolo del sistema.
-4. Desde la ubicación de instalación de Azure AD Connect (predeterminada: C:\Archivos de programa\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:
+4. Desde la ubicación de instalación de Azure AD Connect (predeterminada: C:\\Archivos de programa\\Microsoft Azure Active Directory Connect), ejecute el siguiente comando:
     * AzureADConnect.exe /migrate
 
 Azure AD se conecta y le muestra la interfaz de usuario siguiente:
@@ -205,7 +206,4 @@ La siguiente es una lista de requisitos previos y componentes de soporte que Azu
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
-
-<!--HONumber=62-->
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

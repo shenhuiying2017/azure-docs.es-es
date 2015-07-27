@@ -95,4 +95,4 @@ Para obtener información general sobre el rendimiento, vea [Introducción al re
 
 [Portal de Azure]: http://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

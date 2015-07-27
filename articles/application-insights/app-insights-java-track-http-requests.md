@@ -138,4 +138,5 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 [metrics]: app-insights-metrics-explorer.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

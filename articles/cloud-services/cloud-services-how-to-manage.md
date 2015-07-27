@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Administración de un servicio en la nube - Azure" 
-	description="Vea cómo administrar servicios en la nube en el Portal de administración de Azure." 
+	description="Vea cómo administrar servicios en la nube en el Portal de Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # Administración de servicios en la nube
 
-En el área **Servicios en la nube** del Portal de administración de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+En el área **Servicios en la nube** del Portal de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
 
 ## Actualización del rol de servicio en la nube o implementación
 
 Si necesita actualizar el código de la aplicación para su servicio en la nube, use **Actualizar** en el panel, en la página **Servicios en la nube** o **Instancias**. Puede actualizar un solo rol o todos los roles. Necesitará cargar un paquete de servicio nuevo y el archivo de configuración de servicio.
 
-1. En el [Portal de administración de Azure](https://manage.windowsazure.com/), en el panel, en la página **Servicios en la nube** o **Instancias**, haga clic en **Actualizar**.
+1. En el [Portal de Azure](https://manage.windowsazure.com/), en el panel, en la página **Servicios en la nube** o **Instancias**, haga clic en **Actualizar**.
 
 	![Implementación de actualizaciones](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -155,4 +159,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

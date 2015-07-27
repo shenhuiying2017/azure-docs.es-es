@@ -141,13 +141,13 @@ Para conectarse a una instancia específica de SQL DW cuando use sqlcmd, deberá
 Por lo tanto, para conectarse a una instancia de SQL DW, debe escribir lo siguiente:
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia. Por ejemplo, la instrucción que aparece a continuación utiliza la instrucción [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) para crear una tabla.
 
 ```
-C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -183,4 +183,4 @@ Ahora que registramos el servidor, continuemos y escribamos una consulta.
 ## Pasos siguientes ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

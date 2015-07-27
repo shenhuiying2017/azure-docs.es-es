@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Panel de Power BI en Análisis de transmisiones | Microsoft Azure" 
 	description="Utilice un panel de Power BI de streaming en tiempo real para reunir información de inteligencia empresarial y analizar grandes volúmenes de datos procedentes de un trabajo de Análisis de transmisiones." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/12/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jeffstok"/>
 	
 # Análisis de transmisiones de Azure y Power BI: panel dinámico para análisis en tiempo real de los datos de streaming
@@ -27,12 +26,12 @@ En este artículo, aprenderá a crear sus propias herramientas de inteligencia e
 
 > [AZURE.NOTE]La salida a Power BI es una característica de vista previa de Análisis de transmisiones de Azure.
 
-##Requisitos previos
+## Requisitos previos ##
 
 * Cuenta de Microsoft Azure con Id. org. (Power BI solo funciona con Id. org.). Id. org. es la dirección de correo electrónico de su trabajo o empresa; por ejemplo, xyz@mycompany.com. Los mensajes de correo electrónico personales, como xyz@hotmail.com, no son Id. org. Puede obtener más información acerca del identificador de organización [aquí](https://msdn.microsoft.com/subscriptions/dn531048.aspx); también existe un documento de preguntas más frecuentes que se puede descargar desde [aquí](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409).
 * Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.  
 
-##Creación de un trabajo de Análisis de transmisiones de Azure
+## Creación de un trabajo de Análisis de transmisiones de Azure ##
 
 En el [Portal de Azure](https://manage.windowsazure.com), haga clic en **Nuevo, Servicios de datos, Análisis de transmisiones, Creación rápida**.
 
@@ -48,7 +47,7 @@ Haga clic en **Análisis de transmisiones** en el panel izquierdo para ver una l
 
 > [AZURE.TIP]El nuevo trabajo aparecerá con el estado **No iniciado**. Tenga en cuenta que el botón **Iniciar** en la parte inferior de la página está deshabilitado. Este es el comportamiento esperado, ya que debe configurar la entrada, salida y consulta del trabajo, etc. antes de poder iniciar el trabajo.
 
-##Especificación de la entrada del trabajo
+## Especificación de la entrada del trabajo ##
 
 Para este tutorial, se supone que está utilizando el centro de eventos como una entrada con codificación utf-8 y serialización JSON.
 
@@ -73,7 +72,7 @@ Para este tutorial, se supone que está utilizando el centro de eventos como una
   *	**Codificación**: UTF8
 *	Haga clic en el botón de comprobación para agregar este origen y comprobar que Stream Analytics puede conectarse correctamente al centro de eventos.
 
-##Incorporación del resultado de Power BI
+## Incorporación del resultado de Power BI ##
 
 1.  Haga clic en **Salida** en la parte superior de la página y luego haga clic en **Agregar salida**. Verá que Power BI aparece como opción de salida.
 
@@ -104,7 +103,7 @@ Proporcione valores como sigue:
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
-##Escritura de una consulta
+## Escritura de una consulta ##
 
 Vaya a la pestaña **Consulta** de su trabajo. Escriba la consulta cuya salida desea tener en su Power BI. Por ejemplo, podría ser algo como la siguiente consulta SQL:
 
@@ -125,7 +124,7 @@ Vaya a la pestaña **Consulta** de su trabajo. Escriba la consulta cuya salida d
     
 Inicie su trabajo. Valide que el centro de eventos recibe eventos y la consulta genera los resultados esperados. Si la consulta da como resultado 0 filas, las tablas y conjunto de datos de Power BI no se creará automáticamente.
 
-##Creación del panel en Power BI
+## Creación del panel en Power BI ##
 
 Vaya a [Powerbi.com](https://powerbi.com) e inicie sesión con su Id. org Si la consulta del trabajo de Análisis de transmisiones genera resultados, verá que ya se ha creado el conjunto de datos:
 
@@ -161,10 +160,34 @@ Tenga en cuenta que este tutorial muestra cómo crear un tipo de gráfico para u
 
 Otro recurso útil para obtener más información acerca de la creación de paneles con Power BI es [Vista previa de los paneles de Power BI](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+## Limitaciones y prácticas recomendadas ##
+Power BI emplea restricciones tanto de simultaneidad como de rendimiento, tal como se describe aquí: [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Precios de Power BI")
 
-## Pasos siguientes
+Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta acaba dentro de los requisitos de rendimiento; puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos:![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+
+Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+
+Lo que significa que se cambiaría la consulta original a:
+
+    SELECT
+    	MAX(hmdt) AS hmdt,
+    	MAX(temp) AS temp,
+    	System.TimeStamp AS time,
+    	dspl
+    INTO
+    	OutPBI
+    FROM
+    	Input TIMESTAMP BY time
+    GROUP BY
+    	TUMBLINGWINDOW(ss,4),
+    	dspl
+
+
+
+## Obtener ayuda ##
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+
+## Pasos siguientes ##
 
 - [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 - [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
@@ -185,4 +208,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

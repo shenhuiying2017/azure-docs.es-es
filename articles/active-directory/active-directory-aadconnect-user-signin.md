@@ -24,8 +24,7 @@ Azure AD Connect permite que los usuarios inicien sesión en los recursos en la 
 
 
 ### Sincronización de contraseñas
-Con la sincronización de contraseñas, se sincronizan los valores hash de las contraseñas de usuario de Active Directory local con Azure AD. Cuando las contraseñas se cambian o se restablecen de forma local, las nuevas contraseñas se sincronizan de inmediato con Azure AD para que los usuarios puedan utilizar siempre en los recursos en la nube la misma contraseña que utilizan a nivel local. Las contraseñas nunca se envían a Azure AD ni se almacenan en Azure AD en texto no cifrado.
-La sincronización de contraseñas puede utilizarse junto con la escritura diferida de contraseñas para habilitar el autoservicio de restablecimiento de contraseña en Azure AD.
+Con la sincronización de contraseñas, se sincronizan los valores hash de las contraseñas de usuario de Active Directory local con Azure AD. Cuando las contraseñas se cambian o se restablecen de forma local, las nuevas contraseñas se sincronizan de inmediato con Azure AD para que los usuarios puedan utilizar siempre en los recursos en la nube la misma contraseña que utilizan a nivel local. Las contraseñas nunca se envían a Azure AD ni se almacenan en Azure AD en texto no cifrado. La sincronización de contraseñas puede utilizarse junto con la escritura diferida de contraseñas para habilitar el autoservicio de restablecimiento de contraseña en Azure AD.
 
 <center>![Nube](./media/active-directory-aadconnect-user-signin/passwordhash.png)</center>
 
@@ -64,4 +63,5 @@ Para la mayoría de las organizaciones que simplemente desean habilitar el inici
 	- Características de integración de Active Directory, como el bloqueo de cuenta no rígido o la directiva de horas de trabajo y contraseña de AD.
 	- Acceso condicional a los recursos locales y en la nube mediante el registro de dispositivos, la unión a Azure AD o las directivas MDM de Intune.
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -16,7 +16,7 @@
 	ms.date="06/18/2015"
 	ms.author="kenhoff"/>
 
-#  Directivas de retención de informes de Azure Active Directory
+# Directivas de retención de informes de Azure Active Directory
 
 Los informes de Azure AD conservan los datos durante un número determinado de días, que indicamos a continuación.
 
@@ -43,4 +43,5 @@ Los informes de Azure AD conservan los datos durante un número determinado de d
 |	Uso de dispositivos RMS |	30 días |
 |	Uso de aplicaciones habilitadas para RMS |	30 días |
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

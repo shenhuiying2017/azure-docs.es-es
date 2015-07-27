@@ -129,4 +129,4 @@ Cuando finalice este tutorial, apague o quite la m√°quina virtual de Azure reci√
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

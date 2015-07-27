@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 #Codificación de elementos multimedia con Dolby Digital Plus
@@ -651,4 +651,4 @@ A continuación se describe cada atributo.
 **TruePeak**: este resultado contiene el valor de pico verdadero absoluto más grande de todos los canales desde que se restableció la medición. Para obtener una descripción de pico verdadero, consulte ITU‐R BS.1770‐2. Los valores pueden oscilar entre -70 y 12,04 dBTP.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

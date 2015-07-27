@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -175,9 +175,7 @@ Antes de publicar la aplicación en Aplicaciones web del Servicio de aplicacione
 
 	![WebMatrix: publicar][edit_publish]
 
-3. Haga clic en **Choose an existing site from Windows Azure** (Elegir un sitio existente de Windows Azure).
-
-	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
+3. Haga clic en **Elegir un sitio existente de Microsoft Azure**.
 
 3. Elija la aplicación web del Servicio de aplicaciones que creó anteriormente.
 
@@ -263,4 +261,4 @@ Puede modificar fácilmente la aplicación si edita la copia local del sitio des
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

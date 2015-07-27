@@ -26,7 +26,7 @@
 | PublisherName | Oferta | SKU |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7.1 |
+| OpenLogic | CentOS | 7\.1 |
 | CoreOS | CoreOS | Versión beta |
 | CoreOS | CoreOS | Stable |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
@@ -35,8 +35,8 @@
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-DW |
 | MicrosoftSQLServer | WS2012R2 SQL2014 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12.04.5-LTS |
-| Canonical | UbuntuServer | 14.04.2-LTS |
+| Canonical | UbuntuServer | 12\.04.5-LTS |
+| Canonical | UbuntuServer | 14\.04.2-LTS |
 | Microsoft Windows Server | Windows Server | Centro de datos de 2012 |
 | Microsoft Windows Server | Windows Server | Centro de datos de 2012-R2 |
 | Microsoft Windows Server | Windows Server | 2008-R2-SP1 |
@@ -174,8 +174,8 @@ En la pantalla del comando **Get-AzureVMImageSku** tiene toda la información qu
 
 Aquí tiene un ejemplo.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -193,8 +193,8 @@ Aquí tiene un ejemplo.
 
 Para el publicador de "MicrosoftWindowsServer":
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -202,8 +202,8 @@ Para el publicador de "MicrosoftWindowsServer":
 
 Para la oferta "WindowsServer":
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----
@@ -227,4 +227,4 @@ En esta lista, copie el nombre de SKU elegido y tiene toda la información para 
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

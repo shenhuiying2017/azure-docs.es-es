@@ -1,5 +1,5 @@
 
-Para obtener más información sobre los discos, consulte [Acerca de los discos de máquina virtual en Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+Para obtener más información sobre los discos, consulte [Acerca de los discos de máquina virtual en Azure](../articles/virtual-machines-disks-vhds.md).
 
 ##<a id="attachempty"></a>Acoplamiento de un disco vacío
 El acoplamiento de un disco vacío supone el método más sencillo de agregar un disco de datos, porque Azure crea el archivo .vhd en su lugar y lo almacena en la cuenta de almacenamiento.
@@ -16,7 +16,7 @@ El acoplamiento de un disco vacío supone el método más sencillo de agregar un
 
 	![Conectar un nuevo disco vacío](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
 
- 
+
 	Haga lo siguiente:
 
 	- En **Nombre de archivo**, acepte el nombre predeterminado o escriba otro para el archivo .vhd, que se usa para el disco. El disco de datos usa un nombre generado automáticamente, incluso si escribe otro nombre para el archivo .vhd
@@ -49,7 +49,7 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 3. Seleccione el disco de datos que desee acoplar a la máquina virtual.
 
 4. Haga clic en la marca de verificación para acoplar el disco de datos a la máquina virtual.
- 
+
 5.	Una vez conectado el disco de datos, este aparece en el panel de la máquina virtual.
 
 
@@ -57,4 +57,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 > [AZURE.NOTE]Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

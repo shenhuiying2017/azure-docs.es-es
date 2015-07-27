@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 
@@ -72,14 +72,14 @@ En este paso, cree primero la base de datos necesaria y una tabla en el equipo d
 
 Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definidos por el usuario y procedimientos almacenados. Se utilizarán para pasar los resultados de **MarketingCampaignEffectiveness** del blob de Azure a la base de datos de SQL Server.
 
-1.	En el **Explorador de Windows**, vaya a la subcarpeta **OnPremises** en **C:\ADFWalkthrough** (o la ubicación donde extrajo los ejemplos).
+1.	En el **Explorador de Windows**, vaya a la subcarpeta **OnPremises** en **C:\\ADFWalkthrough** (o la ubicación donde extrajo los ejemplos).
 2.	Abra **prepareOnPremDatabase&Table.ps1** en su editor favorito, reemplace el texto resaltado con su información de SQL Server y guarde el archivo (proporcione los detalles de **la autenticación de SQL**). Para el tutorial, habilite la autenticación de SQL para la base de datos. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. En **Azure PowerShell**, vaya a la carpeta **C:\ADFWalkthrough\OnPremises**.
+3. En **Azure PowerShell**, vaya a la carpeta **C:\\ADFWalkthrough\\OnPremises**.
 4.	Ejecute **prepareOnPremDatabase&Table.ps1 ** **(& entre dobles comillas o como se muestra a continuación)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -114,7 +114,7 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 
 ### Creación de la tabla lógica local
 
-1.	En **Azure PowerShell**, cambie a la carpeta **C:\ADFWalkthrough\OnPremises**. 
+1.	En **Azure PowerShell**, cambie a la carpeta **C:\\ADFWalkthrough\\OnPremises**. 
 2.	Use el cmdlet **New-AzureDataFactoryTable** para crear las tablas para **MarketingCampaignEffectivenessOnPremSQLTable.json** de la manera siguiente.
 
 			
@@ -170,4 +170,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

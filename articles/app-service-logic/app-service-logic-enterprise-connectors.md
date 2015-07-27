@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Conectores empresariales del Servicio de aplicaciones de Microsoft Azure
+
+> [AZURE.NOTE]Este tema se ha retirado. Consulte la [lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md) para ver todas las aplicaciones API y conectores integrados que se encuentran disponibles.
+
 Servicio de aplicaciones de Microsoft Azure (o Servicio de aplicaciones para abreviar) incluye varios conectores que pueden utilizarse con sistemas empresariales, como SAP y Marketo. Mediante estos conectores, puede conectarse fácilmente a un sistema empresarial y realizar diferentes tareas.
 
 Estos conectores empresariales ofrecen las funcionalidades "Desencadenador" o "Acción". Un desencadenador inicia una nueva instancia en función de un evento específico, como la actualización de una entrada de MongoDB. Una acción es el resultado, como después de actualizar una entrada de MongoDB, obtener luego una entrada de MongoDB.
@@ -152,6 +155,7 @@ Algunos de los conectores empresariales tienen seguridad OAuth. Al agregar el co
 
 
 ## Más conectores
-[Conectores de integración de BizTalk](app-service-logic-integration-connectors.md)<br/> [Conectores negocio a negocio](app-service-logic-b2b-connectors.md)<br/> [ Conectores sociales](app-service-logic-social-connectors.md)<br/> [Conectores de protocolo](app-service-logic-protocol-connectors.md)<br/> [Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md)<br/> [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

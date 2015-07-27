@@ -49,4 +49,4 @@ Para obtener más información sobre la instalación de bibliotecas de clientes 
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

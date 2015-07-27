@@ -147,4 +147,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

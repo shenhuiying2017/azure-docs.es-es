@@ -1,27 +1,19 @@
 <properties
-   pageTitle="Copia de seguridad de Azure - Preguntas más frecuentes"
+   pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
    description="Preguntas más frecuentes sobre el servicio de copia de seguridad de Azure"
    services="backup"
    documentationCenter=""
-   authors="prvijay"
+   authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="03/26/2015"
-	 ms.author="prvijay"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/10/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Copia de seguridad de Azure - Preguntas más frecuentes
-A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre la Copia de seguridad de Azure, vaya al [Foro de discusión](https://social.msdn.microsoft.com/forums/azure/es-es/home?forum=windowsazureonlinebackup) y envíe sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
+A continuación se muestra una lista de las preguntas más frecuentes acerca de la Copia de seguridad de Azure. Si tiene alguna pregunta adicional sobre Copia de seguridad de Azure, vaya al [foro de discusión](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) y publique sus preguntas. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
 
 ## Instalación y configuración
-
-**P1. ¿Qué es la lista de sistemas operativos compatibles desde la que puedo realizar copias de seguridad en Azure con la Copia de seguridad de Azure?** <br/> R1. La siguiente lista son sistemas operativos compatibles con la Copia de seguridad de Azure
+**P1. ¿Qué es la lista de sistemas operativos compatibles desde la que puedo realizar copias de seguridad en Azure con la Copia de seguridad de Azure?** <br/> R1. Copia de seguridad de Azure admite lista de sistemas operativos siguiente
 
 
 | Sistema operativo | Plataforma | SKU |
@@ -39,74 +31,66 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P2. ¿Dónde puedo descargar el agente de Copia de seguridad de Azure más reciente?** <br/> R2. Puede descargar el último agente [aquí](http://aka.ms/azurebackup_agent). Se puede instalar en Windows Server, el cliente de Windows o el servidor SCDPM.
 
-**P3. ¿Qué versión de servidor SCDPM es compatible?** <br/> R3. Se recomienda que instale el agente de Copia de seguridad de Azure [más reciente](http://aka.ms/azurebackup_agent) en el último paquete acumulativo de actualizaciones de SCDPM (UR5 a partir de febrero de 2015).
+**P3. ¿Qué versión de servidor SCDPM es compatible?** <br/> R3. Se recomienda que instale el agente de Copia de seguridad de Azure [más reciente](http://aka.ms/azurebackup_agent) en el paquete acumulativo de actualizaciones de SCDPM más reciente (UR6 desde julio de 2015).
 
-**P4. Al configurar al agente de Copia de seguridad de Azure, se me solicita que escriba las "credenciales de almacén". ¿Hay alguna fecha de caducidad para las credenciales de almacén?** <br/> R4. Sí, la credencial de almacén caduca después de 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén de copia de seguridad.
+**P4. Al configurar al agente de Copia de seguridad de Azure, se me solicita que escriba las "credenciales de almacén". ¿Hay alguna fecha de caducidad asociada a las credenciales de almacén?** <br/> R4. Sí, la credencial de almacén caduca después de 48 horas. Si el archivo caduca, inicie sesión en el Portal de Azure y descargue los archivos de credenciales de almacén desde el almacén de copia de seguridad.
 
-**P5. ¿Hay algún límite del número de almacenes de copia de seguridad que se pueden crear en cada suscripción de Azure?** <br/> R5. Sí. A partir de marzo de 2015, puede crear 25 almacenes por suscripción. Si necesita más almacenes, cree una nueva suscripción.
+**P5. ¿Hay algún límite del número de almacenes de copia de seguridad que se pueden crear en cada suscripción de Azure?** <br/> R5. Sí. A partir de julio de 2015, puede crear 25 almacenes por suscripción. Si necesita más almacenes, cree una nueva suscripción.
 
-**P6. ¿Debo considerar el almacén como una entidad de facturación?** <br/> R6. Aunque es posible obtener una factura detallada de cada almacén, es muy recomendable considerar una suscripción de Azure como una entidad de facturación. Es coherente en todos los servicios y es más fácil de administrar.
+**P6. ¿Debo considerar el almacén como una entidad de facturación?** <br/> R6. Aunque es posible obtener una factura detallada de cada almacén, es muy recomendable que considere una suscripción de Azure como entidad de facturación. Es coherente en todos los servicios y es más fácil de administrar.
 
-**P7. ¿Hay algún límite en el número de servidores/máquinas que se pueden registrar en cada almacén?** <br/> R7. Sí, puede registrar hasta 50 máquinas por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
+**P7. ¿Hay algún límite en el número de servidores o máquinas que se puede registrar en cada almacén?** <br/> R7. Sí, puede registrar hasta 50 máquinas por almacén. Si necesita registrar más máquinas, cree un nuevo almacén.
 
-**P8. ¿Hay ningún límite en la cantidad de datos de los que se puede hacer copia de seguridad desde un servidor o cliente de Windows o un servidor de SCDPM?** <br/> R8. Nº
+**P8. ¿Hay algún límite en la cantidad de datos de los que se puede hacer una copia de seguridad desde un servidor o cliente de Windows o un servidor de SCDPM?** <br/> R8. Nº
 
 **P9. ¿Cómo registro mi servidor en otro centro de datos?**<br/> R9. En general, los datos de copia de seguridad se envían al centro de datos del servicio de copia de seguridad en el que está registrado. La forma más sencilla de cambiar el centro de datos es desinstalar el agente y volver a instalarlo y registrarlo en un nuevo centro de datos.
 
-**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** <br/> R10. Las copias de seguridad configuradas actualmente se detendrán. Tendrá que volver a registrar el servidor con el almacén de copia de seguridad y se considerará un nuevo servidor de servicios de recuperación, por lo que la primera operación de copia de seguridad que se produce después del registro será una copia de seguridad completa de todos los datos incluidos en la copia de seguridad, en lugar de solo los cambios desde la última copia de seguridad. Sin embargo, si necesita realizar una operación de recuperación, puede recuperar los datos de los que se ha hecho copia de seguridad mediante la recuperación desde otra opción de recuperación de servidores. Para más información, vea Cambiar nombre de un servidor.
+**P10. ¿Qué ocurre si cambio el nombre de un servidor de Windows de cuyos datos se está realizando una copia de seguridad en Azure?** <br/> R10. Las copias de seguridad configuradas actualmente se detendrán. Tendrá que volver a registrar el servidor con el almacén de copia de seguridad y Servicios de recuperación lo considerará un nuevo servidor, por lo que la primera operación de copia de seguridad que se produce después del registro será una copia de seguridad completa de todos los datos incluidos en la copia de seguridad, en lugar de solo los cambios desde la última copia de seguridad. Sin embargo, si necesita realizar una operación de recuperación, puede recuperar los datos de los que se ha hecho copia de seguridad mediante la recuperación desde otra opción de recuperación de servidores. Para más información, vea Cambiar nombre de un servidor.
 
 **P11. ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas?** <br/> R11. La copia de seguridad se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
 
-+ Medios extraíbles: la unidad debe ser fija para poder usarse como origen de copia de seguridad.
-
-+ Volúmenes de solo lectura: el volumen debe ser grabable para que el servicio de copia de instantáneas de volumen (VSS) funcione.
-
-+ Volúmenes sin conexión: el volumen debe estar en línea para que VSS funcione.
-
-+ Recurso compartido de red: el volumen debe ser local en el servidor para que la copia de seguridad se realice en línea.
+- Medios extraíbles: la unidad debe ser fija para poder usarse como origen de copia de seguridad.
+- Volúmenes de solo lectura: el volumen debe ser grabable para que el servicio de copia de instantáneas de volumen (VSS) funcione.
+- Volúmenes sin conexión: el volumen debe estar en línea para que VSS funcione.
+- Recurso compartido de red: el volumen debe ser local en el servidor para que la copia de seguridad se realice en línea.
+- Volúmenes protegidos por BitLocker: el volumen debe desbloquearse antes de que se pueda crear la copia de seguridad.
+- Identificación del sistema de archivos: NTFS es el único sistema de archivos admitido por esta versión del servicio de copia de seguridad en línea.
 
 **P12. ¿De qué tipos de archivos y carpetas puedo hacer copias de seguridad desde mi servidor?**<br/> R12. Se admiten los siguientes tipos:
 
-+ Cifrados
-
-+ Comprimidos
-
-+ Dispersos
-
-+ Comprimidos + dispersos
-
-+ Vínculos físicos: no compatibles, se omiten
-
-+ Puntos de repetición: no compatibles, se omiten
-
-+ Cifrados + comprimidos: no compatibles, se omiten
-
-+ Cifrados + dispersos: no compatibles, se omiten
-
-+ Secuencias comprimidas: no compatibles, se omiten
-
-+ Secuencias dispersas: no compatibles, se omiten
+- Cifrados
+- Comprimidos
+- Dispersos
+- Comprimidos + dispersos
+- Vínculos físicos: no compatibles, se omiten
+- Puntos de repetición: no compatibles, se omiten
+- Cifrados + comprimidos: no compatibles, se omiten
+- Cifrados + dispersos: no compatibles, se omiten
+- Secuencias comprimidas: no compatibles, se omiten
+- Secuencias dispersas: no compatibles, se omiten
 
 **P13. ¿Cuál es el requisito de tamaño mínimo para la carpeta de caché?** <br/> R13. El tamaño de la carpeta de caché se determina por la cantidad de datos de la que se realiza la copia de seguridad. En general, debe esperar que 10-15% del espacio necesario para el almacenamiento de datos se asigne a la carpeta de caché.
 
-**P14. ¿Cómo puedo aislar datos específicos del servidor de la recuperación desde otros servidores de mi organización? **<br/> R14. Los servidores que se registran con el mismo almacén podrán recuperar los datos de copia de seguridad desde otros servidores que usan la misma frase de contraseña. Si tiene servidores de los que desea asegurarse de que la recuperación solo se realiza en servidores específicos de su organización, debe usar una frase de contraseña independiente designada para esos servidores. Por ejemplo, los servidores de recursos humanos podrían utilizar una frase de contraseña de cifrado, los servidores de contabilidad otra y los servidores de almacenamiento otra distinta.
+**P14. ¿Cómo puedo aislar datos específicos del servidor para que no los recuperen otros servidores de mi organización?**<br/> R14. Los servidores que se registran con el mismo almacén podrán recuperar los datos de copia de seguridad desde otros servidores que usan la misma frase de contraseña. Si tiene servidores de los que desea asegurarse de que la recuperación solo se realiza en servidores específicos de su organización, debe usar una frase de contraseña independiente designada para esos servidores. Por ejemplo, los servidores de recursos humanos podrían usar una frase de contraseña de cifrado, los servidores de contabilidad, otra y los servidores de almacenamiento, otra distinta.
 
 **P15. ¿Puedo "migrar" mis datos de copia de seguridad entre suscripciones?** <br/> R15: No.
 
 **P16. ¿Puedo "migrar" mi almacén de copia de seguridad entre suscripciones?** <br/> R16. No. El almacén se crea en un nivel de suscripción y no se puede reasignar a otra suscripción una vez que se crea.
 
+**P17: ¿El agente de Copia de seguridad de Azure funciona en un servidor que usa la desduplicación de Windows Server 2012?** <br/>A17: Sí. El servicio del agente convierte los datos desduplicados en datos normales cuando prepara la operación de copia de seguridad. A continuación, optimiza los datos para la copia de seguridad, los cifra y los envía al servicio de copia de seguridad en línea.
+
+**P18: ¿Los datos de copia de seguridad se eliminan si cancelo una copia de seguridad después de haberse iniciado?** <br/>R18: No. El almacén de copia de seguridad almacena la copia de seguridad de los datos que se transfieren hasta el momento de la cancelación. Copia de seguridad de Azure usa un mecanismo de punto de comprobación para que los datos de copia de seguridad se comprueben en un punto ocasionalmente durante la copia de seguridad y el siguiente proceso de copia de seguridad pueda validar la integridad de los archivos. La siguiente copia de seguridad desencadenada sería incremental respecto a los datos de los que se haya creado una copia de seguridad anteriormente. Esto permite usar mejor el ancho de banda, por lo que no es necesario transferir los mismos datos reiteradamente.
+
+**P19: ¿Por qué aparece la advertencia "Las copias de seguridad de Azure no se han configurado para este servidor" si incluso había programado previamente copias de seguridad periódicas?** <br/>R19: Esto puede ocurrir cuando la configuración de la programación de copia de seguridad almacenada en el servidor local no es la misma que la configuración almacenada en el almacén de copia de seguridad. Cuando el servidor o la configuración se recuperan a un estado válido conocido, las programaciones de copia de seguridad pueden perder la sincronización. Si esto sucede, debe volver a configurar la directiva de copia de seguridad y elegir **Ejecutar copia de seguridad ahora** para volver a sincronizar el servidor local con Azure.
+
 ## Copia de seguridad y retención
-**P1. ¿Hay algún límite en el tamaño de cada origen de datos del que se realiza la copia de seguridad?** <br/> R1. A partir de marzo de 2015, cada origen de datos debe ser menor o igual a 1,7 TB. Un origen de datos es:
+**P1. ¿Hay algún límite en el tamaño de cada origen de datos del que se realiza una copia de seguridad?** <br/> R1. A partir de julio de 2015, cada origen de datos debe ser menor o igual a 1,7 TB. Un origen de datos es:
 
-+ Volumen de archivos/carpetas
-
-+ Base de datos SQL
-
-+ Granja de SharePoint
-
-+ Servidor de Exchange
-
-+ VM de Hyper-V
+- Volumen de archivos/carpetas
+- Base de datos SQL
+- Granja de SharePoint
+- Servidor de Exchange
+- VM de Hyper-V
 
 **P2. ¿Hay algún límite en el número de veces que se puede programar la copia de seguridad al día?**<br/> R2. Sí, la Copia de seguridad de Azure permite 3 copias de seguridad diarias a través del servidor/cliente de Windows, y 2 copias de seguridad diarias a través de SCDPM.
 
@@ -116,26 +100,26 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P5. ¿Puedo configurar de forma selectiva mis directivas de retención (es decir, configurar semanal y diariamente, pero no anual y mensualmente)?**<br/> R5. Tiene todo el conjunto de mecanismos para tener acceso a las directivas que mejor definen sus requisitos de cumplimiento y retención.
 
-**P6. ¿Puedo "programar una copia de seguridad" a las 6 p.m. y especificar "directivas de retención" en un momento diferente?**<br/> R6. No. Las directivas de retención pueden aplicarse solo en puntos de copia de seguridad. En la imagen siguiente, la directiva de retención se está configurando en las copias de seguridad realizadas a las 12 a.m. y a las 6 p.m. <br/>
+**P6. ¿Puedo "programar una copia de seguridad" a las 6 p.m. y especificar "directivas de retención" en un momento diferente?**<br/> R6. No. Las directivas de retención pueden aplicarse solo en puntos de copia de seguridad. En la imagen siguiente, la directiva de retención se está especificando en las copias de seguridad realizadas a las 12:00 h y las 18:00. <br/>
 
-![Programar copia de seguridad y retención][1] <br/>
+![Programar copia de seguridad y retención](./media/backup-azure-backup-faq/Schedule.png) <br/>
 
-**P7. ¿Se transfiere una copia incremental para las directivas de retención programadas?** <br/> R7. No, la copia incremental se envía en el momento mencionado en la página de programación de copia de seguridad. Los puntos que se pueden retener se determinan en función de la directiva de retención.
+**P7. ¿Se transfiere una copia incremental para las directivas de retención programadas?** <br/> R7. No, la copia incremental se envía en el momento mencionado en la página de programación de copia de seguridad. Los puntos que se pueden retener se determinan según la directiva de retención.
 
 **P8. Si se conserva la copia de seguridad durante un período prolongado, ¿se tarda mucho tiempo en recuperar los datos (por ejemplo ,el punto más antiguo)?** <br/> R8. No, el tiempo necesario para la recuperación del último punto o del punto más antiguo es el mismo. Cada punto de recuperación se comporta como un punto completo.
 
-**P9. Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?**<br/> R9. Los productos de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Sin embargo, son ineficaces en cuanto a almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales son eficaces en cuanto a almacenamiento, pero requieren la restauración de una cadena de datos que influye en el tiempo de recuperación. La arquitectura de almacenamiento único de la Copia de seguridad de Azure ofrece lo mejor de ambas opciones, al almacenar datos de forma óptima para restauraciones más rápidas e incurrir en costes de almacenamiento bajo. Este enfoque le asegura que su ancho de banda (de entrada y salida) se use de forma eficaz, el almacenamiento se conserve al mínimo y el tiempo dedicado a la recuperación se reduzca al mínimo.
+**P9. Si cada punto de recuperación es como un punto completo, ¿afecta esto al almacenamiento de copia de seguridad facturable total?**<br/> R9. Los productos de retención a largo plazo típicos almacenan los datos de copia de seguridad como puntos completos. Sin embargo, son ineficaces en cuanto a almacenamiento, pero resultan más fáciles y rápidos de restaurar. Las copias incrementales se almacenan con eficacia pero requieren que restaure una cadena de datos que influye en el tiempo de recuperación. La arquitectura de almacenamiento único de la Copia de seguridad de Azure ofrece lo mejor de ambas opciones, al almacenar datos de forma óptima para restauraciones más rápidas e incurrir en costes de almacenamiento bajo. Este enfoque le asegura que su ancho de banda (de entrada y salida) se use de forma eficaz, el almacenamiento se conserve al mínimo y el tiempo dedicado a la recuperación se reduzca al mínimo.
 
 **P10. ¿Hay un límite en el número de puntos de recuperación que se pueden crear?**<br/> R10. Desde abril de 2015, puede tener hasta 366 puntos de recuperación. Puede utilizar cualquier permutación para llegar a un número inferior a 366. P. ej.: los puntos de retención de la siguiente imagen se agregan a 354. <br/>
 
-![Pantalla de retención][2]
+![Pantalla de retención](./media/backup-azure-backup-faq/RetentionScreen1.png)
 
-**P11. Una vez que Microsoft mejore el límite de 366, ¿tendré que actualizar el agente o propagar la copia de seguridad inicial?** <br/> R11. No. Una vez que se realice el cambio en nuestro servicio, se le notificará a través de nuestros distribuidores de medios sociales (blogs, anuncios de Azure, portal, etc.). Según sus necesidades, necesitaría cambiar únicamente la directiva de retención.
+**P11. Una vez que Microsoft mejore el límite de 366, ¿tendré que actualizar el agente o volver a propagar la copia de seguridad inicial?** <br/> R11. No. Una vez que se realice el cambio en nuestro servicio, se le notificará a través de nuestros distribuidores de medios sociales (blogs, anuncios de Azure, portal, etc.). Según sus necesidades, necesitaría cambiar únicamente la directiva de retención.
 
 **P12. ¿Por qué la cantidad de datos transferida en la copia de seguridad es distinta a la cantidad de datos de los que realizo la copia de seguridad?**<br/> R12. Todos los datos de los que se realiza una copia de seguridad se comprimen y se cifran antes de ser transferidos. Puede esperar unas ventajas de compresión de entre el 30 y el 40 % en función del tipo de datos de los cuales se realiza la copia de seguridad.
 
-## Recuperaciones
-**P1. ¿Cuántas recuperaciones se pueden realizar en los datos de los que se realiza copia de seguridad en Azure?**<br/> R1. No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
+## Recuperación
+**P1. ¿Cuántas recuperaciones puedo realizar en los datos de los que se crea una copia de seguridad en Azure?**<br/> R1. No hay ningún límite en cuanto al número de recuperaciones de la Copia de seguridad de Azure.
 
 **P2. ¿Tengo que pagar por el tráfico de salida desde el centro de datos de Azure durante las recuperaciones?**<br/> R2. No. Sus recuperaciones son gratuitas y no se cobra por el tráfico de salida.
 
@@ -148,10 +132,4 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P4. ¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos?** <br/> R4. La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.
 
-
-<!--Image references-->
-[1]: ./media/backup-azure-backup-faq/Schedule.png
-[2]: ./media/backup-azure-backup-faq/RetentionScreen1.png
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -19,4 +19,4 @@ Siga los pasos siguientes para crear un servicio móvil nuevo.
 
 Ahora ha creado un servicio móvil que pueden usar sus aplicaciones móviles.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

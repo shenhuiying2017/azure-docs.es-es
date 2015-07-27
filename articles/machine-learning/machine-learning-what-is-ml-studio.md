@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="¿Qué es el Estudio de aprendizaje automático de Azure? | Microsoft Azure" 
 	description="Información general de Estudio de aprendizaje automático, una herramienta de arrastrar y colocar para crear rápidamente modelos desde una biblioteca lista para usar de algoritmos y módulos." 
-	keywords="azure machine learning,azure ml, ml studio"	
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="garyericson" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 # ¿Qué es Estudio de aprendizaje automático de Azure?
@@ -92,4 +91,4 @@ Un módulo puede tener un conjunto de parámetros que puede utilizar para config
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

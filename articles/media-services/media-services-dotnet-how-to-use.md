@@ -98,4 +98,4 @@ También puede obtener los bits más recientes del SDK de Servicios multimedia p
 En este punto, está listo para iniciar el desarrollo de una aplicación de Servicios multimedia.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

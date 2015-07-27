@@ -36,4 +36,4 @@ La directiva de retención se aplica a todos los usuarios y, por el momento, no 
 ## Artículos relacionados
 - [Copia de seguridad de Automatización de Azure](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

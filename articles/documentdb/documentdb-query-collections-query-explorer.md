@@ -78,4 +78,4 @@ El Explorador de consultas permite crear, editar y ejecutar consultas fácilment
 - Para obtener más información acerca de la gramática de SQL compatible con DocumentDB en el Explorador de consultas, haga clic [aquí](documentdb-sql-query.md).
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

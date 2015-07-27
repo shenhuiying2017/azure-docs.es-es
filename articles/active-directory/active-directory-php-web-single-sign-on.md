@@ -16,16 +16,16 @@
 	ms.date="11/21/2014" 
 	ms.author="tomfitz"/>
 
-#  Inicio de sesión web único con PHP y Azure Active Directory
+# Inicio de sesión web único con PHP y Azure Active Directory
 
-## <a name="introduction"></a>Introducción
+##<a name="introduction"></a>Introducción
 
 Este tutorial mostrará a los desarrolladores de PHP cómo utilizar Azure Active Directory para permitir el inicio de sesión único para usuarios de clientes de Office 365. Aprenderá a:
 
 * Aprovisionar la aplicación web en el inquilino de un cliente
 * Proteger la aplicación con WS-Federation
 
-### Requisitos previos
+###Requisitos previos
 Para este tutorial se necesitan los siguientes requisitos previos para el entorno de desarrollo:
 
 * [Código de ejemplo PHP para Azure Active Directory]
@@ -35,7 +35,7 @@ Para este tutorial se necesitan los siguientes requisitos previos para el entorn
 * Windows PowerShell
 * [Commandlets de Office 365 PowerShell]
 
-##  Paso 1: crear una aplicación PHP
+## Paso 1: crear una aplicación PHP
 Este paso describe cómo crear una aplicación PHP simple que representará un recurso protegido. El acceso a este recurso se otorgará a través de la autenticación federada administrada por el STS de la empresa, que se describe más adelante en este tutorial.
 
 1. Abra una instancia nueva de Eclipse.
@@ -68,7 +68,7 @@ Este paso describe cómo crear una aplicación PHP simple que representará un r
 
 12. Se abrirá la página **index.php** en una pestaña nueva en Eclipse. La página debe mostrar simplemente el texto: *Index Page* (Página de índice).
 
-##  Paso 2: aprovisionar la aplicación en el inquilino de Active Directory de la empresa
+## Paso 2: aprovisionar la aplicación en el inquilino de Active Directory de la empresa
 Este paso describe cómo un administrador de un cliente de Azure Active Directory aprovisiona la aplicación PHP en su inquilino y configura el inicio de sesión único. Una vez que se completa este paso, los empleados de la empresa se pueden autenticar en la aplicación web mediante sus cuentas de Office 365.
 
 El proceso de aprovisionamiento comienza con la creación de una nueva entidad de servicio para la aplicación. Azure Active Directory utiliza las entidades de servicio para registrar y autenticar las aplicaciones en el directorio.
@@ -108,7 +108,7 @@ Este paso dará como resultado información similar a la siguiente:
 	
 La aplicación web ahora se aprovisionó en el directorio y los empleados de la empresa la pueden utilizar para el inicio de sesión web único.
 
-##  Paso 3: proteger la aplicación con WS-Federation para el inicio de sesión de empleado
+## Paso 3: proteger la aplicación con WS-Federation para el inicio de sesión de empleado
 Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión federado con Windows Identity Foundation (WIF) y las bibliotecas simpleSAML.php que descargó con el código de ejemplo en los requisitos previos. También agregará una página de inicio de sesión y configurará la confianza entre la aplicación y el inquilino de directorio.
 
 1. En Eclipse, haga clic con el botón derecho en el proyecto **phpSample** y luego haga clic en **New** (Nuevo) y, a continuación, en **File** (Archivo). 
@@ -131,7 +131,7 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 
 5. En el cuadro de diálogo **New PHP File** (Nuevo archivo PHP), asigne al archivo el nombre **secureResource.php** y, a continuación, haga clic en **Finish** (Finalizar).
 
-6. En el nuevo archivo **secureResource.php**, escriba el siguiente código y reemplace la ruta de acceso **c:\phpLibraries** por la ubicación raíz donde descargó el código de ejemplo. La ubicación raíz debe incluir el archivo **simpleSAML.php** y la carpeta **federation**:
+6. En el nuevo archivo **secureResource.php**, escriba el siguiente código y reemplace la ruta de acceso **c:\\phpLibraries** por la ubicación raíz donde descargó el código de ejemplo. La ubicación raíz debe incluir el archivo **simpleSAML.php** y la carpeta **federation**:
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -183,7 +183,7 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 
 8. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar). Se le redirigirá automáticamente a la página del proveedor de identidades de Office 365, donde puede iniciar sesión con sus credenciales de inquilino de directorio. Por ejemplo, *john.doe@fabrikam.onmicrosoft.com*.
 
-##  Resumen
+## Resumen
 Este tutorial le ha mostrado cómo crear y configurar una aplicación PHP de un solo inquilino que utiliza las capacidades de inicio de sesión único de Azure Active Directory.
 
 Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el inicio de sesión único para sitios web PHP en <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
@@ -202,4 +202,5 @@ Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el in
 [Eclipse PDT 3.0.x All In Ones]: http://www.eclipse.org/pdt/downloads/
 [Código de ejemplo PHP para Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

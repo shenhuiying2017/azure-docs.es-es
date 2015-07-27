@@ -58,8 +58,7 @@ Si piensa utilizar el inicio de sesión único con el servicio en la nube, se re
 ### Agregar y comprobar un dominio mediante el Portal de administración de Azure
 
 1. En el portal, haga clic en **Active Directory** y, a continuación, haga clic en el nombre del directorio de su organización. Puede realizar una de las acciones siguientes:
-    1. En la página del directorio predeterminado, haga clic en **Agregar dominio** en la sección **Mejorar la experiencia de inicio de sesión del usuario **. 
-    2. Haga clic en **Dominios** y, a continuación, haga clic en **Agregar un dominio de cliente**o en el botón **Agregar**.
+    1. En la página del directorio predeterminado, haga clic en **Agregar dominio** en la sección **Mejorar la experiencia de inicio de sesión del usuario**. 2. Haga clic en **Dominios** y, a continuación, haga clic en **Agregar un dominio de cliente** o en el botón **Agregar**.
 2. En la página **Agregar dominio**, escriba el nombre de dominio que desea agregar y realice una de las acciones siguientes:
     1. Si no tiene previsto integrar Active Directory local con Azure AD, haga lo siguiente:
         1. Deje la casilla **Pretendo configurar este dominio para el inicio de sesión único con mi Active Directory local** desactivada y haga clic en el botón **Agregar**.
@@ -69,13 +68,11 @@ Si piensa utilizar el inicio de sesión único con el servicio en la nube, se re
         1. Asegúrese de activar la casilla **Pretendo configurar este dominio para el inicio de sesión único con mi Active Directory local** y, a continuación, haga clic en el botón **Agregar**.
         2. Una vez que aparezca el mensaje que informa de que el dominio se ha agregado correctamente a Azure AD, haga clic en la flecha para desplazarse a la página siguiente y, a continuación, siga las instrucciones de esa página para configurar el dominio agregado para el inicio de sesión único.
 
-> [AZURE.NOTE]
-Después de agregar el nombre de dominio a Azure AD, puede cambiar el nombre de dominio predeterminado para nuevas direcciones de correo electrónico. Para obtener más información, consulte [¿Cómo puedo cambiar el nombre de dominio principal para los usuarios?](#how-can-i-change-the-primary-domain-name-for-users?) También puede editar el perfil de una cuenta de usuario existente para actualizar la dirección de correo electrónico (que también es el identificador de usuario) a fin de utilizar el nombre de dominio personalizado en lugar del dominio onmicrosoft.com.
+> [AZURE.NOTE]Después de agregar el nombre de dominio a Azure AD, puede cambiar el nombre de dominio predeterminado para nuevas direcciones de correo electrónico. Para obtener más información, consulte [¿Cómo puedo cambiar el nombre de dominio principal para los usuarios?](#how-can-i-change-the-primary-domain-name-for-users?) También puede editar el perfil de una cuenta de usuario existente para actualizar la dirección de correo electrónico (que también es el identificador de usuario) a fin de utilizar el nombre de dominio personalizado en lugar del dominio onmicrosoft.com.
 
 ### Edición de registros DNS para servicios en la nube
 
-> [AZURE.NOTE]
-¿Usa Microsoft Intune? No es necesario editar los registros de DNS para el servicio en la nube de Microsoft Intune.
+> [AZURE.NOTE]¿Usa Microsoft Intune? No es necesario editar los registros de DNS para el servicio en la nube de Microsoft Intune.
 
 Después de agregar y comprobar su nombre de dominio personalizado, el paso siguiente es modificar los registros DNS en el registrador de dominios o el proveedor de host DNS que dirige el tráfico al servicio en la nube. Azure AD proporciona la información de DNS que necesita.
 
@@ -214,4 +211,4 @@ Si agrega el nombre de dominio personalizado al servicio en la nube después de 
 - [Registro en Azure como una organización](sign-up-organization.md)
 - [Administración de dominios en Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

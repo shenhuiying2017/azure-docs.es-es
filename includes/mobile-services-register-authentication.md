@@ -19,4 +19,4 @@ Ahora que ha configurado la aplicación y el servicio móvil para admitir un pro
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

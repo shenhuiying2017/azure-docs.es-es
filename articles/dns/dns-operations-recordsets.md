@@ -32,26 +32,33 @@ Los conjuntos de registros se crean mediante el cmdlet New-AzureDnsRecordSet. De
 
 DNS de Azure es compatible con todos los tipos de registro siguientes: A, AAAA, CNAME, MX, NS, SOA, SRV y TXT. Los conjuntos de registros de tipo SOA se crean automáticamente con cada zona; no se pueden crear por separado.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:> $rs = New-AzureDnsRecordSet -Name www -Zone $zone -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
 Si un registro ya existe, el comando generará un error a menos que se use el elemento Overwrite. La opción “-Overwrite” generará un mensaje de confirmación, que puede suprimirse con el elemento -Force.
 
 En el ejemplo anterior, la zona se especifica mediante un objeto de zona, devuelto por Get-AzureDnsZone o New-AzureDnsZone. Como alternativa, también puede especificar la zona por nombre de zona y nombre del grupo de recursos:
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
+	PS C:> $rs = New-AzureDnsRecordSet -Name www –ZoneName contoso.com –ResourceGroupName MyAzureResourceGroup -RecordType A -Ttl 300 [-Tag $tags] [-Overwrite] [-Force]
 
 New-AzureDnsRecordSet devuelve un objeto local que representa el conjunto de registros que se crea en DNS de Azure.
 
 >[AZURE.NOTE]Los conjuntos de registros CNAME coexisten con otros conjuntos de registros con el mismo nombre. Por ejemplo, no se puede crear un registro CNAME con el nombre relativo "www" y un registro A con el nombre relativo "www" al mismo tiempo. Habida cuenta de que el ápice de zona (nombre = “@”) siempre contiene los conjuntos de registros NS y SOA creados cuando se crea la zona, significa que no puede crear un conjunto de registros CNAME en el ápice de zona. Estas restricciones surgen de los estándares DNS; no son limitaciones de DNS de Azure.
 
+### Registros de carácter comodín
+Azure DNS admite [registros de carácter comodín](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Estos se devuelven en cualquier consulta con un nombre coincidente (a menos que haya una coincidencia más próxima de un conjunto de registros que no sean de caracteres comodín).
+
+>[AZURE.NOTE]Para crear un conjunto de registros de carácter comodín, use el nombre de conjunto de registros "*" o un nombre cuya primera etiqueta sea "*", por ejemplo, "*.foo".
+
+>Los conjuntos de registros de carácter comodín son compatibles con todos los tipos de registro, excepto NS y SOA.
+
 ## Recuperación de un conjunto de registros
 Para recuperar un conjunto de registros existente, use “Get-AzureDnsRecordSet” y especifique el nombre relativo del conjunto de registros, el tipo de registro y la zona:
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name www –RecordType A -Zone $zone
+	PS C:> $rs = Get-AzureDnsRecordSet -Name www –RecordType A -Zone $zone
 
 Al igual que con New-AzureDnsRecordSet, el nombre de registro debe ser relativo, es decir, sin incluir el nombre de zona. La zona se puede especificar mediante un objeto de zona (como anteriormente) o por nombre de zona y nombre del grupo de recursos:
 
-	PS C:\> $rs = Get-AzureDnsRecordSet –Name www –RecordType A -Zonename contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> $rs = Get-AzureDnsRecordSet –Name www –RecordType A -Zonename contoso.com -ResourceGroupName MyAzureResourceGroup
 
 Get-AzureDnsRecordSet devuelve un objeto local que representa el conjunto de registros que se crea en DNS de Azure.
 
@@ -61,12 +68,12 @@ Si se omiten los parámetros –Name o –RecordType, Get-AzureDnsRecordSet tamb
 ### Opción 1 
 Mostrar todos los tipos de registros. Esto devolverá todos los conjuntos de registros, independientemente del nombre o tipo de registro:
 
-	PS C:\> $list = Get-AzureDnsRecordSet -Zone $zone
+	PS C:> $list = Get-AzureDnsRecordSet -Zone $zone
 ### Opción 2 
 
 Mostrar los conjuntos de registros de un tipo de registro determinado. Esta opción devolverá todos los conjuntos de registros que coincidan con el tipo de registro determinado (en este caso, los registros A):
 
-	PS C:\> $list = Get-AzureDnsRecordSet –RecordType A -Zone $zone 
+	PS C:> $list = Get-AzureDnsRecordSet –RecordType A -Zone $zone 
 
 En ambos casos, la zona se puede especificar mediante un objeto de zona (como se muestra) o especificando los parámetros –ZoneName y –ResourceGroupName.
 
@@ -81,51 +88,51 @@ Cuando el conjunto de registros contiene la colección deseada de registros, deb
 
 ### Creación de un conjunto de registros A con un único registro
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 La secuencia de operaciones para crear un registro también puede “canalizarse”, pasando el objeto del conjunto de registros usando la canalización en lugar de como un parámetro. Por ejemplo:
 
-	PS C:\> New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60 | Add-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
+	PS C:> New-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone -Ttl 60 | Add-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
 
 ### Creación de un conjunto de registros AAAA con un único registro
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Creación de un conjunto de registros CNAME con un único registro
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-cname" -RecordType CNAME -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-cname" -RecordType CNAME -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Creación de un conjunto de registros MX con un único registro
 En este ejemplo, se utiliza el nombre de conjunto de registros "@" para crear el registro MX en el vértice de la zona (por ejemplo, "contoso.com"). Esto es común para los registros MX.
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Creación de un conjunto de registros NS con un único registro
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 ### Creación de un conjunto de registros SRV con un único registro
 
 Al crear un registro SRV en la raíz de la zona, basta con especificar _servicio y _protocolo en el nombre del registro; no es necesario incluir también “. @” en el nombre del registro
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Creación de un conjunto de registros TXT con un único registro
 
-	PS C:\> $rs = New-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone -Ttl 60
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = New-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone -Ttl 60
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ## Modificación de conjuntos de registros existentes
 La modificación de conjuntos de registros existentes sigue un patrón similar a la creación de registros. La secuencia de operaciones es la siguiente:
@@ -139,9 +146,9 @@ Esto se muestra en los ejemplos siguientes:
 ### Actualización de un registro en un conjunto de registros existente
 En este ejemplo, se cambiará la dirección IP de un registro A existente:
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -name "test-a" -RecordType A -Zone $zone 
-	PS C:\> $rs.Records[0].Ipv4Address = "134.170.185.46"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -name "test-a" -RecordType A -Zone $zone 
+	PS C:> $rs.Records[0].Ipv4Address = "134.170.185.46"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 El cmdlet Set-AzureDnsRecordSet usa comprobaciones de "etag" para asegurarse de que no se sobrescriben los cambios simultáneos. Utilice la marca “-Overwrite” para suprimir estas comprobaciones. Consulte Etags y etiquetas para obtener más información.
 
@@ -151,9 +158,9 @@ El cmdlet Set-AzureDnsRecordSet usa comprobaciones de "etag" para asegurarse de 
 
 En el ejemplo siguiente se muestra cómo cambiar la propiedad “Email” del registro SOA:
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType SOA -Zone $zone
-	PS C:\> $rs.Records[0].Email = "admin.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType SOA -Zone $zone
+	PS C:> $rs.Records[0].Email = "admin.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 ### Modificación de los registros NS en el ápice de zona
 
@@ -161,17 +168,17 @@ En el ejemplo siguiente se muestra cómo cambiar la propiedad “Email” del re
 
 En el ejemplo siguiente se muestra cómo cambiar la propiedad TTL del conjunto de registros NS:
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType NS -Zone $zone
-	PS C:\> $rs.Ttl = 300
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "@" -RecordType NS -Zone $zone
+	PS C:> $rs.Ttl = 300
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 ### Incorporación de registros a un conjunto de registros existente
 En este ejemplo, agregamos dos registros MX más al conjunto de registros existente:
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType MX -Zone $zone
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs 
+	PS C:> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType MX -Zone $zone
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail2.contoso.com" -Preference 10
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail3.contoso.com" -Preference 20
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs 
 
 ## Eliminación de un registro de un conjunto de registros existente
 
@@ -180,50 +187,50 @@ Los registros pueden eliminarse de un conjunto de registros con Remove-AzureDnsR
 Al eliminar el último registro de un conjunto de registros, no se elimina el conjunto de registros. Consulte [Eliminación de un conjunto de registros](#delete-a-record-set) a continuación para obtener más información.
 
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 La secuencia de operaciones para eliminar un registro de un conjunto de registros también puede “canalizarse”, pasando el objeto del conjunto de registros usando la canalización en lugar de como un parámetro. Por ejemplo:
 
-	PS C:\> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
+	PS C:> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordConfig -Ipv4Address "1.2.3.4" | Set-AzureDnsRecordSet
 ### Eliminación de un registro AAAA de un conjunto de registros
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA –Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-aaaa" -RecordType AAAA –Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Eliminación de un registro CNAME de un conjunto de registros
 
 Puesto que un conjunto de registros CNAME puede contener como máximo un registro, al eliminar dicho registro, un conjunto de registros se quedará vacío.
 
-	PS C:\> $rs =  Get-AzureDnsRecordSet -name "test-cname" -RecordType CNAME –Zone $zone	
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs =  Get-AzureDnsRecordSet -name "test-cname" -RecordType CNAME –Zone $zone	
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Eliminación de un registro MX de un conjunto de registros
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType 'MX' –Zone $zone	
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -name "test-mx" -RecordType 'MX' –Zone $zone	
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Eliminación de un registro NS de un conjunto de registros
 	
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-ns" -RecordType NS -Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Eliminación de un registro SRV de un conjunto de registros
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Eliminación de un registro TXT de un conjunto de registros
 
-	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone
-	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
+	PS C:> $rs = Get-AzureDnsRecordSet -Name "test-txt" -RecordType TXT -Zone $zone
+	PS C:> Remove-AzureDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
+	PS C:> Set-AzureDnsRecordSet -RecordSet $rs
 
 ## Eliminación de un conjunto de registros
 Los conjuntos de registros pueden eliminarse mediante el cmdlet Remove-AzureDnsRecordSet.
@@ -234,28 +241,28 @@ Utilice una de las dos opciones siguientes para eliminar un conjunto de registro
 ### Opción 1
 Especificar todos los parámetros por nombre:
 
-	PS C:\> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zonename "contoso.com" -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zonename "contoso.com" -ResourceGroupName MyAzureResourceGroup [-Force]
 Se puede utilizar el elemento opcional “-Force” para suprimir el mensaje de confirmación.
 
 ### Opción 2
 Especificar el conjunto de registros por nombre y tipo, especificar la zona por objeto:
 
-	PS C:\> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
+	PS C:> Remove-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone [-Force]
 
 ### Opción 3
 Especificar el conjunto de registros por objeto:
 
-	PS C:\> Remove-AzureDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
+	PS C:> Remove-AzureDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
 Al especificar el conjunto de registros con un objeto, las comprobaciones de “etag” pueden garantizar que no se eliminan los cambios simultáneos. La etiqueta opcional “-Overwrite”’ suprime estas comprobaciones. Consulte [Etags y etiquetas](../dns-getstarted-create-dnszone#Etags-and-tags) para obtener más información.
 
 El objeto del conjunto de registros también puede canalizarse en lugar de pasarse como un parámetro:
 
-	PS C:\> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordSet [-Overwrite] [-Force]
+	PS C:> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordSet [-Overwrite] [-Force]
 
 ##Otras referencias
 
 [Introducción sobre la creación de registros y conjuntos de registros](../dns-getstarted-create-recordset)<BR> [Realización de operaciones en zonas DNS](../dns-operations-dnszones)<BR> [Automatización de operaciones con el SDK de .NET](../dns-sdk)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

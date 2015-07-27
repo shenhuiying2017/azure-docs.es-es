@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Creación y carga de un VHD de Linux en Azure" 
-	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+	pageTitle="Creación y carga de un VHD de Linux en Azure"
+	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/15/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
 
@@ -92,7 +92,7 @@ Si no está ejecutando en un entorno de Windows, se recomienda usar qemu-img par
 		echo "Rounded Size = $rounded_size"
 
  3. Cambie el tamaño del disco sin procesar con $rounded_size como se establece en la secuencia de comandos anterior:
- 
+
 		# qemu-img resize MyLinuxVM.raw $rounded_size
 
  4. Ahora, convierta el disco sin procesar a un disco duro virtual de tamaño fijo:
@@ -189,7 +189,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

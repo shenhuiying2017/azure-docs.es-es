@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/06/2015" 
 	ms.author="arramac"/>
 
 # Ordenación de datos de DocumentDB con Order By
@@ -33,11 +33,11 @@ Para obtener una referencia completa sobre las consultas de SQL, consulte el [tu
 Al igual que en ANSI-SQL, ahora puede incluir una cláusula Order By opcional en las instrucciones SQL al consultar DocumentDB. La cláusula puede incluir un argumento ASC o DESC opcional para especificar el orden en que se deben recuperar los resultados.
 
 ### Ordenación mediante SQL
-Por ejemplo, aquí se muestra una consulta para recuperar libros en orden descendente de PublishTimestamp.
+Por ejemplo, aquí se muestra una consulta para recuperar libros en orden descendente por sus títulos.
 
     SELECT * 
     FROM Books 
-    ORDER BY Books.PublishTimestamp DESC
+    ORDER BY Books.Title DESC
 
 ### Ordenación mediante SQL con filtrado
 Puede ordenar con cualquier propiedad anidada dentro de documentos como Books.ShippingDetails.Weight y puede especificar filtros adicionales en la cláusula WHERE junto con Order By, como en este ejemplo:
@@ -73,49 +73,56 @@ Mediante la compatibilidad nativa con la paginación dentro de los SDK de Docume
         }
     }
 
-DocumentDB admite la ordenación según tipos numéricos (no cadenas) y solo para una única propiedad Order By por consulta en esta vista previa de la función. Consulte [Qué novedades se esperan](#Whats_coming_next) para obtener más detalles.
+DocumentDB admite la ordenación con una única propiedad numérica, de cadena o booleana por consulta, con tipos de consulta adicionales que estarán disponibles próximamente. Consulte [Qué novedades se esperan](#Whats_coming_next) para obtener más detalles.
 
 ## Configurar una directiva de indexación para Order By
-Para ejecutar consultas de Order By, debe:
 
-- Indexar rutas de acceso específicas dentro de los documentos con la máxima precisión, (o) 
-- Indexar *todas* las rutas de acceso recursivamente para toda la colección con la máxima precisión 
+Recuerde que DocumentDB admite dos tipos de índices (Hash y de intervalo), que se pueden establecer para propiedades/rutas de acceso específicas, tipos de datos (cadenas/números) y en valores de precisión diferentes (precisión máxima o un valor de precisión fijo). Puesto que DocumentDB usa la indexación Hash de manera predeterminada, debe crear una nueva colección con una directiva de indexación personalizada con el intervalo en los números, cadenas o ambos, para poder usar Order By.
 
-La precisión máxima (representada como una precisión de -1 en el archivo JSON config) usa un número variable de bytes, según el valor que se indexa. Por lo tanto:
-
-- En las propiedades con valores de número mayores (por ejemplo, las marcas de tiempo epoch), la precisión máxima tendrá una alta sobrecarga de índice. 
-- Las propiedades con valores de número menores (enumeraciones, ceros, códigos postales, edades, etc.) tendrán una baja sobrecarga de índice.
+>[AZURE.NOTE]Los índices de intervalo de cadena se introdujeron en el 7 de julio de 2015 con la API de REST versión 2015-06-03. Para crear directivas de Order By con cadenas, debe usar el SDK versión 1.2.0 del SDK de .NET o la versión 1.1.0 del SDK Python, Node.js o Java.
+>
+>Antes de la API de REST versión 2015-06-03, la directiva de indexación de colección predeterminada era Hash para cadenas y números. Esto se cambió a Hash para cadenas e Intervalo para números.
 
 Para obtener más información, consulte [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md).
 
-### Indexación de Order By con todas las propiedades numéricas
-Así es cómo puede crear una colección con la indexación de Order By con cualquier propiedad (numérica).
+### Indexación para Order By en todas las propiedades
+A continuación se indica cómo puede crear una colección con la indexación "Todo el intervalo" para Order By con cualquiera/todas las propiedades numéricas o de cadena que aparecen en documentos JSONany/all numérico o cadena de las propiedades que aparecen en los documentos JSON dentro de esta. En este caso, "/*" representa todas las propiedades/rutas de acceso JSON dentro de la colección, y -1 representa la precisión máxima.
                    
-
     booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IndexingPath {
-            IndexType = IndexType.Range, 
-            Path = "/",
-            NumericPrecision = -1 });
+        new IncludedPath { 
+            Path = "/*", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }
+        });
 
     await client.CreateDocumentCollectionAsync(databaseLink, 
         booksCollection);  
 
+>[AZURE.NOTE]Tenga en cuenta que Order By solo devolverá resultados de los tipos de datos (cadena y número) que están indexados con un RangeIndex. Por ejemplo, si tiene la directiva de indexación predeterminada que solo tiene RangeIndex en números, una consulta Order By en una ruta de acceso con valores de cadena no devolverá ningún documento.
+
 ### Indexación de Order By para una sola propiedad
-Así es cómo puede crear una colección con la indexación de Order By solo con la propiedad PublishTimestamp.
-
+A continuación se indica cómo puede crear una colección con indexación para Order By con la propiedad Title, que es una cadena. Hay dos rutas de acceso, una para la propiedad Title ("/Title/?") con la indexación de intervalo y la otra para todas las otras propiedades con el esquema de indexación predeterminado, que es Hash para cadenas e Intervalo para los números.
+    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IndexingPath {
-            IndexType = IndexType.Range,
-            Path = "/"PublishTimestamp"/?",
-            NumericPrecision = -1
-        });
-
+        new IncludedPath { 
+            Path = "/Title/?", 
+            Indexes = new Collection<Index> { 
+                new RangeIndex(DataType.String) { Precision = -1 } } 
+            });
+    
+    // Use defaults which are:
+    // (a) for strings, use Hash with precision 3 (just equality queries)
+    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
     booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IndexingPath {
-            Path = "/"
+        new IncludedPath { 
+            Path = "/*",
+            Indexes = new Collection<Index> { 
+                new HashIndex(DataType.String) { Precision = 3 }, 
+                new RangeIndex(DataType.Number) { Precision = -1 }
+            }            
         });
-
 
 ## Muestras
 Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) en los que se muestra cómo se usa Order By, incluida la creación de directivas de indexación y la paginación con Order By. Los ejemplos son de código abierto y le animamos a que envíe solicitudes de extracción con las contribuciones que podrían ayudar a otros desarrolladores de DocumentDB. Consulte las [directrices de contribución](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) para obtener instrucciones acerca de cómo realizar sus aportaciones.
@@ -124,17 +131,15 @@ Eche un vistazo a los [proyectos de ejemplo de Github](https://github.com/Azure/
 
 Las actualizaciones del servicio futuras ampliarán la compatibilidad de Order By que se presenta aquí. Estamos trabajando en las siguientes adiciones y se dará prioridad a la publicación de estas mejoras según sus comentarios:
 
-- Directivas de indexación dinámicas: compatibilidad para modificar la directiva de indexación después de la creación de la colección
-- Índices de intervalo de cadena: indexar para admitir consultas de intervalo (>, <, >=, <=) con respecto a valores de cadena. Para admitir esto, se incorporará un nuevo esquema más completo para las directivas de indexación.
-- Compatibilidad con Order By de cadena en consultas de DocumentDB.
-- Capacidad de actualizar la directiva de indexación mediante el Portal de vista previa de Azure.
+- Directivas de indexación dinámicas: compatibilidad para modificar la directiva de indexación después de la creación de la colección y en el Portal de Azure
 - Compatibilidad con los índices compuestos para una operación Order By más eficaz y Order By en varias propiedades.
 
 ## P+F
 
 **¿Qué plataformas y versiones del SDK admiten la ordenación?**
 
-Dado que Order By es una actualización del lado servidor, no es necesario descargar una nueva versión del SDK para usar esta característica. Todas las plataformas y versiones del SDK, incluidos los SDK de JavaScript del lado servidor pueden usar Order By con cadenas de consulta SQL. Si está usando LINQ, debe descargar la versión 1.2.0 o una más reciente de Nuget.
+Para crear colecciones con la directiva de indexación requerida para Order By, debe descargar la lista más reciente del SDK (1.2.0 para .NET y 1.1.0 para Node.js, JavaScript, Python y Java). El SDK de .NET 1.2.0 también es necesario para usar OrderBy() y OrderByDescending() dentro de las expresiones de LINQ.
+
 
 **¿Cuál es el consumo de unidades de solicitud (RU) esperado de las consultas de Order By?**
 
@@ -143,11 +148,7 @@ Dado que Order By usa el índice de DocumentDB para las búsquedas, el número d
 
 **¿Cuál es la sobrecarga de indexación esperada de Order By?**
 
-La sobrecarga del almacenamiento de indexación será proporcional a la cantidad de propiedades numéricas. En el peor escenario posible, la sobrecarga del índice será el 100 % de los datos. No hay diferencias en la sobrecarga de procesamiento (unidades de solicitud) entre la indexación de intervalo u Order By y la indexación de Hash predeterminada.
-
-**¿Afecta este cambio a las consultas sin Order By?**
-
-No se han introducido cambios en la forma en que las consultas sin Order By funcionan actualmente. Antes del lanzamiento de esta característica, todas las consultas de DocumentDB devolvían resultados en orden de ResourceId (_rid). Con Order By, las consultas se devolverán naturalmente en el orden de valores especificado. En las consultas de Order By, _rid se usará como un criterio de ordenación secundario cuando haya varios documentos devueltos con el mismo valor.
+La sobrecarga del almacenamiento de indexación será proporcional a la cantidad de propiedades. En el peor escenario posible, la sobrecarga del índice será el 100 % de los datos. No hay diferencias en la sobrecarga de procesamiento (unidades de solicitud) entre la indexación de intervalo u Order By y la indexación de Hash predeterminada.
 
 **¿Cómo se consultan los datos existentes en DocumentDB con Order By?**
 
@@ -155,15 +156,14 @@ Esto se admitirá con la disponibilidad de la mejora de las directivas de indexa
 
 **¿Cuáles son las limitaciones actuales de Order By?**
 
-Order By solo puede especificarse con una propiedad numérica y solamente cuando se indexa por intervalos con indexación de precisión máxima (-1). Order By solo se admite con colecciones de documentos.
+Order By solo se puede especificar para una propiedad, numérica o de cadena, cuando está indexada mediante intervalo con la precisión máxima (-1).
 
 No puede realizar las siguientes operaciones:
  
-- Order By con propiedades de cadena (próximamente).
 - Order By con propiedades de cadena internas com id, _rid y _self (próximamente). - Order By con propiedades derivadas del resultado de una combinación de dentro de documentos (próximamente).
 - Order By con varias propiedades (próximamente).
+- Order By con consultas en bases de datos, colecciones, usuarios, permisos o datos adjuntos (próximamente).
 - Order By con las propiedades calculadas (por ejemplo, el resultado de una expresión o una función UDF o integrada).
-- Order By con consultas en bases de datos, colecciones, usuarios, permisos o datos adjuntos.
 
 ## Pasos siguientes
 
@@ -176,4 +176,4 @@ Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-docu
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -230,4 +230,4 @@ Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

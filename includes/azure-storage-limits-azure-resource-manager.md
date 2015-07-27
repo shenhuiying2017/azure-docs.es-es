@@ -1,3 +1,5 @@
+Los límites siguientes se aplican al usar el Administrador de recursos de Azure y los grupos de recursos de Azure.
+
 <table cellspacing="0" border="1">
 <tr>
    <th align="left" valign="middle">Recurso</th>
@@ -13,4 +15,4 @@
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

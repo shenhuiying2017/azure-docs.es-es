@@ -777,4 +777,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transacciones en Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) del repositorio de StackExchange.Redis.
 - La [Guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

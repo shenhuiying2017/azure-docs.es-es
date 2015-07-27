@@ -53,13 +53,12 @@ No configurar| No se instalará ni configurará ninguna característica. Elija e
 
 
 ## Conectarse a Azure AD
-En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador global y una contraseña. Asegúrese de que esta cuenta no tenga habilitada Multi-Factor Authentication. Esto provocará un error de autenticación. 
-Tenga en cuenta que esta cuenta solo se usa para crear una cuenta de servicio en Azure AD y no se utiliza cuando el asistente haya finalizado.
+En la pantalla Conectarse a Azure AD, especifique una cuenta de administrador global y una contraseña. Asegúrese de que esta cuenta no tenga habilitada Multi-Factor Authentication. Esto provocará un error de autenticación. Tenga en cuenta que esta cuenta solo se usa para crear una cuenta de servicio en Azure AD y no se utiliza cuando el asistente haya finalizado.
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
 
 ### Conectar sus directorios
-Para conectarse al Servicio de dominio de Active Directory, Azure AD Connect necesita las credenciales de una cuenta con permisos suficientes. Esta cuenta puede ser una cuenta de usuario normal porque solo tiene los permisos de lectura predeterminados. Sin embargo, según el escenario, puede que necesite permisos adicionales. Para obtener más información, consulte [Resumen de la cuenta de Azure AD Connect](active-directory-addconnect-account-summary)
+Para conectarse al Servicio de dominio de Active Directory, Azure AD Connect necesita las credenciales de una cuenta con permisos suficientes. Esta cuenta puede ser una cuenta de usuario normal porque solo tiene los permisos de lectura predeterminados. Sin embargo, según el escenario, puede que necesite permisos adicionales. Para obtener más información, consulte [Resumen de la cuenta de Azure AD Connect](active-directory-aadconnect-account-summary.md)
 
 <center>![User Signin](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
 
@@ -86,8 +85,7 @@ Mi propio atributo|Esta opción le permite seleccionar su propio atributo. **Lim
 
 
 ### Filtrado de sincronización basado en grupos
-La característica de filtrado en grupos le permite ejecutar una pequeña prueba piloto en un pequeño subconjunto de objetos creado en Azure AD y Office 365. Para utilizar esta característica, cree un grupo en Active Directory y agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. 
-Para usar esta característica, en la ruta de acceso personalizada verá esta página:
+La característica de filtrado en grupos le permite ejecutar una pequeña prueba piloto en un pequeño subconjunto de objetos creado en Azure AD y Office 365. Para utilizar esta característica, cree un grupo en Active Directory y agregue los usuarios y grupos que se deben sincronizar con Azure AD como miembros directos. Posteriormente puede agregar y quitar usuarios a este grupo para mantener la lista de objetos que deban estar presentes en Azure AD. Para usar esta característica, en la ruta de acceso personalizada verá esta página:
 
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/filter2.png) </center>
 
@@ -127,6 +125,9 @@ Estos atributos ahora estarán disponibles en Graph:
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
 
 ## Reescritura de usuarios (vista previa)
+
+> [AZURE.WARNING]Si actualmente tiene activo DirSync o Azure AD Sync, no active ninguna de las características de escritura diferida en Azure AD Connect
+
 Reescritura de usuarios permite tomar un usuario creado en Azure AD (a través del portal, gráfico, PowerShell o cualquier otro método) y reescribir al usuario en AD DS local. Para habilitar la característica, seleccione «Reescritura de usuarios» en la página de características opcionales. Ahora se le mostrará la ubicación donde desea que se creen estos usuarios. La configuración predeterminada creará todos los usuarios en una ubicación en AD DS.
 
 <center>![Sync Filtering](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
@@ -135,6 +136,9 @@ Los usuarios se crearán con una contraseña aleatoria, de tal forma que haya qu
 >[AZURE.NOTE]La sincronización de contraseñas y la reescritura de contraseñas no son compatibles con esta característica de vista previa.
 
 ## Reescritura de grupos (vista previa)
+
+> [AZURE.WARNING]Si actualmente tiene activo DirSync o Azure AD Sync, no active ninguna de las características de escritura diferida en Azure AD Connect
+
 La opción para la reescritura de grupos en las características opcionales le permitirá reescribir "Grupos de Office 365" en un bosque con Exchange instalado. Se trata de un nuevo tipo de grupo que siempre se controla en la nube. Puede encontrarlo en outlook.office365.com o en myapps.microsoft.com, tal como se muestra aquí:
 
 
@@ -154,7 +158,16 @@ Este grupo se representará como un grupo de distribución en AD DS local. El se
 Puede encontrar más información [aquí](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/).
 
 ## Reescritura de dispositivos (vista previa)
-La característica de reescritura de dispositivos le permitirá tomar un dispositivo registrado en la nube, por ejemplo en Intune, y tenerlo en AD DS para un acceso condicional. Para habilitar la característica, debe prepararse AD DS. Si instala AD FS y el servicio de registro de dispositivos (DRS), DRS proporciona cmdlets de PowerShell para preparar a AD para la reescritura de dispositivos. Si no tienes DRS instalado, puede ejecutar C:\Archivos de programa\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 como administrador empresarial.
+
+> [AZURE.WARNING]Si actualmente tiene activo DirSync o Azure AD Synx, no active ninguna de las características de escritura diferida en Azure AD Connect.
+
+La característica de reescritura de dispositivos le permitirá tomar un dispositivo registrado en la nube, por ejemplo en Intune, y tenerlo en AD DS para un acceso condicional. Para habilitar la característica, debe prepararse AD DS. Si instala AD FS y el servicio de registro de dispositivos (DRS), DRS proporciona cmdlets de PowerShell para preparar a AD para la reescritura de dispositivos. Si no tienes DRS instalado, puede ejecutar C:\\Archivos de programa\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 como administrador empresarial.
+
+Debe importar el cmdlet de PowerShell para poder ejecutarlo.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+Para ello, deberá tener instalados localmente Active Directory y MSOnline PowerShell.
 
 
 
@@ -172,11 +185,9 @@ Al instalar Azure AD Connect, se habilita de forma predeterminada la caracterís
 
 Si no es lo esperado, investigue y tome las medidas correctivas oportunas.
 
-Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute: 
-Disable-ADSyncExportDeletionThreshold.
+Para deshabilitar temporalmente esta protección y permitir realizar estas eliminaciones, ejecute: Disable-ADSyncExportDeletionThreshold.
 
-Para volver a habilitar la protección o para cambiar el valor de umbral predeterminado, ejecute: 
-Enable-ADSyncExportDeletionThreshold.
+Para volver a habilitar la protección o para cambiar el valor de umbral predeterminado, ejecute: Enable-ADSyncExportDeletionThreshold.
 
 
 ## Configuración de Federación con AD FS
@@ -262,7 +273,4 @@ Puede personalizar la imagen de logotipo y la ilustración para las páginas de 
 * [Más información](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
-
-<!--HONumber=62-->
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

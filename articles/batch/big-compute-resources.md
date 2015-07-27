@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)"
-   description="En este artículo se enumeran los recursos técnicos para ayudarle a ejecutar cargas de trabajo de HPC, por lotes y en paralelo a gran escala en Azure."
+   pageTitle="Big Compute: recursos técnicos para Lote e informática de alto rendimiento (HPC) | Microsoft Azure"
+   description="Enumera los recursos técnicos para ayudarle a ejecutar cargas de trabajo de HPC, por lotes y en paralelo a gran escala en Azure."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
    authors="dlepow"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/24/2015"
+   ms.date="07/09/2015"
    ms.author="danlep"/>
 
 # Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)
@@ -23,7 +23,7 @@ Se trata de una guía sobre recursos técnicos que le ayudará a ejecutar cargas
 
 Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoque correcto para sus necesidades empresariales y de carga de trabajo.
 
-* [Información general](https://msdn.microsoft.com/library/azure/dn482130.aspx)
+* [Soluciones HPC y Lote](batch-hpc-solutions.md)
 
 * [Vídeo: Big Compute en la nube con Azure y HPC](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
 
@@ -31,8 +31,6 @@ Obtenga información sobre las opciones de Big Compute en Azure y elija el enfoq
 ## Azure Batch
 
 [Batch](http://azure.microsoft.com/services/batch/) es un servicio de plataforma que facilita el proceso de habilitar para la nube sus aplicaciones y de ejecutar trabajos sin configurar y administrar un clúster y un programador de trabajos. Use el SDK para integrar aplicaciones cliente con Azure Batch a través de una variedad de lenguajes, almacenar datos en Azure y crear canalizaciones de ejecución de trabajos.
-
-* Suscríbase a la [Preview](http://azure.microsoft.com/services/preview/)
 
 * [Documentación](http://azure.microsoft.com/documentation/services/batch/)
 
@@ -50,13 +48,13 @@ Implemente o amplíe su clúster de Windows o Linux HPC existente para ejecutar 
 
 ### Microsoft HPC Pack
 
-[HPC Pack](https://technet.microsoft.com/library/cc514029) es el administrador de clústeres gratuito de Microsoft y la solución de programación de trabajos para HPC basada en la nube, híbrida y local.
+[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx) es el administrador de clústeres gratuito de Microsoft y la solución de programación de trabajos para HPC basada en la nube, híbrida y local.
 
 * [Irrumpir en Azure con HPC Pack](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [HPC Pack en máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
 
-* [Tutorial: Configurar un clúster híbrido con HPC Pack en Azure](../cloud-services-setup-hybrid-hpcpack-cluster.md)
+* [Tutorial: Configurar un clúster híbrido con HPC Pack en Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
 * [Foros de Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
 
@@ -81,7 +79,7 @@ Use estas plantillas de Administrador de recursos de Azure para implementar clú
 
 ## Instancias intensivas de proceso
 
-Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-size-specs.md), incluidas las [instancias A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) de proceso intensivo, para ejecutar sus cargas de trabajo de Batch y HPC.
+Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-size-specs.md), incluidas las [instancias A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) de proceso intensivo, para ejecutar sus cargas de trabajo de HPC de Linux y Windows.
 
 * [Instancias A8 y A9: inicio rápido de HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
@@ -118,4 +116,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

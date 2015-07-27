@@ -78,7 +78,7 @@ En ambas máquinas virtuales de Ubuntu, necesitamos usar APT para instalar Coros
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-**No instale MySQL en este momento **. Los scripts de instalación de Debian y Ubuntu inicializarán un directorio de datos de MySQL en{b> <b}`/var/lib/mysql`, pero dado que el directorio se sustituirá por un sistema de archivos DRBD, necesitamos hacer esto más tarde.
+**No instale MySQL en este momento **. Los scripts de instalación de Debian y Ubuntu inicializarán un directorio de datos de MySQL en `/var/lib/mysql`, pero dado que el directorio se sustituirá por un sistema de archivos DRBD, necesitamos hacer esto más tarde.
 
 En este momento también debemos comprobar (mediante `/sbin/ifconfig`) que ambas máquinas virtuales usan las direcciones de la subred 10.10.10.0/24 y que pueden ejecutar el comando ping entre ellas por nombre. Si lo desea, también puede usar `ssh-keygen` y `ssh-copy-id` para asegurarse de que ambas máquinas virtuales pueden comunicarse a través de SSH sin necesidad que contraseña.
 
@@ -348,4 +348,4 @@ Se aplican las siguientes limitaciones:
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -222,4 +222,4 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 [Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -16,7 +16,7 @@
 	ms.date="06/16/2015" 
 	ms.author="sdanie"/>
 
-#  Personalización del aspecto del portal para desarrolladores en Administración de API de Azure
+# Personalización del aspecto del portal para desarrolladores en Administración de API de Azure
 
 Los colores, las fuentes, los tamaños, los espacios y otros elementos del aspecto del portal para desarrolladores se definen mediante reglas de estilo. Existen conjuntos de estas reglas para cada elemento estructural de una página: el encabezado, el menú, el cuerpo del contenido, el título de página, etc. En estos procedimientos aprenderá a modificar las reglas de estilo.
 
@@ -55,4 +55,4 @@ Cuando haya terminado de hacer cambios en los estilos del elemento seleccionado,
 [api-management-customization-toolbar-color-picker]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-howto-customize-look-and-feel/api-management-customization-toolbar-publish-form.png
 
-<!--HONumber=62-->
+<!---HONumber=July15_HO3-->

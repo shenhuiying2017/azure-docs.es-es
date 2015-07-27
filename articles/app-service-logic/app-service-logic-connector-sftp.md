@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Conector de SFTP"
 	description="Introducción al conector de SFTP"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="adgoda"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 # Uso del conector de SFTP en la aplicación lógica #
 
@@ -28,7 +28,7 @@ Para usar el conector de SFTP, deberá crear primero una instancia de la aplicac
 1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior izquierda del Portal de Azure.
 2.	Vaya a “Web y móvil > Aplicaciones de API” y busque “Conector de SFTP”.
 3.	Configure el conector de SFTP de la siguiente forma:
- 
+
 	![][1] - **Ubicación**: elija la ubicación geográfica en la que desea implementar el conector - **Suscripción**: elija una suscripción en la que desea crear este conector - **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector - **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web - **Nivel de precios**: elija un nivel de precios para el conector - **Nombre**: asigne un nombre al conector SFTP - **Configuración del paquete** - **Dirección del servidor**: especifique el nombre o la dirección IP del servidor SFTP - **Aceptar cualquier tecla del host del servidor SSH**: determina si se debe aceptar alguna huella digital de la clave pública SSH del servidor. Si se establece en false, la tecla del host se comparará con la tecla especificada en la propiedad “Huella digital de tecla del host del servidor SSH” - **Tecla del host del servidor SSH**: especifique la huella digital de la clave del host público del servidor SSH. - **Carpeta raíz**: especifique una ruta de acceso a la carpeta raíz - **Cifrar cifrado**: especifique el código del cifrado. - **Puerto del servidor**: especifique el número de puerto del servidor SFTP
 4. Haga clic en Crear. Se creará un nuevo conector de SFTP.
 
@@ -38,23 +38,23 @@ Para usar el conector de SFTP, deberá crear primero una instancia de la aplicac
 6. Haga clic en el componente "Seguridad" para configurar la seguridad (Nombre de usuario, Contraseña, Clave privada, Contraseña del archivo PPK) para el conector SFTP. Seleccione la pestaña de autorización "Contraseña", "Privatekey" o "MultiFactor" en Seguridad y proporcione las propiedades necesarias.
 
 	![][3] ![][4] ![][5]
-6. Una vez guardada la configuración de seguridad, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SFTP. 
+6. Una vez guardada la configuración de seguridad, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de SFTP.
 
 ## Uso del conector de SFTP en la aplicación lógica ##
 Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP como desencadenador/acción para la aplicación lógica. Para ello, necesita lo siguiente:
 
 1.	Cree una nueva aplicación lógica y elija el mismo grupo de recursos que tiene el conector de SFTP.
- 	
+
 	![][6]
-2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo. 
- 	
+2.	Abra "Desencadenadores y acciones" para abrir el Diseñador de aplicaciones lógicas y configure el flujo.
+
 	![][7]
 3.	El conector de SFTP aparecerá en la sección "Aplicaciones de API en este grupo de recursos" en la galería, en el lado derecho.
- 
+
 	![][8]
 4.	Puede quitar la aplicación de la API del conector de SFTP en el editor haciendo clic en "Conector de SFTP".
- 
-	
+
+
 6.	Ahora puede usar el conector de SFTP en el flujo. Puede utilizar el archivo recuperado desde el desencadenador de SFTP ("TriggerOnFileAvailable") en otras acciones del flujo.
 
 	**Nota:** el desencadenador de SFTP "TriggerOnFileAvailable" eliminará el archivo recuperado después de procesarlo.
@@ -66,7 +66,7 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 	- **Máscara de archivo**: especifique la máscara de archivo que se va a aplicar para recuperar los archivos. '*' recupera todos los archivos de la carpeta especificada.
 	- **Máscara para excluir archivo**: especifique la máscara de archivo que se aplicará para excluir archivos. Si también se ha establecido la propiedad "Máscara de archivo", primero se aplicará la máscara para excluir archivo.
 
- 
+
 	![][9] ![][10]
 
 7.	De un modo similar, puede usar las acciones de SFTP en el flujo. Puede usar la acción "Cargar archivo" para cargar un archivo en el servidor de SFTP. Configure las propiedades de entrada para la acción "Cargar archivo" de la siguiente manera:
@@ -96,6 +96,5 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 [10]: ./media/app-service-logic-connector-sftp/img10.PNG
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

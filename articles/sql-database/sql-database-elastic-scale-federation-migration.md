@@ -143,4 +143,4 @@ Aunque las herramientas de Base de datos elástica ofrece muchas característica
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

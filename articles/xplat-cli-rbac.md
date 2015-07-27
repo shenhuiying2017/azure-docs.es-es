@@ -118,7 +118,7 @@ Luego use `azure role assignment create` para crear una asignación de rol. Por 
 
 - Esto creará una asignación de rol en un nivel de grupo de recursos.
 
-    `PS C:\> azure role assignment create --mail <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --mail <user's email> -o Contributor -g group1`
 
 - Esto creará una asignación de rol en un nivel de recursos.
 
@@ -128,8 +128,8 @@ Luego use `azure role assignment create` para crear una asignación de rol. Por 
 
 Después de comprobar que su cuenta tiene asignaciones de roles, puede ver los permisos que conceden estas asignaciones de roles ejecutando lo siguiente:
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 Esos dos cmdlets solo devolverán los grupos de recursos o los recursos donde tiene permiso de lectura. También le mostrarán los permisos que tiene.
 
@@ -143,4 +143,4 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 - [Uso de la interfaz de la línea de comandos de Azure con Administrador de recursos](xplat-cli-azure-resource-manager.md)
 - [Uso de grupos de recursos para administrar los recursos de Azure](resource-groups-overview.md): obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

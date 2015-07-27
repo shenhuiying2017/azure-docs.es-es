@@ -124,7 +124,7 @@ Para mostrar los contadores de rendimiento personalizados en el portal, es preci
 2. Navegue por la ruta de acceso del blob usando el patrón **RoleName/DeploymentId y RoleInstance** para encontrar la configuración de la instancia de rol. 
 
 	![Explorador de almacenamiento de Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Descargue el archivo de configuración de la instancia de rol y actualícelo para que incluya cualquier contador de rendimiento personalizado. Por ejemplo, para supervisar *Bytes de escritura en disco/s* en la *unidad C* agregue lo siguiente al nodo **PerformanceCounters\Subscriptions**
+3. Descargue el archivo de configuración de la instancia de rol y actualícelo para que incluya cualquier contador de rendimiento personalizado. Por ejemplo, para supervisar *Bytes de escritura en disco/s* en la *unidad C* agregue lo siguiente al nodo **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@ Por ejemplo, las tablas siguientes almacenarían datos de supervisión detallado
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

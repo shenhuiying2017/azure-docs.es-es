@@ -16,11 +16,11 @@
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
-#  Cómo se asocian las suscripciones a Azure con Azure AD
+# Cómo se asocian las suscripciones a Azure con Azure AD
 
 Este tema contiene información acerca de cómo iniciar sesión en Microsoft Azure y temas relacionados, como la relación entre una suscripción de Azure y Azure Active Directory (AD).
 
-##  Cuentas que puede utilizar para iniciar sesión
+## Cuentas que puede utilizar para iniciar sesión
 Comencemos con las cuentas que puede utilizar para iniciar sesión. Hay dos tipos: una cuenta Microsoft (anteriormente conocido como Microsoft Live ID) y una cuenta profesional o educativa, que es una cuenta almacenada en Azure AD.
 
  Cuenta Microsoft | Cuenta de Azure AD
@@ -40,7 +40,7 @@ Por ejemplo, aquí un usuario con una cuenta Microsoft inicia sesión en el Port
 
 Dado que esta dirección de Hotmail es una cuenta de cliente, se autentica el inicio de sesión en el sistema de identidad de cliente de cuentas Microsoft. El sistema de identidad de Azure AD confía en la autenticación realizada por el sistema de cuentas de Microsoft y emitirá un token de acceso a los servicios de Azure.
 
-##  Cómo se relaciona una suscripción de Azure a Azure AD
+## Cómo se relaciona una suscripción de Azure a Azure AD
 
 Cada suscripción de Azure tiene una relación de confianza con una instancia de Azure AD. Esto significa que confía en ese directorio para autenticar usuarios, servicios y dispositivos. Varias suscripciones pueden confiar en el mismo directorio, pero una suscripción confía solo en un único directorio. Puede ver en qué directorio confía su suscripción en la pestaña Configuración. También puede [editar la configuración de suscripción](https://msdn.microsoft.com/library/azure/dn584083.aspx) para cambiar el directorio en el que confía.
 
@@ -54,7 +54,7 @@ Este diagrama muestra una suscripción para Michael Smith después de haber inic
 
 ![][2]
 
-##  Administración de una suscripción y un directorio
+## Administración de una suscripción y un directorio
 Los roles administrativos para una suscripción de Azure administran los recursos vinculados a la suscripción de Azure. Estos roles y las prácticas recomendadas para la administración de la suscripción se encuentran en [Administración de cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
 De forma predeterminada, se le asigna el rol de administrador de servicios cuando se registra. Si otras personas necesitan iniciar sesión y obtener acceso a servicios con la misma suscripción, puede agregarlas como coadministradores. El Administrador de servicios y los coadministradores pueden ser cuentas Microsoft o cuentas profesionales o educativas desde el directorio asociado a la suscripción de Azure.
@@ -67,13 +67,13 @@ Sin embargo, lo importante aquí es que los administradores de suscripciones de 
 
 Una persona puede tener ambos roles, pero no es obligatorio. Un usuario puede asignarse al rol de administrador global de directorios, pero no asignarlo como administrador de servicios o coadministrador de una suscripción de Azure. Sin ser un administrador de la suscripción, este usuario no puede iniciar sesión en el Portal de administración. Sin embargo, el usuario podría realizar tareas de administración de directorio mediante otras herramientas como Azure AD PowerShell o Centro de administración de Office 365.
 
-###  ¿Por qué no puedo administrar el directorio con mi cuenta de usuario actual?
+### ¿Por qué no puedo administrar el directorio con mi cuenta de usuario actual?
 
 A veces, un usuario puede intentar iniciar sesión en el Portal de administración mediante una cuenta profesional o educativa antes de registrarse para una suscripción de Azure. En este caso, el usuario recibirá un mensaje que indicará que no hay ninguna suscripción para esa cuenta. El mensaje incluirá un vínculo para iniciar una suscripción de prueba gratuita.
 
 Después de suscribirse para la versión de prueba gratuita, el usuario verá el directorio de la organización en el Portal de administración pero no podrá administrarlo (es decir, podrá agregar usuarios o editar las propiedades de usuario existentes) porque el usuario no es un administrador global de directorios. La suscripción permite al usuario usar el Portal de administración y ver la extensión de Active Directory, pero se necesitan los permisos adicionales de administrador global para administrar el directorio.
 
-##  Uso de una cuenta profesional o educativa para administrar una suscripción a Azure que se creó mediante una cuenta Microsoft
+## Uso de una cuenta profesional o educativa para administrar una suscripción a Azure que se creó mediante una cuenta Microsoft
 
 Como práctica recomendada, debe [suscribirse a Azure como organización](sign-up-organization.md) y utilizar una cuenta profesional o educativa para administrar recursos en Azure. Se prefieren cuentas profesionales o educativas porque la organización que las haya expedido pueden administrarlas centralmente, tienen más características que las cuentas Microsoft y las autentica directamente Azure AD. La misma cuenta proporciona acceso a otros servicios en línea de Microsoft que se ofrecen a empresas y organizaciones, como Office 365 o Microsoft Intune. Si ya tiene una cuenta que se utiliza con estas otras propiedades, es probable que deba usar la misma cuenta con Azure. También tendrá una instancia de Active Directory que respaldará esas propiedades en las que desee que confíe su suscripción de Azure.
 
@@ -82,23 +82,23 @@ También es posible administrar las cuentas profesionales y educativas de más f
 En algunos casos, puede que desee que un usuario de la organización pueda administrar recursos que están asociados a una suscripción de Azure para una cuenta Microsoft de cliente. Para obtener más información acerca de cómo realizar una transición para tener distintos directorios o suscripciones de gestión de cuentas, consulte [Administración del directorio de su suscripción de Office 365 en Azure](#manage-the-directory-for-your-office-365-subscription-in-azure).
 
 
-##  Inicio de sesión cuando utiliza el correo electrónico profesional para su cuenta Microsoft
+## Inicio de sesión cuando utiliza el correo electrónico profesional para su cuenta Microsoft
 
 Si en algún momento en el pasado ha creado una cuenta Microsoft de cliente utilizando su correo electrónico profesional como un identificador de usuario, verá una página que le solicitará que realice una selección a partir del sistema de la cuenta Microsoft Azure o del sistema de la cuenta Microsoft.
 
 ![][3]
 
-Dispone de cuentas de usuario con el mismo nombre, una en Azure AD y otra en el sistema de cuenta de Microsoft de cliente. Debe elegir la cuenta que está asociada a la suscripción de Azure que desee utilizar. Si se produce un error que indica que no existe una suscripción para este usuario, es posible que haya elegido la opción incorrecta. Cierre la sesión y vuelva a intentarlo. Para obtener más información acerca de los errores que pueden impedir el inicio de sesión, vea [Solución de errores: "No podemos encontrar las suscripciones asociadas a su cuenta"](https://social.msdn.microsoft.com/Forums/es-es/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Dispone de cuentas de usuario con el mismo nombre, una en Azure AD y otra en el sistema de cuenta de Microsoft de cliente. Debe elegir la cuenta que está asociada a la suscripción de Azure que desee utilizar. Si se produce un error que indica que no existe una suscripción para este usuario, es posible que haya elegido la opción incorrecta. Cierre la sesión y vuelva a intentarlo. Para obtener más información acerca de los errores que pueden impedir el inicio de sesión, vea [Solución de errores: "No podemos encontrar las suscripciones asociadas a su cuenta"](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
-##  Administración del directorio para la suscripción de Office 365 en Azure
+## Administración del directorio para la suscripción de Office 365 en Azure
 
 Supongamos que se ha registrado en Office 365 antes de suscribirse a Azure. Ahora, desea administrar el directorio para la suscripción de Office 365 en el Portal de administración. Hay dos formas de hacerlo, dependiendo de si se ha registrado en Azure o no.
 
-###  No tengo una suscripción de Azure
+### No tengo una suscripción de Azure
 
 En este caso, solo necesitará [registrarse en Azure](sign-up-organization.md) usando la misma cuenta profesional o educativa que usó para iniciar sesión en Office 365. Se rellenará previamente la información relevante de la cuenta de Office 365 en el formulario de registro de Azure. Su cuenta se asignará al rol de administrador de servicios de la suscripción.
 
-###  Tengo una suscripción de Azure con mi cuenta Microsoft
+### Tengo una suscripción de Azure con mi cuenta Microsoft
 
 Si se ha registrado en Office 365 con una cuenta profesional o educativa y, a continuación, se ha registrado en Azure con una cuenta Microsoft, tiene dos directorios: uno de tipo profesional y educativo y un directorio predeterminado que se creó cuando se registró en Azure.
 
@@ -115,7 +115,7 @@ Para administrar ambos directorios en el Portal de administración, siga estos p
 7. Inicie sesión de nuevo en el Portal de administración con la cuenta Microsoft. Ambos directorios aparecerán en la extensión de Active Directory.
 
 
-##  Pasos siguientes
+## Pasos siguientes
 [Inicio de sesión en Azure como una organización](sign-up-organization.md)
 
 
@@ -125,4 +125,5 @@ Para administrar ambos directorios en el Portal de administración, siga estos p
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

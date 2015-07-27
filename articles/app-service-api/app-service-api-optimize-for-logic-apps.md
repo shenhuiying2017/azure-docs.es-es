@@ -29,14 +29,11 @@ Si no está familiarizado con las [aplicaciones de API](app-service-api-apps-why
 ## Adición de nombres para mostrar ##
 El Diseñador de aplicaciones lógicas muestra los nombres de las operaciones, los campos y los parámetros de forma tal que a veces puede ser difícil leerlos, ya que se generan mediante programación. Para mejorar la legibilidad, el Diseñador de aplicaciones lógicas, si está disponible, podrá mostrar un valor de texto más legible (lo que se conoce como *nombre para mostrar*) en lugar de mostrar los nombres predeterminados de las operaciones, los campos y los parámetros. Para ello, el Diseñador de aplicaciones lógicas detecta la presencia de determinadas propiedades de los metadatos de swagger proporcionados por la aplicación de API. Las siguientes propiedades se utilizan como nombres para mostrar:
 
-* Operaciones (acciones y desencadenadores)  
-  el valor de la propiedad **summary** si está presente; de lo contrario, el valor de la propiedad **operationId**. Tenga en cuenta que la especificación Swagger 2.0 permite hasta 120 caracteres para la propiedad **summary**.
+* Operaciones (acciones y desencadenadores) el valor de la propiedad **summary** si está presente; de lo contrario, el valor de la propiedad **operationId**. Tenga en cuenta que la especificación Swagger 2.0 permite hasta 120 caracteres para la propiedad **summary**.
 
-* Parámetros (entradas)  
-  El valor de la propiedad de extensión **x-ms-summary** si está presente; en caso contrario, el valor de la propiedad **name**. La propiedad de extensión **x-ms-summary** se debe establecer dinámicamente en código. Este proceso se describe en la sección "Uso de atributos personalizados para anotar propiedades de extensión" de este tema. La propiedad **name** puede establecerse utilizando comentarios / / /. Este proceso se describe en la sección "Uso de comentarios XML en la generación de la definición de API" de este tema.
+* Parámetros (entradas) El valor de la propiedad de extensión **x-ms-summary** si está presente; en caso contrario, el valor de la propiedad **name**. La propiedad de extensión **x-ms-summary** se debe establecer dinámicamente en código. Este proceso se describe en la sección "Uso de atributos personalizados para anotar propiedades de extensión" de este tema. La propiedad **name** puede establecerse utilizando comentarios / / /. Este proceso se describe en la sección "Uso de comentarios XML en la generación de la definición de API" de este tema.
 
-* Campos de esquema (respuestas de salida)  
-  El valor de la propiedad de extensión **x-ms-summary** si está presente; en caso contrario, el valor de la propiedad **name**. La propiedad de extensión **x-ms-summary** se debe establecer dinámicamente en código. Este proceso se describe en la sección "Uso de atributos personalizados para anotar propiedades de extensión" de este tema. La propiedad **name** puede establecerse utilizando comentarios / / /. Este proceso se describe en la sección "Uso de comentarios XML en la generación de la definición de API" de este tema.
+* Campos de esquema (respuestas de salida) El valor de la propiedad de extensión **x-ms-summary** si está presente; en caso contrario, el valor de la propiedad **name**. La propiedad de extensión **x-ms-summary** se debe establecer dinámicamente en código. Este proceso se describe en la sección "Uso de atributos personalizados para anotar propiedades de extensión" de este tema. La propiedad **name** puede establecerse utilizando comentarios / / /. Este proceso se describe en la sección "Uso de comentarios XML en la generación de la definición de API" de este tema.
 
 **Nota:** se recomienda mantener la longitud de los nombres para mostrar en 30 caracteres o menos.
 
@@ -90,14 +87,11 @@ Para mitigar este desorden, el Diseñador de aplicaciones lógicas permite agrup
 
 Para proporcionar esta capacidad, el Diseñador de aplicaciones lógicas comprueba la presencia de una propiedad de extensión del proveedor personalizado específico en la definición de la API de swagger de la aplicación de API. Esta propiedad se denomina **x-ms-visibility** y puede adoptar los siguientes valores:
 
-* vacío o "none"  
-  Estas propiedades y operaciones las ve fácilmente el usuario.
+* vacío o "none" Estas propiedades y operaciones las ve fácilmente el usuario.
 
-* "advanced"  
-  Como estas operaciones y propiedades son avanzadas, están ocultas de forma predeterminada. Sin embargo, el usuario puede tener acceso a ellas fácilmente si es necesario.
+* "advanced" Como estas operaciones y propiedades son avanzadas, están ocultas de forma predeterminada. Sin embargo, el usuario puede tener acceso a ellas fácilmente si es necesario.
 
-* "internal"  
-  Estas operaciones y propiedades se consideran como propiedades internas o de sistema y no están diseñadas para que las utilice directamente el usuario. Como resultado, el diseñador las oculta y están disponibles solo en la vista de código. Para estas propiedades, también puede especificar la propiedad de extensión **x-ms-scheduler-recommendation** para definir el valor mediante el Diseñador de aplicaciones lógicas. Para ver un ejemplo, consulte el artículo sobre la [incorporación de desencadenadores a una aplicación de API](app-service-api-dotnet-triggers.md).
+* "internal" Estas operaciones y propiedades se consideran como propiedades internas o de sistema y no están diseñadas para que las utilice directamente el usuario. Como resultado, el diseñador las oculta y están disponibles solo en la vista de código. Para estas propiedades, también puede especificar la propiedad de extensión **x-ms-scheduler-recommendation** para definir el valor mediante el Diseñador de aplicaciones lógicas. Para ver un ejemplo, consulte el artículo sobre la [incorporación de desencadenadores a una aplicación de API](app-service-api-dotnet-triggers.md).
 
 
 ## Uso de atributos personalizados para anotar propiedades de extensión
@@ -240,4 +234,5 @@ Para las aplicaciones de API que usan metadatos dinámicos, puede hacer uso de a
 
 En este artículo, ha visto cómo mejorar la experiencia del usuario de la aplicación de API cuando se utiliza en el Diseñador de aplicaciones lógicas. Como práctica recomendada, se pueden proporcionar nombres descriptivos adecuados para todas las propiedades y los parámetros de las operaciones (acciones y desencadenadores). También se recomienda que proporcione 5 operaciones básicas como máximo. En cuanto a los parámetros de entrada, la recomendación es restringir el número de propiedades básicas a 4 como máximo. Para las propiedades, la recomendación es 5 o menos. Las demás operaciones y propiedades deberían marcarse como avanzadas.
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

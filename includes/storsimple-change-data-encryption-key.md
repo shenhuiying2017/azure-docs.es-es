@@ -1,5 +1,3 @@
-
-
 ### Paso 1: autorizar que un dispositivo cambie la clave de cifrado de datos del servicio en el portal de administración
 
 Normalmente, el administrador de dispositivos solicitará que el administrador de servicios autorice que un dispositivo cambie las claves de cifrado de datos del servicio. A continuación, el administrador de servicios autorizará que el dispositivo cambie la clave.
@@ -74,4 +72,4 @@ Realice los pasos siguientes para actualizar el cifrado de datos del servicio en
 
 3. Proporcione la clave de cifrado de datos del servicio que obtuvo en [Paso 2: usar Windows PowerShell para StorSimple para iniciar el cambio de claves de cifrado de datos del servicio](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

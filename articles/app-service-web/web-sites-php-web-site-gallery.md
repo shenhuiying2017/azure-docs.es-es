@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
 # Creación de una aplicación web de WordPress en el Servicio de aplicaciones de Azure
@@ -31,4 +31,4 @@ Ha aprendido a crear e implementar una aplicación web desde la galería. Para o
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

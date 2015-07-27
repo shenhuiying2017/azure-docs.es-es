@@ -140,4 +140,5 @@ Haga clic en cualquier gráfico para obtener más detalles. Por ejemplo, bloqueo
 [track]: app-insights-custom-events-metrics-api.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

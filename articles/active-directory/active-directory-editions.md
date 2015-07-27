@@ -28,8 +28,7 @@ Basado en un gran conjunto de capacidades gratuitas de Microsoft Azure Active Di
 
 Para suscribirse y empezar a usar Active Directory Premium hoy, vea [Introducción a Azure Active Directory Premium](active-directory-get-started-premium.md).
 
-> [AZURE.NOTE]
-Azure Active Directory Premium y Azure Active Directory Basic no se admiten actualmente en China. Póngase en contacto con nosotros en el [Foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory) para obtener más información.
+> [AZURE.NOTE]Azure Active Directory Premium y Azure Active Directory Basic no se admiten actualmente en China. Póngase en contacto con nosotros en el [Foro de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory) para obtener más información.
 
 ## Características de Azure Active Directory Básico
 
@@ -122,4 +121,5 @@ Las siguientes características están actualmente en versión de vista previa p
 - [Incorporación de la marca de empresa a sus páginas de inicio de sesión y panel de acceso](active-directory-add-company-branding.md)
 - [Visualización de los informes de acceso y uso](active-directory-view-access-usage-reports.md)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

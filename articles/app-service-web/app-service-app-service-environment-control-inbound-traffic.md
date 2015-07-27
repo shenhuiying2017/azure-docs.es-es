@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # Cómo controlar el tráfico de entrada a un entorno del Servicio de aplicaciones
@@ -41,6 +41,13 @@ A continuación se muestra una lista de puertos utilizados por un entorno del Se
 - 4016: usado para la depuración remota con Visual Studio 2012. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4018: usado para la depuración remota con Visual Studio 2013. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
 - 4020: usado para la depuración remota con Visual Studio 2015. Este puerto se puede bloquear de forma segura si no se utiliza la característica.
+
+## Requisitos de DNS y conectividad saliente ##
+Tenga en cuenta que, para que un entorno del Servicio de aplicaciones funcione correctamente, también necesita acceso de salida al Almacenamiento de Azure, así como a la base de datos SQL en la misma región de Azure. Si se bloquea el acceso de salida a Internet en la red virtual, los entornos del Servicio de aplicaciones no podrán tener acceso a estos extremos de Azure.
+
+El cliente también puede tener los servidores DNS personalizados configurados en la red virtual. Los entornos del Servicio de aplicaciones necesitan poder resolver los extremos de Azure en *.database.windows.net, *.file.core.windows.net y *.blob.core.windows.net. 
+
+También se recomienda configurar de antemano los servidores DNS personalizados de la red virtual antes de crear un entorno del Servicio de aplicaciones. Si se cambia la configuración de DNS de una red virtual al crear un entorno del Servicio de aplicaciones, se generará un error en el proceso de creación de dicho entorno.
 
 ## Creación de un grupo de seguridad de red ##
 Para obtener los detalles completos de cómo funcionan los grupos de seguridad de red, consulte la siguiente [información][NetworkSecurityGroups]. Los detalles siguientes hacen referencia a los puntos destacados de los grupos de seguridad de red, centrándose en la configuración y aplicación de un grupo de seguridad de red a una subred que contiene un entorno del Servicio de aplicaciones.
@@ -122,4 +129,5 @@ Para obtener más información acerca de la plataforma de Servicio de aplicacion
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
 
 <!-- IMAGES -->
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # Solución de problemas y preguntas - Application Insights para ASP.NET
@@ -104,9 +104,7 @@ Para ello, siga estos pasos:
 
 1. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y elija Descargar el proyecto.
 2. Vuelva a hacer clic con el botón derecho en el proyecto y elija Editar *suProyecto.csproj*. 
-3. Vaya a la parte inferior del archivo del proyecto y quite los elementos BCL de destino similares a: 
-	```
-	<Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+3. Vaya a la parte inferior del archivo del proyecto y quite los elementos BCL de destino similares a: ``` <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
 	  
 	  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
 	  
@@ -114,8 +112,7 @@ Para ello, siga estos pasos:
 	    
 	    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
 	    
-	  </Target>
-	  ```
+	</Target> ```
 4. Guarde el archivo.
 5. Haga clic con el botón derecho en el proyecto y elija Volver a cargar *suProyecto.csproj*
 
@@ -131,7 +128,7 @@ Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecu
 + En la página de información general, haga clic en el icono de búsqueda para abrir Búsqueda de diagnóstico. Los datos aparecen aquí en primer lugar.
 + Haga clic en el botón Actualizar. En la versión actual, el contenido de un cuadro no se actualiza automáticamente.
 + En el panel de inicio de Microsoft Azure, observe el mapa de estado del servicio. Si hay algunas indicaciones de alerta, espere hasta que hayan vuelto a su estado correcto y después cierre y vuelva a abrir el cuadro de la aplicación de Application Insights.
-+ Compruebe también [nuestro blog de estado](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx).
++ Compruebe también [nuestro blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
 + En el firewall, tendrá que abrir los puertos TCP 80 y 443 para el tráfico saliente en dc.services.visualstudio.com y f5.services.visualstudio.com.
 + Si tiene que usar un servidor proxy para enviar fuera de la red corporativa, establezca el valor [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) en el archivo Web.config.
 + Windows Server 2008: asegúrese de haber instalado las siguientes actualizaciones: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523) y [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -234,4 +231,5 @@ Puede [escribir un script de PowerShell](app-insights-powershell-script-create-r
 [windows]: app-insights-windows-get-started.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

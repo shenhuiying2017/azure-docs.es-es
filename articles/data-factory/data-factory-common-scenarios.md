@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Escenarios habituales para usar la Factoría de datos de Azure
@@ -76,4 +76,4 @@ Vea los temas siguientes sobre el consumo de datos mediante Power Query:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -427,7 +427,7 @@ Considere la posibilidad de comenzar con la configuración siguiente para volver
 | **Contexto** | **Destino de ejemplo E2E<br />máximo de latencia** | **Estrategia de reintento** | **Configuración** | **Valores** | **Cómo funciona** |
 |----------------------|-----------------------------------|--------------------|-----------------------------------------------------------------------|----------------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Interactivo, interfaz de usuario<br />o primer plano | 2 segundos | FixedInterval | Número de reintentos<br />Intervalo de reintento<br />Primer reintento rápido | 3<br />500 ms<br />true | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de 500 ms<br />Intento 3 – retraso de 500 ms |
-| Fondo<br />o proceso por lotes | 30 segundos | ExponentialBackoff | Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />primer reintento rápido | 5<br />0 seg<br />60 seg<br />2 seg<br />false | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
+| Fondo<br />o proceso por lotes | 30 segundos | ExponentialBackoff | Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />primer reintento rápido | 5<br />0 segundos<br />60 segundos<br />2 segundos<br />false | Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
 
 > [AZURE.NOTE]Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
 
@@ -1121,4 +1121,4 @@ El bloque de aplicaciones de control de errores transitorios tiene las siguiente
 | **Lineal (intervalo fijo)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 segundo<br />true | Número de reintentos.<br />Intervalo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 Para obtener ejemplos del uso del bloque de aplicaciones de control de errores transitorios, consulte las secciones de ejemplos mostradas anteriormente en esta guía para la Base de datos SQL de Azure mediante ADO.NET y Azure Active Directory.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

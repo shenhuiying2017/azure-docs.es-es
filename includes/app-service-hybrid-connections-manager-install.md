@@ -11,7 +11,7 @@
 
 		start HybridConnectionManager.msi
  
-7. Después de ejecutarlo, haga clic en **Ahora no**; a continuación, busque la carpeta %Archivos de programa%\Microsoft\HybridConnectionManager, ejecute HCMConfigWizard.exe y haga clic en **Sí** en el cuadro de diálogo **Control de cuentas de usuario**.
+7. Después de ejecutarlo, haga clic en **Ahora no**; a continuación, busque la carpeta %Archivos de programa%\\Microsoft\\HybridConnectionManager, ejecute HCMConfigWizard.exe y haga clic en **Sí** en el cuadro de diálogo **Control de cuentas de usuario**.
 		
 7. Pegue la cadena de conexión híbrida que ha copiado anteriormente y haga clic en **Aceptar**.
 	
@@ -25,4 +25,4 @@
 	
 	![Connected Status](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

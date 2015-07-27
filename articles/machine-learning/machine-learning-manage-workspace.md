@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -51,10 +51,10 @@ Haga clic en la pestaña **Panel**.
 En el panel, puede ver el uso general del área de trabajo y obtener una vista rápida de su información.
 
 - El gráfico **Proceso** muestra los recursos de proceso que se usan en el área de trabajo. Puede cambiar la vista para mostrar valores relativos o absolutos, y puede cambiar el período de tiempo que se muestra en el gráfico.
-- **Información general del uso**: muestra el almacenamiento de Azure que usa el área de trabajo. Nota: la supervisión del almacenamiento no está disponible durante la versión de vista previa pública de Aprendizaje automático de Azure.
+- **Información general del uso**: muestra el almacenamiento de Azure que usa el área de trabajo.
 - **Vista rápida**: proporciona un resumen de la información del área de trabajo y vínculos útiles.
 
-> [AZURE.NOTE]El enlace **Abrir en estudio** permite abrir Estudio de aprendizaje automático mediante la cuenta de Microsoft en la que ha iniciado sesión actualmente. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure para crear un área de trabajo no tiene permiso automáticamente para abrir dicha área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
+> [AZURE.NOTE]El vínculo **Iniciar sesión en estudio de aprendizaje automático** permite abrir Estudio de aprendizaje automático mediante la cuenta Microsoft con la que haya iniciado la sesión actual. La cuenta de Microsoft que usó para iniciar sesión en el Portal de Azure para crear un área de trabajo no tiene permiso automáticamente para abrir dicha área de trabajo. Para abrir un área de trabajo, debe iniciar sesión en la cuenta de Microsoft que se definió como propietaria del área de trabajo. También puede hacerlo si recibe una invitación del propietario para unirse al área de trabajo.
 
 
 ## Concesión o suspensión del acceso de los usuarios ##
@@ -66,7 +66,7 @@ Desde la pestaña de configuración, puede realizar las siguientes acciones:
 - Suspender el acceso al área de trabajo de Aprendizaje automático haciendo clic en Denegar. Los usuarios ya no podrán abrir el área de trabajo en Estudio de aprendizaje automático. Para restaurar el acceso, haga clic en Permitir.
 - Cambiar el propietario del área de trabajo especificando otra cuenta de Microsoft. 
 
-Para administrar quién tiene acceso al área de trabajo en Estudio de aprendizaje automático, haga clic en **Abrir en estudio** (vea la nota anterior sobre **Abrir en estudio**). De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **Configuración** y, a continuación, en **Usuarios**. Puede hacer clic en **Invitar más usuarios** para proporcionar acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **Quitar**.
+Para administrar quién tiene acceso al área de trabajo en Estudio de aprendizaje automático, haga clic en **Iniciar sesión en estudio de aprendizaje automático** en la pestaña **PANEL** (consulte la nota anterior respecto a **Iniciar sesión en estudio de aprendizaje automático**). De esta manera, se abre el área de trabajo en Estudio de aprendizaje automático. Desde aquí, haga clic en la pestaña **Configuración** y, a continuación, en **Usuarios**. Puede hacer clic en **Invitar más usuarios** para proporcionar acceso a otros usuarios al área de trabajo. También puede seleccionar un usuario y hacer clic en **Quitar**.
 
 
 ## Para administrar servicios web en esta área de trabajo
@@ -94,4 +94,4 @@ También puede publicar el servicio web en el mercado de datos de Azure desde es
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

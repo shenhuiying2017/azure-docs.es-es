@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,13 +21,20 @@
 
 # Configuración de SSL para una aplicación en Azure
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-configure-ssl-certificate.md)
+- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
 > [AZURE.NOTE]Los procedimientos de esta tarea se aplican a Servicios en la nube de Azure. Para los sitios web, consulte [Configuración de un certificado SSL para un sitio web de Azure](../web-sites-configure-ssl-certificate.md).
 
 Esta tarea utiliza una implementación de producción; al final de este tema se entrega información sobre el uso de una implementación de ensayo.
+
+Lea [esto](cloud-services-how-to-create-deploy.md) primero si todavía no ha creado un servicio en la nube.
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
 
 ## Paso 1: obtener un certificado SSL
 
@@ -105,27 +112,22 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
 Ahora que se actualizaron los archivos de definición del servicio y configuración del servicio, prepare su implementación para cargarla en Azure. Si va a usar **cspack**, asegúrese de no usar la marca **/generateConfigurationFile**, puesto que así se sobrescribe la información del certificado que acaba de insertar.
 
-## Paso 3: cargar el paquete de implementación y el certificado
+## Paso 3: Carga de un certificado
 
 Su paquete de implementación se actualizó para usar el certificado y se agregó un extremo HTTPS. Ahora podrá cargar el paquete y el certificado en Azure con el Portal de administración.
 
 1. Inicie sesión en el [Portal de administración de Azure][]. 
-2. Haga clic en **Nuevo**, **Servicio en la nube** y, después, en **Creación personalizada**.
-3. En el cuadro de diálogo **Crear un servicio en la nube**, escriba los valores de la dirección URL, la región o grupo de afinidad y la suscripción. Asegúrese de que la opción **Implementar un paquete de servicios en la nube** esté marcada y haga clic en el botón **Siguiente**.
-3. En el cuadro de diálogo **Publicar su servicio en la nube**, escriba la información necesaria para el servicio en la nube, seleccione **Producción** para el entorno y asegúrese de que **Agregar certificados ahora** se haya marcado. (Si cualquiera de los roles contiene una sola instancia, asegúrese de que **Implementar aunque uno o varios roles contengan una sola instancia** se haya marcado). 
+2. Haga clic en **Servicios en la nube** en el panel de navegación izquierdo.
+3. Haga clic en el servicio en la nube deseado.
+4. Haga clic en la ficha **Certificados**.
 
-    ![Publicación del servicio en la nube][0]
+    ![Haga clic en la ficha Certificados](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  Haga clic en el botón **Siguiente**.
-5.  En el cuadro de diálogo **Agregar certificado**, especifique la ubicación del archivo .pfx del certificado SSL, la contraseña del certificado y haga clic en **Adjuntar certificado**.  
+5. Haga clic en el botón **Upload**.
 
-    ![Agregar certificado][1]
-
-6.  Asegúrese de que el certificado aparezca en la sección **Certificados adjuntos**.
-
-    ![Certificados adjuntos][4]
-
-7.  Haga clic en el botón **Completar** para crear el servicio en la nube. Cuando la implementación haya llegado al estado **Listo**, puede continuar con los pasos siguientes.
+    ![Cargar](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. Proporcione el **archivo**, la **contraseña** y, a continuación, haga clic en **Completar** (la marca de verificación).
 
 ## Paso 4: conectarse a la instancia de rol con HTTPS
 
@@ -160,4 +162,4 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
   [Configuración de un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/library/azure/ff795779.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

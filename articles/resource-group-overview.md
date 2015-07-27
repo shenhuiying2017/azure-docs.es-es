@@ -1,19 +1,19 @@
 <properties
    pageTitle="Información general del Administrador de recursos de Azure"
    description="Describe cómo utilizar Administrador de recursos de Azure para la implementación, la administración y el control de acceso de los recursos en Azure."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -67,6 +67,8 @@ Cuando crea una solución desde Marketplace, la solución incluye automáticamen
 Por último, la plantilla se convierte en parte del código fuente de la aplicación. Puede protegerla en el repositorio de código fuente y actualizarla a medida que evoluciona la aplicación. Puede editar la plantilla mediante Visual Studio.
 
 Para obtener más información sobre la creación de plantillas, consulte [Crear plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md).
+
+Para los esquemas de plantilla, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
 Para obtener información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md) e [Implementación predecible de una aplicación compleja en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
@@ -124,6 +126,7 @@ Creación e implementación de aplicaciones
 - [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](virtual-machines/arm-template-deployment.md)
 - [Funciones de plantillas](./resource-group-template-functions.md)
 - [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
+- [Esquemas de plantilla](https://github.com/Azure/azure-resource-manager-schemas)
 
 Organización de los recursos
 
@@ -136,4 +139,4 @@ Administración y auditoría del acceso
 - [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md)
 - [Creación de una nueva entidad de servicio de Azure mediante el portal de Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

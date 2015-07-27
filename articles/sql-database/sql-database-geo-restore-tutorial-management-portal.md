@@ -80,4 +80,4 @@ Para obtener más información, consulte los temas siguientes:
 
 [Azure SQL Database Geo-Restore](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/) (Restauración geográfica de base de datos SQL de Azure, blog)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

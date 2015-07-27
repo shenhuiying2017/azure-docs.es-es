@@ -21,12 +21,9 @@
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
-Si crea una aplicación que proporciona acceso a recursos protegidos, deberá saber cómo proteger dichos recursos frente a accesos injustificados. 
-Azure AD facilita la protección de una API web mediante tokens de acceso portadores de OAuth 2.0 con solo unas pocas líneas de código.
+Si crea una aplicación que proporciona acceso a recursos protegidos, deberá saber cómo proteger dichos recursos frente a accesos injustificados. Azure AD facilita la protección de una API web mediante tokens de acceso portadores de OAuth 2.0 con solo unas pocas líneas de código.
 
-En las aplicaciones web Asp.NET, puede realizar esto con la implementación del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí, usaremos OWIN para crear una API web "Lista de tareas pendientes" que:
- - Designe las API protegidas.
- - Valide que las llamadas de API web contienen un token de acceso válido.
+En las aplicaciones web Asp.NET, puede realizar esto con la implementación del middleware OWIN orientado a la comunidad incluido en .NET Framework 4.5. Aquí, usaremos OWIN para crear una API web "Lista de tareas pendientes" que: -Designe las API protegidas. -Valide que las llamadas de API web contienen un token de acceso válido.
 
 Para llevar a cabo esta tarea, deberá hacer lo siguiente:
 
@@ -141,9 +138,7 @@ Como referencia, se proporciona el ejemplo finalizado (sin sus valores de config
 
 [Crear un cliente nativo de .NET con Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
-Para obtener recursos adicionales, consulte:
- - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
- - [CloudIdentity.com >>](https://cloudidentity.com)
- - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+Para obtener recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #Cómo asignar un dominio personalizado al extremo de la Red de entrega de contenido (CDN)
@@ -83,11 +83,11 @@ Los procedimientos de este tema le mostrarán cómo:
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#Otras referencias
+##Otras referencias
 
 
-[Habilitar la Red de entrega de contenido (CDN) para Azure](./cdn-create-new-endpoint.md) **Información general de la red CDN de Azure**
+[Habilitar la Red de entrega de contenido (CDN) para Azure](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

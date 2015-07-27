@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Introducción a Application Insights con Java en Eclipse
@@ -100,9 +100,17 @@ Y cuando vea las propiedades de una solicitud, podrá ver los eventos de telemet
 
 ## Telemetría de cliente
 
-Desde el icono de inicio rápido, en la hoja de información general, puede obtener un script para agregar a sus páginas web.
+En la hoja Inicio rápido, haga clic en Obtener código para supervisar mis páginas web:
 
-Las métricas de vistas de páginas, usuarios y sesiones aparecerán en la hoja de información general:
+![En la hoja de información general de su aplicación, elija Inicio rápido, Obtener código para supervisar mis páginas web. Copie el script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+Inserte el fragmento de código en el encabezado de los archivos HTML.
+
+#### Visualización de datos del lado cliente
+
+Abra las páginas web actualizadas y úselas. Espere un minuto o dos, vuelva a Application Insights y actualice la hoja de uso.
+
+Las métricas de vistas de página, usuarios y sesiones aparecerán en la hoja de uso:
 
 ![Sesiones, usuarios y vistas de página](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@ Las métricas de vistas de páginas, usuarios y sesiones aparecerán en la hoja 
 
 ## Pruebas web de disponibilidad
 
-Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. Haga clic en el gráfico de pruebas web vacío en la hoja de información general y especifique la dirección URL pública.
+Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. Para configurarlo, haga clic en el gráfico de pruebas web vacío en la hoja de información general y especifique la dirección URL pública.
 
 Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo electrónico si su sitio deja de funcionar.
 
@@ -156,8 +164,9 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

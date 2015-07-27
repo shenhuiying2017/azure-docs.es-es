@@ -80,4 +80,4 @@ Pronto agregaremos secuencias de comandos personalizadas para uso de Linux y eje
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

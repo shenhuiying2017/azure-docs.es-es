@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # API de REST del Servicio Búsqueda de Azure versión 2015-02-28-Preview
@@ -795,7 +795,7 @@ A continuación se muestra la lista de analizadores admitidos junto con una brev
 	</tr>
   	<tr>
 		<td>Coreano</td>
-		<td>ko.microsfot</td>
+		<td>ko.Microsoft</td>
 		<td>
 		<ul>
 			<li>Lematizador reductivo (lematización)</li>
@@ -2107,4 +2107,4 @@ Recupere 5 sugerencias en las que la entrada de búsqueda parcial sea "lux"
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

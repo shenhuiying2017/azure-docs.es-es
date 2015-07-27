@@ -16,14 +16,14 @@
 	ms.date="06/08/2015" 
 	ms.author="asteen"/>
 
-#  Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
+# Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
 A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de administración de Azure](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la Administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de administración de Azure](https://manage.windowsazure.com), entre las que se incluyen las siguientes:
 
 - [**Personalización del aspecto de la Administración de contraseñas**](#password-managment-look-and-feel)
 - [**Personalización del comportamiento de la Administración de contraseñas del usuario**](#password-management-behavior)
 - [**Personalización de las notificaciones de Administración de contraseñas**](#password-management-notifications)
 
-##  Aspecto de la Administración de contraseñas
+## Aspecto de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas. Puede configurar estas opciones en la sección **Propiedades de directorio** de la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
 
 <table>
@@ -109,7 +109,7 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
           </tbody></table>
 
-##  Comportamiento de la Administración de contraseñas
+## Comportamiento de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas. Puede configurar estas opciones en la sección **Directiva de restablecimiento de contraseña del usuario** en la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
 
 > [AZURE.NOTE]La cuenta de administrador que utilice debe tener asignada una licencia Premium de AAD para ver estos controles de directiva.<br><br>Estos controles de directiva solo se aplican a usuarios finales que restablecen sus contraseñas, no a administradores. **Los administradores tienen una directiva predeterminada de correo electrónico alternativo o teléfono móvil que se especifica para ellos por parte de Microsoft y que no se puede cambiar.**
@@ -641,7 +641,7 @@ En la siguiente tabla se describe la forma en la que cada control afecta a la ex
             </tr>
           </tbody></table>
 
-##  Notificaciones de Administración de contraseñas
+## Notificaciones de Administración de contraseñas
 En la tabla siguiente se describe cómo afecta cada control a la experiencia de los usuarios y administradores que reciben notificaciones de restablecimiento de contraseña. Puede configurar estas opciones en la sección **Notificaciones** de la pestaña **Configurar** de su directorio en el [Portal de administración de Azure](https://manage.windowsazure.com).
 
 <table>
@@ -719,14 +719,14 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
 **Recursos adicionales**
 
 
-* [Qué es la Administración de contraseñas](active-directory-passwords.md)
-* [Funcionamiento de la Administración de contraseñas](active-directory-passwords-how-it-works.md)
+* [Qué es la administración de contraseñas](active-directory-passwords.md)
+* [Funcionamiento de la administración de contraseñas](active-directory-passwords-how-it-works.md)
 * [Introducción a la Administración de contraseñas](active-directory-passwords-getting-started.md)
 * [Prácticas recomendadas de la Administración de contraseñas](active-directory-passwords-best-practices.md)
 * [Visión operativa con los informes de administración de contraseñas](active-directory-passwords-get-insights.md)
-* [Preguntas más frecuentes sobre la Administración de contraseñas](active-directory-passwords-faq.md)
-* [Solución de problemas de Administración de contraseñas](active-directory-passwords-troubleshoot.md)
+* [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md)
+* [Solución de problemas de administración de contraseñas](active-directory-passwords-troubleshoot.md)
 * [Más información](active-directory-passwords-learn-more.md)
 * [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

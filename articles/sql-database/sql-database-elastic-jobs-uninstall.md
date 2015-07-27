@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
-# Desinstalación de los componentes de trabajo de la base de datos elástica
+# Desinstalación de los componentes de trabajo de base de datos elástica
 
 Si se produce un error al intentar instalar el servicio de trabajo de base de datos elástica, elimine el grupo de recursos del servicio.
 
@@ -50,12 +50,12 @@ De manera alternativa, use la siguiente secuencia de comandos de PowerShell:
 
 ## Pasos siguientes
 
-Para reinstalar los trabajos de bases de datos elásticas, vea [Instalación del servicio de trabajo de bases de datos elásticas](sql-database-elastic-jobs-service-installation.md).
+Para reinstalar los trabajos de bases de datos elásticas, consulte [Instalación del servicio de trabajo de base de datos elástica](sql-database-elastic-jobs-service-installation.md).
 
-Para obtener información general acerca del servicio de trabajo elástico, vea [Información general acerca de los trabajos elásticos](sql-database-elastic-jobs-overview.md).
+Para obtener información general acerca del servicio de trabajo de base de datos elástica, consulte [Información general acerca de los trabajos elásticos](sql-database-elastic-jobs-overview.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

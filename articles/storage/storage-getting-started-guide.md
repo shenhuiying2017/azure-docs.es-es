@@ -44,10 +44,10 @@ Para probarlo, crearemos una sencilla aplicación de Almacenamiento de Azure con
 
 1. Inicie Visual Studio.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
-3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalados** > **Plantillas** > **Visual C#** > **Nube** > **Inicio rápido** > **Servicios de datos**.
-	- 3.a. Seleccione una de las siguientes plantillas: Almacenamiento de blobs de Azure, Almacenamiento de tablas de Azure o Almacenamiento de colas de Azure. 
-	- 3.b. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.	
-	- 3.c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
+3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalados** > **Plantillas** > **Visual C#**> **Nube** > **Inicio rápido** > **Servicios de datos**.
+	- 3\.a. Seleccione una de las siguientes plantillas: Almacenamiento de blobs de Azure, Almacenamiento de tablas de Azure o Almacenamiento de colas de Azure. 
+	- 3\.b. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.	
+	- 3\.c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio, como se muestra aquí:
 	
 	![Guías rápidas de Azure][Image1]
 
@@ -71,9 +71,9 @@ Una vez que tenga la cuenta, cree una sencilla aplicación de Almacenamiento de 
 1. Inicie Visual Studio.
 2. En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Instalados** > **Plantillas** > **Visual C#**> **Nube** > **Inicio rápido** > **Servicios de datos**.
-	- 3.a. Seleccione una de las siguientes plantillas: Almacenamiento de blobs de Azure, Almacenamiento de tablas de Azure o Almacenamiento de colas de Azure.
-	- 3.b. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.
-	- 3.c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio. 
+	- 3\.a. Seleccione una de las siguientes plantillas: Almacenamiento de blobs de Azure, Almacenamiento de tablas de Azure o Almacenamiento de colas de Azure.
+	- 3\.b. Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.
+	- 3\.c. Especifique un nombre para el proyecto y cree la nueva solución de Visual Studio. 
 
 Es aconsejable revisar el código fuente antes de ejecutar la aplicación. Para revisar el código, seleccione **Explorador de soluciones** en el menú **Vista** en Visual Studio. A continuación, haga doble clic en el archivo Program.cs.
 
@@ -107,4 +107,4 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Implementación predecible de una aplicación compleja en Azure"
-	description="Obtenga información sobre cómo implementar una aplicación compleja en Azure como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell."
+	pageTitle="Aprovisionamiento e implementación predecibles de microservicios en Azure"
+	description="Obtenga información sobre cómo implementar una aplicación formada por microservicios en el Servicio de aplicaciones de Azure como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/08/2015"
 	ms.author="cephalin"/>
 
 
-# Implementación predecible de una aplicación compleja en Azure #
+# Aprovisionamiento e implementación predecibles de microservicios en Azure #
 
-En este tutorial se explica cómo implementar una aplicación compleja en Azure como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell.
+En este tutorial se explica cómo aprovisionar e implementar una aplicación formada por [microservicios](https://en.wikipedia.org/wiki/Microservices) en el [Servicio de aplicaciones de Azure](/services/app-service/) como una sola unidad y de forma predecible con plantillas de grupo de recursos JSON y scripting de PowerShell.
 
-En las operaciones de desarrollo, la repetibilidad y previsibilidad son claves para cualquier implementación correcta de una aplicación compleja de gran escala. El [Servicio de aplicaciones de Azure](/services/app-service/) le permite crear aplicaciones complejas que incluyen aplicaciones web, móviles, de API y lógicas. El [Administrador de recursos de Azure](../resource-group-overview.md) le permite administrar todos los componentes de dicha aplicación como una unidad. Ahora, también puede implementar esta aplicación compleja mediante plantillas JSON y scripting de PowerShell sencillo.
+Al aprovisionar e implementar aplicaciones de gran escala que se componen de microservicios muy desacoplados, la repetibilidad y la previsión son fundamentales para que el proceso se realice correctamente. El [Servicio de aplicaciones de Azure](/services/app-service/) le permite crear microservicios que incluyen aplicaciones web, aplicaciones móviles, aplicaciones de API y aplicaciones lógicas. El [Administrador de recursos de Azure](../resource-group-overview.md) le permite administrar todos los microservicios como una unidad, junto con las dependencias de recursos, como la configuración del control de origen y la base de datos. Ahora, también puede implementar esta aplicación mediante plantillas JSON y scripting sencillo de PowerShell.
 
 ## Lo que hará ##
 
 En el tutorial, implementará una aplicación que incluye:
 
--	Dos aplicaciones web
+-	Dos aplicaciones web (es decir, dos microservicios)
 -	Un base de datos SQL backend
 -	Configuración de aplicaciones, cadenas de conexión y control de código fuente
 -	Información sobre aplicaciones, alertas y configuración de autoescala
@@ -90,7 +90,7 @@ Ahora vamos a centrarnos en ello.
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Todo lo que acabamos de ver en unos pocos minutos es una aplicación compleja totalmente implementada, con todos los componentes, las dependencias, la configuración, la base de datos y la publicación continua, configurada mediante una orquestación automatizada en el Administrador de recursos de Azure. Todo esto se realiza mediante dos elementos:
+Todo lo que acabamos de ver en unos pocos minutos es una aplicación de dos microservicios totalmente implementada, con todos los componentes, las dependencias, la configuración, la base de datos y la publicación continua, configurada mediante una orquestación automatizada en el Administrador de recursos de Azure. Todo esto se realiza mediante dos elementos:
 
 -	El botón Implementación en Azure
 -	azuredeploy.json en la raíz del repositorio
@@ -174,8 +174,7 @@ Las cadenas de conexión también se definen como un recurso anidado.
 
 En el elemento `properties` para `config/connectionstrings`, cada cadena de conexión también se define como un par nombre-valor, con el formato específico de `“<name>” : {“value”: “…”, “type”: “…”}`. Para el elemento `type`, los valores posibles son `MySql`, `SQLServer`, `SQLAzure` y `Custom`.
 
->[AZURE.TIP]Para obtener una lista definitiva de los tipos de cadena de conexión, ejecute el siguiente comando de PowerShell de Azure: 
-	[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+>[AZURE.TIP]Para obtener una lista definitiva de los tipos de cadena de conexión, ejecute el siguiente comando de PowerShell de Azure: [Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
     
 ##### Control de código fuente #####
 
@@ -275,7 +274,7 @@ Con los pasos de esta sección se consigue lo siguiente:
 2.	Creación de un archivo de parámetros con el archivo de plantilla
 3.	Implementación del archivo de plantilla con el archivo de parámetros
 
-El último paso se realiza fácilmente mediante un cmdlet de PowerShell. Para ver lo que Visual Studio hizo al implementar la aplicación, abra Scripts\Deploy-AzureResourceGroup.ps1. Hay una gran cantidad de código, pero solo voy a resaltar todo el código pertinente que necesita para implementar el archivo de plantilla con el archivo de parámetros.
+El último paso se realiza fácilmente mediante un cmdlet de PowerShell. Para ver lo que Visual Studio hizo al implementar la aplicación, abra Scripts\\Deploy-AzureResourceGroup.ps1. Hay una gran cantidad de código, pero solo voy a resaltar todo el código pertinente que necesita para implementar el archivo de plantilla con el archivo de parámetros.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -283,7 +282,11 @@ El último cmdlet, `New-AzureResourceGroup`, es el que realmente realiza la acci
 
 ## Resumen ##
 
-En las operaciones de desarrollo, la repetibilidad y previsibilidad son claves para cualquier implementación correcta de una aplicación compleja de gran escala. En este tutorial, ha implementado una aplicación en Azure como un único grupo de recursos con la plantilla de Administrador de recursos de Azure. Espero que le haya aportado los conocimientos que necesita para iniciar la conversión de una aplicación compleja de Azure a una plantilla a fin de que pueda implementarla de manera predecible en Azure.
+En las operaciones de desarrollo, la repetibilidad y previsión son claves para cualquier implementación correcta de una aplicación de gran escala compuesta por microservicios. En este tutorial, ha implementado una aplicación de dos microservicios en Azure como un único grupo de recursos con la plantilla de Administrador de recursos de Azure. Espero que le haya aportado los conocimientos que necesita para iniciar la conversión de la aplicación de Azure a una plantilla a fin de que pueda aprovisionarla e implementarla de manera predecible.
+
+## Pasos siguientes ##
+
+Obtenga información sobre cómo [aplicar metodologías ágiles y publicar continuamente la aplicación de microservicios con facilidad](app-service-agile-software-development.md).
 
 <a name="resources"></a>
 ## Más recursos ##
@@ -300,4 +303,5 @@ En las operaciones de desarrollo, la repetibilidad y previsibilidad son claves p
 
 
  
-<!--HONumber=62-->
+
+<!---HONumber=July15_HO3-->

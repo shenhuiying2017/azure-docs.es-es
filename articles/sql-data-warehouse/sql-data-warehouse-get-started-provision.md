@@ -52,13 +52,13 @@ Cuando hizo clic en el botón Nuevo se abrieron todas las categorías de servici
 
 ### Almacenamiento de datos SQL
 
-Como puede ver, Azure ofrece grandes cantidades de datos y motores de almacenamiento. Sin embargo, esta guía de introducción es para SQLDW.
+Como puede ver, Azure ofrece grandes cantidades de datos y motores de almacenamiento. Sin embargo, esta guía de introducción es para Almacenamiento de datos SQL.
 
 - Continúe y seleccione Almacenamiento de datos SQL.
 
 ## Configuración de Almacenamiento de datos SQL
 
-Para completar el proceso de aprovisionamiento, solo falta configurar Almacenamiento de datos SQL.
+Para completar el proceso de aprovisionamiento, simplemente configure Almacenamiento de datos SQL.
 
 
 ### Nombre de la base de datos
@@ -70,15 +70,15 @@ La primera configuración es poner nombre a la base de datos.
 - Para esta guía de inicio rápido, el nombre de la base de datos será "MySQLDW".
 
 
-> [AZURE.NOTE]Por supuesto, cuando cree su propia base de datos podrá ponerle el nombre que desee. De todos modos, el nombre debe cumplir con los requisitos de nomenclatura básicos.
+> [AZURE.NOTE]Por supuesto, cuando cree su propia base de datos podrá ponerle el nombre que desee. De todos modos, el nombre debe cumplir los requisitos de nomenclatura básicos.
 
 ### Rendimiento
 
-La opción del rendimiento es **importante**. Almacenamiento de datos SQL proporciona su potencia escalable mediante este control deslizante. Puede aumentar o disminuir el rendimiento en cualquier momento, no solo cuando configure el clúster. Cuanto más se desliza a la derecha, mayor es la cantidad de recursos a su disposición. Si esos recursos ya no son necesarios, puede mover el control deslizante en la otra dirección, para ahorrar costos. Almacenamiento de datos SQL le permite cambiar su perfil de rendimiento a petición, sin que sea necesario volver a crear el clúster o mover los datos.
+La opción del rendimiento es **importante**. Almacenamiento de datos SQL proporciona su capacidad de escabilidad mediante este control deslizante. Puede aumentar o disminuir el rendimiento en cualquier momento, no solo cuando configure el almacén de datos. Cuanto más se desliza a la derecha, mayor es la cantidad de recursos a su disposición. Si esos recursos ya no son necesarios, puede mover el control deslizante en la otra dirección, para ahorrar costos. Almacenamiento de datos SQL permite cambiar el perfil de rendimiento a petición, sin tener que volver a crear el clúster o mover los datos.
 
 - Use ahora el control deslizante para ver cómo las unidades de almacenamiento de datos aumentan a medida que se desliza a la derecha y disminuyen cuando mueve el control deslizante a la izquierda.
 
-- Antes de dejar este paso, asegúrese de que el control deslizante esté nuevamente a la izquierda. La base de datos nueva es solo un almacenamiento de datos pequeño, por lo que no necesitaremos demasiado; ahorre recursos para el resto de la evaluación.
+- Antes de dejar este paso, asegúrese de que el control deslizante esté nuevamente a la izquierda. El nuevo almacén de datos es pequeño, por lo que no necesitaremos demasiado; ahorre recursos para el resto de la evaluación.
 
 ### Seleccionar origen
 
@@ -88,7 +88,7 @@ Esta opción ofrece la posibilidad de comenzar con una base de datos vacía. Eli
 
 ### Servidor lógico
 
-La base de datos de Almacenamiento de datos SQL reside en un servidor lógico. El servidor lógico aporta coherencia de la configuración en el nivel de instancia para varias bases de datos y ubica el servicio en un centro de datos de Azure.
+La nueva base de datos de Almacenamiento de datos SQL reside en un servidor lógico. El servidor lógico aporta coherencia a la configuración de diversas bases de datos y ubica el servicio en un centro de datos de Azure.
 
 Las opciones que se deben establecer son: 1. Nombre del servidor 2. Nombre del administrador del servidor 3. Contraseña 4. Ubicación del centro de datos 5. Permiso para que los servicios de Azure obtengan acceso al servidor.
 
@@ -103,7 +103,7 @@ Los grupos de recursos son contenedores diseñados para ayudarle a administrar u
 
 En esta guía de inicio rápido, el grupo de recursos puede estar configurado en sus valores predeterminados.
 
-Obtenga más información acerca de los [grupos de recursos].
+Obtenga más información acerca de los [grupos de recursos](../azure-portal/resource-group-portal.md).
 
 ### La suscripción
 Un usuario único podría tener una o más suscripciones a Azure. Si tiene más de una suscripción asociada con su inicio de sesión, puede elegir la suscripción que desea utilizar.
@@ -153,18 +153,17 @@ Ahora que configuró el firewall, podría establecer conexiones desde su escrito
 
 Ahora que se aprovisionó correctamente el servicio SQLDW, podemos aprender a usarlo.
 
-Por lo tanto, los pasos siguientes sirven para realizar la: 1. [Conexión y consulta] de la base de datos SQLDW 2. Exportación de datos desde la base de datos SQLDW a Almacenamiento de blobs de Azure 3. Carga de más datos en la base de datos SQLDW.
+Por lo tanto, los pasos siguientes sirven para realizar la: 1. [Conexión y consulta](sql-data-warehouse-get-started-connect-query.md) del almacenamiento de datos. 2. Exportación de datos desde el almacenamiento de datos al almacenamiento de blobs de Azure. 3. Carga de más datos en el almacenamiento de datos.
 
 
 <!--Image references-->
 
 
 <!-- Articles -->
-[Conexión y consulta]: ./sql-data-warehouse-get-started-connect-query/
-[grupos de recursos]: ./azure-preview-portal-using-resource-groups/
+
 
 <!--External links-->
 [evaluación gratuita]: https://azure.microsoft.com/es-es/pricing/free-trial/
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

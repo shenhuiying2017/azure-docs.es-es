@@ -2,7 +2,6 @@
 	pageTitle="Tecnología y procesos de análisis avanzado: uso de SQL Server | Microsoft Azure" 
 	description="Tecnología y procesos de análisis avanzado en acción"  
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -45,7 +44,7 @@ El conjunto de datos NYC Taxi Trips consiste en aproximadamente 20 GB de archiv
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-La clave única para unir trip_data y trip_fare se compone de los campos: medallion, hack_licence y pickup_datetime.
+La clave única para unir trip\\_data y trip\\_fare se compone de los campos: medallion, hack\\_licence y pickup\\_datetime.
 
 ## <a name="mltasks"></a>Ejemplos de tareas de predicción
 
@@ -100,7 +99,7 @@ Para copiar los datos mediante AzCopy:
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip_data y 12 para trip_fare) en la carpeta de datos.
+	Cuando se complete la operación AzCopy, debe haber un total de 24 archivos CSV comprimidos (12 para trip\\_data y 12 para trip\\_fare) en la carpeta de datos.
 
 4. Descomprima los archivos descargados. Observe la carpeta donde se encuentran los archivos sin comprimir. Se hará referencia a esta carpeta como <path_to_data_files>.
 
@@ -114,7 +113,7 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
 
 	![Conexión SSMS][12]
 
-3. Si aún no ha cambiado el modo de autenticación de SQL Server ni ha creado un nuevo usuario de inicio de sesión de SQL, abra el archivo de script **change_auth.sql** de la carpeta **Scripts de ejemplo**. Cambie el nombre de usuario y la contraseña predeterminados. Haga clic en **!Ejecutar** en la barra de herramientas para ejecutar el script.
+3. Si aún no ha cambiado el modo de autenticación de SQL Server ni ha creado un nuevo usuario de inicio de sesión de SQL, abra el archivo de script **change\\_auth.sql** de la carpeta **Scripts de ejemplo**. Cambie el nombre de usuario y la contraseña predeterminados. Haga clic en **!Ejecutar** en la barra de herramientas para ejecutar el script.
 
 	![Ejecutar script][13]
 
@@ -130,9 +129,9 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
 	
 		![Valores predeterminados de Base de datos SQL][15]
 
-5. Para crear una nueva base de datos y un conjunto de grupos de archivos para almacenar las tablas con particiones, abra el script de ejemplo **create_db_default.sql**. El script creará una nueva base de datos llamada **TaxiNYC** y doce grupos de archivos en la ubicación de datos predeterminada. Cada uno de estos grupos de archivos contendrá un mes de datos de trip_data y trip_fare. Modifique el nombre de la base de datos, si lo desea. Haga clic en **!Ejecutar** para ejecutar el script.
+5. Para crear una nueva base de datos y un conjunto de grupos de archivos para almacenar las tablas con particiones, abra el script de ejemplo **create\\_db\\_default.sql**. El script creará una nueva base de datos llamada **TaxiNYC** y doce grupos de archivos en la ubicación de datos predeterminada. Cada uno de estos grupos de archivos contendrá un mes de datos de trip_data y trip_fare. Modifique el nombre de la base de datos, si lo desea. Haga clic en **!Ejecutar** para ejecutar el script.
 
-6. A continuación, cree dos tablas con particiones, una para trip_data y otra para trip_fare. Abra el script de ejemplo **create_partitioned_table.sql**, que:
+6. A continuación, cree dos tablas con particiones, una para trip_data y otra para trip_fare. Abra el script de ejemplo **create\\_partitioned\\_table.sql**, que:
 
 	- Creará una función de partición para dividir los datos por mes.
 	- Creará un esquema de partición para asignar los datos de cada mes a un grupo de archivos distinto.
@@ -142,10 +141,10 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
 
 7. En la carpeta **Scripts de ejemplo**, hay dos scripts de PowerShell de ejemplo para mostrar las importaciones en bloque paralelas de datos en tablas de SQL Server.
 
-	- **bcp_parallel_generic.ps1** es un script genérico para importar datos en bloque y de forma paralela en una tabla. Modifique este script para establecer las variables de entrada y de destino, como se indica en las líneas de comentario del script.
-	- **bcp_parallel_nyctaxi.ps1** es una versión preconfigurada del script genérico y se puede usar para cargar ambas tablas para los datos de NYC Taxi Trips.  
+	- **bcp\\_parallel\\_generic.ps1** es un script genérico para importar datos en bloque y de forma paralela en una tabla. Modifique este script para establecer las variables de entrada y de destino, como se indica en las líneas de comentario del script.
+	- **bcp\\_parallel\\_nyctaxi.ps1** es una versión preconfigurada del script genérico y se puede usar para cargar ambas tablas para los datos de NYC Taxi Trips.  
 
-8. Haga clic con el botón derecho en el nombre de script **bcp_parallel_nyctaxi.ps1** y, a continuación, en **Editar** para abrirlo en PowerShell. Revise las variables preestablecidas y modifíquelas según el nombre de la base de datos seleccionada, la carpeta de datos de entrada, la carpeta de registro de destino y las rutas de acceso a los archivos de formato de ejemplo **nyctaxi_trip.xml** y **nyctaxi_fare.xml** (que se incluyen en la carpeta **Scripts de ejemplo**).
+8. Haga clic con el botón derecho en el nombre de script **bcp\\_parallel\\_nyctaxi.ps1** y, a continuación, en **Editar** para abrirlo en PowerShell. Revise las variables preestablecidas y modifíquelas según el nombre de la base de datos seleccionada, la carpeta de datos de entrada, la carpeta de registro de destino y las rutas de acceso a los archivos de formato de ejemplo **nyctaxi_trip.xml** y **nyctaxi\\_fare.xml** (que se incluyen en la carpeta **Scripts de ejemplo**).
 
 	![Datos de importación en bloque][16]
 
@@ -153,22 +152,22 @@ Para mejorar tanto el rendimiento de la carga y transferencia de grandes cantida
 
 9. El script de PowerShell informa de las horas de inicio y finalización. Cuando se completan todas las importaciones masivas, se notifica la hora de finalización. Revise la carpeta de registro de destino para comprobar que las importaciones masivas se realizaron correctamente, es decir, que no se informó de errores en la carpeta de registro de destino.
 
-10. La base de datos ya está preparada para la exploración, diseño de características y otras operaciones que desee. Dado que las particiones de las tablas se crean según el campo **pickup_datetime**, las consultas que incluyan condiciones **pickup_datetime** en la cláusula **WHERE** se beneficiarán del esquema de partición.
+10. La base de datos ya está preparada para la exploración, diseño de características y otras operaciones que desee. Dado que las particiones de las tablas se crean según el campo **pickup\\_datetime**, las consultas que incluyan condiciones **pickup\\_datetime** en la cláusula **WHERE** se beneficiarán del esquema de partición.
 
-11. En **SQL Server Management Studio**, explore el script de ejemplo proporcionado, **sample_queries.sql**. Para ejecutar cualquiera de las consultas de ejemplo, resalte las líneas de la consulta y haga clic en **!Ejecutar** en la barra de herramientas.
+11. En **SQL Server Management Studio**, explore el script de ejemplo proporcionado, **sample\\_queries.sql**. Para ejecutar cualquiera de las consultas de ejemplo, resalte las líneas de la consulta y haga clic en **!Ejecutar** en la barra de herramientas.
 
-12. Los datos de NYC Taxi Trips se cargan en dos tablas distintas. Para mejorar las operaciones de combinación, se recomienda la indexación de las tablas. El script de ejemplo **create_partitioned_index.sql** crea índices con particiones en la clave de combinación compuesta **medallion, hack_license, and pickup_datetime**.
+12. Los datos de NYC Taxi Trips se cargan en dos tablas distintas. Para mejorar las operaciones de combinación, se recomienda la indexación de las tablas. El script de ejemplo **create\\_partitioned\\_index.sql** crea índices con particiones en la clave de combinación compuesta **medallion, hack\\_license, and pickup\\_datetime**.
 
 ## <a name="dbexplore"></a>Exploración de datos e ingeniería de características en SQL Server
 
-En esta sección, se llevará a cabo la exploración de datos y la generación de características mediante la ejecución de consultas SQL directamente en **SQL Server Management Studio** con la base de datos de SQL Server creada anteriormente. Se proporciona un script de ejemplo llamado **sample_queries.sql** en la carpeta **Scripts de ejemplo**. Modifique el script para cambiar el nombre de la base de datos, en caso de que no sea el predeterminado: **TaxiNYC**.
+En esta sección, se llevará a cabo la exploración de datos y la generación de características mediante la ejecución de consultas SQL directamente en **SQL Server Management Studio** con la base de datos de SQL Server creada anteriormente. Se proporciona un script de ejemplo llamado **sample\\_queries.sql** en la carpeta **Scripts de ejemplo**. Modifique el script para cambiar el nombre de la base de datos, en caso de que no sea el predeterminado: **TaxiNYC**.
 
 En este ejercicio, se hará lo siguiente:
 
 - Conectarse a **SQL Server Management Studio** mediante Autenticación de Windows o con Autenticación de SQL y el nombre de inicio de sesión y la contraseña de SQL.
 - Explorar distribuciones de datos de algunos campos en diferentes ventanas de tiempo.
 - Investigar la calidad de los datos de los campos de longitud y latitud.
-- Generar etiquetas de clasificación binaria y multiclase según **tip_amount**.
+- Generar etiquetas de clasificación binaria y multiclase según **tip\\_amount**.
 - Generar características y calcular o comparar distancias de carreras.
 - Combinar las dos tablas y extraer una muestra aleatoria que se usará para generar modelos.
 
@@ -265,7 +264,7 @@ Las consultas de exploración de conversión geográfica y la generación de eti
 
 #### Preparación de los datos para la creación del modelo
 
-La siguiente consulta combina las tablas **nyctaxi_trip** y **nyctaxi_fare**, genera una etiqueta de clasificación binaria **tipped** (con propina), una etiqueta de clasificación multiclase **tip_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo [Lector](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][reader] para la ingesta directa de datos de la instancia de base de datos de SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
+La siguiente consulta combina las tablas **nyctaxi_trip** y **nyctaxi_fare**, genera una etiqueta de clasificación binaria **tipped** (con propina), una etiqueta de clasificación multiclase **tip\\_class** y extrae una muestra aleatoria de un 1 % del conjunto de datos combinado completo. Esta consulta se puede copiar y pegar directamente en el módulo [Lector](https://studio.azureml.net) del [Estudio de aprendizaje automático de Azure][reader] para la ingesta directa de datos de la instancia de base de datos de SQL Server en Azure. La consulta excluye los registros con coordenadas (0, 0) incorrectas.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -716,4 +715,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos y Blocs de no
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

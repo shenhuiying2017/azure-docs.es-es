@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="deonhe"/>
 
 
 # Conectores de datos del Servicio de aplicaciones de Microsoft Azure
+
+> [AZURE.NOTE]Este tema se ha retirado. Consulte la [lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md) para ver todas las aplicaciones API y conectores integrados que se encuentran disponibles.
 
 
 ## ¿Qué es un conector de aplicación de API de aplicaciones y servicios de datos
@@ -47,17 +49,6 @@ A continuación figura una breve descripción de cada uno de los conectores de a
 <td>El conector de Bus de servicio de Azure le permite enviar mensajes desde entidades de Bus de servicio, como colas y temas, y recibir mensajes de entidades de Bus de servicio, como colas y suscripciones.
 <td>Mensajes nuevos
 <td>Enviar mensaje
-</tr>
-<tr>
-<td>Tabla de almacenamiento de Azure
-<td>Conector de tabla de almacenamiento de Azure le permite conectarse a la tabla de almacenamiento de Azure y realizar diversas acciones, como obtener entidades, consultar entidades, insertar entidades, actualizar entidades y eliminar entidades. También cuenta con un desencadenador para recuperar datos.
-<td>Nueva entidad
-<td><li>Obtener entidad
-	<li>Insertar entidad
-	<li>Eliminar entidad
-	<li>Actualizar entidad
-	<li>Consultar
-
 </tr>
 
 <tr>
@@ -126,17 +117,6 @@ A continuación figura una breve descripción de cada uno de los conectores de a
 	<li>Seleccionar en tabla
 	<li>Eliminar de tabla
 	<li>Llamar a procedimiento almacenado
-</tr>
-
-<tr>
-<td>MongoDB
-<td>Un conector MongoDB le permite crear, actualizar, eliminar y obtener documentos de una colección de MongoDB.
-<td>Nuevo documento
-<td>	<li>Agregar documento
-		<li>Actualizar documento
-		<li>Obtener documentos
-		<li>Aplicar upsert a documento
-		<li>Eliminar documento
 </tr>
 
 
@@ -261,7 +241,8 @@ Los conectores utilizan OAuth o nombres de usuario y contraseñas.
 
 
 ## Más conectores
-[Conectores de integración de BizTalk](app-service-logic-integration-connectors.md) | [Conectores Enterprise](app-service-logic-enterprise-connectors.md) | [Conectores de negocio a negocio](app-service-logic-b2b-connectors.md) | [Conectores sociales](app-service-logic-social-connectors.md) | [Conectores de protocolo](app-service-logic-protocol-connectors.md) | [Conectores de aplicaciones y servicios de datos](app-service-logic-data-connectors.md) | [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [¿Qué son los conectores y las aplicaciones de la API de BizTalk?](app-service-logic-what-are-biztalk-api-apps.md)
+
+[Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

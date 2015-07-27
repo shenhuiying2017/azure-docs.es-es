@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de la factoría de datos Azure
@@ -112,4 +112,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->
