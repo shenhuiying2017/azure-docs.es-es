@@ -104,7 +104,10 @@ Si su aplicación se aproxima a los objetivos de escalabilidad para una sola cue
 -	Si su aplicación alcanza los objetivos de escalabilidad, asegúrese de usar un retroceso exponencial para reintentos (consulte [Reintentos](#subheading14)). Es mejor asegurarse de que nunca se aproxima a los objetivos de escalabilidad (usando uno de los métodos anteriores), pero esto garantizará que la aplicación no sigue realizando reintentos rápidamente, empeorando la limitación.  
 
 ####Recursos útiles
-Los vínculos siguientes proporcionan detalles adicionales sobre los objetivos de escalabilidad: los objetivos de escalabilidad actual se pueden ver en la página [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure de MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx). Encontrará más información acerca de las opciones de redundancia de almacenamiento en la entrada de blog sobre las [Opciones de redundancia de almacenamiento de Azure y almacenamiento con redundancia geográfica de acceso de lectura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (consulte más detalles en la siguiente sección). Para obtener información actualizada sobre los precios de los servicios de Azure, consulte la página de [precios de Azure](http://azure.microsoft.com/pricing/overview/).
+Los vínculos siguientes proporcionan detalles adicionales sobre los objetivos de escalabilidad: 
+-	los objetivos de escalabilidad actual se pueden ver en la página [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure de MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx).
+-	 Encontrará más información acerca de las opciones de redundancia de almacenamiento en la entrada de blog sobre las [Opciones de redundancia de almacenamiento de Azure y almacenamiento con redundancia geográfica de acceso de lectura](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) (consulte más detalles en la siguiente sección). 
+-	Para obtener información actualizada sobre los precios de los servicios de Azure, consulte la página de [precios de Azure](http://azure.microsoft.com/pricing/overview/).
 
 ###Redes
 Si bien las llamadas de API son importantes, a menudo las restricciones de red físicas de la aplicación tienen un impacto significativo en el rendimiento. A continuación se describen algunas de las limitaciones que pueden encontrar los usuarios.
@@ -384,4 +387,4 @@ Debe usar colas para que la arquitectura de la aplicación sea escalable. A cont
 En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa el Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas aplicaciones que usan el Almacenamiento de Azure.
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
