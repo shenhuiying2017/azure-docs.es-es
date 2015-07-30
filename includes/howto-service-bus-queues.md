@@ -22,9 +22,11 @@ Para crear un nombre de espacio de servicio:
 
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **us de servicio**.
 
-3.  En el panel inferior del Portal de administración, haga clic en **Crear**. ![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  En el panel inferior del Portal de administración, haga clic en **Crear**.
+	![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible. ![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, escriba un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.
+	![](./media/howto-service-bus-queues/sb-queues-04.png)
 
 5.  Después de asegurarse de que el nombre de espacio de nombres está disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
 
@@ -42,11 +44,14 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ###Para obtener las credenciales de administración desde el portal
 
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles: ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles:
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Seleccione el espacio de nombres que acaba de crear en la lista desplegable: ![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Seleccione el espacio de nombres que acaba de crear en la lista desplegable:
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Haga clic en **Información de conexión**. ![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  Haga clic en **Información de conexión**.
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  En el panel **Información de conexión de acceso**, encuentre la cadena de conexión que contiene la clave SAS y el nombre de la clave.
 

@@ -71,7 +71,8 @@ La manera más sencilla de comprobar que la aplicación de API es accesible púb
 
 ## Protección de la aplicación de API
 
-Cuando implementa una aplicación de API, lo hace en un grupo de recursos. Puede agregar aplicaciones web y otras aplicaciones de API para el mismo grupo de recursos y cada aplicación de API dentro del grupo de recursos puede tener una de las tres configuraciones de accesibilidad siguientes: <!--todo: diagram showing different accessibility settings-->
+Cuando implementa una aplicación de API, lo hace en un grupo de recursos. Puede agregar aplicaciones web y otras aplicaciones de API para el mismo grupo de recursos y cada aplicación de API dentro del grupo de recursos puede tener una de las tres configuraciones de accesibilidad siguientes:
+<!--todo: diagram showing different accessibility settings-->
 
 - **Público (anónimo)**: cualquier persona puede llamar a la aplicación de API desde fuera del grupo de recursos sin tener que iniciar sesión.
 - **Público (autenticado)**: solo los usuarios autenticados pueden llamar a la aplicación de API desde fuera del grupo de recursos.
@@ -269,4 +270,4 @@ Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active
 [Portal de vista previa de Azure]: https://portal.azure.com/
 [Portal del vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
