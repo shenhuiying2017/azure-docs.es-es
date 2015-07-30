@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento" 
-	description="Obtenga información sobre cómo utilizar algunos de los clientes disponibles en las bibliotecas .NET de cálculo, red y almacenamiento para crear y eliminar recursos de Microsoft Azure." 
+	description="Obtenga información sobre cómo utilizar algunos de los clientes disponibles en las bibliotecas .NET de cálculo, red y almacenamiento para crear y eliminar recursos de Microsoft Azure" 
 	services="virtual-machines,virtual-network,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 

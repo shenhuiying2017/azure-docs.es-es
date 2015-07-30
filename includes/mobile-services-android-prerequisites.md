@@ -10,4 +10,4 @@ Este tutorial está basado en el código que descarga el inicio rápido de Servi
 [Agregar Servicios móviles a una aplicación existente]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

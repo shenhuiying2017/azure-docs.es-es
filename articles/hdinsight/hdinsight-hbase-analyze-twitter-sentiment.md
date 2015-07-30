@@ -75,11 +75,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
 	<table border="1">
-<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
-<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
-<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
-</table>
+	<tr><th>Propiedad del clúster</th><th>Descripción</th></tr>
+	<tr><td>Nombre de clúster de HBase</td><td>El nombre del clúster de HBase de HDInsight. Por ejemplo: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Nombre de usuario de clúster</td><td>El nombre de la cuenta de usuario de Hadoop. El nombre de usuario de Hadoop predeterminado es <strong>admin</strong>.</td></tr>
+	<tr><td>Contraseña de usuario de clúster</td><td>La contraseña de usuario del clúster de Hadoop.</td></tr>
+	</table>
 
 - **Una estación de trabajo** con Visual Studio 2013 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,11 +98,13 @@ Las API de streaming de Twitter autorizan las solicitudes con [OAuth](http://oau
 3. Escriba un **nombre**, una **descripción** y un **sitio web**. El campo Sitio web no se usa en realidad. No es necesario escribir una URL válida. La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
 	<table border="1">
-<tr><th>Campo</th><th>Valor</th></tr>
-<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
+	<tr><th>Campo</th><th>Valor</th></tr>
+	<tr><td>Nombre</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Descripción</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Sitio web</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]El nombre de la aplicación de Twitter debe ser un nombre único.
 
 4. Haga clic en **Sí, acepto** y luego haga clic en **Crear su aplicación de Twitter**.
 5. Haga clic en la pestaña **Permissions** (Permisos). El permiso predeterminado es **Read only** (Solo lectura). Esto es suficiente para este tutorial. 

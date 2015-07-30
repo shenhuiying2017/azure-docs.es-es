@@ -128,6 +128,7 @@ El proyecto **AdventureWorksWebGeo** nos muestra cómo se puede usar ASP.NET MVC
 +	La función **Buscar** recupera las ubicaciones de las tiendas, que luego se reciben y agregan como marcadores en el Mapa de Bing.
 
 4.	Abra HomeController.cs en **Controladores** y fíjese en la función **Buscar**. Vea que hace una llamada a _storeSearch.Search(lat, lon, 10000). Esto hará que se ejecute una consulta para buscar todas las tiendas que se encuentren a 10.000 km de la latitud (lat) y la longitud (lon) especificadas. Los resultados de esta consulta se procesan y luego se envían de vuelta a la vista índice para que se procesen como marcadores superpuestos en el Mapa de Bing.
+
 Con esto finaliza la demostración. Ya ha visto las operaciones principales que necesitará conocer para elaborar una aplicación de ASP.NET MVC4 basada en mapas usando Búsqueda de Azure.
 
 
