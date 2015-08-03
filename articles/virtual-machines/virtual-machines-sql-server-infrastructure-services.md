@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="04/17/2015"
+	ms.date="07/17/2015"
 	ms.author="jroth"/>
 
 # SQL Server en Máquinas virtuales de Azure
@@ -26,7 +26,9 @@ Puede hospedar [SQL Server en Máquinas virtuales Azure][sqlvmlanding] en una va
 ## Implementar una instancia de SQL Server en una única máquina virtual
 Cuando [crea una máquina virtual de Azure mediante el Portal de Azure][createvmportal] o la automatización, puede instalar cualquier instancia de SQL Server para la que tenga licencia. Sin embargo, debe realizar pasos adicionales para [configurar la conectividad][setupconnectivity] entre el equipo de SQL Server y los equipos cliente.
  
-También puede instalar una de las muchas imágenes de máquinas virtuales de SQL Server de la galería. Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual. Para obtener más información, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure][provisionsqlvm].
+También puede instalar una de las muchas imágenes de máquinas virtuales de SQL Server de la galería. Esas imágenes incluyen licencias de SQL Server en el precio de la máquina virtual. Para obtener más información y una conectividad paso a paso, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure][provisionsqlvm].
+
+Una vez puesta en marcha la máquina virtual de SQL Server, podrá migrar bases de datos existentes al equipo. Para obtener más información sobre la migración de la base de datos, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Implementar una configuración de alta disponibilidad con varias máquinas virtuales
 Puede lograr una alta disponibilidad para SQL Server mediante el uso de grupos de disponibilidad AlwaysOn de SQL Server. Esto implica varias máquinas virtuales de Azure en una red virtual. El Portal de vista previa de Azure dispone de una plantilla que define esta configuración. Para obtener más información, consulte [Oferta de AlwaysOn de SQL Server en la Galería del Portal de Microsoft Azure][sqlalwaysonportal]. O bien puede [configurar manualmente un grupo de disponibilidad AlwaysOn][sqlalwaysonmanual]. Para otras consideraciones sobre alta disponibilidad, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Máquinas virtuales de Azure][sqlhadr].
@@ -35,21 +37,23 @@ Puede lograr una alta disponibilidad para SQL Server mediante el uso de grupos d
 Puede ejecutar cargas de trabajo comunes de SQL Server en Máquinas virtuales de Azure. SQL Server cuenta con varias imágenes optimizadas de máquinas virtuales disponible en la galería. Incluyen imágenes para [Business Intelligence][sqlbi], [almacenamiento de datos][sqldw] y [OLTP][sqloltp].
 
 ## Migración de los datos
-Hay varias formas de migrar los datos a máquinas virtuales de Azure que ejecutan SQL Server. Aprovisione primero una máquina virtual de SQL Server mediante el Portal de Azure, automatización de PowerShell o el Asistente para implementación en SQL Server Management Studio. Las imágenes optimizadas de SQL Server incluyen licencias de su modelo de precios, pero también puede instalar SQL Server con su propia licencia. Para migrar los datos, hay varias opciones, por ejemplo, mediante el asistente para la implementación o migración de un disco de datos a la máquina virtual de destino. Para obtener más información, consulte [Preparación de la migración a SQL Server en Máquinas virtuales de Azure][migratesql].
+Una vez puesta en marcha la máquina virtual de SQL Server, podrá migrar bases de datos existentes al equipo. Existen varias técnicas, pero el asistente para implementación en SQL Server Management Studio funciona bien en la mayoría de los escenarios. Para obtener una explicación de los escenarios y un tutorial del asistente, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Copia de seguridad y restauración
 Con las bases de datos locales, Azure puede actuar como un centro de datos secundario para almacenar los archivos de copia de seguridad de SQL Server. [La copia de seguridad de SQL Server a URL][backupurl] almacena los archivos de copia de seguridad de Azure en el almacenamiento de blobs de Azure. [La copia de seguridad administrada de SQL Server][managedbackup] le permite programar la copia de seguridad y la retención en Azure. Estos servicios pueden utilizarse con instancias locales de SQL Server o con SQL Server que se ejecuta en máquinas virtuales de Azure. Las máquinas virtuales de Azure también pueden sacar partido de la [copia de seguridad automatizada][autobackup] y de las [revisiones automatizadas][autopatching] para SQL Server. Para obtener más información, consulte [Tareas de administración de SQL Server en Máquinas virtuales de Azure][managementtasks].
 
-## Recursos adicionales:
+## Recursos:
 [SQL Server en máquinas virtuales de Azure][sqlmsdnlanding]
 
+[Aprovisionamiento de una máquina virtual de SQL Server en Azure][provisionsqlvm]
+
 [Introducción a SQL Server en Máquinas virtuales de Azure][sqlvmgetstarted]
+
+[Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md)
 
 [Procedimientos recomendados para SQL Server en Máquinas virtuales de Azure][sqlperf]
 
 [Consideraciones de seguridad para SQL Server en Máquinas virtuales de Azure][sqlsecurity]
-
-[Artículos técnicos de SQL Server en Máquinas virtuales de Azure][technicalarticles]
 
   [sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
   [sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
@@ -74,4 +78,4 @@ Con las bases de datos locales, Azure puede actuar como un centro de datos secun
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

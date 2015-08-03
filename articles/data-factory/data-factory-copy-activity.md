@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Copia de datos con la Factoría de datos de Azure (actividad de copia)
@@ -40,156 +40,22 @@ Para obtener más información:
 ## Orígenes y receptores compatibles
 La actividad de copia admite los siguientes escenarios de movimiento de datos:
 
-<table border="1">	
-	<tr>
-		<th><i>Origen/receptor<i></th>
-		<th>Blob de Azure</th>
-		<th>Tabla de Azure</th>
-		<th>Base de datos SQL de Azure</th>
-		<th>DocumentDB de Azure</th>
-		<th>SQL Server en máquinas virtuales de Azure</th>
-		<th>SQL Server local</th>
-	</tr>	
+| *Origen/receptor* | Blob de Azure | Tabla de Azure | Base de datos SQL de Azure | DocumentDB de Azure | SQL Server en máquinas virtuales de Azure | SQL Server local |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Blob de Azure | X | X | X | X | X | X |
+| Tabla de Azure | X | X | X | X | X | X |
+| Base de datos SQL de Azure | X | X | X | X | X | X |
+| DocumentDB de Azure | X | X | X | | | |  
+| SQL Server local | X | X | X | | X | X |
+| SQL Server en máquinas virtuales de Azure | X | X | X | | X | X |
+| Sistema de archivos local | X | X | X | | X | X |
+| Base de datos de Oracle local | X | X | X | | X | X |
+| Base de datos MySQL local| X | X | X | | X | X |
+| Base de datos DB2 local | X | X | X | | X | X |
+| Base de datos Teradata local | X | X | X | | X | X |
+| Base de datos Sybase local | X | X | X | | X | X |
+| Base de datos PostgreSQL local | X | X | X | | X | X |
 
-	<tr>
-		<td><b>Blob de Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Tabla de Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>	
-	<tr>
-		<td><b>Base de datos SQL de Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-	<tr>
-		<td><b>DocumentDB de Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>SQL Server en máquinas virtuales de Azure</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de archivos local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos de Oracle local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Sistema de archivos local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos MySQL local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos DB2 local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos Teradata local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos Sybase local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Base de datos PostgreSQL local</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-</table>
 
 Para obtener información más detallada, consulte el tema [Orígenes y receptores compatibles](https://msdn.microsoft.com/library/dn894007.aspx) en MSDN Library.
 
@@ -249,57 +115,15 @@ Cada actividad de la sección **actividades** tiene la siguiente estructura de n
 
 La tabla siguiente describe las etiquetas utilizadas con una sección de actividades.
 
-<table border="1">	
-	<tr>
-		<th align="left">Etiqueta</th>
-		<th align="left">Descripción</th>
-		<th align="left">Obligatorio</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>Nombre de la actividad.</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>descripción</td>
-		<td>Texto que describe para qué se usa la actividad.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>Especifica el tipo de actividad. <br/><br/><b>type</b> debe establecerse en <b>CopyActivity</b>.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>Tablas de entrada utilizadas por la actividad. Especifique solo una tabla de entrada para la actividad de copia.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>Tablas de salida usadas por la actividad. Especifique solamente una tabla de salida para la actividad de copia.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>Las propiedades de la transformación dependen del tipo. La <b>actividad de copia</b> requiere que se especifique una sección <b>origen</b> y una sección <b>receptor</b> dentro de la sección <b>transformación</b>. Más adelante en este artículo se proporcionan más detalles. </td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se utilizan los valores predeterminados.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| Etiqueta | Descripción | Obligatorio |
+|-----|-------------|----------|
+|name|Nombre de la actividad.|Y|
+|description|Texto que describe para qué se usa la actividad.|Y|
+|type|Especifica el tipo de actividad. El tipo debe establecerse en **Copy**. |Y|
+|inputs|Tablas de entrada utilizadas por la actividad. Especifique solo una tabla de entrada para la actividad de copia. | Y
+|outputs|Tablas de salida usadas por la actividad. Especifique solamente una tabla de salida para la actividad de copia. | Y
+|transformation|Las propiedades de la transformación dependen del tipo. La actividad de copia requiere que se especifique una sección de origen y una sección de receptor dentro de la sección de transformación. Más adelante en este artículo se proporcionan más detalles.|Y
+|policy| Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se utilizan los valores predeterminados. | N
 
 Vea la [Referencia del scripting JSON][json-script-reference] para obtener información detallada acerca de las etiquetas o propiedades JSON.
 
@@ -475,4 +299,4 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

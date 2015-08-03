@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/09/2015"
    ms.author="seanmck"/>
 
 # Elección de un marco para su servicio
@@ -35,6 +35,5 @@ Tenga en cuenta que es perfectamente razonable usar marcos diferentes para disti
 
 - [Obtener más información acerca de las API de actores confiables](service-fabric-reliable-actors-introduction.md)
 - [Obtener más información acerca de las API de servicios de confianza](../Service-Fabric/service-fabric-reliable-services-introduction.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

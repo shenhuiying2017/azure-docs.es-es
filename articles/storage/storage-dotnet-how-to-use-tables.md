@@ -453,4 +453,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [How to: Programmatically access Table Storage]: #tablestorage
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

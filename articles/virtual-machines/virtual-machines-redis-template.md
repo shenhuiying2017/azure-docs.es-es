@@ -44,7 +44,7 @@ Siga estos pasos para crear un clúster de Redis mediante una plantilla del Admi
 
 ### Paso 1-a: Descargar los archivos de plantilla mediante Azure PowerShell
 
-Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\RedisCluster).
+Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\Azure\Templates\RedisCluster).
 
 Sustituya el nombre de carpeta de la carpeta local y ejecute estos comandos:
 
@@ -96,7 +96,7 @@ Clone todo el repositorio de plantillas mediante un cliente Git de su elección,
 git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 ```
 
-Cuando haya finalizado la clonación, busque la carpeta **redis-high-availability** en el directorio C:\\Azure\\Templates.
+Cuando haya finalizado la clonación, busque la carpeta **redis-high-availability** en el directorio C:\Azure\Templates.
 
 ### Paso 2 (opcional): Comprender los parámetros de plantilla
 
@@ -283,7 +283,7 @@ Durante la implementación, recuerde que debe crearse una nueva cuenta de almace
 
 Durante la implementación, verá algo parecido a esto:
 
-	PS C:> New-AzureResourceGroup –Name $RGName –Location $locName
+	PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
 
 	ResourceGroupName : TestRG
 	Location          : westus
@@ -296,7 +296,7 @@ Durante la implementación, verá algo parecido a esto:
 
 	ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
 
-	PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+	PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 	VERBOSE: 2:39:10 PM - Template is valid.
 	VERBOSE: 2:39:14 PM - Create template deployment 'TestDeployment'.
 	VERBOSE: 2:39:25 PM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -387,7 +387,7 @@ En este diagrama se describen las relaciones entre todos los archivos descargado
 
 Esta sección le guía a través de la estructura de la plantilla azuredeploy.json para el clúster de Redis.
 
-Si no ha descargado una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\RedisCluster). Rellene el nombre de la carpeta y ejecute estos comandos:
+Si no ha descargado una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\Azure\Templates\RedisCluster). Rellene el nombre de la carpeta y ejecute estos comandos:
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
@@ -666,4 +666,4 @@ Básicamente, se sugiere este enfoque para:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -110,7 +110,7 @@ Esta versión contiene las siguientes actualizaciones.
 </table>
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -121,4 +121,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

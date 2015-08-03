@@ -43,4 +43,4 @@ Puede usar el Portal de administración de Azure o las API de Servicios multimed
 3. De forma predeterminada, se aplican encabezados de caché de 2 segundos para manifest(playlist) de streaming en directo independientemente de la configuración multimedia o de almacenamiento de Azure y la anulación de este valor no está disponible.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

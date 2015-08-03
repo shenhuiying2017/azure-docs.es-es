@@ -302,4 +302,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

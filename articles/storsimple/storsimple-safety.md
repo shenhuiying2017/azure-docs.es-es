@@ -179,4 +179,4 @@ Después de revisar estos avisos de seguridad, el siguiente paso es desempaqueta
 
 - Para un dispositivo 8600, vaya a[ Desempaquetar, montar en bastidor y cablear el dispositivo 8600](storsimple-8600-hardware-installation)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

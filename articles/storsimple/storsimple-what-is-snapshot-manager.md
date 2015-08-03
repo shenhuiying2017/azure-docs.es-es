@@ -148,4 +148,4 @@ Para obtener información acerca de la supervisión de trabajos de copia de segu
 
 [Descarga de Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

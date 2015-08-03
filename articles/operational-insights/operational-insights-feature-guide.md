@@ -72,4 +72,4 @@ Los datos de cada solución se analizan y se presentan en el portal de Visión o
 ### ¿Dónde está disponible Visión operativa?
 Visión operativa de Microsoft Azure se hospeda en Estados Unidos. Aunque el idioma de Visión operativa es el inglés, el servicio está disponible en otros mercados. Para obtener información, consulte [Disponibilidad internacional](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

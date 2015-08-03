@@ -18,19 +18,26 @@
 
 # Preguntas más frecuentes sobre Azure Active Directory Connect
 
-## ¿Cómo puedo obtener ayuda con Azure AD Connect?
+
+## Solución de problemas
+
+**P: ¿Cómo puedo obtener ayuda con Azure AD Connect?**
 
 [Busque en Microsoft Knowledge Base (KB)](https://www.microsoft.com/es-es/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 - Busque en Microsoft Knowledge Base (KB) soluciones técnicas a los problemas de break-fix más comunes sobre soporte técnico de Azure AD Connect.
 
-[Foros de Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+[Foros de Microsoft Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/es-es/home?forum=WindowsAzureAD)
 
-- Puede buscar y examinar preguntas técnicas y sus respuestas en la comunidad o realizar su propia pregunta haciendo clic [aquí](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
+- Puede buscar y examinar preguntas técnicas y sus respuestas en la comunidad o realizar su propia pregunta haciendo clic [aquí](https://social.msdn.microsoft.com/Forums/azure/es-es/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 
 [Asistencia al cliente de Azure AD Connect](https://manage.windowsazure.com/?getsupport=true)
 
 - Use este vínculo para obtener soporte técnico mediante el Portal de Azure. 
 
-<!---HONumber=July15_HO3-->
+**P: ¿Qué hago si se recibe un correo electrónico que me solicita que renueve el certificado de Office 365?**
+
+Utilice las instrucciones que se describen en el artículo para resolver [aquí](active-directory-aadconnect-o365-certs.md) la renovación del certificado.
+
+<!---HONumber=July15_HO4-->

@@ -228,4 +228,4 @@ Lleve a cabo los siguientes pasos para definir la cuenta cuando conecte Operatio
 
 Si desea analizar datos de servidores situados en diversas ubicaciones geográficas, podría tener un grupo de administración por ubicación. Esto puede mejorar el rendimiento de la transferencia de datos entre el agente y el grupo de administración.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

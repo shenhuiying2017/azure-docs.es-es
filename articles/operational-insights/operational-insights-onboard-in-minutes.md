@@ -97,4 +97,4 @@ Con Operations Management Suite puede buscar rápidamente registros de IIS y eve
 - Familiarizarse con la [búsqueda](operational-insights-search.md)
 - Usar [paneles](operational-insights-use-dashboards.md) para guardar y mostrar búsquedas personalizadas
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

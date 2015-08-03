@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # Preguntas más frecuentes sobre la puerta de enlace de VPN
@@ -27,7 +27,7 @@ Sí. De hecho, no hay ninguna restricción de región. Puede conectar una red vi
 Sí.
 ### ¿Puedo conectar a varios sitios desde una única red virtual?
 
-Puede conectarse a varios sitios mediante el uso de Windows PowerShell y las API de REST de Azure. Consulte la sección de P+F [Conectividad de red virtual a red virtual y de multisitio](#Multi-Site-and-VNet-to-VNet-Connectivity).
+Puede conectarse a varios sitios mediante el uso de Windows PowerShell y las API de REST de Azure. Consulte la sección de P+F [Conectividad de red virtual a red virtual y de multisitio](#multi-site-and-vnet-to-vnet-connectivity).
 ## ¿Cuáles son mis opciones de conexión entre locales?
 
 Red virtual admite las siguientes conexiones entre locales:
@@ -162,7 +162,7 @@ Agregue cada intervalo que desea enviar a través de la puerta de enlace para la
 
 ### ¿Puedo configurar una tunelización forzada?
 
-Sí. Consulte [Información acerca de la tunelización forzada](http://go.microsoft.com/fwlink/p/?LinkId=615153).
+Sí. Consulte [Información acerca de la tunelización forzada](vpn-gateway-about-forced-tunneling.md).
 
 ### ¿Puedo configurar mi propio servidor VPN en Azure y usarlo para conectar a mi propia red local?
 
@@ -170,7 +170,7 @@ Sí, puede implementar sus propias puertas de enlace o servidores VPN en Azure b
 
 ### Más información acerca de los tipos de puerta de enlace, los requisitos y el rendimiento
 
-Para obtener más información, consulte [Puertas de enlace](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Para obtener más información, consulte [Acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
 ## Conectividad de red virtual a red virtual y de multisitio
 
@@ -244,4 +244,4 @@ Ver más P+F sobre redes para obtener detalles adicionales:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

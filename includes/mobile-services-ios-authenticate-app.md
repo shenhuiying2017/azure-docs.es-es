@@ -22,4 +22,4 @@
 
 * Presione **Ejecutar** para iniciar la aplicación y, a continuación, inicie sesión. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

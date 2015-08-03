@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,34 +13,56 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/10/2015" 
+	ms.author="jgao"/>
 
 
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
 
 
-Se ha agregado un segundo nodo principal a los clústeres de Hadoop implementados por HDInsight de Azure con el fin de aumentar la disponibilidad y confiabilidad del servicio necesario para administrar las cargas de trabajo. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. Estos clústeres están diseñados para administrar los errores de los nodos de trabajo sin problemas, pero cualquier interrupción de los servicios maestros que se ejecutan en el nodo principal haría que el clúster dejara de funcionar.
+HDInsight permite a los clientes implementar varios tipos de clúster para diferentes cargas de trabajo de análisis de datos. Los tipos de clúster que se ofrecen hoy en día son los clústeres de Hadoop para cargas de trabajo de consulta y análisis, los clústeres de HBase para cargas de trabajo de NoSQL y los clústeres de Storm para cargas de trabajo de procesamiento de eventos en tiempo real. Dentro de un tipo de clúster determinado hay diferentes roles para los distintos nodos. Por ejemplo:
+
+
+
+- Los clústeres de Hadoop para HDInsight se implementan con dos roles:
+	- Nodo principal (2 nodos)
+	- Nodo de datos (al menos 1 nodo)
+
+- Los clústeres de HBase para HDInsight se implementan con tres roles:
+	- Servidores principales (2 nodos)
+	- Servidores de región (al menos 1 nodo)
+	- Nodos maestro o Zookeeper (3 nodos)
+
+- Los clústeres de Storm para HDInsight se implementan con tres roles:
+	- Nodos Nimbus (2 nodos)
+	- Servidores de supervisor (al menos 1 nodo)
+	- Nodos Zookeeper (3 nodos)
+ 
+Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. HDInsight quita este único punto de error con la incorporación de un nodo principal secundario/servidor principal/nodo Nimbus para aumentar la disponibilidad y confiabilidad del servicio necesario para administrar las cargas de trabajo. Estos nodos principales/servidores principales/nodos Nimbus están diseñados para administrar los errores de los nodos de trabajo sin problemas, pero cualquier interrupción de los servicios maestros que se ejecutan en el nodo principal haría que el clúster dejara de funcionar.
+
+
+Se han agregado nodos de [ZooKeeper](http://zookeeper.apache.org/) (ZK) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
 
 ![Diagrama de los nodos principales de gran confiabilidad en la implementación de Hadoop en HDInsight.](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight quita este único punto de error con la incorporación de un nodo principal secundario (Nodo principal1). Se han agregado nodos de [ZooKeeper](http://zookeeper.apache.org/) (ZK) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
 
 
-## Comprobación del estado de los servicios en el nodo principal activo ##
-Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). La capacidad de interactuar remotamente en el clúster está deshabilitada de forma predeterminada en Azure, por lo que primero se debe habilitarla. Para obtener instrucciones sobre cómo llevar a cabo esta acción en el portal, consulte [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp). Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop,** situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
 
-![](http://i.imgur.com/MYTkCHW.png)
+## Comprobación del estado de los servicios en el nodo principal activo
+Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). Para obtener las instrucciones de RDP, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp). Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop, situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
+
+![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
+
+En la captura de pantalla, el nodo principal activo es *headnode0*.
+
+## Acceso a los archivos de registro en el nodo principal secundario
+
+Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se haya conectado de forma remota al clúster, haga doble clic en el icono **Estado de nodo de nombres de Hadoop** del escritorio y, a continuación, haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
+
+![](./media/hdinsight-high-availability/Hadoop.Head.Node.Log.Files.png)
 
 
-## Acceso a los archivos de registro en el nodo principal secundario \\
-
-Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se haya conectado de forma remota al clúster, haga doble clic en el icono **Nodo de nombres de Hadoop** situado en el escritorio y, a continuación, haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
-
-![](http://i.imgur.com/eL6jzgB.png)
-
-
-## Configuración del tamaño del nodo principal ##
+## Configuración del tamaño del nodo principal
 Los nodos principales se asignan como máquinas virtuales (VM) grandes de forma predeterminada. El tamaño es adecuado para la administración de la mayoría de trabajos de Hadoop que se ejecutan en el clúster. Pero hay escenarios que pueden requerir máquinas virtuales extragrandes para los nodos principales. Un ejemplo es cuando el clúster tiene que administrar un gran número de pequeños trabajos de Oozie.
 
 Las máquinas virtuales extragrandes se pueden configurar usando cmdlets de Azure PowerShell o el SDK de HDInsight.
@@ -83,4 +105,4 @@ Para el SDK, la historia es similar. La creación y aprovisionamiento de un clú
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

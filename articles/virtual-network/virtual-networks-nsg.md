@@ -138,7 +138,7 @@ Imagine la siguiente regla NSG para este escenario:
 
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|SIN INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|DENEGAR| 
+|SIN INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|DENEGAR| 
 
 Puesto que la regla deniega todo acceso desde la red virtual a Internet, las máquinas virtuales no podrán tener acceso a cualquier servicio PaaS de Azure que requiera un extremo de Internet público, como por ejemplo, las bases de datos SQL.
 
@@ -146,8 +146,8 @@ En lugar de usar una regla de denegación, pruebe a usar una regla para permitir
 
 | Nombre | Prioridad | IP de origen | Puerto de origen | IP de destino | Puerto de destino | Protocolo | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|A INTERNET|100| VIRTUAL_NETWORK|&\#42;|INTERNET|&\#42;|TCP|PERMITIR|
-|DESDE INTERNET|110| INTERNET|&\#42;|VIRTUAL_NETWORK|&\#42;|TCP|DENEGAR| 
+|A INTERNET|100| VIRTUAL_NETWORK|&#42;|INTERNET|&#42;|TCP|PERMITIR|
+|DESDE INTERNET|110| INTERNET|&#42;|VIRTUAL_NETWORK|&#42;|TCP|DENEGAR| 
 
 
 ## Planificación: flujo de trabajo de grupos de seguridad de red
@@ -248,4 +248,4 @@ De momento, solo puede configurar y modificar los grupos de seguridad de red med
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

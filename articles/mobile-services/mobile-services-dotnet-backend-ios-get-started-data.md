@@ -88,4 +88,4 @@ Descargue la [aplicación GetStartedWithData de iOS]. En Xcode, abra el proyecto
 [aplicación GetStartedWithData de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 [aplicación de iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

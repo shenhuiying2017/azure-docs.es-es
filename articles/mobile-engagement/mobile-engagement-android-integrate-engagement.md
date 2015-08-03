@@ -311,4 +311,4 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
 [API del dispositivo]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

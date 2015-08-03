@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Creación de una red virtual entre locales usando tablas de configuración
@@ -27,7 +28,7 @@ Este tema le guiará en el proceso de creación de una red virtual entre locales
 
 Estas tablas suelen rellenarse en un tema que describe la configuración de una carga de trabajo de TI en Azure e incluye una red virtual entre locales. Consulte un ejemplo en [Fase 1: Configuración de Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
-El procedimiento siguiente hace referencia a la información contenida en dichas tablas para guiarle a lo largo del proceso de configuración de la red virtual. Si todavía no especificó la configuración de estas tablas en otro tema, pero desea configurar igualmente una red virtual entre locales, vea [Configurar una conexión de sitio a sitio entre locales a una red virtual de Azure](https://msdn.microsoft.com/library/dn133795.aspx).
+El procedimiento siguiente hace referencia a la información contenida en dichas tablas para guiarle a lo largo del proceso de configuración de la red virtual en Administración de servicios. Si todavía no especificó la configuración de estas tablas en otro tema, pero desea configurar igualmente una red virtual entre locales, vea [Configurar una conexión de sitio a sitio entre locales a una red virtual de Azure](https://msdn.microsoft.com/library/dn133795.aspx).
 
 > [AZURE.NOTE]Este procedimiento le guiará en el proceso de creación de una red virtual que usa una conexión VPN de sitio a sitio. Para obtener información sobre cómo usar Azure ExpressRoute para la conexión de sitio a sitio, vea [Introducción técnica a ExpressRoute](https://msdn.microsoft.com/library/dn606309.aspx).
 
@@ -66,4 +67,4 @@ El procedimiento siguiente hace referencia a la información contenida en dichas
 
 [Configurar una conexión sitio a sitio entre entornos a una red virtual de Azure](https://msdn.microsoft.com/library/dn133795.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

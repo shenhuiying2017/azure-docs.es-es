@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure" 
-	description="Puede implementar SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases." 
+<properties
+	pageTitle="Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure"
+	description="Puede implementar SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure en cinco fases."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/05/2015"
 	ms.author="josephd"/>
 
 # Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure
@@ -26,10 +26,10 @@ Este tema contiene vínculos a las instrucciones detalladas para implementar una
 - Un servidor de nodos de mayoría de clúster
 - Dos controladores de dominio
 
-Esta es la configuración, con los nombres de marcador de posición para cada servidor.
+Esta es la configuración, con los nombres de marcador de posición para cada servidor:
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
- 
+
 Dos equipos para cada rol garantizan la alta disponibilidad. Todas las máquinas virtuales están en una sola región. Cada grupo de máquinas virtuales para un rol específico está en su propio conjunto de disponibilidad.
 
 Esta configuración se implementa en las siguientes fases:
@@ -46,7 +46,7 @@ Esta configuración es una guía preceptiva fase por fase para una arquitectura 
 
 Tenga en cuenta lo siguiente:
 
-- Si es un implementador experimentado de SharePoint, no dude en adaptar las instrucciones indicadas en las fases de la 3 a la 5 para crear la granja que mejor se adapte a sus necesidades. 
+- Si es un implementador experimentado de SharePoint, no dude en adaptar las instrucciones indicadas en las fases de la 3 a la 5 para crear la granja que mejor se adapte a sus necesidades.
 - Si ya tiene una implementación en la nube híbrida de Azure, puede adaptar u omitir las instrucciones de las fases 1 y 2 para hospedar la nueva granja de servidores de SharePoint en la subred adecuada.
 - Todos los servidores se encuentran en una sola subred en la red virtual de Azure. Si desea proporcionar seguridad adicional equivalente al aislamiento de subred, puede usar los [grupos de seguridad de red](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
@@ -69,4 +69,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

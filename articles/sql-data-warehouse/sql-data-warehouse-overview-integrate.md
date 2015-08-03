@@ -72,4 +72,4 @@ Consulte [Integración con Análisis de transmisores de Azure](../sql-data-wareh
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

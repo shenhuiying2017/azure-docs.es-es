@@ -480,4 +480,4 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

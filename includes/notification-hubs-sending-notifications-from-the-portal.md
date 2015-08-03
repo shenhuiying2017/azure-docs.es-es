@@ -12,4 +12,4 @@ A continuación, presentamos una lista de algunos otros tutoriales que podría i
 
 En esta siguiente sección del tutorial, aprenderá a usar la [Interfaz de REST de Centros de notificaciones](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) para enviar el mensaje de notificación directamente en su aplicación. Todos los dispositivos registrados reciben la notificación que envía cualquier dispositivo.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

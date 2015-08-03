@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux" 
-	description="Aprenda a usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux en Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux"
+	description="Aprenda a usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux en Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux
 
@@ -57,7 +57,7 @@ A continuación, se muestran algunos ejemplos de valores de ImageFamily de equip
 - SUSE Linux Enterprise Server 12
 
 Abra una nueva instancia del editor de texto que prefiera o una instancia del entorno de scripting integrado de PowerShell (ISE). Copie lo siguiente en el nuevo archivo de texto o PowerShell ISE, sustituyendo el valor de ImageFamily.
- 
+
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
@@ -84,7 +84,7 @@ Para los valores de InstanceSize de las máquinas virtuales de las series D, DS 
 
 Especifique el nombre de usuario y la contraseña iniciales de Linux (obligatorio). Elija una contraseña segura. Para comprobar su robustez, consulte [Comprobador de contraseñas: uso de contraseñas seguras](https://www.microsoft.com/security/pc-security/password-checker.aspx).
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 Opcionalmente, puede especificar un conjunto de pares de claves SSH que ya estén implementados en la suscripción.
@@ -158,7 +158,7 @@ Después de crear la máquina virtual, consulte [Inicio de sesión en una máqui
 Si va a crear esta máquina virtual de nuevo o una similar, puede:
 
 - Guardar este conjunto de comandos como archivo de script de PowerShell (*.ps1)
-- Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure 
+- Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure
 
 ## <a id="examples"></a>Ejemplos
 
@@ -169,7 +169,7 @@ A continuación se muestran dos ejemplos de uso de los pasos anteriores para cre
 Se necesita un conjunto de comandos de PowerShell que cree la máquina virtual de Linux inicial de un servidor de MySQL que:
 
 - Use la imagen de Ubuntu Server 12.10
-- Tenga el nombre AZMYSQL1 
+- Tenga el nombre AZMYSQL1
 - Tenga un disco de datos adicional de 500 GB
 - Tenga la dirección IP estática 192.168.244.4
 - Se encuentre en la subred BackEnd de la red virtual AZDatacenter
@@ -184,7 +184,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
@@ -207,7 +207,7 @@ Se necesita un conjunto de comandos de PowerShell que cree una máquina virtual 
 
 - Use la imagen de SUSE Linux Enterprise Server 12
 - Tenga el nombre LOB1
-- Tenga un disco de datos adicional de 50 GB 
+- Tenga un disco de datos adicional de 50 GB
 - Sea un miembro del conjunto de equilibrador de carga de LOBServers para el tráfico web estándar
 - Se encuentre en la subred FrontEnd de la red virtual AZDatacenter
 - Se encuentre en el servicio en la nube Azure-TailspinToys
@@ -221,7 +221,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
@@ -260,6 +260,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
- 
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

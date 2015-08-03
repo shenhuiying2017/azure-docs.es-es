@@ -115,4 +115,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

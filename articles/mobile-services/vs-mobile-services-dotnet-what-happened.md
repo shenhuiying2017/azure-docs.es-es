@@ -45,4 +45,4 @@ Si se crea un servicio móvil .NET en el proveedor de servicios conectado, se cr
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

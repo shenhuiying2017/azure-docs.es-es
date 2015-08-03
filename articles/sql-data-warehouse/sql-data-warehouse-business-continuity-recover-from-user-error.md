@@ -108,8 +108,8 @@ Para obtener información sobre las características de continuidad del negocio 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre la continuidad del negocio de Base de datos SQL de Azure]: sql-database/sql-database-business-continuity/,d
-[Finalización de una base de datos recuperada]: sql-database/sql-database-recovered-finalize/
+[información general sobre la continuidad del negocio de Base de datos SQL de Azure]: sql-database/sql-database-business-continuity.md
+[Finalización de una base de datos recuperada]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [Crear solicitud de restauración de base de datos]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -120,4 +120,4 @@ Para obtener información sobre las características de continuidad del negocio 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

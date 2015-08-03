@@ -77,4 +77,4 @@ Para agregar controles SignIn/SignOut a su vista, puede utiliza la vista parcial
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

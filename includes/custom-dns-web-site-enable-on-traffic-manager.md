@@ -26,4 +26,4 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
 
 En este punto, debería poder escribir el nombre de dominio de Administrador de tráfico (contoso.trafficmanager.net) en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

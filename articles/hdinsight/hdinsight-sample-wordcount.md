@@ -5,7 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 #Ejecución de un ejemplo de recuento de palabras de MapReduce escrito en Java en un clúster de Hadoop en HDInsight
 
@@ -98,7 +98,7 @@ En este tutorial se muestra cómo ejecutar un ejemplo de recuento de palabras de
 		# Download the job output to the workstation
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-	La carpeta *example/data/WordCountOutput* es la carpeta de salida especificada al ejecutar el trabajo de MapReduce. *part-r-00000* es el nombre de archivo predeterminado para el resultado del trabajo de MapReduce. El archivo se descargará en la misma estructura de carpetas en la carpeta local. Por ejemplo, en la captura de pantalla siguiente, la carpeta actual es la carpeta raíz C. El archivo se descargará en la carpeta *C:\\example\\data\\WordCountOutput*.
+	La carpeta *example/data/WordCountOutput* es la carpeta de salida especificada al ejecutar el trabajo de MapReduce. *part-r-00000* es el nombre de archivo predeterminado para el resultado del trabajo de MapReduce. El archivo se descargará en la misma estructura de carpetas en la carpeta local. Por ejemplo, en la captura de pantalla siguiente, la carpeta actual es la carpeta raíz C. El archivo se descargará en la carpeta *C:\example\data\WordCountOutput*.
 
 5. Ejecute el siguiente comando para imprimir el archivo de salida del trabajo de MapReduce:
 
@@ -218,4 +218,4 @@ Para ver tutoriales que ejecutan otras muestras y ofrecen instrucciones sobre el
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

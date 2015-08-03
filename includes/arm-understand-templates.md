@@ -8,4 +8,4 @@ Los recursos que se crean con plantillas del Administrador de recursos de Azure 
 
 Los siguientes ejemplos de automatización muestran cómo usar las plantillas del Administrador de recursos de Azure e implementar grupos de recursos con PowerShell o la CLI.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

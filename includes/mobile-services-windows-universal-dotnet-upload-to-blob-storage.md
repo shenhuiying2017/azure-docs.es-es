@@ -1,4 +1,4 @@
-##Instalación del cliente de Almacenamiento para aplicaciones de la Tienda Windows
+##Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows
 
 Para poder utilizar una SAS para cargar imágenes al almacenamiento de blobs, primero debe agregar el paquete NuGet que instala la biblioteca de clientes de almacenamiento para aplicaciones de la Tienda Windows.
 
@@ -298,4 +298,4 @@ El paso final es probar ambas versiones de la aplicación y validar que se cargu
 
 Ha completado el tutorial de carga de imágenes.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

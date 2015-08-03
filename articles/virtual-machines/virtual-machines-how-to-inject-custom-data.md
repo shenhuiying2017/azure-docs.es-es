@@ -80,4 +80,4 @@ Para obtener más información, consulte la [documentación de cloud-init para U
 [Interfaz de línea de comandos de Azure](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

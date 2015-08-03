@@ -18,6 +18,8 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de Azure Active Directory
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Azure Active Directory como proveedor de autenticación.
 
 ## <a name="register"> </a>Registro de la aplicación con Azure Active Directory
@@ -73,4 +75,4 @@ Autenticación de usuarios de la aplicación móvil con un inicio de sesión ún
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

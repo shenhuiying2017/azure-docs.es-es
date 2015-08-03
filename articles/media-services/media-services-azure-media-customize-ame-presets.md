@@ -458,9 +458,9 @@ Para evitar la amplificación del ruido de fondo, haga lo siguiente:
 
 1. Guarde el archivo preestablecido modificado en el disco duro local y utilice código como el siguiente para codificar con los valores preestablecidos personalizados:
 	
-	// Cargar archivo y crear recurso IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
+	// Cargar archivo y crear recurso IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
 	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
 	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Para evitar la amplificación del ruido de fondo, haga lo siguiente:
 
 [Esquema de Azure Media Encoder XML Schema](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

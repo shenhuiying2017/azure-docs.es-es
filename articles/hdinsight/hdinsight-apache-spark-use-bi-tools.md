@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Uso de herramientas de BI con Apache Spark en HDInsight | Azure" 
-	description="Instrucciones paso a paso para usar notebooks con Apache Spark y crear esquemas de datos sin procesar, guardarlos como tablas de Hive y después usar herramientas de BI en la tabla de Hive para el análisis de datos" 
+	description="Instrucciones paso a paso para usar cuadernos con Apache Spark y crear esquemas de datos sin procesar, guardarlos como tablas de Hive y después usar herramientas de BI en la tabla de Hive para el análisis de datos" 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -35,21 +35,21 @@ Debe tener lo siguiente:
 
 ##<a name="hivetable"></a>Guardado de los datos sin procesar como tabla de Hive
 
-En esta sección, usamos el notebook de [Jupyter](https://jupyter.org) asociado con un clúster Apache Spark en HDInsight para ejecutar trabajos que procesan los datos de ejemplo sin procesar y los guardan como tabla de Hive. Los datos de ejemplo corresponden a un archivo .csv (hvac.csv) que está disponible en todos los clústeres de manera predeterminada.
+En esta sección, usamos el cuaderno de [Jupyter](https://jupyter.org) asociado con un clúster Apache Spark en HDInsight para ejecutar trabajos que procesan los datos de ejemplo sin procesar y los guardan como tabla de Hive. Los datos de ejemplo corresponden a un archivo .csv (hvac.csv) que está disponible en todos los clústeres de manera predeterminada.
 
 Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, nos conectaremos a la tabla de Hive mediante herramientas de BI como Power BI y Tableau.
 
-1. Inicie el notebook de Jupyter. Seleccione el clúster Spark en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales de administrador para el clúster Spark.
+1. Inicie el cuaderno de Jupyter. Seleccione el clúster Spark en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
 
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **Python 2**.
+2. Cree un nuevo cuaderno. Haga clic en **New** (Nuevo) y, a continuación, en **Python 2**.
 
-	![Crear un nuevo notebook de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo notebook de Jupyter")
+	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo cuaderno de Jupyter")
 
-3. Se crea y abre un nuevo notebook con el nombre Untitled.pynb. Haga clic en el nombre del notebook en la parte superior y escriba un nombre descriptivo.
+3. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-	![Proporcionar un nombre para el notebook](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.Notebook.Name.png "Proporcionar un nombre para el notebook")
+	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.Notebook.Name.png "Proporcionar un nombre para el cuaderno")
 
-4. Importe los módulos necesarios y cree los contextos Spark y Hive. Pegue el siguiente fragmento en una celda vacía y luego presione **MAYÚS + ENTRAR**.
+4. Importe los módulos necesarios y cree los contextos Spark y Hive. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import *
@@ -59,11 +59,11 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		hiveCtx = HiveContext(sc)
 
-	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del notebook. También verá un círculo sólido junto al texto **Python 2** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
+	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **Python 2** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
 
-	 ![Estado de un trabajo de notebook de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Estado de un trabajo de notebook de Jupyter")
+	 ![Estado de un trabajo de cuaderno de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Estado de un trabajo de cuaderno de Jupyter")
 
-4. Cargue datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Cargue los datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\HdiSamples\SensorSampleData\hvac**.
 
 	En una celda vacía, pegue el siguiente fragmento y presione **MAYÚS + ENTRAR**. Este fragmento registra los datos en una tabla de Hive llamada **hvac**.
 
@@ -80,7 +80,7 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 		hvacTable.registerAsTable("hvactemptable")
 		hvacTable.saveAsTable("hvac")
 
-5. Compruebe que la tabla se creó correctamente. En una celda vacía en el notebook, copie el siguiente fragmento y presione **MAYÚS + ENTRAR**.
+5. Compruebe que la tabla se creó correctamente. En una celda vacía del cuaderno, copie el siguiente fragmento y presione **MAYÚS + ENTRAR**.
 
 		hiveCtx.sql("SHOW TABLES").show()
 
@@ -93,11 +93,11 @@ Una vez que los datos se guardan como tabla de Hive, en la sección siguiente, n
 
 	Las tablas que muestran false en la columna **isTemporary** son las únicas que son tablas de Hive que se almacenarán en la tienda de metadatos y a las que se puede acceder desde las herramientas de BI. En este tutorial, nos conectaremos a la tabla **hvac** que acabamos de crear.
 
-6. Compruebe que la tabla contenga los datos previstos. En una celda vacía en el notebook, copie el siguiente fragmento y presione **MAYÚS + ENTRAR**.
+6. Compruebe que la tabla contenga los datos previstos. En una celda vacía del cuaderno, copie el siguiente fragmento y presione **MAYÚS + ENTRAR**.
 
 		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
 	
-7. Ahora puede salir del notebook reiniciando el kernel. En la barra de menús superior, haga clic en **Kernel**, en**Restart** (Reiniciar) y luego en **Restart** de nuevo cuando se le pida.
+7. Ahora puede salir del cuaderno reiniciando el kernel. En la barra de menús superior, haga clic en **Kernel**, en **Restart** (Reiniciar) y luego en **Restart** de nuevo cuando se le pida.
 
 	![Reiniciar el kernel de Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Restart.Kernel.png "Reiniciar el kernel de Jupyter")
 
@@ -123,7 +123,7 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 	![Icono Spark en el panel de Power BI](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Tile.png "Icono Spark en el panel de Power BI")
 
-6. Tenga en cuenta que la lista **Fields** (Campos) a la derecha incluye la tabla **hvac** que creó antes. Expanda la tabla para ver sus campos, como se definieron antes en el notebook.
+6. Tenga en cuenta que la lista **Fields** (Campos) a la derecha incluye la tabla **hvac** que creó antes. Expanda la tabla para ver sus campos, como se definieron antes en el cuaderno.
 
 	  ![Lista de tablas de Hive](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "Lista de tablas de Hive")
 
@@ -159,7 +159,7 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 	![Buscar esquema](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Schema.png "Buscar esquema")
 
-4. Para el campo **Table** (Tabla), vuelva a hacer clic en el icono **Find** (Buscar) para ver todas las tablas de Hive disponibles en el clúster. Debería ver la tabla **hvac** que creó antes con el notebook.
+4. Para el campo **Table** (Tabla), vuelva a hacer clic en el icono **Find** (Buscar) para ver todas las tablas de Hive disponibles en el clúster. Debería ver la tabla **hvac** que creó antes con el cuaderno.
 
 	![Buscar tablas](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Table.png "Buscar tablas")
 
@@ -175,7 +175,7 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 
 	![Hacer el promedio de temperaturas](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Temp.Avg.png "Hacer el promedio de temperaturas")
 
-8. Puede también superponer un mapa de temperatura al otro para hacerse una idea más clara de la diferencia entre las temperaturas reales y objetivo. Mueva el mouse a la esquina del mapa de área inferior hasta que vea la forma del controlador resaltada en un círculo rojo arriba. Arrastre el mapa al otro mapa de encima y suelte el mouse cuando vea la forma resaltada en el rectángulo rojo arriba.
+8. También puede superponer un mapa de temperatura al otro para hacerse una idea más clara de la diferencia entre las temperaturas reales y objetivo. Mueva el mouse a la esquina del mapa de área inferior hasta que vea la forma del controlador resaltada en un círculo rojo arriba. Arrastre el mapa al otro mapa de encima y suelte el mouse cuando vea la forma resaltada en el rectángulo rojo arriba.
 
 	![Combinar mapas](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Merge.png "Combinar mapas")
 
@@ -188,9 +188,9 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 ##<a name="seealso"></a>Otras referencias
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
-* [Inicio rápido: Aprovisionamiento de un clúster Spark en HDInsight y ejecución de consultas interactivas mediante Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Inicio rápido: aprovisionamiento de un clúster Spark en HDInsight y ejecución de consultas interactivas mediante Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -205,4 +205,4 @@ Una vez que haya guardado los datos como tabla de Hive, puede usar Power BI para
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

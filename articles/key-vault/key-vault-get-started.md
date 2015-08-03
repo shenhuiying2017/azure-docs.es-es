@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
 # Introducción al Almacén de claves de Azure #
@@ -211,7 +211,7 @@ El comando siguiente importa un paquete BYOK ("traiga su propia clave"). Esto pe
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Para obtener instrucciones detalladas sobre cómo generar este paquete BYOK, consulte [Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Para obtener instrucciones detalladas sobre cómo generar el paquete BYOK, consulte [Generación y transferencia de claves protegidas con HSM para el Almacén de claves de Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Eliminación del Almacén de claves junto con las claves y secretos asociados ##
 
@@ -248,4 +248,4 @@ Para obtener una lista de los cmdlets de Windows PowerShell para el Almacén de 
 Para obtener referencias de programación, consulte [Almacén de claves](https://msdn.microsoft.com/library/azure/dn903625.aspx) en la biblioteca de documentación de Microsoft Azure en MSDN.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

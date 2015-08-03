@@ -84,4 +84,4 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Faceboo
 [10]: ./media/app-service-logic-connector-facebook/img10.png
 [11]: ./media/app-service-logic-connector-facebook/img11.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

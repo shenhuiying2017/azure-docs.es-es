@@ -334,7 +334,7 @@ La dirección URL del servidor web se configurará aquí. Para ello, necesita do
 
 Antes de tomar un puerto para el servidor web, es importante comprender que Service Fabric proporciona una capa de aplicación que actúa como un búfer entre la aplicación y el sistema operativo subyacente en el que se ejecuta. Como tal, Service Fabric proporciona una manera de configurar *extremos* para los servicios. Service Fabric se encarga de asegurarse de que el extremo está disponible para ser utilizado por su servicio para que no tenga que configurarlo usted mismo con el entorno de sistema operativo subyacente. Esto permite hospedar fácilmente la aplicación de Service Fabric en diferentes entornos sin tener que realizar ningún cambio en la aplicación (por ejemplo, puede hospedar la misma aplicación en Azure o en su propio centro de datos).
 
-Configurar un extremo HTTP en PackageRoot\\ServiceManifest.xml:
+Configurar un extremo HTTP en PackageRoot\ServiceManifest.xml:
 
 ```xml
 
@@ -613,4 +613,4 @@ En ASP.NET 5, el concepto y modelo de programación de separar la *aplicación* 
 [Depuración de la aplicación de Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

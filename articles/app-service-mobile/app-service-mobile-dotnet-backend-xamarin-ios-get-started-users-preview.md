@@ -20,9 +20,15 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
 Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Creación de una aplicación Xamarin.iOS].
+
+##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios de aplicaciones
 
@@ -32,7 +38,7 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li><p>En Visual Studio o Xamarin Studio, ejecute el proyecto de cliente en un dispositivo o simulador. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.</p>
    
    	<p>Esto se produce porque la aplicación intenta obtener acceso a su Código de aplicación móvil como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
@@ -109,4 +115,4 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

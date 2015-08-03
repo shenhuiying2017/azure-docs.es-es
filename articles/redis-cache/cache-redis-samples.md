@@ -79,4 +79,4 @@ El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World d
 
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

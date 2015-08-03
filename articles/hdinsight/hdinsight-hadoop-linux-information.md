@@ -152,4 +152,4 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

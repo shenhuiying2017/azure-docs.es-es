@@ -44,4 +44,4 @@ Los informes de Azure AD conservan los datos durante un número determinado de d
 |	Uso de aplicaciones habilitadas para RMS |	30 días |
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

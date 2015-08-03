@@ -122,7 +122,7 @@ Dado que Hive y Pig deben invocar la aplicación en el tiempo de ejecución, hay
 
 6. Haga doble clic en **Contenedor predeterminado** para el clúster. Se abrirá una nueva ventana en la que se muestra el contenido del contenedor predeterminado.
 
-7. Haga clic en el icono de carga y, a continuación, vaya a la carpeta **bin\\debug** del proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
+7. Haga clic en el icono de carga y, a continuación, vaya a la carpeta **bin\debug** del proyecto **HiveCSharp**. Por último, elija el archivo **HiveCSharp.exe** y haga clic en **Aceptar**.
 
 	![icono para cargar](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -240,4 +240,4 @@ Para conocer otras formas de usar Pig y Hive y para obtener información acerca 
 
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

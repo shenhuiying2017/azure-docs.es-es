@@ -139,4 +139,4 @@ Aplicaciones de API del Servicio de aplicaciones son aplicaciones web del Servic
 La aplicación de API que creó en esta serie está disponible públicamente para que cualquiera la llame. Para obtener información sobre cómo proteger aplicaciones de API para que solo los usuarios autenticados puedan realizar llamadas, consulte [Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

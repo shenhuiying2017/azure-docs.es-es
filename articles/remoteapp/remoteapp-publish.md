@@ -27,4 +27,4 @@ En la pestaña **Publicación** del portal, haga clic en **Publicar**. Puede agr
 > [AZURE.NOTE]Si quiere agregar la aplicación desde el menú Inicio, es necesario que haya *agregado esa aplicación al menú Inicio en la imagen de plantilla.* De lo contrario, RemoteApp solo verá lo que *está* en el menú Inicio y usted se confundirá. Si olvidó agregar la aplicación al menú **Inicio** al crear la plantilla, tiene la posibilidad de agregar la ruta de acceso a la aplicación. (O volver a crear la imagen de plantilla, pero supone algo más de trabajo).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

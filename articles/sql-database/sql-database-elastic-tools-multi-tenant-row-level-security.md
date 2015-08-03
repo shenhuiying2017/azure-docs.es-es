@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila" 
 	description="Aprenda a usar herramientas de bases de datos elásticas junto con la seguridad de nivel de fila para crear una aplicación con un nivel de datos altamente escalable en Base de datos de SQL de Azure que admite particiones de varios inquilinos." 
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
 
@@ -340,4 +339,4 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

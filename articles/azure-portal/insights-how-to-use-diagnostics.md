@@ -71,4 +71,4 @@ Tenga en cuenta que actualmente no se admiten algunas distribuciones de Linux y 
 * [Realice el seguimiento del estado del servicio](insights-service-health.md) para averiguar cuándo ha sufrido Azure interrupciones del servicio o degradación del rendimiento. 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

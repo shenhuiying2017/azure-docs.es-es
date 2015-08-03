@@ -55,4 +55,4 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 ## Pasos siguientes
 - Consulte [Programar copias de seguridad](backup-azure-backup-and-recover.md) para obtener información sobre la creación de copias de seguridad de datos y aplicaciones en Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

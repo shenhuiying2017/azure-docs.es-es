@@ -58,7 +58,7 @@ Esta es su configuración actual.
 
 Desde el Portal de administración de Azure, inicie el equipo de DC2 si es necesario.
 
-En primer lugar, cree una conexión de escritorio remoto a DC2 utilizando las credenciales de CORP\\User1.
+En primer lugar, cree una conexión de escritorio remoto a DC2 utilizando las credenciales de CORP\User1.
 
 A continuación, cree una cuenta de administrador de granja de servidores de SharePoint. Abra un símbolo del sistema de Windows PowerShell con nivel de administrador en DC2 y ejecute este comando.
 
@@ -126,17 +126,17 @@ A continuación, configure SQL Server 2014 para usar la unidad F: para nuevas b
 3.	En el panel de árbol del Explorador de objetos, haga clic con el botón derecho en **SQL1** y, a continuación, haga clic en **Propiedades**.
 4.	En la ventana **Propiedades del servidor**, haga clic en **Configuración de base de datos**.
 5.	Busque las **Ubicaciones predeterminadas de la base de datos** y establezca estos valores: 
-	- Para **Datos**, escriba la ruta de acceso **f:\\Data**.
-	- Para **Registro**, escriba la ruta de acceso **f:\\Log**.
-	- Para **Copia de seguridad**, escriba la ruta de acceso **f:\\Backup**.
+	- Para **Datos**, escriba la ruta de acceso **f:\Data**.
+	- Para **Registro**, escriba la ruta de acceso **f:\Log**.
+	- Para **Copia de seguridad**, escriba la ruta de acceso **f:\Backup**.
 	- Observe que solo las bases de datos nuevas utilizan estas ubicaciones.
 6.	Haga clic en **Aceptar** para cerrar la ventana.
 7.	En el panel de árbol del **Explorador de objetos**, abra **Seguridad**.
 8.	Haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
-9.	En **Nombre de inicio de sesión**, escriba **CORP\\User1**.
+9.	En **Nombre de inicio de sesión**, escriba **CORP\User1**.
 10.	En la página **Roles de servidor**, haga clic en **sysadmin** y, a continuación, haga clic en **Aceptar**.
 11.	En el panel de árbol del **Explorador de objetos**, haga clic con el botón derecho en **Inicios de sesión** y, a continuación, haga clic en **Nuevo inicio de sesión**.
-12.	En la página **General**, en **Nombre de inicio de sesión**, escriba **CORP\\SPFarmAdmin**.
+12.	En la página **General**, en **Nombre de inicio de sesión**, escriba **CORP\SPFarmAdmin**.
 13.	En la página **Roles de servidor**, seleccione **dbcreator** y, a continuación, haga clic en **Aceptar**.
 14.	Cierre Microsoft SQL Server Management Studio.
 
@@ -158,7 +158,7 @@ En primer lugar, cree una máquina virtual de Azure de SP1 con estos comandos en
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-A continuación, conéctese a la máquina virtual de SP1 con las credenciales de CORP\\User1.
+A continuación, conéctese a la máquina virtual de SP1 con las credenciales de CORP\User1.
 
 A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en SP1, ejecute estos comandos.
 
@@ -173,18 +173,16 @@ A continuación, configure SP1 para una nueva granja de SharePoint y un sitio de
 2.	En la página de productos de SharePoint, haga clic en **Siguiente**. 
 3.	En el cuadro de diálogo que le notifica si algunos servicios podrían tener que reiniciarse durante la configuración, haga clic en **Sí**.
 4.	En la página Conexión a una granja de servidores, haga clic en **Crear una nueva granja de servidores** y, a continuación, haga clic en **Siguiente**.
-5.	En la página Especificación de la configuración de la base de datos, introduzca **sql1.corp.contoso.com** en **Servidor de base de datos**, introduzca **CORP\\SPFarmAdmin** en **Nombre de usuario**, escriba la contraseña de la cuenta de SPFarmAdmin en **Contraseña** y, a continuación, haga clic en **Siguiente**.
-6.	En la página Especificar la configuración de seguridad de la granja, escriba **P@ssphrase** tanto en **Frase de contraseña** como en **Confirmar frase de contraseña** y, a continuación, haga clic en **Siguiente**.
-7.	En la página Configuración de la aplicación web de administración central de SharePoint, haga clic en **Siguiente**.
+5.	En la página Especificación de la configuración de la base de datos, introduzca **sql1.corp.contoso.com** en **Servidor de base de datos**, introduzca **CORP\SPFarmAdmin** en **Nombre de usuario**, escriba la contraseña de la cuenta de SPFarmAdmin en **Contraseña** y, a continuación, haga clic en **Siguiente**.
+6.	En la página Especificar la configuración de seguridad de la granja, escriba **P@ssphrase** tanto en **Frase de contraseña** como en **Confirmar frase de contraseña** y, a continuación, haga clic en **Siguiente**. 7.	En la página Configuración de la aplicación web de administración central de SharePoint, haga clic en **Siguiente**.
 8.	En la página Finalización del Asistente para la configuración de productos de SharePoint, haga clic en **Siguiente**. El Asistente para configuración de productos de SharePoint puede tardar unos minutos en completarse.
 9.	En la página Configuración realizada correctamente, haga clic en **Finalizar**. Una vez finalizado, Internet Explorer se inicia con una pestaña denominada Asistente de configuración de granja inicial.
 10.	En el cuadro de diálogo **Ayudar a que SharePoint mejore**, haga clic en **No, no deseo participar** y, a continuación, haga clic en **Aceptar**.
 11.	En **¿Cómo desea configurar la granja de SharePoint?**, haga clic en **Iniciar el asistente**.
 12.	En la página Configuración de la granja de SharePoint, en **Cuenta de servicio**, haga clic en **Usar una cuenta administrada ya existente**.
 13.	En **Servicios**, desactive las casillas de verificación excepto la casilla junto a **Servicio de estado** y, a continuación, haga clic en **Siguiente**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice.
-14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1.
-15.	En la página Esto completa el asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
-16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\\User1 y, a continuación, inicie Internet Explorer.
+14.	En la página Creación de colección de sitios, en **Título y descripción**, escriba **Contoso Corporation** en **Título**, especifique la dirección URL **http://sp1**/ y, a continuación, haga clic en **Aceptar**. La página Realizando la operación puede mostrarse durante un tiempo antes de que finalice. En este paso se crea un sitio de equipo en la dirección URL http://sp1. 15.	En la página Esto completa el asistente de configuración de granja, haga clic en **Finalizar**. La pestaña de Internet Explorer muestra el sitio de Administración central de SharePoint 2013.
+16.	Inicie sesión en el equipo CLIENT1 con las credenciales de la cuenta de CORP\User1 y, a continuación, inicie Internet Explorer.
 17.	En la barra de direcciones, escriba **http://sp1/** y, a continuación, presione ENTRAR. Debería ver el sitio del equipo de SharePoint de Contoso Corporation. El sitio puede tardar un rato en mostrarse. 
 Esta es su configuración actual.
 
@@ -211,4 +209,4 @@ Su granja de intranet de SharePoint en un entorno de nube híbrida ya está list
 [Instrucciones de implementación de los servicios de infraestructura de Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

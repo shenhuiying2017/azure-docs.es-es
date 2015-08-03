@@ -126,4 +126,4 @@ Para obtener más información sobre la configuración de máquinas virtuales de
 [How to attach a data disk to the new virtual machine]: #attachdisk
 [How to set up communication with the virtual machine]: #endpoints
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

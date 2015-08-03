@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Aprovisionamiento de un clúster Spark en HDInsight y uso de Spark SQL desde Zeppelin y Jupyter para análisis interactivos | Azure" 
-	description="Instrucciones paso a paso sobre cómo aprovisionar rápidamente un clúster Spark Apache en HDInsight y luego usar Spark SQL desde notebooks de Zeppelin y Jupyter para ejecutar consultas interactivas." 
+	description="Instrucciones paso a paso sobre cómo aprovisionar rápidamente un clúster Spark Apache en HDInsight y luego usar Spark SQL desde cuadernos de Zeppelin y Jupyter para ejecutar consultas interactivas." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
-# Inicio rápido: Aprovisionamiento de un clúster Spark en HDInsight y ejecución de consultas interactivas mediante Spark SQL
+# Inicio rápido: aprovisionamiento de un clúster Spark en HDInsight y ejecución de consultas interactivas mediante Spark SQL
 
-Obtenga información sobre cómo aprovisionar un clúster Apache Spark en HDInsight con la opción Creación rápida y después usar notebooks de [Zeppelin](https://zeppelin.incubator.apache.org) y [Jupyter](https://jupyter.org) basados en web para ejecutar consultas interactivas de Spark SQL en el clúster Spark.
+Obtenga información sobre cómo aprovisionar un clúster Apache Spark en HDInsight con la opción Creación rápida y después usar cuadernos de [Zeppelin](https://zeppelin.incubator.apache.org) y [Jupyter](https://jupyter.org) basados en web para ejecutar consultas interactivas de Spark SQL en el clúster Spark.
 
 
    ![Introducción al uso de Apache Spark en HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.GetStartedFlow.Spark.png "Tutorial de introducción al uso de Apache Spark en HDInsight. Pasos que se muestran: crear una cuenta de almacenamiento. aprovisionar un clúster; ejecutar instrucciones Spark SQL")
@@ -60,27 +60,27 @@ En esta sección, se aprovisiona un clúster de HDInsight versión 3.2, que se b
 	![Crear un clúster Spark en HDInsight](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.QuickCreateCluster.png "Crear un clúster Spark en HDInsight")
 
 
-##<a name="zeppelin"></a>Ejecución de consultas Spark SQL interactivas con un notebook de Zeppelin
+##<a name="zeppelin"></a>Ejecución de consultas Spark SQL interactivas con un cuaderno de Zeppelin
 
-Después de haber aprovisionado un clúster, puede usar un notebook de Zeppelin basado en web para ejecutar consultas interactivas de Spark SQL en el clúster Spark de HDInsight. En esta sección, se usará un archivo de datos de ejemplo (hvac.csv) disponible de manera predeterminada en el clúster para ejecutar algunas consultas Spark SQL interactivas.
+Después de haber aprovisionado un clúster, puede usar un cuaderno de Zeppelin basado en web para ejecutar consultas interactivas de Spark SQL en el clúster Spark de HDInsight. En esta sección, se usará un archivo de datos de ejemplo (hvac.csv) disponible de manera predeterminada en el clúster para ejecutar algunas consultas Spark SQL interactivas.
 
->[AZURE.NOTE]El notebook que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el notebook con el nombre **Zeppelin HVAC tutorial**.
+>[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Zeppelin, encontrará el cuaderno con el nombre **Zeppelin HVAC tutorial**.
 
-1. Inicie el notebook de Zeppelin. Seleccione el clúster Spark recién creado en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Zeppelin Notebook**. Cuando se le pida, escriba las credenciales de administrador para el clúster. Siga las instrucciones de la página que se abre para iniciar el notebook.
+1. Inicie el cuaderno de Zeppelin. Seleccione el clúster Spark recién creado en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Zeppelin Notebook**. Cuando se le pida, escriba las credenciales de administrador para el clúster. Siga las instrucciones de la página que se abre para iniciar el cuaderno.
 
-2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nueva nota).
+2. Cree un nuevo cuaderno. En el panel de encabezado, haga clic en **Notebook** y luego en **Create New Note** (Crear nueva nota).
 
-	![Crear un nuevo notebook de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.CreateNewNote.png "Crear un nuevo notebook de Zeppelin")
+	![Crear un nuevo cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.CreateNewNote.png "Crear un nuevo cuaderno de Zeppelin")
 
-	En la misma página, en el encabezado **Notebook**, debería ver un nuevo notebook con un nombre que empiece por **Note XXXXXXXXX** (Nota XXXXXXXXX). Haga clic en el nuevo notebook.
+	En la misma página, en el encabezado **Notebook**, debería ver un nuevo cuaderno con un nombre que empiece por **Note XXXXXXXXX** (Nota XXXXXXXXX). Haga clic en el nuevo cuaderno.
 
-3. En la página web del nuevo notebook, haga clic en el encabezado y cambie el nombre del notebook si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del notebook muestre el estado **Connected** (Conectado) en la esquina superior derecha.
+3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del cuaderno muestre el estado **Connected** (Conectado) en la esquina superior derecha.
 
-	![Estado del notebook de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Estado del notebook de Zeppelin")
+	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Estado del cuaderno de Zeppelin")
 
-4. Cargue datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Cargue los datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\HdiSamples\SensorSampleData\hvac**.
 
-	En el párrafo vacío que se crea de manera predeterminada en el nuevo notebook, pegue el siguiente fragmento.
+	En el párrafo vacío que se crea de manera predeterminada en el nuevo cuaderno, pegue el siguiente fragmento.
 
 		// Create an RDD using the default Spark context, sc
 		val hvacText = sc.textFile("wasb:///HdiSamples/SensorSampleData/hvac/HVAC.csv")
@@ -114,11 +114,11 @@ Después de haber aprovisionado un clúster, puede usar un notebook de Zeppelin 
 		from hvac
 		where date = "6/1/13" 
 
-	La instrucción **%sql** al principio indica el notebook que use el intérprete Spark SQL. Puede consultar los intérpretes definidos en la pestaña **Interpreter** (Intérprete) en el encabezado del notebook.
+	La instrucción **%sql** al principio indica al cuaderno que use el intérprete Spark SQL. Puede consultar los intérpretes definidos en la pestaña **Interpreter** (Intérprete) en el encabezado del cuaderno.
 
 	En la captura de pantalla siguiente se muestra el resultado.
 
-	![Ejecutar una instrucción Spark SQL mediante el notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery1.png "Ejecutar una instrucción Spark SQL mediante el notebook")
+	![Ejecutar una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery1.png "Ejecutar una instrucción Spark SQL mediante el cuaderno")
 
 	 Haga clic en las opciones de presentación (resaltadas con el rectángulo) para alternar entre diferentes representaciones del mismo resultado. Haga clic en **Settings** (Configuración) para elegir qué constituye la clave y los valores de la salida. La captura de pantalla anterior usa **buildingID** como clave y la media de **temp_diff** como valor.
 
@@ -132,7 +132,7 @@ Después de haber aprovisionado un clúster, puede usar un notebook de Zeppelin 
 
 	Pegue este fragmento en un nuevo párrafo y presione **MAYÚS + ENTRAR**. En la captura de pantalla siguiente se muestra el resultado.
 
-	![Ejecutar una instrucción Spark SQL mediante el notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "Ejecutar una instrucción Spark SQL mediante el notebook")
+	![Ejecutar una instrucción Spark SQL mediante el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.SparkSQLQuery2.png "Ejecutar una instrucción Spark SQL mediante el cuaderno")
 
 	Para las consultas posteriores, puede seleccionar un nuevo valor en la lista desplegable y después volver a ejecutar la consulta. Haga clic en **Settings** (Configuración) para elegir qué constituye la clave y los valores de la salida. La captura de pantalla anterior usa **buildingID** como clave, la media de **temp_diff** como valor y **targettemp** como grupo.
 
@@ -140,22 +140,22 @@ Después de haber aprovisionado un clúster, puede usar un notebook de Zeppelin 
 
 	![Reiniciar el intérprete Zeppelin](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Zeppelin.Restart.Interpreter.png "Reiniciar el intérprete Zeppelin")
 
-##<a name="jupyter"></a>Ejecución de consultas Spark SQL con un notebook de Jupyter basado en Python
+##<a name="jupyter"></a>Ejecución de consultas Spark SQL mediante un cuaderno de Jupyter
 
-También puede ejecutar consultas Spark SQL con Python. En esta sección, utilice un notebook de Jupyter para ejecutar consultas Spark SQL en un clúster Spark.
+En esta sección, utilice un cuaderno de Jupyter para ejecutar consultas Spark SQL en un clúster Spark.
 
->[AZURE.NOTE]El notebook que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará el notebook con el nombre **HVACTutorial.ipynb**.
+>[AZURE.NOTE]El cuaderno que crea cuando sigue las instrucciones más abajo también está disponible de manera predeterminada en el clúster. Después de iniciar Jupyter, encontrará el cuaderno con el nombre **HVACTutorial.ipynb**.
 
-1. Inicie el notebook de Jupyter. Seleccione el clúster Spark en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales de administrador para el clúster Spark.
-2. Cree un nuevo notebook. Haga clic en **New** (Nuevo) y luego en **Python 2**.
+1. Inicie el cuaderno de Jupyter. Seleccione el clúster Spark en el Portal de Azure y, en la barra de tareas del portal en la parte inferior, haga clic en **Jupyter Notebook**. Cuando se le pida, escriba las credenciales de administrador del clúster Spark.
+2. Cree un nuevo cuaderno. Haga clic en **New** (Nuevo) y, a continuación, en **Python 2**.
 
-	![Crear un nuevo notebook de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo notebook de Jupyter")
+	![Crear un nuevo cuaderno de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "Crear un nuevo cuaderno de Jupyter")
 
-3. Se crea y abre un nuevo notebook con el nombre Untitled.pynb. Haga clic en el nombre del notebook en la parte superior y escriba un nombre descriptivo.
+3. Se crea y se abre un nuevo cuaderno con el nombre Untitled.pynb. Haga clic en el nombre del cuaderno en la parte superior y escriba un nombre descriptivo.
 
-	![Proporcionar un nombre para el notebook](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "Proporcionar un nombre para el notebook")
+	![Proporcionar un nombre para el cuaderno](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "Proporcionar un nombre para el cuaderno")
 
-4. Importe los módulos necesarios y crear los contextos Spark y SQL. Pegue el siguiente fragmento en una celda vacía y luego presione **MAYÚS + ENTRAR**.
+4. Importe los módulos requeridos y cree los contextos Spark y SQL. Pegue el siguiente fragmento en una celda vacía y presione **MAYÚS + ENTRAR**.
 
 		from pyspark import SparkContext
 		from pyspark.sql import SQLContext
@@ -165,11 +165,11 @@ También puede ejecutar consultas Spark SQL con Python. En esta sección, utilic
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		sqlContext = SQLContext(sc)
 
-	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del notebook. También verá un círculo sólido junto al texto **Python 2** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
+	Cada vez que se ejecuta un trabajo en Jupyter, el título de la ventana del explorador web mostrará el estado **(Busy)** (Ocupado) junto con el título del cuaderno. También verá un círculo sólido junto al texto **Python 2** en la esquina superior derecha. Una vez completado el trabajo, cambiará a un círculo hueco.
 
-	 ![Estado de un trabajo de notebook de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Estado de un trabajo de notebook de Jupyter")
+	 ![Estado de un trabajo de cuaderno de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Estado de un trabajo de cuaderno de Jupyter")
 
-4. Cargue datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\\HdiSamples\\SensorSampleData\\hvac**.
+4. Cargue los datos de ejemplo en una tabla temporal. Cuando aprovisiona un clúster Spark en HDInsight, el archivo de datos de ejemplo, **hvac.csv**, se copia en la cuenta de almacenamiento asociada en **\HdiSamples\SensorSampleData\hvac**.
 
 	En una celda vacía, pegue el siguiente fragmento y presione **MAYÚS + ENTRAR**. Este fragmento registra los datos en una tabla temporal llamada **hvac**.
 
@@ -217,7 +217,7 @@ También puede ejecutar consultas Spark SQL con Python. En esta sección, utilic
 		9          -9        6/1/13
 		15         -10       6/1/13
 
-6. Reinicie el kernel para salir de la aplicación. En la barra de menús superior, haga clic en **Kernel**, en**Restart** (Reiniciar) y luego en **Restart** de nuevo cuando se le pida.
+6. Reinicie el kernel para salir de la aplicación. En la barra de menús superior, haga clic en **Kernel**, en **Restart** (Reiniciar) y luego en **Restart** de nuevo cuando se le pida.
 
 	![Reiniciar el kernel de Jupyter](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Restart.Kernel.png "Reiniciar el kernel de Jupyter")
 
@@ -226,10 +226,10 @@ También puede ejecutar consultas Spark SQL con Python. En esta sección, utilic
 
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
-* [Aprovisionamiento de clústeres Apache Spark en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-provision-clusters.md)
+* [Aprovisionamiento de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md)
 * [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md)
 * [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -243,4 +243,4 @@ También puede ejecutar consultas Spark SQL con Python. En esta sección, utilic
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

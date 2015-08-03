@@ -8,4 +8,4 @@ Haga clic en **Ver registro** para ver la salida del script de implementación p
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Azure" 
-	description="Realizar una copia de seguridad de SQL Server y de la Base de datos SQL en el almacenamiento de Azure. Explica las ventajas de la copia de seguridad de las Bases de datos SQL en el almacenamiento de Azure y los componentes de SQL Server y almacenamiento de Azure que se necesitan" 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Uso del almacenamiento de Azure para copias de seguridad y restauración de SQL Server | Azure"
+	description="Realizar una copia de seguridad de SQL Server y de la Base de datos SQL en el almacenamiento de Azure. Explica las ventajas de la copia de seguridad de las Bases de datos SQL en el almacenamiento de Azure y los componentes de SQL Server y almacenamiento de Azure que se necesitan"
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@ El primer paso de este proceso es crear una cuenta de Azure. SQL Server usa el n
 
 Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y realizar una restauración sencilla, consulte [Introducción al servicio de almacenamiento de Azure para copia de seguridad y restauración de SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615).
 
-## Componentes del servicio de almacenamiento de blobs de Azure 
+## Componentes del servicio de almacenamiento de blobs de Azure
 
 * Cuenta de almacenamiento: la cuenta de almacenamiento es el punto de partida de todos los servicios de almacenamiento. Para obtener acceso a un servicio de almacenamiento de blobs de Azure, primero debe crear una cuenta de almacenamiento de Azure. El nombre de la cuenta de almacenamiento y sus propiedades de clave de acceso son necesarios para autenticarse en el servicio de almacenamiento de blobs de Azure y sus componentes. Para obtener más información sobre el servicio de almacenamiento de blobs de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
 
@@ -69,17 +69,7 @@ Para ver un tutorial completo sobre cómo crear una cuenta de almacenamiento y r
 [Tutorial: copias de seguridad y restauración de SQL Server en el servicio de almacenamiento Blob de Windows Azure](http://go.microsoft.com/fwlink/?LinkID=271615 "Tutorial")
 
 **Prácticas recomendadas y solución de problemas:**
-	
+
 [Prácticas recomendadas de copia de seguridad y restauración (servicio de almacenamiento de blobs de Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

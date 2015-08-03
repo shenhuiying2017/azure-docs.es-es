@@ -88,4 +88,4 @@ Ahora que el back-end de aplicaciones m√≥viles se ha publicado y el cliente est√
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

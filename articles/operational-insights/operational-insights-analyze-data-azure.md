@@ -285,4 +285,4 @@ En aproximadamente 1 hora comenzará a ver los datos de la cuenta de almacenamie
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

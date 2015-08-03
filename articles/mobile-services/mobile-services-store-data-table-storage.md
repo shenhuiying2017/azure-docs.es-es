@@ -23,4 +23,4 @@ Aprenda a trabajar con Almacenamiento de tabla a través de Servicios móviles c
 [Servicios móviles y Almacenamiento de Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -70,16 +70,16 @@ Una vez creado el conector, ahora puede usar el conector de SMTP como acción pa
 
 Ahora puede configurar el conector de SMTP para usarlo en el flujo de trabajo. Seleccione la acción **Enviar correo electrónico** y configure las propiedades de entrada como sigue:
 
-	Property | Description
+	Propiedad | Descripción
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | Especifique la dirección de correo electrónico de los destinatarios. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Especifique la dirección de correo electrónico de los destinatarios de copia oculta. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Especifique el asunto del correo electrónico.
+	Body | Escriba el cuerpo del correo electrónico.
+	Is HTML | Si esta propiedad está establecida en true, el contenido del cuerpo se envía como HTML.
+	Bcc | Especifique la dirección de correo electrónico de los destinatarios para la copia de carbón oculta. Separe varias direcciones de correo electrónico mediante un punto y coma (;). Por ejemplo, escriba: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Especifique la importancia del correo electrónico. Las opciones son Normal, Baja y Alta.
+	Attachments | Datos adjuntos que se deben enviar con el correo electrónico. Contiene los campos siguientes: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -91,7 +91,7 @@ Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobr
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

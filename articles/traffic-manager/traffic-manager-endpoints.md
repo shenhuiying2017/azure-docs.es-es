@@ -77,4 +77,4 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 [Sitios web](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

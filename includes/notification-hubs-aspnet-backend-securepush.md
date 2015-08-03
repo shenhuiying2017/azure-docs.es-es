@@ -84,4 +84,4 @@ Tenga en cuenta que el método `Post` ahora no envía una notificación del sist
 
 24. Seleccione Sitio web Azure como destino de publicación. Inicie sesión con su cuenta de Azure, seleccione un sitio web nuevo o existente y anote la propiedad **dirección URL de destino** en la pestaña **Conexión**. Más tarde en este tutorial haremos referencia a esta dirección URL como *extremo de backend*. Haga clic en **Publicar**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

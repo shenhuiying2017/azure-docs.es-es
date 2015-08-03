@@ -36,4 +36,4 @@ Por lo tanto, ¿cómo tiene que proceder para actualizar la colección? Es basta
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

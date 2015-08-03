@@ -729,4 +729,4 @@ En la tabla siguiente se describe cómo afecta cada control a la experiencia de 
 * [Más información](active-directory-passwords-learn-more.md)
 * [Administración de contraseñas en MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/17/2015" 
 	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde Java
@@ -305,4 +305,4 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

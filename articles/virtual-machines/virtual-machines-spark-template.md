@@ -20,11 +20,11 @@
 
 Apache Spark es un motor rápido para el procesamiento de datos a gran escala. Spark tiene un motor de ejecución DAG avanzado que admite el flujo de datos cíclico y capacidades de informática en memoria, y pueden acceder a diversos orígenes de datos incluyendo HDFS, Spark, HBase y S3.
 
-Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark también proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo utilizar una plantilla de Administrador de recursos de Azure (ARM) de ejemplo para implementar un clúster Spark en máquinas virtuales de Ubuntu a través de [Azure PowerShell](../powershell-install-configure.md) o [Azure CLI](../xplat-cli.md).
+Además de ejecutar en los administradores de clústeres de Mesos o YARN, Spark proporciona un modo de implementación independiente simple. Este tutorial le explicará cómo utilizar una plantilla de Administrador de recursos de Azure de ejemplo para implementar un clúster Spark en máquinas virtuales de Ubuntu a través de [Azure PowerShell](../powershell-install-configure.md) o [Azure CLI](../xplat-cli.md).
 
 Esta plantilla implementa un clúster Spark en máquinas virtuales de Ubuntu. Esta plantilla proporciona también una cuenta de almacenamiento, red virtual, conjuntos de disponibilidad, las direcciones IP públicas y las interfaces de red requeridas por la instalación. El clúster Spark se crea detrás de una subred, de modo que no hay acceso de IP pública al clúster. Como parte de la implementación, puede implementar un “JumpBox” opcional. Este “JumpBox” es una máquina virtual de Ubuntu que también se implementa en la subred, pero que *expone* una dirección IP pública con un puerto SSH abierto al que se puede conectar. A continuación, desde el “JumpBox”, puede conectarse mediante SSH a todas las máquinas virtuales de Spark de la subred.
 
-Esta plantilla usa el concepto de “tamaño de camiseta” para especificar una configuración del clúster de Spark de “pequeña”, “mediana” o “grande”. Cuando el idioma de la plantilla admite un tamaño de plantilla más dinámico, este puede cambiarse para especificar el número de nodos maestros del clúster de Spark, los nodos subordinados, el tamaño de máquina virtual, etc. Por el momento, puede ver el tamaño de la máquina virtual y el número de nodos maestros y subordinados definidos en el archivo azuredeploy.json en las variables tshirtSizeS, tshirtSizeM, and tshirtSizeL.
+Esta plantilla usa el concepto de “tamaño de camiseta” para especificar una configuración del clúster de Spark de “pequeña”, “mediana” o “grande”. Cuando el idioma de la plantilla admite un tamaño de plantilla más dinámico, este puede cambiarse para especificar el número de nodos maestros del clúster de Spark, los nodos subordinados, el tamaño de máquina virtual, etc. Por el momento, puede ver el tamaño de la máquina virtual y el número de nodos maestros y subordinados definidos en el archivo azuredeploy.json en las variables **tshirtSizeS**, **tshirtSizeM** y **tshirtSizeL**.
 
 - S: 1 maestro, 1 subordinado
 - M: 1 maestro, 4 subordinados
@@ -43,7 +43,7 @@ Como se muestra en la imagen anterior, la topología de implementación consta d
 -	Cuatro nodos subordinados que se ejecutan en la misma subred virtual y en el conjunto de disponibilidad como nodo maestro.
 -	Una máquina virtual JumpBox que se encuentra en la misma red virtual y la subred que puede utilizarse para acceder al clúster.
 
-Spark versión 3.0.0 es la versión predeterminada y puede cambiarse a cualquier binario precompilado disponible en el repositorio de Spark. También hay una disposición en el script para quitar el comentario de la compilación en el código fuente. Se asignará una dirección IP estática a cada nodo Spark principal 10.0.0.10. Se asignará una dirección IP estática se asignará a cada nodo Spark subordinado para solucionar la limitación actual de no poder crear dinámicamente una lista de direcciones IP desde la plantilla (de forma predeterminada, al primer nodo se asignará la dirección IP privada 10.0.0.30, al segundo nodo la de 10.0.0.31, y así sucesivamente). Para comprobar los errores de implementación, vaya al nuevo Portal de Azure y busque en **Grupo de recursos** > **Última implementación** > **Detalles de la operación de comprobación**.
+Spark versión 3.0.0 es la versión predeterminada y puede cambiarse a cualquier binario precompilado disponible en el repositorio de Spark. También hay una disposición en el script para quitar el comentario de la compilación en el código fuente. Se asignará una dirección IP estática a cada nodo maestro Spark: 10.0.0.10. Se asignará una dirección IP estática a cada nodo de esclavo Spark para solucionar la limitación actual de no poder crear dinámicamente una lista de direcciones IP desde dentro de la plantilla. (De forma predeterminada, al primer nodo se le asignará la dirección IP privada de 10.0.0.30, al segundo nodo se le asignará 10.0.0.31, y así sucesivamente). Para comprobar los errores de implementación, vaya al nuevo Portal de Azure y busque en **Grupo de recursos** > **Última implementación** > **Detalles de la operación de comprobación**.
 
 Antes de entrar en más detalles relacionados con el Administrador de recursos de Azure y la plantilla que usaremos para esta implementación, asegúrese de que tiene Azure PowerShell o CLI de Azure configurados correctamente.
 
@@ -51,13 +51,13 @@ Antes de entrar en más detalles relacionados con el Administrador de recursos d
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Creación de un clúster con una plantilla del Administrador de recursos
+## Creación de un clúster Spark con una plantilla del Administrador de recursos
 
 Siga estos pasos para crear un clúster de Spark, mediante una plantilla del Administrador de recursos, desde el repositorio de plantillas de GitHub usando Azure PowerShell o la CLI de Azure.
 
-### Paso 1-a: Descargar los archivos de plantilla con PowerShell
+### Paso 1-a: Descargar los archivos de plantilla mediante Azure PowerShell
 
-Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\Spark).
+Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\Azure\Templates\Spark).
 
 Sustituya el nombre de carpeta de la carpeta local y ejecute estos comandos:
 
@@ -87,17 +87,17 @@ foreach ($file in $files)
 
 ### Paso 1-b: Descargar los archivos de plantilla con CLI de Azure
 
-Clone todo el repositorio de plantillas mediante un cliente GIT de su elección, por ejemplo:
+Clone todo el repositorio de plantillas mediante un cliente Git de su elección, por ejemplo:
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Cuando haya finalizado, busque la carpeta **spark-on-ubuntu** en el directorio C:\\Azure\\Templates.
+Cuando haya finalizado la clonación, busque la carpeta **spark-on-ubuntu** en el directorio C:\Azure\Templates.
 
 ### Paso 2 (opcional): Comprender los parámetros de plantilla
 
 Al crear un clúster de Spark con una plantilla, debe especificar un conjunto de parámetros de configuración para resolver algunos valores necesarios. Al declarar estos parámetros en la definición de la plantilla, es posible especificar valores durante la ejecución de la implementación mediante un archivo externo o en la línea de comandos.
 
-En la sección “parameters” en la parte superior del archivo **azuredeploy.json**, encontrará el conjunto de parámetros que requiere la plantilla para configurar un clúster de Spark. Este es un ejemplo de la sección “parameters” de este archivo de plantilla azuredeploy.json:
+En la sección “parameters” en la parte superior del archivo azuredeploy.json, encontrará el conjunto de parámetros que requiere la plantilla para configurar un clúster de Spark. Este es un ejemplo de la sección “parameters” de este archivo de plantilla azuredeploy.json:
 
 ```json
 "parameters": {
@@ -117,14 +117,14 @@ En la sección “parameters” en la parte superior del archivo **azuredeploy.j
 		"type": "string",
 		"defaultValue": "Canonical",
 		"metadata": {
-			"Description": "Image Publisher"
+			"Description": "Image publisher"
 		}
 	},
 	"imageOffer": {
 		"type": "string",
 		"defaultValue": "UbuntuServer",
 		"metadata": {
-			"Description": "Image Offer"
+			"Description": "Image offer"
 		}
 	},
 	"imageSKU": {
@@ -138,7 +138,7 @@ En la sección “parameters” en la parte superior del archivo **azuredeploy.j
 		"type": "string",
 		"defaultValue": "uniquesparkstoragev12",
 		"metadata": {
-			"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
+			"Description": "Unique namespace for the Storage account where the virtual machine's disks will be placed"
 		}
 	},
 	"region": {
@@ -173,7 +173,7 @@ En la sección “parameters” en la parte superior del archivo **azuredeploy.j
 		"type": "string",
 		"defaultValue": "Subnet-1",
 		"metadata": {
-			"Description": "Subnet name for the virtual network that resources will be provisioned in to"
+			"Description": "Subnet name for the virtual network that resources will be provisioned into"
 		}
 	},
 	"subnetPrefix": {
@@ -218,7 +218,7 @@ En la sección “parameters” en la parte superior del archivo **azuredeploy.j
 		"disabled"
 		],
 		"metadata": {
-			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Spark nodes"
+			"Description": "The flag allowing to enable or disable provisioning of the jump-box VM that can be used to access the Spark nodes"
 		}
 	},
 	"tshirtSize": {
@@ -236,13 +236,13 @@ En la sección “parameters” en la parte superior del archivo **azuredeploy.j
 }
 ```
 
-Cada parámetro incluye detalles como el tipo de datos y los valores permitidos. Esto permite la validación de parámetros pasados durante la ejecución de la plantilla en un modo interactivo (por ejemplo, PowerShell o CLI de Azure), así como una interfaz de usuario de detección automática que se podría compilar dinámicamente mediante el análisis de la lista de parámetros necesarios y sus descripciones.
+Cada parámetro incluye detalles como el tipo de datos y los valores permitidos. Esto permite la validación de parámetros pasados durante la ejecución de la plantilla en un modo interactivo (por ejemplo, Azure PowerShell o CLI de Azure), así como una interfaz de usuario de detección automática que se podría compilar dinámicamente mediante el análisis de la lista de parámetros necesarios y sus descripciones.
 
-### Paso 3-a: Implementar un clúster de Spark con una plantilla mediante PowerShell
+### Paso 3-a: Implementar un clúster de Spark con una plantilla mediante Azure PowerShell
 
-Prepare un archivo de parámetros para la implementación creando un archivo JSON que contenga los valores de tiempo de ejecución para todos los parámetros. Este archivo se pasará como una sola entidad al comando de implementación. Si no incluye un archivo de parámetros, PowerShell usará los valores predeterminados especificados en la plantilla y le pedirá que rellene los valores restantes.
+Prepare un archivo de parámetros para la implementación creando un archivo JSON que contenga los valores de tiempo de ejecución para todos los parámetros. Este archivo se pasará como una sola entidad al comando de implementación. Si no incluye un archivo de parámetros, Azure PowerShell usará los valores predeterminados especificados en la plantilla y le pedirá que rellene los valores restantes.
 
-A continuación se muestra un conjunto de parámetros de ejemplo del archivo **azuredeploy-parameters.json**. Tenga en cuenta que deberá proporcionar valores válidos para los parámetros storageAccountName, adminUsername y adminPassword, además de las personalizaciones realizadas en los demás parámetros:
+A continuación se muestra un conjunto de parámetros de ejemplo del archivo azuredeploy-parameters.json. Tenga en cuenta que deberá proporcionar valores válidos para los parámetros **storageAccountName**, **adminUsername** y **adminPassword**, además de las personalizaciones realizadas en los demás parámetros:
 
 ```json
 {
@@ -302,7 +302,7 @@ $templateParameterFile= $folderName + "\azuredeploy-parameters.json"
 New-AzureResourceGroup -Name $RGName -Location $locName
 New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParamterFile $templateParameterFile -TemplateFile $templateFile
 ```
-> [AZURE.NOTE]RGName debe ser único dentro de su suscripción.
+> [AZURE.NOTE]**$RGName** debe ser único dentro de su suscripción.
 
 Al ejecutar el comando **New-AzureResourceGroupDeployment**, se extraerán los valores de parámetros desde el archivo de parámetros JSON y se empezará a ejecutar la plantilla según corresponda. Al definir y usar varios archivos de parámetros con sus distintos entornos (por ejemplo, prueba, producción, etc.), se promoverá la reutilización de plantillas y se simplificarán las soluciones complejas de entornos múltiples.
 
@@ -311,7 +311,7 @@ Durante la implementación, recuerde que debe crearse una nueva cuenta de almace
 Durante la implementación, verá algo parecido a esto:
 
 ```powershell
-PS C:> New-AzureResourceGroup -Name $RGName -Location $locName
+PS C:\> New-AzureResourceGroup -Name $RGName -Location $locName
 
 ResourceGroupName : SparkResourceGroup
 Location          : westus
@@ -324,7 +324,7 @@ Permissions       :
 
 ResourceId        : /subscriptions/2018abc3-dbd9-4437-81a8-bb3cf56138ed/resourceGroups/sparkresourcegroup
 
-PS C:> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 VERBOSE: 10:08:28 AM - Template is valid.
 VERBOSE: 10:08:28 AM - Create template deployment 'SparkTestDeployment'.
 VERBOSE: 10:08:37 AM - Resource Microsoft.Resources/deployments 'shared-resources' provisioning status is running
@@ -379,10 +379,10 @@ Durante la implementación y después de ella, puede comprobar todas las solicit
 
 Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguiente:
 
-- Haga clic en “Examinar” en la barra de navegación de la izquierda, desplácese hacia abajo y haga clic en “Grupos de recursos”.
-- Después de hacer clic en el grupo de recursos que acaba de crear, aparecerá la hoja “Grupo de recursos”.
-- Al hacer clic en el gráfico de barras “Eventos” en la parte “Supervisión” de la hoja “Grupo de recursos”, puede ver los eventos para la implementación:
-- Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación individual que se realiza en nombre de la plantilla.
+- Haga clic en **Examinar** en la barra de navegación de la izquierda y, a continuación, desplácese hacia abajo y haga clic en **Grupos de recursos**.
+- Haga clic en el grupo de recursos que acaba de crear para abrir la hoja “Grupo de recursos”.
+- Al hacer clic en el gráfico de barras **Eventos** en la parte **Supervisión** de la hoja “Grupo de recursos”, puede ver los eventos para la implementación.
+- Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación individual que se realiza en nombre de la plantilla
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
 
@@ -398,7 +398,7 @@ Para implementar un clúster de Spark a través de CLI de Azure, primero debe cr
 
 	azure group create SparkResourceGroup "West US"
 
-Pase este nombre del grupo de recursos, la ubicación del archivo de plantilla JSON y la ubicación del archivo de parámetros (consulte la sección anterior de PowerShell para obtener detalles) en el siguiente comando:
+Pase este nombre del grupo de recursos, la ubicación del archivo de plantilla JSON y la ubicación del archivo de parámetros (consulte la sección anterior de Azure PowerShell para obtener detalles) en el siguiente comando:
 
 	azure group deployment create SparkResourceGroup -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
@@ -408,15 +408,15 @@ Puede comprobar el estado de las implementaciones de recursos individuales con e
 
 ## Recorrido por la estructura de plantilla y la organización de archivos de Spark
 
-Si desea diseñar una plantilla del Administrador de recursos sólida y reutilizable, hay que pensar aún más en cómo organizar la serie de tareas complejas e interrelacionadas necesarias durante la implementación de una solución compleja como Spark. Al aprovechar la **vinculación de plantillas** de ARM, los **bucles de recursos** y la ejecución de scripts mediante extensiones relacionadas, es posible implementar un enfoque modular que se puede reutilizar con prácticamente cualquier implementación compleja basada en plantillas.
+Si desea diseñar una plantilla del Administrador de recursos sólida y reutilizable, hay que pensar aún más en cómo organizar la serie de tareas complejas e interrelacionadas necesarias durante la implementación de una solución compleja como Spark. Al aprovechar la vinculación de plantillas de Administración de recursos, los bucles de recursos y la ejecución de scripts mediante extensiones relacionadas, es posible implementar un enfoque modular que se puede reutilizar con prácticamente cualquier implementación compleja basada en plantillas.
 
 En este diagrama se describen las relaciones entre todos los archivos descargados de GitHub para esta implementación:
 
 ![spark-files](media/virtual-machines-spark-template/spark-files.png)
 
-Esta sección le guía a través de la estructura del archivo **azuredeploy.json** para el clúster de Spark.
+Esta sección le guía a través de la estructura del archivo azuredeploy.json para el clúster de Spark.
 
-Si no ha descargado todavía una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\Spark). Rellene el nombre de la carpeta y ejecute estos comandos.
+Si no ha descargado todavía una copia del archivo de plantilla, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\Azure\Templates\Spark). Rellene el nombre de la carpeta y ejecute estos comandos:
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -426,11 +426,11 @@ $filePath = $folderName + "\azuredeploy.json"
 $webclient.DownloadFile($url,$filePath)
 ```
 
-Abra la plantilla azuredeploy.json en un editor de texto o una herramienta de su elección. A continuación se describe la estructura del archivo de plantilla y el propósito de cada sección. Como alternativa, puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/azuredeploy.json).
+Abra la plantilla azuredeploy.json en un editor de texto o una herramienta de su elección. En la siguiente información se describe la estructura del archivo de plantilla y el propósito de cada sección. Como alternativa, puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/azuredeploy.json).
 
 ### Sección “parameters”
 
-La sección “parameters” de **azuredeploy.json** especifica parámetros modificables que se usan en esta plantilla. El archivo **azuredeploy-parameters.json** mencionado anteriormente se usa para pasar valores a la sección “parameters” de azuredeploy.json durante la ejecución de la plantilla.
+La sección “parameters” de azuredeploy.json especifica parámetros modificables que se usan en esta plantilla. El archivo azuredeploy-parameters.json mencionado anteriormente se usa para pasar valores a la sección “parameters” de azuredeploy.json durante la ejecución de la plantilla.
 
 Este es un ejemplo de un parámetro para el “tamaño de camiseta”:
 
@@ -449,7 +449,7 @@ Este es un ejemplo de un parámetro para el “tamaño de camiseta”:
 },
 ```
 
->.[AZURE.NOTE]Observe que se puede especificar un "defaultValue", así como "allowedValues".
+> [AZURE.NOTE]Observe que se puede especificar un **defaultValue**, así como **allowedValues**.
 
 ### Sección "variables"
 
@@ -486,16 +486,16 @@ La sección “variables” especifica las variables que se pueden usar en esta 
 },
 ```
 
-"**vmStorageAccountContainerName**" es un ejemplo de un nombre/variable de nombre sencillo. "**vnetID**" es un ejemplo de una variable que se calcula en tiempo de ejecución mediante las funciones "**resourceId**" y "**parameters**". El valor de las variables "** numberOfMasterInstances **" y "** vmSize **" se calculan en tiempo de ejecución mediante las funciones "** concat **", "** variables **" y "**parameters**".
+**vmStorageAccountContainerName** es un ejemplo de un nombre/variable de nombre sencillo. **vnetID** es un ejemplo de una variable que se calcula en tiempo de ejecución mediante las funciones **resourceId** y **parameters**. El valor de las variables **numberOfMasterInstances** y **vmSize** se calculan en tiempo de ejecución mediante las funciones **concat**, **variables** y **parameters**.
 
-Si desea personalizar el tamaño de la implementación del clúster de Spark, puede cambiar las propiedades de las variables tshirtSizeS, tshirtSizeM y tshirtSizeL en la plantilla azuredeploy.json.
+Si desea personalizar el tamaño de la implementación del clúster de Spark, puede cambiar las propiedades de las variables **tshirtSizeS**, **tshirtSizeM** y **tshirtSizeL** en la plantilla azuredeploy.json.
 
 Encontrará más información sobre el idioma de la plantilla en MSDN en [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
 ### Sección "resources"
 
-La sección **“resources”** es donde ocurre la mayor parte de la acción. Al analizar detenidamente esta sección, puede identificar de inmediato dos casos distintos: el primero es un elemento definido de tipo `Microsoft.Resources/deployments` que básicamente significa la invocación de una implementación anidada dentro de la principal. Mediante el elemento “**templateLink**” (y la propiedad de versión relacionada), es posible especificar un archivo de plantilla vinculado que se invocará pasando un conjunto de parámetros como entrada, tal como se puede observar en este fragmento:
+La sección “resources” es donde ocurre la mayor parte de la acción. Analizando detenidamente esta sección, puede identificar inmediatamente dos casos diferentes. El primero es un elemento definido de tipo `Microsoft.Resources/deployments` que básicamente invoca una implementación anidada dentro de la principal. El segundo es la propiedad **templateLink** (y la propiedad **contentVersion** relacionada) que hace posible especificar un archivo de plantilla vinculada que se invocará, pasando un conjunto de parámetros como entrada. Pueden verse en este fragmento de plantilla:
 
 ```json
 "resources": [
@@ -533,18 +533,18 @@ La sección **“resources”** es donde ocurre la mayor parte de la acción. Al
 },
 ```
 
-A partir de este primer ejemplo está claro que **azuredeploy.json** se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
+A partir de este primer ejemplo está claro que azuredeploy.json se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas. Cada archivo es responsable de una parte de las actividades de implementación necesarias.
 
 En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
 
 -	**shared-resource.json**: contiene la definición de todos los recursos que se van a compartir en toda la implementación. Algunos ejemplos son las cuentas de almacenamiento que se usan para almacenar discos del sistema operativo de la máquina virtual y redes virtuales.
 -	**jumpbox-resources-enabled.json**: implementa la máquina virtual de “JumpBox” y todos los recursos relacionados, como la interfaz de red, la dirección IP pública y el extremo de entrada usado para conectarse mediante SSH al entorno.
 
-Después de invocar estas dos plantillas, **azuredeploy.json** aprovisiona todas las máquinas virtuales del nodo de clúster de Spark y los recursos conectados (por ejemplo, tarjetas de red, IP privada, etc.). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (**spark-cluster-install.sh**) para instalar físicamente y configurar Spark en cada nodo.
+Después de invocar estas dos plantillas, azuredeploy.json aprovisiona todas las máquinas virtuales del nodo de clúster de Spark y los recursos conectados (adaptadores de red, IP privada, etc.). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (spark-cluster-install.sh) para instalar físicamente y configurar Spark en cada nodo.
 
-Analicemos *cómo* se usa esta última plantilla, **azuredeploy.json**, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede un solo archivo de plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como **bucle de recursos**.
+Analicemos *cómo* se usa esta última plantilla, azuredeploy.json, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede un solo archivo de plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como **bucle de recursos**.
 
-Un recurso que usa el elemento "copy" "se copiará" a sí mismo el número de veces especificado en el parámetro "count" del elemento "copy". Para todas las configuraciones donde sea necesario especificar valores únicos entre diferentes instancias del recurso implementado, se puede usar la función **copyindex()** para obtener un valor numérico que indica el índice actual en esa creación de bucle de recurso en particular. En el fragmento siguiente de **azuredeploy.json** se puede ver este concepto aplicado a la creación de varias tarjetas de red, máquinas virtuales y extensiones de máquinas virtuales para el clúster de Spark:
+Un recurso que usa el elemento **copy** "se copiará" a sí mismo el número de veces especificado en el parámetro **count** del elemento **copy**. Para todas las configuraciones donde sea necesario especificar valores únicos entre diferentes instancias del recurso implementado, se puede usar la función **copyindex()** para obtener un valor numérico que indica el índice actual en esa creación de bucle de recurso en particular. En el fragmento siguiente de azuredeploy.json se puede ver este concepto aplicado a la creación de varios adaptadores de red, máquinas virtuales y extensiones de máquinas virtuales para el clúster de Spark:
 
 ```json
 {
@@ -760,9 +760,9 @@ Un recurso que usa el elemento "copy" "se copiará" a sí mismo el número de ve
 	}
 ```
 
-Otro concepto importante en la creación de recursos es la capacidad de especificar las dependencias y prioridades entre los recursos, tal como se puede observar en la matriz JSON **dependsOn**. En esta plantilla en particular, puede ver que los nodos del clúster de Spark dependen de los recursos compartidos y de los recursos de networkInterfaces que se crean en primer lugar.
+Otro concepto importante en la creación de recursos es la capacidad de especificar las dependencias y prioridades entre los recursos, tal como se puede observar en la matriz JSON **dependsOn**. En esta plantilla en particular, puede ver que los nodos del clúster de Spark dependen de los recursos compartidos y de los recursos de **networkInterfaces** que se crean en primer lugar.
 
-Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de **CustomScriptForLinux**. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster. En este caso, esto se usa para instalar y configurar Spark en cada nodo de la máquina virtual. Echemos un vistazo a un fragmento de código de la plantilla **azuredeploy.json** que las usa:
+Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de **CustomScriptForLinux**. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster. En este caso, esto se usa para instalar y configurar Spark en cada nodo de la máquina virtual. Echemos un vistazo a un fragmento de código de la plantilla azuredeploy.json que las usa:
 
 ```json
 {
@@ -817,9 +817,9 @@ Otro fragmento interesante es el relacionado con las extensiones de máquinas vi
 }
 ```
 
-Observe que la extensión de los recursos del nodo maestro y secundario ejecuta los comandos diferentes, definidos en la **propiedad commandToExecute**, como parte del proceso de aprovisionamiento.
+Observe que la extensión de los recursos del nodo maestro y secundario ejecuta los comandos diferentes, definidos en la propiedad **commandToExecute**, como parte del proceso de aprovisionamiento.
 
-Puede ver que este recurso depende de la máquina virtual del recurso que ya se está implementando **Microsoft.Compute/virtualMachines/vmMember<X>**, donde **<X>** es el parámetro “**machineSettings.machineIndex**”, que es el índice de la máquina virtual que se pasó a este script mediante la función “**copyindex()**”.
+Si observa el fragmento JSON de la última extensión de máquina virtual, puede ver que este recurso depende del recurso de máquina virtual y su interfaz de red. Esto indica que estos dos recursos ya deben estar implementados antes de aprovisionar y ejecutar esta extensión de máquina virtual. Tenga en cuenta también el uso de la función **copyindex()** para repetir este paso para cada máquina virtual esclava.
 
 Al familiarizarse con los demás archivos incluidos en esta implementación, podrá entender todos los detalles y los procedimientos recomendados necesarios para organizar y coordinar las complejas estrategias de implementación de las soluciones de múltiples nodos, basadas en cualquier tecnología, aprovechando las plantillas del Administrador de recursos de Azure. Aunque no es obligatorio, un enfoque recomendado consiste en estructurar los archivos de plantillas, tal como se muestra en el diagrama siguiente:
 
@@ -828,10 +828,10 @@ Al familiarizarse con los demás archivos incluidos en esta implementación, pod
 Básicamente, se sugiere este enfoque para:
 
 -	Definir el archivo de plantilla principal como punto central de coordinación para todas las actividades de implementación específicas y aprovechar la vinculación de las plantillas para invocar ejecuciones de subplantillas.
--	Crear archivos de plantillas específicas que implementarán todos los recursos compartidos en todas las demás tareas de implementación específicas (por ejemplo, cuentas de almacenamiento, configuración de red virtual, etc.). Esto se puede reutilizar en gran medida entre las implementaciones que tienen requisitos similares en cuanto a una infraestructura común.
+-	Crear archivos de plantillas específicas que implementarán todos los recursos compartidos en todas las demás tareas de implementación específicas (cuentas de almacenamiento, configuración de red virtual, etc.). Esto se puede reutilizar en gran medida entre las implementaciones que tienen requisitos similares en cuanto a una infraestructura común.
 -	Incluir plantillas de recursos opcionales para identificar requisitos específicos de un recurso determinado.
 -	Para los miembros idénticos de un grupo de recursos (nodos de un clúster, etc.), crear plantillas específicas que aprovechen bucles de recursos a fin de implementar varias instancias con propiedades únicas.
--	Para todas las tareas de implementación posteriores (por ejemplo, instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
+-	Para todas las tareas de implementación posteriores (instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
@@ -841,7 +841,6 @@ Obtenga más información sobre cómo [implementar una plantilla](../resource-gr
 
 Descubra más [marcos de aplicaciones](virtual-machines-app-frameworks.md).
 
-[Solución de problemas en implementaciones de plantilla](resource-group-deploy-debug.md).
- 
+[Solucionar problemas de las implementaciones de plantillas](resource-group-deploy-debug.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -70,30 +70,12 @@ En la siguiente ilustración se muestra una implementación de ejemplo en el que
 
 En este momento las siguientes bibliotecas de cliente están trabajando con el Bus de servicio:
 
-<table>
-  <tr>
-    <th>Lenguaje</th>
-    <th>Biblioteca</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Cliente de Java Message Service (JMS) Apache Qpid<br/>
-        Cliente de Java SwiftMQ, de IIT Software.</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| Lenguaje | Biblioteca |
+|----------|-------------------------------------------------------------------------------|
+| Java | Cliente Apache Qpid Java Message Service (JMS) Cliente<br/>IIT Software SwiftMQ Java |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **Figura 2: Tabla de bibliotecas de cliente de AMQP 1.0**
@@ -117,4 +99,4 @@ Para obtener más información sobre cómo obtener y usar estas bibliotecas con 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

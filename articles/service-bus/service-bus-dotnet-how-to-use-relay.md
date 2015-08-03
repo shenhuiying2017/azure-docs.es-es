@@ -268,4 +268,4 @@ Ahora que conoce los fundamentos del servicio **Retransmisión** de bus de servi
   [MSDN]: https://msdn.microsoft.com/es-es/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

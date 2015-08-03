@@ -1,5 +1,4 @@
 
-
 #### Para instalar actualizaciones en el modo de mantenimiento a través de Windows PowerShell para StorSimple
 
 1. Si aún no lo hizo, acceda a la consola serie del dispositivo y seleccione la opción 1, **Iniciar sesión con acceso completo**. 
@@ -26,4 +25,4 @@
 
 8. Una vez actualizados ambos controladores, salga del modo de mantenimiento. Consulte [Salir del modo de mantenimiento](#exit-maintenance-mode) para obtener instrucciones.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

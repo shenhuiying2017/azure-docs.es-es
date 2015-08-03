@@ -126,4 +126,4 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

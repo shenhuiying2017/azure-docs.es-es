@@ -120,7 +120,7 @@ Si ya ha preparado un host de Hyper-V independiente en un servidor de recuperaci
 
 	g. En la sección **Autorización y almacenamiento**, especifique si desea permitir a **cualquier** servidor autenticado (principal) enviar datos de replicación a este servidor de réplica o limitar la aceptación a los datos de servidores principales específicos. Puede usar caracteres comodín para limitar la aceptación a servidores de un dominio particular sin tener que especificar cada uno individualmente (por ejemplo, *. contoso.com).
 
-	h. Abra puertos de firewall en todos los hosts de Hyper-V de recuperación: puerto 443 (autenticación de certificado): Get-ClusterNode | ForEach-Object {Invoke-command - computername \\$_.name - scriptblock {Enable-Netfirewallrule - displayname "Escucha HTTPS de réplica de Hyper-V (TCP-In)"}}
+	h. Abra puertos de firewall en todos los hosts de Hyper-V de recuperación: puerto 443 (autenticación de certificado): Get-ClusterNode | ForEach-Object {Invoke-command - computername \$_.name - scriptblock {Enable-Netfirewallrule - displayname "Escucha HTTPS de réplica de Hyper-V (TCP-In)"}}
 
 
           Port 80 (Kerberos auth):
@@ -193,11 +193,11 @@ Especifique la información de red solicitada y, a continuación, haga clic en *
 
     Ubicación predeterminada del informe:
 
-    %systemdrive%\\Users\\Public\\Documents\\Capacity Planner
+    %systemdrive%\Users\Public\Documents\Capacity Planner
 
     Ubicación de los registros:
 
-    %systemdrive%\\Users\\Public\\Documents\\CapacityPlanner
+    %systemdrive%\Users\Public\Documents\CapacityPlanner
 
 ## Paso 4: Interpretar los resultados
 Puede omitir las métricas que no aparecen en uno de los dos escenarios siguientes, ya que no son relevantes para este escenario.
@@ -239,4 +239,4 @@ Para empezar a implementar ASR:
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,10 +13,253 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Notas de la versión de la factoría de datos Azure
+
+## Notas para la versión de 07/17/2015 de la Factoría de datos
+Se incorporan los siguientes cambios en JSON en la versión de julio de 2015 de Azure PowerShell .
+
+## Actualización de tipos de servicios vinculados, tablas y actividades
+Tipo de recurso | Nombre actual en JSON | Nuevo nombre en JSON
+------------- | -------------------- | ----------------
+Servicios vinculados (origen de datos) | AzureSqlLinkedService | AzureSqlDatabase
+Servicios vinculados (origen de datos) | AzureStorageLinkedService | AzureStorage
+Servicios vinculados (origen de datos) | DocumentDbLinkedService | DocumentDb
+Servicios vinculados (origen de datos) | OnPremisesFileSystemLinkedService | OnPremisesFileServer
+Servicios vinculados (origen de datos) | OnPremisesOracleLinkedService | OnPremisesOracle
+Servicios vinculados (origen de datos) | OnPremisesSqlLinkedService | OnPremisesSqlServer
+Servicios vinculados (origen de datos) | OnPremisesMySqlLinkedService | OnPremisesMySql
+Servicios vinculados (origen de datos) | OnPremisesDb2LinkedService | OnPremisesDb2
+Servicios vinculados (origen de datos) | OnPremisesTeradataLinkedService | OnPremisesTeradata
+Servicios vinculados (origen de datos) | OnPremisesSybaseLinkedService | OnPremisesSybase
+Servicios vinculados (origen de datos) | OnPremisesPostgreSqlLinkedService | OnPremisesPostgreSql
+Servicios vinculados (proceso) | AzureMlLinkedService | AzureML
+Servicios vinculados (proceso) | HDInsightBYOCLinkedService | HDInsight
+Servicios vinculados (proceso) | HDInsightOnDemandLinkedService | HDInsightOnDemand
+Servicios vinculados (proceso) | AzureBatchLinkedService | AzureBatch
+Dataset | AzureBlobLocation | AzureBlob
+Dataset | AzureTableLocation | AzureTable
+Dataset | AzureSqlTableLocation | AzureSqlTable
+Dataset | DocumentDbCollectionLocation | DocumentDbCollection 
+Dataset | OnPremisesFileSystemLocation | FileShare
+Dataset | OnPremisesOracleTableLocation | OracleTable
+Dataset | OnPremisesSqlServerTableLocation | SqlServerTable
+Dataset | RelationTableLocation | RelationalTable
+Actividad | CopyActivity | Copiar
+Actividad | HDInsightActivity (transformación de Hive) | HDInsightHive
+Actividad | HDInsightActivity (transformación de Pig) | HDInsightPig
+Actividad | HDInsightActivity (transformación de MapReduce) | HDInsightMapReduce
+Actividad | HDInsightActivity (Streaming) | HDInsightHadoopStreaming
+Actividad | AzureMLBatchScoringActivity | AzureMLBatchScoring
+Actividad | StoredProcedureActivity | SqlServerStoredProcedure
+
+## Nuevo elemento typeProperties
+El nuevo elemento **typeProperties** contiene propiedades específicas del tipo para un servicio vinculado, tabla o actividad.
+
+### Servicio vinculado JSON antiguo
+	{
+	    "name": "StorageLinkedService",
+	    "properties":
+	    {
+	        "type": "AzureStorageLinkedService",
+	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	    }
+	}
+
+### Servicio vinculado JSON nuevo
+	{
+	  "name": "StorageLinkedService",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<Account key>"
+	    }
+	  }
+	}
+
+Tenga en cuenta lo siguiente:
+
+- La propiedad **type** es subirá un nivel y se establece en **AzureStorage** (se cambia de **AzureStorageLinkedService** a **AzureStorage**) 
+- Nuevo elemento **typeProperties** que contiene las propiedades admitidas por el servicio vinculado de Almacenamiento de Azure (**connectionString** en este ejemplo).  
+
+### Conjunto de datos JSON antiguo
+	{
+	    "name": "EmpTable",
+	    "properties":
+	    {
+	        "location":
+	        {
+	            "type": "AzureTableLocation",
+	            "tableName": "myazuretable",
+	            "linkedServiceName": "MyLinkedService"
+	        },
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1
+	        }
+	    }
+	}
+
+### Conjunto de datos JSON nuevo
+
+	{
+	    "name": "EmpTable",
+	    "properties": {
+	        "type": "AzureTable",
+	        "linkedServiceName": "MyLinkedServiceName",
+	        "typeProperties": {
+	            "tableName": "myazuretable"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": "1"
+	        }
+	    }
+	}
+
+Tenga en cuenta lo siguiente:
+
+- La propiedad **type** se ha subido un nivel y el nombre de tipo **AzureTableLocation** se ha cambiado a **AzureTable**.
+- **linkedServiceName** se sube un nivel. 
+- El elemento **ubicación**se ha quitado y las propiedades específicas del tipo como **tableName**, que se especificaban en la sección **ubicación** se especifican en la nueva sección **typeProperties**.  
+
+### Actividad de JSON anterior
+
+	{
+	    "name": "CopyFromSQLtoBlob   ",
+	    "description": "description", 
+	    "type": "CopyActivity",
+	    "inputs":  [ { "name": "InputSqlDA"  } ],
+	    "outputs":  [ { "name": "OutputBlobDA" } ],
+	    "transformation":
+	    {
+	        "source":
+	        {
+	            "type": "SqlSource",
+	            "sqlReaderQuery": "select * from MyTable"
+	        },
+	        "sink":
+	        {
+	            "type": "BlobSink"
+	        }
+	    }
+	}   
+
+### Actividad de JSON nueva
+	
+	{
+	    "name": "CopyFromSQLtoBlob   ",
+	    "description": "description", 
+	    "type": "Copy",
+	    "inputs":  [ { "name": "InputSqlDA"  } ],
+	    "outputs":  [ { "name": "OutputBlobDA" } ],
+	    "typeProperties":
+	    {
+	        "source":
+	        {
+	            "type": "SqlSource",
+	            "sqlReaderQuery": "select * from MyTable"
+	        },
+	        "sink":
+	        {
+	            "type": "BlobSink"
+	        }
+	    }
+	}
+
+Tenga en cuenta lo siguiente:
+
+- Tenga en cuenta que el elemento **transformation** se ha reemplazado por el nuevo elemento **typeProperties**.
+
+## se quita el elemento waitOnExternal
+El elemento **waitOnExternal** se sustituye por las nuevas propiedades **external** y **externalData**.
+
+### JSON antiguo
+	{
+	    "name": "EmpTableFromBlob",
+	    "properties":
+	    {
+	        "location": 
+	        {
+	            "type": "AzureBlobLocation",
+	            "folderPath": "adftutorial/",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            },
+	            "linkedServiceName": "StorageLinkedService"
+	        },
+	        "availability": 
+	        {
+	            "frequency": "hour",
+	            "interval": 1,
+                "waitOnExternal": 
+				{
+			        "retryInterval": "00:01:00",
+			        "retryTimeout": "00:10:00",
+			        "maximumRetry": "3"			
+				}
+	        }
+	    }
+	} 
+
+### JSON nuevo
+	{
+	  "name": "EmpTableFromBlob",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "adftutorial/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ","
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": "3"
+	      }
+	    }
+	  }
+	}
+
+Tenga en cuenta lo siguiente:
+
+- La propiedad **waitOnExternal** se ha quitado de la sección **availability**. 
+- Se ha agregado una nueva propiedad **external** un nivel más arriba y se ha establecido en **true** para una tabla externa. 
+- Las propiedades del elemento **waitOnExternal**, como **retryInterval** se han agregado a la nueva sección **externalData** del elemento **Policy**.
+- El elemento **externalData** es opcional. 
+- Al usar el elemento **externalData**, debe tener la propiedad **external** establecida en **true**. 
+ 
+
+## Nueva propiedad copyBehavior property para BlobSink
+**BlobSink** admite una nueva propiedad llamada **copyBehavior**. Esta propiedad define el comportamiento de copia cuando el origen es **BlobSource** o **FileSystem**. Hay tres valores posibles para la propiedad **copyBehavior**.
+
+**PreserveHierarchy**: conserva la jerarquía de archivos en la carpeta de destino; es decir, la ruta de acceso relativa del archivo de origen a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino para la carpeta de destino.
+
+
+**FlattenHierarchy**: todos los archivos de la carpeta de origen estarán en el primer nivel de la carpeta de destino. Los archivos de destino tendrán un nombre generado automáticamente.
+
+
+**MergeFiles**: combina todos los archivos de la carpeta de origen en un archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente.
+ 
+## Nueva propiedad getDebugInfo para todas las actividades de HDInsight
+Las actividades de HDInsight (Hive, Pig, MapReduce, Hadoop Streaming) admiten la nueva propiedad: **getDebugInfo**. La propiedad **getDebugInfo** es un elemento opcional. Cuando se establece en **Error**, los registros solo se descargan en caso de error de ejecución. Cuando se establece en **Todos**, los registros se descargan siempre, sea cual sea el estado de ejecución. Cuando se establece en **Ninguno**, no se descarga ningún registro.
+
+  
+     
 
 ## Notas para la versión de 04/10/2015 de la Factoría de datos
 Ahora puede ver las listas **Segmentos actualizados recientemente** y **Segmentos erróneos recientes** en la hoja **TABLA**. Estas listas se ordenan por la hora de actualización del segmento. En las situaciones siguientes, se cambia la hora de actualización de un segmento.
@@ -112,4 +355,4 @@ Vea la entrada de blog: [Actualización de la Factoría de datos de Azure: nuevo
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

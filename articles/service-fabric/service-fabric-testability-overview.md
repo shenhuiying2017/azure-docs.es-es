@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/13/2015"
    ms.author="rsinha"/>
 
 # Información general sobre Testability
@@ -94,4 +94,4 @@ Para crear los verdaderos servicios de escala en la nube, es muy crítica la cap
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

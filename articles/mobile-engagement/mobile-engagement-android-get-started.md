@@ -285,7 +285,7 @@ No debe usar el icono del selector; tiene una resolución diferente y normalment
 
 ###Habilitar la aplicación para recibir notificaciones de inserción de GCM
 
-1. Escriba sus metadatos de gcm:remitente copiando y pegando lo siguiente en el Manifest.xml entre las etiquetas `<application>` y `</application>`. El valor oculto siguiente (con estrellas) es el `project number` obtenido de la consola de Google Play. \\n se introduce de manera intencionada para asegurarse de finalizar el número de proyecto con él.
+1. Escriba sus metadatos de gcm:remitente copiando y pegando lo siguiente en el Manifest.xml entre las etiquetas `<application>` y `</application>`. El valor oculto siguiente (con estrellas) es el `project number` obtenido de la consola de Google Play. \n se introduce de manera intencionada para asegurarse de finalizar el número de proyecto con él.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -395,4 +395,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

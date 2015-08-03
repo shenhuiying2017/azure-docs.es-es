@@ -1,13 +1,3 @@
-<properties services="virtual-machines" title="Setting up Azure CLI for service management" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
-
-<tags
-   ms.service="virtual-machine"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="linux"
-   ms.workload="infrastructure"
-   ms.date="04/13/2015"
-   ms.author="rasquill" />
 
 ## Uso de la CLI de Azure
 
@@ -34,4 +24,4 @@ Una vez que haya conectado la CLI de Azure a la cuenta que desee utilizar, puede
 
 > [AZURE.NOTE]Si todavía no tiene una cuenta de Azure, pero dispone de una suscripción a MSDN, puede obtener créditos gratuitos de Azure mediante la activación de sus [ventajas de suscriptor de MSDN aquí](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), o puede usar la cuenta gratuita. Con cualquiera de estas opciones podrá obtener acceso a Azure.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO4-->

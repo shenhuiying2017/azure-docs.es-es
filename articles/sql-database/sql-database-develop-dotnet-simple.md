@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/16/2015" 
 	ms.author="tobiast"/>
 
 
@@ -38,60 +38,60 @@ Vea la [página de introducción](sql-database-get-started.md) para obtener info
 
 La clase [System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) se usa para conectarse a la base de datos SQL.
 	
-	```
-	using System.Data.SqlClient;
-	
-	class Sample
-	{
-	  static void Main()
+```
+using System.Data.SqlClient;
+
+class Sample
+{
+  static void Main()
+  {
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 	  {
-		  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-		  {
-			  conn.Open();	
-		  }
+		  conn.Open();	
 	  }
-	}	
-	```
+  }
+}	
+```
 
 ## Ejecución de una consulta y recuperación del conjunto de resultados 
 
 Las clases [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) y [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) pueden usarse para recuperar un conjunto de resultados de una consulta realizada a la base de datos SQL. Tenga en cuenta que System.Data.SqlClient también admite la recuperación de datos en [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx) sin conexión.
 	
-	```
-	using System;
-	using System.Data.SqlClient;
-	
-	class Sample
+```
+using System;
+using System.Data.SqlClient;
+
+class Sample
+{
+	static void Main()
 	{
-		static void Main()
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 		{
-		  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+			var cmd = conn.CreateCommand();
+			cmd.CommandText = @"
+					SELECT 
+						c.CustomerID
+						,c.CompanyName
+						,COUNT(soh.SalesOrderID) AS OrderCount
+					FROM SalesLT.Customer AS c
+					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
+					GROUP BY c.CustomerID, c.CompanyName
+					ORDER BY OrderCount DESC;";
+
+			conn.Open();	
+		
+			using(var reader = cmd.ExecuteReader())
 			{
-				var cmd = conn.CreateCommand();
-				cmd.CommandText = @"
-						SELECT 
-							c.CustomerID
-							,c.CompanyName
-							,COUNT(soh.SalesOrderID) AS OrderCount
-						FROM SalesLT.Customer AS c
-						LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
-						GROUP BY c.CustomerID, c.CompanyName
-						ORDER BY OrderCount DESC;";
-	
-				conn.Open();	
-			
-				using(var reader = cmd.ExecuteReader())
+				while(reader.Read())
 				{
-					while(reader.Read())
-					{
-						Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
-					}
-				}					
-			}
+					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+				}
+			}					
 		}
 	}
-	
-	```
+}
+
+```
 
 ## Inserción de filas, mediante el paso de parámetros, y recuperación del valor clave principal generado 
 
@@ -99,34 +99,34 @@ En la base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/libr
 
 El método [ExecuteScalar](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executescalar.aspx) de la clase [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) puede usarse para ejecutar una instrucción y recuperar la primera columna y fila devuelta por esta instrucción. La cláusula [OUTPUT](https://msdn.microsoft.com/library/ms177564.aspx) de la instrucción INSERT puede usarse para devolver los valores insertados como conjunto de resultados a la aplicación que realiza la llamada. Tenga en cuenta la cláusula OUTPUT también es compatible con las instrucciones [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) y [MERGE](https://msdn.microsoft.com/library/bb510625.aspx). Si se inserta más de una fila, deberá usar el método [ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx) para recuperar los valores insertados de todas las filas.
 	
-	```
-	class Sample
-	{
-	    static void Main()
-	    {
-			using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-	        {
-	            var cmd = conn.CreateCommand();
-	            cmd.CommandText = @"
-	                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
-	                OUTPUT INSERTED.ProductID
-	                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
-	
-	            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
-	            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
-	            cmd.Parameters.AddWithValue("@Cost", 0);
-	            cmd.Parameters.AddWithValue("@Price", 0);
-	
-	            conn.Open();
-	
-	            int insertedProductId = (int)cmd.ExecuteScalar();
-	
-	            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
-	        }
-	    }
-	}
-	```
+```
+class Sample
+{
+    static void Main()
+    {
+		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+        {
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+                OUTPUT INSERTED.ProductID
+                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
+
+            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
+            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
+            cmd.Parameters.AddWithValue("@Cost", 0);
+            cmd.Parameters.AddWithValue("@Price", 0);
+
+            conn.Open();
+
+            int insertedProductId = (int)cmd.ExecuteScalar();
+
+            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
+        }
+    }
+}
+```
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

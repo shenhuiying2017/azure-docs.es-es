@@ -1,7 +1,7 @@
 <properties
    pageTitle="Creación de varias instancias de recursos"
-   description="Describe cómo utilizar la operación de copia en una plantilla del Administrador de recursos de Azure que iterar varias veces cuando se implementan recursos."
-   services="na"
+   description="Describe cómo usar la operación de copia en una plantilla del Administrador de recursos de Azure para iterar varias veces cuando se implementan recursos."
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -18,7 +18,7 @@
 
 # Creación de varias instancias de recursos en el Administrador de recursos de Azure
 
-En este tema se muestra cómo iterar en la plantilla de Administrador de recursos de Azure para crear varias instancias de un recurso.
+En este tema se muestra cómo iterar en la plantilla del Administrador de recursos de Azure para crear varias instancias de un recurso.
 
 ## copy y copyIndex()
 
@@ -33,7 +33,7 @@ Se puede obtener acceso al valor de iteración actual con la función **copyInde
 
     [concat('examplecopy-', copyIndex())]
 
-## Uso del valor de índice en nombre
+## Uso del valor de índice en el nombre
 
 Puede usar la operación de copia para crear varias instancias de un recurso que se nombra exclusivamente según el índice incremental. Por ejemplo, puede que desee agregar un número exclusivo al final de cada nombre de recurso que se implementa. Para implementar tres sitios web con los nombres:
 
@@ -41,7 +41,7 @@ Puede usar la operación de copia para crear varias instancias de un recurso que
 - examplecopy-1
 - examplecopy-2.
 
-Utilice la siguiente plantilla:
+Use la siguiente plantilla:
 
     "parameters": { 
       "count": { 
@@ -79,7 +79,7 @@ La operación de copia es especialmente útil al trabajar con matrices, ya que p
 - examplecopy-Fabrikam
 - examplecopy-Coho
 
-Utilice la siguiente plantilla:
+Use la siguiente plantilla:
 
     "parameters": { 
       "org": { 
@@ -110,8 +110,8 @@ Utilice la siguiente plantilla:
     ]
 
 ## Pasos siguientes
-- [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md)
+- [Creación de plantillas de Administrador de recursos de Azure](./resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
 - [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -25,4 +25,4 @@
 
 [Acoplamiento de un disco de datos a una máquina virtual de Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

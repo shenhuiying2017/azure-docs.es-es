@@ -206,4 +206,4 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 - [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx) 
 - [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

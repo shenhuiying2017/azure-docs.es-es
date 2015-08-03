@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
 # Integración de Azure AD en una aplicación WPF de escritorio de Windows
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -160,7 +162,7 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-DotN
 
 [Protección de una API Web .NET con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para tener acceso a recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

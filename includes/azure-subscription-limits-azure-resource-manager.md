@@ -21,8 +21,8 @@
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Grupos de recursos</a> por suscripción</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Lecturas de API del Administrador de recursos</p></td>
@@ -52,4 +52,4 @@
 
 <sup>3</sup>Estas características ya no son necesarias con los grupos de recursos de Azure y el Administrador de recursos de Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -24,7 +24,7 @@ Este tutorial ofrece instrucciones paso a paso para usar una actividad de HDInsi
 
 ### Requisitos previos
 1. Complete el tutorial del artículo [Introducción a la Factoría de datos de Azure][adfgetstarted].
-2. Cree el archivo **hivequery.hql** en una subcarpeta llamada **Hive** en **C:\\ADFGetStarted** con el siguiente contenido.
+2. Cree el archivo **hivequery.hql** en una subcarpeta llamada **Hive** en **C:\ADFGetStarted** con el siguiente contenido.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -140,7 +140,7 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptpath": "adftutorial\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@ El siguiente ejemplo de JSON para una canalización de ejemplo usa una actividad
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -353,4 +353,4 @@ Artículo | Descripción
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

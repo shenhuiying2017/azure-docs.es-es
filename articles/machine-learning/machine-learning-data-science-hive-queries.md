@@ -2,6 +2,7 @@
 	pageTitle="Envío de consultas de Hive a clústeres de Hadoop en el proceso de análisis avanzado | Microsoft Azure" 
 	description="Procesar datos de tablas de subárbol" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> Envío de consultas de Hive en clústeres de Hadoop de HDInsights en el proceso de análisis avanzado
@@ -25,42 +26,46 @@ En este documento se describen distintas formas de enviar consultas de subárbol
 * el Editor de subárbol
 * Scripts de PowerShell de Azure 
 
-Se proporcionan consultas de subárbol genéricas que pueden usarse para explorar los datos o para generar funciones que usan funciones definidas por el usuario de subárbol integradas (UDF).
+Se proporcionan consultas de Hive genéricas que pueden usarse para explorar los datos o para generar funciones que usan funciones definidas por el usuario de Hive integradas (UDF).
 
-También se proporcionan ejemplos de consultas específicas de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en [Repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución.
+También se proporcionan ejemplos de consultas específicas de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en [Repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución para este escenario.
 
-En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
+En la última sección, se describen los parámetros que los usuarios pueden ajustar para mejorar el rendimiento de las consultas de Hive.
 
 ## Requisitos previos
 En este artículo se supone que ha:
  
 * creado una cuenta de almacenamiento de Azure. Si necesita instrucciones, consulte [Creación de una cuenta de almacenamiento de Azure](../hdinsight-get-started.md#storage). 
 * aprovisionado un clúster de Hadoop con el servicio HDInsight. Si necesita instrucciones, consulte [Aprovisionamiento de un clúster de HDInsight](../hdinsight-get-started.md#provision).
-* Se han cargado los datos en tablas de subárbol en clústeres de Hadoop de HDInsight de Azure. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
+* Se han cargado los datos en tablas de subárbol en clústeres de Hadoop de HDInsight de Azure. Si no es así, siga las instrucciones proporcionadas en [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
 * habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
 
 
-- [Cómo enviar consultas de Hive](#submit)
-- [Exploración de datos e ingeniería de funciones](#explore)
-- [Temas avanzados:Ajustar parámetros de Hive para mejorar la velocidad de consulta](#tuning)
+## <a name="submit"></a>Envío de consultas de Hive
 
-## <a name="submit"></a>Cómo enviar consultas de Hive
+1. [Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop](#headnode)
+2. [Enviar consultas de Hive con el Editor de Hive](#hive-editor)
+3. [Enviar consultas de Hive con los comandos de Azure PowerShell](#ps)
+ 
+###<a name="headnode"></a> 1. Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop
 
-###1. A través de la línea de comandos de Hadoop en el nodo principal del clúster de Hadoop
-
-Si la consulta es compleja, enviar consultas de subárbol directamente en el nodo principal del clúster de Hadoop normalmente permite obtener respuestas más rápidas que si se efectúa el envío mediante un editor de subárboles o scripts de Azure PowerShell.
+Si la consulta es compleja, enviar consultas de Hive directamente en el nodo principal del clúster de Hadoop normalmente permite obtener respuestas más rápidas que si se efectúa el envío mediante un editor de Hive o scripts de Azure PowerShell.
 
 Inicie sesión en el nodo principal del clúster de Hadoop, abra la línea de comandos de Hadoop en el escritorio del nodo principal y escriba el comando `cd %hive_home%\bin`.
 
-Los usuarios disponen de tres maneras de enviar consultas de subárbol en la línea de comandos de Hadoop.
+Los usuarios disponen de tres maneras de enviar consultas de Hive en la línea de comandos de Hadoop:
 
-####Envíe consultas de subárbol directamente en la línea de comandos de Hadoop. 
+* Directamente
+* usando archivos .hql
+* Con la consola de comandos de Hive
+
+#### Envíe consultas de subárbol directamente en la línea de comandos de Hadoop. 
 
 Los usuarios pueden ejecutar el comando como `hive -e "<your hive query>;` para enviar consultas de Hive sencillas directamente en la línea de comandos de Hadoop. Este es un ejemplo, donde el cuadro rojo muestra el comando que envía la consulta de subárbol y el cuadro verde muestra el resultado de la consulta de subárbol.
 
 ![Creación del espacio de trabajo][10]
 
-####Enviar consultas de subárbol en archivos .hql
+#### Enviar consultas de subárbol en archivos .hql
 
 Cuando la consulta de subárbol es más complicada y tiene varias líneas, no resulta práctico modificar consultas en la línea de comandos o la consola de comandos de subárbol. Una alternativa es usar un editor de texto en el nodo principal del clúster de Hadoop y guardar las consultas de subárbol en un archivo .hql de un directorio local del nodo principal. A continuación, la consulta de Hive del archivo .hql puede enviarse mediante el argumento `-f` del modo indicado a continuación:
 	
@@ -69,22 +74,22 @@ Cuando la consulta de subárbol es más complicada y tiene varias líneas, no re
 ![Creación del espacio de trabajo][15]
 
 
-####Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol
+**Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol**
 
-De forma predeterminada, después de enviar la consulta de subárbol en la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla del progreso del trabajo de asignación/reducción, puede utilizar un argumento `-S` ("S" en mayúsculas) en la línea de comandos del modo indicado a continuación:
+De forma predeterminada, después de enviar la consulta de subárbol en la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla del progreso del trabajo de asignación/reducción, puede usar un argumento `-S` ("S" en mayúsculas) en la línea de comandos del modo indicado a continuación:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Envíe consultas de subárbol en la consola de comandos de subárbol.
+#### Envíe consultas de subárbol en la consola de comandos de subárbol.
 
-Los usuarios también pueden especificar en primer lugar la consola de comandos de Hive ejecutando el comando `hive` en línea de comandos de Hadoop y, a continuación, enviar consultas de Hive en la consola de comandos de Hive. Aquí tiene un ejemplo. En este ejemplo, los dos cuadros de color rojo resaltan los comandos que se utilizan para escribir en la consola de comandos de subárbol y la consulta de subárbol enviada en la consola de comandos de subárbol, respectivamente. El cuadro verde resalta el resultado de la consulta de subárbol.
+Los usuarios también pueden especificar en primer lugar la consola de comandos de Hive al ejecutar el comando `hive` en línea de comandos de Hadoop y, a continuación, enviar consultas de Hive en la consola de comandos de Hive. Aquí tiene un ejemplo. En este ejemplo, los dos cuadros de color rojo resaltan los comandos que se utilizan para escribir en la consola de comandos de subárbol y la consulta de subárbol enviada en la consola de comandos de subárbol, respectivamente. El cuadro verde resalta el resultado de la consulta de subárbol.
 
 ![Creación del espacio de trabajo][11]
 
 Los ejemplos anteriores generan directamente los resultados de la consulta de subárbol en pantalla. Los usuarios también pueden escribir la salida en un archivo local del nodo principal o en un blob de Azure. A continuación, los usuarios pueden utilizar otras herramientas para analizar más el resultado de las consultas de subárbol.
 
-####Genere los resultados de consulta de subárbol en un archivo local. 
+**Genere los resultados de consulta de subárbol en un archivo local.**
 
 Para generar los resultados de consultas de subárbol en un directorio local del nodo principal, los usuarios tienen que enviar la consulta de subárbol de la línea de comandos de Hadoop de la siguiente manera:
 
@@ -94,7 +99,7 @@ En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un ar
 
 ![Creación del espacio de trabajo][12]
 
-####Generar los resultados de consulta de subárbol en un blob de Azure
+**Generar los resultados de consulta de subárbol en un blob de Azure**
 
 Los usuarios también pueden generar resultados de consulta de subárbol en un blob de Azure, dentro del contenedor predeterminado del clúster de Hadoop. La consulta de subárbol debe ser similar a la siguiente:
 
@@ -108,32 +113,35 @@ Si abre el contenedor predeterminado del clúster de Hadoop mediante herramienta
 
 ![Creación del espacio de trabajo][14]
 
-###2. A través del Editor de subárboles o comandos de PowerShell de Azure
+###<a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
 
-Los usuarios también pueden usar la consola de consultas (editor de Hive) escribiendo la URL en un explorador web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (se le pedirá que introduzca las credenciales de clúster de Hadoop para iniciar sesión) o puede [enviar trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Los usuarios también pueden usar la consola de consultas (editor de Hive) escribiendo la URL en un explorador web `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (se le pedirá que especifique las credenciales de clúster de Hadoop para iniciar sesión)
+
+###<a name="ps"></a> 3. Enviar consultas de Hive con los comandos de Azure PowerShell
+
+Los usuarios pueden también usar PowerShell para enviar consultas de Hive. Para obtener instrucciones, consulte [Envío de trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 ## <a name="explore"></a>Exploración de datos, ingeniería de funciones y adaptación de parámetros de Hive
 
-En esta sección se describen las siguientes tareas de conversión de datos mediante los clústeres de Hadoop de HDInsight de Azure y un tema más avanzado de adaptación de algunos parámetros de subárbol para mejorar el rendimiento de las consultas de subárbol:
+En esta sección, se describen las siguientes tareas de tratamiento de datos mediante Hive en clústeres de Hadoop de HDInsight de Azure:
 
 1. [Exploración de datos](#hive-dataexploration)
 2. [Generación de características](#hive-featureengineering)
-3. [Tema avanzado: Ajustar parámetros de Hive para mejorar la velocidad de consulta](#tune-parameters)
 
 > [AZURE.NOTE]Las consultas de subárbol de ejemplo dan por hecho que se han cargado los datos a tablas de subárbol en clústeres de Hadoop de Azure HDInsight. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-hive-tables.md) para cargar los datos en tablas de Hive primero.
 
 ###<a name="hive-dataexploration"></a>Exploración de datos
 A continuación presentamos algunos scripts de subárbol que se pueden usar para explorar los datos de las tablas de subárbol.
 
-1. Obtener el número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+1. Obtención del número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
-2. Obtener el número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+2. Obtención del número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
-3. Obtener los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
+3. Obtención de los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
-4. Obtener el número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Obtención del número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 
-5. Obtener la distribución para columnas numéricas `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
+5. Obtención de la distribución para columnas numéricas `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 
 6. Extraer registros de la combinación de dos tablas
 
@@ -165,16 +173,16 @@ A continuación presentamos algunos scripts de subárbol que se pueden usar para
 ###<a name="hive-featureengineering"></a>Generación de características
 
 En esta sección se describen maneras de generar características mediante consultas de subárbol:
+  
+1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
+2. [Riesgos de las variables de categorías en la clasificación binaria](#hive-riskfeature)
+3. [Extraer características del campo de fecha y hora](#hive-datefeature)
+4. [Extraer características del campo de texto](#hive-textfeature)
+5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
 > [AZURE.NOTE]Cuando genere características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar con la tabla original.
 
-1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
-2. [Riesgos de las variables de categorías en la clasificación binaria](#hive-riskfeature)
-3. [Extraer características de campos de fecha y hora](#hive-datefeatures)
-4. [Extraer características de campos de texto](#hive-textfeatures)
-5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
-
-####<a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
+####<a name="hive-frequencyfeature"></a> Generación de características basada en frecuencia
 
 A veces, resulta valioso calcular las frecuencias de los niveles de una variable de categoría o las frecuencias de combinaciones de niveles de varias variables de categorías. Los usuarios pueden usar el script siguiente para calcular las frecuencias:
 
@@ -189,7 +197,7 @@ A veces, resulta valioso calcular las frecuencias de los niveles de una variable
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
+####<a name="hive-riskfeature"></a> Riesgos de las variables de categorías en la clasificación binaria
 
 En la clasificación binaria, a veces necesitamos convertir variables de categorías no numéricas en funciones numéricas reemplazando los niveles no numéricos por riesgos numéricos, ya que es posible que algunos modelos únicamente admitan funciones numéricas. En esta sección mostramos algunas consultas de subárbol genéricas que calculan los valores de riesgo (probabilidades de registro) de una variable de categoría.
 
@@ -216,7 +224,7 @@ En este ejemplo, las variables `smooth_param1` y `smooth_param2` se establecen p
 
 Después de calcularse la tabla de riesgos, los usuarios pueden asignar valores de riesgo a una tabla uniéndola a la tabla de riesgo. La consulta de unión de subárbol se ha proporcionado en la sección anterior.
 
-####<a name="hive-datefeature"></a>Extraer características de campos de fecha y hora
+####<a name="hive-datefeature"></a> Extraer características de campos de fecha y hora
 
 El subárbol se suministra con un conjunto de UDF para el procesamiento de los campos de fecha y hora. En el subárbol, el formato de fecha y hora predeterminado es "aaaa-MM-dd 00:00:00" (al igual que "1970-01-01 12:21:32"). En esta sección, se muestran ejemplos de extracción del día del mes y del mes de un campo de fecha y hora, y ejemplos de conversión de una cadena de fecha y hora en un formato distinto del predeterminado en una cadena de fecha y hora de formato predeterminado.
 
@@ -238,14 +246,14 @@ En esta consulta, si `<datetime field>` tiene un patrón como `03/26/2015 12:04:
 En esta consulta, `hivesampletable` se incluye todos los clústeres de Hadoop de Azure HDInsight de forma predeterminada cuando se aprovisionan los clústeres.
 
 
-####<a name="hive-textfeature"></a>Extraer características de campos de texto
+####<a name="hive-textfeature"></a> Extracción de características de campos de texto
 
 Supongamos que la tabla de subárbol tiene un campo de texto, que es una cadena de palabras separadas por un espacio, la siguiente consulta extraerá la longitud de la cadena y el número de palabras de la cadena.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>Calcular distancia entre las coordenadas GPS
+####<a name="hive-gpsdistance"></a> Cálculo de la distancia entre las coordenadas de GPS
 
 La consulta que se proporciona en esta sección se puede aplicar directamente en los datos de viajes en taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar las funciones matemáticas incrustadas en el subárbol para generar funciones.
 
@@ -267,11 +275,11 @@ Los campos que se utilizan en esta consulta son coordenadas GPS de ubicaciones d
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-Las ecuaciones matemáticas de cálculo de distancia entre dos coordenadas GPS pueden encontrarse [aquí](http://www.movable-type.co.uk/scripts/latlong.html), escrito por Peter Lapisu. En su Javascript, la función toRad() es `lat_or_lon*pi/180`, que convierte grados a radianes. Aquí, `lat_or_lon` es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí proporciona la función `atan`, la función `atan2` la implementa la función `atan` en la consulta Hive anterior mediante la definición proporcionada en [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+Las ecuaciones matemáticas de cálculo de la distancia entre dos coordenadas de GPS pueden encontrarse [aquí](http://www.movable-type.co.uk/scripts/latlong.html), escrito por Peter Lapisu. En su Javascript, la función toRad() es `lat_or_lon*pi/180`, que convierte grados a radianes. Aquí, `lat_or_lon` es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí proporciona la función `atan`, la función `atan2` la implementa la función `atan` en la consulta de Hive anterior mediante la definición proporcionada en [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
 
 ![Creación del espacio de trabajo][1]
 
-[Aquí](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions) puede encontrar una lista completa de los UDF incrustados de Hive.
+[Aquí](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions) puede encontrar una lista completa de los UDF insertados de Hive.
 
 ## <a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 
@@ -318,4 +326,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

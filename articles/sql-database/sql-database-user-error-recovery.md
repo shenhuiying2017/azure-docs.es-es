@@ -109,4 +109,4 @@ Use REST para realizar la restauración de la base de datos mediante programaci�
 Una vez finalizada la restauración, puede configurar la base de datos recuperada para su uso siguiendo la guía [Finalización de una base de datos recuperada](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

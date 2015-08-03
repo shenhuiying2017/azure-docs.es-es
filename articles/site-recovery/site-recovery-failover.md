@@ -279,4 +279,4 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -28,4 +28,4 @@ Una parte esencial del aprovisionamiento declarativo es el lenguaje de expresion
 
 Para obtener más información sobre el lenguaje de expresiones, vea [Descripción de las expresiones de aprovisionamiento declarativo](https://msdn.microsoft.com/library/azure/dn801048.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

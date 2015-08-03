@@ -207,4 +207,4 @@ Este ejemplo crea una campaña de anuncio simple y especifica principalmente las
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

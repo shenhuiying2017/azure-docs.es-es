@@ -71,4 +71,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 - [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md): este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

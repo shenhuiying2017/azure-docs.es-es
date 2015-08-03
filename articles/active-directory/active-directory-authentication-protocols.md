@@ -56,4 +56,4 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

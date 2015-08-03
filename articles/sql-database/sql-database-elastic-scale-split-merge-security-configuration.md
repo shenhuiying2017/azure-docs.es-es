@@ -1,8 +1,7 @@
 <properties 
     pageTitle="Configuraciones de seguridad de Escalado elástico" 
     description="Configuración de certificados x409 para cifrado" 
-    services="sql-database" 
-	documentationCenter="" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -472,4 +471,4 @@ Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

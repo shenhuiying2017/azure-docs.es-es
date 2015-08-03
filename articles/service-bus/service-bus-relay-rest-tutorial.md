@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 Después de compilar la solución, haga lo siguiente para ejecutar la aplicación:
 
-1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\\bin\\Debug\\ImageListener.exe).
+1. Desde un símbolo del sistema, ejecute el servicio (ImageListener\bin\Debug\ImageListener.exe).
 
 2. Copie y pegue la dirección desde el símbolo del sistema en un explorador para ver la imagen.
 
@@ -580,4 +580,4 @@ Ahora que ha creado una aplicación que utiliza el servicio de Retransmisión de
 
 - [Cómo usar el servicio de retransmisión del Bus de servicio](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

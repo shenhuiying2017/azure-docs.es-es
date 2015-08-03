@@ -33,4 +33,4 @@ Para ver el **Explorador de servidores** en Visual Studio, en la barra de menús
 Ahora que tiene un contenedor de servicios en la nube, puede [crear e implementar](cloud-services-how-to-create-deploy.md) un servicio en la nube.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

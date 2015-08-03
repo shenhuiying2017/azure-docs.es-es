@@ -45,4 +45,4 @@ Siga los pasos mencionados en el vídeo [Introducción a Copia de seguridad de A
 - Para más información sobre la Copia de seguridad de Azure, vea [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md).
 - Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

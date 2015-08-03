@@ -93,4 +93,4 @@ Para crear una nueva máquina virtual de Windows en Azure, siga las instruccione
 - Como miembro de un conjunto con equilibrio de carga
 - Una dirección IP estática
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

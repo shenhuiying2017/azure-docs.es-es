@@ -91,4 +91,4 @@ Para restaurar los valores de fábrica del dispositivo desactivado, vaya a [Rest
 
 Para obtener asistencia técnica, [póngase en contacto con el soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

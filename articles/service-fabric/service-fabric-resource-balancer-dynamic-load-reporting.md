@@ -36,4 +36,4 @@ Tenga en cuenta que cuando un servicio informa de una carga, estos informes de c
 Para obtener más información: [Arquitectura de equilibrador de recursos](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

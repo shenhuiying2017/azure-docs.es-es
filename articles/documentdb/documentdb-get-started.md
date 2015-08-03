@@ -475,4 +475,4 @@ Para restaurar las referencias al SDK de .NET de DocumentDB de Visual Studio 201
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

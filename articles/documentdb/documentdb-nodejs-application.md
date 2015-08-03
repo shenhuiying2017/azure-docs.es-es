@@ -498,7 +498,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 	
 	Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
-5. Abra el archivo**style.css** ubicado en el directorio **public\\stylesheets** y reemplace el código por lo siguiente:
+5. Abra el archivo**style.css** ubicado en el directorio **public\stylesheets** y reemplace el código por lo siguiente:
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@ El código fuente de la aplicación de referencia completa se puede descargar [a
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

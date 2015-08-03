@@ -279,22 +279,29 @@ Consulte los recursos siguientes para resolver este escenario:
 -   [Hoy en día las firmas de acceso compartido son habituales](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Escenarios de identidades y acceso de Base de datos SQL de Azure
+## Escenarios de identidades y acceso de Base de datos SQL de Azure
+
 
 Base de datos SQL solo admite la autenticación de SQL Server. No se admite la autenticación Windows (seguridad integrada). Los usuarios deben proporcionar credenciales (nombre de usuario y contraseña) cada vez que se conectan a una Base de datos SQL. Preste especial atención al administrar el nombre de usuario y la contraseña para evitar la divulgación de información.
 
+
 ![][15]
 
-Consulte los recursos siguientes para resolver este escenario:
 
--   [Instrucciones y limitaciones de seguridad (Base de datos SQL de Azure)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
--   [Conexión con Base de datos SQL mediante sqlcmd](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
--   [Conexión con Base de datos SQL mediante ADO.NET](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
--   [Conexión con Base de datos SQL mediante ASP.NET](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
--   [Conexión con Base de datos SQL mediante WCF Data Services](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
--  [Conexión con Base de datos SQL mediante PHP](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
--   [Conexión con Base de datos SQL mediante JDBC](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
--   [Conexión con Base de datos SQL mediante ADO.NET Entity Framework](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
+Para solucionar esta situación, consulte el tema de ayuda siguiente:<br/> [Desarrollo de bases de datos de SQL Azure: temas de procedimientos](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+O bien, consulte uno de sus muchos temas secundarios, algunos de los cuales son:
+
+
+- [Conexión con Base de datos SQL mediante sqlcmd](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [Ejemplo de código: lógica de reintento para conectarse a la Base de datos SQL de Azure con ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Conexión con Base de datos SQL mediante PHP](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [Conexión con Base de datos SQL mediante JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+
+
+O consulte:<br/> [Instrucciones y limitaciones de seguridad de Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication)
+
 
 ##Escenarios de identidades y acceso del bus de servicio de Azure
 
@@ -444,4 +451,4 @@ Todos los escenarios y soluciones descritos en este tema son válidos cuando la 
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

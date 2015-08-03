@@ -87,6 +87,8 @@ En el recurso de Application Insights, aparecerán tiempos de ejecución de mét
 
 Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnostic].
 
+[Más de diagnosticar problemas de dependencia -](app-insights-dependencies.md#diagnosis).
+
 ## ¿Tiene preguntas? ¿Tiene problemas?
 
 [Solución de problemas de Java](app-insights-java-troubleshoot.md)
@@ -107,4 +109,4 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

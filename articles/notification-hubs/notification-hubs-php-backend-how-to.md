@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/17/2015" 
 	ms.author="yuaxu"/>
 
 # Uso de los Centros de notificaciones desde PHP
@@ -258,4 +258,4 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 [tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

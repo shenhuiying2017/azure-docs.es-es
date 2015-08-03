@@ -33,6 +33,10 @@ Este tutorial requiere lo siguiente:
 
 El servicio de notificaciones de inserción de Apple (APN) usa certificados para autenticar su aplicación móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su aplicación móvil. Para consultar la documentación oficial de la característica APNS, consulte [Servicio de notificaciones push de Apple].
 
+##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ## <a name="certificates"></a>Generación del archivo de solicitud de firma de certificado
 
 Primero debe generar el archivo de solicitud de firma de certificado (CSR) que Apple usa para generar un certificado firmado.
@@ -336,4 +340,4 @@ Ha completado correctamente este tutorial.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

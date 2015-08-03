@@ -75,4 +75,4 @@ Se tiene que crear un paquete de aplicación para implementar la aplicación y s
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

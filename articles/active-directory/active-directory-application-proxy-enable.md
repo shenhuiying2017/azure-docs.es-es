@@ -41,7 +41,7 @@ Número de puerto | Descripción
 9090 | Para habilitar el registro de conector (solo es necesario para el proceso de registro del conector).
 9091 | Para habilitar la renovación automática de certificados de confianza del conector.
  
-Si el firewall fuerza el tráfico según los usuarios que se originan, abra estos puertos para el tráfico procedente de los servicios de Windows que se ejecutan como un servicio de red. Además, asegúrese de habilitar el puerto 8080 para NT Authority\\System.
+Si el firewall fuerza el tráfico según los usuarios que se originan, abra estos puertos para el tráfico procedente de los servicios de Windows que se ejecutan como un servicio de red. Además, asegúrese de habilitar el puerto 8080 para NT Authority\System.
 
 
 ##Paso 1: Habilitar el proxy de la aplicación en Azure AD
@@ -70,4 +70,4 @@ Si desea desinstalar el conector, después de desinstalar el servicio de conecto
 * [Registro en Azure como una organización](..sign-up-organization.md)
 * [Identidad de Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

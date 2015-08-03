@@ -55,7 +55,7 @@ Las tareas más comunes asociadas a un volumen son:
 
 ## Agregar un volumen
 
-Ya [creó un volumen](storsimple-deployment-walkthrough.md#step-6:-create-a-volume) durante la implementación de la solución de StorSimple. El procedimiento para agregar un volumen es similar.
+Ya [creó un volumen](storsimple-deployment-walkthrough.md#to-create-a-volume) durante la implementación de la solución de StorSimple. El procedimiento para agregar un volumen es similar.
 
 ### Para agregar un volumen
 
@@ -181,4 +181,4 @@ Aprenda cómo [clonar un volumen de StorSimple](storsimple-clone-volume.md).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

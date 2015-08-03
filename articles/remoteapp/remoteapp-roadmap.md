@@ -39,4 +39,4 @@ Otras mejoras agregadas anteriormente este año:
 - Disponibilidad en centros de datos australianos
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

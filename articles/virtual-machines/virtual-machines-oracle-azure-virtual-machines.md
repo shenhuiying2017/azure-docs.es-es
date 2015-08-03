@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Software Oracle hospedado en máquinas virtuales de Azure
@@ -60,4 +61,4 @@ Consulte [Consideraciones variadas para las imágenes de máquina virtual de Ora
 
 [Configurar Oracle GoldenGate para Azure](virtual-machines-configuring-oracle-goldengate.md) sirve de guía de configuración de bases de datos y replicación.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

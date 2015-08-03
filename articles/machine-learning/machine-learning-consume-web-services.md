@@ -2,6 +2,7 @@
 	pageTitle="Consumo de un servicio web de Aprendizaje automático de Microsoft Azure" 
 	description="Una vez publicado un servicio de aprendizaje automático, se puede consumir el servicio web RESTFul facilitado como servicio de respuesta de solicitud o como servicio de ejecución por lotes." 
 	services="machine-learning" 
+	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -433,4 +434,4 @@ El código de ejemplo siguiente muestra cómo se puede enviar y supervisar un tr
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

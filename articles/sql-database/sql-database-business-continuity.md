@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Información general acerca de la continuidad del negocio
@@ -88,4 +88,4 @@ La replicación geográfica activa está disponible para bases de datos Premium.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

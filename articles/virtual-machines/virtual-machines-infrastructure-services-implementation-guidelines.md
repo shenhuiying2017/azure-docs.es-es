@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Directrices de implementación de los servicios de infraestructura de Azure" 
+	pageTitle="Instrucciones de implementación de los servicios de infraestructura de Azure" 
 	description="Obtenga información sobre las directrices clave de diseño e implementación para implementar una carga de trabajo de TI en los servicios de infraestructura de Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+	ms.date="07/09/2015" 
+	ms.author="rasquill"/>
 
-# Directrices de implementación de los servicios de infraestructura de Azure
+# Instrucciones de implementación de los servicios de infraestructura de Azure
  
 Azure es una excelente plataforma para implementar las configuraciones de desarrollo y pruebas o prueba de concepto, ya que requiere muy poca inversión para probar un determinado enfoque para la implementación de las soluciones. Sin embargo, debe ser capaz de distinguir las prácticas fáciles para un entorno de desarrollo y pruebas de las prácticas más difíciles y detalladas para una implementación completamente funcional y lista para la producción de una carga de trabajo de TI.
 
@@ -168,7 +168,7 @@ Los discos del sistema operativo y los discos de datos tienen un tamaño máximo
 ### Discos con bandas
 Además de proporcionar la capacidad de crear discos de más de 1.023 GB, en muchos casos la creación de bandas en los discos de datos mejorará el rendimiento, ya que permite que varios blobs respalden el almacenamiento de un solo volumen. Esto paraleliza las operaciones de E/S necesarias para escribir y leer datos de un único disco.
 
-Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener información más detallada, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+Azure impone límites en la cantidad de discos de datos y el ancho de banda disponible, en función del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
 Si usa la creación de bandas en discos de datos de Azure, tenga en cuenta las siguientes directrices:
 
@@ -288,7 +288,7 @@ Tareas:
 - Defina el espacio de direcciones para la red virtual.
 - Defina el conjunto de subredes y el espacio de direcciones para cada uno.
 - Para las redes virtuales entre locales, defina el conjunto de espacios de direcciones de redes locales para las ubicaciones locales que las máquinas virtuales de la red virtual deben alcanzar.
-- Cree la red virtual usando su convención de nomenclatura. Puede usar el Portal de vista previa de Azure o el Portal de administración de Azure.
+- Cree la red virtual usando su convención de nomenclatura. Puede usar el Portal de vista previa de Azure o el Portal de Azure.
 
 ## 6. Conjuntos de disponibilidad
 
@@ -312,7 +312,7 @@ Tarea:
 
 En PaaS de Azure, Azure administra las máquinas virtuales y sus discos asociados. Debe crear y asignar un nombre a los servicios en la nube y los roles. Después, Azure creará instancias asociadas a dichos roles. En el caso de IaaS de Azure, depende de usted proporcionar un nombre a los servicios en la nube, las máquinas virtuales y los discos asociados.
 
-Para reducir la carga administrativa, el Portal de administración de Azure usará el nombre del equipo como sugerencia para el nombre predeterminado del servicio en la nube asociado (en caso de que el cliente decida crear un nuevo servicio en la nube como parte del Asistente para la creación de una máquina virtual).
+Para reducir la carga administrativa, el Portal de Azure usará el nombre del equipo como sugerencia para el nombre predeterminado del servicio en la nube asociado (en caso de que el cliente decida crear un nuevo servicio en la nube como parte del Asistente para la creación de una máquina virtual).
 
 Además, Azure asigna un nombre a los discos y a sus blobs de VHD auxiliares combinando el nombre del servicio en la nube, el nombre del equipo y la fecha de creación.
 
@@ -430,7 +430,7 @@ Esta configuración incluye:
 
 [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#storage-limits)
 
-[Tamaños de máquinas virtuales y servicios en la nube de Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[Tamaños de máquinas virtuales](virtual-machines-size-specs.md)
 
 [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../storage-scalability-targets.md)
 
@@ -438,7 +438,7 @@ Esta configuración incluye:
 
 [Diagrama de arquitectura de referencia de extensión del centro de datos](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

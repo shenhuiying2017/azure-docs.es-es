@@ -69,7 +69,7 @@ Diagrama 1: Descripción del proceso de reentrenamiento
 
 	Tenga en cuenta que el código de ejemplo tiene comentarios que indican las partes del código que necesitan actualizaciones. Además, al especificar la ubicación de "output1" en la carga de la solicitud, la extensión de archivo de "RelativeLocation" debe cambiarse un ".ileaner" como en "Outputs": {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
 
-	1. Proporcionar información de almacenamiento de Azure El código de ejemplo para BES cargará un archivo desde una unidad local (por ejemplo, “C:\\temp\\CensusIpnput.csv”) para que el Almacenamiento de Azure lo procese y escriba los resultados de nuevo en Almacenamiento de Azure.  
+	1. Proporcionar información de almacenamiento de Azure El código de ejemplo para BES cargará un archivo desde una unidad local (por ejemplo, “C:\temp\CensusIpnput.csv”) para que el Almacenamiento de Azure lo procese y escriba los resultados de nuevo en Almacenamiento de Azure.  
 
 		Para ello, deberá recuperar el nombre, la clave y la información de contenedor de su cuenta de Almacenamiento desde el Portal de administración de Azure para, después, actualizar el código aquí. También deberá asegurarse de que el archivo de entrada está disponible en la ubicación que especifique en el código.
 
@@ -107,4 +107,4 @@ Al usar las API de reentrenamiento, podemos actualizar el modelo entrenado de un
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

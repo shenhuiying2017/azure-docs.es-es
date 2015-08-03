@@ -101,11 +101,11 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 1. En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET](http://azure.microsoft.com/develop/net/).
 2. Cree una aplicación de la consola .NET con el proyecto con el nombre **TSPSolver**. Asegúrese de que el marco de trabajo de destino esté establecido para .**NET Framework 4** o posterior (no para **.NET Framework 4 Client Profile**). El marco de trabajo de destino puede establecerse después de crear un proyecto mediante lo siguiente: en el menú de Visual Studio, haga clic en **Proyectos**, en **Propiedades**, en la pestaña **Aplicación** y, a continuación, establezca el valor para **Marco de trabajo de destino**.
-3. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPSolver**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, en **C:\\Archivos de programa\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef)** y seleccione **Microsoft.ServiceBus.dll** como referencia.
+3. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPSolver**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, en **C:\Archivos de programa\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef)** y seleccione **Microsoft.ServiceBus.dll** como referencia.
 4. Agregue la biblioteca System Runtime Serialization. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPSolver**, haga clic en** Agregar referencia**, haga clic en la pestaña** .NET** y seleccione **System.Runtime.Serialization** como referencia.
 5. Use el código de ejemplo al final de esta sección para el contenido de **Program.cs**.
 6. Modifique el marcador de posición **your_connection_string** para usar la **cadena de conexión** del bus de servicio.
-7. Realice la compilación de la aplicación. De esta forma, se creará **TSPSolver.exe** en la carpeta **bin** del proyecto (**bin\\release** o **bin\\debug**, según si se dirige a una versión o a una compilación de depuración). Copiará este ejecutable y Microsoft.ServiceBus.dll en la máquina virtual más tarde.
+7. Realice la compilación de la aplicación. De esta forma, se creará **TSPSolver.exe** en la carpeta **bin** del proyecto (**bin\release** o **bin\debug**, según si se dirige a una versión o a una compilación de depuración). Copiará este ejecutable y Microsoft.ServiceBus.dll en la máquina virtual más tarde.
 
 <p/>
 
@@ -326,11 +326,11 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 ## Crear una aplicación .NET que supervisa el progreso de la tarea de proceso intensivo
 
 1. En la máquina de desarrollo, cree una aplicación de consola .NET con **TSPClient** como nombre de proyecto. Asegúrese de que el marco de trabajo de destino esté establecido para .**NET Framework 4** o posterior (no para **.NET Framework 4 Client Profile**). El marco de trabajo de destino puede establecerse después de crear un proyecto mediante lo siguiente: en el menú de Visual Studio, haga clic en **Proyectos**, en **Propiedades**, en la pestaña **Aplicación** y, a continuación, establezca el valor para **Marco de trabajo de destino**.
-2. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPClient**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, en **C:\\Archivos de programa\\Microsoft SDKs\\Azure\\.NET SDK\\v2.5\\ToolsRef)** y seleccione **Microsoft.ServiceBus.dll** como referencia.
+2. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPClient**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, en **C:\Archivos de programa\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef)** y seleccione **Microsoft.ServiceBus.dll** como referencia.
 3. Agregue la biblioteca System Runtime Serialization. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en **TSPClient**, haga clic en **Agregar referencia**, en la pestaña **.NET** y seleccione **System.Runtime.Serialization** como referencia.
 4. Use el código de ejemplo al final de esta sección para el contenido de **Program.cs**.
 5. Modifique el marcador de posición **your_connection_string** para usar la **cadena de conexión** del bus de servicio.
-6. Realice la compilación de la aplicación. De esta forma, se creará **TSPClient.exe** en la carpeta **bin** del proyecto (**bin\\release** o **bin\\debug**, según si se dirige a una versión o a una compilación de depuración). Puede ejecutar este código de la máquina de desarrollo o copiar este ejecutable y Microsoft.ServiceBus.dll en una máquina que ejecute la aplicación cliente (no es necesario estar en la máquina virtual).
+6. Realice la compilación de la aplicación. De esta forma, se creará **TSPClient.exe** en la carpeta **bin** del proyecto (**bin\release** o **bin\debug**, según si se dirige a una versión o a una compilación de depuración). Puede ejecutar este código de la máquina de desarrollo o copiar este ejecutable y Microsoft.ServiceBus.dll en una máquina que ejecute la aplicación cliente (no es necesario estar en la máquina virtual).
 
 <p/>
 
@@ -443,9 +443,9 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 ### Ejecución de la aplicación de proceso intensivo
 
 1. Inicie sesión en la máquina virtual.
-2. Cree una carpeta con el nombre **c:\\TSP**. Este es lugar en donde se ejecutará la aplicación.
-3. Copie TSPSolver.exe y Microsoft.ServiceBus.dll; ambos estarán disponibles en la carpeta **bin** del proyecto TSPSolver en **c:\\TSP**.
-4. Cree un archivo con el nombre **c:\\TSP\\cities.txt** con el siguiente contenido:
+2. Cree una carpeta con el nombre **c:\TSP**. Este es lugar en donde se ejecutará la aplicación.
+3. Copie TSPSolver.exe y Microsoft.ServiceBus.dll; ambos estarán disponibles en la carpeta **bin** del proyecto TSPSolver en **c:\TSP**.
+4. Cree un archivo con el nombre **c:\TSP\cities.txt** con el siguiente contenido:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. En el símbolo del sistema, cambie los directorios a c:\\TSP.
+5. En el símbolo del sistema, cambie los directorios a c:\TSP.
 6. Tendrá que crear la cola del bus de servicio antes de ejecutar las permutaciones del solucionador del TSP. Ejecute el comando siguiente para crear la cola del bus de servicio:
 
         TSPSolver createqueue
@@ -515,9 +515,9 @@ El solucionador se ejecutará hasta que acabe de examinar todas las rutas.
 
 ### Ejecución de la supervisión de la aplicación cliente
 1. Inicie sesión en el equipo donde se va a ejecutar la aplicación cliente. No tiene que ser el mismo que ejecuta la aplicación **TSPSolver**, aunque podría serlo.
-2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\\TSP**.
-3. Copie **TSPClient.exe** y Microsoft.ServiceBus.dll; ambos están en la carpeta **bin** del proyecto TSPClient en c:\\TSP.
-4. En el símbolo del sistema, cambie los directorios a c:\\TSP.
+2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
+3. Copie **TSPClient.exe** y Microsoft.ServiceBus.dll; ambos están en la carpeta **bin** del proyecto TSPClient en c:\TSP.
+4. En el símbolo del sistema, cambie los directorios a c:\TSP.
 5. Ejecute el siguiente comando:
 
         TSPClient
@@ -547,4 +547,4 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

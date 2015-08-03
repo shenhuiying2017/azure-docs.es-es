@@ -39,7 +39,7 @@ Basta con hacerlo una vez por equipo. Este paso instala un kit de herramientas q
 
     ![Ayuda, Instalar nuevo software](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. El SDK se encuentra en http://dl.msopentech.com/eclipse, en el kit de herramientas de Azure.
+2. El SDK se encuentra en http://dl.windowsazure.com/eclipse, en el kit de herramientas de Azure.
 3. Desactive **Ponerse en contacto con todos los sitios de actualización...**
 
     ![Para el SDK de Application Insights, desactive Ponerse en contacto con todos los sitios de actualización](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Puede insertar código en el JavaScript de la página web y en Java del servidor
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

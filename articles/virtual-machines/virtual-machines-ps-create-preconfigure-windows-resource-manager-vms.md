@@ -3,9 +3,10 @@
 	description="Aprenda a usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows y Administrador de recursos en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="josephd"/>
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell
 
@@ -28,7 +29,7 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear conjunto
 
 ## Paso 1: Instalación de Azure PowerShell
 
-También debe disponer de Azure PowerShell, versión 0.9.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](../powershell-install-configure.md) para obtener instrucciones.
+También debe disponer de Azure PowerShell, versión 0.9.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](powershell-install-configure.md) para obtener instrucciones.
 
 Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
@@ -40,7 +41,7 @@ Aquí tiene un ejemplo.
 	-------
 	0.9.0
 
-Si no tiene la versión 0.9.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Si no tiene la versión 0.9.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
 
 ## Paso 2: Establecimiento de la suscripción
 
@@ -57,7 +58,7 @@ Puede obtener el nombre de suscripción correcta en la visualización de este co
 
 A continuación, cambie Azure PowerShell al modo Administrador de recursos.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 ## Paso 3: Creación de recursos necesarios
 
@@ -95,7 +96,7 @@ Para probar si la cuenta de almacenamiento elegida tiene un nombre único global
 
 Si el comando Test-AzureName muestra "False", el nombre propuesto es único. Cuando haya determinado un nombre único, vuelva a cambiar Azure PowerShell al modo Administrador de recursos con este comando.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 Las máquinas virtuales basadas en Administrador de recursos puede utilizar una etiqueta de nombre de dominio público, que puede contener solo letras, números y guiones. El primer y el último carácter del campo deben ser una letra o un número.
 
@@ -103,8 +104,8 @@ Para probar si una etiqueta de nombre de dominio elegido tiene un nombre único 
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc 
-	
+	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+
 Si DNSNameAvailability es "True", el nombre propuesto es un nombre único global.
 
 Las máquinas virtuales basadas en Administrador de recursos pueden colocarse en un conjunto de disponibilidad basada en Administrador de recursos. Si es necesario, cree un nuevo conjunto de disponibilidad para la nueva máquina virtual con estos comandos.
@@ -144,14 +145,14 @@ Debe especificar el nombre de una red virtual basada en Administrador de recurso
 
 	$rgName="<resource group name>"
 	$vnetName="<virtual network name>"
-	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets 
+	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets
 
 El índice de subred es el número de la subred en la visualización de este comando, se numeran consecutivamente de izquierda a derecha y empiezan en 0.
 
 En este ejemplo:
 
-	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
-	
+	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+
 	Subnets
 	-------
 	{frontendSubnet, backendSubnet}
@@ -201,7 +202,7 @@ Opción 2: Especificación de un nombre y un tamaño de la máquina virtual y su
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
 	$avName="<availability set name>"
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 
 Para determinar los valores posibles de la cadena de tamaño de máquina virtual para la opción 2, use estos comandos.
@@ -242,7 +243,7 @@ Copie estos comandos en el conjunto de comandos y rellene el publicador, la ofer
 	$pubName="<Image publisher name>"
 	$offerName="<Image offer name>"
 	$skuName="<Image SKU name>"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
@@ -271,36 +272,36 @@ Se necesita un conjunto de comandos de PowerShell para crear una máquina virtua
 - Utilice la imagen de Windows Server 2012 R2 Datacenter
 - Tenga el nombre LOB07 y se encuentre en el conjunto de disponibilidad WEB_AS existente
 - Tenga una NIC con una dirección IP pública en la subred FrontEnd (índice de subred 0) de la red virtual AZDatacenter existente
-- Tenga un disco de datos adicional de 200 GB 
+- Tenga un disco de datos adicional de 200 GB
 
 Este es el comando de Azure PowerShell correspondiente para crear esta máquina virtual, basado en el proceso descrito en el paso 4.
 
-	# Switch to the Resource Manager mode	
+	# Switch to the Resource Manager mode
 	Switch-AzureMode AzureResourceManager
-	
+
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
 	$saName="contosoLOBServersSA"
-	
+
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	
+
 	# Create the NIC
 	$nicName="AzureInterface"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
-	
+
 	# Specify the name, size, and existing availability set
 	$vmName="LOB07"
 	$vmSize="Standard_A3"
 	$avName="WEB_AS"
 	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	
+
 	# Add a 200 GB additional data disk
 	$diskSize=200
 	$diskLabel="APPStorage"
@@ -308,16 +309,16 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + $diskName  + ".vhd"
 	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI -CreateOption empty
-	
+
 	# Specify the image and local administrator account, and then add the NIC
 	$pubName="MicrosoftWindowsServer"
 	$offerName="WindowsServer"
 	$skuName="2012-R2-Datacenter"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	
+
 	# Specify the OS disk name and create the VM
 	$diskName="OSDisk"
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
@@ -329,13 +330,12 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+[Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
 [Implementación y administración de Máquinas virtuales de Azure mediante el Administrador de recursos de plantillas y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
- 
+[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

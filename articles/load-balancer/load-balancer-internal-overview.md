@@ -92,4 +92,4 @@ Otro escenario para el LOB es tener una VPN de sitio a sitio a la red virtual do
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

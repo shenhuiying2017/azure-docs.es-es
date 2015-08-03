@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="07/09/2015"
+	ms.date="07/16/2015"
 	ms.author="tamram"/>
 
 
@@ -21,7 +21,7 @@
 
 ## Información general
 
-Una cuenta de almacenamiento de Azure es una cuenta segura que proporciona acceso a los servicios del Almacenamiento de Azure. La cuenta de almacenamiento ofrece el espacio de nombres exclusivo para los objetos de datos de Almacenamiento de Azure. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta.
+Una cuenta de almacenamiento de Azure es una cuenta segura que proporciona acceso a los servicios de Blob, Cola, Tabla y Archivo del Almacenamiento de Azure. La cuenta de almacenamiento ofrece el espacio de nombres exclusivo para los objetos de datos de Almacenamiento de Azure. De forma predeterminada, los datos de su cuenta están disponibles solo para usted, el propietario de la cuenta.
 
 Existen dos tipos de cuentas de almacenamiento:
 
@@ -63,7 +63,7 @@ Para obtener más información acerca de los objetivos de capacidad y rendimient
 
 	Tenga en cuenta que debe seleccionar un grupo de afinidad al crear la cuenta de almacenamiento; no puede mover una cuenta existente a un grupo de afinidad. Para obtener información sobre los grupos de afinidad, consulte [Coubicación de servicios con un grupo de afinidad](#service-co-location-with-an-affinity-group) que se muestra a continuación.
 
-5. Si tiene más de una suscripción a Azure, aparecerá el campo **Suscripción**. En **Suscripción**, escriba la suscripción a Azure con la que desea usar la cuenta de almacenamiento. Puede crear hasta cinco cuentas de almacenamiento para una suscripción.
+5. Si tiene más de una suscripción a Azure, aparecerá el campo **Suscripción**. En **Suscripción**, escriba la suscripción a Azure con la que desea usar la cuenta de almacenamiento.
 
 6. En **Replicación**, seleccione el nivel deseado de replicación para la cuenta de almacenamiento. La opción de replicación recomendada es la replicación con redundancia geográfica, que ofrece la durabilidad máxima de los datos. Para obtener más información sobre las opciones de replicación del Almacenamiento de Azure, consulte [Replicación de la cuenta de almacenamiento de Azure](storage-redundancy.md).
 
@@ -167,4 +167,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -240,4 +240,4 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

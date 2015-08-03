@@ -204,4 +204,4 @@ No estamos de ninguna manera afirmando que Service Fabric de Azure sea un sustit
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

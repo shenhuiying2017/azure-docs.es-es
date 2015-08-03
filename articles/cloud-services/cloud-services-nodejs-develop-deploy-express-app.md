@@ -39,7 +39,7 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. Cambie los directorios al directorio **c:\\node** y, a continuación, escriba los siguientes comandos para crear una nueva solución llamada **expressapp** y un rol web llamado **WebRole1**:
+2. Cambie los directorios al directorio **c:\node** y, a continuación, escriba los siguientes comandos para crear una nueva solución llamada **expressapp** y un rol web llamado **WebRole1**:
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -135,4 +135,4 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

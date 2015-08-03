@@ -2,6 +2,7 @@
 	pageTitle="Muestreo de datos en tablas de HDInsight Hive de Azure | Microsoft Azure"
 	description="Reducción de la muestra de datos en tablas de HDInsight Hive de Azure"
 	services="machine-learning,hdinsight"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -95,4 +96,4 @@ Aquí se muestra una consulta de ejemplo:
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [LanguageManual Sampling](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling) (Manual de lenguaje: muestreo).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

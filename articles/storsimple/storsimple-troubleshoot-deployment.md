@@ -3,7 +3,7 @@
    description="Se describe cómo diagnosticar y corregir los errores que se producen al implementar StorSimple por primera vez."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # Solución de problemas de implementación de dispositivos de StorSimple
 
@@ -64,7 +64,7 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 - Al configurar las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager. 
 - Al registrar el dispositivo. 
 
-### Errores que se producen al realizar la configuración de red necesaria
+## Errores durante la configuración de red necesaria
 
 | Nº| Mensaje de error | Causas posibles | Acción recomendada |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 | 6 | Invoke-HcsSetupWizard: Dirección IPv6 no válida. | La dirección IP se ha indicado con un formato incorrecto.| Compruebe el formato e indique de nuevo la dirección IP. Para obtener más información, consulte [Direcciones Ipv6][2].|
 | 7 | Invoke-HcsSetupWizard: No hay más extremos disponibles desde el asignador de extremos (excepción de HRESULT: 0x800706d9). | La funcionalidad de clúster no funciona. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes.
 
-### Errores que se producen al realizar la configuración de proxy web opcional
+## Errores durante la configuración del proxy web opcional
 
 | Nº| Mensaje de error | Causas posibles | Acción recomendada |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@ En las tablas siguientes se enumeran los errores comunes que pueden aparecer en 
 | 4 | Invoke-HcsSetupWizard: El recurso de clúster no se encontró (excepción de HRESULT: 0x8007138f). | No se encuentra el recurso de clúster. Esto puede ocurrir si la instalación no se realizó correctamente. | Puede que necesite restablecer la configuración predeterminada de fábrica del dispositivo. [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para crear un recurso de clúster.|
 | 5 | Invoke-HcsSetupWizard: El recurso de clúster no está en línea (excepción de HRESULT: 0x8007138c).| Los recursos de clúster no están en línea. | [Póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx) para conocer los pasos siguientes.|
 
-### Errores que se producen al configurar las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager.
+## Errores relacionados con las contraseñas del administrador de dispositivos y de StorSimple Snapshot Manager.
 
 La contraseña predeterminada del administrador de dispositivos es **Password1**. Esta contraseña expira tras el primer inicio de sesión; por lo tanto, deberá utilizar el Asistente para instalación para cambiarla. Debe proporcionar una nueva contraseña de administrador de dispositivos al registrar el dispositivo por primera vez.
 
@@ -124,7 +124,7 @@ Puede restablecer las contraseñas desde el Portal de administración del servic
 - [Configuración de la contraseña del administrador de dispositivos](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [Configuración de la contraseña de StorSimple Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### Errores que se producen al registrar el dispositivo
+## Errores durante el registro de dispositivos
 
 Para registrar el dispositivo se utiliza el servicio StorSimple Manager que se ejecuta en Microsoft Azure. Pueden surgir uno o varios de los siguientes problemas durante el registro del dispositivo.
 
@@ -575,4 +575,4 @@ El error puede deberse a alguna de las siguientes causas:
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

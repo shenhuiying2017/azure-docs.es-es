@@ -124,4 +124,4 @@ La disponibilidad de servicios y características de un servicio en la nube de M
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -50,7 +50,7 @@ Microsoft Azure proporciona un catálogo muy amplio de tecnologías de análisis
 
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -62,4 +62,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

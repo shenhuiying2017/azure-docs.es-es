@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
 # Temporizadores de actor
-Los temporizadores de actor ofrecen un contenedor simple alrededor del temporizador de .NET para que los métodos de devolución de llamada respeten las garantías de simultaneidad basadas en turnos que proporciona el tiempo de ejecución de los actores.
+Los temporizadores de actor ofrecen un contenedor simple alrededor de los temporizadores de .NET para que los métodos de devolución de llamada respeten las garantías de simultaneidad basadas en turnos que proporciona el tiempo de ejecución de los actores.
 
 Los actores pueden usar los métodos `RegisterTimer` y `UnregisterTimer` en su clase base para registrar y anular el registro de los temporizadores. En el ejemplo siguiente se muestra el uso de las API de temporizador. Las API son muy similares al temporizador de .NET. En el ejemplo siguiente, cuando el temporizador vence, el tiempo de ejecución de los actores llama al método `MoveObject` y se garantiza que se respeta la simultaneidad basada en turnos, lo que significa que no habrá otros métodos de actor o devoluciones de llamada de temporizadores o recordatorios en curso hasta que esta devolución de llamada complete su ejecución.
 
@@ -113,6 +113,5 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 ```
 
 Como se indicó anteriormente, el método `UnregisterReminder` acepta una interfaz `IActorReminder`. La clase base del actor admite un método `GetReminder` que puede usarse para recuperar la interfaz `IActorReminder` pasándole el nombre del recordatorio. Esto resulta útil porque el actor no necesita conservar la interfaz `IActorReminder` que devuelve la llamada al método `RegisterReminder`.
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

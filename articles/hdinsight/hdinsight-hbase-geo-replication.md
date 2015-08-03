@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/02/2015"
+   ms.date="07/08/2015"
    ms.author="jgao"/>
 
 # Configuración de la replicación geográfica de HBase en HDInsight
@@ -311,4 +311,4 @@ En este tutorial, ha aprendido cómo configurar la replicación de HBase entre d
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

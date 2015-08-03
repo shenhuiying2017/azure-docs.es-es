@@ -5,7 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Ejemplo de MapReduce de contar palabras por streaming de C# en Hadoop en HDInsight
 
@@ -204,4 +204,4 @@ Para ver tutoriales que ejecutan otras muestras y ofrecen instrucciones sobre la
 [hdinsight-use-pig]: hdinsight-use-pig.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

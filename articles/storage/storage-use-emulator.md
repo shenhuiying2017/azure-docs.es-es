@@ -80,7 +80,7 @@ Cuando se cierra la ventana de la línea de comandos, el emulador de almacenamie
 
 Al ejecutar por primera vez el emulador de almacenamiento, el entorno de almacenamiento local se inicia automáticamente. El proceso de inicialización crea una base de datos en LocalDB y se reserva puertos HTTP para cada servicio de almacenamiento local.
 
-El emulador de almacenamiento se instala de manera predeterminada en el directorio C:\\Archivos de programa (x86)\\Microsoft SDKs\\Azure\\Storage Emulator.
+El emulador de almacenamiento se instala de manera predeterminada en el directorio C:\Archivos de programa (x86)\Microsoft SDKs\Azure\Storage Emulator.
 
 ### Inicializar el emulador de almacenamiento para usar otra base de datos SQL
 
@@ -93,7 +93,7 @@ La herramienta de la línea de comandos del emulador de almacenamiento se puede 
     
 	También puede usar el siguiente comando, el cual indicará al emulador que utilice la instancia predeterminada de SQL Server:
 
-    	AzureStorageEmulator init /server .\\ 
+    	AzureStorageEmulator init /server .\ 
 
 	O bien, puede usar el comando siguiente, que reinicializa la base de datos a la instancia de LocalDB predeterminada:
 
@@ -127,8 +127,6 @@ Los extremos de servicio para el emulador de almacenamiento son:
 	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
 	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-> [AZURE.NOTE]No puede usar HTTPS con el emulador de almacenamiento, aunque HTTPS es el protocolo recomendado para acceder a los recursos del almacenamiento de Azure.
- 
 ### Direccionar la cuenta secundaria con RA-GRS
 
 A partir de la versión 3.1, la cuenta del emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). Para los recursos de almacenamiento en la nube y en el emulador local, puedes obtener acceso a la ubicación de la cuenta secundaria si anexa -secondary al nombre de la cuenta. Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob usando la cuenta secundaria de solo lectura en el emulador de almacenamiento:
@@ -222,4 +220,4 @@ Se ha cambiado el nombre de ejecutable del emulador de almacenamiento a *AzureSt
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

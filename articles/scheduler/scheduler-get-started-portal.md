@@ -264,4 +264,4 @@ Por último, para todos los tipos de acción, puede cambiar la misma programaci�
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

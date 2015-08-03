@@ -263,4 +263,4 @@ Para mostrar el estado de la extensión VMAccess, ejecute este comando.
 [Conexión a una máquina virtual de Azure con RDP o SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

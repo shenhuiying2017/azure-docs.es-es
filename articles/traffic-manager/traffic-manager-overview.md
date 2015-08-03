@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# Información general sobre el Administrador de tráfico
+# ¿Qué es el Administrador de tráfico?
 
 El Administrador de tráfico de Microsoft Azure permite controlar la distribución del tráfico de usuario a los extremos especificados, que pueden incluir servicios en la nube de Azure, sitios web y otros extremos. El Administrador de tráfico aplica un motor de directivas inteligente a las consultas del Sistema de nombres de dominio (DNS) para los nombres de dominio de los recursos de Internet. Los servicios en la nube de Azure o los sitios web pueden ejecutarse en distintos centros de datos de todo el mundo.
 
@@ -160,7 +160,7 @@ Para agregar un perfil de Administrador de tráfico como extremo y configurar el
 
 Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint para su propia presentación sobre el Administrador de tráfico o modificarlas para sus propios fines, consulte [Ilustraciones del Administrador de tráfico en la documentación de MSDN](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99).
 
-## Otras referencias
+## Pasos siguientes
 
 [Servicios en la nube](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -170,4 +170,4 @@ Si desea incluir las ilustraciones de este tema como diapositivas de PowerPoint 
 
 [Cmdlets del Administrador de tráfico de Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

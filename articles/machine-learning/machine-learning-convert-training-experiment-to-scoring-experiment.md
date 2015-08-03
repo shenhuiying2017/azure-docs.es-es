@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 #Convertir un experimento de formación en Aprendizaje automático en un experimento puntuación
@@ -54,11 +54,11 @@ Al convertir este experimento de formación en un experimento de puntuación, al
 
 - **Prep**: en función de los datos que se vayan a enviar para puntuar, estos módulos pueden ser necesarios, o no, para procesar los datos entrantes.
 
-	Por ejemplo, en este ejemplo, el conjunto de datos de ejemplo puede tener valores que faltan e incluye columnas que no son necesarias para formar el modelo. Por lo tanto, se ha incluido un módulo **Limpiar datos que faltan** para tratar los valores ausentes y un módulo [Proyectar columnas][project-columns] para excluir las columnas adicionales del flujo de datos. Si sabe que a los datos que se van a enviar para puntuar a través del servicio web no les van a faltar valores, puede quitar el módulo **Limpiar datos que faltan**. Sin embargo, dado que el módulo [Proyectar columnas][project-columns] ayuda a definir el conjunto de funciones que se puntúan, no se puede quitar.
+	Por ejemplo, en este ejemplo, el conjunto de datos de ejemplo puede tener valores que faltan e incluye columnas que no son necesarias para formar el modelo. Por lo tanto, se ha incluido un módulo [Limpiar datos que faltan][clean-missing-data] para tratar los valores ausentes y un módulo [Proyectar columnas][project-columns] para excluir las columnas adicionales del flujo de datos. Si sabe que a los datos que se van a enviar para puntuar a través del servicio web no les van a faltar valores, puede quitar el módulo [Limpiar datos que faltan][clean-missing-data]. Sin embargo, dado que el módulo [Proyectar columnas][project-columns] ayuda a definir el conjunto de funciones que se puntúan, no se puede quitar.
 
-- **Entrenar**: una vez que el modelo se ha entrenado correctamente, guárdelo como un módulo de modelo entrenado individual. A continuación, reemplace estos módulos individuales por los del modelo formado guardado.
+- **Train**: una vez que el modelo se ha entrenado correctamente, guárdelo como un módulo de modelo entrenado individual. A continuación, reemplace estos módulos individuales por los del modelo formado guardado.
 
-- **Puntuación**: en este ejemplo, el módulo Dividir se utiliza para dividir el flujo de datos en un conjunto de datos de prueba y datos de entrenamiento. En el experimento de puntuación esto no es necesario y puede quitarse. De forma similar, el segundo módulo [Puntuar modelo][score-model] y el módulo [Evaluar modelo][evaluate-model] se usan para comparar los resultados de los datos de prueba, por lo que estos módulos tampoco son necesarios en el experimento de puntuación. No obstante, el módulo [Puntuar modelo][score-model] restante, es necesario para devolver un resultado de puntuación a través del servicio web.
+- **Puntuación**: un este ejemplo, el módulo Dividir se usa para dividir el flujo de datos en un conjunto de datos de prueba y datos de entrenamiento. En el experimento de puntuación esto no es necesario y puede quitarse. De forma similar, el segundo módulo [Puntuar modelo][score-model] y el módulo [Evaluar modelo][evaluate-model] se usan para comparar los resultados de los datos de prueba, por lo que estos módulos tampoco son necesarios en el experimento de puntuación. No obstante, el módulo [Puntuar modelo][score-model] restante es necesario para devolver un resultado de puntuación a través del servicio web.
 
 Este es el aspecto de nuestro ejemplo después de hacer clic en **Crear experimento de puntuación**:
 
@@ -76,7 +76,7 @@ Por ejemplo, de forma predeterminada **Crear experimento de puntuación** coloca
 
 Los datos de entrada que se proporciona a través del servicio web pasarán ahora directamente al módulo del modelo de puntuación sin ningún procesamiento previo.
 
-De igual forma, de manera predeterminada **Crear experimento de puntuación** coloca el módulo Salida de servicio web en la parte inferior del flujo de datos. En este ejemplo, el servicio web devolverá al usuario la salida del módulo [Puntuar modelo][score-model], que incluye el vector de los datos de entrada completo, además de los resultados de las puntuaciones.
+De igual forma, de manera predeterminada **Crear experimento de puntuación** coloca el módulo de salida de servicio web en la parte inferior del flujo de datos. En este ejemplo, el servicio web devolverá al usuario la salida del módulo [Puntuar modelo][score-model], que incluye el vector de los datos de entrada completo, además de los resultados de las puntuaciones.
 
 Sin embargo, si prefiere que devuelva otra cosa (por ejemplo, solo los resultados de puntuación y no el vector completo de los datos de entrada) a continuación, puede insertar un módulo [Proyectar columnas][project-columns] para excluir todas las columnas, excepto los resultados de la puntuación. A continuación, mueva el módulo **Salida de servicio web** a la salida del módulo [Proyectar columnas][project-columns]:
 
@@ -98,7 +98,7 @@ Un ejemplo común es la configuración del módulo [Lector][reader] para que el 
 
 Puede definir parámetros de servicio web y asociarlos con uno o más parámetros de módulo, y puede especificar si son obligatorios u opcionales. El usuario del servicio web puede proporcionar a continuación valores para estos parámetros cuando se tiene acceso al servicio y las acciones del módulo se modificarán en consecuencia.
 
-Para obtener más información acerca de los parámetros de servicio web, consulte [Usar parámetros de servicio web de Aprendizaje automático de Azure][webserviceparameters]
+Para obtener más información acerca de los parámetros del servicio web, consulte [Usar parámetros del servicio web de Aprendizaje automático de Azure][webserviceparameters]
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
@@ -132,4 +132,4 @@ Para obtener más información sobre el proceso de publicación completo, consul
 [writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

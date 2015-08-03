@@ -86,4 +86,4 @@ Aparte de la marca, algunos elementos más del portal se han cambiado de nombre 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el nuevo portal](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

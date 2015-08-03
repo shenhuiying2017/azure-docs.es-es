@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="07/20/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Ejecución de un trabajo de Hadoop con DocumentDB y HDInsight
@@ -32,25 +32,28 @@ Se recomienda comenzar con el vídeo siguiente, donde se realiza una ejecución 
 
 A continuación, vuelva a este artículo, donde recibirá información detallada sobre cómo ejecutar trabajos de análisis en los datos de DocumentDB.
 
-> [AZURE.TIP]Este tutorial presupone que se tiene experiencia previa con Apache Hadoop, Hive o Pig Si no está familiarizado con Apache Hadoop, Hive y Pig, se recomienda que visite la [documentación de Apache Hadoop][apache-hadoop-doc]. Asimismo, el tutorial también presupone que se tiene experiencia previa con DocumentDB además de una cuenta en este servicio. Si no está familiarizado con DocumentDB o no tiene una cuenta en este servicio, consulte nuestra página de [Introducción][getting-started].
+> [AZURE.TIP]Este tutorial presupone que se tiene experiencia previa con Apache Hadoop, Hive o Pig Si no está familiarizado con Apache Hadoop, Hive y Pig, se recomienda consultar la [documentación de Apache Hadoop][apache-hadoop-doc]. Asimismo, el tutorial también presupone que se tiene experiencia previa con DocumentDB además de una cuenta en este servicio. Si no está familiarizado con DocumentDB o no tiene una cuenta en este servicio, consulte nuestra página [Introducción][getting-started].
 
-¿No tiene tiempo para completar el tutorial y solo desea obtener todos los scripts de PowerShell de ejemplo de Hive, Pig y MapReduce? No hay ningún problema, obténgalos [aquí][documentdb-hdinsight-samples]. La descarga también contiene los archivos hpl, pig y java para estos ejemplos.
+¿No tiene tiempo para completar el tutorial y solo desea obtener todos los scripts de PowerShell de ejemplo de Hive, Pig y MapReduce? No hay problema, obténgalos [aquí][documentdb-hdinsight-samples]. La descarga también contiene los archivos hpl, pig y java para estos ejemplos.
 
 ## <a name="NewestVersion"></a>Versión más reciente
 
 <table border='1'>
 	<tr><th>Versión del conector de Hadoop</th>
-		<td>1.0.0</td></tr>
+		<td>1.1.0</td></tr>
 	<tr><th>URI de script</th>
 		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
 	<tr><th>Fecha de modificación</th>
-		<td>11/06/2015</td></tr>
+		<td>07/20/2015</td></tr>
 	<tr><th>Versiones compatibles de HDInsight</th>
-		<td>3.1, 3.2.</td></tr>
+		<td>3.1, 3.2</td></tr>
 	<tr><th>Registro de cambios</th>
-		<td>Se ha corregido la compatibilidad del conector con el <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC Driver</a></br>
+		<td>SDK de Java de DocumentDB actualizado a la versión 1.1.0</br>
+			El parámetro de salida adicional se ha quitado para las rutas de indexación personalizadas</br>
+			Se ha agregado un parámetro opcional para la precisión de las cadenas personalizadas (-1 de forma predeterminada)</br>
+			6/11/2015</br>
+			Se ha corregido la compatibilidad del conector con el <a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC Driver</a></br>
 			Se ha agregado capacidad de cambiar el tipo de oferta de colección de salida (oferta S3 de forma predeterminada)</br>
-			Correcciones de errores menores</br>
 		</td></tr>
 </table>
 
@@ -69,7 +72,7 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo 
 
 > [AZURE.IMPORTANT]Si **ya** tiene una cuenta de almacenamiento de Azure y desea crear un nuevo contenedor de blobs dentro de dicha cuenta, puede ir directamente al [paso 2: Creación de un clúster de HDInsight personalizado](#ProvisionHDInsight).
 
-HDInsight usa el almacenamiento de blobs para almacenar datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso de Almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
+HDInsight usa el almacenamiento de blobs para almacenar datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage].
 
 Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenamiento de Azure Storage. Un contenedor de almacenamiento de blobs de esa cuenta se designa como el sistema de archivos predeterminado, justo como HDFS. El clúster de HDInsight se aprovisiona de forma predeterminada en el mismo centro de datos que la cuenta de almacenamiento que especifique.
 
@@ -87,10 +90,10 @@ Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenami
 
 	> [AZURE.IMPORTANT]Para conseguir un rendimiento óptimo, asegúrese de que su cuenta de almacenamiento, el clúster de HDInsight y la cuenta de DocumentDB se encuentren en la misma región de Azure. Las regiones de Azure que admiten los tres servicios son: **Asia Oriental**, **Sudeste de Asia**, **Europa del Norte**, **Europa Occidental**, **Este de EE. UU.** y **Oeste de EE. UU.**.
 
-4. Espere hasta que la característica **ESTADO** de la nueva cuenta de almacenamiento cambie a **En línea**.
+4. Espere hasta que la característica **STATUS** de la nueva cuenta de almacenamiento cambie a **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Paso 2: Creación de un clúster de HDInsight personalizado.
-En este tutorial, se usa la acción de secuencia de comandos desde el portal de administración de Azure para personalizar su clúster de HDInsight. En este tutorial, utilizaremos el portal de administración de Azure para crear el clúster personalizado. Para obtener instrucciones sobre cómo usar los cmdlets de PowerShell o el SDK de .NET de HDInsight, consulte el artículo [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-custom-provision].
+En este tutorial, se usa la acción de script del portal de administración de Azure para personalizar su clúster de HDInsight. En este tutorial, utilizaremos el portal de administración de Azure para crear el clúster personalizado. Para obtener instrucciones sobre cómo usar los cmdlets de PowerShell o el SDK de .NET de HDInsight, consulte el artículo [Personalizar los clústeres de HDInsight mediante la acción de script][hdinsight-custom-provision].
 
 1. Inicie sesión en el [Portal de administración de Azure][azure-classic-portal]. Es posible ya haya iniciado sesión el paso anterior.
 
@@ -115,7 +118,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 		<td>Seleccione la versión. </br>Elija <Strong>HDInsight versión 3.1</Strong>.</td></tr>
 	</table><p>Escriba o seleccione los valores mostrados en la tabla y después haga clic en la flecha derecha.</p>
 
-4. En la página **Configurar clúster** escriba o seleccione los valores siguientes:
+4. En la pestaña **Configurar clúster**, escriba o seleccione los valores siguientes:
 
 	<table border="1">
 <tr><th>Nombre</th><th>Valor</th></tr>
@@ -174,7 +177,7 @@ En este tutorial, se usa la acción de secuencia de comandos desde el portal de 
 		<strong>No se necesita ningún parámetro</strong>.</td></tr>
 </table>Haga clic en la marca de verificación para completar la creación del clúster.
 
-## <a name="InstallCmdlets"></a>Paso 3: Instalar y configurar Azure PowerShell.
+## <a name="InstallCmdlets"></a>Paso 3: Instalación y configuración de Azure PowerShell.
 
 1. Instale Azure PowerShell. Puede encontrar instrucciones [aquí][powershell-install-configure].
 
@@ -467,4 +470,4 @@ Para obtener más información, consulte los artículos siguientes:
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

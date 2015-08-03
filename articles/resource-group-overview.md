@@ -139,4 +139,4 @@ Administración y auditoría del acceso
 - [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md)
 - [Creación de una nueva entidad de servicio de Azure mediante el portal de Azure](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

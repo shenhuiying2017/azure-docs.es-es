@@ -348,4 +348,4 @@ Se aplican las siguientes limitaciones:
 - El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

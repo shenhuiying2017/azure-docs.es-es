@@ -25,7 +25,7 @@ En este artículo se describe cómo puede usar Servicios multimedia de Azure (AM
 
 En el siguiente diagrama se muestra una arquitectura de integración de castLabs y Servicios multimedia de Azure de alto nivel.
 
-![Página de escala](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![integración](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##Configuración de sistema típico
 
@@ -114,4 +114,4 @@ Para reproducir el vídeo protegido en HTML5 con Chrome con el reproductor de ca
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

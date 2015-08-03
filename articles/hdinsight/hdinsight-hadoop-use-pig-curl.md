@@ -77,7 +77,7 @@ Para completar los pasos de este artículo, necesitará lo siguiente:
 
         {"id":"job_1415651640909_0026"}
 
-3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces ** JOBID** sería `job_1415651640909_0026`.
+3. Para revisar el estado del trabajo, use el siguiente comando. Reemplace **JOBID** por el valor devuelto en el paso anterior. Por ejemplo, si el valor devuelto fue `{"id":"job_1415651640909_0026"}`, entonces **JOBID** sería `job_1415651640909_0026`.
 
         curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
 
@@ -117,4 +117,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

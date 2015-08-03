@@ -4,7 +4,7 @@
 
 Puede proteger la comunicación entre la aplicación web y el explorador con HTTPS, que utiliza el cifrado de capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su aplicación. En este artículo se describe cómo configurar HTTPS para una aplicación web en el Servicio de aplicaciones de Azure. En este artículo no se cubre la autenticación de certificado de cliente; para obtener información al respecto, consulte [Configuración de la autenticación mutua TLS para aplicaciones web](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md).
 
-##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \\*.azurewebsites.net
+##<a name="bkmk_azurewebsites"></a>HTTPS para el dominio \*.azurewebsites.net
 
 Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio *.azurewebsites.net que Azure ha asignado a su aplicación web (por ejemplo, contoso.azurewebsites.net), HTTPS ya está habilitado en el sitio con un certificado de Microsoft. Puede usar **https://mywebsite.azurewebsites.net** para acceder a la aplicación. Sin embargo, *.azurewebsites.net es un dominio comodín. Al igual que [todos los dominios comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), no es tan seguro como utilizar un dominio personalizado con su propio certificado.
 
@@ -164,7 +164,7 @@ Ya puede cargar el archivo PFX exportado en su aplicación web de Azure.
 
 5. En la línea de comandos, una sesión de Bash o una sesión de Terminal, use el siguiente comando para convertir **myserver.key** y **myserver.crt** en **myserver.pfx**, que es el formato que necesita el Servicio de aplicaciones de Azure:
 
-		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Cuando se le solicite, escriba una contraseña para proteger el archivo .pfx.
 
@@ -541,4 +541,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

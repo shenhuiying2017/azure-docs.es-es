@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/09/2015"
    ms.author="joaoma" />
 
 
@@ -23,8 +23,6 @@ Uno de los usos de los extremos es la configuración del Equilibrador de carga d
 
 El Equilibrador de carga de Azure asigna la dirección IP y el número de puerto públicos del tráfico entrante a la dirección IP y el número de puerto privados de la máquina virtual, y viceversa, para el tráfico de respuesta desde la máquina virtual.
 
-![ejemplo de equilibrador de carga público](./media/load-balancer-internet-overview/IC727496.png))
-
 >[AZURE.NOTE]Al configurar el equilibrio de carga del tráfico entre varias máquinas virtuales o servicios mediante la configuración predeterminada, se proporcionará una distribución aleatoria del tráfico entrante. Si busca la afinidad de sesión (o sesiones persistentes), consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md)
 
 Para los servicios en la nube que contienen instancias de roles web o de roles de trabajo, puede definir un extremo público en la definición de servicio (.csdef).
@@ -32,6 +30,11 @@ Para los servicios en la nube que contienen instancias de roles web o de roles d
 El archivo servicedefinition.csdef contendrá la configuración del extremo, y cuando tenga varias instancias de rol para una implementación de rol web o de trabajo, el equilibrador de carga se configurará para ello. La forma de agregar instancias a su implementación en la nube está cambiando el recuento de instancias en el archivo de configuración de servicio (.csfg).
 
 En la siguiente ilustración se muestra un extremo con equilibrio de carga para el tráfico web cifrado que se comparte entre tres máquinas virtuales en el puerto TCP público y privado de 443. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
+
+
+![ejemplo de equilibrador de carga público](./media/load-balancer-internet-overview/IC727496.png))
+
+
 
 Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio en la nube y el puerto TCP 443, el equilibrador de carga realiza un equilibrio aleatorio de esas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga.
 
@@ -49,4 +52,4 @@ Cuando los clientes de Internet envían solicitudes de página web a la direcci�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

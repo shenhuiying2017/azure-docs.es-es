@@ -77,11 +77,11 @@ Antes de comenzar, tenga en cuenta lo siguiente:
 - Escriba los scripts con Windows PowerShell.
 - Los cmdlets de VMM se entregan en un módulo de Windows PowerShell. El módulo de Windows PowerShell de VMM se instala al instalar la consola VMM. El módulo VMM se puede cargar en el script, para lo que es preciso usar el siguiente comando en el script: Import-Module -Name virtualmachinemanager. [Obtenga más detalles](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - Asegúrese de que tiene al menos un servidor de biblioteca en la implementación de VMM. De forma predeterminada, la ruta de acceso del recurso compartido de biblioteca para un servidor VMM se encuentra localmente en el servidor VMM con el nombre de carpeta MSCVMMLibrary.
-- Si la ruta de acceso del recurso compartido de biblioteca es remota, o local pero no se comparte con MSCVMMLibrary, configure el recurso compartido como se indica a continuación (por ejemplo, con \\libserver2.contoso.com\\share\\):
+- Si la ruta de acceso del recurso compartido de biblioteca es remota, o local pero no se comparte con MSCVMMLibrary, configure el recurso compartido como se indica a continuación (por ejemplo, con \libserver2.contoso.com\share\):
 	- Abra el Editor del registro.
-	- Navegue a HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration.
+	- Navegue a HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration.
 	- Edite el valor ScriptLibraryPath.
-	- Coloque el valor como \\libserver2.contoso.com\\share. Especifique el nombre de dominio completo.
+	- Coloque el valor como \libserver2.contoso.com\share. Especifique el nombre de dominio completo.
 	- Proporcione permisos a la ubicación del recurso compartido.
 
 - Los scripts de los planes de recuperación se ejecutan en el contexto de la cuenta de servicio de VMM. Asegúrese de que esta cuenta tiene permisos de lectura en el recurso compartido remoto en el que se encuentra el script y pruebe que el script se ejecuta en el nivel de privilegios de la cuenta de servicio de VMM.
@@ -96,9 +96,9 @@ Antes de comenzar, tenga en cuenta lo siguiente:
 
 Cree el script como se indica a continuación:
 
-1. Cree una carpeta nueva en el recurso compartido de biblioteca, por ejemplo <nombreDeServidorVMM>\\MSSCVMMLibrary\\RPScripts. Colóquela en los servidores VMM de origen y destino.
+1. Cree una carpeta nueva en el recurso compartido de biblioteca, por ejemplo <nombreDeServidorVMM>\MSSCVMMLibrary\RPScripts. Colóquela en los servidores VMM de origen y destino.
 2. Cree el script (por ejemplo, RPScript) y compruebe que funciona según lo previsto.
-3. Coloque el script en la ubicación <nombreDeServidorVMM>\\MSSCVMMLibrary de los servidores VMM de origen y destino.
+3. Coloque el script en la ubicación <nombreDeServidorVMM>\MSSCVMMLibrary de los servidores VMM de origen y destino.
 
 #### Creación de un runbook de automatización de Azure
 
@@ -110,7 +110,7 @@ El plan de recuperación se puede extender mediante la ejecución de un runbook 
 1. Abra el plan de recuperación que desea personalizar.
 2. Haga clic en él para agregar una máquina virtual o un grupo nuevos.
 3. Para agregar un script o una acción manual, haga clic en cualquiera de los elementos de la lista **Paso** y, a continuación, haga clic en **Script** o **Acción manual**. Especifique si desea agregar el script o la acción antes o después del elemento seleccionado. Utilice los botones de comando **Subir** y **Bajar** para mover la posición del script hacia arriba o hacia abajo.
-4. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Así, en nuestro ejemplo, donde se encuentra en el recurso compartido \<VMMServerName>\\MSSCVMMLibrary\\RPScripts, especifique la ruta de acceso: \\RPScripts\\RPScript.PS1.
+4. Si va a agregar un script de VMM, seleccione **Conmutación por error en script de VMM** y en **Ruta del script** escriba la ruta de acceso relativa al recurso compartido. Así, en nuestro ejemplo, donde se encuentra en el recurso compartido \<VMMServerName>\MSSCVMMLibrary\RPScripts, especifique la ruta de acceso: \RPScripts\RPScript.PS1.
 5. Si va a agregar un runbook de automatización de Azure, especifique la **cuenta de Automatización de Azure ** en que se encuentra el runbook y seleccione el valor de **Script de runbook de Azure**.
 5. Realice una conmutación por error del plan de recuperación para asegurarse de que el script funciona según lo previsto.
 
@@ -122,4 +122,4 @@ Puede ejecutar diferentes tipos de plan de recuperación de conmutaciones por er
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -58,11 +58,11 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Antes de crear un circuito, necesitará una lista de proveedores de servicios, ubicaciones admitidas y opciones de ancho de banda para cada ubicación. El siguiente cmdlet de PowerShell devuelve esta información, que usará en pasos posteriores.
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
 	La información devuelta tendrá un aspecto similar al siguiente ejemplo:
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 	
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -118,7 +118,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Puede recuperar esta información en cualquier momento con el cmdlet Get-AzureCircuit. Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos. La clave de servicio se mostrará en el campo ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 		
 		Bandwidth                        : 500
 		CircuitName                      : NetBondSVTest
@@ -145,9 +145,9 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Compruebe que tiene creada al menos una red virtual de Azure con una puerta de enlace. La puerta de enlace debe estar en ejecución.
 
-		PS C:> $Vnet = "MyTestVNet"
+		PS C:\> $Vnet = "MyTestVNet"
 		New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 		
 		Provisioned 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

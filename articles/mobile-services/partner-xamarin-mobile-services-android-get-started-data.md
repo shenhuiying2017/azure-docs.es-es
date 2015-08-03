@@ -283,4 +283,4 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Xamar
 [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

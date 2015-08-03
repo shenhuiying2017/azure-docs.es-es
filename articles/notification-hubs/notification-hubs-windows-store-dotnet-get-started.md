@@ -274,4 +274,4 @@ En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Wi
 [información general sobre distintivos]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

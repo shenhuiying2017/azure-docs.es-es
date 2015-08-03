@@ -63,4 +63,4 @@ Puede usar el carácter delimitador para enumerar blobs jerárquicamente.
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

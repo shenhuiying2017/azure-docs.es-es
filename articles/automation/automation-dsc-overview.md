@@ -226,4 +226,4 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Los nodos de DSC incorporados a DSC de Automatización de Azure mostrarán inicialmente el estado ''Conforme'', incluso si no son realmente conformes con la configuración del nodo de DSC que tienen asignada. Después de que un nodo realice su primera extracción y envíe su primer informe de DSC a DSC de Automatización de Azure, el estado del nodo debe ser correcto.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

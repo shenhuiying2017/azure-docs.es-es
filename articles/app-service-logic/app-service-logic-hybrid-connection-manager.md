@@ -133,4 +133,4 @@ Si la API personalizada usa un puerto TCP o HTTP, puede usar [Conexiones híbrid
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

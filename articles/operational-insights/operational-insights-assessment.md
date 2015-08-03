@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Optimización del entorno con soluciones de evaluación
@@ -123,4 +123,6 @@ Puede resumir las evaluaciones de cumplimiento para su infraestructura y, a cont
 
 4. Adopte las medidas correctivas sugeridas en **Acciones sugeridas**. Cuando se haya ocupado del asunto, las evaluaciones posteriores registrarán las acciones recomendadas que se han realizado y aumentará su calificación de cumplimiento normativo. Los asuntos que se hayan corregido aparecerán en **Objetos superados**.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

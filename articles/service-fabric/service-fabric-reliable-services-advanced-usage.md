@@ -62,4 +62,4 @@ Para obtener temas más avanzados relacionados con Service Fabric, consulte los 
 - [Proteger el tráfico de reproducción de servicios con estado en Azure Service Fabric](../service-fabric/service-fabric-replication-security.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

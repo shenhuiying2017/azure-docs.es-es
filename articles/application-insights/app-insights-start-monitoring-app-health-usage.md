@@ -155,7 +155,7 @@ Si la aplicación atiende a clientes como teléfonos u otros dispositivos, agreg
 Si configura el SDK del cliente con la misma clave de instrumentación que el SDK del servidor, las dos secuencias se integrarán de modo que podrá verlas juntas.
 
 
-## Complete la instalación
+## Finalización de la instalación.
 
 Para obtener la vista completa de 360 grados de la aplicación, debe realizar algunas tareas adicionales:
 
@@ -231,4 +231,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

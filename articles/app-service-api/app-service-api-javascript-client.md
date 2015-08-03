@@ -371,4 +371,4 @@ Este ejemplo muestra cómo puede utilizar AngularJS como plataforma de JavaScrip
 
 En este ejemplo se muestra el acceso no autenticado a una aplicación de API. Para obtener información sobre la autenticación en el Servicio de aplicaciones, consulte [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -81,4 +81,4 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
   [Portal de administración]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

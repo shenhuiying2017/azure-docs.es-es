@@ -38,7 +38,7 @@ Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él s
 
 Una vez conectado al escritorio para el clúster de HDInsight, siga estos pasos para ejecutar un trabajo de MapReduce mediante el comando de Hadoop:
 
-1. Desde el escritorio de HDInsight, inicie la **línea de comandos de Hadoop**. Se abrirá un nuevo símbolo del sistema en el directorio **c:\\apps\\dist\\hadoop-número de versión>**.
+1. Desde el escritorio de HDInsight, inicie la **línea de comandos de Hadoop**. Se abrirá un nuevo símbolo del sistema en el directorio **c:\apps\dist\hadoop-número de versión>**.
 
 	> [AZURE.NOTE]El número de versión cambia cuando se actualiza Hadoop. La variable de entorno **HADOOP_HOME** puede usarse para encontrar la ruta de acceso. Por ejemplo, `cd %HADOOP_HOME%` cambiará los directorios al directorio de Hadoop, sin que sea necesario conocer el número de versión.
 
@@ -95,4 +95,4 @@ Para obtener información sobre otras maneras de trabajar con Hadoop en HDInsigh
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

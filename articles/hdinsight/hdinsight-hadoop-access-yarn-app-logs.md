@@ -3,7 +3,7 @@
 	description="La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # Acceso a los registros de aplicación de YARN en Hadoop en HDInsight mediante programación
 
@@ -115,7 +115,7 @@ Hacen referencia a las API recientemente definidas en el código siguiente. El s
 Ahora puede usar el cliente del historial de aplicaciones para elaborar una lista de las aplicaciones completadas, filtrar las aplicaciones según los criterios que desee y descargar los registros de las aplicaciones relevantes. El siguiente fragmento de código muestra la manera de realizar estas acciones mediante programación:
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
+	string downloadLocation = "E:\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -173,4 +173,4 @@ Si es necesario, también puede descargar los registros para cada contenedor (o 
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

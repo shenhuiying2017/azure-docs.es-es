@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Generación de una aplicación web con Python y Flask mediante DocumentDB | Azure"
+    pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure"
     description="Obtenga información acerca de cómo usar DocumentDB para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure."
     services="documentdb"
     documentationCenter="python"
@@ -16,7 +16,7 @@
     ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
-# Generación de una aplicación web con Python y Flask (MVC) mediante DocumentDB
+# Generación de una aplicación web con Python y Flask (MVC) mediante la Base de datos de documentos
 
 Para destacar la forma en que los clientes pueden aprovechar eficazmente Azure DocumentDB para almacenar y consultar documentos JSON, este documento proporciona un tutorial integral sobre la compilación de una aplicación web para votaciones mediante Azure DocumentDB.
 
@@ -56,7 +56,7 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
 
 ## Paso 2: Creación de una nueva aplicación web de Phyton Flask
 
-1. Abra Visual Studio y, a continuación, haga clic en **Archivo** -\\> **Nuevo proyecto** -\\> **Python** -\\> **Proyecto web Flask** y cree un nuevo proyecto llamado **tutorial**.
+1. Abra Visual Studio y, a continuación, haga clic en **Archivo** -\> **Nuevo proyecto** -\> **Python** -\> **Proyecto web Flask** y cree un nuevo proyecto llamado **tutorial**.
 
 	Para aquellos que desconozcan Flask: se trata de un marco web que nos ayuda a crear aplicaciones web en Python más rápido. [Haga clic aquí para tener acceso a tutoriales de Flask][].
 
@@ -96,7 +96,7 @@ Una vez que el proyecto esté configurado, deberá agregar ciertos paquetes Flas
 
 ### Comprobación del entorno virtual
 
-Asegurémonos de que todo esté correctamente instalado.
+Asegurémonos de que todo esté instalado correctamente.
 
 - Inicie el sitio web haciendo clic en **F5**. De este modo se ejecutará el servidor de desarrollo flask y el explorador web. Debe ver la página siguiente.
 
@@ -315,14 +315,14 @@ En la carpeta de plantillas, agregue los siguientes archivos html: create.html, 
 
 	![Captura de pantalla de la aplicación web con una pregunta de votación formulada](./media/documentdb-python-application/image18.png)
 
-4. Para cada voto que emita, se incrementará el contador correspondiente.
+4. Por cada voto que emita, se incrementará el contador correspondiente.
 
 	![Captura de pantalla de la página Resultados de la votación mostrada](./media/documentdb-python-application/image19.png)
 
 
 ## Paso 5: Implementación de la aplicación en Sitios web Azure
 
-Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB, vamos a implementar esto en sitios web Azure.
+Ahora que tiene la aplicación completa funcionando correctamente con Base de datos de documentos, vamos a implementar esto en sitios web Azure.
 
 1. Haga clic con el botón derecho en el Proyecto del Explorador de soluciones (asegúrese de que no se esté ejecutando de forma local) y elija Publicar. A continuación, elija Sitios web Microsoft Azure.
 
@@ -350,4 +350,4 @@ Para agregar funcionalidad adicional a la aplicación, revise las API disponible
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

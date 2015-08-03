@@ -174,4 +174,4 @@ La información general de retención se desglosa a la mitad en varias tarjetas,
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

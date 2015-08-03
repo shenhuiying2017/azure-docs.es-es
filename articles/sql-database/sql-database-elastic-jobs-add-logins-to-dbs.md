@@ -1,8 +1,7 @@
-<properties  
+<properties 
 	pageTitle="Cómo agregar usuarios a un grupo de bases de datos elásticas" 
-	description="Debe agregar un usuario con privilegios para cada base de datos del grupo."  
-	services="sql-database" 
-	documentationCenter="" 
+	description="Debe agregar un usuario con privilegios para cada base de datos del grupo." 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -45,4 +44,4 @@ Ejecutar un trabajo en el grupo de bases de datos elásticas. Vea [Creación y a
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

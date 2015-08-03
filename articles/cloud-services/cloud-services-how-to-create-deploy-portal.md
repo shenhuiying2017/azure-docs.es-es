@@ -27,18 +27,20 @@
 
 El Portal de Azure ofrece dos formas de crear e implementar un servicio en la nube: **Creación rápida** y **Creación personalizada**.
 
-En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, a continuación, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
+En este tema se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, luego, usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando **Creación personalizada**.
 
 > [AZURE.NOTE]Si tiene pensado publicar su servicio en la nube desde Visual Studio Online (VSO), use Creación rápida y, a continuación, configure la publicación VSO desde **Creación rápida** o el panel. Para obtener más información, consulte [Entrega continua a Azure usando Visual Studio Online][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
 
 ## Conceptos
 se necesitan tres componentes para implementar una aplicación como servicio en la nube en Azure:
 
-- **Definición de servicio**<br/> El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
+- **Definición de servicio** El archivo de definición de servicio en la nube (.csdef) define el modelo de servicio, incluyendo el número de roles.
 
-- **Configuración de servicio**<br/> El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
+- **Configuración de servicio** El archivo de configuración de servicio en la nube (.cscfg) proporciona opciones de configuración para los roles de servicio en la nube e individuales, incluyendo el número de instancias de rol.
 
-- **Paquete de servicio**<br/> El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
+- **Paquete de servicio** El paquete de servicio (.cspkg) contiene el código y las configuraciones de la aplicación y el archivo de definición de servicio.
+
+Puede obtener más información acerca de éstas y cómo crear un paquete [aquí](cloud-services-model-and-package.md).
 
 ## Preparación de la aplicación
 Antes de implementar un servicio en la nube, debe crear el paquete de servicio en la nube (.cspkg) desde su código de aplicación y un archivo de configuración de servicio en la nube (.cscfg). El SDK de Azure proporciona herramientas para preparar estos archivos de implementación necesarios. Puede instalar el SDK desde la página [Descargas de Azure](http://azure.microsoft.com/downloads/), en el idioma en que prefiera implementar su código de aplicación.
@@ -65,18 +67,18 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 ## Paso 3: Crear un servicio en la nube y cargar el paquete de implementación
 
 1. Inicie sesión en el [Portal de vista previa de Azure][]. 
-2. Haga clic en **Nuevo**, haga clic en **Proceso** y, a continuación, desplácese hacia abajo y haga clic en **Servicio en la nube**.
+2. Haga clic en **Nuevo**, haga clic en **Proceso** y, luego, desplácese hacia abajo y haga clic en **Servicio en la nube**.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 
 3. En la nueva hoja **Servicio en la nube**, escriba un valor para el **Nombre DNS**
-4. Cree un nuevo**Grupo de recursos** o seleccione uno existente.
+4. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
 5. Seleccione una **ubicación**.
 6. Seleccione **Paquete** y, en la hoja **Cargar un paquete**, rellene los campos obligatorios.  
       
-     Si cualquiera de los roles contiene una sola instancia, asegúrese de que **Implementar aunque uno o varios roles contengan una sola instancia** se haya marcado.
+     Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** se haya activado.
 
-7. Asegúrese de que **Iniciar implementación** esté *marcada*.
+7. Asegúrese de que **Iniciar implementación** se haya *activado*.
 8. Haga clic en **Aceptar**. 
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/select-package.png)
@@ -86,7 +88,7 @@ Hay tres características del servicio en la nube que requieren configuraciones 
 Si el paquete de implementación se [configuró para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), puede cargar el certificado ahora.
 
 9. Seleccione **Certificados** y, en la hoja **Agregar certificados**, seleccione el archivo .pfx del certificado SSL y proporcione la **contraseña** del certificado, 
-10. Haga clic en**Adjuntar certificado** y, a continuación, en **Aceptar** en la hoja **Agregar certificados**.
+10. Haga clic en **Adjuntar certificado** y, luego, en **Aceptar** en la hoja **Agregar certificados**.
 11. Haga clic en **Crear** en la hoja **Servicio en la nube**. Cuando la implementación haya llegado al estado **Listo**, puede continuar con los pasos siguientes.
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
@@ -106,4 +108,4 @@ Si el paquete de implementación se [configuró para usar certificados](cloud-se
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

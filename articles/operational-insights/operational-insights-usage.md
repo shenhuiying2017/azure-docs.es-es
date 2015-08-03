@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Administración de servidores y uso de datos
@@ -57,4 +57,6 @@ El panel **Uso** muestra la siguiente información:
 
 3. Si hay un grupo de administración que no envía datos, puede hacer clic en **Solucionar problemas** para obtener información detallada de solución de problemas. Si ya no quiere mantener un grupo de administración y todos los agentes que se comunican con él, haga clic en **Quitar**.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

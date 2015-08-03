@@ -136,4 +136,4 @@ Para obtener información sobre cómo usar la interfaz de la línea de comandos 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

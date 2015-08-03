@@ -39,9 +39,9 @@ El tamaño de la máquina virtual afecta a los precios. El tamaño también afec
 
 Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
-*   El tamaño A0\\Basic_A0 solo está disponible con Azure SDK versión 1.3 o posterior.  
+*   El tamaño A0\Basic_A0 solo está disponible con Azure SDK versión 1.3 o posterior.  
 
-*   A1\\Basic_A1 es el tamaño mínimo recomendado para cargas de trabajo de producción.
+*   A1\Basic_A1 es el tamaño mínimo recomendado para cargas de trabajo de producción.
 
 *   Seleccione una máquina virtual con 4 u 8 núcleos de CPU al utilizar SQL Server Enterprise Edition.
 
@@ -68,24 +68,24 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 
 ## Nivel básico
 
-|Tamaño: Portal de administración\\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (300 por disco)|
+|Tamaño: Portal de administración\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (300 por disco)|
 |---|---|---|---|---|---|
-|A0\\Basic_A0|1|768 MB|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x300|
-|A1\\Basic_A1|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporal = 40 GB</p>|2|2x300|
-|A2\\Basic_A2|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporal = 60 GB</p>|4|4x300|
-|A3\\Basic_A3|4|7 GB|<p>SO = 1023 GB</p><p>Temporal = 120 GB</p>|8|8x300|
-|A4\\Basic_A4|8|14 GB|<p>SO = 1023 GB</p><p>Temporal = 240 GB</p>|16|16x300|
+|A0\Basic_A0|1|768 MB|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x300|
+|A1\Basic_A1|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporal = 40 GB</p>|2|2x300|
+|A2\Basic_A2|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporal = 60 GB</p>|4|4x300|
+|A3\Basic_A3|4|7 GB|<p>SO = 1023 GB</p><p>Temporal = 120 GB</p>|8|8x300|
+|A4\Basic_A4|8|14 GB|<p>SO = 1023 GB</p><p>Temporal = 240 GB</p>|16|16x300|
 
 ## Nivel estándar
 ### Serie A y serie D
 
-|Tamaño: Portal de administración\\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
+|Tamaño: Portal de administración\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|
-|A0\\extra pequeño|1|768 MB|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x500|
-|A1\\pequeño|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporal = 70 GB</p>|2|2 x 500|
-|A2\\mediano|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
-|A3\\grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
-|A4\\extra grande|8|14 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
+|A0\extra pequeño|1|768 MB|<p>SO = 1023 GB</p><p>Temporal = 20 GB</p>|1|1x500|
+|A1\pequeño|1|1,75 GB|<p>SO = 1023 GB</p><p>Temporal = 70 GB</p>|2|2 x 500|
+|A2\mediano|2|3,5 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
+|A3\grande|4|7 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
+|A4\extra grande|8|14 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
 |A5(igual)|2|14 GB|<p>SO = 1023 GB</p><p>Temporal = 135 GB</p>|4|4x500|
 |A6(igual)|4|28 GB|<p>SO = 1023 GB</p><p>Temporal = 285 GB</p>|8|8x500|
 |A7(igual)|8|56 GB|<p>SO = 1023 GB</p><p>Temporal = 605 GB</p>|16|16x500|
@@ -105,7 +105,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 
 ### Nivel estándar: serie DS*
 
-|Tamaño: Portal de administración\\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
+|Tamaño: Portal de administración\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Tamaño de caché (GB)|E/S de disco máx. y ancho de banda|
 |---|---|---|---|---|---|---|
 |Standard_DS1(igual)|1|3,5|<p>SO = 1023 GB</p><p>Disco SSD local = 7 GB</p>|2|43|<p>3,200</p><p>32 MB por segundo</p>|
 |Standard_DS2(igual)|2|7|<p>SO = 1023 GB</p><p>Disco SSD local = 14 GB</p>|4|86|<p>6,400</p><p>64 MB por segundo</p>|
@@ -120,7 +120,7 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 
 ### Nivel estándar: serie G
 
-|Tamaño: Portal de administración\\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
+|Tamaño: Portal de administración\cmdlets y API|Núcleos de CPU|Memoria|Tamaños máximos de disco: máquina virtual|Discos máximos de datos (1023 GB cada uno)|Máx. E/S (500 por disco)|
 |---|---|---|---|---|---|
 |Standard_G1(igual)|2|28 GB|<p>SO = 1023 GB</p><p>Disco SSD local = 384 GB</p>|4|4 x 500|
 |Standard_G2(igual)|4|56 GB|<p>SO = 1023 GB</p><p>Disco SSD local = 768 GB</p>|8|8 x 500|
@@ -134,4 +134,4 @@ Las siguientes tablas muestran los tamaños y las capacidades que ofrecen cada u
 
 [Sobre las instancias informáticas intensivas A8, A9, A10 y A11](virtual-machines-a8-a9-a10-a11-specs.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

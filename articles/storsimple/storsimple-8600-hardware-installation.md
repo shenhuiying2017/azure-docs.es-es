@@ -3,7 +3,7 @@
    description="Aquí se describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # Instalar el dispositivo StorSimple 8600
 
@@ -382,4 +382,4 @@ Ha completado el cableado de alimentación, acceso a la red y conexión en serie
 Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

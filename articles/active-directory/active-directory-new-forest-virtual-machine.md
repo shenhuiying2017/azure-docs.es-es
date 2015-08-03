@@ -42,7 +42,7 @@ Para configurar... | Local | Red virtual
 ------------- | -------------  | ------------
 **Dirección IP para el controlador de dominio** | Asigne la dirección IP estática en las propiedades del adaptador de red. | Ejecute el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática.
 **Resolución de clientes DNS** | Establezca la dirección de servidor DNS preferida y alternativa en las propiedades del adaptador de red de los miembros del dominio. | Establezca la dirección del servidor DNS en las propiedades de la red virtual.
-**Almacenamiento de base de datos de Active Directory** | Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:\\. | Debe cambiar la ubicación de almacenamiento predeterminada de C:\\.
+**Almacenamiento de base de datos de Active Directory** | Opcionalmente, cambie la ubicación de almacenamiento predeterminada de C:\. | Debe cambiar la ubicación de almacenamiento predeterminada de C:\.
 
 
 
@@ -79,7 +79,7 @@ Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfa
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configuración de una dirección IP interna estática para una máquina virtual](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configuración de una dirección IP interna estática para una máquina virtual](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Instalación de Windows Server Active Directory
 
@@ -139,4 +139,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

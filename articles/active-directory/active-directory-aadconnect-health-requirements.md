@@ -72,7 +72,7 @@ Para que la característica Análisis de uso pueda recopilar datos y analizarlos
 #### Para habilitar la auditoría de AD FS 2.0
 
 1. Haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en **Directiva de seguridad local**.
-1. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Administración de derechos de usuario** y haga doble clic en Generar auditorías de seguridad.
+1. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Administración de derechos de usuario** y haga doble clic en Generar auditorías de seguridad.
 1. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS 2.0. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
 1. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría. `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable`
 1. Cierre Directiva de seguridad local y luego abra el complemento de administración. Para abrir el complemento de administración, haga clic en **Inicio**, seleccione **Programas**, **Herramientas administrativas** y luego haga clic en Administración de AD FS 2.0.
@@ -84,7 +84,7 @@ Para que la característica Análisis de uso pueda recopilar datos y analizarlos
 #### Para habilitar la auditoría de AD FS en Windows Server 2012 R2
 
 1. Abra **Directiva de seguridad local**; para ello, abra **Administrador del servidor** en la pantalla Inicio o Administrador del servicio en la barra de tareas del escritorio y luego haga clic en **Herramientas/Directiva de seguridad local**.
-1. Navegue hasta la carpeta **Configuración de seguridad\\Directivas locales\\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
+1. Navegue hasta la carpeta **Configuración de seguridad\Directivas locales\Asignación de derechos de usuario** y haga doble clic en **Generar auditorías de seguridad**.
 1. En la pestaña **Configuración de seguridad local**, compruebe que aparezca la cuenta de servicio de AD FS. Si no aparece, haga clic en **Agregar usuario o grupo**, agréguela a la lista y luego haga clic en **Aceptar**.
 1. Abra un símbolo del sistema con privilegios elevados y ejecute el siguiente comando para habilitar la auditoría: `auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.`
 1. Cierre **Directiva de seguridad local** y luego abra el complemento de **administración de AD FS** (en Administrador del servidor, haga clic en Herramientas y luego seleccione Administración de AD FS).
@@ -155,4 +155,4 @@ Para comprobar que se instaló el agente, abra los servicios y busque lo siguien
  
 ![Comprobación de Azure AD Connect Health](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -317,4 +317,4 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 - [Colas de Azure y colas de Bus de servicio: comparación y diferencias](http://msdn.microsoft.com/library/hh767287.aspx)
 - [Cómo habilitar diagnósticos en un Servicio en la nube](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

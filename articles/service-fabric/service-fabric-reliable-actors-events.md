@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="07/09/2015"
    ms.author="amanbha"/>
 
 
@@ -55,7 +55,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
-En el cliente, cree el proxy para el actor que publica el evento y suscríbase a los eventos.
+En el cliente, cree un proxy para el actor que publica el evento y suscríbase a sus eventos.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -63,7 +63,7 @@ var proxy = ActorProxy.Create<IGameActor>(
 proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 ```
 
-Si se producen conmutaciones por error, el actor puede realizar una conmutación por error a un nodo o proceso diferentes. El proxy del actor administra las suscripciones activas y las vuelve a suscribir automáticamente. Puede controlar el intervalo de suscribir nuevamente a través de la API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar la suscripción, use la API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
+Si se producen conmutaciones por error, el actor puede realizar una conmutación por error a un nodo o proceso diferentes. El proxy del actor administra las suscripciones activas y las vuelve a suscribir automáticamente. Puede controlar el intervalo de suscribir nuevamente a través de la API `ActorProxyEventExtensions.SubscribeAsync<TEvent>`. Para cancelar la suscripción use la API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>`.
 
 En el actor, simplemente publique los eventos cuando se produzcan. Si hay suscriptores del evento, el tiempo de ejecución de los actores les enviará la notificación.
 
@@ -71,6 +71,5 @@ En el actor, simplemente publique los eventos cuando se produzcan. Si hay suscri
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

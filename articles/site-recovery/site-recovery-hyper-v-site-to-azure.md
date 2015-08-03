@@ -157,7 +157,7 @@ Instale el proveedor y el agente. Si va a instalar en un clúster de Hyper-V, re
 
 Tenga en cuenta que si desea instalar el proveedor en Server Core para Windows Server 2012 R2 o Hyper-V Server 2012 R2 independiente, debe hacer lo siguiente:
 
-1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta C:\\ASR.
+1. Descargue el archivo de instalación del proveedor y la clave de registro en una carpeta C:\ASR.
 2. Extraiga el instalador de proveedor escribiendo:
 
 	    C:\Windows\System32> CD C:\ASR
@@ -296,4 +296,4 @@ Para ejecutar una conmutación por error de prueba, realice lo siguiente:
 
 Después de que la implementación esté configurada y en ejecución, [obtenga más información](site-recovery-failover.md) acerca de la conmutación por error.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

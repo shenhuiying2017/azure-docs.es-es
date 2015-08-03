@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/10/2015" 
 	ms.author="garye"/>
 
 
@@ -40,7 +40,9 @@ Para ello, necesitamos lo siguiente:
 - Convierta el *experimento de entrenamiento* que hemos creado en un *experimento de puntuación*
 - Publicar el experimento de puntuación como un servicio web
 
-Pero, en primer lugar, debemos reducir este experimento un poco. Tenemos dos modelos distintos en el experimento, pero ahora tenemos que seleccionar el modelo que se publicará. Pongamos que hayamos decidido que el modelo de árbol ampliado es el mejor en este caso. Por tanto, lo primero que se debe hacer es eliminar el módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine] y los módulos que se utilizaron para entrenar. Puede que desee hacer una copia del experimento antes; para ello, haga clic en **Guardar como** en la parte inferior del lienzo de experimento.
+Pero, en primer lugar, debemos reducir este experimento un poco. Tenemos dos modelos distintos en el experimento, pero ahora tenemos que seleccionar el modelo que se publicará.
+
+Pongamos que hayamos decidido que el modelo de árbol ampliado es el mejor en este caso. Por tanto, lo primero que se debe hacer es eliminar el módulo [Máquina de vectores de soporte de dos clases][two-class-support-vector-machine] y los módulos que se usaron para entrenar. Puede que desee hacer una copia del experimento antes; para ello, haga clic en **Guardar como** en la parte inferior del lienzo de experimento.
 
 Es necesario eliminar los siguientes módulos:
 
@@ -85,13 +87,13 @@ Quizás se pregunte por qué hemos dejado el conjunto de datos de los datos de D
 
 Es cierto que el servicio no necesita los datos originales de la tarjeta de crédito. Pero sí necesita el esquema para esos datos, que incluye información como la cantidad de columnas que hay y cuáles son numéricas. Esta información del esquema es necesaria a fin de interpretar los datos del usuario. Dejamos estos componentes conectados para que el módulo de puntuación tenga el esquema del conjunto de datos cuando el servicio se esté ejecutando. No se utilizan los datos, sino solamente el esquema.
 
-Ejecute el experimento por última vez (haga clic en **EJECUTAR**). Si desea comprobar que el modelo sigue funcionando, haga clic con el botón derecho en la salida del módulo [Puntuar modelo][score-model] y seleccione **Visualizar**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").
+Ejecute el experimento por última vez (haga clic en **EJECUTAR**). Si desea comprobar que el modelo sigue funcionando, haga clic en la salida del módulo [Puntuar modelo][score-model] y seleccione **Ver resultados**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").
 
 ##Publicación del servicio web
 
-Para publicar un servicio web derivado de nuestro experimento, haga clic en **PUBLICAR SERVICIO WEB** bajo el lienzo y haga clic en **SÍ** cuando se le solicite. Estudio de aprendizaje automático publica el experimento como servicio web en el servidor de ensayo de Aprendizaje automático y le dirige al panel de servicios.
+Para publicar un servicio web derivado de nuestro experimento, haga clic en **PUBLICAR SERVICIO WEB** bajo el lienzo. Estudio de aprendizaje automático publica el experimento como servicio web y le dirige al panel de servicios.
 
-> [AZURE.TIP]Puede actualizar el servicio web después de haberlo publicado. Por ejemplo, si desea cambiar el modelo, simplemente edite el experimento de formación, ajuste los parámetros del modelo y haga clic en **ACTUALIZACIÓN EXPERIMENTO DE PUNTUACIÓN**. Cuando publique el experimento de nuevo, sustituirá al servicio web, utilizando ahora el modelo actualizado.
+> [AZURE.TIP]Puede actualizar el servicio web después de haberlo publicado. Por ejemplo, si desea cambiar el modelo, simplemente edite el experimento de formación, ajuste los parámetros del modelo y haga clic en **PUBLICAR SERVICIO WEB**. Cuando publique el experimento de nuevo, sustituirá al servicio web, utilizando ahora el modelo actualizado.
 
 Puede configurar el servicio haciendo clic en la pestaña **CONFIGURACIÓN**. Aquí puede modificar el nombre del servicio (recibe de manera predeterminada el nombre del experimento) y proporcionarle una descripción. También puede poner etiquetas más descriptivas para las columnas de entrada y salida.
 
@@ -125,4 +127,4 @@ Los resultados generados por el servicio web se muestran en la parte inferior de
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -123,4 +123,4 @@ También puede asociar una IP reservada a un servicio en la nube mediante un arc
 
 [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

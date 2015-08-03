@@ -50,4 +50,4 @@ En el archivo config.json de su proyecto, se ha creado un elemento con la cadena
 Para obtener más información, consulte [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

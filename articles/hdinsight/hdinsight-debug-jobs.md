@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/08/2015" 
+	ms.author="jgao"/>
 
 # Depuración de Hadoop en HDInsight: interpretación de mensajes de error
 
-## Introducción
 Con los mensajes de error incluidos en este tema pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error.
 
 Algunos de estos mensajes de error también podrían aparecer en el portal de Azure cuando se utiliza para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. Por ejemplo, si se infringen las restricciones de los parámetros, el mensaje emerge en el lado derecho del cuadro donde se escribió el valor. Se trata de un caso de solicitud de demasiados nodos de datos. La solución es reducir el número hasta un valor permitido, es decir, 22 o menos.
@@ -233,4 +232,4 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

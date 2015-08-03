@@ -158,4 +158,4 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v√
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

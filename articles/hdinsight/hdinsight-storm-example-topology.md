@@ -13,15 +13,16 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/05/2015"
+ ms.date="07/21/2015"
  ms.author="larryfr"/>
 
-# Topologías de ejemplo de Storm para Apache Storm en HDInsight
+# Topologías y componentes de ejemplo de Storm para Apache Storm en HDInsight
 
 La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su uso con Apache Storm en HDInsight. Estos ejemplos tratan diversos temas, desde la creación de topologías básicas en C# y Java para trabajar con servicios de Azure como Centros de eventos, DocumentDB, Power BI, Base de datos SQL, HBase en HDInsight y Almacenamiento de Azure. Algunos ejemplos también muestran cómo trabajar con tecnologías que no son de Azure, o incluso que no son de Microsoft, como SignalR y Socket.IO
 
 | Descripción | Muestra | Lenguaje/Marco de trabajo |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
+| [Spout y bolt de Centro de eventos](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Origen de spout y bolt de Centro de eventos | Java |
 | [Desarrollo de topologías basadas en Java para Apache Storm en HDInsight][5797064f] | Maven | Java |
 | [Desarrollo de topologías de C# para Apache Storm en HDInsight con Visual Studio][16fce2d1] | Herramientas de HDInsight para Visual Studio | C#, Java |
 | [Creación de varios flujos de datos en una topología de Storm en C#][ec5a4064] | Varios flujos | C# |
@@ -56,4 +57,4 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Este proyecto contiene plantillas para spouts, bolts y topologías para interactuar con distintos servicios de Azure como Centros de eventos, DocumentDB y Base de datos SQL."
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

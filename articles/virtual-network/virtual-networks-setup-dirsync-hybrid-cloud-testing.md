@@ -62,7 +62,7 @@ A continuación, regístrese para obtener una nueva cuenta de Microsoft. Vaya a 
 
 A continuación, regístrese para obtener una nueva prueba de Office 365 FastTrack.
 
-1.	Inicie sesión en CLIENT1 con las credenciales de cuenta CORP\\User1.
+1.	Inicie sesión en CLIENT1 con las credenciales de cuenta CORP\User1.
 2.	Abra Internet Explorer y vaya a **http://fasttrack.office.com**. 3.	Haga clic en **Introducción a FastTrack**.
 4.	En la página Introducción a FastTrack, en **Primero, regístrese para obtener la versión de prueba de Office 365**, haga clic en **Para empresas, regístrese aquí**.
 5.	En la página Paso 1, rellene la página, especifique la nueva cuenta de Microsoft en **Dirección de correo electrónico de trabajo** y haga clic en **Siguiente**.
@@ -96,7 +96,7 @@ A continuación, conéctese a la máquina virtual de DS1.
 3.	Cuando se le pida que abra DS1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-	- Nombre: **CORP\\User1**
+	- Nombre: **CORP\User1**
 	- Contraseña: [contraseña de la cuenta User1]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -128,7 +128,7 @@ A continuación, habilite la sincronización de directorios de la versión de pr
 4.	Cuando le pregunten **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Después de hacer esto, verá el mensaje **Se ha activado la sincronización de Active Directory** en el paso 3.
 5.	Deje la página **Configuración y administración de la sincronización de Active Directory** abierta en CLIENT1.
 
-A continuación, inicie sesión en DC1 con la cuenta CORP\\User1 y abra un símbolo del sistema de Windows PowerShell con nivel de administrador. Ejecute estos comandos uno por uno para crear una nueva unidad organizativa denominada contoso_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
+A continuación, inicie sesión en DC1 con la cuenta CORP\User1 y abra un símbolo del sistema de Windows PowerShell con nivel de administrador. Ejecute estos comandos uno por uno para crear una nueva unidad organizativa denominada contoso_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -138,12 +138,12 @@ Cuando ejecute cada comando de Windows PowerShell, se le solicitará la nueva co
 
 A continuación, configure la sincronización de directorios en DS1.
 
-1.	Inicie una sesión con la cuenta de CORP\\User1 DS1.
+1.	Inicie una sesión con la cuenta de CORP\User1 DS1.
 2.	En la pantalla **Inicio**, escriba **Sincronización de directorios**.
 3.	Haga clic con el botón derecho en **Configuración de la sincronización de directorios** y, a continuación, haga clic en **Ejecutar como administrador**. Así se inicia al Asistente de configuración.
 4.	En la página de bienvenida, haga clic en **Siguiente**.
 5.	En la página de credenciales de Active Directory de Microsoft Azure, escriba la dirección de correo electrónico y la contraseña de la cuenta inicial que creó al configurar la versión de prueba de Office 365 FastTrack en la fase 2. Haga clic en Siguiente. 
-6.	En la página Credenciales de Active Directory, escriba **CORP\\User1** en **Nombre de usuario** y la contraseña de la cuenta User1 en **Contraseña**. Haga clic en **Siguiente**.
+6.	En la página Credenciales de Active Directory, escriba **CORP\User1** en **Nombre de usuario** y la contraseña de la cuenta User1 en **Contraseña**. Haga clic en **Siguiente**.
 7.	En la página Implementación híbrida, seleccione **Habilitar implementación híbrida** y haga clic en **Siguiente**.
 8.	En la página de sincronización de contraseñas, seleccione **Habilitar sincronización de contraseñas** y, a continuación, haga clic en **Siguiente**.
 9.	Se muestra la página Configuración. Cuando se complete la configuración, haga clic en **Siguiente**.
@@ -194,4 +194,4 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

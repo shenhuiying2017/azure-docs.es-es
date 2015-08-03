@@ -21,4 +21,4 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices](http://go
 
 6. Repita los pasos 3 y 4 para comprobar que la muestra se comporta del mismo modo.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

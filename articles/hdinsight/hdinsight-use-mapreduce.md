@@ -192,4 +192,4 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

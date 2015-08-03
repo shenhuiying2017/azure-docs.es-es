@@ -147,4 +147,4 @@ Para obtener más información, consulte: [Introducción a DNS de Azure](../dns/
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

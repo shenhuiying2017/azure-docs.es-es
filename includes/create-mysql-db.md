@@ -73,4 +73,4 @@ Para crear una base de datos MySQL como un recurso vinculado cuando crea un [Sit
 [portal]: http://manage.windowsazure.com
 [configure]: ../article/app-service-web/web-sites-configure.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

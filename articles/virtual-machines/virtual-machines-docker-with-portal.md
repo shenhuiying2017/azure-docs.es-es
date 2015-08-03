@@ -145,4 +145,4 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

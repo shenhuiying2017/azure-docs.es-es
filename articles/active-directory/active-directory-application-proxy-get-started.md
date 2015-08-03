@@ -61,4 +61,4 @@ Hay mucho más que puede hacer con el proxy de la aplicación:
 * [Registro en Azure como una organización](../sign-up-organization.md)
 * [Identidad de Azure](../fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

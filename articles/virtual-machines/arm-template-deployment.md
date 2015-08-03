@@ -1,19 +1,12 @@
-<properties 
-	pageTitle="Implementación de recursos de Azure con una plantilla" 
-	description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento." 
-	services="virtual-machines,virtual-networks,storage" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties pageTitle="Implementación de recursos de Azure con una plantilla" description="Aprenda a usar algunos de los clientes disponibles en la biblioteca de administración de recursos de Azure para implementar una máquina virtual, una red virtual y una cuenta de almacenamiento" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.topic="article"
+	ms.date="06/15/2015"
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla
@@ -55,7 +48,7 @@ Para usar Azure AD para autenticar las solicitudes con el Administrador de recur
 
 5. Reemplace {application-id} por el identificador que acaba de anotar y, a continuación, cree la entidad de servicio correspondiente a la aplicación:
 
-        New-AzureADServicePrincipal -ApplicationId {application-id} 
+        New-AzureADServicePrincipal -ApplicationId {application-id}
 
 6. Establezca el permiso para usar la aplicación:
 
@@ -186,7 +179,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
           "resources": [ {
             "apiVersion": "2014-12-01-preview",
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('newStorageAccountName')]",       
+            "name": "[parameters('newStorageAccountName')]",
             "location": "[parameters('location')]",
             "properties": { "accountType": "[parameters('storageAccountType')]" }
           },
@@ -195,7 +188,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "[parameters('publicIPAddressName')]",
             "location": "[parameters('location')]",
-            "properties": { 
+            "properties": {
               "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
               "dnsSettings": { "domainNameLabel": "[parameters('dnsName')]" }
             }
@@ -256,7 +249,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
                 "adminPassword": "[parameters('adminPassword')]",
                 "windowsProfile": { "provisionVMAgent": "true" }
               },
-              "storageProfile": { 
+              "storageProfile": {
                 "sourceImage": { "id": "[variables('sourceImageName')]" },
                 "destinationVhdsContainer" : "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',parameters('vmStorageAccountContainerName'),'/')]"
               },
@@ -283,7 +276,7 @@ Para especificar los valores de los parámetros del recurso que se definieron en
 
         {
           "contentVersion": "1.0.0.0",
-          "parameters": { 
+          "parameters": {
             "vmName": { "value": "mytestvm1" },
             "newStorageAccountName": { "value": "mytestsa1" },
             "storageAccountType": { "value": "Standard_LRS" },
@@ -296,8 +289,8 @@ Para especificar los valores de los parámetros del recurso que se definieron en
             "adminUserName": { "value": "mytestacct1" },
             "adminPassword": { "value": "mytestpass1" },
             "virtualNetworkName": { "value": "mytestvn1" },
-            "dnsName": { "value": "mytestdns1" }, 
-            "nicName": { "value": "mytestnic1" } 
+            "dnsName": { "value": "mytestdns1" },
+            "nicName": { "value": "mytestnic1" }
           }
         }
 
@@ -450,4 +443,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

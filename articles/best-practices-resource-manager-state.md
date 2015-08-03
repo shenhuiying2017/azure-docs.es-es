@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Prácticas recomendadas para controlar el estado en las plantillas del Administrador de recursos de Azure"
 	description="Muestra los enfoques recomendados para usar objetos complejos a fin de compartir datos de estado con plantillas vinculadas y plantillas del Administrador de recursos de Azure"
-	services="virtual-machines"
+	services="azure-resource-manager"
 	documentationCenter=""
 	authors="mmercuri"
 	manager="georgem"
@@ -146,9 +146,9 @@ Nombre | Valor | Descripción
 ---- | ----- | -----------
 location | Cadena de una lista restringida de regiones de Azure | La ubicación donde se implementarán los recursos.
 storageAccountNamePrefix | String | Nombre DNS único de la cuenta de almacenamiento donde se colocarán los discos de la máquina virtual
-domainName | String | Nombre de dominio de la VM de JumpBox accesible públicamente en el formato: **{domainName}.{location}.cloudapp.com** For example: **mydomainname.westus.cloudapp.azure.com**
-adminUsername | String | Nombre de usuario de las VM
-adminPassword | String | Contraseña de las VM
+domainName | String | Nombre de dominio de la VM de JumpBox accesible públicamente en el formato: **{domainName}.{location}.cloudapp.com** Por ejemplo: **mydomainname.westus.cloudapp.azure.com**
+adminUsername | String | Nombre de usuario de las máquinas virtuales
+adminPassword | String | Contraseña de las máquinas virtuales
 tshirtSize | Cadena de una lista restringida de tamaños de camiseta ofrecidos | El tamaño de la unidad de escalado con nombre para aprovisionar. Por ejemplo, "Pequeña", "Mediana", "Grande"
 virtualNetworkName | String | Nombre de la red virtual que el consumidor desea usar.
 enableJumpbox | Cadena de una lista restringida (habilitada o deshabilitada) | Parámetro que identifica si se habilitará un JumpBox para el entorno. Valores: "habilitado", "deshabilitado"
@@ -378,7 +378,7 @@ Dentro de la plantilla principal, puede usar esos datos con la sintaxis siguient
     }
 
 ## Pasos siguientes
-- [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md)
+- [Creación de plantillas de Administrador de recursos de Azure](resource-group-authoring-templates.md)
 - [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -798,4 +798,4 @@ Si ya tiene conocimientos sobre Búsqueda de Azure, puede usar este ejemplo como
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

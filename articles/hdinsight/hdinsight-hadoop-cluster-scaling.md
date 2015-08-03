@@ -145,4 +145,4 @@ El siguiente es un código de ejemplo que muestra cómo usar la versión asincr�
 Consulte el tema [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](hdinsight-provision-clusters.md) para obtener más información sobre el uso del SDK .NET de HDInsight.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

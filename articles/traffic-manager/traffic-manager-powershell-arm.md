@@ -67,18 +67,18 @@ Instalación del PowerShell Azure más reciente, disponible en la página de des
 ### Paso 2:
 Cambio del modo de PowerShell para usar los cmdlets de ARM. Hay más información disponible en Uso de Windows PowerShell con el Administrador de recursos.
 
-	PS C:> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 ### Paso 3
 Inicio de sesión en la cuenta de Azure
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 Se le pedirá autenticarse con sus credenciales.
 
 ### Paso 4
 Elección de la suscripción de Azure que se va a usar.
 
-	PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscription'.
 
@@ -86,12 +86,12 @@ Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscri
 
  El proveedor de recursos Microsoft.Network administra el servicio del Administrador de tráfico. Su suscripción de Azure debe estar registrada para utilizar este proveedor de recursos si desea poder usar el Administrador de tráfico a través de ARM. Se trata de una operación única para cada suscripción.
 
-	PS C:> Register-AzureProvider –ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ### Paso 6
 Creación de un grupo de recursos (omitir este paso si se utiliza un grupo de recursos existente)
 
-	PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos del perfil del Administrador de tráfico son globales y no regionales, la elección de la ubicación del grupo de recursos no tiene efecto en el Administrador de tráfico de Azure.
 
@@ -99,7 +99,7 @@ El Administrador de recursos de Azure requiere que todos los grupos de recursos 
 
 Para crear un perfil del Administrador de tráfico, use el cmdlet New-AzureTrafficManagerProfile:
 
-	PS C:> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 Los parámetros son los siguientes:
 
@@ -125,7 +125,7 @@ El cmdlet crea un perfil del Administrador de tráfico en el Administrador de tr
 
 Para recuperar un objeto del perfil del Administrador de tráfico existente, use el cmdlet Get-AzureTrafficManagerProfle:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 Este cmdlet devuelve un objeto del perfil del Administrador de tráfico.
 
@@ -145,9 +145,9 @@ Esto se explica de forma más detallada en los siguientes ejemplos:
 
 Se pueden agregar extremos a un perfil de Administrador de tráfico mediante el cmdlet 'Add-AzureTrafficManagerEndpointConfig':
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 Los parámetros para AzureTrafficManagerEndpointConfig son los siguientes:
 
@@ -173,36 +173,36 @@ El estado, la ponderación y la prioridad del extremo son parámetros opcionales
 
 Para quitar un extremo de un perfil, utilice 'Remove-AzureTrafficmanagerEndpointConfig', especificando el nombre del extremo que se va a quitar:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 La secuencia de operaciones para agregar o quitar extremos puede también 'canalizarse', pasando el objeto de perfil a través de la canalización en lugar de como un parámetro. Por ejemplo:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
 ### Cambio de configuración del perfil o extremo
 
 Tanto los parámetros del perfil como del extremo se pueden cambiar sin conexión y los cambios se pueden confirmar mediante Set-AzureTrafficManagerProfile. La única excepción es que el RelativeDnsName del perfil no se puede cambiar una vez creado este último (para cambiar este valor, hay que eliminar el perfil y volverlo a crear). Por ejemplo, para cambiar el período de vida del perfil y el estado del primer extremo:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> $profile.Ttl = 300
-	PS C:> $profile.Endpoints[0].EndpointStatus = "Disabled"
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile.Ttl = 300
+	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ### Eliminación de un perfil del Administrador de tráfico
 Para eliminar un perfil del Administrador de tráfico, use el cmdlet Remove-AzureTrafficManagerProfile, especificando el nombre del perfil y el nombre del grupo de recursos:
 
-	PS C:> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 Este cmdlet le pedirá confirmación. Se puede utilizar el conmutador '-Force' opcional para suprimir este mensaje. El perfil que se va a eliminar también se puede especificar con un objeto de perfil:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 Se puede canalizar igualmente esta secuencia:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
 ## Otras referencias
@@ -212,4 +212,4 @@ Se puede canalizar igualmente esta secuencia:
 [Introducción a los cmdlets de Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

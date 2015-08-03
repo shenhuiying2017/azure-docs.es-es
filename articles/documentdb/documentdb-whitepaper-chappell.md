@@ -31,4 +31,4 @@ Estas notas del producto también lo guiarán para llevar a cabo lo siguiente:
 **Descarga en PDF:** [Presentación de DocumentDB: una base de datos NoSQL para Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

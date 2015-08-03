@@ -89,4 +89,4 @@ Si desea leer más sobre los niveles de coherencia y los compromisos, recomendam
 -	Werner Vogels. Coherencia ocasional - Revisitado. [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

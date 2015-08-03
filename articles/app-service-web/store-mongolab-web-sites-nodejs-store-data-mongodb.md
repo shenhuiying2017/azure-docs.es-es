@@ -68,7 +68,7 @@ Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comen
  		...
  		mongoose.connect(connectionString);
 
-Azure agrega el prefijo **CUSTOMCONNSTR\\_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a** CUSTOMCONNSTR\\_MONGOLAB\\_URI** en vez de a **MONGOLAB\\_URI**.
+Azure agrega el prefijo **CUSTOMCONNSTR\_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a** CUSTOMCONNSTR\_MONGOLAB\_URI** en vez de a **MONGOLAB\_URI**.
 
 Ahora, continuemos con el tutorial completo...
 
@@ -570,4 +570,4 @@ Ejecute `azure site browse` en el directorio del proyecto para abrir automática
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

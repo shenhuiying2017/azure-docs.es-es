@@ -460,7 +460,7 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 
 * Consulte [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md) para aprender a usar Apache Spark en HDInsight con herramientas de BI como Power BI y Tableau. 
 * Consulte [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md) para aprender a crear aplicaciones de aprendizaje automático con Apache Spark en HDInsight.
-* Consulte [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) para aprender a crear aplicaciones de streaming con Apache Spark en HDInsight.
+* Consulte [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) para aprender a crear aplicaciones de streaming con Apache Spark en HDInsight.
 * Consulte [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md) para aprender a usar el Administrador de recursos para administrar los recursos asignados al clúster Spark.
 
 
@@ -497,4 +497,4 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

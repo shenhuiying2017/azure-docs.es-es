@@ -316,33 +316,34 @@ Para obtener más información acerca de cómo implementar, actualizar y volver 
 
 </div>
 
-[Beneficios del modelo de aplicación de Azure]: #benefits
-[Conceptos básicos de los servicios hospedados]: #concepts
-[Consideraciones acerca del diseño de servicios hospedados]: #considerations
-[Diseño de aplicaciones para escala]: #scale
-[Definición y configuración de servicios hospedados]: #defandcfg
-[El archivo de definición de servicio]: #def
-[El archivo de configuración de servicio]: #cfg
-[Creación e implementación de servicios hospedados]: #hostedservices
-[Referencias]: #references
-[0]: ./media/application-model/application-model-3.jpg
-[1]: ./media/application-model/application-model-4.jpg
-[2]: ./media/application-model/application-model-5.jpg
-[Configuración de un nombre de dominio personalizado en Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
-[Ofertas para el almacenamiento de datos en Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
-[3]: ./media/application-model/application-model-6.jpg
-[4]: ./media/application-model/application-model-7.jpg
-[Precios de Azure]: http://www.windowsazure.com/pricing/calculator/
-[Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
-[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-[Administrar las actualizaciones del SO invitado de Azure]: http://msdn.microsoft.com/library/ee924680.aspx
-[Portal de administración de Azure]: http://manage.windowsazure.com/
-[5]: ./media/application-model/application-model-8.jpg
-[Implementación y actualización de aplicaciones de Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
-[Creación de un servicio hospedado para Azure]: http://msdn.microsoft.com/library/gg432967.aspx
-[Administración de servicios hospedados en Azure]: http://msdn.microsoft.com/library/gg433038.aspx
-[Migración de aplicaciones a Azure]: http://msdn.microsoft.com/library/gg186051.aspx
-[Configurar un proyecto de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
+  [Beneficios del modelo de aplicación de Azure]: #benefits
+  [Conceptos básicos de los servicios hospedados]: #concepts
+  [Consideraciones acerca del diseño de servicios hospedados]: #considerations
+  [Diseño de aplicaciones para escala]: #scale
+  [Definición y configuración de servicios hospedados]: #defandcfg
+  [El archivo de definición de servicio]: #def
+  [El archivo de configuración de servicio]: #cfg
+  [Creación e implementación de servicios hospedados]: #hostedservices
+  [Referencias]: #references
+  [0]: ./media/application-model/application-model-3.jpg
+  [1]: ./media/application-model/application-model-4.jpg
+  [2]: ./media/application-model/application-model-5.jpg
+  [Configuración de un nombre de dominio personalizado en Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Ofertas para el almacenamiento de datos en Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
+  [3]: ./media/application-model/application-model-6.jpg
+  [4]: ./media/application-model/application-model-7.jpg
+  
+  [Precios de Azure]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
+  [Portal de administración de Azure]: http://manage.windowsazure.com/
+  [5]: ./media/application-model/application-model-8.jpg
+  [Implementación y actualización de aplicaciones de Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [Creación de un servicio hospedado para Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Administración de servicios hospedados en Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migración de aplicaciones a Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configurar un proyecto de Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO4-->

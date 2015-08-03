@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure" 
-	description="Implemente fácilmente un único servidor WordPress con Ubuntu con una plantilla de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure"
+	description="Implemente fácilmente un único servidor WordPress con Ubuntu con una plantilla de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/29/2015"
+	ms.author="davidmu"/>
 
 # Implementar un servidor de WordPress en Ubuntu con una plantilla de Administrador de recursos de Azure
 
@@ -24,19 +24,19 @@ Siga las instrucciones de este artículo para implementar un servidor WordPress 
 ![](./media/virtual-machines-workload-template-wordpress/one-server-wordpress.png)
 
 Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure.
- 
+
 ## Portal de vista previa de Azure
 
 Para implementar esta carga de trabajo mediante una plantilla de Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
- 
+
 1.	Para el panel **Plantilla**, haga clic en **Guardar**.
 2.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
 3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
 4.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
 5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Si es necesario, haga clic en Condiciones legales para revisar los términos y el contrato para usar la plantilla.
+6.	Si es necesario, haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla.
 7.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya terminado, tendrá un nuevo servidor de WordPress ejecutándose en Ubuntu en el grupo de recursos nuevo o existente.
@@ -92,7 +92,7 @@ Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor 
 
 ## Recursos adicionales
 
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -104,4 +104,4 @@ Una vez completada la ejecución de la plantilla, ahora dispondrá del servidor 
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

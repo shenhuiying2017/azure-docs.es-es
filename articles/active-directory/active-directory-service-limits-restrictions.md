@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/13/2015"
 	ms.author="curtand"/>
 
 # Restricciones y límites del servicio Azure AD
@@ -27,4 +27,4 @@
 - [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Terminología de Azure AD](active-directory-terminology.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

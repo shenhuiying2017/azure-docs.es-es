@@ -479,4 +479,4 @@ Ahora que está familiarizado con los aspectos básicos del servicio de tablas d
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -90,4 +90,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

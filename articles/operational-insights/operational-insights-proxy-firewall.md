@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Configuración de proxy y firewall para Visión operativa
@@ -79,9 +79,23 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 ## Configuración de proxy y firewall con Operations Manager
 
-Para que el grupo de administración de Operations Manager se conecte y se registre con el servicio de Visión operativa, debe tener acceso al número de puerto de los dominios y las direcciones URL. Si se usa un servidor proxy para realizar la comunicación entre el servidor de administración de Operations Manager y el servicio de Visión operativa, deberá asegurarse de que es posible tener acceso a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso a Visión operativa. Las tablas siguientes muestran los puertos relacionados con estas tareas.
+Para que el grupo de administración de Operations Manager se conecte y se registre con el servicio de Visión operativa, debe tener acceso al número de puerto de los dominios y las direcciones URL. Si se usa un servidor proxy para realizar la comunicación entre el servidor de administración de Operations Manager y el servicio de Visión operativa, deberá asegurarse de que es posible tener acceso a los recursos adecuados. Si usa un firewall para restringir el acceso a Internet, deberá configurarlo para que permita el acceso a Visión operativa. Aunque no haya un servidor de administración de Operations Manager detrás de un servidor proxy, es posible que se encuentren sus agentes. En este caso, el servidor proxy debe estar configurado de la misma manera que los agentes con el fin de habilitar y permitir que los datos de la solución Security and Log Management se envíen al servicio web Visión operativa.
+
+Para que los agentes de Operations Manager se comuniquen con el servicio Operational Insights, la infraestructura de Operations Manager (incluidos los agentes) debe tener la configuración de proxy y la versión correctas. La configuración de proxy para los agentes se especifica en la consola de Operations Manager. La versión debe ser una de las siguientes:
+
+- Paquete acumulativo de actualizaciones 7 o posteriores de Operations Manager 2012 SP1
+- Paquete acumulativo de actualizaciones 3 o posteriores de Operations Manager 2012 R2
+
+
+Las tablas siguientes muestran los puertos relacionados con estas tareas.
 
 >[AZURE.NOTE]Algunos de los recursos siguientes mencionan a Advisor. Sin embargo, los recursos enumerados cambiarán en el futuro.
+
+|**Recurso del agente**|**Puertos**|
+|--------------|-----|
+|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|Puerto 443|
+|ods.systemcenteradvisor.com|Puerto 443|
+|*.blob.core.windows.net/*|Puerto 443|
 
 |**Recurso del servidor de administración**|**Puertos**|
 |--------------|-----|
@@ -119,6 +133,7 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 
 
 ### Para especificar las credenciales si el servidor proxy requiere autenticación
+ La configuración y credenciales del servidor proxy deben propagarse a equipos administrados que enviarán un informe a Visión operativa. Dichos servidores deben estar en el *Grupo de servidores de supervisión de Microsoft System Center Advisor*. Las credenciales se cifran en el registro de cada servidor del grupo.
 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración**.
 
@@ -128,28 +143,10 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 4. En el asistente de perfil de identificación, haga clic en **Agregar** para usar una cuenta de ejecución. Puede crear una nueva cuenta de ejecución o usar una existente. Esta cuenta debe contar con los permisos suficientes para pasar a través del servidor proxy.![imagen del asistente para el perfil de ejecutar como](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. Para establecer la cuenta que se va a administrar, elija **una clase seleccionada, un grupo o un objeto** para abrir el cuadro de búsqueda de objetos. ![imagen del asistente para el perfil de ejecutar como](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. Busque y seleccione **Servidores de administración de Operations Manager**. ![imagen del cuadro de búsqueda de objetos](./media/operational-insights-proxy-firewall/proxyacct3.png)
-7. Haga clic en **Aceptar** para cerrar el cuadro para agregar una ejecución como cuenta ![imagen del asistente para el perfil de ejecutar como](./media/operational-insights-proxy-firewall/proxyacct4.png)
+6. Busque y seleccione **Grupo de servidores de supervisión de Microsoft System Center Advisor**. ![imagen del cuadro de búsqueda de objetos](./media/operational-insights-proxy-firewall/proxyacct3.png)
+7. Haga clic en **Aceptar** para cerrar el cuadro Agregar una ejecución como cuenta ![imagen del asistente para el perfil de ejecutar como](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. Complete el asistente y guarde los cambios.![imagen del asistente para el perfil de ejecutar como](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
-
-### Para configurar el servidor proxy en cada servidor de administración para WinHTTP
-
-1. Si Operations Manager no se ha actualizado con el paquete acumulativo 3 de Operations Manager 2012 R2 o con el paquete acumulativo 7 de Operations Manager 2012 SP1 o posterior, abra una ventana de símbolo del sistema como administrador en el servidor de administración de Operations Manager. De lo contrario, no necesita usar este procedimiento.
-
-2. Escriba **netsh winhttp set proxy myproxy:80**.
-
-3. Cierre la ventana del símbolo del sistema y reinicie el servicio de administración de System Center (HealthService).
-
-4. Realice el paso 2 en cada servidor de administración del grupo de administración.
-
-### Para configurar el servidor proxy en cada servidor de administración
-
-1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración**.
-
-2. Seleccione **Administración de dispositivos** y, a continuación, haga clic en **Servidores de administración**.
-
-3. Haga clic con el botón derecho en el nombre de cada servidor de administración, haga clic en **Propiedades** y, a continuación, establezca la información en la pestaña **Configuración de proxy**.![Pestaña Configuración de proxy](./media/operational-insights-proxy-firewall/proxyms.png)
 
 ### Para validar la descarga de los módulos de administración de Visión operativa
 
@@ -169,4 +166,4 @@ Utilice los procedimientos siguientes para registrar el grupo de administración
 3. Agregue todos los contadores que comienzan con **HTTP**.![agregar contadores](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Si la configuración de Operations Manager es correcta, verá actividad para los contadores de Administración de Servicio de mantenimiento para eventos y otros elementos de datos, según los módulos de administración que agregó en Visión operativa y la directiva de recopilación de registros configurada.![Monitor rendimiento mostrando actividad](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

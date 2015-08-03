@@ -1,5 +1,18 @@
-<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Creación de un clúster Oracle WebLogic Server 12c en Azure" description="Revise un ejemplo de creación de un clúster de Oracle WebLogic Server 12c en Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Creación de un clúster Oracle WebLogic Server 12c en Azure" description="Revise un ejemplo de creación de un clúster de Oracle WebLogic Server 12c en Microsoft Azure." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Creación de un clúster Oracle WebLogic Server 12c en Azure
 En el ejemplo siguiente se muestra cómo puede crear un clúster Oracle WebLogic Server en Azure, basado en una imagen Oracle WebLogic Server 12c proporcionada por Microsoft que se ejecuta en Windows Server 2012.
 
@@ -119,7 +132,7 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 9. Si continúa en la consola de administración de WebLogic Server, haga clic en **Activar cambios**.
 
-10. En la máquina virtual del administrador, cree una variable de entorno denominada **SERVER_HOME** con su valor establecido en **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver**. Puede crear una variable de entorno mediante los siguientes pasos:
+10. En la máquina virtual del administrador, cree una variable de entorno denominada **SERVER_HOME** con su valor establecido en **C:\Oracle\Middleware\Oracle_Home\wlserver**. Puede crear una variable de entorno mediante los siguientes pasos:
 
 	1. Haga clic en **Inicio de Windows**, escriba **Panel de control**, haga clic en el icono del **Panel de control**, haga clic en **Sistema y seguridad**, en **Sistema** y, a continuación, haga clic en **Configuración avanzada del sistema**.
 
@@ -127,7 +140,7 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 	3. En la sección **Variables del sistema**, haga clic en **Nuevo** para crear la variable.
 
-	4. En el cuadro de diálogo **Nueva variable del sistema**, escriba **SERVER_HOME** para el nombre de la variable y escriba **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver** para el valor.
+	4. En el cuadro de diálogo **Nueva variable del sistema**, escriba **SERVER_HOME** para el nombre de la variable y escriba **C:\Oracle\Middleware\Oracle_Home\wlserver** para el valor.
 
 	5. Haga clic en **Aceptar** para guardar la nueva variable de entorno y cierre el cuadro de diálogo **Nueva variable del sistema**.
 
@@ -141,9 +154,9 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 12. Ejecute el siguiente comando:
 
-		%SERVER_HOME%\\common\\bin\\pack.cmd -managed=true -domain=C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain -template=c:\\mytestdomain.jar -template_name="mytestdomain" 
+		%SERVER_HOME%\common\bin\pack.cmd -managed=true -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar -template_name="mytestdomain" 
 
-	Este comando crea un archivo jar denominado **c:\\mytestdomain.jar.** Más adelante copiará este archivo jar en las máquinas virtuales administrada en el clúster.
+	Este comando crea un archivo jar denominado **c:\mytestdomain.jar.** Más adelante copiará este archivo jar en las máquinas virtuales administrada en el clúster.
 
 13. Permita una conexión entrante a través del firewall al puerto 7001.
 
@@ -165,17 +178,17 @@ Cree máquinas virtuales adicionales, que serán administradas por el servidor d
 
 	1. Inicie sesión en la máquina virtual.
 
-	2. Cree una variable de entorno denominada **SERVER_HOME** con su valor establecido en **C:\\Oracle\\Middleware\\Oracle_Home\\wlserver**.
+	2. Cree una variable de entorno denominada **SERVER_HOME** con su valor establecido en **C:\Oracle\Middleware\Oracle_Home\wlserver**.
 
-	3. Copie c:\\mytestdomain.jar desde la máquina virtual de administración en c:\\mytestdomain.jar en la máquina virtual administrada.
+	3. Copie c:\mytestdomain.jar desde la máquina virtual de administración en c:\mytestdomain.jar en la máquina virtual administrada.
 
 	4. Abra un símbolo del sistema (y no olvide ejecutar **title %COMPUTERNAME%** en el símbolo del sistema, para dejar claro a qué equipo se está accediendo).
 
 	5. Ejecute el siguiente comando:
 
-			%SERVER_HOME%\\common\\bin\\unpack.cmd -domain=C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain -template=c:\\mytestdomain.jar
+			%SERVER_HOME%\common\bin\unpack.cmd -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar
 
-	6. Cambie el directorio actual del símbolo del sistema a **C:\\Oracle\\Middleware\\Oracle_Home\\user_projects\\domains\\base_domain\\bin.**
+	6. Cambie el directorio actual del símbolo del sistema a **C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin.**
 
 	7. Ejecute start<<*MACHINENAME*>>.cmd, donde <<*MACHINENAME*>> es el nombre del equipo administrado. Por ejemplo, **startMYVM2-MANAGED.**
 
@@ -238,13 +251,13 @@ En este punto, podría implementar su aplicación mediante los siguientes pasos.
 
 1. Inicie sesión en la máquina virtual que actúe como el administrador del clúster WebLogic Server (por ejemplo, **MYVM1-ADMIN**). 
 
-2. Copie el archivo shoppingcart.war localmente. Por ejemplo, cree una carpeta denominada **c:\\mywar** y guarde el archivo WAR de <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> en **c:\\mywar**.
+2. Copie el archivo shoppingcart.war localmente. Por ejemplo, cree una carpeta denominada **c:\mywar** y guarde el archivo WAR de <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war> en **c:\mywar**.
 
 3. Abra la **Consola de administración de WebLogic Server**, <http://localhost:7001/console>. Cuando se le solicite, proporcione su nombre de usuario y contraseña de WebLogic.
 
 4. Dentro de la **Consola de administración de WebLogic Server**, haga clic en **Bloquear y editar**, haga clic en **Implementaciones** y, a continuación, haga clic en **Instalar**.
 
-5. Para **Ruta de acceso**, escriba **c:\\myway\\shoppingcart.war**.
+5. Para **Ruta de acceso**, escriba **c:\myway\shoppingcart.war**.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image004.png)
 
@@ -305,4 +318,4 @@ Ahora que ha configurado el clúster que se está ejecutando en el Oracle WebLog
 
 - [Oracle WebLogic Server 12c con Linux en Microsoft Azure](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

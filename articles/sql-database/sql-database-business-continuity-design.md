@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 #Diseño para la continuidad del negocio
@@ -99,4 +99,4 @@ Al diseñar la aplicación para la continuidad del negocio, debe tener en cuenta
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

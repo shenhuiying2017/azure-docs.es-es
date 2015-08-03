@@ -3,6 +3,7 @@
     pageTitle="Pruebe RemoteApp en su dispositivo en tres minutos o menos"
     description="Pruebe la funcionalidad de Azure RemoteApp sin instalar el servicio." 
     services="remoteapp" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -36,4 +37,4 @@ Su opinión es importante. Al final de cada sesión, verá un cuadro de diálogo
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

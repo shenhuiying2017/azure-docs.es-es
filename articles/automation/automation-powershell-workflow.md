@@ -163,9 +163,9 @@ Puede utilizar la palabra clave **Parallel** para crear un bloque de scripts con
 
 Por ejemplo, considere los siguientes comandos de PowerShell que copian varios archivos a un destino de red. Estos comandos se ejecutan secuencialmente de modo que un archivo debe terminar de copiarse antes de que comience el siguiente.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
 
 El flujo de trabajo siguiente ejecuta estos mismos comandos en paralelo para que todos ellos empiezan a copiarse al mismo tiempo. Una vez que todos se han copiado completamente, se muestra el mensaje de finalización.
 
@@ -173,9 +173,9 @@ El flujo de trabajo siguiente ejecuta estos mismos comandos en paralelo para que
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ El ejemplo siguiente es similar al ejemplo anterior, en el que se copian archivo
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ El siguiente ejemplo copia varios archivos en una ubicación de red y establece 
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \\NetworkPath
+			$Copy-Item -Path $File -Destination \NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Para obtener más información acerca de los puntos de control, consulte [Adici�
 
 - [Introducción al flujo de trabajo de Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

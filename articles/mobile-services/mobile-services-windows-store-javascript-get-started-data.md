@@ -141,4 +141,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

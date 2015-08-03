@@ -94,4 +94,4 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 [9]: ./media/sql-database-v12-upgrade/cancel.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

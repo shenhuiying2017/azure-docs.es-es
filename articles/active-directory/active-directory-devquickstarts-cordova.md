@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="vittorib"/>
 
 # Integración de Azure AD con una aplicación Apache Cordova
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -63,8 +65,8 @@ Cada plataforma de destino tiene diferentes requisitos previos.
 	-   [ios sim](https://www.npmjs.org/package/ios-sim): permite iniciar aplicaciones de iOS en el simulador de iOS desde la línea de comandos (se puede instalar fácilmente mediante el terminal: `npm install -g ios-sim`)
 
 - Para compilar y ejecutar la aplicación para Android
-	- Instale el [Kit de desarrollo de Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o una versión posterior. Asegúrese de que `JAVA_HOME` (variable de entorno) se haya configurado correctamente según la ruta de instalación de JDK (por ejemplo, C:\\Archivos de programa\\Java\\jdk1.7.0_75).
-	- Instale el [SDK de Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) y agregue la ubicación `<android-sdk-location>\tools` (por ejemplo, C:\\tools\\Android\\android-sdk\\tools) a su variable de entorno `PATH`.
+	- Instale el [Kit de desarrollo de Java (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) o una versión posterior. Asegúrese de que `JAVA_HOME` (variable de entorno) se haya configurado correctamente según la ruta de instalación de JDK (por ejemplo, C:\Archivos de programa\Java\jdk1.7.0_75).
+	- Instale el [SDK de Android](http://developer.android.com/sdk/installing/index.html?pkg=tools) y agregue la ubicación `<android-sdk-location>\tools` (por ejemplo, C:\tools\Android\android-sdk\tools) a su variable de entorno `PATH`.
 	- Abra el Administrador de SDK de Android (por ejemplo, a través de terminal: `android`) y proceda con la instalación.
     - SDK para la plataforma de *Android 5.0.1 (API 21)*
     - *Herramientas de compilación de SDK de Android*, versión 19.1.0 o posterior
@@ -252,7 +254,7 @@ Como referencia, aquí puede ver el ejemplo finalizado (sin sus valores de confi
 
 [Protección de una API Web Node.js con Azure AD >>](active-directory-devquickstarts-webapi-nodejs.md)
 
-Para acceder a recursos adicionales, consulte: - [Ejemplos de Azure AD en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

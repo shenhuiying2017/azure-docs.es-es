@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 # Deshabilitación o habilitación de un extremo de Administrador de tráfico
 
 También puede deshabilitar los extremos individuales que forman parte de un perfil del Administrador de tráfico. Los extremos incluyen servicios en la nube y sitios web. Al deshabilitar un extremo, se deja como parte del perfil, pero el perfil actúa como si el extremo no estuviera incluido en él. Esta acción es muy útil para quitar temporalmente un extremo que se encuentre en modo de mantenimiento o que se vaya a implementar. Cuando el extremo esté activo y ejecutándose, se puede habilitar
 
-[AZURE.NOTE]**Deshabilitar un extremo no tiene nada que ver con su estado de implementación en Azure. Seguirá activo un extremo correcto que podrá recibir tráfico incluso cuando se deshabilite en el Administrador de tráfico. Además, al deshabilitar un extremo de un perfil, no se afecta al estado en otro perfil.**
+>[AZURE.NOTE]**Deshabilitar un extremo no tiene nada que ver con su estado de implementación en Azure. Seguirá activo un extremo correcto que podrá recibir tráfico incluso cuando se deshabilite en el Administrador de tráfico. Además, al deshabilitar un extremo de un perfil, no se afecta al estado en otro perfil.**
 
 ## Para deshabilitar un extremo
 
@@ -36,7 +36,7 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 1. Haga clic en el extremo que desea habilitar y, a continuación, haga clic en **Habilitar** en la parte inferior de la página.
 1. El tráfico comenzará a fluir al servicio de nuevo como indica el perfil.
 
-## Otras referencias
+## Pasos siguientes
 
 [Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
@@ -50,4 +50,4 @@ También puede deshabilitar los extremos individuales que forman parte de un per
 [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

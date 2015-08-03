@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # Instalar Giraph en clústeres de Hadoop de HDInsight y usar Giraph para procesar gráficos a gran escala
@@ -75,7 +75,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 
 	Extrapolados, y usando el valor (o peso) como la distancia entre los objetos, los datos anteriores podrían parecerse a estos:
 
-	![tiny_graph.txt drawn as circles with lines of varying distance between](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
+	![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
@@ -145,7 +145,7 @@ Usamos el ejemplo SimpleShortestPathsComputation para mostrar la implementación
 	
 	Visualizando esto, puede verificar los resultados recorriendo las rutas más cortas entre el Id. 1 y todos los demás objetos. Tenga en cuenta que la ruta más corta entre el Id. 1 y el Id. 4 es 5. Esta es la distancia total entre el <span style="color:orange">identificador 1 y 3</span>, y, a continuación, <span style="color:red">identificador 3 y 4</span>.
 
-	![Drawing of objects as circles with shortest paths drawn between](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png)
+	![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 
 ## <a name="usingPS"></a>Instalación de Giraph en clústeres de Hadoop para HDInsight mediante Azure PowerShell
@@ -329,7 +329,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
 
 **Para ejecutar la aplicación**
 
-Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \\bin\\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
+Abra una consola de PowerShell de Azure, navegue hasta la ubicación donde ha guardado el proyecto de Visual Studio, luego hasta el directorio \bin\debug dentro del proyecto y, a continuación, ejecute el siguiente comando:
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

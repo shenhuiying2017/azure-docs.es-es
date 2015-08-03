@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Hadoop en HDInsight: análisis de Big Data en la nube | Microsoft Azure"
 	description="Una introducción a los componentes de Hadoop en HDInsight en la nube. Sepa cómo HDInsight usa clústeres de Hadoop para administrar, analizar y generar informes sobre Big Data."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -247,4 +246,4 @@ Utilice el análisis de Big Data sobre los datos de su organización para obtene
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

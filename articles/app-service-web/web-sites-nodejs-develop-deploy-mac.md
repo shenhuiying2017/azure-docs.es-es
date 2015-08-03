@@ -28,8 +28,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 Siga estos pasos para crear una aplicación web y habilitar la publicación Git.
 
-> [AZURE.NOTE]
-Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-es/pricing/free-trial/?WT.mc_id=A261C142F).
+> [AZURE.NOTE]Necesita una cuenta de Microsoft Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN](/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o bien [registrarse para obtener una evaluación gratuita](/es-es/pricing/free-trial/?WT.mc_id=A261C142F).
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 
@@ -98,8 +97,7 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
 
 		git init
 
-	> [AZURE.NOTE]**¿No está disponible el comando Git?** 
-	> [Git](http://git-scm.com/%20target="_blank) es un sistema de control de versión distribuida que puede utilizar para implementar su sitio web de Azure. Para obtener instrucciones de instalación en su plataforma, consulte la [página de descargas de Git](http://git-scm.com/download%20target="_blank").
+	> [AZURE.NOTE]**¿No está disponible el comando Git?** [Git](http://git-scm.com/%20target="_blank) es un sistema de control de versión distribuida que puede utilizar para implementar su sitio web de Azure. Para obtener instrucciones de instalación en su plataforma, consulte la [página de descargas de Git](http://git-scm.com/download%20target="_blank").
 
 2. Utilice los siguientes comandos para agregar archivos al repositorio:
 
@@ -198,4 +196,4 @@ Si tiene problemas con su aplicación después de la implementación en Azure, c
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

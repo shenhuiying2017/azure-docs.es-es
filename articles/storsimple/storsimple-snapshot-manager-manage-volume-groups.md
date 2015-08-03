@@ -142,4 +142,4 @@ Utilice el procedimiento siguiente para eliminar un grupo de volúmenes.
 
 [Uso de Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

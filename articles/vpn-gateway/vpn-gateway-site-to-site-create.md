@@ -89,4 +89,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 Si desea configurar una conexión VNet mediante RRAS, consulte [Configurar una conexión VPN sitio a sitio mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

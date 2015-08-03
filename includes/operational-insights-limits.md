@@ -1,3 +1,4 @@
+
 Los límites siguientes se aplican a las suscripciones de Visión operativa.
 
 
@@ -10,4 +11,4 @@ Los límites siguientes se aplican a las suscripciones de Visión operativa.
 
 <sup>1</sup>Cuando los clientes alcanzan su límite de transferencia de datos diarios de 500 MB, el análisis de datos se detiene y se reanuda al comienzo del día siguiente. Un día se basa en UTC.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

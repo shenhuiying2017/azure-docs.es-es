@@ -3,11 +3,11 @@
 	description="Una introducción a la copia de seguridad de servidores DPM mediante el servicio Copia de seguridad de Azure"
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/02/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/16/2015" ms.author="sammehta"; "jimpark"/>
 
 # Introducción a Copia de seguridad de DPM de Azure
 
@@ -81,4 +81,4 @@ No se admiten los siguientes:
 
 >[AZURE.NOTE]A partir de System Center 2012 DPM con SP1 en adelante, puede realizar una copia de seguridad de las cargas protegidas por DPM en Azure con Copia de seguridad de Microsoft Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

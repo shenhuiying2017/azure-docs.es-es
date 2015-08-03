@@ -37,7 +37,7 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel se usa para la visualización de datos con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
+	> [AZURE.NOTE]Microsoft Excel se usa para la visualización de datos con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=es-es&rs=es-es&ad=US).
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
@@ -53,4 +53,4 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

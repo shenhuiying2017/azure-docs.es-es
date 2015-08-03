@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Creación y supervisión de un generador de datos mediante el Editor de Factoría de datos
@@ -21,6 +21,8 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
+
 
 
 ##Apartados de este tutorial
@@ -314,7 +316,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 5. En la hoja **Conjuntos de datos**, haga clic en **EmpTableFromBlob**. Esta es la tabla de entrada para **ADFTutorialPipeline**.
 
 	![Conjuntos de datos con EmpTableFromBlob seleccionado][image-data-factory-get-started-datasets-emptable-selected]   
-5. Observe que ya se han producido los segmentos de datos hasta la hora actual y que están **listos** porque el archivo **emp.txt** existe todo el tiempo en el contenedor de blobs: **adftutorial\\input**. Confirme que no aparecen segmentos en la sección **Segmentos que han fallado recientemente** de la parte inferior.
+5. Observe que ya se han producido los segmentos de datos hasta la hora actual y que están **listos** porque el archivo **emp.txt** existe todo el tiempo en el contenedor de blobs: **adftutorial\input**. Confirme que no aparecen segmentos en la sección **Segmentos que han fallado recientemente** de la parte inferior.
 
 	Tanto la lista **Segmentos actualizados recientemente** como la lista **Segmentos que han fallado recientemente** se ordenan por la **HORA DE LA ÚLTIMA ACTUALIZACIÓN**. En las situaciones siguientes, se cambia la hora de actualización de un segmento.
     
@@ -506,4 +508,4 @@ Artículo | Descripción
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

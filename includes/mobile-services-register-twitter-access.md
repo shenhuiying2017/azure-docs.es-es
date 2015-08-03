@@ -37,4 +37,4 @@ Las nuevas API de Twitter v1.1 requieren que la aplicación se autentique para o
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configuración de aplicación]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

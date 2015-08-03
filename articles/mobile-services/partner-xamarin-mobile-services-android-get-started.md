@@ -1,6 +1,5 @@
 <properties 
 	pageTitle="Introducción a Servicios móviles para Xamarin.Android" 
-	writer="craigd" 
 	description="Obtenga información acerca de cómo utilizar Servicios móviles de Azure con la aplicación Xamarin.Android." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -137,4 +136,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

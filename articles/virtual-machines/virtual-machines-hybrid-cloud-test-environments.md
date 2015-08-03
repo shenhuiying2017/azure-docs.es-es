@@ -5,20 +5,23 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Entornos de prueba de nube híbrida de Azure
 
 Para desarrollo/prueba o una prueba de concepto, los entornos de prueba de nube híbrida usan la conexión local a Internet y una de las direcciones IP públicas y le guiarán durante el proceso de configuración de una red virtual de Azure (VNet) entre locales y en funcionamiento. Cuando haya finalizado, puede hacer pruebas y desarrollo de aplicaciones, experimentar con cargas de trabajo de TI simplificadas y medir el rendimiento de una conexión de red privada virtual (VPN) de sitio a sitio con respecto a su ubicación en Internet.
+
+> [AZURE.NOTE]Actualmente, estos artículos crean máquinas virtuales, redes virtuales y otros recursos en Administración de servicios.
 
 ## Configuración básica de nube híbrida
 
@@ -58,4 +61,4 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

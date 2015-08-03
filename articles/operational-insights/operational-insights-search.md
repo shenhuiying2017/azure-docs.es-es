@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Búsqueda de datos en Visión operativa
@@ -50,9 +50,9 @@ Los filtros más básicos que puede usar son *palabras clave*, como 'error' o 't
 
 ### Para llevar a cabo una búsqueda simple
 1. En el portal de Visión operativa, haga clic en **Explorador de datos de búsqueda**. ![search tile](./media/operational-insights-search/overview-search.png)
-2. En el campo de consulta, escriba `error` y luego haga clic en **Buscar**. ![search error](./media/operational-insights-search/search-error.png) Por ejemplo, la consulta de `error` en la siguiente imagen devolvió 100 000 registros de **Event** (recopilados por la administración de registros), 18 registros de **Alert** (generados por la evaluación de la configuración) y 12 registros de **ConfigurationChange** (capturados por el seguimiento de cambios). ![search results](./media/operational-insights-search/results01.png)
+2. En el campo de consulta, escriba `error` y luego haga clic en **Buscar**. ![search error](./media/operational-insights-search/search-error.png) Por ejemplo, la consulta de `error` en la siguiente imagen devolvió 100 000 registros de **Event** (recopilados por la administración de registros), 18 registros de **ConfigurationAlert** (generados por la evaluación de la configuración) y 12 registros de **ConfigurationChange** (capturados por el seguimiento de cambios). ![search results](./media/operational-insights-search/results01.png)
 
-Estos filtros no son en realidad clases o tipos de objeto. *Type* es una etiqueta, una propiedad o una cadena/nombre/categoría, que se adjunta a una parte de los datos. Algunos documentos del sistema están etiquetados como **Type:Alert** y otros como **Type:PerfHourly** o **Type:Event**, y así sucesivamente. Cada resultado de búsqueda, documento, registro o entrada muestra todas las propiedades sin procesar y sus valores para cada uno de estas partes de los datos, y puede usar esos nombres de campo para especificar en el filtro cuándo quiere recuperar únicamente los registros donde el campo tiene ese valor dado.
+Estos filtros no son en realidad clases o tipos de objeto. *Type* es una etiqueta, una propiedad o una cadena/nombre/categoría, que se adjunta a una parte de los datos. Algunos documentos del sistema están etiquetados como **Type:ConfigurationAlert** y otros como **Type:PerfHourly** o **Type:Event**, y así sucesivamente. Cada resultado de búsqueda, documento, registro o entrada muestra todas las propiedades sin procesar y sus valores para cada uno de estas partes de los datos, y puede usar esos nombres de campo para especificar en el filtro cuándo quiere recuperar únicamente los registros donde el campo tiene ese valor dado.
 
 *Type* es simplemente un campo que todos los registros tienen, no es diferente de ningún otro campo. Esto se estableció en función del valor del campo Type. Ese registro tendrá una forma diferente. Por cierto, **Type=PerfHourly** o **Type=Event** es también la sintaxis que debe conocer para consultar los agregados de datos o eventos de rendimiento por hora.
 
@@ -251,6 +251,8 @@ El comando SELECT se comporta como Select-Object en PowerShell. Devuelve los res
 
 Se trata de un comando especialmente útil cuando desea controlar los resultados de búsqueda y elegir solo las partes de los datos que realmente importan para la exploración, que casi siempre no son el registro completo. También es útil cuando registros de diferentes tipos tienen *algunas* propiedades en común, pero no *todas*. Luego, puede generar resultados con la apariencia natural de una tabla, o que funcionan bien cuando se exportan a un archivo CSV y luego se transforman en Excel.
 
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
 ## Uso del comando measure
 
 MEASURE es uno de los comandos más versátiles en las búsquedas de Visión operativa. Permite aplicar *funciones* estadísticas a los datos y agregar los resultados agrupados por un campo dado. Son muchas las funciones estadísticas que admite este comando.
@@ -312,7 +314,7 @@ Son varias las situaciones en las que **Measure Max()** y **Measure Min()** son 
 Si consulta las alertas de evaluación de la configuración, tienen una propiedad **Severity** que puede ser 0, 1 o 2 según la alerta sea informativa, un mensaje de advertencia o crítica. Por ejemplo:
 
 ```
-Type=Alert
+Type=ConfigurationAlert
 ```
 
 ![search measure count start](./media/operational-insights-search/search-measure-max01.png)
@@ -320,7 +322,7 @@ Type=Alert
 Si quiere ver el valor más alto de todas las alertas dado un equipo común, puede usar agrupar por campo.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![search measure max computer](./media/operational-insights-search/search-measure-max02.png)
@@ -328,7 +330,7 @@ Type=Alert | Measure Max(Severity) by Computer
 Se mostrará que para los equipos que tenían registros **Alert**, la mayoría de ellos tienen al menos una alerta crítica, y el equipo Bacc tiene una advertencia como su peor gravedad.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![search measure max time generated computer](./media/operational-insights-search/search-measure-max03.png)
@@ -688,7 +690,7 @@ Ejemplos:
 Puede omitir el operador lógico para los argumentos de filtro de nivel superior. En este caso, se supone el operador AND.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expresión de filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system &quot; Windows Server&quot; OR Severity:1</p> </td> <td> <p>system AND (&quot;Windows Server&quot; OR Severity:1)</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expresión de filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
 
 
 
@@ -2028,7 +2030,7 @@ Al usar Buscar para buscar datos, los resultados muestran varios campos y faceta
 </table>
 
 ## Entradas de blog: casos de uso de Buscar
-- [Búsqueda de registros de W3C IIS en Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
+- [Búsqueda de registros de IIS W3C en Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
 - [Supervisión de errores de copia de seguridad de SQL con la característica de búsqueda y los paneles de Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2015/02/21/monitoring-sql-backup-failures-with-azure-operational-insights-search-and-dashboards.aspx)
 - [Evento del Módulo de administración de IIS: equivalentes a las búsquedas de OpInsights de las reglas de alertas](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)
 - [Recopilación de consultas de búsqueda útiles de Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
@@ -2036,4 +2038,4 @@ Al usar Buscar para buscar datos, los resultados muestran varios campos y faceta
 ## Otros recursos:
 Stefan Roth creó una práctica hoja de referencia sobre búsqueda. Visite su [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para obtener más información y descargar su hoja de referencia.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

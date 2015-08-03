@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # Administrar un servicio de Service Fabric
@@ -30,6 +30,7 @@ En los temas siguientes se describe el modelo de aplicación de Service Fabric, 
 - [Recursos de manifiesto de servicio](service-fabric-service-manifest-resources.md)
 - [Empaquetar una aplicación](service-fabric-application-model.md)
 - [Implementar y quitar una aplicación](service-fabric-deploy-remove-applications.md)
+- [Implementar una aplicación existente](service-fabric-deploy-existing-app.md)
 - [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Actualizar una aplicación
@@ -49,4 +50,4 @@ En los siguientes artículos se describen el escalado y la creación de particio
 - [Escalar aplicaciones de Service Fabric](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

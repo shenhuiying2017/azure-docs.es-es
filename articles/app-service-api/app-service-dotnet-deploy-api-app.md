@@ -92,4 +92,4 @@ En esta sección, verá la configuración básica disponible para las aplicacion
 Ha visto cómo las capacidades de implementación directa en Visual Studio facilitan la iteración y la implementación rápida y prueban que la API funcione correctamente. En el [siguiente tutorial](../app-service-dotnet-remotely-debug-api-app.md), aprenderá a depurar la aplicación de API mientras se ejecuta en Azure.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

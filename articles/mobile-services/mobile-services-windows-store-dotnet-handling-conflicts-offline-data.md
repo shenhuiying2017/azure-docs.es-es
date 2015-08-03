@@ -51,7 +51,7 @@ Este tutorial se refiere a cómo el [ejemplo de Todo sin conexión de Servicios 
 
 2. Si todavía no ha instalado SQLite para Windows 8.1 y Windows Phone 8.1 según lo mencionado en el tutorial [Introducción a los datos sin conexión], instale ambos tiempos de ejecución.
 
-3. En Visual Studio 2013, abra el archivo de solución *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. Compruebe que se restauran los paquetes de NuGet y las referencias se establecen correctamente.
+3. En Visual Studio 2013, abra el archivo de solución *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. Compruebe que se restauran los paquetes de NuGet y las referencias se establecen correctamente.
 
     >[AZURE.NOTE]Es posible que se requiera eliminar cualquier referencia anterior a SQLite en tiempo de ejecución y reemplazarla por la referencia actualizada, tal como se menciona en el tutorial [Introducción a los datos sin conexión].
 
@@ -166,4 +166,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

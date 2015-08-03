@@ -47,9 +47,9 @@ El flujo de trabajo que implementará siguiendo las instrucciones de este docume
 
 1. Una acción de Hive ejecuta un script de HiveQL para extraer los registros de la tabla **hivesampletable** incluidos con HDInsight. Cada fila de datos describe una visita de un dispositivo móvil específico. El formato de registro es similar al siguiente:
 
-		8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        es-es   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        es-es   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        es-es   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	El script de Hive utilizado en este documento cuenta el número total de visitas a cada plataforma (por ejemplo, Android o iPhone) y almacena los recuentos en una nueva tabla de Hive.
 
@@ -360,9 +360,8 @@ La definición de trabajo describe dónde encontrar el archivo workflow.xml, as�
 		  </property>
 		</configuration>
 
-	* Reemplace todas las instancias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con el valor que recibió anteriormente.
-
-	> [AZURE.WARNING] Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción de RunHiveScript producirá un error cuando se inicie el trabajo.
+	* Reemplace todas las instancias de **wasb://mycontainer@mystorageaccount.blob.core.windows.net** con el valor que recibió anteriormente. 
+	> [AZURE.WARNING]Debe utilizar la ruta de acceso completa de WASB, con la cuenta de almacenamiento y de contenedor como parte de la ruta de acceso. Con el formato corto (wasb:///), la acción de RunHiveScript producirá un error cuando se inicie el trabajo.
 
 	* Reemplace **JOBTRACKERADDRESS** con la dirección de JobTracker/ResourceManager que recibió anteriormente.
 
@@ -726,4 +725,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!-----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

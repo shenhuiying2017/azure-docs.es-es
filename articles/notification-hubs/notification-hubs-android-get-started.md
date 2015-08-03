@@ -66,7 +66,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 ###Incorporación de código
 
-1. Descargue el SDK para Android de Centros de notificaciones desde <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aquí</a>. Extraiga el archivo .zip y copie **notificationhubs\\notification-hubs-0.4.jar** y **notifications\\notifications-1.0.1.jar** en el directorio **app\\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta libs.
+1. Descargue el SDK para Android de Centros de notificaciones desde <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aquí</a>. Extraiga el archivo .zip y copie **notificationhubs\notification-hubs-0.4.jar** y **notifications\notifications-1.0.1.jar** en el directorio **app\libs** del proyecto. Para hacerlo, arrastre los archivos directamente a la carpeta **libs** en la ventana Vista del proyecto de Android Studio. Actualice la carpeta libs.
 
 
 
@@ -511,4 +511,4 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

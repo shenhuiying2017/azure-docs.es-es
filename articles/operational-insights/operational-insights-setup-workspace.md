@@ -180,4 +180,4 @@ Si es administrador, y hay varios usuarios asociados con el área de trabajo, se
 
 3. Haga clic en **Cerrar área de trabajo**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

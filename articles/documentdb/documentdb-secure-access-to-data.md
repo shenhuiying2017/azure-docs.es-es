@@ -163,4 +163,4 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
 - Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -37,4 +37,4 @@ En esta carpeta se incluyen todos los recursos que necesita Mobile Engagement. A
 - `EngagementConfiguration.xml`: el archivo de configuración de Mobile Engagement, donde puede personalizar la configuración de Engagement (cadena de conexión, bloqueo de informes, etc.).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

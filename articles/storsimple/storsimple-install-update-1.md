@@ -100,4 +100,4 @@ Si ha comprobado que existe conectividad y sigue apareciendo este problema, pón
 
 Más información acerca de [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

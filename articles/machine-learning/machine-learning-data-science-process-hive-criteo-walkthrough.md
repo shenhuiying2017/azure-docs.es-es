@@ -1,7 +1,9 @@
 <properties 
-	pageTitle="Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Microsoft Azure" 
+	pageTitle="Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight en un conjunto de datos de 1 TB de Criteo | Azure" 
 	description="Uso del proceso analítico avanzado y tecnología (ADAPT) para un escenario integral con un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente de gran tamaño (1 TB)" 
+	metaKeywords="" 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -13,14 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/21/2015" 
 	ms.author="ginathan;mohabib;bradsev" />
 
 # Proceso analítico avanzado y tecnología en acción: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB
 
-En este tutorial, se describe cómo utilizar todo el proceso analítico avanzado y tecnología (ADAPT) con un [clúster de Hadoop de HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir el tamaño de los datos de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Usamos el Aprendizaje automático de Azure para crear modelos de regresión y clasificación binarios con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
+En este tutorial, se describe cómo utilizar todo el proceso analítico avanzado y tecnología (ADAPT) con un [clúster de Hadoop de HDInsight de Azure](http://azure.microsoft.com/services/hdinsight/) para almacenar, explorar y estudiar sus características desde el punto de vista de los ingenieros y reducir el tamaño de los datos de uno de los conjuntos de datos de [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) que están disponibles públicamente. Usamos Aprendizaje automático de Azure para crear un modelo de clasificación binaria con estos datos. Asimismo, se muestra cómo publicar uno de estos modelos como un servicio web.
 
-También es posible utilizar un bloc de notas de iPython para realizar las tareas que se presentan en este tutorial. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+También es posible usar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Descripción del conjunto de datos de Criteo
@@ -62,7 +64,7 @@ En este tutorial, se describen dos problemas de predicción de ejemplo:
 
 Configure su entorno de ciencia de datos de Azure para crear soluciones de análisis predictivos con los clústeres de HDInsight en tres pasos:
 
-1. [Cree una cuenta de almacenamiento](../storage-whatis-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en el almacenamiento de blobs de Azure. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
+1. [Cree una cuenta de almacenamiento](storage-whatis-account.md): esta cuenta de almacenamiento se utiliza para almacenar datos en el almacenamiento de blobs de Azure. Los datos utilizados en los clústeres de HDInsight se almacenan aquí.
 
 2. [Personalice los clústeres de Hadoop de HDInsight de Azure para la ciencia de los datos](machine-learning-data-science-customize-hadoop-cluster.md): en este paso, se crea un clúster de Hadoop de HDInsight de Azure con Anaconda Python 2.7 de 64 bits instalado en todos los nodos. Hay que llevar a cabo dos pasos importantes (descritos en este tema) para personalizar el clúster de HDInsight.
 
@@ -80,7 +82,7 @@ Para acceder al conjunto de datos de [Criteo](http://labs.criteo.com/downloads/d
 
 Haga clic en **Continue to download** (Continuar para descarga) para obtener más información sobre el conjunto de datos y su disponibilidad.
 
-Los datos residen en una ubicación pública de [almacenamiento de blobs de Azure](../storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" hace referencia a la ubicación de almacenamiento de blobs de Azure.
+Los datos residen en una ubicación pública de [almacenamiento de blobs de Azure](storage-dotnet-how-to-use-blobs.md): wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. "wasb" hace referencia a la ubicación de almacenamiento de blobs de Azure.
 
 1. Los datos de este almacenamiento de blobs públicos constan de tres subcarpetas de datos sin comprimir.
 		
@@ -119,9 +121,9 @@ Después de que aparezca Hive REPL con un signo "hive >", solo tendrá que corta
 El código siguiente crea una base de datos "criteo" y, a continuación, genera 4 tablas:
 
 
-* Una *tabla count*, que incluye los días desde day_00 hasta day_20. 
-* Una *tabla train*, que incluye day_21. 
-* Dos *tablas test* correspondientes a day_22 y day_23, respectivamente. 
+* Una *tabla para generar números*, correspondientes a los días desde day_00 hasta day_20. 
+* Una *tabla que se usa como el conjunto de datos de entrenamiento*, correspondiente a day_21. 
+* Dos *tablas que se usan como los conjuntos de datos de prueba* correspondientes a day_22 y day_23, respectivamente. 
 
 Dividimos nuestro conjunto de datos de prueba en dos tablas distintas porque uno de los días es festivo y queremos determinar si el modelo puede detectar las diferencias entre un día festivo y uno laborable a partir del porcentaje de clics.
 
@@ -437,25 +439,28 @@ Nuestro modelo del proceso de creación con el Aprendizaje automático de Azure 
 5. [Evaluación del modelo](#step5)
 6. [Publicación del modelo como un servicio web para su consumo](#step6)
 
-Ahora estamos preparados para generar modelos en Estudio de aprendizaje automático de Azure. Nuestros datos con tamaño reducido están guardados como tablas de Hive en el clúster. Usaremos el módulo Reader (Lector) de Aprendizaje automático de Azure para leer estos datos. Las credenciales para acceder a la cuenta de almacenamiento de este clúster están a continuación.
+Ahora estamos preparados para generar modelos en Estudio de aprendizaje automático de Azure. Nuestros datos con tamaño reducido están guardados como tablas de Hive en el clúster. Usaremos el módulo **Lector** de Aprendizaje automático de Azure para leer estos datos. Las credenciales para acceder a la cuenta de almacenamiento de este clúster se proporcionan a continuación.
 
 ### <a name="step1"></a> Paso 1: obtención de datos a partir de las tablas de Hive para el Aprendizaje automático de Azure con el módulo Reader (Lector) y selección para un experimento de Aprendizaje automático
 
-Para el módulo **Reader** (Lector), los valores de los parámetros que se establecen en el gráfico son solo ejemplos. Estas son algunas orientaciones generales sobre cómo "rellenar" el conjunto de parámetros para el módulo **Lector**.
-
-1. Elija "Hive Query" (Consulta de Hive) como origen de datos.
-2. En "Hive Query" (Consulta de Hive), basta con seleccionar SELECT * FROM <nombre_base_datos.nombre_tabla>.
-3. Hcatalog server URI (URI del servidor de Hcatalog): si el clúster es "abc", este valor será: https://abc.azurehdinsight.net
-4. Hadoop user account name (Nombre de la cuenta de usuario de Hadoop): el nombre de usuario elegido en el momento de dar de alta el clúster (no es el nombre de usuario de acceso remoto).
-5. Hadoop user account password (Contraseña de la cuenta de usuario de Hadoop): la contraseña de usuario elegida en el momento de dar de alta el clúster (no es la contraseña de acceso remoto).
-6. Location of output data (Ubicación de los datos de salida): elija "Azure".
-7. Azure storage account name (Nombre de la cuenta de almacenamiento de Azure): la cuenta de almacenamiento asociada al clúster.
-8. Azure storage account key (Clave de la cuenta de almacenamiento de Azure): la clave de almacenamiento asociada al clúster.
-9. Azure container name (Nombre del contenedor de Azure): si el nombre de clúster es "abc", este campo suele ser simplemente "abc". 
+Para empezar, seleccione **+ NUEVO** -> **EXPERIMENTO** -> **Experimento en blanco**. A continuación, en el cuadro **Búsqueda**, en la parte superior izquierda, busque "Lector". Arrastre y coloque el módulo **Lector** en el lienzo del experimento (la parte central de la pantalla) para usar el módulo para acceder a los datos.
 
 Este es el aspecto del módulo **Lector** al obtener los datos de la tabla de Hive:
 
 ![Obtener los datos del lector](http://i.imgur.com/i3zRaoj.png)
+
+Para el módulo **Lector**, los valores de los parámetros que se proporcionan en el gráfico son solo algunos ejemplos de la ordenación de los valores que deberá proporcionar. Aquí se proporcionan algunas instrucciones generales acerca de cómo rellenar el conjunto de parámetros para el módulo **Lector**.
+
+1. Elija "Consulta de Hive" como **Origen de datos**.
+2. En el cuadro **Consulta de base de datos de Hive**, basta con seleccionar SELECT * FROM <nombre_base_datos.nombre_tabla>.
+3. **URI del servidor de Hcatalog**: si el clúster es "abc", este valor simplemente será: https://abc.azurehdinsight.net
+4. **Nombre de la cuenta de usuario de Hadoop**: el nombre de usuario elegido en el momento de dar de alta el clúster. (No es el nombre de usuario de acceso remoto).
+5. **Contraseña de la cuenta de usuario de Hadoop**: la contraseña de usuario elegida en el momento de dar de alta el clúster. (NO es la contraseña de acceso remoto).
+6. **Ubicación de los datos de salida**: elija "Azure".
+7. **Nombre de la cuenta de almacenamiento de Azure**: la cuenta de almacenamiento asociada al clúster.
+8. **Clave de la cuenta de almacenamiento de Azure**: la clave de almacenamiento asociada al clúster.
+9. **Nombre del contenedor de Azure**: si el nombre de clúster es "abc", este campo suele ser simplemente "abc". 
+
 
 Una vez que el módulo **Lector** finaliza la obtención de datos (se muestra una marca de verificación verde en el módulo), guarde estos datos como un conjunto de datos (con el nombre que desee). Este es el aspecto:
 
@@ -464,158 +469,167 @@ Una vez que el módulo **Lector** finaliza la obtención de datos (se muestra un
 
 Haga clic con el botón derecho en el puerto de salida del módulo **Lector**. Se muestran las opciones **Save as dataset** (Guardar como conjunto de datos) y **Visualize** (Visualizar). Si se hace clic en la opción **Visualize** (Visualizar), se muestran 100 filas de los datos, junto con un panel derecho que es útil para algunas estadísticas de resumen. Para guardar los datos, simplemente seleccione **Save as dataset** (Guardar como conjunto de datos) y siga las instrucciones.
 
-Para seleccionar el conjunto de datos guardado para usarlo en un experimento de Aprendizaje automático, busque los conjuntos de datos utilizando la **búsqueda** que se muestra a continuación. A continuación, escriba parcialmente el nombre del conjunto de datos para acceder a él y arrastre el conjunto de datos hasta el panel principal. Al depositarlo en el panel principal, se selecciona para su uso en el modelado de Aprendizaje automático.
+Para seleccionar el conjunto de datos guardado para usarlo en un experimento de Aprendizaje automático, busque los conjuntos de datos usando el cuadro **Búsqueda** que se muestra a continuación. A continuación, escriba parcialmente el nombre que asignó al conjunto de datos para acceder a él y arrastre el conjunto de datos hasta el panel principal. Al depositarlo en el panel principal, se selecciona para su uso en el modelado de Aprendizaje automático.
 
-![Buscar el conjunto de datos](http://i.imgur.com/rx4nnUH.png)
+![](http://i.imgur.com/cl5tpGw.png)
 
-Realice esta acción para los conjuntos de datos "test" y "train".
-
+***NOTA IMPORTANTE:*** **Realice esta acción para los conjuntos de datos "test" y "train". Además, recuerde usar el nombre de la base de datos y los nombres de tabla que ha asignado para este propósito. Los valores usados en la ilustración son únicamente con fines ilustrativos.**
+ 
 ### <a name="step2"></a> Paso 2: creación de un experimento sencillo en el estudio de Aprendizaje automático de Azure para predecir los clics y los "no clics"
 
-En primer lugar, mostramos una arquitectura de experimento sencillo. Después, profundizaremos un poco en los detalles. Primero, limpiaremos los datos. A continuación, elegiremos un aprendiz y, por último, mostraremos cómo caracterizar las tablas de recuento pregeneradas o creadas desde cero por el usuario.
+Nuestro experimento de Aprendizaje automático de Azure es similar al siguiente:
 
-![Experimentar con la arquitectura](http://i.imgur.com/R4iTLYi.png)
+![](http://i.imgur.com/xRpVfrY.png)
 
-Para profundizar en los detalles, comenzaremos con los conjuntos de datos guardados, tal y como se muestra.
+Ahora examinaremos los componentes clave de este experimento. Como recordatorio, tenemos que arrastrar nuestros conjuntos de datos train y test a nuestro lienzo de experimento antes.
 
-El módulo **Limpiar datos que faltan** hace justo lo que dice su nombre: limpia los datos siguiendo el método que especifique el usuario. En este módulo, veremos estos datos:
+#### Limpiar datos que faltan
+
+El módulo **Limpiar datos que faltan** hace justo lo que sugiere su nombre: limpia los datos siguiendo el método que especifique el usuario. En este módulo, veremos estos datos:
 
 ![Limpiar datos que faltan (Limpiar datos que faltan)](http://i.imgur.com/0ycXod6.png)
 
 Aquí, hemos optado por reemplazar todos los valores que faltan por un 0. Hay otras opciones, que se pueden ver al mirar las listas desplegables del módulo.
 
-A continuación, tenemos que elegir el aprendiz. Vamos a usar como nuestro aprendiz un árbol de decisiones incrementado de dos clases. En concreto, mostraremos cómo usar características de recuento en características de categorías altamente dimensionales para crear representaciones compactas de nuestro modelo y también para lograr entrenamiento (train) y unas pruebas (train) eficientes.
+#### Diseño de características para los datos
 
-Hacemos aquí un inciso para explicar lo que son realmente las tablas de recuento: se trata de recuentos condicional de clase (en ocasiones, también nos referimos a ellas simplemente como "recuentos condicionales"). En esencia, es una manera de contar los valores de una característica para cada clase y usar estos recuentos para calcular las probabilidades.
+Puede haber millones de valores únicos para algunas características de categoría de grandes conjuntos de datos. El uso de métodos simples como la codificación "one-hot" para representar estas características de categorías no es viable. En este tutorial, se muestran cómo usar las características de recuento mediante módulos de Aprendizaje automático de Azure integrados para generar representaciones compactas de estas variables de categorías con una alta dimensionalidad. El resultado final es un tamaño de modelo más pequeño, tiempos de formación más rápidos y métricas de rendimiento bastante similares a usar otras técnicas.
 
+##### Creación de transformaciones de recuento
 
-#### Obtención de acceso a las tablas de recuento pregeneradas para el modelado
+Para crear características de recuento, usamos el módulo **Crear transformación de recuento**, que está disponible en Aprendizaje automático de Azure. El módulo tiene este aspecto:
 
-Para obtener acceso a nuestras tablas de recuento pregeneradas, haga clic en **Gallery** (Galería), como se muestra a continuación:
+![](http://i.imgur.com/e0eqKtZ.png) ![](http://i.imgur.com/OdDN0vw.png)
 
-![Gallery (Galería)](http://i.imgur.com/TsWkig3.png)
+**Nota importante**: en el cuadro **Recuento de columnas**, especificamos las columnas en las que deseamos realizar recuentos. Normalmente, son columnas de categorías con una alta dimensionalidad (tal y como se mencionó). Al principio, hemos mencionado que el conjunto de datos de Criteo tiene 26 columnas de categorías: de Col15 a Col40. En este caso, contamos en todas ellas y les damos sus índices (de 15 a 40 separados por comas, como se muestra).
 
-Al hacer clic en **Gallery** (Galería), accedemos a una página similar a la siguiente:
+Para usar el módulo en el modo MapReduce (adecuado para grandes conjuntos de datos), se necesita acceso a un clúster de Hadoop de HDInsight (el que se usa para la exploración de categorías anterior se puede reutilizar para este propósito) y sus credenciales. En las ilustraciones anteriores se muestra el aspecto de los valores rellenados (reemplace los valores proporcionados para ilustración por los que son relevantes para su propio caso de uso).
 
-![Página principal de Gallery (Galería)](http://i.imgur.com/dmXo0KR.png)
+![](http://i.imgur.com/05IqySf.png)
 
-A continuación, busque la frase "recuentos de criteo" (criteo counts) y desplácese hacia abajo por la lista de resultados. Debería ver lo siguiente:
-
-![Recuentos de Criteo](http://i.imgur.com/JZ119Jf.png)
-
-Al hacer clic en este experimento, accedemos a una página similar a la siguiente:
-
-![Recuentos](http://i.imgur.com/dxdjMjh.png)
-
-A continuación, haga clic en **Open in Studio** (Abrir en estudio) para copiar el experimento en el área de trabajo. Esta acción también copia automáticamente los conjuntos de datos; en este caso, los dos conjuntos de datos claves de interés son la tabla de recuento y los metadatos de recuento, que describimos con más detalle.
-
-#### Características de recuento en el conjunto de datos
-
-Los módulos siguientes de nuestro experimento implican el uso de tablas de recuento pregeneradas. Para usar estas tablas de recuento pregeneradas, busque "cr_count_" en la pestaña de búsqueda de un experimento nuevo. Se mostrarán dos conjuntos de datos: "cr_count_cleanednulls_metadata" y "cr_count_table_cleanednulls". Arrastre estos elementos y colóquelos en el panel del experimento de la derecha. Al hacer clic con el botón derecho en los puertos de salida, como siempre, podemos ver su aspecto.
-
-Los metadatos de la tabla de recuento tienen este aspecto:
-
-![Metadatos de la tabla de recuento](http://i.imgur.com/A39PIe7.png)
-
-Tenga en cuenta que los metadatos tienen información sobre las columnas en las que se basan los recuentos condicionales, si se ha usado un diccionario para generarlas (una alternativa es el resumen de recuento mínimo), el valor de hash utilizado, el número de bits de hash utilizado para aplicar hash a la características, el número de clases, etc.
-
-La tabla de recuento tiene este aspecto:
-
-![Tabla de recuento](http://i.imgur.com/NJn1EQO.png)
-
-Podemos ver que la tabla de recuento tiene información sobre los recuentos condicionales de clase. El valor de las características de la categorías está en "Hash Value" (Valor hash), por lo que las propias características tienen aplicado un algoritmo hash.
-
-¿Cómo se integran las características de recuento en los conjuntos de datos? Para ello, utilizamos el módulo **Caracterizador** del recuento, que se muestra a continuación:
-
-![Módulo Caracterizador de recuento](http://i.imgur.com/dnMdrR1.png)
-
-Una vez que se crea la tabla de recuento (recuerde que aquí estamos creando recuentos condicionales de clase de características de categorías), usamos el módulo **Caracterizador** mostrado anteriormente para crear estas características de recuento en nuestro conjunto de datos. Como podemos ver, el módulo **Caracterizador** permite elegir qué características se deben tener en cuenta, si necesitamos simplemente las probabilidades de registro o también los recuentos y otras opciones avanzadas.
-
-#### Creación una tabla de recuento desde cero
-
-Recuerde que mencionamos en "Breve explicación sobre la tabla de recuento" que, además de utilizar las tablas de recuento pregeneradas (que tratamos en detalle en secciones anteriores), los usuarios también pueden crear sus propias tablas de recuento desde cero.
-
-En esta sección, se muestra cómo crear una tabla de recuento desde cero. Para ello, utilizamos el módulo **Crear tabla de recuento** que se muestra a continuación con sus valores:
-
-![Módulo Crear tabla de recuento](http://i.imgur.com/r7pP8Qq.png)
-
-A continuación, aparece la última parte de la configuración de este módulo:
-
-![Configurar el módulo Crear tabla de recuento](http://i.imgur.com/PvmSh3C.png)
+En la ilustración anterior, se muestra cómo especificar la ubicación del blob de entrada. Esta ubicación tiene los datos reservados para la creación de tablas de recuento.
 
 
-**Nota importante:** para configurar la cuenta de almacenamiento y el clúster, utilice los valores pertinentes.
+Cuando finalice este módulo, podemos guardar la transformación para más adelante; haga clic en el módulo y seleccione la opción **Guardar como transformación**:
 
-Al hacer clic en **Run** (Ejecutar), podemos crear las tablas de recuento en el clúster seleccionado. El resultado es, como se muestra anteriormente, la tabla de recuento y sus metadatos asociados. Con estas tablas listas, ahora podemos crear el experimento.
+![](http://i.imgur.com/IcVgvHR.png)
 
+En nuestra arquitectura de experimento antes mostrada, el conjunto de datos "ytransform2" corresponde exactamente a una transformación de recuento guardada. Para el resto de este experimento, se considera que el lector usó un módulo **Crear transformación de recuento** con algunos datos para generar recuentos y, a continuación, puede usar estos recuentos para generar características de recuento en los conjuntos de datos train y test.
 
-### <a name="step3"></a> Paso 3: entrenamiento del modelo
+##### Elección de las características de recuento que se incluirán como parte de los conjuntos de datos train y test
 
-Para seleccionar esta opción, escriba "two class boosted" (dos clases incrementado) en el cuadro de búsqueda y arrastre el módulo aquí. Utilizamos los valores predeterminados del aprendiz del árbol de decisiones incrementado, que se muestra a continuación:
+Una vez que tenemos una transformación de recuento lista, el usuario puede elegir las características que desea incluir en los conjuntos de datos train y test mediante el módulo **Modificar parámetros de la tabla de recuentos**. Mostramos este módulo a continuación solo para que esté completo, pero por razones de simplicidad en realidad no la usamos en nuestro experimento.
 
-![Aprendiz de BDT](http://i.imgur.com/dDk0Jtv.png)
+![](http://i.imgur.com/PfCHkVg.png)
 
-Necesitamos tres componentes finales antes de ejecutar el experimento de Aprendizaje automático.
+En este caso, como se puede ver, hemos elegido usar solo las probabilidades e ignorar la columna de retroceso. También podemos establecer parámetros como el umbral de ubicación de elementos no utilizados, cuántos ejemplos anteriores agregar para el suavizado y si se usa cualquier ruido Laplacian o no. Todas estas son características avanzadas y es conveniente tener en cuenta que los valores predeterminados son un buen punto de partida para los usuarios que no están familiarizados con este tipo de generación de características.
 
-El primero es un módulo Entrenar modelo: aunque el primer puerto considera al aprendiz como entrada, el segundo puerto adopta el conjunto de datos "train" para aprender. Vemos el aspecto actual debajo y, a continuación, mostramos qué parámetros hay que configurar en el módulo.
+##### Transformación de datos antes de generar las características de recuento
 
-![Conexiones con el módulo Entrenar modelo de BDT](http://i.imgur.com/szS2xBb.png)
+Ahora nos centraremos en un punto importante acerca de cómo transformar los datos de train y test antes de generar realmente las características de recuento. Tenga en cuenta que hay dos módulos **Ejecutar script R** usados antes de aplicar la transformación de recuentos a nuestros datos.
 
-![Configuración del módulo Evaluar modelo de BDT](http://i.imgur.com/nd7lHBL.png)
+![](http://i.imgur.com/aF59wbc.png)
 
-### <a name="step4"></a> Paso 4: puntuación del modelo con un conjunto de datos de "test"
+Este es el primer script R:
 
-El segundo componente ofrece una forma de puntuar el conjunto de datos de "test". Esto se hace cómodamente mediante el módulo **Puntuar modelo**: se considera como entrada el modelo aprendido a partir del conjunto de datos "train". El conjunto de datos "test" se usa para hacer predicciones. Este es el aspecto que tiene.
+![](http://i.imgur.com/3hkIoMx.png)
 
-![Conexiones del modelo de puntuación de BDT](http://i.imgur.com/AwIH1rH.png)
+En este script R, cambiamos nuestras columnas a los nombres de "Col1" a "Col40". Esto es así porque la transformación de recuentos espera nombres con este formato.
+
+En el segundo script R, para equilibrar la distribución entre clases positivas y negativas (clases 1 y 0 respectivamente) reducimos la resolución de la clase negativa. El siguiente script R muestra cómo hacerlo:
+
+![](http://i.imgur.com/91wvcwN.png)
+
+En este script R simple, se usa "pos_neg_ratio" para establecer la cantidad de equilibrio entre clases positiva y negativa. Es importante hacerlo, ya que mejorar el desequilibrio entre clases normalmente tiene ventajas de rendimiento para los problemas de clasificación en los que la distribución de las clases se había sesgado (recuerde que en nuestro caso, tenemos una clase positiva del 3,3% y una clase negativa del 96,7%).
+
+##### Aplicación de la transformación de recuentos a nuestros datos
+
+Por último, podemos usar el módulo **Aplicar transformación** para aplicar las transformaciones de recuentos a nuestros conjuntos de datos train y test. Este módulo toma la transformación de recuentos guardada como una entrada y los conjuntos de datos train o test como la otra entrada, y devuelve datos con características de recuento. Se muestra a continuación:
+
+![](http://i.imgur.com/xnQvsYf.png)
+
+##### Un extracto del aspecto de las características de recuento
+
+Es instructivo para ver el aspecto de las características de recuento en nuestro caso. A continuación, se muestra un extracto de esto:
+
+![](http://i.imgur.com/FO1nNfw.png)
+
+En este extracto, se muestra que para las columnas en las que se ha hecho el recuento, se obtienen los recuentos y probabilidades, además de cualquier retroceso pertinente.
+
+Ahora estamos listos para crear un modelo de Aprendizaje automático de Azure con estos conjuntos de datos transformados. En la siguiente sección, veremos cómo se puede hacer esto.
+
+#### Creación de modelos de Aprendizaje automático de Azure
+
+##### Elección del aprendiz
+
+En primer lugar, tenemos que elegir un aprendiz. Vamos a usar como nuestro aprendiz un árbol de decisiones incrementado de dos clases. Aquí están las opciones predeterminadas para este aprendiz:
+
+![](http://i.imgur.com/bH3ST2z.png)
+
+Para nuestro experimento, simplemente elegiremos los valores predeterminados. Tenemos en cuenta que los valores predeterminados son normalmente significativos y una buena forma de obtener las líneas base rápidas del rendimiento. Puede mejorar el rendimiento mediante el barrido de parámetros si elige hacerlo una vez que tenga una línea base.
+
+#### Formar el modelo
+
+Para el entrenamiento, simplemente invocamos un módulo **Entrenar modelo**. Las dos entradas son el aprendiz de árbol de decisión incrementado de dos clases y nuestro conjunto de datos train. Esto se muestra a continuación:
+
+![](http://i.imgur.com/2bZDZTy.png)
+
+#### Puntuación del modelo
+
+Una vez que tenemos un modelo entrenado, estamos preparados para puntuar el conjunto de datos test y evaluar su rendimiento. Lo hacemos mediante el módulo **Puntuar modelo** mostrado a continuación, junto con un módulo **Evaluar modelo**:
+
+![](http://i.imgur.com/fydcv6u.png)
 
 ### <a name="step5"></a> Paso 5: evaluación del modelo
 
-Por último, vamos a ver el rendimiento del modelo. Normalmente, para los problemas de clasificación (binarios) de dos clases, una buena medida es AUC. Para visualizar esto, conectamos el módulo "Puntuar modelo" con un módulo "Evaluar modelo". Al hacer clic en **Visualize** (Visualizar) en el módulo **Evaluar modelo**, se genera un gráfico como el siguiente:
+Por último, vamos a analizar el rendimiento del modelo. Normalmente, para los problemas de clasificación (binarios) de dos clases, una buena medida es AUC. Para visualizar esto, conectamos el módulo **Puntuar modelo** con un módulo **Evaluar modelo**. Al hacer clic en **Visualize** (Visualizar) en el módulo **Evaluar modelo**, se genera un gráfico como el siguiente:
 
 ![Módulo Evaluación del modelo de BDT](http://i.imgur.com/0Tl0cdg.png)
 
-En los problemas de clasificación binarios (o de dos clases), una buena medida de la exactitud de la predicción es AUC. A continuación, mostramos nuestros resultados al usar este modelo en nuestro conjunto de datos "test". Para ver los resultados, haga clic con el botón derecho en el puerto del módulo **Evaluar modelo** y seleccione **Visualize** (Visualizar).
+En los problemas de clasificación binarios (o de dos clases), una buena medida de la exactitud de la predicción es Área bajo curva (AUC). A continuación, mostramos nuestros resultados al usar este modelo en nuestro conjunto de datos "test". Para ver los resultados, haga clic con el botón derecho en el puerto del módulo **Evaluar modelo** y seleccione **Visualize** (Visualizar).
 
 ![Visualización del módulo Evaluar modelo](http://i.imgur.com/IRfc7fH.png)
 
 ### <a name="step6"></a> Paso 6: publicación del modelo como un servicio web
-Es muy interesante la posibilidad de publicar los modelos de Aprendizaje automático como servicios web. Una vez hecho esto, podemos hacer llamadas al servicio web utilizando los datos para los que necesitamos predicciones. Lo ideal es que el modelo devuelva una predicción de algún tipo.
+La capacidad de publicar un modelo de Aprendizaje automático de Azure como servicios web con una complicación mínima es una característica valiosa para que esté ampliamente disponible. Una vez hecho esto, cualquier persona puede realizar llamadas al servicio web con los datos de entrada para los que necesitan predicciones, y el servicio web usa el modelo para devolver dichas predicciones.
 
-Para ello, primero guardamos el modelo con el que hemos entrenado como un objeto del Modelo entrenado. Para ello, haga clic con el botón derecho en el módulo **Entrenar modelo** y utilice la opción "Save as Trained Model" (Guardar como modelo entrenado).
+Para ello, primero guardamos el modelo con el que hemos entrenado como un objeto del Modelo entrenado. Para ello, haga clic con el botón derecho en el módulo **Entrenar modelo** y use la opción **Guardar como modelo entrenado**.
 
-A continuación, deseamos crear un puerto de entrada y salida para el servicio web: un puerto de entrada que considere los datos de la misma forma que los datos para los que necesitamos predicciones; y un puerto de salida que devuelva las etiquetas de puntuación y las probabilidades asociadas.
+A continuación, necesitamos crear puertos de entrada y salida para nuestro servicio web:
+
+* Un puerto de entrada toma los datos de la misma forma que los datos para los que necesitamos predicciones 
+* Un puerto de salida devuelve las etiquetas puntuadas y las probabilidades asociadas.
 
 #### Selección de algunas filas de datos para el puerto de entrada
 
-Ahora, mostramos cómo seleccionar algunas filas de datos para el puerto de entrada.
+Es cómodo usar una **Transformación de aplicación de SQL** para seleccionar solo 10 filas que sirvan como los datos del puerto de entrada. Seleccione estas filas de datos para el puerto de entrada mediante la consulta SQL que se muestra a continuación.
 
 ![Datos del puerto de entrada](http://i.imgur.com/XqVtSxu.png)
-
-Cómodamente podemos utilizar una transformación de aplicación de SQL para seleccionar simplemente 10 filas que sirvan como los datos del puerto de entrada.
 
 #### Servicio web
 Ahora estamos preparados para realizar un pequeño experimento que puede utilizarse para publicar el servicio web.
 
 #### Generación de datos de entrada para el servicio web
 
-Como paso inicial, ya que la tabla de recuento es grande, tomamos unas pocas líneas de datos de prueba y generamos datos de salida a partir de ellos con características de recuento. Esto sirve como el formato de datos de entrada para nuestro servicio web. Vea la siguiente imagen:
+Como paso inicial, ya que la tabla de recuento es grande, tomamos unas pocas líneas de datos de prueba y generamos datos de salida a partir de ellos con características de recuento. Esto puede servir como formato de datos de entrada para nuestro servicio web. Vea la siguiente imagen:
 
 ![Creación de datos de entrada de BDT](http://i.imgur.com/OEJMmst.png)
 
-Nota: para el formato de datos de entrada, utilizaremos ahora la salida del módulo **Caracterizador de recuento**. Una vez que este experimento termina de ejecutarse, guarde la salida del módulo **Caracterizador de recuento** como un conjunto de datos. **Nota importante:** este conjunto de datos se usará para los datos de entrada en el servicio web.
+Nota: para el formato de datos de entrada, utilizaremos ahora la salida del módulo **Caracterizador de recuento**. Una vez que este experimento termina de ejecutarse, guarde la salida del módulo **Caracterizador de recuento** como un conjunto de datos.
+
+**Nota importante:** este conjunto de datos se usará para los datos de entrada en el servicio web.
 
 #### Puntuación del experimento para la publicación del servicio web
 
-En primer lugar, veamos el aspecto que tiene. La estructura fundamental es un módulo Puntuar modelo que acepta el objeto del modelo entrenado y unas pocas líneas de datos de entrada que hemos generado en los pasos anteriores mediante el módulo **Caracterizador de recuento**. Utilizamos "Columnas del proyecto" para proyectar las etiquetas puntuadas y las probabilidades de puntuación.
+En primer lugar, veamos el aspecto que tiene. La estructura fundamental es un módulo **Puntuar modelo** que acepta el objeto del modelo entrenado y unas pocas líneas de datos de entrada que hemos generado en los pasos anteriores mediante el módulo **Caracterizador de recuento**. Utilizamos "Columnas del proyecto" para proyectar las etiquetas puntuadas y las probabilidades de puntuación.
 
 ![Columnas del proyecto](http://i.imgur.com/kRHrIbe.png)
 
-Resulta instructivo ver cómo se puede utilizar el módulo Columnas del proyecto para "filtrar" los datos de un conjunto de datos. El contenido se muestra a continuación:
+Observe cómo el módulo **Columnas del proyecto** puede usarse para 'filtrar' datos de un conjunto de datos. El contenido se muestra a continuación:
 
 ![Filtrar con el módulo Columnas del proyecto](http://i.imgur.com/oVUJC9K.png)
 
-Para obtener los puertos de salida y entrada azules, basta con hacer clic en "Prepare Webservice" (Preparar servicio web) en la esquina inferior derecha. Al realizar este experimento también podemos publicar el servicio web haciendo clic en el icono **Publish webservice** (Publicar servicio web) situado en la esquina inferior derecha, como se muestra a continuación.
+Para obtener los puertos de salida y entrada azules, basta con hacer clic en **Preparar servicio web** en la esquina inferior derecha. Al realizar este experimento también podemos publicar el servicio web haciendo clic en el icono **Publish webservice** (Publicar servicio web) situado en la esquina inferior derecha, como se muestra a continuación.
 
 ![Publicar servicio web](http://i.imgur.com/WO0nens.png)
 
@@ -626,24 +640,22 @@ Una vez publicado el servicio web, accedemos a una página como esta:
 Podemos ver los dos vínculos a los servicios web en el lado izquierdo:
 
 * El servicio **Request/Response** (Solicitud/respuesta) (o RRS) está destinados a predicciones únicas y es lo que vamos a utilizar en este taller. 
-* El servicio **Batch Execution** (Ejecución por lotes) (o BES), como su nombre implica, se utiliza para las predicciones por lotes y requiere que los datos sobre los que se van a realizar las predicciones residan en un blob de Azure.
+* El Servicio de **EJECUCIÓN POR LOTES** (BES) se usa para las predicciones por lotes y requiere que los datos de entrada usados para realizar predicciones residan en Almacenamiento de blobs de Azure.
 
 Al hacer clic en el vínculo **Request/Response** (Solicitud/respuesta), accedemos a una página que nos da un código predefinido en C#, python y R. Este código puede utilizarse fácilmente para realizar llamadas al servicio web. Tenga en cuenta que hay que utilizar la clave de API en esta página para la autenticación.
 
-Se aconseja copiar este código python en una celda nueva en el bloc de notas de iPython.
+Se aconseja copiar este código python en una celda nueva en el cuaderno de IPython.
 
 A continuación, se muestra un fragmento de código python con la clave de API correcta.
 
 ![Código de Python](http://i.imgur.com/f8N4L4g.png)
 
-Tenga en cuenta que hemos reemplazado la clave de API predeterminada por la clave de API de nuestros servicios web. Al hacer clic en "Run" (Ejecutar) en esta celda en bloc de notas de iPython, se produce la respuesta siguiente:
+Tenga en cuenta que reemplazamos la clave de API predeterminada por la clave de API de nuestros servicios web. Al hacer clic en **Ejecutar** en esta celda de un cuaderno de IPython, se obtiene la siguiente respuesta:
 
-![Respuesta de iPython](http://i.imgur.com/KSxmia2.png)
+![Respuesta de IPython](http://i.imgur.com/KSxmia2.png)
 
 Podemos ver que para los dos ejemplos de prueba por los que hemos preguntado (en el marco JSON del script de python), obtenemos respuestas con el formato "Scored Labels, Scored Probabilities" (Etiquetas puntuadas, Probabilidades puntuadas). Tenga en cuenta que, en este caso, elegimos los valores predeterminados que proporciona el código predefinido (0 para todas las columnas numéricas y la cadena "value" para todas las columnas de categorías).
 
-Con esto concluye la explicación sobre cómo administrar conjuntos de datos a gran escala de forma integral con Aprendizaje automático de Azure: hemos pasado directamente desde un terabyte de datos hasta un modelo de predicción que se implementa como un servicio web en la nube.
+Esto concluye nuestro tutorial completo que muestra cómo controlar un conjunto de datos grande mediante Aprendizaje automático de Azure. Hemos empezado con un terabyte de datos, hemos creado un modelo de predicción y lo hemos implementado como un servicio web en la nube.
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

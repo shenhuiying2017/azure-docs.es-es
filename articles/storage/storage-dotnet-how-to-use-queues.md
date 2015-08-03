@@ -272,4 +272,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

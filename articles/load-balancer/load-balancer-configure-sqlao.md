@@ -62,4 +62,4 @@ Paso 2:
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

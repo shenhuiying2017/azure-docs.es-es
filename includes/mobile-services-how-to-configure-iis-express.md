@@ -39,4 +39,4 @@
 <!-- URLs. -->
 [Incorporación de una regla de puerto en un equipo local]: http://go.microsoft.com/fwlink/?LinkId=392240
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

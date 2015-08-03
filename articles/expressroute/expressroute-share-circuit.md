@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/25/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc" />
 
 # Uso compartido de un circuito ExpressRoute entre varias suscripciones
@@ -33,9 +33,9 @@ El propietario del circuito tiene la capacidad de modificar y revocar las autori
 
 ## Flujo de trabajo
 
-1. El propietario del circuito autoriza a los administradores de otras suscripciones para que usen el circuito especificado. En el ejemplo siguiente, el administrador del circuito (TI de Contoso) permite que el administrador de otra suscripción (ventas de Contoso), especificando su identificador de Microsoft (Live ID), cree un vínculo de dos redes virtuales al circuito. El cmdlet no envía correo electrónico al identificador de Microsoft especificado. El propietario del circuito debe notificar de forma explícita al propietario de la otra suscripción que la autorización se ha completado.
+1. El propietario del circuito autoriza a los administradores de otras suscripciones para que usen el circuito especificado. En el ejemplo siguiente, el administrador del circuito (TI de Contoso) permite que el administrador de otra suscripción (ventas de Contoso), especificando su identificador de Microsoft, cree un vínculo de dos redes virtuales al circuito. El cmdlet no envía correo electrónico al identificador de Microsoft especificado. El propietario del circuito debe notificar de forma explícita al propietario de la otra suscripción que la autorización se ha completado.
 
-		PS C:> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
+		PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
 		
 		Description         : SalesTeam 
 		Limit               : 2 
@@ -45,7 +45,7 @@ El propietario del circuito tiene la capacidad de modificar y revocar las autori
 
 1. Una vez notificado por el propietario del circuito, el administrador de la suscripción autorizada puede ejecutar el siguiente cmdlet para recuperar la clave de servicio del circuito. En este ejemplo, el administrador de ventas de Contoso debe primero iniciar sesión con el identificador de Microsoft especificado, salesadmin@contoso.com.
 
-		PS C:> Get-AzureAuthorizedDedicatedCircuit
+		PS C:\> Get-AzureAuthorizedDedicatedCircuit
 		
 		Bandwidth                        : 100
 		CircuitName                      : ContosoIT
@@ -59,7 +59,7 @@ El propietario del circuito tiene la capacidad de modificar y revocar las autori
 
 1. El administrador de la suscripción autorizada ejecuta el cmdlet siguiente para completar la operación de vínculo.
 
-		PS C:> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
+		PS C:\> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
 		
 			State VnetName 
 			----- -------- 
@@ -71,7 +71,7 @@ Eso es todo. Ahora, la red virtual de ventas de Contoso en Azure está vinculada
 
 El propietario del circuito puede compartir un circuito con hasta 10 suscripciones a Azure. El propietario del circuito puede ver quién está autorizado para el circuito. El propietario puede revocar la autorización en cualquier momento. Cuando el propietario del circuito revoca una autorización, identificada por LinkAuthorizationId, todos los vínculos permitidos bajo esa autorización se eliminarán de inmediato. Las redes virtuales vinculadas perderán la conectividad a la red local a través del circuito ExpressRoute.
 
-	PS C:> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
+	PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
 	
 	Description         : EngineeringTeam 
 	Limit               : 3 
@@ -91,7 +91,7 @@ El propietario del circuito puede compartir un circuito con hasta 10 suscripcion
 	MicrosoftIds        : salesadmin@contoso.com 
 	Used                : 2 
 	
-	PS C:> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
+	PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
 
 
 En el diagrama siguiente se muestra el flujo de trabajo de autorización:
@@ -102,4 +102,4 @@ En el diagrama siguiente se muestra el flujo de trabajo de autorización:
 
 Para obtener más información acerca de ExpressRoute, consulte [Información técnica de ExpressRoute](expressroute-introduction.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

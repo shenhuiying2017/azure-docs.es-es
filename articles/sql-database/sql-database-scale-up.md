@@ -68,7 +68,8 @@ Para actualizar una base de datos utilice cualquiera de los métodos siguientes.
 2. Establezca el contexto del servidor con el cmdlet New-AzureSqlDatabaseServerContext. La sintaxis de ejemplo se proporciona en la sección Uso de comandos de PowerShell de Azure.
 3. Obtenga un identificador de la base de datos y el nivel de rendimiento de destino. Especifique el nivel de rendimiento con Set-AzureSqlDatabase – ServiceObjective
 
-**Ejemplo de uso** En este ejemplo: 
+**Ejemplo de uso**
+En este ejemplo: 
 - En este ejemplo se muestra la actualización a un nivel de servicio Premium. 
 - Se crea el identificador $db que apunta al nombre de la base de datos "somedb". 
 - Se crea el identificador $P1 y señala al nivel de rendimiento Premium 1. 
@@ -208,7 +209,8 @@ En esta sección se indican los requisitos previos para utilizar los comandos de
 
 **Requisitos previos**
 
-Para usar los cmdlets de Azure PowerShell que se describen en este tema, debe tener el siguiente software instalado en el equipo en que se ejecuta PowerShell. 1. Descargue una versión de Windows PowerShell, nunca inferior a la 3.0, en http://www.microsoft.com/es-es/download/details.aspx?id=34595.
+Para usar los cmdlets de Azure PowerShell que se describen en este tema, debe tener el siguiente software instalado en el equipo en que se ejecuta PowerShell.
+1. Descargue una versión de Windows PowerShell, nunca inferior a la 3.0, en http://www.microsoft.com/es-es/download/details.aspx?id=34595.
 
 2. Descargue Azure PowerShell en la sección Herramienta de línea de comandos de [Descargas de SDK y herramientas de Azure](http://azure.microsoft.com/downloads/).
 
@@ -230,7 +232,8 @@ Cree el contexto de servidor con **New-AzureSqlDatabaseServerContext**.
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-**Referencia de Azure PowerShell** Para ver información detallada sobre los cmdlets de Azure PowerShell usados en este tema, consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn546726.aspx).
+**Referencia de Azure PowerShell**
+Para ver información detallada sobre los cmdlets de Azure PowerShell usados en este tema, consulte [Cmdlets de Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn546726.aspx).
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -239,4 +242,4 @@ Cree el contexto de servidor con **New-AzureSqlDatabaseServerContext**.
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

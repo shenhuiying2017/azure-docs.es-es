@@ -41,7 +41,7 @@ Para configurar la descarga SSL en una puerta de enlace de aplicaciones, realice
 
 Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida.
 
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -56,7 +56,7 @@ En el ejemplo,*Description*, *InstanceCount* y *GatewaySize* son parámetros opc
 
 Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -78,7 +78,7 @@ Use `Add-AzureApplicationGatewaySslCertificate` para cargar el certificado de se
 
 Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida. Reemplace los valores del ejemplo por los suyos propios.
 
-	PS C:> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
+	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file> 
 	
 	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -90,7 +90,7 @@ A continuación, valide la carga del certificado. Use `Get-AzureApplicationGatew
 
 Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida.
 
-	PS C:> Get-AzureApplicationGatewaySslCertificate AppGwTest 
+	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest 
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate 
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -177,7 +177,7 @@ Puede llevar a cabo la configuración mediante la creación de un objeto de conf
 A continuación, establecerá la puerta de enlace de aplicaciones. Puede usar el cmdlet `Set-AzureApplicationGatewayConfig` con un objeto de configuración o con un archivo XML de configuración.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -193,7 +193,7 @@ Una vez configurada la puerta de enlace, use el cmdlet `Start-AzureApplicationGa
 **Nota:** el cmdlet `Start-AzureApplicationGateway` puede tardar hasta 15-20 minutos en completarse.
 
    
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -208,7 +208,7 @@ Utilice el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la p
 
 Este ejemplo muestra una puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	Name          : AppGwTest2
 	Description   : 
@@ -229,4 +229,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

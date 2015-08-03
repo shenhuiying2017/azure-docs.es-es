@@ -1,7 +1,7 @@
 
 | NIVEL: | LIBRE | BASIC | ESTÁNDAR |
 |----|----|----|----|
-| Llamadas a API | 500\.000 | 1\.500.000/unidad | 15\.000.000/unidad |
+| Llamadas a API | 500.000 | 1.500.000/unidad | 15.000.000/unidad |
 | Dispositivos activos | 500 | Sin límite | Sin límite |
 | Escala | N/D | Hasta 6 unidades | Sin límite de unidades |
 | Notificaciones de inserción | Centros de notificaciones, nivel Gratis, hasta 1 millón de inserciones push | Centros de notificaciones, nivel Básico, hasta 10 millones de inserciones push | Centros de notificaciones, nivel Estándar, hasta 10 millones de inserciones push |
@@ -14,4 +14,4 @@
 
 Para obtener más información acerca de estos límites y los precios, consulte [Precios de servicios móviles](https://azure.microsoft.com/pricing/details/mobile-services/).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

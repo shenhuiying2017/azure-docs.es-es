@@ -140,4 +140,4 @@ La función de granja de servidores de SharePoint del Portal de vista previa de 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

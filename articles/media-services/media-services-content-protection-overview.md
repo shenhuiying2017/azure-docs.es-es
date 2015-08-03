@@ -77,7 +77,7 @@ La directiva de autorización de clave de acceso podría tener una o más restri
 
 ##Escenarios comunes
 
-###Protección del contenido en el almacenamiento, entrega de soportes de streaming cifrados dinámicamente, use el servicio de entrega de claves\\licencia AMS  
+###Protección del contenido en el almacenamiento, entrega de soportes de streaming cifrados dinámicamente, use el servicio de entrega de claves\licencia AMS  
 
 1. Introduzca un archivo intermedio de alta calidad en un recurso. Aplique una opción de cifrado de almacenamiento al recurso.
 2. Configure de extremos de streaming.
@@ -141,4 +141,4 @@ Configure la directiva de entrega de recursos con **.NET** o **API de REST**.
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

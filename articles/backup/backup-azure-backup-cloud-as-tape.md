@@ -57,4 +57,4 @@ Para obtener más información sobre Copia de seguridad de Azure, vea
 - [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 - [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

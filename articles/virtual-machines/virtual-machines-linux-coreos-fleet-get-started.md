@@ -171,4 +171,4 @@ Vea también [Informática de código abierto y Linux en Azure] para obtener má
 [Informática de código abierto y Linux en Azure]: virtual-machines-linux-opensource.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

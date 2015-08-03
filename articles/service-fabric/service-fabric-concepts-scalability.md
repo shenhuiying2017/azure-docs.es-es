@@ -61,4 +61,4 @@ Para obtener información sobre los conceptos de Service Fabric, vea lo siguient
 - [Definición y administración del estado](service-fabric-concepts-state.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -24,4 +24,4 @@ Este mapa le guía por el proceso de preparar los datos que se van a usar en un 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

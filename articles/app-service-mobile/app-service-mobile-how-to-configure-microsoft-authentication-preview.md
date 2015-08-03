@@ -18,6 +18,8 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de la cuenta Microsoft
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar la cuenta Microsoft como proveedor de autenticación.
 
 ## <a name="register"> </a>Registro de la aplicación con la cuenta Microsoft
@@ -66,4 +68,4 @@ De este modo ya estará listo para usar la cuenta Microsoft para realizar la aut
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/15/2015" 
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -58,7 +58,9 @@ Siga estos pasos:
 
 - Inicie sesión en Estudio con su cuenta de Microsoft (asegúrese de que su imagen de perfil y el nombre que aparece en la configuración del perfil de la cuenta de Microsoft sean los que desea que aparezcan).
 - Cree el experimento y ejecútelo.
-- Cuando esté listo para publicar su experimento en la galería, haga clic en "Publicar en la galería" en la barra inferior negra de Estudio. ![Publicar](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) ¡Disfrute!
+- Cuando esté listo para publicar su experimento en la galería, haga clic en "Publicar en la galería" en la barra inferior negra de Estudio. ![Publicar](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
+
+¡Disfrute!
 
 ## Queremos saber de usted. 
 Queremos que la galería sea por y para nuestros usuarios. Use el emoticono que aparece a la derecha para indicarnos qué le gusta y qué no le gusta de la galería.
@@ -111,4 +113,4 @@ La representación de la descripción enriquecida no está disponible para todos
 **[IR A LA GALERÍA >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

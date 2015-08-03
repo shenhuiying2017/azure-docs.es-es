@@ -94,7 +94,7 @@ Las definiciones de los flujos de trabajo de Oozie se escriben en hPDL (un lengu
 La acción de Hive en el flujo de trabajo llama a un archivo de script de HiveQL. El archivo de script contiene tres instrucciones de HiveQL:
 
 1. **La instrucción DROP TABLE** elimina la tabla de Hive log4j en caso de que exista.
-2. **La instrucción CREATE TABLE** crea una tabla externa de Hive log4j Hive que apunta a la ubicación del archivo de registro log4j. El delimitador de campo es ",". El delimitador de línea predeterminado es "\\n". Una tabla externa de Hive se usa para evitar que el archivo de datos se quite de la ubicación original si desea ejecutar el flujo de trabajo de Oozie varias veces.
+2. **La instrucción CREATE TABLE** crea una tabla externa de Hive log4j Hive que apunta a la ubicación del archivo de registro log4j. El delimitador de campo es ",". El delimitador de línea predeterminado es "\n". Una tabla externa de Hive se usa para evitar que el archivo de datos se quite de la ubicación original si desea ejecutar el flujo de trabajo de Oozie varias veces.
 3. **La instrucción INSERT OVERWRITE** cuenta las apariciones de cada tipo de nivel de registro desde la tabla de Hive log4j y guarda el resultado en un blob del almacenamiento de Azure.
 
 Hay un problema conocido de la ruta de acceso de Hive. Lo observará cuando envíe un trabajo de Oozie. Las instrucciones para corregirlo pueden encontrarse en Wiki de TechNet: [Error de Hive de HDInsight: No se puede cambiar de nombre][technetwiki-hive-error].
@@ -115,7 +115,7 @@ Hay un problema conocido de la ruta de acceso de Hive. Lo observará cuando env�
 
 	El archivo de definición de flujo de trabajo (workflow.xml en este tutorial) pasa estos valores a este script de HiveQL en tiempo de ejecución.
 
-2. Guarde el archivo como **C:\\Tutorials\\UseOozie\\useooziewf.hql** utilizando la codificación **ANSI(ASCII)**. (Use el Bloc de notas si el editor de texto no proporciona esta opción.) Este archivo de script se implementará en el clúster de HDInsight más tarde en el tutorial.
+2. Guarde el archivo como **C:\Tutorials\UseOozie\useooziewf.hql** utilizando la codificación **ANSI(ASCII)**. (Use el Bloc de notas si el editor de texto no proporciona esta opción.) Este archivo de script se implementará en el clúster de HDInsight más tarde en el tutorial.
 
 
 
@@ -199,7 +199,7 @@ Hay un problema conocido de la ruta de acceso de Hive. Lo observará cuando env�
 <tr><td>${hiveOutputFolder}</td><td>Especifica la carpeta de salida para la instrucción INSERT OVERWRITE de Hive. Se trata de la misma carpeta para la exportación de Sqoop (export-dir).</td></tr>
 </table>Para obtener más información acerca del flujo de trabajo de Oozie y el uso de acciones de flujo de trabajo, consulte la [documentación de Oozie 4.0 de Apache (en inglés)][apache-oozie-400] (para la versión del clúster de HDInsight 3.0) o la [documentación de Oozie 3.3.2 de Apache (en inglés)][apache-oozie-332] (para la versión del clúster de HDInsight 2.1).
 
-2. Guarde el archivo como **C:\\Tutorials\\UseOozie\\workflow.xml** utilizando la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
+2. Guarde el archivo como **C:\Tutorials\UseOozie\workflow.xml** utilizando la codificación ANSI (ASCII). (Use el Bloc de notas si el editor de texto no proporciona esta opción.)
 
 ##Implementación del proyecto de Oozie y preparación del tutorial
 
@@ -511,7 +511,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 **Para comprobar el registro de errores del trabajo**
 
-Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en *C:\\apps\\dist\\oozie-3.3.2.1.3.2.0-05\\oozie-win-distro\\logs\\Oozie.log* o en *C:\\apps\\dist\\oozie-4.0.0.2.0.7.0-1528\\oozie-win-distro\\logs\\Oozie.log* desde el nodo principal del clúster. Para obtener información acerca de, vea [Administración de clústeres de Hadoop en HDInsight mediante el Portal de administración de Azure][hdinsight-admin-portal].
+Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en *C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log* o en *C:\apps\dist\oozie-4.0.0.2.0.7.0-1528\oozie-win-distro\logs\Oozie.log* desde el nodo principal del clúster. Para obtener información acerca de, vea [Administración de clústeres de Hadoop en HDInsight mediante el Portal de administración de Azure][hdinsight-admin-portal].
 
 **Para volver a ejecutar el tutorial**
 
@@ -614,4 +614,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

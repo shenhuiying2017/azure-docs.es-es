@@ -43,4 +43,4 @@ Después de haber creado una máquina virtual, es conveniente agregar un disco d
 
 [Acoplamiento de un disco de datos a una máquina virtual de Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

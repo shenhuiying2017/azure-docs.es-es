@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
@@ -43,7 +43,6 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 3.	En la ventana <b>Consola del administrador de paquetes</b>, ejecute los siguientes comandos uno a uno.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
-		Install-Package Microsoft.DataFactories.Runtime –Pre
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. Agregue la siguiente sección **appSetttings** al archivo **App.config**. Estos se usan por el método auxiliar: **GetAuthorizationHeader**. 
 
@@ -57,24 +56,26 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="49fb6e5f-3098-4fb2-ba2f-6d6eed843a65" />
-    		<add key="ActiveDirectoryTenantId" value="37330244-7828-4a28-99b7-c8c3a437c7ac" />
+		    <add key="SubscriptionId" value="<subscription ID>" />
+    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
 		</appSettings>
 6. Agregue las siguientes instrucciones **using** al archivo de origen (Program.cs) en el proyecto.
 
 		using System.Threading;
 		using System.Configuration;
 		using System.Collections.ObjectModel;
-				
+		
 		using Microsoft.Azure.Management.DataFactories;
 		using Microsoft.Azure.Management.DataFactories.Models;
+		using Microsoft.Azure.Management.DataFactories.Common.Models;
+		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure; 
+		using Microsoft.Azure;
 6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Usará este objeto para crear una factoría de datos, un servicio vinculado, tablas de entrada y salida, y una canalización. También lo utilizará para supervisar los segmentos de una tabla en tiempo de ejecución.    
 
-        // create data pipeline management client
+        // create data factory management client
         string resourceGroupName = "ADF";
-        string dataFactoryName = "APITutorialFactory";
+        string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
@@ -83,7 +84,8 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-        DataPipelineManagementClient client = new DataPipelineManagementClient(aadTokenCredentials, resourceManagerUri);
+        DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
 7. Agregue el siguiente código que crea una **factoría de datos** en el método **Main**.
 
         // create a data factory
@@ -99,10 +101,11 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 }
             }
         );
-8. Agregue el siguiente código que crea un **servicio vinculado** al método **Main**.
-	> [AZURE.NOTE]**account name****account key****ConnectionString** 
 
-		// create a linked service
+8. Agregue el siguiente código que crea un **servicio vinculado** al método **Main**.
+	> [AZURE.NOTE]Utilice el **nombre de la cuenta** y la **clave de la cuenta** de su cuenta de almacenamiento de Azure para **ConnectionString**.
+
+        // create a linked service
         Console.WriteLine("Creating a linked service");
         client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new LinkedServiceCreateOrUpdateParameters()
@@ -110,10 +113,10 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 LinkedService = new LinkedService()
                 {
                     Name = "LinkedService-AzureStorage",
-                    Properties = new AzureStorageLinkedService()
-                    {
-                        ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=account key",
-                    }
+                    Properties = new LinkedServiceProperties
+                    (
+                        new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=spestore;AccountKey=4VwviDOId32nYKABQy9NHsMG0vC/CXx9iuR02HJdGL+0kieqHqbT3ap+bM/c+aGnGoA7SqkwNFq90hqV1bmV0w==")
+                    )
                 }
             }
         );
@@ -137,17 +140,17 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                     Name = Table_Source,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/",
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            FileName = "emp.txt"
                         },
-
+                        External = true,
                         Availability = new Availability()
                         {
                             Frequency = SchedulePeriod.Hour,
                             Interval = 1,
-                            WaitOnExternal = new WaitOnExternal()
                         },
 
                         Policy = new Policy()
@@ -169,7 +172,9 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                     Name = Table_Destination,
                     Properties = new TableProperties()
                     {
-                        Location = new AzureBlobLocation()
+
+                        LinkedServiceName = "LinkedService-AzureStorage",
+                        TypeProperties = new AzureBlobDataset()
                         {
                             FolderPath = "adftutorial/apifactoryoutput/{Slice}",
                             PartitionedBy = new Collection<Partition>()
@@ -183,8 +188,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                                         Format = "yyyyMMdd-HH"
                                     }
                                 }
-                            },
-                            LinkedServiceName = "LinkedService-AzureStorage",
+                            }
                         },
 
                         Availability = new Availability()
@@ -195,9 +199,10 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                     }
                 }
             });
-10. Agregue el siguiente código que **crea y activa una canalización** al método **Principal**. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como receptor. 
 
-        // create a pipeline
+11. Agregue el siguiente código que **crea y activa una canalización** al método **Principal**. Esta canalización tiene una **CopyActivity** que toma **BlobSource** como origen y **BlobSink** como receptor.
+
+            // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
         DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
@@ -217,48 +222,36 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                         Start = PipelineActivePeriodStartTime,
                         End = PipelineActivePeriodEndTime,
 
-                        Activities = new List<BaseActivity>()
-                        {
-                            new CopyActivity()
-                            {
+                        Activities = new List<Activity>()
+                        {                                
+                            new Activity()
+                            {   
                                 Name = "BlobToBlob",
                                 Inputs = new List<ActivityInput>()
                                 {
-                                    new ActivityInput()
-                                    {
-                                        Name = Table_Source,
+                                    new ActivityInput() {
+                                        Name = Table_Source
                                     }
                                 },
-                        
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination, 
+                                        Name = Table_Destination
                                     }
                                 },
-                     
-                                Transformation = new CopyActivityProperties()
+                                TypeProperties = new CopyActivity()
                                 {
                                     Source = new BlobSource()
                                     {
                                         BlobColumnSeparators = ",",
                                     },
-                            
+                        
                                     Sink = new BlobSink()
                                     {
                                         WriteBatchSize = 10000,
                                         WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                    },
-
-                                },
-
-                                Policy = new ActivityPolicy()
-                                {
-                                    ExecutionPriorityOrder = ExecutionPriorityOrder.NewestFirst,
-                                    Concurrency = 1,
-                                    Retry = 2,
-                                    Timeout = TimeSpan.FromMinutes(10),
+                                    }
                                 }
                             }
 
@@ -267,7 +260,9 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
                 }
             });
 
-11. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que se usa para iniciar sesión en el portal de Azure.
+	
+
+12. Agregue el siguiente método auxiliar usado por el método **Main** a la clase **Program**. Este método abre un cuadro de diálogo emergente que le permite proporcionar un **nombre de usuario** y una **contraseña** que se usa para iniciar sesión en el portal de Azure.
  
 		public static string GetAuthorizationHeader()
         {
@@ -334,13 +329,23 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
             }
         }
 
-14. Agregue el código siguiente para obtener detalles de ejecución para un segmento de datos en el método **Main**.
+14. **(Opcional)** Agregue el código siguiente para obtener detalles de ejecución para un segmento de datos en el método **Main**.
 
         Console.WriteLine("Getting run details of a data slice");
 
-        var datasliceRunListResponse = client.DataSliceRuns.List(resourceGroupName, dataFactoryName, Table_Destination,
-                PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString());
+		// give it a few minutes for the output slice to be ready
+        Console.ReadKey();
 
+        var datasliceRunListResponse = client.DataSliceRuns.List(
+                resourceGroupName,
+                dataFactoryName,
+                Table_Destination,
+                new DataSliceRunListParameters()
+                {
+                    DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+                }
+            );
+        
         foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
         {
             Console.WriteLine("Status: \t\t{0}", run.Status);
@@ -354,15 +359,14 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
-    }
 
-15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**.
+15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**. Si se produce un error de la clase **ConfigurationManager**, agregue una referencia al ensamblado **System.Configuration** e intente volver a crearla.
 16. Confirme que hay al menos un archivo en el contenedor de adftutorial del almacenamiento de blobs de Azure. En caso contrario, cree el archivo Emp.txt en el Bloc de notas con el siguiente contenido y cárguelo en el contenedor de adftutorial.
 
         John, Doe
 		Jane, Doe
 	 
-17. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración en el menú**.
+17. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración en el menú**. Cuando vea **Getting run details of a data slice**, espere unos minutos y presione **ENTRAR**.
 18. Usar el Portal de vista previa de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos: 
 	- Servicio vinculado: **LinkedService_AzureStorage** 
 	- Tablas: **TableBlobSource** y **TableBlobDestination**.
@@ -388,4 +392,4 @@ Artículo | Descripción
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

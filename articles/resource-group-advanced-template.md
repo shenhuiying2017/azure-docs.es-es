@@ -143,4 +143,4 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
 - [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

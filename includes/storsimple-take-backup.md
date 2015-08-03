@@ -1,3 +1,4 @@
+
 ### Para realizar una copia de seguridad
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en **Agregar una directiva de copia de seguridad**. Esto iniciará el Asistente para agregar directivas de copia de seguridad. 
@@ -23,4 +24,4 @@
 
 Ahora ya acabó de configurar el dispositivo.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

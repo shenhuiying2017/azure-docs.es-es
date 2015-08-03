@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -33,16 +33,16 @@ Presentamos algunos escenarios comunes que pueden aparecer con el clúster Spark
 
 ### El clúster Spark en HDInsight es lento
 
-El clúster Apache Spark en HDInsight está diseñado para una arquitectura multiempresa, por lo que los recursos se dividen entre varios componentes (notebooks, servidor de trabajo, etc.). Esto le permite usar todos los componentes de Spark simultáneamente sin preocuparse de que alguno de ellos no pueda obtener los recursos para ejecutarse, aunque cada componente será más lento, ya que los recursos están fragmentados. Esto se puede ajustar según sus necesidades.
+El clúster Apache Spark en HDInsight está diseñado para una arquitectura multiempresa, por lo que los recursos se dividen entre varios componentes (cuadernos, servidor de trabajo, etc.). Esto le permite usar todos los componentes de Spark simultáneamente sin preocuparse de que alguno de ellos no pueda obtener los recursos para ejecutarse, aunque cada componente será más lento, ya que los recursos están fragmentados. Esto se puede ajustar según sus necesidades.
 
 
-### Solamente uso IPython con el clúster Spark. ¿Cómo puedo asignarle todos los recursos?
+### Solo uso el cuaderno de Jupyter con el clúster Spark. ¿Cómo puedo asignarle todos los recursos?
 
 1. En el **Panel de Spark**, haga clic en la pestaña **IU de Spark** para averiguar el número máximo de núcleos y la cantidad máxima de RAM que puede asignar a las aplicaciones.
 
 	![Asignación de recursos](./media/hdinsight-apache-spark-resource-manager/HDI.Spark.UI.Resource.png "Encontrar los recursos asignados a un clúster Spark")
 
-	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales uno está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
+	Según la captura de pantalla anterior, el número máximo de núcleos que puede asignar es 7 (un total de 8 núcleos, de los cuales 1 está en uso) y la cantidad máxima de RAM que se puede asignar es 9 GB (un total de 12 GB de RAM, de los cuales 2 GB se deben reservar para uso del sistema y 1 GB para el uso de las demás aplicaciones).
 
 	También se deben tener en cuenta todas las aplicaciones que se estén ejecutando. Puede consultarlas en la pestaña **IU de Spark**.
 
@@ -62,10 +62,10 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 ##<a name="seealso"></a>Otras referencias
 
 * [Introducción a Apache Spark en HDInsight de Azure](hdinsight-apache-spark-overview.md)
-* [Aprovisionamiento de clústeres Apache Spark en HDInsight mediante opciones personalizadas](hdinsight-apache-spark-provision-clusters.md)
+* [Aprovisionamiento de un clúster Spark de HDInsight](hdinsight-apache-spark-provision-clusters.md)
 * [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md)
 * [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -79,4 +79,4 @@ Especifique el recuento de núcleos de servidor Thrift y la memoria de ejecució
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

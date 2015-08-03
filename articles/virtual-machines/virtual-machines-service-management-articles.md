@@ -136,4 +136,4 @@ Se trata de una lista de artículos para trabajar con máquinas virtuales en Adm
 
 [Comandos de Azure CLI para la administración de servicios](virtual-machines-command-line-tools.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

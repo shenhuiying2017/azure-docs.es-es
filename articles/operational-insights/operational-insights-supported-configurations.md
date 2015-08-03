@@ -100,4 +100,4 @@ Para SQL Server, se admiten las siguientes ediciones de 32 bits y 64 bits para e
 
 Además, se admite la edición de 32 bits de SQL Server cuando se ejecuta en la implementación de WOW64.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

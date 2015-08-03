@@ -46,4 +46,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Consulte los [scripts de PowerShell del Almacén de claves de Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

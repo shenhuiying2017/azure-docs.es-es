@@ -3,7 +3,7 @@
    description="Vea cómo configurar y usar Microsoft Hive ODBC Driver para que Excel consulte datos en un clúster de HDInsight."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,11 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/08/2015"
-   ms.author="bradsev"/>
+   ms.date="07/09/2015"
+   ms.author="jgao"/>
 
 #Conexión de Excel a Hadoop con Microsoft Hive ODBC Driver
 
+[AZURE.INCLUDE [Selector ODBC-JDBC](../../includes/hdinsight-selector-odbc-jdbc.md)]
 
 La solución de datos de gran tamaño de Microsoft integra componentes de inteligencia empresarial (BI) de Microsoft con clústeres Apache Hadoop implementados por HDInsight de Azure. Un ejemplo de esta integración es la capacidad de conectar Excel al almacén de datos de Hive de un clúster Hadoop en HDInsight usando Microsoft Hive Open Database Connectivity (ODBC) Driver.
 
@@ -125,6 +126,5 @@ En este artículo se proporciona información acerca de cómo usar Microsoft Hiv
 [img-HiveOdbc-DataSource-AdvancedOptions]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png
 [img-hdi-simbahiveodbc-excel-connectionproperties]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

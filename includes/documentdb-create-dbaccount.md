@@ -3,9 +3,7 @@
 
 	![Captura de pantalla del Portal de vista previa de Azure en la que está resaltado el botón Nuevo, Datos y almacenamiento en la hoja Crear y Azure DocumentDB en la hoja Datos y almacenamiento][1]
 
-	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
-	
-	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
+	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  --><!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
    
 
 3. En la hoja **Nueva cuenta de DocumentDB**, especifique la configuración que desee para la cuenta de DocumentDB.
@@ -23,8 +21,7 @@
  
 	- Use **Ubicación** para especificar la ubicación geográfica en la que se hospedará la cuenta de DocumentDB.
 
-4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. La creación de la cuenta puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el Panel de inicio.   
-	![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea][4]  
+4.	Una vez que las nuevas opciones de cuenta de DocumentDB estén configuradas, haga clic en **Crear**. La creación de la cuenta puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el Panel de inicio. ![Captura de pantalla del icono de creación en el Panel de inicio - creador de bases de datos en línea][4]
   
 	O bien, puede supervisar su progreso en el centro de notificaciones.
 
@@ -34,7 +31,7 @@
 
 5.	Después de crear la cuenta de DocumentDB, ya se puede usar con la configuración predeterminada en el portal en línea. Tenga en cuenta que la coherencia predeterminada de la cuenta de DocumentDB está establecida en **Sesión**. Puede ajustar la configuración de coherencia predeterminada haciendo clic en el icono **Coherencia predeterminada** en la hoja **Cuenta de DocumentDB**.
 
-    ![!Screen shot of the Resource Group blade7][7]  
+    ![!Screen shot of the Resource Group blade7][7]
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -49,4 +46,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!-----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

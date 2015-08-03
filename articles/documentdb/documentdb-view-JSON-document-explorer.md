@@ -140,4 +140,4 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

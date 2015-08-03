@@ -164,4 +164,4 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [Creación y publicación de un producto]: api-management-howto-add-products.md
 [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

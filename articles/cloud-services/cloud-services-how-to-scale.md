@@ -227,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

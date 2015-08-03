@@ -20,4 +20,4 @@
 
 El centro de notificaciones ya está configurado para funcionar con GCM y dispone de las cadenas de conexión para registrar la aplicación para que reciba notificaciones y para enviar notificaciones de inserción.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

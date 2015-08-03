@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 
 - [Problemas actualmente conocidos](#issues)
 - [Historial de versiones de API de REST](#rest_version_history)
+- [Versión de julio de 2015](#july_changes_15)
 - [Versión de junio de 2015](#june_changes_15)
 - [Versión de mayo de 2015](#may_changes_15)
 - [Versión de abril de 2015](#april_changes_15)
@@ -62,6 +63,23 @@ Estas notas de la versión resumen los cambios realizados desde las versiones an
 ##<a id="rest_version_history"></a>Historial de versiones de API de REST
 
 Para obtener información sobre el historial de versiones de la API de REST de Servicios multimedia, consulte [Referencia de la API de REST de Servicios multimedia de Azure].
+
+##<a id="july_changes_15"></a>Versión de julio de 2015
+
+Anuncia la disponibilidad general de Media Encoder estándar. Para obtener más información, consulte [este blog](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+
+Media Encoder estándar utiliza valores predefinidos que se describen en [esta](http://go.microsoft.com/fwlink/?LinkId=618336) sección. Tenga en cuenta que cuando se usa un valor preestablecido para codificaciones de 4K, debe obtener el tipo de unidad reservada **Premium **. Para obtener más información, consulte [Escalado de codificación](media-services-portal-encoding-units).
+
+
+###Actualizaciones del SDK .NET de Servicios multimedia
+
+Ahora la versión del SDK de Servicios multimedia para .NET de Azure es la 3.4.0.0. En esta versión se ha agregado la siguiente funcionalidad:
+
+- Se ha implementado la compatibilidad con archivos activos. Tenga en cuenta que no se puede descargar un recurso que contenga un archivo activo.
+- Se ha implementado compatibilidad para filtros dinámicos
+- Se ha implementado compatibilidad una funcionalidad que permite a los usuarios a mantener el contenedor de almacenamiento al eliminar el recurso.
+- Correcciones de errores relacionados con directivas de reintentos en canales.
+- Para más información, consulte **Flujo de trabajo de Codificador multimedia Premium**
 
 ##<a id="june_changes_15"></a>Versión de junio de 2015
 
@@ -536,4 +554,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

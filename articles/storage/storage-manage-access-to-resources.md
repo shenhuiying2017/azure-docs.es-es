@@ -214,4 +214,4 @@ Para revocar el acceso a las firmas de acceso compartido que utilizan la misma d
 - [Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
 - [Delegación de acceso con una firma de acceso compartido](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

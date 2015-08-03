@@ -53,7 +53,7 @@ Desde la máquina virtual en la que se instaló el sistema operativo, realice el
 
 1. Inicie sesión en el sistema operativo.
 
-2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a **%windir%\\system32\\sysprep** y, a continuación, ejecute `sysprep.exe`.
+2. Abra una ventana de símbolo del sistema como administrador. Cambie el directorio a **%windir%\system32\sysprep** y, a continuación, ejecute `sysprep.exe`.
 
 	![Abrir una ventana de símbolo del sistema](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
 [Paso 4: Carga del archivo .vhd]: #upload
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

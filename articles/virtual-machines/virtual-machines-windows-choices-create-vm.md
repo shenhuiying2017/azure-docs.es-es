@@ -1,30 +1,31 @@
-<properties 
-	pageTitle="Diferentes formas de crear una máquina virtual de Windows" 
-	description="Enumera las distintas formas de crear una máquina virtual de Windows y proporciona vínculos a instrucciones." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Diferentes formas de crear una máquina virtual de Windows"
+	description="Enumera las distintas formas de crear una máquina virtual de Windows y proporciona vínculos a instrucciones."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015" 
+	ms.date="07/15/2015"
 	ms.author="kathydav"/>
 
 # Diferentes formas de crear una máquina virtual de Windows
 
 Azure ofrece varias formas de crear una máquina virtual porque las máquinas virtuales son adecuadas para distintos usuarios y objetivos. Esto significa que deberá tomar algunas decisiones acerca de la máquina virtual y cómo se creará. Este artículo ofrece un resumen de estas opciones y vínculos a instrucciones.
 
-Recientemente se han incluido plantillas del Administrador de recursos de Azure como una manera de crear y administrar una máquina virtual y sus distintos recursos como una sola unidad de implementación lógica. Las instrucciones de este enfoque se incluyen a continuación, cuando sea posible. Para obtener más información acerca del Administrador de recursos de Azure y cómo administrar los recursos como una sola unidad, consulte la [Información general][].
+Recientemente se han incluido plantillas del Administrador de recursos de Azure como una manera de crear y administrar una máquina virtual y sus distintos recursos como una sola unidad de implementación lógica. Las instrucciones de este enfoque se incluyen a continuación, cuando sea posible. Para obtener más información acerca del Administrador de recursos de Azure y cómo administrar los recursos como una sola unidad, consulte esta [Información general][].
 
 ## Opciones de herramienta
 
-### Interfaz gráfica de usuario: El Portal de Azure o el Portal de vista previa 
+### Interfaz gráfica de usuario: El Portal de Azure o el Portal de vista previa
 
 La interfaz gráfica de usuario del Portal de Azure es una manera fácil de probar una máquina virtual, especialmente si no tiene experiencia con Azure. Utilice el Portal de Azure o el Portal de vista previa de Azure para crear la máquina virtual:
 
@@ -34,9 +35,9 @@ La interfaz gráfica de usuario del Portal de Azure es una manera fácil de prob
 
 Si prefiere trabajar en un shell de comandos, elija entre la interfaz de la línea de comandos (CLI) de Azure para usuarios de Mac y Linux o Azure PowerShell, que tiene los cmdlets de Windows PowerShell para Azure y una consola personalizada.
 
-Para la CLI de Azure, consulte [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows][]. Para utilizar una plantilla, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure][].
+Para la CLI de Azure, consulte [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows][]. Para usar una plantilla del Administrador de recursos, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure][].
 
-Para Azure PowerShell, consulte [Uso de PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows][]. Para utilizar una plantilla, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell][].
+Para Azure PowerShell, consulte [Creación y preconfiguración de una máquina virtual de Windows con el administrador de recursos y Azure PowerShell][]. Para usar una plantilla, consulte [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell][]. Para crear máquinas virtuales en la pila de administración de servicios, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows][].
 
 ### Entorno de desarrollo: Visual Studio
 
@@ -56,7 +57,7 @@ Estas instrucciones muestran cómo utilizar una imagen de Azure para crear una m
 
 Para usar una imagen basada en una máquina virtual de Azure existente *capture* esa máquina virtual o cargue una imagen suya, almacenada en un disco duro virtual (VHD):
 
-- [Cómo capturar una máquina virtual Windows para usarla como plantilla][]
+- [Cómo capturar una máquina virtual de Windows][].
 - [Crear y cargar un VHD de Windows Server a Azure][]
 
 ## Pasos siguientes
@@ -79,12 +80,12 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 
 [Comandos equivalentes del Administrador de recursos y de Administración de servicios para las operaciones de máquina virtual con la CLI de Azure para Mac, Linux y Windows]: xplat-cli-azure-manage-vm-asm-arm.md
 [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y la CLI de Azure]: virtual-machines-deploy-rmtemplates-azure-cli.md
+[Creación y preconfiguración de una máquina virtual de Windows con el administrador de recursos y Azure PowerShell]: virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md
 [Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell]: virtual-machines-deploy-rmtemplates-powershell.md
-[Uso de PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows]: virtual-machines-ps-create-preconfigure-windows-vms.md
-
+[Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows]: virtual-machines-ps-create-preconfigure-windows-vms.md
 [Creación de una máquina virtual personalizada que ejecute Windows]: virtual-machines-windows-create-custom.md
 
-[Cómo capturar una máquina virtual Windows para usarla como plantilla]: virtual-machines-capture-image-windows-server.md
+[Cómo capturar una máquina virtual de Windows]: virtual-machines-capture-image-windows-server.md
 
 [Crear y cargar un VHD de Windows Server a Azure]: virtual-machines-create-upload-vhd-windows-server.md
 
@@ -102,4 +103,4 @@ Para usar una imagen basada en una máquina virtual de Azure existente *capture*
 
 [Entornos de prueba de nube híbrida de Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="Cómo elegir el conjunto de parámetros óptimo para un algoritmo que use y visualice resultados del modelo de puntuación." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/14/2015" 
 	ms.author="bradsev" />
 
 
@@ -309,4 +309,4 @@ Figura 26: Resultado de servicio web del problema de recomendación del restaura
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

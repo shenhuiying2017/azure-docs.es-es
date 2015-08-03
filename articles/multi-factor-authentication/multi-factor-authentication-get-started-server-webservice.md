@@ -89,4 +89,4 @@ Ahora que el servicio web de la aplicación móvil está instalado, debe configu
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

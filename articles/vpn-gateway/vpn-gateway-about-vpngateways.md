@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # Información acerca de las puertas de enlace de VPN
@@ -71,12 +71,12 @@ Configure la red virtual. Para las conexiones entre entornos, vea los siguientes
 - [Configuración de una conexión VPN de punto a sitio a una red virtual de Azure](vpn-gateway-point-to-site-create.md)
 - [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
-Si desea configurar una puerta de enlace de VPN, consulte [Configuración de una puerta de enlace de red virtual](http://go.microsoft.com/fwlink/p/?LinkId=615106).
+Si desea configurar una puerta de enlace de VPN, consulte [Configuración de una puerta de enlace de red virtual](vpn-gateway-configure-vpn-gateway-mp.md).
 
-Si desea cambiar el tipo de puerta de enlace VPN, consulte [Cambio del tipo de puerta de enlace de VPN de red virtual](http://go.microsoft.com/fwlink/p/?LinkId=615109).
+Si desea cambiar el tipo de puerta de enlace VPN, consulte [Cambio del tipo de enrutamiento de puerta de enlace de VPN de red virtual](vpn-gateway-configure-vpn-gateway-mp.md).
 
 Si desea conectarse a varios sitios en una red virtual, consulte [Conexión de varios sitios locales a una red virtual](http://go.microsoft.com/fwlink/p/?LinkID=615106).
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

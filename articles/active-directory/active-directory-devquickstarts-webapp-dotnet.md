@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 # Inicio y cierre de sesión de la aplicación web con Azure AD
@@ -173,7 +173,7 @@ Ahora puede pasar a temas más avanzados. También puede probar lo siguiente:
 
 [Protección de una API web con Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Para obtener recursos adicionales, consulte: - [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples) - [CloudIdentity.com >>](https://cloudidentity.com) - Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

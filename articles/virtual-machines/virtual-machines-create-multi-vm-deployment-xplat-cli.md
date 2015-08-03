@@ -67,4 +67,4 @@ Aunque puede encontrar más información sobre cualquiera de los comandos CLI de
 * [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

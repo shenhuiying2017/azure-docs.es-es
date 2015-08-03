@@ -44,7 +44,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
 
-* En un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\_Layout.cshtml.
+* En un proyecto de ASP.NET MVC, lo colocaría en View\Shared\_Layout.cshtml.
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
 
 El script contiene la clave de instrumentación que dirige los datos al recurso de Application Insights.
@@ -181,4 +181,4 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

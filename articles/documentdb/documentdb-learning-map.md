@@ -23,4 +23,4 @@ Azure DocumentDB es un servicio de base de datos de documentos NoSQL diseñado d
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

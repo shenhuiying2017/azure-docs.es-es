@@ -70,4 +70,4 @@ Se pueden configurar Bases de datos SQL Azure para replicar asincrónicamente la
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -114,7 +114,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 	>[AZURE.NOTE]Este tutorial envía una notificación del sistema al dispositivo. Cuando envía una notificación de icono, debe llamar al método **BindToShellTile** en el canal. Para admitir notificaciones del sistema y notificaciones de icono, llame a ambos métodos, **BindToShellTile** y **BindToShellToast**.
 
-6. En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID___CAP___PUSH_NOTIFICATION** esté marcada.
+6. En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID_CAP_PUSH_NOTIFICATION** esté marcada.
 
    	![][14]
 
@@ -215,4 +215,4 @@ En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Wi
 [Centro de notificaciones: tutorial de WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

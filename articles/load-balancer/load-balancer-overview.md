@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ La configuración del Equilibrador de carga de Azure admite NAT de cono completo
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-Tenga en cuenta que para cada nueva conexión saliente iniciada por una máquina virtual, el Equilibrador de carga de Azure también asigna un puerto saliente. El host externo verá el tráfico entrante como VIP: puerto asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen IP públicas de nivel de instancia para que tengan una IP saliente dedicada para la traducción de direcciones de red de origen (SNAT). Esto reducirá el riesgo de agotamiento de puertos.
+
+>[AZURE.NOTE]Tenga en cuenta que para cada nueva conexión saliente iniciada por una máquina virtual, el Equilibrador de carga de Azure también asigna un puerto saliente. El host externo verá el tráfico entrante como VIP: puerto asignado. Si los escenarios requieren un gran número de conexiones salientes, se recomienda que las máquinas virtuales usen IP públicas de nivel de instancia para que tengan una IP saliente dedicada para la traducción de direcciones de red de origen (SNAT). Esto reducirá el riesgo de agotamiento de puertos.
+>
+>El número máximo de puertos que VIP o ILPIP pueden usar es 64.000. Se trata de una limitación estándar de TCP.
+
 
 **Compatibilidad con varias IP con equilibrio de carga para máquinas virtuales**
 
@@ -95,4 +99,4 @@ Puede tener más de una dirección IP pública con equilibrio de carga asignada 
 [Introducción al equilibrador de carga accesible desde Internet](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

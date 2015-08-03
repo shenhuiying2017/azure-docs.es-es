@@ -42,4 +42,4 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 <!-- URLs. -->
 [Introducción]: ../articles/mobile-services/mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

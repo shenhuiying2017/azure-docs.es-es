@@ -24,4 +24,4 @@ Esta página se ha movido: [vaya aquí](app-insights-windows-get-started.md).
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -73,4 +73,4 @@
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

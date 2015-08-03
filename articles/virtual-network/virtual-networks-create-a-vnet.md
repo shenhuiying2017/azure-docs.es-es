@@ -52,4 +52,4 @@ Una vez que crea la red virtual, puede agregarle nuevas máquinas virtuales e in
 
 -  [Agregue una máquina virtual](../virtual-machines/virtual-machines-create-custom.md) a una red virtual.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -89,4 +89,4 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
     - Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

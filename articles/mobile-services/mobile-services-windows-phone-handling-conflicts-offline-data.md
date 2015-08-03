@@ -240,4 +240,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

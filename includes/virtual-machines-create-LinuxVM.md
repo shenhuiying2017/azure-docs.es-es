@@ -31,4 +31,4 @@
 
 Una vez que Azure crea la máquina virtual y el servicio en la nube, el Portal de administración muestra la máquina virtual nueva en **Máquinas virtuales** y el servicio en la nube en **Servicios en la nube**. Tanto la máquina virtual como el servicio en la nube se inician automáticamente.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

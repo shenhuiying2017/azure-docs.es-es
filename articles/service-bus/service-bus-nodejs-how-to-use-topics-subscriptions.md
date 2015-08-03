@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # Uso de temas/suscripciones del Bus de servicio
 
 En esta guía se describe cómo usar los temas y las suscripciones del Bus de servicio desde aplicaciones Node.js. Entre los escenarios tratados se incluye la **creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para obtener más información sobre los temas y las suscripciones, consulte la sección [Pasos siguientes](#next-steps).
@@ -140,9 +136,9 @@ Es posible agregar filtros a una suscripción utilizando el método **createRule
 
 > [AZURE.NOTE]
 
-> Ya que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, primero debe eliminar el filtro predeterminado <strong>MatchAll</strong> si no quiere que este anule todos los otros filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método <strong>deleteRule</strong> del objeto <strong>ServiceBusService</strong>.
+> Ya que el filtro predeterminado se aplica automáticamente a todas las suscripciones nuevas, primero debe eliminar el filtro predeterminado **MatchAll** si no quiere que este anule todos los otros filtros que especifique. Puede eliminar el filtro predeterminado utilizando el método **deleteRule** del objeto **ServiceBusService**.
 
-En el ejemplo que aparece a continuación se crea una suscripción llamada "HighMessages" con un **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada superior a 3:
+En el ejemplo que aparece a continuación se crea una suscripción llamada “HighMessages” con un filtro **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** personalizada superior a 3:
 
     serviceBusService.createSubscription('MyTopic', 'HighMessages', function (error){
         if(!error){
@@ -175,7 +171,7 @@ En el ejemplo que aparece a continuación se crea una suscripción llamada "High
         }
     }
 
-Del mismo modo, en el ejemplo que aparece a continuación, se crea una suscripción llamada "LowMessages" con un **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** menor o igual a 3:
+Del mismo modo, en el ejemplo que aparece a continuación se crea una suscripción llamada “LowMessages” con un filtro **SqlFilter** que solo selecciona los mensajes con una propiedad **messagenumber** igual a 3 o menor:
 
     serviceBusService.createSubscription('MyTopic', 'LowMessages', function (error){
         if(!error){
@@ -212,7 +208,7 @@ Ahora, cuando se envíe un mensaje a "MyTopic", siempre se entregará a los dest
 
 ## Envío de mensajes a un tema
 
-Para enviar un mensaje a un tema del Bus de servicio, la aplicación debe utilizar el método **sendTopicMessage** del objeto **ServiceBusService**. Los mensajes enviados a los temas del Bus de servicio son objetos **BrokeredMessage**. Los objetos **BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos de cadenas. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **sendTopicMessage**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
+Para enviar un mensaje a un tema del bus de servicio, la aplicación debe utilizar el método **sendTopicMessage** del objeto **ServiceBusService**. Los mensajes enviados a los temas del bus de servicio son objetos **BrokeredMessage**. Los objetos **BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **Label** y **TimeToLive**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos de cadenas. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **sendTopicMessage**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
 
 En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a "MyTopic". Fíjese en cómo el valor de la propiedad **messagenumber** de cada mensaje varía en función de la iteración del bucle (así se determinará qué suscripciones lo reciben):
 
@@ -243,7 +239,7 @@ El funcionamiento predeterminado por el que los mensajes se eliminan tras leerlo
 
 Si el parámetro **isPeekLock** está establecido en **true**, el proceso de recepción se convierte en una operación en dos fases que hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma fiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **deleteMessage** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **deleteMessage** marcará el mensaje como consumido y lo eliminará de la suscripción.
 
-En el ejemplo que aparece a continuación, se indica cómo se pueden recibir y procesar los mensajes usando **receiveSubscriptionMessage**. En el ejemplo, primero se recibe y elimina un mensaje de la suscripción "LowMessages" y, luego, se recibe un mensaje de la suscripción "HighMessages" con el parámetro**isPeekLock** establecido en "true". A continuación, se elimina el mensaje utilizando **deleteMessage**:
+En el ejemplo que aparece a continuación, se indica cómo se pueden recibir y procesar los mensajes usando **receiveSubscriptionMessage**. En el ejemplo, primero se recibe y elimina un mensaje de la suscripción “LowMessages” y, a continuación, se recibe un mensaje de la suscripción “HighMessages” con el parámetro **isPeekLock** establecido en “true”. A continuación, se elimina el mensaje utilizando **deleteMessage**:
 
     serviceBusService.receiveSubscriptionMessage('MyTopic', 'LowMessages', function(error, receivedMessage){
         if(!error){
@@ -294,19 +290,19 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones][].
--   Referencia de API para [SqlFilter][].
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones][]
+-   Referencia de API para [Clase SqlFilter][].
 -   Visite el repositorio del [SDK de Azure para Node] en GitHub.
 
   [SDK de Azure para Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Clase SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Servicio en la nube de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-app-with-storage/
   [Aplicación web de Node.js con almacenamiento]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

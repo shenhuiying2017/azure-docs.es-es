@@ -97,4 +97,4 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de SFTP co
 [11]: ./media/app-service-logic-connector-sftp/img11.PNG
 [12]: ./media/app-service-logic-connector-sftp/img12.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

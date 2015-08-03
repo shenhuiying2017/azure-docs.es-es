@@ -225,4 +225,4 @@ Lo que realmente hace es aprovechar la capacidad de los actores confiables para 
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -53,7 +53,7 @@ Esta configuración requiere una subred de prueba de hasta cuatro equipos conect
 
 Siga las instrucciones de la sección "Pasos para configurar la subred Corpnet" de la [Test Lab Guide: Configuración base para Windows Server 2012 R2](http://www.microsoft.com/download/details.aspx?id=39638) para configurar los equipos DC1, APP1 y CLIENT1 en una subred denominada Corpnet. **Esta subred debe estar aislada de la red de su organización, ya que se conectará directamente a Internet a través del equipo RRAS1.**
 
-A continuación, inicie sesión en DC1 con las credenciales de CORP\\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
+A continuación, inicie sesión en DC1 con las credenciales de CORP\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -268,7 +268,7 @@ A continuación, configure DC2 como un controlador de dominio de réplica para e
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\\User1 y una contraseña de Modo de restauración de servicios de directorio (DSRM), y que reinicie DC2.
+Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\User1 y una contraseña de Modo de restauración de servicios de directorio (DSRM), y que reinicie DC2.
 
 Ahora que la red virtual TestVNET tiene su propio servidor DNS (DC2), debe configurar la red virtual de TestVNET para utilizar este servidor DNS.
 
@@ -326,4 +326,4 @@ A continuación, inicie sesión en RRAS1 como administrador local y ejecute esto
 A continuación, vaya al Portal de administración de Azure en el equipo local y espere hasta que se muestre un estado de la red virtual TestVNET de conectado.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

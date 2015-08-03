@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Crear una aplicación web de Java mediante DocumentDB" 
+	pageTitle="Creación de una aplicación web de Java mediante DocumentDB" 
 	description="En este tutorial aprenderá a usar el servicio de Azure DocumentDB para almacenar y acceder a datos desde una aplicación Java hospedada en sitios web de Azure." 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="andrl"/>
 
 # Creación de una aplicación web de Java mediante DocumentDB #
@@ -88,7 +88,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 4. En la ventana **Seleccionar dependencia**, haga lo siguiente:
  - En **GroupId**, escriba com.microsoft.azure.
  - En **Id. de artefacto**, escriba azure-documentdb.
- - En el cuadro **Versión**, escriba 1.0.0.
+ - En el cuadro **Versión**, escriba 1.1.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.0.0</version>
+		    <version>1.1.0</version>
 	    </dependency>
 
 5. Haga clic en **Aceptar** y Maven instalará el SDK de Java de DocumentDB.
@@ -118,7 +118,7 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
 
 	En este proyecto, estamos usando [Project Lombok](http://projectlombok.org/) para generar el constructor, los captadores, los establecedores y un generador. Como alternativa, puede escribir este código manualmente o dejar que el IDE lo genere.
 
-2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. Aquí es también donde tienes que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR_ENDPOINT_HERE] por el URI y reemplace [YOUR_KEY_HERE] por su CLAVE PRINCIPAL.
+2. Para invocar el servicio de DocumentDB, debe crear instancias de un nuevo **DocumentClient**. En general, es mejor volver a utilizar **DocumentClient**, en lugar de construir un nuevo cliente para cada solicitud posterior. Podemos volver a usar el cliente ajustando el cliente en una **DocumentClientFactory**. Aquí es también donde tiene que pegar el valor URI y CLAVE PRINCIPAL que guardó en el portapapeles en el [paso 1](#CreateDB). Reemplace [YOUR_ENDPOINT_HERE] por el URI y reemplace [YOUR_KEY_HERE] por su CLAVE PRINCIPAL.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -662,7 +662,7 @@ Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es cre
 		      var id = checkboxElement.attr('id');
 		      var isComplete = checkboxElement.is(':checked');
 		
-		      // Togle table row color
+		      // Toggle table row color
 		      if (isComplete) {
 		        rowElement.addClass("active");
 		        rowElement.removeClass("warning");
@@ -763,7 +763,7 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 8. En la pantalla **Destino local**, haga clic en **Examinar** para seleccionar una carpeta donde se pueda copiar el repositorio y, a continuación, haga clic en **Siguiente**.
 9. En la pantalla **Seleccionar un asistente que utilizar para la importación de proyectos**, asegúrese de que está seleccionada la opción **Importar proyectos existentes** y, a continuación, haga clic en **Siguiente**.
 10. En la pantalla **Importar proyectos**, anule la selección del proyecto de **DocumentDB** y, a continuación, haga clic en **Finalizar**. El proyecto DocumentDB contiene el SDK de Java de DocumentDB, que se agregará como una dependencia en su lugar.
-11. En **Explorador de proyectos**, vaya a azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java y reemplace los valores HOST y CLAVE_MAESTRA por los de URI y CLAVE PRINCIPAL de la cuenta de DocumentDB y, a continuación, guarde el archivo. Para obtener más información, consulte el [paso 1. Cree una cuenta de base de datos de DocumentDB](#CreateDB).
+11. En **Explorador de proyectos**, vaya a azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java y reemplace los valores HOST y CLAVE_MAESTRA por los de URI y CLAVE PRINCIPAL de la cuenta de DocumentDB y, a continuación, guarde el archivo. Para obtener más información, consulte el [paso 1. Cree una cuenta de base de datos de DocumentDB](#CreateDB).
 12. En **Explorador de proyectos**, haga clic con el botón derecho en **azure-documentdb-java-sample**, haga clic en **Ruta de acceso de compilación** y, a continuación, haga clic en **Configurar ruta de acceso de compilación**.
 13. En la pantalla **Ruta de acceso de compilación** de Java, en el panel derecho, seleccione la ficha **Bibliotecas** y, a continuación, haga clic en **Agregar JAR externos**. Desplácese hasta la ubicación del archivo lombok.jar y haga clic en **Abrir** y, a continuación, en **Aceptar**.
 14. Use el paso 12 para abrir la ventana **Propiedades** de nuevo y, a continuación, en el panel izquierdo haga clic en **Tiempos de ejecución de destino**.
@@ -779,4 +779,4 @@ Todos los ejemplos de este tutorial se incluyen en el proyecto [todo](https://gi
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

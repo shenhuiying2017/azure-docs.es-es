@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Traslado de recursos al nuevo grupo de recursos" 
 	description="Use Azure PowerShell o la API de REST para trasladar los recursos a un nuevo grupo de recursos para el Administrador de recursos de Azure." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -16,7 +16,7 @@
 	ms.date="07/14/2015" 
 	ms.author="tomfitz"/>
 
-# Traslado de los recursos a un nuevo grupo de recursos o a una suscripción
+# Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
 En este tema se muestra cómo trasladar recursos de un grupo de recursos a otro. También puede trasladar recursos a una nueva suscripción. Es posible que necesite trasladar recursos cuando decida que:
 
@@ -35,7 +35,7 @@ Hay algunas consideraciones importantes cuando se mueve un recurso:
 
 No todos los servicios admiten actualmente la capacidad de traslado de recursos.
 
-Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una suscripción son:
+Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y a una nueva suscripción son:
 
 - Administración de API
 - Búsqueda de Azure
@@ -50,23 +50,23 @@ Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una 
 - Proceso (clásico)
 - Almacenamiento (clásico)
 
-Los servicios que actualmente permiten trasladar un recurso son:
+Los servicios que actualmente no permiten trasladar un recurso son:
 
 - Redes virtuales
 
 ## Uso de PowerShell para trasladar recursos
 
-Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, use el comando el**Move-AzureResource**.
+Para trasladar recursos existentes a otro grupo de recursos o a una suscripción, use el comando **Move-AzureResource**.
 
 El primer ejemplo muestra cómo trasladar un recurso a un nuevo grupo de recursos.
 
-    PS C:> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
 
-    PS C:> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Para trasladar a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
 
@@ -76,9 +76,9 @@ Para trasladar recursos existentes a otro grupo de recursos o a una suscripción
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Reemplace **{source-subscription-id}** y **{source-resource-group-name}** por la suscripción y el grupo de recursos que contienen actualmente los recursos que desea trasladar. Utilice **2015-01-01** para {api-version}.
+Reemplace **{source-subscription-id}** y **{source-resource-group-name}** por la suscripción y el grupo de recursos que contienen actualmente los recursos que desea trasladar. Use **2015-01-01** para {api-version}.
 
-En la solicitud, incluyen un objeto JSON que define el grupo de recursos de destino y los recursos que desea mover.
+En la solicitud, incluya un objeto JSON que define el grupo de recursos de destino y los recursos que desea mover.
 
     {
         "targetResourceGroup": "/subscriptions/{target-subscription-id}/resourceGroups/{target-resource-group-name}", "resources": [
@@ -93,6 +93,6 @@ En la solicitud, incluyen un objeto JSON que define el grupo de recursos de dest
 - [Uso de Azure PowerShell con el Administrador de recursos](./powershell-azure-resource-manager.md)
 - [Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure](./virtual-machines/xplat-cli-azure-resource-manager.md)
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
-- [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
+- [Uso de etiquetas para organizar los recursos](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

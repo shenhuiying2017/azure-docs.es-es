@@ -36,6 +36,10 @@ Este tutorial requiere lo siguiente:
 * Visual Studio 2013
 * Visual Studio con la [extensión Xamarin] **o** [ Xamarin Studio] en OS X.
 
+##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## Revisión del código de sincronización de Aplicaciones móviles
 
 La sincronización sin conexión de Aplicaciones móviles de Azure permite a los usuarios finales interactuar con una base de datos local cuando la red no está accesible. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`. Esta sección le guía a través del código relacionado con la sincronización sin conexión en `QSTodoService.cs`.
@@ -166,4 +170,4 @@ En esta sección se volverá a conectar la aplicación al back-end móvil, que s
 [extensión Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

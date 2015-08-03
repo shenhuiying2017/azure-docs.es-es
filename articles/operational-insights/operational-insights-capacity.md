@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Administración de la capacidad de la infraestructura
@@ -162,4 +162,6 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 4. En la **herramienta de Proyección**, mueva el control deslizante de fecha para mostrar una proyección de la capacidad que se usará en la fecha seleccionada.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

@@ -93,4 +93,4 @@ Esto se configura desde el Portal de administración de Azure, no desde el porta
 - [Requisitos de formato de registro de IIS en Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - Vea qué otros orígenes de datos y tipos de registros nos pide la comunidad que implementemos en nuestro [foro de comentarios](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

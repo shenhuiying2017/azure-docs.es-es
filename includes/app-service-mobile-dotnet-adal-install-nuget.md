@@ -4,4 +4,4 @@
 
 [paquete NuGet de la biblioteca de autenticación de Active Directory]: http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

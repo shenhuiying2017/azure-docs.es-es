@@ -66,4 +66,4 @@ Las consideraciones siguientes pueden ayudarle a decidirse por un tamaño:
 
 [Configurar un servicio en la nube para Azure](https://msdn.microsoft.com/library/hh124108) [Configurar los tamaños de los servicios en la nube](https://msdn.microsoft.com/library/ee814754)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -78,7 +78,7 @@ Repita los pasos siguientes para crear máquinas virtuales para hospedar el rol 
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configuración de una dirección IP interna estática para una máquina virtual](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configuración de una dirección IP interna estática para una máquina virtual](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ## Instalar AD DS en máquinas virtuales de Azure
 
@@ -123,4 +123,4 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [E
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

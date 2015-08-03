@@ -804,4 +804,4 @@ El ejemplo siguiente muestra cómo programar un anuncio superpuesto de cuña int
 
 [Desarrollo de aplicaciones para reproductor de vídeo](media-services-develop-video-players.md) [Introducción a Azure Media Player Framework para iOS](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -654,4 +654,4 @@ código de estado HTTP: 200
 Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso. Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse. Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia. © 2014 Microsoft. Todos los derechos reservados.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

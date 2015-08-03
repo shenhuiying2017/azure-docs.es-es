@@ -101,4 +101,4 @@ La conexión de aplicaciones forma parte desde siempre de la creación de soluci
 [relay]: ./media/hybrid-solutions/SvcBus_04_relay.png
 [Información general de los centros de eventos]: https://msdn.microsoft.com/library/azure/dn836025.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

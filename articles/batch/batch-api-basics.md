@@ -238,17 +238,17 @@ Una tarea del administrador de trabajos en un mismo trabajo no tiene prioridad s
 
 Se necesita una cuenta de Lote para utilizar el servicio Lote, y se usan varios recursos del servicio para programar un cálculo. Utilice el siguiente flujo de trabajo básico al crear un escenario de cálculo distribuido con el servicio Lote:
 
-1\. Cargue los archivos que desea utilizar en el escenario de cálculo distribuido a una cuenta de almacenamiento de Azure. Estos archivos deben estar en la cuenta de almacenamiento para que el servicio de Lote pueda tener acceso a ellos. El servicio Lote los carga en una TVM cuando se ejecuta la tarea.
+1. Cargue los archivos que desea utilizar en el escenario de cálculo distribuido a una cuenta de almacenamiento de Azure. Estos archivos deben estar en la cuenta de almacenamiento para que el servicio de Lote pueda tener acceso a ellos. El servicio Lote los carga en una TVM cuando se ejecuta la tarea.
 
-2\. Cargue los archivos binarios dependientes en la cuenta de almacenamiento. Los archivos binarios incluyen el programa que ejecutará la tarea y los ensamblados dependientes. También es necesario tener acceso a estos archivos desde el almacenamiento y se cargan en la TVM.
+2. Cargue los archivos binarios dependientes en la cuenta de almacenamiento. Los archivos binarios incluyen el programa que ejecutará la tarea y los ensamblados dependientes. También es necesario tener acceso a estos archivos desde el almacenamiento y se cargan en la TVM.
 
-3\. Cree un grupo de máquinas virtuales de tareas. Puede asignar el tamaño de la máquina virtual de tareas que se utilizará cuando se crea el grupo. Cuando se ejecuta una tarea, se le asigna una TVM de este grupo.
+3. Cree un grupo de máquinas virtuales de tareas. Puede asignar el tamaño de la máquina virtual de tareas que se utilizará cuando se crea el grupo. Cuando se ejecuta una tarea, se le asigna una TVM de este grupo.
 
-4\. Cree un elemento de trabajo. Cuando se crea un elemento de trabajo, se crea automáticamente un trabajo. Un elemento de trabajo le permite administrar un trabajo de tareas.
+4. Cree un elemento de trabajo. Cuando se crea un elemento de trabajo, se crea automáticamente un trabajo. Un elemento de trabajo le permite administrar un trabajo de tareas.
 
-5\. Agregue tareas al elemento de trabajo. Cada tarea usa el programa que ha cargado para procesar la información de un archivo cargado.
+5. Agregue tareas al elemento de trabajo. Cada tarea usa el programa que ha cargado para procesar la información de un archivo cargado.
 
-6\. Supervise los resultados de la salida.
+6. Supervise los resultados de la salida.
 
 ## <a name="files"></a>Archivos y directorios
 
@@ -430,4 +430,4 @@ Las máquinas virtuales incluidas en un grupo tienen un nombre único, y la máq
 
 [Información general de Lote de Azure]: batch-technical-overview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/21/2015"
    ms.author="abhisram"/>
 
 # Supervisión del rendimiento y diagnósticos de actores de Fabric
@@ -154,6 +154,5 @@ El tiempo de ejecución de actores de Fabric emite los siguientes eventos relaci
 |---|---|---|---|---|
 |ActorActivated|5|Informativo|0x1|Se activó un actor.|
 |ActorDeactivated|6|Informativo|0x1|Se desactivó un actor.|
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

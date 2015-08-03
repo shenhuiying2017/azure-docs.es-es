@@ -41,4 +41,4 @@ Use la URL recuperada anteriormente para recuperar el mensaje archivado del Alma
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

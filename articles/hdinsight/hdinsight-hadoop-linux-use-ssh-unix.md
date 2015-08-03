@@ -295,4 +295,4 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

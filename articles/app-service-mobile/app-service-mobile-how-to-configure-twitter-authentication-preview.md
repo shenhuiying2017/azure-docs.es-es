@@ -18,6 +18,8 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de Twitter
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Twitter como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Twitter con una dirección de correo electrónico verificada. Para crear una cuenta de Twitter, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
@@ -67,4 +69,4 @@ De este modo ya estará listo para usar Twitter para realizar la autenticación 
 [xamarin]: ../app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

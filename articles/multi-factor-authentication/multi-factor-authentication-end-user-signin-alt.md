@@ -33,4 +33,4 @@ En la siguiente sección se mostrará cómo iniciar sesión con un método alter
 
 <li>Elija un método alternativo e inicie sesión.</li>
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

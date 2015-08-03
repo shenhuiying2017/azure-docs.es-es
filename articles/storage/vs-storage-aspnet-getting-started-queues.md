@@ -275,4 +275,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

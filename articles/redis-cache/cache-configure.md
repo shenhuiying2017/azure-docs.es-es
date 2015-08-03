@@ -138,4 +138,4 @@ Para obtener más información sobre los comandos de Redis, vea [http://redis.io
 ## Pasos siguientes
 -	Para obtener más información sobre cómo trabajar con comandos de Redis, vea [Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

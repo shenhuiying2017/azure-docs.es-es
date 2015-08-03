@@ -90,4 +90,4 @@ La colección de registros de IIS se admite en equipos con:
 
 3. En la página de confirmación, haga clic en **Sí** para quitar la solución.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

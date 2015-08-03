@@ -38,10 +38,10 @@ En primer lugar, necesitará instalar Azure PowerShell. Consulte [Instalación y
 
 A continuación, abra Azure PowerShell y ejecute los comandos siguientes. No olvide reemplazar `ACCOUNT_NAME` y `ACCOUNT_KEY== ` por las credenciales de su cuenta de almacenamiento. Reemplace `CONTAINER_NAME` por el nombre que desee.
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 El URI de la firma de acceso compartido para el nuevo contenedor debe ser similar al siguiente:
 
@@ -173,10 +173,7 @@ En este tutorial, ha aprendido a utilizar el Almacenamiento de blobs de Azure y 
 
 Obtenga más información acerca de blobs, tablas y colas mediante la consulta de los vínculos siguientes:
 
-[Introducción al Almacenamiento de Microsoft Azure ](storage-introduction.md)  
-[Cómo utilizar el almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md)  
-[Cómo utilizar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md)  
-[Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
+[Introducción al Almacenamiento de Microsoft Azure ](storage-introduction.md) [Cómo utilizar el almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md) [Cómo utilizar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md) [Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

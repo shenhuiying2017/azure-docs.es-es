@@ -43,4 +43,4 @@ Carpeta `src`
 > Controladores de visualización de Engagement y código fuente del SDK de cobertura (para usuarios avanzados que desean adaptar las clases de Engagement a sus necesidades).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

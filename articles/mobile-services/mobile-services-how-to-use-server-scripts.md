@@ -96,7 +96,7 @@ Puede definir los scripts del servidor que están registrados en una operación 
 	
 	Para saber cómo realizar esto, vea [Validación y modificación de datos en los Servicios móviles mediante los scripts de servidor].
 
-+ Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo llamado <em>`<table>`</em>.<em>`<operation>`</em>.js en la subcarpeta .\\service\\table de su repositorio git, donde <em>`<table>`</em> es el nombre de la tabla y <em>`<operation>`</em> es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
++ Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo llamado <em>`<table>`</em>.<em>`<operation>`</em>.js en la subcarpeta .\service\table de su repositorio git, donde <em>`<table>`</em> es el nombre de la tabla y <em>`<operation>`</em> es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
@@ -343,7 +343,7 @@ Puede definir los scripts del servidor que están registrados en métodos HTTP e
 	
 	Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permisos. Para ver cómo se creó esta API personalizada, vea [Llamada a una API personalizada desde el cliente].
 
-+ Mediante el control de código fuente. Una vez habilitado el control de código fuente, simplemente cree un archivo denominado <em>`<custom_api>`</em>.js en la subcarpeta .\\service\\api de su repositorio git, donde <em>`<custom_api>`</em> es el nombre de la API personalizada que se registra. El script contienen una función _exported_ para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
++ Mediante el control de código fuente. Una vez habilitado el control de código fuente, simplemente cree un archivo denominado <em>`<custom_api>`</em>.js en la subcarpeta .\service\api de su repositorio git, donde <em>`<custom_api>`</em> es el nombre de la API personalizada que se registra. El script contienen una función _exported_ para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Source control, shared code, and helper functions].
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
@@ -462,7 +462,7 @@ Puede definir trabajos programados de una de las siguientes formas:
 
 + Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, vea [Uso de la herramienta de línea de comandos].
 
->[AZURE.NOTE]Cuando tenga con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\\service\\scheduler del repositorio git. Para obtener más información, consulte [Compartir código mediante el uso del control de código fuente].
+>[AZURE.NOTE]Cuando tenga con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\service\scheduler del repositorio git. Para obtener más información, consulte [Compartir código mediante el uso del control de código fuente].
 
 ##<a name="shared-code"></a>Control de código fuente, código compartido y funciones auxiliares
 
@@ -1079,4 +1079,4 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Support for package.json in Azure Mobile Services]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

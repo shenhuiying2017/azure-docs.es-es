@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # Cómo usar el almacenamiento de blobs de C++  
@@ -165,6 +165,8 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
 		}
 	}
 
+Para obtener más información acerca de cómo enumerar las operaciones, consulte [Enumeración de recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md).
+
 ## Cómo descargar blobs
 Para descargar blobs, primero recupere una referencia de blob y, a continuación, llame al método **download_to_stream**. En el siguiente ejemplo, se usa el método **download_to_stream** para transferir el contenido del blob a un objeto de flujo que, a continuación, puede guardar en un archivo local.
 
@@ -231,6 +233,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 
 -	[Cómo usar el almacenamiento de colas de C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Cómo usar el almacenamiento de tablas de C++](storage-c-plus-plus-how-to-use-tables.md)
+-	[Enumeración de los recursos de almacenamiento de Azure en C++](storage-c-plus-plus-enumeration.md)
 -	[Biblioteca de cliente de almacenamiento para C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Referencia MSDN de Almacenamiento de Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Documentación de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
@@ -240,4 +243,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

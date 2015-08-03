@@ -413,4 +413,4 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
     }
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

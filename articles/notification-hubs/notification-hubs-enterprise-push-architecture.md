@@ -271,4 +271,4 @@ El código de ejemplo completo está disponible en [Ejemplos de centro de notifi
 [Tutorial sobre Centros de notificaciones: Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

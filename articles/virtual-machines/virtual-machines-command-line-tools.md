@@ -188,7 +188,7 @@ El siguiente diagrama muestra cómo se han hospedado las máquinas virtuales de 
 
 ![Diagrama técnico de Azure](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new** permite crear la unidad en el almacenamiento de blobs (es decir, e:\\ en el diagrama); **attach** permite conectar un disco ya creado pero sin conectar a una máquina virtual.
+**create-new** permite crear la unidad en el almacenamiento de blobs (es decir, e:\ en el diagrama); **attach** permite conectar un disco ya creado pero sin conectar a una máquina virtual.
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -2346,4 +2346,4 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

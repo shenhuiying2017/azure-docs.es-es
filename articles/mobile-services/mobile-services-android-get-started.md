@@ -124,4 +124,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

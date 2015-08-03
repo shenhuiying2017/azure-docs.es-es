@@ -84,4 +84,4 @@ Después de que se ha codificado la aplicación de API, es hora de probar el có
 
 5. Presione **Entrar** para cerrar la ventana de consola.
 
-<!---HONumber=58-->
+<!---HONumber=July15_HO4-->

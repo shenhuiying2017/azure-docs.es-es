@@ -258,7 +258,7 @@ En su entorno de desarrollo, siga estos pasos para ejecutar la topología Temper
 
 2. Cuando se cree el sitio web, vaya al sitio en el Portal de Azure y seleccione la pestaña **Configurar**. Habilite **Sockets web** y haga clic en **Guardar**, en la parte inferior de la página.
 
-2. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** y cambie la línea siguiente para que señale a la dirección URL del panel publicado:
+2. Abra **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** y cambie la línea siguiente para que señale a la dirección URL del panel publicado:
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -362,13 +362,13 @@ La parte del nombre de dominio que comienza con el nombre del clúster es el suf
 
 ### Habilitación del bolt de HBase
 
-1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** y reemplace las entradas `suffix` en la línea siguiente por el sufijo DNS que obtuvo anteriormente para el clúster de HBase. Después de realizar estos cambios, guarde el archivo.
+1. Abra **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** y reemplace las entradas `suffix` en la línea siguiente por el sufijo DNS que obtuvo anteriormente para el clúster de HBase. Después de realizar estos cambios, guarde el archivo.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	El bolt de HBase lo usará para comunicarse con el clúster de HBase.
 
-1. Abra **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** en un editor de texto y quite el comentario de las líneas siguientes, quitando los caracteres `//` del principio. Después de realizar estos cambios, guarde el archivo.
+1. Abra **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts** en un editor de texto y quite el comentario de las líneas siguientes, quitando los caracteres `//` del principio. Después de realizar estos cambios, guarde el archivo.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@ Antes de ejecutar la topología, debe preparar HBase para que acepte los datos.
 
 2. En el escritorio, inicie la línea de comandos de HDInsight y escriba los comandos siguientes:
 
-    cd %HBASE_HOME% bin\\hbase shell
+    cd %HBASE_HOME% bin\hbase shell
 
 3. En el shell de HBase, escriba el comando siguiente para crear una tabla en la que se almacenarán los datos de los sensores:
 
@@ -420,4 +420,4 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos y
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

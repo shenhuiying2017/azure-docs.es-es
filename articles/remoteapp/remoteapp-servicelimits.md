@@ -22,4 +22,4 @@ La información sobre los límites del servicio Azure RemoteApp y los valores p
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -77,7 +77,7 @@ El tamaño *real* en este caso es el tamaño de la máquina virtual de 17 GB + 3
 La facturación no se inicia hasta que se complete la primera copia de seguridad correcta. En este punto, se iniciará la facturación de almacenamiento y las instancias protegidas. La facturación continúa mientras haya *datos de cualquier copia de seguridad almacenados con la Copia de seguridad de Azure* para la máquina virtual. Al realizar la operación de suspender la protección no se detiene la facturación si se conservan los datos de copia de seguridad. La facturación de una máquina virtual especificada se suspenderá solo si se ha detenido la protección *y* se eliminan los datos de copia de seguridad. Cuando no hay ningún trabajo de copia de seguridad activo (cuando se ha detenido la protección), el tamaño de la máquina virtual en el momento de la última copia de seguridad correcta se convierte en el tamaño de instancia protegida en el que se basa la factura mensual.
 
 ## Requisitos previos
-### 1\. Almacén de copia de seguridad
+### 1. Almacén de copia de seguridad
 Para iniciar la copia de seguridad de sus máquinas virtuales de Azure, deberá crear primero un almacén de copia de seguridad. El almacén es una entidad que almacena todas las copias de seguridad y los puntos de recuperación que se han creado con el tiempo. El almacén contiene también las directivas de copia de seguridad que se aplicarán a las máquinas virtuales de una copia de seguridad.
 
 La siguiente imagen muestra las relaciones entre las diversas entidades de Copia de seguridad de Azure:![Relaciones y entidades de copia de seguridad de Azure](./media/backup-azure-vms-introduction/vault-policy-vm.png)
@@ -102,7 +102,7 @@ La siguiente imagen muestra las relaciones entre las diversas entidades de Copia
 
     >[AZURE.NOTE]Asegúrese de que se ha elegido la opción de redundancia de almacenamiento apropiada justo después de que se ha creado el almacén. Obtenga más información sobre la [configuración de la opción de redundancia de almacenamiento en el almacén de copia de seguridad][redundancia de almacenamiento del almacén].
 
-### 2\. Agente de máquina virtual de Azure
+### 2. Agente de máquina virtual de Azure
 Antes de empezar a realizar copias de seguridad de la máquina virtual de Azure, asegúrese de que el agente de VM de Azure está instalado correctamente en la máquina virtual. Para realizar la copia de seguridad de la máquina virtual, el servicio de Copia de seguridad de Azure instala una extensión para el agente de máquina virtual. Puesto que el agente de VM es un componente opcional en el momento que se crea la máquina virtual, deberá asegurarse de que está activada la casilla para el agente de VM antes de que se aprovisione la máquina virtual.
 
 Obtenga información acerca del [Agente de máquina virtual](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) y de [cómo instalarlo](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
@@ -136,4 +136,4 @@ Para empezar a usar la copia de seguridad de máquina virtual, aprenda cómo:
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

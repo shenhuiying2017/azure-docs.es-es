@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Descripción general de la configuración &quot;ReliableDictionaryActorStateProvider&quot; de los actores confiables de Service Fabric"
-   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo &quot;ReliableDictionaryActorStateProvider&quot;"
+   pageTitle="Descripción general de la configuración ";ReliableDictionaryActorStateProvider"; de los actores confiables de Service Fabric"
+   description="Obtenga información sobre cómo configurar los actores con estado de Service Fabric de tipo ";ReliableDictionaryActorStateProvider";"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -88,4 +88,4 @@ El MaxRecordSizeInKB define el tamaño máximo de un registro que puede escribir
 La configuración de SharedLogId y SharedLogPath siempre se usa conjuntamente y permite que un servicio utilice un registro compartido independiente del registro compartido predeterminado del nodo. Para obtener una mayor eficacia, todos los servicios posibles deben especificar el mismo registro compartido. Los archivos de registro compartido deben colocarse en discos que se usen únicamente para el archivo de registro compartido, para reducir la contención del movimiento de los cabezales. Se espera que deba cambiarse solamente en raras ocasiones.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

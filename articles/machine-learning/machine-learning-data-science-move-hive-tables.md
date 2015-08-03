@@ -2,6 +2,7 @@
 	pageTitle="Crear y cargar datos en tablas de Hive desde el almacenamiento de blobs de Azure | Microsoft Azure" 
 	description="Crear tablas de subárbol y cargar datos de blob en tablas de subárbol" 
 	services="machine-learning,storage" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
@@ -153,4 +154,4 @@ Los usuarios no pueden cargar datos directamente desde el almacenamiento de blob
 
 Después de seguir este procedimiento, debe tener una tabla con datos en el formato ORC lista para su uso.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

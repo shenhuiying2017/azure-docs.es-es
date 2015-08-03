@@ -49,7 +49,7 @@ El diagrama siguiente muestra el flujo de información proveniente de su empresa
 
 ![Imagen de la seguridad y recopilación de datos de Visión operativa](./media/operational-insights-security/security.png)
 
-### 1\. Suscripción para Visión operativa y recopilación de datos
+### 1. Suscripción para Visión operativa y recopilación de datos
 
 Para que su organización envíe datos al servicio de Visión operativa, deberá configurar agentes de Microsoft Monitoring cuando se conecte directamente al servicio web o usar un asistente de configuración en la consola de operaciones en Operations Manager. Los usuarios (que pueden ser usted, otros usuarios individuales o un grupo de personas) deben crear una o más cuentas de Visión operativa y registrar cada agente directamente conectado o su entorno de Operations Manager, mediante el uso de una de las siguientes cuentas:
 
@@ -140,20 +140,20 @@ La tabla siguiente muestra ejemplos de los tipos de datos:
     </table>
 
 
-### 2\. Envío de datos desde agentes
+### 2. Envío de datos desde agentes
 
 Con agentes que se conectan directamente al servicio web, los registra con una clave y se establece una conexión segura entre el agente y el servicio de Visión operativa mediante el puerto 443.
 
 Con Operations Manager, registra una cuenta con el servicio Visión operativa y se establece una conexión HTTPS entre el servidor de administración de Operations Manager y el servicio de Visión operativa mediante el puerto 443. Si por cualquier motivo Operations Manager no puede comunicarse con el servicio, los datos recopilados se almacenan en una caché temporal y el servidor de administración intenta volver a enviar los datos cada ocho minutos durante dos horas. Los datos recopilados se comprimen y se envían al servicio de Visión operativa, omitiendo las bases de datos locales, por lo que no se les agrega ninguna carga. Después de enviar los datos recopilados, se quitan de la memoria caché.
 
-### 3\. El servicio de Visión operativa recibe y procesa los datos
+### 3. El servicio de Visión operativa recibe y procesa los datos
 
 El servicio de Visión operativa asegura que los datos entrantes provienen de una fuente de confianza mediante la validación de certificados y la integridad de los datos. Los datos sin procesar se almacenan entonces como un blob en [Almacenamiento de Microsoft Azure](http://azure.microsoft.com/documentation/services/storage/). Cada usuario de Visión operativa tiene un blob de Azure dedicado, al que solo puede tener acceso ese usuario. El tipo de datos que se almacena depende de los tipos de soluciones que se importaron y se usaron para recopilar datos.
 
 El servicio de Visión operativa procesa los datos sin procesar y los datos procesados agregados se almacenan en una base de datos SQL. La comunicación entre el servicio de Visión operativa y la base de datos SQL se basa en la autenticación de base de datos SQL.
 
-### 4\. Uso de Visión operativa para tener acceso a los datos
+### 4. Uso de Visión operativa para tener acceso a los datos
 
 Puede iniciar sesión en Visión operativa con la cuenta que configuró anteriormente. Todo el tráfico entre Visión operativa y el servicio de Visión operativa se envía a través de un canal HTTPS seguro.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

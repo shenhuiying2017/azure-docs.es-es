@@ -31,4 +31,4 @@ Los miembros del equipo están respondiendo a su pregunta. Si no ve el icono de 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

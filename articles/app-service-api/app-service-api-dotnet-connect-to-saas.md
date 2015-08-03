@@ -121,7 +121,7 @@ Los ámbitos disponibles los define cada proveedor de SaaS y pueden encontrarse 
 	 
 			install-package DropboxRestAPI  
 
-1. Abra *Controllers\\ValuesController.cs* reemplace todo el código en el archivo por el código siguiente.
+1. Abra *Controllers\ValuesController.cs* reemplace todo el código en el archivo por el código siguiente.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -447,4 +447,4 @@ Vio como se codifica y configura una aplicación de API que se conecta a una pla
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

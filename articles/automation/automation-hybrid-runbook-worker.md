@@ -41,20 +41,20 @@ Cuando se inicia un runbook en un Trabajo híbrido de runbook, se especifica el 
 
 Complete los pasos siguientes para preparar su entorno de Automatización de Azure para Trabajos híbridos de runbook.
 
-#### 1\. Creación de un área de trabajo de Visión operativa de Azure
+#### 1. Creación de un área de trabajo de Visión operativa de Azure
 Si todavía no tiene un área de trabajo de Visión operativa de Azure en su cuenta de Azure, puede crear una siguiendo las instrucciones que aparecen en [Configurar el área de trabajo de Visión operativa](../operational-insights-setup-workspace). Si cuenta con un área de trabajo existente, puede usarla.
 
-#### 2\. Implementación de la solución de Automatización
+#### 2. Implementación de la solución de Automatización
 La solución de Automatización en Visión operativa inserta componentes requeridos para configurar y admitir el entorno de runbook. Siga las instrucciones que se encuentran en [Soluciones de Visión operativa](../operational-insights-add-solution) para instalar el paquete de **Automatización de Azure**.
 
 ### Configuración de máquinas locales
 Complete los pasos siguientes para cada una de las máquinas locales que actuarán como un Trabajo híbrido de runbook.
 
 
-#### 1\. Instalación del agente de Microsoft Management
+#### 1. Instalación del agente de Microsoft Management
 El agente de Microsoft Management conecta el equipo a Visión operativa y le permite ejecutar la lógica desde sus soluciones. Siga las instrucciones que se encuentran en [Conexión de equipos directamente en Visión operativa](../operational-insights-direct-agent) para instalar el agente en la máquina local y conectarlo a Visión operativa.
 
-#### 2\. Instalación del entorno de runbook y conexión con Automatización de Azure
+#### 2. Instalación del entorno de runbook y conexión con Automatización de Azure
 Cuando agregue un equipo a Visión operativa, la solución Automatización inserta el módulo PowerShell **HybridRegistration** que contiene el cmdlet **Add-HybridRunbookWorker**. Este cmdlet se usa para instalar el entorno de runbook en el equipo y registrarlo con Automatización de Azure.
 
 Abra una sesión de PowerShell en modo de Administrador y ejecute el comando siguiente para importar el módulo.
@@ -75,7 +75,7 @@ A continuación, ejecute el cmdlet **Add-HybridRunbookWorker** con la siguiente 
 - **Token** es la **Clave de acceso primaria** en la hoja **Administrar claves**. Puede abrir la hoja Administrar claves con un clic en el icono de clave en el panel Elementos de la cuenta de Automatización.<br><br>![Información general de Trabajo híbrido de runbook](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3\. Instalación de módulos PowerShell
+#### 3. Instalación de módulos PowerShell
 Los runbooks pueden usar cualquiera de las actividades y los cmdlets definidos en los módulos instalados en el entorno de Automatización de Azure. Sin embargo, estos módulos no se implementan automáticamente en las máquinas locales, por lo que debe instalarlos de forma manual. La excepción es el módulo de Azure que se instala de manera predeterminada y brinda acceso a los cmdlets para todos los servicios y actividades de Azure para Automatización de Azure.
 
 Debido a que el propósito principal de la característica Trabajo híbrido de runbook es administrar recursos locales, es muy probable que deba instalar los módulos que admiten estos recursos. Puede consultar [Instalación de módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obtener información sobre cómo instalar módulos de Windows PowerShell.
@@ -136,4 +136,4 @@ Puede usar los criterios siguientes para determinar si Automatización de Azure 
 - [Edición de un runbook en Automatización de Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

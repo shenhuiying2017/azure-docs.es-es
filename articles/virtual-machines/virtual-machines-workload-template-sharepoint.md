@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure" 
+<properties
+	pageTitle="Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure"
 	description="Implemente fácilmente una granja SharePoint de nueve servidores con plantillas de administrador de recursos y el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure."
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/29/2015"
+	ms.author="davidmu"/>
 
 # Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure
 
 Siga las instrucciones de este artículo para implementar una granja de servidores SharePoint Server 2013 de tres o nueve servidores mediante plantillas de administrador de recursos.
- 
-## Implementar una granja de tres servidores de SharePoint 
+
+## Implementar una granja de tres servidores de SharePoint
 
 En una granja de servidores de SharePoint Server 2013 básica, una plantilla de administrador de recursos crea tres máquinas virtuales en una nueva red virtual en tres subredes diferentes.
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
- 
+
 Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerShell o la CLI de Azure.
 
 ### Portal de vista previa de Azure
@@ -34,13 +34,13 @@ Puede ejecutar la plantilla con el Portal de vista previa de Azure, Azure PowerS
 Para implementar esta carga de trabajo mediante una plantilla de Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
- 
+
 1.	Para el panel **Plantilla**, haga clic en **Guardar**.
 2.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
 3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
 4.	Haga clic en **Grupo de recursos** y seleccione un grupo de recursos existente. Como alternativa, haga clic en **O crear nuevo** para crear uno nuevo para esta carga de trabajo.
 5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
-6.	Si es necesario, haga clic en Condiciones legales para revisar los términos y el contrato para usar la plantilla.
+6.	Si es necesario, haga clic en **Condiciones legales** para revisar los términos y el contrato para usar la plantilla.
 7.	Haga clic en **Crear**.
 
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de tres servidores en el grupo de recursos nuevo o existente.
@@ -99,13 +99,13 @@ Ahora tiene una nueva granja de SharePoint de tres servidores en el nuevo grupo 
 En una granja de servidores de SharePoint Server 2013 de alta disponibilidad, una plantilla de administrador de recursos crea nueve máquinas virtuales en una nueva red virtual en cuatro subredes diferentes.
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
- 
+
 ### Portal de vista previa de Azure
 
 Para implementar esta carga de trabajo mediante una plantilla de Administrador de recursos y el Portal de vista previa de Azure, haga clic [aquí](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
- 
+
 1.	Para el panel **Plantilla**, haga clic en **Guardar**.
 2.	Haga clic en **Parámetros**. En el panel **Parámetros**, escriba nuevos valores, seleccione de valores permitidos o acepte los valores predeterminados y, a continuación, haga clic en **Aceptar**.
 3.	Si es necesario, haga clic en **Suscripción** y seleccione la suscripción de Azure correcta.
@@ -113,7 +113,7 @@ Para implementar esta carga de trabajo mediante una plantilla de Administrador d
 5.	Si es necesario, haga clic en **Ubicación del grupo de recursos** y seleccione la ubicación correcta de Azure.
 6.	Si es necesario, haga clic en Condiciones legales para revisar los términos y el contrato para usar la plantilla.
 7.	Haga clic en **Crear**.
- 
+
 Dependiendo de la plantilla, es posible que Azure tarde algún tiempo en generar la carga de trabajo. Cuando haya finalizado, tendrá una nueva granja SharePoint de nueve servidores en el grupo de recursos nuevo o existente.
 
 ### Azure PowerShell
@@ -168,7 +168,7 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 ## Recursos adicionales
 
-[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+[Implementación y administración de máquinas virtuales con plantillas del Administrador de recursos de Azure y Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -180,4 +180,4 @@ Cuando haya finalizado la ejecución de la plantilla, tendrá una nueva granja S
 
 [Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

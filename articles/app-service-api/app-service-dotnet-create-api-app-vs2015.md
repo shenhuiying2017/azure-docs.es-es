@@ -297,4 +297,4 @@ En esta sección, se navega al portal para ver la definición de la API de la ap
 Ahora ha creado e implementado una aplicación de API con Visual Studio 2015 RC. Para obtener más documentación sobre las aplicaciones de API, vea las entradas del panel de navegación que se muestra en el lado izquierdo de la página (para ventanas de explorador anchas) o en la parte superior de la página (para ventanas de explorador estrechas). Actualmente, la mayor parte de la documentación sobre aplicaciones de API se refiere a Visual Studio 2013, pero gran parte de ella puede usarse con VS 2015 porque la interfaz de usuario, el código que se escribe y la interfaz de usuario del portal son iguales.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

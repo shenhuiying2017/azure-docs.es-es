@@ -66,4 +66,4 @@ Cuando haya agregado todas las cuentas a la nueva aplicación, desinstale la apl
 * [Azure Multi-Factor Authenticaton en MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 * La aplicación Azure Authenticator está disponible para [Windows Phone](http://www.windowsphone.com/es-es/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), e [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

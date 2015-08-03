@@ -158,9 +158,9 @@ El reemplazo o la lectura de un recurso equivale a emitir los verbos PUT (con un
 Emitir un GET contra una fuente de recursos o consultar una recopilación puede tener como resultado millones de elementos, lo que dificulta que ambos servidores los materialicen y que los clientes los consuman como parte de una sola solicitud roundtrip/ e intercambio de respuestas. Para abordar esto, DocumentDB permite que los clientes paginen en una fuente grande una página a la vez. Los clientes pueden usar el encabezado de respuesta [x-ms-continuation] como un cursor para navegar a la página siguiente.
 
 ## Control de concurrencia optimista
-La mayoría de las aplicaciones web dependen de una etiqueta de identidad basada en el control de concurrencia optimista para evitar los desastrosos problemas de "Actualización perdida" y "Eliminación perdida". La etiqueta de entidad es una marca de tiempo HTTP lógica y fácil de usar asociada con un recurso. DocumentDB admite de manera nativa el control de concurrencia optimista al asegurar que toda respuesta HTTP contenga la versión (de manera durable) asociada con el recurso específico. Los conflictos del control de concurrencia se detectan correctamente para los siguientes casos:
+La mayoría de las aplicaciones web dependen de una etiqueta de identidad basada en el control de concurrencia optimista para evitar los desastrosos problemas de "Actualización perdida" y "Eliminación perdida". La etiqueta de entidad es una marca de tiempo HTTP lógica y fácil de usar asociada con un recurso. La Base de datos de documentos admite de manera nativa el control de concurrencia optimista al asegurar que toda respuesta HTTP contenga la versión (de manera durable) asociada con el recurso específico. Los conflictos del control de concurrencia se detectan correctamente para los siguientes casos:
 
-1.	Si los clientes emiten simultáneamente solicitudes mutantes (a través de los verbos PUT/DELETE) en un recurso con la última versión del recurso (especificado a través del encabezado de solicitud [if-match]), el motor de la base de datos de DocumentDB los somete al control de concurrencia transaccional.
+1.	Si los clientes emiten simultáneamente solicitudes mutantes (a través de los verbos PUT/DELETE) en un recurso con la última versión del recurso (especificado a través del encabezado de solicitud [if-match]), el motor de la base de datos de Base de datos de documentos los somete al control de concurrencia transaccional.
 2.	Si un cliente se presenta con una versión más antigua del recurso (especificado mediante el encabezado de solicitud [if-match]), la solicitud se rechaza.  
 
 ## Opciones de conectividad
@@ -262,4 +262,4 @@ Consulte la [referencia de la API de REST de Azure DocumentDB](https://msdn.micr
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

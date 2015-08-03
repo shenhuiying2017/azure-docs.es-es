@@ -3,7 +3,7 @@
     pageTitle="Solución de problemas de creación de colecciones híbridas de RemoteApp"
     description="Obtenga información sobre cómo solucionar problemas con la creación de las colecciones híbridas de RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="07/16/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Una colección híbrida se hospeda en y almacena los datos en la nube de Azure, 
 Si tiene problemas al crear la colección, o si la colección no funciona del modo esperado, consulte la siguiente información.
 
 ## ¿La red virtual utiliza tunelización forzada? ##
-Actualmente RemoteApp no admite el uso de redes virtuales en las que esté habilitada la tunelización forzada. Si necesita esta función, póngase en contacto con el equipo de RemoteApp para solicitar soporte técnico.
+Actualmente RemoteApp no admite el uso de redes virtuales en las que esté habilitada la tunelización forzada. Si necesita esta función, póngase en contacto con el [equipo de RemoteApp](mailto:remoteappforum@microsoft.com) para solicitar soporte técnico.
 
 Una vez aprobada la solicitud, asegúrese de que estén abiertos los puertos siguientes en la subred que eligió para Azure RemoteApp y las máquinas virtuales de la subred. Las máquinas virtuales de las subredes también deben poder obtener acceso a las direcciones URL que se mencionan en la sección acerca de los grupos de seguridad de red.
 
@@ -70,8 +70,6 @@ Por ejemplo:
 
 ![Definir el DNS](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-Para obtener más información, consulte [Resolución de nombres con su propio servidor DNS](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS).
-
 ## ¿Utiliza un controlador de dominio de Active Directory en la colección? ##
 Actualmente solo se puede asociar un dominio de Active Directory con Azure RemoteApp. La colección híbrida solo admite cuentas de Azure Active Directory que se hayan sincronizado con la herramienta DirSync desde una implementación de Windows Server Active Directory; en concreto, sincronizadas con la opción Sincronización de contraseña o bien con la opción de federación de Servicios de federación de Active Directory (AD FS) configurada. Deberá crear un dominio personalizado que coincida con el sufijo UPN del dominio del dominio local para, a continuación, configurar la integración de directorio.
 
@@ -83,4 +81,4 @@ Asegúrese de que los detalles de dominio proporcionados son válidos y de que s
 
 El nombre de dominio que creó o agregó debe ser un nombre de dominio interno (no un nombre de dominio de Azure AD) y debe utilizar el formato DNS que se puede resolver (contoso.local). Por ejemplo, si tiene un nombre interno de Active Directory (contoso.local) y un UPN de Active Directory (contoso.com), debe utilizar el nombre interno al crear la colección.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

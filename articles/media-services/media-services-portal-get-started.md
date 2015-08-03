@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="04/08/2015"
+	ms.date="07/16/2015"
 	ms.author="juliako"/>
 
 
@@ -175,7 +175,7 @@ En esta sección se describen los pasos que puede seguir para codificar el conte
 
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero necesitará "publicar" su recurso mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Servicios multimedia admite dos tipos de localizadores: OnDemandOrigin locators, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia.
 
-Al usar el Portal de administración de Azure para publicar sus recursos, los localizadores se crean automáticamente y se le proporcionará OnDemantOrigin en función de la dirección URL (si el recurso contiene un archivo .ism) o una dirección URL de SAS.
+Al usar el Portal de administración de Azure para publicar sus recursos, los localizadores se crean automáticamente y se proporcionará una dirección URL basada en OnDemand (si el recurso contiene un archivo .ism) o una dirección URL de SAS.
 
 Una dirección URL de SAS tiene el formato siguiente:
 
@@ -255,4 +255,4 @@ Obtenga más información sobre la creación de aplicaciones de vídeo bajo dema
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

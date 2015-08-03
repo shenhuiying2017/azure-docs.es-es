@@ -138,4 +138,4 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Asignación del contenido de la red CDN a un dominio personalizado</a>
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

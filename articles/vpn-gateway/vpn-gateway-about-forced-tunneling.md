@@ -1,19 +1,11 @@
-<properties 
-	pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure" 
-	description="Si tiene una red virtual con una puerta de enlace de VPN entre locales, puede redirigir o"forzar" todo el tráfico enlazado a Internet a la ubicación local." 
-	services="vpn-gateway" 
-	documentationCenter="na" 
-	authors="cherylmc" 
-	manager="jdial" 
-	editor="tysonn" /> 
-<tags 
-	ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/13/2015"
-	ms.author="cherylmc" />
+<properties pageTitle="Configuración de la tunelización forzada para puertas de enlace de VPN de Microsoft Azure" description="Si tiene una red virtual con una puerta de enlace de VPN entre locales, puede redirigir o"forzar" todo el tráfico enlazado a Internet a la ubicación local." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /> <tags 
+   ms.service="vpn-gateway"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/13/2015"
+   ms.author="cherylmc" />
 
 # Información acerca de la tunelización forzada
 
@@ -152,4 +144,4 @@ Use el procedimiento siguiente para configurar la tunelización forzada.
 
 Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

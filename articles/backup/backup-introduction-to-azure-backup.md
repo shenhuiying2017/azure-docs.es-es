@@ -3,7 +3,7 @@
 	description="Este artículo proporciona información general sobre el servicio de copia de seguridad de Azure que permite a los clientes realizar copias de seguridad en Azure."
 	services="backup"
 	documentationCenter=""
-	authors="prvijay"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor="tysonn"/>
 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
-	ms.author="prvijay"/>
+	ms.date="07/13/2015"
+	ms.author="trinadhk"/>
 
 # Introducción a la Copia de seguridad de Azure
-Este artículo proporciona una introducción de alto nivel de la solución de copia de seguridad integrada en la nube de Microsoft, que permite a los clientes realizar una copia de seguridad de sus datos locales a Azure.
+Este artículo proporciona una introducción de alto nivel de la solución de copia de seguridad integrada en la nube de Microsoft, que permite a los clientes realizar una copia de seguridad de sus datos presente en local o en Azure.
 
 ## ¿Qué es la Copia de seguridad de Azure?
-La Copia de seguridad de Azure es un servicio de Azure varios inquilinos que le permite realizar la copia de seguridad de los datos locales en Azure. Reemplaza su solución de copia de seguridad local o remota existente por una oferta confiable, segura y rentable basada en la nube. La Copia de seguridad de Azure se basa en una infraestructura de clase mundial escalable, duradera y de alta disponibilidad. Con esta solución, puede hacer una copia de seguridad de datos y aplicaciones desde sus servidores de System Center Data Protection Manager (SCDPM), los servidores de Windows o las máquinas cliente de Windows. La Copia de seguridad de Azure y SCDPM son las tecnologías fundamentales que constituyen la solución de copia de seguridad integrada en la nube de Microsoft.
+La Copia de seguridad de Azure es un servicio de Azure de varios inquilinos que le permite realizar la copia de seguridad de los datos presentes en cualquier lugar: en local o en Azure. Reemplaza su solución de copia de seguridad local o remota existente por una oferta confiable, segura y rentable basada en la nube. También ofrece la flexibilidad de protección de los activos que se ejecutan en la nube. La Copia de seguridad de Azure se basa en una infraestructura de clase mundial escalable, duradera y de alta disponibilidad. Con esta solución, puede hacer una copia de seguridad de datos y aplicaciones desde sus servidores de System Center Data Protection Manager (SCDPM), los servidores de Windows, las máquinas cliente de Windows o las máquinas virtuales de Azure IaaS. La Copia de seguridad de Azure y SCDPM son las tecnologías fundamentales que constituyen la solución de copia de seguridad integrada en la nube de Microsoft.
+
+> [AZURE.VIDEO what-is-azure-backup]
 
 ## Punto de diseño de la nube
 Las soluciones de copia de seguridad tradicionales han evolucionado para tratar la nube como un extremo similar al disco o la cinta. Aunque este enfoque es simple, fácil de implementar y proporciona una experiencia coherente, tiene usos limitados y no aprovecha al máximo la plataforma subyacente. Esto se traduce en una solución ineficaz y costosa para los clientes finales. Al tratar Azure como "simplemente un extremo de almacenamiento", las soluciones de copia de seguridad son capaces de aprovechar la riqueza y la eficacia de la plataforma de nube pública. La Copia de seguridad de Azure, por otro lado, ofrece un verdadero servicio que usa construcciones de la nube para proporcionar una solución de copia de seguridad eficaz y asequible. Se integra con la solución de copia de seguridad local (SCDPM) para proporcionar una solución híbrida integral.
@@ -47,23 +49,24 @@ Las características clave de esta solución son:
 
 6. **Rentabilidad**: los precios de la Copia de seguridad de Azure incluyen una cuota de administración de copia de seguridad por instancia y el costo de almacenamiento (precio de blob de bloque) consumido en Azure. A diferencia de otra oferta de copia de seguridad basada en la nube, la Copia de seguridad de Azure no cobra a sus clientes por ninguna operación de restauración. Además, los clientes no tienen que pagar ningún costo de transferencia de datos de salida (saliente) durante una operación de restauración.
 
+7. **Copia de seguridad en la nube**: Copia de seguridad de Azure ofrece copias de seguridad coherentes con las aplicaciones basadas en VSS de máquinas virtuales de IaaS de Azure que se ejecutan sin necesidad de apagar la máquina virtual. También puede realizar la copia de seguridad de máquinas virtuales de Linux en Azure con coherencia del sistema de archivos.
 
-## Aplicaciones y cargas de trabajo de las que se puede hacer copia de seguridad en Azure
-Combinada con SCDPM, la Copia de seguridad de Azure puede realizar copia de seguridad de:
 
-+ Archivos y carpetas de cliente de empresa, máquinas de servidor
+## Aplicación y cargas de trabajo
 
-+ Copias de seguridad de máquina virtual de nivel de host de máquinas virtuales de Hyper-V de Microsoft
-
-+ Microsoft SQL Server
-
-+ Microsoft SharePoint
-
-+ Microsoft Exchange
+| Carga de trabajo | Máquina de origen | Solución de Copia de seguridad de Azure |
+| --- | --- |---|
+| Archivos y carpetas | Windows Server, cliente Windows | Agente de copia de seguridad de Azure |
+| Archivos y carpetas | Windows Server, cliente Windows | System Center DPM |
+| Máquina virtual de Hyper-V (Windows) | Windows Server | System Center DPM |
+| Máquina virtual de Hyper-V (Linux) | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | System Center DPM |
+| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft Exchange | Windows Server | System Center DPM |
+| Máquinas virtuales de IaaS de Azure (Windows) | - | Copia de seguridad de Azure || Máquinas virtuales de IaaS de Azure (Linux) | - | Copia de seguridad de Azure |
 
 ## Pasos siguientes
 + La pregunta frecuente sobre el servicio de Copia de seguridad de Azure aparece [aquí](backup-azure-backup-faq.md).
 + Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

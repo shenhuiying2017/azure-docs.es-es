@@ -48,4 +48,4 @@ En este tutorial se ha facilitado información acerca de cómo crear una máquin
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

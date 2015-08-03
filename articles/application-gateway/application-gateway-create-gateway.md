@@ -42,7 +42,7 @@ Si desea eliminar una puerta de enlace de aplicaciones, vaya a [Eliminación de 
 
 Este ejemplo muestra el cmdlet en la primera línea, seguido de la salida.
     
-	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -57,7 +57,7 @@ En el ejemplo,*Description*, *InstanceCount* y *GatewaySize* son parámetros opc
 
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
 	Description   : 
 	VnetName      : testvnet1
@@ -133,7 +133,7 @@ Puede llevar a cabo la configuración mediante la creación de un objeto de conf
 A continuación, establecerá la puerta de enlace de aplicaciones. Puede usar el cmdlet `Set-AzureApplicationGatewayConfig` con un objeto de configuración o con un archivo XML de configuración.
 
 
-	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -150,7 +150,7 @@ Una vez configurada la puerta de enlace, use el cmdlet `Start-AzureApplicationGa
 
 
 
-	PS C:> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -164,7 +164,7 @@ Utilice el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la p
 
 Este ejemplo muestra una puerta de enlace de aplicaciones que está operativa, en ejecución y lista para asumir el tráfico destinado a `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -189,7 +189,7 @@ Para eliminar una puerta de enlace de aplicaciones, deberá hacer lo siguiente e
 
 Este ejemplo muestra el cmdlet `Stop-AzureApplicationGateway` en la primera línea, seguido de la salida.
 
-	PS C:> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -200,7 +200,7 @@ Este ejemplo muestra el cmdlet `Stop-AzureApplicationGateway` en la primera lín
 Una vez que la puerta de enlace de aplicaciones está en estado de detenida, utilice el cmdlet `Remove-AzureApplicationGateway` para quitar el servicio.
 
 
-	PS C:> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -211,7 +211,7 @@ Una vez que la puerta de enlace de aplicaciones está en estado de detenida, uti
 Para comprobar que el servicio se ha quitado, puede usar el cmdlet `Get-AzureApplicationGateway`. Este paso no es necesario.
 
 
-	PS C:> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -229,4 +229,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

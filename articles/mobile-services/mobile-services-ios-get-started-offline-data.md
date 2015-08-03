@@ -123,9 +123,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
 
     #### MS_TableOperations
 
-    | Atributo | Tipo |
-    |----------- |   ------    |
-    | id | Integer 64 |
+    | Atributo | Escriba |
+    |-------------- |   ------    |
+    | Id. (obligatorio) | Integer 64 |
     | itemId | Cadena |
     | propiedades | Binary Data |
     | table | Cadena |
@@ -133,9 +133,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
 
     #### MS_TableOperationErrors
 
-    | Atributo | Tipo |
-    |------------ | ----------  |
-    | id | Cadena |
+    | Atributo | Escriba |
+    |-------------- | ----------  |
+    | Id. (obligatorio) | String |
     | operationId | Integer 64 |
     | propiedades | Binary Data |
     | tableKind | Integer 16 |
@@ -143,9 +143,9 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
     #### MS_TableConfig
 
 
-    | Atributo | Tipo |
-    |----------- | ----------  |
-    | id | Cadena |
+    | Atributo | Escriba |
+    |-------------- | ----------  |
+    | Id. (obligatorio) | String |
     | key | Cadena |
     | keyType | Integer 64 |
     | table | Cadena |
@@ -155,14 +155,13 @@ Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y 
 
     #### TodoItem
 
-    | Atributo | Tipo |
-    |-----------   |  ------ |
-    | id | Cadena |
-    | complete | Booleano |
-    | text | Cadena |
-    | ms_createdAt | Date |
-    | ms_updatedAt | Date |
-    | ms_version | Cadena |
+    | Atributo | Tipo | Nota: | 
+    |-------------- |  ------ | -------------------------------------------------------|
+    | Id. (obligatorio) | String | clave principal en almacén remoto (requerido) |
+    | complete | Booleano | todo item field |
+    | text | Cadena | todo item field |
+    | ms_createdAt | Date | (opcional) maps to __createdAt system property | | ms_updatedAt | Date | (opcional) maps to __updatedAt system property | | ms_version | String | (opcional) used to detect conflicts, maps to __version |
+
 
 
 ## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
@@ -191,7 +190,7 @@ En esta sección, modificará la aplicación para que no se sincronice en el ini
 
 En esta sección, desactivará el Wi-Fi en el simulador para crear un escenario sin conexión. Al agregar elementos de datos, estos se guardarán en el almacén local Core Data, pero no se sincronizarán con el servicio móvil.
 
-1. Desactive el Wi-Fi en el simulador de iOS. Esto simula un escenario sin conexión.
+1. Desactive la conexión a Internet en el equipo Mac. Desactivar Wi-Fi solo en el simulador de iOS puede no tener ningún efecto, ya que el simulador puede seguir usando la conexión a Internet del Mac host; por tanto, desactive Internet para el propio equipo. Esto simula un escenario sin conexión.
 
 2. Agregue algunos elementos de la lista de pendientes o complete algunos elementos. Salga del simulador (o fuerce el cierre de la aplicación) y reinicie. Compruebe que se han guardado los cambios. Tenga en cuenta que los elementos de datos continúan mostrándose debido a que se almacenan en el almacén local Core Data.
 
@@ -272,4 +271,4 @@ Para sincronizar el almacén local con el servidor, ha usado `MSSyncTable.pullWi
 
 [Tutorial de inicio rápido de Servicios móviles]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -304,4 +304,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

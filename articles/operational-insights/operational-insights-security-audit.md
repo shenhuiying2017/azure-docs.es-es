@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Explorar datos de seguridad y auditoría de Visión operativa
@@ -39,6 +39,8 @@ En este artículo, aprenderá lo siguiente:
 7. En el cuadro Consulta de búsqueda, elimine todo excepto el nombre del proceso y las comillas y, luego, haga clic en el icono Buscar. ![Imagen de la información de búsqueda detallada](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Búsqueda muestra información detallada acerca del proceso, incluidos los equipos donde ejecutó el proceso, la cuenta de usuario que ha ejecutado el proceso, y la fecha y hora en que se creó un evento para el proceso.
 9. Con la información que encuentre, puede adoptar medidas correctivas según sea necesario. Por ejemplo, si determina que el ejecutable es software malintencionado, entonces deberá tomar medidas para quitarlo de todos los sistemas informáticos a los que afecta. Una vez eliminado el archivo ejecutable y cuando Visión operativa recibe eventos de registro y auditoría actualizados de los sistemas informáticos, los valores en la hoja PROBLEMAS IMPORTANTES cambiarán al día siguiente.
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
 ## Prácticas recomendadas para el análisis forense
 
@@ -98,4 +100,4 @@ Los datos de auditoría que quiere recopilar y enviar a Visión operativa se adm
 
 Además de la configuración de la directiva local, si usa AppLocker para recopilar datos de auditoría, Visión operativa recopilará los datos y, luego, podrá verlos.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

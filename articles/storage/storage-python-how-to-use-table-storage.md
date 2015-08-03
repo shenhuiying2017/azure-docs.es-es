@@ -141,4 +141,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -262,4 +262,4 @@ Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [C
 
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

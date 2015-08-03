@@ -1280,4 +1280,4 @@ Las notas de la versión de las Hortonworks Data Platforms (HD) que se usan en l
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

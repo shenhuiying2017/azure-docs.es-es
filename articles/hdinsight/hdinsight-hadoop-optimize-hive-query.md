@@ -215,4 +215,4 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

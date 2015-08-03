@@ -68,4 +68,4 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -285,4 +285,4 @@ Para obtener más información acerca de Almacenamiento de Azure, consulte:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,6 +1,6 @@
 
 
-De manera predeterminada, todas las solicitudes a los recursos de la aplicación móvil del servicio de la aplicación están restringidas a los clientes que presenten la clave de aplicación, que no protege estrictamente el acceso a los recursos. Para proteger los recursos, debe restringir el acceso únicamente a los clientes autenticados.
+De forma predeterminada, los extremos definidos en su aplicación móvil se exponen públicamente. Para proteger los recursos, debe restringir el acceso únicamente a los clientes autenticados.
 
 1. En Visual Studio, abra el proyecto que contiene el código de la aplicación móvil. 
 
@@ -8,24 +8,15 @@ De manera predeterminada, todas las solicitudes a los recursos de la aplicación
 
 	La clase **TodoItemController** implementa el acceso a los datos para la tabla TodoItem.
 
-3. Agregue la siguiente instrucción `using` en la parte superior de la página de código:
+3. Aplique el atributo `Authorize` a la clase **TodoItemController**:
 
-		using Microsoft.Azure.Mobile.Security;
-
-4. Aplique el siguiente atributo _AuthorizeLevel_ a la clase **TodoItemController**:
-
-		[AuthorizeLevel(AuthorizationLevel.User)] 
+        [Authorize]
+        public class TodoItemController : TableController<TodoItem>
 
 	De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado.
 
-	>[AZURE.NOTE]Aplique el atributo AuthorizeLevel a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
+	>[AZURE.NOTE]Aplique el atributo Authorize a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
 
-5. Si desea depurar la autenticación localmente, expanda la carpeta App_Start, abra el archivo de proyecto WebApiConfig.cs y, a continuación, agregue el código siguiente al método **Register**:
+4. Volver a publicar un proyecto de aplicación móvil.
 
-		config.SetIsHosted(true);
-	
-	Esto indica al proyecto local que se ejecute como si estuviera hospedado en Azure, incluyendo la autorización a la configuración de AuthorizeLevel. Sin esta configuración, todas las solicitudes HTTP a *localhost* se permiten sin autenticación, a pesar de la configuración de AuthorizeLevel.
-
-6. Volver a publicar un proyecto de aplicación móvil.
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

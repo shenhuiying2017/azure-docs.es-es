@@ -234,4 +234,4 @@ Como se mencionó anteriormente, si la entidad implementa TableEntity, las propi
 
 [Cifrado del lado cliente para el almacenamiento de Microsoft Azure (vista previa)](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) Descargue el [paquete de la biblioteca de cliente de almacenamiento de Azure para .NET NuGet](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) Descargue el [código fuente de la biblioteca de almacenamiento de Azure para .NET](https://github.com/Azure/azure-storage-net/tree/preview) de GitHub Descargue el paquete [principal](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), el de [cliente](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) y el de [extensiones](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) del Almacén de claves de Azure para NuGet Consulte la [documentación del Almacén de claves de Azure](../articles/key-vault-whatis.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

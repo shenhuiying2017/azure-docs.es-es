@@ -72,14 +72,14 @@ En este paso, cree primero la base de datos necesaria y una tabla en el equipo d
 
 Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definidos por el usuario y procedimientos almacenados. Se utilizarán para pasar los resultados de **MarketingCampaignEffectiveness** del blob de Azure a la base de datos de SQL Server.
 
-1.	En el **Explorador de Windows**, vaya a la subcarpeta **OnPremises** en **C:\\ADFWalkthrough** (o la ubicación donde extrajo los ejemplos).
+1.	En el **Explorador de Windows**, vaya a la subcarpeta **OnPremises** en **C:\ADFWalkthrough** (o la ubicación donde extrajo los ejemplos).
 2.	Abra **prepareOnPremDatabase&Table.ps1** en su editor favorito, reemplace el texto resaltado con su información de SQL Server y guarde el archivo (proporcione los detalles de **la autenticación de SQL**). Para el tutorial, habilite la autenticación de SQL para la base de datos. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. En **Azure PowerShell**, vaya a la carpeta **C:\\ADFWalkthrough\\OnPremises**.
+3. En **Azure PowerShell**, vaya a la carpeta **C:\ADFWalkthrough\OnPremises**.
 4.	Ejecute **prepareOnPremDatabase&Table.ps1 ** **(& entre dobles comillas o como se muestra a continuación)**.
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -115,14 +115,14 @@ Para empezar, deberá crear la base de datos de SQL Server, tabla, tipos definid
 ### Creación de la tabla lógica local
 
 1.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de herramientas y seleccione **SQL local**. 
-2. Reemplace JSON en el panel derecho por el script JSON de la fila **MarketingCampaignEffectivenessOnPremSQLTable.json** en la carpeta **C:\\ADFWalkthrough\\OnPremises**.
+2. Reemplace JSON en el panel derecho por el script JSON de la fila **MarketingCampaignEffectivenessOnPremSQLTable.json** en la carpeta **C:\ADFWalkthrough\OnPremises**.
 3. Cambie el nombre del servicio vinculado (propiedad **linkedServiceName**) de **OnPremSqlServerLinkedService** a **SqlServerLinkedService**.
 4. Haga clic en **Implementar** en la barra de herramientas para implementar la tabla. 
 	 
 #### Creación del proceso para copiar los datos del blob de Azure a SQL Server
 
 1.	1. En el **Editor de la Factoría de datos**, haga clic en **Nueva canalización** en la barra de herramientas. Haga clic en **... (puntos suspensivos)** en la barra de herramientas si no ve el botón. O bien, haga clic con el botón secundario **Canalizaciones** en la vista de árbol y elija **Nueva canalización**.
-2. Reemplace JSON en el panel derecho por el script JSON de la fila **EgressDataToOnPremPipeline.json** en la carpeta **C:\\ADFWalkthrough\\OnPremises**.
+2. Reemplace JSON en el panel derecho por el script JSON de la fila **EgressDataToOnPremPipeline.json** en la carpeta **C:\ADFWalkthrough\OnPremises**.
 3. Agregue una **coma (',')** al final del **corchete de cierre ('] ')** en el archivo JSON y, a continuación, agregue las tres líneas siguientes después del corchete de cierre. 
 
         "start": "2014-05-01T00:00:00Z",
@@ -169,4 +169,4 @@ Cuando vea que el estado de un segmento de la tabla **MarketingCampaignEffective
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

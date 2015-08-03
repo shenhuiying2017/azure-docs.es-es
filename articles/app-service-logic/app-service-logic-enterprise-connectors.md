@@ -71,7 +71,7 @@ Los pasos siguientes crean un conector empresarial mediante la hoja del conector
 2. Seleccione el conector. En la nueva hoja, seleccione **Crear**. 
 3. Especifique las propiedades: 
 
-	Propiedad | Descripción
+Propiedad | Descripción
 --- | ---
 Nombre | Escriba cualquier nombre para el conector. Por ejemplo, denomínelo *SAPConnector*, *SalesForceGetAccounts* o *QuickBooksGetItems*.
 Configuración del paquete | Especifique la configuración del sistema empresarial, como *Nombre de usuario de SAP* o *Dirección URL del servidor de SugarCRM*. Vea [Propiedades específicas del sistema empresarial](#AddProperties) en este tema. 
@@ -87,7 +87,7 @@ Agregar al Panel de inicio | Seleccione esto para agregar el conector a su panel
 
 > [AZURE.IMPORTANT]Cada conector tiene propiedades que son específicas de ese sistema empresarial. Al conectarse a SAP, escriba las propiedades específicas de SAP. Al conectarse a Salesforce, escriba las propiedades específicas de Salesforce, etc. En la tabla siguiente se enumeran las propiedades del sistema empresarial necesarias.
 	
-	Enterprise System | Required Properties
+Enterprise System | Required Properties
 --- | ---
 Marketo | <ul><li>Extremo</li><li>Nombre de proveedor</li></ul>
 MongoDB| <ul><li>Cadena de conexión</li><li>Host</li><li>Puerto</li><li>Nombre de usuario</li><li>Contraseña</li><li>Base de datos</li><li>Utilizar cifrado SSL</li><li>Local: escriba False si está basado en la nube. Si el sistema de MongoDb es local, escriba True y especifique también las siguientes propiedades:<ul><li>Nombre de clave de acceso compartido</li><li>Espacio de nombres de Bus de servicio</li><li>Ruta de acceso de retransmisión</li><li>Enviar clave</li></ul></li></ul>
@@ -158,4 +158,4 @@ Algunos de los conectores empresariales tienen seguridad OAuth. Al agregar el co
 
 [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

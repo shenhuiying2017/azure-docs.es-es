@@ -77,7 +77,7 @@ Especifique luego los valores del archivo de configuración de servicio (***.csc
     ...
     </ServiceConfiguration>
 
-Utilice el nombre y los valores de clave de la Firma de acceso compartido (SAS) recuperados del Portal de administración, como se indica en la sección anterior.
+Utilice el nombre y los valores de clave de la firma de acceso compartido (SAS) recuperados del Portal de administración, como se indica en la sección anterior.
 
 ### Configuración de la cadena de conexión al usar Sitios web o Máquinas virtuales
 
@@ -238,7 +238,7 @@ En el ejemplo que aparece a continuación, se indica cómo se pueden procesar y 
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {
@@ -301,4 +301,4 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

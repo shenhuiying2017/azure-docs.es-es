@@ -50,4 +50,4 @@ Descubra todas las plantillas que están a su disposición en [GitHub](https://g
 Obtenga más información sobre la administración de recursos de Azure [aquí](../resource-group-template-deploy.md).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

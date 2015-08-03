@@ -4,18 +4,11 @@
 	description="Información sobre cómo administrar una máquina virtual de Azure"
 	services="backup"
 	documentationCenter=""
-	authors="jimpark"
-	manager="jwhit"
+	authors="aashishr"
+	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/28/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
 
 # Administración de máquinas virtuales
 
@@ -158,6 +151,5 @@ Para eliminar los datos de copia de seguridad de una máquina virtual que se enc
 En la página **Panel**, puede revisar la información sobre las máquinas virtuales de Azure, su almacenamiento y los trabajos asociados a ellas durante las últimas 24 horas. Puede ver el estado de copia de seguridad y los errores de copia de seguridad asociados.
 
   ![Panel](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

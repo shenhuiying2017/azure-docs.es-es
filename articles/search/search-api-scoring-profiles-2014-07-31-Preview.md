@@ -289,4 +289,4 @@ Creación de índice (API de REST de servicio de Búsqueda de Azure)
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -121,4 +121,4 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 Obtenga más información sobre [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

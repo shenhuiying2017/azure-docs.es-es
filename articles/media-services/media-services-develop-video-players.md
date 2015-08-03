@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -51,7 +51,6 @@ También puede usar algunos de los SDK siguientes:
 - [Plataforma multimedia de Microsoft: Player Framework](http://playerframework.codeplex.com/) 
 - [Documentación de HTML5 Player Framework](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [Complemento Microsoft Smooth Streaming para OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework para iOS](https://github.com/Azure/azure-media-player-framework) 
 - [Licencias de kit de migración de cliente de Microsoft® Smooth Streaming](https://www.microsoft.com/mediaplatform/sspk.aspx) 
 - [Desarrollo de aplicaciones de vídeo de XBOX](http://xbox.create.msdn.com/) 
  
@@ -77,4 +76,4 @@ Para obtener información acerca de la compatibilidad con anuncios y subtítulos
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

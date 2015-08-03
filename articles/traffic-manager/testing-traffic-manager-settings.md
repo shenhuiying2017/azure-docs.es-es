@@ -57,4 +57,4 @@ Hay servicios gratuitos de indagación y de búsqueda DNS basada en web disponib
 [Métodos de equilibrio de carga del Administrador de tráfico](../about-traffic-manager-balancing-methods.md) [Tareas de configuración del Administrador de tráfico](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Administrador de tráfico](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

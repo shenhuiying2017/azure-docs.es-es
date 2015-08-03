@@ -23,4 +23,4 @@ La siguiente tabla describe los límites y aplicaciones de cuota de DocumentDB.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

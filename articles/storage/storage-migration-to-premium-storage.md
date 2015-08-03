@@ -179,13 +179,13 @@ Con AzCopy, puede cargar el disco duro virtual fácilmente a través de Internet
 2. Abra PowerShell de Azure y vaya a la carpeta donde AzCopy está instalado.  
 3. Use el siguiente comando para copiar el archivo VHD de "Origen" a "Destino". 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	Estas son las descripciones de los parámetros utilizados en el comando AzCopy:
 
  - **/Source: *&lt;source&gt;:*** ubicación de la carpeta o dirección URL del contenedor de almacenamiento que contiene el disco duro virtual.    
  - **/SourceKey: *&lt;source-account-key&gt;:*** clave de cuenta de almacenamiento de la cuenta de almacenamiento de origen.  
- - **/Destination: *&lt;destination&gt;:*** dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
+ - **/Dest: *&lt;destino&gt;:*** dirección URL del contenedor de almacenamiento donde se va a copiar el disco duro virtual.
  - **/DestKey: *&lt;dest-account-key&gt;:*** clave de cuenta de almacenamiento de la cuenta de almacenamiento de destino.
  - **/BlobType: page:** indica que el destino es un blob en páginas.
  - **/Pattern: *&lt;file-name&gt;:*** escriba el nombre de archivo del disco duro virtual que va a copiar.
@@ -315,4 +315,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

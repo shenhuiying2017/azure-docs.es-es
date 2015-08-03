@@ -71,8 +71,10 @@ Los pasos necesarios para crear un contrato de socio comercial se documentan [aq
 
 Como parte del resultado, el conector devuelve la carga de AS2, así como los metadatos específicos de AS2.
 
+El desencadenador se activa cuando una carga de AS2 es como una entrada ahttps://{HostURL} / descodificar. Puede encontrar la dirección URL de Host en la configuración de la aplicación de API. También deberá cambiar el nivel de acceso de la aplicación de API en Configuración de la aplicación a Público (autenticado o anónimo).
+
 ## Uso del conector como acción
-1. Después del desencadenador (o seleccione “Ejecutar esta lógica manualmente”), agregue el conector AS2 que ha creado en el panel derecho: <br/> ![Configuración de la acción][7]
+1. Después del desencadenador (o seleccione "Ejecutar esta lógica manualmente"), agregue el conector AS2 que ha creado en el panel derecho: <br/> ![Configuración de la acción][7]
 
 2. Haga clic en la flecha derecha →: <br/> ![Lista de acciones][8]
 
@@ -82,7 +84,7 @@ Como parte del resultado, el conector devuelve la carga de AS2, así como los me
 
 Los parámetros son:
 
-Parámetro | Escriba | Descripción
+Parámetro | Tipo | Descripción
 --- | --- | ---
 Carga | objeto| El contenido de la carga para codificar y registrar en el extremo configurado. La carga debe suministrarse como un objeto JSON.
 AS2 desde | cadena | La identidad de AS2 del remitente del mensaje AS2. Este parámetro se utiliza para buscar el acuerdo para enviar el mensaje.
@@ -111,4 +113,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

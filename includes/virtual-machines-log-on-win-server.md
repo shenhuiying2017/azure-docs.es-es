@@ -27,4 +27,4 @@ Haga clic en **Sí** para comprobar la identidad de la máquina virtual.
 
 Ahora puede trabajar con la máquina virtual de forma remota.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

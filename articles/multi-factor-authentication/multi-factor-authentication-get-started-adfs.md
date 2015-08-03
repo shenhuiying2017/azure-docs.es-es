@@ -43,7 +43,7 @@ Advertencias sobre las contraseñas de aplicación para usuarios federados:
 
 Para obtener información sobre cómo configurar Azure Multi-Factor Authentication o Servidor Azure Multi-Factor Authentication con AD FS, consulte lo siguiente:
 
-- [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS](multi-factor-authentication-get-started-adfs-cloud)
+- [Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS](multi-factor-authentication-get-started-adfs-cloud.md)
 - [Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con Windows Server 2012 R2 AD FS](multi-factor-authentication-get-started-adfs-w2k12.md)
 - [Protección de recursos en la nube y locales mediante Servidor Azure Multi-Factor Authentication con AD FS 2.0](multi-factor-authentication-get-started-adfs-adfs2.md)
 
@@ -55,4 +55,4 @@ Para obtener información sobre cómo configurar Azure Multi-Factor Authenticati
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

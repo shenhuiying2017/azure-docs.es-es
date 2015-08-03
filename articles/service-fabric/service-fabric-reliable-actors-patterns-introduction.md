@@ -65,4 +65,4 @@ Actores de Fabric de Azure es una implementación del modelo de actor que toma p
 * *Asincronía explícita.* El modelo de programación de los actores de Fabric de Azure hace que la naturaleza asincrónica de una aplicación distribuida sea explícita y ayuda a los programadores a escribir código asincrónico sin bloqueo. Esto permite un alto grado de paralelismo distribuido y de rendimiento general sin el uso explícito de subprocesamiento múltiple.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

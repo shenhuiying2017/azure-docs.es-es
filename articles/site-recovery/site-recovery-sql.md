@@ -436,4 +436,4 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

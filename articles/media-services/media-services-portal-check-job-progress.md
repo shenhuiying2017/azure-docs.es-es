@@ -37,4 +37,4 @@ Publique el contenido. Para obtener más información, consulte [Codificación d
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

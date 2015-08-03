@@ -3,8 +3,8 @@
    description="Sugerencias para administrar estadísticas en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -152,7 +152,7 @@ Para crear estadísticas de varias columnas, simplemente use los ejemplos anteri
 
 > [AZURE.NOTE]El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
 
-En este ejemplo, el histograma se encuentra en *product_category*. Las estadísticas entre columnas se calculan en *product_category* y *product_sub_c\\ategory*:
+En este ejemplo, el histograma se encuentra en *product_category*. Las estadísticas entre columnas se calculan en *product_category* y *product_sub_c\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -280,13 +280,13 @@ Para actualizar estadísticas, puede:
 Para actualizar un objeto de estadísticas específico, use la siguiente sintaxis:
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name]([stat_name]);
+UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 Por ejemplo:
 
 ```
-UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
 Al actualizar los objetos de estadísticas específicos, puede minimizar el tiempo y los recursos necesarios para administrar las estadísticas. Sin embargo, esto requiere un gran esfuerzo para elegir los objetos de estadísticas que se recomienda actualizar.
@@ -296,13 +296,13 @@ Al actualizar los objetos de estadísticas específicos, puede minimizar el tiem
 Se muestra un método sencillo para actualizar todos los objetos de estadísticas de una tabla.
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name];
+UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 Por ejemplo:
 
 ```
-UPDATE STATISTICS ON dbo.table1;
+UPDATE STATISTICS dbo.table1;
 ```
 
 Esta instrucción es fácil de usar. Solo tiene que recordar que esto actualiza todas las estadísticas de la tabla y, por tanto, puede realizar más trabajo del necesario. Si el rendimiento no es un problema, sin duda es la forma más fácil y más completa de garantizar que las estadísticas están actualizadas.
@@ -452,4 +452,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

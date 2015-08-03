@@ -2,7 +2,6 @@
 	pageTitle="Configuración avanzada y extensiones de aplicación web del Servicio de aplicaciones de Azure"
 	description="Las declaraciones de XML Document Transformation (XDT) se usan para transformar el archivo ApplicationHost.config en su aplicación web del Servicio de aplicaciones de Azure y agregar extensiones privadas para habilitar acciones de administración personalizadas."
 	authors="cephalin"
-	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
@@ -42,7 +41,7 @@ El siguiente ejemplo de applicationHost.xdt muestra cómo agregar una nueva vari
 	</configuration>
 
 
-Hay un archivo de registro con información y estado de trasformación disponible en la raíz del FTP en LogFiles\\Transform.
+Hay un archivo de registro con información y estado de trasformación disponible en la raíz del FTP en LogFiles\Transform.
 
 Para obtener ejemplos adicionales, consulte [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
 
@@ -81,7 +80,7 @@ La extensión del administrador PHP se creó mediante la plantilla de la aplicac
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-La única lógica especial necesaria para la E/S del archivo es indicar dónde se encuentra el directorio wwwroot de la aplicación web. Puesto que se muestra el siguiente ejemplo de código, la variable de entorno "HOME" indica la ruta raíz de la aplicación web y la ruta wwwroot puede construirse anexando "site\\wwwroot":
+La única lógica especial necesaria para la E/S del archivo es indicar dónde se encuentra el directorio wwwroot de la aplicación web. Puesto que se muestra el siguiente ejemplo de código, la variable de entorno "HOME" indica la ruta raíz de la aplicación web y la ruta wwwroot puede construirse anexando "site\wwwroot":
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -93,7 +92,7 @@ La única lógica especial necesaria para la E/S del archivo es indicar dónde s
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
     		return userSettingsFile;
 	}
 
@@ -112,7 +111,7 @@ Puede satisfacer este requisito usando solo rutas relativas en la aplicación we
 
 ####<a id="XDT"></a> Archivo applicationHost.xdt
 
-El código de la extensión de la aplicación web se encuentra en %HOME%\\SiteExtensions[nombre-extensión]. Llamaremos a esto raíz de extensión.
+El código de la extensión de la aplicación web se encuentra en %HOME%\SiteExtensions[nombre-extensión]. Llamaremos a esto raíz de extensión.
 
 Para registrar la extensión de la aplicación web con el archivo applicationHost.config, tendrá que colocar un archivo denominado ApplicationHost.xdt en la raíz de extensión. El contenido del archivo ApplicationHost.xdt debe ser el siguiente:
 
@@ -180,4 +179,4 @@ Es posible deshabilitar todas las extensiones (no preinstaladas) privadas para s
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

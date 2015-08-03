@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/02/2015"
+   ms.date="07/08/2015"
    ms.author="jgao"/>
 
 # Configuración de una conexión VPN entre dos redes virtuales de Azure  
@@ -271,4 +271,4 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

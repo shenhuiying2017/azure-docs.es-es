@@ -25,30 +25,35 @@ Una *dependencia* es un componente externo al que llama la aplicación. Suele se
 La supervisión de dependencia lista para su uso sin configuraciones adicionales está disponible para:
 
 * Servicios y aplicaciones web ASP.NET que se ejecutan en un servidor IIS o en Azure.
+* [Aplicaciones web de Java](app-insights-java-agent.md)
 
-Para otros tipos, como aplicaciones de dispositivo o aplicaciones web de Java, puede escribir su propio monitor mediante la API de TrackDependency.
+Para otros tipos, como aplicaciones de dispositivo, puede escribir su propio monitor mediante la API de TrackDependency.
 
 El monitor de dependencia listo para su uso sin configuraciones adicionales actualmente llama a estos tipos de dependencias:
 
-* Bases de datos SQL
-* Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
-* Llamadas HTTP locales o remotas
-* DocumentDb, tabla, almacenamiento de blobs y cola de Azure
+* ASP.NET
+ * Bases de datos SQL
+ * Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
+ * Llamadas HTTP locales o remotas
+ * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
+* Java
+ * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
 
 De nuevo, puede escribir sus propias llamadas de SDK para supervisar otras dependencias.
 
-## Configuración de la supervisión de dependencia
+## Para configurar la supervisión de dependencia
 
-Para obtener la supervisión de dependencia, debe:
+Instale al agente adecuado para el servidor host.
 
-* Utilizar el [Monitor de estado](app-insights-monitor-performance-live-website-now.md) en el servidor IIS y utilizarlo para habilitar la supervisión
-* Agregar la [extensión de Application Insights](../insights-perf-analytics.md) a su máquina virtual o aplicación web de Azure.
+Plataforma | Instalación
+---|---
+Servidor IIS | [Monitor de estado](app-insights-monitor-performance-live-website-now.md)
+Aplicación web de Azure | [Extensión de Application Insights](../insights-perf-analytics.md)
+Servidor web de Java | [Aplicaciones web de Java](app-insights-java-agent.md)
 
-(En el caso de una máquina virtual de Azure, se puede instalar la extensión del panel de control de Azure o instalar el Monitor de estado exactamente igual que haría en cualquier equipo).
+El Monitor de estado para los servidores de IIS no precisa que vuelva a generar el proyecto de origen con el SDK de Application Insights.
 
-Puede realizar los pasos anteriores para una aplicación web ya implementada. Para obtener la supervisión de dependencia estándar, no tiene que agregar Application Insights al proyecto de origen.
-
-## Diagnóstico de problemas de rendimiento de dependencia
+## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento de dependencia
 
 Para evaluar el rendimiento de las solicitudes en el servidor:
 
@@ -102,7 +107,7 @@ El módulo de seguimiento de dependencias estándar detecta automáticamente las
 
 Puede escribir código que envíe la información de dependencia usando la misma[API de TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency) que usan los módulos estándar.
 
-Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas al ensamblado para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos con `TrackDependency`.
+Por ejemplo, si compila el código con un ensamblado que no escribió usted mismo, podría cronometrar todas las llamadas al ensamblado para averiguar cómo contribuye a los tiempos de respuesta. Para que estos datos se muestren en los gráficos de dependencia en Application Insights, envíelos mediante `TrackDependency`.
 
 ```C#
 
@@ -124,4 +129,4 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

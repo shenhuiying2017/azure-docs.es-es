@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configuración de una conexión de red virtual a red virtual"
+   pageTitle="Configuración de una conexión de red virtual a red virtual | Microsoft Azure"
    description="Cómo conectar redes virtuales de Azure simultáneamente en las mismas o en diferentes suscripciones o regiones."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
+   ms.date="07/14/2015"
    ms.author="cherylmc"/>
 
 
@@ -102,7 +102,7 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
 
-**En la página Detalles de la red virtual** escriba la información que se muestra a continuación. Para obtener más información sobre la configuración de la página de detalles, consulte la [página Detalles de red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+**En la página Detalles de la red virtual** escriba la información que se muestra a continuación.
 
   ![Detalles de red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -111,7 +111,7 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
 
 
-**En la página Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha. Para obtener más información sobre la configuración de esta página, consulte la [página Servidores DNS y conectividad VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 
   ![Servidores DNS y conectividad VPN](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)
 
@@ -120,7 +120,7 @@ VNet2: Espacio de direcciones = 10.2.0.0/16; Región=Este de Japón
 
   - No seleccione ninguna casilla. Tan solo haga clic en la flecha de la parte inferior derecha para pasar a la pantalla siguiente.
 
-**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Existen varias reglas relativas al espacio de direcciones de la red virtual, por lo que puede que desee consultar la página [Espacios de direcciones de la red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obtener más información. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+**En la página Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga con ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
 
 
   ![Página Espacios de direcciones de la red virtual](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
@@ -195,11 +195,11 @@ Una vez completados los pasos anteriores, definirá las claves compartidas previ
 
 Para VNet1
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet1 -LocalNetworkSiteName VNet2 -SharedKey A1b2C3D4
 
 Para VNet2
 
-	PS C:> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
+	PS C:\> Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1 -SharedKey A1b2C3D4
 
 Espere a que se inicialicen las conexiones. Una vez inicializada la puerta de enlace, esta tendrá un aspecto similar al gráfico siguiente y las redes virtuales estarán conectadas.
 
@@ -214,7 +214,7 @@ Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración
 
 Si quiere agregar máquinas virtuales a la red virtual, consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea configurar una conexión VNet mediante RRAS, consulte [Configurar una VPN sitio a sitio mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx).
+Si desea configurar una conexión VNet mediante RRAS, consulte [Configurar una conexión VPN sitio a sitio mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
 
 Para obtener más información acerca del esquema de configuración, consulte [Esquema de configuración de la Red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -223,4 +223,4 @@ Para obtener más información acerca del esquema de configuración, consulte [E
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

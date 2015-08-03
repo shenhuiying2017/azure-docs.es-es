@@ -121,4 +121,4 @@ Ahora que ya hemos visto lo fácil que es usar el almacenamiento de tabla con el
 [Página del complemento MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

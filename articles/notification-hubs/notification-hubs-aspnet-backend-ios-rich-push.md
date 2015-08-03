@@ -382,4 +382,4 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

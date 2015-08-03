@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tutorial: Introducción a la biblioteca de Lote de Azure para .NET"
+	pageTitle="Tutorial: Introducción a la biblioteca de .NET de Lote de Azure"
 	description="Aprenda los conceptos básicos sobre el Lote de Azure y cómo desarrollar el servicio Lote con un escenario simple."
 	services="batch"
 	documentationCenter=".net"
@@ -13,593 +13,466 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/04/2015"
+	ms.date="07/21/2015"
 	ms.author="yidingz"/>
 
-#Introducción a la biblioteca de Lote de Azure para .NET  
+# Get Started with the Azure Batch Library for .NET  
 
-Este artículo contiene los siguientes dos tutoriales que le introducirán en el desarrollo con la biblioteca de .NET para el servicio Lote de Azure.
+Este tutorial muestra cómo crear una aplicación de consola que configura un programa y admite archivos que se ejecutan en varios nodos de ejecución en un grupo de Lote de Azure. Las tareas que se crean en este tutorial evalúan el texto de los archivos de almacenamiento de Azure y devuelven las palabras que se utilizan normalmente. Los ejemplos están escritos en código C# y utilizan la biblioteca de .NET de Lote de Azure.
 
--	[Tutorial 1: Biblioteca de Lote de Azure para .NET](#tutorial1)
--	[Tutorial 2: Biblioteca de Aplicaciones de Lote de Azure para .NET](#tutorial2)  
+## Requisitos previos
 
+- Las cuentas:
 
-Para obtener información general y escenarios para Lote de Azure, consulte [Información general técnica de Lote de Azure](batch-technical-overview.md).
+	- **Cuenta de Azure**: puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-##<a name="tutorial1"></a>Tutorial 1: Biblioteca de Lote de Azure para .NET
+	- **Cuenta de Lote**: consulte la sección **Cuenta de Lote** de [Información técnica de Lote de Azure](batch-technical-overview.md).
 
-Este tutorial le enseñará a crear una aplicación de consola que configura el cálculo distribuido entre un grupo de máquinas virtuales mediante el servicio Lote de Azure. Las tareas que se crean en este tutorial evalúan el texto de los archivos de almacenamiento de Azure y devuelven las palabras que se utilizan normalmente. Los ejemplos están escritos en código C# y utilizan la biblioteca de Lote de Azure para .NET.
+	- **Cuenta de Almacenamiento**: consulte la sección **Creación** de [Acerca de cuentas de Almacenamiento de Azure](../storage-create-storage-account.md). En este tutorial creará un contenedor en esta cuenta con el nombre de **testcon1**.
 
+- Un proyecto de aplicación de consola de Visual Studio:
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
->
->Necesitará usar NuGet para obtener el ensamblado **Microsoft.Azure.Batch.dll**. Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Busque **Azure.Batch** en línea y luego haga clic en Instalar para instalar el paquete y las dependencias de Lote de Azure.
->
->Asegúrese de que la versión del Administrador de paquetes de NuGet es 2.8 o posterior. Puede encontrar el número de versión en Visual Studio -> "Ayuda" -> cuadro de diálogo "Acerca de Microsoft Visual Studio". Si tiene una versión anterior del Administrador de paquetes de NuGet, deberá actualizar Visual Studio o puede que tenga problemas al descargar la versión correcta de las dependencias de NuGet.
->
->Además, puede consultar el [ejemplo Hello World de Lote de Azure](https://code.msdn.microsoft.com/Azure-Batch-Sample-Hello-6573967c) en MSDN para ver un ejemplo similar al código que se trata aquí.
+	1.  Abra Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Proyecto**.
 
+	2.	En **Windows**, en **Visual C#**, haga clic en **Aplicación de consola**, denomine el proyecto **GettingStarted**, denomine la solución **AzureBatch** y, a continuación, haga clic en **Aceptar**.
 
+- Los ensamblados de NuGet:
 
-###Conceptos
-El servicio Lote se utiliza para programar un cálculo escalable y distribuido. Le permite ejecutar cargas de trabajo de gran escala que se distribuyen entre varias máquinas virtuales. Estas cargas de trabajo proporcionan soporte eficiente para el cálculo intensivo. Cuando usa el servicio Lote, se beneficia de los siguientes recursos:
+	1. Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Busque **Azure.Batch** en línea y luego haga clic en **Instalar** para instalar el paquete y las dependencias de Lote de Microsoft Azure.
 
--	**Cuenta**: una entidad identificada de forma exclusiva en el servicio. Todo el procesamiento se realiza a través de una cuenta de Lote.
--	**Grupo**: una colección de máquinas virtuales de tareas en las que se ejecutan las aplicaciones de tarea.
--	**Máquina virtual de tareas**: una máquina que se asigna a un grupo y que la utilizan las tareas que se asignan a los trabajos que se ejecutan en el grupo.
--	**Usuario de máquina virtual de tareas**: una cuenta de usuario en una máquina virtual de tareas.
--	**Elemento de trabajo**: especifica cómo se realiza el cálculo en máquinas virtuales de tareas en un grupo.
--	**Trabajo**: una instancia en ejecución de un elemento de trabajo que consta de una colección de tareas.
--	**Tarea**: una aplicación que está asociada con un trabajo y se ejecuta en una máquina virtual de tareas.
--	**Archivo**: contiene la información que es procesada por una tarea.  
+	2. Busque **WindowsAzure.Storage** en línea y, a continuación, haga clic en **Instalar** para instalar el paquete y las dependencias de Almacenamiento de Azure.
 
-Comencemos con el uso más básico.
+## Paso 1: Creación y carga de los archivos de compatibilidad
 
-###Creación de una cuenta de Lote de Azure
-Puede utilizar el Portal de administración para crear la cuenta de Lote. Una vez creada la cuenta, se le proporciona una clave. Para obtener más información, consulte [Información general técnica de Lote de Azure](batch-technical-overview.md).
+Para admitir la aplicación, se crea un contenedor en Almacenamiento de Azure, se crean los archivos de texto y, a continuación, se cargan los archivos de texto y archivos de compatibilidad en el contenedor.
 
-###Adición de un grupo a una cuenta
-Un grupo de máquinas virtuales de tareas es el primer conjunto de recursos que debe crear cuando desee ejecutar tareas.
+### Configuración de la cadena de conexión de almacenamiento
 
-1.	Abra Microsoft Visual Studio 2013, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, haga clic en **Proyecto**.
+1. Abra el archivo App.config para el proyecto GettingStarted y, a continuación, agregue el elemento &lt;appSettings&gt; en &lt;configuration&gt;.
 
-2.	En **Windows**, en **Visual C#**, haga clic en **Aplicación de consola**, denomine el proyecto **GettingStarted**, denomine la solución **AzureBatch** y, a continuación, haga clic en **Aceptar**.
+		<?xml version="1.0" encoding="utf-8" ?>
+		<configuration>
+			<appSettings>
+				<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[account-name];AccountKey=[account-key]"/>
+			</appSettings>
+		</configuration>
 
-3.	Agregue las siguientes declaraciones de espacio de nombres en la parte superior de Program.cs:
+	Reemplace estos valores:
 
-		using Microsoft.Azure.Batch;
-		using Microsoft.Azure.Batch.Auth;
-		using Microsoft.Azure.Batch.Common;
+	- **[account-name]**: el nombre de la cuenta de almacenamiento que creó anteriormente.
 
-	Asegúrese de hacer referencia al ensamblado Microsoft.Azure.Batch.dll.
+	- **[account-key]**: la clave principal de la cuenta de almacenamiento. Puede encontrar la clave principal de la página de almacenamiento en el Portal de administración
 
-4.	Agregue las siguientes variables a la clase Program:
+2. Guarde el archivo App.config.
 
-		private const string PoolName = "[name-of-pool]";
-		private const int NumOfMachines = 3;
-		private const string AccountName = "[name-of-batch-account]";
-		private const string AccountKey = "[key-of-batch-account]";
-		private const string Uri = "https://batch.core.windows.net";
-	Reemplace los valores siguientes: - **[name-of-pool]**: el nombre que desea usar para el grupo. - **[name-of-batch-account]**: el nombre de la cuenta de Lote. - **[key-of-batch-account]**: la clave que se le proporcionó para la cuenta de Lote.
-5.	Agregue el código siguiente a Main que define las credenciales que se van a utilizar:
+Para obtener más información, consulte [Configuración de cadenas de conexión](http://msdn.microsoft.com/library/windowsazure/ee758697.aspx).
 
-		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
-6.	Agregue el código siguiente a Main para crear el cliente que se utiliza para realizar operaciones:
+### Creación de un contenedor de almacenamiento
 
-		IBatchClient client = BatchClient.Connect(Uri, cred);
-7.	Agregue el código siguiente a Main para crear el grupo si no existe:
+1. Agregue estas declaraciones de espacio de nombres en la parte superior de Program.cs en el proyecto GettingStarted:
 
-		using (IPoolManager pm = client.OpenPoolManager())
+		using System.Configuration;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Blob;
+
+2. Agregue este método a la clase Program que obtiene la cadena de conexión de almacenamiento, crea el contenedor y configura los permisos:
+
+		static void CreateStorage()
 		{
-		   IEnumerable<ICloudPool> pools = pm.ListPools();
-		   if (!pools.Select(pool => pool.Name).Contains(PoolName))
-		   {
-		      Console.WriteLine("The pool does not exist, creating now...");
-		      ICloudPool newPool = pm.CreatePool(
-		         PoolName,
-		         osFamily: "3",
-		         vmSize: "small",
-		         targetDedicated: NumOfMachines);
-		       newPool.Commit();
-		    }
-		}
-		Console.WriteLine("Created pool {0}", PoolName);
-		Console.ReadLine();
-8.	Guarde y ejecute el programa. El estado es **Activo** si agregó el grupo correctamente.  
+			// Get the storage connection string
+			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+				ConfigurationManager.AppSettings["StorageConnectionString"]);
 
-###Lista de los grupos de una cuenta
-Si no conoce el nombre de un grupo existente, puede obtener una lista de ellos en una cuenta.
+			// Create the container
+			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+			CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+			container.CreateIfNotExists();
 
-1.	Agregue el código siguiente a Main que define las credenciales que se van a utilizar:  
-
-		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
-2.	Agregue el código siguiente a Main para crear el cliente que se utiliza para realizar operaciones:
-
-		IBatchClient client = BatchClient.Connect(Uri, cred);
-
-3.	Actualice el procedimiento Main en el siguiente código que escribe los nombres y los estados de todos los grupos de la cuenta y cree el grupo si no existe:
-
-		BatchCredentials cred = new BatchCredentials(AccountName, AccountKey);
-		IBatchClient client = BatchClient.Connect(Uri, cred);
-
-		using (IPoolManager pm = client.OpenPoolManager())
-		{
-		    IEnumerable<ICloudPool> pools = pm.ListPools();
-
-		    Console.WriteLine("Listing Pools\n=================");
-		    foreach (var p in pools)
-		    {
-		        Console.WriteLine("Pool: " + p.Name + " State:" + p.State);
-		    }  
-
-		    if (!pools.Select(pool => pool.Name).Contains(PoolName))
-		    {
-		        Console.WriteLine("The pool does not exist, creating now...");
-		        ICloudPool newPool = pm.CreatePool(
-		           PoolName,
-		           osFamily: "3",
-		           vmSize: "small",
-		           targetDedicated: NumOfMachines);
-		        newPool.Commit();
-		    }
-		}
-		Console.WriteLine("Created pool {0}. Press <Enter> to continue.", PoolName);
-		Console.ReadLine();
-
-4.	Guarde y ejecute el programa. Verá la siguiente salida.
-
-		Listing Pools
-		=================
-		Pool: gettingstarted State:Active
-		Created pool gettingstarted. Press <Enter> to continue.
-
-###Lista de los elementos de trabajo de una cuenta
-Si no conoce el nombre de un elemento de trabajo existente, puede obtener una lista de ellos en una cuenta.
-
-1.	Agregue el código siguiente al final de Main que escribe los nombres y los estados de todos los elementos de trabajo de la cuenta:
-
-		using (IWorkItemManager wm = client.OpenWorkItemManager())
-		{
-		   Console.WriteLine("Listing Workitems\n=================");
-		   IEnumerable<ICloudWorkItem> workitems = wm.ListWorkItems();
-		   foreach (var w in workitems)
-		   {
-		      Console.WriteLine("Workitem: " + w.Name + " State:" + w.State);
-		   }
-		}
-		Console.WriteLine("Press <Enter> to continue.");
-		Console.ReadLine();
-7.	Guarde y ejecute el programa. Probablemente no verá nada, ya que no hemos enviado ningún elemento de trabajo. Hablaremos acerca de cómo agregar elementos de trabajo en la sección siguiente.  
-
-##Adición de un elemento de trabajo a una cuenta
-Debe crear un elemento de trabajo para definir el modo en que se ejecutarán las tareas en el grupo.
-
-1.	Agregue las siguientes variables a la clase Program:
-
-		private static readonly string WorkItemName = Environment.GetEnvironmentVariable("USERNAME") + DateTime.Now.ToString("yyyyMMdd-HHmmss");
-
-2.	Cuando se crea un elemento de trabajo, también se crea un trabajo. Puede asignar un nombre al elemento de trabajo, pero el trabajo siempre asigna el nombre de **job-0000000001**. Agregue el código siguiente a Main (antes del código del elemento de trabajo de la lista) que agrega el elemento de trabajo:
-
-		using (IWorkItemManager wm = client.OpenWorkItemManager())
-		{
-		   ICloudWorkItem cloudWorkItem = wm.CreateWorkItem(WorkItemName);
-           cloudWorkItem.JobExecutionEnvironment = new JobExecutionEnvironment() {PoolName = PoolName};
-		   cloudWorkItem.Commit();
-		}
-		Console.WriteLine("Workitem successfully added. Press <Enter> to continue.");
-		Console.ReadLine();
-3.	Guarde y ejecute el programa. El estado es **Activo** si agregó el elemento de trabajo correctamente. Debería ver la siguiente salida.
-
-		Listing Pools
-		=================
-		Pool: gettingstarted State:Active
-		Created pool gettingstarted. Press <Enter> to continue.
-
-		Workitem successfully added. Press <Enter> to continue.
-
-		Listing Workitems
-		=================
-		Workitem: yidingz20141106-111211 State:Active
-		Press <Enter> to continue.
-
-###Adición de tareas a un trabajo
-Un elemento de trabajo sin tarea no hará nada. Una vez creados el elemento de trabajo y el trabajo, puede agregar tareas a este último. Vamos a agregar una tarea sencilla al trabajo.
-
-1.	Agregue las siguientes variables a la clase Program:
-
-		private const int Count = 4; // number of tasks that will run
-		private const string JobName = "job-0000000001";
-
-2.	Agregue el código siguiente a Main que agrega tareas a un trabajo, espera a que se ejecuten e informa de los resultados:
-
-		using (IWorkItemManager wm = client.OpenWorkItemManager())
-		{
-		    string taskName;
-		    ICloudJob job = wm.GetJob(WorkItemName, JobName);
-		    for (int i = 1; i <= Count; ++i)
-		    {
-		        taskName = "taskdata" + i;
-		        string commandLine = String.Format("cmd /c echo I am {0}", taskName);
-		        ICloudTask taskToAdd = new CloudTask(taskName, commandLine);
-		        job.AddTask(taskToAdd);
-		        job.Commit();
-		        job.Refresh();
-		    }
-
-		    ICloudJob listjob = wm.GetJob(WorkItemName, JobName);
-		    client.OpenToolbox().CreateTaskStateMonitor().WaitAll(listjob.ListTasks(),
-		       TaskState.Completed, new TimeSpan(0, 30, 0));
-		    Console.WriteLine("The tasks completed successfully. Terminating the workitem...");
-		    wm.GetWorkItem(WorkItemName).Terminate();
-		    foreach (ICloudTask task in listjob.ListTasks())
-		    {
-		        Console.WriteLine("Task " + task.Name + " says:\n" + task.GetTaskFile(Constants.StandardOutFileName).ReadAsString());
-		    }
-		    Console.ReadLine();
+			// Set permissions on the container
+			BlobContainerPermissions containerPermissions = new BlobContainerPermissions();
+			containerPermissions.PublicAccess = BlobContainerPublicAccessType.Blob;
+			container.SetPermissions(containerPermissions);
+			Console.WriteLine("Created the container. Press Enter to continue.");
+			Console.ReadLine();
 		}
 
-3.	Guarde y ejecute el programa. El resultado debería tener este aspecto:
+3. Agregue este código a Main, que llama al método que acaba de agregar:
 
-		The tasks completed successfully. Terminating the workitem...
-		Task taskdata1 says:
-		I am taskdata1
+		CreateStorage();
 
-		Task taskdata2 says:
-		I am taskdata2
+4. Guarde el archivo Program.cs.
 
-		Task taskdata3 says:
-		I am taskdata3
+	> [AZURE.NOTE]En un entorno de producción, se recomienda que utilice una firma de acceso compartido.
 
-###Creación de un programa de procesamiento de tareas
-Ahora que podemos ejecutar hello world en la máquina virtual, hagamos algo real. Vamos a crear un programa de procesamiento de tareas en esta sección y cargarlo en la máquina virtual de tareas que ejecuta tareas.
+Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](../storage-dotnet-how-to-use-blobs.md).
 
-1.	En el Explorador de soluciones, cree un nuevo proyecto de aplicación de consola denominado **ProcessTaskData** en la solución **AzureBatch**.
+### Creación del programa de procesamiento
 
-2.	Agregue las siguientes declaraciones de espacio de nombres en la parte superior de Program.cs:
+1. En el Explorador de soluciones, cree un nuevo proyecto de aplicación de consola denominado **ProcessTaskData**.
 
-		using System.Net;
-
-3.	Agregue el código siguiente a Main que se utilizará para procesar los datos:
+2. Agregue este código a Main, que procesa el texto desde los archivos:
 
 		string blobName = args[0];
+		Uri blobUri = new Uri(blobName);
 		int numTopN = int.Parse(args[1]);
 
-		WebClient myWebClient = new WebClient();
-		string content = myWebClient.DownloadString(blobName);
-
+		CloudBlockBlob blob = new CloudBlockBlob(blobUri);
+		string content = blob.DownloadText();
 		string[] words = content.Split(' ');
 		var topNWords =
-		   words.
-		   Where(word => word.Length > 0).
-		   GroupBy(word => word, (key, group) => new KeyValuePair<String, long>(key, group.LongCount())).
-		   OrderByDescending(x => x.Value).
-		   Take(numTopN).
-		   ToList();
+		  words.
+			Where(word => word.Length > 0).
+			GroupBy(word => word, (key, group) => new KeyValuePair<String, long>(key, group.LongCount())).
+			OrderByDescending(x => x.Value).
+			Take(numTopN).
+			ToList();
 
 		foreach (var pair in topNWords)
 		{
-		    Console.WriteLine("{0} {1}", pair.Key, pair.Value);
+			Console.WriteLine("{0} {1}", pair.Key, pair.Value);
 		}
 
-4.	Guarde y compile el proyecto.
+3. Guarde y compile el proyecto ProcessTaskData.
 
-###Preparación de los recursos para la ejecución de la tarea
+### Creación de los archivos de datos
 
-Utilizará el siguiente flujo de trabajo básico al crear un escenario de cálculo distribuido con el servicio Lote:
+1. En el proyecto GettingStarted, cree un nuevo archivo de texto denominado **taskdata1**, copie el texto siguiente en él y, a continuación, guarde el archivo.
 
-1.	Cargue los archivos que desea utilizar en el escenario de cálculo distribuido a una cuenta de almacenamiento de Azure. Estos archivos deben estar en la cuenta de almacenamiento para que el servicio de Lote pueda tener acceso a ellos. Los archivos se cargan en una máquina virtual de tareas cuando se ejecuta la tarea.
-2.	Cargue los archivos binarios dependientes en la cuenta de almacenamiento. Los archivos binarios incluyen el programa que ejecutará la tarea y los ensamblados dependientes. También es necesario tener acceso a estos archivos desde el almacenamiento y se cargan en la máquina virtual de tareas.
-3.	Cree un grupo de máquinas virtuales de tareas. Puede asignar el tamaño de la máquina virtual de tareas que se utilizará cuando se crea el grupo. Cuando se ejecuta una tarea, se le asigna una máquina virtual de este grupo.
-4.	Cree un elemento de trabajo. Un elemento de trabajo le permite administrar un trabajo de tareas. Cuando se crea un elemento de trabajo, se crea automáticamente un trabajo.
-5.	Agregue tareas al trabajo. Cada tarea usa el programa que ha cargado para procesar la información de un archivo cargado.
-6.	Supervise los resultados de la salida.  
+	Puede usar máquinas virtuales de Azure para proporcionar infraestructura de proceso a petición y escalable cuando necesite recursos flexibles para sus necesidades empresariales. En la galería, puede crear máquinas virtuales que ejecuten Windows, Linux y aplicaciones empresariales como SQL Server y SharePoint. O bien, puede capturar y utilizar sus propias imágenes para crear máquinas virtuales personalizadas.
 
-Hemos mostrado los pasos de 3 a 6. Veamos cómo preparar el Almacenamiento de Azure para ejecutar la tarea.
+2. Cree un nuevo archivo de texto denominado **taskdata2**, copie el texto siguiente en él y, a continuación, guarde el archivo.
 
-####Obtención de cuenta de almacenamiento
-Necesitará una cuenta de almacenamiento para completar el resto de este tutorial. Si no sabe cómo hacerlo, consulte [Creación de una cuenta de Almacenamiento de Azure](#tutorial1_storage).
+	Implemente y administre rápidamente aplicaciones y servicios potentes con los servicios en la nube de Azure. Cargue la aplicación y Azure controlará los detalles de la implementación: desde el aprovisionamiento y el equilibrio de carga hasta la supervisión de estado para una disponibilidad continua. La aplicación está respaldada por un contrato de nivel de servicio mensual líder en el sector con un 99,95 %. Simplemente se centrará en la aplicación y no la infraestructura.
 
-####Carga de datos
+3. Cree un nuevo archivo de texto denominado **taskdata3**, copie el texto siguiente en él y, a continuación, guarde el archivo.
 
-1. Cree un contenedor llamado "gettingstarted" en la cuenta de Almacenamiento de Azure. Puede utilizar para ello el Portal de Azure. Asegúrese de que establece el campo de "ACCESS" en "Public Container".
+	Los sitios web Azure proporcionan un entorno escalable, confiable y fácil de usar para hospedar aplicaciones web. Seleccione entre una variedad de marcos y plantillas para crear un sitio web en segundos. Utilice cualquier herramienta o sistema operativo para desarrollar su sitio con. NET, PHP, Node.js o Python. Elija entre una variedad de opciones de control de código fuente como TFS, GitHub y BitBucket para configurar la integración continua y desarrollarse como equipo. Expanda la funcionalidad del sitio con el tiempo aprovechando los servicios administrados adicionales de Azure, como la base de datos SQL, la red CDN y el almacenamiento.
 
-2. Cargue "ProcessTaskData.exe" en el contenedor.
+### Carga de los archivos en el contenedor
 
-3. Cree tres archivos de texto (taskdata1.txt, taskdata2.txt, taskdata3.txt) de manera que cada uno contenga los siguientes párrafos y, a continuación, cárguelos en el contenedor:
+1. Abra el archivo Program.cs del proyecto GettingStarted y, a continuación, agregue este método que carga los archivos:
 
-		You can use Azure Virtual Machines to provision on-demand, scalable compute infrastructure when you need flexible resources for your business needs. From the gallery, you can create virtual machines that run Windows, Linux, and enterprise applications such as SharePoint and SQL Server. Or, you can capture and use your own images to create customized virtual machines.
-
-		Quickly deploy and manage powerful applications and services with Azure Cloud Services. Simply upload your application and Azure handles the deployment details - from provisioning and load balancing to health monitoring for continuous availability. Your application is backed by an industry leading 99.95% monthly SLA. You just focus on the application and not the infrastructure.
-
-		Azure Web Sites provide a scalable, reliable, and easy-to-use environment for hosting web applications. Select from a range of frameworks and templates to create a web site in seconds. Use any tool or OS to develop your site with .NET, PHP, Node.js or Python. Choose from a variety of source control options including TFS, GitHub, and BitBucket to set up continuous integration and develop as a team. Expand your site functionality over time by leveraging additional Azure managed services like storage, CDN, and SQL Database.
-
-
->[AZURE.NOTE]En un entorno de producción, se recomienda que utilice una firma de acceso compartido.
-
-
->[AZURE.NOTE]El equipo de Almacenamiento de Azure tiene una [publicación de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx) que enumera los exploradores de Almacenamiento de Azure que pueden ayudar a la carga de archivos.
-
-
-
-###Actualización del código de envío de tarea
-
-1.	Agregue las siguientes variables a la clase Program:
-
-		private const string BlobPath = "[storage-path]";
-	Reemplace los valores siguientes: -**[storage-path]**: -la ruta de acceso al blob de almacenamiento. Por ejemplo: http://yiding.blob.core.windows.net/gettingstarted/
-
-2. Actualice el código de envío de la tarea del modo siguiente.
-
-		string taskName;
-		ICloudJob job = wm.GetJob(WorkItemName, JobName);
-		for (int i = 1; i <= Count; ++i)
+		static void CreateFiles()
 		{
-		    taskName = "taskdata" + i;
-		    IResourceFile programFile = new ResourceFile(BlobPath + "ProcessTaskData.exe", "ProcessTaskData.exe");
-		    IResourceFile supportFile = new ResourceFile(BlobPath + taskName + ".txt", taskName);
-		    string commandLine = String.Format("ProcessTaskData.exe {0} {1}", BlobPath + taskName + ".txt", 3);
-		    ICloudTask taskToAdd = new CloudTask(taskName, commandLine);
-		    taskToAdd.ResourceFiles = new List<IResourceFile>();
-		    taskToAdd.ResourceFiles.Add(programFile);
-		    taskToAdd.ResourceFiles.Add(supportFile);
-		    job.AddTask(taskToAdd);
+		  privateCloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+			ConfigurationManager.AppSettings["StorageConnectionString"]);
+		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+		  CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+		  CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+		  CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+	  	CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
+	  	CloudBlockBlob storageassembly =
+			container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
+		  taskData1.UploadFromFile("..\..\taskdata1.txt", FileMode.Open);
+		  taskData2.UploadFromFile("..\..\taskdata2.txt", FileMode.Open);
+	  	taskData3.UploadFromFile("..\..\taskdata3.txt", FileMode.Open);
+		  dataprocessor.UploadFromFile("..\..\..\ProcessTaskData\bin\debug\ProcessTaskData.exe", FileMode.Open);
+		  storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
+		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
+		  Console.ReadLine();
 		}
-		job.Commit();
 
-3. Guarde y ejecute el programa. Debería ver lo siguiente:
+2. Guarde el archivo Program.cs.
 
-		Listing Pools
-		=================
-		Pool: gettingstarted State:Active
-		Created pool gettingstarted. Press <Enter> to continue.
+## Paso 2: Adición de un grupo a su cuenta
 
-		Workitem successfully added. Press <Enter> to continue.
+Un grupo de nodos de ejecución es el primer conjunto de recursos que debe crear cuando desee ejecutar tareas.
 
-		Listing Workitems
-		=================
-		Workitem: yidingz20141106-132140 State:Active
-		Press <Enter> to continue.
+1.	Agregue estas declaraciones de espacio de nombres en la parte superior de Program.cs en el proyecto GettingStarted:
 
-		The tasks completed successfully. Terminating the workitem...
-		Task taskdata1 says:
+			using Microsoft.Azure.Batch;
+			using Microsoft.Azure.Batch.Auth;
+			using Microsoft.Azure.Batch.Common;
+
+2. Agregue este código a Main, que configura las credenciales para realizar llamadas al servicio de Lote de Azure:
+
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchClient client = BatchClient.Open(cred);
+
+	Reemplace estos valores:
+
+	- **[account-name]** por el nombre de la cuenta de Lote que creó anteriormente.
+	- **[region]** por la región en la que se encuentra la cuenta. Consulte [Regiones de Azure](http://azure.microsoft.com/regions/) para conocer las regiones disponibles.
+	- **[account-key]** con la clave principal de la cuenta de Lote.
+
+3.	Agregue este método a la clase Program que crea el grupo:
+
+			static void CreatePool(BatchClient client)
+			{
+			  CloudPool newPool = client.PoolOperations.CreatePool(
+			    "testpool1",
+			    "3",
+			    "small",
+			    3);
+			  newPool.Commit();
+			  Console.WriteLine("Created the pool. Press Enter to continue.");
+			  Console.ReadLine();
+		  }
+
+4. Agregue este código a Main, que llama al método que acaba de agregar:
+
+		CreatePool(client);
+
+5. Agregue este método a la clase Program que enumera las Esto le ayudará a comprobar que se creó el grupo:
+
+			static void ListPools(BatchClient client)
+			{
+				IPagedEnumerable<CloudPool> pools = client.PoolOperations.ListPools();
+				foreach (CloudPool pool in pools)
+				{
+					Console.WriteLine("Pool name: " + pool.Id);
+					Console.WriteLine("   Pool status: " + pool.State);
+				}
+				Console.WriteLine("Press enter to continue.");
+				Console.ReadLine();
+			}
+
+6. Agregue este código a Main, que llama al método que acaba de agregar:
+
+		ListPools(client);
+
+7. Guarde el archivo Program.cs.
+
+## Paso 2: Adición de un trabajo a una cuenta
+
+Cree un trabajo que se use para administrar las tareas que se ejecutan en el grupo. Todas las tareas deben asociarse a un trabajo.
+
+1. Agregue este método a la clase Program que crea el trabajo:
+
+		static CloudJob CreateJob (BatchClient client)
+		{
+			CloudJob newJob = client.JobOperations.CreateJob();
+			newJob.Id = "testjob1";
+			newJob.PoolInformation = new PoolInformation() { PoolId = "testpool1" };
+			newJob.Commit();
+			Console.WriteLine("Created the job. Press Enter to continue.");
+			Console.ReadLine();
+
+			return newJob;
+		}
+
+2. Agregue este código a Main, que llama al método que acaba de agregar:
+
+		CreateJob(client);
+
+3. Agregue este método a la clase Program que enumera los trabajos en la cuenta. Esto le ayudará a comprobar que se creó el trabajo:
+
+		static void ListJobs (BatchClient client)
+		{
+			IPagedEnumerable<CloudJob> jobs = client.JobOperations.ListJobs();
+			foreach (CloudJob job in jobs)
+			{
+				Console.WriteLine("Job id: " + job.Id);
+				Console.WriteLine("   Job status: " + job.State);
+			}
+			Console.WriteLine("Press Enter to continue.")
+			Console.ReadLine();
+		}
+
+4. Agregue este código a Main, que llama al método que acaba de agregar:
+
+		ListJobs(client);
+
+5. Guarde el archivo Program.cs.
+
+## Paso 3: Adición de tareas al trabajo
+
+Después de crear el trabajo, pueden agregarse las tareas a él. Cada tarea se ejecuta en un nodo de ejecución y procesa un archivo de texto. Para este tutorial, agregue tres tareas al trabajo.
+
+1. Agregue este método a la clase Program que agrega las tres tareas al trabajo:
+
+		static void AddTasks(BatchClient client)
+		{
+			CloudJob job = client.JobOperations.GetJob("testjob1");
+			ResourceFile programFile = new ResourceFile(
+				"https://[account-name].blob.azure.com/[]/ProcessTaskData.exe",
+				"ProcessTaskData.exe");
+      	  ResourceFile assemblyFile = new ResourceFile(
+				"https://[account-name].blob.core.windows.net/testcon1/Microsoft.WindowsAzure.Storage.dll",
+				"Microsoft.WindowsAzure.Storage.dll");
+			for (int i = 1; i < 4; ++i)
+			{
+				string blobName = "taskdata" + i;
+				string taskName = "mytask" + i;
+				ResourceFile taskData = new ResourceFile("https://[account-name].blob.core.windows.net/testcon1/" +
+				  blobName, blobName);
+				CloudTask task = new CloudTask(taskName, "ProcessTaskData.exe https://[account-name].blob.core.windows.net/testcon1/" +
+				  blobName + " 3");
+				List<ResourceFile> taskFiles = new List<ResourceFile>();
+				taskFiles.Add(taskData);
+				taskFiles.Add(programFile);
+				taskFiles.Add(assemblyFile);
+				task.ResourceFiles = taskFiles;
+				job.AddTask(task);
+				job.Commit();
+				job.Refresh();
+			}
+
+			client.Utilities.CreateTaskStateMonitor().WaitAll(job.ListTasks(),
+        TaskState.Completed, new TimeSpan(0, 30, 0));
+			Console.WriteLine("The tasks completed successfully.");
+			foreach (CloudTask task in job.ListTasks())
+			{
+				Console.WriteLine("Task " + task.Id + " says:\n" + task.GetNodeFile(Constants.StandardOutFileName).ReadAsString());
+			}
+			Console.WriteLine("Press Enter to continue.")
+			Console.ReadLine();
+		}
+
+	**[account-name]** tiene que reemplazarse por el número de cuenta de almacenamiento que creó previamente. Asegúrese de que obtener los cuatro lugares.
+
+2. Agregue este código a Main, que llama al método que acaba de agregar:
+
+			AddTasks(client);
+
+3. Agregue este método a la clase Program que enumera las tareas asociadas al trabajo:
+
+		static void ListTasks(BatchClient client)
+		{
+			IPagedEnumerable<CloudTask> tasks = client.JobOperations.ListTasks("testjob1");
+			foreach (CloudTask task in tasks)
+			{
+				Console.WriteLine("Task id: " + task.Id);
+				Console.WriteLine("   Task status: " + task.State);
+			  Console.WriteLine("   Task start: " + task.ExecutionInformation.StartTime);
+			}
+			Console.ReadLine();
+		}
+
+4. Agregue este código a Main para llamar al método que acaba de agregar:
+
+		ListTasks(client);
+
+5. Guarde el archivo Program.cs.
+
+## Paso 4: Eliminación de los recursos
+
+Dado que se le cobrará por los recursos en Azure, siempre es conveniente eliminar los recursos si ya no son necesarios.
+
+### Eliminación de las tareas
+
+1.	Agregue este método a la clase Program que elimina las tareas:
+
+			static void DeleteTasks(BatchClient client)
+			{
+				CloudJob job = client.JobOperations.GetJob("testjob1");
+				foreach (CloudTask task in job.ListTasks())
+				{
+					task.Delete();
+				}
+				Console.WriteLine("All tasks deleted.");
+				Console.ReadLine();
+			}
+
+2. Agregue este código a Main, que llama al método que acaba de agregar:
+
+		DeleteTasks(client);
+
+3. Guarde el archivo Program.cs.
+
+### Eliminación del trabajo
+
+1.	Agregue este método a la clase Program que elimina el trabajo:
+
+			static void DeleteJob(BatchClient client)
+			{
+				client.JobOperations.DeleteJob("davidmujob1");
+				Console.WriteLine("Job was deleted.");
+				Console.ReadLine();
+			}
+
+2. Agregue este código a Main, que ejecuta el método que acaba de agregar:
+
+		DeleteJob(client);
+
+3. Guarde el archivo Program.cs.
+
+### Eliminación del grupo
+
+1. Agregue este método a la clase Program que elimina el grupo:
+
+		static void DeletePool (BatchClient client)
+		{
+			client.PoolOperations.DeletePool("davidmupl1");
+			Console.WriteLine("Pool was deleted.");
+			Console.ReadLine();
+		}
+
+2. Agregue este código a Main, que ejecuta el método que acaba de agregar:
+
+		DeletePool(client);
+
+3. Guarde el archivo Program.cs.
+
+## Paso 5: Ejecución de la aplicación
+
+1. Inicie el proyecto GettingStarted y debería ver esto en la ventana de la consola después de que se cree el contenedor:
+
+		Created the container. Press Enter to continue.
+
+2. Presione Entrar y los archivos se crearán y se cargarán; ahora debería ver una nueva línea en la ventana:
+
+		Uploaded the files. Press Enter to continue.
+
+3. Presione Entrar y se creará el grupo:
+
+		Created the pool. Press Enter to continue.
+
+4. Presione Entrar y debería ver esta lista del grupo nuevo:
+
+		Pool name: testpool1
+			Pool status: Active
+		Press Enter to continue.
+
+5. Presione Entrar y se creará el trabajo:
+
+		Created the job. Press Enter to continue.
+
+6. Presione Entrar y debería ver esta lista de nuevo trabajo:
+
+		Job id: testjob1
+			Job status: Active
+		Press Enter to continue.
+
+7. Presione Entrar y las tareas se agregarán al trabajo. Cuando se agregan las tareas, se ejecutan automáticamente:
+
+		The tasks completed successfully.
+		Task mytask1 says:
 		can 3
 		you 3
 		and 3
 
-		Task taskdata2 says:
+		Task mytask2 says:
 		and 5
 		application 3
 		the 3
 
-		Task taskdata3 says:
+		Task mytask3 says:
 		a 5
 		and 5
 		to 3
 
-###Eliminación del grupo y del elemento de trabajo
-Una vez procesado el elemento de trabajo, puede liberar recursos eliminando el grupo y el elemento de trabajo.
+		Press Enter to continue.
 
-####Eliminación del grupo
-1.	Agregue el código siguiente al final de Main que elimina el grupo:
+7. Presione Entrar y debería ver la lista de tareas y su estado:
 
-		using (IPoolManager pm = client.OpenPoolManager())
-		{
-		   pm.DeletePool(PoolName);
-		}
-		Console.WriteLine("Pool successfully deleted.");
-		Console.ReadLine();
-2.	Guarde y ejecute el programa.
+		Task id: mytask1
+			Task status: Completed
+			Task start: 7/17/2015 8:31:58 PM
+		Task id: mytask2
+			Task status: Completed
+			Task start: 7/17/2015 8:31:57 PM
+		Task id: mytask3
+			Task status: Completed
+			Task start: 7/17/2015 8:31:57 PM
 
+8. En este momento, puede ir al Portal de Azure para ver los recursos que se han creado. Para eliminar los recursos, pulse Entrar hasta que el programa finalice.
 
-####Eliminación del elemento de trabajo
-1.	Agregue el código siguiente a Main que elimina el elemento de trabajo:
+## Pasos siguientes
 
-		using (IWorkItemManager wm = client.OpenWorkItemManager())
-		{
-		   wm.DeleteWorkItem(WorkItemName);
-		}
-		Console.WriteLine("Workitem successfully deleted.");
-		Console.ReadLine();
-2.	Guarde y ejecute el programa.
+1. Ahora que conoce los aspectos básicos de la ejecución de tareas, puede conocer cómo realizar la escalación automática de nodos de ejecución cuando cambie la demanda de la aplicación. Para ello, consulte [Escalación automática de nodos en un grupo de Lote de Azure](batch-automatic-scaling.md)
 
-###<a name="tutorial1_storage"></a>APENDICE: Creación de una cuenta de Almacenamiento de Azure
-Para poder ejecutar el código en este tutorial, debe tener acceso a una cuenta de almacenamiento de Azure.
+2. Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-1.	Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/).
-2.	En la parte inferior del panel de navegación, haga clic en **+NUEVO**. ![][1]
-3.	Haga clic en **SERVICIOS DE DATOS**, en **ALMACENAMIENTO** y, a continuación, en **CREACIÓN RÁPIDA**. ![][2]
-
-4.	En **URL**, escriba el nombre de subdominio que vaya usar en el URI para la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 letras minúsculas y números. Este valor se convierte en el nombre del host dentro del URI que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción.
-5.	Elija un valor en **UBICACIÓN/GRUPO DE AFINIDAD** que servirá para ubicar el almacenamiento.
-6.	También puede habilitar la replicación geográfica.
-7.	Haga clic en **CREAR CUENTA DE ALMACENAMIENTO**.  
-
-Para obtener más información acerca de Almacenamiento de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure en .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).
-
-
-##<a name="tutorial2"></a>Tutorial 2: Biblioteca de Aplicaciones de Lote de Azure para .NET
-Este tutorial muestra cómo ejecutar cargas de trabajo de proceso paralelas en Lote de Azure mediante el servicio de Aplicaciones de Lote.
-
-Aplicaciones de Lote es una característica de Lote de Azure que proporciona una manera de administrar y ejecutar las cargas de trabajo de Lote centrada en las aplicaciones. Con el SDK de Aplicaciones de Lote, puede crear paquetes para habilitar una aplicación para el uso de Lote e implementarlos en su propia cuenta o bien ponerlos a disposición de otros usuarios de Lote. Lote también proporciona administración de datos, supervisión de trabajos, diagnóstico y registro integrado y soporte para dependencias entre tareas. Además, incluye un portal de administración donde puede administrar trabajos, ver registros y descargar resultados sin tener que escribir su propio cliente.
-
-En el caso de Aplicaciones de Lote, se escribe código utilizando el SDK de la nube de Aplicaciones de Lote para dividir trabajos en tareas paralelas, se describen las dependencias entre estas tareas y se especifica cómo ejecutar cada tarea. Este código se implementa en la cuenta de Lote. Los clientes, a continuación, pueden ejecutar trabajos de manera sencilla especificando el tipo de trabajo y los archivos de entrada en una API de REST.
-
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). Puede usar NuGet para obtener el ensamblado <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Nube de Aplicaciones de Lote</a> y el ensamblado <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Cliente de Aplicaciones de Lote</a>. Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. También puede descargar aquí la extensión de Visual Studio para Aplicaciones de Lote que incluye una plantilla de proyecto para habilitar las aplicaciones para la nube y la posibilidad de implementar una aplicación <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aquí</a> o bien utilizar la función de búsqueda de **Aplicaciones de Lote** en Visual Studio mediante el elemento de menú de extensiones y actualizaciones. También puede encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos completos en MSDN.</a>
->
-
-###Aspectos básicos de Aplicaciones de Lote de Azure
-Lote está diseñado para trabajar con las aplicaciones existentes de proceso intensivo. Aprovecha el código de la aplicación existente y se ejecuta en un entorno dinámico, virtualizado y de uso general. Para habilitar una aplicación para que funcione con Aplicaciones de Lote hay un par de cosas que necesita hacer:
-
-1.	Prepare un archivo comprimido de los ejecutables de aplicación existentes, los mismos ejecutables que se ejecutarían en una granja o un clúster de servidores tradicional, y los archivos de soporte técnico que necesita. Este archivo comprimido, a continuación, se carga en la cuenta de Lote mediante el portal de administración o la API de REST.
-2.	Cree un archivo comprimido con los "ensamblados de nube" que distribuyen las cargas de trabajo en la aplicación, y cárguelo a través del portal de administración o la API de REST. Un ensamblado de nube contiene dos componentes que se generan con el SDK de nube:
-	1.	Divisor de trabajo: desglosa el trabajo en tareas que se pueden procesar de forma independiente. Por ejemplo, en un escenario de animación, el divisor de trabajo podría tomar un trabajo de película y desglosarlo en fotogramas individuales.
-	2.	Procesador de tareas: invoca el ejecutable de la aplicación para una tarea determinada. Por ejemplo, en un escenario de animación, el procesador de tareas invocaría un programa de representación para representar el fotograma único especificado por la tarea en cuestión.
-3.	Proporcione una manera de enviar trabajos a la aplicación habilitada en Azure. Podría tratarse de un complemento en la interfaz de usuario o un portal web de la aplicación, o incluso un servicio no atendido como parte de la canalización de ejecución. Consulte los <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos</a> de MSDN como referencia.
-
-
-
-###Conceptos clave de Aplicaciones de Lote
-El modelo de programación y uso de Aplicaciones de Lote gira en torno a los conceptos siguientes:
-
-####Trabajos
-Un **trabajo** es un elemento de trabajo enviado por el usuario. Cuando se envía un trabajo, el usuario especifica el tipo de trabajo, cualquier configuración de ese trabajo y los datos requeridos para el trabajo. La implementación habilitada puede ocuparse de estos detalles en nombre del usuario o, en algunos casos, el usuario puede proporcionar esta información explícitamente a través del cliente. Un trabajo tiene resultados que se devuelven. Cada trabajo tiene una salida principal y, opcionalmente, un resultado en vista previa. Los trabajos también pueden devolver resultados adicionales si lo desea.
-
-####Tareas
-Una **tarea** es un elemento de trabajo que se lleva a cabo como parte de un trabajo. Cuando un usuario envía un trabajo, este se desglosa en tareas más pequeñas. El servicio procesa estas tareas individuales y, a continuación, ensambla los resultados de la tarea en una salida de trabajo global. La naturaleza de las tareas depende del tipo de trabajo. El divisor de trabajo define cómo se desglosa un trabajo en tareas, guiado por el conocimiento de aquellos fragmentos de trabajo que la aplicación va a procesar según su diseño. Los resultados de tarea también se pueden descargar individualmente y pueden resultar útiles en algunos casos; por ejemplo, cuando un usuario desea descargar tareas individuales de un trabajo de animación.
-
-####Tareas de combinación
-Una **tarea de combinaciones** un tipo especial de tarea que ensambla los resultados de tareas individuales en los resultados del trabajo final. En el caso de un trabajo de representación de película, la tarea de combinación podría ensamblar los fotogramas representados en una película o comprimir todos los fotogramas representados en un único archivo. Todos los trabajos tienen una tarea de combinación, incluso si no se requiere una "combinación" real.
-
-####Archivos
-Un **archivo** es un elemento de datos que se utiliza para suministrar información a un trabajo. Un trabajo puede no tener asociado ningún archivo de entrada o bien tener uno o varios. El mismo archivo puede utilizarse en varios trabajos, por ejemplo, para trabajo de procesamiento de películas, archivos que podrían tener texturas, modelos, etc. Para un trabajo de análisis de datos, los archivos pueden ser un conjunto de observaciones o mediciones.
-
-###Habilitación de la aplicación en la nube
-La aplicación debe contener una propiedad o un campo estático que contenga todos los detalles de la aplicación. Este especifica el nombre de la aplicación y los tipos de trabajo controlados por la aplicación. Se proporciona cuando se utiliza la plantilla en el SDK que se puede descargar a través de la Galería de Visual Studio.
-
-Este es un ejemplo de una declaración de aplicación de nube para una carga de trabajo paralela:
-
-	public static class ApplicationDefinition
-	{
-	    public static readonly CloudApplication App = new ParallelCloudApplication
-	    {
-	        ApplicationName = "ApplicationName",
-	        JobType = "ApplicationJobType",
-	        JobSplitterType = typeof(MyJobSplitter),
-	        TaskProcessorType = typeof(MyTaskProcessor),
-	    };
-	}
-
-####Implementación del divisor de trabajo y el procesador de tareas
-En el caso de las cargas de trabajo embarazosamente paralelas, debe implementar un divisor de trabajo y un procesador de tareas.
-
-####Implementación de JobSplitter.SplitIntoTasks
-La implementación de SplitIntoTasks debe devolver una secuencia de tareas. Cada tarea representa un elemento de trabajo independiente que se pondrá en cola para su procesamiento por un nodo de cálculo. Cada tarea debe ser independiente y debe configurarse con toda la información que necesitará el procesador de tareas.
-
-Las tareas especificadas por el divisor de trabajo se representan como objetos TaskSpecifier. TaskSpecifier tiene varias propiedades que puede configurar antes de devolver la tarea.
-
-
--	TaskIndex se omite, pero está disponible para los procesadores de tareas. Puede utilizarlo para pasar un índice al procesador de tareas. Si no necesita pasar un índice, no es necesario configurar esta propiedad.
--	Parámetros es una colección vacía de forma predeterminada. Puede agregarle elementos o reemplazarla por una nueva colección. Puede copiar entradas de la colección de parámetros de trabajo utilizando el método WithJobParameters o WithAllJobParameters.  
-
-
-RequiredFiles es una colección vacía de forma predeterminada. Puede agregarle elementos o reemplazarla por una nueva colección. Puede copiar entradas de la colección de archivos de trabajo utilizando el método RequiringJobFiles o RequiringAllJobFiles.
-
-Puede especificar una tarea que depende de otra tarea determinada. Para ello, configure la propiedad TaskSpecifier.DependsOn, pasando el identificador de la tarea de la que depende:
-
-	new TaskSpecifier {
-	    DependsOn = TaskDependency.OnId(5)
-	}
-
-La tarea no se ejecutará hasta que esté disponible la salida de la tarea de la que depende.
-
-También puede especificar que todo un grupo de tareas no debe comenzar a procesarse hasta que otro grupo haya finalizado completamente. En este caso puede configurar la propiedad TaskSpecifier.Stage. Las tareas con un valor determinado de Stage no comenzarán a procesarse hasta que hayan terminado todas las tareas con valores más bajos de Stage; Por ejemplo, las tareas con un valor de Stage de 3 no empezarán a procesarse hasta que hayan terminado todas las tareas con un valor de Stage de 0, 1 o 2. Las etapas deben comenzar en 0, la secuencia de etapas no debe tener espacios y SplitIntoTasks debe devolver las tareas por orden de Stage: por ejemplo, es un error devolver una tarea de Stage 0 después de una tarea de Stage 1.
-
-Cada trabajo paralelo finaliza con una tarea especial denominada tarea de combinación. El trabajo de la tarea de combinación es ensamblar los resultados de las tareas de procesamiento en paralelo en un resultado final. Aplicaciones de Lote crea automáticamente la tarea de combinación.
-
-En raras ocasiones, puede que desee controlar explícitamente la tarea de combinación; por ejemplo, para personalizar sus parámetros. En este caso, puede especificar la tarea de combinación devolviendo un TaskSpecifier con la propiedad IsMerge establecida en true. Esto anulará la tarea de combinación automática. Si crea una tarea de combinación explícita:
-
--	Puede crear solo una tarea de combinación explícita
--	Debe ser la última tarea de la secuencia
--	Debe tener IsMerge establecido en true, y el resto de tareas deben tener IsMerge establecido en false  
-
-
-Sin embargo, recuerde que normalmente no necesitará crear explícitamente la tarea de combinación.
-
-El código siguiente muestra una implementación sencilla de SplitIntoTasks.
-
-	protected override IEnumerable<TaskSpecifier> SplitIntoTasks(
-	    IJob job,
-	    JobSplitSettings settings)
-	{
-	    int start = Int32.Parse(job.Parameters["startIndex"]);
-	    int end = Int32.Parse(job.Parameters["endIndex"]);
-	    int count = (end - start) + 1;
-
-	    // Processing tasks
-	    for (int i = 0; i < count; ++i)
-	    {
-	        yield return new TaskSpecifier
-	        {
-	            TaskIndex = start + i,
-	        }.RequiringAllJobFiles();
-	    }
-	}
-####Implementación ParallelTaskProcessor.RunExternalTaskProcess
-
-Se llama a RunExternalTaskProcess para cada tarea de combinación devuelta desde el divisor de trabajo. Debería invocar la aplicación con los argumentos adecuados y devolver un conjunto de resultados que deben conservarse para su uso posterior.
-
-El siguiente fragmento muestra cómo llamar a un programa denominado application.exe. Tenga en cuenta que puede utilizar el método auxiliar ExecutablePath para crear rutas de archivo absolutas.
-
-La clase ExternalProcess en el SDK de Nube proporciona una útil lógica auxiliar para los archivos ejecutables de la aplicación. ExternalProcess puede ocuparse de la cancelación, la conversión de códigos de salida en excepciones, la captura de la salida estándar y el error estándar y la configuración de las variables de entorno. Además, también puede utilizar la clase .NET Process directamente para ejecutar programas si lo prefiere.
-
-El método RunExternalTaskProcess devuelve un TaskProcessResult, que incluye una lista de archivos de salida. Esto debe incluir como mínimo todos los archivos necesarios para la combinación; opcionalmente, también puede devolver archivos de registro, archivos de vista previa y archivos intermedios (por ejemplo, para fines de diagnóstico si se produjo un error en la tarea). Tenga en cuenta que el método devuelve las rutas de acceso de los archivos, no el contenido de los archivos.
-
-Cada archivo debe identificarse con el tipo de salida que contiene: salida (es decir, la parte de la salida del trabajo eventual), vista previa, registro o intermedios. Estos valores proceden de la enumeración TaskOutputFileKind. El siguiente fragmento devuelve una salida de tarea única, y no vistas previas o registros. El método TaskProcessResult.FromExternalProcessResult simplifica el escenario común de captura del código de salida, el resultado del procesador y los archivos de salida desde un programa de línea de comandos:
-
-El código siguiente muestra una implementación sencilla de ParallelTaskProcessor.RunExternalTaskProcess.
-
-	protected override TaskProcessResult RunExternalTaskProcess(
-	    ITask task,
-	    TaskExecutionSettings settings)
-	{
-	    var inputFile = LocalPath(task.RequiredFiles[0].Name);
-	    var outputFile = LocalPath(task.TaskId.ToString() + ".jpg");
-
-	    var exePath = ExecutablePath(@"application\application.exe");
-	    var arguments = String.Format("-in:{0} -out:{1}", inputFile, outputFile);
-
-	    var result = new ExternalProcess {
-	        CommandPath = exePath,
-	        Arguments = arguments,
-	        WorkingDirectory = LocalStoragePath,
-	        CancellationToken = settings.CancellationToken
-	    }.Run();
-
-	    return TaskProcessResult.FromExternalProcessResult(result, outputFile);
-	}
-####Implementación ParallelTaskProcessor.RunExternalMergeProcess
-
-Se le llama para la tarea de combinación. Debe invocar la aplicación para combinar los resultados de las tareas anteriores, de la forma adecuada para la aplicación, y devolver el resultado combinado.
-
-La implementación de RunExternalMergeProcess es muy similar a RunExternalTaskProcess, salvo que:
-
--	RunExternalMergeProcess consume las salidas de las tareas anteriores, en lugar de archivos de entrada del usuario. Por lo tanto, debería resolver los nombres de los archivos que desea procesar basándose en el identificador de tarea, y no en la colección Task.RequiredFiles.
--	RunExternalMergeProcess devuelve un archivo JobOutput y, opcionalmente, un archivo JobPreview.
-
-
-El código siguiente muestra una implementación sencilla de ParallelTaskProcessor.RunExternalMergeProcess.
-
-	protected override JobResult RunExternalMergeProcess(
-	    ITask mergeTask,
-	    TaskExecutionSettings settings)
-	{
-	    var outputFile =  "output.zip";
-
-	    var exePath =  ExecutablePath(@"application\application.exe");
-	    var arguments = String.Format("a -application {0} *.jpg", outputFile);
-
-	    new ExternalProcess {
-	        CommandPath = exePath,
-	        Arguments = arguments,
-	        WorkingDirectory = LocalStoragePath
-	    }.Run();
-
-	    return new JobResult {
-	        OutputFile = outputFile
-	    };
-	}
-
-###Envío de trabajos a Aplicaciones de Lote
-Un trabajo describe una carga de trabajo que se ejecutará y debe incluir toda la información sobre la carga de trabajo excepto el contenido del archivo. Por ejemplo, el trabajo contiene opciones de configuración que fluyen desde el cliente a través del divisor de trabajo y las tareas. Los ejemplos proporcionados en MSDN muestran cómo enviar trabajos y proporcionan varios clientes, incluyendo un portal web y un cliente de línea de comandos.
-
-
-<!--Anchors-->
-
-
-<!--Image references-->
-[1]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-01.jpg
-[2]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-02.jpg
-[3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
-[4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

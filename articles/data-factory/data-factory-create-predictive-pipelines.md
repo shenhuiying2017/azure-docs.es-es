@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Crear canalizaciones predictivas con la factoría de datos de Azure y el aprendizaje automático de Azure 
@@ -166,9 +166,9 @@ Se recomienda que siga el tutorial [Introducción a la Factoría de datos de Azu
 		    }
 		}
 
-	Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+	Las fechas y horas de **inicio** y **finalización** deben estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por ejemplo: 2014-10-14T16:32:41Z. La hora de **finalización** es opcional. Si no especifica el valor para la propiedad **end**, se calcula como "**inicio + 48 horas**". Para ejecutar la canalización indefinidamente, especifique **9999-09-09** como valor de propiedad **end**. Para obtener más información sobre las propiedades de JSON, consulte [Referencia de scripting de JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
-## Parámetros de servicio web
+## Parámetros del servicio web
 Puede utilizar parámetros de servicios web expuestos por un servicio web de Aprendizaje automático de Azure publicado en las canalizaciones de Factoría de datos de Azure (ADF). Puede crear un experimento en Aprendizaje automático de Azure y publicarlo como un servicio web y, a continuación, usar ese servicio web en varias actividades y canalizaciones ADF pasando por distintas entradas a través de los parámetros de servicio web.
 
 ### Paso de valores para los parámetros de servicio web
@@ -213,39 +213,11 @@ Para utilizar Lector SQL de Azure a través de la canalización de Factoría de 
 #### Escritor SQL Azure
 Como con el Lector SQL Azure, un Escritor SQL Azure también puede tener sus propiedades expuestas como parámetros de servicio web. Un Escritor SQL de Azure usa la configuración del servicio vinculado asociado con la tabla de entrada o la entrada de salida. La siguiente tabla describe cuándo se usa el servicio vinculado de entrada frente el servicio vinculado de salida.
 
-<table>
-<tr>
-<td>Entrada/salida</td>
-<td><b>La entrada es SQL Azure</b></td>
-<td><b>La entrada es Blob de Azure</b></td>
-</tr>
-<tr>
-<td><b>La salida es SQL Azure</b></td>
-<td><p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure.</p>
-<p>Si Lector SQL de Azure y Escritor SQL de Azure en el modelo ML de Azure comparten los mismos parámetros de servicio web mencionados anteriormente, significa que todo es correcto. Si no comparten los mismos parámetros de servicio web, por ejemplo, si Escritor SQL de Azure usa nombres de parámetros; nombre de servidor de base de datos1, nombre de base de datos1, nombre de cuenta de usuario de servidor1, contraseña de cuenta de usuario de servidor1 (con "1" al final), debe pasar estos valores para estos parámetros de servicio web de SALIDA en la sección webServiceParameters de JSON de actividad.</p>
-<p>
-Puede pasar valores para cualquier otro parámetro de servicio web con la sección webServiceParameters de JSON de actividad.  
-</p>
-
-</td>
-<td>
-<p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de SALIDA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure.</p>
-<p>Puede pasar valores para cualquier otro parámetro de servicio web con la sección webServiceParameters de JSON de actividad. <p>El blob de entrada se utilizará como ubicación de entrada.</p>
-</td>
-</tr>
-<tr>
-<td><b>La salida es Blob de Azure</b></td>
-<td>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure.
-</td>
-<td>
-<p>Debe pasar valores para cualquier otro parámetro de servicio web con la sección webServiceParameters de JSON de actividad.</p> 
-
-<p>Los blobs se usarán como ubicaciones de entrada y salida.</p>
-
-</td>
-<tr>
-
-</table>
+| Entrada/salida | La entrada es SQL Azure | La entrada es Blob de Azure |
+| ------------ | ------------------ | ------------------- |
+| La salida es SQL Azure | <p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros del servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros del servicio web en Estudio de aprendizaje automático de Azure.</p><p>Si el Lector SQL de Azure y el Escritor SQL de Azure en el modelo de Aprendizaje automático de Azure comparten los mismos parámetros del servicio web mencionados anteriormente, significa que todo es correcto. Si no comparten los mismos parámetros del servicio web, por ejemplo, si el Escritor SQL de Azure usa los nombres de parámetros: Database server name1, Database name1, Server user account name1, Server user account password1 (con "1" al final), debe pasar estos valores para estos parámetros del servicio web de SALIDA en la sección webServiceParameters de JSON de actividad.</p><p>Puede pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad.</p> | <p>El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de SALIDA para generar los parámetros del servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros del servicio web en Estudio de aprendizaje automático de Azure.</p><p>Puede pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad. <p>El blob de entrada se utilizará como ubicación de entrada.</p> |
+|La salida es Blob de Azure | El servicio Factoría de datos usa la información de cadena de conexión del servicio vinculado de ENTRADA para generar los parámetros de servicio web con los nombres: "Nombre de servidor de base de datos", "Nombre de base de datos", "Nombre de cuenta de usuario de servidor" y "Contraseña de cuenta de usuario de servidor". Tenga en cuenta que debe usar estos nombres predeterminados para los parámetros de servicio web en Estudio de aprendizaje automático de Azure. | <p>Debe pasar valores para cualquier otro parámetro del servicio web con la sección webServiceParameters de JSON de actividad.</p><p>Los blobs se usarán como ubicaciones de entrada y salida.</p> |
+    
 
 > [AZURE.NOTE]Escritor SQL de Azure puede detectar infracciones de clave si se sobrescribe una columna de identidad. Debe asegurarse de que estructura la tabla de salida para evitar esta situación.
 > 
@@ -328,4 +300,4 @@ Artículo | Descripción
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

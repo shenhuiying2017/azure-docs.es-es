@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Acoplamiento de un disco a una máquina virtual | Azure" 
-	description="Aprenda como acoplar un disco de datos a una máquina virtual de Azure y a inicializarla para que esté lista para utilizarse." 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Acoplamiento de un disco a una máquina virtual | Azure"
+	description="Aprenda como acoplar un disco de datos a una máquina virtual de Azure y a inicializarla para que esté lista para utilizarse."
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
 # Acoplamiento de un disco de datos a una máquina virtual de Windows
@@ -42,8 +43,14 @@ Puede acoplar discos vacíos como discos que contienen datos. En ambos casos, se
 
 	![Volumen inicializado correctamente](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]El tamaño de la máquina virtual determina el número de discos que le puede asociar. Para obtener detalles, vea [Servicios en la nube y Máquinas virtuales](https://msdn.microsoft.com/library/azure/dn197896.aspx).
+> [AZURE.NOTE]El tamaño de la máquina virtual determina el número de discos que le puede asociar. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
+
+## Recursos adicionales
+
+[Desacoplamiento de un disco de una máquina virtual de Windows](storage-windows-detach-disk.md)
+
+[Acerca de los discos y los discos duros virtuales para máquinas virtuales](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

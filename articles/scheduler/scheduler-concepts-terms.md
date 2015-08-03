@@ -208,4 +208,4 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
  [Autenticación de salida de Programador](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Configuración de una conexión VPN de punto a sitio a una red virtual de Azure"
-   description="Conéctese a la seguridad de red virtual mediante la creación de una conexión VPN de sitio a punto."
+   pageTitle="Configuración de una conexión VPN de punto a sitio a una red virtual | Microsoft Azure"
+   description="Conéctese de forma segura a la red virtual de Azure mediante la creación de una conexión VPN de punto a sitio."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn"/>
 
 <tags
@@ -13,18 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/12/2015"
+   ms.date="07/14/2015"
    ms.author="cherylmc"/>
 
-# Configuración de una conexión VPN de punto a sitio a una red virtual de Azure
+# Configuración de una conexión VPN de punto a sitio a una red virtual
 
-La configuración de una conexión de punto a sitio conlleva varios pasos, pero es una excelente manera de tener una conexión segura desde su equipo a la red virtual sin adquirir y configurar un dispositivo VPN. Hay tres partes principales en la configuración de una VPN de punto a sitio: la red virtual y la puerta de enlace, los certificados usados para la autenticación y el cliente VPN que se utiliza para conectarse a la red virtual. El orden en el que se configura cada una de ellas es importante, por lo que no debe omitir pasos ni adelantarse.
+La configuración de una conexión de punto a sitio conlleva varios pasos, pero es una excelente manera de tener una conexión segura desde su equipo a la red virtual sin adquirir y configurar un dispositivo VPN. Hay tres partes principales en la configuración de una VPN de punto a sitio: la red virtual y la puerta de enlace de VPN, los certificados usados para la autenticación y el cliente VPN que se utiliza para conectarse a la red virtual. El orden en el que se configura cada una de ellas es importante, por lo que no debe omitir pasos ni adelantarse.
 
-1. [Configuración de una red virtual y una puerta de enlace de enrutamiento dinámico](#configure-a-virtual-network-and-a-dynamic-routing-gateway)
+1. [Crear una red virtual y una puerta de enlace VPN](#create-a-virtual-network-and-a-vpn-gateway)
 2. [Creación de certificados](#create-your-certificates)
-3. [Configuración del cliente VPN](#configure-your-VPN-client)
+3. [Configuración del cliente VPN](#configure-your-vpn-client)
 
-## Configuración de una red virtual y una puerta de enlace de enrutamiento dinámico
+## Crear una red virtual y una puerta de enlace VPN
 
 Una conexión de punto a sitio requiere una red virtual con una puerta de enlace de enrutamiento dinámico. Los pasos siguientes le guiarán a través de la creación de ambos componentes.
 
@@ -32,19 +32,19 @@ Una conexión de punto a sitio requiere una red virtual con una puerta de enlace
 
 1. Inicie sesión en el **Portal de administración**.
 1. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
-1. En la página **Detalles de la red virtual**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha. Para obtener más información sobre la configuración de la página de detalles, consulte la [página Detalles de red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+1. En la página **Detalles de la red virtual**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 	- **Nombre**: Nombre de la red virtual. Por ejemplo, "VNetEast". Este será el nombre al que hará referencia al implementar máquinas virtuales e instancias de PaaS en esta red virtual.
 	- **Ubicación**: La ubicación está directamente relacionada con la ubicación física (región) en la que desea que residan los recursos (máquinas virtuales). Por ejemplo, si desea que las máquinas virtuales que implementa en la red virtual se encuentren físicamente en el Este de EE.UU., seleccione esa ubicación. No se puede cambiar la región asociada a la red virtual después de crearla.
-1. En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha. Para obtener más información, consulte la [página Servidores DNS y conectividad VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+1. En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 	- **Servidores DNS**: Escriba el nombre y la dirección IP del servidor DNS o seleccione un servidor DNS previamente registrado en la lista desplegable. Este valor no crea un servidor DNS; permite especificar los servidores DNS que desea usar para la resolución de nombres para esta red virtual. Si desea usar el servicio de resolución de nombres predeterminado de Azure, deje esta sección en blanco.
 	- **Configurar VPN de punto a sitio**: Active la casilla.
-1. En la página **Conectividad de punto a sitio**, especifique el intervalo de direcciones IP desde la que los clientes de VPN recibirán una dirección IP cuando se conecten. Existen varias reglas con respecto a los intervalos de direcciones que se pueden especificar. Es muy importante asegurarse de que el intervalo que especifique no se superponga a ninguno de los intervalos que se encuentra en la red local. Consulte la página [Conectividad punto a sitio](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT) para obtener más información.
+1. En la página **Conectividad de punto a sitio**, especifique el intervalo de direcciones IP desde la que los clientes de VPN recibirán una dirección IP cuando se conecten. Existen varias reglas con respecto a los intervalos de direcciones que se pueden especificar. Es muy importante asegurarse de que el intervalo que especifique no se superponga a ninguno de los intervalos que se encuentra en la red local.
 1. Especifique la siguiente información y, a continuación, haga clic en la flecha siguiente.
  - **Espacio de direcciones**: Incluidas Dirección IP inicial y CIDR (recuento de direcciones).
  - **Agregar espacio de direcciones**: Solo se agrega si es necesario para el diseño de la red.
-1. En la página **Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Existen varias reglas relativas al espacio de direcciones de la red virtual, por lo que puede que desee consultar la página Espacios de direcciones de la red virtual para obtener más información. Es especialmente importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+1. En la página **Espacios de direcciones de la red virtual**, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas (DIPS) que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual. Es especialmente importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
 1. Escriba la información siguiente y, a continuación, haga clic en la marca de verificación para comenzar a crear la red virtual.
- - **Espacio de direcciones**: Agregue el intervalo de direcciones IP interno que desea usar para esta red virtual, incluida la dirección IP inicial y el recuento. Existen varias reglas relativas al espacio de direcciones de la red virtual, por lo que puede que desee consultar la página [Espacios de direcciones de la red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obtener más información. Es especialmente importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
+ - **Espacio de direcciones**: Agregue el intervalo de direcciones IP interno que desea usar para esta red virtual, incluida la dirección IP inicial y el recuento. Es importante seleccionar un intervalo que no se superponga a ninguno de los intervalos usados para la red local. Necesitará coordinarse con el administrador de red, quien es posible que necesite definir un intervalo de direcciones IP desde el espacio de direcciones de red local para el uso en la red virtual.
  - **Agregar subred**: No se necesitan subredes adicionales, pero puede que desee crear una subred independiente para las máquinas virtuales que tengan DIP estáticas. O bien, puede que desee que las máquinas virtuales se encuentren en una subred independiente de las demás instancias de rol.
  - **Agregar subred de puerta de enlace**: La subred de puerta de enlace es necesaria para una VPN de punto a sitio. Haga clic para agregar la subred de puerta de enlace. La subred de puerta de enlace solo se utiliza para la puerta de enlace de red virtual.
 1. Cuando se haya creado la red virtual, verá **Creada** bajo **Estado** en la página Redes del Portal de administración. Una vez creada la red virtual, puede crear la puerta de enlace de enrutamiento dinámico.
@@ -59,7 +59,7 @@ Una conexión de punto a sitio requiere una red virtual con una puerta de enlace
 Los certificados se utilizan para autenticar a los clientes VPN para VPN de punto a sitio. Este procedimiento consta de varios pasos. Utilice los vínculos siguientes para completar cada paso, por orden.
 
 1. [Generación de un certificado autofirmado raíz](#generate-a-self-signed-root-certificate): Actualmente solo se admiten certificados raíz autofirmados
-2. [Carga del archivo de certificado raíz en el Portal de administración](#upload-the-root-certificate-file-to-the-Management-Portal)
+2. [Carga del archivo de certificado raíz en el Portal de administración](#upload-the-root-certificate-file-to-the-management-portal)
 3. [Generación de un certificado de cliente](#generate-a-client-certificate)
 4. [Exportación e instalación del certificado de cliente](#export-and-install-the-client-certificate)
 
@@ -114,7 +114,7 @@ Para conectarse a la red virtual, también necesitará configurar el cliente VPN
  - Para los clientes de 32 bits, seleccione **Descargar el paquete de VPN de cliente de 32 bits**
  - Para los clientes de 64 bits, seleccione **Descargar el paquete de VPN de cliente de 64 bits**
 1. Su paquete de cliente puede tardar unos minutos en crearse. Una vez que se haya completado el paquete, podrá descargar el archivo. El archivo *.exe* que descargue se puede almacenar de forma segura en el equipo local.
-1. Después de generar y descargar el paquete de cliente VPN desde el Portal de administración, puede instalar el paquete de cliente en el equipo cliente desde el que desea conectar a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tiene instalado un certificado de cliente. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional.
+1. Después de generar y descargar el paquete de cliente VPN desde el Portal de administración, puede instalar el paquete de cliente en el equipo cliente desde el que desea conectar a la red virtual. Si planea instalar el paquete de cliente VPN en varios equipos cliente, asegúrese de que cada uno de ellos también tenga instalado un certificado de cliente. El paquete de cliente VPN contiene información de configuración para configurar el software de cliente VPN integrado en Windows. El paquete no instala software adicional.
 
 ### Instalación del paquete de configuración de VPN en el cliente e inicio de la conexión
 
@@ -147,16 +147,15 @@ Ejemplo:
 
 
 
-## Otras referencias
+## Pasos siguientes
 
 
-Puede obtener más información acerca de la conectividad de red virtual entre entornos en este artículo: [Sobre la conectividad segura entre locales de redes virtuales](https://msdn.microsoft.com/library/azure/dn133798.aspx)
+Puede obtener más información acerca de la conectividad de red virtual entre entornos en este artículo: [Sobre la conectividad segura entre entornos de redes virtuales](http://go.microsoft.com/fwlink/p/?LinkID=532884)
 
-Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración de una conexión VPN de sitio a sitio](vpn-gateway-site-to-site-create.md)
+Si desea configurar una conexión VPN de sitio a sitio, consulte [Configurar una red virtual con una conexión de puerta de enlace de VPN de sitio a sitio](vpn-gateway-site-to-site-create.md).
 
-Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md)
+Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una máquina virtual personalizada](../virtual-machines/virtual-machines-create-custom.md).
 
-Si desea configurar una conexión de red virtual mediante RRAS, consulte [Conexión VPN sitio a sitio en la Red virtual de Azure mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

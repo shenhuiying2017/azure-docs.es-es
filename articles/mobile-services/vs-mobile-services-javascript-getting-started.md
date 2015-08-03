@@ -84,7 +84,7 @@ Actualice una fila en la tabla de datos. En este ejemplo, todoItem es el element
 
 Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [Promise]() devuelto para obtener una copia del objeto insertado y abordar los errores.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@ Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [P
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -32,7 +32,7 @@ Para utilizar el Bus de servicio de Azure, descargue y use el paquete azure para
 
 ### Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 
-1.  Use la venta de comandos de **Windows PowerShell para Node.js** para navegar a la carpeta **c:\\node\\sbqueues\\WebRole1** en la que ha creado la aplicación de ejemplo.
+1.  Use la venta de comandos de **Windows PowerShell para Node.js** para navegar a la carpeta **c:\node\sbqueues\WebRole1** en la que ha creado la aplicación de ejemplo.
 
 2.  Escriba **npm install azure** en la ventana de comandos, cuyo resultado debe ser similar al siguiente:
 
@@ -190,4 +190,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
   [Aplicación web de Node.js con almacenamiento]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

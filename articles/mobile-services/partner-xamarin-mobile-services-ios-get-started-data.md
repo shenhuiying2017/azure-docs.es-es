@@ -242,4 +242,4 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

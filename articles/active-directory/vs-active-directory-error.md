@@ -97,4 +97,4 @@ Para cambiar el tipo de autenticación, quite el tipo de autenticación incompat
 Para obtener más información, consulte [Escenarios de autenticación en Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

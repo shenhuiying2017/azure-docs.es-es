@@ -74,7 +74,7 @@ Para ver estos eventos, abra [Buscar][diagnostic], abra Filtrar y luego elija Ev
 
 ![Obtener detalles](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
 
-### Cómo ver los datos de solicitud POST
+### Visualización de los datos de solicitud POST
 
 Los detalles de la solicitud no incluyen los datos enviados a la aplicación en una llamada a POST. Para que se notifiquen estos datos:
 
@@ -441,4 +441,4 @@ Agregue el atributo a las implementaciones de servicio:
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

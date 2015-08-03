@@ -94,4 +94,4 @@ Venga, pruébelo. Estos artículos le ayudarán a comenzar a usar RemoteApp:
 - [Preguntas más frecuentes sobre RemoteApp de Azure](remoteapp-faq.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

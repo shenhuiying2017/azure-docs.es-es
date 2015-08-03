@@ -293,4 +293,4 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [Establecer cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

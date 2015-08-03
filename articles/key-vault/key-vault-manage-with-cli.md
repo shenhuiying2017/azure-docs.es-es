@@ -4,8 +4,7 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="msmbaldwin"
-	manager="mbaldwin"
-	tags="azure-resource-manager"/>
+	manager="mbaldwin"tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -253,4 +252,4 @@ Ejemplo de cómo quitar un secreto específico:
 
 Para conocer las referencias de programación, consulte [API de REST del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx) y [Referencia de API de cliente de C# del Almacén de claves](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

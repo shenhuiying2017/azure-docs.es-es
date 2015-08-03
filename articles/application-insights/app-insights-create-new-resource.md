@@ -92,4 +92,4 @@ Puede escribir un [script de PowerShell](app-insights-powershell-script-create-r
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -61,4 +61,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

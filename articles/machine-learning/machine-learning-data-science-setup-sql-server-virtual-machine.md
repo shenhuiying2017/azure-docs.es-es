@@ -81,7 +81,7 @@ La galería de máquinas virtuales de Azure incluye varias imágenes que contien
     -   Ejecución (aprovisionamiento)
     -   Ejecución
 
-##<a name="RemoteDesktop"></a>Apertura la máquina virtual con Escritorio remoto y finalización de la configuración
+##<a name="RemoteDesktop">Apertura la máquina virtual con Escritorio remoto y finalización de la configuración</a>
 
 1.  Cuando se completa el aprovisionamiento, haga clic en el nombre de la máquina virtual para ir a la página PANEL. En la parte inferior de la página, haga clic en **Conectar**.
 
@@ -137,7 +137,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
     La primera vez que abra Management Studio se debe crear el entorno de Management Studio para los usuarios. Esta operación puede tardar unos minutos.
 
-2.  Cuando se abre, Management Studio presenta el cuadro de diálogo **Conectar al servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje ***su_nombre_de_MV*\\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
+2.  Cuando se abre, Management Studio presenta el cuadro de diálogo **Conectar al servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje ***su_nombre_de_MV*\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
 
     ![Conectar al servidor][6]
 
@@ -298,4 +298,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

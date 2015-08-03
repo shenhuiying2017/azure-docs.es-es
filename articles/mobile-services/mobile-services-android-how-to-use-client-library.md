@@ -928,4 +928,4 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 [Códigos de control ASCII C0 y C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

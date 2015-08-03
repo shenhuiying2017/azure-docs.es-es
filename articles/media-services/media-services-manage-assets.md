@@ -86,4 +86,4 @@ El siguiente fragmento de código elimina todos los recursos de la cuenta de Ser
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

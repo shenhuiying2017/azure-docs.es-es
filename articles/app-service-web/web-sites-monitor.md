@@ -132,7 +132,7 @@ Es posible seguir modificando los diagnósticos si agrega pares clave-valor a la
 
 - La ubicación en que se guardarán los registros de aplicaciones, en relación con la raíz web.
 
-- Valor predeterminado: ..\\..\\LogFiles\\Application
+- Valor predeterminado: ..\..\LogFiles\Application
 
 **DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
 
@@ -277,4 +277,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

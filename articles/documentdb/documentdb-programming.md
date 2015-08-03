@@ -91,7 +91,7 @@ Una vez que se registre el procedimiento almacenado, podemos ejecutarlo con la c
 		});
 
 
-El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de DocumentDB, así como acceso a los objetos de solicitud y respuesta. En este caso, hemos utilizado el objeto de respuesta para establecer el cuerpo de la respuesta que se ha devuelto al cliente. Para obtener más información, consulte la [documentación del SDK del lado del servidor JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).
+El objeto de contexto proporciona acceso a todas las operaciones que se pueden realizar en el almacenamiento de la Base de datos de documentos, así como acceso a los objetos de solicitud y respuesta. En este caso, hemos utilizado el objeto de respuesta para establecer el cuerpo de la respuesta que se ha devuelto al cliente. Para obtener más información, consulte la [documentación del SDK del lado del servidor JavaScript de DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/).
 
 Permítanos ampliar este ejemplo y agregar más funcionalidad relacionada con la base de datos al procedimiento almacenado. Los procedimientos almacenados pueden crear, actualizar, leer, consultar y eliminar documentos y datos adjuntos de la colección.
 
@@ -143,7 +143,7 @@ En el ejemplo anterior, la devolución de llamada lanza un error si falló la op
 	});
 
 	
-Tenga en cuenta que este procedimiento almacenado se puede modificar para tomar una matriz de cuerpos de documentos como la entrada y crearlos todos en la misma ejecución del procedimiento almacenado en lugar de en varias solicitudes de red para crear cada uno individualmente. Esto se puede utilizar para implementar un importador masivo eficiente para DocumentDB, algo que se tratará más adelante en este tutorial.
+Tenga en cuenta que este procedimiento almacenado se puede modificar para tomar una matriz de cuerpos de documentos como la entrada y crearlos todos en la misma ejecución del procedimiento almacenado en lugar de en varias solicitudes de red para crear cada uno individualmente. Esto se puede utilizar para implementar un importador masivo eficiente para la Base de datos de documentos, algo que se tratará más adelante en este tutorial.
 
 El ejemplo descrito ha demostrado cómo utilizar procedimientos almacenados. Más tarde trataremos los desencadenadores y las funciones definidas por el usuario (UDF) en el tutorial.
 
@@ -152,7 +152,7 @@ Una transacción en una base de datos típica se puede definir como una secuenci
 
 Brevemente, la atomicidad garantiza que todo el trabajo realizado dentro de una transacción se lea como una única unidad donde se confirma todo o nada. La Coherencia asegura que los datos se encuentran siempre en buen estado interno en todas las transacciones. El Aislamiento garantiza que dos transacciones no pueden interferir entre ellas; generalmente, la mayoría de los sistemas comerciales proporcionan varios niveles de aislamiento que se pueden utilizar según las necesidades de aplicación. La Durabilidad asegura que cualquier cambio que esté confirmado en la base de datos estará siempre presente.
 
-En DocumentDB, JavaScript está hospedado en el mismo espacio de memoria que la base de datos. Por lo tanto, las solicitudes realizadas dentro de los procedimientos almacenados y desencadenadores se ejecutan en el mismo ámbito de una sesión de base de datos. Esto permite a DocumentDB garantizar ACID para todas las operaciones que formen parte de un único procedimiento almacenado/desencadenador. Considere la siguiente definición de procedimiento almacenado:
+En la Base de datos de documentos, JavaScript está hospedado en el mismo espacio de memoria que la base de datos. Por lo tanto, las solicitudes realizadas dentro de los procedimientos almacenados y desencadenadores se ejecutan en el mismo ámbito de una sesión de base de datos. Esto permite a la Base de datos de documentos garantizar ACID para todas las operaciones que formen parte de un único procedimiento almacenado/desencadenador. Considere la siguiente definición de procedimiento almacenado:
 
 	// JavaScript source code
 	var exchangeItemsSproc = {
@@ -220,9 +220,9 @@ En DocumentDB, JavaScript está hospedado en el mismo espacio de memoria que la 
 Este procedimiento almacenado utiliza transacciones con una aplicación de juegos para intercambiar elementos entre dos jugadores en una única operación. El procedimiento almacenado intenta leer dos documentos, cada uno de ellos corresponde al identificador del jugador que se ha pasado como un argumento. Si se encuentran ambos documentos de jugador, entonces el procedimiento almacenado actualiza los documentos intercambiando sus elementos. Si se produce cualquier error durante el proceso, lanza una excepción de JavaScript que de forma implícita cancela la transacción.
 
 ### Confirmación y reversión
-Las transacciones están integradas de forma profunda y nativa en el modelo de programación de JavaScript de DocumentDB. Dentro de una función de JavaScript, todas las operaciones se ajustan automáticamente en una única transacción. Si el JavaScript se completa sin excepciones, se confirman las operaciones en la base de datos. De hecho, las instrucciones “BEGIN TRANSACTION” y “COMMIT TRANSACTION” en la base de datos relacional están implícitas en DocumentDB.
+Las transacciones están integradas de forma profunda y nativa en el modelo de programación de JavaScript de DocumentDB. Dentro de una función de JavaScript, todas las operaciones se ajustan automáticamente en una única transacción. Si el JavaScript se completa sin excepciones, se confirman las operaciones en la base de datos. De hecho, las instrucciones "COMENZAR TRANSACCIÓN" y "CONFIRMAR TRANSACCIÓN" en la base de datos relacional están implícitas en la Base de datos de documentos.
  
-Si existe cualquier excepción que se propague desde el script, el tiempo de ejecución de JavaScript de DocumentDB revertirá toda la transacción. Como se muestra en el ejemplo anterior, iniciar una excepción es un equivalente efectivo de “ROLLBACK TRANSACTION” en DocumentDB.
+Si existe cualquier excepción que se propague desde el script, el tiempo de ejecución de JavaScript de la Base de datos de documentos revertirá toda la transacción. Como se muestra en el ejemplo anterior, iniciar una excepción es un equivalente efectivo de “ROLLBACK TRANSACTION” en DocumentDB.
  
 ### Coherencia de datos
 Los procedimientos almacenados y los desencadenadores se ejecutan siempre en la réplica principal de la colección de DocumentDB. Esto garantiza que las lecturas desde dentro de los procedimientos almacenados ofrecen una fuerte coherencia. Las consultas que utilizan funciones definidas por el usuario se pueden ejecutar en la réplica principal o en cualquier réplica secundaria, pero nos aseguramos de cumplir con el nivel de coherencia solicitado seleccionando la réplica adecuada.
@@ -232,7 +232,7 @@ Todas las operaciones de DocumentDB se deben completar dentro de la duración de
 
 Con el fin de simplificar el desarrollo de los procedimientos almacenados y los desencadenadores para controlar los límites de tiempo, todas las funciones del objeto de colección (para crear, leer, reemplazar y eliminar documentos y datos adjuntos) devuelven un valor booleano que representa si se completará la operación. Si este valor es falso, es un indicador de que el límite de tiempo está a punto de cumplirse y de que el procedimiento debe concluir la ejecución. Se garantiza la finalización de las operaciones en cola anteriores a la primera operación de almacenamiento no aceptada si el procedimiento almacenado se completa a tiempo y no pone en cola más solicitudes.
 
-Las funciones de JavaScript también se vinculan al consumo de recursos. DocumentDB reserva la capacidad de proceso por colección en función del tamaño aprovisionado de una cuenta de base de datos. La capacidad de proceso se expresa en términos de una unidad de CPU normalizada, consumo de memoria y E/S llamadas unidades de solicitud o RU. Las funciones de JavaScript pueden utilizar potencialmente un gran número de RU en poco tiempo y podrían obtener una limitación de frecuencia si se alcanza el límite de la colección. Los procedimientos almacenados que utilizan muchos recursos también podrían ponerse en cuarentena para garantizar la disponibilidad de operaciones de base de datos primitivas.
+Las funciones de JavaScript también se vinculan al consumo de recursos. La Base de datos de documentos reserva la capacidad de proceso por colección en función del tamaño aprovisionado de una cuenta de base de datos. La capacidad de proceso se expresa en términos de una unidad de CPU normalizada, consumo de memoria y E/S llamadas unidades de solicitud o RU. Las funciones de JavaScript pueden utilizar potencialmente un gran número de RU en poco tiempo y podrían obtener una limitación de frecuencia si se alcanza el límite de la colección. Los procedimientos almacenados que utilizan muchos recursos también podrían ponerse en cuarentena para garantizar la disponibilidad de operaciones de base de datos primitivas.
 
 ### Ejemplo: importación masiva de datos
 A continuación se muestra un ejemplo de un procedimiento almacenado que se escribe en documentos de importación masiva de una colección. Observe cómo controla el procedimiento almacenado la ejecución vinculada comprobando el valor de devolución booleano de createDocument y, a continuación, utiliza el recuento de documentos insertados en cada invocación del procedimiento almacenado para realizar un seguimiento y reanudar el progreso en todos los lotes.
@@ -553,7 +553,7 @@ Y el siguiente ejemplo muestra cómo crear una función definida por el usuario 
 	}
 
 ## API de REST
-Todas las operaciones de DocumentDB se realizan de forma RESTful. Los procedimientos almacenados, desencadenadores y funciones definidas por el usuario se pueden registrar en una colección mediante POST HTTP. El siguiente es un ejemplo de cómo registrar un procedimiento almacenado:
+Todas las operaciones de la Base de datos de documentos se realizan de forma RESTful. Los procedimientos almacenados, desencadenadores y funciones definidas por el usuario se pueden registrar en una colección mediante POST HTTP. El siguiente es un ejemplo de cómo registrar un procedimiento almacenado:
 
 	POST https://<url>/sprocs/ HTTP/1.1
 	authorization: <<auth>>
@@ -641,4 +641,4 @@ También puede encontrar útiles las siguientes referencias y recursos en su rut
 -	[Arquitectura de base de datos orientada a servicios](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Hospedaje de runtime de .NET en Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

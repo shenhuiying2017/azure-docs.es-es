@@ -352,7 +352,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 
 > [AZURE.NOTE]Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar para una base de datos SQL de Azure o para SQL Server. Estos pasos se probaron con la siguiente configuración:
 >
-> * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte[ Configuración de una VPN de punto a sitio en el Portal de administración](http://msdn.microsoft.com/library/azure/dn133792.aspx).
+> * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte[ Configuración de una VPN de punto a sitio en el Portal de administración](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 > * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight usando opciones personalizadas](hdinsight-provision-clusters.md) para obtener información sobre la creación de un clúster en una red virtual.
 > * **SQL Server 2014**: configurado para permitir la autenticación y la ejecución del paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
 
@@ -405,7 +405,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Tenga en cuenta el delimitador de campo es**\\0x20**, que equivale a un espacio. El delimitador se define en el script de Azure PowerShell de archivo sample.log. Para obtener información sobre el valor**-m 1**, consulte el [manual del usuario de Sqoop (en inglés)][sqoop-user-guide-1.4.4].
+	Tenga en cuenta el delimitador de campo es**\0x20**, que equivale a un espacio. El delimitador se define en el script de Azure PowerShell de archivo sample.log. Para obtener información sobre el valor**-m 1**, consulte el [manual del usuario de Sqoop (en inglés)][sqoop-user-guide-1.4.4].
 
 5. Haga clic en **Ejecutar script** o presione **F5** para ejecutar el script.
 6. Use el [Portal de Azure][azure-management-portal] para examinar los datos exportados.
@@ -645,4 +645,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

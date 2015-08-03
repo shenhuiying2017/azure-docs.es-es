@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/21/2015"
 	ms.author="evanhi"/>
 
 # Paneles de Visión operativa
@@ -75,4 +75,4 @@ Para organizar el panel, navegue a la vista Mi panel y haga clic en el engranaje
 ## Quitar un mosaico
 Para quitar un mosaico, navegue a la vista Mi panel y haga clic en el engranaje **personalizar** en la parte inferior de la página para entrar en el modo personalizar. Seleccione el mosaico que quiere quitar y, luego, en el panel derecho, seleccione **Quitar mosaico**. ![Quitar un mosaico](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -176,7 +176,7 @@ En el siguiente fragmento de un archivo Web.config de la raíz de una aplicació
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -219,4 +219,4 @@ La unión y minificación los puede controlar ASP.NET. En un proyecto MVC, las u
 + [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](cdn-cloud-service-with-cdn.md)
 + [Prácticas recomendadas para la Red de entrega de contenido de Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

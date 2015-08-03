@@ -77,7 +77,7 @@ Cada clúster de Storm en HDInsight también ofrece un panel de Storm basado en 
 
 Para obtener más información sobre el uso del panel Storm, consulte [Implementación y administración de topologías de Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm en HDInsight también proporciona una integración sencilla con los Centros de eventos de Azure a través del **Spout de Centro de eventos**. Está disponible en cada clúster de storm en **%STORM_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para ver ejemplos del uso de este spout en una topología de Storm, consulte [Introducción a los Centros de eventos](service-bus-event-hubs-c-storm-getstarted.MD) y [Análisis de datos de sensores con Storm y HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm en HDInsight también proporciona una integración sencilla con los Centros de eventos de Azure a través del **Spout de Centro de eventos**. Está disponible en cada clúster de storm en **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para ver ejemplos del uso de este spout en una topología de Storm, consulte [Introducción a los Centros de eventos](service-bus-event-hubs-c-storm-getstarted.MD) y [Análisis de datos de sensores con Storm y HBase](hdinsight-storm-sensor-data-analysis.MD).
 
 ###Confiabilidad
 
@@ -156,7 +156,7 @@ La mayoría de ejemplos de Java que encuentre serán de Java normal o Trident. T
 
 Para obtener más información sobre Trident, consulte el [Tutorial de Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) en apache.org.
 
-Para obtener ejemplos de topologías de Java y Trident sin procesar, consulte el directorio **%storm_home%\\contrib\\storm-starter** en su clúster de Storm en HDInsight.
+Para obtener ejemplos de topologías de Java y Trident sin procesar, consulte el directorio **%storm_home%\contrib\storm-starter** en su clúster de Storm en HDInsight.
 
 ##¿Cuáles son algunos de los patrones de desarrollo comunes?
 
@@ -209,4 +209,4 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -4,6 +4,7 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,10 +76,10 @@ Si tiene un servidor de base de datos, úselo para crear una nueva base de datos
 ### Establecimiento del encabezado y pie de página
 
 
-1. En el **Explorador de soluciones**, expanda la carpeta *Views\\Shared* y abra el archivo *_Layout.cshtml*. 
+1. En el **Explorador de soluciones**, expanda la carpeta *Views\Shared* y abra el archivo *_Layout.cshtml*. 
 	![_Layout.cshtml in Solution Explorer][newapp004]
 
-1. Reemplace el contenido del archivo *Views\\Shared_Layout.cshtml* por el código siguiente:
+1. Reemplace el contenido del archivo *Views\Shared_Layout.cshtml* por el código siguiente:
 
 
 		<!DOCTYPE html>
@@ -235,7 +236,7 @@ La siguiente tarea consiste en habilitar la característica [Migraciones de Code
 
 	En la clase **Initial**, el método **Up** crea la tabla Contacts y el método **Down** (que se utiliza cuando se desea volver al estado anterior) la anula.
 
-3. Abra el archivo *Migrations\\Configuration.cs*.
+3. Abra el archivo *Migrations\Configuration.cs*.
 
 4. Agregue los siguientes espacios de nombres.
 
@@ -318,7 +319,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 ## Edición de la vista
 
-1. Abra el archivo *Views\\Home\\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
+1. Abra el archivo *Views\Home\Index.cshtml*. En el paso siguiente, reemplazaremos la revisión generada por código que usa [jQuery](http://jquery.com/) y [Knockout.js](http://knockoutjs.com/). Este nuevo código recupera la lista de contactos con la utilización de web API y JSON y, a continuación, enlaza los datos de contacto con la UI mediante knockout.js. Consulte la sección [Pasos siguientes](#nextsteps) al final de este tutorial. 
 
 
 2. Reemplace el contenido del archivo por el código siguiente.
@@ -475,7 +476,7 @@ La aplicación muestra los datos de inicialización y ofrece enlaces de edición
 
 	Utilizaremos la hoja de estilos para el diseño, los colores y el estilo utilizados en la aplicación del administrador de contactos.
 
-6. Abra el archivo *App_Start\\BundleConfig.cs*.
+6. Abra el archivo *App_Start\BundleConfig.cs*.
 
 
 7. Agregue el código siguiente para registrar el complemento [Knockout](http://knockoutjs.com/index.html "KO").
@@ -628,7 +629,7 @@ Para obtener más información, consulte [Proyecto de seguridad de aplicación w
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. Actualice la sección *Scripts* del archivo *Views\\Home\\Index.cshtml* para incluir código y obtener los tokens de XSRF.
+1. Actualice la sección *Scripts* del archivo *Views\Home\Index.cshtml* para incluir código y obtener los tokens de XSRF.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -809,4 +810,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

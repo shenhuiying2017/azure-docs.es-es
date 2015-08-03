@@ -93,4 +93,4 @@ Elimine una fila en la tabla de datos utilizando el método **del**. Llame al m�
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

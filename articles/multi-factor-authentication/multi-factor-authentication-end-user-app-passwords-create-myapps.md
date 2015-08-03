@@ -39,4 +39,4 @@ Si no usa la autenticación multifactor con Office 365 ni tiene una suscripción
 <li>Escriba un nombre para la contraseña de aplicación y haga clic en **Siguiente**</li>
 <li>Copie la contraseña de aplicación en el Portapapeles y péguela en la aplicación.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

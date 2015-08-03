@@ -192,4 +192,4 @@ Además de los requisitos de redes anteriores, para obtener un rendimiento ópti
 - [Implementar la solución StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

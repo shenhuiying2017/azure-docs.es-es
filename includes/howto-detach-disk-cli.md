@@ -1,5 +1,4 @@
 
-
 #Desacoplamiento de un disco de datos de una máquina virtual con la interfaz de la línea de comandos
 
 Cuando ya no necesite un disco de datos conectado a una máquina virtual, podrá desacoplarlo fácilmente. Esto quita el disco de la máquina virtual, pero no lo quita del almacenamiento. Si desea volver a usar los datos existentes en el disco, puede acoplarlo de nuevo a la misma máquina virtual (o a otra).
@@ -49,4 +48,4 @@ Tutorial de ejemplo, incluida la salida de terminal:
     data:    1    5         kmlinux-f8ef0006ab182209.vhd
     info:    vm disk list command OK
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

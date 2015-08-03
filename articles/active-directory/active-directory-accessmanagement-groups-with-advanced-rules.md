@@ -124,7 +124,7 @@ Operadores permitidos
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Cualquier valor de cadena o $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Cualquier valor de cadena o $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "es-es") |
 | sipProxyAddress | Cualquier valor de cadena o $null. | (user.sipProxyAddress -eq "value") |
 | state | Cualquier valor de cadena o $null. | (user.state -eq "value") |
 | streetAddress | Cualquier valor de cadena o $null. | (user.streetAddress -eq "value") |
@@ -158,4 +158,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

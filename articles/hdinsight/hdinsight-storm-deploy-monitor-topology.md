@@ -178,4 +178,4 @@ Para obtener una lista con más topologías de ejemplo, consulte [Topologías de
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

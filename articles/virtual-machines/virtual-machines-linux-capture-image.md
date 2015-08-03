@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,30 +14,30 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/16/2015"
 	ms.author="dkshir"/>
 
 
-# Captura de una máquina virtual de Linux para usar como plantilla##
+# Captura de una máquina virtual de Linux para usar como plantilla
 
-En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Linux para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla de máquina virtual incluye el disco del sistema operativo y cualquier otro disco de datos conectado a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
+En este artículo se muestra cómo puede capturar una máquina virtual de Azure con Linux para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla incluye el disco del sistema operativo y cualquier otro disco de datos conectado a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
 
-Azure trata esta plantilla como una imagen y la almacena en **Mis imágenes**. Aquí también están almacenadas todas las imágenes que ha cargado. Para obtener más información sobre las imágenes, consulte [Acerca de las imágenes de máquina virtual en Azure][].
+Azure trata esta plantilla como una imagen y la almacena en **Imágenes**. Aquí también están almacenadas todas las imágenes que ha cargado. Para obtener más información sobre las imágenes, consulte [Acerca de las imágenes de máquina virtual en Azure][].
 
-##Antes de empezar##
+## Antes de empezar
 
 Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y ha configurado el sistema operativo, incluida la anexión de cualquier disco de datos. Si no ha realizado esto todavía, siga estas instrucciones:
 
-- [Creación de una máquina virtual personalizada][]
-- [Acoplamiento de un disco de datos a una máquina virtual][]
+- [Creación de una máquina virtual que ejecuta Linux][]
 
-##Capture la máquina virtual##
 
-1. Establezca conexión con la máquina virtual y haga clic en **Conectar** en la barra de comandos. Para obtener los detalles, consulte [Inicio de sesión en una máquina virtual con Linux][].
+## Capture la máquina virtual
+
+1. Conéctese a la máquina virtual mediante un cliente SSH de su elección. Para obtener los detalles, consulte [Inicio de sesión en una máquina virtual con Linux][].
 
 2. En la ventana SSH, escriba el siguiente comando. Tenga en cuenta que el resultado de `waagent` puede variar ligeramente según la versión de esta utilidad:
 
-	`$ sudo waagent -deprovision+user`
+	`sudo waagent -deprovision`
 
 	Este comando intentará limpiar el sistema y dejarlo adecuado para un reaprovisionamiento. Esta operación ejecuta las siguientes tareas:
 
@@ -47,45 +48,53 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 	- Restablece el nombre de host a localhost.localdomain
 	- Elimina la última cuenta de usuario aprovisionada (obtenida desde /var/lib/waagent) **y los datos asociados**.
 
-	![Desaprovisionamiento de la máquina virtual](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
-
-	>[AZURE.NOTE]El desaprovisionando elimina los archivos y datos en un esfuerzo por "generalizar" la imagen. Solo puede ejecutar este comando en máquinas virtuales que desee capturar como nueva plantilla de imagen.
+	>[AZURE.NOTE]El desaprovisionando elimina los archivos y datos en un esfuerzo por "generalizar" la imagen. Solo puede ejecutar este comando en máquinas virtuales que desee capturar como nueva plantilla de imagen. No garantiza que se haya borrado toda información sensible de la imagen o que sea adecuada para su redistribución a terceros.
 
 
-3. Escriba **y** para continuar.
-
-	![Desaprovisionamiento correcto de la máquina virtual](./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png)
-
-	**Tenga en cuenta** que puede agregar el parámetro `-force` para evitar este paso de confirmación.
-
-	>[AZURE.NOTE]El desaprovisionamiento solo generaliza la imagen de Linux pero no garantiza que se haya borrado toda información sensible de la imagen y que sea adecuada para su redistribución a terceros.
-
+3. Escriba **y** para continuar. Puede agregar el parámetro `-force` para evitar este paso de confirmación.
 
 4. Escriba **Salir** para cerrar el cliente SSH.
 
-5. En el [Portal de administración](http://manage.windowsazure.com), seleccione la máquina virtual y después haga clic en **Apagar**.
 
-6. Cuando la máquina virtual se detenga, en la barra de comandos haga clic en **Capturar** para abrir el cuadro de diálogo **Capturar la máquina virtual**.
+	>[AZURE.NOTE]En los siguientes pasos se supone que ya ha [instalado la CLI de Azure](../xplat-cli-install.md) en el equipo cliente. Los pasos siguientes también pueden realizarse en el [Portal de administración][].
 
-7.	En **Nombre de la imagen**, escriba un nombre para la nueva imagen.
+5. Desde el equipo cliente, abra la CLI de Azure e inicie sesión en su suscripción de Azure. Para obtener más información, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
 
-8.	Es necesario *desaprovisionar* todas las imágenes de Linux mediante la ejecución del comando `waagent` con la opción `-deprovision`. Haga clic en **He ejecutado waagent-deprovision en la máquina virtual** para indicar que el sistema operativo está preparado para ser una imagen.
+6. Asegúrese de que está en modo de administración de servicios:
 
-9.	Haga clic en la marca de verificación para capturar la imagen.
+	`azure config mode asm`
 
-	La nueva imagen ahora está disponible en **Imágenes**. La máquina virtual se elimina una vez capturada la imagen.
+7. Apague la máquina virtual que ya está desaprovisionada en los pasos anteriores mediante:
+
+	`azure vm shutdown <your-virtual-machine-name>`
+
+	>[AZURE.NOTE]Puede encontrar todas las máquinas virtuales creadas en su mediante `azure vm list`
+
+8. Cuando se detenga la máquina virtual, capture la imagen con el comando:
+
+	`azure vm capture -t <your-virtual-machine-name> <new-image-name>`
+
+	Escriba el nombre de la imagen que desee en lugar de _nuevo-nombre-imagen_. Este comando crea una imagen de sistema operativo generalizada. El subcomando `-t` elimina la máquina virtual original.
+
+9.	La nueva imagen ahora está disponible en la lista de imágenes que pueden usarse para configurar nuevas máquinas virtuales. Puede visualizarla mediante el comando:
+
+	`azure vm image list`
+
+	En el [Portal de administración][], aparecerá en la lista **IMÁGENES**.
 
 	![Captura correcta de la imagen](./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png)
 
 
-##Pasos siguientes##
-La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Para ello, cree una máquina virtual personalizada con el método **Desde la galería** y seleccione la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
+## Pasos siguientes
+La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Puede usar el comando de la CLI de Azure `azure vm create` y proporcionar el nombre de la imagen que acaba de crear. Consulte [Uso de la CLI de Azure con la administración de servicios](virtual-machines-command-line-tools.md) para obtener más información acerca del comando. Como alternativa, puede usar el [Portal de administración][] para crear una máquina virtual personalizada mediante el método **Desde la galería** y seleccionar la imagen que acaba de crear. Consulte [Creación de una máquina virtual personalizada][] para obtener más detalles.
 
 **Consulte también:**[Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
+[Portal de administración]: http://manage.windowsazure.com
 [Inicio de sesión en una máquina virtual con Linux]: virtual-machines-linux-how-to-log-on.md
 [Acerca de las imágenes de máquina virtual en Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Creación de una máquina virtual personalizada]: virtual-machines-create-custom.md
-[Acoplamiento de un disco de datos a una máquina virtual]: storage-windows-attach-disk.md
+[How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
+[Creación de una máquina virtual que ejecuta Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

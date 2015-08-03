@@ -112,4 +112,4 @@ La capacidad de los invitados para ver información limitada de un usuario o gru
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

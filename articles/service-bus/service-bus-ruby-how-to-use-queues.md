@@ -109,7 +109,7 @@ También puede pasar un objeto **Azure::ServiceBus::Queue** con opciones adicion
 
 ## Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola del Bus de servicio, la aplicación llamará al método **send_queue_message()** en el objeto **Azure::ServiceBusService**. Los mensajes enviados a las colas del Bus de servicio (y recibidos de ellas) son objetos **Azure::ServiceBus::BrokeredMessage**, y tienen un conjunto de propiedades estándar (como **label** y **time\\to\\live**), un diccionario que se usa para mantener las propiedades específicas de la aplicación personalizadas y un conjunto de datos arbitrarios de la aplicación. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena como mensaje, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
+Para enviar un mensaje a una cola del Bus de servicio, la aplicación llamará al método **send_queue_message()** en el objeto **Azure::ServiceBusService**. Los mensajes enviados a las colas del Bus de servicio (y recibidos de ellas) son objetos **Azure::ServiceBus::BrokeredMessage**, y tienen un conjunto de propiedades estándar (como **label** y **time\to\live**), un diccionario que se usa para mantener las propiedades específicas de la aplicación personalizadas y un conjunto de datos arbitrarios de la aplicación. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena como mensaje, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
 
 El ejemplo siguiente demuestra cómo enviar un mensaje de prueba a la cola llamada "test-queue" usando **send_queue_message()**:
 
@@ -152,4 +152,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v�
 Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas del Bus de servicio de Azure: comparación y diferencias](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

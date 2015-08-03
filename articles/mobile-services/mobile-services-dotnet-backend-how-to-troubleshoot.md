@@ -154,4 +154,4 @@ Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

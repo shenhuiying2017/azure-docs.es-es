@@ -60,7 +60,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Antes de crear un circuito, necesitará una lista de proveedores de servicios, ubicaciones admitidas y opciones de ancho de banda para cada ubicación. El siguiente cmdlet de PowerShell devuelve esta información, que usará en pasos posteriores.
 
-    	PS C:> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 
 
@@ -117,7 +117,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Puede recuperar esta información en cualquier momento con el cmdlet Get-AzureCircuit. Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos. La clave de servicio se mostrará en el campo ServiceKey.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -136,7 +136,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Esto le permitirá saber cuándo el proveedor ha habilitado el circuito. Una vez habilitado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Aprovisionado*, tal como se muestra en el ejemplo siguiente.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -170,7 +170,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	La respuesta siguiente le proporcionará la información que necesitará para los pasos siguientes. Use el ASN del mismo nivel para configurar BGP en los enrutamientos y reenvíos (VRF) del enrutador.
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -205,7 +205,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	La respuesta siguiente le proporcionará la información que necesitará para los pasos siguientes. Use el ASN del mismo nivel para configurar BGP en los enrutamientos y reenvíos (VRF) del enrutador.
 
-		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -224,8 +224,8 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 	- ServiceProviderProvisioningState: aprovisionado
 	- Estado: habilitado
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,6 +3,7 @@
     pageTitle="Información de tamaño para una red virtual de RemoteApp"
     description="Obtenga información acerca de los requisitos de direcciones IP de RemoteApp cuando se ejecuta con una red virtual." 
     services="remoteapp" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -24,4 +25,4 @@ Al usar RemoteApp con una red virtual (VNET), RemoteApp utiliza direcciones IP d
 Para cada colección de RemoteApp que desee ejecutar a su capacidad máxima, debe tener 100 direcciones IP disponibles. Por ejemplo, si tiene una colección de RemoteApp en el plan Estándar y desea tener como máximo 500 usuarios, debe tener 100 direcciones IP para esa colección. Del mismo modo, necesita 100 direcciones IP para una colección de RemoteApp en el plan Básico que tenga 800 usuarios. Si planea tener una cantidad inferior de usuarios (por debajo del valor máximo), puede reducir las direcciones IP que se necesitan por colección. El requisito de tamaño mínimo de subred es de 30 direcciones IP (/27).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

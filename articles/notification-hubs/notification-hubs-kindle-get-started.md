@@ -281,4 +281,4 @@ Para enviar un mensaje con .NET:
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -395,4 +395,4 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -105,4 +105,4 @@ Cuando se crea un runbook, debe asegurarse de que el tiempo para ejecutar las ac
 - [Visualización del estado de un trabajo de runbook en Automatización de Azure](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

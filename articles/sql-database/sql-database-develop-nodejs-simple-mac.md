@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -125,7 +125,7 @@ Todas las instrucciones SQL se ejecutan utilizando la función [new Request()](h
 ## Inserción de filas, aplicación de parámetros y recuperación de la clave principal generada
 
 
-En la base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los valores de [clave principal](https://msdn.microsoft.com/library/ms179610.aspx). En este ejemplo se muestra cómo ejecutar la instrucción insert-statement, mediante el paso seguro de parámetros que ofrecen protección frente a la inyección SQL, y recuperar el valor de clave principal generado automáticamente.
+En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los [valores de clave principal](https://msdn.microsoft.com/library/ms179610.aspx). En este ejemplo se muestra cómo ejecutar la instrucción insert-statement, mediante el paso seguro de parámetros que ofrecen protección frente a la inyección SQL, y recuperar el valor de clave principal generado automáticamente.
 
 
 El ejemplo de código que se muestra en esta sección aplica parámetros a una instrucción SQL INSERT. El programa recupera el valor de clave principal generado.
@@ -170,4 +170,4 @@ El ejemplo de código que se muestra en esta sección aplica parámetros a una i
 		connection.execSql(request);
 	}
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

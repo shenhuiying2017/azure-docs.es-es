@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/17/2015" 
 	ms.author="patshea123"/>
 
-# Introducción a Almacenamiento de Azure (proyectos ASP.NET vNext)
+# Introducción a Almacenamiento de Azure (proyectos ASP.NET 5)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet5-getting-started-tables.md)
@@ -27,45 +27,65 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales. Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md/#create-table "Uso del almacenamiento de tablas en .NET").
+##Información general
 
-Para obtener acceso mediante programación a las tablas en los proyectos ASP.NET 5, deberá agregar los elementos siguientes, si no están presentes aún.
+El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
-1. Agregue la siguiente declaración de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al Almacenamiento de Azure mediante programación.
+En este artículo se describe cómo empezar a usar almacenamiento en tablas de Azure en Visual Studio después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET 5 mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio.
 
+La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso a almacenamiento de Azure en su proyecto y agrega la cadena de conexión para la cuenta de almacenamiento para los archivos de configuración del proyecto.
+
+Para obtener más información general acerca del uso del almacenamiento en tablas de Azure, consulte [Cómo usar el almacenamiento en tablas de .NET](storage-dotnet-how-to-use-tables.md).
+
+Para comenzar, necesita crear una tabla en su cuenta de almacenamiento. Le mostraremos cómo crear una tabla de Azure desde el **Explorador de servidores** de Visual Studio. Si lo prefiere, también le mostraremos cómo crear una tabla en el código.
+
+También le mostraremos cómo realizar operaciones básicas de tabla y de entidad, como agregar, modificar, leer y leer entidades de tabla. Los ejemplos están escritos en código C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET.
+
+**NOTA:** Algunas de las API que realizan llamadas a Almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
+
+##Crear tablas de almacenamiento de Azure en el Explorador de servidores de Visual Studio
+
+[AZURE.INCLUDE [vs-create-table-in-server-explorer](../../includes/vs-create-table-in-server-explorer.md)]
+
+##**Acceso a tablas en código** 
+
+Para obtener acceso a las tablas en los proyectos ASP.NET 5, deberá incluir los elementos siguientes en los archivos de origen C# que acceden al almacenamiento de tablas de Azure.
+
+1. Asegúrese de que las declaraciones de espacio de nombres de la parte superior del archivo C# incluyen estas instrucciones `using`.
+
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Table;
-		using Microsoft.Framework.Configuration;
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Utilice el comando siguiente para obtener los valores de configuración.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
-		IConfigurationSourceRoot config = new Configuration()
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
+		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-#####Obtención de la cadena de conexión de almacenamiento
-Antes de que haga nada con una tabla, debe obtener la cadena de conexión de la cuenta de almacenamiento en la cual están las tablas. Puede utilizar el tipo **CloudStorageAccount** para representar la información de la cuenta de almacenamiento. Si está utilizando un proyecto ASP.NET vNext, puede llamar al método get del objeto Configuration para obtener la información de la cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure, como se muestra en el código siguiente.
+    **NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
 
-**NOTA:** las API que realizan llamadas a Almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
 
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
+3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de la tabla de su cuenta de almacenamiento.
 
-#####Creación de una tabla
-Los objetos **CloudTableClient** le permiten obtener objetos de referencia para tablas y entidades. El código siguiente crea un objeto **CloudTableClient** y lo usa para crear una nueva tabla. El código intenta hacer referencia a una tabla denominada “people”. Si no encuentra ninguna tabla con ese nombre, la crea.
+	    // Create the table client.
+    	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-**NOTA**: en todo el código de esta guía se asume que la aplicación que se está desarrollando es un proyecto del Servicio en la nube de Azure y se usa una cadena de conexión de almacenamiento guardada en la configuración del servicio de la aplicación de Azure. Además, utilice todo este código delante del código en las secciones siguientes.
-
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+4. Obtenga un objeto de referencia **CloudTable** para hacer referencia a una tabla y a entidades específicas.
 	
-	// Create the table if it doesn't exist.
-	CloudTable table = tableClient.GetTableReference("people");
+    	// Get a reference to a table named "peopleTable"
+	    CloudTable table = tableClient.GetTableReference("peopleTable");
+
+###Crear una tabla en el código
+
+Para crear la tabla de Azure en código en lugar de hacerlo con el **Explorador de servidores** de Visual Studio, simplemente agregue una llamada a `CreateIfNotExistsAsync()`.
+
+	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
 
-#####Adición de una entidad a una tabla
+##Adición de una entidad a una tabla
+
 Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad llamada **CustomerEntity** que usa el nombre del cliente como clave de fila y el apellido como clave de partición.
 
 	public class CustomerEntity : TableEntity
@@ -83,7 +103,9 @@ Para agregar una entidad a una tabla, cree una clase que defina las propiedades 
 	    public string PhoneNumber { get; set; }
 	}
 
-Las operaciones de tablas que afectan a las entidades se realizan con el objeto **CloudTable** que se creó anteriormente en el apartado "Creación de una tabla". El objeto **TableOperation** representa la operación que se va a realizar. En el ejemplo de código siguiente se muestra cómo crear un objeto **CloudTable** y un objeto **CustomerEntity**. Para preparar la operación, se crea un objeto **TableOperation** para insertar la entidad de cliente en la tabla. Por último, la operación se ejecuta llamando a CloudTable.ExecuteAsync.
+Las operaciones de tablas que afectan a las entidades se realizan con el objeto **CloudTable** que se creó anteriormente en el apartado "Acceso a tablas en código". El objeto **TableOperation** representa la operación que se va a realizar. En el ejemplo de código siguiente se muestra cómo crear un objeto **CloudTable** y un objeto **CustomerEntity**. Para preparar la operación, se crea un objeto **TableOperation** para insertar la entidad de cliente en la tabla. Por último, la operación se ejecuta llamando a CloudTable.ExecuteAsync.
+
+	// Get a reference to the **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 
 	// Create a new customer entity.
 	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -94,13 +116,13 @@ Las operaciones de tablas que afectan a las entidades se realizan con el objeto 
 	TableOperation insertOperation = TableOperation.Insert(customer1);
 	
 	// Execute the insert operation.
-	await table.ExecuteAsync(insertOperation);
+	await peopleTable.ExecuteAsync(insertOperation);
 
-#####Inserción de un lote de entidades
+##Inserción de un lote de entidades
+
 Puede insertar varias entidades en una tabla mediante una única operación de escritura. En el ejemplo de código siguiente se crean dos objetos de entidad ("Jeff Smith" y "Ben Smith") que se agregan a un objeto **TableBatchOperation** mediante el método Insert y, a continuación, se inicia la operación llamando a CloudTable.ExecuteBatchAsync.
 
-	// Create the CloudTable object that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
 	// Create the batch operation.
 	TableBatchOperation batchOperation = new TableBatchOperation();
@@ -120,10 +142,12 @@ Puede insertar varias entidades en una tabla mediante una única operación de e
 	batchOperation.Insert(customer2);
 	
 	// Execute the batch operation.
-	await table.ExecuteBatchAsync(batchOperation);
+	await peopleTable.ExecuteBatchAsync(batchOperation);
 
-#####Obtención de todas las entidades en una partición
+##Obtención de todas las entidades en una partición
 Para consultar una tabla a fin de obtener todas las entidades de una partición, use un objeto **TableQuery**. El ejemplo de código siguiente especifica un filtro para las entidades en las que “Smith” es la clave de partición. En este ejemplo, los campos de cada entidad se imprimen en la consola, como parte de los resultados de la consulta.
+
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
@@ -132,7 +156,7 @@ Para consultar una tabla a fin de obtener todas las entidades de una partición,
     TableContinuationToken token = null;
     do
     {
-    	TableQuerySegment<CustomerEntity> resultSegment = await table.ExecuteQuerySegmentedAsync(query, token);
+    	TableQuerySegment<CustomerEntity> resultSegment = await peopleTable.ExecuteQuerySegmentedAsync(query, token);
 		token = resultSegment.ContinuationToken;
 
 		foreach (CustomerEntity entity in resultSegment.Results)
@@ -145,17 +169,16 @@ Para consultar una tabla a fin de obtener todas las entidades de una partición,
     return View();
 
 
-#####Obtención de una sola entidad
+##Obtención de una sola entidad
 Puede escribir una consulta para obtener una sola entidad concreta. El código siguiente utiliza un objeto **TableOperation** para especificar el cliente llamado "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor devuelto en TableResult.Result es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio **Tabla** es especificar claves tanto de partición como de fila en las consultas.
 
-	// Create the CloudTable object that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
 	// Create a retrieve operation that takes a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 	
 	// Execute the retrieve operation.
-	TableResult retrievedResult = await table.ExecuteAsync(retrieveOperation);
+	TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 	
 	// Print the phone number of the result.
 	if (retrievedResult.Result != null)
@@ -163,17 +186,16 @@ Puede escribir una consulta para obtener una sola entidad concreta. El código s
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-#####Eliminación de una entidad
+##Eliminación de una entidad
 Puede eliminar fácilmente una entidad después de haberla encontrado. El código siguiente busca una entidad de cliente denominada "Ben Smith" y, si la encuentra, la elimina.
 
-	// Create the CloudTable that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
 	// Create a retrieve operation that expects a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 	
 	// Execute the operation.
-	TableResult retrievedResult = table.Execute(retrieveOperation);
+	TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
 	
 	// Assign the result to a CustomerEntity object.
 	CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
@@ -184,7 +206,7 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 	   TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 	
 	   // Execute the operation.
-	   await table.ExecuteAsync(deleteOperation);
+	   await peopleTable.ExecuteAsync(deleteOperation);
 	
 	   Console.WriteLine("Entity deleted.");
 	}
@@ -192,7 +214,13 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
+##Pasos siguientes
+
+[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+
+
+
 [Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

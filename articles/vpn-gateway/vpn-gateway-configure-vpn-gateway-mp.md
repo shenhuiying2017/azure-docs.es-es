@@ -17,7 +17,7 @@
 
 # Configuración de una puerta de enlace de red virtual en el Portal de administración
 
-Si desea crear una conexión segura entre entornos Azure y la ubicación local, necesita configurar una puerta de enlace de red virtual. Hay diferentes tipos de puertas de enlace y el tipo de puerta de enlace que se va a crear depende tanto del plan de diseño de la red y el dispositivo VPN local que desee utilizar. Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si desea configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar el sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace. Además, tendrá que asegurarse de que el dispositivo que desea utilizar para la conexión de sitio a sitio será compatible con el tipo de puerta de enlace que se va a crear. Consulte [Información acerca de las puertas de enlace](http://go.microsoft.com/fwlink/p/?LinkID=615098).
+Si desea crear una conexión segura entre entornos Azure y la ubicación local, necesita configurar una puerta de enlace de red virtual. Hay diferentes tipos de puertas de enlace y el tipo de puerta de enlace que se va a crear depende tanto del plan de diseño de la red y el dispositivo VPN local que desee utilizar. Por ejemplo, algunas opciones de conectividad, como una conexión punto a sitio, requieren una puerta de enlace de enrutamiento dinámico. Si desea configurar la puerta de enlace para admitir conexiones punto a sitio (P2S) y una conexión de sitio a sitio (S2S), tendrá que configurar una puerta de enlace de enrutamiento dinámico, aunque se puede configurar el sitio a sitio con cualquier tipo de enrutamiento de puerta de enlace. Además, tendrá que asegurarse de que el dispositivo que desea utilizar para la conexión de sitio a sitio será compatible con el tipo de puerta de enlace que se va a crear. Consulte [Información acerca de las puertas de enlace de VPN](vpn-gateway-about-vpngateways.md).
 
 ## Información general sobre la configuración
 
@@ -149,4 +149,4 @@ Si desea configurar una conexión VPN de sitio a sitio, consulte [Configuración
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

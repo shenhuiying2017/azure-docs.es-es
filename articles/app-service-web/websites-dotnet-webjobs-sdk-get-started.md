@@ -145,11 +145,9 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 	La cadena de conexión de almacenamiento es un ejemplo que tiene marcadores de posición para la clave de acceso y el nombre de la cuenta de almacenamiento. Se sustituirá por una cadena de conexión con el nombre y la clave de su cuenta de almacenamiento.
 
 	<pre class="prettyprint">&lt;connectionStrings>
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/>
-	&lt;/connectionStrings></pre>
-
-	La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/>
+&lt;/connectionStrings></pre>La cadena de conexión de almacenamiento se denomina AzureWebJobsStorage porque ese es el nombre que el SDK de WebJobs usa de forma predeterminada. Aquí se usa el mismo nombre, de modo que solo tenga que establecer el valor de una cadena de conexión en el entorno de Azure.
  
 2. En el **Explorador de servidores**, haga clic con el botón secundario en la cuenta de almacenamiento en el nodo **Almacenamiento** y, a continuación, haga clic en **Propiedades**.
 
@@ -167,16 +165,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
 
 4. Abra el archivo *App.config* del proyecto ContosoAdsWebJob.
 
-	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento.
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-     &lt;/connectionStrings&gt; 
-        &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-            &lt;/startup&gt; 
-&lt;/configuration&gt;</pre>
+	Este archivo tiene dos cadenas de conexión de almacenamiento, una para los datos de aplicación y otra para registro. Para este tutorial, usará la misma cuenta para ambas. Las cadenas de conexión tienen marcadores de posición para las claves de la cuenta de almacenamiento. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[nombredecuenta]</mark>;AccountKey=<mark>[clavedeacceso]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	De forma predeterminada, el SDK de WebJobs busca cadenas de conexión llamadas AzureWebJobsStorage y AzureWebJobsDashboard. Como opción alternativa, puede [almacenar la cadena de conexión que desee y pasarla de forma explícita al objeto `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -798,10 +787,7 @@ Para obtener más información acerca de cómo escribir funciones que utilizan a
 * [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Uso del Bus de servicio de Azure con el SDK de trabajos web](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Si la aplicación web se ejecuta en varias máquinas virtuales, el programa se ejecutará en cada una de las máquinas y estas, a su vez, esperarán a los desencadenadores e intentarán ejecutar funciones. En algunas circunstancias, esto puede llevar a que algunas funciones procesen dos veces los mismos datos, por lo tanto, las funciones deben ser idempotentes (escritas para que así no se generen resultados duplicados si se las llama repetidamente con los mismos datos de entrada). 
->* Para obtener información acerca de cómo se implementa un cierre estable, consulte [Cierre estable](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* El código del método `ConvertImageToThumbnailJPG` (no aparece) usa clases en el espacio de nombres `System.Drawing` por motivos de simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para obtener más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
+>[AZURE.NOTE]* Si la aplicación web se ejecuta en varias máquinas virtuales, el programa se ejecutará en cada una de las máquinas y estas, a su vez, esperarán a los desencadenadores e intentarán ejecutar funciones. En algunas circunstancias, esto puede llevar a que algunas funciones procesen dos veces los mismos datos, por lo tanto, las funciones deben ser idempotentes (escritas para que así no se generen resultados duplicados si se las llama repetidamente con los mismos datos de entrada). * Para obtener información acerca de cómo se implementa un cierre estable, consulte [Cierre estable](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). * El código del método `ConvertImageToThumbnailJPG` (no aparece) usa clases en el espacio de nombres `System.Drawing` por motivos de simplicidad. Sin embargo, las clases de este espacio de nombres se diseñaron para usarse con Windows Forms. No se admiten para usarse en un servicio de Windows o ASP.NET. Para obtener más información acerca de las opciones de procesamiento de imagen, consulte [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) (Generación de imagen dinámica) y [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na) (Cambio de tamaño de imagen profunda).
 
 ### SDK de WebJobs frente al rol de trabajo del servicio en la nube sin el SDK de WebJobs
 
@@ -827,4 +813,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

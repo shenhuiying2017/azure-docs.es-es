@@ -118,4 +118,4 @@ Posiblemente, ahora hay una pantalla de carga al hacer clic en un anuncio (con t
 
 Inserte el nuevo archivo `res/layout/engagement_loading.xml` en su proyecto.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

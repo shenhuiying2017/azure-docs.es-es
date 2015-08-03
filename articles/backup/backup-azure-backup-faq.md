@@ -132,4 +132,4 @@ A continuación se muestra una lista de las preguntas más frecuentes acerca de 
 
 **P4. ¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos (o) puede Microsoft recuperar los datos?** <br/> R4. La clave utilizada para cifrar los datos de copia de seguridad está presente en las instalaciones del cliente. Microsoft no mantiene una copia en Azure y no tiene acceso a la clave. Si el cliente pierde la clave, Microsoft no puede recuperar los datos de copia de seguridad.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

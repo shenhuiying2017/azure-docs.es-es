@@ -43,11 +43,11 @@ Actualmente, tener varias NIC tiene los siguientes límites y restricciones:
 |Tamaño de memoria virtual (SKU estándar)|NIC (número máximo permitido por máquina virtual)|
 |---|---|
 |Todos los tamaños básicos|1|
-|A0\\extra pequeño|1|
-|A1\\pequeño|1|
-|A2\\mediano|1|
-|A3\\grande|2|
-|A4\\extra grande|4|
+|A0\extra pequeño|1|
+|A1\pequeño|1|
+|A2\mediano|1|
+|A3\grande|2|
+|A4\extra grande|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -252,4 +252,4 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 
 - Aprenda a usar [varias NIC de máquina virtual y aplicaciones VNet en Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

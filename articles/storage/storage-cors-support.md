@@ -292,4 +292,4 @@ Las solicitudes preparatorias erróneas no se cargan en cuenta.
 [Especificación de uso compartido de recursos entre orígenes de W3C](http://www.w3.org/TR/cors/)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

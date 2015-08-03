@@ -89,4 +89,4 @@ Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 [versión back-end de .NET]: mobile-services-dotnet-backend-ios-get-started.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

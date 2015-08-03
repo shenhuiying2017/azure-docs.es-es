@@ -159,4 +159,4 @@ Para obtener más información acerca de otros servicios (como Almacenamiento de
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

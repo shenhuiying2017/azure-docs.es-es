@@ -56,4 +56,4 @@ Para obtener más información sobre la plataforma de Servicio de aplicaciones d
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

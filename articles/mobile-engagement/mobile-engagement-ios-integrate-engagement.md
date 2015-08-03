@@ -67,7 +67,7 @@ Debe modificar el delegado de la aplicación:
 
 ### Método recomendado: sobrecargar las clases `UIViewController`
 
-Si desea que se generen todos los registros que requiere Engagement para calcular los usuarios, las sesiones, las actividades, los bloqueos y las estadísticas técnicas, simplemente puede hacer que todas las subclases `UIViewController` de hereden de las clases `EngagementViewController` (misma regla para `UITableViewController` -\\ > `EngagementTableViewController`).
+Si desea que se generen todos los registros que requiere Engagement para calcular los usuarios, las sesiones, las actividades, los bloqueos y las estadísticas técnicas, simplemente puede hacer que todas las subclases `UIViewController` de hereden de las clases `EngagementViewController` (misma regla para `UITableViewController` -\ > `EngagementTableViewController`).
 
 **Sin Engagement:**
 
@@ -208,4 +208,4 @@ El siguiente ejemplo de `Settings.bundle` muestra el proceso de implementación:
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

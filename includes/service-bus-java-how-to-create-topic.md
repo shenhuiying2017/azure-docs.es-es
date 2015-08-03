@@ -57,4 +57,4 @@ Para realizar operaciones de administración (como la creación de un tema o una
   [6]: ./media/service-bus-java-how-to-create-topic/getting-started-multi-tier-27.png
   [34]: ./media/service-bus-java-how-to-create-topic/VSProperties.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Introducción a Azure: aspectos básicos de Azure" 
-	description="¿Nuevo en Microsoft Azure? Obtenga una visión general básica de los servicios que ofrece con ejemplos de cómo son útiles." 
+	description="¿Es un usuario nuevo de Microsoft Azure? Obtenga una visión general básica de los servicios que ofrece con ejemplos de cómo son útiles." 
 	services=" " 
 	documentationCenter=".net" 
 	authors="Rboucher" 
@@ -46,14 +46,14 @@ Normalmente hay un largo periodo de solapamiento en el que los dos portales est�
 
 ## Proceso
 
-Una de las funciones más básicas de una plataforma de nube es la ejecución de aplicaciones. Cada uno de los modelos de proceso de Azure desempeña su propia función.
+Una de las funciones más básicas de una plataforma de nube es la ejecución de aplicaciones. Cada uno de los modelos de proceso de Azure desempeña su propio rol.
 
 Estas tecnologías se pueden usar por separado o combinarlas como sea necesario para crear la base perfecta para su aplicación. El enfoque que elija depende del problema que intente resolver.
 
 
 ### Máquinas virtuales de Azure
 
-![Máquinas virtuales de Azure](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Ilustración: Máquinas virtuales de Azure ofrece un control total sobre las instancias de máquina virtual en la nube.*
+![Máquinas virtuales de Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *Ilustración: Máquinas virtuales de Azure ofrece un control total sobre las instancias de máquina virtual en la nube.*
 
 La posibilidad de crear una máquina virtual a petición, ya sea a partir de una imagen estándar o de una que suministre el usuario, puede resultar muy útil. Este enfoque, conocido comúnmente como Infraestructura como servicio (IaaS), es lo que proporciona Máquinas virtuales de Azure. La ilustración 2 muestra una combinación de cómo se ejecuta una máquina virtual y cómo crear una desde un disco duro virtual (VHD).
 
@@ -75,18 +75,18 @@ Este enfoque bastante general de la informática en nube se puede utilizar para 
 
 ### Aplicaciones web
 
-![Aplicaciones web de Azure](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Ilustración: Aplicaciones web de Azure ejecuta una aplicación de sitios web en la nube sin que haga falta administrar el servidor web subyacente.*
+![Aplicaciones web de Azure ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *Ilustración: Aplicaciones web de Azure ejecuta una aplicación de sitios web en la nube sin tener que administrar el servidor web subyacente.*
 
 Una de las cosas más importantes que se hacen en la nube es ejecutar sitios y aplicaciones web. Máquinas virtuales de Azure le permite hacer esto, pero le deja la responsabilidad de administrar una o varias VM y los sistemas operativos subyacentes. Los roles web de servicios en la nube pueden hacerlo, pero su implementación y mantenimiento conlleva también trabajo administrativo. ¿Y si lo que desea es un sitio web donde sea otro quien se encargue del trabajo administrativo?
 
-Esto es exactamente lo que proporciona Aplicaciones web. Este modelo de proceso ofrece un entorno web administrado utilizando el Portal de administración de Azure y las API. Puede mover una aplicación de sitio web existente a Aplicaciones web de Azure sin cambios, o puede crear una directamente en la nube. Cuando un sitio web está en ejecución, puede agregar o quitar instancias de forma dinámica y recurrir a Aplicaciones web de Azure para equilibrar las solicitudes de carga entre ellos. Aplicaciones web de Azure ofrece tanto una opción compartida, en la que el sitio web se ejecuta en una máquina virtual con otros sitios, como una opción estándar, que permite que un sitio se ejecute en su propia VM. La opción estándar también le permite aumentar el tamaño (potencia informática) de las instancias, si es necesario.
+Esto es exactamente lo que proporciona Aplicaciones web. Este modelo de proceso ofrece un entorno web administrado utilizando el Portal de administración de Azure y las API. Puede mover una aplicación de sitio web existente a Aplicaciones web de Azure sin cambios, o puede crear una directamente en la nube. Cuando un sitio web está en ejecución, puede agregar o quitar instancias de forma dinámica y recurrir a Aplicaciones web de Azure para equilibrar las solicitudes de carga entre ellas. Aplicaciones web de Azure ofrece tanto una opción compartida, en la que el sitio web se ejecuta en una máquina virtual con otros sitios, como una opción estándar, que permite que un sitio se ejecute en su propia VM. La opción estándar también le permite aumentar el tamaño (potencia informática) de las instancias, si es necesario.
 
 Para el desarrollo, Aplicaciones web es compatible con .NET, PHP, Node.js, Java y Python, junto con Base de datos SQL y MySQL (de ClearDB, un socio de Microsoft) para el almacenamiento relacional. También ofrece compatibilidad integrada con varias aplicaciones conocidas, como WordPress, Joomla y Drupal. El objetivo es proporcionar una plataforma de bajo coste, escalable y enormemente útil para la creación de sitios y aplicaciones web en la nube pública.
 
 
 **Escenarios de Aplicaciones web**
 
-Aplicaciones web va a resultar útil para corporaciones, desarrolladores y agencias de diseño web. En el caso de las corporaciones, constituye una solución fácil de administrar, escalable, muy segura y de alta disponibilidad para la ejecución de sitios web de presencia. Cuando necesite configurar un sitio web, es mejor empezar por Aplicaciones web de Azure y seguir con Servicios en la nube cuando necesite una característica que no esté disponible. Consulte el final de la sección "Proceso" para ver más vínculos que pueden ayudarle a elegir entre las opciones.
+Aplicaciones web va a resultar útil para corporaciones, desarrolladores y agencias de diseño web. En el caso de las corporaciones, constituye una solución fácil de administrar, escalable, muy segura y de alta disponibilidad para la ejecución de sitios web de presencia. Cuando necesite configurar un sitio web, es mejor empezar por Aplicaciones web de Azure y seguir con los servicios en la nube cuando necesite una característica que no esté disponible. Consulte el final de la sección "Proceso" para ver más vínculos que pueden ayudarle a elegir entre las opciones.
 
 ### Servicios en la nube
 ![Servicio en la nube de Azure](./media/fundamentals-introduction-to-azure/CloudServicesIntroNew.png) *Ilustración: Servicios en la nube de Azure ofrece un lugar para ejecutar código personalizado de alta escalabilidad en un entorno de Plataforma como servicio (PaaS).*
@@ -103,10 +103,10 @@ A la hora de crear una instancia, dispone de dos roles para elegir, ambos basado
 
 **Escenarios de Servicios en la nube**
 
-Los Servicios en la nube son una opción ideal para el escalado horizontal masivo cuando necesite un control sobre la plataforma superior al que ofrece Aplicaciones web de Azure pero no sea necesario controlar el sistema operativo subyacente.
+Los servicios en la nube son una opción ideal para el escalado horizontal masivo cuando necesite un control sobre la plataforma superior al que ofrece Aplicaciones web de Azure pero no sea necesario controlar el sistema operativo subyacente.
 
 #### Selección de un modelo de proceso
-La página de [comparación entre Aplicaciones web de Azure, Servicios en la nube y Máquinas virtuales de Azure](choose-web-site-cloud-service-vm.md) proporciona información más detallada sobre cómo seleccionar un modelo de proceso.
+La página de [comparación entre Aplicaciones web de Azure, servicios en la nube y Máquinas virtuales de Azure](choose-web-site-cloud-service-vm.md) proporciona información más detallada sobre cómo seleccionar un modelo de proceso.
 
 
 
@@ -124,7 +124,7 @@ De nuevo, el estado de la Máquina virtual y cualquier disco de datos adicional 
 ### Base de datos SQL de Azure
 ![Base de datos SQL de almacenamiento de Azure](./media/fundamentals-introduction-to-azure/StorageAzureSQLDatabaseIntroNew.png)
 
-*Base de datos SQL de Azure ofrece un servicio de base de datos relacional administrado en la nube.*
+*Ilustración: Base de datos SQL de Azure ofrece un servicio de base de datos relacional administrado en la nube.*
 
 Para el almacenamiento relacional, Azure proporciona la característica Base de datos SQL. No se deje engañar por el nombre. Se trata de algo diferente de la típica Base de datos SQL que ofrece SQL Server y que se ejecuta sobre Windows Server.
 
@@ -179,9 +179,9 @@ Es posible que alguna vez desee trasladar una gran cantidad de datos a Azure. Es
 
 
 ### Servicio de archivos
-![Servicio de archivos de Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Ilustración: los Servicios de archivo de Azure ofrecen rutas de acceso \\\\servidor\\recurso compartido de SMB para aplicaciones que se ejecutan en la nube.*
+![Servicio de archivos de Azure](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *Ilustración: los Servicios de archivo de Azure ofrecen rutas de acceso \\servidor\recurso compartido de SMB para aplicaciones que se ejecutan en la nube.*
 
-En un entorno local, es habitual usar grandes cantidades de almacenamiento de archivos al que se puede obtener acceso a través del protocolo Bloque de mensajes del servidor (SMB) utilizando un formato \\\\Servidor\\recurso compartido. Azure cuenta ahora con un servicio que le permite utilizar este protocolo en la nube. Las aplicaciones que se ejecutan en Azure pueden usarlo para compartir archivos entre máquinas virtuales utilizando las API de sistemas de archivos familiares como ReadFile y WriteFile. Además, es posible obtener acceso a los archivos al mismo tiempo a través de una interfaz REST, lo que hace posible obtener acceso a los recursos compartidos desde instalaciones locales, donde puede configurar además una red virtual. Archivos de Azure se crea sobre un servicio de blobs; por tanto, hereda la misma disponibilidad, durabilidad, escalabilidad y redundancia geográfica del Almacenamiento de Azure.
+En un entorno local, es habitual usar grandes cantidades de almacenamiento de archivos al que se puede obtener acceso a través del protocolo Bloque de mensajes del servidor (SMB) utilizando un formato \\Servidor\recurso compartido. Azure cuenta ahora con un servicio que le permite utilizar este protocolo en la nube. Las aplicaciones que se ejecutan en Azure pueden usarlo para compartir archivos entre máquinas virtuales utilizando las API de sistemas de archivos familiares como ReadFile y WriteFile. Además, es posible obtener acceso a los archivos al mismo tiempo a través de una interfaz REST, lo que hace posible obtener acceso a los recursos compartidos desde instalaciones locales, donde puede configurar además una red virtual. Archivos de Azure se crea sobre un servicio de blobs; por tanto, hereda la misma disponibilidad, durabilidad, escalabilidad y redundancia geográfica del Almacenamiento de Azure.
 
 **Escenarios para Archivos de Azure**
 
@@ -337,7 +337,7 @@ Protección de inicios de sesión sobre cuentas con información delicada como i
 
 Si va a crear una aplicación para un dispositivo móvil, Azure puede ayudar a almacenar datos en la nube, autenticar a los usuarios y enviar notificaciones de inserción sin tener que escribir una gran cantidad de código personalizado.
 
-Si bien es cierto que puede crear el back-end de una aplicación móvil mediante Máquinas virtuales, Servicios en la nube o Aplicaciones web, puede ahorrar mucho tiempo en escribir los componentes de servicio subyacentes utilizando los servicios de Azure.
+Si bien es cierto que puede crear el back-end de una aplicación móvil mediante Máquinas virtuales, servicios en la nube o Aplicaciones web, puede ahorrar mucho tiempo en escribir los componentes de servicio subyacentes utilizando los servicios de Azure.
 
 
 ### Aplicaciones móviles
@@ -363,7 +363,7 @@ Dado que Azure ya admite la escala masiva, puede controlar el tráfico a medida 
 
 *Ilustración: Los Centros de notificaciones ofrecen una funcionalidad que requieren habitualmente las aplicaciones que interactúan con dispositivos móviles.*
 
-Aunque puede escribir código para crear notificaciones en Aplicaciones móviles de Azure, los Centros de notificaciones están optimizados para difundir millones de notificaciones de inserción en pocos minutos. No tiene que precuparse por detalles como el operador de telefonía móvil o el fabricante del dispositivo. Puede dirigirse a individuos o millones de usuarios con una sola llamada de API.
+Aunque puede escribir código para crear notificaciones en Aplicaciones móviles de Azure, los Centros de notificaciones están optimizados para difundir millones de notificaciones push en pocos minutos. No tiene que precuparse por detalles como el operador de telefonía móvil o el fabricante del dispositivo. Puede dirigirse a individuos o millones de usuarios con una sola llamada de API.
 
 El diseño de Centros de notificaciones le permite funcionar con cualquier back-end. Puede usar Aplicaciones móviles de Azure, un back-end personalizado en la nube que se ejecute en cualquier proveedor o un back-end local.
 
@@ -431,7 +431,7 @@ Tanto si se ejecutan en la nube, en el centro de datos, en un dispositivo móvil
 
 Además de las colas descritas antes (una a una), el Bus de servicio ofrece también otros métodos de comunicación.
 
-#### Retransmisión de Bus de servicio
+#### Retransmisión de bus de servicio
 ![Retransmisión de bus de servicio de Azure](./media/fundamentals-introduction-to-azure/ServiceBusRelayIntroNew.png)
 
 *Ilustración: La Retransmisión de bus de servicio permite la comunicación entre aplicaciones en diferentes lados de un firewall.*
@@ -592,4 +592,4 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

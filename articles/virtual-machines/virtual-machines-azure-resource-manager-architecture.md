@@ -3,19 +3,19 @@
    description="Obtenga información acerca de la arquitectura del Administrador de recursos y las relaciones entre el proceso, la red y los proveedores de recursos de almacenamiento."
    services="virtual-machines"
    documentationCenter=""
-   authors="JoeDavies-MSFT"
+   authors="davidmu1"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
+	ms.author="davidmu"/>
 
 # Arquitectura de administrador de recursos de Azure
 
@@ -32,8 +32,8 @@ Antes de describir la arquitectura del Administrador de recursos de Azure y los 
 Aquí se encuentran los componentes y sus relaciones para la administración de servicios de Azure.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
- 
-## Arquitectura de administrador de recursos 
+
+## Arquitectura de administrador de recursos
 
 Para el Administrador de recursos de Azure, los proveedores de recursos admiten los recursos individuales para crear máquinas virtuales que funcionen en la configuración que necesita. Para las máquinas virtuales, hay tres proveedores de recursos principales:
 
@@ -50,13 +50,13 @@ Además, hay relaciones entre los recursos de los proveedores de recursos:
 - Una instancia de equilibrador de carga hace referencia al grupo de backend de direcciones IP que incluye la NIC de una máquina virtual (opcional) y hace referencia a una dirección IP pública o privada del equilibrador de carga (opcional).
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch2.png)
- 
+
 La creación de componentes de recursos permite una mayor flexibilidad al configurar la infraestructura para una carga de trabajo de TI hospedada en Azure. Las plantillas de Administrador de recursos de Azure sacan partido de esta flexibilidad para crear el conjunto de recursos dependientes necesarios para una configuración concreta. Al ejecutar una plantilla, el Administrador de recursos garantiza que los recursos de una configuración se creen en el orden correcto para conservar las dependencias y las referencias. Por ejemplo, el Administrador de recursos no creará la NIC para una máquina virtual hasta que se haya creado la red virtual con una subred y una dirección IP (el grupo de seguridad de red es opcional).
 
 Un grupo de recursos es un contenedor lógico que contiene los recursos relacionados para una aplicación, que puede constar de varias máquinas virtuales, NIC, direcciones IP, equilibradores de carga, subredes y grupos de seguridad de red. Por ejemplo, puede administrar todos los recursos de la aplicación como una unidad única de administración. Puede crear, actualizar y eliminar todos juntos. A continuación se facilita una aplicación de ejemplo implementada en un único grupo de recursos.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
- 
+
 La aplicación consta de:
 
 - Dos máquinas virtuales que usan la misma cuenta de almacenamiento, se encuentran en el mismo conjunto de disponibilidad y en la misma subred de una red virtual.
@@ -79,4 +79,4 @@ También puede ver la creación de componentes y relaciones de dependencia entre
 
 [Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

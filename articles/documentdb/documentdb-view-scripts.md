@@ -82,4 +82,4 @@ El Explorador de scripts le permite ver fácilmente los artefactos de programaci
 Para obtener más información sobre DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

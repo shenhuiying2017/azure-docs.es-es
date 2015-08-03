@@ -1,5 +1,4 @@
 
-
 #### Para agregar una directiva de copia de seguridad de StorSimple
 
 1. En la página **Inicio rápido** del dispositivo, haga clic en la pestaña **Directivas de copia de seguridad**. Esto le llevará a la página **Directivas de copia de seguridad**.
@@ -15,4 +14,4 @@
 La directiva recién agregada se mostrará en la vista tabular en la página **Directivas de copia de seguridad**.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

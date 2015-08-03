@@ -255,9 +255,9 @@ Los campos de la transición de estado se pueden usar para alertas más intelige
 En el ejemplo siguiente se envía un informe de estado a través de Powershell en la aplicación denominada fabric:/WordCount desde el MyWatchdog de origen. El informe de estado contiene información acerca de la disponibilidad de la propiedad de estado en un estado de mantenimiento de Error, con TTL infinito. Luego consulta el estado de aplicación, que devolverá el error de estado de mantenimiento agregado y el evento de estado notificado como parte de la lista de eventos de estado.
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ El modelo de estado se usa mucho para la supervisión y el diagnóstico, para ev
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

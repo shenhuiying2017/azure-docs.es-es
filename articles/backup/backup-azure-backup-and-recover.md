@@ -114,4 +114,4 @@ La terminología usada en los pasos es la siguiente: -*Máquina de origen*: la m
 ## Pasos siguientes
 - [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

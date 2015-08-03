@@ -94,4 +94,4 @@ Los conectores también pueden utilizarse como acciones dentro de una aplicació
 
 [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)<br/>[Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)<br/>[Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

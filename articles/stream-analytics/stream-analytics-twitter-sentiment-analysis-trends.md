@@ -35,7 +35,7 @@ Un sitio web multimedia de noticias está interesado en obtener una ventaja sobr
 
 La aplicación de ejemplo genera eventos y los inserta en una instancia de los centros de eventos (un centro de eventos, para abreviar). Los centros de eventos de Bus de servicio son el método preferido de recopilación de eventos para Análisis de transmisiones. Consulte la documentación de los centros de eventos en la [documentación del bus de servicio](/documentation/services/service-bus/)
 
-Siga estos pasos para crear un centro de eventos.
+Siga estos pasos para crear un Centro de eventos.
 
 1.	En el Portal de Azure, haga clic en **NUEVO** > **SERVICIOS DE APLICACIONES** > **BUS DE SERVICIO** > **CENTRO DE EVENTOS** > **CREACIÓN RÁPIDA** y proporcione un nombre, una región y un espacio de nombres nuevo o existente para crear un nuevo centro de eventos.  
 2.	Como práctica recomendada, debe leer cada trabajo de Análisis de transmisiones de un solo grupo de consumidores del centro de eventos. Le guiaremos a través del proceso de creación de un grupo de consumidores y podrá obtener más información aquí. Para crear un grupo de consumidores, vaya al centro de eventos recién creado y haga clic en la pestaña **GRUPOS DE CONSUMIDORES** y, después, haga clic en **CREAR** en la parte inferior de la página y proporcione un nombre para el grupo de consumidores.
@@ -223,7 +223,7 @@ Cuando el trabajo se esté ejecutando y esté procesando el flujo de Twitter en 
 ![Análisis de los medios sociales: salida del análisis de opinión (minería de opinión) de Análisis de transmisiones en un panel de Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -235,4 +235,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

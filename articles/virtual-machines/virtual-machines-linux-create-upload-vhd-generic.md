@@ -189,4 +189,4 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md) (waage
 
 - A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

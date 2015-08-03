@@ -10,4 +10,4 @@
 La página **Directivas de copia de seguridad** se actualizará para mostrar la nueva lista de directivas.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

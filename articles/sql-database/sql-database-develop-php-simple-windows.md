@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -27,19 +27,7 @@
 Este tema muestra cómo puede conectarse a la base de datos SQL de Azure desde una aplicación cliente escrita en PHP que se ejecuta en Windows.
 
 
-## Requisitos previos
-
-
-Para ejecutar el ejemplo de código PHP que se proporciona en este tema, el equipo cliente debe tener los siguientes elementos de software instalados:
-
-
-- [Controladores de Microsoft para PHP para Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contiene las versiones más recientes)
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC Driver](https://www.microsoft.com/es-es/download/details.aspx?id=36434)
-- IIS Express
-- [PHP 5.6 for IIS Expresss](http://www.microsoft.com/web/downloads/platform.aspx): descárguelo mediante el instalador de plataforma. Asegúrese de que utiliza Internet Explorer para descargar el instalador de plataforma
-
-Consulte nuestro [blog del equipo](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) y [vídeo](https://www.youtube.com/watch?v=0oCjiRK_tUk) para obtener información sobre cómo instalar y configurar los requisitos mencionados anteriormente.
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## Creación de una base de datos y recuperación de la cadena de conexión
@@ -105,7 +93,7 @@ La función [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php)
 ## Inserción de filas, paso de parámetros y recuperación de la clave principal generada
 
 
-En la base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los valores de [clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
+En Base de datos SQL, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los [valores de clave principal](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	function InsertData()
@@ -192,4 +180,4 @@ Para obtener más información sobre el uso y la instalación de PHP, vea [Acces
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

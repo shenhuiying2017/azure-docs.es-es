@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="07/17/2015"
    ms.author="subramar"/>
 
 # Actualización de la aplicación de Service Fabric: temas avanzados
@@ -51,4 +51,4 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 [Solucionar problemas de una actualización de aplicación ](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

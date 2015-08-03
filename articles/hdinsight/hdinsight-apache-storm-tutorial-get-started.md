@@ -192,7 +192,7 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 
 	Para obtener más información, consulte [Introducción al uso de las herramientas de Hadoop de HDInsight para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-* **Archivos de muestra**: el clúster de Storm en HDInsight ofrece varios ejemplos en el directorio **%STORM_HOME%\\contrib**. Cada ejemplo debe contener lo siguiente:
+* **Archivos de muestra**: el clúster de Storm en HDInsight ofrece varios ejemplos en el directorio **%STORM_HOME%\contrib**. Cada ejemplo debe contener lo siguiente:
 
 	* El código fuente, por ejemplo, storm-starter-0.9.1.2.1.5.0-2057-sources.jar
 
@@ -204,7 +204,7 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 
 	> [AZURE.NOTE]Los documentos de Java constan de páginas web. Una vez extraídos, use un explorador para ver el archivo **index.html**.
 
-	Para obtener acceso a estas muestras, debe habilitar Escritorio remoto para el clúster de Storm en HDInsight y, después, copiar los archivos desde **%STORM_HOME%\\contrib**.
+	Para obtener acceso a estas muestras, debe habilitar Escritorio remoto para el clúster de Storm en HDInsight y, después, copiar los archivos desde **%STORM_HOME%\contrib**.
 
 * El documento siguiente contiene una lista de otros ejemplos que se pueden usar con Storm en HDInsight:
 
@@ -217,4 +217,4 @@ En este tutorial de Apache Storm, usó el inicio de Storm para aprender a crear 
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

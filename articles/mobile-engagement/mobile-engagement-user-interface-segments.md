@@ -188,4 +188,4 @@ Cuando haya terminado de configurar su criterio, aparecerá en el embudo de segm
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -188,7 +188,7 @@ La siguiente página PHP da como resultado una respuesta de TwiML que dice **Hel
 		<Say>Hello world.</Say>
 	</Response>
 
-Como puede ver en el ejemplo anterior, la respuesta de TwiML es sencillamente un documento XML. La biblioteca de Twilio para PHP contiene clases que generarán TwiML de manera automática. El ejemplo siguiente genera la respuesta equivalente como se ha mostrado anteriormente, pero usa la clase **Services\\_Twilio\\_Twiml** de la biblioteca de Twilio para PHP:
+Como puede ver en el ejemplo anterior, la respuesta de TwiML es sencillamente un documento XML. La biblioteca de Twilio para PHP contiene clases que generarán TwiML de manera automática. El ejemplo siguiente genera la respuesta equivalente como se ha mostrado anteriormente, pero usa la clase **Services\_Twilio\_Twiml** de la biblioteca de Twilio para PHP:
 
 	require_once('Services/Twilio.php');
 	
@@ -267,4 +267,4 @@ Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

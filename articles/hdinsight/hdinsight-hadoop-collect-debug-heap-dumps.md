@@ -3,7 +3,7 @@
 	description="Recopile automáticamente volcados de memoria para servicios de Hadoop y coloque dentro de la cuenta de almacenamiento de blobs de Azure para depuración y análisis."
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"
+	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 # Recopilar volcados de memoria en el almacenamiento de blobs para depurar y analizar servicios de Hadoop
@@ -52,7 +52,7 @@ Por ejemplo, para activar los volcados de memoria mediante Azure PowerShell para
 
 	$MapRedConfigValues = new-object 'Microsoft.WindowsAzure.Management.HDInsight.Cmdlet.DataObjects.AzureHDInsightMapReduceConfiguration'
 
-	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
+	$MapRedConfigValues.Configuration = @{ "javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError"="-XX:+HeapDumpOnOutOfMemoryError" ; "javaargs.jobhistoryserver.XX:HeapDumpPath" = "-XX:HeapDumpPath=c:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof" }
 
 ## <a name="sdk"></a>Habilitar los volcados de memoria usando el SDK de .NET de HDInsight de Azure
 
@@ -60,6 +60,6 @@ Por ejemplo, para activar los volcados de memoria mediante el SDK de .NET de HDI
 
 	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:+HeapDumpOnOutOfMemoryError", "-XX:+HeapDumpOnOutOfMemoryError"));
 
-	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\\Dumps\\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
+	clusterInfo.MapReduceConfiguration.ConfigurationCollection.Add(new KeyValuePair<string, string>("javaargs.jobhistoryserver.XX:HeapDumpPath", "-XX:HeapDumpPath=c:\Dumps\jobhistoryserver_%date:~4,2%_%date:~7,2%_%date:~10,2%_%time:~0,2%_%time:~3,2%_%time:~6,2%.hprof"));
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

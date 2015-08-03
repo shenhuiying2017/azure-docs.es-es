@@ -53,4 +53,4 @@ Azure realiza un anuncio cada vez que hay una interrupción del servicio o una d
 * [Supervise la disponibilidad y la capacidad de respuesta de cualquier página web](../app-insights-monitor-web-app-availability.md) con Application Insights, para poder averiguar si su página está inactiva.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

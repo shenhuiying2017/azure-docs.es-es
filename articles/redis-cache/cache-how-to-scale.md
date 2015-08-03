@@ -138,4 +138,4 @@ Estamos lanzando esta característica para obtener comentarios. Nos basaremos en
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -117,4 +117,4 @@ Elimine una copia de seguridad cuando ya no desee conservar los datos asociados 
 
 Obtenga información acerca de cómo usar el catálogo de copias de seguridad para [ restaurar el dispositivo desde un conjunto de copia de seguridad](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -47,7 +47,7 @@ Agregar un extremo de Azure a una máquina virtual y establecer el modo de distr
 
 Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -3,7 +3,7 @@
 	description="Aprenda a usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="josephd"/>
+	ms.author="kathydav"/>
 
 # Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows
 
@@ -173,7 +173,7 @@ Si está utilizando un editor de texto, copie el conjunto de comandos en el Port
 
 Si va a crear esta máquina virtual de nuevo o una similar, puede:
 
-- Guardar este conjunto de comandos como archivo de script de PowerShell (*.ps1)
+- Guardar este conjunto de comandos como archivo de script de PowerShell (*.ps1).
 - Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure
 
 ## <a id="examples"></a>Ejemplos
@@ -184,13 +184,13 @@ Estos son dos ejemplos del uso de los pasos anteriores para crear conjuntos de c
 
 Se necesita un conjunto de comandos de PowerShell que cree la máquina virtual inicial de un controlador de dominio de Active Directory que:
 
-- Utilice la imagen de Windows Server 2012 R2 Datacenter
-- Tenga el nombre AZDC1
-- Sea un equipo independiente
-- Tenga un disco de datos adicional de 20 GB
-- Tenga la dirección IP estática 192.168.244.4
-- Se encuentre en la subred BackEnd de la red virtual AZDatacenter
-- Se encuentre en el servicio en la nube Azure-TailspinToys
+- Utilice la imagen de Windows Server 2012 R2 Datacenter.
+- Tenga el nombre AZDC1.
+- Sea un equipo independiente.
+- Tenga un disco de datos adicional de 20 GB.
+- Tenga la dirección IP estática 192.168.244.4.
+- Se encuentre en la subred BackEnd de la red virtual AZDatacenter.
+- Se encuentre en el servicio en la nube Azure-TailspinToys.
 
 Este es el comando de Azure PowerShell correspondiente para crear esta máquina virtual, con líneas en blanco entre cada bloque para mejorar la legibilidad.
 
@@ -221,12 +221,12 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 Se necesita un conjunto de comandos de PowerShell que cree una máquina virtual para un servidor de línea de negocio que:
 
-- Utilice la imagen de Windows Server 2012 R2 Datacenter
-- Tenga el nombre LOB1
-- Sea un miembro del dominio corp.contoso.com
-- Tenga un disco de datos adicional de 200 GB
-- Se encuentre en la subred FrontEnd de la red virtual AZDatacenter
-- Se encuentre en el servicio en la nube Azure-TailspinToys
+- Utilice la imagen de Windows Server 2012 R2 Datacenter.
+- Tenga el nombre LOB1.
+- Sea un miembro del dominio corp.contoso.com.
+- Tenga un disco de datos adicional de 200 GB.
+- Se encuentre en la subred FrontEnd de la red virtual AZDatacenter.
+- Se encuentre en el servicio en la nube Azure-TailspinToys.
 
 Este es el comando de Azure PowerShell correspondiente para crear esta máquina virtual.
 
@@ -256,7 +256,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 
 ## Recursos adicionales
-
+<!-- For section headings, use sentence-case caps -->
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Preguntas más frecuentes sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -268,6 +268,5 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 [Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

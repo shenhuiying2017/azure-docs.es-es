@@ -118,4 +118,4 @@ Si desea obtener más información sobre Azure Government y sobre cómo su organ
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

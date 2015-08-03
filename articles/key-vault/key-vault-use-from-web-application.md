@@ -1,11 +1,4 @@
-<properties 
-	pageTitle="Usar el Almacén de claves de Azure desde una aplicación web | Introducción" 
-	description="Use este tutorial como ayuda para aprender a usar el Almacén de claves de Azure desde una aplicación web." 
-	services="key-vault" 
-	documentationCenter="" 
-	authors="adamhurwitz" 
-	manager=""
-	tags="azure-resource-manager"/>
+<properties pageTitle="Usar el Almacén de claves de Azure desde una aplicación web | Introducción" description="Use este tutorial como ayuda para aprender a usar el Almacén de claves de Azure desde una aplicación web." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -132,4 +125,4 @@ Para conocer las referencias de programación, consulte [Referencia de la API de
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

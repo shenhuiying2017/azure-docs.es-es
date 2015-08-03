@@ -27,12 +27,12 @@ Es importante comprender la diferencia entre códecs y formatos de archivo. Los 
 Este documento contiene una lista de los formatos de archivo de importación y exportación más comunes que puede utilizar con el Codificador multimedia de Azure.
 
 
-[Formatos de importación del codificador multimedia ](#import_formats)
+[Formatos de importación de Azure Media Encoder](#import_formats)
 
-[Formatos de exportación del codificador multimedia](#export_formats)
+[Formatos de exportación de Azure Media Encoder](#export_formats)
 
 
-##<a id="import_formats"></a>Formatos de importación del codificador multimedia 
+##<a id="import_formats"></a>Formatos de importación de Azure Media Encoder 
 
 En la siguiente sección se enumeran los códecs y el formato de archivo que se admiten para la importación.
 
@@ -102,7 +102,7 @@ Se admiten algunos formatos no comprimidos. Para obtener más información, cons
 </table>
 
 
-##<a id="export_formats"></a>Formatos de exportación del codificador multimedia
+##<a id="export_formats"></a>Formatos de exportación de Azure Media Encoder
 
 La siguiente tabla enumera los códecs y los formatos de archivo compatibles para exportación.
 
@@ -137,4 +137,4 @@ La siguiente es una lista parcial de los formatos no comprimidos admitidos.
 <tr><td>Formato YVU9 generado por Indeo</td><td>Formato YUV9 generado por Indeo con información adicional sobre las diferencias del último fotograma. 9,5 bits por píxel, pero informado como 9.</td></tr>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

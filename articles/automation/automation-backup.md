@@ -44,4 +44,4 @@ No es posible exportar certificados desde Automatización de Azure. Debe asegura
 - [Recursos de automatización](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Cmdlets de Azure](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

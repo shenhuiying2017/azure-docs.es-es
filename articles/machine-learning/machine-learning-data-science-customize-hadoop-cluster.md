@@ -2,6 +2,7 @@
 	pageTitle="Personalizar los clústeres de Hadoop para Tecnología y procesos de análisis avanzado | Microsoft Azure" 
 	description="Están disponibles módulos de Python populares en los clústeres de Hadoop de HDInsight de Azure personalizados."
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -97,4 +98,4 @@ Consulte [Envío de consultas de Hive a clústeres de Hadoop de HDInsight en el 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

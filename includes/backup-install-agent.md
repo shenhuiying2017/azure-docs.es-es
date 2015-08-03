@@ -12,7 +12,7 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 
     ![Guardar agente](./media/backup-install-agent/agent.png)
 
-4. Una vez que el agente esté instalado, haga doble clic en MARSAgentInstaller.exe para iniciar la instalación del agente de Copia de seguridad de Azure. Elija la carpeta de instalación y la carpeta temporal requerido para el agente. La ubicación de caché especificada debe tener un espacio libre de al menos el 5% de los datos de copia de seguridad.
+4. Una vez instalado el agente, haga doble clic en MARSAgentInstaller.exe para iniciar la instalación del agente de Copia de seguridad de Azure. Elija la carpeta de instalación y la carpeta temporal requerido para el agente. La ubicación de caché especificada debe tener un espacio libre de al menos el 5% de los datos de copia de seguridad.
 
 5.	Si usa un servidor proxy para conectarse a Internet, en la pantalla **Configuración de proxy**, especifique los detalles del servidor proxy. Si utiliza a un servidor proxy autenticado, escriba los detalles de nombre y la contraseña del usuario en esta pantalla.
 
@@ -22,7 +22,7 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 
     ![Registro](./media/backup-install-agent/register.png)
 
-8. En la pantalla de credenciales del almacén, busque y seleccione el archivo de credenciales de almacén que se descargó antes.
+8. En la pantalla de credenciales del almacén, busque y seleccione el archivo de credenciales del almacén que se descargó anteriormente.
 
     ![Credenciales de almacén](./media/backup-install-agent/vc.png)
 
@@ -48,4 +48,4 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 
     ![Configurar Copia de seguridad de Azure](./media/backup-install-agent/configure.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

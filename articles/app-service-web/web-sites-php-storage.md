@@ -41,24 +41,24 @@ Para instalar las bibliotecas de clientes PHP para Azure mediante el compositor,
 
 1. [Instalación de Git][install-git]
 
-	> [AZURE.NOTE] En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
+	> [AZURE.NOTE]En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
 
 2. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
 
-		{
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
+         {
+             "repositories": [
+                 {
+                     "type": "pear",
+                     "url": "http://pear.php.net"
+                 }
+             ],
              "require": {
                  "pear-pear.php.net/mail_mime" : "*",
                  "pear-pear.php.net/http_request2" : "*",
                  "pear-pear.php.net/mail_mimedecode" : "*",
                  "microsoft/windowsazure": "*"
              }
-		}
+         }
 
 3. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
 
@@ -368,7 +368,7 @@ Siga estos pasos para crear una aplicación web de Azure:
 
 Para publicar la aplicación con Git, siga los pasos que se describen a continuación.
 
-1. Abra la carpeta **vendor/microsoft/windowsazure** ubicada en la raíz de la aplicación y elimine los siguientes archivos y carpetas:
+1. Abra la carpeta** vendor/microsoft/windowsazure** ubicada en la raíz de la aplicación y elimine los siguientes archivos y carpetas:
 	* .git
 	* .gitattributes
 	* .gitignore
@@ -430,4 +430,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!-----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

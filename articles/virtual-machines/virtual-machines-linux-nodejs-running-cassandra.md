@@ -250,7 +250,7 @@ Inicie sesión en la máquina virtual y cree la estructura de directorios y extr
 	echo "installation is complete"
 
 
-Si pega esta secuencia de comandos en la ventana de vim, asegúrese de quitar el retorno de carro ('\\r ") mediante el comando siguiente:
+Si pega esta secuencia de comandos en la ventana de vim, asegúrese de quitar el retorno de carro ('\r ") mediante el comando siguiente:
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -700,4 +700,4 @@ Microsoft Azure es una plataforma flexible que permite la ejecución de Microsof
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

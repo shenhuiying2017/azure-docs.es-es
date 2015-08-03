@@ -65,4 +65,4 @@ En el futuro puede revisar la aplicación lógica en el control de código fuent
 
 Si no desea usar Visual Studio, pero desea tener herramientas para implementar la aplicación lógica del control de código fuente, siempre puede usar la [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) o [Powershell](../powershell-azure-resource-manager.md) para automatizar directamente las implementaciones.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

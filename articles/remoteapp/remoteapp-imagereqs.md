@@ -43,4 +43,4 @@ Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de 
 - No se admite la carga de su VHD desde una cadena de instantáneas.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

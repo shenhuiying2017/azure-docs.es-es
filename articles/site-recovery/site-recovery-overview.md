@@ -181,4 +181,4 @@ Esta tabla resume las principales características de Site Recovery y cómo se m
 Una vez finalizada la esta información general, [lea las prácticas recomendadas](site-recovery-best-practices.md) que le ayudarán a empezar a trabajar con la planeación de la implementación.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

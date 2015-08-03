@@ -376,4 +376,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [Referencia del SDK de almacenamiento de Azure para la API de nodo]: http://dl.windowsazure.com/nodestoragedocs/index.html
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

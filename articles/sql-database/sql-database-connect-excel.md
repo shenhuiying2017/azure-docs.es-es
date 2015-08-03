@@ -23,7 +23,7 @@ Conecte Excel a una Base de datos SQL de Azure y cree un informe de los datos de
 
 ## Requisitos previos
 - Una base de datos SQL de Azure SQL aprovisionada y en ejecución. Para crear una nueva base de datos SQL, vea [Introducción a la base de datos SQL de Microsoft Azure](sql-database-get-started.md).
-- [Microsoft Excel 2013](https://products.office.com/en-US/) (o Microsoft Excel 2010)
+- [Microsoft Excel 2013](https://products.office.com/es-es/) (o Microsoft Excel 2010)
 
 ## Conexión a Base de datos SQL y creación de informes
 1.	Abra Excel.
@@ -63,4 +63,4 @@ Si es un desarrollador de Software como servicio (SaaS), obtenga información so
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

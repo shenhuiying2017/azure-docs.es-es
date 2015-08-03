@@ -97,4 +97,4 @@ Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [Procedimientos: Conexión con los Servicios multimedia mediante programación.]: ../media-services-set-up-computer/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

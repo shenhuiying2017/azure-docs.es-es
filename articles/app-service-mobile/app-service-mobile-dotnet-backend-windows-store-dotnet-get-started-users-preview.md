@@ -20,9 +20,15 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 En este tema se muestra cómo autenticar usuarios de una Aplicación móvil del Servicio de aplicaciones desde la aplicación cliente. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicio de aplicaciones. Una vez que la aplicación móvil haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
 Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero debe completar el tutorial [Introducción a su aplicación móvil].
+
+##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración del Servicio de aplicaciones
 
@@ -32,7 +38,7 @@ Este tutorial se basa en el inicio rápido de aplicaciones móviles. Primero deb
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="7">
+<ol start="5">
 <li>En Visual Studio, abra el proyecto de aplicación cliente y asegúrese de que en App.xaml.cs la instancia de <b>MobileServiceClient</b> se configuró para usar la dirección URL de la nube para el recurso Aplicación móvil.</li>
 <li><p>Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.</p>
 
@@ -69,4 +75,4 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 [Introducción a su aplicación móvil]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

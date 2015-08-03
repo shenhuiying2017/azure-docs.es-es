@@ -97,4 +97,4 @@ Para ver la página de prueba de la API, realice los pasos siguientes.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

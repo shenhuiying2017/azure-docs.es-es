@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Escala de nivel de precios de Servicio de aplicaciones de Azure" 
-	description="Aprenda a escalar aplicaciones web, móviles, de la API y lógicas en Servicios de aplicaciones de Azure, incluido el escalado automático." 
+	description="Aprenda a escalar aplicaciones web, móviles, de API y lógicas en el Servicio de aplicaciones de Azure, incluido el escalado automático." 
 	services="app-service" 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="07/21/2015" 
 	ms.author="stepsic"/>
 
 # Escala de nivel de precios de Servicio de aplicaciones de Azure
@@ -25,6 +25,8 @@ El nivel de servicio tiene su plan de servicio de la aplicación se basa en el [
 Además de escalar verticalmente el nivel de precio, puede aumentar el número de instancias que tiene el servicio. Esto se conoce como *Reducción vertical* o *Reducción horizontal*. Vea el artículo sobre [Escalación del recuento de instancias de forma manual o automática](../insights-how-to-scale.md) para obtener más información sobre *Reducción vertical* y *Reducción horizontal*.
 
 Para obtener información acerca de los planes de servicio de la aplicación, consulte [¿Qué es un plan de Servicios de aplicaciones?](../web-sites-web-hosting-plan-overview.md) e [Información general detallada de planes de Servicios de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md). Para obtener información de los precios y características de planes Servicios de aplicaciones individuales, consulte [Detalles de precios de servicio de aplicación](/pricing/details/app-service/).
+
+Por último, la escalación funciona de una forma distinta si desea usar un [entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md) dedicado. Consulte [Escalado de aplicaciones web en un entorno del Servicio de aplicaciones](app-service-web-scale-a-web-app-in-an-app-service-environment.md) para obtener más información.
 
 > [AZURE.NOTE]Antes de cambiar del modo **Gratis** al modo** Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción a Servicios de aplicaciones de Microsoft Azure, consulte [Suscripciones a Microsoft Azure][azuresubscriptions].
 
@@ -42,8 +44,10 @@ Para obtener información acerca de los planes de servicio de la aplicación, co
 	
 4. Una vez elegido el nivel, haga clic en **Seleccionar**.
 	
-	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado **con éxito** una vez finalizada la operación.
-		
+	La ficha **Notificaciones** parpadeará en color verde indicando que se ha completado con **éxito** una vez finalizada la operación.
+ 
+También puede conocer los distintos niveles de procesamiento de Azure [aquí](http://go.microsoft.com/fwlink/?LinkId=309169).
+	
 <a name="ScalingSQLServer"></a>
 ##Escalación de recursos relacionados
 Si su aplicación depende de otros servicios, como SQL o Almacenamiento, también puede escalarlos según sus necesidades.
@@ -127,4 +131,4 @@ Según el nivel de precios, se encuentran disponibles las siguientes caracterís
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

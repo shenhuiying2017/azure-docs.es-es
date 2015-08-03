@@ -122,9 +122,9 @@ Para obtener más información acerca de las suscripciones de Azure, consulte [A
 
 	- **$ContainerName:** use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
 
-	- $**$ImageToUpload:** escriba una ruta de acceso a una imagen en el equipo local, como por ejemplo: "C:\\Images\\HelloWorld.png".
+	- $**$ImageToUpload:** escriba una ruta de acceso a una imagen en el equipo local, como por ejemplo: "C:\Images\HelloWorld.png".
 
-	- **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Almacenamiento de Azure, como por ejemplo: "C:\\DownloadImages".
+	- **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Almacenamiento de Azure, como por ejemplo: "C:\DownloadImages".
 
 7.	Después de actualizar las variables del script en el archivo "mystoragescript.ps1", haga clic en **Archivo** > **Guardar**. A continuación, haga clic en **Depurar** > **Ejecutar** o presione **F5** para ejecutar el script.
 
@@ -421,17 +421,17 @@ Puede definir hasta 252 propiedades personalizadas para una entidad. Para obtene
 En el siguiente ejemplo le indicaremos cómo agregar entidades a una tabla. El ejemplo le mostrará cómo recuperar la tabla de empleados y cómo agregar varias entidades. En primer lugar, establece una conexión a Almacenamiento de Azure mediante el contexto de cuenta de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, recupera la tabla proporcionada mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Si la tabla no existe, se usará el cmdlet [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) para crear una tabla en Almacenamiento de Azure. Seguidamente, el ejemplo definirá una función Add-Entity personalizada para así poder agregar entidades a la tabla, especificando la partición de cada entidad y su clave de fila. La función Add-Entity llama al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) que se encuentra en la clase [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) para crear un objeto de entidad. A continuación, el ejemplo llama al método [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx) en este objeto de entidad para agregarlo a una tabla.
 
     #Function Add-Entity: Adds an employee entity to a table.
-    function Add-Entity()
-    {
-    param(
-       $table,
-       [String]$partitionKey,
-       [String]$rowKey,
-       [String]$name,
-       [Int]$id
-    )
+    function Add-Entity() {
+        [CmdletBinding()]
+        param(
+           $table,
+           [String]$partitionKey,
+           [String]$rowKey,
+           [String]$name,
+           [Int]$id
+        )
 
-      $entity = New-Object Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity $partitionKey, $rowKey
+      $entity = New-Object -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity -ArgumentList $partitionKey, $rowKey
       $entity.Properties.Add("Name", $name)
       $entity.Properties.Add("ID", $id)
 
@@ -440,8 +440,8 @@ En el siguiente ejemplo le indicaremos cómo agregar entidades a una tabla. El e
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Retrieve the table if it already exists.
@@ -454,19 +454,18 @@ En el siguiente ejemplo le indicaremos cómo agregar entidades a una tabla. El e
     }
 
     #Add multiple entities to a table.
-    Add-Entity $table "Partition1" "Row1" "Chris" 1
-    Add-Entity $table "Partition1" "Row2" "Jessie" 2
-    Add-Entity $table "Partition2" "Row1" "Christine" 3
-    Add-Entity $table "Partition2" "Row2" "Steven" 4
-
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
 
 #### Cómo consultar entidades de tabla
 Para consultar una tabla, use la clase [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx). Para realizar el siguiente ejemplo, tendrá que tener ejecutado el script que se le proporcionó en la sección Cómo agregar entidades de esta guía. Primero, el ejemplo establece una conexión a Almacenamiento de Azure mediante el contexto de almacenamiento, en el cual se incluyen el nombre de la cuenta y su clave de acceso. A continuación, intenta recuperar la tabla "Empleados" que se creó antes mediante el cmdlet [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx). Al llamar al cmdlet [New-Object](http://technet.microsoft.com/library/hh849885.aspx) que se encuentra en la clase Microsoft.WindowsAzure.Storage.Table.TableQuery, se crea un nuevo objeto de consulta. En el ejemplo, buscaremos las entidades que tienen una columna "ID" cuyo valor es 1, tal y como se especificó en un filtro de cadena. Para obtener información detallada, vea [Consultar tablas y entidades](http://msdn.microsoft.com/library/azure/dd894031.aspx). Al ejecutar esta consulta, devolverá todas las entidades que coinciden con los criterios del filtro.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -497,16 +496,15 @@ Puede eliminar una entidad usando sus claves de partición y fila. Para realizar
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the table.
     $TableName = "Employees"
     $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
     #If the table exists, start deleting its entities.
-    if ($table -ne $null)
-    {
+    if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
        $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
@@ -527,8 +525,8 @@ En el siguiente ejemplo, primero se establece una conexión a Almacenamiento de 
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $QueueName = "queuename"
     $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
@@ -560,18 +558,17 @@ En el siguiente ejemplo le mostraremos cómo agregar un mensaje a una cola. Prim
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
     #If the queue exists, add a new message.
-    if ($Queue -ne $null)
-    {
+    if ($Queue -ne $null) {
        # Create a new message using a constructor of the CloudQueueMessage class.
-       $QueueMessage = New-Object "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage" "MessageInfo"
+       $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
        #Add a new message to the queue.
        $Queue.CloudQueue.AddMessage($QueueMessage)
@@ -583,8 +580,8 @@ El código quita un mensaje de una cola en dos pasos. Cuando llama al método [M
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
@@ -739,4 +736,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

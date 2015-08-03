@@ -58,4 +58,4 @@ Todas las API de comunicación de ServiceFabric solo están disponibles actualme
 * [Pila de comunicación basada en WCF de servicios de confianza](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

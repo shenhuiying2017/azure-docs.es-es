@@ -117,4 +117,4 @@ El objetivo final de la detección de datos es encontrar los datos que necesita 
  
 > [AZURE.NOTE]Para la vista previa privada del Catálogo de datos de Azure, solo se admitirá directamente Microsoft Excel y estará disponible en el menú **Conectar**.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -74,4 +74,4 @@ Para ponerlo en contexto, en una implementación de bosque cuenta-recurso espera
 El tema de transformación es amplio y proporciona una gran parte de la configuración personalizada posible con Azure AD Connect. La configuración personalizada no se explicará en este documento de información general, pero examinaremos algunos de los flujos de atributo adicionales más adelante en este documento.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

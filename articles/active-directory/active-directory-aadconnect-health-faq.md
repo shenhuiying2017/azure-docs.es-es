@@ -68,7 +68,7 @@ Hágalo en cualquier momento antes de ejecutar Register-AdHealthAgent (el paso f
 - Paso 1: agregar una entrada en el archivo machine.config
 
 
-Busque el archivo machine.config El archivo se encuentra en in%windir%\\Microsoft.NET\\Framework64[versión]\\config\\machine.config</li>
+Busque el archivo machine.config El archivo se encuentra en in%windir%\Microsoft.NET\Framework64[versión]\config\machine.config</li>
 
 Agregue la entrada siguiente en el elemento <configuration></configuration> en el archivo machine.config.
  
@@ -125,4 +125,4 @@ Las alertas de Azure AD Connect Health se resuelven con una condición de aciert
 
 Deberá abrir los puertos 80 y 443 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -296,4 +296,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

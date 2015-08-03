@@ -83,4 +83,4 @@ Para obtener información general sobre la integración, consulte [Información 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

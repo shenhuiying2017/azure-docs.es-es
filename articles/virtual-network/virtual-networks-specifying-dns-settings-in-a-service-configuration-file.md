@@ -41,4 +41,4 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
 
 [Información acerca de la configuración de red virtual en el Portal de administración](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

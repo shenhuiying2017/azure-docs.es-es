@@ -441,13 +441,13 @@ En este punto, la solución debe ser capaz de compilar sin errores.
 
 Si ejecuta la aplicación ahora, irá a **HomeController** y a la vista de **índice** de ese controlador. Este es el comportamiento predeterminado para el proyecto de plantillas MVC que seleccionamos al comienzo, pero no queremos eso. Cambiemos el enrutamiento en esta aplicación MVC para modificar este comportamiento.
 
-Abra ***App\\_Start\\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
+Abra ***App\_Start\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 Esto indica ahora a ASP.NET MVC que si no ha especificado un valor en la dirección URL para controlar el comportamiento de enrutamiento que, en lugar de **Inicio**, usa **Elemento** como controlador e **Índice** de usuario como vista.
 
-Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\\**Elemento**\\**Índice**.
+Si ejecuta la aplicación, llamará a su **ItemController**, que llamará a la clase de repositorio y usará el método GetItems para devolver todos los elementos incompletos a la vista **Vistas**\**Elemento**\**Índice**.
 
 Si crea y ejecuta este proyecto ahora, deberá ver algo parecido a esto.
 
@@ -658,4 +658,4 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

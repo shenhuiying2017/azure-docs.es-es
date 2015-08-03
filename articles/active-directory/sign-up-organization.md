@@ -36,4 +36,4 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

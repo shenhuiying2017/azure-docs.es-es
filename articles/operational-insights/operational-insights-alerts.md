@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@ En el panel **Administración de alertas**, puede ver todas las alertas que ha e
 3. Haga clic en un icono o en cualquier elemento para ver información detallada sobre él en la página **Buscar**.
 4. Si usa la información encontrada, puede investigar la alerta y determinar las acciones adicionales que puede ser necesario realizar para resolverla.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

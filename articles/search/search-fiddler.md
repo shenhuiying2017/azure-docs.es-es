@@ -236,4 +236,4 @@ Los vínculos siguientes proporcionan información sobre cómo administrar y usa
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

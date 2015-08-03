@@ -46,15 +46,15 @@ También está el concepto de "Guías" y "Recetas". Estas son efectivamente las 
 
 En primer lugar, vamos a preparar la estación de trabajo. Estoy usando una estación de trabajo de Windows estándar. Tenemos que crear un directorio para almacenar nuestras guías y archivos de configuración.
 
-En primer lugar, cree un directorio denominado **C:\\chef**
+En primer lugar, cree un directorio denominado **C:\chef**
 
-A continuación, cree un segundo directorio **c:\\chef\\cookbooks**
+A continuación, cree un segundo directorio **c:\chef\cookbooks**
 
 Ahora necesitamos descargar el archivo de configuración de Azure para que Chef pueda comunicarse con nuestra suscripción de Azure.
 
 Descargue su configuración de publicación de: <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
-Guarde el archivo de configuración de publicación en **C:\\chef**
+Guarde el archivo de configuración de publicación en **C:\chef**
 
 ##Crear una cuenta de Chef administrada
 
@@ -74,15 +74,15 @@ El archivo zip del starter kit contiene sus claves y archivos de configuración 
 
 ##Configurar la estación de trabajo de Chef
 
-Extraiga el contenido de chef-starter.zip en **C:\\chef**
+Extraiga el contenido de chef-starter.zip en **C:\chef**
 
-Copie todos los archivos de **chef-starter\\chef-repo\\.chef** en **c:\\chef**
+Copie todos los archivos de **chef-starter\chef-repo\.chef** en **c:\chef**
 
 El directorio debería tener ahora un aspecto similar al siguiente:
 
 ![][5]
 
-Debería tener ahora 4 archivos, incluido el archivo de publicación de Azure en la raíz de c:\\chef.
+Debería tener ahora 4 archivos, incluido el archivo de publicación de Azure en la raíz de c:\chef.
 
 Los archivos PEM contienen sus claves privadas de organización y administración para la comunicación mientras que el archivo **knife.rb ** contiene la configuración de knife. Tendremos que editar el archivo **knife.rb**.
 
@@ -98,7 +98,7 @@ El archivo knife.rb ahora debería ser ahora similar al siguiente:
 
 ![][6]
 
-Estas líneas asegurarán las referencias de Knife en nuestro directorio de cookbooks en c:\\chef\\cookbooks y también usa nuestro archivo de configuración de publicación de Azure durante las operaciones de Azure.
+Estas líneas asegurarán las referencias de Knife en nuestro directorio de cookbooks en c:\chef\cookbooks y también usa nuestro archivo de configuración de publicación de Azure durante las operaciones de Azure.
 
 ## Instalar el kit de desarrollo de Chef
 
@@ -108,9 +108,9 @@ A continuación, descargue e instale el ChefDK (Kit de desarrollo de Chef) para 
 
 ![][7]
 
-Esto es sencillo. Deje que se instale en su ubicación predeterminada de c:\\opscode. Esta instalación tardará unos 10 minutos.
+Esto es sencillo. Deje que se instale en su ubicación predeterminada de c:\opscode. Esta instalación tardará unos 10 minutos.
 
-Confirme que la variable PATH contiene entradas paraC:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin
+Confirme que la variable PATH contiene entradas paraC:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin
 
 Si no están ahí, asegúrese de agregar estas rutas de acceso.
 
@@ -143,15 +143,15 @@ Si todo está configurado correctamente, verá una lista de imágenes de Azure d
 
 Chef usa las guías para definir un conjunto de comandos que desea ejecutar en el cliente administrado. La creación de una guía es un proceso sencillo y usamos el comando chef generate cookbook para generar nuestra plantilla de Cookbook. Llamaré a mi servidor web de Cookbook ya que me gustaría una directiva que implemente IIS automáticamente.
 
-En el directorio C:\\Chef, ejecute el siguiente comando:
+En el directorio C:\Chef, ejecute el siguiente comando:
 
 	chef generate cookbook webserver
 
-Esto generará un conjunto de archivos en el directorio **C:\\Chef\\cookbooks\\webserver.** Ahora tenemos que definir el conjunto de comandos que nos gustaría que nuestro cliente Chef ejecutara en nuestra máquina virtual administrada.
+Esto generará un conjunto de archivos en el directorio **C:\Chef\cookbooks\webserver.** Ahora tenemos que definir el conjunto de comandos que nos gustaría que nuestro cliente Chef ejecutara en nuestra máquina virtual administrada.
 
 Los comandos se almacenan en el archivo** default.rb** En este archivo, definiré un conjunto de comandos que instala IIS, inicia IIS y copia un archivo de plantilla en la carpeta wwwroot.
 
-Modifique la ruta de acceso **C:\\chef\\cookbooks\\webserver\\recipes\\default.rb** y agregue las siguientes líneas:
+Modifique la ruta de acceso **C:\chef\cookbooks\webserver\recipes\default.rb** y agregue las siguientes líneas:
 
 	powershell_script 'Install IIS' do
  		action :run
@@ -177,7 +177,7 @@ Ejecute el siguiente comando para generar la plantilla:
 
 	chef generate template webserver Default.htm
 
-Ahora navegue al archivo **C:\\chef\\cookbooks\\webserver\\templates\\default\\Default.htm.erb** y edite el archivo.
+Ahora navegue al archivo **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** y edite el archivo.
 
 Agregue el código html simple "Hello World" y guarde el archivo.
 
@@ -238,4 +238,4 @@ Espero que esto les haya resultado útil. Empiece hoy su viaje de su Infraestruc
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

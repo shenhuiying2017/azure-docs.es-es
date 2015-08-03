@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Preguntas frecuentes sobre redes virtuales"
+   pageTitle="P+F de Red virtual"
    description="Preguntas frecuentes sobre redes virtuales de Azure"
    services="virtual-network"
    documentationCenter="na"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/08/2015"
+   ms.date="07/20/2015"
    ms.author="telmos" />
 
-# Preguntas frecuentes sobre redes virtuales
+# P+F de Red virtual
 
 [AZURE.INCLUDE [virtual-networks-vnet-faq-include](../../includes/virtual-networks-vnet-faq-include.md)]
 
@@ -23,4 +23,4 @@
 
 Para obtener las preguntas frecuentes más recientes sobre las VPN de redes virtuales, consulte las [Preguntas más frecuentes sobre la puerta de enlace de VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -536,7 +536,7 @@ Mediante el uso de las colas de Azure, puede implementar una solución que ofrec
 
 ![][12]
 
-Un cliente inicia la operación de almacenamiento mediante la colocación de un mensaje en una cola de Azure, en este ejemplo para archivar el empleado \#456. Un rol de trabajador sondea la cola de mensajes nuevos; si encuentra alguno, lee el mensaje y deja una copia oculta en la cola. El rol de trabajo busca a continuación una copia de la entidad de la tabla **Actual**, inserta una copia en la tabla **Archivo** y, a continuación, elimina el original de la tabla **Actual**. Por último, si no ha habido errores en los pasos anteriores, el rol de trabajador elimina el mensaje oculto de la cola.
+Un cliente inicia la operación de almacenamiento mediante la colocación de un mensaje en una cola de Azure, en este ejemplo para archivar el empleado #456. Un rol de trabajador sondea la cola de mensajes nuevos; si encuentra alguno, lee el mensaje y deja una copia oculta en la cola. El rol de trabajo busca a continuación una copia de la entidad de la tabla **Actual**, inserta una copia en la tabla **Archivo** y, a continuación, elimina el original de la tabla **Actual**. Por último, si no ha habido errores en los pasos anteriores, el rol de trabajador elimina el mensaje oculto de la cola.
 
 En este ejemplo, el paso 4 inserta el empleado en la tabla **Archivo**. Puede añadir al empleado a un blob en el servicio Blob o un archivo en un sistema de archivos.
 
@@ -1428,7 +1428,7 @@ Es posible generar un token SAS que conceda acceso a un subconjunto de las entid
 
 En caso de que reparta las solicitudes entre varias particiones, puede mejorar el rendimiento y la capacidad de respuesta del cliente mediante consultas asincrónicas o paralelas. Por ejemplo, podría tener dos o más instancias de rol de trabajo con acceso a las tablas en paralelo. Podría tiene roles de trabajador individual responsables de determinados conjuntos de particiones, o simplemente tener varias instancias de rol de trabajo, cada una de ellas con acceso a todas las particiones de una tabla.
 
-Dentro de una instancia de cliente, puede mejorar el rendimiento mediante la ejecución de operaciones de almacenamiento de forma asincrónica. La biblioteca de cliente de almacenamiento facilita la escritura de modificaciones y consultas asíncronas. Por ejemplo, puede comenzar con el método sincrónico que recupera todas las entidades de una partición como se muestra en el siguiente código de C\#:
+Dentro de una instancia de cliente, puede mejorar el rendimiento mediante la ejecución de operaciones de almacenamiento de forma asincrónica. La biblioteca de cliente de almacenamiento facilita la escritura de modificaciones y consultas asíncronas. Por ejemplo, puede comenzar con el método sincrónico que recupera todas las entidades de una partición como se muestra en el siguiente código de C#:
 
 	private static void ManyEntitiesQuery(CloudTable employeeTable, string department)
 	{
@@ -1548,4 +1548,4 @@ También nos gustaría dar las gracias a los siguientes MVP de Microsoft por sus
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

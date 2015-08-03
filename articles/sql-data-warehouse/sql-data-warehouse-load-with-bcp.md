@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="TwoUnder"
    manager="barbkess"
-   editor=""/>
+   editor="JRJ@BigBangData.co.uk"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -71,13 +71,15 @@ Abra el Bloc de notas y copie las siguientes líneas de datos en un nuevo archiv
 20150101,1,3
 ```
 
-Guárdelo en el directorio temporal local, C:\\Temp\\DimDate2.txt.
+Guárdelo en el directorio temporal local, C:\Temp\DimDate2.txt.
+
+> [AZURE.NOTE]Es importante recordar que bcp.exe no admite la codificación de archivos UTF-8. Use archivos codificados en ASCII o la codificación UTF-16 para los archivos al usar bcp.exe.
 
 ### Paso 3: Conectar e importar los datos
 Con bcp, puede conectarse e importar los datos con el comando siguiente, reemplazando los valores según corresponda:
 
 ```
-bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 in C:\Temp\DimDate2.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t  ','
 ```
 
 Puede comprobar que los datos se cargaron conectándose con SQLCMD como antes y ejecutando el siguiente comando TSQL:
@@ -112,7 +114,7 @@ En este tutorial, creará un archivo de datos a partir de una tabla de Almacenam
 Con la utilidad bcp, puede conectarse y exportar los datos con el comando siguiente, reemplazando los valores según corresponda:
 
 ```
-bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -w -t
+bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name> -U <Username> -P <password> -q -c -t ','
 ```
 Puede comprobar que los datos se exportaron correctamente abriendo el nuevo archivo. Los datos del archivo deben coincidir con el texto siguiente:
 
@@ -150,4 +152,4 @@ Para obtener información general sobre la carga, vea [Carga de datos en Almacen
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

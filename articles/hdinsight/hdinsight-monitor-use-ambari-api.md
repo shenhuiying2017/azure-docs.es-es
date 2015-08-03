@@ -44,13 +44,11 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 - **Un clúster de HDInsight de Azure**. Para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision]. Para completar el tutorial, necesitará los datos siguientes:
 
 	<table border="1">
-	<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
-	<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
-	<tr><td>Nombre de usuario del clúster</td><td>$clusterUsername</td><td></td><td>Nombre de usuario del clúster especificado en el aprovisionamiento.</td></tr>
-	<tr><td>Contraseña de clúster</td><td>$clusterPassword</td><td></td><td>Contraseña de usuario de clúster</td></tr>
-	</table>
-
-	> [AZURE.NOTE] Rellene los valores de la tabla. Esto le resultará útil para completar el tutorial.
+<tr><th>Propiedad del clúster</th><th>Nombre de variable de Azure PowerShell</th><th>Valor</th><th>Descripción</th></tr>
+<tr><td>Nombre del clúster de HDInsight</td><td>$clusterName</td><td></td><td>El nombre del clúster de HDInsight.</td></tr>
+<tr><td>Nombre de usuario del clúster</td><td>$clusterUsername</td><td></td><td>Nombre de usuario del clúster especificado en el aprovisionamiento.</td></tr>
+<tr><td>Contraseña de clúster</td><td>$clusterPassword</td><td></td><td>Contraseña de usuario de clúster</td></tr>
+</table>> [AZURE.NOTE]Rellene los valores de la tabla. Esto le resultará útil para completar el tutorial.
 
 
 
@@ -178,4 +176,4 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="07/17/2015"
 	ms.author="kathydav"/>
 
 # Preguntas más frecuentes sobre las máquinas virtuales de Azure
@@ -37,7 +37,7 @@ Para imágenes de cliente de Windows, hay disponibles determinadas versiones de 
 
 Cada disco de datos puede ser de hasta 1 TB. El número de discos de datos que puede usar depende del tamaño de la máquina virtual. Para obtener más información, consulte [Tamaños de máquinas virtuales](virtual-machines-size-specs.md).
 
-Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Se le cobrará el almacenamiento usado en la cuenta de almacenamiento, en lugar del espacio disponible en el disco. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=396819).
+Una cuenta de almacenamiento de Azure proporciona almacenamiento para el disco del sistema operativo y los discos de datos. Cada disco es un archivo .vhd almacenado como un blob en páginas. Para obtener información detallada sobre los precios, consulte [Detalles de precios de almacenamiento](http://go.microsoft.com/fwlink/p/?LinkId=396819).
 
 ## ¿Qué tipos de disco duro virtual se puede usar?
 
@@ -51,26 +51,32 @@ Para obtener instrucciones acerca de cómo cargar un disco de datos, consulte el
 
 ## ¿Son estas máquinas virtuales las mismas que las máquinas virtuales de Hyper-V?
 
-En muchos aspectos son similares a las máquinas virtuales Hyper-V de "generación 1", pero no son exactamente lo mismo. Ambos tipos proporcionan hardware virtualizado, y los discos duros virtuales de formato VHD son compatibles. Esto significa que puede moverlos entre Hyper-V y Azure. Dos diferencias clave que a veces sorprenden a los usuarios de Hyper-V son: <!-- In previous para, last sentence, s/b "Three key differences" correct? Also, since the colon provide adequate context for user, you might omit "are".  --> - Azure no proporciona acceso a la consola a una máquina virtual. - Las máquinas virtuales de Azure en la mayoría de [tamaños](virtual-machines-size-specs.md) tienen solo un adaptador de red virtual, lo que significa que también pueden tener solo una dirección IP externa. (Los tamaños A8 y A9 emplean un segundo adaptador de red para la comunicación de la aplicación entre las instancias en escenarios limitados). - Las máquinas virtuales de Azure no son compatibles con las características de las máquinas virtuales de Hyper-V de generación 2. Para obtener más información acerca de estas características, consulte [Especificaciones de máquina virtual de Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
+En muchos aspectos son similares a las máquinas virtuales Hyper-V de "generación 1", pero no son exactamente lo mismo. Ambos tipos proporcionan hardware virtualizado, y los discos duros virtuales de formato VHD son compatibles. Esto significa que puede moverlos entre Hyper-V y Azure. Tres diferencias claves que a veces sorprenden a los usuarios de Hyper-V son:
+
+- Azure no proporciona acceso a consolas a una máquina virtual.
+- Las máquinas virtuales de Azure de la mayoría de [tamaños](virtual-machines-size-specs.md) solo tienen un adaptador de red virtual, lo que significa que también solo pueden tener una dirección IP externa. (Los tamaños A8 y A9 emplean un segundo adaptador de red para la comunicación de aplicaciones entre las instancias en escenarios limitados).
+- Las máquinas virtuales de Azure no admiten funciones de máquina virtual de Hyper-V de generación 2. Para obtener más información acerca de estas características, consulte [Especificaciones de máquina virtual de Hyper-V](http://technet.microsoft.com/library/dn592184.aspx).
 
 ## ¿Pueden estas máquinas virtuales usar mi infraestructura de red local existente?
 
-La respuesta es diferente en máquinas virtuales basadas en la administración de servicios y en máquinas virtuales basadas en la administración de recursos.
-
-Las máquinas virtuales basadas en administración de servicios pueden usar la red virtual de Azure para ampliar la infraestructura existente. El enfoque es como configurar una sucursal. Puede aprovisionar y administrar redes privadas virtuales (VPN) en Azure, así como conectarlas de forma segura con la infraestructura de TI local. Para obtener más información, consulte [Información general de la red virtual de Azure](https://msdn.microsoft.com/library/jj156007.aspx).
+Para las máquinas virtuales creadas en la Administración de servicios, puede usar la red virtual de Azure para extender su infraestructura existente. El enfoque es como configurar una sucursal. Puede aprovisionar y administrar redes privadas virtuales (VPN) en Azure, así como conectarlas de forma segura con la infraestructura de TI local. Para obtener más información, consulte [Información general de la red virtual de Azure](https://msdn.microsoft.com/library/jj156007.aspx).
 
 Necesitará especificar la red a la que desea que pertenezca la máquina virtual al crear la máquina virtual. Por ejemplo, esto significa que no puede unir una máquina virtual existente a una red virtual. Sin embargo, puede solucionar este problema separando el disco duro virtual (VHD) de la máquina virtual existente y, a continuación, usarlo para crear una nueva máquina virtual con la configuración de red que desee.
-
-Las máquinas virtuales basadas en administración de recursos no se pueden incluir en la infraestructura local existente en este momento.
 
 ## ¿Cómo puedo tener acceso a mi máquina virtual?
 
 Deberá establecer una conexión remota para iniciar sesión en la máquina virtual, usando Conexión a Escritorio remoto para una máquina virtual de Windows o un Shell seguro (SSH) para una máquina virtual de Linux. Para obtener instrucciones, consulte:
 
-- [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md) Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
-- [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md) De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
+- [Inicio de sesión en una máquina virtual con Windows Server](virtual-machines-log-on-windows-server.md). Se admite un máximo de 2 conexiones simultáneas, a menos que el servidor está configurado como un host de sesión de servicios de escritorio remoto.  
+- [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md). De forma predeterminada, SSH permite un máximo de 10 conexiones simultáneas. Puede aumentar este número editando el archivo de configuración.
 
-Si tiene problemas con Escritorio remoto o SSH, instale y utilice la extensión [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para ayudar a solucionar el problema. En las máquinas virtuales de Windows, como opciones adicionales se incluyen: <!--  In next paragraph, omit "the" or add a modifier, for example, "click the X button". To enhance instructional design, you might use: "...the VM, and then on the X bar, click X"--> - En el Portal de vista previa de Azure, busque la máquina virtual y, a continuación, haga clic en **Restablecer acceso remoto** desde la barra de comandos - Revise [Solución de problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md). - Use Acceso remoto a Windows PowerShell para conectarse a la máquina virtual o crear extremos adicionales para que otros recursos se conecten a la máquina virtual. Para obtener más información, consulte [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md). <!-- Previous para, added END punctuation --> Si está familiarizado con Hyper-V, puede que esté buscando una herramienta similar a Conexión a máquina virtual. Azure no ofrece una herramienta similar porque no admite el acceso de la consola a una máquina virtual.
+Si tiene problemas con Escritorio remoto o SSH, instale y utilice la extensión [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) para ayudar a solucionar el problema. En las máquinas virtuales de Windows, entre las opciones adicionales se incluyen:
+
+- En el Portal de vista previa de Azure, busque la máquina virtual y, a continuación, haga clic en **Restablecer acceso remoto** desde la barra de comandos.
+- Revise [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
+- Use Acceso remoto a Windows PowerShell para conectarse a la máquina virtual o crear extremos adicionales para que otros recursos se conecten a la máquina virtual. Para obtener más información, consulte [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
+
+Si está familiarizado con Hyper-V, puede que esté buscando una herramienta similar a Conexión a máquina virtual. Azure no ofrece una herramienta similar porque no admite el acceso de la consola a una máquina virtual.
 
 ## ¿Puedo usar la unidad D: (Windows) o/dev/sdb1 (Linux)?
 
@@ -86,7 +92,7 @@ Generalmente, el término "Actualizar" significa cambiar a una versión más rec
 
 - Las máquinas virtuales de Linux usan las herramientas de administración de paquetes y procedimientos adecuados para la distribución.
 - En una máquina virtual de Windows, use las herramientas de migración de Windows Server. No intente actualizar el sistema operativo invitado cuando resida en Azure. No se admite debido al riesgo de perder el acceso a una máquina virtual. Si se producen problemas durante la actualización, podría perder la capacidad de iniciar una sesión de escritorio remoto y no sería capaz de solucionar los problemas. Para obtener información general sobre las herramientas y procesos, consulte [Migrar roles y características a Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940). Para obtener más información acerca de la actualización a Windows Server 2012 R2, consulte [Actualizar opciones para Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx).
-<!--In previous para, last two sentences. Omit "general" since it adds questionable value for customer? -->
+
 ## ¿Cuál es el nombre de usuario predeterminado y la contraseña en la máquina virtual?
 
 Las imágenes proporcionadas por Azure no tienen un nombre de usuario configurado previamente y una contraseña. Cuando cree la máquina virtual mediante una de esas imágenes, deberá proporcionar un nombre de usuario y una contraseña, que usará para iniciar sesión en la máquina virtual.
@@ -132,6 +138,14 @@ Para cualquier máquina virtual independiente (es decir, la máquina virtual no 
 
 También puede usar el Portal de Azure o Azure PowerShell para ver los registros de reinicio cuando el reinicio se produjo debido a una tarea de mantenimiento planificada. Para obtener más información, consulte [Ver registros de reinicio de máquina virtual](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
-Para proporcionar redundancia, coloque dos o más máquinas virtuales configuradas de manera similar en el mismo conjunto de disponibilidad. Esto ayuda a asegurarse de que haya al menos una máquina virtual esté disponible durante el mantenimiento, sea este planeado o no. Azure garantiza determinados niveles de disponibilidad de la máquina virtual para esta configuración. Para obtener más detalles, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).<!-- Promotion, referrals, customer empathy (this tactic likely requires signoff from individual that manages "look and feel" of these assets): Consider a new section like "Need more help" and within new section include link to Developer Portal, or perhaps new product features, troubleshooting, or maintenance?-->
+Para proporcionar redundancia, coloque dos o más máquinas virtuales configuradas de manera similar en el mismo conjunto de disponibilidad. Esto ayuda a asegurarse de que haya al menos una máquina virtual esté disponible durante el mantenimiento, sea este planeado o no. Azure garantiza determinados niveles de disponibilidad de la máquina virtual para esta configuración. Para obtener más detalles, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
 
-<!---HONumber=July15_HO2-->
+## Recursos adicionales
+
+[Acerca de máquinas virtuales de Azure](virtual-machines-about.md)
+
+[Diferentes formas de crear una máquina virtual Linux](virtual-machines-linux-choices-create-vm.md)
+
+[Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md)
+
+<!---HONumber=July15_HO4-->

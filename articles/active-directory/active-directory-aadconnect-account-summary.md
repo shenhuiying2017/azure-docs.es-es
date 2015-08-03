@@ -33,8 +33,8 @@ El asistente de Azure AD Connect ofrece dos rutas de acceso diferentes con disti
 Página del asistente | Credenciales recopiladas | Permisos necesarios| Se usa para 
 ------------- | ------------- |------------- |------------- |
 Conectarse a Azure| Credenciales de directorio de Azure AD | Rol de administrador global en Azure AD | <li>Habilitación de la sincronización en el directorio de Azure AD.</li> <li>Creación de la cuenta de Azure AD que se usará para operaciones de sincronización continua en Azure AD.</li>
-Conectarse a AD DS | Credenciales de Active Directory local | Miembro del grupo de administradores de empresa (EA) en Active Directory| <li>Creación de la cuenta de AD local que se usará para leer objetos y atributos de AD local para la operación de sincronización continua.</li> <li> Asignación de los permisos adecuados y la configuración de control de acceso para la sincronización y la sincronización de contraseñas a la cuenta anterior y a AD.</li> 
-N/A|Credenciales de inicio de sesión del usuario que ejecuta el asistente| Administrador del servidor local|El asistente crea la cuenta de AD que se usará como cuenta de inicio de sesión del servicio de sincronización en el equipo local.
+Conectarse a AD DS | Credenciales de Active Directory local | Miembro del grupo de administradores de empresa (EA) en Active Directory| La cuenta se usa como cuenta local de AD Conector, es decir, es la cuenta que lee y escribe la información del directorio para la sincronización.
+N/D|Credenciales de inicio de sesión del usuario que ejecuta el asistente| Administrador del servidor local|El asistente crea la cuenta de AD que se usará como cuenta de inicio de sesión del servicio de sincronización en el equipo local.
 
 <br> <br>
 
@@ -91,4 +91,4 @@ Cuenta de AD FS:GMSA (aadcsvc$)|Usuario de dominio|Cuenta de inicio de sesión d
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

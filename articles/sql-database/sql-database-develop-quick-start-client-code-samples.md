@@ -14,24 +14,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
 # Ejemplos de código de inicio rápido de cliente para Base de datos SQL
 
 
-Este tema proporciona vínculos a ejemplos de código de inicio rápido que puede usar para conectarse a la base de datos SQL de Azure. Los ejemplos abarcan:
+Este tema proporciona vínculos a ejemplos de código de inicio rápido que puede usar para conectarse a la base de datos SQL de Azure.
+
+
+- Conexión y consulta de ejemplos cortos.
+- Los ejemplos de reintento se conectan y consultan, pero efectúan un reintento automáticamente si se clasifica un error encontrado como [*transitorio*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors) (por ejemplo, un tiempo de espera de conexión).
+
+
+Los ejemplos abarcan:
 
 
 - Una amplia variedad de lenguajes de programación.
 - Los sistemas operativos Windows, Linux y Mac OS como sistemas en los que puede ejecutarse el programa cliente.
+- Vínculos para descargas de controladores de conexión necesarios.
 - Ejemplos breves de código de inicio rápido.
-- Ejemplos más largos que permiten controlar los errores transitorios mediante lógica de reintento automático.
+- Ejemplos más largos que contienen el control de errores transitorios en forma de lógica de reintento automática.
 - Ejemplos de código que permiten convertir conjuntos de resultados relacionales en un formato orientado a objetos.
 
 
-> [AZURE.NOTE]Desde el 10 de junio de 2015, se están preparando ejemplos de código en más lenguajes cuyos vínculos se agregarán al presente tema.
+> [AZURE.NOTE]Se están preparando ejemplos de código en más lenguajes cuyos vínculos se agregarán al presente tema.
 
 
 ## Clientes de Linux
@@ -40,10 +48,11 @@ Este tema proporciona vínculos a ejemplos de código de inicio rápido que pued
 Esta sección proporciona vínculos a temas de ejemplo de código para programas cliente que se ejecutan en Linux.
 
 
-| Lenguaje | Breve | Retry | Relacional al objeto |
+| Lenguaje | Breve ejemplo | Ejemplo de reintento | Relacional al objeto |
 | :-- | :-- | :-- | :-- |
 | Node.js | [Tedious](sql-database-develop-nodejs-simple-linux.md) | . | . |
 | Python | [FreeTDS, pymssql](sql-database-develop-python-simple-unbutu-linux.md) | . | . |
+| Ruby | [FreeTDS, TinyTDS](sql-database-develop-ruby-simple-linux.md) | . | . |
 
 
 ## Clientes de Mac OS
@@ -52,9 +61,10 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 Esta sección proporciona vínculos a temas de ejemplo de código para programas clientes que se ejecutan en Mac OS.
 
 
-| Lenguaje | Breve | Retry | Relacional al objeto |
+| Lenguaje | Breve ejemplo | Ejemplo de reintento | Relacional al objeto |
 | :-- | :-- | :-- | :-- |
 | Python | [pymssql](sql-database-develop-python-simple-mac-osx.md) | . | . |
+| Ruby | [Homebrew<br/>FreeTDS, TinyTDS](sql-database-develop-ruby-simple-mac-osx.md) | . | . |
 
 
 ## Clientes de Windows
@@ -63,13 +73,13 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 Esta sección proporciona vínculos a temas de ejemplo de código para programas cliente que se ejecutan en Windows.
 
 
-| Lenguaje | Breve | Retry | Relacional al objeto |
+| Lenguaje | Breve ejemplo | Ejemplo de reintento | Relacional al objeto |
 | :-- | :-- | :-- | :-- |
 | C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [Controlador ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | . | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -83,6 +93,4 @@ Esta sección proporciona vínculos a temas de ejemplo de código para programas
 - [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md)
 - [Creación de la primera base de datos SQL de Azure](sql-database-get-started.md)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

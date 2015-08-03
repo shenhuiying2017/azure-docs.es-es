@@ -33,9 +33,9 @@ A continuación, los conjuntos de copias de seguridad filtrados se presentan en 
 - **Tipo**: los conjuntos de copias de seguridad pueden ser instantáneas locales o instantáneas en la nube. Una instantánea local es una copia de seguridad de todos los datos del volumen que se almacenan localmente en el dispositivo, mientras que una instantánea en la nube hace referencia a la copia de seguridad de los datos del volumen que residen en la nube. Las instantáneas locales proporcionan un acceso más rápido, mientras que las instantáneas en la nube son preferibles para la resistencia de los datos.
 - **Iniciada por**: las copias de seguridad se pueden iniciar automáticamente en función de una programación o manualmente por el usuario. (Puede usar una directiva de copia de seguridad para programar copias de seguridad. Como alternativa, puede usar la opción **Realizar copia de seguridad** para realizar una copia de seguridad interactiva).
 
-## Cómo restaurar el dispositivo desde una copia de seguridad
+## Cómo restaurar un volumen de StorSimple de una copia de seguridad.
 
-Puede usar la página **Catálogo de copias de seguridad** para restaurar el dispositivo desde una copia de seguridad específica. Sin embargo, debe tener en cuenta que, cuando se restaura un volumen, el volumen volverá al estado en el que se encontraba cuando se realizó la copia de seguridad. Se perderán todos los datos que se agregaron después de la operación de copia de seguridad.
+Puede usar la página **Catálogo de copias de seguridad** para restaurar el volumen StorSimple de una copia de seguridad específica. Sin embargo, debe tener en cuenta que, cuando se restaura un volumen, el volumen volverá al estado en el que se encontraba cuando se realizó la copia de seguridad. Se perderán todos los datos que se agregaron después de la operación de copia de seguridad.
 
 > [AZURE.WARNING]Cuando se realice una restauración a partir de una copia de seguridad, se reemplazarán los volúmenes existentes desde la copia de seguridad. Esto puede provocar la pérdida de los datos que se escribieron después de que se realizase la copia de seguridad.
 
@@ -56,7 +56,7 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el dis
 
 3. Expanda el conjunto de copias de seguridad para ver los volúmenes asociados. Estos volúmenes deben desconectarse en el host y en el dispositivo para que pueda restaurarlos. Acceda a los volúmenes de la página **Contenedores de volúmenes** y, a continuación, siga los pasos indicados en [Desconectar un volumen](storsimple-manage-volumes.md#take-a-volume-offline) para desconectarlos.
 
-    >  [AZURE.IMPORTANT]Asegúrese de desconectar primero los volúmenes del host y, después, desconectar los volúmenes del dispositivo. Si no desconecta los volúmenes del host, el servicio de Administrador de StorSimple los desconectará automáticamente del host. Esto podría dañar los datos.
+    >  [AZURE.IMPORTANT]Asegúrese de desconectar primero los volúmenes del host y, después, desconectar los volúmenes del dispositivo. Si no establece los volúmenes sin conexión en el host, esto podría causar daños en los datos.
 
 4. Vuelva a la pestaña **Catálogo de copias de seguridad** y seleccione un conjunto de copias de seguridad.
 
@@ -74,4 +74,4 @@ Puede usar la página **Catálogo de copias de seguridad** para restaurar el dis
 
 Aprenda cómo [Administrar volúmenes de StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

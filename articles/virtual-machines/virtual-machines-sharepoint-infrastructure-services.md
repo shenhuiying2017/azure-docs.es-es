@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure" 
-	description="Busque artículos clave que describan cómo configurar una granja de servidores de desarrollo/prueba o de producción de SharePoint 2013 en los servicios de infraestructura de Microsoft Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure"
+	description="Busque artículos clave que describan cómo configurar una granja de servidores de desarrollo/prueba o de producción de SharePoint 2013 en los servicios de infraestructura de Microsoft Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="index-page" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure
 
 Configure la primera o siguiente granja de servidores de desarrollo/prueba de SharePoint en los servicios de infraestructura de Microsoft Azure, donde puede aprovecharse de la facilidad de configuración y de la capacidad ampliar rápidamente la granja de servidores para incluir la nueva capacidad o la optimización de funcionalidad clave.
 
-## Granja de servidores de desarrollo/prueba básica de SharePoint 
+## Granja de servidores de desarrollo/prueba básica de SharePoint
 
 Para las máquinas virtuales creadas en la administración de servicios, use la función [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) del Portal de vista previa de Azure para crear una granja de servidores de desarrollo/prueba básica para un sitio web de SharePoint orientado a Internet.
 
@@ -45,17 +45,22 @@ Esta configuración usa máquinas virtuales creadas en la administración de ser
 
 ## Granja de servidores de producción de SharePoint de intranet de alta disponibilidad
 
-Con [Implementación de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en Azure](virtual-machines-workload-intranet-sharepoint-overview.md), cree una granja de servidores de SharePoint Server 2013 de intranet en Azure.
+Con la implementación de [SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en Azure](virtual-machines-workload-intranet-sharepoint-overview.md), cree una granja de servidores de SharePoint Server 2013 de intranet en Azure.
 
 Esta configuración usa máquinas virtuales creadas en la administración de servicios.
 
 ## Recursos adicionales
 
-[SharePoint Server en los servicios de infraestructura de Azure](https://msdn.microsoft.com/library/dn275955.aspx)
+Consulte estos recursos para obtener información y configuraciones adicionales acerca de SharePoint en Azure:
 
-[Planeación para SharePoint 2013 en los servicios de infraestructura de Azure](https://msdn.microsoft.com/library/dn275958.aspx)
+- [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-[Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
- 
+- [Sitios de Internet de Microsoft Azure mediante SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
 
-<!---HONumber=July15_HO2-->
+- [Recuperación ante desastres de SharePoint Server 2013 en Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
+
+- [Uso de Microsoft Azure Active Directory para la autenticación de SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
+
+- [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
+
+<!---HONumber=July15_HO4-->

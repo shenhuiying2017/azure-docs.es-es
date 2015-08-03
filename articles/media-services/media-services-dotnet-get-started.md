@@ -146,7 +146,7 @@ Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 		using Microsoft.WindowsAzure.MediaServices.Client;
 		using Microsoft.WindowsAzure.MediaServices.Client.DynamicEncryption;
 
-6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, la ruta de acceso es "C:\\VideoFiles".
+6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, la ruta de acceso es "C:\VideoFiles".
 
 ##Conexión a la cuenta de Servicios multimedia
 
@@ -462,4 +462,4 @@ Obtenga más información sobre la creación de aplicaciones de vídeo bajo dema
   [Portal de administración]: http://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

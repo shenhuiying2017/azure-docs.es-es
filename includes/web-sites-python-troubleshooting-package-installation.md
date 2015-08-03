@@ -28,14 +28,14 @@ Usará `pip wheel` para compilar una dependencia:
 
     env\scripts\pip wheel azure==0.8.4
 
-Esto crea un archivo .whl en la carpeta \\wheelhouse. Agregue la carpeta \\wheelhouse y los archivos de rueda al repositorio.
+Esto crea un archivo .whl en la carpeta \wheelhouse. Agregue la carpeta \wheelhouse y los archivos de rueda al repositorio.
 
 Edite requirements.txt para agregar la opción `--find-links` al principio. Esto indica a pip que busque una coincidencia exacta en la carpeta local antes de ir al índice de paquetes de Python.
 
     --find-links wheelhouse
     azure==0.8.4
 
-Si desea incluir todas las dependencias en la carpeta \\wheelhouse y no utilizar el índice de paquetes Python, puede hacer que pip omita el índice de paquetes agregando `--no-index` en la parte superior de requirements.txt.
+Si desea incluir todas las dependencias en la carpeta \wheelhouse y no utilizar el índice de paquetes Python, puede hacer que pip omita el índice de paquetes agregando `--no-index` en la parte superior de requirements.txt.
 
     --no-index
 
@@ -69,4 +69,4 @@ Se recomienda eliminar el entorno virtual existente en la aplicación para evita
 [compilador de Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -160,4 +160,4 @@ Una vez creada la aplicación de API, puede usar el conector de Box como acción
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Cómo restablecer una contraseña o el servicio de Escritorio remoto para máquinas virtuales de Windows
 
 Si no puede conectarse a una máquina virtual Windows debido a que se olvidó la contraseña o por un problema con la configuración de servicio del Escritorio remoto, use el Portal de vista previa de Azure o la extensión VMAccess para restablecer la contraseña de administrador local o restablezca la configuración de servicio de Escritorio remoto.
 
-> [AZURE.NOTE]Este artículo no se aplica a las máquinas virtuales basadas en el Administrador de recursos de Azure.
+> [AZURE.NOTE]Este artículo no se aplica a las máquinas virtuales creadas en el Administrador de recursos.
 
 ## Portal de vista previa de Azure
 
-Para restablecer el servicio de Escritorio remoto en el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar** > **Máquinas virtuales** > *su máquina virtual Windows* > **Restablecer acceso remoto**. Aquí tiene un ejemplo.
+Para restablecer el servicio de Escritorio remoto en el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Restablecer acceso remoto**. Aquí tiene un ejemplo.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-Para restablecer el nombre y la contraseña de la cuenta de administrador local en el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar** > **Máquinas virtuales** > *su máquina virtual Windows* > **Toda la configuración** > **Restablecimiento de contraseña**. Aquí tiene un ejemplo.
+Para restablecer el nombre y la contraseña de la cuenta de administrador local en el [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > *su máquina virtual Windows* > **Toda la configuración** > **Restablecimiento de contraseña**. Aquí tiene un ejemplo.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -46,9 +47,9 @@ No es necesario instalar la extensión VMAccess antes de utilizarla. Siempre que
  
 En primer lugar, compruebe que el agente de máquina virtual ya está instalado. Introduzca el nombre de servicio de nube y el nombre de la máquina virtual y, a continuación, ejecute los siguientes comandos en un símbolo de sistema de Azure PowerShell con nivel de administrador. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < and >.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$csName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $csName -Name $vmName 
 	write-host $vm.VM.ProvisionGuestAgent
 
 Si no conoce el nombre del servicio en la nube y de la máquina virtual, ejecute **Get-AzureVM** para mostrar esa información para todas las máquinas virtuales de su suscripción actual.
@@ -90,7 +91,7 @@ La extensión VMAccess ejecuta estos dos comandos en la máquina virtual:
 
 	Este comando habilita el grupo de firewall de Windows integrado que permite el tráfico de Escritorio remoto entrante, el que usa el puerto TCP 3389.
 
-- **Set-ItemProperty -Path 'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server' -name "fDenyTSConnections" -Value 0**
+- **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
 	Este comando establece el valor de registro fDenyTSConnections en 0, lo que permite conexiones de Escritorio remoto.
 
@@ -110,6 +111,7 @@ Si no fue posible ejecutar el paquete de diagnóstico de Azure IaaS (Windows) o 
 
 [Conexión a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
+[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-troubleshoot-remote-desktop-connections.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

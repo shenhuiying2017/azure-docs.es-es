@@ -18,14 +18,6 @@
 
 # Finalización de una base de datos SQL de Azure recuperada
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## Información general
 
 En este artículo se proporciona una lista de comprobación de las tareas que se deben realizar antes de devolver Base de datos SQL de Azure a producción. Esta lista de comprobación se aplica a las bases de datos recuperadas de la conmutación por error de replicación geográfica, restauración de bases de datos eliminadas, restauración a un momento dado o restauración geográfica.
@@ -64,4 +56,4 @@ Para obtener más información sobre las reglas de alerta de bases de datos, con
 Si se requiere una auditoría para tener acceso a una base de datos, será preciso habilitar Auditoría tras la recuperación de la base de datos. Se requiere un buen indicador de auditoría, que las aplicaciones cliente usen cadenas de conexión seguras en un patrón de *. database.secure.windows.net. Para obtener más información, consulte [Introducción a la auditoría de Base de datos SQL](sql-database-auditing-get-started.md). 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

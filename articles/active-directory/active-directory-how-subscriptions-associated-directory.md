@@ -88,7 +88,7 @@ Si en algún momento en el pasado ha creado una cuenta Microsoft de cliente util
 
 ![][3]
 
-Dispone de cuentas de usuario con el mismo nombre, una en Azure AD y otra en el sistema de cuenta de Microsoft de cliente. Debe elegir la cuenta que está asociada a la suscripción de Azure que desee utilizar. Si se produce un error que indica que no existe una suscripción para este usuario, es posible que haya elegido la opción incorrecta. Cierre la sesión y vuelva a intentarlo. Para obtener más información acerca de los errores que pueden impedir el inicio de sesión, vea [Solución de errores: "No podemos encontrar las suscripciones asociadas a su cuenta"](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+Dispone de cuentas de usuario con el mismo nombre, una en Azure AD y otra en el sistema de cuenta de Microsoft de cliente. Debe elegir la cuenta que está asociada a la suscripción de Azure que desee utilizar. Si se produce un error que indica que no existe una suscripción para este usuario, es posible que haya elegido la opción incorrecta. Cierre la sesión y vuelva a intentarlo. Para obtener más información acerca de los errores que pueden impedir el inicio de sesión, vea [Solución de errores: "No podemos encontrar las suscripciones asociadas a su cuenta"](https://social.msdn.microsoft.com/Forums/es-es/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Administración del directorio para la suscripción de Office 365 en Azure
 
@@ -126,4 +126,4 @@ Para administrar ambos directorios en el Portal de administración, siga estos p
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

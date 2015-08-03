@@ -5,9 +5,7 @@
 	documentationCenter=""
 	authors="karthmut"
 	manager="timlt"
-	editor="tysonn"/>
-
-<tags
+	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
@@ -24,7 +22,7 @@ DataStax es un reconocido líder del sector en el desarrollo y la entrega de sol
 
 Ahora, además de lo que ya está disponible en Azure Marketplace, puede implementar fácilmente un nuevo clúster de DataStax Enterprise en máquinas virtuales de Ubuntu con una plantilla del Administrador de recursos mediante [Azure PowerShell](../powershell-install-configure.md) o [CLI de Azure](../xplat-cli.md).
 
-Los clústeres recién implementados basados en esta plantilla tendrán la topología descrita en el siguiente diagrama, aunque se pueden lograr fácilmente otras topologías personalizando la plantilla presentada en este artículo:
+Los clústeres recién implementados basados en esta plantilla tendrán la topología descrita en el siguiente diagrama, aunque se pueden lograr fácilmente otras topologías personalizando la plantilla presentada en este artículo.
 
 ![cluster-architecture](media/virtual-machines-datastax-enterprise-template/cluster-architecture.png)
 
@@ -46,9 +44,9 @@ Siga estos pasos para crear un clúster de Apache Cassandra basado en DataStax E
 
 ### Paso 1-a: Descargar los archivos de plantilla con PowerShell
 
-Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\\Azure\\Templates\\DataStax).
+Cree una carpeta local para la plantilla JSON y otros archivos asociados (por ejemplo, C:\Azure\Templates\DataStax).
 
-Sustituya el nombre de carpeta de la carpeta local y ejecute estos comandos:
+Sustituya el nombre de carpeta de la carpeta local y ejecute el siguiente conjunto de comandos:
 
 	$folderName="C:\Azure\Templates\DataStax"
 	$webclient = New-Object System.Net.WebClient
@@ -82,17 +80,16 @@ Sustituya el nombre de carpeta de la carpeta local y ejecute estos comandos:
 
 ### Paso 1-b: Descargar los archivos de plantilla con CLI de Azure
 
-Clone todo el repositorio de plantillas mediante un cliente GIT de su elección, por ejemplo:
+Clone todo el repositorio de plantillas mediante un cliente GIT de su elección, tal y como se muestra en el siguiente ejemplo.
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-Cuando haya finalizado, busque la carpeta **datastax-enterprise** en el directorio C:\\Azure\\Templates.
-
+Cuando haya finalizado, busque la carpeta datastax-enterprise en el directorio C:\Azure\Templates. <!--Wrapping name of folder in bold typeface is not corp style  -->
 ### Paso 2 (opcional): Comprender los parámetros de plantilla
 
 Al implementar soluciones no triviales, como un clúster de Apache Cassandra basado en DataStax, debe especificar un conjunto de parámetros de configuración para resolver algunos valores necesarios. Al declarar estos parámetros en la definición de la plantilla, es posible especificar valores durante la ejecución de la implementación mediante un archivo externo o en la línea de comandos.
 
-En la sección “parameters” en la parte superior del archivo **azuredeploy.json**, encontrará el conjunto de parámetros que requiere la plantilla para configurar un clúster de DataStax Enterprise. Este es un ejemplo de la sección “parameters” de este archivo de plantilla azuredeploy.json:
+En la sección “parameters” en la parte superior del archivo azuredeploy.json, encontrará el conjunto de parámetros que requiere la plantilla para configurar un clúster de DataStax Enterprise. Este es un ejemplo de la sección “parameters” de este archivo de plantilla azuredeploy.json.
 
 	"parameters": {
 		"region": {
@@ -182,13 +179,13 @@ En la sección “parameters” en la parte superior del archivo **azuredeploy.j
 		}
 	}
 
-Cada parámetro incluye detalles como el tipo de datos y los valores permitidos. Esto permite la validación de parámetros pasados durante la ejecución de la plantilla en un modo interactivo (por ejemplo, PowerShell o CLI de Azure), así como una interfaz de usuario de detección automática que se podría compilar dinámicamente mediante el análisis de la lista de parámetros necesarios y sus descripciones.
+Cada parámetro incluye detalles como el tipo de datos y los valores permitidos. Esto permite la validación de parámetros pasados durante la ejecución de la plantilla en un modo interactivo (por ejemplo, Azure PowerShell o CLI de Azure), así como una interfaz de usuario de detección automática que se podría compilar dinámicamente mediante el análisis de la lista de parámetros necesarios y sus descripciones.
 
 ### Paso 3-a: Implementar un clúster de DataStax Enterprise con una plantilla mediante PowerShell
 
 Prepare un archivo de parámetros para la implementación creando un archivo JSON que contenga los valores de tiempo de ejecución para todos los parámetros. Este archivo se pasará como una sola entidad al comando de implementación. Si no incluye un archivo de parámetros, PowerShell usará los valores predeterminados especificados en la plantilla y le pedirá que rellene los valores restantes.
 
-A continuación se muestra un conjunto de parámetros de ejemplo del archivo **azuredeploy-parameters.json**:
+El siguiente ejemplo es un conjunto de parámetros de ejemplo del archivo azuredeploy-parameters.json.
 
 	{
 		"storageAccountPrefix": {
@@ -229,7 +226,7 @@ A continuación se muestra un conjunto de parámetros de ejemplo del archivo **a
 		}
 	}
 
-Rellene un nombre de implementación de Azure, un nombre de grupo de recursos, una ubicación de Azure y la carpeta del archivo de implementación JSON guardado. A continuación, ejecute estos comandos:
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos, una ubicación de Azure y la carpeta del archivo de implementación JSON guardado. A continuación, ejecute el siguiente conjunto de comandos.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -242,7 +239,7 @@ Rellene un nombre de implementación de Azure, un nombre de grupo de recursos, u
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-Al ejecutar el comando **New-AzureResourceGroupDeployment**, se extraerán los valores de parámetros desde el archivo de parámetros JSON y se empezará a ejecutar la plantilla según corresponda. Al definir y usar varios archivos de parámetros con sus distintos entornos (por ejemplo, prueba, producción, etc.), se promoverá la reutilización de plantillas y se simplificarán las soluciones complejas de entornos múltiples.
+Al ejecutar el comando **New-AzureResourceGroupDeployment**, se extraerán los valores de parámetros desde el archivo de parámetros JSON y se empezará a ejecutar la plantilla según corresponda. Al definir y usar varios archivos de parámetros con sus distintos entornos (por ejemplo, prueba o producción), se promoverá la reutilización de plantillas y se simplificarán las soluciones complejas de entornos múltiples.
 
 Durante la implementación, recuerde que debe crearse una nueva cuenta de almacenamiento de Azure para que el nombre proporcionado como parámetro de cuenta de almacenamiento sea único y cumpla todos los requisitos de una cuenta de almacenamiento de Azure (solo letras minúsculas y números).
 
@@ -255,41 +252,39 @@ Para ello, vaya al [Portal de Azure](https://portal.azure.com) y haga lo siguien
 - Al hacer clic en el gráfico de barras “Eventos” en la parte “Supervisión” de la hoja “Grupo de recursos”, puede ver los eventos para la implementación:
 - Al hacer clic en eventos individuales, puede profundizar más en los detalles de cada operación individual que se realiza en nombre de la plantilla.
 
-Después de las pruebas, si desea quitar este grupo de recursos y todos sus recursos (cuenta de almacenamiento, máquina virtual y red virtual), use este único comando:
+Después de las pruebas, si desea quitar este grupo de recursos y todos sus recursos (cuenta de almacenamiento, máquina virtual y red virtual), utilice el siguiente comando.
 
 	Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### Paso 3-b: Implementar un clúster de DataStax Enterprise con una plantilla mediante CLI de Azure
 
-Para implementar un clúster de DataStax Enterprise a través de CLI de Azure, primero debe crear un grupo de recursos especificando un nombre y una ubicación:
+Para implementar un clúster de DataStax Enterprise a través de CLI de Azure, primero debe crear un grupo de recursos especificando un nombre y una ubicación con el siguiente comando.
 
 	azure group create dsc "West US"
 
-Pase este nombre del grupo de recursos, la ubicación del archivo de plantilla JSON y la ubicación del archivo de parámetros (consulte la sección anterior de PowerShell para obtener detalles) en el siguiente comando:
+Pase este nombre del grupo de recursos, la ubicación del archivo de plantilla JSON y la ubicación del archivo de parámetros (consulte la sección anterior de PowerShell para obtener detalles) en el siguiente comando.
 
 	azure group deployment create dsc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-Puede comprobar el estado de las implementaciones de recursos individuales con el comando siguiente:
+Puede comprobar el estado de las implementaciones de recurso individuales con el comando siguiente.
 
 	azure group deployment list dsc
 
 ## Recorrido por la estructura de plantilla y la organización de archivos de DataStax Enterprise
 
-Si desea diseñar una plantilla del Administrador de recursos sólida y reutilizable, hay que pensar aún más en cómo organizar la serie de tareas complejas e interrelacionadas necesarias durante la implementación de una solución compleja como DataStax Enterprise. Al aprovechar la **vinculación de plantillas** de ARM, los **bucles de recursos** y la ejecución de scripts mediante extensiones relacionadas, es posible implementar un enfoque modular que se puede reutilizar con prácticamente cualquier implementación compleja basada en plantillas.
-
-En este diagrama se describen las relaciones entre todos los archivos descargados de GitHub para esta implementación:
+Si desea diseñar una plantilla del Administrador de recursos sólida y reutilizable, hay que pensar aún más en cómo organizar la serie de tareas complejas e interrelacionadas necesarias durante la implementación de una solución compleja como DataStax Enterprise. Al aprovechar la **vinculación de plantillas** de ARM, los **bucles de recursos** y la ejecución de scripts mediante extensiones relacionadas, es posible implementar un enfoque modular que se puede reutilizar con prácticamente cualquier implementación compleja basada en plantillas. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> En el siguiente diagrama se describen las relaciones entre todos los archivos descargados de GitHub para esta implementación.
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
-Esta sección le guía a través de la estructura del archivo **azuredeploy.json** para el clúster de DataStax Enterprise.
+Esta sección le guía a través de la estructura del archivo azuredeploy.json para el clúster de DataStax Enterprise.
 
 ### Sección “parameters”
 
-La sección “parameters” de **azuredeploy.json** especifica parámetros modificables que se usan en esta plantilla. El archivo **azuredeploy-parameters.json** mencionado anteriormente se usa para pasar valores a la sección “parameters” de azuredeploy.json durante la ejecución de la plantilla.
+La sección “parameters” de azuredeploy.json especifica parámetros modificables que se usan en esta plantilla. El archivo azuredeploy-parameters.json mencionado anteriormente se usa para pasar valores a la sección “parameters” de azuredeploy.json durante la ejecución de la plantilla.
 
-### Sección “variables”
+### Sección "variables"
 
-La sección “variables” especifica las variables que se pueden usar en esta plantilla. Contiene cierto número de campos (tipos de datos o fragmentos JSON) que se establecerán en constantes o valores calculados en tiempo de ejecución. Aquí está la sección “variables” para esta plantilla de DataStax:
+La sección “variables” especifica las variables que se pueden usar en esta plantilla. Contiene cierto número de campos (tipos de datos o fragmentos JSON) que se establecerán en constantes o valores calculados en tiempo de ejecución. En el ejemplo siguiente se muestra la sección "variables" para esta plantilla Datastax.
 
 	"variables": {
 	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-enterprise/",
@@ -333,7 +328,7 @@ La sección “variables” especifica las variables que se pueden usar en esta 
 	"nodeList": "[concat(variables('networkSettings').statics.clusterRange.base, variables('networkSettings').statics.clusterRange.start, '-', parameters('clusterNodeCount'))]"
 	},
 
-Al explorar en profundidad este ejemplo, puede ver dos enfoques diferentes. En este primer fragmento, la variable “osSettings” es un elemento JSON anidado que contiene 4 pares clave-valor:
+En el ejemplo anterior, se pueden ver dos enfoques diferentes. En el primer fragmento, la variable “osSettings” es un elemento JSON anidado que contiene 4 pares clave-valor:
 
 	"osSettings": {
 	      "imageReference": {
@@ -344,7 +339,7 @@ Al explorar en profundidad este ejemplo, puede ver dos enfoques diferentes. En e
 	      },
 
 	 
-En este segundo fragmento, la variable “scripts” es una matriz JSON donde cada elemento se calculará en tiempo de ejecución mediante una función de lenguaje de plantilla (concat) y el valor de otra variable, además de constantes de cadenas:
+En el segundo fragmento, la variable “scripts” es una matriz JSON donde cada elemento se calculará en tiempo de ejecución mediante una función de lenguaje de plantilla (concat) y el valor de otra variable, además de constantes de cadenas.
 
 	      "scripts": [
 	        "[concat(variables('templateBaseUrl'), 'dsenode.sh')]",
@@ -352,9 +347,9 @@ En este segundo fragmento, la variable “scripts” es una matriz JSON donde ca
 	        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
 	      ]
 
-### Sección “resources”
+### Sección "resources"
 
-La sección **“resources”** es donde ocurre la mayor parte de la acción. Al analizar detenidamente esta sección, puede identificar de inmediato dos casos distintos: el primero es un elemento definido de tipo `Microsoft.Resources/deployments` que básicamente significa la invocación de una implementación anidada dentro de la principal. Mediante el elemento “templateLink” (y la propiedad de versión relacionada), es posible especificar un archivo de plantilla vinculado que se invocará pasando un conjunto de parámetros como entrada, tal como se puede observar en este fragmento:
+La sección “resources” es donde ocurre la mayor parte de la acción. Al analizar esta sección, puede identificar de inmediato dos casos distintos: el primero es un elemento definido de tipo `Microsoft.Resources/deployments` que básicamente significa la invocación de una implementación anidada dentro de la principal. Mediante el elemento “**templateLink**” (y la propiedad de versión relacionada), es posible especificar un archivo de plantilla vinculado que se invocará pasando un conjunto de parámetros como entrada, tal como se muestra en el siguiente ejemplo:
 
 	{
 	      "name": "shared",
@@ -380,18 +375,13 @@ La sección **“resources”** es donde ocurre la mayor parte de la acción. Al
 	      }
 	    },
 
-A partir de este primer ejemplo está claro que **azuredeploy.json** se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
+A partir de este primer ejemplo está claro que azuredeploy.json se organizó en este escenario como un mecanismo de coordinación, al invocar cierto número de otros archivos de plantillas, cada uno de los cuales es responsable de una parte de las actividades de implementación necesarias.
 
-En particular, las siguientes plantillas vinculadas se usarán para esta implementación:
+En particular, las siguientes plantillas vinculadas se usarán para esta implementación: <!-- In list format, using bold typeface in the following manner is ok --> - **shared-resource.json**: contiene la definición de todos los recursos que se van a compartir a través de la implementación. Algunos ejemplos son cuentas de almacenamiento usadas para almacenar discos de sistema operativo de la máquina virtual y redes virtuales. -**opscenter-resources.json**: implementa una máquina virtual OpsCenter y todos los recursos relacionados, incluida una interfaz de red y una dirección IP pública. - **opscenter-install-resources.json**: implementa la extensión de máquina virtual OpsCenter (script personalizado para Linux) que invocará el archivo de script de bash específico (opscenter.sh) necesario para configurar el servicio de OpsCenter dentro de esa máquina virtual. -**ephemeral-nodes-resources.json**: implementa todas las máquinas virtuales de nodos de clúster y los recursos conectados (por ejemplo, tarjetas de red y direcciones IP privadas). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (dsenode.sh) para instalar físicamente los bits de Apache Cassandra en cada nodo.
 
--	**shared-resource.json**: contiene la definición de todos los recursos que se van a compartir en toda la implementación. Algunos ejemplos son las cuentas de almacenamiento que se usan para almacenar discos del sistema operativo de la máquina virtual y redes virtuales.
--	**opscenter-resources.json**: implementa una máquina virtual de OpsCenter y todos los recursos relacionados, incluida la interfaz de red y la dirección IP pública.
--	**opscenter-install-resources.json**: implementa la extensión de máquina virtual de OpsCenter (script personalizado para Linux) que invocará el archivo de script Bash específico (**opscenter.sh**) necesario para configurar el servicio de OpsCenter dentro de esa máquina virtual.
--	**ephemeral-nodes-resources.json**: implementa todas las máquinas virtuales de nodo del clúster y los recursos conectados (tarjetas de red, IP privadas, etc.). Esta plantilla también implementará extensiones de máquinas virtuales (scripts personalizados para Linux) e invocará un script Bash (**dsenode.sh**) para instalar físicamente los bits de Apache Cassandra en cada nodo.
+Analicemos cómo se usa esta última plantilla, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede una sola plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como bucle de recursos.
 
-Analicemos cómo se usa esta última plantilla, ya que es una de las más interesantes desde el punto de vista del desarrollo de una plantilla. Un concepto importante que se debe resaltar es cómo puede una sola plantilla implementar varias copias de un tipo de recurso único y puede establecer para cada instancia valores únicos para la configuración requerida. Este concepto se conoce como **bucle de recursos**.
-
-Cuando se invoca **ephemeral-nodes-resources.json** desde el archivo principal **azuredeploy.json**, se proporciona un parámetro llamado **nodeCount** como parte de la lista de parámetros. En la plantilla secundaria, se usará nodeCount (el número de nodos que se debe implementar en el clúster) dentro del elemento **“copy”** de cada recurso que debe implementarse en varias copias, tal como se presenta en el siguiente fragmento. Para todas las configuraciones donde sean necesarios valores únicos para diferentes instancias del recurso implementado, se puede usar la función **copyindex()** para obtener un valor numérico que indica el índice actual en esa creación de bucle de recurso en particular. En el fragmento siguiente se puede ver este concepto aplicado a la creación de varias máquinas virtuales para los nodos del clúster de DataStax Enterprise:
+Cuando se invoca ephemeral-nodes-resources.json desde el archivo principal azuredeploy.json, se proporciona un parámetro llamado nodeCount como parte de la lista de parámetros. En la plantilla secundaria, se usará nodeCount (el número de nodos que se debe implementar en el clúster) dentro del elemento **“copy”** de cada recurso que debe implementarse en varias copias, tal como se presenta en el siguiente ejemplo. Para todas las configuraciones donde sean necesarios valores únicos para diferentes instancias del recurso implementado, se puede usar la función **copyindex()** para obtener un valor numérico que indica el índice actual en esa creación de bucle de recurso en particular. En el siguiente ejemplo se puede ver este concepto aplicado a la creación de varias máquinas virtuales para los nodos del clúster de DataStax Enterprise.
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -452,15 +442,15 @@ Cuando se invoca **ephemeral-nodes-resources.json** desde el archivo principal *
 			      }
 			    },
 
-Otro concepto importante en la creación de recursos es la capacidad de especificar las dependencias y prioridades entre los recursos, tal como se puede observar en la matriz JSON **dependsOn**. En esta plantilla en particular, cada nodo tendrá también un disco de 1 TB conectado (consulte “dataDisks”) que se puede usar para hospedar copias de seguridad e instantáneas de la instancia de Apache Cassandra.
+Otro concepto importante en la creación de recursos es la capacidad de especificar las dependencias y prioridades entre los recursos, tal como se puede observar en la matriz JSON **dependsOn**. En esta plantilla en particular, cada nodo tendrá también un disco de 1 TB conectado (consulte “dataDisks”) que se puede usar para hospedar copias de seguridad e instantáneas de la instancia de Apache Cassandra.
 
-Se da formato a los discos conectados como parte de las actividades de preparación del nodo que desencadena la ejecución del archivo de script **dsenode.sh**. La primera fila de ese script invoca otro script:
+Se da formato a los discos conectados como parte de las actividades de preparación del nodo que desencadena la ejecución del archivo de script dsenode.sh. En el siguiente ejemplo, la primera fila de ese script invoca otro script.
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh forma parte de la carpeta **shared_scripts\\ubuntu**, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
+vm-disk-utils-0.1.sh forma parte de la carpeta shared_scripts\ubuntu, en el repositorio de GitHub azure-quickstart-templates y contiene funciones muy útiles para el montaje, formato y desmontaje de discos. Estas funciones se pueden usar en todas las plantillas del repositorio.
 
-Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster (y la instancia OpsCenter). Aprovechan el mismo mecanismo de bucle de recursos descrito para las máquinas virtuales:
+Otro fragmento interesante es el relacionado con las extensiones de máquinas virtuales de CustomScriptForLinux. Se instalan como un tipo de recurso independiente, con una dependencia en cada nodo del clúster (y la instancia OpsCenter). Aprovechan el mismo mecanismo de bucle de recursos descrito para las máquinas virtuales.
 
 	{
 	"type": "Microsoft.Compute/virtualMachines/extensions",
@@ -486,19 +476,18 @@ Otro fragmento interesante es el relacionado con las extensiones de máquinas vi
 	}
 	}
 
-Al familiarizarse con los demás archivos incluidos en esta implementación, podrá entender todos los detalles y los procedimientos recomendados necesarios para organizar y coordinar las complejas estrategias de implementación de las soluciones de múltiples nodos, basadas en cualquier tecnología, aprovechando las plantillas del Administrador de recursos de Azure. Aunque no es obligatorio, un enfoque recomendado consiste en estructurar los archivos de plantillas, tal como se muestra en el diagrama siguiente:
+Al familiarizarse con los demás archivos incluidos en esta implementación, podrá entender todos los detalles y los procedimientos recomendados necesarios para organizar y coordinar las complejas estrategias de implementación de las soluciones de múltiples nodos, basadas en cualquier tecnología, aprovechando las plantillas del Administrador de recursos de Azure. Aunque no es obligatorio, un enfoque recomendado consiste en estructurar los archivos de plantillas, tal como se muestra en el diagrama siguiente.
 
 ![datastax-enterprise-template-structure](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-template-structure.png)
 
-Básicamente, se sugiere este enfoque para:
+Este enfoque sugiere:
 
 -	Definir el archivo de plantilla principal como punto central de coordinación para todas las actividades de implementación específicas y aprovechar la vinculación de las plantillas para invocar ejecuciones de subplantillas.
--	Crear archivos de plantillas específicas que implementarán todos los recursos compartidos en todas las demás tareas de implementación específicas (por ejemplo, cuentas de almacenamiento, configuración de red virtual, etc.). Esto se puede reutilizar en gran medida entre las implementaciones que tienen requisitos similares en cuanto a una infraestructura común.
+-	Crear archivos de plantillas específicas que implementarán todos los recursos compartidos en todas las demás tareas de implementación específicas (por ejemplo, cuentas de almacenamiento y configuración de red virtual). Esto se puede reutilizar en gran medida entre las implementaciones que tienen requisitos similares en cuanto a una infraestructura común.
 -	Incluir plantillas de recursos opcionales para identificar requisitos específicos de un recurso determinado.
--	Para los miembros idénticos de un grupo de recursos (nodos de un clúster, etc.), crear plantillas específicas que aprovechen bucles de recursos a fin de implementar varias instancias con propiedades únicas.
--	Para todas las tareas de implementación posteriores (por ejemplo, instalación del producto, configuraciones, etc.), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
+-	Para los miembros idénticos de un grupo de recursos (por ejemplo, nodos de un clúster), crear plantillas específicas que aprovechen bucles de recursos a fin de implementar varias instancias con propiedades únicas.
+-	Para todas las tareas de implementación posteriores (por ejemplo, instalación del producto y configuraciones), aprovechar las extensiones de implementación de scripts y crear scripts específicos de cada tecnología.
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

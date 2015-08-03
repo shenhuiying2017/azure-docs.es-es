@@ -209,4 +209,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

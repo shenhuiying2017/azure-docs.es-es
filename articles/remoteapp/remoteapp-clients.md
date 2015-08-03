@@ -3,6 +3,7 @@
     pageTitle="Acceso a sus aplicaciones"
     description="Obtenga información sobre qué clientes son compatibles con Azure RemoteApp y cómo tener acceso a sus aplicaciones."
     services="remoteapp"
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -206,4 +207,4 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

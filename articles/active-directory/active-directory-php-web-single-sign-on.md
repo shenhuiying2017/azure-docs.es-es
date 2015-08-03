@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="07/17/2015" 
 	ms.author="tomfitz"/>
 
 # Inicio de sesión web único con PHP y Azure Active Directory
@@ -131,7 +131,7 @@ Este paso le mostrará cómo agregar compatibilidad para el inicio de sesión fe
 
 5. En el cuadro de diálogo **New PHP File** (Nuevo archivo PHP), asigne al archivo el nombre **secureResource.php** y, a continuación, haga clic en **Finish** (Finalizar).
 
-6. En el nuevo archivo **secureResource.php**, escriba el siguiente código y reemplace la ruta de acceso **c:\\phpLibraries** por la ubicación raíz donde descargó el código de ejemplo. La ubicación raíz debe incluir el archivo **simpleSAML.php** y la carpeta **federation**:
+6. En el nuevo archivo **secureResource.php**, escriba el siguiente código y reemplace la ruta de acceso **c:\phpLibraries** por la ubicación raíz donde descargó el código de ejemplo. La ubicación raíz debe incluir el archivo **simpleSAML.php** y la carpeta **federation**:
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -203,4 +203,4 @@ Puede encontrar un ejemplo que muestra cómo usar Azure Active Directory y el in
 [Código de ejemplo PHP para Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

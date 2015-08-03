@@ -53,4 +53,4 @@ Este paso se refiere solo a los recursos personalizados. Si ha personalizado los
 
 Consulte [Procedimientos de actualización](mobile-engagement-windows-store-upgrade-procedure/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

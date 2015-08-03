@@ -180,4 +180,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

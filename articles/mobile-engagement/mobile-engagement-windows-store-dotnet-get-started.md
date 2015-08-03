@@ -259,4 +259,4 @@ Ahora debería ver una notificación del sistema de su campaña en el dispositiv
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

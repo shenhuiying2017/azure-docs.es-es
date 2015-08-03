@@ -38,4 +38,4 @@ Para entender las restricciones de uso y otros límites de servicio para el serv
 * [Identidad de Azure](fundamentals-identity.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

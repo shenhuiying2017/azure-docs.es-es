@@ -59,7 +59,7 @@ Si no tiene instalada la última versión de Azure PowerShell, consulte [Instala
 
 1. Inicie sesión en su cuenta de Azure con sus credenciales. El comando devuelve información acerca de su cuenta.
 
-        PS C:> Add-AzureAccount
+        PS C:\> Add-AzureAccount
           
         Id                             Type       ...
         --                             ----    
@@ -67,16 +67,16 @@ Si no tiene instalada la última versión de Azure PowerShell, consulte [Instala
 
 2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación.
 
-        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Cambie al módulo Administrador de recursos de Azure.
 
-        PS C:> Switch-AzureMode AzureResourceManager
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 ### Vista de roles disponibles
 Para ver las funciones disponibles para la suscripción, ejecute el comando **AzureRoleDefinition Get**.
 
-    PS C:> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRoleDefinition
 
     Name                          Id                            Actions                  NotActions
     ----                          --                            -------                  ----------
@@ -87,7 +87,7 @@ Para ver las funciones disponibles para la suscripción, ejecute el comando **Az
 ### Conceda permiso de lectura a un grupo para la suscripción.
 1. Revise la definición del rol **Lector** al proporcionar el nombre del rol cuando se ejecuta el comando **Get-AzureRoleDefinition**. Compruebe que las acciones permitidas son las que se pretende asignar.
 
-        PS C:> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRoleDefinition Reader
    
         Name            Id                            Actions           NotActions
         ----            --                            -------           ----------
@@ -95,11 +95,11 @@ Para ver las funciones disponibles para la suscripción, ejecute el comando **Az
 
 2. Obtiene el grupo de seguridad necesario mediante la ejecución del comando **Get-AzureADGroup**. Proporcione el nombre real del grupo en su suscripción. ExampleAuditorGroup se muestra a continuación.
 
-        PS C:> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
 
 3. Cree la asignación de roles para el grupo de seguridad de auditor. Cuando se complete el comando, se devuelve la nueva asignación de roles.
 
-        PS C:> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -113,32 +113,32 @@ Para ver las funciones disponibles para la suscripción, ejecute el comando **Az
 ###Conceda permisos de colaborador para una aplicación a un grupo de recursos.
 1. Revise la definición del rol **Colaborador** al proporcionar el nombre del rol cuando se ejecuta el comando **Get-AzureRoleDefinition**. Compruebe que las acciones permitidas son las que se pretende asignar.
 
-        PS C:> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRoleDefinition Contributor
 
 2. Obtenga el identificador del objeto de la entidad de servicio mediante la ejecución del comando **Get-AzureADServicePrincipal** y el suministro del nombre de la aplicación en su suscripción. ExampleApplication se muestra a continuación.
 
-        PS C:> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. Cree las asignaciones de roles para la entidad de servicio mediante la ejecución del comando **New-AzureRoleAssignment**.
 
-        PS C:> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Para obtener una explicación más completa de la configuración de una aplicación de Azure Active Directory y de una entidad de servicio, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](../resource-group-authenticate-service-principal.md).
 
 ###Conceda permisos de propietario a un usuario para un recurso.
 1. Revise la definición del rol **Propietario** al proporcionar el nombre del rol cuando se ejecuta el comando **Get-AzureRoleDefinition**. Compruebe que las acciones permitidas son las que se pretende asignar.
 
-        PS C:> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRoleDefinition Owner
 
 2. Cree las asignaciones de roles para el usuario.
 
-        PS C:> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Lista de los registros de auditoría del grupo de recursos.
 Para obtener el registro de auditoría para un grupo de recursos, ejecute el comando **Get-AzureResourceGroupLog**.
 
-      PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
 ## Uso de la CLI de Azure para Mac, Linux y Windows
 
@@ -270,4 +270,4 @@ Cree la asignación de rol.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Uso de plantillas vinculadas con el Administrador de recursos de Azure"
-   description="Describe cómo utilizar las plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
-   services="na"
+   description="Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -24,7 +24,7 @@ Puede pasar parámetros de una plantilla principal a una plantilla vinculada de 
 
 ## Vinculación con una plantilla
 
-Cree un vínculo entre dos plantillas mediante la adición de un recurso de implementación dentro de la plantilla principal que apunta a la plantilla vinculada. Para ello, debe establecer la propiedad **templateLink** en el URI de la plantilla vinculada. Puede proporcionar valores de parámetro para la plantilla vinculada especificando los valores directamente en la plantilla o mediante la vinculación a un archivo de parámetros. El siguiente ejemplo utiliza la propiedad **parameters** para especificar un valor de parámetro directamente.
+Cree un vínculo entre dos plantillas mediante la adición de un recurso de implementación dentro de la plantilla principal que apunta a la plantilla vinculada. Para ello, debe establecer la propiedad **templateLink** en el URI de la plantilla vinculada. Puede proporcionar valores de parámetro para la plantilla vinculada especificando los valores directamente en la plantilla o mediante la vinculación a un archivo de parámetros. El siguiente ejemplo usa la propiedad **parameters** para especificar un valor de parámetro directamente.
 
     "resources": [ 
       { 
@@ -46,7 +46,7 @@ Cree un vínculo entre dos plantillas mediante la adición de un recurso de impl
 
 ## Vinculación con un archivo de parámetros
 
-El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un archivo de parámetros.
+El siguiente ejemplo usa la propiedad **parametersLink** para vincular con un archivo de parámetros.
 
     "resources": [ 
       { 
@@ -69,9 +69,9 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
 
 ## Uso de variables para vincular plantillas
 
-Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla pero no funciona bien cuando se trabaja con un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, a continuación, crear dinámicamente las direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover fácilmente o bifurcar la plantilla porque solo tendrá que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
+Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla pero no funciona bien cuando se trabaja con un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, luego, crear dinámicamente direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover fácilmente o bifurcar la plantilla porque solo tendrá que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
 
-En el ejemplo siguiente se muestra cómo utilizar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
+En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
 
     "variables": {
         "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -100,4 +100,4 @@ Si necesita pasar un valor de una plantilla vinculada a la plantilla principal, 
 - [Creación de plantillas](./resource-group-authoring-templates.md)
 - [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

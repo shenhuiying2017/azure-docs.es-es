@@ -370,4 +370,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 - Haga clic en **Eliminar** y elija eliminar todos los discos de la máquina virtual.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="07/15/2015" 
 	ms.author="selcint"/>
 
 # Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
@@ -186,7 +186,7 @@ Para **Máquinas virtuales hospedadas en Azure**, Microsoft proporciona un contr
 
 ###<a name="market"></a>Plazo de comercialización
 
-**Base de datos SQL de Azure** es la solución correcta para aplicaciones diseñadas en la nube cuando la productividad del desarrollador y un plazo de comercialización rápido son factores críticos. Con una funcionalidad de tipo DBA mediante programación, resulta perfecto para arquitectos y desarrolladores en la nube puesto que reduce la necesidad de administrar el sistema operativo y la base de datos subyacentes. Ayuda a los desarrolladores a comprender y configurar tareas relacionadas con la base de datos. Por ejemplo, se puede usar la [API de REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) y [cmdlets de PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) para automatizar y administrar operaciones administrativas para cientos de bases de datos. Con escalado elástico de la nube, se puede centrar fácilmente en el nivel de aplicación y comercializar la aplicación más rápidamente.
+**Base de datos SQL de Azure** es la solución correcta para aplicaciones diseñadas en la nube cuando la productividad del desarrollador y un plazo de comercialización rápido son factores críticos. Con una funcionalidad de tipo DBA mediante programación, resulta perfecto para arquitectos y desarrolladores en la nube puesto que reduce la necesidad de administrar el sistema operativo y la base de datos subyacentes. Ayuda a los desarrolladores a comprender y configurar tareas relacionadas con la base de datos. Por ejemplo, se puede usar la [API de REST](http://msdn.microsoft.com/library/azure/dn505719.aspx) y [cmdlets de PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) para automatizar y administrar operaciones administrativas para cientos de bases de datos. Con [escalado elástico](sql-database-elastic-pool.md) de la nube, se puede centrar fácilmente en el nivel de aplicación y comercializar la aplicación más rápidamente.
 
 La **ejecución de SQL Server en Máquina virtual de Azure** es perfecta si las aplicaciones nuevas y existentes requieren tener acceso y control de todas las características de una instancia de SQL Server, así como cuándo se migran aplicaciones y bases de datos locales existentes a la nube tal cual están. Dado que no es necesario cambiar los niveles de presentación, aplicación y datos, se ahorra tiempo y presupuesto en renovar la arquitectura de la solución existente. En su lugar, puede centrarse en migrar todos los paquetes de su solución a las máquinas virtuales y realizar algunas que requiere la plataforma de Azure. Para obtener más información, consulte [Prácticas recomendadas de rendimiento para SQL Server en máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn133149.aspx).
 
@@ -207,6 +207,9 @@ Elija **SQL Server en Máquina virtual de Azure**, si:
 - Tiene aplicaciones locales existentes y desea dejar de realizar el mantenimiento de su propio hardware o contempla la posibilidad de usar soluciones híbridas. Este enfoque permite tener acceso más rápidamente a una gran capacidad de bases de datos y además conecta las aplicaciones locales a la nube a través de un túnel seguro.
 
 - Tiene recursos de TI existentes, requiere derechos administrativos completos sobre SQL Server y precisa de plena compatibilidad con SQL Server local (por ejemplo, algunas características no existen en Base de datos SQL de Azure). Este enfoque permite minimizar costes de desarrollo o modificaciones de aplicaciones existentes con la flexibilidad de ejecutar la mayoría de las aplicaciones. Además, ofrece control total sobre la configuración de la máquina virtual, el sistema operativo y la base de datos.
+
+> [AZURE.NOTE]- ¿Desea probar SQL Server 2016 CTP2? Suscríbase a Microsoft Azure y, a continuación, acceda [aquí](http://aka.ms/sql2016vm "aquí") para poner en marcha una máquina virtual con SQL Server 2016 CTP2 ya instalado.
+
 
 ##<a name="ack"></a>Agradecimientos
 
@@ -250,4 +253,4 @@ Este artículo del grupo Servicios de contenido empresarial y en la nube de Micr
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

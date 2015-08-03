@@ -423,7 +423,7 @@ La recolección de archivos estáticos se realiza automáticamente como parte de
 
 Si desea omitir la recopilación de archivos estáticos de la aplicación Django:
 
-    \.skipDjango
+    .skipDjango
 
 Tendrá que hacer la recopilación de manera manual en el equipo local:
 
@@ -515,4 +515,4 @@ Para obtener información sobre el uso de Base de datos SQL y MySQL:
 [Documentación de Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

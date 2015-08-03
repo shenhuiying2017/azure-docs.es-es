@@ -149,4 +149,4 @@ Del mismo modo, los extremos comunes del protocolo SAML 2.0 se publican en los m
 
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

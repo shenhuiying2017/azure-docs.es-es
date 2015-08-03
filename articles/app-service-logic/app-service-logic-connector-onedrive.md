@@ -84,4 +84,4 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de OneDriv
 [crear una nueva aplicación lógica]: app-service-logic-create-a-logic-app.md
 [Definición de la API de OneDrive]: https://msdn.microsoft.com/es-es/library/dn974227.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 #Actualización de la aplicación sin tiempo de inactividad
@@ -31,4 +31,4 @@ Si la aplicación puede funcionar temporalmente en modo de solo lectura, el fluj
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

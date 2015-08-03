@@ -3,7 +3,7 @@
 	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev"
+	authors="YanZhangADS"
 	manager="paulettm"
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2015"
+	ms.date="07/14/2015"
 	ms.author="zhangya;bradsev" />
 
 
@@ -37,7 +37,7 @@ El diseño y la selección de las características es solo una parte de un proce
 El diseño y la selección se encuentran en el paso de **mejora de datos** del aprendizaje automático. Para nuestros propósitos, es posible distinguir tres aspectos de este proceso:
 
 * **procesamiento previo de los datos**: este proceso intenta asegurarse de que los datos recopilados estén limpios y sean coherentes. Incluye tareas como la integración de varios conjuntos de datos, el control de los datos que faltan, el control de datos incoherentes y la conversión de los tipos de datos.
-* **diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
+* **Diseño de características**: este proceso intenta crear características pertinentes adicionales a partir de características existentes sin procesar en los datos y mejorar la eficacia predictiva del algoritmo de aprendizaje.
 * **selección de características**: este proceso selecciona el subconjunto de claves de las características de datos originales en un intento por reducir la dimensionalidad del problema de entrenamiento.
 
 En este tema solo se abarcan los aspectos de diseño y selección de características del proceso de mejora de los datos. Para obtener información adicional sobre el paso de procesamiento previo de los datos, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
@@ -135,4 +135,4 @@ Observe que no siempre es necesario realizar el diseño o la selección de carac
 [fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -44,7 +44,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 	* **JAVA_HOME** (o la ruta de acceso equivalente).
 
-	* **JAVA_HOME\\bin** (o la ruta de acceso equivalente).
+	* **JAVA_HOME\bin** (o la ruta de acceso equivalente).
 
 	* El directorio donde está instalado Maven
 
@@ -133,7 +133,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 ##Creación de la aplicación MapReduce
 
-1. Vaya al directorio __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ y cambie el nombre del archivo __App.java__ por __WordCount.java__.
+1. Vaya al directorio __wordcountjava\src\main\java\org\apache\hadoop\examples__ y cambie el nombre del archivo __App.java__ por __WordCount.java__.
 
 2. Abra el archivo __WordCount.java__ en un editor de texto y reemplace el contenido por lo siguiente:
 
@@ -220,7 +220,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 
 	Esta acción eliminará los artefactos de compilación anteriores, descargará las dependencias que no se hayan instalado aún y, a continuación, compilará y empaquetará la aplicación.
 
-3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
+3. Cuando el comando termine de ejecutarse, el directorio __wordcountjava\target__ contendrá un archivo llamado __wordcountjava-1.0-SNAPSHOT.jar__.
 
 	> [AZURE.NOTE]El archivo __wordcountjava-1.0-SNAPSHOT.jar__ es un uberjar que contiene no sólo el trabajo WordCount, sino también las dependencias que el trabajo necesita en tiempo de ejecución.
 
@@ -297,4 +297,4 @@ Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Jav
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

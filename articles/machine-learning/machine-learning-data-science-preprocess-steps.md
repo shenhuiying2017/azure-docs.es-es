@@ -104,4 +104,4 @@ La **exploración de los datos** ofrece una vista anticipada de los datos. Una s
 >__Minería de datos: conceptos y técnicas_, Tercera edición, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber y Jian Pei
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

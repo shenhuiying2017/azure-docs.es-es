@@ -11,13 +11,13 @@
 </tr>
 <tr>
    <td valign="middle"><p>Trabajos y programaciones de trabajos<sup>2</sup> por cuenta de Lote</p></td>
-   <td valign="middle"><p>20 |</p></td>
+   <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10.000</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Grupos por cuenta de Lote</p></td>
-   <td valign="middle"><p>20 |</p></td>
-   <td valign="middle"><p>5000</p></td>
+   <td valign="middle"><p>20</p></td>
+   <td valign="middle"><p>5.000</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Número máximo de tareas por nodo de proceso</p></td>
@@ -27,4 +27,4 @@
 </table>
 <sup>1</sup> Se puede aumentar el número de núcleos por cada cuenta de lotes, pero no se ha especificado el número máximo. Póngase en contacto con atención al cliente para obtener información sobre las opciones de aumento. <sup>2</sup> Incluye trabajos activos y programaciones de trabajos activos de una sola ejecución.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

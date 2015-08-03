@@ -78,4 +78,4 @@ Por último, creará un nuevo inicio de sesión de SQL Server con permisos restr
 
 4. **Ejecute** la consulta para crear el nuevo inicio de sesión y conceder los permisos necesarios en la base de datos local.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

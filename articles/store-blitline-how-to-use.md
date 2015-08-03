@@ -150,4 +150,4 @@ Visite blitline.com para conocer toda la información sobre otras característic
   [Creación de un trabajo Blitline]: #createjob
   [Almacenamiento de una imagen en la cuenta de Almacenamiento de Azure]: #saveazure
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

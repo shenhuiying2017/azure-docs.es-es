@@ -91,4 +91,4 @@ Una vez creada la incidencia de soporte técnico, debería recibir el número de
 - Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

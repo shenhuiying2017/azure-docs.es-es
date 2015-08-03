@@ -3,7 +3,7 @@
 	description="Explica cómo elegir el parámetro óptimo establecido para un algoritmo de Aprendizaje automático de Azure." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="bradsev;garye" />
+	ms.date="07/14/2015" 
+	ms.author="bradsev" />
 
 
 # Cómo elegir parámetros para optimizar los algoritmos de Aprendizaje automático de Azure
@@ -70,4 +70,4 @@ Podemos ver los parámetros exactos elegidos mediante la visualización del puer
 [sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -211,4 +211,4 @@ Para obtener más información, consulte [Proveedor de EntityClient para Entity 
 Ahora que ha aprendido los conceptos básicos de la conexión a Base de datos SQL, consulte los [temas de procedimientos sobre desarrollo (Base de datos SQL)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

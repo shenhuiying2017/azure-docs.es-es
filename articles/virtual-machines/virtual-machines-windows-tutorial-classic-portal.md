@@ -50,4 +50,4 @@ En esta sección se muestra cómo utilizar la opción **De la galería** en el P
 Para obtener más información acerca de lo que se puede configurar para una máquina virtual y cuando se puede hacer, consulte [Acerca de los valores de configuración de la VM de Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

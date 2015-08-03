@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Creación de una máquina virtual Windows con una plantilla del Administrador de recursos" 
-	description="Use una plantilla del Administrador de recursos para crear fácilmente una nueva máquina virtual Windows con PowerShell y CLI de Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Creación de una máquina virtual Windows con una plantilla del Administrador de recursos"
+	description="Use una plantilla del Administrador de recursos para crear fácilmente una nueva máquina virtual Windows con PowerShell y CLI de Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
 # Creación de una máquina virtual Windows con una plantilla del Administrador de recursos
 
 Puede crear fácilmente una nueva máquina virtual de Azure basada en Windows mediante una plantilla del Administrador de recursos con Azure PowerShell o CLI de Azure. Esta plantilla crea una sola máquina virtual que ejecuta Windows en una nueva red virtual con una sola subred en un nuevo grupo de recursos.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
- 
+
 Antes de profundizar, asegúrese de tener Azure, PowerShell y CLI de Azure configurados y listos para usar.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
@@ -68,9 +68,9 @@ Este es el contenido del archivo JSON de la plantilla.
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1", 
-                "2012-Datacenter", 
-                "2012-R2-Datacenter", 
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter",
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
@@ -80,11 +80,11 @@ Este es el contenido del archivo JSON de la plantilla.
     },
     "variables": {
         "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16", 
+        "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
@@ -93,10 +93,10 @@ Este es el contenido del archivo JSON de la plantilla.
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
         "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",        
+        "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },    
+    },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
@@ -210,7 +210,7 @@ Este es el contenido del archivo JSON de la plantilla.
             }
         }
     ]
-	} 
+	}
 
 
 ### Paso 2: Creación de la máquina virtual con la plantilla.
@@ -254,8 +254,8 @@ Verá algo parecido a lo siguiente:
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	
+
+
 	DeploymentName    : TestDeployment
 	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
@@ -270,7 +270,7 @@ Verá algo parecido a lo siguiente:
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
 	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
+
 	Outputs           :
 
 Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el nuevo grupo de recursos.
@@ -293,15 +293,15 @@ Verá algo parecido a lo siguiente:
 
 	azure group create testrg westus
 	info:    Executing command group create
-	+ Getting resource group testrg                                             
-	+ Creating resource group testrg                                            
+	+ Getting resource group testrg
+	+ Creating resource group testrg
 	info:    Created resource group testrg
 	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
 	data:    Name:                testrg
 	data:    Location:            westus
 	data:    Provisioning State:  Succeeded
-	data:    Tags: 
-	data:    
+	data:    Tags:
+	data:
 	info:    group create command OK
 
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
@@ -312,17 +312,17 @@ Verá algo parecido a lo siguiente:
 	adminPassword: Pa$$W0rd1
 	dnsNameForPublicIP: contoso
 	windowsOSVersion: 2012-R2-Datacenter
-	+ Initializing template configurations and parameters                          
-	+ Creating a deployment                                                        
+	+ Initializing template configurations and parameters
+	+ Creating a deployment
 	info:    Created template deployment "firstdeployment"
-	+ Registering providers                                                        
+	+ Registering providers
 
 
 ## Recursos adicionales
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+[Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
 [Creación de una máquina virtual Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
@@ -330,7 +330,6 @@ Verá algo parecido a lo siguiente:
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
- 
+[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Automatización con el Administrador de recursos de Azure" 
-	description="Obtenga vínculos a temas sobre cómo automatizar las máquinas virtuales con el Administrador de recursos de Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Automatización con el Administrador de recursos de Azure"
+	description="Obtenga vínculos a temas sobre cómo automatizar la creación y administración de máquinas virtuales de Azure con el Administrador de recursos."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
 # Automatización con el Administrador de recursos de Azure
 
@@ -59,7 +59,7 @@ El Administrador de recursos de Azure simplifica la implementación y administra
 ## Automatización con .NET
 
 [Implementación de recursos de Azure mediante la biblioteca de .NET](virtual-machines-arm-deployment.md)
-   
+
 ## Automatización con Automatización de Azure
 
 [Uso de Automatización de Azure para administrar tareas de VM](automation-manage-virtual-machines.md)
@@ -70,6 +70,4 @@ El Administrador de recursos de Azure simplifica la implementación y administra
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

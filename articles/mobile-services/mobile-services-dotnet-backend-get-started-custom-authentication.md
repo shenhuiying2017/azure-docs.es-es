@@ -164,7 +164,7 @@ Llegado este punto, dispone de todo lo necesario para comenzar a crear cuentas d
 
 ## Creación del proveedor de inicio de sesión
 
-Una de las construcciones básicas de la canalización de autenticación de Servicios móviles es el **LoginProvider**. En esta sección, creará su propio `CustomLoginProvider`. No estará conectado a la canalización como los proveedores integrados, pero proporcionará una funcionalidad muy práctica.
+Una de las construcciones básicas de la canalización de autenticación de Servicios móviles es el **LoginProvider**. En esta sección, creará su propio `CustomLoginProvider`. No estará conectado a la canalización como los proveedores integrados, pero proporcionará una funcionalidad muy práctica. Si usa Visual Studio 2013, quizás necesite instalar el paquete de NuGet `WindowsAzure.MobileServices.Backend.Security` para agregar referencias a la clase `LoginProvider`.
 
 1. Cree una nueva clase, `CustomLoginProvider`, que se derivará de **LoginProvider**, y agregue las siguientes instrucciones `using`:
 
@@ -420,4 +420,4 @@ De este modo finaliza este tutorial.
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

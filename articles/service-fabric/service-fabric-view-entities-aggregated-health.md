@@ -124,7 +124,7 @@ El cmdlet para obtener el mantenimiento del clúster es Get-ServiceFabricCluster
 El siguiente cmdlet obtiene el mantenimiento del clúster con directivas de mantenimiento predeterminadas. El estado de mantenimiento agregado es Advertencia, porque la aplicación fabric:/WordCount está en advertencia. Tenga en cuenta cómo las evaluaciones de mantenimiento incorrecto muestran detalles de la condición que ha desencadenado el mantenimiento agregado.
 
 ```xml
-PS C:> Get-ServiceFabricClusterHealth
+PS C:\> Get-ServiceFabricClusterHealth
 
 AggregatedHealthState   : Warning
 UnhealthyEvaluations    :
@@ -174,7 +174,7 @@ HealthEvents            : None
 El siguiente cmdlet de PowerShell obtiene el mantenimiento del clúster con la directiva de aplicación personalizada. Filtra los resultados para obtener nodos y aplicaciones de solo error o advertencia+. Como resultado, no se devolverá ningún nodo ya que todos son correctos. Solo la aplicación fabric:/WordCount respeta el filtro de aplicaciones. Puesto que la directiva personalizada especifica que hay que tener en cuenta la advertencia como un error para la aplicación fabric:/WordCount, la aplicación se evalúa en Error y de la misma forma el clúster.
 
 ```powershell
-PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -242,7 +242,7 @@ NodeHealth nodeHealth = fabricClient.HealthManager.GetNodeHealthAsync(queryDescr
 El cmdlet para obtener el mantenimiento del nodo es Get-ServiceFabricNodeHealth. Conéctese primero al clúster con el cmdlet Connect-ServiceFabricCluster. El siguiente cmdlet obtiene el mantenimiento del nodo con directivas de mantenimiento predeterminadas.
 
 ```powershell
-PS C:> Get-ServiceFabricNodeHealth -NodeName Node.1
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 
 NodeName              : Node.1
 AggregatedHealthState : Ok
@@ -263,7 +263,7 @@ HealthEvents          :
 El siguiente cmdlet obtiene el mantenimiento de todos los nodos del clúster.
 
 ```powershell
-PS C:> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
+PS C:\> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
 
 NodeName AggregatedHealthState
 -------- ---------------------
@@ -326,7 +326,7 @@ El cmdlet para obtener el mantenimiento de la aplicación es Get-ServiceFabricAp
 El siguiente cmdlet devuelve el mantenimiento de la aplicación fabric:/WordCount.
 
 ```powershell
-PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -390,7 +390,7 @@ HealthEvents                    :
 El PowerShell siguiente pasa la directiva personalizada y filtra los elementos secundarios y eventos.
 
 ```powershell
-PS C:> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
+PS C:\> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error.value__
 Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesHealthStateFilter $errorFilter -EventsHealthStateFilter $errorFilter -DeployedApplicationsHealthStateFilter $errorFilter
 
 ApplicationName                 : fabric:/WordCount
@@ -448,7 +448,7 @@ El cmdlet para obtener el mantenimiento del servicio es Get-ServiceFabricService
 El siguiente cmdlet obtiene el mantenimiento del servicio con directivas de mantenimiento predeterminadas.
 
 ```powershell
-PS C:> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
+PS C:\> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCount.Service
 
 
 ServiceName           : fabric:/WordCount/WordCount.Service
@@ -500,7 +500,7 @@ El cmdlet para obtener el mantenimiento de la partición es Get-ServiceFabricPar
 El cmdlet siguiente obtiene el mantenimiento de todas las particiones del servicio de recuento de palabras.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricPartitionHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 AggregatedHealthState : Warning
@@ -559,7 +559,7 @@ El cmdlet para obtener el mantenimiento de la réplica es Get-ServiceFabricRepli
 El cmdlet siguiente obtiene el mantenimiento de las réplicas principales para todas las particiones del servicio.
 
 ```powershell
-PS C:> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCount.Service | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
 ReplicaId             : 130740415502123433
@@ -601,7 +601,7 @@ El cmdlet para obtener el mantenimiento de la aplicación implementada es Get-Se
 El siguiente cmdlet obtiene el mantenimiento de la aplicación fabric:/WordCount implementada en el nodo Node.1.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName Node.1
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
 AggregatedHealthState              : Ok
@@ -651,7 +651,7 @@ El cmdlet para obtener el mantenimiento del paquete de servicio implementado es 
 El siguiente cmdlet obtiene el mantenimiento del paquete de servicio WordCount.Service de la aplicación fabric:/WordCount implementada en el nodo Node.1. La entidad tiene informes System.Hosting para la activación correcta del paquete de servicio y el punto de entrada y el registro de tipo de servicio correcto.
 
 ```powershell
-PS C:> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
+PS C:\> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName Node.1 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCount.Service
 
 ApplicationName       : fabric:/WordCount
 ServiceManifestName   : WordCount.Service
@@ -738,7 +738,7 @@ var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Wh
 El siguiente cmdlet obtiene los detalles de la aplicación para la aplicación fabric:/WordCount. Observe que el estado de mantenimiento es Advertencia.
 
 ```powershell
-PS C:> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
 
 ApplicationName        : fabric:/WordCount
 ApplicationTypeName    : WordCount
@@ -751,7 +751,7 @@ ApplicationParameters  : { "_WFDebugParams_" = "[{"ServiceManifestName":"WordCou
 El siguiente cmdlet obtiene los servicios con estado de mantenimiento de Advertencia.
 
 ```powershell
-PS C:> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
+PS C:\> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Warning"}
 
 ServiceName            : fabric:/WordCount/WordCount.Service
 ServiceKind            : Stateful
@@ -771,7 +771,7 @@ Durante la actualización del **clúster**, puede obtener el estado de actualiza
 A continuación se muestra el estado de actualización de la aplicación para una aplicación fabric/WordCount modificada. Un guardián local ha informado de un error en una de sus réplicas. La actualización se revierte porque no se respetan las comprobaciones de mantenimiento.
 
 ```powershell
-PS C:> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
 
 ApplicationName               : fabric:/WordCount
 ApplicationTypeName           : WordCount
@@ -836,4 +836,4 @@ Siempre que haya un problema en el clúster o en una aplicación, consulte el ma
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -94,7 +94,7 @@ Herramientas de administración de clústeres y de programación de trabajos ayu
 
 Azure tiene una amplia gama de servicios de proceso, datos, redes y relacionados que puede usar para soluciones y flujos de trabajo Big Compute. Para obtener información detallada acerca de cada uno de estos servicios, consulte la documentación de los servicios de Azure. Consulte [Escenarios de la solución](#solution-scenarios) en este artículo para obtener algunos enfoques comunes con aplicaciones HPC y Lote.
 
->[AZURE.NOTE]Con frecuencia se introducen nuevos servicios en la plataforma Azure que podrían ser útiles para su escenario. El uso de los servicios de vista previa solo se recomienda para implementaciones de prueba o de prueba de concepto, no para cargas de trabajo de producción. Si tiene alguna pregunta, póngase en contacto con un [asociado de Azure](https://pinpoint.microsoft.com/en-US/search?keyword=azure) o envíe un correo electrónico a *bigcompute@microsoft.com*.
+>[AZURE.NOTE]Con frecuencia se introducen nuevos servicios en la plataforma Azure que podrían ser útiles para su escenario. El uso de los servicios de vista previa solo se recomienda para implementaciones de prueba o de prueba de concepto, no para cargas de trabajo de producción. Si tiene alguna pregunta, póngase en contacto con un [asociado de Azure](https://pinpoint.microsoft.com/es-es/search?keyword=azure) o envíe un correo electrónico a *bigcompute@microsoft.com*.
 
 ### Servicios de proceso
 
@@ -222,4 +222,4 @@ Consulte la figura siguiente para obtener información acerca de un flujo de tra
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

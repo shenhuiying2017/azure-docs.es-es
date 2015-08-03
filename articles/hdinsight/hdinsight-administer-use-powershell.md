@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/21/2015" 
 	ms.author="jgao"/>
 
 # Administración de clústeres de Hadoop en HDInsight con PowerShell de Azure
@@ -279,4 +279,4 @@ Consulte la sección [Envío de trabajos de MapReduce](#mapreduce) en este artí
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -105,4 +105,4 @@ Este proceso extracción de un mensaje que consta de dos pasos garantiza que si 
 [Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

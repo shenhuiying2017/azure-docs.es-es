@@ -98,4 +98,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v√
 [Colas, temas y suscripciones]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

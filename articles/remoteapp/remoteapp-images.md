@@ -101,4 +101,4 @@ Esta imagen es una extensión de la vanilla image y tiene los siguientes compone
 > [AZURE.IMPORTANT]**Información legal:** esta imagen no incluye una licencia de Microsoft Office y *no se puede usar para producción*. La imagen de Office 2013 Professional Plus solo tiene fines de prueba. Si quiere usar aplicaciones de Office en RemoteApp de Azure para producción, deberá usar la imagen de Office 365 ProPlus. Para obtener más detalles acerca de la obtención de licencias de RemoteApp, consulte [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -68,10 +68,10 @@ Obtenga información sobre [carga de trabajo del almacenamiento de datos].
 <!--Image references-->
 
 <!--Article references-->
-[carga de trabajo de almacenamiento de datos] sql-data-warehouse-overview-workload.md
+[carga de trabajo del almacenamiento de datos]: ./sql-data-warehouse-overview-workload.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

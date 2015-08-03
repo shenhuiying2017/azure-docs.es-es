@@ -74,7 +74,7 @@ La fecha y hora son UTC e indican cuándo se depositó la telemetría en el alma
 
 ## <a name="format"></a> Formato de datos
 
-* Cada blob es un archivo de texto que contiene varias filas separadas por' \\n'.
+* Cada blob es un archivo de texto que contiene varias filas separadas por' \n'.
 * Cada fila es un documento JSON sin formato. Si desea centrarse en él, pruebe un visor como el Bloc de notas ++ con el complemento de JSON:
 
 ![Visualización de la telemetría con una herramienta apropiada](./media/app-insights-export-telemetry/06-json.png)
@@ -183,4 +183,4 @@ La exportación continua se reiniciará.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

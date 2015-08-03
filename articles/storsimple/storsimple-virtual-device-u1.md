@@ -73,12 +73,12 @@ Las siguientes secciones le ayudará a prepararse para usar el dispositivo virtu
 Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes preparativos en el entorno de Azure:
 
 - Para el dispositivo virtual, [configure una red virtual en Azure](https://msdn.microsoft.com/library/azure/jj156074.aspx). 
-- Puede utilizar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. 
+- Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido, se producirá un error en la creación del dispositivo virtual.
 - Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
 
 >[AZURE.IMPORTANT]**Asegúrese de que la red virtual está en la misma región que las cuentas de almacenamiento en la nube que va a usar con el dispositivo virtual.**
 
-- Cree [máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores host) en la red virtual. Estos servidores deben cumplir los siguientes requisitos: 							
+- Puede crear [Máquinas virtuales de Azure](https://msdn.microsoft.com/library/azure/jj156003.aspx) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos: 							
 	- Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado
 	- Ejecutarse en la misma red virtual como el dispositivo virtual
 	- Ser capaz de conectarse al destino iSCSI del dispositivo virtual a través de la dirección IP interna del dispositivo virtual
@@ -131,10 +131,10 @@ Realice los pasos siguientes para crear el dispositivo virtual de StorSimple
 	a. **Nombre**: un nombre único para el dispositivo virtual.
 
 
-	b. **Versión**: elija la versión del dispositivo virtual. Esta opción estará ausente si solo dispone de dispositivos físicos Update 1 registrados con este servicio. Este campo se muestra solo si tiene una combinación de dispositivos físicos Update 1 y anteriores registrados con el servicio. Dado que la versión del dispositivo virtual determinará desde qué dispositivo físico puede efectuar la conmutación por error o la clonación, es importante que cree una versión adecuada del dispositivo virtual. Seleccione:
+	b. **Versión**: elija la versión del dispositivo virtual. Esta opción estará ausente si solo dispone de dispositivos físicos Update 1 (o posteriores) registrados con este servicio. Este campo se muestra solo si tiene una combinación de dispositivos físicos Update 1 y anteriores registrados con el servicio. Dado que la versión del dispositivo virtual determinará desde qué dispositivo físico puede efectuar la conmutación por error o la clonación, es importante que cree una versión adecuada del dispositivo virtual. Seleccione:
 
 	- Actualización de versión 0.3 si conmuta por error o efectúa una recuperación ante desastres desde un dispositivo físico con el lanzamiento de GA o las actualizaciones de 0.1 a 0.3. 
-	- Actualización de versión 1 si conmuta por error o efectúa una clonación desde un dispositivo físico con la actualización 1. 
+	- Actualización de versión 1 si conmuta por error o efectúa una clonación desde un dispositivo físico con la actualización 1 (o versiones posteriores). 
 
  
 	b. **Red virtual**: el nombre de la red virtual que desea usar con este dispositivo virtual.
@@ -155,27 +155,29 @@ Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la cl
 Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
 
 
-1. Seleccione el **dispositivo virtual de StorSimple** como su dispositivo y haga doble clic en él para tener acceso a Inicio rápido.
+1. Seleccione el **Dispositivo virtual StorSimple** que acaba de crear en la página Dispositivos. 
 
 - Haga clic en **Completar la instalación del dispositivo**. Esto inicia al Asistente para configurar dispositivos.
 
 - Escriba la **Clave de cifrado de datos de servicio** en el espacio proporcionado.
 
-- Haga clic en la marca de verificación para finalizar la configuración inicial y el registro del dispositivo virtual. La contraseña de administrador de dispositivo está preconfigurada con valores predeterminados y debe cambiarse una vez registrado el dispositivo.
+- Escriba las contraseñas del administrador de dispositivos y de instantáneas de la longitud y la configuración especificadas.
+
+- Haga clic en la marca de verificación para finalizar la configuración inicial y el registro del dispositivo virtual.
 
 ### Modificación de la configuración del dispositivo
 
-La siguiente sección describe las opciones de configuración del dispositivo que se deben configurar para el dispositivo virtual de StorSimple.
+En la siguiente sección se describen las opciones de configuración de dispositivo que puede configurar para el dispositivo virtual StorSimple si desea usar CHAP, Administrador de instantáneas StorSimple o cambiar la contraseña del Administrador de dispositivos.
 
-#### Configuración del iniciador CHAP
+#### Configuración del iniciador de CHAP (opcional)
 
 Este parámetro contiene las credenciales que espera el dispositivo virtual (destino) de los iniciadores (servidores) que intentan obtener acceso a los volúmenes. Los iniciadores proporcionarán un nombre de usuario y una contraseña CHAP para identificarse en el dispositivo durante la autenticación.
 
-#### Configuración del destino CHAP
+#### Configuración del destino de CHAP (opcional)
 
-Este parámetro contiene las credenciales que el dispositivo virtual utiliza cuando un iniciador habilitado para CHAP solicita la autenticación mutua o bidireccional. El dispositivo virtual utilizará un nombre de usuario de CHAP inverso y una contraseña de CHAP inversa para identificarse con el iniciador durante este proceso de autenticación. Tenga en cuenta que los valores de destino de CHAP son valores globales. Cuando se aplican, todos los volúmenes conectados al dispositivo virtual de almacenamiento utilizan la autenticación CHAP.
+Este parámetro contiene las credenciales que el dispositivo virtual utiliza cuando un iniciador habilitado para CHAP solicita la autenticación mutua o bidireccional. El dispositivo virtual utilizará un nombre de usuario de CHAP inverso y una contraseña de CHAP inversa para identificarse con el iniciador durante este proceso de autenticación. Tenga en cuenta que los valores de destino de CHAP son valores globales. Cuando se aplican, todos los volúmenes conectados al dispositivo virtual de almacenamiento utilizan la autenticación CHAP. Seleccione el dispositivo en la página Dispositivos. Vaya a la página Configurar de su página de dispositivos y desplácese hacia abajo hasta encontrar la sección CHAP.
 
-#### Configuración de StorSimple Snapshot Manager
+#### Configuración de StorSimple Snapshot Manager (opcional)
 
 El software StorSimple Snapshot Manager reside en el host de Windows y permite a los administradores administrar copias de seguridad del dispositivo StorSimple en forma de instantáneas locales y en la nube.
 
@@ -183,7 +185,7 @@ El software StorSimple Snapshot Manager reside en el host de Windows y permite a
 
 Al configurar un dispositivo en StorSimple Snapshot Manager, se le pedirá que proporcione la dirección IP del dispositivo StorSimple y la contraseña para autenticar el dispositivo de almacenamiento.
 
-Realice los pasos siguientes para configurar StorSimple Snapshot Manager cuando se usa con el dispositivo virtual de StorSimple.
+Realice los pasos siguientes para cambiar la contraseña de StorSimple Snapshot Manager.
 
 1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
 
@@ -195,11 +197,11 @@ Realice los pasos siguientes para configurar StorSimple Snapshot Manager cuando 
 
 La contraseña de StorSimple Snapshot Manager se ha actualizado y se puede usar al autenticar hosts de Windows.
 
-#### Configurar la contraseña del administrador de dispositivos
+#### Cambio de la contraseña del administrador de dispositivos
 
 Cuando se utiliza la interfaz de Windows PowerShell para tener acceso al dispositivo virtual, se le pedirá que escriba una contraseña de administrador de dispositivos. Por seguridad de sus datos, es necesario cambiar esta contraseña para poder usar el dispositivo virtual.
 
-Realice los pasos siguientes para configurar la contraseña de administrador del dispositivo para el dispositivo virtual de StorSimple.
+Realice los pasos siguientes para cambiar la contraseña del administrador de dispositivos para el dispositivo virtual de StorSimple.
 
 1. En el dispositivo virtual, vaya a **Dispositivos > Configurar**.
  
@@ -211,7 +213,7 @@ Realice los pasos siguientes para configurar la contraseña de administrador del
 
 Ahora debe actualizarse la contraseña del administrador de dispositivos. Utilizará esta contraseña modificada para tener acceso a la interfaz de Windows PowerShell en el dispositivo virtual.
 
-#### Configuración de la administración remota 
+#### Configuración de la administración remota (opcional)
 
 El acceso remoto a su dispositivo virtual mediante la interfaz de Windows PowerShell no está habilitado de forma predeterminada. Deberá habilitar primero la administración remota en el dispositivo virtual y, a continuación, habilitarlo en el cliente que se utilizará para acceder al dispositivo virtual.
 
@@ -385,4 +387,4 @@ Si elimina o apaga el dispositivo virtual, aparecerá como **Desconectado** en l
 
 Obtenga información acerca de cómo [Restaurar desde copia de seguridad](../storsimple-restore-from-backupset.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

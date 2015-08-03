@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Crear y supervisar una factoría de datos mediante PowerShell de Azure
@@ -21,6 +21,8 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
+
 
 El tutorial [Introducción a la Factoría de datos de Azure][adf-get-started] le muestra cómo crear y supervisar una factoría de datos de Azure con el [Portal de vista previa de Azure][azure-preview-portal]. En este tutorial, creará y supervisará una factoría de datos de Azure con cmdlets de PowerShell de Azure. La canalización en la factoría de datos que cree en este tutorial copia los datos del blob de Azure a una base de datos SQL de Azure.
 
@@ -68,7 +70,7 @@ Los servicios vinculados vinculan almacenes de datos o servicios de proceso con 
 En este paso, creará dos servicios vinculados: **StorageLinkedService** y **AzureSqlLinkedService**. El servicio vinculado StorageLinkedService vincula una cuenta de almacenamiento de Azure y AzureSqlLinkedService vincula una base de datos SQL de Azure a la factoría de datos: **ADFTutorialDataFactoryPSH**. Más adelante en este tutorial creará una canalización que copia datos de un contenedor de blobs de StorageLinkedService en una tabla SQL de AzureSqlLinkedService.
 
 ### Creación de un servicio vinculado para una cuenta de almacenamiento de Azure
-1.	Cree un archivo JSON con el nombre **StorageLinkedService.json** en **C:\\ADFGetStartedPSH** con el siguiente contenido. Si todavía no existe, cree la carpeta ADFGetStartedPSH.
+1.	Cree un archivo JSON con el nombre **StorageLinkedService.json** en **C:\ADFGetStartedPSH** con el siguiente contenido. Si todavía no existe, cree la carpeta ADFGetStartedPSH.
 
 		{
 		    "name": "StorageLinkedService",
@@ -133,7 +135,7 @@ Tiene que realizar los siguientes pasos para preparar el Almacenamiento de blobs
 * Cree una tabla llamada **emp** en la Base de datos SQL de Azure a la que apunta **AzureSqlLinkedService**.
 
 
-1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\\ADFGetStartedPSH** de su disco duro. 
+1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\ADFGetStartedPSH** de su disco duro. 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +163,7 @@ Tiene que realizar los siguientes pasos para preparar el Almacenamiento de blobs
 ### Creación de la tabla de entrada 
 Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, creará una tabla denominada **EmpBlobTable** que apunta a un contenedor de blobs en el almacenamiento de Azure representado por el servicio vinculado **StorageLinkedService**. Este contenedor de blobs (**adftutorial**) contiene los datos de entrada en el archivo: **emp.txt**.
 
-1.	Cree un archivo JSON llamado **EmpBlobTable.json** en la carpeta **C:\\ADFGetStartedPSH** con el siguiente contenido:
+1.	Cree un archivo JSON llamado **EmpBlobTable.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido:
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +228,7 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 ### Creación de la tabla de salida
 En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** que apunta a una tabla SQL (**emp**) de la base de datos SQL de Azure que está representada por el servicio vinculado **AzureSqlLinkedService**. La canalización copia los datos del blob de entrada a la tabla **emp**.
 
-1.	Cree un archivo JSON llamado**EmpSQLTable.json** en la carpeta **C:\\ADFGetStartedPSH** con el siguiente contenido:
+1.	Cree un archivo JSON llamado**EmpSQLTable.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido:
 		
 		{
 		    "name": "EmpSQLTable",
@@ -239,7 +241,7 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 		        ],
 		        "location":
 		        {
-		            "type": "AzureSQLTableLocation",
+		            "type": "AzureSqlTableLocation",
 		            "tableName": "emp",
 		            "linkedServiceName": "AzureSqlLinkedService"
 		        },
@@ -253,7 +255,7 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 
      Tenga en cuenta lo siguiente:
 	
-	* el **tipo** de ubicación está establecido en **AzureSQLTableLocation**.
+	* El **tipo** de ubicación está establecido en **AzureSqlTableLocation**.
 	* **linkedServiceName** se establece en **AzureSqlLinkedService**.
 	* **tablename** está establecido en **emp**.
 	* Hay tres columnas: **ID**, **FirstName** y **LastName**: en la tabla emp de la base de datos, pero el id. es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
@@ -267,7 +269,7 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 ## <a name="CreateAndRunAPipeline"></a>Paso 4: Crear y ejecutar una canalización
 En este paso, creará una canalización con una **actividad de copia** que usa **EmpTableFromBlob** como entrada y **EmpSQLTable** como salida.
 
-1.	Cree un archivo JSON llamado **ADFTutorialPipeline.json** en la carpeta **C:\\ADFGetStartedPSH** con el siguiente contenido: 
+1.	Cree un archivo JSON llamado **ADFTutorialPipeline.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido: 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +430,4 @@ Artículo | Descripción
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

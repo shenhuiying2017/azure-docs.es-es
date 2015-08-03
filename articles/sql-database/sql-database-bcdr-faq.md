@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 # Preguntas frecuentes sobre la continuidad del negocio
@@ -65,4 +65,4 @@ La replicación geográfica utiliza un proceso de copia continua. Por lo tanto, 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

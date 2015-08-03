@@ -392,4 +392,4 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -18,6 +18,8 @@
 
 # Configuración de la aplicación para usar el inicio de sesión de Google
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 En este tema se muestra cómo configurar Servicios de aplicaciones de Azure para usar Google como proveedor de autenticación.
 
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
@@ -71,4 +73,4 @@ De este modo ya estará listo para usar Google para realizar la autenticación e
 [Portal de administración de Azure]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

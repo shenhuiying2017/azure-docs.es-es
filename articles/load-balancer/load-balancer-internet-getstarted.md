@@ -115,6 +115,17 @@ La definición de sondeo también controla la frecuencia del sondeo. En nuestro 
 
 Compruebe el esquema de definición del [sondeo de estado](https://msdn.microsoft.com/library/azure/jj151530.aspx) para obtener más información.
 
+## Configuración de equilibrador de carga con PowerShell
+
+Después de crear una máquina virtual, puede usar cmdlets de PowerShell para agregar un equilibrador de carga a una máquina virtual dentro del mismo servicio en la nube.
+
+En el ejemplo siguiente, agregará un equilibrador de carga denominado "webfarm" al extremo de servicio en la nube "mycloudservice" (o mycloudservice.cloudapp.net) y una máquina virtual llamada myVM. El equilibrador de carga recibirá el tráfico en el puerto 80 y equilibrará la carga del tráfico de red entre las máquinas virtuales en el puerto 8080 mediante HTTP"
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## Pasos siguientes
 
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-internal-getstarted.md)
@@ -124,4 +135,4 @@ Compruebe el esquema de definición del [sondeo de estado](https://msdn.microsof
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

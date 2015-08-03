@@ -27,7 +27,7 @@ Si su organización está federada con Azure Active Directory y dispone de los r
 1. Utilice los pasos descritos en [Activación de autenticación multifactor para usuarios](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users) para habilitar una cuenta.
 2. Utilice el siguiente procedimiento para configurar una regla de notificación:
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)</center>
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 
 - 	Inicie la consola de administración de AD FS.
 - 	Vaya a Relaciones de confianza para usuario autenticado y haga clic con el botón derecho en la relaciones de confianza para usuario autenticado. Seleccione Editar reglas de notificación...
@@ -48,7 +48,62 @@ Si su organización está federada con Azure Active Directory y dispone de los r
 
 Los usuarios ya pueden completar el inicio de sesión mediante el método local (como una tarjeta inteligente).
 
+## Direcciones IP de confianza para usuarios federados
+Las direcciones IP de confianza permiten a los administradores omitir la autenticación multifactor para una dirección IP específica o para usuarios federados que tienen solicitudes que se originan dentro de su propia intranet. En las secciones siguientes se describe cómo configurar IP fiables de Azure Multi-Factor Authentication con usuarios federados y omitir la autenticación multifactor cuando una solicitud se origina en una intranet de usuarios federados. Esto se consigue configurando AD FS para usar un paso a través o filtrar una plantilla de notificación entrante con el tipo de notificación dentro de la red corporativa. En este ejemplo se utiliza Office 365 para las relaciones de confianza para usuario autenticado .
 
- 
+### Configurar las reglas de notificaciones de AD FS
 
-<!----HONumber=July15_HO2-->
+Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. Se crearán dos reglas de notificaciones, una para el tipo de notificación dentro de la red corporativa y otra adicional para mantener a nuestros usuarios con la sesión iniciada.<ol>
+
+<li>Abra Administración de AD FS.</li>
+<li>A la izquierda, seleccione Relaciones de confianza para usuario autenticado.</li>
+<li>En el centro, haga doble clic en Plataforma de identidad de Microsoft Office 365 y seleccione **Editar reglas de notificaciones…**</li>
+
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+<li>En Reglas de transformación de emisión, haga clic en **Agregar regla.**</li>
+
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+<li>En el Asistente para agregar regla de notificaciones de transformación, seleccione Pasar por una notificación entrante o filtrarla en la lista desplegable y haga clic en Siguiente.</li>
+
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+<li>En el cuadro situado junto al nombre de la regla de notificación, asigne un nombre a la regla. Por ejemplo: InsideCorpNet.</li>
+<li>En la lista desplegable, junto a Tipo de notificación entrante, seleccione Dentro de la red corporativa.</li>
+
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+
+<li>Haga clic en Finish.</li>
+<li>En Reglas de transformación de emisión, haga clic en **Agregar regla**.</li>
+<li>En el Asistente para agregar regla de notificaciones de transformación, seleccione Enviar notificaciones mediante regla personalizada en la lista desplegable y haga clic en Siguiente.</li>
+<li>En el cuadro situado bajo el nombre de la regla de notificación: escriba Mantener a los usuarios con la sesión iniciada.</li>
+<li>En el cuadro Regla personalizada, escriba: c:[Type == "http://schemas.microsoft.com/2014/03/psso"] => issue(claim = c);
+</li>
+
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+
+<li>Haga clic en **Finalizar**.</li>
+<li>Haga clic en **Aplicar**.</li>
+<li>Haga clic en **Aceptar**.</li>
+
+<li>Cierre Administración de AD FS.</li>
+
+### Configuración de las IP de confianza de Azure Multi-Factor Authentication con usuarios federados
+Ahora que las notificaciones están listas, podemos configurar IP de confianza.<ol>
+
+<li>Inicie sesión en el Portal de administración de Azure.</li>
+<li>En la parte izquierda, haga clic en Active Directory.</li>
+<li>En Directorio, haga clic en el directorio en el que desea configurar IP de confianza.</li>
+<li>En el directorio que ha seleccionado, haga clic en Configurar.</li>
+<li>En la sección de la autenticación multifactor, haga clic en Administrar configuración del servicio.</li>
+<li>En la página Configuración del servicio, en IP de confianza, seleccione **Para solicitudes de usuarios federados cuyo origen esté en mi intranet.**</li>
+
+![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+<li>Haga clic en Guardar.</li>
+<li>Una vez que se han aplicado las actualizaciones, haga clic en Cerrar.</li>
+
+¡Ya está! En este punto, los usuarios federados de Office 365 solo deberán usar MFA cuando una notificación se origine fuera de la intranet corporativa.
+
+<!---HONumber=July15_HO4-->

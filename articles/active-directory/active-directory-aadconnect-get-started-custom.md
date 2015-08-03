@@ -161,7 +161,7 @@ Puede encontrar más información [aquí](http://blogs.office.com/2014/09/25/del
 
 > [AZURE.WARNING]Si actualmente tiene activo DirSync o Azure AD Synx, no active ninguna de las características de escritura diferida en Azure AD Connect.
 
-La característica de reescritura de dispositivos le permitirá tomar un dispositivo registrado en la nube, por ejemplo en Intune, y tenerlo en AD DS para un acceso condicional. Para habilitar la característica, debe prepararse AD DS. Si instala AD FS y el servicio de registro de dispositivos (DRS), DRS proporciona cmdlets de PowerShell para preparar a AD para la reescritura de dispositivos. Si no tienes DRS instalado, puede ejecutar C:\\Archivos de programa\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1 como administrador empresarial.
+La característica de reescritura de dispositivos le permitirá tomar un dispositivo registrado en la nube, por ejemplo en Intune, y tenerlo en AD DS para un acceso condicional. Para habilitar la característica, debe prepararse AD DS. Si instala AD FS y el servicio de registro de dispositivos (DRS), DRS proporciona cmdlets de PowerShell para preparar a AD para la reescritura de dispositivos. Si no tienes DRS instalado, puede ejecutar C:\Archivos de programa\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1 como administrador empresarial.
 
 Debe importar el cmdlet de PowerShell para poder ejecutarlo.
 
@@ -273,4 +273,4 @@ Puede personalizar la imagen de logotipo y la ilustración para las páginas de 
 * [Más información](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect en MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

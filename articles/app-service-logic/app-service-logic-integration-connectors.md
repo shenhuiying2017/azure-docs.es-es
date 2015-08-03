@@ -74,7 +74,7 @@ Mediante los pasos siguientes se crean aplicaciones de API de integración de Bi
 2. Seleccione la aplicación de API. En la nueva hoja, seleccione **Crear**. 
 3. Especifique las propiedades: 
 
-	Propiedad | Descripción
+Propiedad | Descripción
 --- | ---
 Nombre | Escriba un nombre para la aplicación de API. Por ejemplo, puede asignarle el nombre *RulesDiscountTaxCode* o *APIAppValidateXML*.
 Plan de servicio de aplicación | Muestra el plan de pagos. Puede cambiarlo si necesita más o menos recursos.
@@ -88,7 +88,7 @@ Agregar al Panel de inicio | Seleccione esto para agregar las aplicaciones de AP
 ## Configuración de las aplicaciones de API de BizTalk
 En el Portal de administración de Azure, abra su aplicación de API de BizTalk. En la sección **Componentes**, puede agregar los componentes adicionales necesarios para completar la aplicación de API:
 
-	API App | Tasks
+API App | Tasks
 --- | ---
 Codificador de archivos sin formato de BizTalk | Especifique un archivo sin formato, como Excel o un archivo csv que desee convertir a XML. O bien, especifique un archivo XML que desee convertir en un archivo sin formato.
 Codificador JSON de BizTalk | Especifique un archivo JSON que desee convertir a XML. O bien, especifique un archivo XML que desee convertir a JSON. 
@@ -139,4 +139,4 @@ Los siguientes pasos agregan aplicaciones de API de BizTalk a aplicaciones lógi
 
 [Lista de aplicaciones de API y conectores](app-service-logic-connectors-list.md)<br/><br/> [Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

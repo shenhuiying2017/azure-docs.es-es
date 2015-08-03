@@ -405,4 +405,4 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
 - [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
 - [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

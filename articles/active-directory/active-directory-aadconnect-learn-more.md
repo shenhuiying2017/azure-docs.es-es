@@ -47,4 +47,4 @@ Vea este vídeo para aprender lo fácil que es ampliar su Active Directory local
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

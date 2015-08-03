@@ -64,4 +64,4 @@ Para la mayoría de las organizaciones que simplemente desean habilitar el inici
 	- Acceso condicional a los recursos locales y en la nube mediante el registro de dispositivos, la unión a Azure AD o las directivas MDM de Intune.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

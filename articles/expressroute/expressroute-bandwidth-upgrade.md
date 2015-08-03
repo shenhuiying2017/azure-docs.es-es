@@ -42,15 +42,15 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 	Puede obtener los detalles de su circuito de ExpressRoute mediante el siguiente Commandlet de PowerShell:
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	Este comando devuelve una lista de todos los circuitos que haya creado en la suscripción. Puede usar el siguiente comando para obtener detalles de un circuito de ExpressRoute concreto si dispone de la clave de servicio:
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	Reemplace <skey> por la clave de servicio real.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -66,7 +66,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 	
 	Consulte la página [Preguntas más frecuentes sobre ExpressRoute](expressroute-faqs.md) para conocer las opciones de ancho de banda compatibles con su proveedor. Puede elegir cualquier tamaño mayor que el tamaño de su circuito existente. Cuando haya decidido el tamaño que necesita, puede usar el comando siguiente para cambiar el tamaño del circuito.
 
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -85,4 +85,4 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

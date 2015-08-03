@@ -63,7 +63,7 @@ La información proporcionada en esta sección es para completar el flujo de tra
 
 2. Descomprima el archivo *WAImportExport.zip*. Ejecute la herramienta *WAImportExport* que formateará la unidad SATA, escriba los datos de copia de seguridad en esa unidad y cífrelos. Antes de ejecutar el siguiente comando, asegúrese de que BitLocker está habilitado en la máquina. <br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | Parámetro | Descripción
@@ -107,4 +107,4 @@ Una vez que los datos de copia de seguridad iniciales están disponibles en la c
 - Para las preguntas sobre el flujo de trabajo de importación y exportación de Azure, vea este [artículo](../storage-import-export-service.md).
 - Vea las [Preguntas más frecuentes](backup-azure-backup-faq.md) sobre la copia de seguridad sin conexión de Azure si tiene alguna pregunta sobre el flujo de trabajo.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

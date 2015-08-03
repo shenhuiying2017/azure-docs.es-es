@@ -1,5 +1,5 @@
->[AZURE.NOTE (Pruebe gratis Aprendizaje automático de Azure)]
+>[AZURE.NOTE (Try Azure Machine Learning for free)]
 >
 >No se necesita una tarjeta de crédito ni una suscripción de Azure. <a href="https://studio.azureml.net/Home" target="_blank">**Comience ahora >**</a>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

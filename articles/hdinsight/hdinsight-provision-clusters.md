@@ -437,7 +437,7 @@ La CLI de Azure se puede instalar mediante NPM o Windows Installer. Microsoft re
 
 		npm install -g https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\\Program Files (x86)\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i> o <i>C:\\Program Files\\nodejs;C:\\Users[username]\\AppData\\Roaming\\npm</i>
+	> [AZURE.NOTE]Si recibe un error que indica que no se encuentra el comando NPM, compruebe que las rutas siguientes estén en la variable de entorno PATH: <i>C:\Program Files (x86)\nodejs;C:\Users[username]\AppData\Roaming\npm</i> o <i>C:\Program Files\nodejs;C:\Users[username]\AppData\Roaming\npm</i>
 
 5.	Ejecute el siguiente comando para comprobar la instalación:
 
@@ -754,4 +754,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
   [89e2276a]: hdinsight-use-sqoop.md "Uso de Sqoop con HDInsight"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

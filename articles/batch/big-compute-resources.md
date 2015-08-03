@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/09/2015"
+   ms.date="07/14/2015"
    ms.author="danlep"/>
 
 # Big Compute en Azure: recursos técnicos para Batch e informática de alto rendimiento (HPC)
@@ -81,6 +81,8 @@ Use estas plantillas de Administrador de recursos de Azure para implementar clú
 
 Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-size-specs.md), incluidas las [instancias A8, A9, A10 y A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) de proceso intensivo, para ejecutar sus cargas de trabajo de HPC de Linux y Windows.
 
+* [Configuración de un clúster de Linux RDMA para ejecutar aplicaciones MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
+
 * [Instancias A8 y A9: inicio rápido de HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
 * [Ejecutar aplicaciones MPI en instancias A8 y A9](https://msdn.microsoft.com/library/azure/dn592104.aspx)
@@ -116,4 +118,4 @@ Azure ofrece un [intervalo de tamaños](../virtual-machines/virtual-machines-siz
 * Para los anuncios más recientes, vea el [blog del equipo de Microsoft HPC y Batch](http://blogs.technet.com/b/windowshpc/) y el [blog de Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Vea también [Novedades de Batch](http://azure.microsoft.com/updates/?service=batch) o suscríbase a la [fuente RSS](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -42,4 +42,4 @@ En el archivo web.config de su proyecto, se ha creado un elemento con la cadena 
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

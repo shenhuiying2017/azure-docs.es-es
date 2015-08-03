@@ -252,4 +252,4 @@ Ambari Web se basa en una API de REST subyacente, que puede aprovechar para crea
 
 Para obtener una referencia completa de la API de REST, consulte [Referencia de API de Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

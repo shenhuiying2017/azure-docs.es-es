@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # Escalar los trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento #
@@ -151,7 +151,7 @@ Esta consulta se puede escalar hasta 24 unidades de streaming.
 3. Haga clic en el trabajo de Stream Analytics que desea escalar.
 4. Haga clic en **ESCALA** en la parte superior de la página.
 
-![Análisis de transmisiones de Azure -- Configuración de escala de trabajo][img.stream.analytics.configure.scale]
+![Escala de las unidades de streaming de Análisis de transmisiones de Azure][img.stream.analytics.streaming.units.scale]
 
 
 ## Supervisión del rendimiento del trabajo ##
@@ -228,7 +228,7 @@ A continuación se muestran los resultados por número creciente de unidades de 
 ![IMG.Stream.Analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Obtener ayuda ##
-Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes ##
@@ -260,4 +260,4 @@ Para obtener ayuda adicional, pruebe nuestro [foro de Análisis de transmisiones
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

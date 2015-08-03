@@ -43,4 +43,4 @@ Para obtener instrucciones, descargue la "Guía de introducción" disponible en 
 [Inicio de sesión en una máquina virtual con Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

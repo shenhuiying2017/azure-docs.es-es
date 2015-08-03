@@ -384,4 +384,4 @@ Ahora que está familiarizado con los aspectos básicos del servicio de colas de
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

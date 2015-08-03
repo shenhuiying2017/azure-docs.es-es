@@ -95,4 +95,4 @@ Una vez creada una API e importadas las operaciones, se pueden revisar y definir
 [Creación de API]: api-management-howto-create-apis.md
 [Definición de la configuración de la API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

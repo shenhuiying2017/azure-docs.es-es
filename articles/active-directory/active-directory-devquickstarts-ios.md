@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="brandwe"/>
 
 # Integrar Azure AD en una aplicación iOS
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -221,10 +223,6 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/NativeClient-iOS/
 
 [Protección de una API Web Node.JS con Azure AD >>](../active-directory-devquickstarts-webapi-nodejst.md)
 
-##Para obtener recursos adicionales, consulte:
-- [AzureADSamples en GitHub >>](https://github.com/AzureAdSamples)
-- [CloudIdentity.com >>](https://cloudidentity.com)
-- Documentación de Azure AD en [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)
- 
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

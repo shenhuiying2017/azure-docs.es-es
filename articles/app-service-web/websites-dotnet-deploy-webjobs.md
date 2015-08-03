@@ -200,4 +200,4 @@ Este artículo explica cómo implementar WebJobs con Visual Studio. Para obtener
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -90,4 +90,4 @@ Para obtener más información sobre cómo habilitar el reenvío IP de una máqu
 - Aprenda a [crear rutas](../virtual-networks-udr-how-to#How-to-manage-routes) y asociarlas a las subredes.
 - Aprenda a [habilitar el reenvío IP](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) de una máquina virtual que ejecuta una aplicación virtual. 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

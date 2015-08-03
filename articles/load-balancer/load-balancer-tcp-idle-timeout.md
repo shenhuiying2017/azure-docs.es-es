@@ -63,7 +63,7 @@ Para cambiar la configuración de tiempo de espera de un extremo
  
 Recuperar la configuración de tiempo de espera de inactividad
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
 	LocalPort : 80
@@ -166,4 +166,4 @@ Actualizar la configuración de los extremos de entrada de carga equilibrada esp
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

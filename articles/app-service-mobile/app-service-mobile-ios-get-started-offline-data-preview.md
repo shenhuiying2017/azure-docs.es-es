@@ -31,6 +31,10 @@ La sincronización sin conexión tiene varios usos posibles:
 
 Si esta es la primera vez que usa Aplicaciones móviles, complete el tutorial [Creación de una aplicación iOS].
 
+##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>Obtención de la aplicación de ejemplo sin conexión ToDo
 
 En el [repositorio de muestras de Aplicaciones móviles en GitHub], clone el repositorio y abra el proyecto [Muestra de iOS sin conexión en Xcode].
@@ -278,4 +282,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

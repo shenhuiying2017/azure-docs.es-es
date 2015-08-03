@@ -43,6 +43,10 @@ Este tutorial requiere lo siguiente:
 
 >[AZURE.NOTE]Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
 
+##<a name="review"></a>Revisión de la configuración del proyecto de servidor (opcional)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 
 Las características sin conexión de Aplicaciones móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión con su servicio móvil. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`. En este tutorial se utiliza SQLite para el almacén local.
@@ -274,4 +278,4 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos los métod
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

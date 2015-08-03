@@ -77,4 +77,4 @@ Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microso
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

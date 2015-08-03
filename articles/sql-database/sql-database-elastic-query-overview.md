@@ -33,18 +33,20 @@ Una consulta de bases de datos elásticas también facilita el acceso a toda una
 
 La capa de datos se escala horizontalmente entre muchas bases de datos mediante un esquema común. Este enfoque también se conoce como partición horizontal o particionamiento. Las particiones se pueden realizar y administrar mediante (1) la [biblioteca de cliente de Base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) o (2) usando un modelo específico de la aplicación para distribuir los datos entre varias bases de datos. Con esta topología, los informes a menudo tienen que abarcan varias bases de datos. Con una consulta de bases de datos elásticas, ahora puede conectarse a una base de datos SQL y los resultados de la consulta de la base de datos remota aparecerán como si se generaran a partir de una sola base de datos virtual.
 
+> [AZURE.NOTE]Consulta de Base de datos elástica funciona mejor para escenarios de informes ocasionales, en los que la mayor parte del procesamiento se puede realizar en la capa de datos. Para grandes cargas de trabajo de informes o situaciones de almacenamiento de datos con consultas más complejas, considere también el uso de [Almacenamiento de datos SQL de Azure](http://azure.microsoft.com/services/sql-data-warehouse/).
+
 
 ## Topología de la consulta de Base de datos elástica
 
 El uso de una consulta de bases de datos elásticas para realizar tareas de informes sobre una capa de datos con particiones horizontales requiere un mapa de particiones de escalado elástico para representar las bases de datos de la capa de datos. Normalmente, solo se usa un mapa de particiones en este escenario y una base de datos dedicada con capacidades de consulta de bases de datos elásticas que sirve como punto de entrada para las consultas de informes. Solo esta base de datos dedicada debe configurarse con objetos de consulta de bases de datos elásticas, como se describe a continuación. La ilustración 2 muestra esta topología y su configuración con la base de datos de consulta de bases de datos elástica y el mapa de particiones.
 
-**Nota** La base de datos de consulta de bases de datos elásticas dedicada debe ser una base de datos de SQL DB v12 e inicialmente solo se admite el nivel Premium. No existen restricciones en propias particiones.
+> [AZURE.NOTE]La base de datos de consulta de bases de datos elásticas dedicada debe ser una base de datos de SQL DB v12 e inicialmente solo se admite el nivel Premium. No existen restricciones en propias particiones.
 
 **Ilustración 2**
 
 ![Usar consulta de Base de datos elástica para informes sobre capas particionadas][2]
 
-(Un **shardlet** es todos los datos asociados con un valor único de una clave de particionamiento en una partición. Una **clave de particionamiento** es un valor de columna que determina cómo se distribuyen los datos entre particiones. Por ejemplo, los datos distribuidos por regiones pueden tener identificadores de región como clave de particionamiento. Para obtener más detalles, consulte el [glosario de escalado elástico](sql-database-elastic-scale-glossary.md).)
+(Un **shardlet** es todos los datos asociados con un valor único de una clave de particionamiento en una partición. Una **clave de particionamiento** es un valor de columna que determina cómo se distribuyen los datos entre particiones. Por ejemplo, los datos distribuidos por regiones pueden tener identificadores de región como clave de particionamiento. Para obtener más detalles, consulte el [glosario de escalado elástico](sql-database-elastic-scale-glossary.md)).
 
 
 Con el tiempo, la característica de consulta de Base de datos elástica admitirá topologías adicionales. En este artículo se actualizará para reflejar nuevas características a medida que estén disponibles.
@@ -261,4 +263,4 @@ Para comenzar a explorar la consulta de Base de datos elástica, pruebe nuestro 
 
 <!--anchors-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

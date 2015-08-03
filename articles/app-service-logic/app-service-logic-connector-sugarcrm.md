@@ -50,11 +50,10 @@ A continuación se muestran las distintas acciones disponibles en el conector de
 *Nota*: para obtener más detalles sobre los argumentos admitidos en las consultas, consulte la documentación de API de REST de SugarCRM.
 
 ##Creación de una aplicación de API del conector de SugarCRM##
-1.	Abra Azure Marketplace mediante la opción +NUEVO en la parte inferior derecha del Portal de Azure.
-2.	Vaya a “Web y móvil > Aplicaciones de API” y busque “SugarCRM”.
-3.	Para configurar el conector de SugarCRM, proporcione los detalles del plan de hospedaje, el grupo de recursos y seleccione el nombre de la aplicación de API.
-
-4. Configure el conector de SugarCRM y haga clic en Crear. A continuación se proporciona la configuración del paquete que es necesario proporcionar para crear el conector:
+1.	Vaya a portal.azure.com. Abra Azure Marketplace mediante la opción +NUEVO en la esquina superior izquierda del Portal de Azure.
+2.	Diríjase a "Marketplace > Todo" y busque "SugarCRM".
+3.	Para configurar el conector de SugarCRM, proporcione los detalles del plan del Servicio de aplicaciones, el grupo de recursos y seleccione el nombre de la aplicación de API.
+4. Configure los ajustes del paquete del conector de SugarCRM. A continuación se proporciona la configuración del paquete que es necesario proporcionar para crear el conector:
 
 	<table>
   <tr>
@@ -125,11 +124,11 @@ Vamos a crear una aplicación lógica simple que cree una cuenta en SugarCRM y a
 
 13.	Seleccione ’Conector de SugarCRM’ en la sección ’Usados recientemente’ en la galería y se agregará una nueva acción de SugarCRM.
 
-14.	Seleccione "Actualizar cuenta" de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Actualizar cuenta".
+14.	Seleccione "Actualizar cuenta" (estará en Acciones avanzadas "...") de la lista de acciones y se mostrarán los parámetros de entrada de la acción "Actualizar cuenta".
 
 	![][6]
 
-15.	Haga clic en "+" junto a "Id. de registro" para elegir el valor del identificador de la salida de la acción "Crear cuenta".
+15.	Haga clic en "..." junto a "Id. de registro" para elegir el valor del identificador de la salida de la acción "Crear cuenta".
 
 	![][7]
 
@@ -139,7 +138,7 @@ Vamos a crear una aplicación lógica simple que cree una cuenta en SugarCRM y a
 
 17. Haga clic en Aceptar en la pantalla del editor de Aplicación lógica y, a continuación, haga clic en ’Crear’. Se tardará aproximadamente 30 segundos en completar la creación.
 
-18. Busque la aplicación lógica creada recientemente y haga clic en ’Ejecutar’ para iniciar una ejecución.
+18. Busque la aplicación lógica creada recientemente y haga clic en "Ejecutar ahora" para iniciar una ejecución.
 
 19. Puede comprobar que se crea una nueva cuenta llamada ’Cuenta Microsoft’ en su cuenta de SugarCRM y la misma cuenta también se actualiza con la información de dirección de facturación.
 
@@ -154,4 +153,4 @@ Vamos a crear una aplicación lógica simple que cree una cuenta en SugarCRM y a
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -245,4 +245,4 @@ Ahora que conoce los fundamentos de las colas del Bus de servicio, siga estos v√
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

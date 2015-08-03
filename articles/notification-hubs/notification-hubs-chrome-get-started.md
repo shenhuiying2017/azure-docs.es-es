@@ -369,16 +369,7 @@ La aplicación Chrome se crea con JavaScript y puede utilizar su editor de texto
 		  }
 		}
 
-	El script anterior incluye lo siguiente:
-	- *window.onload* define los eventos de clic de botón de los dos botones de la IU, uno se registra en GCM y el otro usa el identificador de registro devuelto tras el registro en GCM para registrarse en los Centros de notificaciones de Azure.
-	- La función *updateLog* define una función de registro sencilla.
-	- *registerWithGCM* es el primer controlador de clics de botón que realiza la llamada *chrome.gcm.register* a GCM para registrar esta instancia de aplicación de Chrome.
-	- *registerCallback* es la función de devolución de llamada a la que se llama cuando se devuelve la llamada de registro anterior de GCM. 
-	- *registerWithNH* es el segundo controlador de clics de botón que se registra en los Centros de notificaciones. Obtiene los valores *hubName* y *connectionString* que el usuario ha especificado y crea la llamada a la API de REST para el registro en los Centros de notificaciones.
-	- *splitConnectionString* y *generateSaSToken* son una implementación de Javascript de la creación de un token de SaS que se debe enviar en todas las llamadas a la API de REST. Más información al respecto aquí - http://msdn.microsoft.com/library/dn495627.aspx
-	- *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST.
-	- *registrationPayload* define la carga xml del registro. Más información aquí: [Creación de una API de REST para el registro en el Centro de notificaciones]. Actualizamos el Id. de registro que contiene con el que recibimos de GCM.
-	- *client* es una instancia de *XMLHttpRequest* que usamos para crear la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado *Authorization* con el sasToken. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
+	El script anterior incluye lo siguiente: - *window.onload* define los eventos de clic de botón de los dos botones de la IU, uno se registra en GCM y el otro usa el identificador de registro devuelto tras el registro en GCM para registrarse en los Centros de notificaciones de Azure. - La función *updateLog* define una función de registro sencilla. - *registerWithGCM* es el primer controlador de clics de botón que realiza la llamada *chrome.gcm.register* a GCM para registrar esta instancia de aplicación de Chrome. - *registerCallback* es la función de devolución de llamada a la que se llama cuando se devuelve la llamada de registro anterior de GCM. - *registerWithNH* es el segundo controlador de clics de botón que se registra en los Centros de notificaciones. Obtiene los valores *hubName* y *connectionString* que el usuario ha especificado y crea la llamada a la API de REST para el registro en los Centros de notificaciones. - *splitConnectionString* y *generateSaSToken* son una implementación de Javascript de la creación de un token de SaS que se debe enviar en todas las llamadas a la API de REST. Más información al respecto aquí - http://msdn.microsoft.com/library/dn495627.aspx - *sendNHRegistrationRequest* es la función que realiza una llamada HTTP REST. - *registrationPayload* define la carga xml del registro. Más información aquí: [Creación de una API de REST para el registro en el Centro de notificaciones]. Actualizamos el Id. de registro que contiene con el que recibimos de GCM. - *client* es una instancia de *XMLHttpRequest* que usamos para crear la solicitud HTTP POST. Tenga en cuenta que actualizamos el encabezado *Authorization* con el sasToken. La finalización correcta de esta llamada registrará esta instancia de la aplicación Chrome con Centros de notificaciones de Azure.
 
 
 8. Debería ver la siguiente vista de la carpeta al final: ![][21]
@@ -495,4 +486,4 @@ En este sencillo ejemplo, difundirá notificaciones a la aplicación Chrome. Obt
 [Noticias de última hora de los Centros de notificaciones de Azure]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -84,7 +84,7 @@ La próxima vez que inserte una confirmación en el repositorio, Visual Studio O
 
 ## <a name="step4"> </a>Paso 4: desencadenar una recompilación y volver a implementar el proyecto
 
-1. En Visual Studio, abra un archivo y cámbielo. Por ejemplo, cambie el archivo _Layout.cshtml de la carpeta Views\\Shared de un rol web de MVC.<br/> ![][17] 
+1. En Visual Studio, abra un archivo y cámbielo. Por ejemplo, cambie el archivo _Layout.cshtml de la carpeta Views\Shared de un rol web de MVC.<br/> ![][17] 
 2. Edite el texto del pie de página del sitio y guarde el archivo.<br/> ![][18]
 
 3. En el Explorador de soluciones, abra el menú contextual del nodo de solución, el nodo de proyecto o el archivo que ha cambiado y elija **Confirmar**.<br/>
@@ -209,4 +209,4 @@ Para obtener más información, consulte Visual [Visual Studio Online](http://go
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

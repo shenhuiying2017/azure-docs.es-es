@@ -161,4 +161,4 @@ Como al delegar mediante un registrador, es posible comprobar que todo esté con
 [Referencia de la API de REST a DNS de Azure](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

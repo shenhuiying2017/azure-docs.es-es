@@ -25,15 +25,15 @@
 
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de cloudapp.net. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrá tener acceso a la aplicación en una dirección URL como http://&lt;*contoso*>.cloudapp.net. Azure también asigna una dirección IP virtual.
 
-Sin embargo, también puede exponer su aplicación en su propio nombre de dominio, como contoso.com. En este artículo se explica cómo reservar o configurar un nombre de dominio personalizado para los roles de web de servicio en la nube.
+Sin embargo, también puede exponer su aplicación en su propio nombre de dominio, como contoso.com. En este artículo se explica cómo reservar o configurar un nombre de dominio personalizado para los roles web de servicio en la nube.
 
-¿Ya entiende lo que son los registros CNAME y A? [Omita explicación](#add-a-cname-record-for-your-custom-domain).
+¿Ya entiende qué son los registros CNAME y D? [Omita la explicación](#add-a-cname-record-for-your-custom-domain).
 
-> [AZURE.NOTE]Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804) de Azure. Con este tutorial, asociar un nombre de dominio personalizado y proteger las comunicaciones (SSL) con los Servicios en la nube de Azure o Sitios web Azure es facilísimo.
+> [AZURE.NOTE]Póngase en marcha más rápido: use el NUEVO [tutorial guiado](http://support.microsoft.com/kb/2990804) de Azure. Con este tutorial, asociar un nombre de dominio personalizado y proteger las comunicaciones (SSL) con los servicios en la nube de Azure o Sitios web Azure es facilísimo.
 
 <p/>
 
-> [AZURE.NOTE]Los procedimientos de esta tarea se aplican a los Servicios en la nube de Azure. Para obtener información sobre Sitios web, consulte [Configuración de un nombre de dominio personalizado para una aplicación web del Servicio de aplicaciones de Azure](../web-sites-custom-domain-name.md) Para obtener información sobre las cuentas de almacenamiento, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Almacenamiento de Azure](../storage-custom-domain-name.md).
+> [AZURE.NOTE]Los procedimientos de esta tarea se aplican a los servicios en la nube de Azure. Para obtener información sobre Sitios web, consulte [Configuración de un nombre de dominio personalizado para una aplicación web del Servicio de aplicaciones de Azure](../web-sites-custom-domain-name.md) Para obtener información sobre las cuentas de almacenamiento, consulte [Configuración de un nombre de dominio personalizado para una cuenta de Almacenamiento de Azure](../storage-custom-domain-name.md).
 
 
 ## Descripción de los registros D y CNAME
@@ -42,9 +42,9 @@ Los registros D y CNAME (o registros de alias) le permiten asociar un nombre de 
 
 ### Registro de CNAME o Alias
 
-Un registro CNAME asigna un dominio *específico*, como **contoso.com** o **www.contoso.com**, a un nombre de dominio canónico. En este caso, el nombre de dominio canónico es el nombre de dominio **[myapp].cloudapp.net** de su aplicación hospedada de Azure. Una vez creado, el CNAME crea un alias para **[miaplicación].cloudapp.net**. La entrada de CNAME se resolverá en la dirección IP del servicio de **[myapp].cloudapp.net** de manera automática, por lo que si la dirección IP del servicio en la nube cambia, no tiene que realizar ninguna acción.
+Un registro CNAME asigna un dominio *específico*, como **contoso.com** o **www.contoso.com**, a un nombre de dominio canónico. En este caso, el nombre de dominio canónico es el nombre de dominio **[myapp].cloudapp.net** de su aplicación hospedada de Azure. Una vez creado, el CNAME crea un alias para **[myapp].cloudapp.net**. La entrada de CNAME se resolverá en la dirección IP del servicio de **[myapp].cloudapp.net** de manera automática, por lo que si la dirección IP del servicio en la nube cambia, no tiene que realizar ninguna acción.
 
-> [AZURE.NOTE]Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como www.contoso.com, no nombres de raíz, como contoso.com. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME](http://en.wikipedia.org/wiki/CNAME_record) o el documento [Nombres de dominio IETF: implementación y especificación (en inglés)](http://tools.ietf.org/html/rfc1035).
+> [AZURE.NOTE]Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como www.contoso.com, y no nombres de raíz, como contoso.com. Para obtener más información sobre los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME](http://en.wikipedia.org/wiki/CNAME_record) o el documento [Nombres de dominio IETF: implementación y especificación](http://tools.ietf.org/html/rfc1035).
 
 ### Registro D
 
@@ -63,17 +63,17 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
     * Inicie sesión en el [Portal de administración de Azure], seleccione su servicio en la nube, seleccione **Panel** y luego busque la entrada **URL de sitio** en la sección **Vista rápida**.
     
-        ![sección de quick glance que muestra la dirección URL del sitio][csurl]
+        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
     
-        **OR**
+        **O bien**
     
-    * Instale y configure [Azure Powershell](../install-configure-powershell.md) y, a continuación, use el siguiente comando:
+    * Instale y configure [Azure Powershell](../install-configure-powershell.md) y, luego, use el siguiente comando:
         
         ```powershell
         Get-AzureDeployment -ServiceName yourservicename | Select Url
         ```
     
-    Guarde el nombre de dominio que se usó en la URL devuelta por cualquier método, ya que la necesitará al crear un registro de CNAME.
+    Guarde el nombre de dominio que se usó en la URL devuelta por cualquier método, ya que lo necesitará al crear un registro CNAME.
 
 1.  Inicie sesión en el sitio web del registrador DNS y vaya a la página de administración de DNS. Busque los vínculos o áreas del sitio etiquetados como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
 
@@ -94,7 +94,7 @@ Los visitantes de **www.contoso.com** no verán nunca el verdadero host (contoso
 > [AZURE.NOTE]El ejemplo anterior solo se aplica al tráfico en el subdominio **www**. Puesto que no puede usar caracteres comodín con registros CNAME, debe crear un CNAME para cada dominio/subdominio. Si desea dirigir el tráfico desde subdominios, como *.contoso.com, a su dirección cloudapp.net, puede configurar una entrada de **Redirección de URL** o de **Reenvío de URL** en la configuración de DNS, o bien crear un registro D.
 
 
-## Adición de un registro D para el dominio personalizado
+## Agregar un registro D para el dominio personalizado
 
 Para crear un registro D, primero debe buscar la dirección IP virtual de su servicio en la nube. A continuación, agregue una entrada en la tabla DNS para el dominio personalizado mediante las herramientas proporcionadas por el registrador. Cada registrador dispone de un método similar pero ligeramente distinto de especificación de un registro D. Sin embargo, los conceptos son los mismos.
 
@@ -102,11 +102,11 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
     
     * Inicie sesión en el [Portal de administración de Azure], seleccione su servicio en la nube, seleccione **Panel** y luego busque la entrada **Dirección IP virtual pública (VIP)** la sección **Vista rápida**.
     
-        ![sección de quick glance que muestra la VIP][vip]
+        ![sección de vista rápida que muestra la IP virtual][vip]
     
-        **OR**
+        **O bien**
     
-    * Instale y configure [Azure Powershell](../install-configure-powershell.md) y, a continuación, use el siguiente comando:
+    * Instale y configure [Azure Powershell](../install-configure-powershell.md) y, luego, use el siguiente comando:
     
         ```powershell
         get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -130,7 +130,7 @@ Por ejemplo, el siguiente registro D desvía todo el tráfico de **contoso.com**
 
 | Nombre de host/subdominio | Dirección IP |
 | ------------------- | -------------- |
-| @ | 137\.135.70.239 |
+| @ | 137.135.70.239 |
 
 
 En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '__*__' como subdominio.
@@ -153,4 +153,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

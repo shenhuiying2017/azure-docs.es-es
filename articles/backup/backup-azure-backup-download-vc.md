@@ -40,4 +40,4 @@ El archivo de credenciales de almacén se descarga a través de un canal seguro 
 ## Pasos siguientes
 [Descarga, registro e instalación del agente de Copia de seguridad de Azure](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

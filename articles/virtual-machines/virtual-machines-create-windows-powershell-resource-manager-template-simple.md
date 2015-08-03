@@ -3,7 +3,7 @@
 	description="Use una plantilla del Administrador de recursos y Azure PowerShell para crear una nueva máquina virtual Windows."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""/>
 
@@ -14,23 +14,32 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="josephd"/>
+	ms.author="davidmu"/>
 
-# Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y Azure PowerShell
+# Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y PowerShell
 
 Puede crear fácilmente una nueva máquina virtual de Azure basada en Windows mediante una plantilla del Administrador de recursos con Azure PowerShell. Esta plantilla crea una sola máquina virtual que ejecuta Windows en una nueva red virtual con una sola subred en un nuevo grupo de recursos.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template-simple/windowsvm.png)
 
-Antes de profundizar, siga estas instrucciones para asegurarse de que dispone de Azure, Windows PowerShell y Azure PowerShell configurado y listo para usar:
+Antes de profundizar, asegúrese de tener Azure y PowerShell configurados y listos para usar.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Creación de una máquina virtual de Windows
+## Creación de una máquina virtual Windows
 
 Siga estos pasos para crear una máquina virtual Windows mediante una plantilla del Administrador de recursos en el repositorio de plantillas de Github con Azure PowerShell.
 
-Ejecute los comandos según el ejemplo siguiente y proporcione su nombre de implementación de Azure, el nombre del grupo de recursos y la ubicación del centro de datos de Azure. Tenga en cuenta que al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores de parámetros en la sección "parameters" del archivo JSON. Cuando haya especificado todos los valores de parámetros, el comando crea el grupo de recursos y la máquina virtual.
+Rellene un nombre de implementación de Azure, un nombre de grupo de recursos de Azure y una ubicación de centro de datos de Azure y, a continuación, ejecute estos comandos.
+
+	$deployName="<deployment name>"
+	$RGName="<resource group name>"
+	$locName="<Azure location, such as West US>"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureResourceGroup –Name $RGName –Location $locName
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+
+Al ejecutar el comando **New-AzureResourceGroupDeployment**, se le solicitará que proporcione los valores de parámetros en la sección "parameters" del archivo JSON. Cuando haya especificado todos los valores de parámetros, el comando crea el grupo de recursos y la máquina virtual.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -83,14 +92,14 @@ Ahora dispone de una nueva máquina virtual Windows denominada MyWindowsVM en el
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+[Información general del Administrador de recursos de Azure](resource-group-overview.md)
 
-[Creación de una máquina virtual Windows con el Administrador de recursos de Azure y Azure PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
+[Creación de una máquina virtual Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Creación de una máquina virtual Windows con Azure PowerShell y el Administrador de servicios de Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Creación de una máquina virtual Windows con PowerShell y el Administrador de servicios de Azure](virtual-machines-create-windows-powershell-service-manager.md)
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
+[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

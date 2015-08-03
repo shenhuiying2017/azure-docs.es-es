@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Identificación de las diferencias con el seguimiento de cambios
@@ -51,6 +51,7 @@ Puede ver los cambios en la infraestructura y, a continuación, profundizar en l
 
 3. En cualquiera de las páginas de búsqueda de registros, puede ver los resultados por tiempo, resultados detallados y el historial de búsqueda de registros. También puede filtrar por las facetas para restringir los resultados.
 
-4. En cualquier página de búsqueda de registros, puede **exportar** los detalles de resultados a un archivo CSV que puede abrir con Excel u otra aplicación que permita las tareas de visualización o modificación.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

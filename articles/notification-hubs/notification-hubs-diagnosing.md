@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/14/2015" 
 	ms.author="wesmc"/>
 
 #Centros de notificaciones de Azure: pautas de diagnóstico
@@ -240,4 +240,4 @@ Más detalles aquí:
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

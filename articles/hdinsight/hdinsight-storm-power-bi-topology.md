@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/28/2015"
+ ms.date="07/17/2015"
  ms.author="larryfr"/>
 
 # Uso de Power BI (vista previa) para visualizar datos de una topología de Apache Storm
@@ -54,9 +54,9 @@ Los siguientes archivos de este proyecto implementan la funcionalidad específic
 
 ## Registro de una aplicación de Power BI
 
-1. Siga los pasos de la [guía rápida de Power BI](https://msdn.microsoft.com/en-US/library/dn931989.aspx) para suscribirse a Power BI.
+1. Siga los pasos de la [guía rápida de Power BI](https://msdn.microsoft.com/es-es/library/dn931989.aspx) para suscribirse a Power BI.
 
-2. Siga los pasos de [Registro de una aplicación](https://msdn.microsoft.com/en-US/library/dn877542.aspx) para crear un registro de aplicación. Se utilizará al obtener acceso a la API de REST de Power BI.
+2. Siga los pasos de [Registro de una aplicación](https://msdn.microsoft.com/es-es/library/dn877542.aspx) para crear un registro de aplicación. Se utilizará al obtener acceso a la API de REST de Power BI.
 
     > [AZURE.IMPORTANT]Guarde el **identificador de cliente** para el registro de la aplicación.
 
@@ -137,6 +137,5 @@ La topología continuará ejecutándose hasta que la detenga o elimine el clúst
 En este documento aprendió a enviar datos de una topología de Storm a Power BI mediante REST. Para obtener información sobre cómo trabajar con otras tecnologías de Azure, vea lo siguiente:
 
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

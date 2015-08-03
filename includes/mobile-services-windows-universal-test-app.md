@@ -13,4 +13,4 @@
 	
 	Tenga en cuenta que los datos guardados en el paso anterior se cargan del servicio móvil después de que se inicie la aplicación.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

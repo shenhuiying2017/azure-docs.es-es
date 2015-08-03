@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="MightyPen" 
 	manager="jeffreyg" 
-	editor="jeffreyg"/>
+	editor=""/>
 
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -109,6 +109,17 @@ Hay muchas buenas razones por las que los clientes deberían actualizar ahora Ba
 - La mayoría de las características nuevas se lanzan en la V12 de Base de datos SQL antes que en Microsoft SQL Server.
 
 
+## Puerta de enlace ya no proporciona la lógica de reintento en V12
+
+
+Antes de la versión V12, Base de datos SQL Azure tenía una puerta de enlace que actuaba como proxy para almacenar en búfer todas las interacciones entre la base de datos y su programa cliente. La puerta de enlace proporcionaba una *lógica de reintento* automatizada para algunos *errores transitorios*.
+
+ V12 eliminó la puerta de enlace. Ahora el programa debe controlar los errores transitorios de manera más integral. Para obtener información, vea:
+
+
+- [Conexión a la base de datos SQL: vínculos, prácticas recomendadas y directrices de diseño](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+
 ## ¿Ya utiliza V12?
 
 
@@ -145,11 +156,11 @@ V12 se lanzó en diciembre de 2014 pero solo en el estado de [Vista previa](http
 V12 está disponible en Vista previa en las siguientes regiones:
 
 
-| Región de Azure | Estado de la versión actual<br/>de V12 | Fecha de promoción<br/>a GA |
+| Región de Azure | Estado de la versión actual<br/>de V12 | Fecha de promoción<br/>a GA, estimación |
 | :--- | :--- | :--- |
-| Australia Oriental | **Vista previa** | Segundo trimestre de 2015, estimado |
-| Sudeste de Australia | **Vista previa** | Segundo trimestre de 2015, estimado |
+| Australia Oriental | **Vista previa** | Tercer trimestre del calendario de 2015, estimación |
+| Sudeste de Australia | **Vista previa** | Tercer trimestre del calendario de 2015, estimación |
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

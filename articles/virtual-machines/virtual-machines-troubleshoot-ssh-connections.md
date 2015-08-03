@@ -166,4 +166,4 @@ Para obtener información sobre el uso del soporte técnico de Azure, consulte l
 [Solucionar problemas de acceso a una aplicación que se ejecuta en una máquina virtual de Azure](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

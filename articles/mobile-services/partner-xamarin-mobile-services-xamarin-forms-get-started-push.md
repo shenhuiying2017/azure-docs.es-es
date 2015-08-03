@@ -293,7 +293,7 @@ El servicio móvil está configurado ahora para que funcione con APNS.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("es-es"));
 
             var push = client.GetPush();
 
@@ -847,4 +847,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

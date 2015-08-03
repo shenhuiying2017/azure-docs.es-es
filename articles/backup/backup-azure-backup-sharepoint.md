@@ -33,7 +33,7 @@ El agente de DPM debe instalarse en el servidor de SharePoint, servidores SQL Se
 Para cada 10 millones de elementos del conjunto de servidores, debe haber al menos 2 GB de espacio en el volumen donde se encuentra la carpeta DPM. Este espacio se requiere para la generación del catálogo. Para que DPM pueda recuperar elementos específicos (colecciones de sitios, sitios, listas, bibliotecas de documentos, carpetas, documentos individuales y elementos de lista), generación de catálogos crea una lista de las direcciones URL dentro de cada base de datos de contenido. Puede ver la lista de direcciones URL en el panel elemento recuperable en el área de tareas de recuperación de la consola de administrador DPM.
 
 ### SQL Server
-DPM se ejecuta como sistema local y para realizar copias de seguridad de las bases de datos de SQL Server, necesita privilegios de sysadmin en esa cuenta para el SQL Server. Establezca NT AUTHORITY\\SYSTEM en *sysadmin*en el SQL Server del que quiere crear una copia de seguridad.
+DPM se ejecuta como sistema local y para realizar copias de seguridad de las bases de datos de SQL Server, necesita privilegios de sysadmin en esa cuenta para el SQL Server. Establezca NT AUTHORITY\SYSTEM en *sysadmin*en el SQL Server del que quiere crear una copia de seguridad.
 
 En la granja de SharePoint, si tiene bases de datos de SQL Server que están configuradas con alias de SQL Server, instale los componentes de cliente de SQL Server en el servidor web front-end que DPM protegerá.
 
@@ -50,14 +50,14 @@ Para empezar a proteger una granja de SharePoint en Azure, debe instalar el paqu
 ## Configuración de la protección de SharePoint
 Debe configurar el servicio VSS Writer de SharePoint (servicio WSS Writer) mediante **ConfigureSharePoint.exe** para poder proteger SharePoint con DPM.
 
-Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de acceso de instalación de DPM]\\bin en el servidor web front-end. Esta herramienta proporciona al agente de protección las credenciales para la granja de servidores de SharePoint. Debe ejecutarlo en un solo servidor WFE. Si tiene varios servidores WFE, seleccione solo uno al configurar un grupo de protección.
+Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de acceso de instalación de DPM]\bin en el servidor web front-end. Esta herramienta proporciona al agente de protección las credenciales para la granja de servidores de SharePoint. Debe ejecutarlo en un solo servidor WFE. Si tiene varios servidores WFE, seleccione solo uno al configurar un grupo de protección.
 
 ### Para configurar el servicio VSS Writer de SharePoint
-1. En el servidor WFE, en un símbolo del sistema, vaya a [ubicación de instalación de DPM]\\bin\\
+1. En el servidor WFE, en un símbolo del sistema, vaya a [ubicación de instalación de DPM]\bin\
 2. Ejecute ConfigureSharePoint - EnableSharePointProtection
 3. Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja no es un administrador local, conceda los permisos siguientes en el servidor WFE:
-  - Conceda al grupo WSS_Admin_WPG control total sobre la carpeta DPM (%Program Files%\\Microsoft Data Protection Manager\\DPM).
-  - Conceda al grupo WSS_Admin_WPG acceso de lectura a la clave del Registro de DPM (HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
+  - Conceda al grupo WSS_Admin_WPG control total sobre la carpeta DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
+  - Conceda al grupo WSS_Admin_WPG acceso de lectura a la clave del Registro de DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]Deberá ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
 
@@ -226,4 +226,4 @@ P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original s
 - Consulte las [Notas de la versión de System Center 2012: Data Protection Manager versión](https://technet.microsoft.com/library/jj860415.aspx)
 - Consulte las [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

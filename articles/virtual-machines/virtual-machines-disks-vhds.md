@@ -65,4 +65,4 @@ Máquinas virtuales de Windows:
 -  [Capture una máquina virtual de Windows](virtual-machines-capture-image-windows-server.md)
 -  [Desacople un disco](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

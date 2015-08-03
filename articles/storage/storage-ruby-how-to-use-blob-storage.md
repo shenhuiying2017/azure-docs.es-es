@@ -81,7 +81,7 @@ En el siguiente ejemplo se crea un contenedor o se imprime el error, si hay algu
 
 Si desea hacer públicos los archivos del contenedor, debe configurar los permisos del contenedor.
 
-Puede modificar solo la llamada <strong>create\\_container()</strong> para pasar la opción **:public\\_access\\_level**:
+Puede modificar solo la llamada <strong>create\_container()</strong> para pasar la opción **:public\_access\_level**:
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
@@ -147,4 +147,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 - Visite el repositorio de [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

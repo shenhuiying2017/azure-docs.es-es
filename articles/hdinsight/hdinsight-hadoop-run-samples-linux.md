@@ -241,4 +241,4 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -103,4 +103,4 @@ El evento de auditoría "Actualizar usuario" incluye información adicional sobr
 Los registros de auditoría son un control necesario para muchas regulaciones de conformidad. Para que los clientes que usan el Informe de auditoría de Azure Active Directory cumplan las regulaciones de conformidad, se recomienda que el cliente envíe una copia de este tema de ayuda con la copia del informe de auditoría exportado del cliente para ayudar a explicar los detalles del informe. Si el auditor desea conocer las regulaciones de conformidad que cumple actualmente Azure, diríjalo a la [página Conformidad](http://azure.microsoft.com/support/trust-center/compliance/) del Centro de confianza de Microsoft Azure.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

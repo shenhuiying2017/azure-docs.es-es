@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="Fase 1 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configurar Azure" 
-	description="En esta primera fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará la red virtual de Azure y otros elementos de la infraestructura de Azure." 
+<properties
+	pageTitle="Fase 1 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configurar Azure"
+	description="En esta primera fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará la red virtual de Azure y otros elementos de la infraestructura de Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # Fase 1 de la carga de trabajo de la granja de servidores de intranet de SharePoint: Configurar Azure
 
-En esta fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará la infraestructura de red y almacenamiento de Azure. Debe completar esta fase antes de pasar a la [fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consulte [Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para ver todas las fases.
+En esta fase de la implementación de una granja de servidores solo de intranet de SharePoint 2013 con grupos de disponibilidad AlwaysOn de SQL Server en los servicios de infraestructura de Azure, creará la infraestructura de red y almacenamiento de Azure en Administración de servicios de Azure. Debe completar esta fase antes de pasar a la [fase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Consulte [Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure](virtual-machines-workload-intranet-sharepoint-overview.md) para ver todas las fases.
 
 Azure debe contar con los siguientes componentes de red básicos:
 
@@ -32,8 +33,8 @@ Antes de empezar a configurar los componentes de Azure, rellene las tablas sigui
 
 Para la configuración de la red virtual (VNet), rellene la tabla V.
 
-Elemento | Elemento configuración | Descripción | Valor 
---- | --- | --- | --- 
+Elemento | Elemento configuración | Descripción | Valor
+--- | --- | --- | ---
 1. | Nombre de red virtual | Nombre que se va a asignar a la red virtual de Azure (por ejemplo, SPFarmNet). | __________________
 2. | Ubicación de la red virtual | Centro de datos Azure que contendrá la red virtual. | __________________
 3. | Nombre de la red local | Nombre que se va a asignar a la red de su organización. | __________________
@@ -46,8 +47,8 @@ Elemento | Elemento configuración | Descripción | Valor
 
 Rellene la tabla S para la subred de esta solución. Asigne a la subred un nombre descriptivo, un espacio de direcciones IP único basado en el espacio de direcciones de la red virtual y una finalidad descriptiva. El espacio de direcciones debe estar en formato de enrutamiento de interdominios sin clases (CIDR), también conocido como formato de prefijo de red. Un ejemplo es 10.24.64.0/20. Trabaje con su departamento de TI para determinar este espacio de direcciones a partir del espacio de direcciones de la red virtual.
 
-Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito 
---- | --- | --- | --- 
+Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
+--- | --- | --- | ---
 1. | _______________ | _____________________________ | _________________________
 
 **Tabla S: Subredes de la red virtual**
@@ -56,10 +57,10 @@ Elemento | Nombre de subred | Espacio de direcciones de subred | Propósito
 
 Para los dos servidores DNS locales que desea usar al configurar inicialmente los controladores de dominio de la red virtual, rellene tabla D. Asigne a cada servidor DNS un nombre descriptivo y una dirección IP única. No es necesario que este nombre descriptivo coincida con el nombre de host o el nombre de equipo del servidor DNS. Tenga en cuenta que se muestran dos entradas en blanco, pero puede agregar más. Trabaje con su departamento de TI para determinar esta lista.
 
-Elemento | Nombre descriptivo del servidor DNS | Dirección IP del servidor DNS 
+Elemento | Nombre descriptivo del servidor DNS | Dirección IP del servidor DNS
 --- | --- | ---
 1. | ___________________________ | ___________________________
-2. | ___________________________ | ___________________________ 
+2. | ___________________________ | ___________________________
 
 **Tabla D: Servidores DNS locales**
 
@@ -67,7 +68,7 @@ Para enrutar paquetes de la red entre locales a la red de su organización a tra
 
 Para el conjunto de espacios de direcciones de la red local, rellene la tabla L. Observe que aparecen tres entradas en blanco, pero normalmente se necesitan más. Trabaje con su departamento de TI para determinar esta lista de espacios de direcciones.
 
-Elemento | Espacio de direcciones de la red local 
+Elemento | Espacio de direcciones de la red local
 --- | ---
 1. | ___________________________________
 2. | ___________________________________
@@ -81,8 +82,8 @@ Para crear la red virtual con la configuración de las tablas V, S, D y L, use l
 
 Después de crear la red virtual de Azure, el Portal de administración de Azure determinará lo siguiente:
 
-- La dirección IPv4 pública de la puerta de enlace VPN de Azure para la red virtual
-- La clave precompartida del protocolo de seguridad de Internet (IPsec) para la conexión VPN de sitio a sitio
+- La dirección IPv4 pública de la puerta de enlace VPN de Azure para la red virtual.
+- La clave precompartida del protocolo de seguridad de Internet (IPsec) para la conexión VPN de sitio a sitio.
 
 Para ver estos datos en el Portal de administración de Azure después de crear la red virtual, haga clic en **Redes**, en el nombre de la red virtual y, a continuación, en la opción de menú **Panel**.
 
@@ -103,7 +104,7 @@ Puede obtener el nombre de suscripción con la propiedad **SubscriptionName** de
 
 A continuación, cree los tres servicios en la nube necesarios para esta granja de servidores de SharePoint. Rellene la tabla C.
 
-Elemento | Propósito | Nombre del servicio en la nube 
+Elemento | Propósito | Nombre del servicio en la nube
 --- | --- | ---
 1. | Controladores de dominio | ___________________________
 2. | Servidores SQL Server | ___________________________
@@ -137,8 +138,8 @@ Si este comando devuelve "False", el nombre propuesto es único. A continuación
 
 Posteriormente, defina los nombres de cuatro conjuntos de disponibilidad. Rellene la tabla A.
 
-Elemento | Propósito | Nombre del conjunto de disponibilidad 
---- | --- | --- 
+Elemento | Propósito | Nombre del conjunto de disponibilidad
+--- | --- | ---
 1. | Controladores de dominio | ___________________________
 2. | Servidores SQL Server | ___________________________
 3. | Servidores de aplicaciones de SharePoint | ___________________________
@@ -167,6 +168,5 @@ Para continuar con la configuración de esta carga de trabajo, vaya a [Fase 2: C
 [Arquitecturas de Microsoft Azure para SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

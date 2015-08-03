@@ -21,21 +21,23 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Application Insights es un servicio de análisis extensible que le ayuda a comprender el rendimiento y el uso de su aplicación activa. Úselo para detectar y diagnosticar problemas de rendimiento y excepciones, y [escribir código][api] para realizar un seguimiento de lo que hacen los usuarios con su aplicación.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible que le ayuda a comprender el rendimiento y el uso de su aplicación activa. Úselo para [detectar y diagnosticar problemas de rendimiento y excepciones](app-insights-detect-triage-diagnose.md), y [escribir código][api] para realizar un seguimiento de lo que hacen los usuarios con su aplicación.
 
 ![datos de ejemplo](./media/app-insights-java-get-started/5-results.png)
 
-[Las pruebas web de Application Insights][availability]supervisan la disponibilidad de la aplicación.
+[Las pruebas web de Application Insights][availability] supervisan la disponibilidad de la aplicación.
 
 Necesitará:
 
 * Oracle JRE 1.6 o posterior, o Zulu JRE 1.6 o posterior
 * Una suscripción a [Microsoft Azure](http://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/)).
 
+*Si tiene una aplicación web que ya está en funcionamiento, puede seguir el procedimiento alternativo para [agregar el SDK en tiempo de ejecución en el servidor web](app-insights-java-live.md). Esa alternativa evita volver a generar el código, pero no incluye la opción de escribir código para realizar un seguimiento de la actividad del usuario.*
 
-## 1\. Obtención de una clave de instrumentación de Application Insights
 
-1. Inicio de sesión en el [Portal de Microsoft Azure](https://portal.azure.com)
+## 1. Obtención de una clave de instrumentación de Application Insights
+
+1. Inicie sesión en el [Portal de Microsoft Azure](https://portal.azure.com).
 2. Creación de un recurso de Application Insights
 
     ![Haga clic en + y elija Application Insights](./media/app-insights-java-get-started/01-create.png)
@@ -46,7 +48,7 @@ Necesitará:
 
     ![En la información general de nuevos recursos, haga clic en Propiedades y copie la clave de instrumentación.](./media/app-insights-java-get-started/03-key.png)
 
-## 2\. Incorporación del SDK de Application Insights para Java al proyecto
+## 2. Incorporación del SDK de Application Insights para Java al proyecto
 
 *Elija la forma adecuada para su proyecto.*
 
@@ -105,23 +107,23 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
 
 Agregue manualmente el SDK:
 
-1. Descargue del [SDK de Application Insights para Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html).
+1. Descargue el [SDK de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
 2. Extraiga los archivos binarios del archivo zip y agréguelos al proyecto.
 
-Preguntas...
+### Preguntas...
 
 * *¿Cuál es la relación entre los componentes `-core` y `-web` del archivo zip?*
 
  * `applicationinsights-core` le proporciona la API básica. Lo necesita siempre.
  * `applicationinsights-web` proporciona métricas que realizan el seguimiento de recuentos de solicitud HTTP y tiempos de respuesta. Lo puede omitir si no desea que se recopile automáticamente esta telemetría: por ejemplo, si desea escribir la suya propia.
 
-* *Para actualizar el SDK*
- * Descargue el[SDK más reciente de Application Insights para Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) y reemplácelo por los antiguos.
+* *Para actualizar el SDK cuando publicamos cambios*
+ * Descargue el[SDK más reciente de Application Insights para Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) y reemplácelo por los antiguos.
  * Los cambios se describen en las [notas de la versión de SDK](app-insights-release-notes-java.md).
 
 
 
-## 3\. Adición de un archivo xml de Application Insights
+## 3. Adición de un archivo xml de Application Insights
 
 Agregue ApplicationInsights.xml a la carpeta de recursos del proyecto o, en caso contrario, asegúrese de que se agrega a la ruta de acceso de la clase de implementación del proyecto. Copie en ella el código XML siguiente.
 
@@ -162,7 +164,7 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 * El componente de la solicitud HTTP es opcional. Envía automáticamente telemetría sobre las solicitudes y tiempos de respuesta en el portal.
 * La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y lo agrega como una propiedad a cada elemento de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
 
-## 4\. Adición de un filtro HTTP
+## 4. Adición de un filtro HTTP
 
 El último paso de la configuración permite que el componente de la solicitud HTTP registre las solicitudes web. (No es necesario si solo desea la API básica).
 
@@ -205,7 +207,7 @@ Agregue este elemento al archivo de configuración Struts (denominado normalment
 
 (Si tiene interceptores definidos en una pila predeterminada, el interceptor puede agregarse simplemente a dicha pila).
 
-## 5\. Instalación en el servidor
+## 5. Instalación en el servidor
 
 En los servidores de Windows, instale:
 
@@ -213,11 +215,11 @@ En los servidores de Windows, instale:
 
 (Esto habilita los contadores de rendimiento.)
 
-## 6\. Ejecución de la aplicación
+## 6. Ejecución de la aplicación
 
 Ejecútela en modo de depuración en el equipo de desarrollo o bien publíquela en el servidor.
 
-## 7\. Visualización de la telemetría en Application Insights
+## 7. Visualización de la telemetría en Application Insights
 
 Vuelva al recurso Application Insights en el [Portal de Microsoft Azure](https://portal.azure.com).
 
@@ -371,4 +373,4 @@ Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telem
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

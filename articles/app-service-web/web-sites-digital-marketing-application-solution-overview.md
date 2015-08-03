@@ -141,4 +141,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

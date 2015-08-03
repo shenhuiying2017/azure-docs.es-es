@@ -232,4 +232,4 @@ Suponiendo que el nombre de usuario de la credencial era *jsmith*, esto da como 
 
 - [Inicio de un runbook desde otro runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

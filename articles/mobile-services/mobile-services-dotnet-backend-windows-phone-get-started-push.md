@@ -204,4 +204,4 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

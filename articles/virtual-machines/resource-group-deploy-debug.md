@@ -387,4 +387,4 @@ Para dominar la creación de plantillas, lea [Creación de plantillas del Admini
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

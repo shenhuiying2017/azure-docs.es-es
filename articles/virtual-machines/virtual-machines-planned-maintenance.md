@@ -24,7 +24,7 @@
 
 Sin embargo, algunas de estas actualizaciones requieren que las máquinas virtuales se reinicien para aplicar a la infraestructura las actualizaciones requeridas. Las máquinas virtuales se cierran mientras arreglamos la infraestructura y después las máquinas virtuales se reinician.
 
-Tenga en cuenta que hay dos tipos de mantenimiento que pueden afectar a la disponibilidad de las máquinas virtuales: planeado y no planeado. En esta página se describe cómo Microsoft Azure realiza el mantenimiento planeado. Para obtener más información acerca del mantenimiento planeado, consulte [Entender el mantenimiento planeado frente al no planeado].
+Tenga en cuenta que hay dos tipos de mantenimiento que pueden afectar a la disponibilidad de las máquinas virtuales: planeado y no planeado. En esta página se describe cómo Microsoft Azure realiza el mantenimiento planeado. Para obtener más información acerca del mantenimiento planeado, consulte [Mantenimiento planeado frente a mantenimiento no planeado].
 
 ## Actualizaciones de conservación de memoria
 En el caso de una clase de actualizaciones en Microsoft Azure, los clientes no verán afectadas sus máquinas virtuales en ejecución. Muchas de estas actualizaciones son componentes o servicios que se pueden actualizar sin interferir con la instancia en ejecución. Algunas de estas actualizaciones son actualizaciones de la infraestructura de la plataforma en el sistema operativo host, que se pueden aplicar sin necesidad de un reinicio completo de las máquinas virtuales.
@@ -108,6 +108,6 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
-[Entender el mantenimiento planeado frente al no planeado]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Mantenimiento planeado frente a mantenimiento no planeado]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

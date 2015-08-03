@@ -70,4 +70,4 @@ En las siguientes dos situaciones se realiza una llamada a RRS:
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

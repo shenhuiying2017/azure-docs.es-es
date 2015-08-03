@@ -145,4 +145,4 @@ Para usar la API de inserción o la API de dispositivo necesitará conocer el id
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

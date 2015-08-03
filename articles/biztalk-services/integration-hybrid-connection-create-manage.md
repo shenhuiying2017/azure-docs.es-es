@@ -124,8 +124,8 @@ Para administrar las conexiones híbridas, puede:
 2. Extraiga los archivos.
 3. En el equipo que modifica la directiva de grupo, haga lo siguiente: 
 
-	- Copie los archivos .ADMX en la carpeta *%WINROOT%\\PolicyDefinitions*.
-	- Copie los archivos .ADML en la carpeta *%WINROOT%\\PolicyDefinitions\\es-es*.
+	- Copie los archivos .ADMX en la carpeta *%WINROOT%\PolicyDefinitions*.
+	- Copie los archivos .ADML en la carpeta *%WINROOT%\PolicyDefinitions\es-es*.
 
 Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la directiva.
 
@@ -146,4 +146,4 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -44,4 +44,4 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * Lea la entrada de blog de la comunidad [#Módulo de PowerShell para las API de REST de Administración de API de Azure](https://alexandrebrisebois.wordpress.com/2014/08/17/powershell-module-for-the-azure-api-management-rest-apis/).
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

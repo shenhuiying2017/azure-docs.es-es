@@ -76,4 +76,4 @@ Si dispone de servidores proxy o firewalls en el entorno que restrinjan el acces
 
 - [Configuración de los ajustes del proxy y del firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -332,4 +332,4 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

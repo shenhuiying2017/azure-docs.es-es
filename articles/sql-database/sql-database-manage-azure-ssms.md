@@ -121,7 +121,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
             CREATE USER login1User FROM LOGIN login1;
 
--   Use el procedimiento almacenado **sp_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\\_datareader**.
+-   Use el procedimiento almacenado **sp_addrolemember** para conceder a la cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener más información, consulte[ sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). La instrucción siguiente concede a **login1User** permisos de solo lectura a la base de datos mediante la adición de **login1User** al rol **db\_datareader**.
 
         exec sp_addrolemember 'db_datareader', 'login1User';    
 
@@ -137,7 +137,7 @@ La base de datos **maestra** realiza un seguimiento de los inicios de sesión y 
 
         DROP LOGIN login1;
 
--   La base de datos maestra tiene la vista **sys.sql\\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
+-   La base de datos maestra tiene la vista **sys.sql\_logins**, que puede usar para ver los inicios de sesión. Para ver todos los inicios de sesión existentes, ejecute la siguiente instrucción:
 
         SELECT * FROM sys.sql_logins;
 
@@ -186,4 +186,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

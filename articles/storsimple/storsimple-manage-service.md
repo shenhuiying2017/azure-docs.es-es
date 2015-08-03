@@ -113,4 +113,4 @@ Obtenga más información sobre [administrar su cuenta de almacenamiento StorSim
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

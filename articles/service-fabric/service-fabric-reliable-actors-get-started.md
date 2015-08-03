@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # Actores confiables: el escenario de tutorial de HelloWorld canónico
@@ -36,14 +36,17 @@ Para empezar a trabajar con actores confiables, solo es necesario comprender cua
 Después de instalar las herramientas de Service Fabric para Visual Studio, puede crear un nuevo tipo de proyecto. Los nuevos tipos de proyecto están en la categoría "Nube" del cuadro de diálogo Nuevo proyecto
 
 
-![][1]
+![Herramientas de Service Fabric para VS: nuevo proyecto][1]
 
+En el siguiente cuadro de diálogo puede elegir el tipo de proyecto que desea crear.
+
+![Plantillas de proyecto de Service Fabric][5]
 
 Para el proyecto HelloWorld, se usará el servicio de actor de Service Fabric.
 
 Una vez creada la solución, verá la siguiente estructura:
 
-![][2]
+![Estructura de proyecto de Service Fabric][2]
 
 ## Bloques de creación básicos de actores de confianza
 
@@ -138,12 +141,12 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 Las herramientas de Service Fabric para Visual Studio admiten la depuración en el equipo local. Puede iniciar una sesión de depuración presionando F5. Visual Studio genera (si es necesario) paquetes, implementa la aplicación en el clúster de Service Fabric local y asocia al depurador. La experiencia es similar a la depuración de una aplicación ASP.NET. Durante el proceso de implementación, puede ver el progreso en la Ventana de salida
 
-![][3]
+![Ventana de salida de depuración de Service Fabric][3]
 
 ## Implementación de la aplicación
 Desde Visual Studio también se puede empaquetar e implementar la aplicación en el clúster local sin tener que iniciar al depurador; para ello, seleccione el proyecto de aplicación de Service Fabric y haga clic con el botón secundario.
 
-![][4]
+![Service Fabric: menú de proyecto para implementar y empaquetar aplicaciones][4]
 
 * **Implementar**: empaqueta la aplicación e inicia el proceso de implementación
 * **Quitar implementación**: se puede usar para quitar una aplicación del clúster local
@@ -151,8 +154,7 @@ Desde Visual Studio también se puede empaquetar e implementar la aplicación en
 
 ## Pasos siguientes
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)
-
+[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)[Documentación de referencia de API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx)[Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ Desde Visual Studio también se puede empaquetar e implementar la aplicación en
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

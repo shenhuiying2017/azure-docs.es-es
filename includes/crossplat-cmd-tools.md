@@ -23,7 +23,7 @@ Las tareas admitidas incluyen las siguientes:
 
 Para obtener una lista completa de los comandos admitidos, escriba `azure -help` en la línea de comandos después de instalar las herramientas, o consulte la [documentación de referencia][reference-docs].
 
-<h2><a id="Download"></a>Instalación de las Herramientas de línea de comandos de Azure para Mac y Linux</h2>
+<h2><a id="Download">Instalación de las Herramientas de línea de comandos de Azure para Mac y Linux</a></h2>
 
 La siguiente lista contiene información para instalar las herramientas de línea de comandos, según su sistema operativo:
 
@@ -220,4 +220,4 @@ Para conocer una lista completa de comandos para crear y administrar máquinas v
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

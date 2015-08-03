@@ -136,4 +136,4 @@ Esto es todo: ha creado e implementado correctamente su colección híbrida de R
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

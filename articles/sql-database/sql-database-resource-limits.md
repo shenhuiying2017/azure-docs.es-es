@@ -152,4 +152,4 @@ En ciertos escenarios, como el uso de características de bases de datos federad
 
 [Prácticas recomendadas de Base de datos SQL de Azure para impedir denegaciones de solicitudes o la terminación de conexiones](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

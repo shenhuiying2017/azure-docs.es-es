@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/17/2015" 
 	ms.author="sidneyh"/>
 
 
@@ -31,15 +31,15 @@ Una **cuenta de Microsoft Azure**. Para una prueba gratuita, vea esta [oferta](h
 
 Descargue [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx). (Para obtener más información acerca de la herramienta, vea [SQL Server Management Studio - Notas de la versión de junio de 2015](https://msdn.microsoft.com/library/mt238486.aspx).)
 
-Un servidor existente en Base de datos SQL de Azure. Para obtener instrucciones sobre cómo crear una nueva base de datos (en un nuevo servidor), vea [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
+Un **servidor de Base de datos SQL de Azure** existente. Para crear un servidor, debe crear al menos una base de datos en primer lugar. Cuando se crea una base de datos, tiene la opción de crearla en un nuevo servidor o en un servidor existente. Para obtener instrucciones sobre cómo crear una nueva base de datos (en un nuevo servidor), vea [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 
 ## la base de datos School en un servidor local
 
 Ejecute los scripts en SQL Server Management Studio (SSMS) para crear una versión local de la base de datos "school".
 
-1. En SSMS, conéctese a un servidor local. Haga clic con el botón derecho en **Bases de datos**, haga clic en **Nueva base de datos** y escriba *school*.
+1. En SSMS, conéctese a un servidor local. Haga clic con el botón secundario en **Databases**, haga clic en **New Database** y especifique *school*.
 
-2. Haga clic con el botón derecho en *school* y haga clic en **Nueva consulta**.
+2. Haga clic con el botón secundario en *school* y haga clic en **New Query**.
 
 3. Copie y ejecute este script:
 
@@ -550,7 +550,7 @@ Ahora dispone de una base de datos local que puede exportar a Azure. A continuac
 
 	**Nota** Debe conectarse a la base de datos **master** siempre que desee crear una base de datos en el servidor de Base de datos SQL de Azure. 
 11. Haga clic en **Conectar**. Con este paso se completa la especificación de la conexión y se le redirige al asistente.
-12. Haga clic en **Siguiente** y en **Finalizar** para ejecutar el asistente.
+12. Haga clic en **Next** y en **Finish** para ejecutar el asistente.
 
 	
 ## Comprobación de la implementación de la base de datos
@@ -593,4 +593,4 @@ Para obtener un tutorial sobre cómo crear una nueva base de datos SQL de Azure,
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

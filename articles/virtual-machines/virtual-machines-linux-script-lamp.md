@@ -107,4 +107,4 @@ A continuación, se ofrecen algunos recursos adicionales para la CLI de Azure, L
 [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

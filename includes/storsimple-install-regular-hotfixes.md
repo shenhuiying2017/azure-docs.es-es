@@ -15,4 +15,4 @@
 
 5. Se le pedirá confirmación. Escriba **Y** para continuar con la instalación de la revisión.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -413,4 +413,4 @@ Este es un ejemplo de token web JSON (JWT) típico que se usa en un flujo web de
 [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

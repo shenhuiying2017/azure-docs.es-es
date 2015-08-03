@@ -226,4 +226,4 @@ Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de cód
 
 Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

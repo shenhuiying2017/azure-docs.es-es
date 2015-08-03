@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="07/10/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,6 +22,7 @@
 
 [MySQL](http://www.mysql.com)L es una conocida base de datos SQL de código abierto. Con el [Portal de administración de Azure](http://manage.windowsazure.com), puede crear una máquina virtual que ejecute Windows Server 2012 R2 desde la galería de imágenes. A continuación, puede instalar y configurarla como un MySQL Server.
 
+Para obtener instrucciones acerca de cómo instalar MySQL en Linux, consulte: [Instalación de MySQL en Azure](virtual-machines-linux-install-mysql.md).
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
@@ -83,7 +84,7 @@ Siga estos pasos para instalar, configurar y ejecutar la versión de la comunida
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	También puede configurar los ajustes predeterminados de configuración del servidor, como los directorios y unidades de datos y de base, con las entradas en el archivo **C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini**. Para obtener más información, consulte [Valores predeterminados de configuración de Server 5.1.2](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
+19.	También puede configurar los ajustes predeterminados de configuración del servidor, como los directorios y unidades de datos y de base, con las entradas en el archivo **C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini**. Para obtener más información, consulte [Valores predeterminados de configuración de Server 5.1.2](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html).
 
 
 Si desea que el servicio de MySQL Server esté disponible para los equipos de cliente de MySQL en Internet, debe configurar un extremo del puerto TCP en el que escucha el servicio MySQL Server y crear una regla adicional de Firewall de Windows. Este es el puerto TCP 3306 a menos que se especifique un puerto diferente en la página de Tipos y redes (paso 10 del procedimiento anterior).
@@ -127,4 +128,4 @@ Para obtener más información sobre MySQL, consulte la [Documentación de MySQL
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

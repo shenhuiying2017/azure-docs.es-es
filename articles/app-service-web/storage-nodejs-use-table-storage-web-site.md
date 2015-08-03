@@ -39,7 +39,7 @@ Esta es la aplicación completada:
 
 ![Página web que muestra una lista de tareas vacía][node-table-finished]
 
->[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE]Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 
 ## Requisitos previos
@@ -92,7 +92,7 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
 		├── mkdirp@0.3.5
 		└── commander@1.3.2 (keypress@0.1.0)
 
-	> [AZURE.NOTE] El parámetro '-g' instala el módulo globalmente. De este modo, podemos utilizar **express** para generar el scaffolding de la aplicación web sin tener que escribir información de ruta adicional.
+	> [AZURE.NOTE]El parámetro '-g' instala el módulo globalmente. De este modo, podemos utilizar **express** para generar el scaffolding de la aplicación web sin tener que escribir información de ruta adicional.
 
 4. Para crear el scaffolding para la aplicación, escriba el comando **express**:
 
@@ -340,7 +340,7 @@ Un *controlador* administra las solicitudes HTTP y procesa la respuesta HTML.
 		var accountName = nconf.get("STORAGE_NAME");
 		var accountKey = nconf.get("STORAGE_KEY");
 
-	> [AZURE.NOTE] nconf cargará los valores de configuración desde las variables de entorno o el archivo **config.json**, que crearemos más adelante.
+	> [AZURE.NOTE]nconf cargará los valores de configuración desde las variables de entorno o el archivo **config.json**, que crearemos más adelante.
 
 3. En el archivo app.js, desplácese hacia abajo hasta ver la siguiente línea:
 
@@ -481,7 +481,7 @@ Aunque la aplicación se ejecuta localmente, almacena los datos en el servicio T
 
 En los pasos de esta sección se usan las herramientas de línea de comandos de Azure para crear una nueva aplicación web en el Servicio de aplicaciones y después implementar la aplicación mediante Git. Para realizar estos pasos debe tener una suscripción a Azure.
 
-> [AZURE.NOTE] Estos pasos también pueden llevarse a cabo usando el [Portal de Azure](https://portal.azure.com). Consulte [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure].
+> [AZURE.NOTE]Estos pasos también pueden llevarse a cabo usando el [Portal de Azure](https://portal.azure.com). Consulte [Compilación e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure].
 >
 > Si esta es la primera aplicación web que crea, debe usar el Portal de Azure para implementarla.
 
@@ -499,9 +499,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	Este comando inicia un explorador y se desplaza a la página de descarga. Si se le solicita, inicie sesión con la cuenta asociada a su suscripción de Azure.
 
-	<!-- ![The download page][download-publishing-settings] -->
-
-	La descarga del archivo debe iniciarse automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
+	<!-- ![The download page][download-publishing-settings] -->La descarga del archivo debe iniciarse automáticamente; si esto no ocurre, puede hacer clic en el vínculo al comienzo de la página para descargar el archivo manualmente. Guarde el archivo y anote la ruta de acceso del archivo.
 
 2. Escriba el siguiente comando para importar la configuración.
 
@@ -523,7 +521,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 
 	El parámetro `--git` crea un repositorio Git en Azure para esta aplicación web. También inicializa un repositorio Git en el directorio actual si no existe y agrega un [Git remoto] denominado 'azure', que se usa para publicar la aplicación en Azure. Finalmente, crea un archivo **web.config**, que contiene la configuración usada por Azure para hospedar aplicaciones Node.
 
-	> [AZURE.NOTE] Si el directorio ya contiene un repositorio de Git, el comando no reinicializará el directorio. Si se omite el parámetro `--git`, pero el directorio contiene un repositorio de Git, el comando creará el 'azure' remoto.
+	> [AZURE.NOTE]Si el directorio ya contiene un repositorio de Git, el comando no reinicializará el directorio. Si se omite el parámetro `--git`, pero el directorio contiene un repositorio de Git, el comando creará el 'azure' remoto.
 
 	Después de que este comando se haya completado, verá un resultado similar al siguiente. Observe que la línea que comienza por **Website created at** contiene la dirección URL de la aplicación web.
 
@@ -540,7 +538,7 @@ En este paso, descargará un archivo que contiene información acerca de su susc
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE] Si esta es la primera aplicación web del Servicio de aplicaciones de su suscripción, se le pedirá que use el Portal de Azure para crear la aplicación web. Para obtener más información, consulte [Desarrollo e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure].
+	> [AZURE.NOTE]Si esta es la primera aplicación web del Servicio de aplicaciones de su suscripción, se le pedirá que use el Portal de Azure para crear la aplicación web. Para obtener más información, consulte [Desarrollo e implementación de una aplicación web de Node.js en el Servicio de aplicaciones de Azure].
 
 ### Establecimiento de variables de entorno
 
@@ -644,4 +642,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

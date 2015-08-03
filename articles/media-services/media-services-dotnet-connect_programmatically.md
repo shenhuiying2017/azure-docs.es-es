@@ -191,4 +191,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

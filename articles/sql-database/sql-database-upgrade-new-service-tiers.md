@@ -3,7 +3,7 @@
 	description="Actualice la base de datos SQL de Azure Web o Business a los nuevos niveles básico, estándar y premium de rendimiento o de servicio de Base de datos SQL de Azure." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="jenniehubbard" 
+	authors="stevestein" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="06/18/2015" 
-	ms.author="jhubbard; sstein" 
+	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
@@ -161,8 +161,7 @@ Según el porcentaje de uso de DTU y la edición necesaria para ajustar su carga
 
 ![Consumo de recursos][4]
 
-> **Nota**:
-> los números DTU relativos entre distintos niveles de rendimiento se basan en la carga de trabajo [Información general comparativa sobre Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn741327.aspx). Puesto que es probable que la carga de trabajo de la base de datos sea diferente de la prueba comparativa, debe usar los cálculos anteriores como criterio para un ajuste inicial de la base de datos Web o Business en los nuevos niveles. Una vez que se ha movido la base de datos al nuevo nivel, use el procedimiento descrito en la sección anterior para validar y ajustar el nivel de servicio correcto que mejor se adapte a sus necesidades de carga de trabajo.
+> **Nota**: los números DTU relativos entre distintos niveles de rendimiento se basan en la carga de trabajo [Información general comparativa sobre Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn741327.aspx). Puesto que es probable que la carga de trabajo de la base de datos sea diferente de la prueba comparativa, debe usar los cálculos anteriores como criterio para un ajuste inicial de la base de datos Web o Business en los nuevos niveles. Una vez que se ha movido la base de datos al nuevo nivel, use el procedimiento descrito en la sección anterior para validar y ajustar el nivel de servicio correcto que mejor se adapte a sus necesidades de carga de trabajo.
 > 
 > Mientras que el nuevo nivel de rendimiento o de edición tiene en cuenta la actividad de la base de datos durante los últimos 14 días, estos datos se basan en los ejemplos de datos de consumo de recursos promediados en un periodo de 5 minutos. Como tal puede perder ráfagas cortas de actividad cuya duración es inferior a 5 minutos. Por lo tanto, esta guía debe usarse como punto de partida al que actualizar la base de datos. Después de actualizar la base de datos al nivel sugerido, se necesita más supervisión, pruebas y validaciones, y la base de datos se puede mover hacia arriba o hacia abajo hasta un nivel de rendimiento o de servicio diferente, según sea necesario.
 
@@ -310,4 +309,4 @@ El servicio de la Base de datos SQL de Azure proporciona datos de telemetría y 
 
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

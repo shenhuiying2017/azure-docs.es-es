@@ -104,4 +104,4 @@ Para comenzar con Azure DocumentDB, explore los siguientes recursos:
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

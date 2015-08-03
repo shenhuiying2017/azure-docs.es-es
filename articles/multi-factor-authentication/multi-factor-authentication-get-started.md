@@ -87,4 +87,4 @@ Ahora que hemos determinado cuál vamos a usar: la autenticación multifactor de
 * [Para los usuarios](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authenticaton en MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

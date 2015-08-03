@@ -72,4 +72,4 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 * [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

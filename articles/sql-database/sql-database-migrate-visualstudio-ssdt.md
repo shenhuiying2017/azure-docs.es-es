@@ -13,18 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/14/2015"
+   ms.date="07/17/2015"
    ms.author="pehteh"/>
 
 #Actualización de la base de datos in situ para su posterior implementación en Base de datos SQL de Azure
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/01VSSSDTDiagram.png)
 
-Utilice esta opción cuando al migrar una base de datos a Base de datos SQL de Azure V12 se requieren cambios de esquema que no se pueden abordar con el Asistente para migración a SQL de Azure (SAMW). Esto ocurrirá si la base de datos usa características de SQL Server que no se admiten o todavía no se admiten en Base de datos SQL de Azure. En esta opción, Visual Studio se usa en primer lugar para crear un proyecto de base de datos a partir de la base de datos de origen. La plataforma de destino del proyecto se establece en Base de datos SQL de Azure V12 y se compila el proyecto para identificar todos los problemas de compatibilidad. SAMW puede corregir muchos problemas compatibilidad pero no todos, por lo que se utiliza para procesar todos los scripts en los proyectos como primer paso. El uso de SAMW es opcional pero muy recomendable. La compilación del proyecto después de procesar los archivos de script con SAMW identificará los problemas restantes que, a continuación, deben resolverse manualmente mediante las herramientas de edición de T-SQL en Visual Studio. Cuando el proyecto se compila correctamente, el esquema se publica en una copia (recomendado) de la base de datos de origen para actualizar su esquema y los datos in situ. La base de datos actualizada se implementa en Azure, ya sea directamente o bien mediante la exportación e importación de un archivo BACPAC, con las técnicas descritas en la opción 1.
+Use esta opción cuando la migración de una base de datos a Base de datos SQL de Azure V12 requiere cambios de esquema que no se pueden atender con el Asistente de migración de SQL Azure (SAMW) porque la base de datos usa características de SQL Server que no se admiten en la Base de datos SQL de Azure. Con esta opción, Visual Studio se usa en primer lugar para crear un proyecto de base de datos a partir de la base de datos de origen. La plataforma de destino del proyecto se establece en Base de datos SQL de Azure V12 y se compila el proyecto para identificar todos los problemas de compatibilidad. SAMW puede corregir muchos problemas compatibilidad, pero no todos, por lo que se usa para procesar todos los scripts de los proyectos como primer paso. El uso de SAMW es opcional pero muy recomendable. La compilación del proyecto después de procesar los archivos de script con SAMW identificará los problemas restantes que, a continuación, deben resolverse manualmente mediante las herramientas de edición de Transact-SQL en Visual Studio. Cuando el proyecto se compila correctamente, el esquema se publica en una copia (recomendado) de la base de datos de origen para actualizar su esquema y los datos in situ. La base de datos actualizada se implementa en Azure, ya sea directamente o bien mediante la exportación e importación de un archivo BACPAC, con las técnicas descritas en la opción 1.
  
 Como esta opción implica la actualización del esquema de la base de datos in situ antes de realizar la implementación en Azure, se recomienda encarecidamente realizar esta operación en una copia de la base de datos. La herramienta de comparación de esquemas de Visual Studio puede utilizarse para revisar el conjunto completo de cambios que se aplicarán a la base de datos antes de publicar el proyecto.
 
-El uso del Asistente para migración a SQL de Azure (SAMW) es opcional pero recomendado. SAMW detectará los problemas de compatibilidad en el cuerpo de funciones, procedimientos almacenados y desencadenadores que, en caso contrario, no se detectarán hasta la implementación. Si solo es necesario la implementación del esquema, el esquema actualizado se puede publicar directamente desde Visual Studio a Base de datos SQL de Azure.
+El uso del Asistente para migración a SQL de Azure (SAMW) es opcional pero recomendado. SAMW detectará los problemas de compatibilidad en el cuerpo de funciones, procedimientos almacenados y desencadenadores que, en caso contrario, no se detectarán hasta la implementación.
+
+Si solo es necesario la implementación del esquema, el esquema actualizado se puede publicar directamente desde Visual Studio a Base de datos SQL de Azure.
 
 ## Pasos de migración
 
@@ -32,7 +34,7 @@ El uso del Asistente para migración a SQL de Azure (SAMW) es opcional pero reco
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/02MigrateSSDT.png)
 
-2.	Configure las opciones de importación para **solo los objetos con ámbito de aplicación de importación**. Anule la selección de las opciones para importar los inicios de sesión de referencia, permisos y configuraciones de base de datos.
+2.	Configure las opciones de importación para **solo los objetos con ámbito de aplicación de importación**. Desmarque las opciones para importar los inicios de sesión de referencia, permisos y configuraciones de base de datos.
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/03MigrateSSDT.png)
 
@@ -59,9 +61,9 @@ El uso del Asistente para migración a SQL de Azure (SAMW) es opcional pero reco
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/11MigrateSSDT.png)
 
->Tenga en cuenta que se realizan copias temporales tanto de los archivos originales antes del procesamiento como de los archivos afectados después del procesamiento en las ubicaciones indicadas en la parte superior de la página.
+> [AZURE.NOTE]Se realizan copias temporales tanto de los archivos originales antes del procesamiento como de los archivos afectados después del procesamiento en las ubicaciones indicadas en la parte superior de la página.
 
-10.	Haga clic en Sobrescribir y en Aceptar en el cuadro de diálogo de confirmación y los archivos originales se sobrescribirán con los archivos modificados. Tenga en cuenta que solo se sobrescribirán los archivos que ya se hayan modificado.
+10.	Haga clic en **Sobrescribir** y en **Aceptar** en el cuadro de diálogo de confirmación y los archivos originales se sobrescribirán con los archivos modificados. Solo se sobrescribirán los archivos que ya se hayan modificado.
 11.	Opcional. Utilice la comparación de esquemas para comparar el proyecto a una instantánea anterior o a la base de datos original para comprender qué cambios se han realizado por el asistente. Es posible que desee tomar también otra instantánea en este momento. 
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/12MigrateSSDT.png)
@@ -93,6 +95,4 @@ En la comparación de esquemas debajo de la base de datos Adventure Works 2014 d
 
 ![texto alternativo](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

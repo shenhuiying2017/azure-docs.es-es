@@ -68,7 +68,7 @@ Realice los siguientes pasos para crear una nueva plantilla de ancho de banda.
    3. En la lista desplegable, seleccione una **hora de inicio**. Esta es la hora a la que se iniciará la programación.
    4. En la lista desplegable, seleccione una **hora de finalización**. Esta es la hora a la que finalizará la programación.
    
-         > [AZURE.NOTE] No se permiten las programaciones superpuestas. Si las horas de inicio y finalización provocan una programación superpuesta, verá un mensaje de error que lo indica.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Especifique la **velocidad de ancho de banda**. Esto es el ancho de banda en Megabits por segundo (Mbps) utilizado por el dispositivo StorSimple en operaciones que afectan a la nube. Proporcione un número entre 1 y 1.000 para este campo.
    
@@ -176,4 +176,4 @@ Siga estas prácticas recomendadas para el dispositivo StorSimple:
 
 Obtenga más información sobre los [Componentes de StorSimple](storsimple-components.md).
 
-<!----HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

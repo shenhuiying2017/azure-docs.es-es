@@ -1151,4 +1151,4 @@ Puede usar esta información para determinar si una operación o API web determi
 - En la página [Comprobar código utilizando pruebas unitarias](https://msdn.microsoft.com/library/dd264975.aspx) del sitio web de Microsoft se ofrece información detallada sobre la creación y administración de las pruebas unitarias con Visual Studio.
 - En la página [Ejecutar pruebas de rendimiento en la aplicación](https://msdn.microsoft.com/library/dn250793.aspx) del sitio web de Microsoft se describe cómo usar Visual Studio Ultimate para crear un proyecto de pruebas de carga y rendimiento web.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

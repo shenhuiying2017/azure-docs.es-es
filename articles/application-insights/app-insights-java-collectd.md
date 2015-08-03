@@ -111,7 +111,7 @@ Para excluir los datos de orígenes de datos o complementos específicos:
 Directiva | Efecto
 ---|---
 `Exclude disk` | Excluir todos los datos recopilados por el complemento `disk`
-`Exclude disk:read,write` | Excluir lo orígenes denominados `read` y `write` del complemento `disk`.
+`Exclude disk:read,write` | Excluir los orígenes denominados `read` y `write` del complemento `disk`.
 
 Separar directivas con una nueva línea.
 
@@ -143,4 +143,4 @@ Separar directivas con una nueva línea.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/17/2015"
    ms.author="ryanwi; mani-ramaswamy"/>
 
 
 # Ciclo de vida de la aplicación de Service Fabric
-Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. Este artículo proporciona información general de las API usadas por los distintos roles durante todas las fases del ciclo de vida de aplicación de Service Fabric.
+Al igual que sucede con otras plataformas, una aplicación en Service Fabric normalmente pasa las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. Este artículo proporciona información general de las API y cómo son usadas por los distintos roles durante todas las fases del ciclo de vida de aplicación de Service Fabric.
 
 ## Roles del modelo de servicio
 Los roles del modelo de servicio son:
@@ -118,4 +118,4 @@ Para obtener más información sobre cómo desarrollar, probar y administrar apl
 - [Ejemplo de ciclo de vida de aplicaciones basadas en REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

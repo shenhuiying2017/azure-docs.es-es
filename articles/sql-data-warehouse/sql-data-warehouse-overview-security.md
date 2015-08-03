@@ -78,4 +78,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!--Other Web references-->
 [Control de acceso basado en roles en el Portal de vista previa de Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

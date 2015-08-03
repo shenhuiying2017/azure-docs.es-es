@@ -401,4 +401,4 @@ Para obtener información sobre el uso de Almacenamiento de tablas de Azure y Mo
 [Documentación de Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

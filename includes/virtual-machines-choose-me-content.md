@@ -42,4 +42,4 @@ Entre otras ventajas que deben tenerse en cuenta con respecto a las máquinas vi
 
 **Resistencia**: Azure supervisa el hardware físico donde se hospeda cada máquina virtual en ejecución. Si se produce un error en un servidor físico que ejecuta una máquina virtual, Azure lo detecta, mueve la máquina virtual a un nuevo hardware y reinicia la máquina virtual. En ocasiones este proceso se denomina recuperación del servicio. Azure también protege los datos de una máquina virtual, ya que mantiene copias redundantes de los discos duros virtuales en el almacenamiento de blobs.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

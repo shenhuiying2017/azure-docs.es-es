@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Actualización de servidores con actualizaciones del sistema
@@ -34,4 +34,6 @@ Para poder usar actualizaciones del sistema en Visión operativa de Microsoft Az
 5. El explorador web abrirá el artículo de Knowledge Base que describe la actualización. ![imagen de la página Actualizaciones](./media/operational-insights-updates/updates05.png)
 6. Con la información encontrada, puede crear un plan para aplicar las actualizaciones que faltan.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

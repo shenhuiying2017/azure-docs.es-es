@@ -95,4 +95,4 @@ La función de granja de servidores de SharePoint del Portal de vista previa de 
 
 [Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

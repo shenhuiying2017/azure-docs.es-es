@@ -77,7 +77,7 @@ Instale también la revisión de vContinuum que se proporciona aquí (disponible
 
 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-3.  Especifique la frase de contraseña del servidor de configuración. Deberá haber anotado la frase de contraseña durante el registro del servidor de configuración. La frase de contraseña también se usa en las implementaciones de un destino maestro y un servidor de proceso. Si no recuerda la frase de contraseña, puede entrar en el servidor de configuración en Azure y buscar la frase de contraseña almacenada en C:\\Archivos de programa (x86)\\InMage Systems\\private\\connection.passphrase
+3.  Especifique la frase de contraseña del servidor de configuración. Deberá haber anotado la frase de contraseña durante el registro del servidor de configuración. La frase de contraseña también se usa en las implementaciones de un destino maestro y un servidor de proceso. Si no recuerda la frase de contraseña, puede entrar en el servidor de configuración en Azure y buscar la frase de contraseña almacenada en C:\Archivos de programa (x86)\InMage Systems\private\connection.passphrase
 
     ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
@@ -365,7 +365,7 @@ Nota: durante la conmutación por error de Azure a local, la máquina virtual de
 
     e. Una vez que haya identificado las máquinas virtuales que desea proteger, selecciónelas una a una.
 
-4.  Cuando seleccione una de las máquinas virtuales que va proteger (y ya se ha conmutado por error a Azure), aparecerá una ventana emergente con dos entradas para la máquina virtual. Esto se debe a que el servidor de configuración ha detectado dos instancias de las máquinas virtuales registradas. Debe quitar la entrada de la VM local, con el fin de que pueda proteger la máquina virtual correcta. Tenga en cuenta que verá las entradas por su nombre de host de equipo. Para identificar la entrada de la máquina virtual de Azure correcta, puede iniciar sesión en la máquina virtual de Azure y e ir a C:\\Archivos de programa (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc. En el archivo drscout.conf, identifique el Id. del host. En el cuadro de diálogo vContinuum, conserve la entrada en que se encuentra hostID en la máquina virtual. Elimine las restantes entradas.
+4.  Cuando seleccione una de las máquinas virtuales que va proteger (y ya se ha conmutado por error a Azure), aparecerá una ventana emergente con dos entradas para la máquina virtual. Esto se debe a que el servidor de configuración ha detectado dos instancias de las máquinas virtuales registradas. Debe quitar la entrada de la VM local, con el fin de que pueda proteger la máquina virtual correcta. Tenga en cuenta que verá las entradas por su nombre de host de equipo. Para identificar la entrada de la máquina virtual de Azure correcta, puede iniciar sesión en la máquina virtual de Azure y e ir a C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\Application Data\etc. En el archivo drscout.conf, identifique el Id. del host. En el cuadro de diálogo vContinuum, conserve la entrada en que se encuentra hostID en la máquina virtual. Elimine las restantes entradas.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -604,4 +604,4 @@ Una vez completada la conmutación por recuperación, es aconsejable volver a pr
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

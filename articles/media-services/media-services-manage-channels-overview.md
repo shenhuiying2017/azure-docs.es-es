@@ -331,4 +331,4 @@ Para obtener información sobre el escalado de unidades de streaming, consulte: 
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

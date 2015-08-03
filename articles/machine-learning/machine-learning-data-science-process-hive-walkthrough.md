@@ -2,6 +2,7 @@
 	pageTitle="Tecnología y procesos de análisis avanzado: uso de clústeres de Hadoop | Microsoft Azure" 
 	description="Uso de la tecnología y procesos de análisis avanzado para un escenario integral que emplea un clúster de Hadoop de HDInsight para crear e implementar un modelo con un conjunto de datos disponible públicamente."  
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -23,7 +24,7 @@ En este tutorial, se describe cómo utilizar la tecnología y procesos de análi
 
 Para acceder a un tutorial que muestra cómo controlar un conjunto de datos más grande (1 terabyte) para un escenario similar con clústeres de Hadoop de HDInsight para el procesamiento de datos, consulte [Tecnología y procesos de análisis avanzado: uso de clústeres de Hadoop de HDInsight de Azure en un conjunto de datos de 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md).
 
-También es posible utilizar un bloc de notas de iPython para realizar las tareas que se presentan en este tutorial con el conjunto de datos de 1 TB. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
+También es posible utilizar un cuaderno de iPython para realizar las tareas que se presentan en este tutorial con el conjunto de datos de 1 TB. Los usuarios que deseen probar este método deben consultar el tema sobre el [tutorial de Criteo con una conexión de ODBC de Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb).
 
 
 ## <a name="dataset"></a>Descripción del conjunto de datos NYC Taxi Trips
@@ -809,4 +810,4 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->
