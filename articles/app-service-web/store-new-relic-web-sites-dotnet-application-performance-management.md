@@ -38,7 +38,8 @@ Para obtener información sobre precios, consulte la [página de New Relic en Az
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
-Suscripción a New Relic a través de Azure Marketplace --
+Suscripción a New Relic a través de Azure Marketplace 
+--
 
 New Relic se integra perfectamente con los roles web y de trabajo y el Servicio de aplicaciones de Azure.
 
@@ -175,4 +176,4 @@ Consulte estos recursos adicionales para obtener más información:
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

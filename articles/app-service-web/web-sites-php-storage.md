@@ -41,7 +41,8 @@ Para instalar las bibliotecas de clientes PHP para Azure mediante el compositor,
 
 1. [Instalación de Git][install-git]
 
-	> [AZURE.NOTE]En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
+> [AZURE.NOTE]
+> En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
 
 2. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
 
@@ -430,4 +431,4 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -92,9 +92,8 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. <!--
-<SEE CLOUD DS PROCESS>
--->
+Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo de [lectura][reader]. Para transferir grandes cantidades de datos al almacenamiento de Azure, en primer lugar, hay que realizar la transferencia y, a continuación, utilizar el módulo de [lectura][reader] para incluirlos en el experimento. 
+<!--<SEE CLOUD DS PROCESS>-->
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
@@ -303,4 +302,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

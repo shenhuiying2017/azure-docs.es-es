@@ -73,8 +73,8 @@ Ahora puede configurar el conector de Twitter para compilar el flujo de trabajo.
 
 De igual forma, puede usar las acciones de Twitter en el flujo. Seleccione una acción de Twitter y configure las entradas para esa acción:
 
-![][7] ![][8]
-
+	![][7]
+	![][8]
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo de trabajo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
@@ -92,4 +92,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

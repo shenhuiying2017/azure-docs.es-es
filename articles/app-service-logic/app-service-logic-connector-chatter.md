@@ -30,7 +30,13 @@ Para usar el conector de Chatter, deberá crear primero una instancia de la apli
 2.	Vaya a "Web y móvil > Aplicaciones de API" y busque "Conector de Chatter".
 3.	Configure el conector de Chatter de la siguiente forma:
 
-	![][1] - **Ubicación**: elija la ubicación geográfica donde desea implementar el conector - **Suscripción**: elija una suscripción en la que desea crear este conector - **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector - **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web - **Nivel de precios**: elija un nivel de precios para el conector - **Nombre**: signe un nombre al conector de Chatter.
+	![][1]
+	- **Ubicación**: elija la ubicación geográfica donde desea implementar el conector
+	- **Suscripción**: elija una suscripción en la que desea crear este conector
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos donde debe residir el conector
+	- **Plan de hospedaje web**: seleccione o cree un plan de hospedaje web
+	- **Nivel de precios**: elija un nivel de precios para el conector
+	- **Nombre**: signe un nombre al conector de Chatter.
 
 4.	Haga clic en Crear. Se creará un nuevo conector de Chatter.
 5.	Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de Chatter.
@@ -48,11 +54,14 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Chatter
 	![][4]
 4. Puede quitar la aplicación de la API del conector de Chatter en el editor haciendo clic en "Conector de Chatter". Haga clic en el botón Autorizar. Proporcione sus credenciales. Haga clic en "Permitir".
 
-	![][5] ![][6] ![][7]
+	![][5]
+	![][6]
+	![][7]
 5.	Ahora puede usar el conector de Chatter en el flujo. Puede usar el nuevo mensaje recuperado desde el desencadenador de Chatter ("Mensaje nuevo") en otras acciones del flujo. Configure las propiedades de entrada para el desencadenador de Chatter de la forma siguiente:
 	- **Identificador de grupo**: especifique el identificador del grupo desde el que se va a recuperar el nuevo mensaje. Si no se proporciona el identificador de grupo, se recuperará el nuevo mensaje de la fuente del usuario.
 
-  ![][8] ![][9]
+  ![][8]
+  ![][9]
 
 6. En la forma similar puede usar la acción Chatter en el flujo para enviar un mensaje mediante la selección de la acción "Enviar mensaje". Configure las propiedades de entrada de la acción "Publicar mensaje" de la siguiente manera:
 	- **Texto del mensaje**: contenido de texto del mensaje que se va a enviar.
@@ -64,7 +73,8 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Chatter
 	- 	**Menciones**: la matriz de los nombres de usuario que se van a etiquetar en este mensaje
 	- 	**Hashtags**: la matriz de los hashtags que se van a enviar junto con el mensaje
 
-	![][10] ![][11]
+	![][10]
+	![][11]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
@@ -79,4 +89,4 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Chatter
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

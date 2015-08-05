@@ -80,31 +80,33 @@ La aplicación de muestra de este tutorial, [WebApp-WSFederation-DotNet)](https:
 	-	Dirección de metadatos: `http://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
 5.	En App_Start\Startup.Auth.cs, cambie las definiciones de cadena estática como se resalta a continuación:
-	<pre class="prettyprint">
-private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-</pre>
+	<pre class="prettyprint">
+		private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+		<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+		<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+		<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+		<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+
+		<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+	</pre>
 
 6.	Ahora realizará los cambios correspondientes en Web.config. Abra Web.config y modifique la configuración de la aplicación como se resalta a continuación:
-	<pre class="prettyprint">
-&lt;appSettings>
-  &lt;add key="webpages:Version" value="3.0.0.0" />
-  &lt;add key="webpages:Enabled" value="false" />
-  &lt;add key="ClientValidationEnabled" value="true" />
-  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
-  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
-  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
-  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
-  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
-  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-&lt;/appSettings>
-</pre>Rellene los valores de clave en función de su entorno respectivo.
+	<pre class="prettyprint">
+	&lt;appSettings>
+		&lt;add key="webpages:Version" value="3.0.0.0" />
+		&lt;add key="webpages:Enabled" value="false" />
+		&lt;add key="ClientValidationEnabled" value="true" />
+		&lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+		<mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+		<mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+		<mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+		<mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+		<mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
+	&lt;/appSettings>
+	</pre>
+	Rellene los valores de clave en función de su entorno respectivo.
 
 7.	Compile la aplicación para asegurarse de que no hay ningún error.
 
@@ -208,7 +210,8 @@ c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticat
 		param = c1.OriginalIssuer,
 		param = "",
 		param = c2.Value);
-</pre>Su regla personalizada debe tener un aspecto similar al siguiente:
+	</pre>
+	Su regla personalizada debe tener un aspecto similar al siguiente:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -276,14 +279,22 @@ public ActionResult Contact()
 
     return View();
 }
-</pre>Puesto que he agregado **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
+	</pre>
+	Puesto que he agregado **Usuario de prueba** a **Grupo de prueba** en mi entorno de laboratorio de AD FS, usaré el grupo de prueba para probar la autorización en `About`. Para `Contact`, probaré el caso negativo de **Admins. del dominio**, al que no pertenece el **Usuario de prueba**.
 
 3. Para iniciar el depurador, escriba `F5` e inicie sesión y, a continuación, haga clic en **Acerca de**. Ahora debería ver la página `~/About/Index` correctamente, si el usuario autenticado tiene autorización para esa acción.
 4. Ahora haga clic en **Contacto**, lo que en mi caso no debería autorizar a **Usuario de prueba** para la acción. Sin embargo, el explorador se redirige a AD FS, que finalmente muestra este mensaje:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	Si investiga este error en el Visor de eventos del servidor de AD FS, verá este mensaje de excepción: <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
+	Si investiga este error en el Visor de eventos del servidor de AD FS, verá este mensaje de excepción: 
+	<pre class="prettyprint">
+	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>The same client browser session has made '6' requests in the last '11' seconds.</mark> Contact your administrator for details.
+	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
+	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
+	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
+	</pre>
 
 	El motivo de que esto suceda es que, de forma predeterminada, MVC devuelve un mensaje 401 No autorizado cuando los roles de un usuario no están autorizados. Esto desencadena una solicitud de reautenticación para su proveedor de identidades (AD FS). Puesto que el usuario ya está autenticado, AD FS vuelve a la misma página, que a continuación emite otro mensaje 401, creando un bucle de redirección. Ahora reemplazará el método `HandleUnauthorizedRequest` de AuthorizeAttribute con una lógica sencilla para mostrar algo que tenga sentido, en lugar de continuar el bucle de redirección.
 
@@ -343,4 +354,4 @@ Aplicaciones web del Servicio de aplicaciones de Azure admite el acceso a bases 
  
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

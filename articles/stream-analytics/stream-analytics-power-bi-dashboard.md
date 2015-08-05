@@ -165,7 +165,8 @@ Power BI emplea restricciones tanto de simultaneidad como de rendimiento, tal co
 
 Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta acaba dentro de los requisitos de rendimiento; puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos:![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):
+![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Lo que significa que se cambiaría la consulta original a:
 
@@ -208,4 +209,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

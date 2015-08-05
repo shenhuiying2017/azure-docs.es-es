@@ -46,11 +46,14 @@ Una vez creada la aplicación de la API, ahora puede usar el conector de Dropbox
 
 	![][4]
 4.	Puede quitar la aplicación de la API del conector de Dropbox en el editor haciendo clic en "Conector de Dropbox". Haga clic en el botón Autorizar. Proporcione las credenciales de su Dropbox. Haga clic en "Permitir".
-
-	![][5] ![][6] ![][7]
+ 
+	![][5]
+	![][6]
+	![][7]
 6.	Ahora puede usar el conector de Dropbox en el flujo. Puede usar la acción de Dropbox "Cargar archivo" para cargar un archivo en su cuenta de Dropbox.
-
-	![][8] ![][9]
+ 
+	![][8]
+	![][9]
 
 Configure las propiedades de entrada para la acción "Cargar archivo" de la siguiente manera:
 
@@ -71,4 +74,4 @@ Configure las propiedades de entrada para la acción "Cargar archivo" de la sigu
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

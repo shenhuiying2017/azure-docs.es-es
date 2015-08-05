@@ -48,12 +48,16 @@ Una vez creado el conector de Slack, puede agregarlo como acción a su aplicaci�
 
 1.	En la aplicación lógica, abra **Desencadenadores y acciones**. [Creación de una nueva aplicación lógica](app-service-logic-create-a-logic-app.md)
 
-2.	El conector de Slack aparece en la galería en el lado derecho: <br/>![][2]
+2.	El conector de Slack aparece en la galería en el lado derecho: 
+<br/>
+![][2]
 
 3.	Seleccione el conector de Slack que creó para añadirlo automáticamente a la aplicación lógica.
 4.	Seleccione **Autorizar**. Inicie sesión en su cuenta de Slack. Hacia el final, se le pedirá que conceda permiso de acceso al conector a su cuenta de Slack. Seleccione **Autorizar**: <br/> ![][3] ![][4] ![][5] ![][6]
 	
-5.	Ahora puede usar el conector Slack en el flujo. Está disponible la acción Publicar mensaje: <br/>![][7]
+5.	Ahora puede usar el conector Slack en el flujo. Está disponible la acción Publicar mensaje: 
+<br/>
+![][7]
 
 
 Vamos a explicar el proceso para "Publicar mensaje". Puede usar esta acción para publicar un mensaje en cualquier canal de Slack:
@@ -92,4 +96,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

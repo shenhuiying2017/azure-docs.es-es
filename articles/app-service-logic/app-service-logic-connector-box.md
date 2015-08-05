@@ -33,79 +33,85 @@ La aplicación de la galería Box proporciona acciones en forma de mecanismos pa
 	a. *Enumerar archivos:* esta operación devolverá la información de todos los archivos en una carpeta. A continuación se muestra una lista de los parámetros necesarios para la acción:
 
 	<table>
-  <tr>
-    <td><b>Nombre de parámetro</b></td>
-    <td><b>Descripción</b></td>
-    <td><b>Obligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Ruta de acceso a la carpeta</td>
-    <td>La ruta de acceso a la carpeta en la que se va a realizar la enumeración.</td>
-    <td>Sí</td>
-  </tr>
-</table>>[AZURE.NOTE]No devuelve ningún contenido del archivo.
+	  <tr>
+	    <td><b>Nombre de parámetro</b></td>
+	    <td><b>Descripción</b></td>
+	    <td><b>Obligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Ruta de acceso a la carpeta</td>
+	    <td>La ruta de acceso a la carpeta en la que se va a realizar la enumeración.</td>
+	    <td>Sí</td>
+	  </tr>
+	</table>
+
+	>[AZURE.NOTE]No devuelve ningún contenido del archivo.
 
 
 
     b. *Obtener archivo:* esta operación recupera un archivo que incluye su contenido y propiedades. A continuación se muestra una lista de los parámetros necesarios para la acción:
 
 	<table>
-  <tr>
-    <td><b>Nombre de parámetro</b></td>
-    <td><b>Descripción</b></td>
-    <td><b>Obligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Ruta de acceso de archivo</td>
-    <td>La ruta de acceso a la carpeta en la que se encuentra el archivo.</td>
-    <td>Sí</td>
-  </tr>
-  <tr>
-    <td>Tipo de archivo</td>
-    <td>Especifica si el archivo es texto o binario.</td>
-    <td>No</td>
-  </tr>
-</table>>[AZURE.NOTE]Esta operación no eliminará el archivo después de su lectura.
+	  <tr>
+	    <td><b>Nombre de parámetro</b></td>
+	    <td><b>Descripción</b></td>
+	    <td><b>Obligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Ruta de acceso de archivo</td>
+	    <td>La ruta de acceso a la carpeta en la que se encuentra el archivo.</td>
+	    <td>Sí</td>
+	  </tr>
+	  <tr>
+	    <td>Tipo de archivo</td>
+	    <td>Especifica si el archivo es texto o binario.</td>
+	    <td>No</td>
+	  </tr>
+	</table>
+	>[AZURE.NOTE]Esta operación no eliminará el archivo después de su lectura.
 
 
 
     c. Cargar archivo: como sugiere su nombre, esta acción carga el archivo en la cuenta de Box. Si ya existe el archivo, no se sobrescribe y se produce un error. A continuación se muestra una lista de los parámetros necesarios para la acción:
 
 	<table>
-  <tr>
-    <td><b>Nombre de parámetro</b></td>
-    <td><b>Descripción</b></td>
-    <td><b>Obligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Ruta de acceso de archivo</td>
-    <td>La ruta de acceso al archivo.</td>
-    <td>Sí</td>
-  </tr>
-  <tr>
-    <td>Contenido del archivo</td>
-    <td>El contenido del archivo que se va a cargar.</td>
-    <td>Sí</td>
-  </tr>
-  <tr>
-    <td>Codificación de transferencia de contenido</td>
-    <td>El tipo de codificación del contenido, que puede ser Base64 o ninguna.</td>
-    <td> </td>
-  </tr>
-</table>d. Eliminar archivo: la acción elimina el archivo especificado de una carpeta. Se produce una excepción si la carpeta o el archivo no se encuentra. A continuación se muestra una lista de los parámetros necesarios para la acción:
+	  <tr>
+	    <td><b>Nombre de parámetro</b></td>
+	    <td><b>Descripción</b></td>
+	    <td><b>Obligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Ruta de acceso de archivo</td>
+	    <td>La ruta de acceso al archivo.</td>
+	    <td>Sí</td>
+	  </tr>
+	  <tr>
+	    <td>Contenido del archivo</td>
+	    <td>El contenido del archivo que se va a cargar.</td>
+	    <td>Sí</td>
+	  </tr>
+	  <tr>
+	    <td>Codificación de transferencia de contenido</td>
+	    <td>El tipo de codificación del contenido, que puede ser Base64 o ninguna.</td>
+	    <td> </td>
+	  </tr>
+	</table>
+
+
+d. Eliminar archivo: la acción elimina el archivo especificado de una carpeta. Se produce una excepción si la carpeta o el archivo no se encuentra. A continuación se muestra una lista de los parámetros necesarios para la acción:
 
  	<table>
-  <tr>
-    <td><b>Nombre de parámetro</b></td>
-    <td><b>Descripción</b></td>
-    <td><b>Obligatorio</b></td>
-  </tr>
-  <tr>
-    <td>Ruta de acceso de archivo</td>
-    <td>Ruta de acceso de archivo completa, incluidas las carpetas.</td>
-    <td>Sí</td>
-  </tr>
-</table>
+	  <tr>
+	    <td><b>Nombre de parámetro</b></td>
+	    <td><b>Descripción</b></td>
+	    <td><b>Obligatorio</b></td>
+	  </tr>
+	  <tr>
+	    <td>Ruta de acceso de archivo</td>
+	    <td>Ruta de acceso de archivo completa, incluidas las carpetas.</td>
+	    <td>Sí</td>
+	  </tr>
+	</table>
 
 
 
@@ -160,4 +166,4 @@ Una vez creada la aplicación de API, puede usar el conector de Box como acción
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

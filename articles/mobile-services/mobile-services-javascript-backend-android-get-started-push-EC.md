@@ -190,7 +190,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[Introducción a Servicios móviles]: mobile-services-android-get-started.md
 [Introducción a los datos]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js

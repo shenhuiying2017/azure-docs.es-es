@@ -195,7 +195,7 @@ El siguiente ejemplo JSON puede usarse para crear un servicio vinculado con el n
 	    "name": "FolderDataStore",
 	    "properties": {
 	        "type": "OnPremisesFileSystemLinkedService",
-	        "host": "\\contoso",
+	        "host": "\\\\contoso",
 	        "userId": "username",
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
@@ -491,4 +491,4 @@ Consulte [Referencia JSON de canalizaciones](https://msdn.microsoft.com/library/
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -173,7 +173,10 @@ En este tutorial, ha aprendido a utilizar el Almacenamiento de blobs de Azure y 
 
 Obtenga más información acerca de blobs, tablas y colas mediante la consulta de los vínculos siguientes:
 
-[Introducción al Almacenamiento de Microsoft Azure ](storage-introduction.md) [Cómo utilizar el almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md) [Cómo utilizar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md) [Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
+[Introducción al Almacenamiento de Microsoft Azure](storage-introduction.md)
+[Cómo utilizar el almacenamiento de blobs de .NET](storage-dotnet-how-to-use-blobs.md)
+[Cómo utilizar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md)
+[Cómo utilizar el almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

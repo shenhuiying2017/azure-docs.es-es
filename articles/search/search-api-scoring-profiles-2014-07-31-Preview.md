@@ -130,7 +130,36 @@ Proporcione un nombre. Los perfiles de puntuación son opcionales, pero si agreg
 
 El cuerpo del perfil de puntuación se construye a partir de campos ponderados y funciones.
 
-<font> <table style="font-size:12"> <thead> <tr><td>elemento</td><td>descripción</td></tr></thead> <tbody <tr> <td><b>Ponderaciones</b></td> <td> Especifique pares de nombre-valor que asignen una ponderación relativa a un campo. En el [ejemplo](#bkmk_ex), los campos de título del álbum, género y nombre del artista se aumentan a 1, 5 y null respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor. </td> </tr> <tr> <td><b>Funciones</b></td><td>Usadas cuando se requieren cálculos adicionales para contextos concretos. Entre los valores válidos se incluyen `freshness`, `magnitude` o `distance`. Cada función tiene parámetros que son únicos. <br> - `freshness` debe usarse cuando desea aumentar por la antigüedad de un elemento. Esta función solo puede usarse con campos de fecha y hora (edm. DataTimeOffset). Tenga en cuenta el atributo `boostingDuration` solo se usa con la función de actualización. <br> - `magnitude` debe usarse cuando desee aumentar en función de cómo de alto o bajo resulta un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y entero. <br> - `distance` debe usarse cuando desea aumentar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `geo.distance`. <br> <b>Reglas para usar funciones</b> <br> Tipo de función (frescura, magnitud, distancia) deben aparecer en minúsculas. <br> Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor. <br> Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)]() para obtener más información acerca de los campos que se pueden filtrar. <br> Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice. <td> </tr> </tbody> </table> </font>
+<font>
+<table style="font-size:12">
+<thead>
+<tr><td>elemento</td><td>descripción</td></tr></thead>
+<tbody>
+<tr>
+<td><b>Ponderaciones</b></td>
+<td>
+Especifique pares de nombre-valor que asignen una ponderación relativa a un campo. En el [ejemplo](#bkmk_ex), los campos de título del álbum, género y nombre del artista se aumentan a 1, 5 y null respectivamente. ¿Por qué se aumenta el género mucho mayor que los demás? Si la búsqueda se realiza en datos que son en cierto modo homogéneos (como es el caso con «género» en el `musicstoreindex`), es posible que necesite una mayor variación en la ponderación relativa. Por ejemplo, en `musicstoreindex`, «rock» aparece como género y en las descripciones de género expresadas de forma idéntica. Si desea que el género supere en ponderación a la descripción del género, el campo del género necesitará una ponderación relativa mucho mayor.
+</td>
+</tr>
+<tr>
+<td><b>Funciones</b></td><td>Usadas cuando se requieren cálculos adicionales para contextos concretos. Entre los valores válidos se incluyen `freshness`, `magnitude` o `distance`. Cada función tiene parámetros que son únicos. <br> - `freshness` debe usarse cuando desea aumentar por la antigüedad de un elemento. Esta función solo puede usarse con campos de fecha y hora (edm. DataTimeOffset). Tenga en cuenta el atributo `boostingDuration` solo se usa con la función de actualización. <br> - `magnitude` debe usarse cuando desee aumentar en función de cómo de alto o bajo resulta un valor numérico. Entre los escenarios que requieren esta función se incluyen aumentar por margen de beneficio, precio máximo, precio mínimo o recuento de descargas. Esta función solo puede usarse con campos doble y entero.
+<br>
+- `distance` debe usarse cuando desea aumentar por proximidad o ubicación geográfica. Esta función solo puede usarse con campos `geo.distance`.
+<br>
+<b>Reglas para usar funciones</b>
+<br>
+Tipo de función (frescura, magnitud, distancia) deben aparecer en minúsculas.
+<br>
+Las funciones no pueden incluir valores nulos ni estar vacías. En concreto, si incluye un nombre de campo, deberá establecerlo en un valor.
+<br>
+Las funciones solo pueden aplicarse a los campos que se pueden filtrar. Consulte [Creación de índices (API de Búsqueda de Azure)]() para obtener más información acerca de los campos que se pueden filtrar.
+<br>
+Las funciones solo pueden aplicarse a los campos que se definen en la colección de campos de un índice.
+<td>
+</tr>
+</tbody>
+</table>
+</font>
 
 Una vez definido el índice, genere el índice mediante la carga del esquema de índice, seguido de documentos. Consulte [Crear índice (API de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798941.aspx) y [Agregar o actualizar documentos (API de Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798930.aspx) para obtener instrucciones sobre estas operaciones. Una vez creado el índice, debe tener un perfil de puntuación funcional que funcione con los datos de búsqueda.
 
@@ -289,4 +318,4 @@ Creación de índice (API de REST de servicio de Búsqueda de Azure)
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

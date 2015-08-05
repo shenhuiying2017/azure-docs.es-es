@@ -431,7 +431,7 @@ Para facilitar la organización del código, crearemos la primera función simpl
 	num.month <- function(Year, Month) {
 	  ## Find the starting year
 	  min.year  <- min(Year)
-
+	
 	  ## Compute the number of months from the start of the time series
 	  12 * (Year - min.year) + Month - 1
 	}
@@ -460,31 +460,31 @@ En el código siguiente, voy a definir una nueva función, `log.transform()`, y 
 	log.transform <- function(invec, multiplier = 1) {
 	  ## Function for the transformation, which is the log
 	  ## of the input value times a multiplier
-
+	
 	  warningmessages <- c("ERROR: Non-numeric argument encountered in function log.transform",
 	                       "ERROR: Arguments to function log.transform must be greate than zero",
 	                       "ERROR: Aggurment multiplier to funcition log.transform must be a scaler",
 	                       "ERROR: Invalid time seies value encountered in function log.transform"
 	                       )
-
+	
 	  ## Check the input arguments
 	  if(!is.numeric(invec) | !is.numeric(multiplier)) {warning(warningmessages[1]); return(NA)}  
 	  if(any(invec < 0.0) | any(multiplier < 0.0)) {warning(warningmessages[2]); return(NA)}
 	  if(length(multiplier) != 1) {{warning(warningmessages[3]); return(NA)}}
-
+	
 	  ## Wrap the multiplication in tryCatch
 	  ## If there is an exception, print the warningmessage to
 	  ## standard error and return NA
 	  tryCatch(log(multiplier * invec),
 	           error = function(e){warning(warningmessages[4]); NA})
 	}
-
-
+	
+	
 	## Apply the transformation function to the 4 columns
 	## of the dataframe with production data
 	multipliers  <- list(1.0, 6.5, 1000.0, 1000.0)
 	cadairydata[, 4:7] <- Map(log.transform, cadairydata[, 4:7], multipliers)
-
+	
 	## Get rid of any rows with NA values
 	cadairydata <- na.omit(cadairydata)  
 
@@ -522,7 +522,8 @@ El código R completo de esta sección está disponible en el archivo zip descar
 
 Como ya se ha mencionado, las series temporales son series de valores de datos indexados por tiempo. Los objetos de series temporales de R se utilizan para crear y administrar el índice de tiempo. La utilización de objetos de series temporales ofrece varias ventajas. Los objetos de series temporales le liberan de los numerosos detalles de la administración de los valores de índice de series temporales que se encapsulan en el objeto. Además, los objetos de series temporales permiten utilizar los distintos métodos de la serie temporal para realizar tareas de trazado, impresión, modelado, etc.
 
-La clase de serie temporal POSIXct es la que se utiliza con más frecuencia y es relativamente sencilla. Esta serie temporal mide el tiempo desde el inicio del periodo, el 1 de enero de 1970. En este ejemplo se utilizarán los objetos de serie temporal POSIXct. Otras clases de objeto de serie temporal R ampliamente utilizadas son las clases zoo y xts, así como las series temporales extensibles.<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+La clase de serie temporal POSIXct es la que se utiliza con más frecuencia y es relativamente sencilla. Esta serie temporal mide el tiempo desde el inicio del periodo, el 1 de enero de 1970. En este ejemplo se utilizarán los objetos de serie temporal POSIXct. Otras clases de objeto de serie temporal R ampliamente utilizadas son las clases zoo y xts, así como las series temporales extensibles.
+<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	Ejemplo de objeto de serie temporal
 
@@ -552,11 +553,11 @@ Necesitamos agregar un objeto de serie temporal a nuestra trama de datos. Reempl
 
 	# Comment the following if using RStudio
 	cadairydata <- maml.mapInputPort(1)
-
+	
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-
+	
 	str(cadairydata) # Check the results
 
 Ahora, compruebe el resultado del dispositivo R. Debería ser similar al que se muestra en la ilustración 15.
@@ -589,7 +590,7 @@ La función `ts.detrend()` que se muestra a continuación realiza estas dos oper
 
 	ts.detrend <- function(ts, Time, min.length = 3){
 	  ## Function to de-trend and standardize a time series
-
+	
 	  ## Define some messages if they are NULL  
 	  messages <- c('ERROR: ts.detrend requires arguments ts and Time to have the same length',
 	                'ERROR: ts.detrend requires argument ts to be of type numeric',
@@ -600,33 +601,33 @@ La función `ts.detrend()` que se muestra a continuación realiza estas dos oper
   	)
 	  # Create a vector of zeros to return as a default in some cases
 	  zerovec  <- rep(length(ts), 0.0)
-
+	
 	  # The input arguments are not of the same length, return ts and quit
 	  if(length(Time) != length(ts)) {warning(messages[1]); return(ts)}
-
+	
 	  # If the ts is not numeric, just return a zero vector and quit
 	  if(!is.numeric(ts)) {warning(messages[2]); return(zerovec)}
-
+	
 	  # If the ts is too short, just return it and quit
 	  if((ts.length <- length(ts)) < min.length) {warning(messages[3]); return(ts)}
-
+	
 	  ## Check that the Time variable is of class POSIXct
 	  if(class(cadairydata$Time)[[1]] != "POSIXct") {warning(messages[4]); return(ts)}
-
+	
 	  ## De-trend the time series by using a linear model
 	  ts.frame  <- data.frame(ts = ts, Time = Time)
 	  tryCatch({ts <- ts - fitted(lm(ts ~ Time, data = ts.frame))},
 	           error = function(e){warning(messages[5]); zerovec})
-
+	
 	  tryCatch( {stdev <- sqrt(sum((ts - mean(ts))^2))/(ts.length - 1)
 	             ts <- ts/stdev},
 	            error = function(e){warning(messages[6]); zerovec})
-
+	
 	  ts
 	}  
 	## Apply the detrend.ts function to the variables of interest
 	df.detrend <- data.frame(lapply(cadairydata[, 4:7], ts.detrend, cadairydata$Time))
-
+	
 	## Plot the results to look at the relationships
 	pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = df.detrend, main = "Pairwise Scatterplots of detrended standardized time series")
 
@@ -653,13 +654,13 @@ El código necesario para calcular las correlaciones como objetos ccf R es el si
 	pair.cor <- function(pair.ind, ts.list, lag.max = 1, plot = FALSE){
 	  ccf(ts.list[[pair.ind[1]]], ts.list[[pair.ind[2]]], lag.max = lag.max, plot = plot)
 	}
-
+	
 	## A list of the pairwise indices
 	corpairs <- list(c(1,2), c(1,3), c(1,4), c(2,3), c(2,4), c(3,4))
-
+	
 	## Compute the list of ccf objects
 	cadairycorrelations <- lapply(corpairs, pair.cor, df.detrend)  
-
+	
 	cadairycorrelations
 
 La ejecución de este código genera el resultado mostrado en la ilustración 18.
@@ -677,7 +678,7 @@ Hemos calculado las correlaciones en pares como una lista de objetos ccf de R. E
 El código siguiente permite extraer los valores de los intervalos de la lista de objetos ccf, que son listas en sí mismos.
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
-
+	
 	c.names <- c("-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
@@ -685,14 +686,14 @@ El código siguiente permite extraer los valores de los intervalos de la lista d
 	              "Corr Ice Cream - Mik Prod",
 	              "Corr Ice Cream - Fat Price",
 	              "Corr Milk Prod - Fat Price")
-
+	
 	## Build a dataframe with the row names column and the
 	## correlation data frame and assign the column names
 	outframe <- cbind(r.names, df.correlations)
 	colnames(outframe) <- c.names
 	outframe
-
-
+	
+	
 	## WARNING!
 	## The following line works only in Azure Machine Learning
 	## When running in RStudio, this code will result in an error
@@ -734,11 +735,11 @@ Al igual que el análisis de correlación que acabamos de finalizar, tenemos que
 
 	# If running in Machine Learning Studio, uncomment the first line with maml.mapInputPort()
 	cadairydata <- maml.mapInputPort(1)
-
+	
 	## Create a new column as a POSIXct object
 	Sys.setenv(TZ = "PST8PDT")
 	cadairydata$Time <- as.POSIXct(strptime(paste(as.character(cadairydata$Year), "-", as.character(cadairydata$Month.Number), "-01 00:00:00", sep = ""), "%Y-%m-%d %H:%M:%S"))
-
+	
 	str(cadairydata)
 
 Ejecute este código y examine el puerto de salida del dispositivo R. El resultado deberá ser similar al que se muestra en la ilustración 21.
@@ -754,12 +755,12 @@ Con este resultado, estamos preparados para iniciar nuestro análisis.
 Con la trama de datos construida, necesitamos crear un conjunto de datos de entrenamiento. Estos datos incluirán todas las observaciones, excepto las últimas 12, que corresponden al año 2013 y que forman nuestro conjunto de datos de prueba. El siguiente código crea subconjuntos de la trama de datos y gráficas de las variables de producción junto con las variables de precios. A continuación, crearé gráficos de las cuatro producciones y de las variables de precios. Se utilizará una función anónima para definir algunos argumentos para el trazado y para, a continuación, iterar la lista de los otros dos argumentos con `Map()`. Si piensa que un bucle for podría haber funcionado para esta operación, está en lo cierto. Sin embargo, puesto que R es un lenguaje funcional, he preferido ofrecer un enfoque funcional.
 
 	cadairytrain <- cadairydata[1:216, ]
-
+	
 	Ylabs  <- list("Log CA Cotage Cheese Production, 1000s lb",
 	               "Log CA Ice Cream Production, 1000s lb",
 	               "Log CA Milk Production 1000s lb",
 	               "Log North CA Milk Milk Fat Price per 1000 lb")
-
+	
 	Map(function(y, Ylabs){plot(cadairytrain$Time, y, xlab = "Time", ylab = Ylabs, type = "l")}, cadairytrain[, 4:7], Ylabs)
 
 La ejecución del código genera series de gráficos temporales desde el resultado del dispositivo R que se muestra en la ilustración 22. Tenga en cuenta que el eje temporal se muestra en unidades de fechas. Esta es una de las ventajas del método de gráfico de series temporales.
@@ -841,7 +842,7 @@ Mucho mejor ahora. Todos los términos son significativos. Sin embargo, el valor
 Como prueba de validez, vamos a crear un gráfico de serie temporal de los datos de producción de productos lácteos de California con la curva de tendencias. He agregado el código siguiente al modelo [Ejecutar script de R][execute-r-script] de Aprendizaje automático de Azure (no RStudio) para crear el modelo y hacer un gráfico. El resultado aparece en la ilustración 23.
 
 	milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
-
+	
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm, cadairytrain), lty = 2, col = 2)
 
@@ -899,7 +900,7 @@ Vemos que el modelo ya no tiene ningún término de intercepción y que cuenta c
 A continuación, crearemos otro gráfico de serie temporal con los datos de producción de productos lácteos de California para ver cómo funciona el modelo de temporada. He agregado el código siguiente en el modelo [Ejecutar script de R][execute-r-script] de Aprendizaje automático de Azure para crear el modelo y hacer un trazado:
 
 	milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
-
+	
 	plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Milk Production 1000s lb", type = "l")
 	lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 
@@ -916,7 +917,7 @@ Con el fin de realizar una comprobación adicional en nuestro modelo, veamos los
 	## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-
+	
 	## Compute and plot the residuals
 	residuals <- cadairydata$Milk.Prod - predict2
 	plot(cadairytrain$Time, residuals[1:216], xlab = "Time", ylab ="Residuals of Seasonal Model")
@@ -959,21 +960,21 @@ Se utiliza una gran cantidad de métricas para medir el rendimiento de los model
 	RMS.error <- function(series1, series2, is.log = TRUE, min.length = 2){
 	  ## Function to compute the RMS error or difference between two
 	  ## series or vectors
-
+	
 	  messages <- c("ERROR: Input arguments to function RMS.error of wrong type encountered",
 	                "ERROR: Input vector to function RMS.error is too short",
 	                "ERROR: Input vectors to function RMS.error must be of same length",
 	                "WARNING: Funtion rms.error has received invald input time series.")
-
+	
 	  ## Check the arguments
 	  if(!is.numeric(series1) | !is.numeric(series2) | !is.logical(is.log) | !is.numeric(min.length)) {
     	warning(messages[1])
 	    return(NA)}
-
+	
 	  if(length(series1) < min.length) {
     	warning(messages[2])
 	    return(NA)}
-
+	
 	  if((length(series1) != length(series2))) {
 	   	warning(messages[3])
 	    return(NA)}
@@ -993,7 +994,7 @@ Se utiliza una gran cantidad de métricas para medir el rendimiento de los model
 	 ## Compute predictions from our models
 	predict1  <- predict(milk.lm, cadairydata)
 	predict2  <- predict(milk.lm2, cadairydata)
-
+	
 	## Compute the RMS error in a dataframe
 	  tryCatch( {
 	    sqrt(sum((temp1 - temp2)^2) / length(temp1))},
@@ -1017,7 +1018,7 @@ Equipados con una función para medir el error RMS, vamos a compilar y a crear u
 	    RMS.error(predict2[217:228], cadairydata$Milk.Prod[217:228]))
 	)
 	RMS.df
-
+	
 	## The following line should be executed only when running in
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('RMS.df')
@@ -1115,5 +1116,6 @@ Algunos recursos excelentes en Internet:
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
