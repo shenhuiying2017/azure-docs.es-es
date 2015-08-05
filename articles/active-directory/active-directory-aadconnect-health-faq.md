@@ -43,7 +43,8 @@ Los números siguientes son una aproximación.
 - Consumo de CPU: aumento de ~1%
 - Consumo de memoria: hasta 10 % de la memoria total del sistema
 - Uso de ancho de banda de la red: ~1 MB por cada 1000 solicitudes de ADFS
->[AZURE.NOTE]
+>[AZURE.NOTE]En el caso de que el agente no pueda comunicarse con Azure, almacenará los datos de forma local, hasta un límite máximo de un 10 % de la memoria total del sistema. Una vez que el agente alcance el 10% de ese total, si no ha podido cargar los datos en el servicio, las nuevas transacciones ADFS sobrescribirán cualquier transacción almacenada en caché basándose en “el menos atendido recientemente”.
+
 
 - Almacenamiento en búfer local para el agente de AD Health: ~20 MB
 - Almacenamiento de datos requerido para canal de auditoría

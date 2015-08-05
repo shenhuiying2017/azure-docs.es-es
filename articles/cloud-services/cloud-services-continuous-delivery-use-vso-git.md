@@ -138,7 +138,8 @@ Especifique los valores para las propiedades si desea que sean diferentes de los
 <tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de una aplicación web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
 <tr><td>Entorno de implementación de SharePoint</td><td>La misma que el nombre de servicio</td></tr>
 <tr><td>Entorno de implementación de Azure</td><td>Nombre de la aplicación web del servicio en la nube</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 11. Llegados a este punto, la compilación debería haber finalizado correctamente.<br/>
 ![][28]
@@ -192,7 +193,8 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 8. Especifique la bifurcación que ha creado, por ejemplo refs/heads/working.
 ![][48]
 
-9. Realice un cambio en el código, abra el menú contextual del archivo modificado y elija **Confirmar**.<br/> ![][43]
+9. Realice un cambio en el código, abra el menú contextual del archivo modificado y elija **Confirmar**.<br/>
+![][43]
 
 10. Haga clic en el vínculo **Confirmaciones no sincronizadas** y elija el botón **Sincronizar** o el vínculo **Insertar** para copiar los cambios en la copia de la bifurcación de trabajo en Visual Studio Online.
 ![][45]
@@ -255,4 +257,4 @@ Para obtener más información, consulte Visual [Visual Studio Online](http://go
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

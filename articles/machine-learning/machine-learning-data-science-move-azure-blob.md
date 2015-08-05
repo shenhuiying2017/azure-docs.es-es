@@ -40,8 +40,14 @@ Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenam
 El Explorador de almacenamiento de Azure es una herramienta gratuita basada en Windows para inspeccionar y modificar datos de una cuenta de almacenamiento de Azure. Se puede descargar en el [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/). En los pasos siguientes se describe cómo cargar y descargar datos mediante el Explorador de almacenamiento de Azure.
 
 1.  Iniciar el Explorador de almacenamiento de Azure 
-2.  Si la cuenta de almacenamiento a la que desea acceder no se ha agregado al Explorador de almacenamiento de Azure, haga clic en el botón "Agregar cuenta" para agregar la cuenta. Si ya se ha agregado, seleccione la cuenta en la lista desplegable "Seleccione una cuenta de almacenamiento". ![Creación del espacio de trabajo][1] <br>
-3. Escriba el nombre de la cuenta de almacenamiento y la clave de la cuenta de almacenamiento y, a continuación, haga clic en Agregar cuenta de almacenamiento. Puede agregar varias cuentas de almacenamiento y cada cuenta se mostrará en una pestaña. Los contenedores de esta cuenta de almacenamiento se muestran en el panel izquierdo. Seleccione un contenedor para ver los blobs del contenedor en el panel derecho. ![Creación del espacio de trabajo][2] <br> ![Creación del espacio de trabajo][3] <br>
+2.  Si la cuenta de almacenamiento a la que desea acceder no se ha agregado al Explorador de almacenamiento de Azure, haga clic en el botón "Agregar cuenta" para agregar la cuenta. Si ya se ha agregado, seleccione la cuenta en la lista desplegable "Seleccione una cuenta de almacenamiento".  
+![Creación del espacio de trabajo][1]
+<br>
+3. Escriba el nombre de la cuenta de almacenamiento y la clave de la cuenta de almacenamiento y, a continuación, haga clic en Agregar cuenta de almacenamiento. Puede agregar varias cuentas de almacenamiento y cada cuenta se mostrará en una pestaña. Los contenedores de esta cuenta de almacenamiento se muestran en el panel izquierdo. Seleccione un contenedor para ver los blobs del contenedor en el panel derecho.  
+![Creación del espacio de trabajo][2]
+<br> 
+![Creación del espacio de trabajo][3]
+<br>
 4. Cargue datos haciendo clic en el botón "Cargar". Seleccione uno o varios archivos para cargarlos desde el sistema de archivos y haga clic en "Abrir" para empezar a cargarlos.
 5. Para descargar datos seleccione el blob en el contenedor correspondiente y haga clic en el botón "Descargar".
 
@@ -175,4 +181,4 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -137,7 +137,20 @@ Que devuelve los resultados siguientes (parciales):
 
 Tenga en cuenta los alias como Address.AddressType y Address.Location.StateProvinceName. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos Address y Address.Location durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
-*{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
+*{
+  "id": "956",
+  "Name": "Finer Sales and Service",
+  "Address": {
+    "AddressType": "Main Office",
+    "AddressLine1": "#500-75 O'Connor Street",
+    "Location": {
+      "City": "Ottawa",
+      "StateProvinceName": "Ontario"
+    },
+    "PostalCode": "K4B 1S2",
+    "CountryRegionName": "Canada"
+  }
+}*
  
 Estos son algunos ejemplos de línea de comandos para importar desde SQL Server:
 
@@ -159,7 +172,18 @@ De forma similar a lo que sucede con el origen SQL, la propiedad de separador de
 
 Tenga en cuenta los alias como DomainInfo.Domain_Name y RedirectInfo.Redirecting. Al especificar un separador de anidamiento de “.”, la herramienta de importación crea subdocumentos DomainInfo y RedirectInfo durante la importación. Este es un ejemplo de un documento resultante en DocumentDB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{
+  "DomainInfo": {
+    "Domain_Name": "ACUS.GOV",
+    "Domain_Name_Address": "http://www.ACUS.GOV"
+  },
+  "Federal Agency": "Administrative Conference of the United States",
+  "RedirectInfo": {
+    "Redirecting": "0",
+    "Redirect_Destination": ""
+  },
+  "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"
+}*
 
 La herramienta de importación intentará inferir la información de tipo de los valores sin comillas de los archivos CSV (los valores entre comillas se tratan siempre como cadenas). Los tipos se identifican en el siguiente orden: número, fecha y hora, booleano.
 
@@ -247,7 +271,8 @@ Para realizar la importación desde una sola colección de DocumentDB, escriba e
 
 La opción del importador de origen de DocumentDB tiene las siguientes opciones avanzadas:
 
-1. Incluir campos internos: especifica si se debe o no incluir propiedades del sistema de documentos de DocumentDB en la exportación (por ejemplo, _rid, _ts). 2. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a DocumentDB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
+1. Incluir campos internos: especifica si se debe o no incluir propiedades del sistema de documentos de DocumentDB en la exportación (por ejemplo, _rid, _ts).
+2. Número de reintentos en caso de error: especifica el número de veces que se intentará la conexión a DocumentDB en caso de errores transitorios (por ejemplo, interrupciones de conectividad de red).
 3. Intervalo de reintento: especifica el tiempo de espera entre los reintentos de restablecimiento de conexión a DocumentDB en caso de errores transitorios (por ejemplo, interrupción de la conectividad de red).
 4. Modo de conexión: especifica el modo de conexión para utilizarlo con DocumentDB. Las opciones disponibles son DirectTcp, DirectHttps y puerta de enlace. Los modos de conexión directa son más rápidos, mientras que el modo de puerta de enlace es compatible con el firewall, ya que sólo usa el puerto 443.
 
@@ -476,4 +501,4 @@ En la pantalla Configuración avanzada, especifique la ubicación del archivo de
 
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

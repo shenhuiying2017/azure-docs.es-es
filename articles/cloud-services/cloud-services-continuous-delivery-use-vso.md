@@ -133,7 +133,8 @@ Especifique los valores para las propiedades si desea que sean diferentes de los
 <tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de una aplicación web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
 <tr><td>Entorno de implementación de SharePoint</td><td>La misma que el nombre de servicio</td></tr>
 <tr><td>Entorno de implementación de Azure</td><td>Nombre de la aplicación web del servicio en la nube</td></tr>
-</table> <br/>
+</table>
+<br/>
 
 Si usa varias configuraciones de servicio (archivos .cscfg), puede especificar la configuración de servicio que desee en el valor **Compilación, Avanzada, Argumentos de MSBuild**. Por ejemplo, para usar ServiceConfiguration.Test.cscfg, establezca la opción /p:TargetProfile=Test de la línea de argumentos de MSBuild.<br/>
 ![][38]
@@ -150,7 +151,7 @@ Si usa varias configuraciones de servicio (archivos .cscfg), puede especificar l
 14.	Vaya a la dirección URL del sitio. Para una aplicación web, simplemente haga clic en el botón Examinar de la barra de comandos. Para un servicio en la nube, elija la dirección URL de la sección **Vista rápida** de la página **Panel** que muestra el entorno de ensayo de un servicio en la nube. Las implementaciones de la integración continua para los servicios en la nube se publican de forma predeterminada en el entorno de ensayo. Puede cambiarlo configurando la propiedad Entorno del servicio de nube alternativo en Producción. Aquí es donde está la dirección URL del sitio en la página del panel del servicio en la nube: <br/>
 ![][31]
 <br/>
-se abrirá una nueva pestaña del explorador para mostrar el sitio en ejecución.<br/>
+Se abrirá una nueva pestaña del explorador para mostrar el sitio en ejecución.<br/>
 ![][32]
 
 15.	Para los servicios en la nube, si realiza otros cambios en el proyecto, debe desencadenar más compilaciones y acumular varias implementaciones. La última de ellas marcada como Activa.<br/>
@@ -297,4 +298,4 @@ Para obtener más información, consulte [Visual Studio Online](http://go.micros
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

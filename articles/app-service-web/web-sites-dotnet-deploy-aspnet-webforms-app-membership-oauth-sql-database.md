@@ -22,7 +22,8 @@
 ##Información general
 Este tutorial muestra cómo compilar una aplicación de ASP.NET Web Forms 4.5 segura que incorpora una base de datos SQL e implementar la aplicación en Azure.
 
->[AZURE.NOTE]Para una versión para MVC de este tutorial, consulte [Creación de una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
+>[AZURE.NOTE] 
+Para una versión para MVC de este tutorial, consulte [Creación de una aplicación ASP.NET MVC con la autenticación y Base de datos SQL e implementar al Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. Puede empezar a desarrollar contenido para Azure sin coste alguno.
 
@@ -41,7 +42,8 @@ Va a desarrollar una aplicación web de lista de contactos sencilla basada en AS
 
 ![Página Contactos - Editar](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si aún no la tiene, puede <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activar los beneficios de suscripción a MSDN</a> o bien <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">registrarse para obtener una evaluación gratuita</a>. Si desea obtener una introducción a Azure antes de inscribirse para abrir una cuenta, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/), donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+>[AZURE.NOTE] 
+Para completar este tutorial, deberá tener una cuenta de Azure. Si aún no la tiene, puede <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activar los beneficios de suscripción a MSDN</a> o bien <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">registrarse para obtener una evaluación gratuita</a>. Si desea obtener una introducción a Azure antes de inscribirse para abrir una cuenta, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/), donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##Configuración del entorno de desarrollo 
 Para comenzar, configure el entorno de desarrollo con la instalación de Visual Studio 2013 y el SDK de Azure para .NET.
@@ -287,7 +289,7 @@ Los pasos siguientes permiten usar el generador de IU (scaffolder) de formulario
 	Aparecerá el cuadro de diálogo **Agregar páginas de Web Forms**.  
 
 8. En el cuadro de diálogo **Agregar páginas de Web Forms**, establezca **Clase de modelo** en `Contacts (ContactManager.Models)`. Establezca **Clase de contexto de datos** en `ApplicationDbContext (ContactManager.Models)`. A continuación, haga clic en **Agregar**.  
-	![Cuadro de diálogo Agregar páginas de Web Forms](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
+	![Cuadro de diálogo Agregar páginas de Web Forms](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)  
 
 El generador de IU (scaffolder) de formularios Web Forms agrega una nueva carpeta que contiene las páginas *Default.aspx*, *Delete.aspx*, *Edit.aspx* e *Insert.aspx* El generador de IU (scaffolder) de formularios Web Forms crea también una carpeta *DynamicData* que contiene una carpeta *EntityTemplates* y una carpeta *FieldTemplates*. `ApplicationDbContext` se usará tanto para la base de datos de suscripciones como para los datos de contactos.
 
@@ -367,8 +369,8 @@ La siguiente tarea consiste en habilitar la función Migraciones de Code First p
             Email = "inesb@wideworldimporters.com",
         }
         );
-}
-</pre>
+	}
+	</pre>
 Este código inicializa la base de datos con la información de contacto. Para obtener más información acerca de la inicialización de la base de datos, consulte [Inicialización y depuración de bases de datos de Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. En **Consola del Administrador de paquetes**, escriba el comando:  
 	<pre class="prettyprint">
@@ -425,7 +427,7 @@ Los pasos siguientes permiten agregar un proveedor de autenticación de Google.
                 ClientId = "",
                 ClientSecret = ""
             });
-</pre>
+	</pre>
 3. Navegue a la [consola de desarrolladores de Google](https://console.developers.google.com/). Debe iniciar sesión también con su cuenta de correo electrónico de desarrollador de Google (gmail.com). Si no tiene una cuenta de Google, seleccione el vínculo **Crear una cuenta**.  
 	A continuación, verá la **consola de desarrolladores de Google**.
 	![Consola de desarrolladores de Google](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
@@ -532,9 +534,9 @@ Con ASP.NET Identity, puede agregar un rol de administrador y asignar un usuario
 1. En el **Explorador de soluciones**, abra el archivo *Configuration.cs* de la carpeta *Migrations*.
 2. Agregue las siguientes instrucciones `using` dentro del espacio de nombres `ContactManger.Migrations`:  
 	<pre class="prettyprint">
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-</pre>
+	using Microsoft.AspNet.Identity;
+	using Microsoft.AspNet.Identity.EntityFramework;
+	</pre>
 3. Agregue el siguiente método `AddUserAndRole` a la clase `Configuration` después del método `Seed`:  
 	<pre class="prettyprint">
     public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
@@ -567,17 +569,17 @@ using Microsoft.AspNet.Identity.EntityFramework;
             IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
         }
     }
-</pre>
+	</pre>
 4. Agregue una llamada al método `AddUserAndRole` desde el principio del método `Seed`. Tenga en cuenta que solo se muestra el principio del método `Seed`.  
 	<pre class="prettyprint">
     protected override void Seed(ContactManager.Models.ApplicationDbContext context)
     {
         <mark>AddUserAndRole(context);</mark>
-</pre>
+	</pre>
 5. Tras guardar todos los cambios, ejecute el siguiente comando en la ventana **Consola del Administrador de paquetes**:  
 	<pre class="prettyprint">
-Update-Database
-</pre>Este código crea un nuevo rol denominado `canEdit` y luego un nuevo usuario local con el correo electrónico de canEditUser@wideworldimporters.com. A continuación, el código agrega canEditUser@wideworldimporters.com al rol `canEdit`. Para obtener más información, consulte la página de recursos de [ASP.NET Identity](http://www.asp.net/identity).
+	Update-Database
+	</pre>Este código crea un nuevo rol denominado `canEdit` y luego un nuevo usuario local con el correo electrónico de canEditUser@wideworldimporters.com. A continuación, el código agrega canEditUser@wideworldimporters.com al rol `canEdit`. Para obtener más información, consulte la página de recursos de [ASP.NET Identity](http://www.asp.net/identity).  
 
 ###Restricción del acceso a la carpeta de administración 
 La aplicación de ejemplo **ContactManager** permite ver los contactos tanto a usuarios anónimos como a usuarios que han iniciado sesión. Sin embargo, cuando complete esta sección, los usuarios que hayan iniciado sesión y que tengan asignado el rol "canEdit" serán los únicos que podrán modificar los contactos.
@@ -666,16 +668,16 @@ Creará una carpeta denominada *Admin* a la que solo tienen acceso los usuarios 
 6. En la lista de plantillas web de Visual C#, seleccione **Archivo de configuración web** en la lista central, acepte el nombre predeterminado *Web.config* y seleccione **Agregar**.
 7. Reemplace el contenido XML del archivo *Web.config* por el siguiente:
 	<pre class="prettyprint">
-&lt;?xml version="1.0"?>
-&lt;configuration>
-  &lt;system.web>
-    &lt;authorization>
-      &lt;allow roles="canEdit"/>
-      &lt;deny users="*"/>
-    &lt;/authorization>
-  &lt;/system.web>
-&lt;/configuration>
-</pre>
+	&lt;?xml version=&quot;1.0&quot;?&gt;
+	&lt;configuration&gt;
+	  &lt;system.web&gt;
+	    &lt;authorization&gt;
+	      &lt;allow roles=&quot;canEdit&quot;/&gt;
+	      &lt;deny users=&quot;*&quot;/&gt;
+	    &lt;/authorization&gt;
+	  &lt;/system.web&gt;
+	&lt;/configuration&gt;
+	</pre>
 8. Guarde el archivo *Web.config*. El archivo *Web.config* especifica que solo los usuarios asignados al rol "canEdit" pueden tener acceso a las páginas de contenido en la carpeta *Admin*. 
 
 Cuando un usuario que no forma parte del rol "canEdit" intenta modificar los datos, se le redirigirá a la página *Iniciar sesión*.
@@ -769,15 +771,16 @@ Anteriormente en este tutorial, utilizamos código para agregar usuarios al rol 
 3. En la tabla **dbo.AspNetUsers**, busque el usuario que desea agregar al rol y copie su *Id.*.
 4. Pegue el *Id.* copiado en el campo **Id. de usuario** de la nueva fila en la tabla **AspNetUserRoles**.  
 
->[AZURE.NOTE]Estamos trabajando en una herramienta que facilitará mucho la tarea de administrar los usuarios y roles.
+>[AZURE.NOTE]  
+Estamos trabajando en una herramienta que facilitará mucho la tarea de administrar los usuarios y roles.
 
 ##Pasos siguientes
 Para obtener más información acerca de ASP.NET Web Forms, vea [ASP.NET Web Forms](http://www.asp.net/web-forms) en la aplicación web de ASP.NET y [Tutoriales y guías de Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/#net).
 
-Este tutorial está basado en el tutorial para MVC [Creación de una aplicación ASP.NET MVC con auth y Base de datos SQL e implementación en un Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) escrito por Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con ayuda de Tom Dykstra y Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)).
+Este tutorial está basado en el tutorial para MVC [Creación de una aplicación ASP.NET MVC con auth y Base de datos SQL e implementación en un Servicio de aplicaciones de Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) escrito por Rick Anderson (Twitter [@RickAndMSFT](https://twitter.com/RickAndMSFT)) con ayuda de Tom Dykstra y Barry Dorrans (Twitter [@blowdart](https://twitter.com/blowdart)) .
 
 Es importante que haga comentarios acerca de lo que le gustó o lo que le gustaría que mejorásemos, no solo en relación al tutorial en sí sino a los productos sobre los que trata. Sus comentarios nos ayudarán a clasificar las mejoras por orden de prioridad. También puede solicitar y votar nuevos temas en [Mostrarme cómo con el código](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
 
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

@@ -50,7 +50,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
         El nombre del servicio en la nube que seleccione debe ser único global. Por lo general, ese nombre se asocia a una dirección URL pública con formato [servicioEnLaNube].cloudapp.net. Azure no le permite crear un nuevo servicio en la nube si el nombre ya se ha usado. Si decide crear un nuevo servicio en la nube, debe asignarle el mismo nombre que la máquina virtual, en cuyo caso el nombre de la máquina virtual elegido debe ser lo suficientemente único para aplicarse al servicio en la nube asociado.
 
-         Solo se muestran los servicios en la nube y las redes virtuales que no estén asociados a ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](https://msdn.microsoft.com/es-es/library/azure/jj156085.aspx).
+        Solo se muestran los servicios en la nube y las redes virtuales que no estén asociados a ningún grupo de afinidad en los detalles de la instancia de restauración. [Más información](https://msdn.microsoft.com/es-es/library/azure/jj156085.aspx).
 
 2. Seleccione una cuenta de almacenamiento para la máquina virtual: esto es obligatorio para la creación de una máquina virtual. Puede seleccionar desde cuentas de almacenamiento existentes en la misma región que el almacén de copia de seguridad de Azure. No se admiten cuentas de almacenamiento redundantes de zona ni de almacenamiento Premium.
 
@@ -64,7 +64,7 @@ Puede restaurar una máquina virtual en una nueva máquina virtual desde las cop
 
     ![Seleccionar una red virtual](./media/backup-azure-restore-vms/restore-cs-vnet.png)
 
-4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), acceda a **Redes virtuales** y elija la red virtual. Acceda a Configuración para ver los detalles de la subred.
+4. Seleccione una subred: en caso de que la red virtual tenga subredes, de forma predeterminada se seleccionará la primera subred. Elija la subred que prefiera de las opciones de la lista desplegable. Para obtener detalles acerca de la subred, vaya a la extensión Redes en la [página principal del portal](https://manage.windowsazure.com/), acceda a Redes virtuales y elija la red virtual. Acceda a Configuración para ver los detalles de la subred.
 
     ![Seleccionar una subred](./media/backup-azure-restore-vms/select-subnet.png)
 
@@ -83,7 +83,7 @@ Una vez finalizada la operación de restauración, se marcará como completada e
 
 ![Trabajo de restauración completado](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el Portal de Azure.
+Después de restaurar la máquina virtual, puede que necesite volver a instalar las extensiones existentes en la máquina virtual original y [modificar los extremos](virtual-machines-set-up-endpoints) de la máquina virtual en el portal de Azure.
 
 ## Solución de errores
 Para la mayoría de los errores, puede seguir la acción recomendada sugerida en los detalles del error. Estos son algunos puntos adicionales para ayudar con la solución de problemas:
@@ -95,4 +95,4 @@ Para la mayoría de los errores, puede seguir la acción recomendada sugerida en
 ## Pasos siguientes
 - [Administración de máquinas virtuales](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

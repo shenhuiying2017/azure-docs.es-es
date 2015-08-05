@@ -29,7 +29,13 @@ Para usar el conector de Dropbox, deberá crear primero una instancia de la apli
 2.	Vaya a "Web y móviles --> Azure Marketplace" y busque "Conector de Dropbox".
 3.	Configure el conector de Dropbox de la siguiente forma:
 
-	![][1] - **Ubicación**: elija la ubicación geográfica en que desearía implementar el conector. - **Suscripción**: elija una suscripción en que desea crear este conector. - **Grupo de recursos**: seleccione o cree un grupo de recursos en que debe residir el conector. - **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones. - **Nivel de precios**: elija un nivel de precios para el conector. - **Nombre**: asigne un nombre al conector de Dropbox.
+	![][1] 
+	- **Ubicación**: elija la ubicación geográfica en que desearía implementar el conector. 
+	- **Suscripción**: elija una suscripción en que desea crear este conector.
+	- **Grupo de recursos**: seleccione o cree un grupo de recursos en que debe residir el conector. 
+	- **Plan del Servicio de aplicaciones**: seleccione o cree un plan del Servicio de aplicaciones. 
+	- **Nivel de precios**: elija un nivel de precios para el conector. 
+	- **Nombre**: asigne un nombre al conector de Dropbox. 
 4. Haga clic en Crear. Se creará un nuevo conector de Dropbox.
 5. Una vez creada la instancia de aplicación de la API, puede crear una aplicación lógica en el mismo grupo de recursos para usar el conector de Dropbox.
 
@@ -74,4 +80,4 @@ Configure las propiedades de entrada para la acción "Cargar archivo" de la sigu
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

@@ -17,7 +17,7 @@
 	ms.author="rkarlin"/>
 
 # Habilitación del proxy de la aplicación de Azure AD
-> [AZURE.NOTE]Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+> [AZURE.NOTE] Proxy de aplicación es una característica que solo está disponible si actualizó a la edición Premium o Basic de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
 Proxy de aplicación de Microsoft Azure AD permite publicar aplicaciones (como sitios de SharePoint y aplicaciones basadas en Outlook Web Access o IIS) en la red privada y proporciona un acceso seguro a los usuarios externos a la red. Los empleados pueden iniciar sesión desde casa, en sus propios dispositivos, y autenticarse a través de este proxy basado en la nube.
 
@@ -56,7 +56,10 @@ Si el firewall fuerza el tráfico según los usuarios que se originan, abra esto
 1. Ejecute AADApplicationProxyConnectorInstaller.exe en el servidor que ha preparado (consulte los requisitos previos del proxy de la aplicación).
 2. Siga las instrucciones del asistente para instalar.
 3. Durante la instalación se le pedirá que registre el conector con su cuenta del proxy de la aplicación activa.
-<p>Proporcione sus credenciales de administrador global de Azure AD. -Asegúrese de que el administrador que registra el conector está en el mismo directorio en que ha habilitado el servicio de proxy de la aplicación; por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias en ese dominio. Y de que usted sea un administrador global del inquilino de Azure AD. El inquilino del administrador global puede ser diferente de las credenciales de Microsoft Azure. -Si la configuración de seguridad mejorada de Internet Explorer está activada en el servidor donde va a instalar el conector de Azure AD, podría bloquearse la pantalla de registro. Si esto ocurre, siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que la seguridad mejorada de Internet Explorer está desactivada. -Si el registro del conector no se completa correctamente, vea Solución de problemas del proxy de la aplicación.
+<p>Proporcione sus credenciales de administrador global de Azure AD.
+- Asegúrese de que el administrador que registra el conector está en el mismo directorio en que ha habilitado el servicio de proxy de la aplicación; por ejemplo, si el dominio del inquilino es contoso.com, el administrador debe ser admin@contoso.com o cualquier otro alias en ese dominio. Y de que usted sea un administrador global del inquilino de Azure AD. El inquilino del administrador global puede ser diferente de las credenciales de Microsoft Azure.
+- Si la configuración de seguridad mejorada de Internet Explorer está activada en el servidor donde va a instalar el conector de Azure AD, podría bloquearse la pantalla de registro. Si esto ocurre, siga las instrucciones del mensaje de error para permitir el acceso. Asegúrese de que la seguridad mejorada de Internet Explorer está desactivada.
+- Si el registro del conector no se completa correctamente, vea Solución de problemas del proxy de la aplicación.
 
 4. Cuando finalice la instalación, se agregan dos nuevos servicios a su servidor, como se muestra a continuación. Se trata del servicio del conector, que permite la conectividad, y un servicio de actualización automatizada, que comprueba periódicamente las nuevas versiones del conector y actualiza el conector según sea necesario. Haga clic en Finalizar en la ventana de instalación para completar la instalación. ![Servicio de conector del proxy de la aplicación](http://i.imgur.com/zsVJKOz.png) <p>
 5. Ahora está listo para publicar aplicaciones con el proxy de la aplicación.
@@ -70,4 +73,4 @@ Si desea desinstalar el conector, después de desinstalar el servicio de conecto
 * [Registro en Azure como una organización](..sign-up-organization.md)
 * [Identidad de Azure](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
