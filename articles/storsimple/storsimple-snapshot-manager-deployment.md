@@ -35,7 +35,9 @@ Antes de instalar o actualizar el complemento Administrador de instantáneas Sto
 
 Los pasos siguientes proporcionan una descripción general de las tareas de configuración que debe completar antes de instalar Administrador de instantáneas de StorSimple. Para completar la configuración de Microsoft Azure StorSimple y la información de configuración, incluidos los requisitos del sistema y obtener instrucciones detalladas, consulte [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Antes de comenzar, revise la [lista de comprobación previa a la instalación](storsimple-deployment-walkthrough.md#pre-installation-checklist) y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).<br>
+>[AZURE.IMPORTANT]Antes de comenzar, revise la [lista de comprobación previa a la instalación](storsimple-deployment-walkthrough.md#pre-installation-checklist)
+> y los [requisitos previos de implementación](storsimple-deployment-walkthrough.md#deployment-prerequisites) en [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+<br>
  
 ### Antes de instalar Administrador de instantáneas StorSimple
 
@@ -253,4 +255,4 @@ Para obtener más información sobre Administrador de instantáneas StorSimple, 
 
 Para obtener más información acerca de la interfaz de usuario de Administrador de instantáneas StorSimple, vaya a [Interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
