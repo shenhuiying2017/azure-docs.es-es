@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Obtención de información sobre el consumo de recursos de Microsoft Azure"
    description="Proporciona información general conceptual de las API de uso de facturación de Azure y de RateCard, que se utilizan para proporcionar información sobre el consumo de recursos y tendencias de Azure."
    services="billing"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/7/2015"
+   ms.date="07/07/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Obtención de información sobre el consumo de recursos de Microsoft Azure 
