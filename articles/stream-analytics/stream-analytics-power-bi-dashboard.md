@@ -209,4 +209,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!-----HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->

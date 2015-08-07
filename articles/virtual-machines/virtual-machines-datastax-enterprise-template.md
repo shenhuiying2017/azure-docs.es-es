@@ -500,4 +500,4 @@ Este enfoque sugiere:
 
 Para obtener más información, consulte [Idioma de la plantilla del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!-----HONumber=July15_HO4-->
+<!-------HONumber=July15_HO4-->
