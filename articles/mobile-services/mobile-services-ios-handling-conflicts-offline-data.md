@@ -171,7 +171,8 @@ Las características de sincronización sin conexión del SDK le permiten gestio
 
 7. Compruebe que la aplicación funciona con todos los cambios realizados hasta el momento. Ejecute ahora la aplicación en el simulador. Agregue elementos a la lista Todo y haga clic en ellos. Verá el controlador de vista de elementos (actualmente vacío).
 
-      ![][add-todo-item-view-controller-4] ![][add-todo-item-view-controller-5]
+      ![][add-todo-item-view-controller-4] 
+      ![][add-todo-item-view-controller-5]
 
 ### <a name="add-item-details"></a>Incorporación de detalles de elementos al controlador de vista de elementos Todo
 

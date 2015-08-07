@@ -346,7 +346,8 @@ Normalmente se pueden enviar notificaciones por un servicio de back-end sin emba
 
 3. Cada dispositivo suscrito a las noticias de última hora recibirá las notificaciones de las noticias importantes que acaba de enviar.
 
-	![][4] ![][5]
+	![][4] 
+	![][5]
 
 
 ## Pasos siguientes
