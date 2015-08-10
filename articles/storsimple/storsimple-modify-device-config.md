@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/20/2015"
+   ms.date="07/24/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Uso del servicio StorSimple Manager para modificar la configuración del dispositivo StorSimple
@@ -131,4 +131,4 @@ Realice los pasos siguientes para intercambiar o volver a asignar las VIP para c
  
      
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

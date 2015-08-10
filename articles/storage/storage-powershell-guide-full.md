@@ -122,9 +122,9 @@ Para obtener más información acerca de las suscripciones de Azure, consulte [A
 
 	- **$ContainerName:** use el nombre proporcionado en el script o escriba un nuevo nombre para el contenedor.
 
-	- $**$ImageToUpload:** escriba una ruta de acceso a una imagen en el equipo local, como por ejemplo: "C:\Images\HelloWorld.png".
+	- $**$ImageToUpload:** escriba una ruta de acceso a una imagen en el equipo local, como por ejemplo: "C:\\Images\\HelloWorld.png".
 
-	- **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Almacenamiento de Azure, como por ejemplo: "C:\DownloadImages".
+	- **$DestinationFolder:** escriba una ruta de acceso a un directorio local para almacenar los archivos descargados desde Almacenamiento de Azure, como por ejemplo: "C:\\DownloadImages".
 
 7.	Después de actualizar las variables del script en el archivo "mystoragescript.ps1", haga clic en **Archivo** > **Guardar**. A continuación, haga clic en **Depurar** > **Ejecutar** o presione **F5** para ejecutar el script.
 
@@ -736,4 +736,4 @@ En esta guía ha aprendido a administrar Almacenamiento de Azure con Azure Power
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

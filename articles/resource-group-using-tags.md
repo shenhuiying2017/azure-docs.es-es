@@ -121,4 +121,4 @@ Administración y auditoría del acceso
 - [Creación de una nueva entidad de servicio de Azure mediante el portal clásico de Azure](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

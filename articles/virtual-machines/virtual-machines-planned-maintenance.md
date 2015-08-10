@@ -3,7 +3,7 @@
 	description="Entienda qué es el mantenimiento planeado de Azure y cómo afecta a sus máquinas virtuales que se ejecutan en Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="kenazk" 
+	authors="kenazk"
 	manager="timlt"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 
@@ -24,7 +24,7 @@
 
 Sin embargo, algunas de estas actualizaciones requieren que las máquinas virtuales se reinicien para aplicar a la infraestructura las actualizaciones requeridas. Las máquinas virtuales se cierran mientras arreglamos la infraestructura y después las máquinas virtuales se reinician.
 
-Tenga en cuenta que hay dos tipos de mantenimiento que pueden afectar a la disponibilidad de las máquinas virtuales: planeado y no planeado. En esta página se describe cómo Microsoft Azure realiza el mantenimiento planeado. Para obtener más información acerca del mantenimiento planeado, consulte [Mantenimiento planeado frente a mantenimiento no planeado].
+Tenga en cuenta que hay dos tipos de mantenimiento que pueden afectar a la disponibilidad de las máquinas virtuales: planeado y no planeado. En esta página se describe cómo Microsoft Azure realiza el mantenimiento planeado. Para obtener más información acerca del mantenimiento planeado, consulte [Mantenimiento planeado frente a mantenimiento no planeado](virtual-machines-manage-availability.md).
 
 ## Actualizaciones de conservación de memoria
 En el caso de una clase de actualizaciones en Microsoft Azure, los clientes no verán afectadas sus máquinas virtuales en ejecución. Muchas de estas actualizaciones son componentes o servicios que se pueden actualizar sin interferir con la instancia en ejecución. Algunas de estas actualizaciones son actualizaciones de la infraestructura de la plataforma en el sistema operativo host, que se pueden aplicar sin necesidad de un reinicio completo de las máquinas virtuales.
@@ -40,7 +40,7 @@ Hay dos tipos de configuraciones de máquinas virtuales: instancias múltiples y
 
 La configuración de instancias múltiples proporciona redundancia y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben ser prácticamente idénticas y prestar el mismo servicio a la aplicación.
 
-Para obtener más información sobre la configuración de sus máquinas virtuales para ofrecer alta disponibilidad, consulte <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/">Administración de la disponibilidad de las máquinas virtuales</a>.
+Para obtener más información sobre la configuración de sus máquinas virtuales para ofrecer alta disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](virtual-machines-manage-availability.md).
 
 Por el contrario, se usa una configuración de una sola instancia se usa para máquinas virtuales independientes no colocadas en un conjunto de disponibilidad. Por sí mismas, estas máquinas virtuales no tienen derecho al contrato de nivel de servicio (SLA) que requiere la implementación de dos o más máquinas virtuales en el mismo conjunto de disponibilidad.
 
@@ -54,7 +54,7 @@ En una configuración de instancias múltiples, las máquinas virtuales se actua
 
 La plataforma Azure subyacente asigna a cada máquina virtual del conjunto de disponibilidad un dominio de actualización y un dominio de error. Cada dominio de actualización es un grupo de máquinas virtuales que se reiniciará en la misma ventana de tiempo. Cada dominio de error es un grupo de máquinas virtuales que comparten una fuente de alimentación común y un conmutador de red.
 
-Para obtener más información acerca de dominios de actualización y dominios de error, consulte <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia</a>.
+Para obtener más información acerca de dominios de actualización y dominios de error, consulte [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia](virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 Para evitar que los dominios de actualización se queden sin conexión al mismo tiempo, al realizar el mantenimiento, se cierra cada máquina virtual en un dominio de actualización, se aplica la actualización a los equipos host, se reinician las máquinas virtuales y se pasa al siguiente dominio de actualización. El evento de mantenimiento planeado termina cuando todos los dominios de actualización se han actualizado.
 
@@ -108,6 +108,6 @@ Por ejemplo, durante un mantenimiento planeado, Azure no implementará ninguna a
 
 <!--Link references-->
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
-[Mantenimiento planeado frente a mantenimiento no planeado]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

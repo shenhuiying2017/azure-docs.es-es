@@ -12,24 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/24/2015" 
+    ms.date="07/29/2015" 
     ms.author="sidneyh" />
 
 # Escalado con la herramienta de división y combinación de bases de datos elásticas
 
-Base de datos SQL de Azure ofrece varias formas de escalar la capa de datos de una aplicación a medida que cambian las demandas empresariales. Algunas situaciones de ejemplo incluyen la administración de aplicaciones que se vuelven virales o inquilinos particulares que llevan una base de datos a sus límites. Las opciones de escalado incluyen:
+Si elige no utilizar el modelo simple de asignación de bases de datos independientes para cada shardlet (inquilino), es posible que la aplicación necesite redistribuir de manera flexible los datos a través de las bases de datos cuando las necesidades de capacidad fluctúan. Las herramientas de bases de datos elásticas incluyen una herramienta de división y combinación hospedada por el cliente para reequilibrar la distribución de los datos y administrar las zonas activas para las aplicaciones particionadas. Se basa en una funcionalidad subyacente para mover shardlets a petición entre distintas bases de datos y se integra con la administración de mapa de particiones para mantener asignaciones coherente.
 
-* Los grupos de bases de datos elásticas permiten que las bases de datos dentro de un grupo aumenten o reduzcan, de manera individual, los recursos consumidos a petición, a la vez que se mantiene un precio total predecible para todo el grupo. También es posible agregar bases de datos al grupo para admitir inquilinos nuevos, o quitarlas del grupo, para admitir inquilinos que se van. Para obtener más información, consulte [Grupo de bases de datos elásticas de Base de datos SQL de Azure (vista previa)](sql-database-elastic-pool.md). 
+La herramienta de división y combinación administra la reducción y el escalado horizontal; puede agregar o quitar bases de datos del conjunto de particiones y utilizar la herramienta de división y combinación para reequilibrar la distribución de shardlets entre ellas. (Para obtener definiciones de los términos, consulte el [Glosario de Escalado elástico](sql-database-elastic-scale-glossary.md)).
 
-* Aumentar o disminuir, de manera explícita, los recursos de una base de datos mediante el cambio de ediciones o de niveles de rendimiento, ya sea de forma manual o según directivas (consulte [Elasticidad de partición](sql-database-elastic-scale-elasticity.md)).
-
-* Cambiar la distribución de los datos entre particiones, a menudo junto con aumentar o disminuir el número total de bases de datos para un conjunto de particiones. Esto se conoce como división y combinación y, a menudo, se necesita cuando se administran varios usuarios finales (inquilinos) dentro de la misma partición.
-
-En este último escenario, se utiliza la **herramienta de división y combinación de bases de datos elásticas** y tiene gran importancia cuando las alternativas más simples para realizar el escalado vertical, o simplemente agregar una base de datos nueva para un inquilino nuevo, no son suficientes. La herramienta de división y combinación administra la reducción y el escalado horizontal; puede agregar o quitar bases de datos del conjunto de particiones y utilizar la herramienta de división y combinación para reequilibrar la distribución de shardlets entre ellas. (Para obtener definiciones de los términos, consulte el [Glosario de Escalado elástico](sql-database-elastic-scale-glossary.md)).
-
-Con las opciones actuales entre niveles de Base de datos SQL de Azure, la capacidad se puede administrar escalando o reduciendo verticalmente la capacidad de una sola base de datos de Base de datos SQL de Azure. El servicio División y combinación no se trata de la dimensión del escalado/reducción vertical de la administración de la capacidad elástica; en su lugar, consulte [Elasticidad de partición](sql-database-elastic-scale-elasticity.md).
-
- 
 ## Novedades de la División y combinación
 
 Las versiones más recientes de la herramienta de división y combinación ofrecen las siguientes mejoras:
@@ -70,7 +61,7 @@ Ilustración 1: Información general conceptual de División y combinación
 ![Información general][1]
 
 
-**Nota**:No todos los escenarios de **aumento de capacidad** requieren el servicio División y combinación. Por ejemplo, si crea periódicamente nuevas particiones en su entorno para almacenar datos nuevos con valores clave de particionamiento en crecimiento, puede usar las API de cliente de Administración de mapa de particiones para dirigir nuevos rangos de datos a particiones creadas recientemente. El servicio División y combinación solo es necesario cuando también se deben mover los datos existentes.
+**Nota**: no todos los escenarios de **aumento de capacidad** requieren el servicio División y combinación. Por ejemplo, si crea periódicamente nuevas particiones en su entorno para almacenar datos nuevos con valores clave de particionamiento en crecimiento, puede usar las API de cliente de Administración de mapa de particiones para dirigir nuevos rangos de datos a particiones creadas recientemente. El servicio División y combinación solo es necesario cuando también se deben mover los datos existentes.
 
 ## Conceptos y características clave
 
@@ -110,7 +101,7 @@ Las API **SchemaInfo** del mapa de particiones proporcionan la información en l
     // Publish 
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
-Las tablas "region" y "nation" se definen como tablas de referencia y se copiarán con las operaciones de división, combinación o desplazamiento. A su vez, las tablas "customer" y "orders" se definen como tablas particionadas. C_CUSTKEY y O_CUSTKEY actúan como la clave de particionamiento
+Las tablas "region" y "nation" se definen como tablas de referencia y se copiarán con las operaciones de división, combinación o desplazamiento. A su vez, las tablas "customer" y "orders" se definen como tablas particionadas. C\_CUSTKEY y O\_CUSTKEY actúan como la clave de particionamiento
 
 **Integridad referencial**: el servicio División y combinación analiza las dependencias entre las tablas y usa relaciones de clave externa-clave principal para realizar las operaciones de mover las tablas de referencia y los shardlets. En general, las tablas de referencia primero se copian en orden de dependencia, luego los shardlets se copia según el orden de sus dependencias dentro de cada lote. Esto es necesario para que las restricciones de clave foránea-clave principal de la partición de destino se procesen tan pronto como lleguen los datos nuevos.
 
@@ -252,4 +243,4 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

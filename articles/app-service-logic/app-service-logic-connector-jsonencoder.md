@@ -76,4 +76,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!--Links -->
 [Creación de una aplicación lógica]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

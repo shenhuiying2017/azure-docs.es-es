@@ -6,7 +6,8 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+ <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -238,4 +239,4 @@ Las solicitudes de elementos de visualización **PUT** y **POST** pueden usarse 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

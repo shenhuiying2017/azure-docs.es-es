@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 
 #Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
+ 
 
 En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Recurso](https://msdn.microsoft.com/library/azure/hh974277.aspx) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -367,4 +367,4 @@ Si se realiza correctamente, se devuelve lo siguiente:
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

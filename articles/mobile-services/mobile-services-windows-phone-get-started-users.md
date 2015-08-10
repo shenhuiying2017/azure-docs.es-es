@@ -13,26 +13,20 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/23/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users-legacy](../../includes/mobile-services-selector-get-started-users-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##Información general
 
-<p>En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-authentication-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298631" target="_blank" class="dev-onpage-video"><span class="icon"> (en inglés) Reproducir vídeo</span></a> <span class="time"> (en inglés) 10:50</span></div>
-</div>
+En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
-En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
+Nick Harris también muestra este tutorial en el siguiente vídeo:
 
-1. [Registro de la aplicación para la autenticación y configuración de Servicios móviles]
-2. [Restricción de los permisos de tabla para los usuarios autenticados]
-3. [Incorporación de autenticación a la aplicación]
+> [AZURE.VIDEO mobile-authorize-users-in-scripts-windows-phone]
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Incorporación de Servicios móviles a una aplicación existente].
 
@@ -40,20 +34,16 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
-
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-
 ##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
-
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-<ol start="3">
-<li>En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial <strong>Introducción a los Servicios móviles</strong>.</li>
+&nbsp;&nbsp;3. En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Incorporación de Servicios móviles a una aplicación existente](mobile-services-windows-phone-get-started-data.md).
 
-<li>Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</li></ol>
+&nbsp;&nbsp;4. Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
@@ -70,9 +60,9 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles](mobile-services-javascript-backend-service-side-authorization.md), usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles.
 
 <!-- Anchors. -->
-[Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
-[Restricción de los permisos de tabla para los usuarios autenticados]: #permissions
-[Incorporación de autenticación a la aplicación]: #add-authentication
+[Register your app for authentication and configure Mobile Services]: #register
+[Restrict table permissions to authenticated users]: #permissions
+[Add authentication to the app]: #add-authentication
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -90,4 +80,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
 [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

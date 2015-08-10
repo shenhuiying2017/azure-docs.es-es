@@ -147,12 +147,12 @@ Los proveedores y los agentes se instalan en servidores locales para que puedan 
 	- Configure redes lógicas y redes de máquinas virtuales correctamente en VMM. Obtenga información sobre [redes lógicas](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) y [redes de máquinas virtuales](https://technet.microsoft.com/library/jj721575.aspx).
 	- Asegúrese de que todas las máquinas virtuales en el servidor VMM de origen están conectados a una red de máquinas virtuales.
 	- Compruebe que las redes de máquinas virtuales estén vinculadas a una red lógica asociada con la nube.
-	- Si se está replicando en Azure, cree redes virtuales en Azure. Tenga en cuenta que pueden asignarse varias redes de VM a una sola red de Azure. Obtenga información en [Tareas de configuración de la red virtual](https://msdn.microsoft.com/library/azure/dn133795.aspx).
+	- Si se está replicando en Azure, cree redes virtuales en Azure. Tenga en cuenta que pueden asignarse varias redes de VM a una sola red de Azure. Obtenga información en [Tareas de configuración de la red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 ## Optimización del rendimiento
 
-- **Tamaño del volumen del sistema operativo**: al replicar una máquina virtual a Azure, el volumen del sistema operativo debe ser inferior a 127 GB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
-- **Tamaño de disco de datos**: si se está replicando en Azure, podrá tener hasta 32 discos de datos en una máquina virtual, cada una con un máximo de 1 TB. Puede replicar y conmutar por error de manera eficaz una máquina virtual de ~32 TB.
+- **Tamaño del volumen del sistema operativo**: al replicar una máquina virtual a Azure, el volumen del sistema operativo debe ser inferior a 1 TB. Si tiene más volúmenes, puede moverlos manualmente a otro disco antes de comenzar la implementación.
+- **Tamaño de disco de datos**: si se está replicando en Azure, podrá tener hasta 32 discos de datos en una máquina virtual, cada una con un máximo de 1 TB. Puede replicar y conmutar por error de manera eficaz una máquina virtual de \~32 TB.
 - **Límites del plan de recuperación**: Site Recovery puede escalar a miles de máquinas virtuales. Los planes de recuperación están diseñados como un modelo para las aplicaciones que deben conmutar por error entre sí por lo que se limita el número de máquinas en un plan de recuperación a 50.
 - **Límites del servicio Azure**: cada suscripción de Azure incluye un conjunto de límites predeterminados sobre núcleos, servicios en la nube, etc. Le recomendamos que ejecute una conmutación por error de prueba para validar la disponibilidad de los recursos de la suscripción. Puede modificar estos límites a través de soporte técnico de Azure.
 - **Planificación de capacidad**: para obtener instrucciones, use la [Planificación de capacidad para la réplica de Hyper-V](http://www.microsoft.com/en-in/download/details.aspx?id=39057).
@@ -189,4 +189,4 @@ Después de revisar estas prácticas recomendadas, puede iniciar la implementaci
 - [Configuración de la protección con un único servidor VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -256,4 +256,4 @@ Esto puede hacerse de dos maneras:
 ## Resumen
 En este tutorial, ha aprendido a crear una aplicación web en VS Code y a implementarla en Azure. Para obtener más información sobre VS Code, consulte el artículo sobre [Visual Studio Code.](https://code.visualstudio.com/Docs/). Para obtener más información sobre Aplicaciones web del Servicio de aplicaciones de Azure, consulte [Información general de aplicaciones web](app-service-web-overview.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

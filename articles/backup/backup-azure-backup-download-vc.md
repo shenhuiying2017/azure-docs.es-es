@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+   editor=""/>
+ <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Uso de las credenciales de almacén para autenticarse con el servicio de Copia de seguridad de Azure
 El servidor local (cliente de Windows, Windows Server o servidor SCDPM) debe autenticarse con un almacén de copia de seguridad antes de crear una copia de seguridad de datos en Azure. La autenticación se realiza mediante las "credenciales de almacén". El concepto de credenciales de almacén es similar al concepto de un archivo de "configuración de publicación" que se usa en Azure PowerShell.
@@ -40,4 +41,4 @@ El archivo de credenciales de almacén se descarga a través de un canal seguro 
 ## Pasos siguientes
 [Descarga, registro e instalación del agente de Copia de seguridad de Azure](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

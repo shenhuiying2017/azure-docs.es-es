@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-En este tutorial podrá agregar la autenticación al [tutorial de inicio rápido de Servicios móviles] mediante un proveedor de identidades admitido. Debe completar el [tutorial de inicio rápido de Servicios móviles] primero.
+En este tutorial podrá agregar la autenticación al [tutorial de inicio rápido de Servicios móviles] mediante un proveedor de identidades admitido.
+
+Se recomienda completar el [tutorial de inicio rápido de Servicios móviles] primero. Como alternativa, descargue simplemente el proyecto de iOS de inicio rápido: haga clic en el Portal de Azurel > **Servicios móviles** > su servicio móvil > signo de la nube en la parte superior izquierda > **iOS** > **Crear una nueva aplicación iOS** > **Descargar y ejecutar la aplicación** > **Objective-C** > **Descargar**. Recuerde hacer clic en **Crear tabla TodoItem** antes de hacer clic en **Descargar** si aún no ha creado la tabla.
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación
 
@@ -82,4 +84,4 @@ A continuación, sepa [cómo utilizar el valor de identificador de usuario para 
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

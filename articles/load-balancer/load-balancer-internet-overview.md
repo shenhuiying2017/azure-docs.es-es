@@ -23,7 +23,7 @@ Uno de los usos de los extremos es la configuración del Equilibrador de carga d
 
 El Equilibrador de carga de Azure asigna la dirección IP y el número de puerto públicos del tráfico entrante a la dirección IP y el número de puerto privados de la máquina virtual, y viceversa, para el tráfico de respuesta desde la máquina virtual.
 
->[AZURE.NOTE]Al configurar el equilibrio de carga del tráfico entre varias máquinas virtuales o servicios mediante la configuración predeterminada, se proporcionará una distribución aleatoria del tráfico entrante. Si busca la afinidad de sesión (o sesiones persistentes), consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md)
+>[AZURE.NOTE]Al configurar el equilibrio de carga del tráfico entre varias máquinas virtuales o servicios mediante la configuración predeterminada, se proporcionará una distribución aleatoria del tráfico entrante. Si busca la afinidad de sesión, consulte [modo de distribución de equilibrador de carga](load-balancer-distribution-mode.md)
 
 Para los servicios en la nube que contienen instancias de roles web o de roles de trabajo, puede definir un extremo público en la definición de servicio (.csdef).
  
@@ -52,4 +52,4 @@ Cuando los clientes de Internet envían solicitudes de página web a la direcci�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

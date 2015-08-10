@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 #Enrutamiento dependiente de los datos
 
 La clase **ShardMapManager** proporciona a las aplicaciones ADO.NET la capacidad de dirigir fácilmente los comandos y consultas de base de datos a la base de datos física adecuada en un entorno particionado. Esto se conoce como **enrutamiento dependiente de los datos** y es un patrón fundamental cuando se trabaja con bases de datos particionadas. Cada consulta o transacción específica en una aplicación que usa enrutamiento dependiente de los datos tiene restringido el acceso a una base de datos única por solicitud.
 
-A través del uso del enrutamiento dependiente de los datos, no es necesario que la aplicación haga seguimiento de las distintas cadenas de conexión o ubicaciones de base de datos asociadas con diferentes segmentos de datos en el entorno particionado. En lugar de eso, el [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) asume la responsabilidad de entregar conexiones abiertas a la base de datos correcta cuando sea necesario, según los datos del mapa de particiones y el valor de la clave de particionamiento que es el destino de la solicitud de la aplicación. (Esta clave normalmente es *customer_id*, *tenant_id*, *date_key* o algún otro identificador específico que es un parámetro fundamental de la solicitud de base de datos).
+A través del uso del enrutamiento dependiente de los datos, no es necesario que la aplicación haga seguimiento de las distintas cadenas de conexión o ubicaciones de base de datos asociadas con diferentes segmentos de datos en el entorno particionado. En lugar de eso, el [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) asume la responsabilidad de entregar conexiones abiertas a la base de datos correcta cuando sea necesario, según los datos del mapa de particiones y el valor de la clave de particionamiento que es el destino de la solicitud de la aplicación. (Esta clave normalmente es *customer\_id*, *tenant\_id*, *date\_key* o algún otro identificador específico que es un parámetro fundamental de la solicitud de base de datos).
 
 ## Usar un ShardMapManager en una aplicación de enrutamiento dependiente de datos 
 
@@ -117,4 +117,4 @@ Las propiedades de las transacciones están garantizadas para todas las operacio
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

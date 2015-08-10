@@ -41,7 +41,7 @@ Para crear una nueva puerta de enlace de aplicaciones, realice los pasos siguien
 
 **Para crear la puerta de enlace**, utilice el cmdlet `New-AzureApplicationGateway`, reemplazando los valores por los suyos propios. Tenga en cuenta que la facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+	PS C:> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
@@ -53,7 +53,7 @@ Para crear una nueva puerta de enlace de aplicaciones, realice los pasos siguien
 
 En el ejemplo,*Description*, *InstanceCount* y *GatewaySize* son parámetros opcionales. El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Small y Large son otros valores disponibles. *Vip* y *DnsName* se muestran en blanco porque todavía no se ha iniciado la puerta de enlace. Se crearán una vez que la puerta de enlace esté en estado de ejecución.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	PS C:> Get-AzureApplicationGateway AppGwTest
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -157,7 +157,7 @@ Tenga en cuenta lo siguiente:
 
 A continuación, establecerá la puerta de enlace de aplicaciones. Puede usar el cmdlet `Set-AzureApplicationGatewayConfig` con un objeto de configuración o con un archivo XML de configuración.
 
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
+	PS C:> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
@@ -172,7 +172,7 @@ Una vez configurada la puerta de enlace, use el cmdlet `Start-AzureApplicationGa
 
 **Nota:** el cmdlet `Start-AzureApplicationGateway` puede tardar hasta 15-20 minutos en completarse.
    
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:> Start-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -186,7 +186,7 @@ Utilice el cmdlet `Get-AzureApplicationGateway` para comprobar el estado de la p
 
 **Nota:** la puerta de enlace de aplicaciones está configurada para aceptar tráfico en el extremo ILB configurado de 10.0.0.10 en este ejemplo.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:> Get-AzureApplicationGateway AppGwTest 
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -208,4 +208,4 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 - [Equilibrador de carga de Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Administrador de tráfico de Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

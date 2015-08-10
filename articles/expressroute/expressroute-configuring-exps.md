@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
-#  Configurar una conexión ExpressRoute a través de un proveedor de Exchange
+#  Configuración de una conexión ExpressRoute a través de un proveedor de Exchange
 
 Para configurar la conexión ExpressRoute a través de un proveedor de intercambio, debe completar varios pasos en el orden correcto. Al seguir instrucciones, completará las acciones siguientes:
 
@@ -60,7 +60,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Antes de crear un circuito, necesitará una lista de proveedores de servicios, ubicaciones admitidas y opciones de ancho de banda para cada ubicación. El siguiente cmdlet de PowerShell devuelve esta información, que usará en pasos posteriores.
 
-    	PS C:\> Get-AzureDedicatedCircuitServiceProvider
+    	PS C:> Get-AzureDedicatedCircuitServiceProvider
 		**The information returned will look similar to the example below:**
 
 
@@ -117,7 +117,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Puede recuperar esta información en cualquier momento con el cmdlet Get-AzureCircuit. Si se realiza la llamada sin parámetros, se obtendrá una lista de todos los circuitos. La clave de servicio se mostrará en el campo ServiceKey.
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -136,7 +136,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	Esto le permitirá saber cuándo el proveedor ha habilitado el circuito. Una vez habilitado el circuito, el parámetro *ServiceProviderProvisioningState* aparecerá como *Aprovisionado*, tal como se muestra en el ejemplo siguiente.
 
-		PS C:\> Get-AzureDedicatedCircuit
+		PS C:> Get-AzureDedicatedCircuit
 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
@@ -170,7 +170,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	La respuesta siguiente le proporcionará la información que necesitará para los pasos siguientes. Use el ASN del mismo nivel para configurar BGP en los enrutamientos y reenvíos (VRF) del enrutador.
 
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -205,7 +205,7 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 	La respuesta siguiente le proporcionará la información que necesitará para los pasos siguientes. Use el ASN del mismo nivel para configurar BGP en los enrutamientos y reenvíos (VRF) del enrutador.
 
-		PS C:\> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
+		PS C:> New-AzureBGPPeering -ServiceKey $ServiceKey -PrimaryPeerSubnet $PriSN -SecondaryPeerSubnet $SecSN -PeerAsn $ASN -VlanId $VLAN –AccessType Private
 
 		AzureAsn            : 12076
 		PeerAsn             : 65001
@@ -218,14 +218,17 @@ Windows PowerShell es un potente entorno de scripting que puede usar para contro
 
 8. **Configure la red virtual y la puerta de enlace.**
 
-	Vea [Configuración de una red virtual y una puerta de enlace para ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Tenga en cuenta que la subred de la puerta de enlace debe ser/28 para poder trabajar con una conexión ExpressRoute.
+	Vea [Configuración de una red virtual y una puerta de enlace para ExpressRoute](expressroute-configuring-vnet-gateway.md). Tenga en cuenta que la subred de la puerta de enlace debe ser/28 para poder trabajar con una conexión ExpressRoute.
 
 9. **Vincule la red a un circuito.** Siga las instrucciones que se indican a continuación solo después de confirmar que el circuito ha pasado al estado y condición siguientes:
 	- ServiceProviderProvisioningState: aprovisionado
 	- Estado: habilitado
 
-			PS C:\> $Vnet = "MyTestVNet"
+			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## Pasos siguientes
 
-<!---HONumber=July15_HO4-->
+- Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
+
+<!---HONumber=July15_HO5-->

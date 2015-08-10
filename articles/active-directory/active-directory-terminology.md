@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Terminología de Azure AD" 
-	description="Términos y definiciones relacionados con Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Terminología de Azure AD | Microsoft Azure"
+	description="Términos y definiciones relacionados con Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Terminología de Azure AD
 
@@ -36,14 +36,11 @@ Microsoft Online Services - Ayudante para el inicio de sesión | El Ayudante par
 Multi-Factor Authentication (también conocida como autenticación en dos fases o 2FA) | Multi-Factor Authentication agrega un segundo nivel de seguridad a los inicios de sesión y las transacciones del usuario. Cuando habilita Multi-Factor Authentication para una cuenta de usuario en Azure AD, el usuario debe usar el teléfono, además de sus credenciales de contraseña estándar, como su método de comprobación de seguridad adicional cada vez que necesite iniciar sesión y usar cualquiera de los servicios en la nube de Microsoft a los que está suscrita su organización.
 Inicio de sesión único | Se usa para proporcionar a los usuarios una experiencia de autenticación perfecta cuando tienen acceso a los servicios en la nube de Microsoft mientras están conectados a la red corporativa. Para configurar el inicio de sesión único, las organizaciones deben implementar un servicio de token de seguridad local. Una vez configurado el inicio de sesión único, los usuarios pueden usar sus credenciales corporativas de Active Directory (nombre de usuario y contraseña) para tener acceso a los servicios en la nube y sus recursos locales existentes.
 Id. de usuario | Un id. de usuario es un identificador único que un usuario proporciona en la página de inicio de sesión para tener acceso a los servicios en la nube de Microsoft a los que está suscrita su organización.
-Cuenta profesional o educativa | Una cuenta de usuario asignada por una organización (profesional, educativa, sin ánimo de lucro) a uno de sus integrantes (un empleado, estudiante, cliente) que proporciona acceso de inicio de sesión a una o más suscripciones de servicios en la nube de Microsoft de la organización, como Office 365 o Azure. Estas cuentas se almacenan en el directorio de Azure AD de una organización y normalmente se eliminan cuando el usuario abandona la organización. Las cuentas profesionales o educativas se diferencian de las cuentas de Microsoft en que es el administrador, y no el usuario, quien las crea y administra en la organización. 
+Cuenta profesional o educativa | Una cuenta de usuario asignada por una organización (profesional, educativa, sin ánimo de lucro) a uno de sus integrantes (un empleado, estudiante, cliente) que proporciona acceso de inicio de sesión a una o más suscripciones de servicios en la nube de Microsoft de la organización, como Office 365 o Azure. Estas cuentas se almacenan en el directorio de Azure AD de una organización y normalmente se eliminan cuando el usuario abandona la organización. Las cuentas profesionales o educativas se diferencian de las cuentas de Microsoft en que es el administrador, y no el usuario, quien las crea y administra en la organización.
 
 ## Pasos siguientes
 - [Inicio de sesión en Azure como una organización](sign-up-organization.md)
 - [Cómo se asocian las suscripciones a Azure con Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Restricciones y límites del servicio Azure AD](active-directory-service-limits-restrictions.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -19,10 +19,10 @@
 # Introducción a Azure Mobile Engagement para aplicaciones iOS en Objective C
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Universal Windows](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md)
-- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [iOS | Obj C](mobile-engagement-ios-get-started.md)
+- [iOS | Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
 - [Cordova](mobile-engagement-cordova-get-started.md)
 
@@ -302,4 +302,4 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

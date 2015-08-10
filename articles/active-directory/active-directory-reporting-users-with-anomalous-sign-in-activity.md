@@ -24,4 +24,4 @@
 
 ![Usuarios con actividad de inicio de sesión erróneo.](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

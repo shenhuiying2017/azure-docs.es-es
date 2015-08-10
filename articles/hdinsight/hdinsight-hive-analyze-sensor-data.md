@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015" 
+	ms.date="07/24/2015" 
 	ms.author="larryfr"/>
 
 #Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight
@@ -37,13 +37,13 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel se usa para la visualización de datos con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=es-es&rs=es-es&ad=US).
+	> [AZURE.NOTE]Microsoft Excel se usa para la visualización de datos con [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
 ##Para ejecutar el ejemplo
 
-1. En el Portal de Azure, haga clic en el clúster donde desea ejecutar el ejemplo y, a continuación, en **Consola de consultas** en la parte inferior. También puede abrir directamente la consola de consultas con la siguiente dirección URL:
+1. Desde el explorador web, navegue a la siguiente dirección URL. Reemplace `<clustername>` por el nombre del clúster de HDInsight.
 
 	 	https://<clustername>.azurehdinsight.net
 
@@ -53,4 +53,4 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

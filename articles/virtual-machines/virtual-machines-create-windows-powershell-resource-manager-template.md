@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Creación de una máquina virtual Windows con una plantilla del Administrador de recursos
@@ -332,4 +333,4 @@ Verá algo parecido a lo siguiente:
 
 [Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

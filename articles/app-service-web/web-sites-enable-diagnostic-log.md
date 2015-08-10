@@ -135,7 +135,7 @@ Al implementar una aplicación, suele resultar útil ver la información de regi
 
 > [AZURE.NOTE]Algunos tipos de búfer de registros se escriben en el archivo de registro, lo que puede ocasionar la transmisión de eventos desordenados. Por ejemplo, una entrada de registro de aplicaciones que se genera cuando un usuario visita una página se puede visualizar en la transmisión antes de la entrada de registro HTTP correspondiente para la solicitud de la página.
 
-> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\home\LogFiles\**.
+> [AZURE.NOTE]La transmisión de registros también transmitirá información escrita en cualquier archivo de texto almacenado en la carpeta **D:\\home\\LogFiles**.
 
 ### Transmisión con Azure PowerShell
 
@@ -335,4 +335,4 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

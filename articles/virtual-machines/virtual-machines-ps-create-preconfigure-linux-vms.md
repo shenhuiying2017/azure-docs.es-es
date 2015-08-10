@@ -260,4 +260,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

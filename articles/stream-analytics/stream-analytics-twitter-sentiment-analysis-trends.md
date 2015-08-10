@@ -55,13 +55,13 @@ Hemos proporcionado una aplicación cliente que derivará datos de Twitter media
 Siga estos pasos para configurar la aplicación:
 
 1.	[Descargue la solución TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient)
-2.	Abra App.config y reemplace oauth_consumer_key, oauth_consumer_secret, oauth_token, oauth_token_secret con tokens de Twitter con sus valores.  
+2.	Abra App.config y reemplace oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret con tokens de Twitter con sus valores.  
 
 	[Pasos para generar un token de acceso de OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)
 
 	Tenga en cuenta que necesitará crear una aplicación vacía para generar un token.  
 3.	Reemplace los valores de EventHubConnectionString y EventHubName en el archivo App.config con la cadena de conexión del centro de eventos y el nombre.
-4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter_keywords en el archivo App.config, si lo desea.
+4.	*Opcional:* ajuste las palabras clave que se buscarán. De forma predeterminada, esta aplicación busca "Azure, Skype, XBox, Microsoft, Seattle". Puede ajustar los valores de twitter\_keywords en el archivo App.config, si lo desea.
 5.	Compile la solución
 6.	Inicie la aplicación. Verá los eventos Tweet con los valores de CreatedAt, tema y SentimentScore que se envían al centro de eventos:
 
@@ -223,7 +223,7 @@ Cuando el trabajo se esté ejecutando y esté procesando el flujo de Twitter en 
 ![Análisis de los medios sociales: salida del análisis de opinión (minería de opinión) de Análisis de transmisiones en un panel de Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics).
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Pasos siguientes
@@ -235,4 +235,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

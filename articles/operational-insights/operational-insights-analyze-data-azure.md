@@ -87,54 +87,18 @@ Diagnósticos de Azure es una extensión de Azure que le permiten recopilar dato
 
 Diagnósticos de Azure puede recopilar los tipos de telemetría siguientes:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Origen de datos</b></td>
-		<td><b>Descripción</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Registros IIS</td>
-		<td>Información sobre los sitios web de IIS.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Registros de infraestructura de diagnóstico de Azure</td>
-		<td>Información sobre los propios Diagnósticos.</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Registros de solicitudes con error de IIS </td>
-		<td>Información sobre las solicitudes erróneas a un sitio o aplicación de IIS.</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Registros de eventos de Windows</td>
-		<td>Información enviada al sistema de registro de eventos de Windows.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Contadores de rendimiento</td>
-		<td>Sistema operativo y contadores de rendimiento personalizados.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Volcados de memoria</td>
-		<td>Información sobre el estado del proceso en caso de bloqueo de una aplicación.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Registros de errores personalizados</td>
-		<td>Archivos creados por su aplicación o servicio.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>NET EventSource</td>
-		<td>Eventos generados por su código mediante la clase <a href="https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource .NET</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>ETW basado en manifiesto</td>
-		<td>Eventos de ETW generados por cualquier proceso.</td>
-    &lt;/tr
-    <tr align="left" valign="top">
-		<td>Syslog</td>
-		<td>Eventos enviados a los demonios Syslog o Rsyslog</td>
-    </tr>
-    </tbody>
-    </table>
+Origen de datos|Descripción
+ ---|--- 
+Registros IIS|Información sobre los sitios web de IIS.
+Registros de infraestructura de diagnóstico de Azure|Información sobre los propios Diagnósticos.
+Registros de solicitudes con error de IIS |Información sobre las solicitudes erróneas a un sitio o aplicación de IIS.
+Registros de eventos de Windows|Información enviada al sistema de registro de eventos de Windows.
+Contadores de rendimiento|Sistema operativo y contadores de rendimiento personalizados.
+Volcados de memoria|Información sobre el estado del proceso en caso de bloqueo de una aplicación.
+Registros de errores personalizados|Archivos creados por su aplicación o servicio.
+NET EventSource|Eventos generados por su código mediante la [clase EventSource] de .NET (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)
+ETW basado en manifiesto|Eventos de ETW generados por cualquier proceso
+Syslog|Eventos enviados a los demonios Syslog o Rsyslog
 
 
 Actualmente, Visión operativa es capaz de analizar:
@@ -271,7 +235,7 @@ Use el siguiente procedimiento para permitir el análisis del almacenamiento y c
 2. Haga clic en **Agregar un cuenta de almacenamiento** para abrir el cuadro **Agregar cuenta de almacenamiento**.
 3. Seleccione la cuenta de almacenamiento que quiera usar.
 4. En la lista **Tipo de datos**, seleccione un tipo de datos: **Eventos**, **Registros de IIS** o **Syslog (Linux)**.
-5. Haga clic en la imagen de **Aceptar**. ![storage account box](./media/operational-insights-analyze-data-azure/storage-account.png)
+5. Haga clic en la imagen de **Aceptar**.<br> ![storage account box](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. Repita los pasos anteriores para cada combinación de cuenta de almacenamiento y tipo de datos que quiera recopilar.
 
 En aproximadamente 1 hora comenzará a ver los datos de la cuenta de almacenamiento disponible para el análisis de Vista operativa.
@@ -285,4 +249,4 @@ En aproximadamente 1 hora comenzará a ver los datos de la cuenta de almacenamie
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

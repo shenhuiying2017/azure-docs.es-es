@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/24/2015" 
 	ms.author="sidneyh"/>
 
 # Administración de credenciales en la biblioteca de cliente de bases de datos elásticas
@@ -60,4 +60,4 @@ La [biblioteca de cliente de bases de datos elásticas](http://www.nuget.org/pac
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

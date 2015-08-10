@@ -29,19 +29,19 @@ Azure Active Directory es una completa solución de administración de identidad
 Dentro de Azure Active Directory, una de las principales características es la capacidad para administrar el acceso a los recursos. Estos recursos pueden formar parte del directorio, como en el caso de los permisos para administrar objetos a través de roles en el directorio, o recursos externos al directorio, como las aplicaciones SaaS, servicios de Azure y sitios de SharePoint o publicados en modo local. Existen cuatro formas de asignar a un usuario derechos de acceso a un recurso:
 
 
-1. Asignación directa
+1\. Asignación directa
 
 El propietario de un recurso puede entonces asignar directamente usuarios al mismo.
 
-2. Pertenencia a grupos
+2\. Pertenencia a grupos
 
 El propietario de un recurso puede asignarle un grupo y, al hacerlo, conceder acceso al recurso a los miembros de ese grupo. El propietario del grupo puede administrar entonces la pertenencia dicho grupo. El propietario del recurso delega efectivamente en el propietario del grupo el permiso para asignar a usuarios a sus recursos.
 
-3. Uso de reglas
+3\. Uso de reglas
 
 El propietario del recurso puede usar una regla para indicar a qué usuarios se les debe asignar acceso a un recurso. El resultado de la regla depende de los atributos utilizados en dicha regla y de sus valores para usuarios específicos; si se hace así, el propietario del recurso delega efectivamente los derechos de administración de acceso en el origen de autoridad de los atributos usados en la regla. Tenga en cuenta que el propietario del recurso sigue pudiendo administrar la regla propiamente dicha y que determina qué atributos y valores proporcionan acceso a su recurso.
 
-4. Autoridad externa
+4\. Autoridad externa
 
 El acceso a un recurso se deriva de un origen externo, por ejemplo, un grupo que se sincroniza desde un origen de autoridad, como un directorio local o una aplicación de SaaS como WorkDay. El propietario del recurso asigna al grupo para proporcionar acceso al recurso y el origen externo administra a los miembros del grupo.
 
@@ -92,4 +92,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

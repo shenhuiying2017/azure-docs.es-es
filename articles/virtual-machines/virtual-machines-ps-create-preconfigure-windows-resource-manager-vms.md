@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/22/2015"
 	ms.author="kathydav"/>
 
 # Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell
@@ -29,7 +29,7 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear conjunto
 
 ## Paso 1: Instalación de Azure PowerShell
 
-También debe disponer de Azure PowerShell, versión 0.9.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](powershell-install-configure.md) para obtener instrucciones.
+También debe disponer de Azure PowerShell, versión 0.9.0 o posterior. Si no ha instalado y configurado Azure PowerShell, haga clic en [aquí](../powershell-install-configure.md) para obtener instrucciones.
 
 Puede comprobar la versión de Azure PowerShell que ha instalado con este comando en el símbolo del sistema de Azure PowerShell.
 
@@ -41,7 +41,7 @@ Aquí tiene un ejemplo.
 	-------
 	0.9.0
 
-Si no tiene la versión 0.9.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](powershell-install-configure.md).
+Si no tiene la versión 0.9.0 o posterior, debe quitar Azure PowerShell mediante la opción Programas y características del Panel de control y, a continuación, instalar la versión más reciente. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
 ## Paso 2: Establecimiento de la suscripción
 
@@ -119,6 +119,8 @@ Use este comando para enumerar los conjuntos de disponibilidad existentes.
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
+Las máquinas virtuales basadas en el Administrador de recursos pueden configurarse con reglas de NAT de entrada para permitir el tráfico entrante de Internet y colocarse en un conjunto de carga equilibrada. En ambos casos, debe especificar una instancia del equilibrador de carga y otras opciones. Para obtener más información, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md)
+
 Las máquinas virtuales basadas en Administrador de recursos requieren una red virtual basada en Administrador de recursos. Si es necesario, cree una nueva red virtual basada en Administrador de recursos con al menos una subred para la nueva máquina virtual. Este es un ejemplo de una nueva red virtual con dos subredes denominadas frontendSubnet y backendSubnet.
 
 	$rgName="LOBServers"
@@ -151,7 +153,7 @@ El índice de subred es el número de la subred en la visualización de este com
 
 En este ejemplo:
 
-	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
 
 	Subnets
 	-------
@@ -165,24 +167,71 @@ Copie estas líneas en el conjunto de comandos y especifique un nombre de red vi
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-Después, cree una tarjeta de interfaz de red (NIC), solicite una dirección IP pública y, opcionalmente, asígnele una etiqueta de nombre de dominio DNS. Copie una de las dos opciones siguientes en el conjunto de comandos y rellene el nombre de la NIC y la etiqueta de nombre de dominio DNS.
+A continuación, cree una tarjeta de interfaz de red (NIC). Copie una de las siguientes opciones en el conjunto de comandos y rellene la información necesaria.
 
-Opción 1: Especificación de un nombre de la NIC.
+### Opción 1: especificación de un nombre NIC y asignación de una dirección IP pública
 
-Copie estas líneas en el conjunto de comandos y especifique el nombre para la NIC.
+Copie las siguientes líneas en el conjunto de comandos y especifique el nombre de la NIC.
 
 	$nicName="<name of the NIC of the VM>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-Opción 2: Especificación de un nombre de la NIC y una etiqueta de nombre de dominio DNS.
+### Opción 2: especificación de un nombre de NIC y una etiqueta de nombre de dominio DNS
 
-Copie estas líneas en el conjunto de comandos y especifique el nombre para la NIC y la etiqueta de nombre de dominio con nombre único global. Al crear máquinas virtuales en el modo de administración de servicios de Azure PowerShell, Azure completa estos pasos automáticamente.
+Copie las siguientes líneas en el conjunto de comandos y especifique el nombre de NIC y la etiqueta de nombre de dominio único global. Al crear máquinas virtuales en el modo de administración de servicios de Azure PowerShell, Azure completa estos pasos automáticamente.
 
 	$nicName="<name of the NIC of the VM>"
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+### Opción 3: especificación de un nombre de NIC y asignación de una dirección IP privada estática
+
+Copie las siguientes líneas en el conjunto de comandos y especifique el nombre de la NIC.
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### Opción 4: especificación de un nombre de NIC y una instancia del equilibrador de carga para una regla de NAT de entrada.
+
+Para crear una tarjeta de NIC y agregarla a una instancia del equilibrador de carga para una regla de NAT de entrada, necesitará:
+
+- El nombre de instancia del equilibrador de carga creada anteriormente que tenga una regla de NAT de entrada para el tráfico que se reenvía a la máquina virtual.
+- El número de índice del grupo de direcciones de back-end de la instancia de equilibrador de carga que se va a asignar a la NIC.
+- El número de índice de la regla de NAT de entrada para asignar a la NIC.
+
+Para obtener información sobre cómo crear una instancia del equilibrador de carga con reglas de NAT de entrada, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
+
+Copie estas líneas en el conjunto de comandos y especifique los nombres y números de índice necesarios.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+La cadena de $nicName debe ser única para el grupo de recursos. Un procedimiento recomendado es incorporar el nombre de la máquina virtual a la cadena, como "LOB07-NIC".
+
+### Opción 5: especificación de un nombre de NIC y una instancia del equilibrador de carga para un conjunto de carga equilibrada.
+
+Para crear una NIC y agregarla a una instancia del equilibrador de carga para un conjunto de carga equilibrada, necesitará:
+
+- El nombre de una instancia del equilibrador de carga creada anteriormente que tenga una regla para el tráfico de carga equilibrada.
+- El número de índice del grupo de direcciones de back-end de la instancia de equilibrador de carga que se va a asignar a la NIC.
+
+Para obtener información sobre cómo crear una instancia del equilibrador de carga con reglas para el tráfico de carga equilibrada, consulte [Creación de un equilibrador de carga mediante el Administrador de recursos de Azure](../load-balancer/load-balancer-arm-powershell.md).
+
+Copie estas líneas en el conjunto de comandos y especifique los nombres y números de índice necesarios.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 A continuación, cree un objeto de la máquina virtual local y, opcionalmente, agréguelo a un conjunto de disponibilidad. Copie una de las dos opciones siguientes en el conjunto de comandos y rellene el nombre, el tamaño y el nombre del conjunto de disponibilidad.
 
@@ -268,9 +317,9 @@ Si va a volver a crear esta máquina virtual o una similar, puede guardar este c
 
 Se necesita un conjunto de comandos de PowerShell para crear una máquina virtual adicional para una carga de trabajo de línea de negocio basada en web que:
 
-- Se encuentre en el grupo de recursos existente de LOBServers
+- Se encuentre en el grupo de recursos LOBServers existente
 - Utilice la imagen de Windows Server 2012 R2 Datacenter
-- Tenga el nombre LOB07 y se encuentre en el conjunto de disponibilidad WEB_AS existente
+- Tenga el nombre LOB07 y se encuentre en el conjunto de disponibilidad WEB\_AS existente
 - Tenga una NIC con una dirección IP pública en la subred FrontEnd (índice de subred 0) de la red virtual AZDatacenter existente
 - Tenga un disco de datos adicional de 200 GB
 
@@ -282,7 +331,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
+	$saName="contosolobserverssa"
 
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
@@ -290,7 +339,7 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
@@ -330,12 +379,12 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Proceso, red y proveedores de almacenamiento de Azure en el Administrador de recursos de Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Información general del Administrador de recursos de Azure](resource-group-overview.md)
+[Información general del Administrador de recursos de Azure](../resource-group-overview.md)
 
 [Implementación y administración de Máquinas virtuales de Azure mediante el Administrador de recursos de plantillas y PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Creación de una máquina virtual Windows con una plantilla del Administrador de recursos y PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
+[Instalación y configuración de Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

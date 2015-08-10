@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Creación de una aplicación web con ASP.NET MVC mediante DocumentDB
@@ -202,7 +202,7 @@ Por último, vamos a crear la **V** de MVC, las vistas.
 	- En el cuadro **Plantilla**, seleccione ***Lista***.
 	- En el cuadro **Clase de modelo**, seleccione ***Elemento (todo.Models)***.
 	- Deje el cuadro **Clase de contexto de datos** vacío. 
-	- En el cuadro de página de diseño, escriba ***~/Views/Shared/_Layout.cshtml***.
+	- En el cuadro de página de diseño, escriba ***\~/Views/Shared/\_Layout.cshtml***.
 	
 	![Captura de pantalla que muestra el cuadro de diálogo Agregar vista](./media/documentdb-dotnet-application/image18.png)
 
@@ -219,7 +219,7 @@ De forma parecida a cómo se crea una vista de **índice de elementos**, crearem
     - En el cuadro **Plantilla**, seleccione ***Crear***.
     - En el cuadro **Clase de modelo**, seleccione ***Elemento (todo.Models)***.
     - Deje el cuadro **Clase de contexto de datos** vacío.
-    - En el cuadro de página de diseño, escriba ***~/Views/Shared/_Layout.cshtml***.
+    - En el cuadro de página de diseño, escriba ***\~/Views/Shared/\_Layout.cshtml***.
     - Haga clic en **Agregar**.
 
 #### <a name="_Toc395888515"></a>Adición de una vista de edición de elementos
@@ -233,7 +233,7 @@ Finalmente, agregue una última vista para editar un **elemento** como se hizo a
     - En el cuadro **Plantilla**, seleccione ***Editar***.
     - En el cuadro **Clase de modelo**, seleccione ***Elemento (todo.Models)***.
     - Deje el cuadro **Clase de contexto de datos** vacío. 
-    - En el cuadro de página de diseño, escriba ***~/Views/Shared/_Layout.cshtml***.
+    - En el cuadro de página de diseño, escriba ***\~/Views/Shared/\_Layout.cshtml***.
     - Haga clic en **Agregar**.
 
 Una vez hecho esto, cierre todos los documentos cshtml en Visual Studio, ya que volveremos a estas vistas más tarde.
@@ -441,7 +441,7 @@ En este punto, la solución debe ser capaz de compilar sin errores.
 
 Si ejecuta la aplicación ahora, irá a **HomeController** y a la vista de **índice** de ese controlador. Este es el comportamiento predeterminado para el proyecto de plantillas MVC que seleccionamos al comienzo, pero no queremos eso. Cambiemos el enrutamiento en esta aplicación MVC para modificar este comportamiento.
 
-Abra ***App\_Start\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
+Abra ***App\\\_Start\\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
@@ -658,4 +658,4 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

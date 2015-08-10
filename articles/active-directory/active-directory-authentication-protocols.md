@@ -51,9 +51,9 @@ Azure Active Directory (Azure AD) admite varios de los protocolos de autenticaci
 
 [Guía del desarrollador de Azure Active Directory](active-directory-developers-guide.md)
 
-[Uso de Azure AD para la autenticación](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Uso de Azure AD para la autenticación](../app-service-web/web-sites-authentication-authorization.md)
 
 [Ejemplos de código de Azure Active Directory](active-directory-code-samples.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

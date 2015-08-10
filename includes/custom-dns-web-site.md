@@ -195,7 +195,7 @@ Para crear un registro D, primero debe buscar la dirección IP de su sitio web. 
 
 7. Realice los siguientes pasos para crear el registro D:
 
-	1. Seleccione o especifique el dominio o subdominio que usará el registro D. Por ejemplo, seleccione **www** si desea crear un alias para **www.customdomain.com**. Si desea crear una entrada de comodín para todos los subdominios, especifique '__*__'. De esta forma, se incluirán todos los subdominios como **mail.customdomain.com**, **login.customdomain.com** y **www.customdomain.com**.
+	1. Seleccione o especifique el dominio o subdominio que usará el registro D. Por ejemplo, seleccione **www** si desea crear un alias para **www.customdomain.com**. Si desea crear una entrada de comodín para todos los subdominios, especifique '\_\_*\_\_'. De esta forma, se incluirán todos los subdominios como **mail.customdomain.com**, **login.customdomain.com** y **www.customdomain.com**.
 
 		Si desea crear un registro D para el dominio raíz, debe aparecer como símbolo '**@** en las herramientas DNS del registrador.
 
@@ -212,7 +212,7 @@ Para crear un registro D, primero debe buscar la dirección IP de su sitio web. 
 <td>@</td>
 <td>137.135.70.239</td>
 </tr>
-</table>En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '__*__' como subdominio.
+</table>En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una entrada de comodín para incluir todos los subdominios, debe especificar '\_\_*\_\_' como subdominio.
 
 7. A continuación, cree un registro CNAME que cuente con un alias de **awverify**, y un dominio canónico de **awverify.mysite.azurewebsites.net** obtenido anteriormente.
 
@@ -311,4 +311,4 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 [setcname2]: ./media/custom-dns-web-site/dncmntask-cname-6.png
 [setcname3]: ./media/custom-dns-web-site/dncmntask-cname-7.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

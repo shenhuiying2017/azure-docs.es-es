@@ -24,4 +24,4 @@
 
 ![Inicios de sesión desde direcciones IP con actividad sospechosa](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

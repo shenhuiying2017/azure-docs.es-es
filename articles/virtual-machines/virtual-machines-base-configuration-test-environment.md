@@ -1,33 +1,33 @@
-<properties 
-	pageTitle="Entorno de prueba de la configuración base" 
-	description="Obtenga información acerca de cómo crear un entorno de desarrollo/prueba sencillo que simula una intranet simplificada en Microsoft Azure." 
+<properties
+	pageTitle="Entorno de prueba de la configuración base"
+	description="Obtenga información acerca de cómo crear un entorno de desarrollo/prueba sencillo que simula una intranet simplificada en Microsoft Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
-# Entorno de prueba de la configuración base
+# Entorno de prueba de la configuración básica
 
-En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Microsoft Azure, con máquinas virtuales creadas en la administración de servicios.
+En este artículo se proporcionan instrucciones paso a paso para crear el entorno de prueba de la configuración básica en una red virtual de Azure, con máquinas virtuales creadas en la administración de servicios.
 
 Puede utilizar el entorno de prueba resultante:
 
 - Para el desarrollo de aplicaciones y pruebas.
-- El [entorno de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
-- Y ampliarlo con máquinas virtuales y servicios de Azure adicionales para un entorno de prueba de su propio diseño.
- 
-El entorno de prueba de la configuración básica está formado por la subred de la red corporativa en una red virtual de Azure solo en la nube denominada TestLab que simula una intranet privada simplificada conectada a Internet.
+- Para el [entorno de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- Para ampliarlo con máquinas virtuales y servicios de Azure adicionales para un entorno de prueba de su propio diseño.
+
+El entorno de prueba de la configuración básica consta de la subred de la red corporativa en una red virtual solo en la nube denominada TestLab que simula una intranet privada simplificada conectada a Internet.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
@@ -39,30 +39,35 @@ Contiene:
 
 Esta configuración permite a DC1, APP1, CLIENT1 y otros equipos de subred de la red corporativa:
 
-- Conectarse a Internet para instalar las actualizaciones, obtener acceso a recursos en Internet en tiempo real y participar en las tecnologías de nube pública, como Microsoft Office 365 y otros servicios de Azure. 
-- Administrarse de forma remota con Conexiones de escritorio remoto desde el equipo que está conectado a Internet o la red de su organización. 
+- Conectarse a Internet para instalar las actualizaciones, obtener acceso a recursos en Internet en tiempo real y participar en las tecnologías de nube pública, como Microsoft Office 365 y otros servicios de Azure.
+- Administrarse de forma remota con Conexiones de escritorio remoto desde el equipo que está conectado a Internet o la red de su organización.
 
 Hay cuatro fases de configuración de la subred de la red corporativa del entorno de pruebas de la configuración base de Windows Server 2012 R2 en Azure.
 
-1.	Creación de la red virtual de Azure.
-2.	Configuración de DC1. 
-3.	Configuración de APP1. 
+1.	Creación de la red virtual.
+2.	Configuración de DC1.
+3.	Configuración de APP1.
 4.	Configuración de CLIENT1.
 
 Si no dispone de ninguna cuenta de Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 > [AZURE.NOTE]Las máquinas virtuales en Azure suponen en un costo económico constante cuando se están ejecutando. Este costo se factura en su prueba gratuita, la suscripción de MSDN o la suscripción de pago. Para obtener más información acerca de los costos de ejecutar máquinas virtuales de Azure, consulte [Detalles de precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/) y [Calculadora de precios de Azure](http://azure.microsoft.com/pricing/calculator/). Para reducir los costos, consulte [Reducción del costo de las máquinas virtuales del entorno de prueba en Azure](#costs).
 
-## Fase 1: Creación de la red virtual de Azure
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
-En primer lugar, cree la red virtual de Azure TestLab, que va a hospedar la subred de la red corporativa de la configuración básica.
+- [Entorno de prueba de la configuración básica con el Administrador de recursos de Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
+
+## Fase 1: creación de la red virtual
+
+En primer lugar, cree la red virtual TestLab, que va a hospedar la subred de la red corporativa de la configuración básica.
 
 1.	En la barra de tareas del Portal de administración de Azure, haga clic en **Nuevo > Servicios de red > Red virtual > Creación personalizada**.
 2.	En la página Detalles de redes virtuales, escriba **TestLab** en **Nombre**.
 3.	En **Ubicación**, seleccione la región adecuada.
 4.	Haga clic en la flecha Siguiente.
 5.	En la página Servidores DNS y conectividad VPN, en **Servidores DNS**, introduzca **DC1** en **Seleccione o introduzca un nombre**, escriba **10.0.0.4** en **Dirección IP** y, a continuación, haga clic en la flecha Siguiente.
-6.	En la página Espacios de direcciones de la red virtual, en **Subredes**, haga clic en **Subred 1** y reemplace el nombre por **Corpnet**. 
+6.	En la página Espacios de direcciones de la red virtual, en **Subredes**, haga clic en **Subred 1** y reemplace el nombre por **Corpnet**.
 7.	En la columna **CIDR (recuento de direcciones)** para la subred de la red corporativa, haga clic en **/24 (256)**.
 8.	Haga clic en el icono Completar. Espere hasta que se cree la red virtual antes de continuar.
 
@@ -115,8 +120,8 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 	$serviceName="<your cloud service name>"
 	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC1."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name DC1 -InstanceSize Small -ImageName $image 
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
+	$vm1=New-AzureVMConfig -Name DC1 -InstanceSize Small -ImageName $image
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel "AD" -LUN 0 -HostCaching None
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4
@@ -125,11 +130,11 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 A continuación, conéctese a la máquina virtual DC1.
 
 1.	En el Portal de administración de Azure, haga clic en **Máquinas virtuales** en el panel izquierdo y, a continuación, haga clic en **Iniciado** en la columna **Estado** para la máquina virtual DC1.  
-2.	En la barra de tareas, haga clic en **Conectar**. 
+2.	En la barra de tareas, haga clic en **Conectar**.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **DC1\**[nombre de la cuenta de administrador local]
+- Nombre: **DC1**[nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -154,22 +159,22 @@ A continuación, configure DC1 como un controlador de dominio y servidor DNS par
 Una vez reiniciado DC1, vuelva a conectar la máquina virtual de DC1.
 
 1.	En la página de máquinas virtuales del Portal de administración de Azure, haga clic en **En ejecución** en la columna **Estado** de la máquina virtual de DC1.
-2.	En la barra de tareas, haga clic en **Conectar**. 
+2.	En la barra de tareas, haga clic en **Conectar**.
 3.	Cuando se le pida que abra DC1.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
-- Nombre: **CORP\**[nombre de la cuenta de administrador local]
+- Nombre: **CORP**[nombre de la cuenta de administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando se lo solicite un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
 A continuación, cree una cuenta de usuario en Active Directory que se utilizará al iniciar sesión en equipos miembros del dominio corporativo. Ejecute estos comandos uno a uno en un símbolo del sistema de Windows PowerShell con nivel de administrador.
- 
-	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false 
+
+	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 Tenga en cuenta que el primer comando genera un símbolo del sistema para proporcionar la contraseña de la cuenta User1. Puesto que esta cuenta se utilizará para las conexiones a escritorio remotos para todos los equipos de miembros de dominio CORP, elija una contraseña segura. Para comprobar su robustez, consulte [Comprobador de contraseñas: uso de contraseñas seguras](https://www.microsoft.com/security/pc-security/password-checker.aspx). Registre la contraseña de la cuenta User1 y almacénela en una ubicación segura.
 
-Vuelva a conectarse a la máquina virtual DC1 con la cuenta CORP\User1.
+Vuelva a conectarse a la máquina virtual DC1 con la cuenta CORP\\User1.
 
 A continuación, para permitir el tráfico de la herramienta Ping, ejecute este comando en un símbolo de Windows PowerShell con nivel de administrador.
 
@@ -189,12 +194,12 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for APP1."
 	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name APP1 -InstanceSize Small -ImageName $image 
+	$vm1=New-AzureVMConfig -Name APP1 -InstanceSize Small -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-A continuación, conéctese a la máquina virtual APP1 con las credenciales CORP\User1 y abra un símbolo de Windows PowerShell de nivel de administrador.
+A continuación, conéctese a la máquina virtual APP1 con las credenciales CORP\\User1 y abra un símbolo de Windows PowerShell de nivel de administrador.
 
 Para comprobar la comunicación de red y la resolución de nombres entre APP1 y DC1, ejecute el comando **ping dc1.corp.contoso.com** y compruebe que haya cuatro respuestas.
 
@@ -222,23 +227,23 @@ En primer lugar, proporcione el nombre del servicio en la nube y ejecute estos c
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for CLIENT1."
 	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name CLIENT1 -InstanceSize Small -ImageName $image 
+	$vm1=New-AzureVMConfig -Name CLIENT1 -InstanceSize Small -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-A continuación, conéctese a la máquina virtual CLIENT1 con las credenciales CORP\User1.
+A continuación, conéctese a la máquina virtual CLIENT1 con las credenciales CORP\\User1.
 
 Para comprobar la comunicación de la red y la resolución de nombres entre CLIENT1 y DC1, ejecute el comando **ping dc1.corp.contoso.com** en un símbolo del sistema de Windows PowerShell y compruebe que hay cuatro respuestas.
 
 A continuación, compruebe que puede tener acceso a recursos compartidos de archivos y web en APP1 de CLIENT1.
 
-1.	En el Administrador de servidores, en el panel de árbol, haga clic en **Servidor Local**. 
+1.	En el Administrador de servidores, en el panel de árbol, haga clic en **Servidor Local**.
 2.	En **Propiedades de CLIENT1**, haga clic en **Activo** al lado de **Configuración de seguridad mejorada de IE**.
 3.	En **Configuración de seguridad mejorada de IE**, haga clic en **Desactivar** para **Administradores** y **Usuarios** y, a continuación, haga clic en **Aceptar**.
 4.	En la pantalla Inicio, haga clic en **Internet Explorer** y, a continuación, en **Aceptar**.
 5.	En la barra de direcciones, escriba **http://app1.corp.contoso.com/** y, a continuación, presione ENTRAR. Debe ver la página web de Internet Information Services de forma predeterminada para APP1. 6.	En la barra de tareas del escritorio, haga clic en el icono Explorador de archivos.
-7.	En la barra de direcciones, escriba **\\app1\Files** y, a continuación, presione ENTRAR.
+7.	En la barra de direcciones, escriba **\\\\app1\\Files** y, a continuación, presione ENTRAR.
 8.	Debería ver una ventana de carpeta con el contenido de la carpeta compartida Archivos.
 9.	En la ventana de carpeta compartida **Archivos** , haga doble clic en el archivo **Example.txt**. Debería ver el contenido del archivo Example.txt.
 10.	Cierre las ventanas de carpetas compartidas **Example.tx - Bloc de notas** y **Archivos**.
@@ -247,19 +252,20 @@ Se trata de la configuración final.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
-La configuración básica de Azure ahora está lista para entornos de pruebas y desarrollo de aplicaciones o para entornos de prueba adicionales, como el [entorno de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+La configuración básica de Azure ahora está lista para entornos de desarrollo y prueba de aplicaciones o para entornos de prueba adicionales, como el [entorno de nube híbrida simulada](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 
 ## Recursos adicionales
 
 [Entornos de prueba de nube híbrida](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
- 
+[Entorno de prueba de la configuración básica con el Administrador de recursos de Azure](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
 ## <a id="costs"></a>Reducción del costo de las máquinas virtuales del entorno de prueba en Azure
 
 Para minimizar el costo de ejecutar las máquinas virtuales de entorno de prueba, puede realizar una de las acciones siguientes:
 
 - Crear el entorno de prueba y realizar las pruebas y demostraciones necesarias lo más rápido posible. Cuando haya finalizado, elimine las máquinas virtuales del entorno de prueba.
-- Apagar sus máquinas virtuales del entorno de prueba en un estado desasignado. 
+- Apagar sus máquinas virtuales del entorno de prueba en un estado desasignado.
 
 Para cerrar las máquinas virtuales con Azure PowerShell, escriba el nombre del servicio en la nube y ejecute estos comandos.
 
@@ -273,7 +279,7 @@ Para asegurarse de que las máquinas virtuales funcionan correctamente al inicia
 
 1.	DC1
 2.	APP1
-3.	CLIENT1 
+3.	CLIENT1
 
 Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el nombre del servicio en la nube y ejecute estos comandos.
 
@@ -281,6 +287,5 @@ Para iniciar las máquinas virtuales en orden con Azure PowerShell, escriba el n
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

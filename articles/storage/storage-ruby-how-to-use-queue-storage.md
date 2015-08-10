@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -51,7 +51,7 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 
 ## Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de entorno **AZURE_STORAGE_ACCOUNT** y **AZURE_STORAGE_ACCESS_KEY** para obtener información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::QueueService** con el siguiente código:
+El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY** para obtener información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::QueueService** con el siguiente código:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -69,7 +69,7 @@ El siguiente código crea un objeto **Azure::QueueService**, que permite trabaja
 
 	azure_queue_service = Azure::QueueService.new
 
-Utilice el método **create_queue()** para crear una cola con el nombre especificado.
+Utilice el método **create\_queue()** para crear una cola con el nombre especificado.
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,13 +79,13 @@ Utilice el método **create_queue()** para crear una cola con el nombre especifi
 
 ## Inserción de un mensaje en una cola
 
-Para insertar un mensaje en una cola, utilice el método **create_message()** para crear un nuevo mensaje y agregarlo a la cola.
+Para insertar un mensaje en una cola, utilice el método **create\_message()** para crear un nuevo mensaje y agregarlo a la cola.
 
 	azure_queue_service.create_message("test-queue", "test message")
 
 ## Inspección del siguiente mensaje
 
-Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, llamando al método **peek_messages()**. De forma predeterminada, **peek_messages()** ojea un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
+Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, llamando al método **peek\_messages()**. De forma predeterminada, **peek\_messages()** ojea un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -94,11 +94,11 @@ Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo d
 
 Puede borrar un mensaje de una cola en dos pasos.
 
-1. Al llamar a **list_messages()**, obtiene, de forma predeterminada, el siguiente mensaje en una cola También puede indicar cuántos mensajes desea obtener. Los mensajes devueltos por **list_messages()** se hacen invisibles para cualquier otro código que lea mensajes de esta cola. Usted proporciona el tiempo de espera de la visibilidad en segundos a modo de parámetro.
+1. Al llamar a **list\_messages()**, obtiene, de forma predeterminada, el siguiente mensaje en una cola También puede indicar cuántos mensajes desea obtener. Los mensajes devueltos por **list\_messages()** se hacen invisibles para cualquier otro código que lea mensajes de esta cola. Usted proporciona el tiempo de espera de la visibilidad en segundos a modo de parámetro.
 
-2. Para terminar quitando el mensaje de la cola, también debe llamar a **delete_message()**.
+2. Para terminar quitando el mensaje de la cola, también debe llamar a **delete\_message()**.
 
-Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **delete_message()** justo después de que se haya procesado el mensaje.
+Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **delete\_message()** justo después de que se haya procesado el mensaje.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -106,7 +106,7 @@ Este proceso de extracción de un mensaje que consta de dos pasos garantiza que 
 
 ## Cambio del contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola. El código siguiente usa el método **update_message()** para actualizar un mensaje. Este método devolverá una tupla que contiene la recepción de confirmación del mensaje en cola y un valor de fecha y hora UTC que representa el momento en que el mensaje estará visible en la cola.
+Puede cambiar el contenido de un mensaje local en la cola. El código siguiente usa el método **update\_message()** para actualizar un mensaje. Este método devolverá una tupla que contiene la recepción de confirmación del mensaje en cola y un valor de fecha y hora UTC que representa el momento en que el mensaje estará visible en la cola.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -121,7 +121,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola.
 
 2. En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
 
-El siguiente ejemplo de código utiliza el método **list_messages()** para obtener 15 mensajes en una llamada. A continuación, imprime y elimina cada mensaje. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
+El siguiente ejemplo de código utiliza el método **list\_messages()** para obtener 15 mensajes en una llamada. A continuación, imprime y elimina cada mensaje. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -131,14 +131,14 @@ El siguiente ejemplo de código utiliza el método **list_messages()** para obte
 
 ## Obtención de la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en la cola. El método **get_queue_metadata()** solicita al servicio de colas que devuelva el recuento aproximado de mensajes y metadatos sobre la cola.
+Puede obtener una estimación del número de mensajes existentes en la cola. El método **get\_queue\_metadata()** solicita al servicio de colas que devuelva el recuento aproximado de mensajes y metadatos sobre la cola.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## Eliminación de una cola
 
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete_queue()** en el objeto de cola.
+Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete\_queue()** en el objeto de cola.
 
 	azure_queue_service.delete_queue("test-queue")
 
@@ -153,4 +153,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

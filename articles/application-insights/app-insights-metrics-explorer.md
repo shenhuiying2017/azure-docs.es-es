@@ -179,8 +179,13 @@ Lo que se muestra es lo que se exporta. Cambie los filtros o el intervalo de tie
 
 *Actualmente, la función de exportación funciona solo para Internet Explorer y Chrome. Estamos trabajando para incluir compatibilidad con otros exploradores.*
 
+### Exportación continua
+
 Si desea que los datos se exporten continuamente para procesarlos externamente, puede usar la función de [exportación continua](app-insights-export-telemetry.md).
 
+### Power BI
+
+Si desea obtener vistas todavía más sofisticadas de los datos, puede [exportarlos a Power BI](app-insights-export-power-bi.md).
 
 ## Pasos siguientes
 
@@ -196,4 +201,4 @@ Si desea que los datos se exporten continuamente para procesarlos externamente, 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -149,16 +149,16 @@ Estos tipos se admiten en una fórmula:
 - cadena
 - timestamp
 - timeinterval
-	- TimeInterval_Zero
-	- TimeInterval_100ns
-	- TimeInterval_Microsecond
-	- TimeInterval_Millisecond
-	- TimeInterval_Second
-	- TimeInterval_Minute
-	- TimeInterval_Hour
-	- TimeInterval_Day
-	- TimeInterval_Week
-	- TimeInterval_Year
+	- TimeInterval\_Zero
+	- TimeInterval\_100ns
+	- TimeInterval\_Microsecond
+	- TimeInterval\_Millisecond
+	- TimeInterval\_Second
+	- TimeInterval\_Minute
+	- TimeInterval\_Hour
+	- TimeInterval\_Day
+	- TimeInterval\_Week
+	- TimeInterval\_Year
 
 ### Operaciones
 
@@ -359,8 +359,8 @@ Estos métodos que pueden usarse para obtener datos de ejemplo.
           <li><p><b>doubleVec GetSample(double count)</b>: especifica el número de ejemplos necesario de los ejemplos más recientes.</p>
 				  <p>Un ejemplo tiene un valor de 5 segundos de datos de métrica. GetSample(1) devuelve el último ejemplo disponible, pero para las métricas como $CPUPercent no debe usarlo porque no es posible saber cuándo se recopiló el ejemplo. Puede ser reciente, o debido a los problemas del sistema, puede ser mucho más antiguo. Es mejor usar un intervalo de tiempo como se muestra a continuación.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>: especifica un plazo de tiempo para recopilar datos de ejemplo y especifica opcionalmente el porcentaje de ejemplos que debe haber en el intervalo solicitado.</p>
-          <p>$CPUPercent.GetSample(TimeInterval_Minute*10), debería devolver 200 ejemplos si todos los ejemplos para los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto de historial aún no está presente, se devuelven solo 180 ejemplos.</p>
-					<p>$CPUPercent.GetSample(TimeInterval_Minute*10, 80) se realiza con éxito y se produce un error en $CPUPercent.GetSample(TimeInterval_Minute*10,95).</p></li>
+          <p>$CPUPercent.GetSample(TimeInterval\_Minute*10), debería devolver 200 ejemplos si todos los ejemplos para los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto de historial aún no está presente, se devuelven solo 180 ejemplos.</p>
+					<p>$CPUPercent.GetSample(TimeInterval\_Minute*10, 80) se realiza con éxito y se produce un error en $CPUPercent.GetSample(TimeInterval_Minute*10,95).</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>: especifica un período para recopilar datos con una hora de inicio y una hora de finalización.</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@ Las métricas que pueden definirse en una fórmula.
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>Este ejemplo muestra una fórmula que se usa para establecer el número de nodos de ejecución en el grupo al 110&#160;% del número de destino actual de nodos si el uso medio de la CPU mínimo de los últimos 10 minutos es superior al 70&#160;%:</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
     <p>Este ejemplo muestra una fórmula que se usa para establecer el número de nodos de ejecución en el grupo al 90&#160;% del número de destino actual de nodos si el uso medio de la CPU de los últimos 60 minutos es inferior al 20&#160;%:</p>
-    <p><b>¿totaltvms = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) &lt; 0.2)? ($CurrentDedicated \ * 0,9): totalTVMs;</b></p>
+    <p><b>¿totaltvms = (avg($CPUPercent.GetSample(TimeInterval\_Minute*60)) &lt; 0.2)? ($CurrentDedicated \ * 0,9): totalTVMs;</b></p>
     <p>Este ejemplo establece el número de destino de los nodos de cálculo dedicado a un máximo de 400:</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@ Las métricas que pueden definirse en una fórmula.
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>Este ejemplo muestra una fórmula que detecta si el 70&#160;% de las muestras se han registrado en los últimos 15 minutos. Si no es así, utiliza el último ejemplo. Intenta aumentar el número de nodos de ejecución para que coincida con el número de tareas activas, con un máximo de 3. Establece el número de nodos a un cuarto del número de tareas activas porque la propiedad MaxTasksPerVM del grupo se establece en 4. También establece la opción de cancelación de asignación en "taskcompletion" para mantener el equipo hasta que finalicen las tareas.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@ Debe comprobar periódicamente los resultados de las ejecuciones de escalado aut
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx): este cmdlet obtiene el archivo RDP del nodo de ejecución especificado y lo guarda en la ubicación del archivo especificada o en una transmisión.
 2.	Algunas aplicaciones generan grandes cantidades de datos que pueden ser difíciles de procesar. Una manera de resolver esto es a través de una [consulta de lista eficiente](batch-efficient-list-queries.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

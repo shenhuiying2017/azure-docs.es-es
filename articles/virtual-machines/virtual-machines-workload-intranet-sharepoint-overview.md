@@ -5,20 +5,21 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Implementación de SharePoint con grupos de disponibilidad AlwaysOn de SQL Server en Azure
 
-Este tema contiene vínculos a las instrucciones detalladas para implementar una granja de servidores de SharePoint 2013 solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server en servicios de infraestructura de Azure. La granja de servidores contiene estos equipos:
+Este tema contiene vínculos a las instrucciones detalladas para implementar una granja de servidores de SharePoint 2013 solo de intranet con grupos de disponibilidad AlwaysOn de SQL Server con administración de servicios de Azure. La granja de servidores contiene estos equipos:
 
 - Dos servidores web de SharePoint
 - Dos servidores de aplicaciones de SharePoint
@@ -69,4 +70,4 @@ Para iniciar la configuración de esta carga de trabajo, vaya a [Fase 1: Configu
 
 [Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

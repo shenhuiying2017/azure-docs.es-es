@@ -155,4 +155,4 @@ Para continuar utilizando Azure AD Connect Health, consulte [Requisitos de Azure
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

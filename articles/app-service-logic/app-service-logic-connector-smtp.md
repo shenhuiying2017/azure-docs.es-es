@@ -91,7 +91,7 @@ Cree las aplicaciones de API mediante las API de REST. Consulte [Referencia sobr
 
 También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
 
-<!--Image references-->
+	<!--Image references-->
 [1]: ./media/app-service-logic-connector-smtp/img1.PNG
 [2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
@@ -99,4 +99,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

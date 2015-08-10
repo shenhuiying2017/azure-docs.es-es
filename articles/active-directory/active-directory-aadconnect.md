@@ -100,7 +100,9 @@ Antes de instalar Azure AD Connect con Configuración rápida, hay algunas cosas
  
 - Una suscripción de Azure o una [suscripción de prueba de Azure](http://azure.microsoft.com/pricing/free-trial/): solo es necesario para el acceso al Portal de Azure, no para usar Azure AD Connect. Si usa PowerShell u Office 365 no es necesario utilizar una suscripción de Azure para usar Azure AD Connect.
 - Una cuenta de administrador global de Azure AD para el inquilino de Azure AD con el que desea realizar la integración
-- Un controlador de dominio de AD o un servidor miembro con Windows Server 2008 o posterior
+- Azure AD Connect debe instalarse en Windows Server 2008 o en una versión superior. Este servidor puede ser un controlador de dominio o un servidor miembro.
+- El nivel de bosque y la versión del esquema de AD debe ser Windows Server 2003 o una versión posterior. Los controladores de dominio pueden ejecutar cualquier versión siempre que se cumplan los requisitos de nivel de bosque y esquema.
+- Si se va a implementar Servicios de federación de Active Directory, los servidores en los que se va a instalar AD FS deben ser Windows Server 2012 o versiones posteriores.
 - Una cuenta de administrador de empresa para su Active Directory local
 - Opcional: una cuenta de usuario de prueba para comprobar la sincronización. 
 
@@ -110,11 +112,11 @@ La tabla siguiente muestra los requisitos mínimos de un equipo con Azure AD Con
 | Cantidad de objetos en Active Directory | CPU | Memoria | Tamaño de disco duro |
 | ------------------------------------- | --- | ------ | --------------- |
 | Menos de 10.000 | 1,6 GHz | 4 GB | 70 GB |
-| 10.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50.000–100.000 | 1,6 GHz | 16 GB | 100 GB* |
+| 10\.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB* |
 | Para 100.000 o más objetos, se requiere la versión completa de SQL Server| | | |
-| 100.000–300.000 | 1,6 GHz | 32 GB | < 300 GB |
-| 300.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
+| 100\.000–300.000 | 1,6 GHz | 32 GB | < 300 GB |
+| 300\.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
 | Más de 600.000 | 1,6 GHz | 32 GB | 500 GB |
 
 
@@ -181,8 +183,8 @@ Ahora que los usuarios se han sincronizado a la nube, debe asignarlos una licenc
 1. Inicie sesión en el Portal de Azure como administrador.
 2. En la parte izquierda, seleccione **Active Directory**.
 3. En la página Active Directory, haga doble clic en el directorio que tiene los usuarios que desea habilitar.
-4. En la parte superior de la página del directorio, seleccione **Licencias**.
-5. En la página Licencias, seleccione Active Directory Premium o Enterprise Mobility Suite y luego haga clic en **Asignar**.
+4. En la parte superior de la página de directorios, seleccione **Licencias**.
+5. En la página Licencias, seleccione Active Directory Premium o Enterprise Mobility Suite y, a continuación, haga clic en **Asignar**.
 6. En el cuadro de diálogo, seleccione los usuarios a los que desee asignar las licencias y, a continuación, haga clic en el icono de marca de verificación para guardar los cambios.
 
 
@@ -245,6 +247,8 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md): supervise el estado de su infraestructura de AD FS local.
 
+[P+F de Azure D Connect](active-directory-aadconnect-faq.md): preguntas más frecuentes sobre Azure AD Connect.
+
 
 
 
@@ -252,4 +256,4 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

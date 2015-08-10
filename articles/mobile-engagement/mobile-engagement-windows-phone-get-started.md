@@ -35,7 +35,7 @@ Este tutorial requiere lo siguiente:
 + Visual Studio 2013
 + El [SDK de Windows Phone para Mobile Engagement]
 
-> [AZURE.IMPORTANT]La finalización de este tutorial es un requisito previo de todos los demás tutoriales de Mobile Engagement para aplicaciones de Windows Phone Silverlight y, para completarlo, debe disponer de una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.IMPORTANT]La finalización de este tutorial es un requisito previo de todos los demás tutoriales de Mobile Engagement para aplicaciones de Windows Phone Silverlight y, para completarlo, debe disponer de una cuenta activa de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
 
 ##<a id="setup-azme"></a>Configure Mobile Engagement para su aplicación Windows Phone Silverlight
 
@@ -238,4 +238,4 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

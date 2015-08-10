@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #Codificación de contenido a petición con Servicios multimedia de Azure
@@ -26,7 +26,7 @@ Servicios multimedia admite los codificadores siguientes:
 
 - [Media Encoder Estándar](#media_encoder_standard)
 - [Codificador multimedia de Azure](#azure_media_encoder)
-- [Flujo de trabajo de Media Encoder Premium](#media_encoder_premium_workflow) (vista previa pública)
+- [Flujo de trabajo del Codificador multimedia](#media_encoder_premium_workflow)
 
 En la [siguiente sección](#compare_encoders) se comparan las capacidades de codificación de los codificadores admitidos.
 
@@ -61,7 +61,7 @@ Codifique con **Azure Media Encoder** mediante el **Portal de administración de
 [Codificación de elementos multimedia con Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md): explica cómo codificar pistas de audio con codificación Dolby Digital Plus.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>Flujo de trabajo de Media Encoder Premium (vista previa)
+##<a id="media_encoder_premium_wokrflow"></a>Flujo de trabajo premium del Codificador multimedia 
 
 **Nota** El procesador multimedia del flujo de trabajo del Codificador multimedia Premium que se trata en este tema no está disponible en China.
 
@@ -195,4 +195,4 @@ Códecs de audio de salida
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

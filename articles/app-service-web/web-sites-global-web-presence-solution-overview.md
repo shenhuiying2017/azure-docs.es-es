@@ -35,7 +35,7 @@ Cree rápidamente sitios nuevos a partir de un CMS popular en la galería o apro
 
 Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
-Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git]: local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Publicar de manera confiable
 
@@ -65,7 +65,7 @@ Entregue el contenido estático a los usuarios de manera muy rápida globalmente
 
 Optimice su sitio .COM al escalar de manera automática con Autoescala, almacenar en caché con Caché en Redis de Azure, ejecutar tareas en segundo plano con WebJobs y mantener la alta disponibilidad con Administrador de tráfico de Azure.
 
-La capacidad que las Aplicaciones web del Servicio de aplicaciones tienen para [escalar vertical y horizontalmente] satisface la necesidad de su sitio .COM, independientemente del tamaño de la carga de trabajo. Escale horizontalmente el sitio web de manera manual mediante el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), programáticamente mediante la [API de administración de servicios] o [Scripting de PowerShell] o de manera automática, mediante la característica Autoescala. En el plan de hospedaje **Estándar**, la característica Autoescala le permite escalar horizontalmente un sitio web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
+La capacidad que las Aplicaciones web del Servicio de aplicaciones tienen para [escalar vertical y horizontalmente] satisface la necesidad de su sitio .COM, independientemente del tamaño de la carga de trabajo. Escale horizontalmente el sitio web de manera manual mediante el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), programáticamente mediante la [API de administración de servicios] o [Scripting de PowerShell] o de manera automática, mediante la característica Autoescala. En el plan de hospedaje **Estándar**, la característica Autoescala le permite escalar horizontalmente un sitio web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
 
 Haga que su sitio web tenga mayor capacidad de respuesta con [Caché en Redis de Azure]. Utilícelo para almacenar datos en caché desde bases de datos de back-end y otros aspectos, como el [estado de sesiones de ASP.NET] y la [caché de resultados].
 
@@ -140,4 +140,4 @@ Haga que su sitio .COM sea atractivo con medios enriquecidos, como:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

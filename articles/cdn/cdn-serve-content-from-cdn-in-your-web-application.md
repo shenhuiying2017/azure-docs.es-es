@@ -165,7 +165,7 @@ Si desea cargar fácilmente todo el contenido estático a su aplicación web de 
 		cd <ProjectFolder>
 		.\UploadContentToAzureBlobs.ps1 -StorageAccount "<yourStorageAccountName>" -StorageContainer "<yourContainerName>"
 
-Este script carga todos los archivos desde las carpetas *\Content* y *\Scripts* en la cuenta y contenedor de almacenamiento especificados. Tiene las ventajas siguientes:
+Este script carga todos los archivos desde las carpetas *\\Content* y *\\Scripts* en la cuenta y contenedor de almacenamiento especificados. Tiene las ventajas siguientes:
 
 -	Replicar automáticamente la estructura del archivo de su proyecto de Visual Studio
 -	Crear automáticamente contenedores de blobs cuando se necesite
@@ -174,7 +174,7 @@ Este script carga todos los archivos desde las carpetas *\Content* y *\Scripts* 
 
 Para el parámetro `-StorageContainer`, tiene sentido utilizar el nombre de la aplicación web, o el nombre del proyecto de Visual Studio. Aunque he utilizado el "cdn" genérico como el nombre anterior del contenedor, si se utiliza el nombre de la aplicación web, se permite que el contenido relacionado se organice en el mismo contenedor fácilmente identificable.
 
-Cuando el contenido haya finalizado la carga, puede vincularlo a cualquier elemento de su carpeta *\Content* y *\Scripts* en el código HTML, como en sus archivos .cshtml, mediante `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Este es un ejemplo de algo que puedo usar en una vista Razor:
+Cuando el contenido haya finalizado la carga, puede vincularlo a cualquier elemento de su carpeta *\\Content* y *\\Scripts* en el código HTML, como en sus archivos .cshtml, mediante `http://<yourCDNName>.vo.msecnd.net/<containerName>`. Este es un ejemplo de algo que puedo usar en una vista Razor:
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
@@ -218,9 +218,9 @@ Por supuesto, hay un tiempo y un lugar para el almacenamiento en caché. Por eje
 <a name="query"></a>
 ## Entrega inmediata de contenido nuevo mediante cadenas de consulta ##
 
-En la red CDN de Azure, puede habilitar cadenas de consulta de tal forma que el contenido de URL con cadenas de consulta específicas se almacenen en caché de forma independiente. Esto es una excelente característica que puede utilizar si desea insertar inmediatamente determinadas actualizaciones de contenido a los exploradores de cliente en lugar que el contenido de la red CDN en caché expire. Supongamos que publico mi página web con un número de versión en la URL. <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>"; rel=";stylesheet";/&gt; </pre>
+En la red CDN de Azure, puede habilitar cadenas de consulta de tal forma que el contenido de URL con cadenas de consulta específicas se almacenen en caché de forma independiente. Esto es una excelente característica que puede utilizar si desea insertar inmediatamente determinadas actualizaciones de contenido a los exploradores de cliente en lugar que el contenido de la red CDN en caché expire. Supongamos que publico mi página web con un número de versión en la URL. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
-Cuando publico una actualización de CSS y utilizo un número de versión diferente en mi dirección URL de CSS: <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>"; rel=";stylesheet";/&gt; </pre>
+Cuando publico una actualización de CSS y utilizo un número de versión diferente en mi dirección URL de CSS: <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
 Para un extremo de red de CDN con cadenas de consulta habilitadas, las dos URL son únicas y se realizará una nueva solicitud a mi servidor web para recuperar el nuevo *bootstrap.css*. Sin embargo, en un extremo de red de CDN que no tenga cadenas de consulta habilitadas, son las mismas URL y simplemente entregarán el *bootstrap.css* en caché.
 
@@ -228,9 +228,9 @@ El truco aquí consiste en actualizar el número de versión de manera automáti
 
 ...
 
-&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>"; rel=";stylesheet";/&gt; </pre>
+&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
-Si cambia el número de ensamblado como parte de cada ciclo de publicación, puede asegurarse igualmente de obtener un número de versión único cada vez que publique su aplicación web, que permanecerá igual hasta el siguiente ciclo de publicación. O bien, puede hacer que Visual Studio incremente automáticamente el número de versión de ensamblado cada vez que la aplicación web se crea abriendo *Properties\AssemblyInfo.cs* en su proyecto de Visual Studio y utilizar `*` en `AssemblyVersion`. Por ejemplo:
+Si cambia el número de ensamblado como parte de cada ciclo de publicación, puede asegurarse igualmente de obtener un número de versión único cada vez que publique su aplicación web, que permanecerá igual hasta el siguiente ciclo de publicación. O bien, puede hacer que Visual Studio incremente automáticamente el número de versión de ensamblado cada vez que la aplicación web se crea abriendo *Properties\\AssemblyInfo.cs* en su proyecto de Visual Studio y utilizar `*` en `AssemblyVersion`. Por ejemplo:
 
 	[assembly: AssemblyVersion("1.0.0.*")]
 
@@ -261,4 +261,4 @@ Sin la integración con Aplicaciones web del Servicio de aplicaciones de Azure o
 - [Uso de la red CDN en Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

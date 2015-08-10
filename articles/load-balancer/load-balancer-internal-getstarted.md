@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # Introducción a la configuración de un equilibrador de carga interno
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 El equilibrio de carga interno (ILB) de Azure proporciona equilibrio de carga entre las máquinas virtuales que residen dentro de un servicio en la nube o en una red virtual con un ámbito regional. Para obtener información sobre el uso y la configuración de redes virtuales con un ámbito regional, consulte [Redes virtuales regionales](../regional-virtual-networks.md) en el blog de Azure. Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB.
 
@@ -230,7 +234,7 @@ La configuración de ILB debe establecerse durante la creación de la primera im
 
 ### Paso 1
 
-Abra el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agregue la siguiente sección para crear ILB en el último elemento "</Role>" para la configuración de red.
+Abra el archivo de configuración de servicio (.cscfg) para la implementación en la nube en Visual Studio y agregue la siguiente sección para crear ILB en el último elemento "`</Role>`" para la configuración de red.
 
 
 
@@ -244,7 +248,7 @@ Abra el archivo de configuración de servicio (.cscfg) para la implementación e
 	</NetworkConfiguration>
  
 
-Vamos a agregar los valores para que el archivo de configuración de red muestre su aspecto. En el ejemplo, supongamos que creó una subred que se llama "test_vnet" con una subred 10.0.0.0/24 denominada test_subnet y una dirección IP estática 10.0.0.4. El equilibrador de carga se denominará testLB.
+Vamos a agregar los valores para que el archivo de configuración de red muestre su aspecto. En el ejemplo, supongamos que creó una subred que se llama "test\_vnet" con una subred 10.0.0.0/24 denominada test\_subnet y una dirección IP estática 10.0.0.4. El equilibrador de carga se denominará testLB.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -331,4 +335,4 @@ Para obtener información adicional sobre los cmdlets de ILB, ejecute los siguie
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN
@@ -35,9 +35,11 @@ La propia aplicación API web no cambia aquí: no difiere de las aplicaciones AP
 
 ## Configurar una aplicación API web
 
-Empiece por crear un nuevo servicio sin estado en Visual Studio 2015:
+Empiece por crear una nueva aplicación, con un servicio único sin estado en Visual Studio 2015:
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![Crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![Crear un servicio sin estado único](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 Esto nos proporciona un servicio sin estado vacío en el que se va a hospedar la aplicación API web. Vamos a configurar la aplicación desde el principio para ver cómo se ensambla.
 
@@ -47,11 +49,11 @@ El primer paso es extraer algunos paquetes de NuGet para la API web. El paquete 
 
 Con los paquetes instalados, podremos empezar a crear la estructura de proyecto de API web básica. Si ha utilizado la API Web, la estructura del proyecto le resultará muy familiar. Comience por crear los directorios de la API web básicos:
 
- + App_Start
+ + App\_Start
  + Controladores
  + Modelos
 
-Agregue las clases básicas de configuración de API web en el directorio App_Start:
+Agregue las clases básicas de configuración de API web en el directorio App\_Start:
 
  + FormatterConfig.cs
 
@@ -334,7 +336,7 @@ La dirección URL del servidor web se configurará aquí. Para ello, necesita do
 
 Antes de tomar un puerto para el servidor web, es importante comprender que Service Fabric proporciona una capa de aplicación que actúa como un búfer entre la aplicación y el sistema operativo subyacente en el que se ejecuta. Como tal, Service Fabric proporciona una manera de configurar *extremos* para los servicios. Service Fabric se encarga de asegurarse de que el extremo está disponible para ser utilizado por su servicio para que no tenga que configurarlo usted mismo con el entorno de sistema operativo subyacente. Esto permite hospedar fácilmente la aplicación de Service Fabric en diferentes entornos sin tener que realizar ningún cambio en la aplicación (por ejemplo, puede hospedar la misma aplicación en Azure o en su propio centro de datos).
 
-Configurar un extremo HTTP en PackageRoot\ServiceManifest.xml:
+Configurar un extremo HTTP en PackageRoot\\ServiceManifest.xml:
 
 ```xml
 
@@ -611,6 +613,5 @@ En ASP.NET 5, el concepto y modelo de programación de separar la *aplicación* 
 ## Pasos siguientes
 
 [Depuración de la aplicación de Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 La administración de la identidad es igual de importante en la nube pública que en las instalaciones locales. Para ayudar en esto, Azure es compatible con diferentes tecnologías de identidad en la nube. Entre ellas se incluyen las siguientes:
 
-- Puede ejecutar Windows Server Active Directory (conocido normalmente como AD) en la nube con máquinas virtuales creadas con Máquinas virtuales de Azure. Este enfoque es recomendable cuando usa Azure para ampliar el centro de datos local en la nube.
+- Puede ejecutar Windows Server Active Directory (conocido normalmente como AD) en la nube con máquinas virtuales creadas con máquinas virtuales de Azure. Este enfoque es recomendable cuando usa Azure para ampliar el centro de datos local en la nube.
 
 - Puede usar Azure Active Directory para proporcionar a los usuarios un inicio de sesión único en aplicaciones de Software como servicio (SaaS). Por ejemplo, Microsoft Office 365 usa esta tecnología y las aplicaciones que se ejecutan en Azure u otras plataformas en la nube también pueden usarla.
 
@@ -118,4 +118,4 @@ Trabajar con identidades es importante en prácticamente cualquier aplicación. 
 
 David Chappell es el director de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) en San Francisco (California).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

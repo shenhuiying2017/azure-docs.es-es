@@ -529,4 +529,4 @@ La siguiente captura de pantalla muestra el esquema usado para crear el índice 
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

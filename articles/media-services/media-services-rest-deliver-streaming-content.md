@@ -13,18 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Entrega de contenido de streaming
 
-Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en directo de Servicios multimedia](media-services-live-streaming-workflow.md).
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##Información general
 
 
-Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Antes de crear un localizador, debe configurar la directiva de entrega de recursos, tal como se describe en [este](media-services-rest-configure-asset-delivery-policy.md) tema.
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-rest-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. Si el contenido está cifrado, configure la directiva de entrega de activos (como se describe en [este](media-services-rest-configure-asset-delivery-policy.md)tema) antes de crear un localizador.
 
 También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.
 
@@ -37,7 +40,7 @@ En la sección [siguiente](#types) se muestran los tipos de enumeración cuyos v
 Para crear el localizador de streaming a petición y obtener las direcciones URL, deberá hacer lo siguiente:
 
 
-   1. Defina una directiva de acceso.
+   1. Si se cifra el contenido, defina una directiva de acceso.
    2. Cree un localizador de streaming a petición.
    3. Si planea transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso. 
    		
@@ -175,4 +178,4 @@ ejemplo:
         OnDemandOrigin = 2,
     } 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

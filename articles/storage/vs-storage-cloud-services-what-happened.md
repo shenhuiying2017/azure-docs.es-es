@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # ¿Qué le ha ocurrido a mi proyecto?
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
 > - [What Happened](vs-storage-cloud-services-what-happened.md)
 
-###<span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</span>
+###¿Qué le ha ocurrido a mi proyecto?</span>
 
 ###### Se han agregado referencias.
 
@@ -46,4 +46,4 @@ Se han creado elementos con la cadena y la clave de conexión de la cuenta de al
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

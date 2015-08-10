@@ -44,7 +44,7 @@ En Inicio rápido, obtenga el script para páginas web:
 
 Inserte el script justo antes de la etiqueta &lt;/head&gt; de cada página de la que quiera realizar el seguimiento. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo:
 
-* En un proyecto de ASP.NET MVC, lo colocaría en View\Shared\_Layout.cshtml.
+* En un proyecto de ASP.NET MVC, lo colocaría en View\\Shared\\\_Layout.cshtml.
 * En un sitio de SharePoint, en el panel de control, abra [Configuración del sitio/Página maestra](app-insights-sharepoint.md).
 
 El script contiene la clave de instrumentación que dirige los datos al recurso de Application Insights.
@@ -149,7 +149,8 @@ Seleccione el evento que desea ver con mayor detalle. En la página de detalles,
 
 ¿Desea averiguar qué hacen los usuarios con su aplicación? Mediante la inserción de llamadas en el código de cliente y servidor, puede enviar su propia telemetría a Application Insights. Por ejemplo, podría averiguar el número de usuarios que crean pedidos sin completarlos o qué errores de validación aparecen con más frecuencia, o el promedio de puntuación en un juego.
 
-[Más información sobre la API de eventos y métricas personalizados][track].
+* [Más información sobre la API de eventos y métricas personalizados][track].
+* [Referencia de API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Telemetría de servidor
 
@@ -177,8 +178,8 @@ Si no lo ha hecho aún, puede obtener información de su servidor y mostrar los 
 [java]: app-insights-java-get-started.md
 [new]: app-insights-create-new-resource.md
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

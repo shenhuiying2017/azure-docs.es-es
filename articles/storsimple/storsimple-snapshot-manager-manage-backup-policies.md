@@ -118,4 +118,4 @@ Use el procedimiento siguiente para eliminar una directiva de copia de seguridad
 
 [Uso de Administrador de instantáneas StorSimple para ver y administrar trabajos de copia de seguridad](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

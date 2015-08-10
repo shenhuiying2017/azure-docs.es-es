@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Jim-Parker"
    manager="jwhit"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+   editor=""/>
+ <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Descarga, instalación y registro del agente de Copia de seguridad de Azure
 Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un agente en cada uno de sus servidores locales (Windows Server, el cliente de Windows o el servidor de System Center Data Protection Manager) que le permite crear copias de seguridad de datos y aplicaciones en Azure. Este artículo describe los pasos necesarios para configurar el agente de Copia de seguridad de Azure de un servidor de Windows o de una máquina cliente de Windows.
@@ -55,4 +56,4 @@ Después de crear el almacén de Copia de seguridad de Azure, debe instalarse un
 ## Pasos siguientes
 - Consulte [Programar copias de seguridad](backup-azure-backup-and-recover.md) para obtener información sobre la creación de copias de seguridad de datos y aplicaciones en Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

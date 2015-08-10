@@ -243,9 +243,6 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 
 
-
-[azure-management-portal]: https://manage.windowsazure.com/
-
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: ../hdinsight-get-started.md
@@ -264,4 +261,4 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

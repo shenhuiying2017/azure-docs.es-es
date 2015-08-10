@@ -107,12 +107,12 @@ Al desarrollar un script personalizado para un clúster de HDInsight, hay varios
 
 - Asegurarse de que el script de personalización del clúster es idempotente
 
-	Debe esperar que se vuelve a crear una imagen de los nodos de un clúster de HDInsight durante la vigencia del clúster. El script de personalización de clústeres se ejecuta siempre que se vuelve a crear la imagen de un clúster. Este script debe estar diseñado para ser idempotente en el sentido de que tras restablecer la imagen inicial, el script debe asegurarse de que el clúster se devuelve al mismo estado personalizado en que se encontraba cuando se ejecutó el script por primera vez cuando se creó inicialmente el clúster. Por ejemplo, si un script personalizado instaló una aplicación en D:\AppLocation en su primera ejecución, en cada ejecución posterior, al restablecer la imagen inicial, el script debe comprobar si la aplicación existe en la ubicación D:\AppLocation antes de continuar con otros pasos del script.
+	Debe esperar que se vuelve a crear una imagen de los nodos de un clúster de HDInsight durante la vigencia del clúster. El script de personalización de clústeres se ejecuta siempre que se vuelve a crear la imagen de un clúster. Este script debe estar diseñado para ser idempotente en el sentido de que tras restablecer la imagen inicial, el script debe asegurarse de que el clúster se devuelve al mismo estado personalizado en que se encontraba cuando se ejecutó el script por primera vez cuando se creó inicialmente el clúster. Por ejemplo, si un script personalizado instaló una aplicación en D:\\AppLocation en su primera ejecución, en cada ejecución posterior, al restablecer la imagen inicial, el script debe comprobar si la aplicación existe en la ubicación D:\\AppLocation antes de continuar con otros pasos del script.
 
 
 - Instalación de componentes personalizados en la ubicación óptima
 
-	Cuando se restablece la imagen inicial de los nodos del clúster, es posible volver a dar formato a la unidad del recurso C:\ y a la unidad de sistema D:\, lo que genera la pérdida de datos y aplicaciones que se han instalado en esas unidades. Esto también podría ocurrir si un nodo de la máquina virtual de Azure que forma parte del clúster deja de funcionar y se reemplaza por un nuevo nodo. Puede instalar los componentes en la unidad D:/ o en la ubicación C:\apps del clúster. Todas las demás ubicaciones en la unidad C:\ están reservadas. Especifique la ubicación donde las aplicaciones o bibliotecas se van a instalar en el script de personalización del clúster.
+	Cuando se restablece la imagen inicial de los nodos del clúster, es posible volver a dar formato a la unidad del recurso C:\\ y a la unidad de sistema D:\\, lo que genera la pérdida de datos y aplicaciones que se han instalado en esas unidades. Esto también podría ocurrir si un nodo de la máquina virtual de Azure que forma parte del clúster deja de funcionar y se reemplaza por un nuevo nodo. Puede instalar los componentes en la unidad D:/ o en la ubicación C:\\apps del clúster. Todas las demás ubicaciones en la unidad C:\\ están reservadas. Especifique la ubicación donde las aplicaciones o bibliotecas se van a instalar en el script de personalización del clúster.
 
 
 - Asegurar una alta disponibilidad de la arquitectura de clúster
@@ -161,7 +161,7 @@ A menudo, en el desarrollo de acciones de script, sentirá la necesidad de estab
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Esta instrucción establece la variable de entorno **MDS_RUNNER_CUSTOM_CLUSTER** en el valor "true", además de definir el ámbito de esta variable para que se aplique en todo el equipo. En algunas ocasiones es importante que las variables de entorno se definan en el ámbito correspondiente: máquina o usuario. Consulte [aquí][1] para obtener más información sobre cómo establecer las variables de entorno.
+Esta instrucción establece la variable de entorno **MDS\_RUNNER\_CUSTOM\_CLUSTER** en el valor "true", además de definir el ámbito de esta variable para que se aplique en todo el equipo. En algunas ocasiones es importante que las variables de entorno se definan en el ámbito correspondiente: máquina o usuario. Consulte [aquí][1] para obtener más información sobre cómo establecer las variables de entorno.
 
 ### Acceso a ubicaciones donde se almacenan los scripts personalizados
 
@@ -201,7 +201,7 @@ Estos son los pasos que se llevaron a cabo al prepararse para implementar estos 
 2. Agregue comprobaciones en secuencias de comandos para asegurarse de que se ejecutan de manera idempotente, para que la secuencia de comandos se pueda ejecutar varias veces en el mismo nodo.
 3. Use el cmdlet **Write-Output** de Azure PowerShell para imprimir en STDOUT y en STDERR. No utilice **Write-Host**.
 4. Use una carpeta de archivo temporal, como $env:TEMP, para conservar el archivo descargado que usan los scripts y, a continuación, limpie una vez que se ejecuten los scripts.
-5. Instale el software personalizado solo en D:\ o en C:\apps. No deben usarse otras ubicaciones de la unidad C: ya que están reservadas. Tenga en cuenta que instalar archivos en la unidad C fuera de la carpeta C:\apps puede generar errores de instalación durante el restablecimiento de la imagen inicial del nodo.
+5. Instale el software personalizado solo en D:\\ o en C:\\apps. No deben usarse otras ubicaciones de la unidad C: ya que están reservadas. Tenga en cuenta que instalar archivos en la unidad C fuera de la carpeta C:\\apps puede generar errores de instalación durante el restablecimiento de la imagen inicial del nodo.
 6. En el caso de que los archivos de configuración de servicio de Hadoop o la configuración en el nivel de SO hayan cambiado, es posible que desee reiniciar los servicios de HDInsight para que puedan escoger cualquier configuración en el nivel de SO, tal como las variables de entorno definidas en los scripts.
 
 
@@ -239,9 +239,9 @@ Tenga en cuenta que, en algunos casos, un script personalizado puede depender re
 
 ## Depuración de scripts personalizados
 
-Se almacenan los registros de errores de scripts, junto con otros resultados, en la cuenta de almacenamiento predeterminada que ha especificado para el clúster en su creación. Los registros se almacenan en una tabla con el nombre *u<\cluster-name-fragment><\time-stamp>setuplog*. Estos son registros agregados que tienen registros de todos los nodos (el nodo principal y los nodos de trabajo) en los que se ejecuta el script en el clúster.
+Se almacenan los registros de errores de scripts, junto con otros resultados, en la cuenta de almacenamiento predeterminada que ha especificado para el clúster en su creación. Los registros se almacenan en una tabla con el nombre *u<\\cluster-name-fragment><\\time-stamp>setuplog*. Estos son registros agregados que tienen registros de todos los nodos (el nodo principal y los nodos de trabajo) en los que se ejecuta el script en el clúster.
 
-También puede conectarse de manera remota con los nodos del clúster para ver tanto STDOUT como STDERR de los scripts personalizados. Los registros de cada nodo son específicos solo para ese nodo y se registran en **C:\HDInsightLogs\DeploymentAgent.log**. Estos archivos de registro registran todas las salidas del script personalizado. Un fragmento de código de registro de ejemplo para una acción de script de Spark tiene este aspecto:
+También puede conectarse de manera remota con los nodos del clúster para ver tanto STDOUT como STDERR de los scripts personalizados. Los registros de cada nodo son específicos solo para ese nodo y se registran en **C:\\HDInsightLogs\\DeploymentAgent.log**. Estos archivos de registro registran todas las salidas del script personalizado. Un fragmento de código de registro de ejemplo para una acción de script de Spark tiene este aspecto:
 
 	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
 	Version : 2.1.0.0; 
@@ -304,4 +304,4 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

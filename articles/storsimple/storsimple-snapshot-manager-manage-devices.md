@@ -152,7 +152,7 @@ Utilice el procedimiento siguiente para ver los detalles de un dispositivo de St
 
 3. En el panel **Resultados**, haga clic con el botón derecho en el nombre del dispositivo y, a continuación, haga clic en **Detalles**.
 
-4.Aparecerá el cuadro de diálogo **Detalles del dispositivo**. Este cuadro muestra el nombre, modelo, versión, número de serie, estado, nombre calificado iSCSI (IQN) de destino y última fecha y hora de sincronización.
+4\.Aparecerá el cuadro de diálogo **Detalles del dispositivo**. Este cuadro muestra el nombre, modelo, versión, número de serie, estado, nombre calificado iSCSI (IQN) de destino y última fecha y hora de sincronización.
 
    - Haga clic en **Resincronizar** para sincronizar el dispositivo.
 
@@ -238,7 +238,7 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 
 3. Quitar la información de configuración relacionada con el dispositivo anterior:
 
-    1. En el Explorador de archivos, vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog. 
+    1. En el Explorador de archivos, vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog. 
 
     2. Elimine los archivos de la carpeta BACatalog.
 
@@ -262,4 +262,4 @@ Si un dispositivo StorSimple falla y se sustituye por un dispositivo en espera (
 
 [Uso de Administrador de instantáneas para ver y administrar volúmenes StorSimple](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

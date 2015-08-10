@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Configuración de una conexión de red virtual sitio a sitio | Microsoft Azure"
+   pageTitle="Creación de una red virtual con una conexión VPN sitio a sitio mediante el Portal de administración | Microsoft Azure"
    description="Cree una red virtual con una conexión VPN de sitio a sitio para configuraciones entre entornos e híbridas."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="adinah"
-   editor=""/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,12 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/23/2015"
    ms.author="cherylmc"/>
 
-# Configuración de una red virtual con una conexión VPN sitio a sitio
+# Creación de una red virtual con una conexión VPN sitio a sitio mediante el Portal de administración
+
+> [AZURE.SELECTOR]
+- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Puede conectar su ubicación local a una red virtual mediante la creación de una conexión VPN de sitio a sitio. Este procedimiento le guiará a través de la creación de una red virtual y la creación de una conexión VPN de sitio a sitio entre la red virtual recién creada y su ubicación local.
+
+Actualmente, Azure tiene dos modos de administración: Administración de servicios de Azure y el Administrador de recursos de Azure (ARM). La instalación de sitio a sitio es diferente, dependiendo del modo en que se creó la red virtual. Estas instrucciones se aplican la administración de servicios de Azure. Si en lugar de ello, desea crear una conexión VPN de sitio a sitio de Administrador de recursos de Azure, consulte [Creación una conexión VPN de sitio a sitio mediante el Administrador de recursos de Azure y PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md).
 
 
 ## Antes de comenzar
@@ -89,4 +96,4 @@ Puede agregar máquinas virtuales a la red virtual. Consulte [Creación de una m
 Si desea configurar una conexión VNet mediante RRAS, consulte [Configurar una conexión VPN sitio a sitio mediante el Servicio de enrutamiento y acceso remoto (RRAS) de Windows Server 2012](https://msdn.microsoft.com/library/dn636917.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

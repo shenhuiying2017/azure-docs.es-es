@@ -33,8 +33,40 @@ Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activ
 
 Los archivos de flujo de trabajo predeterminados pueden modificarse con la herramienta de diseñador. Puede obtener los archivos de flujo de trabajo predeterminados [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
 
-El blog siguiente ofrece vídeos de aprendizaje sobre cómo usar el diseñador:
+Los vídeos siguientes muestran cómo usar el diseñador.
+
+###Día 1 – Introducción
+
+El vídeo del día 1 trata de:
+
+- Información general del diseñador
+- Flujos de trabajo básicos: "Hello World"
+- Creación de varios archivos MP4 de salida para usarlos con streaming de Servicios multimedia de Azure
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
+
+###Día 2
+
+El vídeo del día 2 trata de:
+
+- Diversos escenarios de archivo de código fuente: control del audio
+- Flujos de trabajo con lógica avanzada
+- Fases de gráfico
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-2]
+
+###Día 3
+
+El vídeo del día 3 trata de:
+
+- Scripting dentro de los flujos de trabajo y planos
+- Restricciones con el codificador actual
+- Preguntas y respuestas
+ 
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
+
+##Otras referencias
 
 [Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/) (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

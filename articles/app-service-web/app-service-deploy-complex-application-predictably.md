@@ -274,7 +274,7 @@ Con los pasos de esta sección se consigue lo siguiente:
 2.	Creación de un archivo de parámetros con el archivo de plantilla
 3.	Implementación del archivo de plantilla con el archivo de parámetros
 
-El último paso se realiza fácilmente mediante un cmdlet de PowerShell. Para ver lo que Visual Studio hizo al implementar la aplicación, abra Scripts\Deploy-AzureResourceGroup.ps1. Hay una gran cantidad de código, pero solo voy a resaltar todo el código pertinente que necesita para implementar el archivo de plantilla con el archivo de parámetros.
+El último paso se realiza fácilmente mediante un cmdlet de PowerShell. Para ver lo que Visual Studio hizo al implementar la aplicación, abra Scripts\\Deploy-AzureResourceGroup.ps1. Hay una gran cantidad de código, pero solo voy a resaltar todo el código pertinente que necesita para implementar el archivo de plantilla con el archivo de parámetros.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -304,4 +304,4 @@ Obtenga información sobre cómo [aplicar metodologías ágiles y publicar conti
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

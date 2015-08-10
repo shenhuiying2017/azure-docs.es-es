@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Application Insights: plataformas
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-#### ¿Se puede usar Application Insights con...?
 
 
 ## Idiomas
@@ -27,7 +25,7 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Tienda Windows)](app-insights-windows-get-started.md)
 + [C++ (Tienda Windows)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java.md)
++ [Java](../app-insights-java-get-started.md)
 + [Páginas web de JavaScript](app-insights-web-track-usage.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
@@ -44,6 +42,7 @@
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
@@ -73,4 +72,4 @@ Si no hay todavía un SDK para el lenguaje o plataforma, quizás desee crear uno
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

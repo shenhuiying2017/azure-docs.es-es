@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Consultas de lista eficaces" 
-	description="Aprenda cómo reducir la cantidad de información devuelta para cada elemento." 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Consultas de lista eficaces"
+	description="Aprenda cómo reducir la cantidad de información devuelta para cada elemento."
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Consultas de lista eficaces
@@ -80,4 +81,4 @@ Un [ExpandClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch
 
 > [AZURE.NOTE]Se recomienda que siempre utilice el filtro y seleccione cláusulas para las llamadas API de la lista para garantizar la máxima eficacia y el mejor rendimiento de su aplicación.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

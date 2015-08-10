@@ -28,8 +28,9 @@ En este artículo, aprenderá a crear sus propias herramientas de inteligencia e
 
 ## Requisitos previos ##
 
-* Cuenta de Microsoft Azure con Id. org. (Power BI solo funciona con Id. org.). Id. org. es la dirección de correo electrónico de su trabajo o empresa; por ejemplo, xyz@mycompany.com. Los mensajes de correo electrónico personales, como xyz@hotmail.com, no son Id. org. Puede obtener más información acerca del identificador de organización [aquí](https://msdn.microsoft.com/subscriptions/dn531048.aspx); también existe un documento de preguntas más frecuentes que se puede descargar desde [aquí](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409).
+* Cuenta de Microsoft Azure
 * Una entrada de la que el trabajo de Análisis de transmisiones pueda consumir datos de streaming. Análisis de transmisiones acepta entradas de Centros de eventos de Azure o de Almacenamiento de blobs de Azure.  
+* Identificación de organización de Microsoft Power BI
 
 ## Creación de un trabajo de Análisis de transmisiones de Azure ##
 
@@ -49,7 +50,7 @@ Haga clic en **Análisis de transmisiones** en el panel izquierdo para ver una l
 
 ## Especificación de la entrada del trabajo ##
 
-Para este tutorial, se supone que está utilizando el centro de eventos como una entrada con codificación utf-8 y serialización JSON.
+Para este tutorial, se supone que está usando el centro de eventos como una entrada con codificación UTF-8 y serialización JSON.
 
 * Haga clic en el nombre del trabajo.
 * Haga clic en **Entradas** en la parte superior de la página y luego haga clic en **Agregar entrada**. El cuadro de diálogo que se abre le guiará a través de una serie de pasos para configurar la entrada.
@@ -63,7 +64,7 @@ Para este tutorial, se supone que está utilizando el centro de eventos como una
 > [AZURE.NOTE]En este ejemplo se utiliza el número predeterminado de particiones, que es 16.
 
 * **Nombre de centro de eventos**: seleccione el nombre del centro de eventos de Azure que tiene.
-* **Nombre de directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está utilizando. Asegúrese de que esta directiva tiene permisos de administración.
+* **Nombre de directiva de centro de eventos**: seleccione la directiva del centro de eventos para el centro de eventos que está usando. Asegúrese de que esta directiva tiene permisos de administración.
 *	**Grupo de consumidores del centro de eventos** : puede especificar un grupo de consumidores que tiene en el centro de eventos o dejarlo en blanco. Tenga en cuenta que cada grupo de consumidores de un centro de eventos solo puede tener 5 lectores a la vez. Por tanto, decida el grupo de consumidores adecuado para su trabajo según corresponda. Si deja el campo en blanco, usará el grupo de consumidores predeterminado.
 
 *	Haga clic con el botón secundario.
@@ -78,14 +79,15 @@ Para este tutorial, se supone que está utilizando el centro de eventos como una
 
 ![graphic2][graphic2]
 
-> [AZURE.NOTE]La salida de Power BI solo está disponible para cuentas de Azure que usan identificadores de organización. Si no está utilizando ningún Id. org. para su cuenta de Azure (por ejemplo, su live id / cuenta personal de Microsoft), no verá una opción de salida de Power BI.
-
 2.  Seleccione **Power BI** y, a continuación, haga clic con el botón secundario.
 3.  Verá una pantalla similar a la siguiente:
 
 ![graphic3][graphic3]
 
-4.  En este paso, debe tener cuidado de utilizar el mismo identificador de organización que utiliza para el trabajo de Análisis de transmisiones. En este punto, la salida de Power BI tiene que utilizar el mismo identificador de organización que usa el trabajo de Análisis de transmisiones. Si ya tiene una cuenta de Power BI con el mismo Id. org., seleccione "Autorizar ahora". Si no es así, elija "Regístrese ahora" y utilice el mismo Id. org. como su cuenta de Azure al registrarse para Power BI. [Aquí hay un buen blog que recorre los detalles de registro de Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  En este paso, proporcione un identificador de organización para la salida del trabajo de Análisis de transmisiones. Si ya tiene una cuenta de Power BI, seleccione **Autorizar ahora**. Si no, elija **Registrarse ahora**. [Aquí hay un buen blog que recorre los detalles de registro de Power BI](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+
+![graphic11][graphic11]
+
 5.  A continuación verá una pantalla similar a la siguiente:
 
 ![graphic4][graphic4]
@@ -96,11 +98,11 @@ Proporcione valores como sigue:
 * **Nombre del conjunto de datos**: proporcione un nombre del conjunto de datos que desea que tenga la salida de Power BI. Por ejemplo, vamos a usar "pbidemo".
 *	**Nombre de tabla**: proporcione un nombre de tabla en el conjunto de datos de la salida de Power BI. Supongamos que lo llamamos "pbidemo". Actualmente, la salida de Power BI de trabajos de Análisis de transmisiones solo puede tener una tabla en un conjunto de datos.
 
->	[AZURE.NOTE] No debe crear explícitamente este conjunto de datos y esta tabla en su cuenta de Power BI. Se crearán automáticamente cuando empiece su trabajo de Análisis de transmisiones y el trabajo comience a producir salidas en Power BI. Si el trabajo no devuelve resultados, no se creará el conjunto de datos ni la tabla.
+>	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
 
 *	Haga clic en **Aceptar**, **Probar conexión**; ahora la configuración de la salida ha finalizado.
 
->	[AZURE.WARNING] Tenga en cuenta asimismo que si Power BI ya cuenta con un conjunto de datos y una tabla con el mismo nombre que el proporcionado en este trabajo de Análisis de transmisiones, se sobrescribirán los datos existentes.
+>	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
 
 
 ## Escritura de una consulta ##
@@ -165,8 +167,7 @@ Power BI emplea restricciones tanto de simultaneidad como de rendimiento, tal co
 
 Gracias a ello Power BI se hace de forma natural con los casos en los que Análisis de transmisiones de Azure realiza una reducción considerable de la carga de datos. Se recomienda usar TumblingWindow o HoppingWindow para asegurarse de que la inserción de datos sea como máximo de 1 inserción/segundo, y de que la consulta acaba dentro de los requisitos de rendimiento; puede usar la siguiente ecuación para calcular el valor que se debe asignar a la ventana en segundos:![ecuación 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
 
-Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):
-![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+Por ejemplo: si tiene 1.000 dispositivos enviando datos cada segundo, está en Power BI Pro SKU que admite 1.000.000 de filas/hora, y desea obtener la media de datos por dispositivo en Power BI, puede usar como mucho una inserción cada 4 segundos por dispositivo (como se muestra a continuación):![ecuación 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 Lo que significa que se cambiaría la consulta original a:
 
@@ -186,7 +187,7 @@ Lo que significa que se cambiaría la consulta original a:
 
 
 ## Obtener ayuda ##
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes ##
 
@@ -207,6 +208,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 [graphic8]: ./media/stream-analytics-power-bi-dashboard/8-stream-analytics-power-bi-dashboard.png
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
- 
+[graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

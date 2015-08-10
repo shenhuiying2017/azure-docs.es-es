@@ -127,4 +127,4 @@ Puede usar el menú **Ayuda** para ver la Ayuda en línea disponible para Admini
 
 [Obtener más información acerca de la interfaz de usuario de Administrador de instantáneas StorSimple](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

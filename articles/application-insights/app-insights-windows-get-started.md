@@ -23,8 +23,8 @@
 
 Application Insights de Visual Studio permite supervisar una aplicación activa en cuanto a:
 
-* [**Uso**][windowsUsage] : sepa cuántos usuarios tiene y qué hacen con su aplicación.
-* [**Bloqueos**][windowsCrash] : obtenga informes de diagnóstico de bloqueos y comprenda el impacto de estos sobre los usuarios.
+* [**Uso**][windowsUsage] \: sepa cuántos usuarios tiene y qué hacen con su aplicación.
+* [**Bloqueos**][windowsCrash] \: obtenga informes de diagnóstico de bloqueos y comprenda el impacto de estos sobre los usuarios.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@ Necesitará:
 * Una suscripción a [Microsoft Azure][azure].
 * Visual Studio 2013 o posterior.
 
-## 1. Creación de recursos en Application Insights 
+## 1\. Creación de recursos en Application Insights 
 
 En el [portal de Azure][portal], cree un nuevo recurso de Application Insights.
 
@@ -50,7 +50,7 @@ La clave identifica el recurso. La necesitará pronto para configurar el SDK par
 ![Abra el espacio de la lista desplegable de Essentials y seleccione la clave de instrumentación](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. Incorporación del SDK de Application Insights a las aplicaciones
+## 2\. Incorporación del SDK de Application Insights a las aplicaciones
 
 En Visual Studio, agregue el SDK adecuado a su proyecto.
 
@@ -66,18 +66,20 @@ Si es una aplicación universal de Windows, repita los pasos para el proyecto de
 
 3. Seleccione **Application Insights para aplicaciones de Windows**.
 
-4. Agregue un archivo ApplicationInsights.config a la raíz de la solución e inserte la clave de instrumentación que copió de arriba. A continuación se muestra un archivo XML de ejemplo para este archivo de configuración. **Asegúrese de que la opción Acción de compilación del archivo ApplicationInsights.config está establecida en "Contenido" y la opción Copiar en el directorio de resultados, en "Copiar siempre"**.
+4. Agregue un archivo ApplicationInsights.config a la raíz del proyecto e inserte la clave de instrumentación que copió del portal. A continuación se muestra un archivo XML de ejemplo para este archivo de configuración.
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    Defina las propiedades del archivo ApplicationInsights.config: **Acción de generación** == **Contenido** y **Copiar en el directorio de resultados** == **Copiar siempre**.
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. Agregue el código de inicialización siguiente. Se recomienda agregar este código al constructor `App()`. Si no se realiza esta inicialización en el constructor de la aplicación, se puede perder la colección automática inicial de vistas de página.
+5. Agregue el código de inicialización siguiente. Es más conveniente agregar este código al constructor `App()`. Si lo hace en otro lugar, podría perder la recopilación automática de las primeras vistas de página.
 
 ```C#
 	public App()
@@ -227,4 +229,4 @@ Cuando se [lanza una nueva versión de SDK](app-insights-release-notes-windows.m
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

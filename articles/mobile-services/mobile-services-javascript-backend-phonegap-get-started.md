@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción a los Servicios móviles con PhoneGap | Centro de desarrollo móvil"
+	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones PhoneGap/Cordova"
 	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de PhoneGap para iOS, Android y Windows Phone."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="07/21/2015"
 	ms.author="ggailey777"/>
 
 # Introducción a Servicios móviles
@@ -76,7 +76,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 	+ **Windows Phone 8**
 
-		1. Abra el archivo .sln de la carpeta **platforms\wp8** en Visual Studio 2012 Express para Windows Phone.
+		1. Abra el archivo .sln de la carpeta **platforms\\wp8** en Visual Studio 2012 Express para Windows Phone.
 
 		2. Presione la tecla **F5** para recopilar el proyecto e iniciar la aplicación.
 
@@ -171,4 +171,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

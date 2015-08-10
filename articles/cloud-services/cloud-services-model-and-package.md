@@ -206,8 +206,8 @@ Para implementar una aplicación como un servicio en la nube de Azure, primero d
 ###### Ubicación de la herramienta CSPack (en Windows)
 | Versión del SDK | Ruta de acceso |
 | ----------- | ---- |
-| 1.7+ | C:\Archivos de programa\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\ |
-| &lt;1.6 | C:\Archivos de programa\Azure SDK\[sdk-version]\bin\ |
+| 1\.7+ | C:\\Archivos de programa\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
+| &lt;1.6 | C:\\Archivos de programa\\Azure SDK\\[sdk-version]\\bin\\ |
 
 >[AZURE.NOTE]CSPack.exe (en Windows) está disponible cuando se ejecuta el acceso directo del **símbolo del sistema de Microsoft Azure ** que se instala con el SDK.
 >  
@@ -274,4 +274,4 @@ Estoy usando Visual Studio y quiero...
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/es-es/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

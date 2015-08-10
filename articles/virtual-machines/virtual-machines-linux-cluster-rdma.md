@@ -137,7 +137,7 @@ Guarde la clave pública en una ubicación predeterminada y recuerde la frase de
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-En el directorio /.ssh edite o cree el archivo ssh_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure:
+En el directorio \~/.ssh, edite o cree el archivo ssh\_config. Proporcione el intervalo de direcciones IP de la red privada que va a usar en Azure:
 
 ```
 host 10.32.0.*
@@ -256,9 +256,7 @@ private ip address2:16
 Puede ejecutar los siguientes comandos de MPI Intel para comprobar la configuración del clúster mediante una prueba comparativa de pingpong.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0
-
-/opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
 Debería ver un resultado similar al siguiente en un clúster de trabajo con dos nodos:
@@ -341,4 +339,4 @@ Debería ver un resultado similar al siguiente en un clúster de trabajo con dos
 
 * Consulte la [documentación de la biblioteca de Intel MPI](https://software.intel.com/es-es/articles/intel-mpi-library-documentation/) para obtener orientación sobre Intel MPI.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

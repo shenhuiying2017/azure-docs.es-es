@@ -122,7 +122,7 @@ La sección **Diagnósticos del sitio** de la página de administración **Confi
 
 Después de habilitar los diagnósticos para una aplicación web, haga clic en el icono **Guardar** en la parte inferior de la página de administración **Configurar** para aplicar las opciones que definió.
 
-> [AZURE.IMPORTANT]El registro y el seguimiento plantean exigencias importantes sobre una aplicación web. Recomendamos desactivar el registro y el seguimiento una vez que haya reproducido los problemas que se están solucionando.
+> [AZURE.IMPORTANT]Mensajes de error detallados y Seguimiento de solicitudes con error plantean exigencias importantes sobre una aplicación web. Recomendamos desactivar estas características una vez que haya reproducido los problemas que se están solucionando.
 
 ### Configuración avanzada ###
 
@@ -277,4 +277,4 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

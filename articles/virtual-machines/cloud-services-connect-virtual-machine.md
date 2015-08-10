@@ -18,8 +18,8 @@
 	ms.author="kathydav"/>
 
 
-# Cómo conectar máquinas virtuales con una red virtual o un servicio de nube
+# Cómo conectar máquinas virtuales con un servicio de nube o red virtual
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

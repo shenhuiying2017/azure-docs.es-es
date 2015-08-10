@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Administración de contenido con Servicios multimedia de Azure con el Portal de administración de Azure
 
-Este artículo forma parte de la serie [Flujo de trabajo del vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md).
 
 En este tema se muestra cómo usar el Portal de administración de Azure para administrar contenido multimedia en su cuenta de Servicios multimedia.
 
@@ -35,6 +34,9 @@ En este tema se muestra cómo realizar las siguientes operaciones de contenido d
 
 
 ##<a id="upload"></a>Carga de contenido 
+
+
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 
 1. En el [Portal de administración](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de cuenta de Servicios multimedia.
@@ -57,6 +59,10 @@ Si el valor del tamaño del archivo no se actualiza después de que se detenga e
 
 ##<a id="index"></a>Indización de contenido
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-index-content.md)
+- [Portal](media-services-manage-content.md#index)
+
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede indizar el contenido mediante el Portal de administración, para ello siga los pasos que se muestran a continuación. Sin embargo, si desea más control sobre qué archivos y cómo se va a realizar el trabajo de indización, puede utilizar el SDK de Servicios multimedia para las API .NET o REST. Para obtener más información, consulte [Indización de archivos multimedia con el Indizador multimedia de Azure](media-services-index-content.md).
 
 Los pasos siguientes muestran cómo usar el Portal de administración para indizar el contenido.
@@ -69,6 +75,11 @@ Los pasos siguientes muestran cómo usar el Portal de administración para indiz
 	![Proceso][process]
 
 ##<a id="encode"></a>Codificación de contenido
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Servicios multimedia proporciona un codificador multimedia que le permite especificar cómo desea que su contenido se codifique (por ejemplo, los códecs que se van a utilizar, el formato de archivo, la resolución y la velocidad de bits).
 
@@ -131,6 +142,11 @@ Si desea que Servicios multimedia cifre el recurso de forma dinámica con una cl
 	Una vez habilitado el cifrado, siempre que un reproductor solicita una secuencia, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido con cifrado AES o PlayReady. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
 ##<a id="publish"></a>Publicación de contenido
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-deliver-streaming-content.md)
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ###Información general
 
@@ -198,4 +214,4 @@ Se aplican algunas consideraciones:
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

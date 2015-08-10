@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
 
 
-# Escenarios para la Tecnología y procesos de análisis avanzado (ADAPT) en Aprendizaje automático de Azure
+# Escenarios para análisis avanzado en Aprendizaje automático de Azure
 
 En este artículo se describen los distintos escenarios de orígenes y destinos de datos de ejemplo que se pueden administrar con la Tecnología y procesos de análisis avanzado (ADAPT) en Aprendizaje automático de Azure. Muestra las opciones disponibles en las secuencias de procesamiento en función de las características de datos, la ubicación de origen y los repositorios de destino de Azure.
 
@@ -316,4 +316,4 @@ Para los tutoriales de Aprendizaje automático de Azure completos que emplean la
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

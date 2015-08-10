@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de servicio en la nube)
@@ -27,165 +27,97 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Para obtener más información, consulte [Uso del almacenamiento en cola en .NET](storage-dotnet-how-to-use-queues.md/ "Uso del almacenamiento en cola en .NET").
+El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
 
-En este artículo se muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en código C# y utilizan el cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear y eliminar colas**.
+En este artículo se describe cómo empezar a usar el almacenamiento de tablas de Azure en Visual Studio después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en un proyecto de servicios en la nube mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión para la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
-## almacenamiento de cola mediante programación
+Para comenzar, necesita crear una cola de Azure en la cuenta de almacenamiento. Le mostraremos cómo crear una cola desde el **Explorador de servidores** de Visual Studio. Si lo prefiere, también le mostraremos cómo crear una cola en el código.
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
 
-### Declaraciones de espacio de nombres
-Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al almacenamiento de Azure mediante programación:
+##Creación de colas en el Explorador de servidores
+[AZURE.INCLUDE [vs-create-queue-in-server-explorer](../../includes/vs-create-queue-in-server-explorer.md)]
 
-    using Microsoft.Azure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Queue;
+##Acceso a colas en el código
 
-Asegúrese de hacer referencia al ensamblado `Microsoft.WindowsAzure.Storage.dll`.
+Para obtener acceso a las colas en los proyectos de ASP.NET, debe incluir los elementos siguientes en los archivos de origen C# que tengan acceso al almacenamiento de colas de Azure.
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
+1. Asegúrese de que las declaraciones de espacio de nombres de la parte superior del archivo C# incluyen estas instrucciones `using`.
 
-[AZURE.INCLUDE [storage-dotnet-odatalib-dependencies](../../includes/storage-dotnet-odatalib-dependencies.md)]
+		using Microsoft.Framework.Configuration;
+		using Microsoft.WindowsAzure.Storage;
+		using Microsoft.WindowsAzure.Storage.Queue;
 
-## Creación de una cola
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de la cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene esta guía utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. También hay otras formas de crear un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount][] para obtener más información.
+		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de cola en la cuenta de almacenamiento.
 
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+	    // Create the table client.
+    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
-Use el objeto **queueClient** para obtener una referencia a la cola que desea usar. En caso de que la cola no exista todavía, es posible crearla.
+4. Obtenga un objeto **CloudQueue** para hacer referencia a una cola específica.
 
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+    	// Get a reference to a table named "messageQueue"
+	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
 
-    // Create the queue if it doesn't already exist
-    queue.CreateIfNotExists();
 
-## un mensaje en una cola
+**NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
 
-Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **CloudQueueMessage**. A continuación, llame al método **AddMessage**. Se puede crear un **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de **bytes**. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo":
+###Creación de una cola en código
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+Para crear la cola de Azure en código en lugar de hacerlo con el **Explorador de servidores** de Visual Studio, agregue una llamada a `CreateIfNotExists()`.
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+	// Create the CloudTable if it does not exist
+	queue.CreateIfNotExists();
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+##un mensaje a una cola
 
-    // Create the queue if it doesn't already exist.
-    queue.CreateIfNotExists();
+Para insertar un mensaje en una cola existente, cree un nuevo objeto **CloudQueueMessage** y luego llame al método AddMessage().
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    queue.AddMessage(message);
+Se puede crear un objeto **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
 
-## siguiente mensaje
+Este es un ejemplo que inserta el mensaje "Hello, World".
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **PeekMessage**.
+	// Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	// Create a message and add it to the queue.
+	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+	messageQueue.AddMessage(message);
 
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+##Leer un mensaje de una cola
 
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método PeekMessage().
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = queue.PeekMessage();
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
-	// Display message.
-	Console.WriteLine(peekedMessage.AsString);
+	// Peek at the next message
+    CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-## contenido de un mensaje en cola
+##Leer y eliminar un mensaje de una cola
 
-Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
+Su código puede quitar un mensaje de una cola en dos pasos. 1. Llame a GetMessage() para obtener el siguiente mensaje en una cola. Un mensaje devuelto por GetMessage() se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. 2. Para terminar de quitar el mensaje de la cola, llame a DeleteMessage1().
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a DeleteMessage() justo después de haber procesado el mensaje.
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+	// Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+	// Get the next message in the queue.
+	CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
-	// Get the message from the queue and update the message contents.
-    CloudQueueMessage message = queue.GetMessage();
-    message.SetMessageContent("Updated contents.") ;
-    queue.UpdateMessage(message, 
-        TimeSpan.FromSeconds(0.0),  // Make it visible immediately.
-        MessageUpdateFields.Content | MessageUpdateFields.Visibility);
+	// Process the message in less than 30 seconds
 
-## Eliminación de la cola del siguiente mensaje
+  	// Then delete the message.
+	await messageQueue.DeleteMessage(retrievedMessage);
 
-El código quita un mensaje de una cola en dos pasos. Si llama a **GetMessage**, obtiene el siguiente mensaje en una cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a **DeleteMessage**. Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **DeleteMessage** justo después de que se haya procesado el mensaje.
-
-    // Retrieve storage account from connection string
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the queue client
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-    // Retrieve a reference to a queue
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
-
-    // Get the next message
-    CloudQueueMessage retrievedMessage = queue.GetMessage();
-
-    //Process the message in less than 30 seconds, and then delete the message
-    queue.DeleteMessage(retrievedMessage);
-
-## Uso del patrón Async-Await con API de cola comunes
-
-En este ejemplo se muestra cómo usar el patrón Async-Await con API de cola comunes. El ejemplo llama a la versión asincrónica de cada uno de los métodos determinados, esto se puede ver en la corrección de Async posterior de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se complete la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para obtener más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
-
-    // Create the queue if it doesn't already exist
-    if(await queue.CreateIfNotExistsAsync())
-    {
-        Console.WriteLine("Queue '{0}' Created", queue.Name);
-    }
-    else
-    {
-        Console.WriteLine("Queue '{0}' Exists", queue.Name);
-    }
-
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
-
-    // Async enqueue the message
-    await queue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
-
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
-
-    // Async delete the message
-    await queue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
 
 ## Uso de opciones adicionales para quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **GetMessages** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **foreach**. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a **GetMessages**, todos los mensajes que no se han eliminado volverán a estar visibles.
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
     // Create the queue client.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -203,75 +135,51 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **FetchAttributes** solicita al servicio de cola la recuperación de los atributos de la cola, incluido el número de mensajes. La propiedad **ApproximateMethodCount** devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar al servicio de cola.
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
 	// Fetch the queue attributes.
-	queue.FetchAttributes();
+	messageQueue.FetchAttributes();
 
     // Retrieve the cached approximate message count.
-    int? cachedMessageCount = queue.ApproximateMessageCount;
+    int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 
 	// Display number of messages.
 	Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
+## Uso del patrón Async-Await con API de cola comunes
+
+En este ejemplo se muestra cómo usar el patrón Async-Await con API de cola comunes. El ejemplo llama a la versión asincrónica de cada uno de los métodos determinados, esto se puede ver en la corrección de Async posterior de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se complete la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para obtener más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
+
+    // Create a message to put in the queue
+    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+
+    // Async enqueue the message
+    await messageQueue.AddMessageAsync(cloudQueueMessage);
+    Console.WriteLine("Message added");
+
+    // Async dequeue the message
+    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
+    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+
+    // Async delete the message
+    await messageQueue.DeleteMessageAsync(retrievedMessage);
+    Console.WriteLine("Deleted message");
 ## Eliminación de una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **Delete** en el objeto de cola.
 
-    // Retrieve storage account from connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+    // Get a reference to the **CloudQueue** object named 'messageQueue' as described in "Access a queue in code"
 
     // Delete the queue.
-    queue.Delete();
+    messageQueue.Delete();
 
-## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-<ul>
-<li>Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Referencia de la biblioteca de clientes de almacenamiento para .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Referencia de API de REST</a></li>
-  </ul>
-</li>
-<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Almacenamiento de datos y acceso a los mismos en Azure</a>.</li>
-<li>Aprenda a simplificar el código que escriba para trabajar con <a href="../websites-dotnet-webjobs-sdk/">Almacenamiento de Azure mediante la SDK de WebJobs de Azure.</li>
-<li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-  <ul>
-    <li>Utilice <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Almacenamiento de tablas</a> para almacenar datos estructurados.</li>
-    <li>Use <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Almacenamiento de blobs</a> para almacenar datos no estructurados.</li>
-    <li>Utilice <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Base de datos SQL</a> para almacenar datos relacionales.</li>
-  </ul>
-</li>
-</ul>
+##Pasos siguientes
 
-  [Download and install the Azure SDK for .NET]: /develop/net/
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
-  [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-  [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
-  [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-  [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
+[AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
+			
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -31,7 +31,7 @@ Las estadísticas de columna única son objetos que contienen información sobre
 
 Las estadísticas de varias columnas son las estadísticas creadas en una lista de columnas. Incluyen las estadísticas de columna única en la primera columna de la lista, además de cierta información de correlación entre las columnas denominada densidades. Las estadísticas de varias columnas pueden mejorar el rendimiento de consulta para algunas operaciones, como las cláusulas compuestas Join y Group by.
 
-Para obtener más información, consulte [DBCC SHOW_STATISTICS][] en MSDN.
+Para obtener más información, consulte [DBCC SHOW\_STATISTICS][] en MSDN.
 
 ## ¿Por qué son necesarias las estadísticas?
 Sin estadísticas adecuadas, no se obtendrá el rendimiento previsto para el Almacenamiento de datos SQL. Las tablas y columnas y las columnas no tienen estadísticas generadas automáticamente por el Almacenamiento de datos SQL, por lo que tendrá que crearlas por su cuenta. Es conveniente crearlas después de crear la tabla y, a continuación, actualizaras cuando las ha rellenado.
@@ -152,13 +152,13 @@ Para crear estadísticas de varias columnas, simplemente use los ejemplos anteri
 
 > [AZURE.NOTE]El histograma, que se utiliza para calcular el número de filas en el resultado de la consulta, solo está disponible para la primera columna de la definición del objeto de estadísticas.
 
-En este ejemplo, el histograma se encuentra en *product_category*. Las estadísticas entre columnas se calculan en *product_category* y *product_sub_c\ategory*:
+En este ejemplo, el histograma se encuentra en *product\_category*. Las estadísticas entre columnas se calculan en *product\_category* y *product\_sub\_c\\ategory*:
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Dado que no hay una correlación entre *product_category* y *product_sub_category*, una estadística de varias columna puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
+Dado que no hay una correlación entre *product\_category* y *product\_sub\_category*, una estadística de varias columna puede ser útil si se tiene acceso a estas columnas al mismo tiempo.
 
 ### G. Crear estadísticas de todas las columnas de una tabla
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H. Utilizar un procedimiento almacenado para crear estadísticas de todas las columnas de una base de datos
 
-El Almacenamiento de datos SQL no tiene un procedimiento almacenado del sistema equivalente a [] [sp_create_stats] en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
+El Almacenamiento de datos SQL no tiene un procedimiento almacenado del sistema equivalente a [] [sp\_create\_stats] en SQL Server. Este procedimiento almacenado crea un objeto de estadísticas de columna única en todas las columnas de la base de datos que ya no tienen estadísticas.
 
 Esto le ayudará a empezar a trabajar con el diseño de la base de datos. Puede adaptarlo a sus necesidades.
 
@@ -325,9 +325,9 @@ Estas vistas del sistema proporcionan información acerca de las estadísticas:
 | [sys.objects][] | Una fila por cada objeto de la base de datos. | |
 | [sys.schemas][] | Una fila por cada esquema de la base de datos. | |
 | [sys.stats][] | Una fila por cada objeto de estadísticas. |
-| [sys.stats_columns][] | Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
+| [sys.stats\_columns][] | Una fila por cada columna del objeto de estadísticas. Vínculos a la sys.columns. |
 | [sys.tables][] | Una fila por cada tabla (incluye tablas externas). |
-| [sys.table_types][] | Una fila por cada tipo de datos. |
+| [sys.table\_types][] | Una fila por cada tipo de datos. |
 
 
 ### Funciones del sistema para las estadísticas
@@ -335,12 +335,12 @@ Estas funciones del sistema son útiles para trabajar con las estadísticas:
 
 | Función del sistema | Descripción |
 | :-------------- | :---------- |
-| [STATS_DATE][] | Fecha en que se actualizó por última vez el objeto de estadísticas. |
-| [DBCC SHOW_STATISTICS][] | Proporciona información resumida de nivel y detallada acerca de la distribución de valores según lo entiende el objeto de estadísticas. |
+| [STATS\_DATE][] | Fecha en que se actualizó por última vez el objeto de estadísticas. |
+| [DBCC SHOW\_STATISTICS][] | Proporciona información resumida de nivel y detallada acerca de la distribución de valores según lo entiende el objeto de estadísticas. |
 
 ### Combinar funciones y columnas de estadísticas en una vista
 
-Esta vista agrupa columnas relacionadas con las estadísticas y resulta de la función [STATS_DATE()][].
+Esta vista agrupa columnas relacionadas con las estadísticas y resulta de la función [STATS\_DATE()][].
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## Ejemplos de DBCC SHOW_STATISTICS()
+## Ejemplos de DBCC SHOW\_STATISTICS()
 
-DBCC SHOW_STATISTICS() muestra los datos contenidos en un objeto de estadísticas. Estos datos se presentan en tres partes.
+DBCC SHOW\_STATISTICS() muestra los datos contenidos en un objeto de estadísticas. Estos datos se presentan en tres partes.
 
 1. Encabezado
 2. Vector de densidad
@@ -402,7 +402,7 @@ Por ejemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Mostrar una o varias partes de DBCC SHOW_STATISTICS();
+### Mostrar una o varias partes de DBCC SHOW\_STATISTICS();
 
 Si sólo está interesado en ver partes específicas, use la cláusula `WITH` y especifique qué partes desea ver:
 
@@ -416,13 +416,13 @@ Por ejemplo:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## Diferencias de DBCC SHOW_STATISTICS()
-DBCC SHOW_STATISTICS() se implementa de forma más estricta en el Almacenamiento de datos SQL en comparación con SQL Server.
+## Diferencias de DBCC SHOW\_STATISTICS()
+DBCC SHOW\_STATISTICS() se implementa de forma más estricta en el Almacenamiento de datos SQL en comparación con SQL Server.
 
 1. No se admiten características no documentadas.
-- No se puede usar Stats_stream.
-- No se pueden combinar resultados de subconjuntos específicos de datos de estadísticas, como por ejemplo (STAT_HEADER JOIN DENSITY_VECTOR).
-2. No se puede establecer NO_INFOMSGS para la supresión de mensajes.
+- No se puede usar Stats\_stream.
+- No se pueden combinar resultados de subconjuntos específicos de datos de estadísticas, como por ejemplo (STAT\_HEADER JOIN DENSITY\_VECTOR).
+2. No se puede establecer NO\_INFOMSGS para la supresión de mensajes.
 3. No se pueden usar corchetes alrededor de los nombres de las estadísticas.
 4. No se pueden usar nombres de columna para identificar objetos de estadísticas.
 5. No se admite el error personalizado 2767.
@@ -440,16 +440,16 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 <!-- External Links -->
 [estimación de cardinalidad]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [Estadísticas]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

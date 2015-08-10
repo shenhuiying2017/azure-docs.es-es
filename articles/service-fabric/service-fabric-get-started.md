@@ -13,11 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/04/2015"
+   ms.date="07/24/2015"
    ms.author="seanmck"/>
 
 # Configurar el entorno de desarrollo de Service Fabric
  Este artículo abarca todo lo que necesita para empezar a crear las aplicaciones de [Service Fabric][1], incluida la instalación del tiempo de ejecución, el SDK y las herramientas, y la configuración de un clúster local.
+
+ >[AZURE.NOTE]Estas instrucciones están pensadas para configurar nuevos equipos. Si ha instalado una versión anterior de Service Fabric en su PC, siga las [instrucciones para actualizar su entorno de desarrollo](service-fabric-update-your-development-environment.md).
 
 ## Requisitos previos
 ### Versiones de sistema operativo compatibles
@@ -29,15 +31,15 @@ Se admiten las siguientes versiones de sistemas operativos:
 
 ### Visual Studio 2015
 
-Las herramientas de Preview 1 de Service Fabric dependen de Visual Studio 2015 RC, que encontrará [aquí][2].
+Las herramientas de Service Fabric dependen de Visual Studio 2015, que encontrará [aquí][2].
 
-> [AZURE.NOTE]Si no está ejecutando una de las versiones de sistema operativo compatibles o prefiere no instalar Visual Studio 2015 RC en su PC, puede [configurar una máquina virtual de Azure][3] con Windows Server 2012 R2 y Visual Studio 2015 preinstalados usando una imagen de la Galería de máquinas virtuales.
+> [AZURE.NOTE]Si no está ejecutando una de las versiones de sistema operativo compatibles o prefiere no instalar Visual Studio 2015 en su PC, puede configurar una máquina virtual de Azure con Windows Server 2012 R2 y Visual Studio 2015 preinstalados usando una imagen de la Galería de máquinas virtuales.
 
 ## Instalar el motor en tiempo de ejecución, el SDK y las herramientas
 
 La instalación de los componentes de Service Fabric se realiza mediante el instalador de plataforma web. Siga estas instrucciones para instalar:
 
-1. Haga clic [aquí][4] para descargar el SDK con el instalador de plataforma web.
+1. [Descargue el SDK][3] con el instalador de plataforma web.
 
 2. Haga clic en Instalar para comenzar el proceso de instalación.
 
@@ -89,8 +91,6 @@ Ahora que está configurado su entorno de desarrollo, puede iniciar la creación
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Página de campaña de Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "MV de Azure"
-[4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
- 
+[3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Vínculo de WebPI"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

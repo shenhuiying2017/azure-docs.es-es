@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/23/2015"
    ms.author="larryfr"/>
 
 # Ejecución de consultas de Hive mediante la consola de consulta
@@ -23,6 +23,7 @@
 En este artículo, aprenderá a utilizar la consola de la consulta de HDInsight para ejecutar consultas de Hive en un clúster de Hadoop de HDInsight desde el explorador.
 
 > [AZURE.NOTE]La consola de consulta solo está disponible en los clústeres de HDInsight basados en Windows.
+
 
 ##<a id="prereq"></a>Requisitos previos
 
@@ -34,9 +35,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 ##<a id="run"></a>Ejecución de consultas de Hive mediante la consola de consulta
 
-1. Abra el [Portal de Azure](https://manage.windowsazure.com) y seleccione el clúster de HDInsight. En la parte inferior de la página, seleccione **Consola de consulta**. Cuando se le solicite, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
-
-    > [AZURE.NOTE]También puede tener acceso a la consola de consulta escribiendo **https://CLUSTERNAME.azurehdinsight.net** en el explorador.
+1. Abra un explorador web y navegue a __https://CLUSTERNAME.azurehdinsight.net__, donde __CLUSTERNAME__ es el nombre del clúster de HDInsight. Si se le solicita, escriba el nombre de usuario y la contraseña que escribió cuando creó el clúster.
 
 2. En los vínculos de la parte superior de la página, seleccione **Editor Hive**. Se muestra un formulario que puede utilizarse para introducir instrucciones de HiveQL que desea ejecutar en el clúster de HDInsight.
 
@@ -120,4 +119,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

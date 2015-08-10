@@ -48,7 +48,7 @@ _Figura 1: Uso de una memoria caché en instancias diferentes de una aplicación
 
 El uso de una memoria caché compartida puede ayudar a aliviar la preocupación de que los datos puedan ser diferentes en cada caché, como podría ocurrir con el almacenamiento en caché en memoria. El almacenamiento en caché compartido garantiza que diferentes instancias de aplicación vean la misma vista de datos en caché ubicando la memoria caché en una ubicación independiente, normalmente hospedada como parte de un servicio independiente, como se muestra en la Figura 2.
 
-![Uso de una caché compartida_](media/best-practices-caching/Figure2.png)
+![Uso de una caché compartida\_](media/best-practices-caching/Figure2.png)
 
 _Figura 2: Uso de una memoria caché compartida_
 
@@ -123,7 +123,7 @@ Tenga cuidado de no introducir dependencias críticas en la disponibilidad de un
 
 Sin embargo, retroceder al almacén de datos original si la memoria caché no está disponible temporalmente puede tener un impacto de escalabilidad en el sistema; mientras se está recuperando el almacén de datos, el almacén de datos original podría inundarse de solicitudes de datos, lo que daría lugar a tiempos de espera y conexiones con errores. Una estrategia que debería considerar es implementar una memoria caché local y privada en cada instancia de una aplicación junto con la memoria caché compartida a la que tienen acceso todas las instancias de la aplicación. Cuando la aplicación recupera un elemento, puede comprobar primero en su memoria caché local, a continuación, en la memoria caché compartida y finalmente en el almacén de datos originales. La memoria caché local se pueden rellenar con los datos de la memoria caché compartida, o la base de datos si la memoria caché compartida no está disponible. Este enfoque requiere una cuidadosa configuración para evitar que la memoria caché local se vuelva demasiado obsoleta con respecto a la memoria caché compartida, pero actúa como un búfer si la memoria caché compartida es inaccesible. En la Figura 3 se muestra esta estructura.
 
-![Uso de una memoria caché local y privada con una caché compartida_](media/best-practices-caching/Caching3.png) _Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
+![Uso de una memoria caché local y privada con una caché compartida\_](media/best-practices-caching/Caching3.png) _Figura 3: Uso de una memoria caché local y privada con una memoria caché compartida_
 
 Para admitir cachés de gran tamaño con datos de duración relativamente larga, algunos servicios de caché ofrecen una opción de alta disponibilidad que implementa la conmutación automática por error si la memoria caché dejar de estar disponible. Este enfoque normalmente implica la réplica de los datos en caché que se almacenan en un servidor de caché principal en un servidor de caché secundario y el cambio al servidor secundario si el servicio principal genera error o se pierde la conectividad. Para reducir la latencia asociada a la escritura en varios destinos, cuando se escriben datos en la memoria caché del servidor principal, la replicación en el servidor secundario puede producirse de forma asincrónica. Este enfoque lleva a la posibilidad de que se pueda perder parte de la información almacenada en caché en el caso de un error, pero la proporción de estos datos debe ser pequeña en comparación con el tamaño total de la memoria caché.
 
@@ -630,7 +630,7 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 
 ### Búsqueda de elementos a los que se ha accedido recientemente
 
-Un problema común requerido por muchas aplicaciones es encontrar los elementos a los que se ha accedido recientemente. Por ejemplo, puede que un sitio de blog desee mostrar información acerca de las entradas de blog leídas más recientemente. Puede implementar esta funcionalidad mediante una lista de Redis. Una lista de Redis contiene varios elementos que comparten la misma clave, pero la lista actúa como una cola de dos extremos. Puede insertar elementos en cualquier extremo de la lista mediante los comandos LPUSH (inserción izquierda) y RPUSH (inserción derecha). Puede recuperar elementos de cualquier extremo de la lista con los comandos LPOP y RPOP. También puede devolver un conjunto de elementos mediante los comandos LRANGE y RRANGE. Los fragmentos de código siguientes muestran cómo realizar estas operaciones mediante la biblioteca de StackExchange. Este código usa el tipo de BlogPost de los ejemplos anteriores. Cuando un usuario lee una entrada de blog, el título de la entrada de blog se inserta en una lista asociada a la clave "blog:recent_posts" de la caché de Redis mediante el método IDatabase.ListLeftPushAsync:
+Un problema común requerido por muchas aplicaciones es encontrar los elementos a los que se ha accedido recientemente. Por ejemplo, puede que un sitio de blog desee mostrar información acerca de las entradas de blog leídas más recientemente. Puede implementar esta funcionalidad mediante una lista de Redis. Una lista de Redis contiene varios elementos que comparten la misma clave, pero la lista actúa como una cola de dos extremos. Puede insertar elementos en cualquier extremo de la lista mediante los comandos LPUSH (inserción izquierda) y RPUSH (inserción derecha). Puede recuperar elementos de cualquier extremo de la lista con los comandos LPOP y RPOP. También puede devolver un conjunto de elementos mediante los comandos LRANGE y RRANGE. Los fragmentos de código siguientes muestran cómo realizar estas operaciones mediante la biblioteca de StackExchange. Este código usa el tipo de BlogPost de los ejemplos anteriores. Cuando un usuario lee una entrada de blog, el título de la entrada de blog se inserta en una lista asociada a la clave "blog:recent\_posts" de la caché de Redis mediante el método IDatabase.ListLeftPushAsync:
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -777,4 +777,4 @@ El siguiente patrón también puede ser pertinente para su escenario al implemen
 - La página [Transacciones en Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) del repositorio de StackExchange.Redis.
 - La [Guía de creación de particiones de datos](http://msdn.microsoft.com/library/dn589795.aspx) del sitio web de Microsoft.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

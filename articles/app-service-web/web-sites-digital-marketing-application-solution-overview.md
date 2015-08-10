@@ -33,7 +33,7 @@ Cree rápidamente aplicaciones nuevas a partir de un CMS popular en la galería 
 
 Azure Marketplace proporciona plantillas provenientes de los sistemas de administración de contenido (CMS) de sitios web populares, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear una aplicación web usando el tipo de CMS de su preferencia. Puede elegir entre varios backends de bases de datos para satisfacer sus necesidades, incluida [Base de datos SQL de Azure] y [MySQL].
 
-Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git]: local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Los recursos web existentes pueden ejecutarse en Aplicaciones web, ya sean .NET, PHP, JAVA, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas. Si crea campañas de marketing digital con frecuencia, es posible que ya disponga de recursos web en un sistema de administración de control de código fuente. Puede implementar en Aplicaciones web directamente desde opciones de control de código fuente populares, como [Visual Studio], [Visual Studio Online] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Mantener la agilidad
 
@@ -71,7 +71,7 @@ Entregue el contenido estático a los usuarios de manera muy rápida globalmente
 
 Optimice su aplicación web al escalar de manera automática con Autoescala, almacenar en caché con Caché en Redis de Azure, ejecutar tareas en segundo plano con WebJobs y mantener la alta disponibilidad con Administrador de tráfico de Azure.
 
-La capacidad que tienen Aplicaciones web del Servicio de aplicaciones para [escalar vertical y horizontalmente] es perfecta para las cargas de trabajo imprevisibles, que es el caso de las campañas de marketing digital. Escale horizontalmente la aplicación web de manera manual mediante el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), programáticamente mediante la [API de administración de servicios] o [scripting de PowerShell] o de manera automáticamente mediante la característica Autoescala. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Esta característica le ayuda a maximizar la agilidad y, al mismo tiempo, a minimizar el coste al escalar horizontalmente la aplicación web solo en caso de ser necesario, según la actividad del usuario. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
+La capacidad que tienen Aplicaciones web del Servicio de aplicaciones para [escalar vertical y horizontalmente] es perfecta para las cargas de trabajo imprevisibles, que es el caso de las campañas de marketing digital. Escale horizontalmente la aplicación web de manera manual mediante el [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715), programáticamente mediante la [API de administración de servicios] o [scripting de PowerShell] o de manera automáticamente mediante la característica Autoescala. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Esta característica le ayuda a maximizar la agilidad y, al mismo tiempo, a minimizar el coste al escalar horizontalmente la aplicación web solo en caso de ser necesario, según la actividad del usuario. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
 
 Haga que su aplicación web tenga mayor capacidad de respuesta con [Caché en Redis de Azure]. Utilícelo para almacenar datos en caché desde bases de datos de back-end y otros aspectos, como el [estado de sesiones de ASP.NET] y la [caché de resultados].
 
@@ -141,4 +141,4 @@ En el nivel **Estándar**, supervise las notificaciones de correo electrónico r
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

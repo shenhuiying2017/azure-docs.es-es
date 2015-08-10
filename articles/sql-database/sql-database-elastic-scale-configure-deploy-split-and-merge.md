@@ -21,7 +21,7 @@
 2. Abra un símbolo del sistema y vaya al directorio al que descargó nuget.exe.
 3. Descargue el paquete de división y combinación más reciente en el directorio actual con el comando que aparece a continuación:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-Los pasos anteriores descargan los archivos de División y combinación al directorio actual. Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio División y combinación en el subdirectorio **content\splitmerge\service** y los scripts de Powershell de División y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\splitmerge\powershell**.
+Los pasos anteriores descargan los archivos de División y combinación al directorio actual. Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Busque los archivos del servicio División y combinación en el subdirectorio **content\\splitmerge\\service** y los scripts de Powershell de División y combinación (y las .dll de cliente necesarias) en el subdirectorio **content\\splitmerge\\powershell**.
 
 ## Requisitos previos
 
@@ -328,4 +328,4 @@ En este caso, compruebe el archivo de configuración, en particular la configura
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

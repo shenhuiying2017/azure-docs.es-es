@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Introducción al uso de la Factoría de datos de Azure"
+	pageTitle="Tutorial: Copia de datos de un blob de Azure a SQL Azure"
 	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que copia datos de un blob a una instancia de base de datos de SQL de Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Introducción a la Factoría de datos de Azure
+# Tutorial: Copia de datos de un blob de Azure a SQL Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -67,7 +67,7 @@ Asegúrese de que la configuración **Permitir el acceso a los servicios de Azur
 ### Preparación del almacenamiento de blobs de Azure y la base de datos SQL de Azure para el tutorial
 Ahora, prepare su almacenamiento de blobs de Azure y base de datos SQL de Azure para el tutorial realizando los pasos siguientes:
 
-1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\ADFGetStarted** del disco duro.
+1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\\ADFGetStarted** del disco duro.
 
         John, Doe
 		Jane, Doe
@@ -110,4 +110,4 @@ Haga lo siguiente:
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-create-configure.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

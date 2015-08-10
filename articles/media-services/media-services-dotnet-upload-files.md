@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 
 #Cargar archivos en una cuenta de Servicios multimedia mediante .NET
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
+[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -214,7 +213,7 @@ Puede usar cualquier aplicación cliente de alta velocidad capaz de cargar los a
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('\');
+	        string[] splitfilename = filename.Split('\\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -306,4 +305,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 [Obtención de un procesador multimedia]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

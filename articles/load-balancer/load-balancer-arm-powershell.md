@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Creación de un equilibrador de carga mediante el Administrador de recursos de Azure | Microsoft Azure"
+   pageTitle="Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure | Microsoft Azure"
    description="Cómo crear reglas de equilibrador de carga, reglas NAT y sondeo para el Administrador de recursos de Azure. Paso a paso que muestra el proceso completo de creación de un recurso de equilibrador de carga."
    services="load-balancer"
    documentationCenter="na"
@@ -12,31 +12,37 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Creación de un equilibrador de carga mediante el Administrador de recursos de Azure
+# Introducción a la configuración de un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure
 
-Los pasos siguientes muestran cómo crear un equilibrador de carga con el Administrador de recursos de Azure PowerShell. Con el Administrador de recursos de Azure, los elementos para crear un equilibrador de carga se configuran individualmente y, después, se colocan juntos para crear un recurso.
+
+> [AZURE.SELECTOR]
+- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
+
+
+Los pasos siguientes muestran cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure con PowerShell. Con el Administrador de recursos de Azure, los elementos para crear un equilibrador de carga orientado a Internet se configuran individualmente y después se colocan juntos para crear un recurso.
 
 Esta página describiremos la secuencia de tareas individuales que debe realizarse para crear un equilibrador de carga y explicaremos con detalle cada una de ellas.
 
 
-## ¿Qué es necesario para crear un equilibrador de carga?
+## ¿Qué se necesita para crear un equilibrador de carga orientado a Internet?
 
 Antes de crear un equilibrador de carga hay que configurar los siguientes elementos:
 
-- Configuración de direcciones IP front-end 
+- Configuración de direcciones IP front-end: agregará una dirección IP pública al grupo de direcciones IP front-end para el tráfico de red entrante al equilibrio de carga. 
 
-- Grupo de direcciones de back-end
+- Grupo de direcciones de back-end: configurará las interfaces de red que recibirá el tráfico con equilibrio de carga proveniente del grupo de direcciones IP front-end.
 
-- Reglas de equilibrio de carga
+- Reglas de equilibrio de carga: configuración del puerto de origen y el puerto local del equilibrador de carga.
 
-- Sondeos
+- Sondeos: configura el sondeo del estado de mantenimiento de las instancias de máquinas virtuales.
 
-- Reglas NAT de entrada
+- Reglas NAT de entrada: configura las reglas de puerto para obtener acceso directamente a una de las instancias de máquina virtual.
 
-Para obtener más información acerca de los componentes del equilibrador de carga con el Administrador de recursos de Azure, consulte [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](load-balancer-arm.md).
+Para obtener más información acerca de los componentes del equilibrador de carga con el Administrador de recursos de Azure en [Compatibilidad del Administrador de recursos de Azure con el equilibrador de carga](load-balancer-arm.md).
 
 Los pasos siguientes muestran cómo configurar un equilibrador de carga para equilibrar la carga entre dos máquinas virtuales.
 
@@ -48,17 +54,17 @@ Los pasos siguientes muestran cómo configurar un equilibrador de carga para equ
 
 
 ### Paso 1
-Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Hay más información disponible en [Uso de Windows PowerShell con el Administrador de recursos](powershell-azure-resource-manager.md).
+Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del ARM. Hay más información disponible en Uso de [Windows Powershell con el Administrador de recursos](powershell-azure-resource-manager.md).
 
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:> Switch-AzureMode -Name AzureResourceManager
 
 ### Paso 2
 
 Inicio de sesión en la cuenta de Azure
 
 
-    PS C:\> Add-AzureAccount
+    PS C:> Add-AzureAccount
 
 Se le pedirá autenticarse con sus credenciales.
 
@@ -67,7 +73,7 @@ Se le pedirá autenticarse con sus credenciales.
 
 Elección de la suscripción de Azure que se va a usar.
 
-    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscription'.
 
@@ -76,7 +82,7 @@ Para ver una lista de suscripciones disponibles, use el cmdlet 'Get-AzureSubscri
 
 Creación de un grupo de recursos (omitir este paso si se usa un grupo de recursos existente)
 
-    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Asegúrese de que todos los comandos para crear un equilibrador de carga usarán el mismo grupo de recursos.
 
@@ -184,7 +190,7 @@ En este paso, creamos una segunda interfaz de red, la asignamos al mismo grupo b
 A continuación se muestra el resultado final:
 
 
-PS C:\> $backendnic1
+PS C:> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -235,7 +241,7 @@ PS C:\> $backendnic1
 
 Use el comando Add-AzureVMNetworkInterface para asignar el NIC a una máquina virtual.
 
-Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación de una máquina virtual de Windows con el Administrador de recursos de Azure y PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Encontrará instrucciones paso a paso para crear una máquina virtual y asignarla a un NIC en el artículo [Creación y preconfiguración de una máquina virtual de Windows con el Administrador de recursos y Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
 
 
 ## Otras referencias
@@ -245,4 +251,4 @@ Encontrará instrucciones paso a paso para crear una máquina virtual y asignarl
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción al uso de la Factoría de datos de Azure" 
+	pageTitle="Tutorial: Copia de datos de un blob de Azure a SQL Azure" 
 	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que copia datos de un blob a una instancia de base de datos de SQL de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Creación y supervisión de un generador de datos mediante el Editor de Factoría de datos
@@ -111,39 +111,41 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 1. En el **Editor** para Factoría de datos, haga clic en el botón **Nuevo conjunto de datos** de la barra de herramientas y haga clic en botón **tabla Blob** en el menú desplegable. 
 2. Reemplace JSON en el panel derecho por el siguiente fragmento JSON: 
 
-        {
-     	    "name": "EmpTableFromBlob",
-		    "properties":
-    		{
-        		"structure":  
-       			 [ 
-            		{ "name": "FirstName", "type": "String"},
-            		{ "name": "LastName", "type": "String"}
-        		],
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "hour",
-            		"interval": 1,
-            		"waitOnExternal": {}
-       		 	}
-    		}
+		{
+		  "name": "EmpTableFromBlob",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/",
+			  "fileName": "emp.txt",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
 
 		
      Tenga en cuenta lo siguiente:
 	
-	- el **tipo** de ubicación se establece en **AzureBlobLocation**.
+	- **type** de ubicación está establecido en **AzureBlob**.
 	- **linkedServiceName** se establece en **StorageLinkedService**. Este servicio vinculado lo había creado en el paso 2.
 	- **folderPath** se establece en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta. Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
 	- el **tipo** de formato se establece en **TextFormat**
@@ -177,29 +179,30 @@ En esta parte del paso, creará una tabla de salida denominada **EmpSQLTable** q
 1. En el **Editor** para Factoría de datos, haga clic en el botón **Nuevo conjunto de datos** de la barra de herramientas y haga clic en **Tabla SQL de Azure** en el menú desplegable. 
 2. Reemplace JSON en el panel derecho por el siguiente fragmento JSON:
 
-        {
-    		"name": "EmpSQLTable",
-    		"properties":
-    		{
-        		"structure":
-        		[
-                	{ "name": "FirstName", "type": "String"},
-                	{ "name": "LastName", "type": "String"}
-        		],
-        		"location":
-        		{
-            		"type": "AzureSqlTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "AzureSqlLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1            
-        		}
-    		}
+		{
+		  "name": "EmpSQLTable",
+		  "properties": {
+		    "structure": [
+		      {
+		        "name": "FirstName",
+		        "type": "String"
+		      },
+		      {
+		        "name": "LastName",
+		        "type": "String"
+		      }
+		    ],
+		    "type": "AzureSqlTable",
+		    "linkedServiceName": "AzureSqlLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
-
 
 		
      Tenga en cuenta lo siguiente:
@@ -222,46 +225,48 @@ En este paso, creará una canalización con una **actividad de copia** que usa *
 	![Botón Nueva canalización del editor][image-editor-newpipeline-button]
  
 2. Reemplace JSON en el panel derecho por el siguiente fragmento JSON:
-
-         {
-			"name": "ADFTutorialPipeline",
-			"properties":
-			{	
-				"description" : "Copy data from a blob to Azure SQL table",
-				"activities":	
-				[
-					{
-						"name": "CopyFromBlobToSQL",
-						"description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpTableFromBlob"} ],
-						"outputs": [ {"name": "EmpSQLTable"} ],		
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "BlobSource"
-							},
-							"sink":
-							{
-								"type": "SqlSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-					}
-        		],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-      		}
+		
+		{
+		  "name": "ADFTutorialPipeline",
+		  "properties": {
+		    "description": "Copy data from a blob to Azure SQL table",
+		    "activities": [
+		      {
+		        "name": "CopyFromBlobToSQL",
+		        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpTableFromBlob"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "EmpSQLTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "BlobSource"
+		          },
+		          "sink": {
+		            "type": "SqlSink",
+		            "writeBatchSize": 10000,
+		            "writeBatchTimeout": "60:00:00"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-07-12T00:00:00Z",
+		    "end": "2015-07-13T00:00:00Z"
+		  }
 		} 
 
 	Tenga en cuenta lo siguiente:
@@ -316,7 +321,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
 5. En la hoja **Conjuntos de datos**, haga clic en **EmpTableFromBlob**. Esta es la tabla de entrada para **ADFTutorialPipeline**.
 
 	![Conjuntos de datos con EmpTableFromBlob seleccionado][image-data-factory-get-started-datasets-emptable-selected]   
-5. Observe que ya se han producido los segmentos de datos hasta la hora actual y que están **listos** porque el archivo **emp.txt** existe todo el tiempo en el contenedor de blobs: **adftutorial\input**. Confirme que no aparecen segmentos en la sección **Segmentos que han fallado recientemente** de la parte inferior.
+5. Observe que ya se han producido los segmentos de datos hasta la hora actual y que están **listos** porque el archivo **emp.txt** existe todo el tiempo en el contenedor de blobs: **adftutorial\\input**. Confirme que no aparecen segmentos en la sección **Segmentos que han fallado recientemente** de la parte inferior.
 
 	Tanto la lista **Segmentos actualizados recientemente** como la lista **Segmentos que han fallado recientemente** se ordenan por la **HORA DE LA ÚLTIMA ACTUALIZACIÓN**. En las situaciones siguientes, se cambia la hora de actualización de un segmento.
     
@@ -508,4 +513,4 @@ Artículo | Descripción
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

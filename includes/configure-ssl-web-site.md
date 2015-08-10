@@ -164,7 +164,7 @@ Ya puede cargar el archivo PFX exportado en su aplicación web de Azure.
 
 5. En la línea de comandos, una sesión de Bash o una sesión de Terminal, use el siguiente comando para convertir **myserver.key** y **myserver.crt** en **myserver.pfx**, que es el formato que necesita el Servicio de aplicaciones de Azure:
 
-		openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt
+		openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
 	Cuando se le solicite, escriba una contraseña para proteger el archivo .pfx.
 
@@ -174,7 +174,7 @@ Ya puede cargar el archivo PFX exportado en su aplicación web de Azure.
 	>
 	>
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Después de ejecutar este comando, debería tener el archivo **myserver.pfx**, que es apropiado para usarlo con el Servicio de aplicaciones de Azure.
@@ -236,7 +236,7 @@ OpenSSL se puede usar para crear una solicitud de certificado que use la extensi
 
 		subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
 
-	No es necesario que cambie el campo commonName_default, dado que se le solicitará que escriba su nombre común en uno de los siguientes pasos.
+	No es necesario que cambie el campo commonName\_default, dado que se le solicitará que escriba su nombre común en uno de los siguientes pasos.
 
 2. Guarde el archivo __sancert.cnf__.
 
@@ -293,7 +293,7 @@ OpenSSL se puede usar para crear una solicitud de certificado que use la extensi
 	>
 	> 
 	`````
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
+	openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem
 	`````
 
 	Después de ejecutar este comando, debería tener el archivo **myserver.pfx**, que es apropiado para usarlo con el Servicio de aplicaciones de Azure.
@@ -541,4 +541,4 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/13/2015"
+   ms.date="07/24/2015"
    ms.author="jroth" />
 
 # Límites de recursos de Base de datos SQL
@@ -64,7 +64,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | **Condición** | Base de datos SQL regula el límite en el número de conexiones simultáneas que pueden establecerse con una base de datos. Cuando se alcanza el límite de inicios de sesión simultáneos para una base de datos, se deniegan las nuevas solicitudes de inicio de sesión en la base de datos y se devuelve el código de error 10928. |
 | **Código de error** | **10928**: Id. de recurso: 3. El límite %s para la base de datos es %d y se ha alcanzado. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. |
 | **Límite** | Depende del [Nivel de servicio y de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
-| **Recomendación** | Consulte dm_exec_connections para ver qué conexiones de usuario están activas en ese momento. <br><br>Retroceda y vuelva a intentar iniciar sesión después de 10 segundos. |
+| **Recomendación** | Consulte dm\_exec\_connections para ver qué conexiones de usuario están activas en ese momento. <br><br>Retroceda y vuelva a intentar iniciar sesión después de 10 segundos. |
 
 > [AZURE.NOTE]El valor de identificador de recurso en el mensaje de error indica el recurso para el que se ha alcanzado el límite. Para los inicios de sesión, id. de recurso = 3.
 
@@ -85,7 +85,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | **Condición** | Base de datos SQL regula el límite en el número de sesiones simultáneas que pueden establecerse en una base de datos. Cuando se alcanza el límite de sesiones simultáneas para una base de datos, se deniegan las nuevas conexiones a la base de datos y el usuario recibirá el código de error 10928. Sin embargo, no se finalizan las sesiones existentes en la base de datos. |
 | **Código de error** | **10928**: Id. de recurso: 2. El límite %s para la base de datos es %d y se ha alcanzado. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. |
 | **Límite** | Depende del [Nivel de servicio y de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). |
-| **Recomendación** | Compruebe dm_exec_requests para ver qué solicitudes de usuario se están ejecutando actualmente. |
+| **Recomendación** | Compruebe dm\_exec\_requests para ver qué solicitudes de usuario se están ejecutando actualmente. |
 
 > [AZURE.NOTE]El valor de identificador de recurso en el mensaje de error indica el recurso para el que se ha alcanzado el límite. Para las sesiones, id. de recurso = 2.
 
@@ -117,7 +117,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | **Código de error** | **40550**: La sesión ha terminado porque ha adquirido demasiados bloqueos. Intente leer o modificar menos filas en una sola transacción. |
 | **Límite** | 1 millón de bloqueos por transacción |
 | **Tipo de solicitudes denegadas** | Cualquier instrucción DDL o DML. |
-| **Recomendación** | Las siguientes DMV se pueden usar para supervisar transacciones: **sys.dm_tran_active_transactions**, **sys.dm_tran_database_transactions**, **sys.dm_tran_locks** y **sys.dm_tran_session_transactions**. Según el tipo de aplicación, se puede usar sugerencias más generales para los bloqueos, como **PAGLOCK** o **TABLOCK**, para reducir el número de bloqueos realizados en una determinada instrucción o transacción. Tenga en cuenta que esto puede afectar negativamente a la simultaneidad de aplicaciones. |
+| **Recomendación** | Las siguientes DMV se pueden usar para supervisar transacciones: **sys.dm\_tran\_active\_transactions**, **sys.dm\_tran\_database\_transactions**, **sys.dm\_tran\_locks** y **sys.dm\_tran\_session\_transactions**. Según el tipo de aplicación, se puede usar sugerencias más generales para los bloqueos, como **PAGLOCK** o **TABLOCK**, para reducir el número de bloqueos realizados en una determinada instrucción o transacción. Tenga en cuenta que esto puede afectar negativamente a la simultaneidad de aplicaciones. |
 
 ## Longitud del registro de transacciones
 
@@ -136,7 +136,7 @@ El resto de este tema explica los posibles códigos de error con más detalle, i
 | **Condición** | Base de datos SQL regula el límite en el número de subprocesos de trabajo (solicitudes simultáneas) a una base de datos. Cualquier base de datos más del límite permitido de solicitudes simultáneas recibirá el error 10928 y las solicitudes posteriores a esta base de datos se podrán denegar. |
 | **Códigos de error** | **10928**: Id. de recurso: 1. El límite %s para la base de datos es %d y se ha alcanzado. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda.<br><br>** 10929**: Id. de recurso: 1. La garantía mínima de %s es de %d, el límite máximo es %d y el uso actual de la base de datos es %d. Sin embargo, el servidor está demasiado ocupado en estos momentos para admitir solicitudes mayores que %d para esta base de datos. Consulte http://go.microsoft.com/fwlink/?LinkId=267637 para obtener ayuda. De lo contrario, Inténtelo de nuevo más tarde. |
 | **Límite** | Para los niveles Basic, Standard y Premium, depende del [nivel de rendimiento](https://msdn.microsoft.com/library/azure/dn741336.aspx). Para las bases de datos de ediciones Web o Business anteriores, el límite máximo de solicitudes simultáneas es de 180 y podría ser inferior en función de la actividad del sistema. |
-| **Recomendación** | Compruebe dm_exec_requests para ver qué solicitudes de usuario se están ejecutando actualmente.<br><br>Retroceda y vuelva a intentar la solicitud después de 10 segundos. |
+| **Recomendación** | Compruebe dm\_exec\_requests para ver qué solicitudes de usuario se están ejecutando actualmente.<br><br>Retroceda y vuelva a intentar la solicitud después de 10 segundos. |
 
 > [AZURE.NOTE]El valor de identificador de recurso en el mensaje de error indica el recurso para el que se ha alcanzado el límite. Para los subprocesos de trabajo, id. de recurso = 1.
 
@@ -148,8 +148,8 @@ En ciertos escenarios, como el uso de características de bases de datos federad
 
 [Administrador de recursos de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-[Mensajes de error (Base de datos SQL de Azure)](https://msdn.microsoft.com/library/azure/ff394106.aspx)
+[Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
 
 [Prácticas recomendadas de Base de datos SQL de Azure para impedir denegaciones de solicitudes o la terminación de conexiones](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

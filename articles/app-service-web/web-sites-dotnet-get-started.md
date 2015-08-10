@@ -172,9 +172,9 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
 		Puede reducir los tiempos de carga inicial de la primera solicitud de las aplicaciones de gran tamaño.
 
-	* Excluir archivos de la carpeta App_Data.
+	* Excluir archivos de la carpeta App\_Data.
 
-		Con fines de prueba, puede tener a veces un archivo de base de datos de SQL Server en App_Data que luego no quiera implementar en el entorno de producción.
+		Con fines de prueba, puede tener a veces un archivo de base de datos de SQL Server en App\_Data que luego no quiera implementar en el entorno de producción.
 
 11. En la pestaña **Vista previa**, haga clic en **Iniciar vista previa**.
 
@@ -316,4 +316,4 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

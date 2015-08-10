@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #SDK de iOS para Azure Mobile Engagement
@@ -32,7 +32,7 @@ Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
 ##Notas de la versión
 
-###2.2.0 (05/21/2015)
+###2\.2.0 (05/21/2015)
 
 -   El identificador de dispositivo de Mobile Engagement para dispositivos anteriores a iOS 6 ahora se basa en un GUID que se genera durante la instalación.
 
@@ -50,4 +50,4 @@ Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a impo
 Ninguno.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

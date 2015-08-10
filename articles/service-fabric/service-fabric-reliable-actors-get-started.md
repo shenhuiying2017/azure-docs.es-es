@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # Actores confiables: el escenario de tutorial de HelloWorld canónico
@@ -143,18 +143,10 @@ Las herramientas de Service Fabric para Visual Studio admiten la depuración en 
 
 ![Ventana de salida de depuración de Service Fabric][3]
 
-## Implementación de la aplicación
-Desde Visual Studio también se puede empaquetar e implementar la aplicación en el clúster local sin tener que iniciar al depurador; para ello, seleccione el proyecto de aplicación de Service Fabric y haga clic con el botón secundario.
-
-![Service Fabric: menú de proyecto para implementar y empaquetar aplicaciones][4]
-
-* **Implementar**: empaqueta la aplicación e inicia el proceso de implementación
-* **Quitar implementación**: se puede usar para quitar una aplicación del clúster local
-* **Empaquetar**: empaqueta la aplicación. Esta acción puede ser útil para preparar la aplicación para implementarla en un clúster distinto, por ejemplo, en Azure.
 
 ## Pasos siguientes
 
-[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md)[Documentación de referencia de API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx)[Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+[Introducción a los actores de Service Fabric](service-fabric-reliable-actors-introduction.md) [Documentación de referencia de API de actores](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -163,6 +155,5 @@ Desde Visual Studio también se puede empaquetar e implementar la aplicación en
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

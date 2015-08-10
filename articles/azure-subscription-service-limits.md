@@ -77,7 +77,7 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 
 ## Límites de almacenamiento
 
-### Límites de almacenamiento estándar 
+### Límites de almacenamiento estándar
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
@@ -103,6 +103,10 @@ Para obtener más información acerca de los límites de la cuenta de almacenami
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
+## Límites de Programador
+
+[AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
+
 ## Límites de lote
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
@@ -122,7 +126,7 @@ Para obtener más información acerca de los límites de la cuenta de almacenami
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Para obtener más detalles sobre los límites de búsqueda de Azure, consulte [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Para obtener más detalles sobre los límites de Búsqueda de Azure, vea [Límites y restricciones](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ## Límites de Base de datos SQL
 
@@ -198,4 +202,4 @@ Para obtener más detalles sobre los límites de Base de datos SQL, consulte los
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

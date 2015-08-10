@@ -2,7 +2,6 @@
 	pageTitle="Envío de consultas de Hive a clústeres de Hadoop en la tecnología y procesos de análisis avanzado | Microsoft Azure"
 	description="Procese datos de las tablas de subárbol con consultas de subárbol."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -21,7 +20,7 @@
 
 En este documento se describen distintas formas de enviar consultas de subárbol a los clústeres de Hadoop administrados por un servicio HDInsight de Azure. Esta tarea forma parte de la Tecnología y procesos de análisis avanzado (ADAPT) proporcionada por Aprendizaje automático de Azure. Se tratan varias tareas de controversia de datos: generación de características y exploración de datos. Las consultas de subárbol genéricas que muestran cómo explorar datos o generar características mediante subárbol en un clúster de HDInsight de Hadoop de Azure. Estas consultas de subárbol usan las funciones definidas por el usuario (UDF de subárbol) que se proporcionan.
 
-También se ofrecen ejemplos de consultas que son específicos de escenarios de [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución.
+También se ofrecen ejemplos de consultas que son específicos de escenarios de <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">NYC Taxi Trip Data</a> en el <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">repositorio de Github</a>. Estas consultas ya tienen el esquema de datos especificado y están listas para enviarse para su ejecución.
 
 En la última sección, se describen los parámetros que los usuarios pueden ajustar para que se pueda mejorar el rendimiento de las consultas de subárbol.
 
@@ -41,6 +40,8 @@ Las consultas de subárbol se pueden enviar mediante:
 * el Bloc de notas de IPython
 * el Editor de subárbol
 * Scripts de PowerShell de Azure
+
+Las consultas de Hive son similares a SQL. A los usuarios familiarizados con SQL pueden encontrar la <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">Hoja de referencia rápida de SQL a Hive</a>.
 
 Al enviar una consulta de subárbol, también puede controlar el destino del resultado de las consultas de subárbol, ya sea en la pantalla o en un archivo local del nodo principal o en un blob de Azure.
 
@@ -74,19 +75,17 @@ Cuando la consulta de subárbol es más complicada y tiene varias líneas, no re
 
 	`hive -f "<path to the .hql file>"`
 
-![Creación del espacio de trabajo][15]
-
 
 #### Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol
 
-De forma predeterminada, una vez que se envía la consulta de subárbol de la consola de la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla de progreso del trabajo de asignación/reducción, puede utilizar el argumento `-S` ("S" debe estar en mayúsculas) en la línea de comandos de la siguiente manera:
+De forma predeterminada, una vez que se envía la consulta de subárbol de la consola de la línea de comandos de Hadoop, el progreso del trabajo de asignación/reducción se imprimirá en pantalla. Para suprimir la impresión de la pantalla de progreso del trabajo de asignación/reducción, puede utilizar el argumento `-S` (distingue entre mayúsculas y minúsculas) en la línea de comandos de la siguiente manera:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Envíe consultas de subárbol en la consola de comandos de subárbol.
 
-Los usuarios pueden especificar también la consola de comandos de Hive ejecutando el comando `hive` desde la línea de comandos de Hadoop y, a continuación, enviar consultas de Hive desde esta consola. Aquí tiene un ejemplo.
+Los usuarios pueden especificar también la consola de comandos de Hive ejecutando el comando `hive` desde la línea de comandos de Hadoop y, a continuación, enviar consultas de Hive desde esta consola en el símbolo del sistema **hive>**. Aquí tiene un ejemplo.
 
 ![Creación del espacio de trabajo][11]
 
@@ -100,9 +99,6 @@ Para generar los resultados de consultas de subárbol en un directorio local del
 
 	`hive -e "<hive query>" > <local path in the head node>`
 
-En el ejemplo siguiente, el resultado de la consulta de Hive se escribe en un archivo *hivequeryoutput.txt* del directorio *C:\apps\temp*.
-
-![Creación del espacio de trabajo][12]
 
 #### Generar los resultados de consulta de subárbol en un blob de Azure
 
@@ -130,15 +126,15 @@ en un explorador web. Tenga en cuenta que deberá indicar las credenciales de cl
 ##<a name="hive-dataexploration"></a>Exploración de datos
 A continuación presentamos algunos scripts de subárbol que se pueden usar para explorar los datos de las tablas de subárbol.
 
-1. Obtener el número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+1. Obtención del número de observaciones por partición `SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
 
-2. Obtener el número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+2. Obtención del número de observaciones por día `SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
 
-3. Obtener los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
+3. Obtención de los niveles de una columna de categorías `SELECT  distinct <column_name> from <databasename>.<tablename>`
 
-4. Obtener el número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+4. Obtención del número de niveles de combinación de dos columnas de categorías `SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
 
-5. Obtener la distribución para columnas numéricas `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
+5. Obtención de la distribución para columnas numéricas `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 
 6. Extraer registros de la combinación de dos tablas
 
@@ -177,8 +173,8 @@ Una vez que haya generado características adicionales, puede agregarlas como co
 
 1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
 2. [Riesgos de las variables de categorías en la clasificación binaria](#hive-riskfeature)
-3. [Extraer características de campos de fecha y hora](#hive-datefeatures)
-4. [Extraer características de campos de texto](#hive-textfeatures)
+3. [Extraer características del campo de fecha y hora](#hive-datefeatures)
+4. [Extraer características del campo de texto](#hive-textfeatures)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
 ###<a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
@@ -245,7 +241,7 @@ En esta consulta, si *&#60;datetime field>* sigue un patrón de tipo *03/26/2015
 La tabla *hivesampletable* de esta consulta viene preinstalada en todos los clústeres de Hadoop de HDInsight de Azure de forma predeterminada cuando se aprovisionan los clústeres.
 
 
-###<a name="hive-textfeatures"></a>Extraer características de campos de texto
+###<a name="hive-textfeatures"></a>Extracción de características de campos de texto
 
 Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de palabras delimitadas por espacios, la consulta siguiente extrae la longitud de la cadena y el número de palabras de la cadena.
 
@@ -256,7 +252,7 @@ Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de 
 
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar una función matemática incrustada en el subárbol para generar características.
 
-Los campos que se utilizan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup_longitude*, *pickup_latitude*, *dropoff_longitude* y *dropoff_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
+Los campos que se utilizan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
 
 		set R=3959;
 		set pi=radians(180);
@@ -274,11 +270,11 @@ Los campos que se utilizan en esta consulta son las coordenadas GPS de ubicacion
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) (Scripts de tipo movibles), creado por Peter Lapisu. En su Javascript, la función `toRad()` es simplemente *lat_or_lon*pi/180*, que convierte grados a radianes. Aquí, *lat_or_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en [Wikipedia](http://en.wikipedia.org/wiki/Atan2).
+Las ecuaciones matemáticas que calculan la distancia entre dos coordenadas GPS pueden encontrarse en el sitio <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> (Scripts de tipo movibles), creado por Peter Lapisu. En su Javascript, la función `toRad()` es simplemente *lat\_or\_lon*pi/180*, que convierte grados a radianes. Aquí, *lat\_or\_lon* es la latitud o la longitud. Debido a que Hive no proporciona la función `atan2`, pero sí la función `atan`, la función `atan2` se implementa en la función `atan` en la consulta de Hive anterior mediante la definición incluida en <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Creación del espacio de trabajo][1]
 
-Se puede encontrar una lista completa de los UDF incrustados en Hive en la sección **Built-in Functions** (Funciones integradas) de la [wiki de Hive de Apache](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions).
+Se puede encontrar una lista completa de los UDF incrustados en Hive en la sección **Built-in Functions** (Funciones integradas) de la <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">wiki de Hive de Apache</a>.
 
 ## <a name="tuning"></a> Temas avanzados: Ajustar parámetros de Hive para mejorar la velocidad de consulta
 
@@ -304,9 +300,9 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 
 		num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
 
-	Normalmente, el valor predeterminado de *mapred.min.split.size* es 0, el de *mapred.max.split.size* es **Long.MAX** y el de *dfs.block.size* es 64 MB. Como podemos ver, dado el tamaño de los datos, el ajuste de estos parámetros mediante su "configuración" nos permite optimizar el número de asignadores que se usan.
+	Normalmente, el valor predeterminado de *mapred.min.split.size* es 0, el de *mapred.max.split.size* es **Long.MAX** y de *dfs.block.size* es 64 MB. Como podemos ver, dado el tamaño de los datos, el ajuste de estos parámetros mediante su "configuración" nos permite optimizar el número de asignadores que se usan.
 
-5. A continuación se mencionan algunas otras **opciones avanzadas** para optimizar el rendimiento de Hive. Estas permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles para modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
+5. A continuación se mencionan algunas otras **opciones avanzadas** más para optimizar el rendimiento del subárbol. Estas permiten establecer la memoria asignada para asignar y reducir tareas, y pueden ser útiles para modificar el rendimiento. Tenga en cuenta que el valor de *mapreduce.reduce.memory.mb* no puede ser mayor que el tamaño de la memoria física de cada nodo de trabajo del clúster de Hadoop.
 
 		set mapreduce.map.memory.mb = 2048;
 		set mapreduce.reduce.memory.mb=6144;
@@ -323,4 +319,4 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

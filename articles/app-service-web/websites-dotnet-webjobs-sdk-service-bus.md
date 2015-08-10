@@ -36,7 +36,7 @@ Los fragmentos de código solo muestran funciones, no el código que crea el obj
 
 Para trabajar con el Bus de servicio debe instalar el paquete NuGet [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) además de los otros paquetes del SDK de trabajos web.
 
-También debe establecer la cadena de conexión AzureWebJobsServiceBus además de las cadenas de conexión de almacenamiento. Esto lo puede hacer en la sección `connectionStrings` del archivo Web.config, como se muestra en el ejemplo siguiente:
+También debe establecer la cadena de conexión AzureWebJobsServiceBus además de las cadenas de conexión de almacenamiento. Esto puede hacerlo en la sección `connectionStrings` del archivo App.config, como se muestra en el ejemplo siguiente:
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,7 +44,9 @@ También debe establecer la cadena de conexión AzureWebJobsServiceBus además d
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-Para ver un proyecto de ejemplo, consulte [Ejemplo de Bus de servicio](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). Para obtener más información, consulte [Introducción al SDK de trabajos web](websites-dotnet-webjobs-sdk-get-started.md).
+Para ver un proyecto de muestra que incluye la configuración de la cadena de conexión del Bus de servicio App.config, consulte [Ejemplo de Bus de servicio](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus).
+
+Las cadenas de conexión también se puede definir en el entorno de tiempo de ejecución de Azure, con lo que se reemplaza la configuración de App.config cuando WebJob se ejecuta en Azure. Si desea obtener más información, consulte [Introducción al SDK de WebJobs](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account).
 
 ## <a id="trigger"></a> Cómo desencadenar una función cuando se recibe un mensaje de la cola de Bus de servicio
 
@@ -157,4 +159,4 @@ Entre los temas tratados en este artículo se incluyen los siguientes:
 En esta guía se han proporcionado ejemplos de código que muestran cómo controlar los escenarios comunes para trabajar con el Bus de servicio de Azure. Para obtener más información acerca de cómo usar el SDK de WebJobs y WebJobs de Azure, consulte [Recursos de WebJobs de Azure recomendados](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

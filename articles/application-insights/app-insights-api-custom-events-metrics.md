@@ -185,7 +185,7 @@ Hay algunos [límites en el número de propiedades, valores de propiedad y métr
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE]Tenga cuidado de no registrar información de identificación personal en las propiedades.
@@ -740,6 +740,7 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
 * [Referencia de ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Referencia de Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [Referencia de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## Preguntas
 
@@ -778,4 +779,4 @@ Hay algunos límites en cuanto al número de métricas y eventos por aplicación
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

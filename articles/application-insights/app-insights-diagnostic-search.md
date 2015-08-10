@@ -121,7 +121,7 @@ Quizás desee establecer un intervalo de tiempo, dado que las búsquedas en un i
 
 ![Open diagnostic search](./media/app-insights-diagnostic-search/appinsights-311search.png)
 
-Busque términos, no subcadenas. Los términos son cadenas alfanuméricas incluyendo algunos signos de puntuación, como '.' y '_'. Por ejemplo:
+Busque términos, no subcadenas. Los términos son cadenas alfanuméricas incluyendo algunos signos de puntuación, como '.' y '\_'. Por ejemplo:
 
 término|*no* coincide con|pero coincide
 ---|---|---
@@ -198,4 +198,4 @@ Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

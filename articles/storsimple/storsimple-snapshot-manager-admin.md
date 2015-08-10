@@ -60,4 +60,4 @@ Administrador de instantáneas StorSimple se puede usar para supervisar y admini
 
 [Descarga de Administrador de instantáneas StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

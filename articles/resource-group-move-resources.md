@@ -44,6 +44,7 @@ Por ahora, los servicios que admiten el traslado a un nuevo grupo de recursos y 
 - Mobile Engagement
 - Visión operativa
 - Caché en Redis
+- Aplicaciones web de Azure (se aplican algunas [limitaciones](app-service-web/app-service-move-resources.md))
 
 Los servicios que admiten el traslado a un nuevo grupo de recursos, pero no una nueva suscripción son:
 
@@ -60,13 +61,13 @@ Para trasladar recursos existentes a otro grupo de recursos o a una suscripción
 
 El primer ejemplo muestra cómo trasladar un recurso a un nuevo grupo de recursos.
 
-    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 El segundo ejemplo muestra cómo trasladar varios recursos a un nuevo grupo de recursos.
 
-    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Para trasladar a una nueva suscripción, especifique un valor para el parámetro **DestinationSubscriptionId**.
 
@@ -93,6 +94,6 @@ En la solicitud, incluya un objeto JSON que define el grupo de recursos de desti
 - [Uso de Azure PowerShell con el Administrador de recursos](./powershell-azure-resource-manager.md)
 - [Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure](./virtual-machines/xplat-cli-azure-resource-manager.md)
 - [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
-- [Uso de etiquetas para organizar los recursos](./resource-group-using-tags.md)
+- [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

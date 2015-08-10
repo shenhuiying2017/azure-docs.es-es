@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos ASP.NET)
@@ -42,25 +42,20 @@ En este artículo se muestra cómo realizar tareas comunes en las tablas de Azur
 
 ##Acceso a tablas en código 
 
-## Acceso al almacenamiento de tablas mediante programación
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
-
-### Declaraciones de espacio de nombres
-Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al almacenamiento de Azure mediante programación:
 
 1. Asegúrese de que las declaraciones de espacio de nombres de la parte superior del archivo C# incluyen estas instrucciones `using`.
 
 	using Microsoft.Azure; using Microsoft.WindowsAzure.Storage; using Microsoft.WindowsAzure.Storage.Auth; using Microsoft.WindowsAzure.Storage.Table;
 
-2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de la cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-    **NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
+    **NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
-3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de la tabla de su cuenta de almacenamiento.
+3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de tabla en la cuenta de almacenamiento.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -72,7 +67,7 @@ Agregue las siguientes declaraciones de espacio de nombres de código en la part
 
 ###Crear una tabla en el código
 
-Para crear la tabla de Azure en código en lugar de hacerlo con el **Explorador de servidores** de Visual Studio, simplemente agregue una llamada a `CreateIfNotExistsAsync()`.
+Para crear la tabla de Azure en código en lugar de hacerlo con el **Explorador de servidores** de Visual Studio, agregue una llamada a `CreateIfNotExistsAsync()`.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -188,7 +183,7 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
 ## Pasos siguientes
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 
@@ -215,4 +210,4 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

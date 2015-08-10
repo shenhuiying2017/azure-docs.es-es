@@ -58,7 +58,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 
 **Para crear una tabla de partición, debe:**
 
-- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes(un_campo_datetime) en el año 2013:
+- [Crear una función de partición](https://msdn.microsoft.com/library/ms187802.aspx) que define el intervalo de valores o límites que se incluirán en cada tabla de particiones individual; por ejemplo, para limitar las particiones por mes(un\_campo\_datetime) en el año 2013:
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -95,7 +95,7 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
 
 - Puede usar BCP, BULK INSERT u otros métodos como el [Asistente para migración de SQL Server](http://sqlazuremw.codeplex.com/). En el ejemplo que se incluye, se usa el método BCP.
 
-- [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK_LOGGED y así minimizar la sobrecarga del inicio de sesión; por ejemplo:
+- [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK\_LOGGED y así minimizar la sobrecarga del inicio de sesión; por ejemplo:
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
@@ -184,4 +184,4 @@ o bien,
 Para obtener un ejemplo de tutorial de extremo a extremo sobre el uso de la Tecnología y procesos de análisis avanzado (ADAPT) con un conjunto de datos público, consulte [Tecnología y procesos de análisis avanzado en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

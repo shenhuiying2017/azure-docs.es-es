@@ -65,7 +65,7 @@ Esta consulta solo le proporcionará los datos de rendimiento donde el nombre de
 ### Para buscar datos de rendimiento de tiempo de procesador
 - En el campo de consulta de búsqueda, escriba `Type=PerfHourly CounterName="% Processor Time"`
 
-También puede ser más específico y usar **InstanceName =_'Total'** en la consulta, que es un contador de rendimiento de Windows. También puede seleccionar una faceta y otro **field:value**. El filtro se agrega automáticamente al filtro en la barra de consulta. Puede ver esto en la siguiente imagen. Se muestra dónde hacer clic para agregar **InstanceName:’_Total’** a la consulta sin escribir nada.
+También puede ser más específico y usar **InstanceName =\_'Total'** en la consulta, que es un contador de rendimiento de Windows. También puede seleccionar una faceta y otro **field:value**. El filtro se agrega automáticamente al filtro en la barra de consulta. Puede ver esto en la siguiente imagen. Se muestra dónde hacer clic para agregar **InstanceName:’\_Total’** a la consulta sin escribir nada.
 
 ![search facet](./media/operational-insights-search/search-facet.png)
 
@@ -614,7 +614,15 @@ Puede encadenar los operadores matemáticos Date/Time juntos, por ejemplo:
 
 En la tabla siguiente se enumeran las unidades de fecha y hora compatibles.
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Unidad de fecha y hora </th> <th>Descripción </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>Redondea al año actual, o desplaza el número especificado de años.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>Redondea al mes actual, o desplaza el número especificado de meses.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE</p> </td> <td> <p>Redondea al día del mes actual, o desplaza el número especificado de días.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>Redondea a la hora actual, o desplaza el número especificado de horas.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>Redondea al minuto actual, o desplaza el número especificado de minutos.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>Redondea al segundo actual, o desplaza el número especificado de segundos.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>Redondea al milisegundo actual, o desplaza el número especificado de milisegundos.</p> </td> </tr> </table>
+Unidad Date/Time|Descripción
+---|--- 
+AÑO, AÑOS|Redondea al año actual, o desplaza el número especificado de años.
+MES, MESES|Redondea al mes actual, o desplaza el número especificado de meses.
+DÍA, DÍAS, FECHA|Redondea al día actual del mes, o desplaza el número especificado de días.
+HORA, HORAS|Redondea a la hora actual, o desplaza el número especificado de horas.
+MINUTO, MINUTOS|Redondea al minuto actual, o desplaza el número especificado de minutos.
+SEGUNDO, SEGUNDOS|Redondea al segundo actual, o desplaza el número especificado de segundos.
+MILISEGUNDO, MILISEGUNDOS, MILI, MILIS|Redondea al milisegundo actual, o desplaza el número especificado de milisegundos.
 
 
 #### Facetas de campo
@@ -690,7 +698,10 @@ Ejemplos:
 Puede omitir el operador lógico para los argumentos de filtro de nivel superior. En este caso, se supone el operador AND.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Expresión de filtro</th> <th>Equivalente a</th> </tr> <tr> <td> <p>system error</p> </td> <td> <p>system AND error</p> </td> </tr> <tr> <td> <p>system "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
+Expresión de filtro|Equivalente a
+---|---
+error del sistema|sistema Y error
+sistema "Windows Server" O gravedad:1|sistema Y "Windows Server" O gravedad:1
 
 
 
@@ -754,7 +765,7 @@ Limita los campos de resultados devueltos a **Name** y **Severity**.
 
 #### Measure
 
-El comando **measure** se usa para aplicar funciones estadísticas a los resultados de búsqueda sin procesar. Esto resulta muy útil para obtener vistas *group by* sobre los datos. Cuando se usa el comando **measure**, Visión operativa muestra una tabla con resultados agregados.
+El comando **measure** se usa para aplicar funciones estadísticas a los resultados de búsqueda sin procesar. Esto resulta muy útil para obtener vistas *group-by* sobre los datos. Cuando se usa el comando **measure**, Visión operativa muestra una tabla con resultados agregados.
 
 Sintaxis:
 
@@ -862,7 +873,7 @@ Sintaxis:
 
 **where** AggregatedValue>20
 
-Solo puede usarse después de un comando **measure** para seguir filtrando los resultados agregados que ha producido la función de agregación **measure**.
+Solo puede usarse después de un comando **Measure** para seguir filtrando los resultados agregados que ha producido la función de agregación **Measure**.
 
 Ejemplos:
 
@@ -2038,4 +2049,4 @@ Al usar Buscar para buscar datos, los resultados muestran varios campos y faceta
 ## Otros recursos:
 Stefan Roth creó una práctica hoja de referencia sobre búsqueda. Visite su [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) para obtener más información y descargar su hoja de referencia.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

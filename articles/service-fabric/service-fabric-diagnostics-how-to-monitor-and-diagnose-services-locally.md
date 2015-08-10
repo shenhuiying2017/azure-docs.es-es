@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,14 +36,22 @@ Service Fabric emite los eventos ETW para ayudar a los desarrolladores de aplica
 1. Debe tener los siguientes requisitos previos instalados.
    * Visual Studio 2015
    * SDK de Service Fabric
-2. Inicie Visual Studio como administrador.
-3. Cree un proyecto (o abra uno existente) para un actor o servicio con o sin estado. ![Crear un proyecto de Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
 
-4. Presione F5 para depurar la aplicación. Los eventos de Service Fabric deben aparecer en la ventana de eventos de diagnóstico. Cada evento tiene información de metadatos estándar que indica el nodo, la aplicación y el servicio del que procede el evento. También puede filtrar la lista de eventos mediante el cuadro "Filtrar eventos" en la parte superior de las ventanas, por ejemplo, puede filtrar en el nombre del nodo o el nombre de servicio. ![Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+2. Inicie Visual Studio como administrador.
+
+3. Cree un proyecto (o abra uno existente) para un actor o servicio con o sin estado.
+
+  ![Crear una aplicación de Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![Crear un servicio de Service Fabric](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
+
+4. Presione F5 para depurar la aplicación. Los eventos de Service Fabric deben aparecer en la ventana de eventos de diagnóstico. Cada evento tiene información de metadatos estándar que indica el nodo, la aplicación y el servicio del que procede el evento. También puede filtrar la lista de eventos mediante el cuadro "Filtrar eventos" en la parte superior de las ventanas, por ejemplo, puede filtrar en el nombre del nodo o el nombre de servicio.
+
+  ![Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. Si la ventana de eventos de diagnóstico no aparece automáticamente, vaya a la pestaña Explorador de servidores en Visual Studio, haga clic con el botón secundario en el clúster de Service Fabric y elija "Ver eventos de diagnóstico" en el menú contextual.
 
-![Abrir el Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![Abrir el Visor de eventos de diagnósticos de Visual Studio](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## Agregue sus propios seguimientos personalizados al código de aplicación
 Las plantillas de proyecto de Visual Studio de Service Fabric contienen código de ejemplo. El código muestra cómo agregar seguimientos de ETW de código de aplicación personalizado que aparecerán en el visor de ETW de Visual Studio junto con seguimientos desde Service Fabric. La ventaja de este método es que los metadatos se agregan automáticamente a los seguimientos y el Visor de diagnóstico de Visual Studio ya está configurado para mostrarlos.
@@ -70,6 +78,5 @@ El mismo código de seguimiento que agregó a la aplicación anterior para diagn
 * [Configuración de Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Supervisión de diagnósticos y rendimiento de actores de Service Fabric de Azure](service-fabric-reliable-actors-diagnostics.md)
 * [Diagnóstico de servicios de confianza con estado](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

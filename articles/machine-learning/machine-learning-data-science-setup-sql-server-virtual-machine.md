@@ -298,4 +298,4 @@ Los pasos siguientes del proceso de ciencia de datos se asignan en la [Guía de 
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

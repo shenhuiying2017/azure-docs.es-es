@@ -69,8 +69,13 @@
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
+<tr>
+   <td valign="middle"><p>Reglas de alerta por suscripción</p></td>
+   <td valign="middle"><p>250</p></td>
+   <td valign="middle"><p>250</p></td>
+</tr>
 </table>
 
 <sup>1</sup>Recuento de instancias extrapequeñas como un núcleo hacia el límite de núcleos a pesar de utilizar un núcleo parcial.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

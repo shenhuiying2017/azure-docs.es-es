@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="07/22/2015"
    ms.author="jesseb"/>
 
 # Administración de aplicaciones de Service Fabric en Visual Studio
@@ -34,13 +34,8 @@ La implementación de una aplicación de Service Fabric combina los pasos siguie
 4. Eliminación de cualquier instancia de aplicación en ejecución
 5. Creación de una nueva instancia de aplicación
 
-En Visual Studio, para realizar la implementación, haga clic en el botón secundario en la aplicación de Service Fabric en el **Explorador de soluciones** y haga clic en **Implementar**. Al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación.
+En Visual Studio, puede implementar una aplicación eligiendo Implementar solución en el menú Compilar. Al presionar **F5** también se implementará su aplicación y se asociará el depurador a todas las instancias de aplicación.
 
-La implementación se puede quitar con **Quitar implementación**. De esta manera se revertirán los pasos de implementación anteriores.
-
-1. Eliminar cualquier instancia de aplicación en ejecución
-2. Anular el registro del tipo de aplicación
-3. Quitar el paquete de aplicación del almacén de imágenes
 
 ## Adición de un servicio a su aplicación de Service Fabric
 
@@ -60,6 +55,16 @@ El nuevo servicio se agregará a la solución y al paquete de aplicación existe
 
 Se tiene que crear un paquete de aplicación para implementar la aplicación y sus servicios en un clúster. El paquete organiza el manifiesto de aplicación, los manifiestos de servicio y otros archivos necesarios en un diseño específico. Visual Studio configura y administra el paquete en la carpeta del proyecto de aplicación, en el directorio 'pkg'. Haga clic en **Paquete** para crear o actualizar el paquete de aplicación. Puede que desee hacerlo si implementa la aplicación mediante scripts de Powershell personalizados.
 
+## Eliminación de una aplicación
+
+Puede quitar una aplicación del clúster local mediante el Explorador de servidores. De esta manera se revertirán los pasos de implementación descritos anteriormente:
+
+1. Eliminar cualquier instancia de aplicación en ejecución
+2. Anular el registro del tipo de aplicación
+3. Quitar el paquete de aplicación del almacén de imágenes
+
+![Eliminación de una aplicación](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
@@ -73,6 +78,5 @@ Se tiene que crear un paquete de aplicación para implementar la aplicación y s
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

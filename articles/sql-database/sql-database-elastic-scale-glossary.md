@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/08/2015" 
+    ms.date="07/24/2015" 
     ms.author="sidneyh"/>
 
-#Glosario de las herramientas de bases de datos elásticas
+# Glosario de las herramientas de bases de datos elásticas
 Los siguientes términos se definen para las herramientas de bases de datos elásticas, una característica de Base de datos SQL de Azure. Las herramientas incluyen la biblioteca de cliente, la herramienta de división y combinación, los grupos elásticos y las consultas.
 
 ![Términos de Escalado elástico][1]
@@ -80,4 +80,4 @@ Los siguientes términos se definen para las herramientas de bases de datos elá
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

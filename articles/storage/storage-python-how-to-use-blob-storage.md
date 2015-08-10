@@ -58,9 +58,9 @@ Después de este cambio, cualquier usuario de Internet podrá ver los blobs de l
 
 ## Carga de un blob en un contenedor
 
-Para cargar datos en un blob, use los métodos **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** o **put_block_blob_from_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Para cargar datos en un blob, use los métodos **put\_block\_blob\_from\_path**, **put\_block\_blob\_from\_file**, **put\_block\_blob\_from\_bytes** o **put\_block\_blob\_from\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-**put_block_blob_from_path** carga el contenido de un archivo desde la ruta de acceso especificada, **put_block_blob_from_file** carga el contenido desde un archivo o una secuencia ya abiertos.. **put_block_blob_from_bytes** carga un conjunto de bytes, **put_block_blob_from_text** carga el valor de texto especificado usando la codificación especificada (que adopta como valor predeterminado UTF-8).
+**put\_block\_blob\_from\_path** carga el contenido de un archivo desde la ruta de acceso especificada, **put\_block\_blob\_from\_file** carga el contenido desde un archivo o una secuencia ya abiertos.. **put\_block\_blob\_from\_bytes** carga un conjunto de bytes, **put\_block\_blob\_from\_text** carga el valor de texto especificado usando la codificación especificada (que adopta como valor predeterminado UTF-8).
 
 En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el blob **myblob**.
 
@@ -73,24 +73,36 @@ En el siguiente ejemplo se carga el contenido del archivo **sunset.png** en el b
 
 ## Listado de blobs en un contenedor
 
-Para enumerar los blobs de un contenedor, use el método **list_blobs** con un bucle **for** para mostrar el nombre de cada blob del contenedor. El código siguiente ofrece el **nombre** y la **url** de todos los blobs de un contenedor a la consola.
+Para enumerar los blobs de un contenedor, use el método **list\_blobs** con un bucle **for** para mostrar el nombre de cada blob del contenedor. El código siguiente ofrece el **nombre** de todos los blobs de un contenedor a la consola.
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
-		print(blob.url)
+
+**list\_blobs** sólo devuelve un máximo de 5000 blobs. Si el contenedor contiene más de 5000 blobs, utilice el código siguiente.
+
+	blobs = []
+	marker = None
+	while True:
+		batch = blob_service.list_blobs('mycontainer', marker=marker)
+		blobs.extend(batch)
+		if not batch.next_marker:
+			break
+		marker = batch.next_marker
+	for blob in blobs:
+		print(blob.name)
 
 ## Descarga de blobs
 
-Para descargar datos de un blob, use **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** o **get_blob_to_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Para descargar datos de un blob, use **get\_blob\_to\_path**, **get\_blob\_to\_file**, **get\_blob\_to\_bytes** o **get\_blob\_to\_text**. Se trata de métodos de alto nivel que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
-En el ejemplo siguiente se muestra cómo utilizar **get_blob_to_path** para descargar el contenido del blob **myblob** y almacenarlo en el archivo **out-sunset.png**:
+En el ejemplo siguiente se muestra cómo utilizar **get\_blob\_to\_path** para descargar el contenido del blob **myblob** y almacenarlo en el archivo **out-sunset.png**:
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
 ## Eliminación de un blob
 
-Finalmente, para eliminar un blob, llame a **delete_blob**.
+Finalmente, para eliminar un blob, llame a **delete\_blob**.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
@@ -99,11 +111,11 @@ Finalmente, para eliminar un blob, llame a **delete_blob**.
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 -   Vea la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
--   Visite el [Blog del equipo de almacenamiento de Azure][]
+-   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
 
 [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
-[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [paquete de Azure para Python]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

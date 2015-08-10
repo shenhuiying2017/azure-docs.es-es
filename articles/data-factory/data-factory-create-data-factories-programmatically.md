@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # Crear, supervisar y administrar factorías de datos de Azure mediante el SDK de .NET de la factoría de datos
@@ -74,7 +74,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 6. Agregue el código siguiente que crea una instancia de la clase **DataPipelineManagementClient** al método **Main**. Usará este objeto para crear una factoría de datos, un servicio vinculado, tablas de entrada y salida, y una canalización. También lo utilizará para supervisar los segmentos de una tabla en tiempo de ejecución.    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE]Reemplace el **resourcegroupname** por el nombre de su grupo de recursos de Azure. Puede crear un grupo de recursos con el cmdlet [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx).
 
 7. Agregue el siguiente código que crea una **factoría de datos** en el método **Main**.
 
@@ -103,7 +105,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         );
 
 8. Agregue el siguiente código que crea un **servicio vinculado** al método **Main**.
-	> [AZURE.NOTE]Utilice el **nombre de la cuenta** y la **clave de la cuenta** de su cuenta de almacenamiento de Azure para **ConnectionString**.
+	> [AZURE.NOTE]Use el **nombre de cuenta** y la **clave de cuenta** de su cuenta de almacenamiento de Azure para la **ConnectionString**.
 
         // create a linked service
         Console.WriteLine("Creating a linked service");
@@ -329,7 +331,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
             }
         }
 
-14. **(Opcional)** Agregue el código siguiente para obtener detalles de ejecución para un segmento de datos en el método **Main**.
+14. **(Opcional)** Agregue el código siguiente para obtener detalles de ejecución de un segmento de datos en el método **Main**.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -360,7 +362,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**. Si se produce un error de la clase **ConfigurationManager**, agregue una referencia al ensamblado **System.Configuration** e intente volver a crearla.
+15. Compile la aplicación de la consola. Haga clic en **Compilar** en el menú y en **Compilar solución**. Si se produce un error de la clase **ConfigurationManager**, agregue una referencia al ensamblado **System.Configuration** e intente compilar de nuevo.
 16. Confirme que hay al menos un archivo en el contenedor de adftutorial del almacenamiento de blobs de Azure. En caso contrario, cree el archivo Emp.txt en el Bloc de notas con el siguiente contenido y cárguelo en el contenedor de adftutorial.
 
         John, Doe
@@ -368,7 +370,7 @@ Puede crear, supervisar y administrar factorías de datos de Azure mediante prog
 	 
 17. Para ejecutar el ejemplo haga clic en **Depurar** -> **Iniciar depuración en el menú**. Cuando vea **Getting run details of a data slice**, espere unos minutos y presione **ENTRAR**.
 18. Usar el Portal de vista previa de Azure para comprobar que la factoría de datos **APITutorialFactory** se crea con los siguientes artefactos: 
-	- Servicio vinculado: **LinkedService_AzureStorage** 
+	- Servicio vinculado: **LinkedService\_AzureStorage** 
 	- Tablas: **TableBlobSource** y **TableBlobDestination**.
 	- Canalización: **PipelineBlobSample** 
 18. Compruebe que se crea un archivo de salida en la carpeta **apifactoryoutput** en el contenedor de **adftutorial**.
@@ -392,4 +394,4 @@ Artículo | Descripción
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

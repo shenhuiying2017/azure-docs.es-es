@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Notas de la versión de Análisis de transmisiones de Microsoft
+
+## Notas de la versión de Análisis de transmisiones del 30/07/2015 ##
+
+Esta versión contiene las siguientes actualizaciones.
+
+<table border="1">
+<tr>
+<th>Título</th>
+<th>Descripción</th>
+</tr>
+<tr>
+<td>Identificador de organización de BI energía desacoplado del identificador de Azure</td>
+<td>Esta característica habilita la salida de Power BI para trabajos de ASA en cualquier tipo de cuenta de Azure (Live Id o Id. de organización). Además, puede tener un identificador de organización para su cuenta de Azure y usar otros distinto para autorizar la salida de Power BI.</td>
+</tr>
+<tr>
+<td>Compatibilidad con la salida de Colas del Bus de servicio</td>
+<td>Las salidas de Colas del Bus de servicio ahora están disponibles en los trabajos de Análisis de transmisiones.</td>
+</tr>
+<tr>
+<td>Compatibilidad con la salida de Temas del Bus de servicio</td>
+<td>Las salidas de Temas del Bus de servicio ahora están disponibles en trabajos de Análisis de transmisiones.</td>
+</tr>
+<tr>
+<td>Nuevas funciones de matriz</td>
+<td>Se agregaron las funciones de matriz GetArrayElement, GetArrayElements y GetArrayLength</td>
+</tr>
+<tr>
+<td>Nuevas funciones de registro</td>
+<td>Se agregaron las funciones de registro GetRecordProperties y GetRecordPropertyValue</td>
+</tr>
+</table>
 
 ## Notas de la versión de Análisis de transmisiones del 09/07/2015 ##
 
@@ -110,7 +141,7 @@ Esta versión contiene las siguientes actualizaciones.
 </table>
 
 ## Obtener ayuda
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-es/home?forum=AzureStreamAnalytics)
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Pasos siguientes
 
@@ -121,4 +152,4 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 - [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

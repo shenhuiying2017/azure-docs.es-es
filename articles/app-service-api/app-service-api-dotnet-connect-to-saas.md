@@ -121,7 +121,7 @@ Los ámbitos disponibles los define cada proveedor de SaaS y pueden encontrarse 
 	 
 			install-package DropboxRestAPI  
 
-1. Abra *Controllers\ValuesController.cs* reemplace todo el código en el archivo por el código siguiente.
+1. Abra *Controllers\\ValuesController.cs* reemplace todo el código en el archivo por el código siguiente.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -450,8 +450,6 @@ Si quita %3d%3d del final del valor de cadena de consulta `error`, esta es una c
 Vio como se codifica y configura una aplicación de API que se conecta a una plataforma de SaaS. Para obtener vínculos a otros tutoriales sobre cómo controlar la autenticación de aplicaciones de API, vea [Autenticación para aplicaciones de API y aplicaciones móviles: pasos siguientes](../app-service/app-service-authentication-overview.md#next-steps).
 
 [Azure preview portal]: https://portal.azure.com/
-[Portal de vista previa de Azure]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
-[Portal de Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

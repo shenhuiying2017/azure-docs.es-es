@@ -540,4 +540,4 @@ Las siguientes tablas muestran las combinaciones de teclas de método abreviado 
 
 Aprenda cómo [usar Administrador de instantáneas StorSimple para conectarse y administrar dispositivos](storsimple-snapshot-manager-manage-devices.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

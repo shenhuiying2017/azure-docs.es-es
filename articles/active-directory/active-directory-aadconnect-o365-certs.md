@@ -33,19 +33,22 @@ Si utiliza AD FS 2.0 o versiones posteriores, Office 365 y Azure AD actualizan a
 
 	- Compruebe que la instalación de AD FS usa la sustitución automática de certificados ejecutando el siguiente comando en una ventana de comandos de PowerShell en el servidor de federación principal:
 
-	`PS C:\> Get-ADFSProperties`
+	`PS C:> Get-ADFSProperties`
 
 (tenga en cuenta que si utiliza AD FS 2.0, necesitará ejecutar primero Microsoft.Adfs.Powershell Add-Pssnapin).
 
 Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
 
-https://<your_FS_name>/federationmetadata/2007-06/federationmetadata.xml
 
-donde `<your_FS_name> ` se reemplaza por el nombre de host de servicio de federación que usa su organización, por ejemplo, fs.contoso.com. Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+
+donde `(your_FS_name) ` se reemplaza por el nombre de host de servicio de federación que usa su organización, por ejemplo, fs.contoso.com. Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.
+
+Ejemplo: https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## Si la propiedad AutoCertificateRollover está establecida en False
 
-Si la propiedad AutoCertificateRollover se establece en False, está usando la configuración de certificados de AD FS no predeterminada. La razón más común es que su organización administra certificados de AD FS inscritos de una entidad de certificación profesional. En este caso, deberá renovar y actualizar los certificados por su cuenta. Utilice la guía [aquí](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Si la propiedad AutoCertificateRollover se establece en False, está usando la configuración de certificados de AD FS no predeterminada. La razón más común es que su organización administra certificados de AD FS inscritos de una entidad de certificación profesional. En este caso, deberá renovar y actualizar los certificados por su cuenta. Use la guía [aquí](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 ## Si no se puede acceder a los metadatos públicamente
 Si el valor de AutocertificateRollover es True, pero los metadatos de federación no están disponibles públicamente, utilice el procedimiento siguiente para asegurarse de que los certificados se actualizan de forma local y en la nube:
@@ -55,7 +58,7 @@ Si el valor de AutocertificateRollover es True, pero los metadatos de federació
 - Compruebe que la sesión en el servidor de AD FS principal está iniciada.
 - Compruebe los certificados de firma actuales en AD FS abriendo una ventana de comandos de PowerShell y ejecutando el siguiente comando: 
 
-`PS C:\>Get-ADFSCertificate –CertificateType token-signing.`
+`PS C:>Get-ADFSCertificate –CertificateType token-signing.`
 
 (tenga en cuenta que si usa AD FS 2.0, tendrá que ejecutar Add-Pssnapin Microsoft.Adfs.Powershell primero)
 
@@ -64,9 +67,9 @@ Si el valor de AutocertificateRollover es True, pero los metadatos de federació
 	
 - Si solo ve un certificado y la fecha de NotAfter está dentro de 5 días, deberá generar un nuevo certificado mediante la ejecución de los pasos siguientes.
 
-- Para generar un nuevo certificado, ejecute el siguiente comando en un símbolo del sistema de PowerShell:`PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+- Para generar un nuevo certificado, ejecute el siguiente comando en un símbolo del sistema de PowerShell: `PS C:>Update-ADFSCertificate –CertificateType token-signing`.
 
-- Compruebe la actualización ejecutando de nuevo el comando siguiente: PS C:\>Get-ADFSCertificate –CertificateType token-signing
+- Compruebe la actualización ejecutando de nuevo el comando siguiente: PS C:>Get-ADFSCertificate –CertificateType token-signing
 - A continuación, para actualizar manualmente las propiedades de confianza de federación de Office 365, siga estos pasos.
 
 Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotAfter de aproximadamente un año en el futuro y para el que el valor de IsPrimary es False.
@@ -82,4 +85,4 @@ Ahora deben aparecer dos certificados, uno de los cuales tiene una fecha de NotA
 
 >[AZURE.NOTE]Si necesita admitir varios dominios de nivel superior, por ejemplo, contoso.com y fabrikam.com, debe utilizar el modificador SupportMultipleDomain con cualquier cmdlet. Para obtener más información, vea Compatibilidad con varios dominios de nivel superior. Por último, compruebe que todos los servidores proxy de aplicación web se actualizan con el paquete acumulativo de [Windows Server de mayo de 2014](http://support.microsoft.com/kb/2955164). De lo contrario, es posible que los servidores proxy no se actualicen con el nuevo certificado y se produzca una interrupción del sistema.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

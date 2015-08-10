@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Uso de Pig y Hive con la Factoría de datos
@@ -24,7 +24,7 @@ Este tutorial ofrece instrucciones paso a paso para usar una actividad de HDInsi
 
 ### Requisitos previos
 1. Complete el tutorial del artículo [Introducción a la Factoría de datos de Azure][adfgetstarted].
-2. Cree el archivo **hivequery.hql** en una subcarpeta llamada **Hive** en **C:\ADFGetStarted** con el siguiente contenido.
+2. Cree el archivo **hivequery.hql** en una subcarpeta llamada **Hive** en **C:\\ADFGetStarted** con el siguiente contenido.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -133,14 +133,14 @@ El servicio Factoría de datos de Azure admite la creación de un clúster a pet
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -184,7 +184,7 @@ Al definir una actividad de Pig o Hive en una canalización de JSON, la propieda
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@ Al definir una actividad de Pig o Hive en una canalización de JSON, la propieda
 - **linkedServiceName** se establece en **MyHDInsightLinkedService**. Vea la sección Servicio vinculado de HDInsight a continuación para obtener información sobre cómo crear un servicio vinculado de HDInsight.
 - El **tipo** de la **transformación** se establece en **Pig**.
 - Puede especificar el script de Pig en línea para la propiedad **script** o almacenar los archivos de script en un almacenamiento de blobs de Azure y hacer referencia al archivo con la propiedad **scriptPath**, que se explica más adelante en este artículo. 
-- Los parámetros del script de Pig se especifican con **extendedProperties**. Más adelante en este artículo se proporcionan más detalles. 
+- Los parámetros del script de Pig se especifican con **defines**. Más adelante en este artículo se proporcionan más detalles. 
 
 
 ## Ejemplo de JSON de Hive
@@ -214,7 +214,7 @@ Al definir una actividad de Pig o Hive en una canalización de JSON, la propieda
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@ Al definir una actividad de Pig o Hive en una canalización de JSON, la propieda
 - **linkedServiceName** se establece en **MyHDInsightLinkedService**. 
 - El **tipo** de la **transformación** se establece en **Hive**.
 - Puede especificar el script de Hive en línea para la propiedad **script** o almacenar los archivos de script en un almacenamiento de blobs de Azure y hacer referencia al archivo con la propiedad **scriptPath**, que se explica más adelante en este artículo. 
-- Los parámetros del script de Hive se especifican con **extendedProperties**. Más adelante en este artículo se proporcionan más detalles. 
+- Los parámetros de Hive se especifican con **defines**. Más adelante en este artículo se proporcionan más detalles. 
 
 > [AZURE.NOTE]Vea la [Referencia para desarrolladores](http://go.microsoft.com/fwlink/?LinkId=516908) para obtener información sobre los cmdlets, los esquemas de JSON y las propiedades del esquema.
 
@@ -258,9 +258,9 @@ El siguiente ejemplo de JSON para una canalización de ejemplo usa una actividad
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -282,11 +282,11 @@ El siguiente ejemplo de JSON para una canalización de ejemplo usa una actividad
 > Vea la [Referencia para desarrolladores](http://go.microsoft.com/fwlink/?LinkId=516908) para obtener información sobre los cmdlets, los esquemas de JSON y las propiedades del esquema.
 
 ## Consultas de Pig y Hive parametrizadas
-Las actividades de Pig y Hive de la Factoría de datos le permiten especificar valores para los parámetros usados en los scripts de Pig y Hive, mediante **extendedProperties**. La sección extendedProperties consta del nombre del parámetro y valor del parámetro.
+Las actividades de Pig y Hive de Factoría de datos le permiten especificar valores para los parámetros usados en los scripts de Pig y Hive, mediante **defines**. La sección defines consta del nombre del parámetro y el valor del parámetro.
 
-Consulte el ejemplo siguiente para especificar parámetros para un script de Hive con **extendedProperties**. Para usar scripts de Hive parametrizados, haga lo siguiente:
+Consulte el ejemplo siguiente para especificar parámetros para un script de Hive con **defines**. Para usar scripts de Hive parametrizados, haga lo siguiente:
 
-1.	Defina los parámetros en **extendedProperties**.
+1.	Defina los parámetros en **defines**.
 2.	En el script de Hive en línea (o) el archivo de script de Hive almacenado en el almacenamiento de blobs, haga referencia al parámetro con **${hiveconf:parameterName}**.
 
    
@@ -307,7 +307,7 @@ Consulte el ejemplo siguiente para especificar parámetros para un script de Hiv
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
@@ -353,4 +353,4 @@ Artículo | Descripción
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

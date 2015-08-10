@@ -208,7 +208,7 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Automatización de Azure no admite el uso en paralelo de módulos PowerShell. Esto significa que todas las configuraciones dentro de una cuenta de Automatización deben funcionar con la versión más reciente de un módulo PowerShell importado a una cuenta de Automatización y con cualquier recurso de DSC de PowerShell que un módulo contiene y que la configuración usa.
 
-- El servidor de extracción tradicional de DSC de PowerShell espera que los archivos ZIP del módulo se coloquen en el servidor de extracción con el formato **NombreMódulo_versión.zip**. Automatización de Azure espera que los módulos PowerShell se importen con nombres con formato **NombreMódulo.zip**. Consulte [esta entrada de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) para obtener más información sobre el formato de módulo de integración que se necesita para importar el módulo a Automatización de Azure.
+- El servidor de extracción tradicional de DSC de PowerShell espera que los archivos ZIP del módulo se coloquen en el servidor de extracción con el formato **NombreMódulo\_versión.zip**. Automatización de Azure espera que los módulos PowerShell se importen con nombres con formato **NombreMódulo.zip**. Consulte [esta entrada de blog](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) para obtener más información sobre el formato de módulo de integración que se necesita para importar el módulo a Automatización de Azure.
 
 - Los módulos PowerShell que especifican los recursos de DSC en paralelo dentro del módulo, mediante un formato de "versión por carpeta", no funcionarán en Automatización de Azure por el momento.
 
@@ -226,4 +226,4 @@ DSC de Automatización de Azure actualmente proporciona los siguientes cmdlets e
 
 - Los nodos de DSC incorporados a DSC de Automatización de Azure mostrarán inicialmente el estado ''Conforme'', incluso si no son realmente conformes con la configuración del nodo de DSC que tienen asignada. Después de que un nodo realice su primera extracción y envíe su primer informe de DSC a DSC de Automatización de Azure, el estado del nodo debe ser correcto.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

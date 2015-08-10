@@ -224,8 +224,8 @@ El siguiente tutorial incluye instrucciones paso a paso para crear una actividad
 
 
 10. Compile el proyecto. Haga clic en **Compilar** en el menú y haga clic en **Compilar solución**.
-11. Inicie el **Explorador de Windows** y vaya a la carpeta **bin\debug** o **bin\release** según el tipo de compilación.
-12. Cree un archivo comprimido **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta <project folder>\bin\Debug.
+11. Inicie el **Explorador de Windows** y vaya a la carpeta **bin\\debug** o **bin\\release** según el tipo de compilación.
+12. Cree un archivo comprimido **MyDotNetActivity.zip** que contenga todos los archivos binarios en la carpeta <project folder>\\bin\\Debug.
 13. Cargue **MyDotNetActivity.zip** como un blob en el contenedor de blobs: **customactvitycontainer** en el almacenamiento de blobs de Azure que usa el servicio vinculado **MyBlobStore** en **ADFTutorialDataFactory** Cree el contenedor de blobs **blobcustomactivitycontainer** si aún no existe. 
 
 
@@ -464,4 +464,4 @@ Estos son los pasos de alto nivel para usar el servicio vinculado de Lote de Azu
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

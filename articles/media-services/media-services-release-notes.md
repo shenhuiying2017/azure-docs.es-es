@@ -76,10 +76,10 @@ Media Encoder estándar utiliza valores predefinidos que se describen en [esta](
 Ahora la versión del SDK de Servicios multimedia para .NET de Azure es la 3.4.0.0. En esta versión se ha agregado la siguiente funcionalidad:
 
 - Se ha implementado la compatibilidad con archivos activos. Tenga en cuenta que no se puede descargar un recurso que contenga un archivo activo.
-- Se ha implementado compatibilidad para filtros dinámicos
+- Se ha implementado compatibilidad para filtros dinámicos.
 - Se ha implementado compatibilidad una funcionalidad que permite a los usuarios a mantener el contenedor de almacenamiento al eliminar el recurso.
 - Correcciones de errores relacionados con directivas de reintentos en canales.
-- Para más información, consulte **Flujo de trabajo de Codificador multimedia Premium**
+- Para más información, consulte **Flujo de trabajo de Codificador multimedia Premium**.
 
 ##<a id="june_changes_15"></a>Versión de junio de 2015
 
@@ -554,4 +554,4 @@ La siguiente funcionalidad era nueva en la versión de noviembre del SDK.
 [Control de notificaciones de trabajo de Servicios multimedia]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

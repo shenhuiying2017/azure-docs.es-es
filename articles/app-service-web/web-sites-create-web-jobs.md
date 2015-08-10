@@ -48,7 +48,7 @@ Se aceptan los siguientes tipos de archivo:
 	
 	![Adición de hoja de WebJobs](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. En **Nombre**, escriba un nombre para el trabajo web. El nombre debe comenzar con una letra o un número y no puede contener ningún carácter especial salvo "-" y "_".
+2. En **Nombre**, escriba un nombre para el trabajo web. El nombre debe comenzar con una letra o un número y no puede contener ningún carácter especial salvo "-" y "\_".
 	
 4. En el cuadro **Cómo ejecutar**, elija **Ejecutar a petición**.
 	
@@ -209,4 +209,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

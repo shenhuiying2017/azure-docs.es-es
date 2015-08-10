@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # P+F de Caché en Redis de Azure
@@ -95,6 +95,11 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis c
 ## ¿En qué región debo buscar mi caché?
 
 Para obtener el mejor rendimiento y la latencia más baja, busque Caché en Redis de Azure en la misma región que la aplicación cliente de la caché.
+
+<a name="cache-billing"></a>
+## ¿Cómo me facturan por la Caché en Redis de Azure?
+
+Los precios de la Caché en Redis de Azure están[aquí](http://azure.microsoft.com/pricing/details/cache/). La página de precios muestra los precios por hora. Las memorias caché se facturan por minuto desde el momento en que se crea la memoria caché hasta el momento en que se elimina una memoria caché. No hay ninguna opción de detener o pausar la facturación de una memoria caché.
 
 <a name="cache-timeouts"></a>
 ## ¿Por qué estoy viendo los tiempos de expiración?
@@ -204,12 +209,14 @@ Para obtener instrucciones acerca de cómo descargar las herramientas de Redis, 
 <a name="cache-commands"></a>
 ## ¿Cómo puedo ejecutar comandos de Redis?
 
-Puede utilizar cualquiera de los comandos enumerados en [Comandos de Redis](http://redis.io/commands#). Puede utilizar las siguientes herramientas para ejecutar estos comandos.
+Puede usar cualquiera de los comandos enumerados en los [comandos de Redis](http://redis.io/commands#) salvo los comandos mostrados en [No se admiten comandos de Redis en Caché en Redis de Azure](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache). Para ejecutar los comandos de Redis tiene varias opciones.
 
--	Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
--	Conexión a la memoria caché mediante `redis-cli.exe`. Pase el extremo de caché mediante que el modificador -h y la clave mediante - a, tal como se muestra en el ejemplo siguiente.
-	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
--	Tenga en cuenta que las herramientas de línea de comandos de Redis no funcionan con el puerto SSL, pero puede usar una utilidad como `stunnel` para conectar de forma segura las herramientas al puerto SSL siguiendo las instrucciones de la publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Comunicación del proveedor de estado de la sesión de ASP.NET para la versión de vista previa de Redis).
+-	Si tiene una caché estándar, puede ejecutar comandos de Redis mediante la [consola de Redis](cache-configure.md#redis-console). Esto ofrece una manera segura de ejecutar comandos de Redis en el portal de Azure.
+-	Use las herramientas de línea de comandos de Redis. Para usarlas, realizará los siguientes pasos.
+	-	Descargue las [herramientas de línea de comandos de Redis](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
+	-	Conexión a la memoria caché mediante `redis-cli.exe`. Pase el extremo de caché mediante que el modificador -h y la clave mediante - a, tal como se muestra en el ejemplo siguiente.
+		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+	-	Tenga en cuenta que las herramientas de línea de comandos de Redis no funcionan con el puerto SSL, pero puede usar una utilidad como `stunnel` para conectar de forma segura las herramientas al puerto SSL siguiendo las instrucciones de la publicación del blog [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) (Comunicación del proveedor de estado de la sesión de ASP.NET para la versión de vista previa de Redis).
 
 <a name="cache-common-patterns"></a>
 ## ¿Cuáles son algunas consideraciones y patrones comunes de la memoria caché?
@@ -226,4 +233,4 @@ Caché en Redis de Microsoft Azure se basa en la popular Caché de Redis de cód
 
 Dado que cada cliente es diferente, no hay no una referencia de clase centralizada en MSDN; en cambio, cada cliente mantiene su propia documentación de referencia. Además de la documentación de referencia, hay varios tutoriales en Azure.com que muestra cómo empezar a trabajar con Caché en Redis de Azure con distintos idiomas y clientes de la caché en la página [Documentación de Caché de Redis](http://azure.microsoft.com/documentatgion/services/redis-cache/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

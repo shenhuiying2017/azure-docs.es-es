@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Implementación de una aplicación con la plantilla del Administrador de recursos de Azure
@@ -48,9 +48,12 @@ Con las plantillas de Administrador de recursos, puede:
 
 ## Implementación con el Portal de vista previa
 
-¿Sabe qué? Todas las aplicaciones de la galería están respaldada por una plantilla de Administrador de recursos de Azure. Con solo crear una Máquina virtual, Red virtual, cuenta de almacenamiento, Servicio de aplicaciones o base de datos a través del portal, ya está obteniendo los beneficios del Administrador de recursos de Azure sin esfuerzo adicional.
+¿Sabe qué? Las aplicaciones que cree mediante el [portal de vista previa](https://portal.azure.com/) están respaldadas por una plantilla del Administrador de recursos de Azure Con solo crear una Máquina virtual, Red virtual, cuenta de almacenamiento, Servicio de aplicaciones o base de datos a través del portal, ya está obteniendo los beneficios del Administrador de recursos de Azure sin esfuerzo adicional. Simplemente, seleccione el icono **Nuevo** y estará en camino a implementar una aplicación mediante el Administrador de recursos de Azure.
 
-Para solucionar problemas en implementaciones a través del portal de vista previa, haga clic en **Examinar** -> **Grupos de recursos** -> *suNombreDeGrupoDeRecursos*. Desde aquí, haga clic en el icono **Eventos** en el modo **Supervisión**. Por último, puede seleccionar una **operación** y un **evento** individual para ver los detalles.
+![Nuevo](./media/resource-group-template-deploy/new.png)
+
+Para obtener más información sobre el uso del portal con el Administrador de recursos de Azure, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](resource-group-portal.md).
+
 
 ## Implementación con PowerShell
 
@@ -58,7 +61,7 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 
 1. Inicie sesión en su cuenta de Azure. Después de proporcionar sus credenciales, el comando devuelve información acerca de su cuenta.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +69,15 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 
 2. Si tiene varias suscripciones, proporcione el identificador de suscripción que desea usar para la implementación.
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Cambie al módulo Administrador de recursos de Azure.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 4. Si no tiene un grupo de recursos existente, cree uno nuevo. Proporcione el nombre del grupo de recursos y la ubicación que necesita para la solución. Se devuelve un resumen del grupo de recursos nuevo.
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +95,16 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
    
      - Use parámetros en línea.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Use un objeto de parámetro.
 
-            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Uso de un archivo de parámetro. Para obtener información sobre el archivo de plantilla, consulte [Archivo de parámetros](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      Una vez implementado el grupo de recursos, verá un resumen de la implementación.
 
@@ -114,11 +117,11 @@ Si todavía no ha utilizado Azure PowerShell con el Administrador de recursos, c
 
 6. Para obtener información acerca de los errores de la implementación.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. Para obtener información detallada acerca de los errores de la implementación.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## Implementación con CLI de Azure para Mac, Linux y Windows
 
@@ -247,13 +250,11 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro a la p
     }
 
 ## Pasos siguientes
-- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-- [Implementación de recursos mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md)
-- [Implementación predecible de una aplicación compleja en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Creación de plantillas](../resource-group-authoring-templates.md)
-- [Funciones de plantillas](../resource-group-template-functions.md)
-- [Operaciones avanzadas de plantilla](../resource-group-advanced-template.md)  
+- Para obtener un ejemplo de cómo implementar los recursos a través de la biblioteca de clientes de .NET, consulte [Implementación de recursos mediante bibliotecas de .NET y una plantilla](../arm-template-deployment.md)
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para obtener información sobre las secciones de la plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas](../resource-group-authoring-templates.md)
+- Para obtener una lista de las funciones que puede usar en una plantilla del Administrador de recursos de Azure, consulte [Funciones de plantillas](../resource-group-template-functions.md)
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

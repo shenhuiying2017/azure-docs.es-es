@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/25/2015" 
 	ms.author="sethm"/>
 
 # Bus de servicio
@@ -25,7 +25,7 @@ Las distintas situaciones requieren distintos estilos de comunicación. A veces,
 
 El Bus de servicio es un servicio en la nube multiinquilino, lo que significa que varios usuarios comparten el servicio. Cada usuario, como desarrollador de aplicaciones, crea un *espacio de nombres* y, a continuación, define los mecanismos de comunicación que necesita dentro de ese espacio de nombres. La ilustración 1 muestra su apariencia.
 
-![Diagrama del bus de servicio de Azure][svc-bus]
+![][1]
  
 **Ilustración 1: el Bus de servicio proporciona un servicio multiinquilino para conectar aplicaciones a través de la nube.**
 
@@ -42,12 +42,11 @@ Para usar cualquiera de estos objetos, las aplicaciones de Windows pueden usar W
 
 Es importante comprender que aunque el Bus de servicio se ejecute en la nube (es decir, en los centros de datos de Azure de Microsoft), las aplicaciones que usa pueden ejecutarse desde cualquier lugar. Puede usar el Bus de servicio para conectarse a aplicaciones que se ejecutan, por ejemplo, en Azure o aplicaciones que se ejecutan dentro de su propio centro de datos. También puede usarlo para conectarse a una aplicación que se ejecuta en Azure o a otra plataforma en la nube con una aplicación local o con tabletas y teléfonos. Es posible incluso conectar aparatos domésticos, sensores y otros dispositivos a una aplicación central o entre ellos. El Bus de servicio es un mecanismo de comunicación genérico en la nube al que puede obtenerse acceso desde prácticamente cualquier lugar. La forma en la que lo use depende de las tareas que tengan que realizar sus aplicaciones.
 
-
 ## Colas
 
 Supongamos que decide conectar dos aplicaciones con una cola de Bus de servicio. La ilustración 2 muestra esa situación.
 
-![Diagrama de las colas del bus de servicio][queues]
+![][2]
  
 **Figura 2: las colas del Bus de servicio proporcionan una cola asincrónica unidireccional.**
 
@@ -67,12 +66,11 @@ Observe lo que ocurre aquí: el mismo mensaje puede enviarse dos veces, quizás 
 
 Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones comunicarse incluso cuando no se estén ejecutando a la vez. Esto es especialmente útil con aplicaciones móviles y por lotes. Una cola con varios receptores también proporciona un equilibrio de carga automático, ya que los mensajes enviados se difunden a través de esos receptores.
 
-
 ## Temas
 
 Aunque son útiles, las colas no siempre son la solución adecuada. A veces, los temas de Bus de servicio son mejores. La ilustración 3 muestra esa perspectiva.
 
-![Diagrama de las suscripciones y temas del bus de servicio][topics-subs]
+![][3]
  
 **Ilustración 3: según el filtro que especifica una aplicación de suscripción, puede recibir algunos mensajes, o todos, enviados a un tema del Bus de servicio.**
 
@@ -84,12 +82,11 @@ Un tema es similar en muchos aspectos a una cola. Los remitentes envían mensaje
 
 Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes utilizando ReceiveAndDelete o PeekLock. Sin embargo, a diferencia de las colas, varios suscriptores pueden recibir un mensaje único enviado a un tema. Este enfoque, que se denomina normalmente *publicar y suscribir*, es útil cuando puede haber varias aplicaciones interesadas en los mismos mensajes. Si se define el filtro adecuado, cada suscriptor puede pulsar solo la parte de la secuencia de mensaje que necesita ver.
 
-
 ## Relés
 
 Tanto las colas como los temas proporcionan una comunicación asincrónica unidireccional a través de un agente. El tráfico fluye en una única dirección y no existe una conexión directa entre los remitentes y los receptores. Sin embargo, ¿qué ocurre si no es eso lo que quiere? Supongamos que sus aplicaciones necesitan enviar y recibir mensajes, o que quizás quiere un vínculo directo entre ellas y necesita un agente para almacenar los mensajes. Para solucionar situaciones como esta, el Bus de servicio proporciona retransmisiones, como muestra la ilustración 4.
 
-![Diagrama del relé del bus de servicio][relay]
+![][4]
  
 **Ilustración 4: la retransmisión del Bus de servicio proporciona comunicación sincrónica bidireccional entre aplicaciones.**
 
@@ -128,4 +125,9 @@ Ahora que conoce los fundamentos del Bus de servicio de Azure, siga estos víncu
 [relay]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_04_relay.png
 [MSDN]: https://msdn.microsoft.com/library/dn194201.aspx
 
-<!---HONumber=July15_HO4-->
+[1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
+[2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
+[3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
+[4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
+
+<!---HONumber=July15_HO5-->

@@ -1,12 +1,13 @@
 
-Now that you've learned the basics of Azure queue storage, follow these links to learn about more complex storage tasks.
+Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas de Azure, use estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
-- View the Queue service reference documentation in the [Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-- Learn more about using Queue storage at [How to use Queue storage from .NET](storage-dotnet-how-to-use-queues.md)
-- Learn about more advanced tasks you can perform with Azure Storage at [Storing and Accessing Data in Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
-- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service/websites-dotnet-webjobs-sdk.md)
-- View more feature guides to learn about additional options for storing data in Azure.
-  - Use [Blob Storage](./storage-dotnet-how-to-use-blobs.md) to store structured data.
-  - Use [Table Storage](./storage-dotnet-how-to-use-tables.md) to store structured data.
-  - Use [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) to store relational data.
+- Consulte la documentación de referencia del servicio Cola en la [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET](http://go.microsoft.com/fwlink/?LinkID=390731) para obtener información detallada acerca de las API disponibles.
+- Obtenga información acerca de cómo usar el almacenamiento en cola en [Uso del almacenamiento de colas de .NET](storage-dotnet-how-to-use-queues.md)
+- Obtenga información acerca de las tareas más avanzadas que se pueden realizar con Almacenamiento de Azure en [Almacenamiento de datos y acceso a los mismos en Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
+- Obtenga información acerca de cómo simplificar el código que escriba para trabajar con Almacenamiento de Azure mediante el [SDK de WebJobs de Azure](../app-service/websites-dotnet-webjobs-sdk.md).
+- Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
+  - Use [Almacenamiento de blobs](./storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
+  - Utilice [Almacenamiento de tablas](./storage-dotnet-how-to-use-tables.md) para almacenar datos estructurados.
+  - Utilice [Base de datos SQL](../sql-database/sql-database-dotnet-how-to-use.md) para almacenar datos relacionales.
 
+<!---HONumber=July15_HO5-->

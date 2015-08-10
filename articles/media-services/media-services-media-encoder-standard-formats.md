@@ -84,4 +84,4 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 
 [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

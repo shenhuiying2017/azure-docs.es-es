@@ -124,4 +124,4 @@ Los conectores también pueden utilizarse como acciones que forman parte de una 
 [Servicio de transformación de BizTalk]: app-service-logic-transform-xml-documents.md
 [Conector de espera]: app-service-logic-wait.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -471,4 +471,4 @@ Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo,
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

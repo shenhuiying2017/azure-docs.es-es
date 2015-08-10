@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Entornos de prueba de nube híbrida de Azure" 
-	description="Acceda a los temas fundamentales que describen cómo crear entornos de prueba que se pueden utilizar para desarrollo/prueba o para prueba de concepto en la nube híbrida de Azure." 
-	documentationCenter="" 
+<properties
+	pageTitle="Entornos de prueba de nube híbrida de Azure"
+	description="Acceda a los temas fundamentales que describen cómo crear entornos de prueba que se pueden utilizar para desarrollo/prueba o para prueba de concepto en la nube híbrida de Azure."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Entornos de prueba de nube híbrida de Azure
 
-Para desarrollo/prueba o una prueba de concepto, los entornos de prueba de nube híbrida usan la conexión local a Internet y una de las direcciones IP públicas y le guiarán durante el proceso de configuración de una red virtual de Azure (VNet) entre locales y en funcionamiento. Cuando haya finalizado, puede hacer pruebas y desarrollo de aplicaciones, experimentar con cargas de trabajo de TI simplificadas y medir el rendimiento de una conexión de red privada virtual (VPN) de sitio a sitio con respecto a su ubicación en Internet.
+Para desarrollo/prueba o una prueba de concepto, los entornos de prueba de nube híbrida usan la conexión local a Internet y una de las direcciones IP públicas y le guiarán durante el proceso de configuración de una red virtual de Azure (VNet) entre locales y en funcionamiento. Cuando haya finalizado, puede desarrollar y probar aplicaciones, experimentar con cargas de trabajo de TI simplificadas y medir el rendimiento de una conexión de red privada virtual (VPN) de sitio a sitio con respecto a su ubicación en Internet.
 
 > [AZURE.NOTE]Actualmente, estos artículos crean máquinas virtuales, redes virtuales y otros recursos en Administración de servicios.
 
@@ -50,15 +50,12 @@ Para aquellas organizaciones y usuarios sin acceso fácil a una conexión direct
 
 ## Recursos adicionales
 
-[Granjas de servidores de SharePoint hospedadas en servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
+[Granjas de servidores de SharePoint hospedadas en Servicios de infraestructura de Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [PDF del plano de arquitectura de aplicaciones de línea de negocio 3D](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
 [Implementación de la sincronización de directorios de Office 365 (DirSync) en Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-[Directrices de implementación de los servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
+[Directrices de implementación de Servicios de infraestructura de Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

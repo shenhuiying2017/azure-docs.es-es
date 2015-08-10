@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Administración de mapas de particiones.
@@ -37,14 +37,31 @@ Escalado elástico admite los siguientes tipos de .Net Framework como claves de 
 Los mapas de particiones se pueden construir mediante **listas de valores individuales de clave de particionamiento**, o por medio de **intervalos de valores de clave de particionamiento**.
 
 ###Mapas de particiones de lista
-Las **particiones** contienen **shardlets** y la asignación de shardlets a particiones se mantiene mediante un mapa de particiones. Un **mapa de particiones de lista** es una asociación entre los valores de clave individuales que identifican los shardlets y las bases de datos que funcionan como particiones. Las **asignaciones de lista** son explícitas (por ejemplo, la clave 1 se asigna a la base de datos A) y se pueden asignar diferentes valores de clave a la misma base de datos (los valores de clave 3 y 6 hacen referencia a la base de datos B). <table> <tr> <td>Clave</td> <td>Ubicación de la partición</td> </tr> <tr> <td>1</td> <td>Base de datos A</td> </tr> <tr> <td>3</td> <td>Base de datos B</td> </tr> <tr> <td>4</td> <td>Base de datos C</td> </tr> <tr> <td>6</td> <td>Base de datos B</td> </tr> <tr> <td>...</td> <td>...</td> </tr> </table>
+Las **particiones** contienen **shardlets** y la asignación de shardlets a particiones se mantiene mediante un mapa de particiones. Un **mapa de particiones de lista** es una asociación entre los valores de clave individuales que identifican los shardlets y las bases de datos que funcionan como particiones. Las **asignaciones de lista** son explícitas (por ejemplo, la clave 1 se asigna a la base de datos A) y se pueden asignar diferentes valores de clave a la misma base de datos (los valores de clave 3 y 6 hacen referencia a la base de datos B).
+
+| Clave | Ubicación de la partición |
+|-----|----------------|
+| 1 | Database\_A |
+| 3 | Database\_B |
+| 4 | Database\_C |
+| 6 | Database\_B |
+| ... | ... |
+ 
 
 ### Mapas de particiones de intervalo 
 En un **mapa de particiones de intervalo**, el intervalo de claves se describe mediante un par **[valor bajo, valor alto)** donde el *valor bajo* es la clave mínima de el intervalo y el *valor alto* es el primer valor superior del intervalo.
 
-Por ejemplo **[0, 100)** incluye todos los números enteros que son mayores o iguales que 0 y menores que 100. Tenga en cuenta que varios intervalos pueden apuntar a la misma base de datos y que se admiten intervalos separados (por ejemplo, [100,200) y [400,600) ambos apuntan a la base de datos C en el ejemplo siguiente). <table> <tr> <td><b>Intervalo de claves</b></td> <td><b>Ubicación de la partición</b></td> </tr> <tr> <td>[1, 50)</td> <td>Base de datos A</td> </tr> <tr> <td>[50, 100)</td> <td>Base de datos B</td> </tr> <tr> <td>[100, 200)</td> <td>Base de datos C</td> </tr> <tr> <td>[400, 600)</td> <td>Base de datos C</td> </tr> <tr> <td>...</td> <td>...</td> </tr> </table>
+Por ejemplo **[0, 100)** incluye todos los números enteros que son mayores o iguales que 0 y menores que 100. Tenga en cuenta que varios intervalos pueden apuntar a la misma base de datos y que se admiten intervalos separados (por ejemplo, [100,200) y [400,600) ambos apuntan a la base de datos C en el ejemplo siguiente).
 
-Cada una de las tablas mostradas anteriormente es un ejemplo conceptual de objeto **ShardMap**. Cada fila es un ejemplo simplificado de un objeto **PointMapping** (para el mapa de particiones de lista) o **RangeMapping** (para el mapa de particiones de intervalo).
+| Clave | Ubicación de la partición |
+|-----------|----------------|
+| [1,50) | Database\_A |
+| [50,100) | Database\_B |
+| [100,200) | Database\_C |
+| [400,600) | Database\_C |
+| ... | ...            
+
+Cada una de las tablas mostradas anteriormente es un ejemplo conceptual de un objeto **ShardMap**. Cada fila es un ejemplo simplificado de un objeto **PointMapping** (para el mapa de particiones de lista) o **RangeMapping** (para el mapa de particiones de intervalo).
 
 ## Administrador de mapas de particiones 
 
@@ -107,7 +124,7 @@ A continuación se muestra una secuencia de operaciones de ejemplo para rellenar
 2. Los metadatos de dos particiones diferentes se agregan al mapa de particiones. 
 3. Se agregan diversas asignaciones de intervalo de claves, y se muestra el contenido global del mapa de particiones. 
 
-El código está escrito de manera que todo el método puede volverse a ejecutar con seguridad en caso de que se produzca un error inesperado: cada solicitud comprueba si ya existe una partición o asignación antes de intentar crearla. El siguiente código asume que las bases de datos llamadas **sample_shard_0**, **sample_shard_1** y **sample_shard_2** ya se han creado en el servidor al que hace referencia la cadena **shardServer**.
+El código está escrito de manera que todo el método puede volverse a ejecutar con seguridad en caso de que se produzca un error inesperado: cada solicitud comprueba si ya existe una partición o asignación antes de intentar crearla. El siguiente código asume que las bases de datos llamadas **sample\_shard\_0**, **sample\_shard\_1** y **sample\_shard\_2** ya se han creado en el servidor al que hace referencia la cadena **shardServer**.
 
     public void CreatePopulatedRangeMap(ShardMapManager smm, string mapName) 
         {            
@@ -234,4 +251,4 @@ Sin embargo, para escenarios que requieren movimiento de datos, se necesita la h
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

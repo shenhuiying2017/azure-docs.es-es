@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 #Administración de la disponibilidad de las máquinas virtuales
@@ -69,4 +69,4 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Configuración de un conjunto de disponibilidad para máquinas virtuales]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

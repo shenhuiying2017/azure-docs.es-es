@@ -142,7 +142,7 @@ Haga lo siguiente para configurar por primera vez el firewall de Azure:
 
     Aquí debe hacer un par de cosas: - Ponerle nombre a la regla del firewall - Proporcionar un intervalo de IP
 
-    > [AZURE.NOTE]El intervalo de direcciones IP del cliente que debe incluir es su dirección IP externa o pública. Para conocer su dirección IP externa, puede usar varios sitios web, como <a href="http://www.whatismyip.com" target="_blank">www.whatismyip.com</a>
+    > [AZURE.NOTE]El intervalo de direcciones IP del cliente que debe incluir es su dirección IP externa o pública. Para conocer su dirección IP externa, puede usar varios sitios web, como <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>
 
 7. Guarde la regla del firewall.
 
@@ -166,4 +166,4 @@ Por lo tanto, los pasos siguientes sirven para realizar la: 1. [Conexión y cons
 [evaluación gratuita]: https://azure.microsoft.com/es-es/pricing/free-trial/
 [Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

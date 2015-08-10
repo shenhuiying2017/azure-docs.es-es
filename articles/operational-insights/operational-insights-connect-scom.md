@@ -46,4 +46,4 @@ Si usa Operations Manager para supervisar cualquiera de las siguientes cargas de
 
 [Configuración de los ajustes del proxy y del firewall (opcional)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

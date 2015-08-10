@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Lista de conectores y aplicaciones de API | Azure" 
-	description="Obtenga información acerca de los conectores y las aplicaciones de API del Servicio de aplicaciones de Azure; arquitectura de microservicios" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="Lista de conectores y aplicaciones de API | Azure"
+	description="Obtenga información acerca de los conectores y las aplicaciones de API del Servicio de aplicaciones de Azure; arquitectura de microservicios"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,6 @@ Nombre | Descripción
 [HDInsight de Azure](app-service-logic-connector-hdinsight.md) | Use este conector para crear un clúster de Hadoop en Azure y enviar trabajos de Hadoop diferentes como Hive, Pig, MapReduce y MapReduce de streaming. Mediante este conector, también puede hacer girar un clúster, enviar un trabajo y esperar a que el trabajo finalice.
 [Bus de servicio de Azure](app-service-logic-connector-azureservicebus.md) | Mediante este conector puede enviar mensajes desde entidades de Bus de servicio, como colas y temas, y recibir mensajes de entidades de Bus de servicio, como colas y suscripciones.
 [Blob de almacenamiento de Azure](app-service-logic-connector-azurestorageblob.md) | Se conecta al almacenamiento de blobs y puede cargar blobs, obtener blobs, eliminar blobs, enumerar blobs del contenedor, hacer instantáneas de blobs, copiar blobs y usar un desencadenador para recuperar blobs.
-WebJobs de Azure | Se conecta a WebJobs.
 [Box](app-service-logic-connector-box.md) | Se conecta a Box y puede cargar archivos, obtener archivos, eliminar archivos, enumerar archivos y usar un desencadenador para recuperar archivos.
 [Chatter](app-service-logic-connector-chatter.md) | Se conecta a Chatter y puede exponer mensajes y buscar y usar un desencadenador para recuperar mensajes nuevos.
 [Dropbox](app-service-logic-connector-dropbox.md) | Se conecta a Dropbox y puede cargar archivos, obtener archivos, eliminar archivos, enumerar archivos y usar un desencadenador para recuperar archivos.
@@ -92,6 +91,6 @@ Los conectores también pueden utilizarse como acciones dentro de una aplicació
 
 ## Más sobre los conectores y las aplicaciones de API
 
-[Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)<br/>[Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)<br/>[Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
+[Qué son los conectores y las aplicaciones de API de BizTalk](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Uso del Administrador de conexiones híbridas en el Servicio de aplicaciones de Azure](app-service-logic-hybrid-connection-manager.md)<br/> [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -104,7 +104,7 @@ En PowerShell, reemplace los elementos dentro de "< >" por su información espec
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<C:\>"
+	$OutputPathForSettingsFile = "<c:>"
 
 ```
 
@@ -125,7 +125,7 @@ Generación de una clave de registro en el almacén. Después de descargar el pr
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<C:\>"
+		$OutputPathForSettingsFile = "<c:>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -307,7 +307,7 @@ El cmdlet final crea una asignación entre la red principal y la red de la máqu
 
 ```
 
-PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ```
 
@@ -354,7 +354,7 @@ Para comprobar la finalización de la operación, siga los pasos en [Supervisió
 
 ### Creación de un plan de recuperación
 
-1. Cree un archivo .xml como plantilla para su plan de recuperación mediante los datos siguientes y, a continuación, guárdelo como "C:\RPTemplatePath.xml".
+1. Cree un archivo .xml como plantilla para su plan de recuperación mediante los datos siguientes y, a continuación, guárdelo como "C:\\RPTemplatePath.xml".
 2. Cambie RecoveryPlan node Id, Name, PrimaryServerId y SecondaryServerId.
 3. Cambie ProtectionEntity node PrimaryProtectionEntityId (vmid desde VMM).
 4. Puede agregar más máquinas virtuales añadiendo más nodos ProtectionEntity.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh@microsoft.com"/>
 
 #Introducción a las herramientas de base de datos elástica
@@ -24,27 +24,27 @@ Las herramientas de base de datos elástica simplifican la creación y administr
 
 Este documento presenta la experiencia del desarrollador en el uso de la biblioteca de clientes de base de datos elástica.
 
-Para obtener más información acerca del funcionamiento de las herramientas de base de datos elástica, consulte [Información general acerca de las herramientas de base de datos elástica](sql-database-elastic-scale-introduction.md).
+Para obtener más información sobre cómo funcionan las herramientas de base de datos elástica, vea [Información general de las herramientas de la base de datos elástica](sql-database-elastic-scale-introduction.md).
 
-Para obtener una lista de temas sobre las herramientas de base de datos elástica, consulte el [Mapa de documentación](sql-database-elastic-scale-documentation-map.md).
+Para obtener una lista de todos los temas sobre las herramientas de base de datos elástica, consulte el [mapa de aprendizaje](sql-database-elastic-scale-documentation-map.md).
 
 ## Aplicación de ejemplo de base de datos elástica
 
-El ejemplo crea una aplicación particionada sencilla y explora las capacidades clave de las herramientas de base de datos elástica. Para descargar y ejecutar la aplicación, siga los pasos mostrados a continuación o en el vídeo [Escalado elástico - Procedimientos iniciales](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
+El ejemplo crea una aplicación particionada sencilla y explora las capacidades clave de las herramientas de base de datos elástica. Para descargar y ejecutar la aplicación, siga los pasos que se muestran a continuación o en el vídeo [Escalado elástico - Procedimientos iniciales](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started).
 
-### Requisitos previos
+## Requisitos previos
 Para ejecutar la aplicación de ejemplo, debe usar Visual Studio y debe tener acceso a una Base de datos SQL de Azure que se ejecute en Azure. Si todavía no tiene una suscripción a Azure, regístrese en una [suscripción de prueba](http://azure.microsoft.com/pricing/free-trial/).
-#### Visual Studio y NuGet
+### Visual Studio y NuGet
 
 1. Se necesita Visual Studio 2012 o superior con C#. Descargue una versión gratuita desde [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 2. Nuget 2.7 o superior. Para obtener la versión más reciente, consulte [Instalación de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)
-#### Crear una base de datos SQL de Azure
+### Crear una base de datos SQL de Azure
 
 * Consulte [Introducción a Base de datos SQL de Microsoft Azure](sql-database-get-started.md).
 
 ## Descarga y ejecución de la aplicación de ejemplo
 
-La aplicación de ejemplo **Base de datos elástica con SQL de Azure - Introducción** ilustra los aspectos más importantes de la experiencia de desarrollo para aplicaciones particionadas usando herramientas de base de datos elástica SQL de Azure. Se centra en los casos de uso claves para el [Administrador de asignación de particiones](sql-database-elastic-scale-shard-map-management.md), el [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y las [Consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md). Para descargar y ejecutar el ejemplo, siga estos pasos:
+La aplicación de ejemplo **Base de datos elástica con SQL de Azure - Introducción** ilustra los aspectos más importantes de la experiencia de desarrollo para aplicaciones particionadas usando herramientas de base de datos elástica SQL de Azure. Se centra en los casos de uso claves para la [administración de asignación de particiones](sql-database-elastic-scale-shard-map-management.md), el [enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md) y las [consultas a través de particiones múltiples](sql-database-elastic-scale-multishard-querying.md). Para descargar y ejecutar el ejemplo, siga estos pasos:
 
 1. Abra Visual Studio y seleccione **Archivo -> Nuevo -> Proyecto**.
 2. En el cuadro de diálogo, haga clic en **En línea**.
@@ -115,4 +115,4 @@ Para obtener más información sobre las herramientas de base de datos elástica
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

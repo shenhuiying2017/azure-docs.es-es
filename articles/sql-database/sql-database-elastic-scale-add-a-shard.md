@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Incorporación de una partición con herramientas de bases de datos elásticas
@@ -25,7 +25,7 @@ Con frecuencia, las aplicaciones simplemente necesitan agregar nuevas particione
 Si el nuevo intervalo de valores de clave no forma parte todavía de una asignación existente, es muy sencillo agregar la nueva partición y asociar la nueva clave o el nuevo intervalo a dicha partición.
 
 ### Ejemplo: incorporación de una partición y su intervalo a una asignación de partición existente
-En el ejemplo siguiente, se ha creado una base de datos denominada **sample_shard_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).
+En el ejemplo siguiente, se ha creado una base de datos denominada **sample\_shard\_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -47,7 +47,7 @@ En algunas circunstancias, tiene ya asignado un intervalo a una partición y se 
 
 ### Ejemplo: división de un intervalo y asignación de la parte vacía a una partición recién agregada
 
-Se ha creado una base de datos denominada "sample_shard_2" y todos los objetos de esquema necesarios en su interior.
+Se ha creado una base de datos denominada "sample\_shard\_2" y todos los objetos de esquema necesarios en su interior.
 
  
     // sm is a RangeShardMap object.
@@ -78,4 +78,4 @@ Se ha creado una base de datos denominada "sample_shard_2" y todos los objetos d
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

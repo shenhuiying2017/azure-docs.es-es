@@ -1,42 +1,28 @@
-<properties 
-   pageTitle="Install StorSimple Adapter for SharePoint | Microsoft Azure"
-   description="Describes how to install the StorSimple Adapter for SharePoint in a SharePoint server farm."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/17/2015"
-   ms.author="v-sharos" />
 
-#### To install the StorSimple Adapter for SharePoint
+#### Para instalar el adaptador de StorSimple para SharePoint
 
-1. Copy the installer to the web front end (WFE) server that is also configured to run the SharePoint Central Administration web application. 
+1. Copie el instalador en el servidor web front-end (WFE) que también está configurado para ejecutar la aplicación web Administración central de SharePoint. 
 
-2. Use an account with administrator privileges to log on to the WFE server.
+2. Use una cuenta con privilegios de administrador para iniciar sesión en el servidor WFE.
 
-3. Double-click the installer. The StorSimple Adapter for SharePoint Setup Wizard starts. Click **Next** to begin the installation.
+3. Haga doble clic en el instalador. El Asistente para la instalación del adaptador de StorSimple para SharePoint se inicia. Haga clic en **Siguiente** para iniciar la instalación.
 
-    ![StorSimple adapter setup start page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
+    ![Página de inicio de la configuración del adaptador de StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)
 
-4. In the StorSimple Adapter for SharePoint setup configuration page, select an installation location, type the IP address for the DATA 0 network interface on your StorSimple device, and then click **Next**. 
+4. En la página de configuración de la instalación del adaptador de StorSimple para SharePoint, seleccione una ubicación de instalación, escriba la dirección IP de la interfaz de red DATA 0 en el dispositivo de StorSimple y, a continuación, haga clic en**Siguiente**.
 
-    ![StorSimple adapter setup configuration page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png) 
+    ![Página de configuración de la instalación del adaptador de StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup2-include.png)
 
-5. In the setup confirmation page, click **Install**.
+5. En la página de confirmación de la configuración, haga clic en **Instalar**.
 
-    ![StorSimple adapter setup confirmation page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png) 
+    ![Página de confirmación de la instalación del adaptador de StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png)
 
-6. Click **Finish** to close the Setup Wizard.
+6. Haga clic en **Finalizar** para cerrar el Asistente para la instalación.
 
-    ![StorSimple adapter setup finished page](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png) 
+    ![Página de instalación terminada del adaptador de StorSimple](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png)
 
-7. Open the SharePoint Central Administration page. You should see a StorSimple Configuration group that contains the StorSimple Adapter for SharePoint links.
+7. Abra la página Administración central de SharePoint. Debería ver un grupo de configuración de StorSimple que contiene los vínculos del adaptador de StorSimple para SharePoint.
 
-8. Go to the next step: [Configure RBS](#configure-rbs).
+8. Vaya al paso siguiente: [Configuración de RBS](#configure-rbs).
+
+<!---HONumber=July15_HO5-->

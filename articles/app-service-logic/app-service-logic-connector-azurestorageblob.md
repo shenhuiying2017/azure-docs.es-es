@@ -110,4 +110,4 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

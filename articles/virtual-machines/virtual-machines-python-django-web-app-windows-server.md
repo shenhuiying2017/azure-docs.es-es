@@ -76,7 +76,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 1. Instale ISS habilitado para FastCGI. Esto puede tardar varios minutos en ejecutarse.
 
-		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 
 ### Python 2.7
@@ -148,7 +148,7 @@ Ejecute estos comandos solo si está utilizando Python 3.4.
 ## Creación de una nueva aplicación Django
 
 
-1.  En *C:\inetpub\wwwroot*, escriba el siguiente comando para crear un nuevo proyecto Django:
+1.  En *C:\\inetpub\\wwwroot*, escriba el siguiente comando para crear un nuevo proyecto Django:
 
     Para Python 2.7, use el siguiente comando.
 
@@ -162,13 +162,13 @@ Ejecute estos comandos solo si está utilizando Python 3.4.
 
 1.  El comando **django-admin** genera una estructura básica para los sitios web basados en Django:
 
-  -   **helloworld\manage.py** le ayuda a iniciar y detener el hospedaje del sitio web basado en Django.
-  -   **helloworld\helloworld\settings.py** contiene ajustes de Django para la aplicación.
-  -   **helloworld\helloworld\urls.py** contiene el código de asignación entre cada dirección URL y su vista.
+  -   **helloworld\\manage.py** le ayuda a iniciar y detener el hospedaje del sitio web basado en Django.
+  -   **helloworld\\helloworld\\settings.py** contiene ajustes de Django para la aplicación.
+  -   **helloworld\\helloworld\\urls.py** contiene el código de asignación entre cada dirección URL y su vista.
 
 
 
-1.  Cree un nuevo archivo denominado**views.py** en el directorio *C:\inetpub\wwwroot\helloworld\helloworld*. Este contendrá la vista que representa la página "hello world". Inicie el editor y escriba lo siguiente:
+1.  Cree un nuevo archivo denominado**views.py** en el directorio *C:\\inetpub\\wwwroot\\helloworld\\helloworld*. Este contendrá la vista que representa la página "hello world". Inicie el editor y escriba lo siguiente:
 
 		from django.http import HttpResponse
 		def home(request):
@@ -198,4 +198,4 @@ Cuando finalice este tutorial, apague o quite la máquina virtual de Azure reci�
 
 [Instalador de la plataforma web]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

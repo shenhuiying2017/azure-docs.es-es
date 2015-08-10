@@ -29,4 +29,4 @@ Azure Active Directory (Azure AD) proporciona una manera fácil para la empresa 
 ##Suscripción de Azure
 Las suscripciones de Azure le ayudan a organizar el acceso a los recursos de servicio en la nube como Catálogo de datos de Azure. También le ayudan a controlar cómo se informa, factura y paga el uso de recursos. Cada suscripción puede tener una configuración de facturación y pago diferente, por lo que puede tener varias suscripciones y planes diferentes por departamento, proyecto, oficina regional, etc. Cada servicio en la nube pertenece a una suscripción, y debe tener una suscripción para poder configurar el Catálogo de datos de Azure. Para obtener más información, consulte [Administrar cuentas, suscripciones y roles administrativos](https://msdn.microsoft.com/library/azure/hh531793.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

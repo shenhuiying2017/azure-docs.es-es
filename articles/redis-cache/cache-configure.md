@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="06/29/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # Configuración de Caché en Redis de Azure
@@ -115,12 +115,14 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 |Configuración|Valor predeterminado|Descripción|
 |---|---|---|
 |bases de datos|16|La base de datos predeterminada es DB 0. Se puede seleccionar una diferente por conexión mediante connection.GetDataBase(dbid), donde dbid es un número entre 0 y 15.|
-|maxclients|10.000|Se trata del número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cerrará todas las nuevas conexiones y enviará un error de "número máximo de clientes alcanzado".|
+|maxclients|10\.000|Se trata del número máximo de clientes conectados que se permiten al mismo tiempo. Una vez alcanzado el límite, Redis cerrará todas las nuevas conexiones y enviará un error de "número máximo de clientes alcanzado".|
 |maxmemory-policy|volatile-lru|Directiva Maxmemory es la opción que configura el modo en que Redis seleccionará lo que se debe quitar cuando se alcanza el valor de maxmemory (el tamaño de la oferta de memoria caché que seleccionó al crear la memoria caché). Con Caché en Redis de Azure la opción predeterminada es volatile-lru, que quita las claves con una fecha de expiración definida mediante un algoritmo LRU. Esta opción puede configurarse en el portal. Para obtener más información, vea [Maxmemory-policy y maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved).|
 |maxmemory-samples|3|Los algoritmos LRU y TTL mínimo no son precisos sino aproximados (con el fin de ahorrar memoria), para que también pueda seleccionar el tamaño de muestra para comprobar. Por ejemplo, Redis comprobará de manera predeterminada tres claves y seleccionará la usada menos recientemente.|
-|lua-time-limit|5.000|Tiempo máximo de ejecución de un script Lua en milisegundos. Si se alcanza el tiempo máximo de ejecución, Redis registrará que un script está aún en ejecución una vez transcurrido el tiempo máximo permitido y empezará a responder a las consultas con un error.|
+|lua-time-limit|5\.000|Tiempo máximo de ejecución de un script Lua en milisegundos. Si se alcanza el tiempo máximo de ejecución, Redis registrará que un script está aún en ejecución una vez transcurrido el tiempo máximo permitido y empezará a responder a las consultas con un error.|
 |lua-event-limit|500|Se trata del tamaño máximo de la cola de eventos de script.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|Los límites de búfer de salida de cliente pueden usarse para forzar la desconexión de clientes que, por algún motivo (un motivo habitual es que un cliente de Pub/Sub no puede consumir mensajes tan rápidamente como el publicador los crea), no leen datos del servidor con suficiente rapidez. Para obtener más información, vea [http://redis.io/topics/clients](http://redis.io/topics/clients).|
+
+## No se admiten comandos de Redis en Caché en Redis de Azure
 
 >[AZURE.IMPORTANT]Dado que la configuración y administración de instancias de Caché en Redis de Azure se realizan mediante el portal de Azure, se deshabilitan los comandos siguientes. Si intenta invocarlos, recibirá un mensaje de error similar a `"(error) ERR unknown command"`.
 >
@@ -135,7 +137,21 @@ Las nuevas instancias de Caché en Redis de Azure se configuran con los siguient
 
 Para obtener más información sobre los comandos de Redis, vea [http://redis.io/commands](http://redis.io/commands).
 
+## Consola de Redis
+
+Puede emitir comandos de forma segura para sus instancias de Caché en Redis de Azure con la **consola de Redis** que está disponible para las memorias caché estándar. Para obtener acceso a la consola de Redis, haga clic en **Consola** desde la hoja **Caché en Redis**.
+
+![Consola de Redis](./media/cache-configure/redis-console-menu.png)
+
+>[AZURE.IMPORTANT]La consola de Redis solo está disponible para las memorias caché estándar.
+
+Para emitir comandos con una instancia de la memoria caché, basta con escribir en el comando que desea en la consola.
+
+![Consola de Redis](./media/cache-configure/redis-console.png)
+
+Para obtener una lista de comandos de Redis que están deshabilitados para Caché en Redis de Azure, consulte la sección anterior [No se admiten comandos de Redis en Caché en Redis de Azure](#redis-commands-not-supported-in-azure-redis-cache). Para obtener más información sobre los comandos de Redis, vea [http://redis.io/commands](http://redis.io/commands).
+
 ## Pasos siguientes
 -	Para obtener más información sobre cómo trabajar con comandos de Redis, vea [Cómo puedo ejecutar comandos de Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

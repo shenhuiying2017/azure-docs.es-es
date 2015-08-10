@@ -40,7 +40,7 @@ Los metadatos estructurales son los metadatos extraídos de un origen de datos q
 
 ## Metadatos descriptivos
 
-Metadatos descriptivos son los metadatos que describen el propósito o el objetivo de un recurso de datos. Normalmente, los metadatos descriptivos son agregados por los usuarios del catálogo mediante el portal del Catálogo de datos de Azure, pero también se pueden extraer del origen de datos durante el registro. La herramienta de registro de Catálogo de datos de Azure extraerá las descripciones de la propiedad Description en SQL Server Analysis Services y SQL Server Reporting Services y desde [la propiedad extendida ms_description](https://technet.microsoft.com/library/ms190243.aspx)en bases de datos de SQL Server, si estas propiedades se han rellenado con valores.
+Metadatos descriptivos son los metadatos que describen el propósito o el objetivo de un recurso de datos. Normalmente, los metadatos descriptivos son agregados por los usuarios del catálogo mediante el portal del Catálogo de datos de Azure, pero también se pueden extraer del origen de datos durante el registro. La herramienta de registro de Catálogo de datos de Azure extraerá las descripciones de la propiedad Description en SQL Server Analysis Services y SQL Server Reporting Services y desde [la propiedad extendida ms\_description](https://technet.microsoft.com/library/ms190243.aspx)en bases de datos de SQL Server, si estas propiedades se han rellenado con valores.
 
 ## Vistas previas
 
@@ -71,4 +71,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 - [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md): este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Configuración de un modo de distribución del equilibrador de carga | Microsoft Azure"
-   description="Cómo configurar el modo de distribución del Equilibrador de carga de Azure para admitir la afinidad de IP de origen también conocida como sesiones persistentes"
+   description="Cómo configurar el modo de distribución del equilibrador de carga de Azure para admitir la afinidad de IP de origen"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -47,7 +47,7 @@ Agregar un extremo de Azure a una máquina virtual y establecer el modo de distr
 
 Recuperar una configuración de modo de distribución del equilibrador de carga de extremo
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -149,4 +149,4 @@ El valor de LoadBalancerDistribution puede ser sourceIP para la afinidad de 2-tu
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

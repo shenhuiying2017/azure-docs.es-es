@@ -13,32 +13,31 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="article" 
-	ms.date="04/24/2015"
-	ms.author="ggailey777"/>
+	ms.date="07/25/2015"
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>En este tutorial se indica cómo agregar un servicio back-end basado en la nube a una aplicación HTML mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>Lista de pendientes</em> que almacena datos de la aplicación en el servicio móvil nuevo. Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo</span></a> <span class="time">3:51</span></div>
-</div>
+##Información general 
 
+En este tutorial se indica cómo agregar un servicio back-end basado en la nube a una aplicación HTML mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. Puede ver la siguiente versión en vídeo de este tutorial.
+
+> [AZURE.VIDEO mobile-get-started-html]
+ 
 La siguiente captura de pantalla muestra la aplicación final:
 
 ![][0]
 
-Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones HTML.
+Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones HTML. Para una aplicación de PhoneGap/Cordova, vea la [versión de PhoneGap/Cordova](mobile-services-javascript-backend-phonegap-get-started.md) de este tutorial.
 
-> [AZURE.IMPORTANT]Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank).
+##Requisitos previos
 
-###Requisitos adicionales
+Los siguientes requisitos son necesarios para completar este tutorial.
 
-+ Este tutorial requiere que uno de los siguientes servidores web se esté ejecutando en su equipo local:
++ Debe tener uno de los siguientes servidores web ejecutándose en su equipo local:
 
 	+  **En Windows**: IIS Express. IIS Express lo instala el [instalador de plataforma web de Microsoft].
 	+  **En MacOS X**: Python, que ya debería estar instalado.
@@ -47,6 +46,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Serv
 	Puede usar cualquier servidor web para hospedar la aplicación, aunque estos son los servidores web que admiten los scripts descargados.
 
 + Un servidor web compatible con HTML5.
++ Una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
@@ -134,10 +134,6 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- Images. -->
 [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
 
-
-
-
-
 [6]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
 [7]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
 
@@ -148,15 +144,15 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 
 <!-- URLs. -->
-[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-html
-[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-html
+[Introducción a los datos]: mobile-services-html-get-started-data.md
+[Introducción a la autenticación]: mobile-services-html-get-started-users.md
 [Llamada a una API personalizada desde una aplicación HTML]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [instalador de plataforma web de Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [última versión de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client
-[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
+[Referencia conceptual de Servicios móviles con HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

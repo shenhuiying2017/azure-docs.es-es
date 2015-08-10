@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Uso de Servicios móviles para cargar imágenes en el almacenamiento de blobs (Windows Phone) | Servicios móviles" 
-	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure." 
+	pageTitle="Carga de imágenes al almacenamiento de Azure desde una aplicación Windows Phone Silverlight | Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes de una aplicación Windows Phone Silverlight al almacenamiento de blobs de Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
@@ -103,4 +103,4 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

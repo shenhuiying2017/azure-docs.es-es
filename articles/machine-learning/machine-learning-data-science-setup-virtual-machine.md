@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Configuración de una máquina virtual como servidor del Bloc de notas de IPython | Microsoft Azure"
 	description="Configure una máquina virtual de Azure para su uso en un entorno de ciencia de datos con el servidor de IPython para realizar análisis avanzados."
-	metaKeywords=""
 	services="machine-learning"
-	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -26,9 +24,9 @@ En este tema se muestra cómo aprovisionar y configurar una máquina virtual de 
 
 Si ya tiene una máquina virtual de Azure y solo quiere configurar un servidor de Bloc de notas de IPython en ella, puede omitir este paso y continuar con el [Paso 2: Agregar un extremo para Blocs de notas de IPython a una máquina virtual existente](#add-endpoint).
 
-Antes de comenzar el proceso de creación de una máquina virtual en Azure, deberá determinar el tamaño de la máquina que se necesita para procesar los datos para su proyecto. Las máquinas más pequeñas tienen menos memoria y menos núcleos de CPU que los equipos más grandes, pero también son menos costosas. Para obtener una lista de tipos de equipos y sus precios, consulte la página [Precios de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/).
+Antes de comenzar el proceso de creación de una máquina virtual en Azure, deberá determinar el tamaño de la máquina que se necesita para procesar los datos para su proyecto. Las máquinas más pequeñas tienen menos memoria y menos núcleos de CPU que los equipos más grandes, pero también son menos costosas. Para obtener una lista de tipos de equipos y sus precios, consulte la página <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">Precios de máquinas virtuales</a>.
 
-1. Inicie sesión en https://manage.windowsazure.com, y haga clic en **Nuevo** en la esquina inferior izquierda. Aparecerá una ventana. Seleccione **PROCESO** -> **MÁQUINA VIRTUAL** -> **DE LA GALERÍA**.
+1. Inicie sesión en el <a href="https://manage.windowsazure.com" target="_blank">Portal de Azure</a> y haga clic en **Nuevo** en la esquina inferior izquierda. Aparecerá una ventana. Seleccione **PROCESO** -> **MÁQUINA VIRTUAL** -> **DE LA GALERÍA**.
 
 	![Creación del espacio de trabajo][24]
 
@@ -41,15 +39,13 @@ Antes de comenzar el proceso de creación de una máquina virtual en Azure, debe
 
 	![Creación del espacio de trabajo][25]
 
-3. Escriba un nombre para la máquina virtual que quiere crear, seleccione el tamaño de la máquina en función del tamaño de los datos que va a procesar y la potencia que desea que tenga el equipo (el tamaño de la memoria y el número de núcleos de procesamiento), escriba un nombre de usuario y una contraseña para la máquina. A continuación, haga clic en la flecha que apunta hacia la derecha para ir a la siguiente página de configuración.
+3. Escriba un nombre para la máquina virtual que quiere crear, seleccione el tamaño de la máquina (Predeterminado: A3) en función del tamaño de los datos que va a procesar y la potencia que desea que tenga el equipo (el tamaño de la memoria y el número de núcleos de procesamiento), escriba un nombre de usuario y una contraseña para la máquina. A continuación, haga clic en la flecha que apunta hacia la derecha para ir a la siguiente página de configuración.
 
 	![Creación del espacio de trabajo][26]
 
-4. Seleccione la **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** que contiene la **CUENTA DE ALMACENAMIENTO** que pretende usar para esta máquina virtual y, después, seleccione esa cuenta de almacenamiento. Agregue un extremo en la parte inferior del campo **EXTREMOS** escribiendo el nombre del extremo ("IPython" aquí). Puede elegir cualquier cadena como el **NOMBRE** del extremo y cualquier entero entre 0 y 65536 que esté **disponible** como el **PUERTO PÚBLICO**. El **PUERTO PRIVADO** debe ser **9999**. Los usuarios deben **evitar** el uso de los puertos públicos que ya estén asignados a servicios de Internet. [Puertos para Servicios de Internet](http://www.chebucto.ns.ca/~rakerman/port-table.html) ofrece una lista de puertos que se han asignado y deben evitarse.
+4. Seleccione la **REGIÓN/GRUPO DE AFINIDAD/RED VIRTUAL** que contiene la **CUENTA DE ALMACENAMIENTO** que pretende usar para esta máquina virtual y, después, seleccione esa cuenta de almacenamiento. Agregue un extremo en la parte inferior del campo **EXTREMOS** escribiendo el nombre del extremo ("IPython" aquí). Puede elegir cualquier cadena como el **NOMBRE** del extremo y cualquier entero entre 0 y 65536 que esté **disponible** como el **PUERTO PÚBLICO**. El **PUERTO PRIVADO** debe ser **9999**. Los usuarios deben **evitar** el uso de los puertos públicos que ya estén asignados a servicios de Internet. <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">Puertos para Servicios de Internet</a> ofrece una lista de puertos que se han asignado y deben evitarse.
 
 	![Creación del espacio de trabajo][27]
-
-	>[AZURE.NOTE]Si se agrega el extremo a este paso, se puede omitir el [Paso 2: Agregar un extremo para Blocs de notas de IPython en una máquina virtual existente se puede omitir](#add-endpoint).
 
 5. Haga clic en la marca de verificación para iniciar la máquina virtual de proceso de aprovisionamiento.
 
@@ -70,18 +66,18 @@ Si la máquina virtual ya existe y necesita agregar un extremo para Bloc de nota
 
 ## <a name="run-commands"></a>Paso 3: Instalar Bloc de notas de IPython y otras herramientas de compatibilidad
 
-Después de crear la máquina virtual, use el Protocolo de escritorio remoto (RDP) para iniciar sesión en la máquina virtual de Windows. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server.md). Abra el **Símbolo del sistema** (**no es la ventana de comandos de Powershell**) como administrador y ejecute el siguiente comando.
+Después de crear la máquina virtual, use el Protocolo de escritorio remoto (RDP) para iniciar sesión en la máquina virtual de Windows. Para obtener instrucciones, consulte [Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server.md). Abra el **Símbolo del sistema** (**no es la ventana de comandos de Powershell**) como **administrador** y ejecute el siguiente comando.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Cuando finalice la instalación, el servidor de Bloc de notas de IPython se inicia automáticamente en el directorio *C:\Users&#60;user name>\Documents\IPython Notebooks*.
+Cuando finalice la instalación, el servidor de Bloc de notas de IPython se inicia automáticamente en el directorio *C:\\Users\\<nombre de usuario>\\Documents\\IPython Notebooks*.
 
 Cuando se le pida, escriba una contraseña para Bloc de notas de IPython y la contraseña del administrador de la máquina. Esto permite que Bloc de notas de IPython se ejecute como un servicio en la máquina.
 
 ## <a name="access"></a>Paso 4: Acceso a Blocs de notas de IPython desde un explorador web
-Para acceder al servidor de Bloc de notas de IPython, abra un explorador web y escriba *https://&#60;virtual nombre de máquina DNS>:&#60;número de puerto público>* en el cuadro de texto de la dirección URL. En este caso, el *&#60;número de puerto público>* debería ser el número de puerto que especificó cuando agregó el extremo de Bloc de notas de IPython. Si elige *443* como el número de puerto público, el acceso a Bloc de notas de IPython será posible sin especificar explícitamente el número de puerto en el cuadro de texto de la dirección URL. De lo contrario, el **&#60;número de puerto público>* es obligatorio.
+Para acceder al servidor de Bloc de notas de IPython, abra un explorador web y escriba *https://&#60;virtual nombre de máquina DNS>:&#60;número de puerto público>* en el cuadro de texto de la dirección URL. En este caso, el *&#60;número de puerto público>* debería ser el número de puerto que especificó cuando agregó el extremo de Bloc de notas de IPython.
 
 El *&#60;nombre DNS de la máquina virtual>* puede encontrarse en el Portal de administración de Azure. Después de iniciar sesión el portal de administración, haga clic en **MÁQUINAS VIRTUALES**, seleccione la que creó y, después, seleccione **PANEL**; se mostrará el nombre DNS como se indica a continuación:
 
@@ -97,7 +93,7 @@ Después de iniciar sesión en Bloc de notas de IPython, se mostrará en el expl
 
 ## <a name="upload"></a>Paso 5: Carga de un Bloc de notas de IPython existente desde un equipo local en el servidor de Bloc de notas de IPython
 
-Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios carguen un Bloc de notas de IPython existente de sus máquinas locales en el servidor de Bloc de notas de IPython de las máquinas virtuales. Después de que los usuarios inicien sesión en el Bloc de notas de IPython en un explorador web, haga clic en el **directorio** en el que se cargará el Bloc de notas de IPython. A continuación, seleccione un archivo .ipynb de Bloc de notas de IPython para cargarlo desde la máquina local en el Explorador **de archivos** y arrástrelo y colóquelo en el directorio del Bloc de notas de IPython, en el explorador web. Haga clic en el botón **Cargar** para cargar el archivo .ipynb en el servidor del Bloc de notas de IPython. Otros usuarios podrán entonces empezar a usarlo desde sus exploradores web.
+Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios carguen un Bloc de notas de IPython existente de sus máquinas locales en el servidor de Bloc de notas de IPython de las máquinas virtuales. Después de que los usuarios inicien sesión en el Bloc de notas de IPython en un explorador web, haga clic en el **directorio** en el que se cargará el Bloc de notas de IPython. A continuación, seleccione un archivo .ipynb de Bloc de notas de IPython para cargarlo desde la máquina local en el **Explorador de archivos** y arrástrelo y colóquelo en el directorio del Bloc de notas de IPython, en el explorador web. Haga clic en el botón **Cargar** para cargar el archivo .ipynb en el servidor del Bloc de notas de IPython. Otros usuarios podrán entonces empezar a usarlo desde sus exploradores web.
 
 ![Creación del espacio de trabajo][22]
 
@@ -147,4 +143,4 @@ Los pasos siguientes de Tecnología y procesos de análisis avanzado se asignan 
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

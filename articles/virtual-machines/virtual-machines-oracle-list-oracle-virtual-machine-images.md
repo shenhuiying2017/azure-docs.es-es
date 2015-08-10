@@ -1,28 +1,31 @@
 <properties 
-	pageTitle="Lista de imágenes de máquinas virtuales de Oracle" 
-	description="Obtenga la lista de imágenes de Oracle en la galería de Azure y aprenda a crear una máquina virtual de Oracle basada en una." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
+	pageTitle="Lista de imágenes de máquinas virtuales de Oracle"
+	description="Obtenga la lista de imágenes de Oracle en la Galería de Azure y aprenda a crear una máquina virtual de Oracle con cualquiera de ellas."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="bbenz"
+	manager=""
+	editor=""
+	tags=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
 	ms.author="bbenz" />
 
 #Lista de imágenes de máquinas virtuales de Oracle
-Para crear máquinas virtuales basadas en imágenes de Oracle, inicie sesión en el [Portal de Azure](https://ms.portal.azure.com/), haga clic en **Marketplace**, haga clic en **Proceso** y, a continuación, escriba **Oracle** en el cuadro de búsqueda. Elija una imagen y siga las instrucciones para configurar la imagen en Microsoft Azure. Tenga en cuenta que las imágenes de Oracle efectuadas por Microsoft en el [Portal de Azure](https://ms.portal.azure.com/) se ejecutan en Windows, y las imágenes de Oracle efectuadas por Oracle se ejecutan en Oracle Linux.
+Para crear máquinas virtuales a partir de imágenes de Oracle, conéctese al [Portal de Azure](https://ms.portal.azure.com/), haga clic en **Marketplace**, haga clic en **Proceso** y, a continuación, escriba **Oracle** en el cuadro de búsqueda. Seleccione una imagen y siga las instrucciones para configurarla en Microsoft Azure. Tenga en cuenta que las imágenes de Oracle efectuadas por Microsoft en el [Portal de Azure](https://ms.portal.azure.com/) se ejecutan en Windows, mientras que las imágenes de Oracle efectuadas por Oracle se ejecutan en Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
-##Imágenes de máquinas virtuales Windows
-A continuación se facilita una lista de las imágenes de máquina virtual de Oracle disponibles que se ejecutan en Windows Server en Azure. Estas imágenes son de pago por uso, lo que significa que las tarifas de licencia de Oracle están incluidas en el uso de estas imágenes. También puede aportar su propia licencia para ejecutar el software de Oracle en Windows o Linux. Aquí encontrará información completa sobre [precios y licencias para máquinas virtuales e imágenes de la galería de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Haga clic en la pestaña **Oracle** para obtener información detallada sobre precios específicos de Oracle.
+##Imágenes de máquina virtuales en Windows
+A continuación se facilita una lista de las imágenes de máquina virtual de Oracle disponibles que se ejecutan en Windows Server en Azure. Estas imágenes son de pago por uso, lo que significa que las tarifas de licencia de Oracle están incluidas en el uso de las imágenes. También puede aportar su propia licencia para ejecutar el software Oracle en Windows o Linux. Aquí encontrará información completa sobre [los precios y licencias para máquinas virtuales de Azure e imágenes de la galería de máquinas virtuales](http://azure.microsoft.com/pricing/details/virtual-machines/#oracle-software). Haga clic en la pestaña **Oracle** para obtener información detallada sobre los precios específicos de Oracle.
 
-###Imágenes de máquina virtual de Base de datos de Oracle
+###Imágenes de máquina virtual de Oracle Database
 - Oracle Database 12c Enterprise Edition en Windows Server 2012
 - Oracle Database 12c Standard Edition en Windows Server 2012
 - Base de datos de Oracle 12c con opciones populares
@@ -38,30 +41,30 @@ A continuación se facilita una lista de las imágenes de máquina virtual de Or
 - Oracle WebLogic Server 11g Enterprise Edition en Windows Server 2008
 - Oracle WebLogic Server 11g Standard Edition en Windows Server 2008  
 
-###Imágenes de máquina virtual de Base de datos de Oracle y WebLogic Server  
+###Imágenes de máquina virtual de Oracle Database y WebLogic Server  
 - Oracle Database 12c and WebLogic Server 12c Enterprise Edition en Windows Server 2012
 - Oracle Database 12c and WebLogic Server 12c Standard Edition en Windows Server 2012
 - Oracle Database 11g y WebLogic Server 11g Enterprise Edition en Windows Server 2008 R2
 - Oracle Database 11g y WebLogic Server 11g Standard Edition en Windows Server 2008 R2
 
-### Imágenes de máquinas virtuales de Java
+### Imágenes de máquina virtual de Java
 -	JDK 8 en Windows Server 2012 R2
 -	JDK 7 en Windows Server 2012 R2
 -	JDK 6 en Windows Server 2012
 
 
 ##Imágenes de máquina virtual Oracle Linux
-A continuación se facilita una lista de las imágenes de máquina virtual de Oracle preconfiguradas disponibles que se ejecutan en Oracle Linux en Azure. Se espera que los usuarios proporcionen su propia licencia para estas imágenes, ya que las cuotas de licencia de Oracle no se incluyen en el uso de estas imágenes de máquina virtual preconfiguradas. También puede aportar su propia licencia para instalar y ejecutar el software de Oracle en máquinas virtuales personalizadas Windows o Linux. Aquí encontrará información completa sobre [Licencias de Oracle en Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). Aquí encontrará detalles sobre la creación de máquinas virtuales con [sus propias imágenes](virtual-machines-create-upload-vhd-windows-server.md). Para obtener información sobre este y otros métodos de migración de cargas de trabajo de Oracle y de otro tipo a Azure, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
+A continuación se facilita una lista de las imágenes de máquina virtual de Oracle preconfiguradas disponibles que se ejecutan en Oracle Linux en Azure. Se espera proporcione su propia licencia para estas imágenes, ya que las cuotas de licencia de Oracle no se incluyen en el uso de estas imágenes de máquina virtual preconfiguradas. También puede aportar su propia licencia para instalar y ejecutar el software Oracle en máquinas virtuales personalizadas en Windows o Linux. Aquí encontrará información completa sobre [Licencias de Oracle en Azure](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support). Aquí encontrará detalles sobre la creación de máquinas virtuales con [sus propias imágenes](virtual-machines-create-upload-vhd-windows-server.md). Para obtener información sobre este y otros métodos de migración de cargas de trabajo de Oracle y de otro tipo a Azure, consulte [Diferentes formas de crear una máquina virtual de Windows](virtual-machines-windows-choices-create-vm.md).
 
 - Oracle Database 12c Enterprise Edition en Oracle Linux
 - Oracle Database 12c Standard Edition en Oracle Linux
 - Oracle WebLogic Server 12c Enterprise Edition en Oracle Linux
-- Oracle Linux 6.4.0.0.0 
-- Oracle Linux 7.0.0.0.0 
+- Oracle Linux 6.4.0.0.0
+- Oracle Linux 7.0.0.0.0
 
 ##Recursos adicionales
-[Nuevas imágenes de Oracle todo en uno nuevo en Azure Marketplace](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
+[New all-in-one Oracle images in the Azure Marketplace (Nuevas imágenes de Oracle todo en uno de Azure Marketplace)](https://msopentech.com/blog/2015/02/19/new-one-oracle-images-azure-marketplace/)
 
 [Imágenes de máquina virtual de Oracle: consideraciones variadas](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

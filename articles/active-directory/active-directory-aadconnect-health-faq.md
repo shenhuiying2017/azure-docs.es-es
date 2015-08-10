@@ -105,6 +105,9 @@ Seleccione Opciones avanzadas si tiene distintos puertos de proxy para HTTP y HT
 No. Actualmente, no se admite un mecanismo para especificar un nombre de usuario/contraseña arbitrarios para la autenticación básica.
 
 
+
+
+
 ## Preguntas sobre las operaciones
 
 
@@ -126,4 +129,4 @@ Las alertas de Azure AD Connect Health se resuelven con una condición de aciert
 
 Deberá abrir los puertos 80 y 443 TCP/UDP para que el agente de Azure AD Connect Health pueda comunicarse con los extremos de servicio de Azure AD Health.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

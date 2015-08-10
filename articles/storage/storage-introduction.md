@@ -224,4 +224,4 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

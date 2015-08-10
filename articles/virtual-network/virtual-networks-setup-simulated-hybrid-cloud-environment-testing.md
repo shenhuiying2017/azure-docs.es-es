@@ -51,7 +51,7 @@ Si todavía no dispone de una suscripción a Azure, puede registrarse para obten
 
 Use las instrucciones que encontrará en el [Entorno de prueba de la configuración base](../virtual-machines/virtual-machines-base-configuration-test-environment.md) para configurar los equipos DC1, APP1 y CLIENT1 en una red virtual de Azure denominada TestLab.
 
-Desde el Portal de administración de Azure en el equipo local, conéctese a DC1 con las credenciales de CORP\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
+Desde el Portal de administración de Azure en el equipo local, conéctese a DC1 con las credenciales de CORP\\User1. Para configurar el dominio CORP para que los usuarios y equipos usen su controlador de dominio local para la autenticación, ejecute estos comandos desde un símbolo del sistema de Windows PowerShell con nivel de administrador.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
@@ -171,7 +171,7 @@ A continuación, inicie sesión en la nueva máquina virtual de DC2.
 3.	Cuando se le pida que abra DC2.rdp, haga clic en **Abrir**.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
-- Nombre: **DC2\**[Nombre de la cuenta del administrador local]
+- Nombre: **DC2**[Nombre de la cuenta del administrador local]
 - Contraseña: [Contraseña de la cuenta de administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto referido a certificados, haga clic en **Sí**.
 
@@ -200,7 +200,7 @@ A continuación, configure DC2 como un controlador de dominio de réplica para e
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -Credential (Get-Credential CORP\User1) -DomainName "corp.contoso.com" -InstallDns:$true -DatabasePath "F:\NTDS" -LogPath "F:\Logs" -SysvolPath "F:\SYSVOL"
 
-Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\User1, una contraseña de Modo de restauración de servicios de directorio (DSRM) y que reinicie DC2.
+Tenga en cuenta que se le pedirá que proporcione la contraseña de CORP\\User1, una contraseña de Modo de restauración de servicios de directorio (DSRM) y que reinicie DC2.
 
 Ahora que la red virtual TestVNET tiene su propio servidor DNS (DC2), debe configurar la red virtual de TestVNET para utilizar este servidor DNS.
 
@@ -226,7 +226,7 @@ También puede crear estas configuraciones en este entorno de prueba:
 
 [Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Configuración de una conexión de red virtual a red virtual](http://msdn.microsoft.com/library/azure/dn690122.aspx)
+[Configuración de una conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 [Entorno de prueba de la configuración base](../virtual-machines/virtual-machines-base-configuration-test-environment.md)
 
@@ -236,7 +236,7 @@ También puede crear estas configuraciones en este entorno de prueba:
 
 ## <a id="costs"></a>Minimizar los costos de este entorno
 
-Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md). Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
+Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test\_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples.md). Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
 
 Una puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener más información, consulte [Precios: red virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de las dos puertas de enlace VPN (una para TestLab y otra para TestVNET), cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan rápido como sea posible o elimine las puertas de enlace con estos pasos.
  
@@ -273,4 +273,4 @@ A continuación, configure la clave previamente compartida para que ambas puerta
 A continuación, en la página Red del Portal de administración de Azure, haga clic en la red virtual **TestLab** y, a continuación, haga clic en **Conectar** en la barra de tareas. Espere hasta que la red virtual TestLab muestre un estado conectado a la red local TestVNET.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

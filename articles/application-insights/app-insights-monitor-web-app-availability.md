@@ -129,7 +129,7 @@ Puede supervisar un escenario que implique una secuencia de direcciones URL. Por
 
 Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a continuación, cargue la grabación en Application Insights. Application Insights reproducirá el escenario a intervalos y comprobará las respuestas.
 
-#### 1. Grabar un escenario
+#### 1\. Grabar un escenario
 
 Utilice Visual Studio Ultimate para grabar una sesión web.
 
@@ -156,7 +156,7 @@ Utilice Visual Studio Ultimate para grabar una sesión web.
 
 (No inserte bucles en el código de prueba web).
 
-#### 2. Cargar la prueba web en Application Insights
+#### 2\. Cargar la prueba web en Application Insights
 
 1. En el portal de Application Insights, cree una nueva prueba web.
 
@@ -229,4 +229,4 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

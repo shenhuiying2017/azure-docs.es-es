@@ -9,7 +9,7 @@
    tags="billing"/>
 
 <tags
-   ms.service="na"
+   ms.service="billing"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -227,7 +227,7 @@ Además de algunos campos nuevos y cambios de nombres en la versión 2 de csv, h
 
 - **Información adicional**: la columna Información adicional en el .csv de uso especifica metadatos específicos del servicio. Por ejemplo, un tipo de imagen de una máquina virtual. Actualmente, un servicio emite metadatos específicos del servicio en varias columnas: campos Información adicional, Información de servicio 1 e Información de servicio 2. Los servicios de Microsoft Azure estandarizarán la emisión de metadatos específicos del servicio solo en la columna Información adicional. Vea la siguiente instantánea del formato estandarizado:
 
-![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
+![additionalinfo\_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Etiquetas**: esta columna contiene las etiquetas de recursos especificadas por el usuario. Las etiquetas se pueden utilizar para agrupar los registros de facturación. Por ejemplo, puede utilizar etiquetas para distribuir los costos por departamento mediante el servicio. Obtenga más información sobre el [Uso de etiquetas para organizar los recursos de Azure](/resource-group-using-tags.md/). Los servicios que admiten la emisión de etiquetas son:
     - Máquinas virtuales
@@ -262,4 +262,4 @@ Vaya a la sección **Administrar cuentas, suscripciones y roles administrativos*
 
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

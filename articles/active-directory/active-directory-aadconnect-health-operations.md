@@ -87,4 +87,4 @@ Cuando elimine una instancia de servicio, tenga en cuenta lo siguiente:
 1. Confirme el nombre del servicio; para ello, escríbalo en el cuadro de confirmación (por ejemplo: sts.contoso.com). 
 1. Haga clic en el botón "Eliminar".
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

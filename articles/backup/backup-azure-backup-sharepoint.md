@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Copia de seguridad de una granja de SharePoint en Azure
@@ -33,7 +33,7 @@ El agente de DPM debe instalarse en el servidor de SharePoint, servidores SQL Se
 Para cada 10 millones de elementos del conjunto de servidores, debe haber al menos 2 GB de espacio en el volumen donde se encuentra la carpeta DPM. Este espacio se requiere para la generación del catálogo. Para que DPM pueda recuperar elementos específicos (colecciones de sitios, sitios, listas, bibliotecas de documentos, carpetas, documentos individuales y elementos de lista), generación de catálogos crea una lista de las direcciones URL dentro de cada base de datos de contenido. Puede ver la lista de direcciones URL en el panel elemento recuperable en el área de tareas de recuperación de la consola de administrador DPM.
 
 ### SQL Server
-DPM se ejecuta como sistema local y para realizar copias de seguridad de las bases de datos de SQL Server, necesita privilegios de sysadmin en esa cuenta para el SQL Server. Establezca NT AUTHORITY\SYSTEM en *sysadmin*en el SQL Server del que quiere crear una copia de seguridad.
+DPM se ejecuta como sistema local y para realizar copias de seguridad de las bases de datos de SQL Server, necesita privilegios de sysadmin en esa cuenta para el SQL Server. Establezca NT AUTHORITY\\SYSTEM en *sysadmin*en el SQL Server del que quiere crear una copia de seguridad.
 
 En la granja de SharePoint, si tiene bases de datos de SQL Server que están configuradas con alias de SQL Server, instale los componentes de cliente de SQL Server en el servidor web front-end que DPM protegerá.
 
@@ -50,14 +50,14 @@ Para empezar a proteger una granja de SharePoint en Azure, debe instalar el paqu
 ## Configuración de la protección de SharePoint
 Debe configurar el servicio VSS Writer de SharePoint (servicio WSS Writer) mediante **ConfigureSharePoint.exe** para poder proteger SharePoint con DPM.
 
-Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de acceso de instalación de DPM]\bin en el servidor web front-end. Esta herramienta proporciona al agente de protección las credenciales para la granja de servidores de SharePoint. Debe ejecutarlo en un solo servidor WFE. Si tiene varios servidores WFE, seleccione solo uno al configurar un grupo de protección.
+Puede encontrar **ConfigureSharePoint.exe** en la carpeta [ruta de acceso de instalación de DPM]\\bin en el servidor web front-end. Esta herramienta proporciona al agente de protección las credenciales para la granja de servidores de SharePoint. Debe ejecutarlo en un solo servidor WFE. Si tiene varios servidores WFE, seleccione solo uno al configurar un grupo de protección.
 
 ### Para configurar el servicio VSS Writer de SharePoint
-1. En el servidor WFE, en un símbolo del sistema, vaya a [ubicación de instalación de DPM]\bin\
+1. En el servidor WFE, en un símbolo del sistema, vaya a [ubicación de instalación de DPM]\\bin\\
 2. Ejecute ConfigureSharePoint - EnableSharePointProtection
 3. Escriba las credenciales de administrador de la granja de servidores. Esta cuenta debe ser miembro del grupo de administradores local en el servidor WFE. Si el administrador de la granja no es un administrador local, conceda los permisos siguientes en el servidor WFE:
-  - Conceda al grupo WSS_Admin_WPG control total sobre la carpeta DPM (%Program Files%\Microsoft Data Protection Manager\DPM).
-  - Conceda al grupo WSS_Admin_WPG acceso de lectura a la clave del Registro de DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
+  - Conceda al grupo WSS\_Admin\_WPG control total sobre la carpeta DPM (%Program Files%\\Microsoft Data Protection Manager\\DPM).
+  - Conceda al grupo WSS\_Admin\_WPG acceso de lectura a la clave del Registro de DPM (HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager).
 
 >[AZURE.NOTE]Deberá ejecutar ConfigureSharePoint.exe cada vez que haya un cambio en las credenciales de administrador de la granja de servidores de SharePoint.
 
@@ -107,19 +107,19 @@ Una vez que haya configurado DPM y la granja de servidores de SharePoint, como s
 
 10. En la pantalla **Especificar la programación de copia de seguridad en línea**, seleccione la programación que prefiera y haga clic en **Siguiente**.
 
-    ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
+    ![Online\_backup\_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     >[AZURE.NOTE]DPM permite dos copias de seguridad diarias en momentos diferentes en Azure.
 
 11. Según la programación de copia de seguridad seleccionada, en la pantalla **Especificar la directiva de retención en línea**, seleccione la directiva de retención para los puntos de copia de seguridad diarios, semanales, mensuales y anuales.
 
-    ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
+    ![Online\_retention\_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
     >[AZURE.NOTE]DPM usa un esquema de retención abuelo-padre-hijo en el que se puede elegir una directiva de retención diferente para distintos puntos de copia de seguridad.
 
 12. Como ocurre con el disco, se debe crear una réplica de punto de referencia inicial en Azure. Seleccione la opción preferida para crear la copia de seguridad inicial en Azure y haga clic en **Siguiente**.
 
-    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
+    ![Online\_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 
 13. Revise la configuración seleccionada en la página **Resumen** y haga clic en **Crear grupo**. Verá un mensaje de correcto una vez que se haya creado el grupo de protección.
 
@@ -226,4 +226,4 @@ P: ¿Puedo recuperar una base de datos de SharePoint en la ubicación original s
 - Consulte las [Notas de la versión de System Center 2012: Data Protection Manager versión](https://technet.microsoft.com/library/jj860415.aspx)
 - Consulte las [Notas de la versión de Data Protection Manager en System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

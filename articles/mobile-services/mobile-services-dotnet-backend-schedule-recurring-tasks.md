@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" 
+	pageTitle="Programación de trabajos periódicos en Servicios móviles de Azure" 
 	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
@@ -36,16 +36,14 @@ Este tutorial le guiará en el uso del programador de trabajos para crear un tra
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>En el Explorador de soluciones de Visual Studio, abra el archivo web.config del proyecto de servicio móvil, busque los valores <strong>MS_TwitterConsumerKey</strong> y <strong>MS_TwitterConsumerSecret</strong> de la aplicación y reemplace los valores de estas claves por los valores de clave de usuario y secreto de usuario de Twitter que ha establecido en el portal.</p></li>
+&nbsp;&nbsp;7. En el Explorador de soluciones de Visual Studio, abra el archivo web.config del proyecto de servicio móvil, busque los valores `MS_TwitterConsumerKey` y `MS_TwitterConsumerSecret` de la aplicación y reemplace los valores de estas claves por los valores de clave de usuario y secreto de usuario de Twitter que ha establecido en el portal.
 
-<li><p>En la misma sección, agregue los siguientes nuevos valores de configuración, reemplazando los marcadores de posición por los valores de secreto de token de acceso y token de acceso de Twitter que ha establecido como valores de la aplicación en el portal:</p>
+&nbsp;&nbsp;8. En la misma sección, agregue los siguientes nuevos valores de configuración, reemplazando los marcadores de posición por los valores de secreto de token de acceso y token de acceso de Twitter que ha establecido como valores de la aplicación en el portal:
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>El servicio móvil usa estos valores de configuración almacenados cuando se ejecuta en el equipo local, lo que le permite probar el trabajo programado antes de publicarlo. Sin embargo, al ejecutarse en Azure, el servicio móvil usa los valores establecidos en el portal e ignora esta configuración del proyecto.  </p></li>
-</ol>
+El servicio móvil usa estos valores de configuración almacenados cuando se ejecuta en el equipo local, lo que le permite probar el trabajo programado antes de publicarlo. Sin embargo, al ejecutarse en Azure, el servicio móvil usa los valores establecidos en el portal e ignora esta configuración del proyecto.
 
 ##<a name="install-linq2twitter"></a>Descarga e instalación de la biblioteca LINQ en Twitter
 
@@ -65,7 +63,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 	De esta forma se crea un nuevo archivo de proyecto para la clase Updates.
 
-2. Haga clic con el botón secundario en **Referencias**, haga clic en **Agregar referencia...**, seleccione **Framework** en **Ensamblados**, active **System.ComponentModel.DataAnnotations** y haga clic en **Aceptar**.
+2. Haga clic con el botón secundario en **Referencias** > **Agregar referencia...** > **Framework** en **Ensamblados**, active **System.ComponentModel.DataAnnotations** y haga clic en **Aceptar**.
 
 	![][7]
 
@@ -88,7 +86,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 	        public DateTime Date { get; set; }
     	}
 
-4. Expanda la carpeta Models, abra el archivo de contexto del modelo de datos (denominado <em>nombre_servicio</em>Context.cs) y agregue la siguiente propiedad, que devuelve un objeto **DbSet** con tipo:
+4. Expanda la carpeta Models, abra el archivo de contexto del modelo de datos (denominado *nombre\_servicio*Context.cs) y agregue la siguiente propiedad, que devuelve un objeto **DbSet** con tipo:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@ A continuación, cree el trabajo programado que obtiene acceso a Twitter y almac
 		    }
 		}
 
-	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio <em>mobile&#95;service&#95;name</em> y el contexto <em>mobile&#95;service&#95;name</em>, respectivamente.
+	En el código anterior, debe reemplazar las cadenas _todolistService_ y _todolistContext_ por el espacio de nombres y DbContext del proyecto descargado, que son el servicio *mobile&#95;service&#95;name*Service y el *mobile&#95;service&#95;name*Context, respectivamente. 
    	
 	En el código anterior, el método de invalidación **ExecuteAsync** llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
@@ -301,4 +300,4 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

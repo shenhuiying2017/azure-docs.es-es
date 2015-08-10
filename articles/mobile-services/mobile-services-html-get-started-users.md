@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción a la autenticación (HTML 5) | Centro de desarrollo móvil" 
-	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación HTML a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
+	pageTitle="Incorporación de autenticación a su aplicación HTML/JavaScript | Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación HTML a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y cuenta de Microsoft." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles 
@@ -53,7 +53,7 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
 ##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
->[AZURE.NOTE]Como el inicio de sesión se realiza en una ventana emergente, debería invocar el método <strong>login</strong> desde el evento Click del botón. Si no, muchos exploradores suprimirían la ventana de inicio de sesión.
+>[AZURE.NOTE]Como el inicio de sesión se realiza en una ventana emergente, debería invocar el método **login** desde el evento Click del botón. Si no, muchos exploradores suprimirían la ventana de inicio de sesión.
 
 1. Abra el archivo del proyecto index.html, localice el elemento H1 y agregue el siguiente fragmento de código debajo de él:
 
@@ -109,7 +109,7 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
 	   Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-	>[AZURE.NOTE]Si usa Internet Explorer, podría recibir el error siguiente después de iniciar sesión: <code>No se puede acceder al elemento de apertura de ventanas. Puede estar en una zona Internet Explorer diferente</code>. Esto sucede porque la ventana emergente se ejecuta en una zona de seguridad diferente (Internet) del localhost (intranet). Esto solo afecta a las aplicaciones durante el desarrollo que usan localhost. Como solución alternativa, abra la pestaña <strong>Seguridad</strong> de <strong>Opciones de Internet</strong>, haga clic en <strong>Intranet local</strong>, después en <strong>Sitios</strong>, y deshabilite <strong>Detectar redes intranet automáticamente</strong>. Acuérdese de volver a cambiar esta configuración cuando haya terminado la prueba.
+	>[AZURE.NOTE]Si usa Internet Explorer, podría recibir el error siguiente después de iniciar sesión: <code>No se puede acceder al elemento de apertura de ventanas. Puede estar en una zona Internet Explorer diferente</code>. Esto sucede porque la ventana emergente se ejecuta en una zona de seguridad diferente (Internet) del localhost (intranet). Esto solo afecta a las aplicaciones durante el desarrollo que usan localhost. También puede abrir la pestaña **Seguridad** de **Opciones de Internet**, hacer clic en **Intranet local**, después en **Sitios** y deshabilitar **Detectar redes intranet automáticamente**. Acuérdese de volver a cambiar esta configuración cuando haya terminado la prueba.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -138,4 +138,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Servicios móviles con HTML/JavaScript en Referencia conceptual de Servicios móviles HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

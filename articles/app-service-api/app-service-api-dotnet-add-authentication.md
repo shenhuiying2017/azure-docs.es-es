@@ -269,4 +269,4 @@ Ha visto cómo proteger una aplicación de API de Azure al requerir Azure Active
 [Portal de vista previa de Azure]: https://portal.azure.com/
 [Portal del vista previa de Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

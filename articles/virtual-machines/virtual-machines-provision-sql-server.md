@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # Aprovisionamiento de una máquina virtual de SQL Server en Azure #
@@ -180,7 +180,7 @@ Abra puertos adicionales para otros componentes cada vez que sea necesario. Para
 
 	![Habilitar TCP][Image10]
 
-5. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón derecho en **SQL Server (_nombre de la instancia_)** (la instancia predeterminada es **SQL Server (MSSQLSERVER)**) y, a continuación, haga clic en **Reiniciar** para detener y reiniciar la instancia de SQL Server.
+5. En el panel de la consola, haga clic en **Servicios de SQL Server**. En el panel de detalles, haga clic con el botón derecho en **SQL Server (\_nombre de la instancia\_)** (la instancia predeterminada es **SQL Server (MSSQLSERVER)**) y, a continuación, haga clic en **Reiniciar** para detener y reiniciar la instancia de SQL Server.
 
 	![Reiniciar el motor de base de datos][Image11]
 
@@ -200,7 +200,7 @@ El motor de base de datos de SQL Server no puede utilizar la autenticación de W
 
 	La primera vez que abra Management Studio se debe crear el entorno de Management Studio para los usuarios. Esta operación puede tardar unos minutos.
 
-2. Management Studio presenta el cuadro de diálogo **Conectar con el servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje **_su_nombre_de_MV_\su_administrador_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
+2. Management Studio presenta el cuadro de diálogo **Conectar con el servidor**. En el cuadro **Nombre del servidor**, escriba el nombre de la máquina virtual para conectar al motor de base de datos con el Explorador de objetos. (En lugar del nombre de la máquina virtual, también puede utilizar **(local)** o un punto como **Nombre del servidor**. Seleccione **Autenticación de Windows** y deje **_su\_nombre\_de\_MV_\\su\_administrador\_local** en el cuadro **Nombre de usuario**. Haga clic en **Conectar**.
 
 	![Conectar al servidor][Image19]
 
@@ -291,7 +291,9 @@ Si puede conectarse a una instancia de SQL Server en ejecución en una máquina 
 Para obtener más información, consulte [Solución de problemas de conexión al motor de base de datos de SQL Server](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx).
 
 ##<a id="Optional">Pasos siguientes</a>
-Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure mediante el uso de la imagen de plataforma. Cuando use SQL Server en máquinas virtuales de Azure, le recomendamos seguir las pautas detalladas que aparecen en la documentación [SQL Server en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) en la biblioteca. Este conjunto de documentación incluye una serie de artículos y tutoriales que proporcionan pautas detalladas. La serie incluye las siguientes secciones:
+Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure mediante el uso de la imagen de plataforma. En muchos casos, el siguiente paso es migrar las bases de datos a esta nueva VM de SQL Server. Para obtener instrucciones para la migración de bases de datos, consulte [Migración de una base de datos a SQL Server en una máquina virtual de Azure](virtual-machines-migrate-onpremises-database.md).
+
+Además de estos recursos, se recomienda seguir las instrucciones detalladas que aparecen en la documentación [SQL Server en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719) de la biblioteca. Este conjunto de documentación incluye una serie de artículos y tutoriales que proporcionan pautas detalladas. La serie incluye las siguientes secciones:
 
 [SQL Server en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
@@ -362,4 +364,4 @@ Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure me
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

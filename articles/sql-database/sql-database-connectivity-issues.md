@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="07/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sstein"/>
 
 
@@ -64,12 +64,12 @@ El artículo de soporte técnico anterior proporciona ayuda para los siguientes 
 
 - Para obtener información adicional sobre cómo conectarse a la base de datos SQL, vea [Directrices para la conexión a la base de datos SQL de Azure de mediante programación](https://msdn.microsoft.com/library/azure/ee336282.aspx).   
 
-- Encontrará detalles sobre los errores de conexión específicos en la sección **Errores de pérdida de conexión** en [Mensajes de error (base de datos SQL de Azure)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors).
+- Encontrará detalles sobre los errores de conexión específicos en la sección **Errores transitorios, errores de pérdida de conexión** en [Mensajes de error para programas de cliente de Base de datos SQL](sql-database-develop-error-messages.md#bkmk_connection_errors).
 
-- Es posible tener acceso a los datos de eventos de conexión mediante el envío de consultas de eventos de conectividad con la vista [**sys.event_log (base de datos SQL de Azure)**](https://msdn.microsoft.com/library/dn270018.aspx).
+- Es posible tener acceso a los datos de eventos de conexión mediante el envío de consultas de eventos de conectividad con la vista [**sys.event\_log (base de datos SQL de Azure)**](https://msdn.microsoft.com/library/dn270018.aspx).
 
-- Es posible tener acceso a las métricas de eventos de conectividad de la base de datos mediante el envío de consultas a la vista [**sys.database_connection_stats (base de datos SQL de Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
+- Es posible tener acceso a las métricas de eventos de conectividad de la base de datos mediante el envío de consultas a la vista [**sys.database\_connection\_stats (base de datos SQL de Azure)**](https://msdn.microsoft.com/library/dn269986.aspx).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

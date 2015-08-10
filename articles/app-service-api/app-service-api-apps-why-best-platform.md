@@ -70,10 +70,10 @@ Muchas de estas características, como el catálogo público y las actualizacion
 
 Para empezar a trabajar con Aplicaciones de API, siga el tutorial [Creación de una aplicación de API](app-service-dotnet-create-api-app.md).
 
-Para ver una lista de problemas conocidos de las aplicaciones de API, consulte [esta publicación del foro de MSDN](https://social.msdn.microsoft.com/Forums/es-es/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Para ver una lista de problemas conocidos de las aplicaciones de API, consulte [esta publicación del foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Para obtener más información acerca de la plataforma de Servicio de aplicaciones de Azure, consulte [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

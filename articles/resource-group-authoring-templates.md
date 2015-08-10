@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
-# Crear plantillas del Administrador de recursos de Azure
+# Creación de plantillas del Administrador de recursos de Azure
 
 Normalmente, las aplicaciones de Azure requieren una combinación de recursos (por ejemplo, un servidor de base de datos, una base de datos o un sitio web) para cumplir los objetivos deseados. En lugar de implementar y administrar cada recurso por separado, puede crear una plantilla del Administrador de recursos de Azure que implementa y aprovisiona todos los recursos de su aplicación en una operación única y coordinada. En la plantilla, se definen los recursos necesarios para la aplicación y se especifican los parámetros de implementación para especificar valores para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
@@ -218,7 +218,7 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | Descripción
 | :----------------------: | :------: | :----------
-| apiVersion | Sí | Versión de la API que admite el recurso.
+| apiVersion | Sí | Versión de la API que admite el recurso. Para ver las versiones y los esquemas disponibles para los recursos, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas).
 | type | Sí | Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso que admite el proveedor de recursos.
 | name | Sí | Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986.
 | location | No | Ubicaciones geográficas compatibles del recurso proporcionado.
@@ -311,7 +311,9 @@ En el ejemplo siguiente se muestra un valor que se devuelve en la sección de sa
 ## Escenarios más avanzados.
 En este tema se ofrece una visión preliminar de la plantilla. Sin embargo, el escenario puede requerir tareas más avanzadas.
 
-Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, vea [Plantillas anidadas](../resource-group-advanced-template#nested-template).
+Puede que necesite combinar dos plantillas o usar una plantilla secundaria dentro de una plantilla principal. Para obtener más información, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md).
+
+Para iterar una cantidad de veces específica al crear un tipo de recursos, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 Puede que necesite usar los recursos que existen dentro de un grupo de recursos diferente. Esto es habitual al trabajar con cuentas de almacenamiento o redes virtuales que se comparten entre varios grupos de recursos. Para obtener más información, vea la [función resourceId](../resource-group-template-functions#resourceid).
 
@@ -319,7 +321,7 @@ Puede que necesite usar los recursos que existen dentro de un grupo de recursos 
 La siguiente plantilla implementa una aplicación web y aprovisiona con código desde un archivo. zip.
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -398,11 +400,9 @@ La siguiente plantilla implementa una aplicación web y aprovisiona con código 
     }
 
 ## Pasos siguientes
-- [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
-- [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
-- [Implementación predecible de una aplicación compleja en Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
-- [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas)
+- Para obtener información detallada sobre las funciones que puede usar desde una plantilla, consulte [Funciones de la plantilla del Administrador de recursos de Azure](resource-group-template-functions.md)
+- Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
+- Para obtener un ejemplo en profundidad de la implementación de una aplicación, consulte [Aprovisionamiento e implementación predecibles de microservicios en Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
+- Para ver los esquemas disponibles, consulte [Esquemas del Administrador de recursos de Azure](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

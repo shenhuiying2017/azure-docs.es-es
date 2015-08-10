@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación universal JavaScript de Windows." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+##Información general
 
 En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial anterior [Incorporación de notificaciones de inserción a la aplicación], este tutorial cambia el servicio móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el Centro de notificaciones para notificaciones push. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
  
@@ -90,4 +92,4 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Portal de administración de Azure]: https://manage.windowsazure.com/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

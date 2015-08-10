@@ -325,7 +325,7 @@ Los parámetros del módulo se definen mediante el elemento secundario **Arg** d
 
 ### Archivos auxiliares
 
-Cualquier archivo que se coloque en el archivo ZIP de módulo personalizado estará disponible para su uso durante el tiempo de ejecución. Si hay presente una estructura de directorios, se conservará. Esto significa que el abastecimiento de archivos funcionará igual localmente y en la ejecución de Aprendizaje automático de Azure.
+Cualquier archivo que se coloque en el archivo ZIP de módulo personalizado estará disponible para su uso durante el tiempo de ejecución. Si hay presente una estructura de directorios, se conservará. Esto significa que el abastecimiento de archivos funcionará igual localmente y en la ejecución de Aprendizaje automático de Azure. Observe que todos los archivos se extraen en el directorio 'src', por lo que todas las rutas de acceso deberían tener el prefijo 'src /'.
 
 Por ejemplo, supongamos que desea quitar tanto todas las filas con ND como todas las filas duplicadas del conjunto de datos antes de generarlo en CustomAddRows y que ya ha escrito una función de R que lo hace en el archivo RemoveDupNARows.R:
 
@@ -339,7 +339,7 @@ Por ejemplo, supongamos que desea quitar tanto todas las filas con ND como todas
 Puede originar el archivo auxiliar RemoveDupNARows.R en la función CustomAddRows:
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
-		source(“RemoveDupNARows.R”)
+		source("src/RemoveDupNARows.R")
 			if (swap) { 
 				dataset <- rbind(dataset2, dataset1))
 	 		} else { 
@@ -363,4 +363,4 @@ Las **limitaciones del entorno de ejecución** incluyen:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

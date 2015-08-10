@@ -135,7 +135,7 @@ El cuerpo del perfil de puntuación se construye a partir de campos ponderados y
 <table style="font-size:12">
 <thead>
 <tr><td>elemento</td><td>descripción</td></tr></thead>
-<tbody>
+<tbody
 <tr>
 <td><b>Ponderaciones</b></td>
 <td>
@@ -218,7 +218,7 @@ En esta sección se muestra la sintaxis y la plantilla de perfiles de puntuació
 ##Referencia de atributos de índice
 
 **Nota**
-Las funciones de puntuación solo pueden aplicarse a campos filtrables.
+**Nota** Las funciones de puntuación solo pueden aplicarse a campos filtrables.
 
 <table style="font-size:12">
 <thead>
@@ -324,4 +324,4 @@ Creación de índice (API de REST de servicio de Búsqueda de Azure)
 
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

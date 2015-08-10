@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Introducción a Apache Storm en HDInsight | Microsoft Azure"
 	description="Obtenga una introducción a Apache Storm y aprenda cómo puede usar Storm en HDInsight para crear soluciones de análisis de datos en tiempo real en la nube."
-	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop
@@ -51,9 +50,7 @@ Para ver una introducción al uso de Storm, consulte [Introducción a Storm en H
 
 Puede aprovisionar un nuevo clúster de Storm en HDInsight en minutos. Especifique el nombre del clúster, su tamaño, la cuenta del administrador y la cuenta de almacenamiento. Azure creará el clúster, incluyendo las topologías de ejemplo y un panel de administración web.
 
-A continuación se muestra un ejemplo de aprovisionamiento de un clúster de Storm en HDInsight mediante el portal de Azure. También puede aprovisionar clústeres de Storm mediante [Azure PowerShell](../install-configure-powershell.md).
-
-![Un ejemplo del formulario de creación rápida de clústeres en el portal](./media/hdinsight-storm-overview/quick-create.png)
+> [AZURE.NOTE]También puede aprovisionar clústeres de Storm mediante la [CLI de Azure](../xplat-cli.md) o [Azure PowerShell](../powershell-install-configure.md).
 
 En menos de 15 minutos tras el envío de la solicitud, dispondrá de un nuevo clúster de Storm en ejecución y listo para su primera canalización de análisis en tiempo real.
 
@@ -77,7 +74,7 @@ Cada clúster de Storm en HDInsight también ofrece un panel de Storm basado en 
 
 Para obtener más información sobre el uso del panel Storm, consulte [Implementación y administración de topologías de Apache Storm en HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm en HDInsight también proporciona una integración sencilla con los Centros de eventos de Azure a través del **Spout de Centro de eventos**. Está disponible en cada clúster de storm en **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para ver ejemplos del uso de este spout en una topología de Storm, consulte [Introducción a los Centros de eventos](service-bus-event-hubs-c-storm-getstarted.MD) y [Análisis de datos de sensores con Storm y HBase](hdinsight-storm-sensor-data-analysis.MD).
+Storm en HDInsight también proporciona una integración sencilla con los Centros de eventos de Azure a través del **Spout de Centro de eventos**. Está disponible en cada clúster de storm en **%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. Para ver ejemplos del uso de este spout en una topología de Storm, consulte [Introducción a los Centros de eventos](service-bus-event-hubs-c-storm-getstarted.MD) y [Análisis de datos de sensores con Storm y HBase](hdinsight-storm-sensor-data-analysis.MD).
 
 ###Confiabilidad
 
@@ -93,7 +90,7 @@ La configuración predeterminada de Apache Storm es que solo tenga un nodo Nimbu
 
 Aunque puede especificar el número de nodos del clúster durante la creación, puede que desee aumentar o reducir el clúster para que coincida con la carga de trabajo. Todos los clústeres de HDInsight le permiten cambiar el número de nodos del clúster, incluso durante el procesamiento de datos.
 
-![número de instancias de los nodos de datos en el portal](./media/hdinsight-storm-overview/scale.png)
+> [AZURE.NOTE]Para aprovechar de los nodos nuevos que se agregan mediante el escalado, deberá reequilibrar las topologías iniciadas antes de que se aumentara el tamaño del clúster.
 
 ###Soporte técnico
 
@@ -156,7 +153,7 @@ La mayoría de ejemplos de Java que encuentre serán de Java normal o Trident. T
 
 Para obtener más información sobre Trident, consulte el [Tutorial de Trident](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) en apache.org.
 
-Para obtener ejemplos de topologías de Java y Trident sin procesar, consulte el directorio **%storm_home%\contrib\storm-starter** en su clúster de Storm en HDInsight.
+Para obtener ejemplos de topologías de Java y Trident sin procesar, consulte el directorio **%storm\_home%\\contrib\\storm-starter** en su clúster de Storm en HDInsight.
 
 ##¿Cuáles son algunos de los patrones de desarrollo comunes?
 
@@ -209,4 +206,4 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

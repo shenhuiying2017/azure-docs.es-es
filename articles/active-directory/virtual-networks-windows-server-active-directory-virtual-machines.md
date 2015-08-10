@@ -3,7 +3,7 @@
 	description="Puede ejecutar Servicios de dominio de Windows Server Active Directory o Servicios de federación de Active Directory en máquinas virtuales de Azure." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="terrylan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/27/2015" 
-	ms.author="justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Windows Server Active Directory en máquinas virtuales de Azure
@@ -48,4 +48,4 @@ Este tema de navegación contiene vínculos a otros temas acerca de cómo implem
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

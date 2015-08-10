@@ -39,31 +39,31 @@ Para configurar las correcciones de compatibilidad (shim) de Memcache, debe crea
 
 ![Hoja de configuración de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Agregar la configuración de aplicación REDIS_HOST
+### Agregar la configuración de aplicación REDIS\_HOST
 
-La primera configuración de aplicación que debe crear es la configuración de aplicación **REDIS_HOST**. Esta configuración establece el destino al cual las correcciones de compatibilidad (shim) reenvía la información de caché. El valor que se requiere para la configuración de aplicación REDIS_HOST se puede recuperar de la hoja **Propiedades** de la instancia de Caché en Redis.
+La primera configuración de aplicación que debe crear es la configuración de aplicación **REDIS\_HOST**. Esta configuración establece el destino al cual las correcciones de compatibilidad (shim) reenvía la información de caché. El valor que se requiere para la configuración de aplicación REDIS\_HOST se puede recuperar de la hoja **Propiedades** de la instancia de Caché en Redis.
 
 ![Nombre de host de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
-Defina la clave para la configuración de aplicación en **REDIS_HOST** y el valor de la configuración de aplicación en el **nombre de host** de la instancia de Caché en Redis.
+Defina la clave para la configuración de aplicación en **REDIS\_HOST** y el valor de la configuración de aplicación en el **nombre de host** de la instancia de Caché en Redis.
 
-![Configuración de aplicación de Aplicaciones web REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![Configuración de aplicación de Aplicaciones web REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Agregar la configuración de aplicación REDIS_KEY
+### Agregar la configuración de aplicación REDIS\_KEY
 
-La segunda configuración de aplicación que se debe crear es la configuración de aplicación **REDIS_KEY**. Esta configuración proporciona el token de autenticación que se necesita para tener un acceso seguro a la instancia de Caché en Redis. El valor que se requiere para la configuración de aplicación REDIS_KEY se puede recuperar de la hoja **Claves de acceso** de la instancia Caché en Redis.
+La segunda configuración de aplicación que se debe crear es la configuración de aplicación **REDIS\_KEY**. Esta configuración proporciona el token de autenticación que se necesita para tener un acceso seguro a la instancia de Caché en Redis. El valor que se requiere para la configuración de aplicación REDIS\_KEY se puede recuperar de la hoja **Claves de acceso** de la instancia Caché en Redis.
 
 ![Clave principal de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
-Establezca la clave de la configuración de aplicación en **REDIS_KEY** y el valor de la configuración de aplicación en **Clave principal** de la instancia de Caché en Redis.
+Establezca la clave de la configuración de aplicación en **REDIS\_KEY** y el valor de la configuración de aplicación en **Clave principal** de la instancia de Caché en Redis.
 
-![Configuración de aplicación de Sitios web de Azure REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Configuración de aplicación de Sitios web de Azure REDIS\_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### Agregar la configuración de aplicación MEMCACHESHIM_REDIS_ENABLE
+### Agregar la configuración de aplicación MEMCACHESHIM\_REDIS\_ENABLE
 
-La última configuración de aplicación se usa para habilitar las correcciones de compatibilidad (shim) de Memcache en Aplicaciones web, que utilizarán las configuraciones REDIS_HOST y REDIS_KEY para conectarse a Caché en Redis de Azure y reenviar las llamadas a caché. Establezca la clave de la configuración de aplicación en **MEMCACHESHIM_REDIS_ENABLE** y el valor en **true**.
+La última configuración de aplicación se usa para habilitar las correcciones de compatibilidad (shim) de Memcache en Aplicaciones web, que utilizarán las configuraciones REDIS\_HOST y REDIS\_KEY para conectarse a Caché en Redis de Azure y reenviar las llamadas a caché. Establezca la clave de la configuración de aplicación en **MEMCACHESHIM\_REDIS\_ENABLE** y el valor en **true**.
 
-![Configuración de aplicación de Aplicaciones web MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
+![Configuración de aplicación de Aplicaciones web MEMCACHESHIM\_REDIS\_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 Una vez que agrega las tres (3) configuraciones de aplicación, haga clic en **Guardar**.
 
@@ -71,7 +71,7 @@ Una vez que agrega las tres (3) configuraciones de aplicación, haga clic en **G
 
 A fin de que la aplicación se comunique con el protocolo Memcache, es necesario instalar la extensión Memcache en PHP (el marco de lenguaje para el sitio de WordPress).
 
-### Descargar la extensión php_memcache
+### Descargar la extensión php\_memcache
 
 Vaya a [PECL][6], en la categoría de almacenamiento en caché, haga clic en [memcache][7]. Haga clic en el vínculo DLL en la columna de descargas.
 
@@ -81,14 +81,14 @@ Descargue el vínculo No seguro para subprocesos (NTS) x86 para la versión de P
 
 ![Paquete de memcache de sitio web de PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Habilitar la extensión php_memcache
+### Habilitar la extensión php\_memcache
 
-Después de descargar el archivo, descomprima y cargue **php_memcache.dll** en el directorio **d:\home\site\wwwroot\bin\ext\**. Una vez que el archivo php_memcache.dll se cargó en la aplicación web, es necesario habilitar la extensión para tiempo de ejecución de PHP. Para habilitar la extensión Memcache en el Portal de Azure, abra la hoja **Configuración de aplicación** de la aplicación web y, a continuación, agregue la nueva configuración de aplicación con la clave de **PHP_EXTENSIONS** y el valor **bin\ext\php_memcache.dll**.
+Después de descargar el archivo, descomprima y cargue **php\_memcache.dll** en el directorio **d:\\home\\site\\wwwroot\\bin\\ext**. Una vez que el archivo php\_memcache.dll se cargó en la aplicación web, es necesario habilitar la extensión para tiempo de ejecución de PHP. Para habilitar la extensión Memcache en el Portal de Azure, abra la hoja **Configuración de aplicación** de la aplicación web y, a continuación, agregue la nueva configuración de aplicación con la clave de **PHP\_EXTENSIONS** y el valor **bin\\ext\\php\_memcache.dll**.
 
 
-> Si la aplicación web necesita cargar varias extensiones PHP, el valor de PHP_EXTENSIONS debe ser una lista delimitada por comas de rutas de acceso relativas a archivos DLL.
+> Si la aplicación web necesita cargar varias extensiones PHP, el valor de PHP\_EXTENSIONS debe ser una lista delimitada por comas de rutas de acceso relativas a archivos DLL.
 
-![Configuración de aplicación de Aplicaciones web de PHP_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![Configuración de aplicación de Aplicaciones web de PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 Una vez que termine, haga clic en **Guardar**.
 
@@ -197,4 +197,4 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

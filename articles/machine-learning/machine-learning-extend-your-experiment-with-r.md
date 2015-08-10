@@ -272,7 +272,7 @@ Para obtener la lista completa de paquetes actualmente disponibles, consulte la 
 | lmPerm | Pruebas de permutación para modelos lineales |
 | lmtest | Prueba de modelos de regresión lineal |
 | locfit | Estimación de densidad, probabilidades y regresión local |
-| lpSolve | Interfaz para Lp_solve v. 5.5 para solucionar programas lineales/de enteros |
+| lpSolve | Interfaz para Lp\_solve v. 5.5 para solucionar programas lineales/de enteros |
 
 
 ###Módulos de R con nombres que comienzan de la M a la R
@@ -503,4 +503,4 @@ Para obtener la lista completa de paquetes actualmente disponibles, consulte la 
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

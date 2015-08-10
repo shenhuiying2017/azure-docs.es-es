@@ -347,6 +347,11 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 * Hable con los usuarios. El análisis no es suficiente por sí solo, pero es una herramienta complementaria para mantener una excelente relación con el cliente.
 
 
+## Referencias
+
+* [Uso de la API (información general)][api]
+* [Referencia de API de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## Vídeo
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
@@ -366,4 +371,4 @@ Cuando se utiliza el análisis, se convierte en una parte integrada de su ciclo 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

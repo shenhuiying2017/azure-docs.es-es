@@ -53,7 +53,7 @@ Puede usar los cmdlets de PowerShell de Azure para crear y administrar claves y 
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-A continuación, cree una nueva cuenta de proceso por lotes en el grupo de recursos, especificando también un nombre de cuenta para <*account_name*> y la ubicación en la que está disponible el servicio de proceso por lotes. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
+A continuación, cree una nueva cuenta de proceso por lotes en el grupo de recursos, especificando también un nombre de cuenta para <*account\_name*> y la ubicación en la que está disponible el servicio de proceso por lotes. La creación de la cuenta puede tardar varios minutos en completarse. Por ejemplo:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -156,4 +156,4 @@ Para quitar el límite superior, establezca **MaxCount** en 0 o menos.
 * [Referencia de cmdlets de Lote de Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Consultas de lista eficaces](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

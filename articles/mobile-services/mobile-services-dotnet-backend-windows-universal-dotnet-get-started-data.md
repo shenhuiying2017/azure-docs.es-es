@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Windows Store) | Centro de desarrollo móvil" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación universal de la Tienda Windows existente | Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de la Tienda Windows." 
 	services="mobile-services" 
 	documentationCenter="windows" 
-	authors="wesmc7777" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/21/2015" 
+	ms.author="glenga"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
 
@@ -34,7 +34,7 @@ El servicio móvil que creará en este tutorial es un servicio móvil backend de
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> (Update 3 o una versión posterior). 
 
 ##Descarga del proyecto GetStartedWithData
@@ -113,7 +113,7 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [Introducción a la autenticación]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Introducción a las notificaciones de inserción]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Introducción a la sincronización de datos sin conexión]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
@@ -123,4 +123,4 @@ Este tutorial muestra los aspectos básicos de la habilitación de un proyecto d
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

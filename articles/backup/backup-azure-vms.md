@@ -24,7 +24,7 @@ La realización de copias de seguridad de máquinas virtuales de Azure consta tr
 
 ![Tres pasos para hacer una copia de seguridad de una máquina virtual de Azure](./media/backup-azure-vms/3-steps-for-backup.png)
 
-## 1. Detección de máquinas virtuales de Azure
+## 1\. Detección de máquinas virtuales de Azure
 El proceso de detección envía consultas a Azure para obtener la lista de máquinas virtuales incluidas en la suscripción, junto con información adicional, por ejemplo, el nombre del servicio en la nube y la región.
 
 > [AZURE.NOTE]Siempre se debe ejecutar el proceso de detección como el primer paso. De este modo se asegura de que se identifican las máquinas virtuales nuevas que se agregan a la suscripción.
@@ -41,7 +41,7 @@ El proceso de detección envía consultas a Azure para obtener la lista de máqu
 
 5. Una vez completado el proceso de detección, aparece una notificación del sistema. ![detectar-completado](./media/backup-azure-vms/discovery-complete.png)
 
-##  2. Registro de máquinas virtuales de Azure
+##  2\. Registro de máquinas virtuales de Azure
 Para que se pueda proteger una máquina virtual, esta debe estar registrada en el servicio Copia de seguridad de Azure. El proceso de registro tiene dos objetivos principales:
 
 1. Conectar la extensión de copia de seguridad en el agente de VM en la máquina virtual
@@ -70,7 +70,7 @@ El registro suele ser una actividad de una vez. El servicio Copia de seguridad d
 
 7. Una vez completada la operación, se cambiará el estado en el portal para reflejar el estado registrado. ![Registrando estado 2](./media/backup-azure-vms/register-status02.png)
 
-## 3. Protección: copia de seguridad de máquinas virtuales de Azure
+## 3\. Protección: copia de seguridad de máquinas virtuales de Azure
 Este paso implica configurar una directiva de copia de seguridad y retención para la máquina virtual. Para proteger una máquina virtual, siga estos pasos:
 
 ### Para realizar una copia de seguridad de máquinas virtuales de Azure
@@ -142,7 +142,7 @@ Actualizar el agente de la máquina virtual es tan sencillo como volver a instal
 #### Validación de la instalación del agente de la máquina virtual
 Cómo comprobar la versión del agente de la máquina virtual en máquinas virtuales de Windows:
 
-1. Inicie sesión en la máquina virtual de Azure y vaya a la carpeta *C:\WindowsAzure\Packages*. El archivo WaAppAgent.exe debe estar ahí.
+1. Inicie sesión en la máquina virtual de Azure y vaya a la carpeta *C:\\WindowsAzure\\Packages*. El archivo WaAppAgent.exe debe estar ahí.
 2. Haga clic con el botón derecho en el archivo, vaya a **Propiedades**, y, a continuación, haga clic en la pestaña **Detalles**. En el campo de versión del producto, debe aparecer el valor 2.6.1198.718 o uno superior.
 
 ### Resolución de problemas de red
@@ -182,4 +182,4 @@ Para obtener más información acerca de cómo empezar a usar Copia de seguridad
 - [Restauración de máquinas virtuales](backup-azure-restore-vms.md)
 - [Administración de máquinas virtuales](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

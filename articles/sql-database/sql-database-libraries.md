@@ -39,12 +39,12 @@ En la tabla siguiente se muestran las bibliotecas publicadas por Microsoft. La c
 
 | Plataforma | Oper Sys | Bibliotecas<br/>para descarga | Versión<br/>de controlador | Descripción<br/>de controlador | Más<br/>información |
 | :--- | :--- | :--- | :--- | :--- | :-- |
-| .NET | Multiplataforma (. NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 + | Proveedor de SQL Server para .NET Framework | . |
-| PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0+ | Controlador PHP para SQL Server | [Vínculo](http://msdn.microsoft.com/library/dn865013.aspx) |
-| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0+ | Controlador JDBC de tipo 4 que proporciona conectividad de base de datos a través de la API de JDBC estándar | [Vínculo](http://msdn.microsoft.com/library/dn425070.aspx) |
-| ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0+ | Controlador ODBC de Microsoft para SQL Server | [Vínculo](http://msdn.microsoft.com/library/jj730308.aspx) |
-| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Controlador ODBC de Microsoft para SQL Server | . |
-| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0+ | Controlador ODBC de Microsoft para SQL Server | . |
+| .NET | Multiplataforma (. NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4\.5 + | Proveedor de SQL Server para .NET Framework | . |
+| PHP | Windows | [PHP para SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2\.0+ | Controlador PHP para SQL Server | [Vínculo](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC para SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2\.0+ | Controlador JDBC de tipo 4 que proporciona conectividad de base de datos a través de la API de JDBC estándar | [Vínculo](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11\.0+ | Controlador ODBC de Microsoft para SQL Server | [Vínculo](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Controlador ODBC de Microsoft para SQL Server | . |
+| ODBC | Redhat Linux | [ODBC para SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11\.0+ | Controlador ODBC de Microsoft para SQL Server | . |
 
 
 ### OLEDB para DB2 y SQL Server, para diseño DRDA
@@ -82,4 +82,4 @@ En la tabla siguiente se muestran las bibliotecas publicadas por terceros como d
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

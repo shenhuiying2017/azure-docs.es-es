@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Compilación de una aplicación web Node.js mediante DocumentDB
@@ -389,7 +389,7 @@ Se encarga de toda la configuración e instalación inicial; ahora volvamos a la
 		
 		module.exports = config;
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de vista previa de Azure de Microsoft](http://portal.azure.com):
+3. En el archivo **config.js**, actualice los valores de HOST y AUTH\_KEY mediante los valores encontrados en la hoja de claves de la cuenta de DocumentDB en el [Portal de vista previa de Azure de Microsoft](http://portal.azure.com):
 
 4. Guarde y cierre el archivo **config.js**.
  
@@ -498,7 +498,7 @@ Ahora dirijamos nuestra atención a la generación de la interfaz de usuario par
 	
 	Esto debería ser todo lo que necesitamos para que nuestra aplicación funcione.
 
-5. Abra el archivo**style.css** ubicado en el directorio **public\stylesheets** y reemplace el código por lo siguiente:
+5. Abra el archivo**style.css** ubicado en el directorio **public\\stylesheets** y reemplace el código por lo siguiente:
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@ El código fuente de la aplicación de referencia completa se puede descargar [a
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

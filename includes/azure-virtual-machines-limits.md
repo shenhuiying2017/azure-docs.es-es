@@ -20,4 +20,4 @@
 
 <sup>2</sup>Los extremos de entrada permiten establecer comunicación con una máquina virtual desde fuera del servicio en la nube de la máquina virtual. Las máquinas virtuales en el mismo servicio en la nube o red virtual pueden comunicarse automáticamente entre sí. Consulte [Configuración de extremos en una máquina virtual](../virtual-machines/virtual-machines-set-up-endpoints.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

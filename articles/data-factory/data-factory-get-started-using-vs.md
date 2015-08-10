@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción al uso de la Factoría de datos de Azure" 
+	pageTitle="Tutorial: Copia de datos de un blob de Azure a SQL Azure" 
 	description="En este tutorial se muestra cómo crear una canalización de datos de ejemplo que copia datos de un blob a una instancia de base de datos de SQL de Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Creación y supervisión de una factoría de datos mediante Visual Studio
@@ -249,4 +249,4 @@ Para actualizar las herramientas de Factoría de datos de Azure para Visual Stud
 
 Consulte[Supervisión de los conjuntos de datos y canalización](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline)para obtener instrucciones sobre cómo usar el Portal de vista previa de Azure para supervisar la canalización y los conjuntos de datos que ha creado en este tutorial.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

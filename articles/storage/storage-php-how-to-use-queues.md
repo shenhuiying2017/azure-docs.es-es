@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # Uso del almacenamiento de colas de PHP
@@ -42,7 +42,7 @@ En esta guía, utilizará funciones del servicio Cola a las que se puede llamar 
 
 Para utilizar las API del servicio Cola de Azure, necesita:
 
-1. Hacer referencia al archivo autocargador mediante la instrucción [require_once][require_once] y
+1. Hacer referencia al archivo autocargador mediante la instrucción [require\_once][require_once] y
 2. Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
@@ -384,4 +384,4 @@ Ahora que está familiarizado con los aspectos básicos del servicio de colas de
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

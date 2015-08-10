@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/15/2015"
+   ms.date="07/28/2015"
    ms.author="v-sharos" />
 
 # Actualización del dispositivo de StorSimple
@@ -52,7 +52,6 @@ Para obtener más información sobre cómo instalar las actualizaciones en modo 
 
 Puede usar el Portal de administración para aplicar actualizaciones en el dispositivo de StorSimple.
 
-
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## Instalación de actualizaciones normales a través de Windows PowerShell para StorSimple
@@ -91,8 +90,7 @@ Una vez esté conectado a la consola, mire a ver si hay actualizaciones que se d
 A continuación, instale las actualizaciones.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
-
-    
+ 
 ### Paso 4: salir del modo de mantenimiento
 
 Por último, salga del modo de mantenimiento.
@@ -121,4 +119,4 @@ Si se restablece la configuración de fábrica de un dispositivo, se pierden tod
 Obtenga más información sobre [Windows PowerShell para StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

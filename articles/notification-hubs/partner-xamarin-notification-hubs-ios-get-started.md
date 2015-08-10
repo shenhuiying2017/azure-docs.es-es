@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/14/2015"
+	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
 # Introducción a los Centros de notificaciones
@@ -128,9 +128,9 @@ Para poder enviar notificaciones de inserción a una aplicación iOS desde servi
 
   	![][9]
 
-    > [AZURE.NOTE]de manera predeterminada, el certificado de desarrollo del archivo descargado se llama **aps_development.cer**.
+    > [AZURE.NOTE]de manera predeterminada, el certificado de desarrollo del archivo descargado se llama **aps\_development.cer**.
 
-7. Haga doble clic en el certificado de inserción **aps_development.cer** descargado.
+7. Haga doble clic en el certificado de inserción **aps\_development.cer** descargado.
 
 	De esta forma, se instala un nuevo certificado en las llaves, como se muestra a continuación:
 
@@ -480,4 +480,4 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

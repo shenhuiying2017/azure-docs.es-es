@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 #Generación de recomendaciones de películas mediante Apache Mahout con Hadoop en HDInsight
@@ -78,7 +78,7 @@ Para su comodidad, [GroupLens Research][movielens] proporciona calificaciones de
 
 3. Cargue el archivo __u.data__ en __example/data/u.data__ en el clúster de HDInsight. Si tiene [Azure PowerShell][aps], puede usar el módulo de [PowerShell HDInsight-Tools][tools] para cargar el archivo. Para ver otras formas de cargar archivos, vea [Carga de datos para trabajos de Hadoop en HDInsight][upload]. El siguiente comando usa `Add-HDInsightFile` para cargar el archivo:
 
-    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+    	PS C:> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
     Esta acción carga el archivo __u.data__ en __example/data/u.data__ en el almacenamiento predeterminado del clúster. A continuación, puede tener acceso a estos datos usando URI __wasb:///example/data/u.data__ de los trabajos de HDInsight.
 
@@ -234,7 +234,7 @@ Aunque puede que la salida generada esté bien para usarse en una aplicación, n
 
 Para usar este script, debe haber extraído previamente la carpeta __ml-100k__, así como contar con una copia local del archivo de salida __part-r-00000__ generado por el trabajo de Mahout. A continuación se muestra un ejemplo de la ejecución del script:
 
-	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 La salida debe ser similar a la siguiente:
 
@@ -285,21 +285,13 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
 ###Ejecución del trabajo
 
-1. Puesto que este trabajo requiere la línea de comandos de Hadoop, primero debe habilitar Escritorio remoto a través del [portal de Azure][management]. En el portal, seleccione el clúster de HDInsight y, a continuación, seleccione __Habilitar de forma remota__ en la parte inferior de la página __Configuración__.
-
-    ![enable remote][enableremote]
-
-    Cuando se le pida, escriba un nombre de usuario y una contraseña para usar en las sesiones remotas.
-
-2. Cuando se habilite el acceso remoto, seleccione __Conectar__ para comenzar la conexión. Esta acción descargará un archivo __.rdp__, que se puede usar para iniciar una sesión de Escritorio remoto.
-
-    ![connect][connect]
+1. Este trabajo requiere la línea de comandos de Hadoop. Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en [Conexión a los clústeres de HDInsight con RDP](hdinsight-administer-use-management-portal.md#rdp).
 
 3. Después de conectar, use el icono de __línea de comandos de Hadoop__ para abrir la línea de comandos de Hadoop.
 
 	![hadoop cli][hadoopcli]
 
-3. Use el siguiente comando para generar el descriptor de archivos (__KDDTrain+.info__), que usa Mahout.
+3. Use el siguiente comando para generar el descriptor de archivos (\_\_KDDTrain+.info\_\_), que usa Mahout.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -351,9 +343,9 @@ Uno de los métodos de clasificación disponibles con Mahout es compilar un [bos
 
 Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualmente en clústeres de HDInsight 3.0 o HDInsight 2.1 siguiendo estos pasos.
 
-1. La versión de Mahout que utilice depende de la versión de HDInsight del clúster. Para encontrar la versión del clúster, use el siguiente comando de [Azure PowerShell][aps]:
+1. La versión de Mahout que utilice depende de la versión de HDInsight del clúster. Para encontrar la versión del clúster, use el siguiente comando de [Azure PowerShell][aps]\:
 
-    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __Para HDInsight 2.1__, puede descargar un archivo de almacenamiento Java (JAR) que contiene [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
@@ -368,7 +360,7 @@ Mahout se instala en clústeres de HDInsight 3.1, y se puede instalar manualment
 
 2. Cargue el archivo jar en __example/jars__ en el almacenamiento predeterminado del clúster. En el ejemplo siguiente se utiliza add-hdinsightfile, de [HDInsight-Tools][tools], para cargar el archivo:
 
-    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###No se pueden sobrescribir los archivos
 
@@ -429,4 +421,4 @@ Ahora que ha aprendido a usar a Mahout, descubra otras formas de trabajar con da
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

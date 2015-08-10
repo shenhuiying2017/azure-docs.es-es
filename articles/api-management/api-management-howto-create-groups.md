@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="sdanie"/>
 
 # Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure
@@ -26,7 +26,7 @@ Administración de API tiene los siguientes grupos invariables del sistema.
 -	**Desarrolladores**: los usuarios del portal para desarrolladores autenticados se incluyen en este grupo. Los desarrolladores son los clientes que compilan aplicaciones con sus API. Los desarrolladores, después de que se les concede acceso al portal para desarrolladores, crean aplicaciones que llaman a las operaciones de una API.
 -	**Invitados**: a este grupo pertenecen los usuarios del portal para desarrolladores no autenticados como, por ejemplo, clientes potenciales que visitan el portal para desarrolladores de una instancia de Administración de API. Se les concede determinado acceso de solo lectura, como por ejemplo la posibilidad de ver API pero no llamarlas.
 
-Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados](api-management-howto-aad.md/#how-to-add-an-external-azure-active-directory-group). Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.
+Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados][]. Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.
 
 En esta guía se muestra cómo los administradores de una instancia de Administración de API pueden agregar nuevos grupos y asociarlos a productos y desarrolladores.
 
@@ -105,5 +105,6 @@ Una vez agregado a un grupo, un desarrollador puede ver los productos asociados 
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
 [Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
+[aprovechar los grupos externos en inquilinos de Azure Active Directory asociados]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

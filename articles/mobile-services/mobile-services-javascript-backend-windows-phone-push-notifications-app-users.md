@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	pageTitle="Envío de notificaciones push a usuarios de la aplicación Windows Phone Silverlight autenticados | Servicios móviles de Azure" 
+	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación Windows Phone Silverlight." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+
+##Información general
 
 En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial anterior [Incorporación de notificaciones de inserción a la aplicación], este tutorial cambia el servicio móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el Centro de notificaciones para notificaciones push. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
  
@@ -38,20 +40,21 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
-<ol start="5"><li><p>Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en <strong>Guardar</strong>:</p>
-<pre><code>function insert(item, user, request) {
-	// Defina una carga para la notificación del sistema de Windows Phone.
-	var payload = '&lt;?xml version="1.0" encoding="utf-8"?>' +
-		'&lt;wp:Notification xmlns:wp="WPNotification">&lt;wp:Toast>' +
-		'&lt;wp:Text1>New Item&lt;/wp:Text1>&lt;wp:Text2>' + item.text + 
-		'&lt;/wp:Text2>&lt;/wp:Toast>&lt;/wp:Notification>';
+&nbsp;&nbsp;5. Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Guardar**:
 
-	// Obtener el ID del usuario que ha iniciado sesión.
+    function insert(item, user, request) {
+	// Define a payload for the Windows Phone toast notification.
+	var payload = '<?xml version="1.0" encoding="utf-8"?>' +
+		'<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
+		'<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+		'</wp:Text2></wp:Toast></wp:Notification>';
+
+	// Get the ID of the logged-in user.
 	var userId = user.userId;		
 
 	request.execute({
 		success: function() {
-			// Si la inserción se realiza correctamente, enviar una notificación.
+			// If the insert succeeds, send a notification.
 			push.mpns.send(userId, payload, 'toast', 22, {
 				success: function(pushResponse) {
 					console.log("Sent push:", pushResponse);
@@ -64,9 +67,9 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 					});
 				}
 			});      
-}</code></pre>
+	}
 
-<p>Este script de inserción utiliza la etiqueta de identificador de usuario para enviar una notificación de inserción (con el texto del elemento insertado) a todos los registros de aplicación de Windows Phone (MPNS) creados por el usuario que inició sesión.</p></li></ol>
+&nbsp;&nbsp;Este script de inserción utiliza la etiqueta de identificador de usuario para enviar una notificación push (con el texto del elemento insertado) a todos los registros de aplicación de Windows Phone (MPNS) creados por el usuario que inició sesión.
 
 ##<a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
 
@@ -87,8 +90,8 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 <!-- URLs. -->
 [Incorporación de autenticación a su aplicación]: mobile-services-windows-phone-get-started-users.md
 [Incorporación de notificaciones de inserción a la aplicación]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

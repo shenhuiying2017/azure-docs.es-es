@@ -71,7 +71,7 @@ Los siguientes pasos se explican con más detalle en [Consumo de una aplicación
 
 De forma predeterminada, los proyectos de aplicación de API se habilitan con la generación automática de metadatos de [Swagger](http://swagger.io/ "Información oficial de Swagger"), pero la plantilla de nuevo proyecto de aplicación de API de Azure deshabilita la página de prueba de API. En esta sección, habilitará la página de prueba.
 
-1. Abra el archivo *App_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
+1. Abra el archivo *App\_Start/SwaggerConfig.cs* y busque **EnableSwaggerUI**:
 
 2. Quite la marca de comentario de las líneas de código siguientes:
 
@@ -265,4 +265,4 @@ Para obtener más ejemplos de código que llama a una aplicación de API de clie
 Para obtener información sobre la autenticación en el Servicio de aplicaciones, consulte [Autenticación para aplicaciones de API y aplicaciones móviles](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

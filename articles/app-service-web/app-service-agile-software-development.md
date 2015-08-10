@@ -46,9 +46,9 @@ Para traducir la imagen en palabras:
 -	El ensayo y la producción se implementan como dos ranuras de la misma aplicación de Servicio de aplicaciones. La rama principal se configura para la integración continua con la ranura de ensayo.
 -	Cuando una confirmación en la rama principal se comprueba en la ranura de ensayo (con datos de producción), la aplicación de ensayo comprobada se cambia a la ranura de producción [sin tiempo de inactividad](web-sites-staged-publishing.md).
 
-El entorno de producción y ensayo se define mediante la plantilla que se encuentra en[*&lt;raíz_repositorio>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
+El entorno de producción y ensayo se define mediante la plantilla que se encuentra en[*&lt;raíz\_repositorio>*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json).
 
-Los entornos de desarrollo y pruebas se definen mediante la plantilla que se encuentra en [*&lt;raíz_repositorio>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
+Los entornos de desarrollo y pruebas se definen mediante la plantilla que se encuentra en [*&lt;raíz\_repositorio>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json).
 
 También usará la estrategia de ramas típica, donde el código se mueve de la rama de desarrollo a la rama de pruebas, y luego a la rama principal (con calidad creciente, por así decirlo).
 
@@ -87,7 +87,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	Cuando tenga el clon local, vaya a *&lt;raíz_repositorio>*\ARMTemplates y ejecute el script deploy.ps1 de la manera siguiente:
+4.	Cuando tenga el clon local, vaya a *&lt;raíz\_repositorio>*\\ARMTemplates y ejecute el script deploy.ps1 de la manera siguiente:
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +97,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]Eche un vistazo a *&lt;raíz_repositorio>*\ARMTemplates\Deploy.ps1 para ver cómo genera recursos con identificadores únicos. Puede usar el mismo enfoque para crear clones de la misma implementación sin preocuparse por los nombres de recursos en conflicto.
+	>[AZURE.TIP]Eche un vistazo a *&lt;raíz\_repositorio>*\\ARMTemplates\\Deploy.ps1 para ver cómo genera recursos con identificadores únicos. Puede usar el mismo enfoque para crear clones de la misma implementación sin preocuparse por los nombres de recursos en conflicto.
  
 6.	De nuevo en la sesión del Shell de Git, ejecute:
 
@@ -109,7 +109,7 @@ En un escenario típico de DevOps, tiene una aplicación que se ejecuta directam
  
 5.	Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) y observe lo que se crea.
 
-	Podrá ver dos aplicaciones web en el mismo grupo de recursos, una con el sufijo `Api` en el nombre. Si observa la vista de grupo de recursos, también verá el servidor y Base de datos SQL, el plan de Servicio de aplicaciones y las ranuras de ensayo para las aplicaciones web. Examine los distintos recursos y compárelos con *&lt;raíz_repositorio>*\ARMTemplates\ProdAndStage.json para ver cómo están configurados en la plantilla.
+	Podrá ver dos aplicaciones web en el mismo grupo de recursos, una con el sufijo `Api` en el nombre. Si observa la vista de grupo de recursos, también verá el servidor y Base de datos SQL, el plan de Servicio de aplicaciones y las ranuras de ensayo para las aplicaciones web. Examine los distintos recursos y compárelos con *&lt;raíz\_repositorio>*\\ARMTemplates\\ProdAndStage.json para ver cómo están configurados en la plantilla.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +174,7 @@ Los archivos de plantilla ProdAndStage.json y Dev.json ya especifican los parám
 
 		git checkout Dev
 
-2.	Realice un simple cambio en la capa de interfaz de usuario de la aplicación cambiando el código para que use listas de [arranque](http://getbootstrap.com/components/). Abra *&lt;raíz_repositorio>*\src\MultiChannelToDo.Web\app\index.cshtml y realice el cambio resaltado a continuación:
+2.	Realice un simple cambio en la capa de interfaz de usuario de la aplicación cambiando el código para que use listas de [arranque](http://getbootstrap.com/components/). Abra *&lt;raíz\_repositorio>*\\src\\MultiChannelToDo.Web\\app\\index.cshtml y realice el cambio resaltado a continuación:
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +279,4 @@ Agile Software Development es un componente indispensable para muchas empresas q
 -	[Creación o edición de usuarios en Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Wiki de Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

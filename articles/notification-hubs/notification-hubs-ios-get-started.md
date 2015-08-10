@@ -512,4 +512,4 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [guía de programación de notificaciones push y locales]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

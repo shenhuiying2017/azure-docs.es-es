@@ -132,7 +132,7 @@ En esta sección, creará un proyecto de aplicación de escritorio de Windows y 
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. En el código fuente *Form1.cs*, agregue el siguiente código antes del constructor `Form1()` y reemplace el valor de GATEWAY_URL por el valor que copió en el paso anterior. Asegúrese de incluir la barra diagonal final (/).
+4. En el código fuente *Form1.cs*, agregue el siguiente código antes del constructor `Form1()` y reemplace el valor de GATEWAY\_URL por el valor que copió en el paso anterior. Asegúrese de incluir la barra diagonal final (/).
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -205,4 +205,4 @@ Para obtener más ejemplos de código que llama a una aplicación de API de clie
 Para obtener información sobre cómo utilizar la autenticación en aplicaciones de API, consulte [Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

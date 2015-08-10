@@ -24,4 +24,4 @@
 
 ![Inicios de sesión tras varios errores](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

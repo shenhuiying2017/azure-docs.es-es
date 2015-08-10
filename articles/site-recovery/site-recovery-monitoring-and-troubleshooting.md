@@ -103,7 +103,7 @@ En este caso *Estado de replicación* se indica como crítico: *Ver el estado de
 
 ### Opciones de registro de Replicación de Hyper-V
 
-Todos los eventos relacionados con la Réplica de Hyper-V se registran en el registro de Hyper-V-VMMS\Admin ubicado en **Registros de aplicaciones y servicios\Microsoft\Windows**. Además, puede habilitarse un registro analítico para Hyper-V-VMMS. Para habilitar este registro, asegúrese primero de que los registros analíticos y de depuración puedan verse en el Visor de eventos. Abra el Visor de eventos y, a continuación, en el **menú Ver**, haga clic en **Mostrar registros analíticos y de depuración**.
+Todos los eventos relacionados con la Réplica de Hyper-V se registran en el registro de Hyper-V-VMMS\\Admin ubicado en **Registros de aplicaciones y servicios\\Microsoft\\Windows**. Además, puede habilitarse un registro analítico para Hyper-V-VMMS. Para habilitar este registro, asegúrese primero de que los registros analíticos y de depuración puedan verse en el Visor de eventos. Abra el Visor de eventos y, a continuación, en el **menú Ver**, haga clic en **Mostrar registros analíticos y de depuración**.
 
 ![Solucionar problemas de Hyper-V locales](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -133,7 +133,7 @@ Para la protección de sucursal de Hyper-V y de sitio de SMB, descargue la [herr
 
 Para escenarios de VMware/físicos, consulte [Colección de registros de Azure Site Recovery para la protección de sitios de VMware y físicos](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx) para recopilar los registros necesarios.
 
-La herramienta SDP recopila localmente el archivo de registro, que también puede encontrar en una subcarpeta con nombre aleatorio situada en **%LocalAppData%\ElevatedDiagnostics**
+La herramienta SDP recopila localmente el archivo de registro, que también puede encontrar en una subcarpeta con nombre aleatorio situada en **%LocalAppData%\\ElevatedDiagnostics**
 
 ### Apertura de una incidencia de soporte técnico
 
@@ -164,25 +164,17 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 
 ### Configuración
 
--   [No se puede validar el certificado seleccionado. Seleccione un certificado diferente.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
 -   [No se puede registrar el servidor VMM debido a un error interno. Consulte la vista de trabajos en el Portal de Site Recovery para obtener más detalles sobre el error. Ejecute el programa de instalación para registrar el servidor.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
--   [No se puede establecer una conexión en el almacén de Hyper-V Recovery Manager. Compruebe la configuración de proxy o inténtelo de nuevo más tarde.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
+-   [No se puede establecer una conexión en el almacén de Administrador de recuperación de Hyper-V. Compruebe la configuración de proxy o inténtelo de nuevo más tarde.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### Configuración
 
 -   [El clúster de hosts de Hyper-V contiene al menos un adaptador de red estático o no hay adaptadores conectados configurados para usar DHCP.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
--   [El perfil de Hyper-V no está habilitado en los perfiles de capacidad para la nube](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   [No se pudo aplicar la configuración de protección para '% CloudName;'. No se pudo configurar un host de Hyper-V o un clúster recién agregado porque no está configurada la protección de la nube.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
-
 -   [VMM no dispone de permisos para completar una acción](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
 ### Protección
-
--   [No se admite el sistema operativo](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
 
 -   [Error en la habilitación de la protección, ya que el agente no está instalado en el equipo host](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 
@@ -220,9 +212,6 @@ A continuación se muestran los errores comunes con los que se puede encontrar y
 
     -   [No se pudo iniciar la conmutación por error ya que la conmutación por error de prueba está en curso](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
--   Específico de la recuperación de Azure
-
-    -   [La conmutación por error no se pudo iniciar debido a caracteres no admitidos en el nombre de VM](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### Servidor de configuración, Servidor de proceso y Destino principal
 
@@ -230,4 +219,7 @@ Servidor de configuración (CS), Servidor de proceso (PS) y Destino principal (M
 
 -   [El host ESXi en el que se hospeda PS/CS, ya que se produce un error en VM con una pantalla morada de la muerte.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO4-->
+### Solución de problemas del escritorio remoto después de la conmutación por error
+Muchos clientes tienen que afrontar problemas para conectarse a máquina virtual con conmutación por error en Azure. Use el documento de solución de problemas para RDP en la máquina virtual. [Vínculo de documento](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+<!---HONumber=July15_HO5-->

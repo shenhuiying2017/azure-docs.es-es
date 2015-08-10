@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="07/29/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Operadores permitidos
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Cualquier valor de cadena o $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Cualquier valor de cadena o $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "es-es") |
+| preferredLanguage | Código ISO 639-1 | (user.preferredLanguage -eq "en-US") |
 | sipProxyAddress | Cualquier valor de cadena o $null. | (user.sipProxyAddress -eq "value") |
 | state | Cualquier valor de cadena o $null. | (user.state -eq "value") |
 | streetAddress | Cualquier valor de cadena o $null. | (user.streetAddress -eq "value") |
@@ -148,9 +148,19 @@ Operadores permitidos
 | otherMails | Cualquier valor de cadena | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## Regla de informes directos
+Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
+Para configurar un grupo como un grupo de “Administrador”
+--------------------------------------------------------------------------------
+1. En el Portal de administrador, haga clic en la pestaña **Configurar** y luego seleccione **REGLA AVANZADA**. 
+2. Escriba la regla con la siguiente sintaxis: Direct Reports for *Direct Reports for {Identificador de usuario del administrador}*
+3. Al guardar esta regla, todos los usuarios que la cumplen se unirán como miembros del grupo. Tenga en cuenta que pueden pasar unos cuando minutos hasta que empiece a llenarse el grupo. 
+
+
+## Información adicional
 A continuación presentamos algunos temas que proporcionarán información adicional acerca de Azure Active Directory.
 
-* [Solución de problemas de pertenencias dinámicas para grupos](active-directory-accessmanagement-troubleshooting.md)
+* [Solución de problemas relacionados con las pertenencias dinámicas para grupos](active-directory-accessmanagement-troubleshooting.md)
 
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 
@@ -158,4 +168,4 @@ A continuación presentamos algunos temas que proporcionarán información adici
 
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

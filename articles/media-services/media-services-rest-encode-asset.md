@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/28/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Codificación de un recurso mediante el Codificador multimedia de Azure
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encode-asset.md)
+- [REST](media-services-rest-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##Información general
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia.
@@ -86,9 +90,9 @@ En el ejemplo siguiente se muestra cómo establecer el atributo assetName:
 - Puede especificar JobInputAsset o JobOutputAsset como un recurso de entrada de una tarea.
 - Las tareas no pueden formar un ciclo.
 - El parámetro de valor que se pasa a JobInputAsset o JobOutputAsset representa el valor de índice para un recurso. Los recursos reales se definen en las propiedades de navegación InputMediaAssets y OutputMediaAssets en la definición de la entidad Job. 
-- Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "__metadata: uri".
+- Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "\_\_metadata: uri".
 - InputMediaAssets se asigna a uno o más recursos que ha creado en Servicios multimedia. El sistema crea OutputMediaAssets. Estos no hacen referencia a ningún recurso existente.
-- Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) _NewJob". 
+- Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob". 
 
 
 ##Creación de un trabajo con tareas encadenadas
@@ -258,8 +262,8 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con los Servicios multimedia](media-services-rest-check-job-progress.md).
 
 
- ##Otras referencias
+##Otras referencias
 
 [Obtención de una instancia de procesador multimedia](media-services-rest-get-media-processor.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

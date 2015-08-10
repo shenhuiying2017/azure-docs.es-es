@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="Cómo agregar usuarios a un grupo de bases de datos elásticas" 
 	description="Debe agregar un usuario con privilegios para cada base de datos del grupo." 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh" />
 
 # Cómo agregar usuarios a un grupo de bases de datos elásticas
@@ -32,7 +33,7 @@ Los [trabajos de bases de datos elásticas](sql-database-elastic-pool.md) permit
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. El usuario también debe tener permisos suficientes para ejecutar la secuencia de comandos especificada para el trabajo. Use procedimiento **sp_addrolemember** para proporcionar al usuario los permisos mínimos necesarios para ejecutar correctamente la secuencia de comandos.
+3. El usuario también debe tener permisos suficientes para ejecutar la secuencia de comandos especificada para el trabajo. Use procedimiento **sp\_addrolemember** para proporcionar al usuario los permisos mínimos necesarios para ejecutar correctamente la secuencia de comandos.
 
 ## Pasos siguientes
 
@@ -44,4 +45,4 @@ Ejecutar un trabajo en el grupo de bases de datos elásticas. Vea [Creación y a
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -39,20 +39,23 @@ Los datos de telemetría recopilados de la aplicación se almacenan y analizan e
 
 ![Cree un gráfico de estadísticas de la actividad del usuario o explore en profundidad eventos específicos.](./media/app-insights-overview/00-sample.png)
 
+¿Desea un análisis todavía más exhaustivo? [Exporte](app-insights-export-telemetry.md) los datos [en SQL](app-insights-code-sample-export-telemetry-sql-database.md), [en Power BI](app-insights-export-power-bi.md) o en sus propias herramientas.
+
+![Visualización de datos en Power BI](./media/app-insights-overview/210.png)
 
 ## Plataformas y lenguajes
 
 Hay un SDK para una variedad creciente de plataformas. Actualmente, la lista incluye:
 
- * [Servidores de ASP.NET][greenbrown]en Azure o en el servidor IIS
+ * [Servidores de ASP.NET][greenbrown] en Azure o en el servidor IIS
  * [Servicios en la nube de Azure](app-insights-cloudservices.md)
  * [Servidores de J2EE][java]
- * [Páginas web][client]: HTML + JavaScript
+ * [Páginas web][client]\: HTML + JavaScript
  * [Windows Phone, Tienda Windows, aplicaciones universales de Windows 10 e integración directa con el portal para desarrolladores de Windows 10][windows]
  * [Escritorio de Windows][desktop]
  * [iOS][ios]
  * [Android][android]
- * [Otras plataformas][platforms]-Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+ * [Otras plataformas][platforms]\: Node.js, PHP, Python, Ruby, Joomla, SharePoint y WordPress
 
 Application Insights también puede obtener telemetría de las aplicaciones web de ASP.NET existentes en IIS sin volver a compilarlas.
 
@@ -72,9 +75,12 @@ Para servidores ASP.NET y aplicaciones web de Azure, también puede instalar el 
 * Supervisar una aplicación web sin necesidad de volverla a compilar o instalar.
 * Realizar el seguimiento de llamadas a módulos dependientes.
 
+
+
 ### ¿Cuál es la sobrecarga?
 
 El impacto sobre el rendimiento es muy pequeño. Seguimiento de llamadas que no son de bloqueo y que se agrupan por lotes y se envían en un subproceso independiente.
+
 
 
 ## Primeros pasos
@@ -102,7 +108,7 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 
 * Preguntas y problemas:
  * [Solución de problemas][qna]
- * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/es-es/home?forum=ApplicationInsights)
+ * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Errores:
  * [Conectar](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -139,4 +145,4 @@ Para obtener más detalles, elija el tipo de aplicación en Introducción, en la
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

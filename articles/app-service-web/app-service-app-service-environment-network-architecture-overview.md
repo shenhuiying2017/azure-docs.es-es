@@ -57,6 +57,13 @@ En el diagrama anterior:
 - Dado que la VIP pública del entorno del Servicio de aplicaciones es 192.23.1.2, que es la dirección IP saliente que se utiliza cuando se realizan llamadas a los extremos de "Internet".
 - El intervalo CIDR de la subred que contiene para el entorno del Servicio de aplicaciones es 10.0.1.0/26. Otros extremos dentro de la misma infraestructura de red virtual verán las llamadas de aplicaciones como originadas en algún lugar dentro de este intervalo de direcciones.
 
+## Llamadas entre entornos del Servicio de aplicaciones ##
+El escenario puede resultar más complejo si implementa varios entornos del Servicio de aplicaciones en la misma red virtual y realiza llamadas salientes desde un entorno del Servicio de aplicaciones a otro. Estos tipos de llamadas cruzadas entre entornos del Servicio de aplicaciones también se tratarán como llamadas de "Internet".
+
+Ejemplo de uso del entorno del Servicio de aplicaciones anterior con la dirección IP saliente 192.23.1.2: si una aplicación que se ejecuta en el entorno del Servicio de aplicaciones hace una llamada saliente a una aplicación que se ejecuta en un segundo entorno del Servicio de aplicaciones ubicado en la misma red virtual, las llamadas salientes que llegan al segundo entorno del Servicio de aplicaciones se mostrarán como procedentes de la dirección 192.23.1.2 (es decir, no se trata del intervalo de direcciones de la subred del primer entorno del Servicio de aplicaciones).
+
+Aunque las llamadas entre diferentes entornos del Servicio de aplicaciones se tratan como llamadas de "Internet", cuando ambos entornos del Servicio de aplicaciones se encuentran en la misma región de Azure, el tráfico de red permanecerá en la red de Azure regional y no fluirá físicamente a través de la red pública de Internet. Como resultado, puede usar un grupo de seguridad de red en la subred del segundo entorno del Servicio de aplicaciones para permitir solo las llamadas entrantes desde 192.23.1.2, garantizando así una comunicación segura entre los entornos del Servicio de aplicaciones.
+
 ## Información y vínculos adicionales ##
 Se puede obtener más información sobre los puertos de entrada utilizados por los entornos del Servicio de aplicaciones y mediante grupos de seguridad de red para controlar el tráfico entrante [aquí][controllinginboundtraffic].
 
@@ -72,4 +79,4 @@ Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

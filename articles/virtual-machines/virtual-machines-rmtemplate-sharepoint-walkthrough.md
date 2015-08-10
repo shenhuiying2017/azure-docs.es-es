@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Plantilla del Administrador de recursos de la granja de servidores SharePoint de tres servidores
 
 Este tema le guiará por la estructura del archivo de plantilla azuredeploy.json para la granja de servidores SharePoint de tres servidores. Puede ver el contenido de esta plantilla en el explorador desde [aquí](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Como alternativa, para examinar una copia local del archivo azuredeploy.json, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\Azure\Templates\SharePointFarm). Rellene el nombre de la carpeta y ejecute estos comandos en el símbolo del sistema de Azure PowerShell.
+Como alternativa, para examinar una copia local del archivo azuredeploy.json, designe una carpeta local como ubicación del archivo y créela (por ejemplo, C:\\Azure\\Templates\\SharePointFarm). Rellene el nombre de la carpeta y ejecute estos comandos en el símbolo del sistema de Azure PowerShell.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -376,4 +377,4 @@ Para obtener más información, consulte [Idioma de la plantilla del Administrad
 
 [Documentación sobre las máquinas virtuales](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

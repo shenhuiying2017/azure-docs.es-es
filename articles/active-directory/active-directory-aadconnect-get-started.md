@@ -49,11 +49,11 @@ La tabla siguiente muestra los requisitos mínimos de un equipo con Azure AD Con
 | Cantidad de objetos en Active Directory | CPU | Memoria | Tamaño de disco duro |
 | ------------------------------------- | --- | ------ | --------------- |
 | Menos de 10.000 | 1,6 GHz | 4 GB | 70 GB |
-| 10.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
-| 50.000–100.000 | 1,6 GHz | 16 GB | 100 GB* |
+| 10\.000–50.000 | 1,6 GHz | 4 GB | 70 GB |
+| 50\.000–100.000 | 1,6 GHz | 16 GB | 100 GB* |
 | Para 100.000 o más objetos, se requiere la versión completa de SQL Server| | | |
-| 100.000–300.000 | 1,6 GHz | 32 GB | < 300 GB |
-| 300.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
+| 100\.000–300.000 | 1,6 GHz | 32 GB | < 300 GB |
+| 300\.000–600.000 | 1,6 GHz | 32 GB | 450 GB |
 | Más de 600.000 | 1,6 GHz | 32 GB | 500 GB |
 
 
@@ -114,4 +114,4 @@ Ahora que ha instalado Azure AD Connect puede usar el vínculo [aquí](active-di
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

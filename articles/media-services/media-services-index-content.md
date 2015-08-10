@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Indización de archivos multimedia con el Indizador multimedia de Azure
 
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. Puede procesar uno o varios archivos multimedia en un lote.
 
@@ -331,11 +334,11 @@ No hay ninguna secuencia de audio en el archivo multimedia de entrada.</td></tr>
 
 ##<a id="supported_languages"></a>Idiomas admitidos
 
-Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [Azure Media Indexer en español](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/)
+Actualmente, se admiten los idiomas inglés y español. Para obtener más información, consulte [Azure Media Indexer en español](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ##Vínculos relacionados
 
-[Uso de archivos AIB con Azure Media Indexer y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Uso de archivos AIB con el Indizador multimedia de Azure y SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
 <!-- Anchors. -->
 
@@ -343,4 +346,4 @@ Actualmente, se admiten los idiomas inglés y español. Para obtener más inform
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

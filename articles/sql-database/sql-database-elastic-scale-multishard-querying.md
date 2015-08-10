@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # Consultas a través de particiones múltiples
 
 ## Información general
 
-**Consultas a través de particiones múltiples** se usa para tareas como informes y recopilación de datos que requieren ejecutar una consulta que abarca varias particiones. (Compare esto con el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md), que ejecuta todo el trabajo en una sola partición).
+**Consultas a través de particiones múltiples** se usa para tareas como informes y recopilación de datos que requieren ejecutar una consulta que abarca varias particiones. (Compare esto con el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md), que ejecuta todo el trabajo en una sola partición). Para usar SQL Server Management Studio, consulte [Introducción a la consulta de base de datos elástica](sql-database-elastic-query-getting-started.md).
 
 La biblioteca de cliente de bases de datos elásticas introduce un nuevo espacio de nombres llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query** que proporciona la capacidad de consultar varias particiones usando una sola solicitud y resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.
 
@@ -31,7 +31,7 @@ El punto de entrada principal a las consultas a través de particiones múltiple
 3. Ejecución del comando.
 4. Consuma los resultados a través del **MultiShardDataReader**. 
 
-Una diferencia clave es la construcción de conexiones entre particiones múltiples. Donde **SqlConnection** opera en una sola base de datos, **MultiShardConnection** toma una ***colección de particiones*** como entrada. Es posible rellenar la recopilación de particiones a partir de un mapa de particiones. Luego la consulta se ejecuta en la recopilación de particiones usando la semántica **UNION ALL** para ensamblar un solo resultado global. De manera opcional, el nombre de la partición donde se origina la fila se puede agregar a la salida usando la propiedad **ExecutionOptions** en el comando. El código siguiente ilustra el uso de consultas a través de particiones múltiples con un **ShardMap** llamado *myShardMap*.
+Una diferencia clave es la construcción de conexiones entre particiones múltiples. Donde **SqlConnection** opera en una base de datos única, **MultiShardConnection** toma una ***colección de particiones*** como entrada. Es posible rellenar la recopilación de particiones a partir de un mapa de particiones. Luego la consulta se ejecuta en la recopilación de particiones usando la semántica **UNION ALL** para ensamblar un solo resultado global. De manera opcional, el nombre de la partición donde se origina la fila se puede agregar a la salida usando la propiedad **ExecutionOptions** en el comando. El código siguiente ilustra el uso de consultas a través de particiones múltiples con un **ShardMap** llamado *myShardMap*.
 
     using (MultiShardConnection conn = new MultiShardConnection( 
                                         myShardMap.GetShards(), 
@@ -67,4 +67,4 @@ Las consultas a través de particiones múltiples no comprueban si los shardlets
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

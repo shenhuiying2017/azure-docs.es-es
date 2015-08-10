@@ -1,12 +1,20 @@
-<properties pageTitle="Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento" description="Obtenga información sobre cómo utilizar algunos de los clientes disponibles en las bibliotecas .NET de cálculo, red y almacenamiento para crear y eliminar recursos de Microsoft Azure" services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento"
+	description="Obtenga información sobre cómo utilizar algunos de los clientes disponibles en las bibliotecas .NET de cálculo, red y almacenamiento para crear y eliminar recursos de Microsoft Azure."
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Implementación de recursos de Azure mediante bibliotecas .NET de proceso, red y almacenamiento
@@ -338,7 +346,7 @@ Ahora que ha creado todos los recursos auxiliares, puede crear una máquina virt
           }
         }
 
-	>[AZURE.NOTE]Los nombres de imagen vhd cambiarán regularmente en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes de Windows con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea utilizar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
+	>[AZURE.NOTE]Los nombres de imagen vhd cambiarán regularmente en la galería de imágenes, por lo que necesita obtener un nombre de imagen actual para implementar la máquina virtual. Para ello, consulte [Administrar imágenes de Windows con Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx), y, a continuación, reemplace {source-image-name} por el nombre del archivo vhd que desea utilizar. Por ejemplo, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd".
 
 	Reemplace {subscription-id} por el identificador de su suscripción.
 
@@ -380,4 +388,4 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 	![Crear una aplicación de AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

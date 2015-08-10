@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Tienda Windows) | Centro de desarrollo móvil" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación de la Tienda Windows" 
+	pageTitle="Control de conflictos con datos sin conexión en aplicaciones universales de Windows | Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación universal de Windows" 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
@@ -23,13 +23,11 @@
 
 ##Información general
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure.</p>
-<p>Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos pasos que este tutorial.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">(en inglés) Reproducir vídeo</span></a> <span class="time"> (en inglés) 14:36</span></div>
-</div>
+En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure.
+
+Si prefiere ver un vídeo, el clip que aparece a continuación muestra los mismos pasos que este tutorial.
+
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
 
 En este tutorial se descargará una solución universal C# de Windows para una aplicación que admite el control de conflictos de sincronización sin conexión. Integrará un servicio móvil con la aplicación y, a continuación, ejecutará los clientes de Tienda Windows 8.1 y Windows Phone 8.1 para generar un conflicto de sincronización y resolverlo.
 
@@ -51,7 +49,7 @@ Este tutorial se refiere a cómo el [ejemplo de Todo sin conexión de Servicios 
 
 2. Si todavía no ha instalado SQLite para Windows 8.1 y Windows Phone 8.1 según lo mencionado en el tutorial [Introducción a los datos sin conexión], instale ambos tiempos de ejecución.
 
-3. En Visual Studio 2013, abra el archivo de solución *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln*. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. Compruebe que se restauran los paquetes de NuGet y las referencias se establecen correctamente.
+3. En Visual Studio 2013, abra el archivo de solución *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln*. Presione la tecla **F5** para volver a compilar y ejecutar el proyecto. Compruebe que se restauran los paquetes de NuGet y las referencias se establecen correctamente.
 
     >[AZURE.NOTE]Es posible que se requiera eliminar cualquier referencia anterior a SQLite en tiempo de ejecución y reemplazarla por la referencia actualizada, tal como se menciona en el tutorial [Introducción a los datos sin conexión].
 
@@ -166,4 +164,4 @@ Cuando se cancela una inserción, `PushAsync` producirá un `MobileServicePushFa
 [ejemplo de Todo sin conexión de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

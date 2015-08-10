@@ -15,7 +15,7 @@
    ms.date="05/01/2015"
    ms.author="joaoma" />
 
-# SQL AlwaysOn
+# Configuración del equilibrador de carga para SQL Always On
 
 Los grupos de disponibilidad de SQL Server AlwaysOn se pueden ejecutar ahora con ILB. El grupo de disponibilidad es la solución estrella de SQL Server para conseguir alta disponibilidad y recuperación ante desastres. El agente de escucha de grupo de disponibilidad permite a las aplicaciones cliente conectarse sin problemas a la réplica principal, independientemente del número de réplicas en la configuración.
 
@@ -28,7 +28,7 @@ Mediante el uso de ILB en el agente de escucha, solo pueden tener acceso al extr
 
 Los servicios y las máquinas virtuales de los mismos servicios de red virtual, las máquinas virtuales de servicios de red locales conectados y las máquinas virtuales de redes virtuales interconectadas.
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB\_SQLAO\_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
 
 
 El equilibrador de carga interno solo puede configurarse a través de PowerShell.
@@ -47,8 +47,9 @@ Paso 2:
 ## Agregue los extremos con equilibrio de carga para ILB en cada máquina virtual.
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
-	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 
-	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+
+ 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
 
 ## Otras referencias
@@ -62,4 +63,4 @@ Paso 2:
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

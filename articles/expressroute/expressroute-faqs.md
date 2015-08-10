@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/26/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 # P+F de ExpressRoute
@@ -124,7 +124,7 @@ Sí. Es posible vincular hasta 10 redes virtuales a un circuito ExpressRoute.
 ### Tengo varias suscripciones a Azure que contienen redes virtuales. ¿Es posible conectar redes virtuales de diferentes suscripciones a un solo circuito ExpressRoute?
 Sí. Puede autorizar hasta otras 10 suscripciones de Azure para usar un único circuito ExpressRoute. Este límite puede aumentarse al habilitar la característica Premium de ExpressRoute.
 
-Para obtener más información, consulte [Uso compartido de un circuito ExpressRoute a través de varias suscripciones](https://msdn.microsoft.com/library/azure/dn835110.aspx).
+Para obtener más información, consulte [Uso compartido de un circuito ExpressRoute a través de varias suscripciones](expressroute-share-circuit.md).
 
 ### ¿Las redes virtuales se conectan al mismo circuito aislado entre sí?
 No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman parte del mismo dominio de enrutamiento y no están aisladas entre sí desde una perspectiva de enrutamiento. Si necesita aislamiento de rutas, deberá crear un circuito ExpressRoute independiente.
@@ -286,4 +286,4 @@ Se admite la conectividad con los servicios de Office 365 a través de los NSP y
 Sí. Es posible obtener acceso a los extremos de servicio de Office 365 a través de Internet a pesar de que se haya configurado ExpressRoute para su red. Si está en una ubicación que está configurada para conectarse a servicios de Office 365 a través de ExpressRoute, se conectará a través de ExpressRoute.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -95,4 +95,4 @@ Para obtener más información acerca de Windows PowerShell con Azure, consulte 
 - [Blog de Windows PowerShell](http://blogs.msdn.com/powershell): obtenga información acerca de las nuevas características de Windows PowerShell.
 - [Blog ¡Hola, chicos del scripting!](http://blogs.technet.com/b/heyscriptingguy/): Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
-	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	pageTitle="Envío de notificaciones push a usuarios de aplicaciones universales de Windows autenticados." 
+	description="Obtenga información sobre cómo enviar notificaciones de inserción desde Servicios móviles de Azure a usuarios específicos de su aplicación universal C# de Windows." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
+##Información general
 En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial anterior [Incorporación de notificaciones de inserción a la aplicación], este tutorial cambia el servicio móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el Centro de notificaciones para notificaciones push. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
 
 Este tutorial le guiará en el siguiente proceso:
@@ -72,7 +73,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
             });
 }</code></pre>
 
-<p>Este script de inserción usa la etiqueta del identificador de usuario para enviar una notificación de inserción (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows creados por el usuario que ha iniciado sesión.</p></li></ol>
+&nbsp;&nbsp;Este script de inserción usa la etiqueta del identificador de usuario para enviar una notificación push (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows creados por el usuario que ha iniciado sesión.
 
 ##<a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
 
@@ -93,7 +94,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 [Incorporación de autenticación a su aplicación]: ../mobile-services-windows-store-dotnet-get-started-users.md
 [Incorporación de notificaciones de inserción a la aplicación]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

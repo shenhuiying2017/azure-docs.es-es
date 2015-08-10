@@ -3,7 +3,7 @@
 	description="Muestra enfoques recomendados en el Administrador de recursos de Azure para proteger recursos con claves y secretos, el control de acceso basado en roles y los grupos de seguridad de red."
 	services="azure-resource-manager"
 	documentationCenter=""
-	authors="mmercuri"
+	authors="george-moore"
 	manager="georgem"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
-	ms.author="mmercuri"/>
+	ms.date="07/24/2015"
+	ms.author="georgem"/>
 
 
 # Consideraciones de seguridad para el Administrador de recursos de Azure
@@ -27,13 +27,13 @@ En este tema se supone que está familiarizado con el control de acceso basado e
 
 Máquinas virtuales de Azure, Administrador de recursos de Azure y Almacén de claves de Azure están totalmente integrados para ofrecer compatibilidad para el control seguro de certificados que se deben implementar en la máquina virtual. La utilización de Almacén de claves de Azure con el Administrador de recursos para organizar y almacenar certificados y secretos de máquina virtual es una práctica recomendada y proporciona las siguientes ventajas:
 
-- Las plantillas solo contienen referencias URI a los secretos, lo que significa que los secretos reales no están en los repositorios de código, configuración o código fuente. Esto impide los ataques de suplantación de identidad de claves en repositorios internos o externos, como los bots de recolección en github.
+- Las plantillas solo contienen referencias URI a los secretos, lo que significa que los secretos reales no están en los repositorios de código, configuración o código fuente. Esto impide ataques de suplantación de identidad de claves en repositorios internos o externos, como los robots de recolección de GitHub.
 - Los secretos almacenados en el almacén de claves están bajo el control total de RBAC de un operador de confianza. Si el operador de confianza deja la compañía o pasa a un nuevo grupo dentro de la compañía, ya no tendrán acceso a las claves que crearon en el almacén.
 - Compartimentación completa de todos los activos:
       - las plantillas para implementar las claves 
       - las plantillas para implementar una máquina virtual con referencias a las claves 
       - los materiales de clave reales en el almacén. Cada plantilla (y acción) pueden estar bajo roles RBAC diferentes para una separación completa de responsabilidades.
-- La carga de secretos en una máquina virtual durante la implementación se produce a través de un canal directo entre el Tejido de Azure y el Almacén de claves dentro de los confines del centro de datos de Microsoft. Una vez que las claves se encuentran en el Almacén de claves, nunca salen a la luz través de un canal que no sea de confianza fuera del centro de datos.  
+- La carga de secretos en una máquina virtual durante la implementación se produce a través de un canal directo entre el tejido de Azure y el Almacén de claves dentro de los confines del centro de datos de Microsoft. Una vez que las claves se encuentran en el Almacén de claves, nunca salen a la luz través de un canal que no sea de confianza fuera del centro de datos.  
 - Los almacenes de claves son siempre regionales, por lo que los secretos siempre tienen la localidad (y soberanía) con las máquinas virtuales. No hay almacenes de claves globales.
 
 ### Separación de claves de las implementaciones
@@ -147,9 +147,9 @@ El fragmento de plantilla siguiente estaría compuesto de construcciones de impl
 
 ## Entidades de servicio para interacciones entre suscripciones
 
-Las identidades de servicio se representan por entidades de servicio en Active Directory. Las entidades de servicio estarán en el centro de la habilitación de escenarios clave para organizaciones de TI de empresa, integradores de sistemas y proveedores de servicios en la nube. En concreto, habrá casos de uso donde una de estas organizaciones necesite interactuar con la suscripción de uno de sus clientes.
+Las identidades de servicio se representan por entidades de servicio en Active Directory. Las entidades de servicio estarán en el centro de la habilitación de escenarios clave para organizaciones de TI empresarial, integradores de sistemas (SI) y proveedores de servicios en la nube (CSV). En concreto, habrá casos de uso donde una de estas organizaciones necesite interactuar con la suscripción de uno de sus clientes.
 
-Su organización podría proporcionar una oferta que supervise una solución implementada en el entorno y la suscripción de sus clientes. En este caso, necesitará obtener acceso a los registros y a otros datos dentro de una cuenta de los clientes para que pueda utilizarla en la solución de supervisión. Si es una organización de TI corporativa o un integrador de sistemas, puede proporcionar una oferta a un cliente donde implementará y administrará una funcionalidad para ellos, por ejemplo una plataforma de análisis de datos, donde la oferta reside en la propia suscripción de los clientes.
+Su organización podría proporcionar una oferta que supervise una solución implementada en el entorno y la suscripción de sus clientes. En este caso, necesitará obtener acceso a los registros y a otros datos dentro de una cuenta de los clientes para que pueda utilizarla en la solución de supervisión. Si es una organización de TI corporativa o un integrador de sistemas, es posible que haga una oferta a un cliente en la que implemente y administre una funcionalidad para ellos, por ejemplo, una plataforma de análisis de datos, donde la oferta reside en la propia suscripción de los clientes.
 
 En estos casos de uso, su organización requeriría una identidad a la que se podría dar acceso para realizar estas acciones dentro del contexto de una suscripción de cliente.
 
@@ -166,7 +166,7 @@ Una combinación de una entidad de servicio y RBAC puede utilizarse para satisfa
 
 ## Grupos de seguridad de red
 
-Muchos escenarios tendrán requisitos que especifican cómo se controla el tráfico a una o más instancias de máquina virtual en la red virtual. Puede utilizar un grupo de seguridad de red (NSG) para hacer esto como parte de una implementación de la plantilla ARM.
+Muchos escenarios tendrán requisitos que especifican cómo se controla el tráfico a una o más instancias de máquina virtual en la red virtual. Puede usar un grupo de seguridad de red (NSG) para hacer esto como parte de una implementación de la plantilla ARM.
 
 Un grupo de seguridad de red es un objeto de nivel superior que está asociado a su suscripción. Un grupo de seguridad de red contiene reglas de control de acceso que permiten o deniegan el tráfico a instancias de máquina virtual. Las reglas de un grupo de seguridad de red pueden cambiarse en cualquier momento; los cambios se aplican a todas las instancias asociadas. Para usar un grupo de seguridad de red, debe tener una red virtual asociada a una región (ubicación). Los grupos de seguridad de red no son compatibles con redes virtuales asociadas a un grupo de afinidad. Si no tiene una red virtual regional y desea controlar el tráfico a los extremos, consulte [Listas de control de acceso (ACL) de red?](https://msdn.microsoft.com/library/azure/dn376541.aspx).
 
@@ -186,7 +186,7 @@ Una regla especifica lo siguiente:
 
 -	Nombre: identificador único para la regla
 -	Tipo: Entrante o Saliente
--	Prioridad: número entero comprendido entre 100 y 4096
+-	Prioridad: número entero comprendido entre 100 y 4096 (las reglas se procesan de baja a alta)
 -	Dirección IP de origen: CIDR de intervalo de direcciones IP de origen
 -	Intervalo de puertos de origen: entero o intervalo comprendido entre 0 y 65536
 -	Intervalo de direcciones IP de destino: CIDR del intervalo de direcciones IP de destino
@@ -198,7 +198,7 @@ Una regla especifica lo siguiente:
 
 Un grupo de seguridad de red contiene las reglas predeterminadas. Las reglas predeterminadas no se pueden eliminar, pero dado que tienen asignada la mínima prioridad, pueden reemplazarse por las reglas que cree. Las reglas predeterminadas describen la configuración predeterminada recomendada por la plataforma. Como se muestra en las siguientes reglas predeterminadas, el tráfico que se origina y termina en una red virtual se permite en las direcciones tanto de entrada como de salida.
 
-A pesar de que la conectividad a Internet está permitida para la dirección de salida, está bloqueada para la dirección de entrada de manera predeterminada. Una regla predeterminada permite que el equilibrador de carga de Azure sondee el estado de una máquina virtual. Puede invalidar esta regla si la máquina virtual o el conjunto de máquinas virtuales en el grupo de seguridad de red no participa en el conjunto de carga equilibrada.
+Aunque la conectividad a Internet está permitida para la dirección de salida, está bloqueada para la dirección de entrada de manera predeterminada. Una regla predeterminada permite que el equilibrador de carga de Azure sondee el estado de una máquina virtual. Puede invalidar esta regla si la máquina virtual o el conjunto de máquinas virtuales en el grupo de seguridad de red no participa en el conjunto de carga equilibrada.
 
 Las reglas predeterminadas se muestran en las tablas siguientes.
 
@@ -206,15 +206,15 @@ Las reglas predeterminadas se muestran en las tablas siguientes.
 
 Nombre |	Prioridad |	IP de origen |	Puerto de origen |	IP de destino |	Puerto de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-ALLOW VNET INBOUND (PERMITIR ENTRANTE DE RED VIRTUAL) | 65000 | VIRTUAL_NETWORK |	* |	VIRTUAL_NETWORK | * |	* | PERMITIR
-ALLOW AZURE LOAD BALANCER INBOUND (PERMITIR ENTRANTE DEL EQUILIBRADOR DE CARGA DE AZURE) | 65001 | AZURE_LOADBALANCER | * | * | * | * | PERMITIR
+ALLOW VNET INBOUND (PERMITIR ENTRANTE DE RED VIRTUAL) | 65000 | VIRTUAL\_NETWORK |	* |	VIRTUAL\_NETWORK | * |	* | PERMITIR
+ALLOW AZURE LOAD BALANCER INBOUND (PERMITIR ENTRANTE DEL EQUILIBRADOR DE CARGA DE AZURE) | 65001 | AZURE\_LOADBALANCER | * | * | * | * | PERMITIR
 DENY ALL INBOUND (DENEGAR TODO EL TRÁFICO ENTRANTE) | 65500 | * | * | * | * | * | DENEGAR
 
 **Reglas predeterminadas de salida**
 
 Nombre |	Prioridad |	IP de origen |	Puerto de origen |	IP de destino |	Puerto de destino |	Protocolo |	Access
 --- | --- | --- | --- | --- | --- | --- | ---
-ALLOW VNET OUTBOUND (PERMITIR SALIENTE DE RED VIRTUAL) | 65000 | VIRTUAL_NETWORK | * | VIRTUAL_NETWORK | * | * | PERMITIR
+ALLOW VNET OUTBOUND (PERMITIR SALIENTE DE RED VIRTUAL) | 65000 | VIRTUAL\_NETWORK | * | VIRTUAL\_NETWORK | * | * | PERMITIR
 ALLOW INTERNET OUTBOUND (PERMITIR SALIENTE DE INTERNET) | 65001 | * | * | INTERNET | * | * | PERMITIR
 DENY ALL OUTBOUND (DENEGAR TODO EL TRÁFICO SALIENTE) | 65500 | * | * | * | * | * | DENEGAR
 
@@ -233,13 +233,13 @@ Las etiquetas predeterminadas son identificadores proporcionados por el sistema 
 
 Etiqueta |	Descripción
 --- | ---
-VIRTUAL_NETWORK |	Denota todo el espacio de direcciones de red. Incluye el espacio de direcciones de red virtual (CIDR de IP en Azure), así como todos los espacios de direcciones locales conectados (redes locales). Esto también incluye los espacios de direcciones de red virtual a red a virtual.
-AZURE_LOADBALANCER | Denota el equilibrador de carga de la infraestructura de Azure y se convertirá en una dirección IP de centro de datos de Azure donde se originarán las comprobaciones del estado de Azure. Esto solo es necesario si la máquina virtual o un conjunto de máquinas virtuales asociado al grupo de seguridad de red participa en un conjunto de carga equilibrada.
+VIRTUAL\_NETWORK |	Denota todo el espacio de direcciones de red. Incluye el espacio de direcciones de red virtual (CIDR de IP en Azure), así como todos los espacios de direcciones locales conectados (redes locales). Esto también incluye los espacios de direcciones de red virtual a red a virtual.
+AZURE\_LOADBALANCER | Denota el equilibrador de carga de la infraestructura de Azure y se convertirá en una dirección IP de centro de datos de Azure donde se originarán las comprobaciones del estado de Azure. Esto solo es necesario si la máquina virtual o un conjunto de máquinas virtuales asociado al grupo de seguridad de red participa en un conjunto de carga equilibrada.
 INTERNET | Denota el espacio de direcciones IP que está fuera de la red virtual al que puede conectarse la red Internet pública. Este intervalo incluye además un espacio de direcciones IP públicas propiedad de Azure.
 
 ### Puertos e intervalos de puertos
 
-Las reglas del grupo de seguridad de red se pueden especificar en un único origen o puerto de destino, o en un intervalo de puertos. Este enfoque resulta especialmente útil en casos en los que desea abrir un amplio intervalo de puertos para una aplicación, como FTP. El intervalo debe ser secuencial y no se puede combinar con especificaciones de puerto individuales. Para especificar un intervalo de puertos, use el carácter de guión (\ –). Por ejemplo, **100-500**.
+Las reglas del grupo de seguridad de red se pueden especificar en un único origen o puerto de destino, o en un intervalo de puertos. Este enfoque resulta especialmente útil en casos en los que desea abrir un amplio intervalo de puertos para una aplicación, como FTP. El intervalo debe ser secuencial y no se puede combinar con especificaciones de puerto individuales. Para especificar un intervalo de puertos, use el carácter de guión (–). Por ejemplo, **100-500**.
 
 ### Tráfico ICMP
 
@@ -281,9 +281,14 @@ Se aplica lo mismo si implementa un dispositivo NAT virtual para controlar el tr
 
 Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento definida en cada nodo de la red física. Una tabla de enrutamiento es una colección de rutas individuales que se utiliza para decidir dónde reenviar los paquetes según la dirección IP de destino. Una ruta consta de lo siguiente:
 
--	Prefijo de dirección El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16.
--	Tipo de próximo salto El tipo de salto de Azure al que debe enviarse el paquete. Los valores posibles son: -Local. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16 en la misma red virtual, la ruta de cada subred de la tabla de enrutamiento tendrá un valor de próximo salto de Local. - Puerta de enlace de VPN. Representa una puerta de enlace de VPN S2S de Azure. - Internet. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure. - Aplicación virtual. Representa una aplicación virtual agregada a la red virtual de Azure. - NULL. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera.
--	Valor del próximo salto. El valor del próximo salto contiene los paquetes de la dirección IP a la que se deben reenviar. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*.
+- Prefijo de dirección El CIDR de destino al que se aplica la ruta, por ejemplo, 10.1.0.0/16.
+- Tipo de próximo salto El tipo de salto de Azure al que debe enviarse el paquete. Los valores posibles son:
+  - Local. Representa la red virtual local. Por ejemplo, si tiene dos subredes, 10.1.0.0/16 y 10.2.0.0/16 en la misma red virtual, la ruta de cada subred de la tabla de rutas tendrá un valor de próximo salto de Local.
+  - Puerta de enlace de VPN. Representa una puerta de enlace de VPN S2S de Azure.
+  - Internet. Representa la puerta de enlace de Internet predeterminada proporcionada por la infraestructura de Azure.
+  - Dispositivo virtual. Representa un dispositivo virtual agregado a la red virtual de Azure.
+  - NULL. Representa un agujero negro. Los paquetes enviados a un agujero negro no se reenviarán de ninguna manera.
+-	Valor del próximo salto. El valor del próximo salto contiene los paquetes de la dirección IP a la que se deben reenviar. Solo se permiten valores de próximo salto en las rutas donde el tipo de próximo salto es *Dispositivo virtual*. El próximo salto debe estar en la subred (la interfaz local del dispositivo virtual según el identificador de red), no en una subred remota. 
 
 ![Enrutamiento](./media/best-practices-resource-manager-security/routing.png)
 
@@ -291,15 +296,15 @@ Los paquetes se enrutan sobre una red TCP/IP basada en una tabla de enrutamiento
 
 Cada subred que se creó en una red virtual se asocia automáticamente a una tabla de enrutamiento que contiene las siguientes reglas de ruta predeterminadas:
 
-- Regla de red virtual local: esta regla se crea automáticamente para cada subred de una red virtual. Especifica que hay un vínculo directo entre las máquinas virtuales en la red virtual y que no hay ningún salto intermedio.
+- Regla de red virtual local: esta regla se crea automáticamente para cada subred de una red virtual. Especifica que hay un vínculo directo entre las máquinas virtuales en la red virtual y que no hay ningún salto intermedio. Esto permite que las máquinas virtuales de la misma subred, sin tener en cuenta el identificador de red en que se encuentran las máquinas virtuales, se comuniquen entre sí sin necesidad de una dirección de puerta de enlace predeterminada.
 - Regla local: esta regla se aplica a todo el tráfico destinado al intervalo de direcciones locales y usa la puerta de enlace de VPN como el próximo destino del salto.
 - Regla de Internet: esta regla controla todo el tráfico destinado a la red pública y usa la puerta de enlace de Internet de infraestructura como el próximo salto para todo el tráfico destinado a Internet.
 
 ### Rutas BGP
 
-En el momento de redactar este artículo, ExpressRoute no se admite todavía en el proveedor de recursos de red de ARM. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](expressroute-information.md).
+En el momento de redactar este artículo, todavía no se admite [ExpressRoute](expressroute/expressroute-introduction.md) en el [Proveedor de recursos de red](virtual-network/resource-groups-networking.md) del Administrador de recursos de Azure. Si tiene una conexión de ExpressRoute entre la red local y Azure, puede habilitar BGP para propagar las rutas desde la red local a Azure una vez que ExpressRoute se admita en NRP. Estas rutas BGP se usan en la misma forma que las rutas predeterminadas y las rutas definidas por el usuario en cada subred de Azure. Para obtener más información, consulte [Introducción a ExpressRoute](expressroute/expressroute-introduction.md).
 
->[AZURE.NOTE]Cuando ExpressRoute se admita en NRP, podrá configurar el entorno de Azure para forzar la tunelización a través de la red local mediante la creación de una ruta definida por el usuario para la subred 0.0.0.0/0 que utiliza la puerta de enlace de VPN como el próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
+>[AZURE.NOTE]Cuando ExpressRoute se admita en NRP, podrá configurar el entorno de Azure para forzar la tunelización a través de la red local creando una ruta definida por el usuario para la subred 0.0.0.0/0 que use la puerta de enlace de VPN como próximo salto. Sin embargo, esto solo funciona si se utiliza una puerta de enlace de VPN, no ExpressRoute. Para ExpressRoute, la tunelización forzada se configura a través de BGP.
 
 ### Rutas definidas por el usuario
 
@@ -310,13 +315,13 @@ No puede ver las rutas predeterminadas especificadas anteriormente en el entorno
 
 En los escenarios anteriores, tendrá que crear una tabla de enrutamiento y agregarle las rutas definidas por el usuario. Puede tener varias tablas de enrutamiento y la misma tabla de enrutamiento puede asociarse a una o varias subredes. Y cada subred solo puede estar asociada a una tabla de enrutamiento única. Todas las máquinas virtuales y servicios de nube de una subred utilizan la tabla de enrutamiento asociada a esa subred.
 
-Las subredes dependen de rutas predeterminadas hasta que una tabla de enrutamiento está asociada a la subred. Una vez creada una asociación, el enrutamiento se realiza basándose en más larga del prefijo coincidencia (LPM) entre las rutas definidas por el usuario y las rutas predeterminadas. Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
+Las subredes dependen de rutas predeterminadas hasta que una tabla de enrutamiento está asociada a la subred. Una vez creada una asociación, el enrutamiento se realiza en función de la [Coincidencia más larga de prefijo (LPM)](https://en.wikipedia.org/wiki/Longest_prefix_match) entre las rutas definidas por el usuario y las rutas predeterminadas. Si hay más de una ruta con la misma coincidencia LPM, se selecciona una ruta en función de su origen en el orden siguiente:
 
 1.	Ruta definida por el usuario
 2.	Ruta BGP (cuando se utiliza ExpressRoute)
 3.	Ruta predeterminada
 
->[AZURE.NOTE]Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si desea agregar un dispositivo virtual de firewall entre la red local y Azure, debe crear una ruta definida por el usuario para las tablas de enrutamiento de Azure que reenvían todo el tráfico del espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
+>[AZURE.NOTE]Las rutas definidas por el usuario solo se aplican a las máquinas virtuales de Azure y servicios de nube. Por ejemplo, si quiere agregar un dispositivo virtual de firewall entre la red local y Azure, tendrá que crear una ruta definida por el usuario para las tablas de rutas de Azure que reenvíe todo el tráfico que va al espacio de direcciones local al dispositivo virtual. Sin embargo, el tráfico entrante desde el espacio de direcciones local se propagará a través de la puerta de enlace de VPN o circuito ExpressRoute directamente en el entorno de Azure, omitiendo el dispositivo virtual.
 
 ### Reenvío IP
 
@@ -325,7 +330,9 @@ Como se describió anteriormente, una de las razones principales para crear una 
 La máquina virtual de este dispositivo virtual debe ser capaz de recibir el tráfico entrante que no se dirige a sí mismo. Para permitir que una máquina virtual reciba el tráfico dirigido a otros destinos, debe habilitar el reenvío IP en la máquina virtual.
 
 ## Pasos siguientes
-- Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
+- Para comprender cómo configurar las entidades de seguridad con el acceso correcto para trabajar con recursos en su organización, vea [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](resource-group-authenticate-service-principal.md).
 - Si desea bloquear el acceso a un recurso, puede usar bloqueos de administración. Vea [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
+- Para obtener más información sobre cómo configurar el enrutamiento y el reenvío IP, vea [Creación de rutas y habilitación del reenvío IP en Azure](virtual-network/virtual-networks-udr-how-to.md). 
+- Para obtener información general sobre el control de acceso basado en rol, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

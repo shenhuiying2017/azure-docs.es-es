@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 
 <tags 
@@ -13,19 +13,21 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/25/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Configurar una red virtual en ExpressRoute
 
+Estos pasos le guiarán a través de la configuración de una red virtual y una puerta de enlace para ExpressRoute.
+
 1. Inicie sesión en el **Portal de administración**.
 2. En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo**. En el panel de navegación, haga clic en **Servicios de red** y, a continuación, haga clic en **Red virtual**. Haga clic en **Creación personalizada** para iniciar el Asistente para configuración.
-3. En la página **Detalles de la red virtual** escriba la siguiente información. Para obtener más información sobre la configuración de la página de detalles, consulte la [página Detalles de red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+3. En la página **Detalles de la red virtual** escriba la siguiente información.
 
 	- **Nombre**: nombre de la red virtual. Usará este nombre de red virtual al implementar las máquinas virtuales y las instancias PaaS, por lo que probablemente no querrá que este nombre sea muy complicado.
 	- **Ubicación**: la ubicación está directamente relacionada con la ubicación física (región) en la que desea que residan los recursos (máquinas virtuales). Por ejemplo, si desea que las máquinas virtuales que implementa en la red virtual se encuentren físicamente en el Este de EE.UU., seleccione esa ubicación. No se puede cambiar la región asociada con la red virtual después de crearla.
 
-4. En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha. Para obtener más información sobre la configuración de esta página, consulte la [página Servidores DNS y conectividad VPN](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+4. En la página **Servidores DNS y conectividad VPN**, escriba la información siguiente y, a continuación, haga clic en la flecha siguiente situada en la parte inferior derecha.
 
 	- **Servidores DNS**: escriba el nombre y la dirección IP del servidor DNS o seleccione un servidor DNS previamente registrado de la lista desplegable. Este valor no crea un servidor DNS; permite especificar los servidores DNS que desea usar para la resolución de nombres para esta red virtual.
 	- **Configurar VPN de sitio a sitio**: seleccione la casilla **Configurar una VPN de sitio a sitio**.
@@ -34,15 +36,13 @@
 
 	Si selecciona una red local existente, omita el paso 5.
 
-5. Si va a crear una nueva red local, verá la página **Conectividad de sitio a sitio**. Si seleccionó una red local que creó anteriormente, esta página no aparecerá en el asistente y puede pasar a la siguiente sección. Para configurar la red local, escriba la siguiente información y, después, haga clic en la flecha siguiente. Para obtener más información sobre la configuración en esta página, consulte la [página Conectividad de sitio a sitio](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
+5. Si va a crear una nueva red local, verá la página **Conectividad de sitio a sitio**. Si seleccionó una red local que creó anteriormente, esta página no aparecerá en el asistente y puede pasar a la siguiente sección. Para configurar la red local, escriba la siguiente información y, después, haga clic en la flecha siguiente.
 
 	- **Nombre**: el nombre que quiere para el sitio de red local.
 	- **Espacio de direcciones**: incluidas la dirección IP de inicio y el CIDR (recuento de direcciones). Puede especificar cualquier intervalo de direcciones, siempre que no se solape con el intervalo de direcciones de la red virtual.
-	- **Agregar espacio de direcciones**: este ajuste no es relevante para ExpressRoute.
-	- 
-**Nota:** se requiere crear un sitio de red local para ExpressRoute. Los prefijos de dirección especificados para el sitio de red local se ignorarán. Los prefijos de dirección anunciados a Microsoft a través del circuito ExpressRoute se usarán para el enrutamiento.
+	- **Agregar espacio de direcciones**: este ajuste no es relevante para ExpressRoute. **Nota:** se requiere crear un sitio de red local para ExpressRoute. Los prefijos de dirección especificados para el sitio de red local se ignorarán. Los prefijos de dirección anunciados a Microsoft a través del circuito ExpressRoute se usarán para el enrutamiento.
 
-6. En la página **Espacios de direcciones de la red virtual**, escriba la información siguiente y, después, haga clic en la marca de verificación de la parte inferior derecha para configurar la red. Existen varias reglas relativas al espacio de direcciones de la red virtual, por lo que posiblemente quiera consultar la [página Espacios de direcciones de la red virtual](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) para obtener más información.
+6. En la página **Espacios de direcciones de la red virtual**, escriba la información siguiente y, después, haga clic en la marca de verificación de la parte inferior derecha para configurar la red.
 
 	- **Espacio de direcciones**: incluidas la dirección IP de inicio y el recuento de direcciones. Compruebe que los espacios de direcciones especificados no se solapan con los espacios de direcciones que existen en la red local.
 	- **Agregar subred**: incluidas Dirección IP de inicio y Recuento de direcciones. No se necesitan subredes adicionales, pero es posible que quiera crear una subred independiente para las máquinas virtuales que tengan direcciones IP dinámicas (DIPS). O bien, puede querer que las máquinas virtuales se encuentren en una subred independiente de las demás instancias PaaS.
@@ -61,7 +61,7 @@
 
 	Compruebe que tiene creada al menos una Red virtual de Azure con una puerta de enlace. La subred de puerta de enlace debe ser /28 o mayor para funcionar con una conexión de ExpressRoute y debe estar activa y en ejecución.
 
-			PS C:\> $Vnet = "MyTestVNet"
+			PS C:> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 			Provisioned
 
@@ -70,8 +70,7 @@ Si quiere agregar máquinas virtuales a la red virtual, consulte [Creación de u
 
 Si quiere obtener más información sobre ExpressRoute, consulte [Descripción general técnica sobre ExpressRoute](expressroute-introduction.md).
 
-Si quiere obtener más información sobre redes virtuales, consulte las [Preguntas más frecuentes sobre redes virtuales](https://msdn.microsoft.com/library/azure/dn133803.aspx).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

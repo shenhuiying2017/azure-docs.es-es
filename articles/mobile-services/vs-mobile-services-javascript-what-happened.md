@@ -22,11 +22,11 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###<span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</id>
+###¿Qué le ha ocurrido a mi proyecto?</id>
 
 #####Paquete de NuGet agregado
 
-El paquete NuGet **WindowsAzure.MobileServices.WinJS** se instaló, incluida la biblioteca de los Servicios móviles de Azure en el archivo `js\MobileServices.js`.
+Se instaló el paquete de NuGet **WindowsAzure.MobileServices.WinJS**, incluida la biblioteca de Servicios móviles de Azure en el archivo `js\MobileServices.js`.
   
 #####Conexión de valores de cadena para Servicios móviles 
 
@@ -35,7 +35,7 @@ En la carpeta `services\mobileServices\settings`, se ha generado un nuevo archiv
 
 #####Referencias agregadas a default.html
 
-Las referencias a `MobileServices.js` y el archivo de configuración se han agregado a `default.html`.
+Las referencias a `MobileServices.js` y el archivo de configuración se agregaron a `default.html`.
 
 
 #####Archivos de servicios conectados agregados
@@ -46,4 +46,4 @@ En la carpeta servicios, se han agregado los archivos de configuración de servi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# Uso de la biblioteca de cliente de bases de datos elásticas con Entity Framework 
+# Biblioteca de cliente de base de datos elástica con Entity Framework 
  
 Puede usar la biblioteca de cliente de bases de datos elásticas con Entity Framework (EF) de Microsoft para compilar aplicaciones que utilicen el particionamiento de base de datos, lo que facilita escalar horizontalmente la capa de datos de su aplicación. Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con las funcionalidades de las herramientas de bases de datos elásticas. Se centra en la composición de la [administración de mapas de particiones](sql-database-elastic-scale-shard-map-management.md) y el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque Entity Framework **Code First**. El tutorial [Code First – Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte del conjunto de ejemplos de las herramientas de bases de datos elásticas en los ejemplos de código de Visual Studio.
   
@@ -53,7 +53,7 @@ Todos estos métodos se basan en la clase DbContext para administrar de forma tr
 
 ## Suposiciones de herramientas de bases de datos elásticas 
 
-Para obtener definiciones de términos, consulte el [Glosario de Escalado elástico](sql-database-elastic-scale-glossary.md).
+Para definiciones de términos, vea el [Glosario de herramientas de base de datos elástica](sql-database-elastic-scale-glossary.md).
 
 Con la biblioteca de cliente de bases de datos elásticas, se definen particiones de los datos de la aplicación, denominadas shardlets. Los shardlets se identifican mediante una clave de particionamiento y se asignan a bases de datos específicas. Una aplicación puede tener tantas bases de datos como sea necesario y distribuir los shardlets para proporcionar suficiente capacidad o rendimiento en función de los requisitos del negocio actuales. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de cliente de bases de datos elásticas. A esta capacidad la denominamos **Administración de mapas de particiones** o, para abreviar, SMM. El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. A esta capacidad nos referimos como **enrutamiento dependiente de datos**.
  
@@ -281,4 +281,4 @@ Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de las herr
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

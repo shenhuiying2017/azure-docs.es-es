@@ -105,4 +105,4 @@ El SDK de Trabajos web proporciona varias ventajas, incluso si no necesita traba
 Para obtener información acerca del SDK de WebJobs, consulte [Recursos recomendados de WebJobs de Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

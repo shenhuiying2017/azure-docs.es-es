@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Introducción a las notificaciones de inserción con un servicio móvil de back-end de JavaScript" 
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación universal de Windows." 
+	pageTitle="Incorporación de notificación push a la aplicación Universal Windows 8.1 | Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo enviar notificaciones push a la aplicación Universal Windows 8.1 desde el servicio móvil de back-end de JavaScript a través de Centros de notificaciones de Azure" 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 
@@ -40,12 +40,13 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>Vaya a la carpeta de proyecto <code>\Services\MobileServices\your_service_name</code>, abra el archivo de código push.register.cs generado e inspeccione el método <strong>UploadChannel</strong> que registra la URL de canal del dispositivo con el Centro de notificaciones.</p></li> 
-<li><p>Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método <strong>UploadChannel</strong> en el controlador de eventos <strong>OnLaunched</strong>.</p> <p>Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.</p></li>
-<li><p>Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a <strong>UploadChannel</strong> y el contenedor condicional <code>#if...#endif</code> restante.</p> <p>Ahora los dos proyectos pueden compartir una misma llamada a <strong>UploadChannel</strong>.</p>
-<p>Tenga en cuenta que también puede simplificar el código generado unificando las definiciones <code>MobileServiceClient</code> del contenedor <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">#if...#endif</a> en una única definición sin contenedor, que deben usar las dos versiones de la aplicación.</p></li>
-</ol>
+&nbsp;&nbsp;6. Vaya a la carpeta de proyecto `\Services\MobileServices\your_service_name`, abra el archivo de código push.register.cs generado e inspeccione el método **UploadChannel** que registra la URL de canal del dispositivo con el Centro de notificaciones.
+
+&nbsp;&nbsp;7. Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método **UploadChannel** en el controlador de eventos **OnLaunched**. Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.
+
+&nbsp;&nbsp;8. Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a **UploadChannel** y el contenedor condicional `#if...#endif` restante. Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
+
+&nbsp;&nbsp;Tenga en cuenta que también puede simplificar el código generado unificando las definiciones [MobileServiceClient] del contenedor `#if...#endif` en una única definición sin contenedor, que deben usar las dos versiones de la aplicación.
 
 Tras habilitar las notificaciones de inserción en la aplicación, actualice el servicio móvil para enviarlas.
 
@@ -97,6 +98,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [¿Qué son los Centros de notificaciones?]: ../notification-hubs-overview.md
 
 [Uso de un cliente .NET para Servicios móviles de Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
+[MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

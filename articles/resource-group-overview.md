@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Información general del Administrador de recursos de Azure
@@ -38,13 +38,15 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 
 En el Portal de vista previa de Azure, todos los recursos nuevos se crean en un grupo de recursos. Incluso si crea simplemente un único recurso como un sitio web, debe decidir si desea agregar ese recurso a un grupo existente o bien crear un nuevo grupo para él.
 
-La siguiente imagen muestra un grupo de recursos con un sitio web, una base de datos y Application Insights.
+La imagen siguiente muestra un grupo de recursos con Application Insights, servidor de base de datos, base de datos, plan de servicio de aplicaciones y sitio web.
 
-![resumen del grupo de recursos](./media/resource-group-overview/resourcegroupsummary.png)
+![resumen del grupo de recursos](./media/resource-group-overview/resourcegroupsummary2.png)
 
-Un grupo de recursos también se puede vincular a un recurso de otro grupo de recursos. Se considera que un recurso está vinculado cuando existe una dependencia de implementación entre recursos de distintos grupos de recursos. Por ejemplo, si una aplicación web de un grupo de recursos se conecta a la base de datos dn otro grupo de recursos, estos recursos están vinculados.
+Un grupo de recursos también se puede vincular a un recurso de otro grupo de recursos. Se considera que un recurso está vinculado cuando existe una dependencia de implementación entre recursos de distintos grupos de recursos. Por ejemplo, si una aplicación web de un grupo de recursos se conecta a la base de datos dn otro grupo de recursos, estos recursos están vinculados. También puede definir de manera explícita vínculos entre recursos en otro grupo de recursos.
 
-![recurso vinculado](./media/resource-group-overview/linkedresource.png)
+Para obtener más información sobre cómo vincular recursos, consulte [Vinculación de recursos en el Administrador de recursos de Azure](resource-group-link-resources.md)
+
+Si necesita trasladar un recurso a un grupo de recursos nuevos, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](resource-group-move-resources.md).
 
 Desde el Portal de vista previa, puede ver fácilmente los costos, supervisar eventos y administrar alertas. La siguiente imagen muestra la facturación consolidada de un grupo.
 
@@ -72,6 +74,8 @@ Para los esquemas de plantilla, consulte [Esquemas del Administrador de recursos
 
 Para obtener información acerca del uso de una plantilla para la implementación, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md) e [Implementación predecible de una aplicación compleja en Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
+Para obtener instrucciones sobre cómo estructurar las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md).
+
 ## Etiquetas
 
 Administrador de recursos de Azure proporciona una característica de etiquetado que permite clasificar los recursos de acuerdo con los requisitos de administración o facturación. Es recomendable usar etiquetas cuando se tiene un conjunto complejo de grupos de recursos y de recursos, y se necesitan visualizar estos activos de la manera más conveniente. Por ejemplo, puede etiquetar recursos que cumplen una función similar en la organización o que pertenecen al mismo departamento.
@@ -94,11 +98,13 @@ En el portal de vista previa puede definir el control de acceso haciendo clic en
 
 Administrador de recursos de Azure registra automáticamente las acciones del usuario para la auditoría.
 
-También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen.
+También puede bloquear explícitamente recursos críticos para impedir que los usuarios los eliminen o modifiquen. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](resource-group-lock-resources.md).
 
 Para obtener más información acerca del control de acceso basado en rol, consulte [Control de acceso basado en rol en el Portal de vista previa de Azure](./role-based-access-control-configure.md).
 
 Para obtener ejemplos de configuración de directivas de acceso, consulte [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md).
+
+Para conocer las prácticas recomendadas, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md)
 
 ## Capa de administración coherente
 
@@ -110,33 +116,13 @@ Para obtener información sobre CLI de Azure, consulte [Uso de la CLI de Azure p
 
 Para obtener información acerca de la API de REST, consulte [Referencia de la API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+Para obtener información sobre cómo usar el portal de vista previa, consulte [Uso del Portal de vista previa de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md).
+
 ## Pasos siguientes
-Introducción
 
-- [Uso de Azure PowerShell con el Administrador de recursos](./powershell-azure-resource-manager.md)
-- [Uso de la CLI de Azure para Mac, Linux y Windows con administración de recursos de Azure](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)
+- Para obtener información sobre cómo crear plantillas, consulte [Creación de plantillas](./resource-group-authoring-templates.md)
+- Para implementar la plantilla que creó, consulte [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
+- Para comprender las funciones que puede utilizar en una plantilla, consulte [Funciones de plantillas](./resource-group-template-functions.md)
+- Para obtener instrucciones sobre cómo estructuras las plantillas, consulte [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](best-practices-resource-manager-design-templates.md)
 
-Creación e implementación de aplicaciones
-
-- [Creación de plantillas](./resource-group-authoring-templates.md)
-- [Implementación de plantillas](azure-portal/resource-group-template-deploy.md)
-- [Solución de problemas de implementaciones de grupo de recursos en Azure](virtual-machines/resource-group-deploy-debug.md)
-- [Implementación predecible de una aplicación compleja en Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](virtual-machines/arm-template-deployment.md)
-- [Funciones de plantillas](./resource-group-template-functions.md)
-- [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
-- [Esquemas de plantilla](https://github.com/Azure/azure-resource-manager-schemas)
-
-Organización de los recursos
-
-- [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)
-
-Administración y auditoría del acceso
-
-- [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md)
-- [Control de acceso basado en rol en el Portal de vista previa de Azure](./role-based-access-control-configure.md)
-- [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md)
-- [Creación de una nueva entidad de servicio de Azure mediante el portal de Azure](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

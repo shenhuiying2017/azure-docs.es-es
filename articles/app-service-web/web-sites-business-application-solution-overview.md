@@ -38,7 +38,7 @@ A continuación se muestra un ejemplo de una aplicación de línea de negocio qu
 
 Traiga sus recursos web existentes a Aplicaciones web del Servicio de aplicaciones desde una diversidad de lenguajes y marcos de trabajo.
 
-Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git]: local, GitHub, BitBucket, DropBox, Mercurial, etc.
+Los recursos web existentes pueden ejecutarse en Aplicaciones web del Servicio de aplicaciones, ya sean .NET, PHP, Java, Node.js o Python. Puede moverlos a Aplicaciones web con sus herramientas [FTP] conocidas o el sistema de administración de control de código fuente. Aplicaciones web admite la publicación desde opciones de control de código fuente conocidas, como [Visual Studio], [Visual Studio Online] y [Git]\: local, GitHub, BitBucket, DropBox, Mercurial, etc.
 
 ## Protección de los activos
 
@@ -62,7 +62,7 @@ Sin embargo, puede que su empresa necesite que los datos se mantengan en el ento
 
 Optimice su aplicación de línea de negocio. Puede escalarla automáticamente con el escalado automático, almacenar los datos en caché con la Caché en Redis de Azure, ejecutar tareas en segundo plano con trabajos web y mantener una alta disponibilidad con el Administrador de tráfico de Azure.
 
-La posibilidad de Aplicaciones web del Servicio de aplicaciones de [escalar horizontal y verticalmente] satisface la necesidad de su aplicación de línea de negocio, independientemente del tamaño de la carga de trabajo. Escale horizontalmente su aplicación web de forma manual a través del [Portal de administración de Azure], mediante programación a través de [API de administración de servicios] o [Scripting de PowerShell], o bien de forma automática a través de la característica de escalado automático. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
+La posibilidad de Aplicaciones web del Servicio de aplicaciones de [escalar horizontal y verticalmente] satisface la necesidad de su aplicación de línea de negocio, independientemente del tamaño de la carga de trabajo. Escale horizontalmente su aplicación web de forma manual a través del [Portal de administración de Azure], mediante programación a través de [API de administración de servicios] o [Scripting de PowerShell], o bien de forma automática a través de la característica de escalado automático. En el nivel **Estándar**, Autoescala le permite escalar horizontalmente una aplicación web de manera automática según la utilización de CPU. Si desea conocer los procedimientos recomendados, consulte el artículo de [Troy Hunt]\: [10 things I learned about rapidly scaling web apps with Azure] (Diez cosas que aprendí sobre el escalado rápido de aplicaciones web con Azure).
 
 Haga que su aplicación web tenga mayor capacidad de respuesta con [Caché en Redis de Azure]. Utilícelo para almacenar datos en caché desde bases de datos de back-end y otros aspectos, como el [estado de sesiones de ASP.NET] y la [caché de resultados].
 
@@ -124,4 +124,4 @@ En el nivel **Estándar**, supervise la capacidad de respuesta de la aplicación
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

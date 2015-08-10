@@ -250,4 +250,4 @@ Este tutorial le mostrará cómo conectar el entorno de Google Apps a Azure Acti
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -45,7 +45,7 @@ Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tare
 
 Si utiliza una herramienta que emplea configuración de publicación o perfil de publicación, importe el archivo que contiene la configuración o el perfil de publicación en dicha herramienta y, a continuación, **elimine** el archivo. Si debe conservar el archivo, por ejemplo para compartirlo con otros que trabajan en el proyecto, almacénelo en una ubicación segura, como un directorio **cifrado** con permisos restringidos.
 
-Además, debería asegurarse de que se protegen las credenciales importadas. Por ejemplo, tanto **Azure PowerShell** como la **Interfaz de la línea de comandos de Azure (CLI de Azure)** almacenan la información importada en su **directorio particular** (*~* en Linux o sistemas OS X y */usuarios/sunombredeusuario* en sistemas Windows.) Para conseguir una seguridad adicional, **cifre** estas ubicaciones mediante herramientas de cifrado disponibles para su sistema operativo.
+Además, debería asegurarse de que se protegen las credenciales importadas. Por ejemplo, tanto **Azure PowerShell** como la **Interfaz de la línea de comandos de Azure (CLI de Azure)** almacenan la información importada en su **directorio particular** (*\~* en Linux o sistemas OS X y */usuarios/sunombredeusuario* en sistemas Windows.) Para conseguir una seguridad adicional, **cifre** estas ubicaciones mediante herramientas de cifrado disponibles para su sistema operativo.
 
 ### Valores de configuración y cadenas de conexión
 Es habitual almacenar cadenas de conexión, credenciales de autenticación y otra información de tipo confidencial en archivos de configuración. Lamentablemente, estos archivos pueden resultar expuestos en su sitio web o podrían aparecer en búsquedas de un repositorio público, con lo que la información podría quedar al descubierto.
@@ -86,4 +86,4 @@ Para obtener información sobre información de registro para aplicaciones web, 
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

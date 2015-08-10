@@ -682,7 +682,7 @@ Si el archivo de diario existe, AzCopy comprobará si la línea de comandos escr
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
-Si omite la opción `/Z` o especifica la opción `/Z` sin la ruta de acceso a la carpeta, tal y como se muestra anteriormente, AzCopy crea el archivo de diario en la ubicación predeterminada, que es `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`. Si el archivo de diario ya existe, AzCopy reanuda la operación basándose en dicho archivo.
+Si omite la opción `/Z` o especifica la opción `/Z` sin la ruta de acceso a la carpeta, tal y como se muestra anteriormente, AzCopy crea el archivo de diario en la ubicación predeterminada, que es `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`. Si el archivo de diario ya existe, AzCopy reanuda la operación basándose en dicho archivo.
 
 **Especificación de una ubicación personalizada para el archivo de diario**
 
@@ -703,7 +703,7 @@ Este ejemplo reanuda la última operación que es posible que no terminara.
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
-Si especifica la opción `/V` sin proporcionar una ruta de acceso de archivo al registro detallado, AzCopy crea el archivo de registro en la ubicación predeterminada, que es `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`.
+Si especifica la opción `/V` sin proporcionar una ruta de acceso de archivo al registro detallado, AzCopy crea el archivo de registro en la ubicación predeterminada, que es `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`.
 
 **Escritura del archivo de registro detallado en una ubicación predeterminada**
 
@@ -819,7 +819,7 @@ AzCopy generará un archivo de datos JSON en la carpeta o el contenedor de blobs
 
 El archivo de datos JSON generado sigue el formato de carga para metadatos mínimos. Para obtener más información sobre el formato de carga, consulte [Formato de carga para las operaciones del servicio Tabla](http://msdn.microsoft.com/library/azure/dn535600.aspx).
 
-Tenga en cuenta que, al exportar las entidades de tabla de almacenamiento a Almacenamiento ode BLOB, AzCopy exportará las entidades de tabla a archivos de datos temporales locales en primer lugar y, después, los cargará en Blob; estos archivos de datos temporales se colocan en la carpeta de archivos de diario con la ruta de acceso predeterminada "<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>". Puede especificar la opción /Z:[carpeta-de-archivos-de-diario] para cambiar la ubicación de la carpeta de archivos de diario y así cambiar la ubicación de los archivos de datos temporales. El tamaño de los archivos de datos temporales se decide según el tamaño de las entidades de tabla y el tamaño especificado con la opción /SplitSize, aunque el archivo de datos temporales en el disco local se eliminará inmediatamente después de que se cargue en el Blob. Asegúrese de que tiene suficiente espacio en el disco local para almacenar estos archivos de datos temporales antes de que se eliminen.
+Tenga en cuenta que, al exportar las entidades de tabla de almacenamiento a Almacenamiento ode BLOB, AzCopy exportará las entidades de tabla a archivos de datos temporales locales en primer lugar y, después, los cargará en Blob; estos archivos de datos temporales se colocan en la carpeta de archivos de diario con la ruta de acceso predeterminada "<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>". Puede especificar la opción /Z:[carpeta-de-archivos-de-diario] para cambiar la ubicación de la carpeta de archivos de diario y así cambiar la ubicación de los archivos de datos temporales. El tamaño de los archivos de datos temporales se decide según el tamaño de las entidades de tabla y el tamaño especificado con la opción /SplitSize, aunque el archivo de datos temporales en el disco local se eliminará inmediatamente después de que se cargue en el Blob. Asegúrese de que tiene suficiente espacio en el disco local para almacenar estos archivos de datos temporales antes de que se eliminen.
 
 ### Dividir los archivos exportados
 
@@ -911,4 +911,4 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

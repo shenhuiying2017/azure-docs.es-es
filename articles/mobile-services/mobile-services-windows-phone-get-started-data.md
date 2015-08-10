@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,13 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##Información general
 
-<p>Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de Windows Phone 8. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon"> (en inglés) Reproducir vídeo</span></a> <span class="time"> (en inglés) 12:54</span></div>
-</div>
+Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de Windows Phone 8. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
+
+También puede ver a Nick Harris realizar una demostración de esto en el siguiente vídeo:
+>[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
 ##Requisitos previos 
 
@@ -194,4 +193,4 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 [sitio de ejemplos de código para desarrolladores]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

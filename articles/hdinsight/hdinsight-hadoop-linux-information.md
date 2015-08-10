@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/27/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # Información sobre el uso de HDInsight en Linux (vista previa)
@@ -84,9 +84,7 @@ HDInsight también le permite asociar varias cuentas de almacenamiento de blobs 
 
 ### ¿Qué almacenamiento de blobs utiliza el clúster?
 
-Durante la creación del clúster, seleccionó usar un contenedor y una cuenta de almacenamiento de Azure existentes, o bien, crear una nueva. Por lo tanto, probablemente se le olvidó. Puede encontrar el contenedor y la cuenta de almacenamiento con los siguientes métodos.
-
-**API de Ambari**
+Durante la creación del clúster, seleccionó usar un contenedor y una cuenta de almacenamiento de Azure existentes, o bien, crear una nueva. Por lo tanto, probablemente se le olvidó. Puede encontrar la cuenta de almacenamiento y el contenedor predeterminados con la API de REST de Ambari.
 
 1. Use el comando siguiente para recuperar información de configuración de HDFS:
 
@@ -110,16 +108,6 @@ Durante la creación del clúster, seleccionó usar un contenedor y una cuenta d
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-
-**Portal de Azure**
-
-1. En el [Portal de Azure](https://manage.windowsazure.com/), seleccione el clúster de HDInsight.
-
-2. Seleccione **Panel** en la parte superior de la página.
-
-3. Las cuentas de almacenamiento y los contenedores aparecen en la sección de **recursos vinculados** de la página.
-
-	![recursos vinculados](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
 ### ¿Cómo obtengo acceso al almacenamiento de blobs?
 
@@ -150,6 +138,5 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

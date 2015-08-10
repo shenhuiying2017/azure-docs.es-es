@@ -6,7 +6,7 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 |Tamaño de la cola o el tema|Entidad|Definido al crear una cola o un tema.|Los mensajes entrantes se rechazarán y el código de llamada recibirá una excepción.|1, 2, 3, 4 o 5 GB.<br /><br />Si se habilitan las [particiones](https://msdn.microsoft.com/library/dn520246.aspx), el tamaño máximo de las colas y temas es 80 GB.|
 |Número de conexiones simultáneas en un espacio de nombres|Espacio de nombres|Estática|Las solicitudes posteriores de conexiones adicionales se rechazarán y el código de llamada recibirá una excepción. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas.|NetMessaging: 1.000<br /><br />AMQP: 5.000|
 |Número de conexiones simultáneas en una cola, un tema o una entidad de suscripción|Entidad|Estática|Las solicitudes posteriores de conexiones adicionales se rechazarán y el código de llamada recibirá una excepción. Las operaciones REST no se cuentan en las conexiones de TCP simultáneas.|Restringido por el límite de conexiones simultáneas por espacio de nombres.|
-|Número de solicitudes de recepción simultáneas en una cola, un tema o una entidad de suscripción|Entidad|Estática|Las solicitudes de recepción posteriores se rechazarán y el código de llamada recibirá una excepción. Esta cuota se aplica a un número combinado de operaciones de recepción simultáneas en todas las suscripciones de un tema.|5.000|
+|Número de solicitudes de recepción simultáneas en una cola, un tema o una entidad de suscripción|Entidad|Estática|Las solicitudes de recepción posteriores se rechazarán y el código de llamada recibirá una excepción. Esta cuota se aplica a un número combinado de operaciones de recepción simultáneas en todas las suscripciones de un tema.|5\.000|
 |Número de agentes de escucha simultáneos en una retransmisión|Entidad|Estática|Las solicitudes posteriores de conexiones adicionales se rechazarán y el código de llamada recibirá una excepción.|25|
 |Número de agentes de escucha simultáneos|En todo el sistema|Estática|Las solicitudes posteriores de conexiones adicionales se rechazarán y el código de llamada recibirá una excepción.|2\.000|
 |Número de conexiones de retransmisión simultáneas por todos los extremos de retransmisión de un espacio de nombres de servicio|En todo el sistema|Estática|-|5.000|
@@ -24,4 +24,6 @@ En la siguiente tabla se muestra la información de cuotas específica de la men
 |Número de filtros de correlación por tema|En todo el sistema|Estática|Las solicitudes posteriores de creación de filtros adicionales en el tema se rechazarán y el código de llamada recibirá una excepción.|100.000|
 |Tamaño de los filtros/acciones de SQL|En todo el sistema|Estática|Las solicitudes posteriores de creación de filtros adicionales se rechazarán y el código de llamada recibirá una excepción.|Longitud máxima de la cadena de condición de filtro: 1024 (1 KB).<br /><br />Longitud máxima de la cadena de acción de regla: 1024 (1 KB).<br /><br />Número máximo de expresiones por acción de regla: 32. |
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=July15_HO3-->
+
+<!---HONumber=July15_HO5-->

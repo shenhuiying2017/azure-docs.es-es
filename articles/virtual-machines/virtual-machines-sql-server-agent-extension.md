@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server en Máquinas virtuales de Azure" 
+	pageTitle="Extensión Agente de IaaS de SQL Server" 
 	description="Describe la extensión del Agente SQL Server, que permite a las máquinas virtuales que ejecutan SQL Server en la nube en Azure usar las características de automatización y cómo instalar al agente si no se instala automáticamente." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -74,4 +74,4 @@ Si desea quitar esta extensión de la máquina virtual, puede utilizar el siguie
 ### Sintaxis
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

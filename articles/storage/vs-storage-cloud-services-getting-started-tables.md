@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos de servicio en la nube)
@@ -31,17 +31,15 @@
 
 El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.
 
-En este artículo se describe cómo empezar a usar almacenamiento en tablas de Azure en Visual Studio después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en el proyecto de Cl mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio.
+En este artículo se describe cómo empezar a usar el almacenamiento de tablas de Azure en Visual Studio después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en un proyecto de servicios en la nube mediante el cuadro de diálogo **Agregar servicios conectados** de Visual Studio. La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso al almacenamiento de Azure en el proyecto y agrega la cadena de conexión para la cuenta de almacenamiento a los archivos de configuración del proyecto.
 
-La operación **Agregar servicios conectados** instala los paquetes de NuGet adecuados para tener acceso a almacenamiento de Azure en su proyecto y agrega la cadena de conexión para la cuenta de almacenamiento para los archivos de configuración del proyecto.
-
-Para obtener más información general acerca del uso del almacenamiento en tablas de Azure, consulte [Cómo usar el almacenamiento en tablas de .NET](storage-dotnet-how-to-use-tables.md).
+Para obtener más información general sobre el uso del almacenamiento de tablas de Azure, consulta [Cómo usar el almacenamiento de tablas de .NET](storage-dotnet-how-to-use-tables.md).
 
 Para comenzar, necesita crear una tabla en su cuenta de almacenamiento. Le mostraremos cómo crear una tabla de Azure desde el **Explorador de servidores** de Visual Studio. Si lo prefiere, también le mostraremos cómo crear una tabla en el código.
 
 También le mostraremos cómo realizar operaciones básicas de tabla y de entidad, como agregar, modificar, leer y leer entidades de tabla. Los ejemplos están escritos en código C# y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET.
 
-**NOTA:** Algunas de las API que realizan llamadas al Almacenamiento de Azure son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
+**NOTA:** algunas de las API que realizan llamadas al almacenamiento de Azure son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están utilizando métodos de programación asincrónica.
 
 ##Crear tablas de almacenamiento de Azure en el Explorador de servidores de Visual Studio
 
@@ -59,15 +57,15 @@ Para obtener acceso a las tablas en los proyectos de servicios en la nube, deber
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de la cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-    **NOTA:** use todo el código anterior delante del código que aparece en las muestras siguientes.
+    **NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
 
 
-3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de la tabla de su cuenta de almacenamiento.
+3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de tabla en la cuenta de almacenamiento.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -79,7 +77,7 @@ Para obtener acceso a las tablas en los proyectos de servicios en la nube, deber
 
 ###Crear una tabla en el código
 
-Para crear la tabla de Azure en código en lugar de hacerlo con el **Explorador de servidores** de Visual Studio, simplemente agregue una llamada a `CreateIfNotExistsAsync()`.
+Para crear la tabla de Azure en código en lugar de hacerlo con el **Explorador de servidores** de Visual Studio, agregue una llamada a `CreateIfNotExistsAsync()`.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -223,4 +221,4 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 [Más información acerca de Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/) Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

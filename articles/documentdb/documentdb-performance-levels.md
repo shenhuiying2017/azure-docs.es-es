@@ -141,4 +141,4 @@ Para obtener más información acerca de DocumentDB, consulte la [documentación
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

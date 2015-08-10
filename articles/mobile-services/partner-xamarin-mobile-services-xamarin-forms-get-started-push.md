@@ -162,9 +162,9 @@ Para poder enviar notificaciones de inserción a una aplicación iOS desde servi
 
     ![][9]
 
-    Nota: de forma predeterminada, el certificado de desarrollo del archivo descargado tiene el nombre <strong>aps_development.cer</strong>.
+    Nota: de forma predeterminada, el certificado de desarrollo del archivo descargado tiene el nombre <strong>aps\_development.cer</strong>.
 
-7. Haga doble clic en el certificado de inserción **aps_development.cer** descargado.
+7. Haga doble clic en el certificado de inserción **aps\_development.cer** descargado.
 
     De esta forma, se instala un nuevo certificado en las llaves, como se muestra a continuación:
 
@@ -293,7 +293,7 @@ El servicio móvil está configurado ahora para que funcione con APNS.
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("es-es"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
 
             var push = client.GetPush();
 
@@ -689,7 +689,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 	>[AZURE.NOTE]En este tutorial, el servicio móvil envía una notificación del sistema al dispositivo. Cuando envía una notificación de icono, debe llamar al método **BindToShellTile** en el canal.
 
-4. En la parte superior del controlador de eventos **Application_Launching** en App.xaml.cs, agregue la siguiente llamada al nuevo método **AcquirePushChannel**:
+4. En la parte superior del controlador de eventos **Application\_Launching** en App.xaml.cs, agregue la siguiente llamada al nuevo método **AcquirePushChannel**:
 
         AcquirePushChannel();
 
@@ -697,7 +697,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 5. Presione la tecla **F5** para ejecutar la aplicación. Se muestra un cuadro de diálogo emergente con la clave de registro.
   
-6.	En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID___CAP___PUSH_NOTIFICATION** esté activada.
+6.	En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** esté activada.
 
    	![Habilitar las notificaciones en VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -847,4 +847,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 [ejemplo de notificación push de Xamarin.Forms Azure completada]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

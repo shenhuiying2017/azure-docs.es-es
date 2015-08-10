@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Creación de una nueva entidad de servicio de Azure mediante el portal de Azure
@@ -94,30 +94,12 @@ La aplicación está ahora lista y la entidad de servicio creada en el inquilino
 * **CLAVE**: como contraseña.
 
 ## Pasos siguientes
-Introducción
 
-- [Información general del Administrador de recursos de Azure](./resource-group-overview.md)  
-- [Uso de Azure PowerShell con el Administrador de recursos de Azure](./powershell-azure-resource-manager.md)
-- [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Uso del Portal de Azure para administrar los recursos de Azure](azure-portal/resource-group-portal.md)  
-  
-Creación e implementación de aplicaciones
-  
-- [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md)  
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)  
-- [Solución de problemas de implementaciones de grupo de recursos en Azure](virtual-machines/resource-group-deploy-debug.md)  
-- [Funciones de la plantilla del Administrador de recursos de Azure](./resource-group-template-functions.md)  
-- [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)  
-- [Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla](virtual-machines/arm-template-deployment.md)
-  
-Organización de los recursos
-  
-- [Uso de etiquetas para organizar los recursos de Azure](./resource-group-using-tags.md)  
-  
-Administración y auditoría del acceso
-  
-- [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md)  
-- [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md)  
+- Para obtener información sobre cómo especificar directivas de seguridad, consulte [Administración y auditoría del acceso a los recursos](azure-portal/resource-group-rbac.md).  
+- Para ver los pasos que permiten que una entidad de servicio tenga acceso a los recursos, consulte [Autenticación de una entidad de servicio con el Administrador de recursos de Azure](./resource-group-authenticate-service-principal.md).  
+- Para obtener información general sobre el control de acceso basado en rol, consulte [Control de acceso basado en roles en el Portal de Microsoft Azure](role-based-access-control-configure.md).
+- Para obtener instrucciones sobre cómo implementar la seguridad con el Administrador de recursos de Azure, consulte [Consideraciones de seguridad para el Administrador de recursos de Azure](best-practices-resource-manager-security.md).
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
@@ -134,4 +116,4 @@ Administración y auditoría del acceso
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

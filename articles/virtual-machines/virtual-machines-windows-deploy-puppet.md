@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Información acerca de las máquinas virtuales de Azure y Puppet | Microsoft Azure"
+	pageTitle="Información acerca de las máquinas virtuales de Azure y Puppet"
 	description="Describe la instalación y configuración de Puppet en una máquina virtual de Azure"
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,11 +18,13 @@
 
 #Información acerca de las máquinas virtuales de Azure y Puppet
 
+
 <p>Puppet Enterprise es un software de automatización para crear, implementar y administrar su infraestructura. Puede usarlo para administrar el ciclo de vida de la infraestructura de TI, incluida la detección, el aprovisionamiento, la administración de configuración de aplicaciones y del sistema operativo, la orquestación y la creación de informes.
 
 Puppet es un sistema cliente-servidor. Puppet Master y Puppet Enterprise Agent están disponibles para instalarse a través de Microsoft Azure:
 
 - Puppet Master está disponible como una imagen preconfigurada, instalada en un servidor Ubuntu. También puede instalar Puppet Enterprise en un servidor existente, pero usar la imagen es la forma más sencilla de comenzar. Necesitará información acerca del servidor para configurar el agente.
+
 - Puppet Enterprise Agent está disponible como extensión de máquina virtual que puede instalar cuando crea una máquina virtual o en una máquina virtual existente.
 
 Para obtener instrucciones, descargue la "Guía de introducción" disponible en la página de [Microsoft Windows and Azure](http://puppetlabs.com/solutions/microsoft) (Microsoft Windows y Azure).
@@ -41,6 +43,6 @@ Para obtener instrucciones, descargue la "Guía de introducción" disponible en 
 [Nuevas integraciones con Microsoft Azure y Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
 [Inicio de sesión en una máquina virtual con Windows Server]: virtual-machines-log-on-windows-server.md
 [Inicio de sesión en una máquina virtual con Linux]: virtual-machines-linux-how-to-log-on.md
-[Azure VM Extensions and Features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Azure VM extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

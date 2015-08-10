@@ -313,7 +313,9 @@ Después de crear algunos anuncios mientras ejecuta la aplicación en la nube, c
 
 ### Configure la aplicación web para que use una cuenta de almacenamiento y una base de datos SQL de Azure.
 
-Un procedimiento recomendado de seguridad consiste en [evitar insertar información confidencial como cadenas de conexión en archivos que se almacenen en repositorios de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure proporciona una manera de hacerlo: puede establecer la cadena de conexión y otros valores de configuración en el entorno de Azure, y los API de configuración de ASP.NET recogen esos los valores automáticamente cuando la aplicación se ejecuta en Azure. En esta sección, configurará valores de cadenas de conexión en Azure.
+Un procedimiento recomendado de seguridad consiste en [evitar insertar información confidencial como cadenas de conexión en archivos que se almacenen en repositorios de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Azure proporciona una manera de hacerlo: puede establecer la cadena de conexión y otros valores de configuración en el entorno de Azure, y las API de configuración de ASP.NET recogen estos valores cuando la aplicación se ejecuta en Azure. Puede definir estos valores en Azure con el **Explorador de servidores**, el portal, Windows PowerShell o la interfaz de la línea de comandos multiplataforma. Para obtener más información, consulte [How Application Strings and Connection Strings Work](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) (Funcionamiento de las cadenas de aplicación y de las cadenas de conexión).
+
+En esta sección se usa el **Explorador de servidores** para definir los valores de cadena de conexión en Azure.
 
 7. En el **Explorador de servidores**, haga clic en la aplicación web en el nodo **Aplicaciones web** y, a continuación, haga clic en **Ver configuración**.
 
@@ -370,7 +372,7 @@ Un procedimiento recomendado de seguridad consiste en [evitar insertar informaci
 
 	El botón de **función de reproducción** de esta página sirve para que el marco de trabajo del SDK de WebJobs llame de nuevo a la función y le permite cambiar los datos que se pasan primero a la función.
 
->[AZURE.NOTE]Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal de Azure, vaya a la pestaña **Panel** correspondiente a su aplicación web y, a continuación, haga clic en el botón **Eliminar** que se encuentra en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
+>[AZURE.NOTE]Cuando finalice las pruebas, elimine la aplicación web y la instancia de Base de datos SQL. La aplicación web es gratuita, pero la instancia de Base de datos SQL y la cuenta de almacenamiento tienen un costo (mínimo dado su pequeño tamaño). Asimismo, si deja la aplicación ejecutándose, cualquiera que encuentre su dirección URL puede crear y ver anuncios. En el Portal de Azure, vaya a la pestaña **Panel** correspondiente a la aplicación web y, a continuación, haga clic en el botón **Eliminar** en la parte inferior de la página. A continuación, puede activar una casilla para eliminar la instancia de la Base de datos SQL al mismo tiempo. Si lo que desea es evitar temporalmente que otros tengan acceso a la aplicación, haga clic en **Detener**. En ese caso, se seguirán acumulando cargos para la cuenta de almacenamiento y la base de datos SQL. Puede seguir un procedimiento similar para eliminar la base de datos SQL y la cuenta de almacenamiento cuando ya no las necesite.
 
 ### Habilitación de AlwaysOn para procesos de larga ejecución
 
@@ -506,7 +508,7 @@ Ahora puede generar, ejecutar e implementar la aplicación como se indicó anter
 
 En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure.
 
-> **Nota:** para el código específico para el SDK de WebJobs, vea [Program.cs y Functions.cs](#programcs).
+> **Nota:** para obtener el código específico del SDK de WebJobs, consulte [Program.cs y Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -827,4 +829,4 @@ Para obtener más información, consulte [Recursos recomendados de WebJobs de Az
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Para obtener una guía del cambio del portal de Azure al portal de vista previa de Azure, consulte: [Referencia para navegar en el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

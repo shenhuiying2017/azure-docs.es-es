@@ -128,7 +128,7 @@ Inicie sesión en el servidor con derechos de administrador e instale [Monitor d
 
 En el panel de control de la aplicación web de Azure, agregue la extensión Application Insights.
 
-![En la aplicación web, Configuración, Extensiones, Agregar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![En la aplicación web, Herramientas Supervisión de rendimiento, Agregar, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
 (La extensión solo ayuda a una aplicación que se ha compilado con el SDK. A diferencia del Monitor de estado, no puede instrumentar una aplicación existente).
 
@@ -142,7 +142,7 @@ También podrá escribir su propio código para realizar un seguimiento de cómo
 
 Si la aplicación muestra páginas web, agregar un fragmento de código de JavaScript en cada página. Obtenga el código del recurso de Application Insights:
 
-![En la aplicación web, abra Inicio rápido y haga clic en ''Obtener código para supervisar mis páginas web''](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![En la aplicación web, abra Inicio rápido y haga clic en 'Obtener código para supervisar mis páginas web'](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 Observe que el código contiene la clave de instrumentación que identifica al recurso de la aplicación.
 
@@ -231,4 +231,4 @@ Si esta aplicación forma parte de una aplicación mayor, es posible que quiera 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

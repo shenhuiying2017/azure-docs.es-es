@@ -75,13 +75,13 @@ En esta sección, deberá crear un notebook [Zeppelin](https://zeppelin.incubato
 
 2. Cree un nuevo notebook. En el panel de encabezado, haga clic en **Notebook** y, en la lista desplegable, haga clic en **Crear una nueva nota**.
 
-	![Crear un nuevo notebook Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Crear un nuevo notebook Zeppelin")
+	![Crear un nuevo notebook Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Crear un nuevo cuaderno de Zeppelin")
 
-	En la misma página, en el encabezado **Notebook**, debería ver un nuevo notebook con un nombre que empiece por **Nota XXXXXXXXX**. Haga clic en el nuevo notebook.
+	En la misma página, en el encabezado **Notebook**, debería ver un nuevo notebook con un nombre que empiece por **Nota XXXXXXXXX**. Haga clic en el nuevo cuaderno.
 
-3. En la página web del nuevo notebook, haga clic en el encabezado y cambie el nombre del notebook si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del notebook muestra un estado **Conectado** en la esquina superior derecha.
+3. En la página web del nuevo cuaderno, haga clic en el encabezado y cambie el nombre del cuaderno si quiere. Presione ENTRAR para guardar el cambio de nombre. Además, asegúrese de que el encabezado del notebook muestra un estado **Conectado** en la esquina superior derecha.
 
-	![Estado del notebook Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Estado del notebook Zeppelin")
+	![Estado del cuaderno de Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Estado del notebook Zeppelin")
 
 4. En el párrafo vacío que se crea de forma predeterminada en el nuevo notebook, pegue el siguiente fragmento de código y reemplace los marcadores de posición para usar la configuración del centro de eventos. En este fragmento de código, recibe la secuencia del centro de eventos y registra la secuencia en una tabla temporal, denominada **mytemptable**. En la siguiente sección, se iniciará la aplicación remitente. A continuación, puede leer los datos directamente de la tabla.
 
@@ -164,4 +164,4 @@ Puede descargar instrucciones sobre cómo realizar estos pasos y un ejemplo de a
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

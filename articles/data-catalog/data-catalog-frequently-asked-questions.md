@@ -6,7 +6,8 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+ <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -94,7 +95,7 @@ Las propiedades específicas variarán en función del origen de datos, pero en 
 
 <br/>
 
-> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para bases de datos relacionales de SQL Server, que carecen de una propiedad **Description** de primera clase, la aplicación de publicación de **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms_description para objetos y columnas. Para obtener más información, consulte TechNet [Using Extended Properties on Database Objects (Uso de propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> [AZURE.NOTE]Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del **Catálogo de datos de Azure** extraerá el valor de la propiedad. Para bases de datos relacionales de SQL Server, que carecen de una propiedad **Description** de primera clase, la aplicación de publicación de **Catálogo de datos de Azure** extraerá el valor de la propiedad extendida ms\_description para objetos y columnas. Para obtener más información, consulte TechNet [Using Extended Properties on Database Objects (Uso de propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
 
 ## P: ¿Cuánto tiempo se debe esperar a que aparezcan los recursos recién registrados en el Catálogo de datos de Azure?
 
@@ -157,4 +158,4 @@ Si tiene problemas o necesita ayuda con la vista previa del Catálogo de datos d
 
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

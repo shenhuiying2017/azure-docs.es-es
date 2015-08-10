@@ -176,4 +176,4 @@ Bifurque el [proyecto de ejemplos de Github](https://github.com/Azure/azure-docu
 * [Ejemplos de Order By de DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

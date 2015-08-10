@@ -49,7 +49,7 @@ Tema de referencia: [CREATE MASTER KEY (Transact-SQL)][].
 ## Creación de una credencial con ámbito de base de datos
 Para tener acceso al almacenamiento de blobs de Azure, deberá crear una credencial con ámbito de base de datos que almacene información de autenticación para la cuenta de almacenamiento de Azure. Conéctese a la base de datos de almacenamiento de datos y cree una credencial con ámbito de base de datos para cada cuenta de almacenamiento de Azure a la que quiera tener acceso. Especifique un nombre de identidad y la clave de la cuenta de almacenamiento de Azure como secreto. El nombre de identidad no afecta a la autenticación en el Almacenamiento de Azure.
 
-Para ver si ya existe una credencial con ámbito de base de datos, use sys.database_credentials, no sys.credentials, que solo muestra las credenciales del servidor.
+Para ver si ya existe una credencial con ámbito de base de datos, use sys.database\_credentials, no sys.credentials, que solo muestra las credenciales del servidor.
 
 ```
 -- Check for existing database-scoped credentials.
@@ -207,4 +207,4 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-es/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/es-es/library/ms189450.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

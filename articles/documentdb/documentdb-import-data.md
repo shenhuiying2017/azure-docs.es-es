@@ -81,7 +81,7 @@ Estos son algunos ejemplos de línea de comandos para importar archivos JSON:
 	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>Importación desde MongoDB ##
 
@@ -322,7 +322,7 @@ El formato de la cadena de conexión de DocumentDB es:
 
 > [AZURE.NOTE]Utilice el comando Verify para asegurarse de que se puede tener acceso a la instancia de DocumentDB especificada en el campo de la cadena de conexión.
 
-Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y haga clic en el botón Agregar. Para importar varias colecciones, escriba el nombre de cada colección individualmente o use la siguiente sintaxis para especificar varias colecciones: *collection_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta lo siguiente:
+Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y haga clic en el botón Agregar. Para importar varias colecciones, escriba el nombre de cada colección individualmente o use la siguiente sintaxis para especificar varias colecciones: *collection\_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta lo siguiente:
 
 1. Solo se admiten patrones de nombre de intervalo entero. Por ejemplo, la especificación de colección [0-3] generará las siguientes colecciones: colección0, colección1, colección2, colección3.
 2. Puede usar una sintaxis abreviada: colección[3] generará el mismo conjunto de colecciones que el paso 1.
@@ -346,7 +346,7 @@ Además, al importar los tipos de fecha (por ejemplo, desde SQL Server o MongoDB
 
 -	Cadena: conservar como un valor de cadena
 -	Tiempo: conservar como un valor de número de tiempo
--	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
+-	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
 
 
 El importador masivo de DocumentDB tiene las siguientes opciones avanzadas adicionales:
@@ -374,7 +374,7 @@ El formato de la cadena de conexión de DocumentDB es:
 
 > [AZURE.NOTE]Utilice el comando Verify para asegurarse de que se puede tener acceso a la instancia de DocumentDB especificada en el campo de la cadena de conexión.
 
-Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y haga clic en el botón Agregar. Para importar varias colecciones, escriba el nombre de cada colección individualmente o use la siguiente sintaxis para especificar varias colecciones: *collection_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta lo siguiente:
+Para realizar la importación en una sola colección, escriba el nombre de la colección en la que se van a importar los datos y haga clic en el botón Agregar. Para importar varias colecciones, escriba el nombre de cada colección individualmente o use la siguiente sintaxis para especificar varias colecciones: *collection\_prefix*[índice inicial - índice final]. Si va a especificar varias colecciones a través de esta sintaxis, tenga en cuenta lo siguiente:
 
 1. Solo se admiten patrones de nombre de intervalo entero. Por ejemplo, la especificación de colección [0-3] generará las siguientes colecciones: colección0, colección1, colección2, colección3.
 2. Puede usar una sintaxis abreviada: colección[3] generará el mismo conjunto de colecciones que el paso 1.
@@ -394,7 +394,7 @@ Hay una serie de opciones avanzadas disponibles durante la importación. En prim
 
 -	Cadena: conservar como un valor de cadena
 -	Tiempo: conservar como un valor de número de tiempo
--	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
+-	Ambos: conservar los valores de cadena y de número Esta opción creará un subdocumento, por ejemplo "date\_joined": { "Value": "2013-10-21T21:17:25.2410000Z", "Epoch": 1382390245 } 
 
 El importador de registros secuenciales de DocumentDB tiene estas opciones adicionales:
 
@@ -501,4 +501,4 @@ En la pantalla Configuración avanzada, especifique la ubicación del archivo de
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -121,14 +121,14 @@ Una vez tenga una conexión remota con la máquina virtual, puede ejecutar el co
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs
+	net use z: \\samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]Dado que hizo persistir las credenciales de la cuenta de almacenamiento en el paso anterior, no necesita proporcionarlas con el comando `net use`. Si todavía no tiene credenciales de persistencia, inclúyalas como un parámetro pasado al comando `net use`.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como las proporcionadas por los [espacios de nombres System.IO] (http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) en .NET Framework.
 
@@ -237,4 +237,4 @@ Consulte los vínculos siguientes para obtener más información acerca de Almac
 - [Persisting connections to Microsoft Azure Files](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx) (Persistencia de conexiones en archivos de Microsoft Azure)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -26,7 +26,7 @@ Twilio es una API de servicio web de telefonía que le permite utilizar las habi
 **Twilio Voice** permite que sus aplicaciones realicen y reciban llamadas. **Twilio SMS** permite que sus aplicaciones envíen y reciban mensajes SMS. **Twilio Client** permite que sus aplicaciones habiliten la comunicación por voz a través de conexiones existentes a Internet, incluidas las conexiones móviles.
 
 ## <a id="Pricing"></a>Precios de Twilio y ofertas especiales
-Puede encontrar información sobre los precios de Twilio en [Precios de Twilio][twilio_pricing]. Los clientes de Azure reciben una [oferta especial][special_offer]: 1000 mensajes o 1000 minutos para llamar totalmente gratuitos. Para registrarse para obtener esta oferta o si desea más información, visite [http://ahoy.twilio.com/azure][special_offer].
+Puede encontrar información sobre los precios de Twilio en [Precios de Twilio][twilio_pricing]. Los clientes de Azure reciben una [oferta especial][special_offer]\: 1000 mensajes o 1000 minutos para llamar totalmente gratuitos. Para registrarse para obtener esta oferta o si desea más información, visite [http://ahoy.twilio.com/azure][special_offer].
 
 ## <a id="Concepts"></a>Conceptos
 La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios idiomas; para ver una lista, consulte las [bibliotecas API de Twilio][twilio_libraries].
@@ -232,4 +232,4 @@ Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

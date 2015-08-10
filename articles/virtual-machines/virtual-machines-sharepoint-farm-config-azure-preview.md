@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Detalles de configuración de una granja de servidores de SharePoint" 
-	description="Describe la configuración predeterminada de las granjas de SharePoint." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Detalles de configuración de una granja de servidores de SharePoint"
+	description="En este artículo se describe la configuración predeterminada de las granjas de SharePoint cuando se usa la función Granja de servidores SharePoint del Portal de vista previa de Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 
-# Detalles de configuración de una granja de servidores de SharePoint
+# Detalles de configuración de Granja de servidores SharePoint
 
-Granja de servidores de SharePoint es una característica del Portal de vista previa de Microsoft Azure que crea automáticamente una granja de SharePoint Server 2013. Hay dos configuraciones de granja:
+Granja de servidores SharePoint es una característica del Portal de vista previa de Azure que crea automáticamente una granja preconfigurada de SharePoint Server 2013. Hay dos configuraciones de granja:
 
 - Básica
 - Alta disponibilidad
@@ -36,40 +36,40 @@ La granja de SharePoint básica consta de tres máquinas virtuales con esta conf
 
 A continuación se indican los detalles de configuración:
 
--	Suscripción de Azure: Se especifica durante la configuración inicial.
--	Nombres de dominio de Azure (también conocidos como servicios en la nube): Se crean nombres de dominio independientes automáticamente para cada máquina virtual.
+-	Suscripción de Azure: se especifica en la configuración inicial.
+-	Nombres de dominio de Azure (conocidos también como servicios en la nube):se crean automáticamente nombres de dominio independientes para cada máquina virtual.
 -	Cuenta de almacenamiento: Se especifica durante la configuración inicial.
--	Red virtual 	
-	-   Tipo: Solo para la nube	
-    -	Espacio de direcciones: 10.0.0.0/26    
+-	Red virtual:
+	-   Tipo: Solo para la nube
+    -	Espacio de direcciones: 10.0.0.0/26
 
-- Máquinas virtuales
+- Máquinas virtuales:
 	-	*HostNamePrefix*-DC (controlador de dominio de AD DS)
 	-	*HostNamePrefix*-SQL (servidor SQL Server 2014)
 	-	*HostNamePrefix*-SP (servidor de SharePoint 2013)
 
-- Controlador de dominio
+- Controlador de dominio:
 	-	Imagen de máquina virtual: Windows Server 2012 R2.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A1 (predeterminado)
-	-	Nombre de dominio: contoso.com (predeterminado)
+	-	Tamaño: A1 (predeterminado).
+	-	Nombre de dominio: contoso.com (predeterminado).
 	-	Nombre de cuenta de administrador de dominio: Se especifica durante la configuración inicial.
 	-	Contraseña de cuenta de administrador de dominio: Se especifica durante la configuración inicial.
 
-- SQL Server
+- Servidor de bases de datos
 	-	Imagen de máquina virtual: SQL Server 2014 RTM Enterprise en Windows Server 2012 R2.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A5 (predeterminado)
+	-	Tamaño: A5 (predeterminado).
 	-	Nombre de cuenta de acceso de la base de datos: Se especifica durante la configuración inicial.
 	-	Contraseña de cuenta de acceso de la base de datos: Se especifica durante la configuración inicial.
-	-	Nombre de cuenta de servicio de SQL Server: sqlservice (predeterminado)
+	-	Nombre de cuenta de servicio de SQL Server: sqlservice (predeterminado).
 	-	Contraseña de cuenta de servicio de SQL Server: Se especifica durante la configuración inicial.
 
 - Servidor SharePoint
 	-	Imagen de máquina virtual: Versión de evaluación de SharePoint Server 2013.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A2 (predeterminado)
-	-	Nombre de cuenta de granja de SharePoint: sp_farm (predeterminado)
+	-	Tamaño: A2 (predeterminado).
+	-	Nombre de cuenta de granja de SharePoint: sp\_farm (predeterminado).
 	-	Contraseña de cuenta de granja de Sharepoint: Se especifica durante la configuración inicial.
 	-	Frase de contraseña de granja de Sharepoint: Se especifica durante la configuración inicial.
 
@@ -79,17 +79,17 @@ A continuación se indican los detalles de configuración:
 La granja de servidores de SharePoint de alta disponibilidad consta de nueve máquinas virtuales con esta configuración:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_HighAvail.png)
- 
+
 A continuación se indican los detalles de configuración:
 
--	Suscripción de Azure: Se especifica durante la configuración inicial.
--	Nombres de dominio de Azure (también conocidos como servicios en la nube): Se crean nombres de dominio independientes según la ilustración anterior.
+-	Suscripción de Azure: se especifica en la configuración inicial.
+-	Nombres de dominio de Azure (conocidos también como servicios en la nube): se crean nombres de dominio independientes según la ilustración anterior.
 -	Cuenta de almacenamiento: Se especifica durante la configuración inicial.
--	Red virtual	
+-	Red virtual:
 	-	Tipo: Solo para la nube
-	-	Espacio de direcciones: 10.0.0.0/26	
+	-	Espacio de direcciones: 10.0.0.0/26
 
--	Máquinas virtuales
+-	Máquinas virtuales:
 	-	*HostNamePrefix*-DC1 (controlador de dominio de AD DS)
 	-	*HostNamePrefix*-DC2 (controlador de dominio de AD DS)
 	-	*HostNamePrefix*-SQL1 (servidor SQL Server 2014)
@@ -100,44 +100,43 @@ A continuación se indican los detalles de configuración:
 	-	*HostNamePrefix*-APP1 (servidor de SharePoint 2013)
 	-	*HostNamePrefix*-APP2 (servidor de SharePoint 2013)
 
--	Controladores de dominio
+-	Controladores de dominio:
 	-	Imagen de máquina virtual: Windows Server 2012 R2.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A1 (predeterminado)
-	-	Nombre de dominio: contoso.com (predeterminado)
+	-	Tamaño: A1 (predeterminado).
+	-	Nombre de dominio: contoso.com (predeterminado).
 	-	Nombre de cuenta de administrador de dominio: Se especifica durante la configuración inicial.
 	-	Contraseña de cuenta de administrador de dominio: Se especifica durante la configuración inicial.
 
--	Servidores SQL Server
+-	Servidores de bases de datos:
 	-	Imagen de máquina virtual: SQL Server 2014 RTM Enterprise en Windows Server 2012 R2.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A5 (predeterminado) para servidores SQL, A0 (predeterminado) para el testigo del recurso compartido de archivos
+	-	Tamaño: A5 (predeterminado) para servidores de bases de datos, A0 (predeterminado) para el testigo del recurso compartido de archivos
 	-	Nombre de cuenta de acceso de la base de datos: Se especifica durante la configuración inicial.
 	-	Contraseña de cuenta de acceso de la base de datos: Se especifica durante la configuración inicial.
-	-	Nombre de cuenta de servicio de SQL Server: sqlservice (predeterminado)
+	-	Nombre de cuenta de servicio de SQL Server: sqlservice (predeterminado).
 	-	Contraseña de cuenta de servicio de SQL Server: Se especifica durante la configuración inicial.
 
--	Servidores de SharePoint
+-	Servidores de SharePoint:
 	-	Imagen de máquina virtual: Versión de evaluación de SharePoint Server 2013.
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
-	-	Tamaño: A2 (predeterminado)
-	-	Nombre de cuenta de granja de SharePoint: sp_farm (predeterminado)
-	-	Contraseña de cuenta de granja de Sharepoint: Se especifica durante la configuración inicial.	
+	-	Tamaño: A2 (predeterminado).
+	-	Nombre de cuenta de granja de SharePoint: sp\_farm (predeterminado).
+	-	Contraseña de cuenta de granja de Sharepoint: Se especifica durante la configuración inicial.
 	-	Frase de contraseña de granja de Sharepoint: Se especifica durante la configuración inicial.
 
-> [AZURE.NOTE]Los servidores de SharePoint se crean a partir de la imagen de la traza de SharePoint Server 2013. Para seguir usando la máquina virtual una vez caducada la prueba, deberá convertir la instalación para que utilice una clave de licencia de minorista o de licencia por volumen para las ediciones Standard o Enterprise de SharePoint Server 2013.
+> [AZURE.NOTE]Los servidores de SharePoint se crean a partir de la imagen de la versión de evaluación de SharePoint Server 2013. Para seguir usando la máquina virtual después de que haya expirado la versión de evaluación, deberá convertir la instalación para que utilice una clave de licencia de minorista o de licencia por volumen para las ediciones Standard o Enterprise de SharePoint Server 2013.
 
 ## Administrador de recursos de Azure
 
-La función de granja de servidores de SharePoint del Portal de vista previa de Azure crea máquinas virtuales en la administración de servicios. Para crear granjas de SharePoint Server 2013 en el Administrador de recursos, consulte [Implementar granjas de SharePoint con plantillas de Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
+La función Granja de servidores SharePoint del Portal de vista previa de Azure crea máquinas virtuales en Administración de servicios. Para crear granjas de SharePoint Server 2013 en el Administrador de recursos de Azure, consulte [Implementación de granjas de servidores SharePoint con plantillas del Administrador de recursos de Azure](virtual-machines-workload-template-sharepoint.md).
 
 ## Recursos adicionales
 
 [Granja de servidores SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[SharePoint en máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

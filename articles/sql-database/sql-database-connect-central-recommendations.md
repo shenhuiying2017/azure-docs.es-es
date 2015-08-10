@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -88,7 +88,7 @@ Durante el cambio, la base de datos podría no estar disponible temporalmente. E
 Cuando se produce cualquier error en Base de datos SQL, se inicia [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx). `SqlException` contiene un código de error numérico en su propiedad **Number**. Si el código de error identifica un error transitorio, el programa debería reintentar la llamada.
 
 
-- [Mensajes de error (Base de datos SQL de Azure)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [Mensajes de error para los programas de cliente de base de datos SQL](sql-database-develop-error-messages.md)
  - Su sección **Errores transitorios, los errores de pérdida de conexión** es una lista de los errores transitorios que garantizan un reintento automático.
  - Por ejemplo, inténtelo de nuevo si se produce el número de error 40613, que indica algo similar a<br/>*La base de datos 'MiBaseDeDatos' del servidor 'ElServidor' no está actualmente disponible.*
 
@@ -135,7 +135,7 @@ La puerta de enlace hacía que la lógica de reintento controlase algunos de los
  - Contiene vínculos a ejemplos de código que contienen una lógica de reintento y ejemplos más sencillos a esa conexión y consulta.
 - [Conexión confiable a Base de datos SQL de Azure](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [Conexión a Base de datos SQL de Azure mediante ADO.NET con Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [Conexión con Base de datos SQL de Azure mediante ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [Ejemplo de código: lógica de reintento en C# para conectarse a la Base de datos SQL](sql-database-develop-csharp-retry-windows.md)
 
 
 ## Tecnologías
@@ -174,4 +174,4 @@ Se proporcionan varios ejemplos de código para clientes que se ejecutan en Wind
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -80,4 +80,4 @@ Lo ideal es que los pasos de renovación que se muestran a continuación no supo
 
 [Acceso a la aplicación e inicio de sesión único en Azure AD](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

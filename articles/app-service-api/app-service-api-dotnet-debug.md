@@ -95,15 +95,15 @@ Puede haber ocasiones en que desee depurar la aplicación de API localmente; Por
 	![Host de aplicación de API: configuración de aplicaciones para depuración local](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
 9. En **Configuración de la aplicación**, busque los siguientes valores y agréguelos a la sección *appSettings* del archivo **web.config**.
-	- **EMA_MicroserviceId**
-	- **EMA_Secret**
-	- **EMA_RuntimeUrl**
+	- **EMA\_MicroserviceId**
+	- **EMA\_Secret**
+	- **EMA\_RuntimeUrl**
 
 	Cuando haya terminado, la sección **appSettings** de *web.config* debería ser similar a la captura de pantalla siguiente.
 
 	![Host de aplicación de API: configuración de aplicaciones para depuración local](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**Nota:** los valores *EMA_* que ha agregado al archivo *web.config* de esta sección contienen información confidencial. Por lo tanto, se recomienda tener cuidado al colocar este archivo en un medio de control de código fuente público (como *github*), puesto que estos secretos será visibles para otros usuarios. Consulte el artículo [Procedimientos recomendados para implementar contraseñas y otra información confidencial en ASP.NET y el Servicio de aplicaciones de Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) para obtener más información.
+	**Nota:** los valores *EMA\_* que ha agregado al archivo *web.config* de esta sección contienen información confidencial. Por lo tanto, se recomienda tener cuidado al colocar este archivo en un medio de control de código fuente público (como *github*), puesto que estos secretos será visibles para otros usuarios. Consulte el artículo [Procedimientos recomendados para implementar contraseñas y otra información confidencial en ASP.NET y el Servicio de aplicaciones de Azure](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) para obtener más información.
 
 10. Coloque uno o más puntos de interrupción en el código del controlador de la aplicación de API (en los métodos `Get` y `Post`).
 
@@ -139,4 +139,4 @@ Aplicaciones de API del Servicio de aplicaciones son aplicaciones web del Servic
 La aplicación de API que creó en esta serie está disponible públicamente para que cualquiera la llame. Para obtener información sobre cómo proteger aplicaciones de API para que solo los usuarios autenticados puedan realizar llamadas, consulte [Autenticación para aplicaciones de API y aplicaciones móviles en el Servicio de aplicaciones de Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -181,7 +181,7 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
     4. En el panel derecho, en **Servicio de administración de Microsoft StorSimple**, haga clic en **Detener el servicio**.
 
-2. En el equipo host, vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+2. En el equipo host, vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
     >[AZURE.NOTE]ProgramData es una carpeta oculta.
  
@@ -197,7 +197,7 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
     3. En el panel derecho, en **Servicio de administración de Microsoft StorSimple**, haga clic en **Reiniciar el servicio**.
 
-5. En el equipo host, vaya a C:\ProgramData\Microsoft\StorSimple\BACatalog.
+5. En el equipo host, vaya a C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog.
 
 6. Elimine el archivo XML de catálogo y reemplácelo por la versión de copia de seguridad que creó.
 
@@ -207,4 +207,4 @@ Debe hacer de forma regular copias de seguridad de la base de datos de Administr
 
 Vea la información disponible [sobre tareas y flujos de trabajo de Administrador de instantáneas StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # Introducción a los servicios fiables del Service Fabric de Microsoft Azure
@@ -30,14 +30,18 @@ En este tutorial, implementará un servicio sin estado y con estado que mantenga
 
 Comencemos con un servicio sin estado.
 
-Inicie Visual Studio 2015 RC como **Administrador** y cree un nuevo proyecto de **Servicio sin estado de Service Fabric** denominado *HelloWorld*:
+Inicie Visual Studio 2015 RC como **Administrador** y cree un nuevo proyecto de **Aplicación de Service Fabric** denominado *HelloWorld*:
 
-![Utilice el cuadro de diálogo Nuevo proyecto para crear un nuevo servicio sin estado de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Utilice el cuadro de diálogo Nuevo proyecto para crear una nueva aplicación de Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Verá dos proyectos en la solución creada:
+Después, cree un proyecto de **servicio sin estado** denominado *HelloWorldStateless*:
 
- + **HelloWorldApplication**: se trata del proyecto de *aplicación* que contiene sus *servicios*. También contiene el manifiesto de aplicación que describe la aplicación y un número de secuencias de comandos de PowerShell que le ayudarán a implementar la aplicación.
- + **HelloWorld** Este es el proyecto de servicio que contiene la implementación del servicio sin estado.
+![En el segundo cuadro de diálogo, cree un servicio sin estado](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+
+La solución contiene ahora dos proyectos:
+
+ + **HelloWorld** Se trata del proyecto de *aplicación* que contiene sus *servicios*. También contiene el manifiesto de aplicación que describe la aplicación y un número de secuencias de comandos de PowerShell que le ayudarán a implementar la aplicación.
+ + **HelloWorldStateless** Este es el proyecto de servicio que contiene la implementación del servicio sin estado.
 
 
 ## Implementación del servicio
@@ -88,7 +92,7 @@ La plataforma llama a este método cuando hay una instancia del servicio colocad
 - El sistema puede mover las instancias de servicio para equilibrar los recursos.
 - Se han producido errores en el código.
 - Durante las actualizaciones de la aplicación o del sistema.
-- Cuando el hardware subyacente experimenta una interrupción inesperada. 
+- Cuando el hardware subyacente experimenta una interrupción inesperada.
 
 Esta orquestación es administrada por el sistema para mantener el servicio con una alta disponibilidad y correctamente equilibrado.
 
@@ -155,7 +159,7 @@ Colecciones fiables puede almacenar cualquier tipo de .NET, incluidos los tipos 
  1. Service Fabric hace su estado presente una alta disponibilidad *replicando* el estado entre nodos y almacenándolo en el disco local. Esto significa que todo lo que se almacena en una colección fiable debe ser *serializable*. De forma predeterminada, Colecciones fiables utilizan [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) para la serialización, por lo que resulta importante asegurarse de que los tipos sean [compatibles con el serializador de contratos de datos](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) cuando se usa el serializador predeterminado.
 
  2. Los objetos se replican para obtener una alta disponibilidad cuando se confirma una transacción en una colección fiable. Los objetos almacenados en Colecciones fiables se mantienen en la memoria local en el servicio, lo cual significa que tiene una referencia local al objeto.
- 
+
     Es importante no modificar las instancias locales de los objetos sin tener que realizar una operación de actualización en la Colección fiable de una transacción, ya que esos cambios no se replicarán automáticamente.
 
 El *StateManager* se encarga de administrar las colecciones fiables por usted. Simplemente pida al StateManager una colección fiable por nombre en cualquier momento, en cualquier lugar de su servicio y garantizará que obtendrá una referencia. No se recomienda guardar referencias a las instancias de Colección fiable en variables o propiedades de miembro de clase, ya que debe tener especial cuidado de asegurarse de que se establece la referencia a una instancia en todo momento del ciclo de vida del servicio. El StateManager controla este trabajo por usted, optimizado para la repetición de visitas.
@@ -199,6 +203,5 @@ Una vez que los servicios se estén ejecutando, podrá ver los eventos ETW gener
 [Administración de un servicio de Service Fabric](service-fabric-manage-your-service-index.md)
 
 [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

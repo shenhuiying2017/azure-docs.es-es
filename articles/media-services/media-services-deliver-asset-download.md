@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Entrega de recursos multimedia" 
-	description="Aprenda las opciones para entregar recursos multimedia que se han cargado en Servicios multimedia en Azure. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+	pageTitle="Descargar recursos multimedia" 
+	description="Aprenda a descargar recursos en el equipo. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #Entrega de un recurso mediante descarga
-
-Este artículo forma parte de la serie [Vídeo de Servicios multimedia sobre el flujo de trabajo a petición](media-services-video-on-demand-workflow.md).
 
 En este tema se analizan las opciones para entregar recursos multimedia cargados en los Servicios multimedia. Puede entregar contenido de los Servicios multimedia en diversos escenarios de aplicaciones. Puede descargar recursos multimedia o tener acceso a ellos mediante un localizador. Puede enviar contenido multimedia a otra aplicación o a otro proveedor de contenido. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una Red de entrega de contenido (CDN).
 
@@ -74,5 +72,8 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
    
+##Otras referencias 
 
-<!---HONumber=July15_HO4-->
+[contenido por secuencias](media-services-deliver-streaming-content.md)
+
+<!---HONumber=July15_HO5-->

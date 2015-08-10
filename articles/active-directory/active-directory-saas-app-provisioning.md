@@ -106,4 +106,4 @@ Para que una aplicación admita el aprovisionamiento automático de usuarios, pr
 
 Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solicitar soporte técnico para el aprovisionamiento de aplicaciones adicionales, envíe un mensaje a través del [foro de comentarios de Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

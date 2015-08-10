@@ -81,23 +81,10 @@ Tenga en cuenta las siguientes variables:
 
 Por ejemplo, si considera un tamaño diario de carga de 100 KB por agente y el período de archivo predeterminado, necesitaría el siguiente almacenamiento para el grupo de administración:
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>Número de agentes</b></td>
-		<td><b>Espacio estimado necesario para el grupo de administración</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2.5 MB (5 agentes x 100 KB datos/día x 5 días = 2.500 KB)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~ 25 MB (50 agentes x 100 KB datos/día x 5 días = 25.000 KB)</td>
-    </tr>
-
-    </tbody>
-    </table>
+Número de agentes|Espacio estimado necesario para el grupo de administración
+---|---
+5|\~2.5 MB (5 agentes x 100 KB datos/día x 5 días = 2.500 KB)
+50|\~ 25 MB (50 agentes x 100 KB datos/día x 5 días = 25.000 KB)
 
 ## Cuentas de ejecución de Operations Manager para Operational Insights
 
@@ -228,4 +215,4 @@ Lleve a cabo los siguientes pasos para definir la cuenta cuando conecte Operatio
 
 Si desea analizar datos de servidores situados en diversas ubicaciones geográficas, podría tener un grupo de administración por ubicación. Esto puede mejorar el rendimiento de la transferencia de datos entre el agente y el grupo de administración.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

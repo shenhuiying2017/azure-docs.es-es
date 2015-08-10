@@ -11,7 +11,7 @@
 |Imágenes de plantillas pagadas| 25|	
 |Usuarios - nivel Básico*| 400 (predeterminado)/800 (máximo)|
 |Usuarios - nivel Estándar*| 250 (predeterminado)/500 (máximo)|
-|Conexiones simultáneas en todas las colecciones de una suscripción| 5.000 (puede solicitar un aumento)|
+|Conexiones simultáneas en todas las colecciones de una suscripción| 5\.000 (puede solicitar un aumento)|
 |Almacenamiento de datos de usuario (UPD) por usuario y colección| 50 GB|
 |Tiempo de espera inactividad| 4 horas|
 |Tiempo de espera de desconexión| 4 horas|
@@ -20,4 +20,4 @@
 
 Para solicitar un aumento del número de colecciones de pagadas o conexiones simultáneas, envíe un correo electrónico a[remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com) con detalles de lo que necesita, incluido el identificador de suscripción.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

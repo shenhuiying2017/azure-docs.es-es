@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Introducción a Almacenamiento de Azure (proyectos ASP.NET 5)
@@ -27,9 +27,9 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos. En este artículo se describe cómo empezar a usar el almacenamiento de blobs después de crear un almacenamiento de Azure con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio.
+El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos. En este artículo se describe cómo empezar a usar el almacenamiento de blobs de Azure después de crear una cuenta de almacenamiento de Azure con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio en un proyecto de ASP.NET 5.
 
-Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook", puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Consulte [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md "Uso del almacenamiento de blobs en .NET") para obtener más información sobre la manipulación de blobs mediante programación.
+Al igual que los archivos residen en carpetas, los blobs de almacenamiento residen en contenedores. Después de haber creado un almacenamiento, puede crear uno o varios contenedores en el almacenamiento. Por ejemplo, en un almacenamiento llamado "Scrapbook" puede crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Consulte [Uso del almacenamiento de blobs en .NET](storage-dotnet-how-to-use-blobs.md "Uso del almacenamiento de blobs en .NET") para obtener más información sobre la manipulación de blobs mediante programación.
 
 ##Crear contenedores de blobs en el Explorador de servidores de Visual Studio
 
@@ -171,4 +171,4 @@ Para eliminar un blob, primero obtenga una referencia al blob y, a continuación
  
 [Image1]: ./media/vs-storage-aspnet5-getting-started-blobs/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

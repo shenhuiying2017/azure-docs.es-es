@@ -105,9 +105,9 @@ Para poder enviar notificaciones de inserción a una aplicación iOS desde servi
 
     ![][9]
 
-    Nota: de forma predeterminada, el certificado de desarrollo del archivo descargado tiene el nombre <strong>aps_development.cer</strong>.
+    Nota: de forma predeterminada, el certificado de desarrollo del archivo descargado tiene el nombre <strong>aps\_development.cer</strong>.
 
-7. Haga doble clic en el certificado de inserción **aps_development.cer** descargado.
+7. Haga doble clic en el certificado de inserción **aps\_development.cer** descargado.
 
     De esta forma, se instala un nuevo certificado en las llaves, como se muestra a continuación:
 
@@ -399,4 +399,4 @@ Ha completado correctamente este tutorial.
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

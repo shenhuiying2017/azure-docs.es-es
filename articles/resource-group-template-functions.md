@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/27/2015"
    ms.author="tomfitz"/>
 
 # Funciones de la plantilla del Administrador de recursos de Azure
@@ -51,6 +51,12 @@ En el ejemplo siguiente se muestra cómo combinar varios valores para devolver u
           "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
     }
+
+## copyIndex
+
+**copyIndex(offset)**
+
+Devuelve el índice actual de un bucle de iteración. Para obtener ejemplos de cómo utilizar esta función, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
 
 ## deployment
 
@@ -188,7 +194,7 @@ Permite que una expresión derive su valor del estado de tiempo de ejecución de
 
 La función **reference** deriva su valor desde un estado de tiempo de ejecución y, por tanto, no se puede utilizar en la sección de variables. Se puede utilizar en la sección de salidas de una plantilla.
 
-Mediante el uso de la expresión de referencia, se declara que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla.
+Mediante el uso de la expresión de referencia, se declara implícitamente que un recurso depende de otro recurso si el recurso al que se hace referencia se aprovisiona en la misma plantilla. No necesita utilizar también la propiedad **dependsOn**. La expresión no se evalúa hasta que el recurso al que se hace referencia complete la implementación.
 
     "outputs": {
       "siteUri": {
@@ -265,7 +271,7 @@ En el ejemplo siguiente se muestra cómo recuperar los identificadores de recurs
 A menudo, necesitará utilizar esta función cuando se usa una cuenta de almacenamiento o red virtual en un grupo de recursos alternativo. La cuenta de almacenamiento o la red virtual puede utilizarse en varios grupos de recursos; por lo tanto, no es deseable su eliminación cuando se elimina un único grupo de recursos. En el ejemplo siguiente se muestra cómo un recurso de un grupo de recursos externos se puede utilizar fácilmente:
 
     {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
           "virtualNetworkName": {
@@ -377,9 +383,9 @@ Devuelve el valor de variable. El nombre de la variable especificada debe defini
 
 
 ## Pasos siguientes
-- [Creación de plantillas del Administrador de recursos de Azure](./resource-group-authoring-templates.md)
-- [Operaciones avanzadas de plantilla](./resource-group-advanced-template.md)
-- [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
-- [Información general del Administrador de recursos de Azure](./resource-group-overview.md)
+- Para obtener una descripción de las secciones de una plantilla del Administrador de recursos de Azure, consulte [Creación de plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md)
+- Para combinar varias plantillas, consulte [Uso de plantillas vinculadas con el Administrador de recursos de Azure](resource-group-linked-templates.md)
+- Para iterar una cantidad de veces específica al crear un tipo de recursos, consulte [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md)
+- Para ver cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -321,4 +321,4 @@ Para ejecutar un conmutación por error de prueba, realice lo siguiente:
 <LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> </UL>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

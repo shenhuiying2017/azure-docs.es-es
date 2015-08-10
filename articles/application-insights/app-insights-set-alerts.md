@@ -22,4 +22,4 @@ Lo sentimos, [este artículo se ha movido](app-insights-alerts.md).
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

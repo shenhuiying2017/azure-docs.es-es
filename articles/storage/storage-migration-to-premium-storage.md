@@ -37,21 +37,21 @@ Aquí condensamos los tamaños de máquina virtual de la serie DS y sus caracter
 
 |Tamaño de VM|Núcleos de CPU|Máx. E/S|Máx. Ancho de banda de disco|
 |:---:|:---:|:---:|:---:|
-|**STANDARD_DS1**|1|3.200|32 MB por segundo|
-|**STANDARD_DS2**|2|6.400|64 MB por segundo|
-|**STANDARD_DS3**|4|12.800|128 MB por segundo|
-|**STANDARD_DS4**|8|25.600|256 MB por segundo|
-|**STANDARD_DS11**|2|6.400|64 MB por segundo|
-|**STANDARD_DS12**|4|12.800|128 MB por segundo|
-|**STANDARD_DS13**|8|25.600|256 MB por segundo|
-|**STANDARD_DS14**|16|50.000|512 MB por segundo|
+|**STANDARD\_DS1**|1|3\.200|32 MB por segundo|
+|**STANDARD\_DS2**|2|6\.400|64 MB por segundo|
+|**STANDARD\_DS3**|4|12\.800|128 MB por segundo|
+|**STANDARD\_DS4**|8|25\.600|256 MB por segundo|
+|**STANDARD\_DS11**|2|6\.400|64 MB por segundo|
+|**STANDARD\_DS12**|4|12\.800|128 MB por segundo|
+|**STANDARD\_DS13**|8|25\.600|256 MB por segundo|
+|**STANDARD\_DS14**|16|50\.000|512 MB por segundo|
 
 #### Tamaños de disco 
 Hay tres tipos de discos que se pueden usar con las máquinas virtuales, cada uno de ellos con sus límites particulares de rendimiento y E/S por segundo. Tenga presentes estos límites a la hora de elegir el tipo de disco para la máquina virtual según las necesidades de capacidad, rendimiento, escalabilidad y cargas máximas de la aplicación.
 
 |Tipo de disco de Almacenamiento premium|P10|P20|P30|
 |:---:|:---:|:---:|:---:|
-|Tamaño del disco|128 GB|512 GB|1.024 GB (1 TB)|
+|Tamaño del disco|128 GB|512 GB|1\.024 GB (1 TB)|
 |IOPS por disco|500|2300|5000|
 |Rendimiento de disco|100 MB por segundo|150 MB por segundo|200 MB por segundo|
 
@@ -237,7 +237,7 @@ Copie y guarde el nombre de este nuevo disco de datos de Azure. En el ejemplo an
 
 ### Crear una máquina virtual de la serie DS de Azure  
 
-Tras registrar la imagen de sistema operativo o disco de sistema operativo, cree una instancia de máquina virtual de Azure de la serie DS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual *Standard_DS2*.
+Tras registrar la imagen de sistema operativo o disco de sistema operativo, cree una instancia de máquina virtual de Azure de la serie DS. Para ello, usaremos el nombre de la imagen de sistema operativo o del disco de sistema operativo que haya registrado. Seleccione el tipo de máquina virtual en el nivel de Almacenamiento premium. En el siguiente ejemplo, usamos el tamaño de máquina virtual *Standard\_DS2*.
 
 >[AZURE.NOTE]Actualice el tamaño del disco para procurar que coincida con sus requisitos de capacidad y rendimiento y los tamaños de disco de Azure disponibles.
 
@@ -315,4 +315,4 @@ Vea también los siguientes recursos para obtener más información sobre Almace
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

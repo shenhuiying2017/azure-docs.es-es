@@ -55,10 +55,10 @@ La **elasticidad controlada por datos** está en el centro de una aplicación de
 #### Orígenes de datos de telemetría
 En el contexto de Base de datos SQL de Azure, hay un puñado de orígenes clave que se pueden aprovechar como orígenes de datos para la elasticidad de partición.
 
-1. La **telemetría de rendimiento** se expone en duraciones de cinco minutos en la vista **sys.resource_stats**. 
-2. La **telemetría de capacidad de base de datos** por hora se expone a través de la vista **sys.resource_usage**.  
+1. La **telemetría de rendimiento** se expone en duraciones de cinco minutos en la vista **sys.resource\_stats**. 
+2. La **telemetría de capacidad de base de datos** por hora se expone a través de la vista **sys.resource\_usage**.  
 
-Es posible analizar el uso de los recursos de rendimiento si consulta la base de datos maestra usando la siguiente consulta, donde "Shard_20140623" es el nombre de la base de datos de destino.
+Es posible analizar el uso de los recursos de rendimiento si consulta la base de datos maestra usando la siguiente consulta, donde "Shard\_20140623" es el nombre de la base de datos de destino.
 
     SELECT TOP 10 *  
     FROM sys.resource_stats  
@@ -81,7 +81,7 @@ La **telemetría de rendimiento** se puede resumir durante un período de tiempo
     FROM sys.resource_stats  
     WHERE database_name = ' Shard_20140623' AND start_time > DATEADD(day, -7, GETDATE()); 
 
-La **capacidad de base de datos** se puede medir con una consulta similar contra la vista **sys.resource_usage**. El máximo de la columna **storage_in_megabytes** arroja el tamaño actual de la base de datos. Tal telemetría resulta útil para escalar horizontalmente una aplicación cuando una partición determinada alcanza su capacidad.
+La **capacidad de base de datos** se puede medir con una consulta similar contra la vista **sys.resource\_usage**. El máximo de la columna **storage\_in\_megabytes** arroja el tamaño actual de la base de datos. Tal telemetría resulta útil para escalar horizontalmente una aplicación cuando una partición determinada alcanza su capacidad.
 
     SELECT TOP 10 * 
     FROM [sys].[resource_usage] 
@@ -155,4 +155,4 @@ Para facilitar la implementación real de ambos escenarios de escalado, horizont
 [Action]: #action
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

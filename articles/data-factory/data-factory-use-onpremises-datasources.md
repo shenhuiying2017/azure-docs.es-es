@@ -117,7 +117,7 @@ En este paso, use el Portal de administración de Azure para crear una instancia
 
 	![Puerta de enlace: hoja Configurar][image-data-factory-gateway-configure-blade]
 
-	Esta es la forma más sencilla (un clic) para descargar, instalar, configurar y registrar la puerta de enlace en un solo paso. Puede ver que la aplicación **Administrador de configuración de Microsoft Data Management Gateway** está instalada en el equipo. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared**.
+	Esta es la forma más sencilla (un clic) para descargar, instalar, configurar y registrar la puerta de enlace en un solo paso. Puede ver que la aplicación **Administrador de configuración de Microsoft Data Management Gateway** está instalada en el equipo. También puede encontrar el archivo ejecutable **ConfigManager.exe** en la carpeta: **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared**.
 
 	También puede descargar e instalar la puerta de enlace manualmente con los vínculos de esta hoja y registrarla usando la clave que se muestra en el cuadro de texto **REGISTRAR CON LA CLAVE**.
 	
@@ -166,29 +166,33 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Sql
 4.	En el panel JSON, haga lo siguiente:
 	1.	En la propiedad **gatewayName**, escriba **adftutorialgateway** para reemplazar todo el texto entre comillas dobles.  
 	2.	Si está usando **Autenticación de SQL**: 
-		1.	En la propiedad **connectionString**, reemplace **<servername>**, **<databasename>**, **<username>** y **<password>** por los nombres de su servidor SQL de Azure local, base de datos, cuenta de usuario y contraseña. Para especificar un nombre de instancia, use el carácter de escape:. Por ejemplo: **server\instancename**. 	
+		1.	En la propiedad **connectionString**, reemplace **<servername>**, **<databasename>**, **<username>** y **<password>** por los nombres de su servidor SQL de Azure local, base de datos, cuenta de usuario y contraseña. Para especificar un nombre de instancia, use el carácter de escape:. Por ejemplo: **server\\instancename**. 	
 		2.	Quite las dos últimas propiedades (**username** y **password**) del archivo JSON y quite el carácter de **coma (,)** al final de la última línea del script JSON restante.
 		
 				{
-	    			"name": "SqlServerLinkedService",
-	    			"properties": {
-		        		"type": "OnPremisesSqlLinkedService",
-		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-		        		"gatewayName": "adftutorialgateway"
-	    			}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+				      "gatewayName": "adftutorialgateway"
+				    }
+				  }
 				}
 	3.	Si está usando **Autenticación Windows**:
 		1. En la propiedad **connectionString**, reemplace **<servername>** y **<databasename>** por los nombres de su servidor SQL de Azure local y base de datos. Establezca **Seguridad integrada** en **True**. Quite **ID** y **Contraseña** de la cadena de conexión.
 			
 				{
-    				"name": "SqlServerLinkedService",
-    				"properties": {
-        				"type": "OnPremisesSqlLinkedService",
-        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
-		   				"gatewayName": "adftutorialgateway",
-				        "username": "<Specify user name if you are using Windows Authentication>",
-				        "password": "<Specify password for the user account>"
-    				}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+				      "gatewayName": "adftutorialgateway",
+				      "username": "<Specify user name if you are using Windows Authentication>",
+				      "password": "<Specify password for the user account>"
+				    }
+				  }
 				}		
 		
 6. Haga clic en **Implementar** en la barra de herramientas para implementar SqlServerLinkedService. Confirme que aparece el mensaje **SERVICIO VINCULADO CREADO CORRECTAMENTE** en la barra de título. También debe ver **SqlServerLinkedService** en la vista de árbol de la izquierda.
@@ -249,37 +253,35 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 1.	En el **Editor de la Factoría de datos**, haga clic en **Nuevo conjunto de datos** en la barra de comandos y seleccione **SQL local**. 
 2.	Reemplace el script JSON del panel derecho por el texto siguiente:    
 
-        {
-    		"name": "EmpOnPremSQLTable",
-    		"properties":
-    		{
-        		"location":
-        		{
-            		"type": "OnPremisesSqlServerTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "SqlServerLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1,       
-	    			"waitOnExternal":
-	    			{
-        				"retryInterval": "00:01:00",
-	        			"retryTimeout": "00:10:00",
-	        			"maximumRetry": 3
-	    			}
-		  
-        		}
-    		}
+		{
+		  "name": "EmpOnPremSQLTable",
+		  "properties": {
+		    "type": "SqlServerTable",
+		    "linkedServiceName": "SqlServerLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
 		}
 
 	Tenga en cuenta lo siguiente:
 	
-	- El **tipo** de ubicación está establecido en **OnPremisesSqlServerTableLocation**.
+	- **type** está definido en **SqlServerTable**.
 	- **tableName** está establecido en **emp**.
 	- **linkedServiceName** está establecido en **SqlServerLinkedService** (creó este servicio vinculado en el paso 2).
-	- Para una tabla de entrada no generada por otra canalización en la Factoría de datos de Azure, debe especificar la sección **waitOnExternal** en el script JSON. Indica que los datos de entrada se han producido fuera del servicio Factoría de datos de Azure.   
+	- Para una tabla de entrada no generada por otra canalización en la Factoría de datos de Azure, debe especificar la propiedad **external** en **true**. De manera opcional, puede especificar las directivas en la sección **externalData**.   
 
 	Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON][json-script-reference].
 
@@ -292,31 +294,27 @@ En este paso, creará conjuntos de datos de entrada y de salida que representan 
 2.	Reemplace el script JSON del panel derecho por el texto siguiente: 
 
 		{
-    		"name": "OutputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/outfromonpremdf",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1
-        		}
-    		}
+		  "name": "OutputBlobTable",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/outfromonpremdf",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
   
 	Tenga en cuenta lo siguiente:
 	
-	- El **tipo** de ubicación está establecido en **AzureBlobLocation**.
+	- **type** se establece en **AzureBlob**.
 	- **linkedServiceName** está establecido en **StorageLinkedService** (creó este servicio vinculado en el paso 2).
 	- **folderPath** está establecido en **adftutorial/outfromonpremdf**, donde outfromonpremdf es la carpeta del contenedor adftutorial. Solo tiene que crear el contenedor **adftutorial**.
 	- El elemento **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval**, en **1**). El servicio Factoría de datos generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure. 
@@ -351,51 +349,51 @@ En este paso, va a crear una **canalización** con una **actividad de copia** qu
 2.	Reemplace el script JSON del panel derecho por el texto siguiente:   
 
 
-        {
-			"name": "ADFTutorialPipelineOnPrem",
-    		"properties":
-    		{
-        		"description" : "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-	       		 "activities":
-	        	[
-			    	{
-						"name": "CopyFromSQLtoBlob",
-						"description": "Copy data from on-prem SQL server to blob",		
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpOnPremSQLTable"} ],
-						"outputs": [ {"name": "OutputBlobTable"} ],
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "SqlSource",
-								"sqlReaderQuery": "select * from emp"
-							},
-							"sink":
-							{
-								"type": "BlobSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-
-				     }
-	        	],
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-			}
+		{
+		  "name": "ADFTutorialPipelineOnPrem",
+		  "properties": {
+		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    "activities": [
+		      {
+		        "name": "CopyFromSQLtoBlob",
+		        "description": "Copy data from on-prem SQL server to blob",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpOnPremSQLTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "OutputBlobTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from emp"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z",
+		    "isPaused": false
+		  }
 		}
-
 	Tenga en cuenta lo siguiente:
  
-	- En la sección de actividades, solo hay una actividad cuyo **tipo** está establecido en **CopyActivity**.
+	- En la sección de actividades, solo hay una actividad cuyo **type** está establecido en **Copy**.
 	- La **entrada** de la actividad está establecida en **EmpOnPremSQLTable** y la **salida** de la actividad está establecida en **OutputBlobTable**.
 	- En la sección de **transformación** , **SqlSource** está especificado como **tipo de origen** y **BlobSink ** está especificado como **tipo de receptor**. - La consulta SQL **select * from emp** está especificada para la propiedad **sqlReaderQuery** de **SqlSource**.
 
@@ -487,7 +485,7 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +507,12 @@ En esta sección se explica cómo crear y registrar una puerta de enlace usando 
 	**Ejemplo de comando y salida:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. En Azure PowerSell, cambie a la carpeta **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
+4. En Azure PowerSell, cambie a la carpeta **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** y ejecute el script **RegisterGateway.ps1** asociado con la variable local **$Key** como se muestra en el siguiente comando para registrar el agente cliente instalado en su equipo en la puerta de enlace lógica que creó antes.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +625,4 @@ Puede quitar una puerta de enlace con el cmdlet **Remove-AzureDataFactoryGateway
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

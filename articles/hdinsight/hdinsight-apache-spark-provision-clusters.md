@@ -33,7 +33,7 @@ Antes de comenzar con las instrucciones de este artículo, debe tener una suscri
 
 Durante la configuración, debe especificar una cuenta de almacenamiento de blobs de Azure y un contenedor predeterminado. El clúster usa este contenedor como ubicación de almacenamiento predeterminada. Si lo desea, puede especificar una cuenta de almacenamiento de Azure adicional que también se asociará con el clúster.
 
->[AZURE.NOTE] No comparta un contenedor de almacenamiento de blobs para varios clústeres, ya que no es compatible.
+>[AZURE.NOTE]No comparta un contenedor de almacenamiento de blobs para varios clústeres, ya que no es compatible.
 
 Para obtener más información sobre el uso de almacenes de blobs secundarios, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](hdinsight-use-blob-storage.md).
 
@@ -66,7 +66,7 @@ Puede instalar componentes adicionales o personalizar la configuración del clú
 
 Para obtener más información sobre las características, las ventajas y la funcionalidad de Red virtual, consulte [Información general sobre Red virtual de Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [AZURE.NOTE] Debe crear la red virtual de Azure antes de aprovisionar un clúster. Para obtener más información, consulte [Tareas de configuración de Red virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE]Debe crear la red virtual de Azure antes de aprovisionar un clúster. Para obtener más información, consulte [Tareas de configuración de Red virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
 > Azure HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 >
@@ -142,7 +142,7 @@ Los clústeres Spark en HDInsight usan un contenedor de almacenamiento de blobs 
 
 	Especifique una base de datos SQL de Azure que se usará como tienda de metadatos para Hive/Oozie. Puede especificar la misma base de datos para las tiendas de metadatos de Hive y de Oozie. Esta base de datos SQL debe estar en el mismo centro de datos que el clúster de HDInsight. El cuadro de lista solo incluye las bases de datos SQL del mismo centro de datos que ha especificado en la página <strong>Detalles del clúster</strong>. Especifique también el nombre de usuario y la contraseña para conectarse a la base de datos SQL de Azure seleccionada.
 
-    >[AZURE.NOTE] La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
+    >[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de Azure**, haga clic en **Sí** y en **Guardar**.
 
     Haga clic en la flecha derecha.
 
@@ -281,7 +281,7 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName -ClusterSizeInNodes $clusterNodes -Version "3.2" -ClusterType Spark
 
-	>[AZURE.NOTE] Las credenciales especificadas se usan para crear la cuenta de usuario de Hadoop para el clúster. Esta cuenta se usará para conectarse al clúster y ejecutar trabajos. Si usa la opción Creación rápida en el portal de Azure para aprovisionar un clúster, el nombre de usuario de Hadoop predeterminado es "admin". No confunda esta cuenta con la cuenta de usuario del Protocolo de escritorio remoto (RDP). La cuenta de usuario RDP tiene que ser diferente de la cuenta de usuario de Hadoop. Para obtener más información, vea [Administración de clústeres de Hadoop en HDInsight mediante el Portal de administración de Azure][hdinsight-admin-portal].
+	>[AZURE.NOTE]Las credenciales especificadas se usan para crear la cuenta de usuario de Hadoop para el clúster. Esta cuenta se usará para conectarse al clúster y ejecutar trabajos. Si usa la opción Creación rápida en el portal de Azure para aprovisionar un clúster, el nombre de usuario de Hadoop predeterminado es "admin". No confunda esta cuenta con la cuenta de usuario del Protocolo de escritorio remoto (RDP). La cuenta de usuario RDP tiene que ser diferente de la cuenta de usuario de Hadoop. Para obtener más información, vea [Administración de clústeres de Hadoop en HDInsight mediante el Portal de administración de Azure][hdinsight-admin-portal].
 
 	El aprovisionamiento del clúster puede durar varios minutos en completarse.
 
@@ -292,7 +292,7 @@ Cuando tenga preparados la cuenta de almacenamiento y el contenedor de blobs, po
 
 Durante el aprovisionamiento de un clúster, puede usar las otras opciones de configuración, como por ejemplo conectarse a más de un contenedor de almacenamiento de blobs de Azure o usar una base de datos SQL de Azure para tiendas de metadatos de Hive y Oozie. Esto le permite separar la vigencia de sus datos y metadatos de la vigencia del clúster.
 
-> [AZURE.NOTE] Los cmdlets de Windows PowerShell son la única forma recomendada de cambiar variables de configuración en un clúster de HDInsight. Los cambios que se realicen en los archivos de configuración de Hadoop mientras esté conectado al clúster a través de Escritorio remoto se pueden sobrescribir si se aplica una revisión al clúster. Los valores de configuración establecidos con Azure PowerShell sí se mantienen si se aplica una revisión al clúster.
+> [AZURE.NOTE]Los cmdlets de Windows PowerShell son la única forma recomendada de cambiar variables de configuración en un clúster de HDInsight. Los cambios que se realicen en los archivos de configuración de Hadoop mientras esté conectado al clúster a través de Escritorio remoto se pueden sobrescribir si se aplica una revisión al clúster. Los valores de configuración establecidos con Azure PowerShell sí se mantienen si se aplica una revisión al clúster.
 
 - Ejecute los comandos siguientes en la ventana de Windows PowerShell:
 
@@ -332,7 +332,7 @@ Durante el aprovisionamiento de un clúster, puede usar las otras opciones de co
 		# Provision the cluster with custom configuration                
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $location -Version "3.2"
 
-	>[AZURE.NOTE] La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de** **Microsoft Azure**, haga clic en **Sí** y en **Guardar**.
+	>[AZURE.NOTE]La base de datos SQL de Azure usada para la tienda de metadatos debe permitir la conectividad con otros servicios de Azure, incluido HDInsight de Azure. En el panel de la base de datos SQL de Azure, en el lado derecho, haga clic en el nombre de servidor. Este es el servidor en el que se ejecuta la instancia de base de datos SQL. Cuando se encuentre en la vista de servidor, haga clic en **Configurar** y luego, en **Servicios de** **Microsoft Azure**, haga clic en **Sí** y en **Guardar**.
 
 	El aprovisionamiento del clúster puede durar varios minutos en completarse.
 
@@ -468,7 +468,7 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 
 * Consulte [Uso de herramientas de BI con Apache Spark en HDInsight de Azure](hdinsight-apache-spark-use-bi-tools.md) para aprender a usar Apache Spark en HDInsight con herramientas de BI como Power BI y Tableau. 
 * Consulte [Uso de Spark en HDInsight para crear aplicaciones de aprendizaje automático](hdinsight-apache-spark-ipython-notebook-machine-learning.md) para aprender a crear aplicaciones de aprendizaje automático con Apache Spark en HDInsight.
-* Consulte [Streaming con Spark: Procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) para aprender a crear aplicaciones de streaming con Apache Spark en HDInsight.
+* Consulte [Streaming con Spark: procesamiento de eventos desde el Centro de eventos de Azure con Apache Spark en HDInsight](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md) para aprender a crear aplicaciones de streaming con Apache Spark en HDInsight.
 * Consulte [Administración de recursos para el clúster Apache Spark en HDInsight de Azure](hdinsight-apache-spark-resource-manager.md) para aprender a usar el Administrador de recursos para administrar los recursos asignados al clúster Spark.
 
 
@@ -505,4 +505,4 @@ Mientras la aplicación está abierta en Visual Studio, presione **F5** para eje
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Uso de Sqoop con HDInsight"
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

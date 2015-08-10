@@ -403,4 +403,4 @@ Para obtener más información acerca del desarrollo de OSMF general, consulte l
 
 [Actualización del complemento de streaming adaptable para OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
