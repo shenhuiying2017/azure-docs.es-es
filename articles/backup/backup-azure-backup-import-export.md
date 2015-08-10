@@ -1,12 +1,20 @@
 <properties
-   pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio Importación/Exportación de Azure"
-   description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
- <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+	pageTitle="Copia de seguridad de Azure: copia de seguridad sin conexión o propagación inicial mediante el servicio Importación/Exportación de Azure"
+	description="Descubra cómo la copia de seguridad de Azure permite enviar datos fuera de la red mediante el servicio de importación y exportación de Azure. Este artículo explica la propagación sin conexión de los datos de copia de seguridad iniciales mediante el servicio de importación y exportación de Azure."
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
+
+ <tags 
+	ms.service="backup" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="storage-backup-recovery" 
+	ms.date="07/14/2015" 
+	ms.author="aashishr"; "jimpark"/>
 
 # Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure
 

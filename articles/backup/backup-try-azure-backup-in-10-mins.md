@@ -1,13 +1,20 @@
 <properties
-   pageTitle="Copia de seguridad de Azure en 10 minutos | Microsoft Azure"
-   description="Introducción a la Copia de seguridad de Azure en 10 minutos"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Copia de seguridad de Azure en 10 minutos | Microsoft Azure"
+	description="Introducción a la Copia de seguridad de Azure en 10 minutos"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="07/06/2015" 
+	ms.author="aashishr"; "jimpark"/>
 
 # Pruebe la Copia de seguridad de Azure en 10 minutos
 Es muy fácil configurar la Copia de seguridad de Azure, y los siguientes vídeos de procedimientos le ayudarán a empezar.
