@@ -1,6 +1,20 @@
-<properties pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración desde un cliente de Windows Server o Windows" | Microsoft Azure description="Aprenda a realizar copias de seguridad y restaurar a partir de un cliente de Windows Server o Windows. El artículo también describe la recuperación de servidor alternativo" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
+<properties 
+	pageTitle="Copia de seguridad de Azure: copia de seguridad y restauración desde un cliente de Windows Server o Windows | Microsoft Azure" 
+	description="Aprenda a realizar copias de seguridad y restaurar a partir de un cliente de Windows Server o Windows. El artículo también describe la recuperación de servidor alternativo" 
+	services="backup" 
+	documentationCenter="" 
+	authors="Jim-Parker" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/01/2015" 
+	ms.author="jimpark"; "aashishr"/>
 
 # Copia de seguridad y restauración de una máquina cliente de Windows o un servidor de Windows
 En este artículo se describen los pasos necesarios para realizar una copia de seguridad desde un servidor de Windows o de una máquina cliente de Windows. También describe los pasos necesarios para restaurar los archivos en el mismo equipo y para restaurar los archivos de copia de seguridad en cualquier otra máquina.

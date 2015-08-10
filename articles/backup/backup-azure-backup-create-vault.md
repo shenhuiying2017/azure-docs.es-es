@@ -1,13 +1,20 @@
 <properties
-   pageTitle="Copia de seguridad de Microsoft Azure: crear un almacén de copia de seguridad y especificar la redundancia de almacenamiento"
-   description="Aprenda a crear un almacén de copia de seguridad y especificar las opciones de redundancia de almacenamiento en la Copia de seguridad de Microsoft Azure."
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Copia de seguridad de Microsoft Azure: crear un almacén de copia de seguridad y especificar la redundancia de almacenamiento"
+	description="Aprenda a crear un almacén de copia de seguridad y especificar las opciones de redundancia de almacenamiento en la Copia de seguridad de Microsoft Azure."
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="jimpark"; "aashishr"/>
+<tags 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/28/2015" 
+	ms.author="jimpark"; "aashishr"/>
 
 # Creación de un almacén de copia de seguridad
 Para hacer una copia de seguridad de los archivos y los datos desde Windows Server o desde System Center Data Protection Manager (SCDPM) en Azure, o al realizar copias de seguridad de máquinas virtuales de IaaS, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos.
